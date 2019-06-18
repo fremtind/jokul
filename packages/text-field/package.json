@@ -1,0 +1,32 @@
+{
+    "name": "@fremtind/jkl-text-field",
+    "version": "0.0.1",
+    "description": "Style for text field components",
+    "keywords": [
+        "text",
+        "text",
+        "field",
+        "input"
+    ],
+    "license": "MIT",
+    "typings": "build/*.d.ts",
+    "main": "build/index.js",
+    "files": [
+        "build"
+    ],
+    "publishConfig": {
+        "registry": "https://nexus.intern.sparebank1.no/repository/npmgroup/"
+    },
+    "scripts": {
+        "build": "yarn build:styles",
+        "build:css": "node-sass --importer='../../node_modules/node-sass-tilde-importer' src -o build/css ",
+        "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
+        "build:scss": "ncp src build/scss",
+        "build:styles": "yarn build:scss && yarn build:css",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
+    }
+}

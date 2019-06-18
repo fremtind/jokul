@@ -1,0 +1,115 @@
+@import "~@fremtind/jkl-core/build/scss/typography/root.scss";
+@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
+@import "~@fremtind/jkl-core/build/scss/mixins/utils.scss";
+@import "~@fremtind/jkl-core/build/scss/typography/font-size.scss";
+
+@mixin label-font-size--raised {
+    @include font-size(xs);
+}
+
+@mixin label-font-size--normal {
+    @include font-size(medium);
+}
+
+@mixin raise-label {
+    @include label-font-size--raised();
+    line-height: $text-field-size;
+    top: 0;
+    left: 0;
+}
+
+@mixin grow-border {
+    transform: scaleY(1.5);
+}
+
+$text-field-size: 2rem;
+$padding-top: $text-field-size;
+$padding-left: 0.5rem;
+$input-height: 3rem;
+$input-bg-color: $snøhvit;
+$border-color: $svart;
+$border-hover-color: $himmel;
+$border-weight: 0.125rem;
+$error-color: $blomst;
+$error-bg-color: rgba(255, 112, 89, 0.2); /* blomst med 0.2 opacity */
+
+.jkl-text-field {
+    display: block;
+    position: relative;
+    font-family: inherit;
+    width: 100%;
+    padding-top: $padding-top;
+
+    &__input {
+        @include label-font-size--normal();
+        padding-left: $padding-left;
+        font-family: inherit;
+        height: $input-height;
+        background-color: $input-bg-color;
+        border: none;
+        outline: none;
+        width: 100%;
+        transition: background-color 250ms ease-in;
+
+        &:not(:placeholder-shown) {
+            & ~ .jkl-text-field__label {
+                @include raise-label();
+            }
+        }
+
+        &[aria-invalid="true"],
+        &:invalid {
+            & ~ .jkl-text-field__border {
+                background-color: $error-color;
+            }
+            & ~ .jkl-text-field__label {
+                @include raise-label();
+                font-weight: bold;
+                color: $error-color;
+            }
+            background-color: $error-bg-color;
+        }
+    }
+    &__border {
+        @include position(absolute, $top: initial);
+        background-color: $border-color;
+        height: $border-weight;
+        transition: transform 175ms ease-in, background-color 125ms ease-in;
+        transform-origin: bottom;
+    }
+    &__label {
+        @include font-size(small);
+        @include position(absolute, $top: $text-field-size, $bottom: initial, $left: 0.5rem);
+        line-height: $input-height;
+        transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
+        pointer-events: none;
+    }
+
+    &:hover {
+        .jkl-text-field {
+            &__border {
+                @include grow-border();
+            }
+            &__input {
+                background-color: $himmelgrå;
+            }
+        }
+    }
+
+    &:focus-within {
+        .jkl-text-field {
+            &__label {
+                @include raise-label();
+            }
+            &__border {
+                @include grow-border();
+            }
+        }
+    }
+
+    &:active {
+        .jkl-text-field__border {
+            background-color: $border-hover-color;
+        }
+    }
+}

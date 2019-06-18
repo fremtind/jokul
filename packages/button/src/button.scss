@@ -1,0 +1,95 @@
+@import "~@fremtind/jkl-core/build/scss/core.scss";
+
+$button-bg-color: $snøhvit;
+$button-bg-color--primary: $svart;
+
+$button-border-color: $svart;
+$button-focus-ring-color: $himmel;
+
+$button-text-color: $svart;
+$button-text-color--primary: $snøhvit;
+$button-font-size: $font-size-2;
+$button-height: 2.5rem;
+$button-width: $button-height;
+$button-border-width: 0.0625rem /* 1px */;
+$button-shadow-color: rgba(0, 0, 0, 0.25);
+$animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
+$hover-elevation-distance: -0.25rem;
+
+.jkl-button {
+    border: none;
+    display: inline-flex;
+    height: $button-height;
+    max-width: 30ch;
+    min-width: $button-width;
+    outline: none;
+    padding: 0;
+
+    &:focus,
+    &:hover {
+        > .jkl-button__label {
+            box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.16);
+            transform: translateY($hover-elevation-distance);
+        }
+    }
+    &:active {
+        > .jkl-button__label {
+            box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16);
+            transform: translateY($hover-elevation-distance / 2);
+        }
+    }
+
+    &__label {
+        -moz-osx-font-smoothing: auto;
+        -webkit-font-smoothing: auto;
+        border-radius: 9em;
+        border: solid $button-border-width black;
+        box-sizing: border-box;
+        font-size: $button-font-size;
+        height: $button-height;
+        line-height: $button-height;
+        overflow: hidden;
+        padding: 0 1.5rem;
+        text-overflow: ellipsis;
+        transition: transform $animation-timing, box-shadow $animation-timing;
+        white-space: nowrap;
+        z-index: 0;
+    }
+
+    /********* VARIANTS *********/
+    &--primary {
+        color: $button-text-color--primary;
+        > .jkl-button__label {
+            background-color: $button-bg-color--primary;
+        }
+    }
+
+    &--secondary {
+        color: $button-text-color;
+        > .jkl-button__label {
+            background-color: $button-bg-color;
+        }
+    }
+
+    &--tertiary {
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+
+        > .jkl-button__label {
+            padding: 0;
+        }
+
+        &:hover {
+            > .jkl-button__label {
+                box-shadow: none;
+            }
+        }
+
+        & > .jkl-button__label {
+            border-radius: 0;
+            border: 0;
+            border-bottom: solid $button-border-width $button-border-color;
+        }
+    }
+}

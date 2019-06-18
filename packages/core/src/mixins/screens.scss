@@ -1,0 +1,37 @@
+@import "../variables/breakpoints.scss";
+
+/*
+    Mixins to simplify media queries
+
+    Usage:
+    ```css
+    .class {
+        @include small-device {
+            display: none;
+        }
+    }
+    ```
+*/
+@mixin small-device {
+    @media (min-width: 0) and (max-width: #{$breakpoint--small - 1px}) {
+        @content;
+    }
+}
+
+@mixin medium-device {
+    @media (min-width: #{$breakpoint--small}) and (max-width: #{$breakpoint--medium - 1px}) {
+        @content;
+    }
+}
+
+@mixin large-device {
+    @media (min-width: #{$breakpoint--medium}) and (max-width: #{$breakpoint--large - 1px}) {
+        @content;
+    }
+}
+
+@mixin xl-device {
+    @media (min-width: #{$breakpoint--large}) {
+        @content;
+    }
+}

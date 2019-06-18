@@ -1,0 +1,68 @@
+@import "~@fremtind/jkl-core/build/scss/mixins/screens.scss";
+
+$number-of-columns--small: 4;
+$number-of-columns--medium: 8;
+$number-of-columns--large: 12;
+$jkl-app--width: 1200px;
+
+@mixin set-cols($cols) {
+    grid-column: span $cols;
+    @if $cols > $number-of-columns--small {
+        @include small-device {
+            grid-column: span $number-of-columns--small;
+        }
+    }
+    @if $cols > $number-of-columns--medium {
+        @include medium-device {
+            grid-column: span $number-of-columns--medium;
+        }
+    }
+}
+
+.jkl-grid {
+    &__container {
+        max-width: $jkl-app--width;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat($number-of-columns--large, 1fr);
+        @include small-device {
+            grid-template-columns: repeat($number-of-columns--small, 1fr);
+        }
+        @include medium-device {
+            grid-template-columns: repeat($number-of-columns--medium, 1fr);
+        }
+    }
+
+    &__element {
+        @for $cols from 1 through $number-of-columns--large {
+            &--#{$cols} {
+                @include set-cols($cols);
+            }
+            &--#{$cols}__small-device {
+                display: none;
+                @include small-device {
+                    display: block !important;
+                    grid-column: span $cols;
+                }
+            }
+            &--#{$cols}__medium-device {
+                display: none;
+                @include medium-device {
+                    display: block !important;
+                    grid-column: span $cols;
+                }
+            }
+            &--#{$cols}__large-device {
+                display: none;
+                @include large-device {
+                    display: block !important;
+                    grid-column: span $cols;
+                }
+                @include xl-device {
+                    display: block !important;
+                    grid-column: span $cols;
+                }
+            }
+        }
+    }
+}

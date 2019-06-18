@@ -1,0 +1,47 @@
+<style>
+    .storybook__jkl-header {
+        height: 88px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #3d3d3d;
+        padding: 24px;
+        font-family: "Akkurat Light Pro", sans-serif;
+    }
+    .storybook__jkl-header--nav {
+        display: flex;
+    }
+    .storybook__jkl-header--nav__link {
+        text-decoration: none;
+        color: #3d3d3d;
+        margin: 0 20px;
+        font-size: 1.25rem;
+    }
+    .storybook__jkl-header--nav__element {
+        transition: transform 250ms ease-in;
+        transform: scale(1);
+    }
+    .storybook__jkl-header--nav__element:hover {
+        transform: scale(1.1);
+    }
+    .storybook__jkl-header--nav__element:active {
+        transform: scale(0.9);
+    }
+</style>
+
+<div class="storybook__jkl-header">
+    <h1>Jøkul</h1>
+    <nav class="storybook__jkl-header--nav">
+        <div class="storybook__jkl-header--nav__element">
+            <a class="storybook__jkl-header--nav__link" href="#">Prinsipp</a>
+        </div>
+        <div class="storybook__jkl-header--nav__element">
+            <a class="storybook__jkl-header--nav__link" href="#">Bidra</a>
+        </div>
+        <div class="storybook__jkl-header--nav__element">
+            <a class="storybook__jkl-header--nav__link" href="#">Komponenter</a>
+        </div>
+    </nav>
+    <aside></aside>
+</div>

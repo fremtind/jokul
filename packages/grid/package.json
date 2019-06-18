@@ -1,0 +1,28 @@
+{
+    "name": "@fremtind/jkl-grid",
+    "version": "0.0.1",
+    "description": "Grid for Jøkul",
+    "keywords": [
+        "core"
+    ],
+    "license": "MIT",
+    "main": "build/css/grid.css",
+    "directories": {
+        "lib": "lib"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "build": "yarn build:styles",
+        "build:css": "node-sass --importer='../../node_modules/node-sass-tilde-importer' src -o build/css ",
+        "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
+        "build:scss": "ncp src build/scss",
+        "build:styles": "yarn build:scss && yarn build:css",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
+    }
+}

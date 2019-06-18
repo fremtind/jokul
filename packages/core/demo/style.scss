@@ -1,0 +1,98 @@
+@import "../src/core.scss";
+
+@mixin demo-box($size, $color: $matt-svart) {
+    width: $size;
+    height: $size;
+    background-color: $color;
+    margin: 0.5rem;
+}
+
+.demo-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.demo-layout--1 {
+    @include demo-box($layout-spacing--small);
+}
+.demo-layout--2 {
+    @include demo-box($layout-spacing--medium);
+}
+.demo-layout--3 {
+    @include demo-box($layout-spacing--large);
+}
+.demo-layout--4 {
+    @include demo-box($layout-spacing--xl);
+}
+.demo-layout--5 {
+    @include demo-box($layout-spacing--xxl);
+}
+
+
+.demo-component--1 {
+    @include demo-box($component-spacing--xxs);
+}
+.demo-component--2 {
+    @include demo-box($component-spacing--xs);
+}
+.demo-component--3 {
+    @include demo-box($component-spacing--small);
+}
+.demo-component--4 {
+    @include demo-box($component-spacing--medium);
+}
+.demo-component--5 {
+    @include demo-box($component-spacing--large);
+}
+.demo-component--6 {
+    @include demo-box($component-spacing--xl);
+}
+.demo-component--7 {
+    @include demo-box($component-spacing--xxl);
+}
+.demo-component--8 {
+    @include demo-box($component-spacing--giant);
+}
+
+.demo-color--1 {
+    @include demo-box($layout-spacing--large, $svart);
+}
+.demo-color--2 {
+    @include demo-box($layout-spacing--large, $matt-svart);
+}
+.demo-color--3 {
+    @include demo-box($layout-spacing--large, $varm-fjellgrå);
+}
+.demo-color--4 {
+    @include demo-box($layout-spacing--large, $himmelgrå);
+}
+.demo-color--5 {
+    @include demo-box($layout-spacing--large, $snøhvit);
+}
+.demo-color--6 {
+    @include demo-box($layout-spacing--large, $varde);
+}
+.demo-color--7 {
+    @include demo-box($layout-spacing--large, $sol);
+}
+.demo-color--8 {
+    @include demo-box($layout-spacing--large, $sand);
+}
+.demo-color--9 {
+    @include demo-box($layout-spacing--large, $jord);
+}
+.demo-color--10 {
+    @include demo-box($layout-spacing--large, $hav);
+}
+.demo-color--11 {
+    @include demo-box($layout-spacing--large, $skog);
+}
+.demo-color--12 {
+    @include demo-box($layout-spacing--large, $blomst);
+}
+.demo-color--13 {
+    @include demo-box($layout-spacing--large, $gress);
+}
+.demo-color--14 {
+    @include demo-box($layout-spacing--large, $himmel);
+}

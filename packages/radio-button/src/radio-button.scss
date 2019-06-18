@@ -1,0 +1,129 @@
+@import "~@fremtind/jkl-core/build/scss/core.scss";
+
+$radio-button-font-size: $font-size-3;
+$radio-button-line-height: 2rem;
+
+$radio-button-size: $radio-button-font-size;
+$radio-button-top: ($radio-button-line-height / 2) - ($radio-button-font-size / 2);
+
+$radio-button-background-color: $snøhvit;
+$radio-button-background-color--hover: $himmelgrå;
+$radio-button-color: $svart;
+
+@keyframes circleexpand {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes dotexpand {
+    0% {
+        transform: scale(0) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1);
+        border-radius: 15%;
+    }
+    100% {
+        transform: scale(1) rotate(15deg);
+        border-radius: 50%;
+    }
+}
+
+.jkl-radio-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    padding-left: 1.375em;
+    margin: 0.5rem;
+    margin-inline-end: 1rem;
+
+    font-size: $radio-button-font-size;
+    line-height: $radio-button-line-height;
+    cursor: pointer;
+
+    &__input {
+        /* hide default radio button */
+        position: fixed;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+    }
+
+    &__label {
+        /* Label and fake radiobutton */
+        cursor: inherit;
+        &::before {
+            /* This is the circle */
+            content: "";
+
+            box-sizing: border-box;
+            position: absolute;
+            top: $radio-button-top;
+            left: 0;
+
+            height: $radio-button-size;
+            width: $radio-button-size;
+            border-radius: 50%;
+
+            border: 0.0625rem solid $radio-button-color;
+            background: $radio-button-background-color;
+        }
+
+        &::after {
+            /* This is the dot */
+            content: "";
+
+            position: absolute;
+            top: $radio-button-top + 0.25rem;
+            left: 0.25rem;
+
+            /* box-sizing: border-box; */
+            height: $radio-button-size - 0.5rem;
+            width: $radio-button-size - 0.5rem;
+            transform-origin: center;
+            transform: rotate(-45deg) scale(0);
+            border-radius: 0;
+
+            background: $radio-button-color;
+        }
+    }
+
+    /* Checked state */
+    &__input:checked + &__label {
+        &::after {
+            /* animate dot */
+            animation: dotexpand 0.3s cubic-bezier(0.17, 0.17, 0.76, 1);
+            /* final appearance */
+            transform: scale(1);
+            border-radius: 50%;
+        }
+        &::before {
+            /* animate circle */
+            animation: circleexpand 0.25s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
+        }
+    }
+
+    /* Focused state */
+    &__input:focus + &__label {
+        &::before {
+            box-shadow: 0 0 0 0.125rem $himmel;
+        }
+    }
+
+    /* Hovered state */
+    &__input:hover:not(:checked) + &__label {
+        &::before {
+            background: $radio-button-background-color--hover;
+            border-width: 0.125rem;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "--COMMENT--": "This file is needed because of https://github.com/Microsoft/TypeScript/issues/29490",
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./build",
+        "noEmit": false,
+        "emitDeclarationOnly": true,
+        "isolatedModules": false,
+        "declaration": true
+    }
+}

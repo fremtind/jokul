@@ -1,0 +1,13 @@
+@import "./font-size.scss";
+
+.jkl-p {
+    @include font-size("small");
+}
+
+.jkl-lead {
+    @include font-size("medium");
+}
+
+.jkl-small {
+    @include font-size("xs");
+}

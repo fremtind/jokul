@@ -1,0 +1,28 @@
+{
+    "name": "@fremtind/jkl-core",
+    "version": "0.0.1",
+    "description": "Kåre for Jøkul",
+    "keywords": [
+        "core"
+    ],
+    "license": "MIT",
+    "main": "build/css/core.css",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "build": "yarn build:styles",
+        "build:css": "node-sass src -o build/css --importer='../../node_modules/node-sass-tilde-importer'",
+        "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
+        "build:scss": "ncp src build/scss",
+        "build:styles": "yarn build:scss && yarn build:css",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel index.html"
+    },
+    "dependencies": {
+        "normalize-scss": "^7.0.1"
+    }
+}

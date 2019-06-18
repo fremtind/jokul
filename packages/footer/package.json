@@ -1,0 +1,22 @@
+{
+    "name": "@fremtind/jkl-footer",
+    "version": "0.0.1",
+    "description": "Footer style for Jøkul",
+    "keywords": [
+        "footer"
+    ],
+    "license": "MIT",
+    "main": "build/footer.css",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "src"
+    ],
+    "scripts": {
+        "build": "yarn build:css",
+        "build:css": "node-sass src -o build --importer='../../node_modules/node-sass-tilde-importer'",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel index.html"
+    }
+}

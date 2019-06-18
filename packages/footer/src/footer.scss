@@ -1,0 +1,30 @@
+@import "~@fremtind/jkl-core/build/scss/variables/variables.scss";
+
+$jkl-footer: (
+    height: 408px,
+    bg-color: $matt-svart,
+    text-color: $snøhvit,
+    spacing-top: $layout-spacing--large,
+    inner-spacing: $layout-spacing--medium 0,
+    list-item-spacing: $component-spacing--xl 0,
+);
+
+.jkl-footer {
+    min-height: map-get($jkl-footer, height);
+    background-color: map-get($jkl-footer, bg-color);
+    color: map-get($jkl-footer, text-color);
+    margin-top: map-get($jkl-footer, spacing-top);
+    padding: map-get($jkl-footer, inner-spacing);
+
+    // TODO: use acutall list styling from jkl
+    ul {
+        margin: 0;
+        list-style-type: none;
+        li {
+            margin: map-get($jkl-footer, list-item-spacing);
+            a {
+                color: $snøhvit;
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "name": "@fremtind/jkl-text-field-react",
+    "version": "0.0.1",
+    "description": "React component for text field",
+    "keywords": [
+        "react",
+        "text",
+        "field",
+        "text",
+        "input",
+        "form"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "yarn run build:scripts && yarn run build:types",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1",
+        "@fremtind/jkl-text-field": "^0.0.1",
+        "@types/uuid": "^3.4.4",
+        "uuid": "^3.3.2"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    }
+}

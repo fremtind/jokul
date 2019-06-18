@@ -1,0 +1,17 @@
+{
+    "name": "@fremtind/parcel-consumer-example",
+    "version": "0.0.1",
+    "description": "An example to consume packages with parcel",
+    "keywords": [],
+    "license": "MIT",
+    "main": "index.tsx",
+    "scripts": {
+        "build": "echo 'noop'",
+        "test:integration": "parcel build index.html",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-button": "^0.0.1"
+    }
+}
