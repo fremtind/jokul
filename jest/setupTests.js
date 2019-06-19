@@ -1,4 +1,4 @@
-const { toMatchImageSnapshot } = require("jest-image-snapshot");
-const { toBeInTheDocument, toHaveClass } = require("jest-dom");
+import { toMatchImageSnapshot } from "jest-image-snapshot";
+import "jest-dom/extend-expect";
 
-expect.extend({ toMatchImageSnapshot, toBeInTheDocument, toHaveClass });
+expect.extend({ toMatchImageSnapshot });
