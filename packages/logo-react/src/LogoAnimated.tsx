@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LogoSymbol, LogoMain } from ".";
+import { LogoMain, LogoSymbol } from ".";
 
 export const LogoAnimated = () => {
     const [showSymbol, toggleSymbol] = useState(true);

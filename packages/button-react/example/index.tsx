@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "./src";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 function onClick() {
     console.log("Hello!");
@@ -14,5 +14,5 @@ const Buttons = () => (
     </>
 );
 
-var mountNode = document.getElementById("app");
+const mountNode = document.getElementById("app");
 ReactDOM.render(<Buttons />, mountNode);
