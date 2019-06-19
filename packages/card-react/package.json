@@ -22,5 +22,8 @@
         "build": "yarn run build:scripts && yarn run build:types",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-card": "^0.0.1"
     }
 }
