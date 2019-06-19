@@ -5,7 +5,7 @@ import "./tabs.scss";
 
 const Tabbene = () => (
     <>
-        <Tabs />
+        <Tabs initialSelected={0} tabs={["Her", "Der", "Kanskje"]} />
     </>
 );
 

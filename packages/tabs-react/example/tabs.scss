@@ -4,10 +4,22 @@ $hover-elevation-distance: -0.25rem;
 
 .jkl-tabs {
     display: flex;
+    flex-flow: row wrap;
+    &__tab {
+        margin: 0 2px;
+    }
+
+    &__content {
+        width: 100%;
+        border: solid 1px $svart;
+        padding: 3rem 3rem 3rem 1rem;
+    }
 }
 
 .jkl-tab {
     padding: 0.5rem 1rem;
+    border: 0;
+    transition: transform 200ms ease, color 200ms ease, background-color 200ms ease ;
 
     &__label {
         transition: transform 200ms ease;
@@ -15,13 +27,27 @@ $hover-elevation-distance: -0.25rem;
 
     &:focus,
     &:hover {
+        background-color: $svart;
+        color: $snøhvit;
+        transform: scale(1.1);
+
         > .jkl-tab__label {
-            transform: translateY($hover-elevation-distance);
+            //transform: translateY($hover-elevation-distance);
+        }
+    }
+
+    &:active {
+        > .jkl-tab__label {
+            transform: translateY(-$hover-elevation-distance / 2);
         }
     }
 
     &--active {
-        background-color: $svart;
-        color: $snøhvit;
+
+        > .jkl-tab__label {
+        padding-bottom: 4px;
+
+        }
+        transform: scale(1.2);
     }
 }
