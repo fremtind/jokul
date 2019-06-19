@@ -12,13 +12,8 @@
         "build"
     ],
     "license": "MIT",
-    "main": "build/css/button.css",
     "scripts": {
-        "build": "yarn build:style",
-        "build:style": "yarn build:scss && yarn build:css",
-        "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
-        "build:scss": "ncp src build/scss",
-        "build:css": "node-sass src -o build/css --importer='../../node_modules/node-sass-tilde-importer'",
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },

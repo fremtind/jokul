@@ -7,7 +7,6 @@
         "style"
     ],
     "license": "MIT",
-    "main": "build/header.css",
     "directories": {
         "lib": "build"
     },
@@ -18,10 +17,9 @@
         "registry": "https://nexus.intern.sparebank1.no/repository/npmgroup/"
     },
     "scripts": {
-        "build": "yarn build:css",
-        "build:css": "node-sass src -o build --importer='../../node_modules/node-sass-tilde-importer'",
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel index.html"
+        "dev": "parcel example/index.html"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^0.0.1"
