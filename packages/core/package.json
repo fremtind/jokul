@@ -14,7 +14,7 @@
         "build"
     ],
     "scripts": {
-        "build": "echo 'noop'",
+        "build": "yarn build:styles",
         "build:before": "yarn build:styles",
         "build:css": "node-sass src -o build/css --importer='../../node_modules/node-sass-tilde-importer'",
         "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
