@@ -6,7 +6,7 @@
         "footer"
     ],
     "license": "MIT",
-    "main": "build/footer.css",
+    "main": "footer.css",
     "directories": {
         "lib": "build"
     },
@@ -14,9 +14,8 @@
         "src"
     ],
     "scripts": {
-        "build": "yarn build:css",
-        "build:css": "node-sass src -o build --importer='../../node_modules/node-sass-tilde-importer'",
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel index.html"
+        "dev": "parcel example/index.html"
     }
 }

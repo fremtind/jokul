@@ -10,7 +10,7 @@
     ],
     "license": "MIT",
     "typings": "build/*.d.ts",
-    "main": "build/index.js",
+    "main": "text-field.css",
     "files": [
         "build"
     ],
@@ -18,11 +18,7 @@
         "registry": "https://nexus.intern.sparebank1.no/repository/npmgroup/"
     },
     "scripts": {
-        "build": "yarn build:styles",
-        "build:css": "node-sass --importer='../../node_modules/node-sass-tilde-importer' src -o build/css ",
-        "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
-        "build:scss": "ncp src build/scss",
-        "build:styles": "yarn build:scss && yarn build:css",
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer' src -o build/css ",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel index.html"
     },
