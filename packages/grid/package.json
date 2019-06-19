@@ -14,7 +14,7 @@
         "build"
     ],
     "scripts": {
-        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer' src -o build/css ",
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
