@@ -1,0 +1,54 @@
+@import "~@fremtind/jkl-core/build/scss/core.scss";
+
+$dropdown-bg-color: $snøhvit;
+$dropdown-bg-color--primary: $svart;
+
+$dropdown-border-color: $svart;
+$dropdown-focus-ring-color: $himmel;
+
+$dropdown-text-color: $svart;
+$dropdown-text-color--primary: $snøhvit;
+$dropdown-font-size: $font-size-2;
+$dropdown-height: 2rem;
+$dropdown-width: 5rem;
+$dropdown-border-width: 0.0625rem /* 1px */;
+$dropdown-shadow-color: rgba(0, 0, 0, 0.25);
+$animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
+$hover-elevation-distance: -0.25rem;
+
+.jkl-dropdown {
+  border: none;
+  display: inline-flex;
+  height: $dropdown-height;
+  max-width: 30ch;
+  min-width: $dropdown-width;
+  outline: none;
+  padding: 0;
+
+  &:focus,
+  &:hover {
+      box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.16);
+      transform: translateY($hover-elevation-distance);
+  }
+  &:active {
+      box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16);
+      transform: translateY($hover-elevation-distance / 2);
+  }
+
+  &__label {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
+    border-radius: 9em;
+    border: solid $dropdown-border-width black;
+    box-sizing: border-box;
+    font-size: $dropdown-font-size;
+    height: $dropdown-height;
+    line-height: $dropdown-height;
+    overflow: hidden;
+    padding: 0 1.5rem;
+    text-overflow: ellipsis;
+    transition: transform $animation-timing, box-shadow $animation-timing;
+    white-space: nowrap;
+    z-index: 0;
+  }
+}
