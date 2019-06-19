@@ -1,6 +1,5 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import "jest-dom/extend-expect";
 import { RadioButton } from "./index";
 
 describe("RadioButton", () => {
