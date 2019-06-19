@@ -1,0 +1,27 @@
+@import "~@fremtind/jkl-core/build/scss/core.scss";
+
+$hover-elevation-distance: -0.25rem;
+
+.jkl-tabs {
+    display: flex;
+}
+
+.jkl-tab {
+    padding: 0.5rem 1rem;
+
+    &__label {
+        transition: transform 200ms ease;
+    }
+
+    &:focus,
+    &:hover {
+        > .jkl-tab__label {
+            transform: translateY($hover-elevation-distance);
+        }
+    }
+
+    &--active {
+        background-color: $svart;
+        color: $snøhvit;
+    }
+}
