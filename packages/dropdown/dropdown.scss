@@ -23,7 +23,12 @@ $hover-elevation-distance: -0.25rem;
   max-width: 30ch;
   min-width: $dropdown-width;
   outline: none;
-  padding: 0;
+  padding: 0 6rem 0 2rem;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 
   &:focus,
   &:hover {
@@ -51,4 +56,13 @@ $hover-elevation-distance: -0.25rem;
     white-space: nowrap;
     z-index: 0;
   }
+}
+
+.chevron{
+  position: relative;
+  left:-3rem;
+}
+
+.jokul-option{
+  background-color: $snøhvit;
 }
