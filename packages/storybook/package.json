@@ -3,13 +3,6 @@
     "version": "0.0.1",
     "description": "Storybook component documentation package",
     "license": "MIT",
-    "publishConfig": {
-        "registry": "https://nexus.intern.sparebank1.no/repository/npmgroup/"
-    },
-    "repository": {
-        "type": "git",
-        "url": "ssh://git@stash.intern.sparebank1.no:22/fds/poc_jokul.git"
-    },
     "scripts": {
         "test": "echo \"Error: run tests from root\" && exit 1",
         "storybook": "start-storybook -p 6006",
