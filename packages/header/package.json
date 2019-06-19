@@ -7,7 +7,6 @@
         "style"
     ],
     "license": "MIT",
-    "main": "header.css",
     "directories": {
         "lib": "build"
     },

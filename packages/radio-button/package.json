@@ -9,7 +9,6 @@
         "form-field"
     ],
     "license": "MIT",
-    "main": "radio-button.css",
     "directories": {
         "lib": "build"
     },

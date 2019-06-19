@@ -6,7 +6,6 @@
         "footer"
     ],
     "license": "MIT",
-    "main": "footer.css",
     "directories": {
         "lib": "build"
     },

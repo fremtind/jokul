@@ -10,7 +10,6 @@
     ],
     "license": "MIT",
     "typings": "build/*.d.ts",
-    "main": "text-field.css",
     "files": [
         "build"
     ],

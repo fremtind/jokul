@@ -6,7 +6,6 @@
         "core"
     ],
     "license": "MIT",
-    "main": "grid.css",
     "directories": {
         "lib": "lib"
     },

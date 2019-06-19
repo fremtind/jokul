@@ -6,7 +6,6 @@
         "core"
     ],
     "license": "MIT",
-    "main": "build/css/core.css",
     "directories": {
         "lib": "build"
     },

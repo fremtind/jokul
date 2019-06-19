@@ -12,7 +12,6 @@
         "build"
     ],
     "license": "MIT",
-    "main": "button.css",
     "scripts": {
         "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
