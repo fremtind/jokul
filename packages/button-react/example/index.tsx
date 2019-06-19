@@ -8,7 +8,7 @@ function onClick() {
 
 const Buttons = () => (
     <>
-        <PrimaryButton data-disabled={true} onClick={onClick}>
+        <PrimaryButton onClick={onClick}>
             Hello, Primary Button
         </PrimaryButton>
         <SecondaryButton onClick={onClick}>Hello, Secondary Button</SecondaryButton>
