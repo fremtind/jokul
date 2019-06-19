@@ -18,10 +18,6 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build:before": "yarn run build:scripts && yarn run build:types",
         "build": "echo 'noop'",
-        "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel typography.html"
-    },
-    "dependencies": {
-        "@fremtind/jkl-typography-react": "^0.0.1"
+        "test": "echo \"Error: run tests from root\" && exit 1"
     }
 }

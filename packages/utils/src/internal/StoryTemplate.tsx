@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { P, LeadParagraph, H2 } from "@fremtind/jkl-typography-react";
 
 interface StoryTemplateProps {
     children: ReactNode;
@@ -10,9 +9,9 @@ interface StoryTemplateProps {
 
 export const StoryTemplate = ({ children, title, tldr, description }: StoryTemplateProps) => (
     <div style={{ margin: "30px" }}>
-        <H2>{title}</H2>
-        <LeadParagraph>{tldr}</LeadParagraph>
+        <h2 className="jkl-h2">{title}</h2>
+        <p className="jkl-lead">{tldr}</p>
         <div style={{ padding: "24px" }}>{children}</div>
-        <P>{description}</P>
+        <p className="jkl-p">{description}</p>
     </div>
 );
