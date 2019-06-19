@@ -1,0 +1,106 @@
+@import "~@fremtind/jkl-core/build/scss/typography/root.scss";
+@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
+@import "~@fremtind/jkl-core/build/scss/mixins/utils.scss";
+@import "~@fremtind/jkl-core/build/scss/typography/font-size.scss";
+
+@mixin label-font-size--raised {
+    @include font-size(xs);
+}
+
+@mixin label-font-size--normal {
+    @include font-size(medium);
+}
+
+@mixin raise-label {
+    @include label-font-size--raised();
+    line-height: $text-field-size;
+    top: 0;
+    left: 0;
+}
+
+@mixin grow-border {
+    transform: scaleY(1.5);
+}
+
+$text-field-size: 2rem;
+$padding-top: $text-field-size;
+$padding-left: 0.5rem;
+$input-height: 3rem;
+$input-bg-color: $snøhvit;
+$border-color: $svart;
+$border-hover-color: $himmel;
+$border-weight: 0.125rem;
+$error-color: $blomst;
+$error-bg-color: rgba(255, 112, 89, 0.2); /* blomst med 0.2 opacity */
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.toggle_switch_label {
+    font-size: 22px;
+}
+
+/* Hide default HTML checkbox */
+input.switch {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    //display: none;
+    margin-right: 66px;
+}
+
+/* The slider */
+.slider {
+    margin-right: 1px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 150px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    height: 33px;
+    width: 64px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: $himmel;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px $himmel;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
