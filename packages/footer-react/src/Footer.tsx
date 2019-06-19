@@ -1,10 +1,12 @@
-import React, { BaseHTMLAttributes } from "react";
-import { SmallText } from "@fremtind/jkl-typography-react";
 import { Grid, GridElement } from "@fremtind/jkl-grid-react";
+import { SmallText } from "@fremtind/jkl-typography-react";
+import React from "react";
 
-interface FooterProps extends BaseHTMLAttributes<HTMLElement> {}
+interface Props {
+    className?: string;
+}
 
-export const Footer = ({ className = "" }: FooterProps) => (
+export const Footer = ({ className = "" }: Props) => (
     <footer className={`jkl-footer ${className}`}>
         <Grid>
             <GridElement columnSpan={{ medium: 1, large: 3 }} />

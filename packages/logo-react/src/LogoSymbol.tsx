@@ -1,7 +1,12 @@
 import React from "react";
-import { LogoProps } from "./internal/types";
 
-export const LogoSymbol = ({ width = 100, positive = true, className = "" }: LogoProps) => {
+export interface Props {
+    width?: number;
+    positive?: boolean;
+    className?: string;
+}
+
+export const LogoSymbol = ({ width = 100, positive = true, className = "" }: Props) => {
     return (
         <svg className={className} width={width} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260.32 140.25">
             <path
