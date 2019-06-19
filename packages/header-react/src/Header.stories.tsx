@@ -4,7 +4,7 @@ import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import { Header } from ".";
 import { StoryTemplate } from "@fremtind/jkl-utils";
-import "../build/css/styles.css";
+import "@fremtind/jkl-header/header.css";
 
 const stories = storiesOf("Molekyl/Header", module);
 stories.addDecorator(withKnobs);
