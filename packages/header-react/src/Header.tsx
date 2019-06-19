@@ -1,13 +1,13 @@
 import React, { ReactNode, useState, useEffect } from "react";
 
-interface HeaderProps {
+interface Props {
     start?: ReactNode;
     center?: ReactNode;
     end?: ReactNode;
     withAnimation?: boolean;
 }
 
-export const Header = ({ start, center, end, withAnimation = true }: HeaderProps) => {
+export const Header = ({ start, center, end, withAnimation = true }: Props) => {
     const [isTop, setIsTop] = useState(window.scrollY === 0);
 
     useEffect(() => {

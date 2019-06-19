@@ -1,4 +1,4 @@
-import { ColumnType } from "./types";
+import { ColumnType } from "./GridElement";
 
 export const getColumnsByScreenSize = (props: ColumnType): string =>
     Object.entries(props)

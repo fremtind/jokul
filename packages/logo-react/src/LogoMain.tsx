@@ -1,7 +1,12 @@
 import React from "react";
-import { LogoProps } from "./internal/types";
 
-export const LogoMain = ({ width = 250, positive = true, className = "" }: LogoProps) => {
+interface Props {
+    width?: number;
+    positive?: boolean;
+    className?: string;
+}
+
+export const LogoMain = ({ width = 250, positive = true, className = "" }: Props) => {
     return (
         <svg className={className} width={width} viewBox="0 0 994 187" xmlns="http://www.w3.org/2000/svg">
             <g fill={positive ? "#000" : "#fafafa"} fillRule="evenodd">

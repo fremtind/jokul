@@ -1,6 +1,10 @@
-import React from "react";
-import { GridProps } from "./internal/types";
+import React, { ReactNode } from "react";
 
-export const Grid = ({ children, className = "" }: GridProps) => (
+export interface Props {
+    children: ReactNode;
+    className?: string;
+}
+
+export const Grid = ({ children, className = "" }: Props) => (
     <div className={`jkl-grid__container ${className}`}>{children}</div>
 );
