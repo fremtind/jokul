@@ -17,13 +17,16 @@
 .jkl-accordion__item-title-icon {
   width: 2em;
   margin-left: 1.5em;
+  transition: transform 400ms ease;
 }
 
 .jkl-accordion__item-content {
   font-size: 22px;
 }
 
-.jkl-accordion__item-title:hover {
+.jkl-accordion__item-title:hover,
+.jkl-accordion__item-title:active,
+.jkl-accordion__item-title:focus,{
   font-weight: bold;
   cursor: pointer;
 }
@@ -34,7 +37,7 @@
 }
 
 .jkl-accordion__item--expanded .jkl-accordion__item-title-icon {
-  transform: rotateX(180deg);
+  transform: rotateZ(180deg);
 }
 
 .jkl-accordion__item--expanded .jkl-accordion__item-content {
