@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Header } from "../src";
-import "@fremtind/jkl-header";
+import "@fremtind/jkl-header/header.css";
 
 const Head = () => (
     <div>

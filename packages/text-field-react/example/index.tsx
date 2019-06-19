@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { TextField } from "../src";
-import "@fremtind/jkl-text-field/build/css/text-field.css";
+import "@fremtind/jkl-text-field/text-field.css";
 
 const TextFieldDemo = () => {
     const [value, setValue] = useState("");

@@ -27,7 +27,7 @@ Hvis du ikke vil bruke React-komponentene, så kan du bruke stilarkene direkte. 
 `yarn install @fremtind/jkl-button/build/css/button.css`
 
 ```tsx
-import "@fremtind/jkl-button;
+import "@fremtind/jkl-button/button.css";
 ...
 <button classname="jkl-button--primary" onClick={doStuff}>Cool</button>
 ...

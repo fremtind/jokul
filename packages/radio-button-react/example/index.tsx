@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { RadioButtonChoice } from "../src/RadioButtonChoice";
-import "@fremtind/jkl-radio-button";
+import { RadioButtonChoice } from "../src";
+import "@fremtind/jkl-radio-button/radio-button.css";
 
 const choices = ["Yes", "No", "I don't know"];
 
