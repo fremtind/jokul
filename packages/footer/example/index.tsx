@@ -4,7 +4,7 @@ import { SmallText } from "@fremtind/jkl-typography-react";
 import { Grid, GridElement } from "@fremtind/jkl-grid-react";
 import "@fremtind/jkl-grid/grid.css";
 import "@fremtind/jkl-core/build/css/core.css";
-import "../src/footer.scss";
+import "../footer.scss";
 
 // eslint-disable-next-line
 const FooterDemo = ({ className = "" }) => (

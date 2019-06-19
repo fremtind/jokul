@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../src/text-field.scss";
+import "../text-field.scss";
 
 // eslint-disable-next-line
-const Input = ({ label, valid = false }) => (
+const Input = ({ label, valid = false }: any) => (
     <label className="jkl-text-field" htmlFor="demo-field">
         <input aria-invalid={valid} className="jkl-text-field__input" type="text" id="demo-field" placeholder=" " />
         <span className="jkl-text-field__label">{label}</span>

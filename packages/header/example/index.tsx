@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import "../src/header.scss";
+import "../header.scss";
 
 // eslint-disable-next-line
-const Header = ({ start, center, end, withAnimation = true }) => {
+const Header = ({ start, center, end, withAnimation = true }: any) => {
     const [isTop, setIsTop] = useState(window.scrollY === 0);
 
     useEffect(() => {
