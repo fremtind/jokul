@@ -1,0 +1,11 @@
+@import "~@fremtind/jkl-core/build/scss/core.scss";
+
+$card-bg-color: $snøhvit;
+$card-padding-normal: $component-spacing--large;
+
+.jkl-card {
+    display: block;
+    max-width: 60ch; //TODO: find out if we want this
+    background-color: $card-bg-color;
+    padding: $card-padding-normal;
+}
