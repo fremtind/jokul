@@ -1,0 +1,22 @@
+@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
+
+$diamond-size: 25px;
+$diamond-offset: $diamond-size/2;
+$diamond-color: $svart;
+
+.jkl-divider {
+    width: 100%;
+    border: 1px solid $diamond-color;
+    position: relative;
+    margin: $diamond-size 0;
+    &::before {
+        content: " ";
+        background-color: $diamond-color;
+        position: absolute;
+        left: calc(50% - #{$diamond-offset});
+        top: -$diamond-offset;
+        width: $diamond-size;
+        height: $diamond-size;
+        transform: rotate(45deg);
+    }
+}
