@@ -2,8 +2,10 @@
     "name": "@fremtind/jkl",
     "private": true,
     "scripts": {
-        "prebuild": "cd packages/utils && yarn build:before",
+        "prebuild": "run-s build:utils build:core",
         "build": "lerna exec --parallel yarn build",
+        "build:utils": "cd packages/utils && yarn build:before",
+        "build:core": "cd packages/core && yarn build:before",
         "build:portal": "cd packages/portal && yarn build:docs",
         "build:storybook": "cd packages/storybook && yarn build:docs",
         "build:docs": "run-p build:portal build:storybook",
@@ -15,10 +17,12 @@
         "test:e2e": "jest -c './jest/jest.e2e.js'",
         "prerelease": "yarn build",
         "release": "lerna publish",
+        "start": "run-p start:storybook start:portal",
         "start:storybook": "cd packages/storybook && yarn storybook",
         "start:portal": "cd packages/portal && yarn dev",
-        "start": "run-p start:storybook start:portal",
-        "dev": "parcel"
+        "dev": "parcel",
+        "setup": "run-s prebuild setup:build",
+        "setup:build": "lerna exec yarn build"
     },
     "dependencies": {
         "@types/react": "^16.8.17",

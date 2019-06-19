@@ -15,6 +15,7 @@
     ],
     "scripts": {
         "build": "yarn build:styles",
+        "build:before": "yarn build:styles",
         "build:css": "node-sass src -o build/css --importer='../../node_modules/node-sass-tilde-importer'",
         "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
         "build:scss": "ncp src build/scss",
