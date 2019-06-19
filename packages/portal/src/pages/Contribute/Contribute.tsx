@@ -80,6 +80,9 @@ const Contribute = () => {
                     <li>
                         Kjør <Code>yarn</Code> på rot i prosjektet
                     </li>
+                    <li>
+                        Kjør <Code>yarn setup</Code> på rot i prosjektet for å bygge pakkene
+                    </li>
                     <li>Løs feilen eller legg til ny funksjonalitet og legg til tester</li>
                     <li>
                         Pass på at alle tester går grønt med <Code>yarn test</Code>
@@ -123,20 +126,20 @@ const Contribute = () => {
                 <P>
                     I<Code>/packages</Code> er hver enkelt mappe en kjørbar npm-pakke. Alle som slutter på -react kan
                     starte et utviklingsview med<Code>yarn dev</Code> fra pakke-nivå. Den starter
-                    <Code>`pakkenavn`.html</Code> som brukes som til utviking og automatisk visuell regresjonstesting.
-                    <Code>yarn build</Code> bygger koden til ulike modulene vi støtter. Bygge komandoen kan kjøres fra
+                    <Code>example/`pakkenavn`.html</Code> som brukes som til utviking.
+                    <Code>yarn build</Code> bygger koden til ulike modulene vi støtter. Byggekomandoen kan kjøres fra
                     rot, da bygges alle pakkene, eller den kan kjøres enkeltvis. Tester kjøres med
                     <Code>yarn test</Code> fra rot i prosjektet. Hvis du ønsker å kjøre bare en test kan det spesfiseres
-                    etter komandoen,<Code>yarn test mintest</Code>, under utvikling kan
-                    <Code>yarn test --watch mintest</Code> være nyttig.
+                    etter komandoen,<Code>yarn test min-pakke</Code>, under utvikling kan
+                    <Code>yarn test --watch min-pakke</Code> være nyttig.
                 </P>
                 <H4>Legg til avhengighet</H4>
                 <P>
                     Hvis du skal legge til en avhengighet til en pakke fra det store internettet, er det som normalt. Gå
                     inn i pakken og kjør <Code>yarn add `somePackage`</Code>. Hvis du skal legge til en ny avhengighet
-                    på rot nivå, så er det <Code>yarn add -W `somePackage`</Code>, men tenk deg nøye om det er nødvendig
-                    å ha den i gloablt scope. Hvis en pakke skal depende på en annen pakke i monorepoet kjøer du{" "}
-                    <Code>lerna add @fremtind/jkl-en-pakke --scope=@fremtind/jkl-en-annen-pakke</Code>.
+                    på rot nivå, så er det <Code>yarn add -W `somePackage`</Code>, men tenk nøye over om det er
+                    nødvendig å ha den i globalt scope. Hvis en pakke skal depende på en annen pakke i monorepoet kjører
+                    du <Code>lerna add @fremtind/jkl-en-pakke --scope=@fremtind/jkl-en-annen-pakke</Code>.
                 </P>
                 <H4>Legg til ny pakke</H4>
                 <P>
@@ -169,12 +172,12 @@ const Contribute = () => {
             <GridContent>
                 <H3>Test</H3>
                 <P>
-                    Siden det er mange som er avhenige av Jøkul for å lage sine sider, er det viktig at komponent
-                    biblioteket er godt dokumentert og godt testet. Vi har ikke satt noen eksplistte prosentkrav til
-                    test, da dette kan ha negative sideeffekter. Det er opp til oss som utviklere å sørge for at vi
-                    tester det som trengs godt nok. Det forventes at all funksjonalitet vi skriver selv blir
-                    enhetstestet, pass på å teste som en bruker og ikke direkte på implementasjon. Det er også satt opp
-                    rammeverk for visuell regresjonstest og tilgjengelighet.
+                    Siden det er mange som er avhenige av Jøkul for å lage sine sider, er det viktig at
+                    komponentbiblioteket er godt dokumentert og godt testet. Vi har ikke satt noen eksplisitte
+                    prosentkrav til test, da dette kan ha negative sideeffekter. Det er opp til oss som utviklere å
+                    sørge for at vi tester det som trengs godt nok. Det forventes at all funksjonalitet vi skriver selv
+                    blir enhetstestet, pass på å teste som en bruker og ikke direkte på implementasjon. Det er også satt
+                    opp rammeverk for visuell regresjonstest og tilgjengelighet.
                 </P>
             </GridContent>
             <GridOffsetAfter />
