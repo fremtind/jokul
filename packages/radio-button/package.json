@@ -18,6 +18,6 @@
     "scripts": {
         "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel src/index.html --open"
+        "dev": "parcel example/index.html --open"
     }
 }
