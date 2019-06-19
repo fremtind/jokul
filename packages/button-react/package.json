@@ -21,7 +21,7 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "yarn run build:scripts && yarn run build:types",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel index.html"
+        "dev": "parcel example/index.html"
     },
     "dependencies": {
         "@fremtind/jkl-button": "^0.0.1",
