@@ -1,8 +1,7 @@
+import "@fremtind/jkl-core/src/typography/typography.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import { H1, H2, H3, H4, LeadParagraph, P, SmallText } from "../src";
-
-import "@fremtind/jkl-core/src/typography/typography.scss";
 
 const Typography = () => (
     <>

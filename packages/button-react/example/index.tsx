@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "./src";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 function onClick() {
     console.log("Hello!");
@@ -8,11 +8,13 @@ function onClick() {
 
 const Buttons = () => (
     <>
-        <PrimaryButton onClick={onClick}>Hello, Primary Button</PrimaryButton>
+        <PrimaryButton data-disabled={true} onClick={onClick}>
+            Hello, Primary Button
+        </PrimaryButton>
         <SecondaryButton onClick={onClick}>Hello, Secondary Button</SecondaryButton>
         <TertiaryButton onClick={onClick}>Tertiary</TertiaryButton>
     </>
 );
 
-var mountNode = document.getElementById("app");
+const mountNode = document.getElementById("app");
 ReactDOM.render(<Buttons />, mountNode);
