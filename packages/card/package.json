@@ -1,0 +1,21 @@
+{
+    "name": "@fremtind/jkl-card",
+    "version": "0.0.1",
+    "description": "Style for card component in Jøkul design system",
+    "keywords": [
+        "card"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "scripts": {
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
+    }
+}
