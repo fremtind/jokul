@@ -1,0 +1,45 @@
+@import "~@fremtind/jkl-core/build/scss/core.scss";
+
+.jkl-accordion {
+}
+
+.jkl-accordion__item {
+  margin-bottom: 2.5em;
+}
+
+.jkl-accordion__item-title {
+  font-size: 28px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+
+.jkl-accordion__item-title-icon {
+  width: 2em;
+  margin-left: 1.5em;
+  transition: transform 400ms ease;
+}
+
+.jkl-accordion__item-content {
+  font-size: 22px;
+}
+
+.jkl-accordion__item-title:hover,
+.jkl-accordion__item-title:active,
+.jkl-accordion__item-title:focus,{
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.jkl-accordion__item-content {
+  height: 0;
+  overflow: hidden;
+}
+
+.jkl-accordion__item--expanded .jkl-accordion__item-title-icon {
+  transform: rotateZ(180deg);
+}
+
+.jkl-accordion__item--expanded .jkl-accordion__item-content {
+  height: auto;
+}
