@@ -5,3 +5,5 @@ jest.config.js
 build/
 dist/
 storybook-static/
+.cache/
+node_modules/
