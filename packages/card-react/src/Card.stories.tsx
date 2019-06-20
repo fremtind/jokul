@@ -5,16 +5,16 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { StoryTemplate } from "@fremtind/jkl-utils";
 import { Card } from ".";
 
-const stories = storiesOf("Atom/Knapper", module);
+const stories = storiesOf("Atom/Struktur", module);
 stories.addDecorator(withKnobs);
 stories.addDecorator(withInfo);
 
 stories.add("Card", () => {
     return (
         <StoryTemplate
-            title="PrimaryButton"
-            tldr="Det skal bare være en PrimaryButton per side, den skal indikere hva vi mener er det neste naturlige steget for brukeren og skal ha en tydelig plass på siden"
-            description="Som designer så syns jeg det er viktig at SecondaryButton ser bra ut."
+            title="Card"
+            tldr="Card kan brukes til å gruppere informasjon. Card kan inneholde flere underkomponenter."
+            description="Som designer så syns jeg det er viktig at Card ser bra ut."
         >
             <Card>
                 <h1 className="jkl-h3">Jøkul card</h1>
