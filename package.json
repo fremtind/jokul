@@ -103,8 +103,8 @@
     "lint-staged": {
         "*.{ts, tsx,js,jsx}": [
             "pretty-quick --staged",
-            "npm run lint:ts",
-            "git add"
+            "git add",
+            "yarn lint:ts"
         ]
     },
     "browserslist": [
