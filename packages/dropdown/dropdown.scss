@@ -103,7 +103,7 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
         @include font-size(small);
         position: absolute;
         top: 0.75rem;
-        left: 0.5rem;
+        left: 0;
         transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
         pointer-events: none;
         &--raised {
@@ -114,7 +114,11 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
         pointer-events: none;
         @include font-size(small);
         position: absolute;
-        top: 0.75rem;
-        left: 0.5rem;
+        top: 1.75rem;
+        left: 0;
+        transition: top 150ms ease-in;
+        &--show {
+            top: 0.75rem;
+        }
     }
 }

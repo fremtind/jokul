@@ -24,12 +24,14 @@ const App = () => {
                     onKeyDown={(e) => e.key === "Enter" && setDropdownOpen(!dropdownOpen)}
                 >
                     <label
-                        className={`jkl-dropdown__label ${inputValue || isOpen ? "jkl-dropdown__label--raised" : ""}`}
+                        className={`jkl-dropdown__label ${inputValue ? "jkl-dropdown__label--raised" : ""}`}
                         {...getLabelProps()}
                     >
                         Forsikringstype
                     </label>
-                    <span className="jkl-dropdown__value">{inputValue}</span>
+                    <span className={`jkl-dropdown__value ${inputValue ? "jkl-dropdown__value--show" : ""}`}>
+                        {inputValue}
+                    </span>
                     <ul className="jkl-dropdown__option" {...getMenuProps()}>
                         {isOpen
                             ? items.map((item, index) => (
