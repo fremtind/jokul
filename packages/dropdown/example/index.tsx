@@ -1,42 +1,58 @@
-import React, {Component} from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import Downshift from "downshift";
 import "../dropdown.scss";
 
-const testdata = [
-    'Frem',
-    'Tind',
-    'Fremtind',
-    'Jøkkkul'
-];
+// Eslint do not understand how Downshift sets keys and label controls as its packed into the render props
+/* eslint-disable jsx-a11y/label-has-associated-control, react/jsx-key */
+const App = () => {
+    const items = [{ value: "Frem" }, { value: "Tind" }, { value: "Fremtind" }, { value: "Jøkkkul" }];
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-const Icon = () => {
     return (
-        <svg className='chevron' style={{transform: 'rotate(180deg)'}} width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1L13 13L25 1" stroke="black"/>
-        </svg>
+        <Downshift
+            itemToString={(item) => (item ? item.value : "")}
+            isOpen={dropdownOpen}
+            onOuterClick={() => setDropdownOpen(false)}
+        >
+            {({ getLabelProps, getMenuProps, isOpen, highlightedIndex, inputValue, getItemProps }) => (
+                <div
+                    className={`jkl-dropdown ${isOpen ? "jkl-dropdown--open" : ""}`}
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => e.key === "Enter" && setDropdownOpen(!dropdownOpen)}
+                >
+                    <label
+                        className={`jkl-dropdown__label ${inputValue || isOpen ? "jkl-dropdown__label--raised" : ""}`}
+                        {...getLabelProps()}
+                    >
+                        Forsikringstype
+                    </label>
+                    <span className="jkl-dropdown__value">{inputValue}</span>
+                    <ul className="jkl-dropdown__option" {...getMenuProps()}>
+                        {isOpen
+                            ? items.map((item, index) => (
+                                  <li
+                                      className={`jkl-dropdown__option--item ${
+                                          highlightedIndex === index ? "jkl-dropdown__option--item--highlighted" : ""
+                                      } ${inputValue === item.value ? "jkl-dropdown__option--item--selected" : ""}`}
+                                      {...getItemProps({
+                                          key: item.value,
+                                          index,
+                                          item,
+                                      })}
+                                  >
+                                      {item.value}
+                                  </li>
+                              ))
+                            : null}
+                    </ul>
+                </div>
+            )}
+        </Downshift>
     );
 };
-
-class App extends Component{
-    state = {
-        test: true,
-    };
-
-    render(){
-        const {
-            test
-        } = this.state;
-
-        console.log("test", test)
-        return (
-            <div className='jkl-dropdown-wrapper'>
-                <select className="jkl-dropdown" onClick={() => this.setState((prevState) => {test: !prevState.test})}>
-                    {testdata.map((data, idx) => <option className='jokul-option' key={idx}>{data}</option>)}
-                </select>
-                <Icon />
-            </div>
-        )
-    }
-};
+/* eslint-enable jsx-a11y/label-has-associated-control, react/jsx-key */
 
 ReactDOM.render(<App />, document.getElementById("app"));
