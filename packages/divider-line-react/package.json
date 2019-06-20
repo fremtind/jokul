@@ -24,6 +24,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@fremtind/jkl-divider-line": "^0.0.1"
+        "@fremtind/jkl-divider-line": "^0.0.1",
+        "uuid": "^3.3.2"
     }
 }
