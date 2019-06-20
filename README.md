@@ -10,6 +10,8 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 
 Jøkul kan bli brukt på to måter, enten ved å laste inn bare stilark eller ved å bruke de klare komponentene. Komponent-pakkene inneholder det de trenger, inkludert avhengigheter til andre pakker. **Viktig**: Du må sette opp en `loader` i ditt byggsystem for å håntere scss-importer, feks `style-loader` for Webpack.
 
+Ved første oppstart av applikasjonen, kjør `yarn; yarn setup; yarn build;`
+
 ### React-pakker
 
 `yarn install @fremtind/jkl-button-react`
