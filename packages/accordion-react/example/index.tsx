@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Accordion, AccordionItem } from "../src/Accordion";
+import { Accordion, AccordionItem } from "../src";
+import "@fremtind/jkl-accordion/accordion.scss";
 
 const AccordionExample = () => (
     <>
