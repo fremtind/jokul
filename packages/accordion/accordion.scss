@@ -1,11 +1,16 @@
 @import "~@fremtind/jkl-core/build/scss/core.scss";
 
+$chevron-color: $svart;
+$chevron-size: 1.25rem;
+$chevron-weight: 0.125rem;
+$chevron-weight--hover: 0.1875rem;
+
 .jkl-accordion {
     &__item {
         margin-bottom: 2.5em;
         &--expanded {
             & .jkl-accordion__item-title-icon {
-                transform: rotateZ(180deg);
+                transform: rotate(135deg);
             }
             & .jkl-accordion__item-content {
                 height: auto;
@@ -13,8 +18,14 @@
         }
     }
     &__item-title {
-        @include font-size("medium");
+        /* Remove button styles */
         display: flex;
+        width: 100%;
+        border: none;
+        outline: none;
+
+        @include font-size("medium");
+
         justify-content: space-between;
         margin-bottom: 1.5em;
 
@@ -32,7 +43,14 @@
     }
 
     &__item-title-icon {
-        width: 2rem;
+        width: $chevron-size;
+        height: $chevron-size;
+
+        transform-origin: center;
+        transform: rotate(-45deg);
+
+        border-left: $chevron-weight solid $chevron-color;
+        border-bottom: $chevron-weight solid $chevron-color;
         transition: transform 400ms ease;
     }
 }

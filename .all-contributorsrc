@@ -1,0 +1,34 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "piofinn",
+      "name": "piofinn",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/25739615?v=4",
+      "profile": "https://github.com/piofinn",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "gbrownlee",
+      "name": "Glenn A. Brownlee",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/888229?v=4",
+      "profile": "https://github.com/gbrownlee",
+      "contributions": [
+        "projectManagement",
+        "eventOrganizing"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "jokul",
+  "projectOwner": "fremtind",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
