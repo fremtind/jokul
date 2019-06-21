@@ -4,9 +4,10 @@ node_js:
 cache:
     directories:
         - "node_modules"
+        - "build"
 script:
     - yarn
-    - yarn build
+    - yarn setup
     - yarn build:docs
     - yarn test:ci
 branch: master
