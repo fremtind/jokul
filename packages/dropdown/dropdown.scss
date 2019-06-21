@@ -1,0 +1,124 @@
+@import "~@fremtind/jkl-core/build/scss/core.scss";
+
+$dropdown-height: 3rem;
+$dropdown-width: 10rem;
+$animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
+
+@mixin raised-label() {
+    @include font-size(xs);
+    top: -1.5rem;
+    left: 0;
+}
+
+.jkl-dropdown {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    display: inline-flex;
+    height: $dropdown-height;
+    max-width: 30ch;
+    min-width: $dropdown-width;
+    outline: none;
+    padding: 0rem 6rem 0 2rem;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    border-bottom: 2px solid $svart;
+
+    transition: background-color 250ms ease-in;
+
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+
+    &::before {
+        content: " ";
+        height: 1px;
+        background-color: $svart;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: transform 125ms ease-in;
+    }
+
+    &:focus,
+    &:hover {
+        &::before {
+            transform: scaleY(3);
+        }
+    }
+
+    &::after {
+        content: " ";
+        position: absolute;
+        border-style: solid;
+        border-width: 0.2rem 0.2rem 0 0;
+        display: inline-block;
+        height: 0.45rem;
+        right: 0.25rem;
+        top: 1.25rem;
+        transform: rotate(135deg);
+        vertical-align: top;
+        width: 0.45rem;
+        transition: transform 125ms ease-in;
+    }
+
+    &--open {
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__option {
+        z-index: 1;
+        background-color: $snøhvit;
+        list-style: none;
+        position: absolute;
+        top: 2rem;
+        left: 0;
+        right: 0;
+        padding: 0;
+        box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16);
+        @include font-size(small);
+        &--item {
+            padding: 1rem;
+            transition: background-color 75ms ease-in, font-weight 75ms ease-in;
+            &--highlighted,
+            &:focus {
+                outline: none;
+                background-color: $varde;
+            }
+            &--selected {
+                font-weight: bold;
+            }
+        }
+    }
+    &__label {
+        @include font-size(small);
+        position: absolute;
+        top: 0.75rem;
+        left: 0;
+        transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
+        pointer-events: none;
+        &--raised {
+            @include raised-label();
+        }
+    }
+    &__value {
+        pointer-events: none;
+        @include font-size(small);
+        position: absolute;
+        top: 1.75rem;
+        left: 0;
+        transition: top 150ms ease-in;
+        &--show {
+            top: 0.75rem;
+        }
+    }
+}

@@ -12,7 +12,7 @@
         "commit": "git-cz",
         "lint:ts": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
         "test": "jest -c './jest/jest.all.js'",
-        "test:ci": "yarn test --reporters default jest-stare ",
+        "test:ci": "yarn test --reporters default jest-stare",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "test:e2e": "jest -c './jest/jest.e2e.js'",
         "prerelease": "yarn build",
@@ -57,7 +57,7 @@
         "cross-env": "^5.2.0",
         "cz-lerna-changelog": "^2.0.0",
         "eslint": "^5.16.0",
-        "eslint-config-prettier": "^4.3.0",
+        "eslint-config-prettier": "^5.0.0",
         "eslint-plugin-jsx-a11y": "^6.2.1",
         "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-react": "^7.13.0",
@@ -103,8 +103,8 @@
     "lint-staged": {
         "*.{ts, tsx,js,jsx}": [
             "pretty-quick --staged",
-            "npm run lint:ts",
-            "git add"
+            "git add",
+            "yarn lint:ts"
         ]
     },
     "browserslist": [

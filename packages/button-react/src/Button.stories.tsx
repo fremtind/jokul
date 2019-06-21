@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import { StoryTemplate } from "@fremtind/jkl-utils";
 import { PrimaryButton, SecondaryButton } from ".";
+import "@fremtind/jkl-button/button.css";
 
 const stories = storiesOf("Atom/Knapper", module);
 stories.addDecorator(withKnobs);
