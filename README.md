@@ -1,5 +1,7 @@
 # [Jøkul]() av [Fremtind](https://fremtind.no)
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[Build](https://travis-ci.org/fremtind/jokul.svg?branch=master)
 
 Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) utviklet av [Fremtind](https://fremtind.no).
 
