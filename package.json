@@ -12,7 +12,7 @@
         "commit": "git-cz",
         "lint:ts": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
         "test": "jest -c './jest/jest.all.js'",
-        "test:ci": "yarn test --reporters default jest-stare ",
+        "test:ci": "yarn test --reporters default jest-stare",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "test:e2e": "jest -c './jest/jest.e2e.js'",
         "prerelease": "yarn build",
