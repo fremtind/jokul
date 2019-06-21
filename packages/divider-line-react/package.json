@@ -1,0 +1,30 @@
+{
+    "name": "@fremtind/jkl-divider-line-react",
+    "version": "0.0.1",
+    "description": "React wrapper for divider-line",
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "yarn run build:scripts && yarn run build:types",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "dependencies": {
+        "@fremtind/jkl-divider-line": "^0.0.1",
+        "uuid": "^3.3.2"
+    }
+}
