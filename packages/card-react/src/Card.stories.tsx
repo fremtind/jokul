@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs";
 import { StoryTemplate } from "@fremtind/jkl-utils";
 import { Card } from ".";
-import "@fremtind/jkl-card/card.css"
+import "@fremtind/jkl-card/card.css";
 
 const stories = storiesOf("Atom/Struktur", module);
 stories.addDecorator(withKnobs);
