@@ -1,4 +1,5 @@
 # [Jøkul]() av [Fremtind](https://fremtind.no)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) utviklet av [Fremtind](https://fremtind.no).
 
@@ -57,3 +58,15 @@ Les mer om hvordan du kan bidra ved å lese vår [guide]().
 
 //TODO: AVKLAR MED LEGAL
 Jøkul er [lisensiert med MIT](./LICENSE).
+
+## Contributors
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table><tr><td align="center"><a href="https://github.com/Saegrov"><img src="https://avatars2.githubusercontent.com/u/124469?v=4" width="100px;" alt="Simen Sægrov"/><br /><sub><b>Simen Sægrov</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Saegrov" title="Code">💻</a></td></tr></table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
