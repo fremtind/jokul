@@ -18,6 +18,7 @@
     "dev": "parcel example/index.html"
   },
   "dependencies": {
-    "@fremtind/jkl-core": "^0.0.1"
+    "@fremtind/jkl-core": "^0.0.1",
+    "downshift": "^3.2.10"
   }
 }
