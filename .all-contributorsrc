@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Saegrov",
+      "name": "Simen Sægrov",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/124469?v=4",
+      "profile": "https://github.com/Saegrov",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "jokul",
+  "projectOwner": "fremtind",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
