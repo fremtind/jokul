@@ -15,7 +15,7 @@ Jøkul kan bli brukt på to måter, enten ved å laste inn bare stilark eller ve
 `yarn install @fremtind/jkl-button-react`
 
 ```tsx
-import { PrimaryButton } from "@fremtind/jkl-button-react;
+import { PrimaryButton } from "@fremtind/jkl-button-react";
 ...
 <PrimaryButton onClick={doStuff}>Cool</PrimaryButton>
 ...
