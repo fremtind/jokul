@@ -14,6 +14,16 @@
         "code",
         "review"
       ]
+    },
+    {
+      "login": "gbrownlee",
+      "name": "Glenn A. Brownlee",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/888229?v=4",
+      "profile": "https://github.com/gbrownlee",
+      "contributions": [
+        "projectManagement",
+        "eventOrganizing"
+      ]
     }
   ],
   "contributorsPerLine": 7,
