@@ -1,7 +1,7 @@
 # [Jøkul]() av [Fremtind](https://fremtind.no)
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-[![build status](https://travis-ci.org/fremtind/jokul.svg?branch=master)](https://travis-ci.org/fremtind/jokul.svg?branch=master)
+[![build status](https://travis-ci.org/fremtind/jokul.svg?branch=master)](https://travis-ci.org/fremtind/jokul.svg?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/fremtind/jokul.svg)](https://greenkeeper.io/)
 
 Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) utviklet av [Fremtind](https://fremtind.no).
 
