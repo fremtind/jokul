@@ -10,7 +10,10 @@
         "build:storybook": "cd packages/storybook && yarn build:docs",
         "build:docs": "run-p build:portal build:storybook",
         "commit": "git-cz",
-        "lint:ts": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
+        "typecheck": "tsc --noEmit",
+        "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
+        "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "lint": "yarn run lint:formatting && yarn run lint:scripts",
         "test": "jest -c './jest/jest.all.js'",
         "test:ci": "yarn test --reporters default jest-stare",
         "test:unit": "jest -c './jest/jest.unit.js'",
@@ -59,7 +62,6 @@
         "eslint": "^5.16.0",
         "eslint-config-prettier": "^5.0.0",
         "eslint-plugin-jsx-a11y": "^6.2.1",
-        "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-react": "^7.13.0",
         "husky": "^2.3.0",
         "jest": "^24.8.0",
@@ -103,8 +105,7 @@
     "lint-staged": {
         "*.{ts, tsx,js,jsx}": [
             "pretty-quick --staged",
-            "git add",
-            "yarn lint:ts"
+            "git add"
         ]
     },
     "browserslist": [
