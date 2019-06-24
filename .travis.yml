@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-    - "lts/*"
+    - "lts/dubnium"
 cache:
     directories:
         - "node_modules"
@@ -9,5 +9,13 @@ script:
     - yarn
     - yarn setup
     - yarn build:docs
+    - yarn lint:ts
     - yarn test:ci
 branch: master
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    on:
+        branch: master
