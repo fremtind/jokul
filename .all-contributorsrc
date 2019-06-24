@@ -44,6 +44,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Steinop",
+      "name": "Steinop",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51952891?v=4",
+      "profile": "https://github.com/Steinop",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
