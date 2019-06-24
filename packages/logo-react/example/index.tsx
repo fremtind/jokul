@@ -10,11 +10,11 @@ const Buttons = () => {
         <div style={{ width: "300px" }}>
             <LogoSymbol />
             <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
-                <LogoSymbol negative={true} />
+                <LogoSymbol />
             </div>
             <LogoMain />
             <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
-                <LogoMain negative={true} />
+                <LogoMain />
             </div>
             <LogoAnimated showSymbol={showSymbol} />
             <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
