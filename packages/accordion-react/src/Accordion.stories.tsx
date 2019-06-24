@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import { StoryTemplate } from "@fremtind/jkl-utils";
+import "@fremtind/jkl-accordion/accordion.css";
 
 import { Accordion, AccordionItem } from ".";
 
@@ -21,8 +22,8 @@ stories.add("Accordion", () => {
         >
             <Accordion>
                 <AccordionItem title="What hides here?">This hides here!</AccordionItem>
-                <AccordionItem title={`I hide ${expanded ? "nothing" : "something"}…`} startExpanded={expanded}>
-                    {`…because startExpanded is set to ${expanded}`}
+                <AccordionItem title="I hide nothing..." startExpanded={expanded}>
+                    ...because startExpanded is set to true
                 </AccordionItem>
                 <AccordionItem title={title}>Some content</AccordionItem>
             </Accordion>

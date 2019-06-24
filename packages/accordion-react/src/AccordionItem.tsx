@@ -13,15 +13,15 @@ interface Props {
 export function AccordionItem({ children, title, startExpanded = false }: Props) {
     const [isOpen, setIsOpen] = useState(startExpanded);
     const openClassName = isOpen ? " jkl-accordion-item--expanded" : "";
-    const onToggle = setIsOpen(!isOpen);
+    const onToggle = () => setIsOpen(!isOpen);
     return (
         <div className={`jkl-accordion-item${openClassName}`}>
             <button className="jkl-accordion-item__title">
                 <div className="jkl-accordion-item__title-text">{title}</div>
                 <div className="jkl-accordion-item__title-icon" />
             </button>
-            <CoreToggle hidden onToggle={onToggle}>
-                <div className="jkl-accordion-item__content">{children}</div>
+            <CoreToggle className="jkl-accordion-item__content" hidden={!isOpen} onToggle={onToggle}>
+                {children}
             </CoreToggle>
         </div>
     );
