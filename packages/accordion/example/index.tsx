@@ -27,6 +27,16 @@ const App = () => (
                     <p>Another paragraph&hellip;</p>
                 </div>
             </div>
+            <div className="jkl-accordion-item">
+                <button className="jkl-accordion-item__title">
+                    <div className="jkl-accordion-item__title-text">Third item</div>
+                    <div className="jkl-accordion-item__title-icon" />
+                </button>
+                <div className="jkl-accordion-item__content">
+                    <p>This is a paragraph</p>
+                    <p>Another paragraph&hellip;</p>
+                </div>
+            </div>
         </div>
     </>
 );
