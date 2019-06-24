@@ -25,7 +25,8 @@
     },
     "dependencies": {
         "@fremtind/jkl-accordion": "^0.0.1",
-        "@fremtind/jkl-utils": "^0.0.1"
+        "@fremtind/jkl-utils": "^0.0.1",
+        "@nrk/core-toggle": "^3.0.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

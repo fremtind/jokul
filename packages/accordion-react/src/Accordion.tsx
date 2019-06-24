@@ -1,26 +1,33 @@
 import React, { ReactNode, useState } from "react";
+// @ts-ignore
+import CoreToggle from "@nrk/core-toggle/jsx";
 
 interface Props {
     children: ReactNode;
 }
 
-export const Accordion = ({ children }: Props) => <div className="jkl-accordion">{children}</div>;
-
-interface ItemProps {
-    children: ReactNode;
-    title: string;
+export function Accordion({ children }: Props) {
+    return <div className="jkl-accordion">{children}</div>;
 }
 
-export const AccordionItem = ({ children, title }: ItemProps) => {
-    const [isOpen, setIsOpen] = useState(false);
-    let openClassName = isOpen ? "jkl-accordion__item--expanded" : "";
+interface ItemProps {
+    title: string;
+    children: ReactNode;
+    startExpanded?: boolean;
+}
+
+export function AccordionItem({ children, title, startExpanded = false }: ItemProps) {
+    const [isOpen, setIsOpen] = useState(startExpanded);
+    const openClassName = isOpen ? " jkl-accordion-item--expanded" : "";
     return (
-        <div className={`jkl-accordion__item ${openClassName}`} role="article" aria-expanded={isOpen}>
-            <button className="jkl-accordion__item-title" onClick={() => setIsOpen(!isOpen)} tabIndex={0}>
-                <div className="jkl-accordion__item-title-text">{title}</div>
-                <div className="jkl-accordion__item-title-icon" />
+        <div className={`jkl-accordion-item${openClassName}`}>
+            <button className="jkl-accordion-item__title">
+                <div className="jkl-accordion-item__title-text">{title}</div>
+                <div className="jkl-accordion-item__title-icon" />
             </button>
-            <div className="jkl-accordion__item-content">{children}</div>
+            <CoreToggle hidden onToggle={() => setIsOpen(!isOpen)}>
+                <div className="jkl-accordion-item__content">{children}</div>
+            </CoreToggle>
         </div>
     );
-};
+}
