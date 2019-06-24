@@ -20,8 +20,8 @@ export function AccordionItem({ children, title, startExpanded = false }: Props)
                 <div className="jkl-accordion-item__title-text">{title}</div>
                 <div className="jkl-accordion-item__title-icon" />
             </button>
-            <CoreToggle className="jkl-accordion-item__content" hidden={!isOpen} onToggle={onToggle}>
-                {children}
+            <CoreToggle hidden={!isOpen} onToggle={onToggle}>
+                <div className="jkl-accordion-item__content">{children}</div>
             </CoreToggle>
         </div>
     );
