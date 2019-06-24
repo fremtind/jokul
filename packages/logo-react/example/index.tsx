@@ -9,20 +9,21 @@ const Buttons = () => {
     return (
         <div style={{ width: "300px" }}>
             <LogoSymbol />
-            <div style={{ backgroundColor: "#000" }}>
+            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
                 <LogoSymbol negative={true} />
             </div>
             <LogoMain />
-            <div style={{ backgroundColor: "#000" }}>
+            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
                 <LogoMain negative={true} />
             </div>
             <LogoAnimated showSymbol={showSymbol} />
-            <div style={{ backgroundColor: "#000" }}>
-                <LogoAnimated showSymbol={showSymbol} negative centered={false} />
+            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
+                <LogoAnimated showSymbol={showSymbol} centered={false} />
             </div>
+
             <LogoAnimated showSymbol={!showSymbol} />
-            <div style={{ backgroundColor: "#000" }}>
-                <LogoAnimated showSymbol={!showSymbol} negative centered={false} />
+            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
+                <LogoAnimated showSymbol={!showSymbol} centered={true} />
             </div>
             <button onClick={() => toggleSymbol(!showSymbol)}>Lean !back Lean !back</button>
             <div style={{ height: "100vh" }} />

@@ -2,28 +2,23 @@ import React from "react";
 
 export interface Props {
     width?: number;
-    negative?: boolean;
     className?: string;
     centered?: boolean;
     showSymbol: boolean;
 }
 
-export const LogoAnimated = ({
-    width,
-    negative = false,
-    className = "",
-    centered = true,
-    showSymbol = true,
-}: Props) => {
+export const LogoAnimated = ({ width, className = "", centered = true, showSymbol = true }: Props) => {
     return (
         <div className={`jkl-logo__wrapper ${centered && showSymbol ? "jkl-logo__wrapper--centered" : ""}`}>
             <svg
-                className={`jkl-logo jkl-logo--animated ${negative ? "jkl-logo--negative" : ""} ${
+                className={`jkl-logo jkl-logo--animated ${
                     showSymbol ? "jkl-logo--animated__symbol-only" : ""
                 } ${className}`}
                 width={width}
                 viewBox="30 18 658 127"
                 xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                stroke="currentColor"
             >
                 <g>
                     <g className="jkl-logo--animated__F">
