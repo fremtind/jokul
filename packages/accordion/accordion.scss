@@ -5,8 +5,18 @@ $chevron-size: 1rem;
 $chevron-weight: 0.125rem;
 $chevron-weight--hover: 0.1875rem;
 
-.jkl-accordion {
-    &__item-title {
+.jkl-accordion-item {
+    margin-bottom: 2.5em;
+    &--expanded {
+        & .jkl-accordion-item__title-icon {
+            @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight, $state: open, $rotate: 180);
+        }
+        & .jkl-accordion-item__content {
+            height: auto;
+        }
+    }
+
+    &__title {
         /* Remove button styles */
         display: flex;
         width: 100%;
@@ -25,25 +35,13 @@ $chevron-weight--hover: 0.1875rem;
             cursor: pointer;
         }
     }
-    &__item-content {
+    &__content {
         @include font-size("small");
         height: 0;
         overflow: hidden;
     }
 
-    &__item-title-icon {
+    &__title-icon {
         @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight);
-    }
-
-    &__item {
-        margin-bottom: 2.5em;
-        &--expanded {
-            & .jkl-accordion__item-title-icon {
-                @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight, $state: open, $rotate: 180);
-            }
-            & .jkl-accordion__item-content {
-                height: auto;
-            }
-        }
     }
 }
