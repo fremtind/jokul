@@ -9,5 +9,7 @@ script:
     - yarn
     - yarn setup
     - yarn build:docs
+    - yarn lint
+    - yarn typecheck
     - yarn test:ci
 branch: master
