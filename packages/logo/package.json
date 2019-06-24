@@ -1,0 +1,28 @@
+{
+    "name": "@fremtind/jkl-logo",
+    "version": "0.0.1",
+    "description": "style for Fremtind logo",
+    "keywords": [
+        "logo"
+    ],
+    "homepage": "https://github.com/fremtind/jokul#readme",
+    "license": "MIT",
+    "scripts": {
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.com/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}
