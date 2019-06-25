@@ -1,7 +1,9 @@
-@import "~@fremtind/jkl-core/build/scss/core.scss";
+@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
+@import "~@fremtind/jkl-core/build/scss/typography/font-size.scss";
+@import "~@fremtind/jkl-core/build/scss/mixins/utils.scss";
 
 $dropdown-height: 3rem;
-$dropdown-width: 10rem;
+$dropdown-width: 20rem;
 $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
 
 @mixin raised-label() {
@@ -16,10 +18,9 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
     background-color: transparent;
     display: inline-flex;
     height: $dropdown-height;
-    max-width: 30ch;
     min-width: $dropdown-width;
     outline: none;
-    padding: 0rem 6rem 0 2rem;
+    margin-top: 2rem;
 
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -40,10 +41,7 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
         content: " ";
         height: 1px;
         background-color: $svart;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        @include position(absolute, $top: initial);
         transition: transform 125ms ease-in;
     }
 
@@ -56,13 +54,12 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
 
     &::after {
         content: " ";
-        position: absolute;
+        @include position(absolute, $right: 0.25rem, $top: 1.25rem, $bottom: initial, $left: initial);
+
         border-style: solid;
         border-width: 0.2rem 0.2rem 0 0;
         display: inline-block;
         height: 0.45rem;
-        right: 0.25rem;
-        top: 1.25rem;
         transform: rotate(135deg);
         vertical-align: top;
         width: 0.45rem;
@@ -79,12 +76,9 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
         z-index: 1;
         background-color: $snøhvit;
         list-style: none;
-        position: absolute;
-        top: 2rem;
-        left: 0;
-        right: 0;
+        @include position(absolute, $top: 2rem, $bottom: initial);
         padding: 0;
-        box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16);
+        box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16); /* TODO: set default shadow values */
         @include font-size(small);
         &--item {
             padding: 1rem;
@@ -101,24 +95,36 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
     }
     &__label {
         @include font-size(small);
-        position: absolute;
-        top: 0.75rem;
-        left: 0;
+        @include position(absolute, $top: 0.75rem, $right: 2rem, $bottom: initial);
         transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
         pointer-events: none;
+        text-overflow: ellipsis;
+        overflow: hidden;
         &--raised {
             @include raised-label();
         }
     }
     &__value {
-        pointer-events: none;
         @include font-size(small);
-        position: absolute;
-        top: 1.75rem;
-        left: 0;
+        @include position(absolute, $top: 1.75rem, $right: initial, $bottom: initial);
         transition: top 150ms ease-in;
+        pointer-events: none;
         &--show {
             top: 0.75rem;
+        }
+    }
+    &__toggler {
+        @include position(absolute);
+        opacity: 0;
+        border: none;
+        outline: none;
+        text-align: left;
+        width: 100%;
+        :focus {
+            outline: none;
+        }
+        ::-moz-focus-inner {
+            border: 0;
         }
     }
 }
