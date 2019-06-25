@@ -54,6 +54,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "ambientconflict",
+      "name": "ambientconflict",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/32671873?v=4",
+      "profile": "https://github.com/ambientconflict",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
