@@ -16,7 +16,7 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
             }
         }
         &__remtind {
-            transition: opacity 250ms ease-in, transform 251ms cubic-bezier(0.55, -0.72, 0.45, 0.88);
+            transition: opacity 250ms ease-in, transform 251ms ease;
             opacity: 1;
             transition-delay: 75ms;
         }
@@ -33,7 +33,7 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
                 &__remtind {
                     transition-delay: 0ms;
                     opacity: 0;
-                    transform: translateX(10%);
+                    transform: translateX(5%);
                 }
             }
         }
@@ -42,9 +42,9 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
 
 .jkl-logo__wrapper {
     transition-delay: 0ms;
-    transition: transform 300ms cubic-bezier(0.785, 0.035, 0.61, 1.16);
+    transition: transform 300ms ease;
     transform: translate(0);
     &--centered {
-        transform: translate(40%);
+        transform: translate(35%);
     }
 }

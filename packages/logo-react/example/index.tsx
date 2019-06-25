@@ -20,7 +20,6 @@ const Buttons = () => {
             <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
                 <LogoAnimated showSymbol={showSymbol} centered={false} />
             </div>
-
             <LogoAnimated showSymbol={!showSymbol} />
             <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
                 <LogoAnimated showSymbol={!showSymbol} centered={true} />

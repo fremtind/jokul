@@ -1,18 +1,11 @@
 import React from "react";
 
 export interface Props {
-    width?: number;
     className?: string;
 }
 
-export const LogoSymbol = ({ width = 100, className = "" }: Props) => (
-    <svg
-        className={`jkl-logo ${className}`}
-        width={width}
-        height={width * 0.5}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 260.32 140.25"
-    >
+export const LogoSymbol = ({ className = "" }: Props) => (
+    <svg className={`jkl-logo ${className}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260.32 140.25">
         <path
             stroke="currentColor"
             fill="currentColor"
