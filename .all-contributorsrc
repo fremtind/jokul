@@ -2,6 +2,7 @@
   "files": [
     "README.md"
   ],
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-rounded)](#contributors)",
   "imageSize": 100,
   "commit": false,
   "contributors": [
@@ -41,6 +42,24 @@
       "name": "Simen Sægrov",
       "avatar_url": "https://avatars2.githubusercontent.com/u/124469?v=4",
       "profile": "https://github.com/Saegrov",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Steinop",
+      "name": "Steinop",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51952891?v=4",
+      "profile": "https://github.com/Steinop",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "nicolhag",
+      "name": "Nicolai Hagen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7604910?v=4",
+      "profile": "https://github.com/nicolhag",
       "contributions": [
         "code"
       ]
