@@ -13,9 +13,6 @@
     "files": [
         "build"
     ],
-    "publishConfig": {
-        "registry": "https://nexus.intern.sparebank1.no/repository/npmgroup/"
-    },
     "scripts": {
         "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
