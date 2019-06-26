@@ -2,6 +2,11 @@
 @import "~@fremtind/jkl-core/build/scss/functions";
 
 $checkbox-size: 1.5rem;
+$checkbox-border-color: $svart;
+$checkbox-checked-background-color: $svart;
+$checkbox-unchecked-background-color: $snøhvit;
+$checkbox-check-mark-color: $checkbox-unchecked-background-color;
+$checkbox-focus-outline-color: #509ce6;
 
 .jkl-checkbox {
     align-items: center;
@@ -11,8 +16,8 @@ $checkbox-size: 1.5rem;
 
     &__input {
         -webkit-appearance: none;
-        background-color: $snøhvit;
-        border: solid rem(1px) $svart;
+        background-color: $checkbox-unchecked-background-color;
+        border: solid rem(1px) $checkbox-border-color;
         height: $checkbox-size;
         margin-right: 0.5rem;
         position: relative;
@@ -22,7 +27,7 @@ $checkbox-size: 1.5rem;
 
         &:focus {
             outline-offset: rem(2px);
-            outline: #509ce6 solid rem(2px);
+            outline: $checkbox-focus-outline-color solid rem(2px);
         }
 
         &:hover {
@@ -31,7 +36,7 @@ $checkbox-size: 1.5rem;
 
         &:active {
             transform: scale(0.9);
-            background-color: $svart;
+            background-color: $checkbox-checked-background-color;
 
             &:checked {
                 &:after {
@@ -41,7 +46,7 @@ $checkbox-size: 1.5rem;
         }
 
         &:checked {
-            background-color: $svart;
+            background-color: $checkbox-checked-background-color;
 
             &:after {
                 animation: jkl-checkbox-checked-animation 150ms ease-in-out 0ms forwards;
@@ -50,7 +55,7 @@ $checkbox-size: 1.5rem;
         }
 
         &:after {
-            border: solid rem(2px) $snøhvit;
+            border: solid rem(2px) $checkbox-check-mark-color;
             border-left-width: 0;
             border-top-width: 0;
             bottom: 45%;
