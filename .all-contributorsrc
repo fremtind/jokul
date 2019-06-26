@@ -54,6 +54,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "nicolhag",
+      "name": "Nicolai Hagen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7604910?v=4",
+      "profile": "https://github.com/nicolhag",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
