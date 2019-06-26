@@ -18,6 +18,6 @@ module.exports = {
             "error",
             { allowSingleExtends: true }, // In some case you want to extend an empty interface. Example:  "interface Props extends RouteComponentProps"
         ],
-        "@typescript-eslint/explicit-function-return-type": false, // Explicit function return type becomes very annoying for React Function Components
+        "@typescript-eslint/explicit-function-return-type": 0, // Explicit function return type becomes very annoying for React Function Components
     },
 };
