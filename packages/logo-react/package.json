@@ -24,7 +24,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
+        "@fremtind/jkl-logo": "^0.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

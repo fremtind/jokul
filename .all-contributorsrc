@@ -1,0 +1,89 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-rounded)](#contributors)",
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "piofinn",
+      "name": "piofinn",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/25739615?v=4",
+      "profile": "https://github.com/piofinn",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "gbrownlee",
+      "name": "Glenn A. Brownlee",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/888229?v=4",
+      "profile": "https://github.com/gbrownlee",
+      "contributions": [
+        "projectManagement",
+        "eventOrganizing"
+      ]
+    },
+    {
+      "login": "lfbergee",
+      "name": "Leiv Fredrik Berge",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/46530368?v=4",
+      "profile": "https://github.com/lfbergee",
+      "contributions": [
+        "code",
+        "doc",
+        "infra"
+      ]
+    },
+    {
+      "login": "Saegrov",
+      "name": "Simen Sægrov",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/124469?v=4",
+      "profile": "https://github.com/Saegrov",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Steinop",
+      "name": "Steinop",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51952891?v=4",
+      "profile": "https://github.com/Steinop",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "ambientconflict",
+      "name": "ambientconflict",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/32671873?v=4",
+      "profile": "https://github.com/ambientconflict",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nicolhag",
+      "name": "Nicolai Hagen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7604910?v=4",
+      "profile": "https://github.com/nicolhag",
+      "contributions": [
+        "code"
+      ]
+    },
+    {"login": "stianlik",
+      "name": "Stian Liknes",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/410251?v=4",
+      "profile": "https://github.com/stianlik",
+      "contributions": [
+        "code"
+      ]}
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "jokul",
+  "projectOwner": "fremtind",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

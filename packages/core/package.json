@@ -20,7 +20,7 @@
         "build:scss": "ncp src build/scss",
         "build:styles": "yarn build:scss && yarn build:css",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel index.html"
+        "dev": "parcel example/index.html"
     },
     "dependencies": {
         "normalize-scss": "^7.0.1"

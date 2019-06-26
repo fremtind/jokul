@@ -1,0 +1,34 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/accordion-react/package.json",
+        "packages/accordion/package.json",
+        "packages/button-react/package.json",
+        "packages/button/package.json",
+        "packages/card-react/package.json",
+        "packages/card/package.json",
+        "packages/core/package.json",
+        "packages/dropdown/package.json",
+        "packages/footer-react/package.json",
+        "packages/footer/package.json",
+        "packages/grid-react/package.json",
+        "packages/grid/package.json",
+        "packages/header-react/package.json",
+        "packages/header/package.json",
+        "packages/logo-react/package.json",
+        "packages/parcel-consumer-example/package.json",
+        "packages/portal/package.json",
+        "packages/radio-button-react/package.json",
+        "packages/radio-button/package.json",
+        "packages/storybook/package.json",
+        "packages/text-field-react/package.json",
+        "packages/text-field/package.json",
+        "packages/typography-react/package.json",
+        "packages/utils/package.json",
+        "packages/webpack-consumer-example/package.json"
+      ]
+    }
+  }
+}

@@ -9,8 +9,12 @@
         "dev": "parcel index.html"
     },
     "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1",
+        "@fremtind/jkl-footer": "^0.0.1",
         "@fremtind/jkl-footer-react": "^0.0.1",
+        "@fremtind/jkl-grid": "^0.0.1",
         "@fremtind/jkl-grid-react": "^0.0.1",
+        "@fremtind/jkl-header": "^0.0.1",
         "@fremtind/jkl-header-react": "^0.0.1",
         "@fremtind/jkl-typography-react": "^0.0.1",
         "@types/react-router-dom": "^4.3.3",

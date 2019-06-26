@@ -1,0 +1,52 @@
+@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
+
+$diamond-size: 1rem;
+$diamond-offset: $diamond-size/2;
+$diamond-color: $svart;
+$diamond-rotation: 45deg;
+$line-size: 0.125rem;
+
+@mixin animate-in() {
+    transition: transform 500ms ease-in-out;
+    transition-delay: 100ms;
+}
+
+.jkl-divider {
+    position: relative;
+    margin: $diamond-size 0;
+    border: none;
+
+    &::after {
+        content: " ";
+        @include animate-in();
+        position: absolute;
+        top: auto;
+        height: $line-size;
+        background-color: $svart;
+        width: 100%;
+        transform: scaleX(0.5);
+    }
+
+    &--spin {
+        &.jkl-divider {
+            &::after {
+                transform: scaleX(1);
+            }
+            &::before {
+                transform: rotate($diamond-rotation);
+            }
+        }
+    }
+
+    &::before {
+        content: " ";
+        @include animate-in();
+        position: absolute;
+        top: -$diamond-offset;
+        left: calc(50% - #{$diamond-offset});
+        background-color: $diamond-color;
+        width: $diamond-size;
+        height: $diamond-size;
+        transform: scale(1.2) rotate(-$diamond-rotation);
+    }
+}
