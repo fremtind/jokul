@@ -31,5 +31,8 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "devDependencies": {
+        "prop-types": "^15.7.2"
     }
 }

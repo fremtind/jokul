@@ -109,6 +109,8 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
         @include position(absolute, $top: 1.75rem, $right: initial, $bottom: initial);
         transition: top 150ms ease-in;
         pointer-events: none;
+        border: none;
+        background-color: transparent;
         &--show {
             top: 0.75rem;
         }

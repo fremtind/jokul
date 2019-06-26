@@ -5,11 +5,16 @@ interface Props {
     label: string;
     items: string[];
     className?: string;
+    onChange: (selection: string) => void;
+    initialInputValue?: string;
 }
 
-export const Dropdown = ({ label, items, className = "" }: Props) => (
+export const Dropdown = ({ label, items, className = "",initialInputValue, onChange }: Props) => {
+    
+    const onSelectionChange = (selection:string) => onChange(selection);
+    return (
     /* eslint-disable jsx-a11y/label-has-associated-control, react/jsx-key */
-    <Downshift>
+    <Downshift onChange={onSelectionChange} initialInputValue={initialInputValue}>
         {({
             getInputProps,
             getToggleButtonProps,
@@ -30,10 +35,7 @@ export const Dropdown = ({ label, items, className = "" }: Props) => (
                 >
                     {label}
                 </label>
-                <span className={`jkl-dropdown__value ${inputValue ? "jkl-dropdown__value--show" : ""}`}>
-                    {inputValue}
-                </span>
-
+                <input type="text" className={`jkl-dropdown__value ${inputValue ? "jkl-dropdown__value--show" : ""}`} value={inputValue !== null?inputValue:undefined} readOnly />
                 <ul className="jkl-dropdown__option" {...getMenuProps()}>
                     {isOpen
                         ? items.map((item, index) => (
@@ -56,4 +58,4 @@ export const Dropdown = ({ label, items, className = "" }: Props) => (
         )}
     </Downshift>
     /* eslint-enable jsx-a11y/label-has-associated-control, react/jsx-key */
-);
+)};
