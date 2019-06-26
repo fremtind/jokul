@@ -1,4 +1,5 @@
 import "@fremtind/jkl-checkbox/checkbox.css";
+import "@fremtind/jkl-core/build/css/core.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Checkbox } from "../src";
