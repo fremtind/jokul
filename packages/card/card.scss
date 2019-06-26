@@ -15,7 +15,8 @@ $card-padding-normal: $component-spacing--xl;
     text-align: inherit;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         // box-shadow: 0 0 0 0.5rem $card-bg-color;
         box-shadow: 0.25rem 0.375rem 1rem rgba(0, 0, 0, 0.15);
         transform: translateY(-0.125rem);
