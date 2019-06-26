@@ -53,7 +53,6 @@ $chevron-weight--hover: 0.1875rem;
         }
         &:hover {
             background-color: rgba($himmelgrå, 0.75);
-            //font-family: "Akkurat Pro";
         }
     }
 
@@ -67,7 +66,7 @@ $chevron-weight--hover: 0.1875rem;
         padding: $content-vertical-padding $horizontal-padding;
         padding-top: $content-vertical-padding - $title-vertical-padding;
     }
-  
+
     &__title-icon {
         @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight);
     }
