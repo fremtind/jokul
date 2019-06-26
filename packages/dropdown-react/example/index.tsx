@@ -8,7 +8,7 @@ const DropdownDemo = () => (
         <Dropdown
             label="Favorite The Room scene"
             items={["The flower shop", "I have cancer", "Throwing the football", "ChripChripChrip"]}
-            onChange={()=>{}}
+            onChange={() => {}}
         />
     </form>
 );
