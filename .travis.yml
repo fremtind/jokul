@@ -1,7 +1,8 @@
 language: node_js
 node_js:
     - "--lts"
-cache: yarn
+cache:
+    yarn: true
     directories:
         - "node_modules"
 script:
