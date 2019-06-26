@@ -6,6 +6,7 @@ cache:
 script:
     - yarn setup
     - yarn build:docs
-    - yarn lint:ts
+    - yarn lint
+    - yarn typecheck
     - yarn test:ci
 branch: master
