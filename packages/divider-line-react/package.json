@@ -1,10 +1,7 @@
 {
-    "name": "@fremtind/jkl-logo-react",
+    "name": "@fremtind/jkl-divider-line-react",
     "version": "0.0.1",
-    "description": "Logo components for Fremtind",
-    "keywords": [
-        "logo"
-    ],
+    "description": "React wrapper for divider-line",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
@@ -23,13 +20,11 @@
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
-    "dependencies": {
-        "@fremtind/jkl-logo": "^0.0.1"
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
     },
-    "peerDependencies": {
-        "@types/react": "^16.8.17",
-        "@types/react-dom": "^16.8.4",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6"
+    "dependencies": {
+        "@fremtind/jkl-divider-line": "^0.0.1",
+        "uuid": "^3.3.2"
     }
 }

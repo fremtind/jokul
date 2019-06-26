@@ -1,18 +1,18 @@
 {
-    "name": "@fremtind/jkl-header",
+    "name": "@fremtind/jkl-divider-line",
     "version": "0.0.1",
-    "description": "Header style for Jøkul",
+    "description": "Style for divider-line in Jøkul",
     "keywords": [
-        "header",
-        "style"
+        "divider",
+        "line"
     ],
-    "license": "MIT",
     "directories": {
         "lib": "build"
     },
     "files": [
         "build"
     ],
+    "license": "MIT",
     "scripts": {
         "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
         "test": "echo \"Error: run tests from root\" && exit 1",
@@ -20,5 +20,8 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^0.0.1"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
     }
 }
