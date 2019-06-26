@@ -10,7 +10,10 @@
         "build:storybook": "cd packages/storybook && yarn build:docs",
         "build:docs": "run-p build:portal build:storybook",
         "commit": "git-cz",
-        "lint:ts": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
+        "typecheck": "tsc --noEmit",
+        "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
+        "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "lint": "yarn run lint:formatting && yarn run lint:scripts",
         "test": "jest -c './jest/jest.all.js'",
         "test:ci": "yarn test --reporters default jest-stare",
         "test:unit": "jest -c './jest/jest.unit.js'",
@@ -59,7 +62,6 @@
         "eslint": "^6.0.0",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-jsx-a11y": "^6.2.1",
-        "eslint-plugin-prettier": "^3.1.0",
         "eslint-plugin-react": "^7.13.0",
         "husky": "^2.3.0",
         "jest": "^24.8.0",
@@ -77,7 +79,6 @@
         "pa11y": "^5.1.0",
         "parcel-bundler": "^1.12.3",
         "prettier": "^1.17.1",
-        "pretty-quick": "^1.11.0",
         "puppeteer": "^1.16.0",
         "rollup": "^1.15.0",
         "rollup-plugin-babel": "^4.3.3",
@@ -102,10 +103,14 @@
         }
     },
     "lint-staged": {
-        "*.{ts, tsx,js,jsx}": [
-            "pretty-quick --staged",
+        "*.{scss,css,html,json}": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.{ts,tsx,js,jsx}": [
+            "prettier --write",
             "git add",
-            "yarn lint:ts"
+            "eslint"
         ]
     },
     "browserslist": [

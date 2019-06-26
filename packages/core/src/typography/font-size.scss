@@ -22,7 +22,7 @@ $font-size--small-device: (
 );
 
 /* desktop: 17, 22, 28, 36, 48, 64 */
-$font-size--large-device:(
+$font-size--large-device: (
     "xs": $font-size-2,
     "small": $font-size-3,
     "medium": $font-size-5,
@@ -45,4 +45,3 @@ $font-size--large-device:(
         @include font-size--small-device($size);
     }
 }
-
