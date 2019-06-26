@@ -1,3 +1,4 @@
 import { TextField } from "./TextField";
+import { TextArea } from "./TextArea";
 
-export { TextField };
+export { TextField, TextArea };
