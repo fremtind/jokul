@@ -1,46 +1,73 @@
-@import "~@fremtind/jkl-core/build/scss/core.scss"; //TODO: import specific pkgs
+@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
+@import "~@fremtind/jkl-core/build/scss/variables/spacing.scss";
+@import "~@fremtind/jkl-core/build/scss/typography/typography.scss";
+@import "~@fremtind/jkl-core/build/scss/mixins/ornaments.scss";
 
-$chevron-color: $svart;
+$border-color: $svart;
+$border-color--focus: $himmel;
+$border-width: 0.0625rem; // TODO: use the new rem() function for units
+$horizontal-padding: $component-spacing--large;
+$title-vertical-padding: $component-spacing--large;
+$content-vertical-padding: $layout-spacing--xl;
+
+// chevron
+$chevron-color: $border-color;
 $chevron-size: 1rem;
-$chevron-weight: 0.125rem;
+$chevron-weight: 0.0625rem; // TODO: use the new rem() function for units
 $chevron-weight--hover: 0.1875rem;
 
 .jkl-accordion-item {
-    margin-bottom: 2.5em;
+    border-bottom: $border-width solid $border-color;
+    &:first-of-type {
+        border-top: $border-width solid $border-color;
+    }
     &--expanded {
         & .jkl-accordion-item__title-icon {
             @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight, $state: open, $rotate: 180);
         }
-        & .jkl-accordion-item__content {
-            height: auto;
-        }
     }
 
     &__title {
-        /* Remove button styles */
         display: flex;
-        width: 100%;
-        border: none;
-        outline: none;
-
-        @include font-size("medium");
-
         justify-content: space-between;
-        margin-bottom: 1.5em;
+        width: 100%;
+
+        /* Remove button styles */
+        outline: none;
+        font-family: inherit;
+        background-color: inherit;
+
+        border: $border-width solid transparent;
+        padding: $title-vertical-padding ($horizontal-padding - $border-width);
+        margin: (-1 * $border-width) 0; // offset border width top and bottom;
+
+        transition: background-color 200ms ease, color 200ms ease;
+
+        @include font-size("small");
 
         &:hover,
         &:active,
         &:focus {
-            font-weight: bold; //TODO: use Akkurat Pro (when implemented)
             cursor: pointer;
+            border-color: $border-color--focus;
+        }
+        &:hover {
+            background-color: rgba($himmelgrå, 0.75);
+            //font-family: "Akkurat Pro";
         }
     }
-    &__content {
-        @include font-size("small");
-        height: 0;
-        overflow: hidden;
+
+    &__content-wrapper {
+        transition: height 300ms ease;
     }
 
+    &__content {
+        @include font-size("medium");
+        height: auto;
+        padding: $content-vertical-padding $horizontal-padding;
+        padding-top: $content-vertical-padding - $title-vertical-padding;
+    }
+  
     &__title-icon {
         @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight);
     }
