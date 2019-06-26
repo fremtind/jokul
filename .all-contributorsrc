@@ -56,6 +56,15 @@
       ]
     },
     {
+      "login": "ambientconflict",
+      "name": "ambientconflict",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/32671873?v=4",
+      "profile": "https://github.com/ambientconflict",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "nicolhag",
       "name": "Nicolai Hagen",
       "avatar_url": "https://avatars3.githubusercontent.com/u/7604910?v=4",
@@ -63,7 +72,14 @@
       "contributions": [
         "code"
       ]
-    }
+    },
+    {"login": "stianlik",
+      "name": "Stian Liknes",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/410251?v=4",
+      "profile": "https://github.com/stianlik",
+      "contributions": [
+        "code"
+      ]}
   ],
   "contributorsPerLine": 7,
   "projectName": "jokul",
