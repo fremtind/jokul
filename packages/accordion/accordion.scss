@@ -5,7 +5,7 @@
 
 $border-color: $svart;
 $border-color--focus: $himmel;
-$border-width: 0.0625rem;
+$border-width: 0.0625rem; // TODO: use the new rem() function for units
 $horizontal-padding: $component-spacing--large;
 $title-vertical-padding: $component-spacing--large;
 $content-vertical-padding: $layout-spacing--xl;
@@ -13,7 +13,7 @@ $content-vertical-padding: $layout-spacing--xl;
 // chevron
 $chevron-color: $border-color;
 $chevron-size: 1rem;
-$chevron-weight: 0.125rem;
+$chevron-weight: 0.0625rem; // TODO: use the new rem() function for units
 $chevron-weight--hover: 0.1875rem;
 
 .jkl-accordion-item {
@@ -21,22 +21,18 @@ $chevron-weight--hover: 0.1875rem;
     &:first-of-type {
         border-top: $border-width solid $border-color;
     }
-
     &--expanded {
         & .jkl-accordion-item__title-icon {
             @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight, $state: open, $rotate: 180);
         }
-        & .jkl-accordion-item__content {
-            height: auto;
-            padding: $content-vertical-padding $horizontal-padding;
-            padding-top: $content-vertical-padding - $title-vertical-padding;
-        }
     }
 
     &__title {
-        /* Remove button styles */
         display: flex;
+        justify-content: space-between;
         width: 100%;
+
+        /* Remove button styles */
         outline: none;
         font-family: inherit;
         background-color: inherit;
@@ -45,9 +41,9 @@ $chevron-weight--hover: 0.1875rem;
         padding: $title-vertical-padding ($horizontal-padding - $border-width);
         margin: (-1 * $border-width) 0; // offset border width top and bottom;
 
-        @include font-size("small");
+        transition: background-color 200ms ease, color 200ms ease;
 
-        justify-content: space-between;
+        @include font-size("small");
 
         &:hover,
         &:active,
@@ -55,11 +51,21 @@ $chevron-weight--hover: 0.1875rem;
             cursor: pointer;
             border-color: $border-color--focus;
         }
+        &:hover {
+            background-color: rgba($himmelgrå, 0.75);
+            //font-family: "Akkurat Pro";
+        }
     }
+
+    &__content-wrapper {
+        transition: height 300ms ease;
+    }
+
     &__content {
         @include font-size("medium");
-        height: 0;
-        overflow: hidden;
+        height: auto;
+        padding: $content-vertical-padding $horizontal-padding;
+        padding-top: $content-vertical-padding - $title-vertical-padding;
     }
 
     &__title-icon {
