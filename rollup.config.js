@@ -1,5 +1,6 @@
 import nodeResolve from "rollup-plugin-node-resolve";
 import babel from "rollup-plugin-babel";
+import commonjs from "rollup-plugin-commonjs";
 
 const extensions = [".ts", ".tsx"];
 const outputFolder = "build";
@@ -13,6 +14,12 @@ let newVar = {
             rootMode: "upward",
             extensions,
             exclude: ["node_modules/**", "*.stories.*"], // only transpile our source code
+        }),
+        commonjs({
+            namedExports: {
+                "react-is": ["isForwardRef"],
+            },
+            include: [/node_modules\/prop-types/, /node_modules\/react-is/],
         }),
     ],
     external: ["react"],

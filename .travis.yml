@@ -1,12 +1,9 @@
 language: node_js
 node_js:
-    - "lts/dubnium"
+    - "--lts"
 cache:
-    directories:
-        - "node_modules"
-        - "build"
+    yarn: true
 script:
-    - yarn
     - yarn setup
     - yarn build:docs
     - yarn lint
