@@ -1,0 +1,25 @@
+{
+    "name": "@fremtind/jkl-checkbox-react",
+    "version": "0.0.1",
+    "description": "React Checkboxes for Jøkul",
+    "keywords": [
+        "checkbox"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "yarn run build:scripts && yarn run build:types",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
+    }
+}
