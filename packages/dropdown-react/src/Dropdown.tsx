@@ -9,7 +9,7 @@ interface Props {
     initialInputValue?: string;
 }
 
-export const Dropdown = ({ label, items, className = "",initialInputValue, onChange }: Props) => {
+export const Dropdown = ({ label, items, className = "", initialInputValue, onChange }: Props) => {
     
     const onSelectionChange = (selection:string) => onChange(selection);
     return (
@@ -35,7 +35,12 @@ export const Dropdown = ({ label, items, className = "",initialInputValue, onCha
                 >
                     {label}
                 </label>
-                <input type="text" className={`jkl-dropdown__value ${inputValue ? "jkl-dropdown__value--show" : ""}`} value={inputValue !== null?inputValue:undefined} readOnly />
+                <input 
+                    type="text"
+                    className={`jkl-dropdown__value ${inputValue ? "jkl-dropdown__value--show" : ""}`}
+                    value={inputValue !== null ? inputValue : undefined}
+                    readOnly
+                />
                 <ul className="jkl-dropdown__option" {...getMenuProps()}>
                     {isOpen
                         ? items.map((item, index) => (
