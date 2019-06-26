@@ -63,7 +63,14 @@
       "contributions": [
         "code"
       ]
-    }
+    },
+    {"login": "stianlik",
+      "name": "Stian Liknes",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/410251?v=4",
+      "profile": "https://github.com/stianlik",
+      "contributions": [
+        "code"
+      ]}
   ],
   "contributorsPerLine": 7,
   "projectName": "jokul",
