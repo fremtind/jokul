@@ -14,3 +14,8 @@
     @include font-size("xs");
     @include line-height("xs");
 }
+
+.jkl-tiny {
+    @include font-size("xxs");
+    @include line-height("xxs");
+}
