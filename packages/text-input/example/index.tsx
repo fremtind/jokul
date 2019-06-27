@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../text-field.scss";
+import "../text-input.scss";
 
 // eslint-disable-next-line
 const Input = ({ label, valid = true }: any) => (
@@ -29,6 +29,7 @@ const Inputs = () => (
             <Input label="Etternavn" />
             <Input label="Epost" valid={false} />
             <TextArea label="Din livshistorie" />
+            <TextArea label="Min livshistorie" />
         </div>
     </main>
 );

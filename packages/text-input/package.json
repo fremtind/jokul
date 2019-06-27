@@ -1,7 +1,7 @@
 {
-    "name": "@fremtind/jkl-text-field",
+    "name": "@fremtind/jkl-text-input",
     "version": "0.0.1",
-    "description": "Style for text field components",
+    "description": "Style for text input components",
     "keywords": [
         "text",
         "text",

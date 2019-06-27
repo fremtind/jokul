@@ -1,7 +1,7 @@
 {
-    "name": "@fremtind/jkl-text-field-react",
+    "name": "@fremtind/jkl-text-input-react",
     "version": "0.0.1",
-    "description": "React component for text field",
+    "description": "React component for text input, text field and text area",
     "keywords": [
         "react",
         "text",
@@ -29,10 +29,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1",
-        "@fremtind/jkl-text-field": "^0.0.1",
-        "@types/uuid": "^3.4.4",
-        "uuid": "^3.3.2"
+        "@fremtind/jkl-text-input": "^0.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
