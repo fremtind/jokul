@@ -1,0 +1,16 @@
+@import "../button";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.jkl-button {
+    margin: 0 1rem;
+}

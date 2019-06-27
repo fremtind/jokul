@@ -45,6 +45,7 @@ $hover-elevation-distance: -0.25rem;
         border-radius: 9em;
         border: solid $button-border-width black;
         box-sizing: border-box;
+        display: inline-block;
         font-size: $button-font-size;
         height: $button-height;
         line-height: $button-height;
