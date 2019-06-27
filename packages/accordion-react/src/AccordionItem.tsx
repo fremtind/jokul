@@ -15,12 +15,17 @@ export function AccordionItem({ children, title, startExpanded = false }: Props)
     const openClassName = isOpen ? " jkl-accordion-item--expanded" : "";
     const onToggle = () => setIsOpen(!isOpen);
     return (
-        <div className={`jkl-accordion-item${openClassName}`}>
+        <div data-testid="jkl-accordion-item" className={`jkl-accordion-item${openClassName}`}>
             <button className="jkl-accordion-item__title" type="button">
                 <div className="jkl-accordion-item__title-text">{title}</div>
                 <div className="jkl-accordion-item__title-icon" />
             </button>
-            <CoreToggle className="jkl-accordion-item__content-wrapper" hidden={!isOpen} onToggle={onToggle}>
+            <CoreToggle
+                data-testid="jkl-accordion-item__content-wrapper"
+                className="jkl-accordion-item__content-wrapper"
+                hidden={!isOpen}
+                onToggle={onToggle}
+            >
                 <div className="jkl-accordion-item__content">{children}</div>
             </CoreToggle>
         </div>

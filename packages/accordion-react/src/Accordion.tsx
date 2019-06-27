@@ -5,5 +5,9 @@ interface Props {
 }
 
 export function Accordion({ children }: Props) {
-    return <div className="jkl-accordion">{children}</div>;
+    return (
+        <div data-testid="jkl-accordion" className="jkl-accordion">
+            {children}
+        </div>
+    );
 }

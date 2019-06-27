@@ -6482,6 +6482,13 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+document-register-element@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/document-register-element/-/document-register-element-1.13.2.tgz#e1773941f6e39345aefec909cc753e82993b415d"
+  integrity sha512-zFmrflJsehS9r86gNiBdvShz+Iuvg8Xnxq715+mrTuHNBway5c24ldTdVmqKxpD4WQBo1HnSflvSJdPgSBb11A==
+  dependencies:
+    lightercollective "^0.3.0"
+
 dom-converter@^0.2:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/dom-converter/-/dom-converter-0.2.0.tgz#6721a9daee2e293682955b6afe416771627bb768"
@@ -10168,6 +10175,11 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
+
+lightercollective@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/lightercollective/-/lightercollective-0.3.0.tgz#1f07638642ec645d70bdb69ab2777676f35a28f0"
+  integrity sha512-RFOLSUVvwdK3xA0P8o6G7QGXLIyy1L2qv5caEI7zXN5ciaEjbAriRF182kbsoJ1S1TgvpyGcN485fMky6qxOPw==
 
 lint-staged@^8.1.7:
   version "8.2.1"
