@@ -69,7 +69,7 @@ $line-height--large-device: (
 }
 
 @mixin font-size--small-device($size) {
-    font-size: map-get($font-size--large-device, $size);
+    font-size: map-get($font-size--small-device, $size);
 }
 
 @mixin font-size($size) {
@@ -84,7 +84,7 @@ $line-height--large-device: (
 }
 
 @mixin line-height--small-device($size) {
-    line-height: map-get($line-height--large-device, $size);
+    line-height: map-get($line-height--small-device, $size);
 }
 
 @mixin line-height($size) {
