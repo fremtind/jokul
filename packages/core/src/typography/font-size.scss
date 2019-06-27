@@ -1,34 +1,67 @@
 @import "../mixins/screens.scss";
+@import "../functions.scss";
 
-$font-size-1: 0.875rem; //14px
-$font-size-2: 1.0625rem; //17px
-$font-size-3: 1.375rem; //22px
-$font-size-4: 1.625rem; //26px
-$font-size-5: 1.75rem; //28px
-$font-size-6: 2rem; //32px
-$font-size-7: 2.25rem; //36px
-$font-size-8: 2.75rem; //44px
-$font-size-9: 3rem; //48px;
-$font-size-10: 4rem; //64px;
+$font-size-1: rem(14px);
+$font-size-2: rem(17px);
+$font-size-3: rem(22px);
+$font-size-4: rem(26px); // TODO: remove (not used)
+$font-size-5: rem(28px);
+$font-size-6: rem(32px); // TODO: remove (not used)
+$font-size-7: rem(36px);
+$font-size-8: rem(40px); // TODO: remove (not used)
+$font-size-9: rem(48px);
+$font-size-10: rem(64px);
 
-/* mobil: 14, 17, 22, 26, 32, 44 */
+$line-height-1: rem(16px);
+$line-height-2: rem(24px);
+$line-height-3: rem(32px);
+$line-height-4: rem(40px);
+$line-height-5: rem(48px);
+$line-height-6: rem(56px);
+$line-height-7: rem(72px);
+
+/* mobil: 14, 17, 17, 22, 28, 36, 48 */
 $font-size--small-device: (
-    "xs": $font-size-1,
+    "xxs": $font-size-1,
+    "xs": $font-size-2,
     "small": $font-size-2,
     "medium": $font-size-3,
-    "large": $font-size-4,
-    "xl": $font-size-6,
-    "xxl": $font-size-8,
+    "large": $font-size-5,
+    "xl": $font-size-7,
+    "xxl": $font-size-9,
 );
 
-/* desktop: 17, 22, 28, 36, 48, 64 */
+/* desktop: 17, 17, 22, 28, 36, 48, 64 */
 $font-size--large-device: (
+    "xxs": $font-size-2,
     "xs": $font-size-2,
     "small": $font-size-3,
     "medium": $font-size-5,
     "large": $font-size-7,
     "xl": $font-size-9,
     "xxl": $font-size-10,
+);
+
+/* mobil: 16, 24, 24, 32, 32, 48, 56 */
+$line-height--small-device: (
+    "xxs": $line-height-1,
+    "xs": $line-height-2,
+    "small": $line-height-2,
+    "medium": $line-height-3,
+    "large": $line-height-3,
+    "xl": $line-height-5,
+    "xxl": $line-height-6,
+);
+
+/* desktop: 24, 24, 32, 40, 48, 56, 64 */
+$line-height--large-device: (
+    "xxs": $line-height-2,
+    "xs": $line-height-2,
+    "small": $line-height-3,
+    "medium": $line-height-4,
+    "large": $line-height-5,
+    "xl": $line-height-6,
+    "xxl": $line-height-7,
 );
 
 @mixin font-size--large-device($size) {
@@ -43,5 +76,20 @@ $font-size--large-device: (
     @include font-size--large-device($size);
     @include small-device {
         @include font-size--small-device($size);
+    }
+}
+
+@mixin line-height--large-device($size) {
+    line-height: map-get($line-height--large-device, $size);
+}
+
+@mixin line-height--small-device($size) {
+    line-height: map-get($line-height--large-device, $size);
+}
+
+@mixin line-height($size) {
+    @include line-height--large-device($size);
+    @include small-device {
+        @include line-height--small-device($size);
     }
 }
