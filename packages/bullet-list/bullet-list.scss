@@ -32,20 +32,21 @@ $bullet-nested-item-indent: $component-spacing--xxl;
             margin-right: $bullet-item-indent;
             margin-bottom: $bullet-point-center-offset;
         }
-        &--nested {
-            @extend .jkl-bullet-list__item;
-            margin-left: $bullet-nested-item-indent;
-            &::before {
-                box-shadow: inset 0px 0px 0px rem(1px) $svart;
-                background-color: transparent;
-            }
-        }
     }
     &__item:last-child {
         margin-bottom: 0;
     }
-    &--lead {
-        @extend .jkl-bullet-list;
-        @extend .jkl-lead;
+    &__item--nested {
+        @extend .jkl-bullet-list__item;
+        margin-left: $bullet-nested-item-indent;
+        &::before {
+            box-shadow: inset 0px 0px 0px rem(1px) $svart;
+            background-color: transparent;
+        }
     }
+}
+
+.jkl-bullet-list--lead {
+    @extend .jkl-bullet-list;
+    @extend .jkl-lead;
 }
