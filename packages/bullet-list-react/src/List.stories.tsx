@@ -14,16 +14,24 @@ stories.add("BulletList", () => {
             <Ul>
                 <Li>Linnie Neal</Li>
                 <Li>Rena Taylor</Li>
-                <Li>Garrett Mack</Li>
-                <Li nested>Rebecca Robbins</Li>
+                <Li>
+                    Garrett Mack
+                    <Ul>
+                        <Li>Rebecca Robbins</Li>
+                    </Ul>
+                </Li>
             </Ul>
             <div style={{ margin: "20px" }} />
             <h2>With Lead styling</h2>
             <Ul lead>
                 <Li>Linnie Neal</Li>
                 <Li>Rena Taylor</Li>
-                <Li>Garrett Mack</Li>
-                <Li nested>Rebecca Robbins</Li>
+                <Li>
+                    Garrett Mack
+                    <Ul>
+                        <Li>Rebecca Robbins</Li>
+                    </Ul>
+                </Li>
             </Ul>
         </StoryTemplate>
     );
