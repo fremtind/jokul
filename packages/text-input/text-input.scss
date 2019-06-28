@@ -13,7 +13,6 @@
 
 @mixin raise-label {
     @include label-font-size--raised();
-    line-height: $text-field-size;
     top: 0;
     left: 0;
 }
@@ -35,6 +34,7 @@ $text-area-height: 12rem;
 .jkl-text-area {
     & .jkl-text-field__input {
         transition: all 175ms ease;
+        margin-top: rem(4px);
         &:focus-within,
         &:not(:placeholder-shown) {
             & .jkl-text-area {
