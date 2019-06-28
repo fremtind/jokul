@@ -28,14 +28,12 @@ $hover-elevation-distance: -0.25rem;
     &:focus,
     &:hover {
         > .jkl-button__label {
-            box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.16);
-            transform: translateY($hover-elevation-distance);
+            transform: scaleX(1.05) scaleY(1.1);
         }
     }
     &:active {
         > .jkl-button__label {
-            box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16);
-            transform: translateY($hover-elevation-distance / 2);
+            transform: scale(1);
         }
     }
 
@@ -53,6 +51,7 @@ $hover-elevation-distance: -0.25rem;
         padding: 0 1.5rem;
         text-overflow: ellipsis;
         transition: transform $animation-timing, box-shadow $animation-timing;
+        transform-origin: 50% 90%;
         white-space: nowrap;
         z-index: 0;
     }
