@@ -17,79 +17,50 @@ $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
 .jkl-button {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: auto;
     border: none;
-    display: inline-flex;
+    font-size: $button-font-size;
     height: $button-height;
+    line-height: $button-height;
     max-width: 30ch;
     min-width: $button-width;
     outline: none;
-    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform-origin: 50% 90%;
+    transition: transform $animation-timing;
+    white-space: nowrap;
 
     &:focus,
     &:hover {
-        > .jkl-button__label {
-            transform: scaleX(1.05) scaleY(1.1);
-        }
-    }
-    &:active {
-        > .jkl-button__label {
-            transform: scale(1);
-        }
+        transform: scale(1.05, 1.1);
     }
 
-    &__label {
-        -moz-osx-font-smoothing: auto;
-        -webkit-font-smoothing: auto;
-        border-radius: 9em;
-        border: solid $button-border-width black;
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: $button-font-size;
-        height: $button-height;
-        line-height: $button-height;
-        overflow: hidden;
-        padding: 0 1.5rem;
-        text-overflow: ellipsis;
-        transition: transform $animation-timing, box-shadow $animation-timing;
-        transform-origin: 50% 90%;
-        white-space: nowrap;
-        z-index: 0;
+    &:active {
+        transform: scale(1);
     }
 
     /********* VARIANTS *********/
     &--primary {
+        background-color: $button-bg-color--primary;
         color: $button-text-color--primary;
-        > .jkl-button__label {
-            background-color: $button-bg-color--primary;
-        }
     }
 
     &--secondary {
+        background-color: $button-bg-color;
         color: $button-text-color;
-        > .jkl-button__label {
-            background-color: $button-bg-color;
-        }
     }
 
+    &--primary,
+    &--secondary {
+        border: solid $button-border-width $button-border-color;
+        border-radius: 99px;
+        padding: 0 1.5rem;
+    }
     &--tertiary {
-        background: transparent;
-        box-shadow: none;
-        border-radius: 0;
-
-        > .jkl-button__label {
-            padding: 0;
-        }
-
-        &:hover {
-            > .jkl-button__label {
-                box-shadow: none;
-            }
-        }
-
-        & > .jkl-button__label {
-            border-radius: 0;
-            border: 0;
-            border-bottom: solid $button-border-width $button-border-color;
-        }
+        border-bottom: solid $button-border-width $button-border-color;
+        border-top: solid $button-border-width transparent;
+        padding: 0;
     }
 }
