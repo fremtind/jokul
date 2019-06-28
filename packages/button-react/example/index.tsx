@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
+import "@fremtind/jkl-button/button.css";
 
 function onClick() {
     console.log("Hello!");

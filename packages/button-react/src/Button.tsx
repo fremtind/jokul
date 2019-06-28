@@ -13,7 +13,7 @@ function makeButtonComponent(buttonType: ValidButtons) {
         const { children, className = "", onClick } = props;
         return (
             <button onClick={onClick} className={`jkl-button jkl-button--${buttonType} ${className}`}>
-                <div className="jkl-button__label">{children}</div>
+                {children}
             </button>
         );
     };
