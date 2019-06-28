@@ -2,12 +2,20 @@
 
 .jkl-p {
     @include font-size("small");
+    @include line-height("small");
 }
 
 .jkl-lead {
     @include font-size("medium");
+    @include line-height("medium");
 }
 
 .jkl-small {
     @include font-size("xs");
+    @include line-height("xs");
+}
+
+.jkl-tiny {
+    @include font-size("xxs");
+    @include line-height("xxs");
 }

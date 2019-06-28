@@ -1,5 +1,5 @@
 import { Grid, GridElement } from "@fremtind/jkl-grid-react";
-import { SmallText } from "@fremtind/jkl-typography-react";
+import { TinyParagraph } from "@fremtind/jkl-typography-react";
 import React from "react";
 
 interface Props {
@@ -13,24 +13,24 @@ export const Footer = ({ className = "" }: Props) => (
             <GridElement columnSpan={3}>
                 <ul>
                     <li>
-                        <SmallText>Fremtind Forsikring AS</SmallText>
+                        <TinyParagraph>Fremtind Forsikring AS</TinyParagraph>
                     </li>
                     <li>
-                        <SmallText>Postboks 778 Sentrum, 0106 Oslo</SmallText>
+                        <TinyParagraph>Postboks 778 Sentrum, 0106 Oslo</TinyParagraph>
                     </li>
                     <li>
-                        <SmallText>
+                        <TinyParagraph>
                             Telefon: <br />
                             SpareBank 1: 915 02300 <br />
                             DNB: 915 04800
-                        </SmallText>
+                        </TinyParagraph>
                     </li>
                     <li>
-                        <SmallText>
+                        <TinyParagraph>
                             Organisasjonsnummer:
                             <br />
                             915 651 232
-                        </SmallText>
+                        </TinyParagraph>
                     </li>
                 </ul>
             </GridElement>
