@@ -4,7 +4,7 @@ node_js:
 cache:
     yarn: true
 script:
-    - yarn setup
+    - yarn build
     - yarn build:docs
     - yarn lint
     - yarn typecheck
