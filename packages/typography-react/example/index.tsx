@@ -2,7 +2,7 @@ import "@fremtind/jkl-core/src/typography/typography.scss";
 import "@fremtind/jkl-core/src/normalize.scss";
 import React from "react";
 import ReactDOM from "react-dom";
-import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, SmallText } from "../src";
+import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "../src";
 
 const Typography = () => (
     <>
@@ -24,11 +24,11 @@ const Typography = () => (
             dusky night side of the planet against the brilliant crescent of the day like the &quot;new moon in the arms
             of the old,&quot; or, as Miss Carmichael said, &quot;like an amethyst in a silver clasp.&quot;
         </SmallParagraph>
-        <SmallText>
-            SmallText: The unwonted sadness of her tone reminded me of her devoted life, and I turned towards her with
-            new interest and sympathy. She was looking at the Evening Star, whose bright beam softened the
+        <TinyParagraph>
+            TinyParagraph: The unwonted sadness of her tone reminded me of her devoted life, and I turned towards her
+            with new interest and sympathy. She was looking at the Evening Star, whose bright beam softened the
             irregularities of her profile, and made her almost beautiful.
-        </SmallText>
+        </TinyParagraph>
 
         <H2 styledAs="h1">Semantic h2, looks like h1</H2>
         <H1 styledAs="h3">Semantic h1, looks like h3</H1>

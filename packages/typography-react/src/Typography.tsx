@@ -30,4 +30,4 @@ export const H4 = makeTypographyComponent("h4");
 export const LeadParagraph = makeTypographyComponent("p", "lead");
 export const P = makeTypographyComponent("p");
 export const SmallParagraph = makeTypographyComponent("p", "small");
-export const SmallText = makeTypographyComponent("p", "tiny");
+export const TinyParagraph = makeTypographyComponent("p", "tiny");
