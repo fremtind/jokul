@@ -1,7 +1,7 @@
 import React from "react";
 import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import { Footer } from ".";
 import "@fremtind/jkl-footer/footer.css";
 import "@fremtind/jkl-core/build/css/core.css";
