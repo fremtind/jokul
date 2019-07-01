@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Ul, Li } from "../src";
 import "@fremtind/jkl-bullet-list/bullet-list.scss";
-import "@fremtind/jkl-core/src/core.scss"; // TODO: remove
+import "@fremtind/jkl-core/src/core.scss";
 
 const UlExample = () => (
     <>

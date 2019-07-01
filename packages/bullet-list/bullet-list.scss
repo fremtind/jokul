@@ -17,17 +17,12 @@ $bullet-nested-item-indent: $component-spacing--xxl;
     @extend .jkl-p;
 
     & > &__item {
-        //display: list-item;
-        //align-items: center;
-        //list-style-type: none;
         margin: $bullet-item-space-between 0;
 
         &::before {
             content: "";
             display: inline-block;
             height: $bullet-size;
-            //min-height: $bullet-size;
-            //min-width: $bullet-size;
             width: $bullet-size;
             background-color: $svart;
             transform: rotate(45deg);
