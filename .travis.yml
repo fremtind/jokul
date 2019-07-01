@@ -4,9 +4,16 @@ node_js:
 cache:
     yarn: true
 script:
-    - yarn setup
+    - yarn build
     - yarn build:docs
     - yarn lint
     - yarn typecheck
     - yarn test:ci
 branch: master
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    on:
+        branch: master
