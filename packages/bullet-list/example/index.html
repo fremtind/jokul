@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html style="height: 100%">
+<html>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Bullet list</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="index.scss" />
     </head>
 
-    <body style="height:100%;display:flex;align-items:center;justify-content:center;">
-        <div id="app"></div>
-        <script src="index.tsx"></script>
+    <body>
+        <ul class="jkl-bullet-list">
+            <li class="jkl-bullet-list__item">Normal bullet list</li>
+            <li class="jkl-bullet-list__item">Oh hi Mark</li>
+            <li class="jkl-bullet-list__item">Oh hi Johnny</li>
+            <li class="jkl-bullet-list__item">
+                How is your life
+                <ul class="jkl-bullet-list">
+                    <li class="jkl-bullet-list__item">
+                        Oh, yeah, nice
+                        <ul class="jkl-bullet-list jkl-bullet-list">
+                            <li class="jkl-bullet-list__item">Two-deep nesting</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="jkl-bullet-list jkl-lead">
+            <li class="jkl-bullet-list__item">Lead bullet list</li>
+            <li class="jkl-bullet-list__item">Oh hi Mark</li>
+            <li class="jkl-bullet-list__item">Oh hi Johnny</li>
+            <li class="jkl-bullet-list__item">
+                How is your life
+                <ul class="jkl-bullet-list jkl-lead">
+                    <li class="jkl-bullet-list__item">
+                        Oh, yeah, nice
+                        <ul class="jkl-bullet-list jkl-lead">
+                            <li class="jkl-bullet-list__item">Two-deep nesting</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </body>
 </html>
