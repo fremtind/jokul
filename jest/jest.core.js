@@ -14,5 +14,5 @@ module.exports = {
     notify: true,
     notifyMode: "always",
     roots: ["../packages"],
-    setupFilesAfterEnv: ["./setupTests.js"],
+    setupFilesAfterEnv: ["./setupTests.ts"],
 };

@@ -4,7 +4,12 @@ import PropTypes from "prop-types";
 import "../src/core.scss";
 import "./style.scss";
 
-const Box = ({ type, number }) => <div className={`demo-${type}--${number + 1}`} />;
+interface BoxProps {
+    type: "color" | "component" | "layout";
+    number: number;
+}
+
+const Box = ({ type, number }: BoxProps) => <div className={`demo-${type}--${number + 1}`} />;
 
 Box.propTypes = {
     type: PropTypes.string,
