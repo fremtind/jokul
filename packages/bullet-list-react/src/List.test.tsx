@@ -10,8 +10,12 @@ describe("bullet list, Ul and Li", () => {
             <Ul>
                 <Li>Kibogiedo</Li>
                 <Li>Ovoopisow</Li>
-                <Li>Omocebig</Li>
-                <Li nested>Ramzoge</Li>
+                <Li>
+                    Omocebig
+                    <Ul>
+                        <Li>Ramzoge</Li>
+                    </Ul>
+                </Li>
             </Ul>,
         );
         expect(getByText("Kibogiedo")).toBeInTheDocument();
@@ -25,8 +29,12 @@ describe("bullet list, Ul and Li", () => {
             <Ul lead>
                 <Li>Kibogiedo</Li>
                 <Li>Ovoopisow</Li>
-                <Li>Omocebig</Li>
-                <Li nested>Ramzoge</Li>
+                <Li>
+                    Omocebig
+                    <Ul>
+                        <Li>Ramzoge</Li>
+                    </Ul>
+                </Li>
             </Ul>,
         );
         expect(getByText("Kibogiedo")).toBeInTheDocument();
