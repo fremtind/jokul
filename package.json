@@ -2,13 +2,8 @@
     "name": "@fremtind/jkl",
     "private": true,
     "scripts": {
-        "prebuild": "run-s build:utils build:core",
-        "build": "lerna exec --parallel yarn build",
-        "build:utils": "cd packages/utils && yarn build:before",
-        "build:core": "cd packages/core && yarn build:before",
-        "build:portal": "cd packages/portal && yarn build:docs",
-        "build:storybook": "cd packages/storybook && yarn build:docs",
-        "build:docs": "run-p build:portal build:storybook",
+        "build": "lerna run build",
+        "build:docs": "lerna run build:docs",
         "commit": "git-cz",
         "typecheck": "tsc --noEmit",
         "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
@@ -23,9 +18,7 @@
         "start": "run-p start:storybook start:portal",
         "start:storybook": "cd packages/storybook && yarn storybook",
         "start:portal": "cd packages/portal && yarn dev",
-        "dev": "parcel",
-        "setup": "run-s prebuild setup:build",
-        "setup:build": "lerna exec yarn build"
+        "dev": "parcel"
     },
     "dependencies": {
         "@types/react": "^16.8.17",

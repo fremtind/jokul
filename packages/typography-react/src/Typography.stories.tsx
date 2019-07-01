@@ -3,7 +3,7 @@ import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
 import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from ".";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import "@fremtind/jkl-core/build/css/core.css";
 
 const headerStories = storiesOf("Typografi/Overskrifter", module);

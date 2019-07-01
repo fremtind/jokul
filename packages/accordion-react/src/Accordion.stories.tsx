@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import "@fremtind/jkl-accordion/accordion.css";
 
 import { Accordion, AccordionItem } from ".";

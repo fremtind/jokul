@@ -2,7 +2,7 @@
     "--COMMENT--": "This file is only kept to keep IDE integration with typescript better",
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "rootDir": "../",
+        "rootDirs": ["../", "../../"],
         "jsx": "react"
     }
 }
