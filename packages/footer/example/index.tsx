@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { SmallText } from "@fremtind/jkl-typography-react";
+import { SmallParagraph } from "@fremtind/jkl-typography-react";
 import { Grid, GridElement } from "@fremtind/jkl-grid-react";
 import "@fremtind/jkl-grid/grid.css";
 import "@fremtind/jkl-core/build/css/core.css";
@@ -14,24 +14,24 @@ const FooterDemo = ({ className = "" }) => (
             <GridElement columnSpan={3}>
                 <ul>
                     <li>
-                        <SmallText>Fremtind Forsikring AS</SmallText>
+                        <SmallParagraph>Fremtind Forsikring AS</SmallParagraph>
                     </li>
                     <li>
-                        <SmallText>Postboks 778 Sentrum, 0106 Oslo</SmallText>
+                        <SmallParagraph>Postboks 778 Sentrum, 0106 Oslo</SmallParagraph>
                     </li>
                     <li>
-                        <SmallText>
+                        <SmallParagraph>
                             Telefon: <br />
                             SpareBank 1: 915 02300 <br />
                             DNB: 915 04800
-                        </SmallText>
+                        </SmallParagraph>
                     </li>
                     <li>
-                        <SmallText>
+                        <SmallParagraph>
                             Organisasjonsnummer:
                             <br />
                             915 651 232
-                        </SmallText>
+                        </SmallParagraph>
                     </li>
                 </ul>
             </GridElement>
