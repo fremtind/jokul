@@ -25,7 +25,11 @@ export const Dropdown = ({ label, items, className = "", initialInputValue, onCh
                 getItemProps,
             }) => (
                 <div className={`jkl-dropdown ${isOpen ? "jkl-dropdown--open" : ""} ${className}`} {...getInputProps()}>
-                    <button className="jkl-dropdown__toggler" {...getToggleButtonProps()}>
+                    <button
+                        data-testid="jkl-dropdown-button"
+                        className="jkl-dropdown__toggler"
+                        {...getToggleButtonProps()}
+                    >
                         {isOpen ? "Lukk" : "Åpne"}
                     </button>
                     <label
@@ -35,6 +39,7 @@ export const Dropdown = ({ label, items, className = "", initialInputValue, onCh
                         {label}
                     </label>
                     <input
+                        data-testid="jkl-dropdown-input"
                         type="text"
                         className={`jkl-dropdown__value ${inputValue ? "jkl-dropdown__value--show" : ""}`}
                         value={inputValue !== null ? inputValue : undefined}

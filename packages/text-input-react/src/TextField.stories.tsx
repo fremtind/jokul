@@ -3,9 +3,9 @@ import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { withKnobs, text, select, boolean } from "@storybook/addon-knobs";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import { TextField } from ".";
-import "@fremtind/jkl-text-field/text-field.css";
+import "@fremtind/jkl-text-input/text-input.css";
 
 const stories = storiesOf("Atom/Form elements", module);
 stories.addDecorator(withKnobs);

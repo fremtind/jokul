@@ -1,9 +1,9 @@
 import React from "react";
 import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
-import { H1, H2, H3, H4, LeadParagraph, P, SmallText } from ".";
+import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from ".";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import "@fremtind/jkl-core/build/css/core.css";
 
 const headerStories = storiesOf("Typografi/Overskrifter", module);
@@ -96,11 +96,22 @@ textStories.add("P", () => {
         </StoryTemplate>
     );
 });
-textStories.add("SmallText", () => {
+textStories.add("SmallParagraph", () => {
+    const dummyText = text("Text", "Noen ganger trenger du litt ekstra plass");
+    return (
+        <StoryTemplate
+            title="SmallParagraph"
+            tldr="Brukes i interne løsninger der normal tekst blit for stor. Samme størrelse på desktop og mobil."
+        >
+            <SmallParagraph>{dummyText}</SmallParagraph>
+        </StoryTemplate>
+    );
+});
+textStories.add("TinyParagraph", () => {
     const dummyText = text("Text", "Vi driver med forsikring, men prøver å unngå liten tekst.");
     return (
-        <StoryTemplate title="SmallText" tldr="Skal kun brukes som støtteelement">
-            <SmallText>{dummyText}</SmallText>
+        <StoryTemplate title="TinyParagraph" tldr="Skal kun brukes som støtteelement">
+            <TinyParagraph>{dummyText}</TinyParagraph>
         </StoryTemplate>
     );
 });

@@ -3,7 +3,7 @@ import { withInfo } from "@storybook/addon-info";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import { LogoAnimated, LogoMain, LogoSymbol } from ".";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import "@fremtind/jkl-logo/logo.css";
 
 const stories = storiesOf("Atom/Logo", module);

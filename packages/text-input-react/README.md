@@ -1,4 +1,4 @@
-# `text-field-react`
+# `text-input-react`
 
 React implementation of text-field.
 

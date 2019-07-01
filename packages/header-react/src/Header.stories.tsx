@@ -3,7 +3,7 @@ import { withInfo } from "@storybook/addon-info";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import { Header } from ".";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import "@fremtind/jkl-header/header.css";
 
 const stories = storiesOf("Molekyl/Header", module);

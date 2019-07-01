@@ -13,7 +13,6 @@
 
 @mixin raise-label {
     @include label-font-size--raised();
-    line-height: $text-field-size;
     top: 0;
     left: 0;
 }
@@ -24,14 +23,29 @@
 
 $text-field-size: 2rem;
 $padding-top: $text-field-size;
-$padding-left: 0.5rem;
 $input-height: 3rem;
 $input-bg-color: $snøhvit;
 $border-color: $svart;
 $border-hover-color: $himmel;
 $border-weight: 0.125rem;
 $error-color: $blomst;
-$error-bg-color: rgba(255, 112, 89, 0.2); /* blomst med 0.2 opacity */
+$text-area-height: 12rem;
+
+.jkl-text-area {
+    & .jkl-text-field__input {
+        transition: all 175ms ease;
+        margin-top: rem(4px);
+        &:focus-within,
+        &:not(:placeholder-shown) {
+            & .jkl-text-area {
+                height: initial;
+                height: $text-area-height;
+            }
+            height: initial;
+            height: $text-area-height;
+        }
+    }
+}
 
 .jkl-text-field {
     display: block;
@@ -42,7 +56,6 @@ $error-bg-color: rgba(255, 112, 89, 0.2); /* blomst med 0.2 opacity */
 
     &__input {
         @include label-font-size--normal();
-        padding-left: $padding-left;
         font-family: inherit;
         height: $input-height;
         background-color: $input-bg-color;
@@ -67,7 +80,6 @@ $error-bg-color: rgba(255, 112, 89, 0.2); /* blomst med 0.2 opacity */
                 font-weight: bold;
                 color: $error-color;
             }
-            background-color: $error-bg-color;
         }
     }
     &__border {
@@ -79,37 +91,24 @@ $error-bg-color: rgba(255, 112, 89, 0.2); /* blomst med 0.2 opacity */
     }
     &__label {
         @include font-size(small);
-        @include position(absolute, $top: $text-field-size, $bottom: initial, $left: 0.5rem);
+        @include position(absolute, $top: $text-field-size, $bottom: initial);
         line-height: $input-height;
         transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
         pointer-events: none;
     }
 
     &:hover {
-        .jkl-text-field {
-            &__border {
-                @include grow-border();
-            }
-            &__input {
-                background-color: $himmelgrå;
-            }
+        & .jkl-text-field__border {
+            @include grow-border();
         }
     }
 
     &:focus-within {
-        .jkl-text-field {
-            &__label {
-                @include raise-label();
-            }
-            &__border {
-                @include grow-border();
-            }
+        & .jkl-text-field__label {
+            @include raise-label();
         }
-    }
-
-    &:active {
-        .jkl-text-field__border {
-            background-color: $border-hover-color;
+        & .jkl-text-field__border {
+            @include grow-border();
         }
     }
 }

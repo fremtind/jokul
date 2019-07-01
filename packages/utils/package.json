@@ -14,7 +14,6 @@
         "build"
     ],
     "scripts": {
-        "build:before": "yarn build",
         "build": "yarn run build:scripts && yarn run build:types",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",

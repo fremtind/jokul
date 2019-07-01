@@ -7,19 +7,23 @@
 .jkl-h1 {
     @extend %normal-font-weight;
     @include font-size("xxl");
+    @include line-height("xxl");
 }
 
 .jkl-h2 {
     @extend %normal-font-weight;
     @include font-size("xl");
+    @include line-height("xl");
 }
 
 .jkl-h3 {
     @extend %normal-font-weight;
     @include font-size("large");
+    @include line-height("large");
 }
 
 .jkl-h4 {
     @extend %normal-font-weight;
     @include font-size("medium");
+    line-height: $line-height-3; // exeption from scale
 }

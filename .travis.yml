@@ -4,9 +4,10 @@ node_js:
 cache:
     yarn: true
 script:
-    - yarn setup
+    - yarn build
     - yarn build:docs
-    - yarn lint:ts
+    - yarn lint
+    - yarn typecheck
     - yarn test:ci
 branch: master
 deploy:
