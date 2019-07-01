@@ -11,6 +11,11 @@ interface BoxProps {
 
 const Box = ({ type, number }: BoxProps) => <div className={`demo-${type}--${number + 1}`} />;
 
+Box.propTypes = {
+    type: PropTypes.string,
+    number: PropTypes.number,
+};
+
 const Core = () => (
     <main>
         <section>
