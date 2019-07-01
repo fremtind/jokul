@@ -2,7 +2,7 @@ import React from "react";
 import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
 import { withKnobs } from "@storybook/addon-knobs";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import { Card } from ".";
 import "@fremtind/jkl-card/card.css";
 

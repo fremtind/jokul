@@ -1,7 +1,7 @@
 import React from "react";
 import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
-import { StoryTemplate } from "@fremtind/jkl-utils";
+import { StoryTemplate } from "../../../StoryTemplate";
 import { DividerLine } from ".";
 import "@fremtind/jkl-divider-line/divider-line.css";
 
