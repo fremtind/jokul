@@ -2,7 +2,7 @@ import React from "react";
 import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
 import { StoryTemplate } from "@fremtind/jkl-utils";
-import { Ul, Li } from ".";
+import { BulletList, BulletListItem } from ".";
 import "@fremtind/jkl-bullet-list/bullet-list.css";
 
 const stories = storiesOf("Atom/Bullet list", module);
@@ -11,28 +11,28 @@ stories.addDecorator(withInfo);
 stories.add("BulletList", () => {
     return (
         <StoryTemplate title="BulletList" tldr="Bullet point list" description="">
-            <Ul>
-                <Li>Linnie Neal</Li>
-                <Li>Rena Taylor</Li>
-                <Li>
+            <BulletList>
+                <BulletListItem>Linnie Neal</BulletListItem>
+                <BulletListItem>Rena Taylor</BulletListItem>
+                <BulletListItem>
                     Garrett Mack
-                    <Ul>
-                        <Li>Rebecca Robbins</Li>
-                    </Ul>
-                </Li>
-            </Ul>
+                    <BulletList>
+                        <BulletListItem>Rebecca Robbins</BulletListItem>
+                    </BulletList>
+                </BulletListItem>
+            </BulletList>
             <div style={{ margin: "20px" }} />
             <h2>With Lead styling</h2>
-            <Ul lead>
-                <Li>Linnie Neal</Li>
-                <Li>Rena Taylor</Li>
-                <Li>
+            <BulletList className="jkl-lead">
+                <BulletListItem>Linnie Neal</BulletListItem>
+                <BulletListItem>Rena Taylor</BulletListItem>
+                <BulletListItem>
                     Garrett Mack
-                    <Ul>
-                        <Li>Rebecca Robbins</Li>
-                    </Ul>
-                </Li>
-            </Ul>
+                    <BulletList className="jkl-lead">
+                        <BulletListItem>Rebecca Robbins</BulletListItem>
+                    </BulletList>
+                </BulletListItem>
+            </BulletList>
         </StoryTemplate>
     );
 });

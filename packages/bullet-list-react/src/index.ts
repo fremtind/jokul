@@ -1,4 +1,4 @@
-import { Ul } from "./Ul";
-import { Li } from "./Li";
+import { BulletList } from "./BulletList";
+import { BulletListItem } from "./BulletListItem";
 
-export { Li, Ul };
+export { BulletListItem, BulletList };

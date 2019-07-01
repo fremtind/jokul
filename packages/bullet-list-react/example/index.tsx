@@ -1,40 +1,41 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Ul, Li } from "../src";
+import { BulletList, BulletListItem } from "../src";
 import "@fremtind/jkl-bullet-list/bullet-list.scss";
 import "@fremtind/jkl-core/src/core.scss";
+import "./index.scss";
 
 const UlExample = () => (
     <>
-        <Ul>
-            <Li>Ruth Sims</Li>
-            <Li>
+        <BulletList>
+            <BulletListItem>Ruth Sims</BulletListItem>
+            <BulletListItem>
                 Hilda Robbins
-                <Ul>
-                    <Li>Mattie Lawrence</Li>
-                    <Li>Eric Huff</Li>
-                </Ul>
-            </Li>
-            <Li>Adam Norris</Li>
-            <Li>Essie Diaz</Li>
-        </Ul>
-        <Ul lead>
-            <Li>Ricky Wilkerson</Li>
-            <Li>
+                <BulletList>
+                    <BulletListItem>Mattie Lawrence</BulletListItem>
+                    <BulletListItem>Eric Huff</BulletListItem>
+                </BulletList>
+            </BulletListItem>
+            <BulletListItem>Adam Norris</BulletListItem>
+            <BulletListItem>Essie Diaz</BulletListItem>
+        </BulletList>
+        <BulletList className="jkl-lead">
+            <BulletListItem>Ricky Wilkerson</BulletListItem>
+            <BulletListItem>
                 Linnie Gill
-                <Ul>
-                    <Li>Grace Cortez</Li>
-                    <Li>
+                <BulletList className="jkl-lead">
+                    <BulletListItem>Grace Cortez</BulletListItem>
+                    <BulletListItem>
                         Madge Hodges
-                        <Ul>
-                            <Li>Somebody</Li>
-                        </Ul>
-                    </Li>
-                </Ul>
-            </Li>
-            <Li>Cory Wagner</Li>
-            <Li>Lora Carroll</Li>
-        </Ul>
+                        <BulletList className="jkl-lead">
+                            <BulletListItem>Somebody</BulletListItem>
+                        </BulletList>
+                    </BulletListItem>
+                </BulletList>
+            </BulletListItem>
+            <BulletListItem>Cory Wagner</BulletListItem>
+            <BulletListItem>Lora Carroll</BulletListItem>
+        </BulletList>
     </>
 );
 const mountNode = document.getElementById("app");
