@@ -1,11 +1,11 @@
 const navKeys = ["Tab", "ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"];
-let keyboardnavigation = false;
+let mousenavigation = false;
 
 function handleMouseDown() {
-    if (keyboardnavigation) {
-        keyboardnavigation = false;
+    if (!mousenavigation) {
+        mousenavigation = true;
         const htmlElement = document.querySelector("html");
-        htmlElement && htmlElement.removeAttribute("data-keyboardnavigation");
+        htmlElement && htmlElement.setAttribute("data-mousenavigation", "true");
         window.removeEventListener("mousedown", handleMouseDown);
         window.addEventListener("keydown", handleKeydown);
     }
@@ -13,10 +13,10 @@ function handleMouseDown() {
 
 function handleKeydown(event: KeyboardEvent) {
     if (navKeys.indexOf(event.key) !== -1) {
-        if (!keyboardnavigation) {
-            keyboardnavigation = true;
+        if (mousenavigation) {
+            mousenavigation = false;
             const htmlElement = document.querySelector("html");
-            htmlElement && htmlElement.setAttribute("data-keyboardnavigation", "true");
+            htmlElement && htmlElement.removeAttribute("data-mousenavigation");
             window.removeEventListener("keydown", handleKeydown);
             window.addEventListener("mousedown", handleMouseDown);
         }
@@ -25,6 +25,6 @@ function handleKeydown(event: KeyboardEvent) {
 
 export function initTabListener() {
     if (window && document) {
-        window.addEventListener("keydown", handleKeydown);
+        window.addEventListener("mousedown", handleMouseDown);
     }
 }
