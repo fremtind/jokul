@@ -16,9 +16,6 @@
         "test:unit": "jest -c './jest/jest.unit.js'",
         "prerelease": "yarn build",
         "release": "lerna publish",
-        "start": "run-p start:storybook start:portal",
-        "start:storybook": "cd packages/storybook && yarn storybook",
-        "start:portal": "cd packages/portal && yarn dev",
         "dev": "parcel"
     },
     "dependencies": {
