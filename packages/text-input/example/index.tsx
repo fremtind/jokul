@@ -2,8 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../text-input.scss";
 
-// eslint-disable-next-line
-const Input = ({ label, valid = true }: any) => (
+interface InputProps {
+    label: string;
+    valid?: boolean;
+}
+
+const Input = ({ label, valid = true }: InputProps) => (
     <label className="jkl-text-field">
         <input aria-invalid={!valid} className="jkl-text-field__input" type="text" placeholder=" " />
         <span className="jkl-text-field__label">{label}</span>
@@ -11,8 +15,7 @@ const Input = ({ label, valid = true }: any) => (
     </label>
 );
 
-// eslint-disable-next-line
-const TextArea = ({ label, valid = true }) => {
+const TextArea = ({ label, valid = true }: InputProps) => {
     return (
         <label className="jkl-text-field jkl-text-area">
             <textarea placeholder=" " aria-invalid={!valid} className="jkl-text-field__input"></textarea>
