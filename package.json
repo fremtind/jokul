@@ -71,7 +71,8 @@
         "typescript": "^3.4.5"
     },
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "portal"
     ],
     "config": {
         "commitizen": {
