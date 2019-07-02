@@ -1,0 +1,24 @@
+{
+    "name": "@fremtind/jkl-bullet-list",
+    "version": "0.0.1",
+    "description": "Bullet list",
+    "keywords": [
+        "bullet list",
+        "list"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
+    }
+}
