@@ -6,6 +6,10 @@
         "core"
     ],
     "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
     "directories": {
         "lib": "build"
     },
@@ -13,11 +17,14 @@
         "build"
     ],
     "scripts": {
-        "build": "yarn build:styles",
+        "build": "yarn build:styles && yarn build:modules",
         "build:css": "node-sass src -o build/css --importer='../../node_modules/node-sass-tilde-importer'",
         "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
-        "build:scss": "ncp src build/scss",
+        "build:scss": "cpx 'src/**/*.scss' build/scss",
         "build:styles": "yarn build:scss && yarn build:css",
+        "build:modules": "yarn build:types && yarn build:scripts",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
