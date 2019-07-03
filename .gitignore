@@ -7,5 +7,4 @@ yarn-error.log
 build/
 *.css
 dist/
-storybook-static/
 .idea/
