@@ -10,3 +10,6 @@ import "prismjs";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-tsx";
+import { initTabListener } from "@fremtind/jkl-core";
+
+initTabListener();

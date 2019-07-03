@@ -8,8 +8,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React, { ReactNode } from "react";
 import Header from "./header";
-import "@fremtind/jkl-button/button.css";
-
 
 const Layout = ({ children }: { children: ReactNode }) => {
     const data = useStaticQuery(graphql`
