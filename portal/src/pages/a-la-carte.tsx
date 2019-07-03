@@ -9,6 +9,7 @@ import { RadioButtonChoice } from "@fremtind/jkl-radio-button-react/src";
 import { TextArea, TextField } from "@fremtind/jkl-text-input-react/src";
 import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "@fremtind/jkl-typography-react/src";
 import React, { useState } from "react";
+import { BulletList, BulletListItem } from "../../../packages/bullet-list-react/src";
 import Layout from "../components/layout";
 import "./a-la-carte.scss";
 
@@ -38,6 +39,21 @@ export default function ALaCarte() {
                 <Accordion>
                     <AccordionItem title={"Hello"}>Hugh?</AccordionItem>
                 </Accordion>
+            </section>
+
+            <section>
+                <h1 className="jkl-h2">Bullet List</h1>
+                <BulletList>
+                    <BulletListItem>Some Item</BulletListItem>
+                    <BulletListItem>Some Item 2</BulletListItem>
+                    <BulletListItem>Some Item 3</BulletListItem>
+                    <BulletList>
+                        <BulletListItem>Nested Item 1</BulletListItem>
+                        <BulletList>
+                            <BulletListItem>INCEPTION!</BulletListItem>
+                        </BulletList>
+                    </BulletList>
+                </BulletList>
             </section>
 
             <section>
