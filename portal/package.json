@@ -22,7 +22,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build:docs": "gatsby build",
+    "build:docs": "gatsby build --prefix-paths",
     "dev": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
