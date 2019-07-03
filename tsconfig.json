@@ -62,5 +62,5 @@
         // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
     },
     "exclude": ["**/build/**"],
-    "include": ["./packages/**/*", "./jest/setupTests.ts"]
+    "include": ["./packages/**/*", "./jest/setupTests.ts", "portal"]
 }

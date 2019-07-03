@@ -22,7 +22,6 @@
         "packages/portal/package.json",
         "packages/radio-button-react/package.json",
         "packages/radio-button/package.json",
-        "packages/storybook/package.json",
         "packages/text-field-react/package.json",
         "packages/text-field/package.json",
         "packages/typography-react/package.json",
