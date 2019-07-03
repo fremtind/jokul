@@ -1,0 +1,15 @@
+html,
+body {
+    height: 100%;
+}
+
+body,
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div > .jkl-bullet-list {
+    margin: 2rem;
+}
