@@ -35,7 +35,7 @@ $hover-elevation-distance: -0.25rem;
         transform: scale(1.05, 1.1);
     }
 
-    &:active:focus {
+    &:active {
         transform: scale(1);
     }
 
@@ -69,7 +69,7 @@ $hover-elevation-distance: -0.25rem;
             top: -($button-border-width + rem(2px));
         }
 
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
             &:after {
                 box-shadow: 0 0 0 rem(2px) $button-focus-ring-color;
             }
@@ -86,7 +86,7 @@ $hover-elevation-distance: -0.25rem;
             border-bottom-width: rem(2px);
         }
 
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
             border-bottom-color: $button-focus-ring-color;
         }
     }

@@ -25,7 +25,7 @@ $checkbox-focus-outline-color: #509ce6;
         vertical-align: middle;
         width: $checkbox-size;
 
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
             outline-offset: rem(2px);
             outline: $checkbox-focus-outline-color solid rem(2px);
         }
