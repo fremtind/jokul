@@ -1,4 +1,4 @@
-import * as Prism from 'prismjs';
+import Prism from "prismjs";
 import React, { ReactNode, useEffect } from "react";
 
 interface Props {

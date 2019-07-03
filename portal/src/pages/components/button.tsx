@@ -11,7 +11,7 @@ import { PrismHighlightedCode } from "../../components/PrismHighlightedCode";
 export default function Button() {
     return (
         <Layout>
-            <div style={{margin: "2rem 0"}}>
+            <div style={{ margin: "2rem 0" }}>
                 <ReactMarkdown source={ButtonMarkdown} />
             </div>
             <div>
