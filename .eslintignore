@@ -4,5 +4,6 @@ jest.config.js
 
 build/
 dist/
+public/
 .cache/
 node_modules/
