@@ -2489,11 +2489,6 @@
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-"@vuepress/plugin-google-analytics@^1.0.1":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.0.2.tgz#c5754d55d01bf7e1a9a5b1ff5fde07a08e4a797d"
-  integrity sha512-NdU18hTBW4TkNK80dgpPu4yq/smNkIUZi9gL5hCiuW43BnXFA7WFfhGcvZJ61+keNDr6gw9UIv4HQuFFPoRXQA==
-
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.11.tgz#b988582cafbb2b095e8b556526f30c90d057cace"
@@ -5883,9 +5878,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.164, electron-to-chromium@^1.3.47:
-  version "1.3.183"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.183.tgz#d6ecf177d3388ae5913844ea46b4b4c9cc726e52"
-  integrity sha512-WbKCYs7yAFOfpuoa2pK5kbOngriUtlPC+8mcQW5L/686wv04w7hYXfw5ScDrsl9kixFw1SPsALEob5V/gtlDxw==
+  version "1.3.185"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.185.tgz#36368514eb719632a91435f3c9f57c98b47d81de"
+  integrity sha512-h2iW0AHIwix8ifNJg/RkXhQjUDqBME8TvX8qQQMvvF2Tb6F2KnO6febvI+JqI9CdZOWnl90CPxdBRWGDrdk9UA==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -7228,10 +7223,10 @@ gatsby-plugin-typescript@^2.1.0:
     "@babel/runtime" "^7.0.0"
     babel-plugin-remove-graphql-queries "^2.7.0"
 
-gatsby-react-router-scroll@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.1.0.tgz#4aa36e1e5a5d181cb70902ea7e801796b6c32a7e"
-  integrity sha512-iyvFQ6ljyyHrvqu1ceAF34ootzmTtUAuqhOjAmi27ysYAY6/oL2uNhEnY5OzMb1WUe8yFRB+gmcJ+IwX/pNAGA==
+gatsby-react-router-scroll@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.1.1.tgz#715c15689b1715d350f80a32204a0222a2ad6d49"
+  integrity sha512-mAE4uOUiPkYit4NGUaI7lxljfDuJJyHsLo9UpsbsRMsuEqpF5kTcwTFE8hICvv+c+apjh12hJWAhGGO9K2xOug==
   dependencies:
     "@babel/runtime" "^7.0.0"
     scroll-behavior "^0.9.9"
@@ -7260,9 +7255,9 @@ gatsby-telemetry@^1.1.2:
     uuid "3.3.2"
 
 gatsby@^2.11.7:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.12.0.tgz#ef7db2e77fd118d7fd3955e330ea239a47a75636"
-  integrity sha512-4exunFkNBSRvdq1C5wTjpmjjL66SLLqaBE+q5mKPssaA+8gaS84Wn4BACn/CWWAFSWkF38TPJui/G9KhqfhYdg==
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.1.tgz#af55152ed738cf3918e9b3cc16a7991863da70ce"
+  integrity sha512-6Ki0tE//9iaqz3hqG6jXuRsFJOwJ1JhMHlbIkon8+8Yla+dI69kZCCrmHeAAgLB/d+PzPMr6dko3FRKjRPAo9w==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -7325,7 +7320,7 @@ gatsby@^2.11.7:
     gatsby-graphiql-explorer "^0.2.1"
     gatsby-link "^2.2.0"
     gatsby-plugin-page-creator "^2.1.2"
-    gatsby-react-router-scroll "^2.1.0"
+    gatsby-react-router-scroll "^2.1.1"
     gatsby-telemetry "^1.1.2"
     glob "^7.1.1"
     got "8.0.0"
@@ -7342,6 +7337,7 @@ gatsby@^2.11.7:
     lodash "^4.17.10"
     md5 "^2.2.1"
     md5-file "^3.1.1"
+    micromatch "^3.1.10"
     mime "^2.2.0"
     mini-css-extract-plugin "^0.4.0"
     mitt "^1.1.2"
@@ -14009,9 +14005,9 @@ signedsource@^1.0.0:
   integrity sha1-HdrOSYF5j5O9gzlzgD2A1S6TrWo=
 
 simple-git@^1.85.0:
-  version "1.117.0"
-  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-1.117.0.tgz#dc12338dff8533bb28d49b51b6e6fce73071a00b"
-  integrity sha512-2hqTQFkWwU7+d6rWdxDpKnYih430Dek3LzJ3kUzimxOflpBclZUstI9b+Y4x4rSWvqKe698LyZGFAW02/Ja8kA==
+  version "1.118.0"
+  resolved "https://registry.yarnpkg.com/simple-git/-/simple-git-1.118.0.tgz#6e31d50672c58abdbdb0410fadfdb1db29bd71bd"
+  integrity sha512-0CaCfxdR7ula3EuOkrVFKBiqt7LcvMPfXgIdUhSwjC4A+OaO8yEPGjdO/kWY7ew9uYP9KEoH+dvslOOm7eVzkA==
   dependencies:
     debug "^4.0.1"
 
@@ -14023,9 +14019,9 @@ simple-swizzle@^0.2.2:
     is-arrayish "^0.3.1"
 
 sisteransi@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.0.tgz#77d9622ff909080f1c19e5f4a1df0c1b0a27b88c"
-  integrity sha512-N+z4pHB4AmUv0SjveWRd6q1Nj5w62m5jodv+GD8lvmbY/83T/rpbJGZOnK5T149OldDj4Db07BSv9xY4K6NTPQ==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.1.tgz#208a2443e1fc40b05ccad4de0aa8798b27249ca1"
+  integrity sha512-Qs1o9b0ORUzmh04fZjVzqeQ0L9tmJCL1eyivJcDNCY16gOEvR299INgXwBdy2bq38bVgSpq4DDfhgQx515ToLQ==
 
 slash@^1.0.0:
   version "1.0.0"
@@ -16056,11 +16052,9 @@ xmlhttprequest-ssl@~1.5.4:
   integrity sha1-wodrBhaKrcQOV9l+gRkayPQ5iz4=
 
 xstate@^4.3.2:
-  version "4.6.3"
-  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.6.3.tgz#21e5a132867e5509a08d16c32b525ba4898492bd"
-  integrity sha512-ihJcpZWjqW60psaC+RxFhfZxgFDNRpEmHeSsM4DgtKswsz6HxEzNx7rgesZtg8/LqluOba8puy8lVtB748RG6A==
-  dependencies:
-    "@vuepress/plugin-google-analytics" "^1.0.1"
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.6.4.tgz#15ab4eb4526483a9caa9d67b26f026dfe390697f"
+  integrity sha512-/L361v1dSGJWdERtmodT1EgkglobW9ewDBZoVzU7kPo1Sg0l65Df6fpUhCCA1NIhPzXe1axFacu29hIRR0oRJw==
 
 xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.1"
