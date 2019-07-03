@@ -1,0 +1,43 @@
+@import "~@fremtind/jkl-accordion/accordion";
+@import "~@fremtind/jkl-button/button";
+@import "~@fremtind/jkl-card/card";
+@import "~@fremtind/jkl-checkbox/checkbox";
+@import "~@fremtind/jkl-divider-line/divider-line";
+@import "~@fremtind/jkl-dropdown/dropdown";
+@import "~@fremtind/jkl-logo/logo";
+@import "~@fremtind/jkl-radio-button/radio-button";
+@import "~@fremtind/jkl-text-input/text-input";
+
+section {
+    margin-bottom: 4rem;
+    display: block;
+    .jkl-h2 {
+        margin-bottom: 1rem;
+    }
+}
+
+.jkl-component-vertical-spacer {
+    margin: 1rem;
+
+    &:first-of-type {
+        margin-left: 0;
+    }
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.jkl-logo-wrapper {
+    display: flex;
+    //justify-content: center;
+    align-items: center;
+
+    & > * {
+        margin-right: 1rem;
+    }
+}
+
+.jkl-logo {
+    width: 4rem;
+    margin-bottom: 1rem;
+}
