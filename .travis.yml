@@ -9,7 +9,12 @@ script:
     - yarn lint
     - yarn typecheck
     - yarn test:ci
-branch: master
+
+# Only build PRs and master
+# https://stackoverflow.com/questions/31882306/how-to-configure-travis-ci-to-build-pull-requests-merges-to-master-w-o-redunda
+branches:
+    only:
+        - master
 deploy:
     provider: pages
     local_dir: "./portal/public"
