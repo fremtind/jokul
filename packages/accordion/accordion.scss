@@ -45,14 +45,12 @@ $chevron-weight--hover: 0.1875rem;
 
         @include font-size("small");
 
-        &:hover,
-        &:active,
-        &:focus {
-            cursor: pointer;
-            border-color: $border-color--focus;
-        }
         &:hover {
+            cursor: pointer;
             background-color: rgba($himmelgrå, 0.75);
+        }
+        html:not([data-mousenavigation]) &:focus {
+            border-color: $border-color--focus;
         }
     }
 
