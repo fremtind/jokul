@@ -48,10 +48,12 @@ export default function ALaCarte() {
                     <BulletListItem>Some Item 2</BulletListItem>
                     <BulletListItem>Some Item 3</BulletListItem>
                     <BulletList>
-                        <BulletListItem>Nested Item 1</BulletListItem>
-                        <BulletList>
-                            <BulletListItem>INCEPTION!</BulletListItem>
-                        </BulletList>
+                        <BulletListItem>
+                            Nested Item 1
+                            <BulletList>
+                                <BulletListItem>INCEPTION!</BulletListItem>
+                            </BulletList>
+                        </BulletListItem>
                     </BulletList>
                 </BulletList>
             </section>
