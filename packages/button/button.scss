@@ -30,10 +30,17 @@ $hover-elevation-distance: -0.25rem;
     transition: transform $animation-timing;
     position: relative;
 
+    &:-moz-focusring {
+        // get rid of dotted border on Firefox
+        outline: none;
+    }
+
+    html:not([data-mousenavigation]) &:focus,
     &:hover {
         transform: scale(1.05);
     }
 
+    html:not([data-mousenavigation]) &:active,
     &:active {
         transform: scale(1);
     }
@@ -70,7 +77,6 @@ $hover-elevation-distance: -0.25rem;
 
         html:not([data-mousenavigation]) &:focus {
             &:after {
-                transform: scale(1.05);
                 box-shadow: 0 0 0 rem(2px) $button-focus-ring-color;
             }
         }
