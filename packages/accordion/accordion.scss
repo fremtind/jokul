@@ -36,6 +36,7 @@ $chevron-weight--hover: 0.1875rem;
         outline: none;
         font-family: inherit;
         background-color: inherit;
+        color: inherit;
 
         border: $border-width solid transparent;
         padding: $title-vertical-padding ($horizontal-padding - $border-width);
@@ -63,6 +64,7 @@ $chevron-weight--hover: 0.1875rem;
         height: auto;
         padding: $content-vertical-padding $horizontal-padding;
         padding-top: $content-vertical-padding - $title-vertical-padding;
+        color: inherit;
     }
 
     &__title-icon {
