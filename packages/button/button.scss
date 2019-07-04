@@ -23,16 +23,16 @@ $hover-elevation-distance: -0.25rem;
     border: none;
     font-size: $button-font-size;
     height: $button-height;
-    line-height: $button-height;
+    line-height: $button-height + rem(1px); // bco weird font baseline
     min-width: $button-width;
     outline: none;
     transform-origin: 50% 90%;
     transition: transform $animation-timing;
     position: relative;
 
-    &:focus,
     &:hover {
-        transform: scale(1.05, 1.1);
+        transform: scale(1.05);
+        line-height: $button-height; // bco weird font baseline
     }
 
     &:active {
@@ -71,6 +71,7 @@ $hover-elevation-distance: -0.25rem;
 
         html:not([data-mousenavigation]) &:focus {
             &:after {
+                transform: scale(1.05);
                 box-shadow: 0 0 0 rem(2px) $button-focus-ring-color;
             }
         }
@@ -78,6 +79,8 @@ $hover-elevation-distance: -0.25rem;
     &--tertiary {
         border-bottom: solid $button-border-width $button-border-color;
         border-top: solid $button-border-width transparent;
+        background-color: transparent;
+        color: $button-text-color;
         padding: 0;
         transition: transform $animation-timing, border $animation-timing;
 
