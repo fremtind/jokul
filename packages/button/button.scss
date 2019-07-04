@@ -23,7 +23,7 @@ $hover-elevation-distance: -0.25rem;
     border: none;
     font-size: $button-font-size;
     height: $button-height;
-    line-height: $button-height + rem(1px); // bco weird font baseline
+    line-height: $button-height;
     min-width: $button-width;
     outline: none;
     transform-origin: 50% 90%;
@@ -32,7 +32,6 @@ $hover-elevation-distance: -0.25rem;
 
     &:hover {
         transform: scale(1.05);
-        line-height: $button-height; // bco weird font baseline
     }
 
     &:active {
