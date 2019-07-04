@@ -114,7 +114,7 @@ $radio-button-color: $svart;
     }
 
     /* Focused state */
-    &__input:focus + &__label {
+    html:not([data-mousenavigation]) &__input:focus + &__label {
         &::before {
             box-shadow: 0 0 0 0.125rem $himmel;
         }
