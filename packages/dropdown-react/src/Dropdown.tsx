@@ -1,71 +1,69 @@
-import React from "react";
-import Downshift from "downshift";
+// @ts-ignore
+import CoreToggle from "@nrk/core-toggle/jsx";
+import React, { useEffect, useState } from "react";
 
 interface Props {
     label: string;
     items: string[];
     className?: string;
-    onChange: (selection: string) => void;
     initialInputValue?: string;
 }
 
-export const Dropdown = ({ label, items, className = "", initialInputValue, onChange }: Props) => {
-    const onSelectionChange = (selection: string) => onChange(selection);
+interface CoreToggleSelectEvent {
+    detail: { textContent: string };
+    target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
+}
+
+export const Dropdown = ({ items, initialInputValue, label }: Props) => {
+    const [selectedValue, setSelectedValue] = useState(initialInputValue);
+
+    useEffect(() => {
+        setSelectedValue(initialInputValue);
+    }, [initialInputValue]);
+    const [hidden, setHidden] = useState(true);
+    const hasSelectedValue = typeof selectedValue !== "undefined";
+
+    let className = `jkl-dropdown`;
+
+    if (!hidden) {
+        className = `${className} jkl-dropdown--open`;
+    }
+
+    if (!hasSelectedValue) {
+        className = `${className} jkl-dropdown--no-value`;
+    }
     return (
-        /* eslint-disable jsx-a11y/label-has-associated-control, react/jsx-key */
-        <Downshift onChange={onSelectionChange} initialInputValue={initialInputValue}>
-            {({
-                getInputProps,
-                getToggleButtonProps,
-                getLabelProps,
-                getMenuProps,
-                isOpen,
-                highlightedIndex,
-                inputValue,
-                getItemProps,
-            }) => (
-                <div className={`jkl-dropdown ${isOpen ? "jkl-dropdown--open" : ""} ${className}`} {...getInputProps()}>
-                    <button
-                        data-testid="jkl-dropdown-button"
-                        className="jkl-dropdown__toggler"
-                        {...getToggleButtonProps()}
-                    >
-                        {isOpen ? "Lukk" : "Åpne"}
-                    </button>
-                    <label
-                        className={`jkl-dropdown__label ${inputValue ? "jkl-dropdown__label--raised" : ""}`}
-                        {...getLabelProps()}
-                    >
-                        {label}
-                    </label>
-                    <input
-                        data-testid="jkl-dropdown-input"
-                        type="text"
-                        className={`jkl-dropdown__value ${inputValue ? "jkl-dropdown__value--show" : ""}`}
-                        value={inputValue !== null ? inputValue : undefined}
-                        readOnly
-                    />
-                    <ul className="jkl-dropdown__option" {...getMenuProps()}>
-                        {isOpen
-                            ? items.map((item, index) => (
-                                  <li
-                                      className={`jkl-dropdown__option--item ${
-                                          highlightedIndex === index ? "jkl-dropdown__option--item--highlighted" : ""
-                                      } ${inputValue === item ? "jkl-dropdown__option--item--selected" : ""}`}
-                                      {...getItemProps({
-                                          key: item,
-                                          index,
-                                          item,
-                                      })}
-                                  >
-                                      {item}
-                                  </li>
-                              ))
-                            : null}
-                    </ul>
-                </div>
-            )}
-        </Downshift>
-        /* eslint-enable jsx-a11y/label-has-associated-control, react/jsx-key */
+        <div className={className}>
+            <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--hover" : ""}`}>
+                {label}
+            </span>
+            <button className="jkl-dropdown__value">{hasSelectedValue ? selectedValue : "Velg"} </button>
+            <CoreToggle
+                className="jkl-dropdown__core-toggle"
+                popup={label}
+                hidden={hidden}
+                onToggle={() => setHidden(!hidden)}
+                onToggleSelect={(e: CoreToggleSelectEvent) => {
+                    e.target.hidden = true;
+                    e.target.button.focus();
+                    e.target.value = e.detail;
+                    setSelectedValue(e.detail.textContent);
+                }}
+            >
+                <ul className="jkl-dropdown__option-wrapper">
+                    {items.map((item) => {
+                        return (
+                            <li key={item}>
+                                <button className="jkl-dropdown__option">{item}</button>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </CoreToggle>
+
+            <svg aria-hidden={"true"} className="jkl-dropdown__arrow" viewBox="0 0 100 100">
+                <polyline points="20,33 50,66 80,33" stroke="black" strokeWidth="3" fill="none" />
+            </svg>
+        </div>
     );
 };

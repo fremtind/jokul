@@ -5,128 +5,117 @@
 $dropdown-height: 3rem;
 $dropdown-width: 20rem;
 $animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
+$select-value-transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
-@mixin raised-label() {
-    @include font-size(xs);
-    top: -1.5rem;
-    left: 0;
-}
+$select-value-height: $line-height-3;
+$label-height: $line-height-2;
+$select-value-side-padding: 0.5rem;
+$label-font-size: rem(16px);
 
 .jkl-dropdown {
-    position: relative;
-    border: none;
-    background-color: transparent;
-    display: inline-flex;
-    height: $dropdown-height;
+    background-color: white;
+    display: inline-block;
+    height: $select-value-height + $label-height;
     min-width: $dropdown-width;
-    outline: none;
-    margin-top: 2rem;
+    padding-top: $label-height;
+    position: relative;
+    vertical-align: bottom;
 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    text-indent: 1px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    &__label {
+        font-size: $font-size-3;
+        line-height: $select-value-height;
+        pointer-events: none; // Allow click to happen on the actual button
+        position: absolute;
+        left: $select-value-side-padding;
+        top: 0;
+        transition: transform $select-value-transition-timing, color $select-value-transition-timing;
+        transform-origin: 0 0;
+        transform: translateY($label-height);
 
-    border-bottom: 2px solid $svart;
-
-    transition: background-color 250ms ease-in;
-
-    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
-    -moz-user-select: none; /* mozilla browsers */
-    -khtml-user-select: none; /* webkit (konqueror) browsers */
-    -ms-user-select: none; /* IE10+ */
-
-    &::before {
-        content: " ";
-        height: 1px;
-        background-color: $svart;
-        @include position(absolute, $top: initial);
-        transition: transform 125ms ease-in;
-    }
-
-    &:focus,
-    &:hover {
-        &::before {
-            transform: scaleY(3);
+        &--hover {
+            color: #696666;
+            transform: translateY(0) scale($label-font-size / $font-size-3);
         }
     }
 
-    &::after {
-        content: " ";
-        @include position(absolute, $right: 0.25rem, $top: 1.25rem, $bottom: initial, $left: initial);
+    &__value {
+        overflow: hidden;
+        background-color: transparent;
+        border: 0;
+        font-size: $font-size-3;
+        height: $select-value-height + $component-spacing--small;
+        line-height: $select-value-height;
+        padding: 0 $select-value-side-padding $component-spacing--small;
+        text-align: left;
+        transition: box-shadow $select-value-transition-timing, padding $select-value-transition-timing;
+        width: 100%;
+        opacity: 1;
+        position: relative;
+        box-shadow: 0 2px 0 0 $svart;
 
-        border-style: solid;
-        border-width: 0.2rem 0.2rem 0 0;
-        display: inline-block;
-        height: 0.45rem;
-        transform: rotate(135deg);
-        vertical-align: top;
-        width: 0.45rem;
-        transition: transform 125ms ease-in;
+        html:not([data-mousenavigation]) &:focus {
+            box-shadow: 0 4px 0 0 $himmel;
+            font-weight: bold;
+        }
+
+        &:hover {
+            font-weight: bold;
+        }
+
+        &:active {
+            color: currentColor; // Safari text will blink on click without this
+        }
+    }
+
+    &--no-value {
+        .jkl-dropdown__value {
+            padding-top: $select-value-height + $component-spacing--small; // Use padding to keep text behind the screen
+            padding-bottom: 0;
+            color: transparent;
+        }
     }
 
     &--open {
-        &::after {
-            transform: rotate(-45deg);
+        .jkl-dropdown__arrow {
+            transform: rotate(180deg);
         }
     }
 
+    &__option-wrapper {
+        background-color: white;
+        list-style-type: none;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.16);
+        padding: 1rem 0.5rem 0;
+        overflow-y: scroll;
+        z-index: 100; // TODO Create a system for z-index in Jokul
+    }
+
     &__option {
-        z-index: 1;
-        background-color: $snøhvit;
-        list-style: none;
-        @include position(absolute, $top: 2rem, $bottom: initial);
+        border: 0;
+        font-size: $font-size-3;
+        line-height: $line-height-3;
         padding: 0;
-        box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16); /* TODO: set default shadow values */
-        @include font-size(small);
-        &--item {
-            padding: 1rem;
-            transition: background-color 75ms ease-in, font-weight 75ms ease-in;
-            &--highlighted,
-            &:focus {
-                outline: none;
-                background-color: $varde;
-            }
-            &--selected {
-                font-weight: bold;
-            }
-        }
-    }
-    &__label {
-        @include font-size(small);
-        @include position(absolute, $top: 0.75rem, $right: 2rem, $bottom: initial);
-        transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
-        pointer-events: none;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        &--raised {
-            @include raised-label();
-        }
-    }
-    &__value {
-        @include font-size(small);
-        @include position(absolute, $top: 1.75rem, $right: initial, $bottom: initial);
-        transition: top 150ms ease-in;
-        pointer-events: none;
-        border: none;
-        background-color: transparent;
-        &--show {
-            top: 0.75rem;
-        }
-    }
-    &__toggler {
-        @include position(absolute);
-        opacity: 0;
-        border: none;
-        outline: none;
+        border-bottom: 1px solid transparent;
         text-align: left;
-        width: 100%;
-        :focus {
-            outline: none;
+        margin-bottom: $component-spacing--large;
+
+        &:focus,
+        &:hover {
+            font-weight: bold;
+            border-color: $himmel;
         }
-        ::-moz-focus-inner {
-            border: 0;
-        }
+    }
+
+    &__arrow {
+        background-color: transparent;
+        height: $line-height-3;
+        position: absolute;
+        right: 0;
+        top: 30%;
+        transition: transform 300ms ease-in-out;
     }
 }

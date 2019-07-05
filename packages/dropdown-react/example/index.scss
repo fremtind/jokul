@@ -1,0 +1,15 @@
+@import "~@fremtind/jkl-core/src/core.scss";
+@import "~@fremtind/jkl-dropdown/dropdown.scss";
+
+body {
+    padding: 8rem;
+}
+
+.jkl-dropdown {
+    margin-bottom: 3rem;
+    margin-right: 1rem;
+}
+
+button {
+    outline: none;
+}
