@@ -37,11 +37,10 @@ $chevron-weight--hover: 0.1875rem;
         font-family: inherit;
         background-color: inherit;
         color: inherit; // stops Safari from changing color on :active
-        <<<<<<< head &:-moz-focusring {
+        &:-moz-focusring {
             // fixes dotted border on keyboard focus in Firefox
             border: 0;
         }
-        =======>>>>>>> 033155df957bb5969f470106f916d87f23c7547e
 
         border: $border-width solid transparent;
         padding: $title-vertical-padding ($horizontal-padding - $border-width);
