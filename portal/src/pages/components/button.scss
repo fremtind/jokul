@@ -1,0 +1,20 @@
+.component-example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    background-color: #fafafa;
+    margin: 0;
+}
+
+pre[class*="language-"] {
+    font-size: 1.0625rem;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.jkl-accordion-item__content {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
