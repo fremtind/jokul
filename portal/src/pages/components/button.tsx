@@ -7,12 +7,13 @@ import ReactMarkdown from "react-markdown";
 import { ButtonExample } from "../../components/ButtonExample";
 import Layout from "../../components/layout";
 import { PrismHighlightedCode } from "../../components/PrismHighlightedCode";
+import { renderer } from "../../presentation/markdownRenderer";
 
 export default function Button() {
     return (
         <Layout>
             <div style={{ margin: "2rem 0" }}>
-                <ReactMarkdown source={ButtonMarkdown} />
+                <ReactMarkdown renderers={renderer} source={ButtonMarkdown} />
             </div>
             <div>
                 <ButtonExample />
