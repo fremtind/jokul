@@ -2,64 +2,94 @@
 @import "~@fremtind/jkl-core/build/scss/typography/font-size.scss";
 @import "~@fremtind/jkl-core/build/scss/mixins/utils.scss";
 
-$dropdown-height: 3rem;
-$dropdown-width: 20rem;
-$animation-timing: 200ms cubic-bezier(0.6, 0.2, 0.35, 1);
-$select-value-transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
+$transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
-$select-value-height: $line-height-3;
+$dropdown-width: 20rem;
+$dropdown-bg-color: white;
+
+$border-color: $svart;
+$focus-color: $himmel;
+
+$value-height: $line-height-3;
+$value-font-size: $font-size-3;
 $label-height: $line-height-2;
-$select-value-side-padding: 0.5rem;
 $label-font-size: rem(16px);
 
+$arrow-size: $value-height;
+
+$side-padding: $component-spacing--small;
+$bottom-padding: $component-spacing--small;
+$bottom-margin: $component-spacing--large;
+
+@mixin nojump-bold {
+    // Make font bolder without increasing line length
+    font-weight: bold;
+    letter-spacing: -0.24;
+}
+
 .jkl-dropdown {
-    background-color: white;
+    background-color: $dropdown-bg-color;
     display: inline-block;
-    height: $select-value-height + $label-height;
+    height: $label-height + $value-height + $bottom-padding;
     min-width: $dropdown-width;
     padding-top: $label-height;
     position: relative;
     vertical-align: bottom;
 
+    & *:focus {
+        // Remove default focus outline for all elements within
+        outline: none;
+    }
+
     &__label {
-        font-size: $font-size-3;
-        line-height: $select-value-height;
+        font-size: $value-font-size;
+        line-height: $value-height;
         pointer-events: none; // Allow click to happen on the actual button
         position: absolute;
-        left: $select-value-side-padding;
+        left: $side-padding;
         top: 0;
-        transition: transform $select-value-transition-timing, color $select-value-transition-timing;
-        transform-origin: 0 0;
+        transition: transform $transition-timing, color $transition-timing;
+        transform-origin: top left;
         transform: translateY($label-height);
 
+        .jkl-dropdown--no-value:hover > &,
+        .jkl-dropdown--no-value:focus-within > & {
+            @include nojump-bold();
+        }
+
         &--hover {
+            // STATE SHOULD BE RENAMED
             color: #696666;
-            transform: translateY(0) scale($label-font-size / $font-size-3);
+            transform: translateY(0) scale($label-font-size / $value-font-size);
         }
     }
 
     &__value {
         overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         background-color: transparent;
+
         border: 0;
-        font-size: $font-size-3;
-        height: $select-value-height + $component-spacing--small;
-        line-height: $select-value-height;
-        padding: 0 $select-value-side-padding $component-spacing--small;
+        font-size: $value-font-size;
+        height: $value-height + $bottom-padding;
+        line-height: $value-height;
+        padding: 0 $side-padding $bottom-padding;
+        padding-right: $arrow-size + $side-padding;
         text-align: left;
-        transition: box-shadow $select-value-transition-timing, padding $select-value-transition-timing;
+        transition: box-shadow $transition-timing, padding $transition-timing;
         width: 100%;
         opacity: 1;
         position: relative;
-        box-shadow: 0 2px 0 0 $svart;
+        box-shadow: 0 2px 0 0 $border-color;
 
         html:not([data-mousenavigation]) &:focus {
-            box-shadow: 0 4px 0 0 $himmel;
-            font-weight: bold;
+            box-shadow: 0 4px 0 0 $focus-color;
+            @include nojump-bold();
         }
 
         &:hover {
-            font-weight: bold;
+            @include nojump-bold();
         }
 
         &:active {
@@ -69,7 +99,7 @@ $label-font-size: rem(16px);
 
     &--no-value {
         .jkl-dropdown__value {
-            padding-top: $select-value-height + $component-spacing--small; // Use padding to keep text behind the screen
+            padding-top: $value-height + $bottom-padding; // Use padding to keep text behind the screen
             padding-bottom: 0;
             color: transparent;
         }
@@ -90,29 +120,35 @@ $label-font-size: rem(16px);
         right: 0;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.16);
         padding: 1rem 0.5rem 0;
+        max-height: 60vh;
         overflow-y: scroll;
         z-index: 100; // TODO Create a system for z-index in Jokul
     }
 
     &__option {
         border: 0;
-        font-size: $font-size-3;
-        line-height: $line-height-3;
+        background-color: inherit;
+        font-size: $value-font-size;
+        line-height: $value-height;
         padding: 0;
         border-bottom: 1px solid transparent;
         text-align: left;
-        margin-bottom: $component-spacing--large;
+        margin-bottom: $bottom-margin;
 
         &:focus,
         &:hover {
-            font-weight: bold;
-            border-color: $himmel;
+            @include nojump-bold();
+            border-color: $border-color;
+        }
+
+        html:not([data-mousenavigation]) &:focus {
+            border-color: $focus-color;
         }
     }
 
     &__arrow {
         background-color: transparent;
-        height: $line-height-3;
+        height: $arrow-size;
         position: absolute;
         right: 0;
         top: 30%;
