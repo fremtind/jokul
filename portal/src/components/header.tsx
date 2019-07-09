@@ -8,7 +8,7 @@ interface Props {
 const Header = ({ siteTitle = "" }: Props) => (
     <header
         style={{
-            background: `rebeccapurple`,
+            background: `black`,
             marginBottom: `1.45rem`,
         }}
     >
@@ -19,7 +19,7 @@ const Header = ({ siteTitle = "" }: Props) => (
                 padding: `1.45rem 1.0875rem`,
             }}
         >
-            <h1 style={{ margin: 0 }}>
+            <h1 className="jkl-h2" style={{ margin: 0 }}>
                 <Link
                     to="/"
                     style={{

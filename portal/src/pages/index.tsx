@@ -8,6 +8,7 @@ const IndexPage = () => (
 
         <div>
             <Link to="/components/button/">Eksempel på komponent dokumentasjon</Link>
+            <Link to="/components/accordion/">Eksempel på komponent dokumentasjon</Link>
         </div>
         <Link to="/a-la-carte">Alle komponenter</Link>
     </Layout>

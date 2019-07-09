@@ -6,23 +6,20 @@ import { Example } from "../../components/example";
 import { renderer } from "../../presentation/markdownRenderer";
 import "./example.scss";
 
-/* Import readme file of component here with !raw-loader! */
 // @ts-ignore
-import readmeContents from "!raw-loader!@fremtind/jkl-button/README.md";
+import readmeContents from "!raw-loader!@fremtind/jkl-dropdown/README.md";
 
-/* Import each example here both with and without !raw-loader! */
-/* These are then used with the Example-component to show an example with expandable code */
 // @ts-ignore
-import ButtonExampleCode from "!raw-loader!../../examples/ButtonExample";
-import { ButtonExample } from "../../examples/ButtonExample";
+import DropdownExampleCode from "!raw-loader!../../examples/DropdownExample";
+import { DropdownExample } from "../../examples/DropdownExample";
 
 export default function Button() {
     return (
         <Layout>
             <h2 style={{ margin: "3rem 0" }} className="jkl-h1">
-                Knapper
+                Nedtrekksliste
             </h2>
-            <Example exampleComponent={<ButtonExample />} exampleCode={ButtonExampleCode} />
+            <Example exampleComponent={<DropdownExample />} exampleCode={DropdownExampleCode} />
             <div style={{ margin: "2rem 0" }}>
                 <ReactMarkdown renderers={renderer} source={readmeContents} />
             </div>

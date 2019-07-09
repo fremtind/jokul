@@ -1,14 +1,16 @@
 .component-example {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around; // For IE & Edge
+    justify-content: space-evenly;
     padding: 4rem 0;
     background-color: #fafafa;
     margin: 0;
+    padding: 3rem;
 }
 
 pre[class*="language-"] {
-    font-size: 1.0625rem;
+    font-size: 1rem;
     margin: 0;
     padding: 0;
     background-color: transparent;
