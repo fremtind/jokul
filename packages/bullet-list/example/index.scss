@@ -1,0 +1,17 @@
+@import "~@fremtind/jkl-core/src/typography/root.scss";
+@import "../bullet-list.scss";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > .jkl-bullet-list {
+    margin: $layout-spacing--large;
+}

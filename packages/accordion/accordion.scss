@@ -36,6 +36,11 @@ $chevron-weight--hover: 0.1875rem;
         outline: none;
         font-family: inherit;
         background-color: inherit;
+        color: inherit; // stops Safari from changing color on :active
+        &:-moz-focusring {
+            // fixes dotted border on keyboard focus in Firefox
+            border: 0;
+        }
 
         border: $border-width solid transparent;
         padding: $title-vertical-padding ($horizontal-padding - $border-width);
@@ -45,14 +50,12 @@ $chevron-weight--hover: 0.1875rem;
 
         @include font-size("small");
 
-        &:hover,
-        &:active,
-        &:focus {
-            cursor: pointer;
-            border-color: $border-color--focus;
-        }
         &:hover {
+            cursor: pointer;
             background-color: rgba($himmelgrå, 0.75);
+        }
+        html:not([data-mousenavigation]) &:focus {
+            border-color: $border-color--focus;
         }
     }
 
@@ -65,6 +68,7 @@ $chevron-weight--hover: 0.1875rem;
         height: auto;
         padding: $content-vertical-padding $horizontal-padding;
         padding-top: $content-vertical-padding - $title-vertical-padding;
+        color: inherit; // Make content same content as rest of page text
     }
 
     &__title-icon {

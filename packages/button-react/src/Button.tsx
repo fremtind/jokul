@@ -6,7 +6,7 @@ interface Props {
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-type ValidButtons = "Primary" | "Secondary" | "Tertiary";
+type ValidButtons = "primary" | "secondary" | "tertiary";
 
 function makeButtonComponent(buttonType: ValidButtons) {
     return function button(props: Props) {
@@ -19,6 +19,6 @@ function makeButtonComponent(buttonType: ValidButtons) {
     };
 }
 
-export const PrimaryButton = makeButtonComponent("Primary");
-export const SecondaryButton = makeButtonComponent("Secondary");
-export const TertiaryButton = makeButtonComponent("Tertiary");
+export const PrimaryButton = makeButtonComponent("primary");
+export const SecondaryButton = makeButtonComponent("secondary");
+export const TertiaryButton = makeButtonComponent("tertiary");

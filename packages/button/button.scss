@@ -30,12 +30,18 @@ $hover-elevation-distance: -0.25rem;
     transition: transform $animation-timing;
     position: relative;
 
-    &:focus,
-    &:hover {
-        transform: scale(1.05, 1.1);
+    &:-moz-focusring {
+        // get rid of dotted border on Firefox
+        outline: none;
     }
 
-    &:active:focus {
+    html:not([data-mousenavigation]) &:focus,
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    html:not([data-mousenavigation]) &:active,
+    &:active {
         transform: scale(1);
     }
 
@@ -69,7 +75,7 @@ $hover-elevation-distance: -0.25rem;
             top: -($button-border-width + rem(2px));
         }
 
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
             &:after {
                 box-shadow: 0 0 0 rem(2px) $button-focus-ring-color;
             }
@@ -78,6 +84,8 @@ $hover-elevation-distance: -0.25rem;
     &--tertiary {
         border-bottom: solid $button-border-width $button-border-color;
         border-top: solid $button-border-width transparent;
+        background-color: transparent;
+        color: $button-text-color;
         padding: 0;
         transition: transform $animation-timing, border $animation-timing;
 
@@ -86,7 +94,7 @@ $hover-elevation-distance: -0.25rem;
             border-bottom-width: rem(2px);
         }
 
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
             border-bottom-color: $button-focus-ring-color;
         }
     }

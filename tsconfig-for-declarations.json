@@ -9,5 +9,5 @@
         "jsx": "react"
     },
     "--EXCLUDE-COMMENT--": "Ignore all test- and storybook files. We don't want to emit type definitions for those in our packages",
-    "exclude": ["**/*.test.tsx", "**/*.test.ts", "**/*.e2e.tsx", "**/*.e2e.ts", "**/*.stories.tsx"]
+    "exclude": ["**/*.test.tsx", "**/*.test.ts", "**/*.e2e.tsx", "**/*.e2e.ts"]
 }
