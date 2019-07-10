@@ -1,0 +1,69 @@
+@import "~@fremtind/jkl-core/build/scss/variables/spacing.scss";
+@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
+@import "~@fremtind/jkl-core/build/scss/typography/paragraphs.scss";
+@import "~@fremtind/jkl-core/build/scss/functions.scss";
+
+$calendar-width: rem(402px);
+$calendar-box-size: rem(46px);
+
+.jkl-datepicker {
+    width: $calendar-width;
+    background-color: $snøhvit;
+
+    &__toggler {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        text-align: left;
+        width: $calendar-width;
+    }
+    &__calendar {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: calc($calendar-width - $component-spacing--xl);
+        box-shadow: 0px rem(4px) rem(8px) rgba(0, 0, 0, 0.08);
+        padding: $component-spacing--xl;
+        &__header {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            &--year {
+                max-width: 30%;
+            }
+            &--month {
+                flex-grow: 2;
+            }
+        }
+
+        caption {
+            @extend .jkl-p;
+            padding-top: $component-spacing--xl;
+            text-transform: capitalize;
+        }
+        th {
+            font-weight: normal;
+            padding: $component-spacing--large 0;
+        }
+        button {
+            width: $calendar-box-size;
+            height: $calendar-box-size;
+            background-color: transparent;
+            border: $component-spacing--small solid $snøhvit;
+            border-radius: 50%;
+            outline: none;
+            transition: all 75ms ease-in;
+            &:hover {
+                background-color: $varm-fjellgrå;
+                color: $snøhvit;
+            }
+            &[aria-current="date"] {
+                background-color: $varde;
+            }
+            &[autofocus] {
+                background-color: $svart;
+                color: $snøhvit;
+            }
+        }
+    }
+}
