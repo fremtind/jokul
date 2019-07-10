@@ -1,5 +1,18 @@
+@font-face {
+    font-family: AkkuratPro;
+    font-style: normal;
+    font-weight: normal;
+    src: local("Akkurat Light Pro");
+}
+@font-face {
+    font-family: AkkuratPro;
+    font-style: normal;
+    font-weight: bold;
+    src: local("Akkurat Pro");
+}
+
 :root {
-    font-family: "Akkurat Light Pro";
+    font-family: AkkuratPro;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

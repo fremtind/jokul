@@ -1,0 +1,1 @@
+export { initTabListener } from "./tabListener";

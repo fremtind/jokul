@@ -1,9 +1,9 @@
 {
-    "name": "@fremtind/jkl-core",
+    "name": "@fremtind/jkl-bullet-list-react",
     "version": "0.0.1",
-    "description": "Kåre for Jøkul",
+    "description": "bullet-list for Jøkul",
     "keywords": [
-        "core"
+        "bullet-list"
     ],
     "license": "MIT",
     "types": "./build/index.d.ts",
@@ -17,18 +17,20 @@
         "build"
     ],
     "scripts": {
-        "build": "yarn build:styles && yarn build:modules",
-        "build:css": "node-sass src -o build/css --importer='../../node_modules/node-sass-tilde-importer'",
-        "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
-        "build:scss": "cpx 'src/**/*.scss' build/scss",
-        "build:styles": "yarn build:scss && yarn build:css",
-        "build:modules": "yarn build:types && yarn build:scripts",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "yarn run build:scripts && yarn run build:types",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "normalize-scss": "^7.0.1"
+        "@fremtind/jkl-bullet-list": "^0.0.1",
+        "@nrk/core-toggle": "^3.0.4"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
     }
 }

@@ -18,14 +18,16 @@ $checkbox-focus-outline-color: #509ce6;
         -webkit-appearance: none;
         background-color: $checkbox-unchecked-background-color;
         border: solid rem(1px) $checkbox-border-color;
+        border-radius: 0; // fixes rounded corners in iOS Safari
         height: $checkbox-size;
         margin-right: 0.5rem;
+        outline: none;
         position: relative;
         transition: background-color 200ms ease, transform 150ms ease;
         vertical-align: middle;
         width: $checkbox-size;
 
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
             outline-offset: rem(2px);
             outline: $checkbox-focus-outline-color solid rem(2px);
         }

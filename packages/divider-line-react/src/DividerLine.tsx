@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import uuid from "uuid/v4";
 
 export const DividerLine = () => {
-    const [spin, setSpin] = useState(false);
+    const [spin, setSpin] = useState(typeof IntersectionObserver === "undefined");
     const [id] = useState(uuid());
 
     const checkVisibility = (entries: IntersectionObserverEntry[]) =>
@@ -17,7 +17,8 @@ export const DividerLine = () => {
         threshold: 1.0,
     };
 
-    const observer = new IntersectionObserver(checkVisibility, options) || { observe: () => setSpin(true) };
+    const observer = (typeof IntersectionObserver !== "undefined" &&
+        new IntersectionObserver(checkVisibility, options)) || { observe: () => setSpin(true) };
 
     useEffect(() => {
         const target = document.getElementById(id);
