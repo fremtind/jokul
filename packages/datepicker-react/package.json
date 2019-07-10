@@ -27,10 +27,12 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@fremtind/jkl-text-input": "^0.0.1",
+        "@fremtind/jkl-datepicker": "^0.0.1",
         "@fremtind/jkl-text-input-react": "^0.0.1",
-        "@fremtind/jkl-core": "^0.0.1",
         "@nrk/core-datepicker": "^3.0.5",
         "@nrk/core-toggle": "^3.0.4"
+    },
+    "devDependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
     }
 }

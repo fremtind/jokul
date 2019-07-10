@@ -3,9 +3,8 @@ import "@fremtind/jkl-core/build/css/core.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { DatePicker } from "../src";
-import "../src/datepicker.scss";
+import "@fremtind/jkl-datepicker/datepicker.scss";
 import "@fremtind/jkl-core/build/css/normalize.css";
-import "@fremtind/jkl-text-input/text-input.css";
 
 const App = () => (
     <>
