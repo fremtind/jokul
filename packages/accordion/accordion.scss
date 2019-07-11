@@ -1,7 +1,5 @@
-@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
-@import "~@fremtind/jkl-core/build/scss/variables/spacing.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/typography.scss";
-@import "~@fremtind/jkl-core/build/scss/mixins/ornaments.scss";
+@import "~@fremtind/jkl-core/variables/variables";
+@import "~@fremtind/jkl-core/mixins/mixins";
 
 $border-color: $svart;
 $border-color--focus: $himmel;

@@ -1,5 +1,5 @@
-@import "~@fremtind/jkl-core/build/scss/variables/colors";
-@import "~@fremtind/jkl-core/build/scss/functions";
+@import "~@fremtind/jkl-core/variables/variables";
+@import "~@fremtind/jkl-core/mixins/functions";
 
 $checkbox-size: 1.5rem;
 $checkbox-border-color: $svart;

@@ -1,4 +1,4 @@
-@import "../src/core.scss";
+@import "../variables/variables.scss";
 
 @mixin demo-box($size, $color: $matt-svart) {
     width: $size;

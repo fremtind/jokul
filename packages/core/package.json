@@ -18,10 +18,9 @@
     ],
     "scripts": {
         "build": "yarn build:styles && yarn build:modules",
-        "build:css": "node-sass src -o build/css --importer='../../node_modules/node-sass-tilde-importer'",
+        "build:styles": "node-sass . -o . --non-recursive --importer='../../node_modules/node-sass-tilde-importer'",
         "prebuild:scss": "mkdirp -p build && mkdirp build/scss",
         "build:scss": "cpx 'src/**/*.scss' build/scss",
-        "build:styles": "yarn build:scss && yarn build:css",
         "build:modules": "yarn build:types && yarn build:scripts",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",

@@ -1,4 +1,4 @@
-@import "./font-size.scss";
+@import "./variables/font-size";
 
 .jkl-p {
     @include font-size("small");
