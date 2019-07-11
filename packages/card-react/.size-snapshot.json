@@ -1,0 +1,35 @@
+{
+    "build/cjs/index.js": {
+        "bundled": 412,
+        "minified": 308,
+        "gzipped": 229
+    },
+    "build/esm/index.js": {
+        "bundled": 193,
+        "minified": 136,
+        "gzipped": 136,
+        "treeshaked": {
+            "rollup": {
+                "code": 14,
+                "import_statements": 14
+            },
+            "webpack": {
+                "code": 998
+            }
+        }
+    },
+    "build/browser/index.js": {
+        "bundled": 193,
+        "minified": 136,
+        "gzipped": 136,
+        "treeshaked": {
+            "rollup": {
+                "code": 14,
+                "import_statements": 14
+            },
+            "webpack": {
+                "code": 998
+            }
+        }
+    }
+}
