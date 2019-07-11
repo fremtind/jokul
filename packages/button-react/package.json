@@ -24,8 +24,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.0.1",
-        "@fremtind/jkl-utils": "^0.0.1"
+        "@fremtind/jkl-button": "^0.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
