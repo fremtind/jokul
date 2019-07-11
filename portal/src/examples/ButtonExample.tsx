@@ -1,5 +1,5 @@
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import React from "react";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 
 function clickHandler() {
     console.log("You've clicked me!");

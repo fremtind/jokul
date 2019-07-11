@@ -5,20 +5,17 @@ import AccordionMarkdown from "!raw-loader!@fremtind/jkl-accordion/README.md";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { AccordionExample } from "../../examples/AccordionExample";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import { PrismHighlightedCode } from "../../components/PrismHighlightedCode";
 import { renderer } from "../../presentation/markdownRenderer";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import "./example.scss";
 
 export default function Button() {
     return (
         <Layout>
-            <h2 style={{ margin: "3rem 0" }} className="jkl-h1">
-                Trekkspillliste
-            </h2>
+            <h2 className="jkl-h1 portal-content__title">Trekkspillliste</h2>
             <div>
-                <div className="component-example">
+                <div className="portal-content__example">
                     <AccordionExample />
                 </div>
 
