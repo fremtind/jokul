@@ -4,42 +4,35 @@
 @import "~@fremtind/jkl-core/build/scss/typography/headings.scss";
 @import "~@fremtind/jkl-core/build/scss/typography/paragraphs.scss";
 
-@mixin colored-line($color) {
-    @include position(absolute);
-    content: " ";
-    height: 100%;
-    width: $component-spacing--xs;
-    background-color: $color;
-}
-
-@mixin box($bg-color) {
+.jkl-message-box {
     position: relative;
-    background-color: $bg-color;
     width: calc(3 *#{$layout-spacing--xxl});
     min-height: $layout-spacing--xl;
     padding: $component-spacing--xl;
-}
+    background-color: $snøhvit;
 
-.jkl-message-box {
+    &::before {
+        @include position(absolute);
+        content: " ";
+        height: 100%;
+        width: $component-spacing--xs;
+    }
     &__title {
         margin-bottom: $component-spacing--large;
     }
     &__info {
-        @include box($snøhvit);
         &::before {
-            @include colored-line($himmel);
+            background-color: $himmel;
         }
     }
     &__error {
-        @include box($snøhvit);
         &::before {
-            @include colored-line($blomst);
+            background-color: $blomst;
         }
     }
     &__success {
-        @include box($snøhvit);
         &::before {
-            @include colored-line($gress);
+            background-color: $gress;
         }
     }
 }

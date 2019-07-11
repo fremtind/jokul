@@ -11,7 +11,7 @@ type messageTypes = "info" | "error" | "success";
 function messageFactory(messageType: messageTypes) {
     return function messageBox({ title, children }: Props) {
         return (
-            <div className={`jkl-message-box__${messageType}`}>
+            <div className={`jkl-message-box jkl-message-box__${messageType}`}>
                 <H4>{title}</H4>
                 <P>{children}</P>
             </div>
