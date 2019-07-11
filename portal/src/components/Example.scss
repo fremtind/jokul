@@ -1,22 +1,24 @@
+@import "~@fremtind/jkl-core/build/scss/variables/variables.scss";
+@import "~@fremtind/jkl-core/build/scss/functions.scss";
+
 .portal-content__example {
     display: flex;
     align-items: center;
     justify-content: space-around; // For IE & Edge
     justify-content: space-evenly;
-    padding: 4rem 0;
-    background-color: #fafafa;
+    padding: $layout-spacing--large;
+    background-color: $snøhvit;
     margin: 0;
-    padding: 3rem;
 }
 
 pre[class*="language-"] {
-    font-size: 1rem;
+    font-size: rem(16px);
     margin: 0;
     padding: 0;
     background-color: transparent;
 }
 
 .jkl-accordion-item__content {
-    padding-top: 2rem;
-    padding-bottom: 3rem;
+    padding-top: $layout-spacing--medium;
+    padding-bottom: $layout-spacing--large;
 }

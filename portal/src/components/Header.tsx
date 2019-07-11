@@ -9,7 +9,7 @@ interface Props {
 
 export const Header = ({ siteTitle = "" }: Props) => (
     <header className="portal-header">
-        <h1 className="portal-header__title jkl-h2" style={{}}>
+        <h1 className="portal-header__title jkl-h2">
             <Link to="/">{siteTitle}</Link>
         </h1>
     </header>
