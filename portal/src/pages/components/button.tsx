@@ -5,7 +5,7 @@ import { Layout } from "../../components/Layout";
 import { Example } from "../../components/Example";
 import { renderer } from "../../presentation/markdownRenderer";
 
-/* Import readme file of component here with !raw-loader! */
+/* Import readme fil../../components/Layouth !raw-loader! */
 // @ts-ignore
 import readmeContents from "!raw-loader!@fremtind/jkl-button/README.md";
 
