@@ -38,8 +38,14 @@ export function DatePicker({
 
     return (
         <div className="jkl-datepicker">
-            <button className="jkl-datepicker__toggler">
-                <TextField label={label} type="text" readOnly value={date.toLocaleDateString()} />
+            <button className="jkl-datepicker__toggler" data-testid="jkl-datepicker-toggler">
+                <TextField
+                    label={label}
+                    type="text"
+                    readOnly
+                    value={date.toLocaleDateString()}
+                    data-testid="jkl-datepicker-input"
+                />
             </button>
             <CoreToggle hidden popup>
                 <CoreDatepicker
@@ -55,7 +61,7 @@ export function DatePicker({
                             <select />
                         </label>
                     </div>
-                    <table />
+                    <table data-testid="jkl-datepicker-calendar" />
                 </CoreDatepicker>
             </CoreToggle>
         </div>
