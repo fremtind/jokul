@@ -76,7 +76,7 @@ export default function ALaCarte() {
 
             <section>
                 <h1 className="jkl-h2">Dropdown</h1>
-                <Dropdown items={["Ener", "Toer", "Treer"]} label={"Jeg er"} />
+                <Dropdown items={["Ener", "Toer", "Treer"]} label={"Jeg er"} onChange={() => {}} />
             </section>
 
             <section>
