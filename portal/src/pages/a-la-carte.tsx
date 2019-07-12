@@ -10,7 +10,7 @@ import { TextArea, TextField } from "@fremtind/jkl-text-input-react/src";
 import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "@fremtind/jkl-typography-react/src";
 import React, { useState } from "react";
 import { BulletList, BulletListItem } from "../../../packages/bullet-list-react/src";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import "./a-la-carte.scss";
 
 export default function ALaCarte() {
