@@ -2,8 +2,9 @@
     "name": "@fremtind/jkl",
     "private": true,
     "scripts": {
-        "build": "yarn build:style && yarn build:react",
-        "build:style": "lerna run --parallel --ignore @fremtind/jkl-*-react --ignore @fremtind/*-consumer-example build",
+        "build": "yarn build:core && build:style && yarn build:react",
+        "build:style": "lerna run --parallel --ignore @fremtind/jkl-*-react --ignore @fremtind/*-consumer-example --ignore @fremtind/jkl-core build",
+        "build:core": "lerna run --scope @fremtind/jkl-core build",
         "build:react": "lerna run --scope @fremtind/jkl-*-react build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
