@@ -1,10 +1,5 @@
 {
-    "build/cjs/index.js": {
-        "bundled": 2792,
-        "minified": 1744,
-        "gzipped": 802
-    },
-    "build/esm/index.js": {
+    "build/esm/index.min.js": {
         "bundled": 2444,
         "minified": 1449,
         "gzipped": 693,
@@ -18,7 +13,7 @@
             }
         }
     },
-    "build/browser/index.js": {
+    "build/browser/index.min.js": {
         "bundled": 2444,
         "minified": 1449,
         "gzipped": 693,

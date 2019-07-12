@@ -1,34 +1,29 @@
 {
-    "build/cjs/index.js": {
-        "bundled": 3533,
-        "minified": 3191,
-        "gzipped": 1211
-    },
-    "build/esm/index.js": {
-        "bundled": 3312,
-        "minified": 3017,
-        "gzipped": 1134,
+    "build/esm/index.min.js": {
+        "bundled": 5430,
+        "minified": 3473,
+        "gzipped": 1240,
         "treeshaked": {
             "rollup": {
                 "code": 14,
                 "import_statements": 14
             },
             "webpack": {
-                "code": 1243
+                "code": 1615
             }
         }
     },
-    "build/browser/index.js": {
-        "bundled": 3312,
-        "minified": 3017,
-        "gzipped": 1134,
+    "build/browser/index.min.js": {
+        "bundled": 5430,
+        "minified": 3473,
+        "gzipped": 1240,
         "treeshaked": {
             "rollup": {
                 "code": 14,
                 "import_statements": 14
             },
             "webpack": {
-                "code": 1243
+                "code": 1615
             }
         }
     }
