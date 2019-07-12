@@ -9,6 +9,7 @@
 .portal-content {
     padding: $layout-spacing--xxl $layout-spacing--medium 0;
     box-sizing: border-box;
+    margin-bottom: $layout-spacing--xxl;
 
     &__title {
         margin-bottom: $layout-spacing--large;

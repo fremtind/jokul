@@ -45,6 +45,11 @@ export function Menu() {
                         Ikoner
                     </Link>
                 </AccordionItem>
+                <AccordionItem title="For utviklere">
+                    <Link className="portal-menu__link" to="/components/contribute/">
+                        Bidragsguide
+                    </Link>
+                </AccordionItem>
                 <AccordionItem title="Komponenter">
                     <Link className="portal-menu__link" to="/components/button/">
                         Knapper
