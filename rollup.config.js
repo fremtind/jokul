@@ -13,7 +13,7 @@ let newVar = {
         babel({
             rootMode: "upward",
             extensions,
-            exclude: ["node_modules/**", "*.stories.*"], // only transpile our source code
+            exclude: ["node_modules/**"], // only transpile our source code
         }),
         commonjs({
             namedExports: {

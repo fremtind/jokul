@@ -1,11 +1,11 @@
+dist: xenial
 language: node_js
 node_js:
-    - "--lts"
+    - "v12.6.0"
 cache:
     yarn: true
 script:
     - yarn build
-    - yarn build:docs
     - yarn lint
     - yarn typecheck
     - yarn test:ci

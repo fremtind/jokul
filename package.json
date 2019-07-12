@@ -2,7 +2,9 @@
     "name": "@fremtind/jkl",
     "private": true,
     "scripts": {
-        "build": "lerna run build",
+        "build": "yarn build:style && yarn build:react",
+        "build:style": "lerna run --parallel --ignore @fremtind/jkl-*-react --ignore @fremtind/*-consumer-example build",
+        "build:react": "lerna run --scope @fremtind/jkl-*-react build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
         "predeploy:docs": "yarn run build:docs",
@@ -12,8 +14,9 @@
         "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint": "yarn run lint:formatting && yarn run lint:scripts",
         "test": "jest -c './jest/jest.all.js'",
-        "test:ci": "yarn test",
+        "test:ci": "yarn test && yarn test:integration",
         "test:unit": "jest -c './jest/jest.unit.js'",
+        "test:integration": "lerna run --scope @fremtind/*-consumer-example test:integration",
         "prerelease": "yarn build",
         "release": "lerna publish",
         "dev": "parcel"
