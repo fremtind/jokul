@@ -5,7 +5,6 @@ cache:
     yarn: true
 script:
     - yarn build
-    - yarn build:docs
     - yarn lint
     - yarn typecheck
     - yarn test:ci

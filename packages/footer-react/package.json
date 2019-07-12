@@ -27,8 +27,7 @@
         "@fremtind/jkl-core": "^0.0.1",
         "@fremtind/jkl-footer": "^0.0.1",
         "@fremtind/jkl-grid": "^0.0.1",
-        "@fremtind/jkl-typography-react": "^0.0.1",
-        "@fremtind/jkl-utils": "^0.0.1"
+        "@fremtind/jkl-typography-react": "^0.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
