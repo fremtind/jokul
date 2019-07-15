@@ -17,7 +17,9 @@
         "lib": "build"
     },
     "files": [
-        "build"
+        "build",
+        "*.css",
+        "*.scss"
     ],
     "scripts": {
         "build": "gulp build && yarn build:modules",

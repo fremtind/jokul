@@ -8,11 +8,8 @@
     "keywords": [
         "accordion"
     ],
-    "directories": {
-        "lib": "build"
-    },
     "files": [
-        "build"
+        "*.css"
     ],
     "license": "MIT",
     "scripts": {
