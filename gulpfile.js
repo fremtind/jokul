@@ -10,11 +10,13 @@ const rename = require("gulp-rename");
 sass.compiler = require("node-sass");
 
 /* eslint-enable @typescript-eslint/no-var-requires */
-
+function throwError(e) {
+    throw new Error("sass compilation failed", e);
+}
 module.exports = {
     scss: function() {
         return src("**/*.scss")
-            .pipe(sass({ importer }).on("error", sass.logError))
+            .pipe(sass({ importer }).on("error", throwError))
             .pipe(dest("./"));
     },
     css: function() {
