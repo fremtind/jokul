@@ -1,4 +1,4 @@
-const browserList = require("./package").browserslist;
+const browserList = require("./packages/browserslist-config-jkl");
 
 module.exports = function(api) {
     // https://babeljs.io/docs/en/config-files#apicache

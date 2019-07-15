@@ -2,7 +2,7 @@
     "name": "@fremtind/jkl",
     "private": true,
     "scripts": {
-        "build": "lerna run --ignore @fremtind/*-consumer-example build",
+        "build": "lerna run --ignore @fremtind/*-consumer-example --ignore @fremtind/browserslist-config-jkl build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
         "predeploy:docs": "yarn run build:docs",
@@ -96,9 +96,5 @@
             "git add",
             "eslint"
         ]
-    },
-    "browserslist": [
-        "Chrome > 60",
-        "IE 11"
-    ]
+    }
 }

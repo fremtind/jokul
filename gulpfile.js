@@ -21,7 +21,7 @@ module.exports = {
     },
     css: function() {
         return src(["**/*.css", "!**/example/**", "!**/*.min.css"])
-            .pipe(postcss([autoprefixer({ browsers: ["last 1 version"] }), cssnano()]))
+            .pipe(postcss([autoprefixer(), cssnano()]))
             .pipe(rename({ suffix: ".min" }))
             .pipe(dest("./"));
     },
