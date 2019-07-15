@@ -3,66 +3,130 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-text-input/text-input.scss";
 
-$calendar-width: rem(402px);
-$calendar-box-size: rem(46px);
+$date-width: rem(46px);
+$calendar-padding: $component-spacing--xl;
+$calendar-width: ($date-width * 7) + ($calendar-padding * 2);
+$background-color: $snøhvit;
 
 .jkl-datepicker {
+    position: relative;
     width: $calendar-width;
-    background-color: $snøhvit;
+    background-color: $background-color;
 
     &__toggler {
         border: none;
+        padding: 0;
         outline: none;
         background-color: transparent;
         text-align: left;
         width: $calendar-width;
     }
+
+    &__calendar-header {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        &--year {
+            max-width: 30%;
+            margin-right: $component-spacing--xxl;
+        }
+        &--month {
+            position: relative;
+            flex-grow: 2;
+            padding-top: $text-field-size;
+
+            select {
+                appearance: none;
+                &::-ms-expand {
+                    display: none; // remove arrow in IE10 and IE11
+                }
+                border: 0;
+                border-radius: 0;
+                outline: none;
+
+                display: block;
+                box-shadow: inset 0 rem(-2px) 0 0 $svart;
+                transition: box-shadow 175ms ease-in;
+
+                font-size: 1.75rem;
+                line-height: 3rem;
+                padding-bottom: $component-spacing--small;
+
+                &:focus,
+                &:hover {
+                    box-shadow: inset 0 rem(-3px) 0 0 $svart;
+                }
+            }
+        }
+    }
+
+    &__month-label {
+        @include font-size(small);
+        @include position(absolute, $top: 0, $bottom: initial);
+        @include label-font-size--raised();
+        line-height: $input-height;
+        transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
+        pointer-events: none;
+    }
+
     &__calendar {
+        @include position(absolute, $top: 100%, $bottom: initial);
+        z-index: 1000; // TODO: Align with z-index scale
         display: flex;
         justify-content: center;
         flex-direction: column;
-        width: $calendar-width - $component-spacing--xl;
+        width: $calendar-width - ($calendar-padding * 2);
+        padding: $calendar-padding;
+        background-color: $background-color;
         box-shadow: 0px rem(4px) rem(8px) rgba(0, 0, 0, 0.08);
-        padding: $component-spacing--xl;
-        &__header {
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            &--year {
-                max-width: 30%;
-            }
-            &--month {
-                flex-grow: 2;
-            }
-        }
 
         caption {
-            @extend .jkl-p;
-            padding-top: $component-spacing--xl;
+            font-size: $font-size-3;
+            line-height: $line-height-3;
+            padding-top: $component-spacing--xxl;
             text-transform: capitalize;
+        }
+        td {
+            padding: 0;
+            margin: 0;
+            text-align: center;
         }
         th {
             font-weight: normal;
-            padding: $component-spacing--large 0;
+            font-size: $font-size-2;
+            padding: $component-spacing--medium 0 $component-spacing--large;
         }
         button {
-            width: $calendar-box-size;
-            height: $calendar-box-size;
+            font-size: $font-size-3;
+            line-height: $line-height-3;
+            display: inline-flex;
+            height: 40px;
+            width: 40px;
+            padding: 0;
+            padding-top: $component-spacing--xxs; // fixes font basline-issue
+            margin: $component-spacing--xxs;
+            justify-content: center;
+            align-items: center;
             background-color: transparent;
-            border: $component-spacing--small solid $snøhvit;
+            border: none;
             border-radius: 50%;
             outline: none;
             transition: all 75ms ease-in;
-            &:hover {
-                background-color: $varm-fjellgrå;
-                color: $snøhvit;
+            &[data-adjacent="true"] {
+                font-size: $font-size-2;
+                color: $varm-fjellgrå;
             }
             &[aria-current="date"] {
                 background-color: $varde;
             }
+            &:hover:not(:disabled) {
+                background-color: $varm-fjellgrå;
+                color: $snøhvit;
+            }
             &[autofocus] {
                 background-color: $svart;
                 color: $snøhvit;
+                font-weight: bold;
             }
         }
     }
