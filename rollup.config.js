@@ -2,7 +2,6 @@ import nodeResolve from "rollup-plugin-node-resolve";
 import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
-import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 
 const extensions = [".ts", ".tsx"];
 const outputFolder = "build";
@@ -22,7 +21,7 @@ const defaultPlugins = [
     }),
 ];
 
-const uglifiedPlugins = [...defaultPlugins, sizeSnapshot({ printInfo: false }), terser({ ecma: "es5" })];
+const uglifiedPlugins = [...defaultPlugins, terser({ ecma: "es5" })];
 
 function config(plugins) {
     return {
