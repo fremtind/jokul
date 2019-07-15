@@ -1,5 +1,5 @@
-@import "~@fremtind/jkl-core/build/scss/variables/variables.scss";
-@import "~@fremtind/jkl-core/build/scss/functions.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 .portal-content__example {
     display: flex;
