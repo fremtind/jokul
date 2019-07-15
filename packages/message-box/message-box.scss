@@ -1,19 +1,17 @@
-@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
-@import "~@fremtind/jkl-core/build/scss/variables/spacing.scss";
-@import "~@fremtind/jkl-core/build/scss/mixins/utils.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/headings.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/paragraphs.scss";
+@import "~@fremtind/jkl-core/variables/colors";
+@import "~@fremtind/jkl-core/variables/spacing";
+@import "~@fremtind/jkl-core/mixins/utils";
 
 .jkl-message-box {
     position: relative;
-    width: calc(3 *#{$layout-spacing--xxl});
+    width: 3 * $layout-spacing--xxl;
     min-height: $layout-spacing--xl;
     padding: $component-spacing--xl;
     background-color: $snøhvit;
 
     &::before {
         @include position(absolute);
-        content: " ";
+        content: "";
         height: 100%;
         width: $component-spacing--xs;
     }
