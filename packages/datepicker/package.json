@@ -1,0 +1,31 @@
+{
+    "name": "@fremtind/jkl-datepicker",
+    "version": "0.0.1",
+    "description": "datepicker style",
+    "keywords": [
+        "datepicker"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gulp build",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.0.1",
+        "@fremtind/jkl-text-input": "^0.0.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

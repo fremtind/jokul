@@ -91,6 +91,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "idalower",
+      "name": "idalower",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/47539074?v=4",
+      "profile": "https://github.com/idalower",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
