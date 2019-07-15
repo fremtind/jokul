@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "0.0.1",
+    "version": "0.5.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "React wrapper for message box",
     "keywords": [
         "messagebox"
@@ -24,8 +27,8 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-message-box": "^0.0.1",
-        "@fremtind/jkl-typography-react": "^0.0.1"
+        "@fremtind/jkl-message-box": "^0.5.0",
+        "@fremtind/jkl-typography-react": "^0.5.0"
     },
     "devDependecies": {
         "@fremtind/jkl-core": "^0.0.1"
@@ -42,5 +45,12 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
     }
 }

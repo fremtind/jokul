@@ -1,17 +1,18 @@
 {
     "name": "@fremtind/jkl-header",
-    "version": "0.0.1",
+    "version": "0.5.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "Header style for Jøkul",
     "keywords": [
         "header",
         "style"
     ],
     "license": "MIT",
-    "directories": {
-        "lib": "build"
-    },
     "files": [
-        "build"
+        "!example",
+        "*.css"
     ],
     "scripts": {
         "build": "gulp build",
@@ -19,6 +20,13 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
+        "@fremtind/jkl-core": "^0.5.0"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
     }
 }

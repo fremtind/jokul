@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-radio-button-react",
-    "version": "0.0.1",
+    "version": "0.5.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "React implementation of radio buttons in the Jøkul design system",
     "keywords": [
         "interface",
@@ -26,10 +29,15 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-radio-button": "^0.0.1",
+        "@fremtind/jkl-radio-button": "^0.5.0",
         "uuid": "^3.3.2"
     },
     "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0",
         "@types/uuid": "^3.4.4"
-    }
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }
