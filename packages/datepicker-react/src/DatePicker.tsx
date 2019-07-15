@@ -54,10 +54,10 @@ export function DatePicker({
                     onDatepickerChange={onDateChange}
                     className="jkl-datepicker__calendar"
                 >
-                    <div className="jkl-datepicker__calendar__header">
-                        <TextField label={yearLabel} type="year" className="jkl-datepicker__calendar__header--year" />
-                        <label className="jkl-datepicker__calendar__header--month">
-                            {monthLabel}
+                    <div className="jkl-datepicker__calendar-header">
+                        <TextField label={yearLabel} type="year" className="jkl-datepicker__calendar-header--year" />
+                        <label className="jkl-datepicker__calendar-header--month">
+                            <span className="jkl-datepicker__month-label">{monthLabel}</span>
                             <select />
                         </label>
                     </div>

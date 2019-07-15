@@ -1,5 +1,5 @@
 //import "@fremtind/jkl-DatePicker/DatePicker.css";
-import "@fremtind/jkl-core/build/css/core.css";
+import "@fremtind/jkl-core/core.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { DatePicker } from "../src";
