@@ -6,7 +6,6 @@
     "license": "MIT",
     "main": "index.tsx",
     "scripts": {
-        "build": "echo 'noop'",
         "test:integration": "parcel build index.html",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel index.html"

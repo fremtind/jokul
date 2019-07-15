@@ -21,7 +21,7 @@ $calendar-box-size: rem(46px);
         display: flex;
         justify-content: center;
         flex-direction: column;
-        width: calc($calendar-width - $component-spacing--xl);
+        width: $calendar-width - $component-spacing--xl;
         box-shadow: 0px rem(4px) rem(8px) rgba(0, 0, 0, 0.08);
         padding: $component-spacing--xl;
         &__header {

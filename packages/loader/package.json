@@ -8,7 +8,7 @@
     "homepage": "https://github.com/fremtind/jokul#readme",
     "license": "MIT",
     "scripts": {
-        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
+        "build": "gulp build",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
