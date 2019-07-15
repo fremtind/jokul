@@ -4,7 +4,7 @@ Describe the big picture of your changes here to communicate to the maintainers 
 
 ## ☑️ Submission checklist
 
--   [ ] I have read the [CONTRIBUTING]() doc
+-   [ ] I have read the [CONTRIBUTING]("../guides/Contribute.md") doc
 -   [ ] `yarn build` works locally with my changes
 -   [ ] I have added tests that prove my fix is effective or that my feature works
 -   [ ] I have added necessary documentation (if appropriate)

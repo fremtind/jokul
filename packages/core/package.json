@@ -32,9 +32,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
-    "dependencies": {
-        "normalize-scss": "^7.0.1"
-    },
+    "dependencies": {},
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
