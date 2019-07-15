@@ -1,13 +1,11 @@
-# Knapper
-
 Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den.
 
 ## Knappetyper
 
--   Primærknapp – brukes når du vil oppfordre
+-   **Primærknapp** – brukes når du vil oppfordre
     til en hovedhandling på en side.
--   Sekundærknapp – for handlinger som kommer i andre rekke på en side.
--   Tertiærknapp - brukes for handlinger som har begrenset viktighet eller kan føre til uønskede konsekvenser
+-   **Sekundærknapp** – for handlinger som kommer i andre rekke på en side.
+-   **Tertiærknapp** - brukes for handlinger som har begrenset viktighet eller kan føre til uønskede konsekvenser
 
 For Fremtind designer vi knappene med animasjon etter prinsippet om [elevasjon](#). Det vil si at når brukerne beveger pekeren over eller velger en knapp, vil den bli midlertidig forstørret.
 
