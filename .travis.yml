@@ -1,11 +1,11 @@
+dist: xenial
 language: node_js
 node_js:
-    - "--lts"
+    - "v12.6.0"
 cache:
     yarn: true
 script:
     - yarn build
-    - yarn build:docs
     - yarn lint
     - yarn typecheck
     - yarn test:ci
@@ -15,6 +15,7 @@ script:
 branches:
     only:
         - master
+before_deploy: yarn build:docs
 deploy:
     provider: pages
     local_dir: "./portal/public"

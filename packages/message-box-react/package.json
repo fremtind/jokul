@@ -1,7 +1,10 @@
 {
-    "name": "@fremtind/jkl-header-react",
+    "name": "@fremtind/jkl-message-box-react",
     "version": "0.0.1",
-    "description": "Header component for Fremtind",
+    "description": "React wrapper for message box",
+    "keywords": [
+        "messagebox"
+    ],
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
@@ -21,13 +24,23 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1",
-        "@fremtind/jkl-header": "^0.0.1"
+        "@fremtind/jkl-message-box": "^0.0.1",
+        "@fremtind/jkl-typography-react": "^0.0.1"
+    },
+    "devDependecies": {
+        "@fremtind/jkl-core": "^0.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
         "@types/react-dom": "^16.8.4",
         "react": "^16.8.6",
         "react-dom": "^16.8.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
     }
 }
