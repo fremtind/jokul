@@ -15,6 +15,7 @@ script:
 branches:
     only:
         - master
+before_deploy: yarn build:docs
 deploy:
     provider: pages
     local_dir: "./portal/public"

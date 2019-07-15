@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 const IndexPage = () => (
     <Layout>
@@ -8,6 +8,7 @@ const IndexPage = () => (
 
         <div>
             <Link to="/components/button/">Eksempel på komponent dokumentasjon</Link>
+            <Link to="/components/accordion/">Eksempel på komponent dokumentasjon</Link>
         </div>
         <Link to="/a-la-carte">Alle komponenter</Link>
     </Layout>
