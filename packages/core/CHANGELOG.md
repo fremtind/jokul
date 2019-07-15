@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.2.0...@fremtind/jkl-core@0.3.0) (2019-07-15)
+
+
+### Bug Fixes
+
+* **build:** publish correct files from core and accordion ([0a929ee](https://github.com/fremtind/jokul/commit/0a929ee))
+* **core:** restore all.scss in core/variables ([16bc54e](https://github.com/fremtind/jokul/commit/16bc54e))
+
+
+### Features
+
+* **build:** publish correct files in all packages ([b1fbb8f](https://github.com/fremtind/jokul/commit/b1fbb8f))
+* **core:** flatten structure of core package ([5b2287b](https://github.com/fremtind/jokul/commit/5b2287b))
+
+
+
+
+
 # [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.1.0...@fremtind/jkl-core@0.2.0) (2019-07-15)
 
 ### Bug Fixes

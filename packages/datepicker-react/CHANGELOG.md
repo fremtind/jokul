@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.2.0...@fremtind/jkl-datepicker-react@0.2.1) (2019-07-15)
+
+
+### Bug Fixes
+
+* **core:** use correct path for normalize in datepicker example ([919f778](https://github.com/fremtind/jokul/commit/919f778))
+
+
+
+
+
 # [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.1.0...@fremtind/jkl-datepicker-react@0.2.0) (2019-07-15)
 
 ### Bug Fixes

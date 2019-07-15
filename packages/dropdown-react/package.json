@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-dropdown": "^0.2.0",
+        "@fremtind/jkl-dropdown": "^0.3.0",
         "downshift": "^3.2.10"
     },
     "peerDependencies": {
@@ -42,7 +42,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.2.0",
+        "@fremtind/browserslist-config-jkl": "^0.3.0",
         "prop-types": "^15.7.2"
     },
     "browserslist": [

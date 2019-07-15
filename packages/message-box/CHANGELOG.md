@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.2.0...@fremtind/jkl-message-box@0.3.0) (2019-07-15)
+
+
+### Bug Fixes
+
+* **core:** update message-box to use new core structure ([f95ea95](https://github.com/fremtind/jokul/commit/f95ea95))
+
+
+### Features
+
+* **build:** publish correct files in all packages ([b1fbb8f](https://github.com/fremtind/jokul/commit/b1fbb8f))
+
+
+
+
+
 # [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.1.0...@fremtind/jkl-message-box@0.2.0) (2019-07-15)
 
 ### Bug Fixes

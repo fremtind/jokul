@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/gatsbyjs/gatsby-starter-default/compare/@fremtind/portal@0.1.0...@fremtind/portal@0.1.1) (2019-07-15)
+
+
+### Bug Fixes
+
+* **portal:** import specific files on a-la-carte page ([a557fb5](https://github.com/gatsbyjs/gatsby-starter-default/commit/a557fb5))
+
+
+
+
+
 # 0.1.0 (2019-07-15)
 
 ### Bug Fixes

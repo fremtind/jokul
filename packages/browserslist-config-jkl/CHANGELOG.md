@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/browserslist-config-jkl@0.2.0...@fremtind/browserslist-config-jkl@0.3.0) (2019-07-15)
+
+
+### Features
+
+* **build:** publish correct files in all packages ([b1fbb8f](https://github.com/fremtind/jokul/commit/b1fbb8f))
+
+
+
+
+
 # 0.2.0 (2019-07-15)
 
 ### Bug Fixes
