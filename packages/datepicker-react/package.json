@@ -1,0 +1,38 @@
+{
+    "name": "@fremtind/jkl-datepicker-react",
+    "version": "0.0.1",
+    "description": "datepicker",
+    "keywords": [
+        "datepicker"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "yarn run build:scripts && yarn run build:types",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "dependencies": {
+        "@fremtind/jkl-datepicker": "^0.0.1",
+        "@fremtind/jkl-text-input-react": "^0.0.1",
+        "@nrk/core-datepicker": "^3.0.5",
+        "@nrk/core-toggle": "^3.0.4"
+    },
+    "devDependencies": {
+        "@fremtind/jkl-core": "^0.0.1"
+    }
+}
