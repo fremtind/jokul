@@ -23,5 +23,11 @@
     "dependencies": {
         "@fremtind/jkl-core": "^0.1.0"
     },
-    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96",
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.0.2"
+    }
 }

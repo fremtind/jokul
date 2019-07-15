@@ -33,7 +33,11 @@
         "uuid": "^3.3.2"
     },
     "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.0.2",
         "@types/uuid": "^3.4.4"
     },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
     "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }

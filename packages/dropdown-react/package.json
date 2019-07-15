@@ -36,7 +36,11 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.0.2",
         "prop-types": "^15.7.2"
     },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
     "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }
