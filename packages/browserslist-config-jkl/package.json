@@ -1,0 +1,28 @@
+{
+    "name": "@fremtind/browserslist-config-jkl",
+    "version": "0.3.0",
+    "description": "browserlist configuration for jøkul",
+    "keywords": [
+        "browserlist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "homepage": "https://github.com/fremtind/jokul#readme",
+    "license": "MIT",
+    "main": "index.js",
+    "files": [
+        "index.js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "scripts": {
+        "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
+}

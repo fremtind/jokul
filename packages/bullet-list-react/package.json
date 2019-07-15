@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-bullet-list-react",
-    "version": "0.0.1",
+    "version": "0.5.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "bullet-list for Jøkul",
     "keywords": [
         "bullet-list"
@@ -24,7 +27,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-bullet-list": "^0.0.1",
+        "@fremtind/jkl-bullet-list": "^0.5.0",
         "@nrk/core-toggle": "^3.0.4"
     },
     "peerDependencies": {
@@ -32,5 +35,12 @@
         "@types/react-dom": "^16.8.4",
         "react": "^16.8.6",
         "react-dom": "^16.8.6"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
     }
 }

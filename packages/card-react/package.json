@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "0.0.1",
+    "version": "0.5.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "Card component for Jøkul design system",
     "keywords": [
         "card"
@@ -24,6 +27,13 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-card": "^0.0.1"
+        "@fremtind/jkl-card": "^0.5.0"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
     }
 }
