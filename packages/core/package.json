@@ -18,8 +18,9 @@
     },
     "files": [
         "build",
-        "*.css",
-        "*.scss"
+        "!example",
+        "**/*.css",
+        "**/*.scss"
     ],
     "scripts": {
         "build": "gulp build && yarn build:modules",

@@ -4,6 +4,10 @@
     "publishConfig": {
         "access": "public"
     },
+    "files": [
+        "!example",
+        "**/*.css"
+    ],
     "description": "style for Fremtind logo",
     "keywords": [
         "logo"

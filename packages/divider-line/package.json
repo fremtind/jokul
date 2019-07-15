@@ -9,11 +9,9 @@
         "divider",
         "line"
     ],
-    "directories": {
-        "lib": "build"
-    },
     "files": [
-        "build"
+        "!example",
+        "**/*.css"
     ],
     "license": "MIT",
     "scripts": {

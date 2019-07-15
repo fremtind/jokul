@@ -8,6 +8,10 @@
     "keywords": [
         "loader"
     ],
+    "files": [
+        "!example",
+        "**/*.css"
+    ],
     "homepage": "https://github.com/fremtind/jokul#readme",
     "license": "MIT",
     "scripts": {

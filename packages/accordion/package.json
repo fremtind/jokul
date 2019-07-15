@@ -9,7 +9,8 @@
         "accordion"
     ],
     "files": [
-        "*.css"
+        "!example",
+        "**/*.css"
     ],
     "license": "MIT",
     "scripts": {

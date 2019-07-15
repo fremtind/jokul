@@ -8,6 +8,10 @@
     "keywords": [
         "card"
     ],
+    "files": [
+        "!example",
+        "**/*.css"
+    ],
     "license": "MIT",
     "repository": {
         "type": "git",

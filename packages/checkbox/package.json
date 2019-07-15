@@ -8,11 +8,9 @@
     "keywords": [
         "checkbox"
     ],
-    "directories": {
-        "lib": "build"
-    },
     "files": [
-        "build"
+        "!example",
+        "**/*.css"
     ],
     "license": "MIT",
     "scripts": {

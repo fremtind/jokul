@@ -10,7 +10,10 @@
     },
     "homepage": "https://github.com/fremtind/jokul#readme",
     "license": "MIT",
-    "main": "indexjs",
+    "main": "index.js",
+    "files": [
+        "index.js"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"

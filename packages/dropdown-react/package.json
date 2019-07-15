@@ -4,6 +4,12 @@
     "publishConfig": {
         "access": "public"
     },
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
     "description": "react wrapper for dropdown",
     "homepage": "https://github.com/fremtind/jokul#readme",
     "license": "MIT",

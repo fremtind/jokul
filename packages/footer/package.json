@@ -9,11 +9,9 @@
         "footer"
     ],
     "license": "MIT",
-    "directories": {
-        "lib": "build"
-    },
     "files": [
-        "src"
+        "!example",
+        "**/*.css"
     ],
     "scripts": {
         "build": "gulp build",

@@ -9,11 +9,9 @@
         "core"
     ],
     "license": "MIT",
-    "directories": {
-        "lib": "lib"
-    },
     "files": [
-        "build"
+        "!example",
+        "**/*.css"
     ],
     "scripts": {
         "build": "gulp build",

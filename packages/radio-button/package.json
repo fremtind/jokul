@@ -12,11 +12,9 @@
         "form-field"
     ],
     "license": "MIT",
-    "directories": {
-        "lib": "build"
-    },
     "files": [
-        "build"
+        "!example",
+        "**/*.css"
     ],
     "scripts": {
         "build": "gulp build",

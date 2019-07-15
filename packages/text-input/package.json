@@ -14,7 +14,8 @@
     "license": "MIT",
     "typings": "build/*.d.ts",
     "files": [
-        "build"
+        "!example",
+        "**/*.css"
     ],
     "scripts": {
         "build": "gulp build",
