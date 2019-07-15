@@ -10,7 +10,7 @@
     ],
     "files": [
         "!example",
-        "**/*.css"
+        "*.css"
     ],
     "license": "MIT",
     "scripts": {

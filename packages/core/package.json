@@ -19,8 +19,10 @@
     "files": [
         "build",
         "!example",
-        "**/*.css",
-        "**/*.scss"
+        "variables",
+        "mixins",
+        "*.css",
+        "*.scss"
     ],
     "scripts": {
         "build": "gulp build && yarn build:modules",

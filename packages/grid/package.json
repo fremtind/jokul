@@ -11,7 +11,7 @@
     "license": "MIT",
     "files": [
         "!example",
-        "**/*.css"
+        "*.css"
     ],
     "scripts": {
         "build": "gulp build",

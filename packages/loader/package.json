@@ -10,7 +10,7 @@
     ],
     "files": [
         "!example",
-        "**/*.css"
+        "*.css"
     ],
     "homepage": "https://github.com/fremtind/jokul#readme",
     "license": "MIT",

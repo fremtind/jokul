@@ -6,7 +6,7 @@
     },
     "files": [
         "!example",
-        "**/*.css"
+        "*.css"
     ],
     "description": "style for Fremtind logo",
     "keywords": [

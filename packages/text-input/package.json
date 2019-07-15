@@ -15,7 +15,7 @@
     "typings": "build/*.d.ts",
     "files": [
         "!example",
-        "**/*.css"
+        "*.css"
     ],
     "scripts": {
         "build": "gulp build",
