@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card",
-    "version": "0.1.1-alpha.1+44aec59",
+    "version": "0.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -19,13 +19,13 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.1.1-alpha.1+44aec59"
+        "@fremtind/jkl-core": "^0.2.0"
     },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
     "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.0.3-alpha.448+44aec59"
+        "@fremtind/browserslist-config-jkl": "^0.2.0"
     }
 }
