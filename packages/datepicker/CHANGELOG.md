@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.3.0...@fremtind/jkl-datepicker@0.5.0) (2019-07-15)
+
+
+### Bug Fixes
+
+* use correct syntax for importing sass index files ([46fa8f6](https://github.com/fremtind/jokul/commit/46fa8f6))
+* **build:** publish correct files for style pkgs ([a89d768](https://github.com/fremtind/jokul/commit/a89d768))
+
+
+
+
+
 # [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.2.0...@fremtind/jkl-datepicker@0.3.0) (2019-07-15)
 
 

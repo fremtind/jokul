@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-header-react",
-    "version": "0.2.1",
+    "version": "0.5.0",
     "publishConfig": {
         "access": "public"
     },
@@ -24,8 +24,8 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.3.0",
-        "@fremtind/jkl-header": "^0.3.0"
+        "@fremtind/jkl-core": "^0.5.0",
+        "@fremtind/jkl-header": "^0.5.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

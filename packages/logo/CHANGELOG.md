@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo@0.3.0...@fremtind/jkl-logo@0.5.0) (2019-07-15)
+
+
+### Bug Fixes
+
+* **build:** publish correct files for style pkgs ([a89d768](https://github.com/fremtind/jokul/commit/a89d768))
+
+
+
+
+
 # [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo@0.2.0...@fremtind/jkl-logo@0.3.0) (2019-07-15)
 
 

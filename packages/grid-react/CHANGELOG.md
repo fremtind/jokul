@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-grid-react@0.2.1...@fremtind/jkl-grid-react@0.5.0) (2019-07-15)
+
+**Note:** Version bump only for package @fremtind/jkl-grid-react
+
+
+
+
+
 ## [0.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-grid-react@0.2.0...@fremtind/jkl-grid-react@0.2.1) (2019-07-15)
 
 **Note:** Version bump only for package @fremtind/jkl-grid-react
