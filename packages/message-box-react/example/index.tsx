@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { InfoMessage, ErrorMessage, SuccessMessage } from "../src";
 import "@fremtind/jkl-message-box/message-box.scss";
-import "@fremtind/jkl-core/build/scss/normalize.scss";
+import "@fremtind/jkl-core/normalize.scss";
 
 const Demo = () => (
     <>

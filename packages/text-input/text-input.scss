@@ -1,7 +1,5 @@
-@import "~@fremtind/jkl-core/build/scss/typography/root.scss";
-@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
-@import "~@fremtind/jkl-core/build/scss/mixins/utils.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/font-size.scss";
+@import "~@fremtind/jkl-core/variables/all";
+@import "~@fremtind/jkl-core/mixins/utils";
 
 @mixin label-font-size--raised {
     @include font-size(xs);

@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { DatePicker } from "../src";
 import "@fremtind/jkl-datepicker/datepicker.scss";
-import "@fremtind/jkl-core/build/css/normalize.css";
+import "@fremtind/jkl-core/normalize.css";
 
 const App = () => (
     <>
