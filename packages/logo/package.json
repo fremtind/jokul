@@ -1,8 +1,8 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "0.0.2-alpha.444+61d1965",
+    "version": "0.1.0",
     "publishConfig": {
-        "access": "public"
+        "registry": "https://registry.npmjs.com/"
     },
     "description": "style for Fremtind logo",
     "keywords": [
@@ -15,10 +15,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.2-alpha.444+61d1965"
-    },
-    "publishConfig": {
-        "registry": "https://registry.npmjs.com/"
+        "@fremtind/jkl-core": "^0.1.0"
     },
     "repository": {
         "type": "git",

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.0.2-alpha.444+61d1965",
+    "version": "0.1.0",
     "publishConfig": {
         "access": "public"
     },
@@ -19,7 +19,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-dropdown": "^0.0.2-alpha.444+61d1965",
+        "@fremtind/jkl-dropdown": "^0.1.0",
         "downshift": "^3.2.10"
     },
     "peerDependencies": {

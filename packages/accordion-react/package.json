@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "0.0.2-alpha.444+61d1965",
+    "version": "0.1.0",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^0.0.2-alpha.444+61d1965",
+        "@fremtind/jkl-accordion": "^0.1.0",
         "@nrk/core-toggle": "^3.0.4"
     },
     "peerDependencies": {
