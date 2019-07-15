@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "0.0.1",
+    "version": "0.0.2-alpha.444+61d1965",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "Accordion for Jøkul",
     "keywords": [
         "accordion"
@@ -24,7 +27,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^0.0.1",
+        "@fremtind/jkl-accordion": "^0.0.2-alpha.444+61d1965",
         "@nrk/core-toggle": "^3.0.4"
     },
     "peerDependencies": {
@@ -32,5 +35,6 @@
         "@types/react-dom": "^16.8.4",
         "react": "^16.8.6",
         "react-dom": "^16.8.6"
-    }
+    },
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }

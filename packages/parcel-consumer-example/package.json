@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/parcel-consumer-example",
-    "version": "0.0.1",
+    "version": "0.0.2-alpha.444+61d1965",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "An example to consume packages with parcel",
     "keywords": [],
     "license": "MIT",
@@ -11,6 +14,7 @@
         "dev": "parcel index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.0.1"
-    }
+        "@fremtind/jkl-button": "^0.0.2-alpha.444+61d1965"
+    },
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }

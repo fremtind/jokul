@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/webpack-consumer-example",
-    "version": "0.0.1",
+    "version": "0.0.2-alpha.444+61d1965",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "An example to consume packages with webpack",
     "keywords": [],
     "license": "MIT",
@@ -11,7 +14,7 @@
         "dev": "webpack-dev-server --open"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.0.1"
+        "@fremtind/jkl-button": "^0.0.2-alpha.444+61d1965"
     },
     "devDependencies": {
         "babel-loader": "^8.0.6",
@@ -22,5 +25,6 @@
         "webpack": "^4.32.2",
         "webpack-cli": "^3.3.2",
         "webpack-dev-server": "^3.4.1"
-    }
+    },
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }

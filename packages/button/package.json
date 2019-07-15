@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-button",
-    "version": "0.0.1",
+    "version": "0.0.2-alpha.444+61d1965",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "Buttons for Jøkul",
     "keywords": [
         "button"
@@ -18,6 +21,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
-    }
+        "@fremtind/jkl-core": "^0.0.2-alpha.444+61d1965"
+    },
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }

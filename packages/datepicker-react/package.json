@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-datepicker-react",
-    "version": "0.0.1",
+    "version": "0.0.2-alpha.444+61d1965",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "datepicker",
     "keywords": [
         "datepicker"
@@ -27,12 +30,13 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@fremtind/jkl-datepicker": "^0.0.1",
-        "@fremtind/jkl-text-input-react": "^0.0.1",
+        "@fremtind/jkl-datepicker": "^0.0.2-alpha.444+61d1965",
+        "@fremtind/jkl-text-input-react": "^0.0.2-alpha.444+61d1965",
         "@nrk/core-datepicker": "^3.0.5",
         "@nrk/core-toggle": "^3.0.4"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
-    }
+        "@fremtind/jkl-core": "^0.0.2-alpha.444+61d1965"
+    },
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }

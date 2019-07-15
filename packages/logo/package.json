@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "0.0.1",
+    "version": "0.0.2-alpha.444+61d1965",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "style for Fremtind logo",
     "keywords": [
         "logo"
@@ -12,7 +15,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
+        "@fremtind/jkl-core": "^0.0.2-alpha.444+61d1965"
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.com/"
@@ -23,5 +26,6 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    }
+    },
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }

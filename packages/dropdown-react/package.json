@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.0.1",
+    "version": "0.0.2-alpha.444+61d1965",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "react wrapper for dropdown",
     "homepage": "https://github.com/fremtind/jokul#readme",
     "license": "MIT",
@@ -16,7 +19,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-dropdown": "^0.0.1",
+        "@fremtind/jkl-dropdown": "^0.0.2-alpha.444+61d1965",
         "downshift": "^3.2.10"
     },
     "peerDependencies": {
@@ -34,5 +37,6 @@
     },
     "devDependencies": {
         "prop-types": "^15.7.2"
-    }
+    },
+    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96"
 }
