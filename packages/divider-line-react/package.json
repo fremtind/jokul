@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-divider-line-react",
-    "version": "0.1.0",
+    "version": "0.1.1-alpha.1+44aec59",
     "publishConfig": {
         "access": "public"
     },
@@ -27,14 +27,14 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@fremtind/jkl-divider-line": "^0.1.0",
+        "@fremtind/jkl-divider-line": "^0.1.1-alpha.1+44aec59",
         "uuid": "^3.3.2"
     },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "61d1965c169a0716f5c37cb676614535b8ab7d96",
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.0.2"
+        "@fremtind/browserslist-config-jkl": "^0.0.3-alpha.448+44aec59"
     }
 }

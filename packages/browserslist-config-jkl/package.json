@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/browserslist-config-jkl",
-    "version": "0.0.2",
+    "version": "0.0.3-alpha.448+44aec59",
     "description": "browserlist configuration for jøkul",
     "keywords": [
         "browserlist"
@@ -20,5 +20,6 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    }
+    },
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }
