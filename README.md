@@ -27,7 +27,7 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 ### Stilark-pakker
 
 Hvis du ikke vil bruke React-komponentene, så kan du bruke stilarkene direkte. Da kan du enten laste inn css filene, eller du kan laste scss filene inn i din scss fil og få tilgang på Jøkuls variabler og mixins. Pass på at du uansett trenger en riktig loader for å ta det i bruk i ditt prosjekt.
-`yarn install @fremtind/jkl-button/build/css/button.css`
+`yarn install @fremtind/jkl-button/button.css`
 
 ```tsx
 import "@fremtind/jkl-button/button.css";
