@@ -1,23 +1,26 @@
-import React, { ReactNode } from "react";
-import { PrismHighlightedCode } from "./PrismHighlightedCode";
+import React from "react";
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
+import { fremtindDark, fremtindLight } from "../utils/utils";
+
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 
 import "./Example.scss";
 
 interface Props {
-    exampleComponent: ReactNode;
+    exampleComponents: {};
     exampleCode: string;
 }
 
-export function Example({ exampleComponent, exampleCode }: Props) {
+export function Example({ exampleComponents, exampleCode }: Props) {
     return (
-        <div>
-            <div className="portal-content__example">{exampleComponent}</div>
+        <LiveProvider scope={exampleComponents} code={exampleCode} theme={fremtindLight}>
+            <LivePreview className="portal-content__example" />
             <Accordion>
                 <AccordionItem title="Kode">
-                    <PrismHighlightedCode>{exampleCode}</PrismHighlightedCode>
+                    <LiveEditor />
+                    <LiveError />
                 </AccordionItem>
             </Accordion>
-        </div>
+        </LiveProvider>
     );
 }

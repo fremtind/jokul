@@ -46,7 +46,7 @@ export function Menu() {
                     </Link>
                 </AccordionItem>
                 <AccordionItem title="For utviklere">
-                    <Link className="portal-menu__link" to="/components/contribute/">
+                    <Link className="portal-menu__link" to="/develop/contribute/">
                         Bidragsguide
                     </Link>
                 </AccordionItem>
@@ -56,9 +56,6 @@ export function Menu() {
                     </Link>
                     <Link className="portal-menu__link" to="/components/accordion/">
                         Trekkspilliste
-                    </Link>
-                    <Link className="portal-menu__link" to="/components/dropdown/">
-                        Nedtrekksliste
                     </Link>
                 </AccordionItem>
             </Accordion>
