@@ -4,6 +4,19 @@ import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 
 import "./Menu.scss";
 
+const makeLink = (title: string, page: string, section?: string) => ({
+    title,
+    page,
+    section,
+});
+
+const makeDeveloperLink = (title: string, page: string) => makeLink(title, page, "developer");
+
+const developerLinks = [
+    makeDeveloperLink("Kom i gang", "getting-started"),
+    makeDeveloperLink("Bidragsguide", "contribute"),
+];
+
 export function Menu() {
     return (
         <nav className="portal-menu">
@@ -46,9 +59,11 @@ export function Menu() {
                     </Link>
                 </AccordionItem>
                 <AccordionItem title="For utviklere">
-                    <Link className="portal-menu__link" to="/components/contribute/">
-                        Bidragsguide
-                    </Link>
+                    {developerLinks.map((link) => (
+                        <Link key={link.title} className="portal-menu__link" to={`/${link.section}/${link.page}`}>
+                            {link.title}
+                        </Link>
+                    ))}
                 </AccordionItem>
                 <AccordionItem title="Komponenter">
                     <Link className="portal-menu__link" to="/components/button/">

@@ -1,14 +1,14 @@
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import { Layout } from "../../components/Layout";
+import { renderer } from "../../presentation/markdownRenderer";
 // @ts-ignore
 import ContributeMarkdown from "!raw-loader!../../../../guides/Contribute.md";
 // @ts-ignore
 import PullRequestGuideMarkdown from "!raw-loader!../../../../guides/PullRequestGuide.md";
 // @ts-ignore
 import CodeGuideMarkdown from "!raw-loader!../../../../guides/CodeGuide.md";
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import { Layout } from "../../components/Layout";
-import { renderer } from "../../presentation/markdownRenderer";
-import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 
 export default function Contribute() {
     return (
