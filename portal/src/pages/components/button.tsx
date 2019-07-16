@@ -3,14 +3,17 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout } from "../../components/Layout";
 import { Example } from "../../components/Example";
-import { renderer } from "../../presentation/markdownRenderer";
+import { renderer, changelogRenderer } from "../../presentation/markdownRenderer";
 
 /* Import readme fil with !raw-loader! */
 // @ts-ignore
 import readmeContents from "!raw-loader!@fremtind/jkl-button/README.md";
+// @ts-ignore
+import changelog from "!raw-loader!@fremtind/jkl-button/CHANGELOG.md";
 /* Import code to be rendered as example */
 import { buttonExample } from "../../examples/ButtonExample";
 /* Import components used in the example, and expose them in an object */
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 const components = { PrimaryButton, SecondaryButton, TertiaryButton };
 
@@ -22,6 +25,11 @@ export default function Button() {
             <div style={{ margin: "2rem 0" }}>
                 <ReactMarkdown renderers={renderer} source={readmeContents} />
             </div>
+            <Accordion>
+                <AccordionItem title="Changelog">
+                    <ReactMarkdown renderers={changelogRenderer} source={changelog} />
+                </AccordionItem>
+            </Accordion>
         </Layout>
     );
 }

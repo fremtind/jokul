@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "@fremtind/jkl-core/build/css/core.css";
+import "@fremtind/jkl-core/core.css";
 import "../checkbox.scss";
 
 const App = () => (

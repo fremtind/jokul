@@ -1,6 +1,6 @@
 import React from "react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
-import { fremtindDark, fremtindLight } from "../utils/utils";
+import { fremtindLight } from "../utils/utils";
 
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 
