@@ -11,7 +11,7 @@ interface HeadingProps extends Props {
 
 const defaultRenderer = {
     paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p" }, children),
-    list: ({ children }: Props) => createElement("ul", { className: "jkl-bullet-list" }, children),
+    list: ({ children }: Props) => createElement("ul", { className: "jkl-bullet-list jkl-p" }, children),
     listItem: ({ children }: Props) => createElement("li", { className: "jkl-bullet-list__item" }, children),
     blockquote: ({ children }: Props) =>
         createElement("div", { className: "jkl-message-box jkl-message-box__info" }, children),
