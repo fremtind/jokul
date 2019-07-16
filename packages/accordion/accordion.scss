@@ -3,16 +3,15 @@
 
 $border-color: $svart;
 $border-color--focus: $himmel;
-$border-width: 0.0625rem; // TODO: use the new rem() function for units
+$border-width: rem(1px);
 $horizontal-padding: $component-spacing--large;
 $title-vertical-padding: $component-spacing--large;
 $content-vertical-padding: $layout-spacing--xl;
 
 // chevron
-$chevron-color: $border-color;
 $chevron-size: 1rem;
-$chevron-weight: 0.0625rem; // TODO: use the new rem() function for units
-$chevron-weight--hover: 0.1875rem;
+$chevron-weight: rem(1px);
+$chevron-weight--hover: rem(2px);
 
 .jkl-accordion-item {
     border-bottom: $border-width solid $border-color;
@@ -21,7 +20,7 @@ $chevron-weight--hover: 0.1875rem;
     }
     &--expanded {
         & .jkl-accordion-item__title-icon {
-            @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight, $state: open, $rotate: 180);
+            @include chevron($chevron-size, currentcolor, $weight: $chevron-weight, $state: open, $rotate: 180);
         }
     }
 
@@ -50,7 +49,10 @@ $chevron-weight--hover: 0.1875rem;
 
         &:hover {
             cursor: pointer;
-            background-color: rgba($himmelgrå, 0.75);
+            & > .jkl-accordion-item__title-text {
+                font-weight: bold;
+                letter-spacing: -0.009em;
+            }
         }
         html:not([data-mousenavigation]) &:focus {
             border-color: $border-color--focus;
@@ -66,10 +68,10 @@ $chevron-weight--hover: 0.1875rem;
         height: auto;
         padding: $content-vertical-padding $horizontal-padding;
         padding-top: $content-vertical-padding - $title-vertical-padding;
-        color: inherit; // Make content same content as rest of page text
+        color: inherit; // Make content same color as rest of page text
     }
 
     &__title-icon {
-        @include chevron($chevron-size, $chevron-color, $weight: $chevron-weight);
+        @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
     }
 }
