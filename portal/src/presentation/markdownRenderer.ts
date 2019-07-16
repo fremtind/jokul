@@ -9,13 +9,23 @@ interface HeadingProps extends Props {
     level: number;
 }
 
-export const renderer = {
+const defaultRenderer = {
     paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p" }, children),
-    heading: ({ level, children }: HeadingProps) => {
-        return level === 1 ? null : createElement(`h${level}`, { className: `jkl-h${level + 1}` }, children);
-    },
     list: ({ children }: Props) => createElement("ul", { className: "jkl-bullet-list" }, children),
     listItem: ({ children }: Props) => createElement("li", { className: "jkl-bullet-list__item" }, children),
     blockquote: ({ children }: Props) =>
         createElement("div", { className: "jkl-message-box jkl-message-box__info" }, children),
+};
+
+export const renderer = {
+    ...defaultRenderer,
+    heading: ({ level, children }: HeadingProps) => {
+        return level === 1 ? null : createElement(`h${level}`, { className: `jkl-h${level + 1}` }, children);
+    },
+};
+
+export const changelogRenderer = {
+    ...defaultRenderer,
+    heading: ({ level, children }: HeadingProps) =>
+        createElement(`h${level}`, { className: `jkl-h${level + 1}` }, children),
 };
