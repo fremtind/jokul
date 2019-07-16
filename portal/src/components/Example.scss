@@ -1,23 +1,23 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-.portal-content {
-    overflow-x: auto;
+.portal-content__example {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; // For IE & Edge
+    justify-content: space-evenly;
+    padding: $layout-spacing--large;
+    background-color: $snøhvit;
+    margin: 0;
 
-    &__example {
-        display: flex;
-        align-items: center;
-        justify-content: space-around; // For IE & Edge
-        justify-content: space-evenly;
-        padding: $layout-spacing--large;
-        background-color: $snøhvit;
-        margin: 0;
-    }
-
-    .jkl-accordion-item__content {
+    & + .jkl-accordion .jkl-accordion-item__content {
         padding-top: $layout-spacing--medium;
         padding-bottom: $layout-spacing--large;
         font-size: 1.4rem; // WTF?
         line-height: 1.3;
+
+        & textarea {
+            outline: none;
+        }
     }
 }
