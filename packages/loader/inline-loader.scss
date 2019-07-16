@@ -1,3 +1,6 @@
+@import "~@fremtind/jkl-core/variables/colors";
+@import "~@fremtind/jkl-core/functions";
+
 @keyframes spin1 {
     0% {
         transform: rotate(0) scale(0);
@@ -49,30 +52,33 @@
     }
 }
 
-$loader-size: 16px;
-$loader-color: black;
+$loader-size: rem(16px);
+$loader-color: $svart;
+$loader-color--negative: $snøhvit;
 
 .jkl-inline-loader {
     display: flex;
 
-    &__1,
-    &__2,
-    &__3 {
+    & > span {
         display: block;
         transform-origin: center;
         background-color: $loader-color;
         height: $loader-size;
         width: $loader-size;
-        margin-right: $loader-size * 1.5;
     }
 
     &__1 {
         animation: spin1 3s linear infinite;
+        margin-right: $loader-size * 1.5;
     }
     &__2 {
         animation: spin2 3s linear infinite;
+        margin-right: $loader-size * 1.5;
     }
     &__3 {
         animation: spin3 3s linear infinite;
+    }
+    &--negative > span {
+        background-color: $loader-color--negative;
     }
 }
