@@ -15,13 +15,15 @@ function throwError(e) {
 }
 module.exports = {
     scss: function() {
-        return src("**/*.scss")
+        return src("**/*.scss", "!**/example/**")
             .pipe(sass({ importer }).on("error", throwError))
             .pipe(dest("./"));
     },
     css: function() {
         return src(["**/*.css", "!**/example/**", "!**/*.min.css"])
-            .pipe(postcss([autoprefixer(), cssnano()]))
+            .pipe(postcss([autoprefixer()]))
+            .pipe(dest("./"))
+            .pipe(postcss([cssnano()]))
             .pipe(rename({ suffix: ".min" }))
             .pipe(dest("./"));
     },
