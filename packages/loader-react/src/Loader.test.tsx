@@ -15,4 +15,14 @@ describe("Loader", () => {
 
         expect(getByTestId("jkl-loader")).toBeInTheDocument();
     });
+    it("should render inline negative to document", () => {
+        const { getByTestId } = render(<Loader negative inline />);
+
+        expect(getByTestId("jkl-loader")).toBeInTheDocument();
+    });
+    it("should render inline to document", () => {
+        const { getByTestId } = render(<Loader inline />);
+
+        expect(getByTestId("jkl-loader")).toBeInTheDocument();
+    });
 });
