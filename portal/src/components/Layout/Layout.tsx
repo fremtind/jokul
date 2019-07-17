@@ -6,8 +6,8 @@
  */
 
 import React, { ReactNode } from "react";
-import Header from "./Header";
-import { Menu } from "./Menu";
+import Header from "../Header/Header";
+import { Menu } from "../Menu/Menu";
 
 import "./Layout.scss";
 

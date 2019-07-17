@@ -10,7 +10,7 @@
     padding: $layout-spacing--xxl $layout-spacing--medium 0;
     box-sizing: border-box;
     margin-bottom: $layout-spacing--xxl;
-
+    max-width: 900px;
     &__title {
         margin-bottom: $layout-spacing--large;
     }

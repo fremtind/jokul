@@ -1,8 +1,8 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-import Layout from "../../components/Layout";
-import { Example } from "../../components/Example";
+import Layout from "../../components/Layout/Layout";
+import { Example } from "../../components/Example/Example";
 import { Changelog } from "../../components/Changelog/Changelog";
 import { renderer } from "../../presentation/markdownRenderer";
 
