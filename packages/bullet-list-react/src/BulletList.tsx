@@ -5,6 +5,6 @@ interface Props {
     className?: string;
 }
 
-export const BulletList = ({ children, className }: Props) => (
-    <ul className={`jkl-bullet-list ${className || ""}`}>{children}</ul>
+export const BulletList = ({ children, className = "jkl-p" }: Props) => (
+    <ul className={`jkl-bullet-list ${className}`}>{children}</ul>
 );
