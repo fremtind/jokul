@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { PrismHighlightedCode } from "./PrismHighlightedCode";
+import { PrismHighlightedCode } from "../PrismHighlightedCode";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 
 import "./Example.scss";
