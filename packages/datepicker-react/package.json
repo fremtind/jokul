@@ -8,13 +8,17 @@
     "keywords": [
         "datepicker"
     ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
     "directories": {
         "lib": "build"
     },
     "files": [
         "build"
     ],
-    "license": "MIT",
     "scripts": {
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
