@@ -150,7 +150,7 @@ export const fremtindLight: PrismTheme = {
         {
             types: ["deleted", "string", "attr-value"],
             style: {
-                color: "#ffc880",
+                color: "#ff7059",
             },
         },
         {

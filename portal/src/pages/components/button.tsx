@@ -15,13 +15,15 @@ import { buttonExample } from "../../examples/ButtonExample";
 /* Import components used in the example, and expose them in an object */
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-const components = { PrimaryButton, SecondaryButton, TertiaryButton };
 
 export default function Button() {
     return (
         <Layout>
             <h2 className="jkl-h1 portal-content__title">Knapper</h2>
-            <Example exampleComponents={components} exampleCode={buttonExample} />
+            <Example
+                exampleComponents={{ PrimaryButton, SecondaryButton, TertiaryButton }}
+                exampleCode={buttonExample}
+            />
             <div style={{ margin: "2rem 0" }}>
                 <ReactMarkdown renderers={renderer} source={readmeContents} />
             </div>

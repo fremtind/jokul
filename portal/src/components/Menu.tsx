@@ -72,6 +72,9 @@ export function Menu() {
                     <Link className="portal-menu__link" to="/components/accordion/">
                         Trekkspilliste
                     </Link>
+                    <Link className="portal-menu__link" to="/components/datepicker/">
+                        Datovelger
+                    </Link>
                 </AccordionItem>
             </Accordion>
         </nav>
