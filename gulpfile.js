@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { src, dest } = require("gulp");
 const sass = require("gulp-sass");
 const importer = require("node-sass-tilde-importer");
 const postcss = require("gulp-postcss");
@@ -13,18 +12,20 @@ sass.compiler = require("node-sass");
 function throwError(e) {
     throw new Error("sass compilation failed", e);
 }
-module.exports = {
-    scss: function() {
-        return src("**/*.scss", "!**/example/**")
+
+module.exports = function(gulp) {
+    gulp.task("build", function() {
+        return gulp
+            .src("**/*.scss", "!**/example/**")
             .pipe(sass({ importer }).on("error", throwError))
-            .pipe(dest("./"));
-    },
-    css: function() {
-        return src(["**/*.css", "!**/example/**", "!**/*.min.css"])
             .pipe(postcss([autoprefixer()]))
-            .pipe(dest("./"))
+            .pipe(gulp.dest("./"))
             .pipe(postcss([cssnano()]))
             .pipe(rename({ suffix: ".min" }))
-            .pipe(dest("./"));
-    },
+            .pipe(gulp.dest("./"));
+    });
+    gulp.task("build:watch", function() {
+        return gulp.watch("**/*.scss", gulp.series("build"));
+    });
+    return gulp;
 };
