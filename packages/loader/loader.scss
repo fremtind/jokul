@@ -1,4 +1,4 @@
-@import "~@fremtind/jkl-core/variables/colors";
+@import "~@fremtind/jkl-core/variables/all";
 @import "~@fremtind/jkl-core/functions";
 
 @keyframes spin1 {
@@ -52,11 +52,12 @@
     }
 }
 
-$loader-size: rem(16px);
+$loader-size: rem(18px);
 $loader-color: $svart;
 $loader-color--negative: $snøhvit;
+$loader-spacing: $component-spacing--xxl;
 
-.jkl-inline-loader {
+.jkl-loader {
     display: flex;
 
     & > span {
@@ -69,16 +70,30 @@ $loader-color--negative: $snøhvit;
 
     &__1 {
         animation: spin1 3s linear infinite;
-        margin-right: $loader-size * 1.5;
+        margin-right: $loader-spacing * 0.9;
     }
     &__2 {
         animation: spin2 3s linear infinite;
-        margin-right: $loader-size * 1.5;
+        margin-right: $loader-spacing;
     }
     &__3 {
         animation: spin3 3s linear infinite;
     }
     &--negative > span {
         background-color: $loader-color--negative;
+    }
+    &--inline {
+        & > span {
+            height: rem(8px);
+            width: rem(8px);
+        }
+
+        & > span:first-of-type {
+            margin-right: $component-spacing--xl * 0.9;
+        }
+
+        & > span:nth-of-type(2) {
+            margin-right: $component-spacing--xl;
+        }
     }
 }

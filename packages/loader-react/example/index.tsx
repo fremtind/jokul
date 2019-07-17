@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Loader } from "../src";
-import "@fremtind/jkl-loader/inline-loader.min.css";
+import "@fremtind/jkl-loader/loader.min.css";
 
 const App = () => (
     <>
@@ -11,21 +11,21 @@ const App = () => (
                 marginTop: "20px",
                 border: "1px solid black",
                 borderRadius: "20px",
-                height: "45px",
+                height: "40px",
                 width: "200px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
             }}
         >
-            <Loader />
+            <Loader inline />
         </div>
         <div
             style={{
                 marginTop: "20px",
                 border: "1px solid black",
                 borderRadius: "20px",
-                height: "45px",
+                height: "40px",
                 width: "200px",
                 display: "flex",
                 justifyContent: "center",
@@ -33,7 +33,7 @@ const App = () => (
                 backgroundColor: "black",
             }}
         >
-            <Loader negative />
+            <Loader inline negative />
         </div>
     </>
 );
