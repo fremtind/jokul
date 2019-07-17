@@ -1,13 +1,11 @@
 {
-    "name": "@fremtind/jkl-datepicker-react",
-    "version": "0.5.0",
-    "publishConfig": {
-        "access": "public"
-    },
-    "description": "datepicker",
+    "name": "@fremtind/jkl-loader-react",
+    "version": "0.0.1",
+    "description": "react wrapper for jkl-loader",
     "keywords": [
-        "datepicker"
+        "loader"
     ],
+    "homepage": "https://fremtind.github.io/jokul",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
@@ -26,25 +24,26 @@
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
+    "dependencies": {
+        "@fremtind/jkl-loader": "^0.5.0"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "dependencies": {
-        "@fremtind/jkl-datepicker": "^0.5.0",
-        "@fremtind/jkl-text-input-react": "^0.5.0",
-        "@nrk/core-datepicker": "^3.0.5",
-        "@nrk/core-toggle": "^3.0.4"
-    },
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0",
-        "@fremtind/jkl-core": "^0.5.0"
-    },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
-    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
+    }
 }
