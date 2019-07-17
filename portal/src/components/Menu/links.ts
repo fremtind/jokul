@@ -29,6 +29,7 @@ export const componentLinks = [
     makeComponentLink("Alle komponenter", "a-la-carte"),
     makeComponentLink("Knapper", "button"),
     makeComponentLink("Trekkspilliste", "accordion"),
+    makeComponentLink("Datovelger", "datepicker"),
 ];
 
 export const profileLinks = [
