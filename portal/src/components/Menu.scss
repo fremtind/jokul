@@ -16,7 +16,7 @@
 
     & .jkl-accordion-item:first-of-type {
         & > .jkl-accordion-item__title {
-            padding-top: 0;
+            margin-top: -$component-spacing--large;
         }
     }
 
