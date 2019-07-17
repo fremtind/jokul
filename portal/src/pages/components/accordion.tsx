@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 import { Example } from "../../components/Example";
 import { Changelog } from "../../components/Changelog/Changelog";
-import { renderer, changelogRenderer } from "../../presentation/markdownRenderer";
+import { renderer } from "../../presentation/markdownRenderer";
 
 /* Import readme fil with !raw-loader! */
 // @ts-ignore
