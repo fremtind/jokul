@@ -25,3 +25,9 @@ deploy:
     keep_history: true
     on:
         branch: master
+
+notifications:
+    slack:
+        rooms:
+            - fremtinddesignsystem:DSQEoGKwU1ypcM0CojIOygXV
+        on_pull_requests: false
