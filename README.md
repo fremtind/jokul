@@ -1,8 +1,8 @@
 # [Jøkul]() av [Fremtind](https://fremtind.no)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-rounded)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-green.svg?style=flat-rounded)](#contributors)
 [![build status](https://travis-ci.org/fremtind/jokul.svg?branch=master)](https://travis-ci.org/fremtind/jokul.svg?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/fremtind/jokul.svg)](https://greenkeeper.io/)
-[![Known Vulnerabilities](https://snyk.io//test/github/fremtind/jokul/badge.svg?targetFile=package.json)](https://snyk.io//test/github/fremtind/jokul?targetFile=package.json)
+[![Known Vulnerabilities](https://snyk.io//test/github/fremtind/jokul/badge.svg?targetFile=package.json)](https://snyk.io//test/github/fremtind/jokul?targetFile=package.json) [![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
 
 Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) utviklet av [Fremtind](https://fremtind.no).
 
@@ -10,7 +10,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 -   **Komponenter**: React-komponenter som er klar til bruk. Skrevet i Typescript for mindre feil og bedre utvikleropplevelse.
 -   **Utvidbar**: Støtter css, scss og React ut av boksen, men er lagt opp til å kunne støtte andre rammeverk og fremtidige teknologier.
 
-## Kom i gang
+## [Kom i gang](https://fremtind.github.io/jokul/developer/getting-started)
 
 Jøkul kan bli brukt på to måter, enten ved å laste inn bare stilark eller ved å bruke de klare komponentene. Komponent-pakkene inneholder det de trenger, inkludert avhengigheter til andre pakker. **Viktig**: Du må sette opp en `loader` i ditt byggsystem for å håntere scss-importer, feks `style-loader` for Webpack.
 
@@ -37,19 +37,19 @@ import "@fremtind/jkl-button/button.css";
 ...
 ```
 
-## [Dokumentasjon]()
+## [Dokumentasjon](https://fremtind.github.io/jokul/)
 
-Vi jobber på spreng for å få på plass portalen og storybook for å dokumentere hver enkelt komponent og detaljert informasjon om design prinsipper og bruk.
+På [https://fremtind.github.io/jokul/](https://fremtind.github.io/jokul/) finner du dokumentasjon på bruk av Jøkul, designprinsipper og dokumentasjon av hver enkelt komponent.
 
 ## Bidra
 
 Jøkul er til for å gjøre utvikling av Fremtind løsninger raksere, enklere, lettere å vedlikeholde og føles mer likt på tvers av løsninger. All utvikling skjer åpent på GitHub, så alle som er interessert kan følge med, påvirke retningen og bidra til videreutvikling av designsystemet.
 
-### [Bidragsguide]()
+### [Bidragsguide](https://fremtind.github.io/jokul/developer/contribute)
 
 Vi setter pris på alle bidrag, fra [rapportering av feil](https://github.com/fremtind/jokul/issues/new/choose), [ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [nytutvikling](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra ved å lese vår [guide](docs/Contribute.md).
+Les mer om hvordan du kan bidra ved å lese vår [guide](https://fremtind.github.io/jokul/developer/contribute).
 
 ### [Oppførselskode](https://no.wikipedia.org/wiki/Kardemommeloven)
 
