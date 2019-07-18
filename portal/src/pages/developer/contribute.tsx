@@ -4,7 +4,7 @@ import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { Layout } from "../../components/Layout/Layout";
 import { renderer } from "../../presentation/markdownRenderer";
 // @ts-ignore
-import ContributeMarkdown from "!raw-loader!../../../../guides/Contribute.md";
+import ContributeMarkdown from "!raw-loader!../../../../CONTRIBUTING.md";
 // @ts-ignore
 import PullRequestGuideMarkdown from "!raw-loader!../../../../guides/PullRequestGuide.md";
 // @ts-ignore
