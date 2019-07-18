@@ -13,10 +13,12 @@ function throwError(e) {
     throw new Error("sass compilation failed", e);
 }
 
+const scssFiles = ["**/*.scss", "!example/*.scss"];
+
 module.exports = function(gulp) {
     gulp.task("build", function() {
         return gulp
-            .src("**/*.scss", "!**/example/**")
+            .src(scssFiles)
             .pipe(sass({ importer }).on("error", throwError))
             .pipe(postcss([autoprefixer()]))
             .pipe(gulp.dest("./"))
@@ -25,7 +27,7 @@ module.exports = function(gulp) {
             .pipe(gulp.dest("./"));
     });
     gulp.task("build:watch", function() {
-        return gulp.watch("**/*.scss", gulp.series("build"));
+        return gulp.watch(scssFiles, { ignoreInitial: false }, gulp.series("build"));
     });
     return gulp;
 };

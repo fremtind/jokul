@@ -1,5 +1,6 @@
-import "@fremtind/jkl-core/src/typography/typography.scss";
-import "@fremtind/jkl-core/src/normalize.scss";
+import "@fremtind/jkl-core/headings.min.css";
+import "@fremtind/jkl-core/paragraphs.min.css";
+import "@fremtind/jkl-core/normalize.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "../src";

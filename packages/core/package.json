@@ -31,15 +31,18 @@
         "*.scss"
     ],
     "scripts": {
-        "build": "gulp build && yarn build:modules",
-        "build:modules": "yarn build:types && yarn build:scripts",
+        "build": "run-s build:*",
+        "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev:style": "gulp build:watch",
+        "dev:js": "parcel example/index.html",
+        "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0"
+        "@fremtind/browserslist-config-jkl": "^0.3.0",
+        "npm-run-all": "^4.1.5"
     },
     "repository": {
         "type": "git",

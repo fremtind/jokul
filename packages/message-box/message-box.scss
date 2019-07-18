@@ -1,6 +1,5 @@
-@import "~@fremtind/jkl-core/variables/colors";
-@import "~@fremtind/jkl-core/variables/spacing";
-@import "~@fremtind/jkl-core/mixins/utils";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .jkl-message-box {
     position: relative;

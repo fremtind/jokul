@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BulletList, BulletListItem } from "../src";
 import "@fremtind/jkl-bullet-list/bullet-list.scss";
-import "@fremtind/jkl-core/src/core.scss";
+import "@fremtind/jkl-core/core.scss";
 import "./index.scss";
 
 const UlExample = () => (
