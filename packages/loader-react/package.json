@@ -1,6 +1,9 @@
 {
     "name": "@fremtind/jkl-loader-react",
     "version": "0.1.0",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "Jøkul react loader component",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
@@ -50,5 +53,6 @@
     },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
-    ]
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
 }
