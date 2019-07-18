@@ -11,7 +11,7 @@
         "build"
     ],
     "description": "react wrapper for dropdown",
-    "homepage": "https://github.com/fremtind/jokul#readme",
+    "homepage": "https://fremtind.github.io/jokul",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",

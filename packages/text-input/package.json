@@ -4,15 +4,18 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Style for text input components",
+    "description": "Jøkul style for text input fields",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
         "text",
-        "text",
-        "field",
-        "input"
+        "text field",
+        "text area",
+        "input",
+        "form",
+        "jøkul",
+        "fremtind"
     ],
     "license": "MIT",
-    "typings": "build/*.d.ts",
     "files": [
         "!example",
         "*.css"
@@ -26,11 +29,18 @@
     "dependencies": {
         "@fremtind/jkl-core": "^0.5.0"
     },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0"
-    }
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }

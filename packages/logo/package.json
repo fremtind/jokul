@@ -8,11 +8,13 @@
         "!example",
         "*.css"
     ],
-    "description": "style for Fremtind logo",
+    "description": "Jøkul style for Fremtind logo",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "logo"
+        "logo",
+        "jøkul",
+        "fremtind"
     ],
-    "homepage": "https://github.com/fremtind/jokul#readme",
     "license": "MIT",
     "scripts": {
         "build": "gulp build",
@@ -21,6 +23,9 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^0.5.0"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
     },
     "repository": {
         "type": "git",
@@ -32,8 +37,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0"
-    }
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }

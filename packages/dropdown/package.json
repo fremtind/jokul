@@ -4,9 +4,12 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Dropdowns for Jøkul",
+    "description": "Jøkul style for dropdown",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "dropdown"
+        "dropdown",
+        "jøkul",
+        "fremtind"
     ],
     "files": [
         "!example",
@@ -21,11 +24,18 @@
     "dependencies": {
         "@fremtind/jkl-core": "^0.5.0"
     },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0"
-    }
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }

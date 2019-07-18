@@ -4,9 +4,15 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Kåre for Jøkul",
+    "description": "Jøkul score styles",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "core"
+        "core",
+        "typography",
+        "normalize",
+        "font",
+        "jøkul",
+        "fremtind"
     ],
     "license": "MIT",
     "types": "./build/index.d.ts",
@@ -32,12 +38,18 @@
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
-    "dependencies": {},
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0"
-    }
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }

@@ -4,19 +4,18 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Style for card component in Jøkul design system",
+    "description": "Jøkul style for card",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "card"
+        "card",
+        "jøkul",
+        "fremtind"
     ],
     "files": [
         "!example",
         "*.css"
     ],
     "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
-    },
     "scripts": {
         "build": "gulp build",
         "build:watch": "gulp build:watch",
@@ -26,11 +25,18 @@
     "dependencies": {
         "@fremtind/jkl-core": "^0.5.0"
     },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0"
-    }
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }
