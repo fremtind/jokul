@@ -16,6 +16,7 @@
     "license": "MIT",
     "scripts": {
         "build": "gulp build",
+        "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
