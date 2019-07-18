@@ -4,9 +4,15 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Kåre for Jøkul",
+    "description": "Jøkul score styles",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "core"
+        "core",
+        "typography",
+        "normalize",
+        "font",
+        "jøkul",
+        "fremtind"
     ],
     "license": "MIT",
     "types": "./build/index.d.ts",
@@ -25,19 +31,28 @@
         "*.scss"
     ],
     "scripts": {
-        "build": "gulp build && yarn build:modules",
-        "build:modules": "yarn build:types && yarn build:scripts",
+        "build": "run-s build:*",
+        "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev:style": "gulp build:watch",
+        "dev:js": "parcel example/index.html",
+        "dev": "run-p dev:*"
     },
-    "dependencies": {},
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.0",
+        "npm-run-all": "^4.1.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68",
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.0"
-    }
+    "gitHead": "44aec59eb546485ac7af7b875066408b2e696e68"
 }

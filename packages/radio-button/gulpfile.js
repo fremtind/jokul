@@ -1,6 +1,3 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { series } = require("gulp");
-const build = require("../../gulpfile");
+require("../../gulpfile")(require("gulp"));
 /* eslint-enable @typescript-eslint/no-var-requires */
-
-exports.build = series(build.scss, build.css);
