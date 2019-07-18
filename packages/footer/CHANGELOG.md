@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-footer@0.5.0...@fremtind/jkl-footer@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
+* **css:** output prefixed css files, fix import from core ([db7413d](https://github.com/fremtind/jokul/commit/db7413d))
+
+
+### Features
+
+* **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
+
+
+
+
+
 # [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-footer@0.3.0...@fremtind/jkl-footer@0.5.0) (2019-07-15)
 
 

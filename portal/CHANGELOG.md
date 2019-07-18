@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.5.0...@fremtind/portal@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* **bullet-list:** remove import of paragraph styles and align spacing ([ec24a21](https://github.com/fremtind/jokul/commit/ec24a21))
+* **merge:** merge ([d4a3ba8](https://github.com/fremtind/jokul/commit/d4a3ba8))
+* **portal:** fixed import ([19df8af](https://github.com/fremtind/jokul/commit/19df8af))
+* **portal:** make portal build correctly ([3ddfc85](https://github.com/fremtind/jokul/commit/3ddfc85))
+* **portal:** remove outline from code example ([fac9027](https://github.com/fremtind/jokul/commit/fac9027))
+* **portal:** update accordion page with changelog component ([2cb7855](https://github.com/fremtind/jokul/commit/2cb7855))
+* **portal:** use correct import path for core.min.css ([125a20a](https://github.com/fremtind/jokul/commit/125a20a))
+* **portal:** use correct sass imports in portal components ([f04d46f](https://github.com/fremtind/jokul/commit/f04d46f))
+
+
+### Features
+
+* **portal:** add changelog component ([f71b454](https://github.com/fremtind/jokul/commit/f71b454))
+* **portal:** add changelog to button component ([a3639be](https://github.com/fremtind/jokul/commit/a3639be))
+* **portal:** add Datepicker example and consolidate example pages ([2987beb](https://github.com/fremtind/jokul/commit/2987beb))
+* **portal:** add documentation to portal ([7341621](https://github.com/fremtind/jokul/commit/7341621))
+* **portal:** add getting started guide ([76d742b](https://github.com/fremtind/jokul/commit/76d742b))
+* **portal:** implement live code editing with react-live ([6dc96a2](https://github.com/fremtind/jokul/commit/6dc96a2))
+
+
+
+
+
 # [0.5.0](https://github.com/gatsbyjs/gatsby-starter-default/compare/@fremtind/portal@0.1.1...@fremtind/portal@0.5.0) (2019-07-15)
 
 

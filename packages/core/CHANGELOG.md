@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.5.0...@fremtind/jkl-core@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* **build:** normalize react package.json ([6c29e08](https://github.com/fremtind/jokul/commit/6c29e08)), closes [#156](https://github.com/fremtind/jokul/issues/156)
+* **core:** remove dependency we no longer use, add to readme ([237b21b](https://github.com/fremtind/jokul/commit/237b21b))
+
+
+### Features
+
+* **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
+* **core:** add spacing after typographic elements ([6844eab](https://github.com/fremtind/jokul/commit/6844eab))
+
+
+
+
+
 # [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.3.0...@fremtind/jkl-core@0.5.0) (2019-07-15)
 
 
