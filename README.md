@@ -49,7 +49,7 @@ Jøkul er til for å gjøre utvikling av Fremtind løsninger raksere, enklere, l
 
 Vi setter pris på alle bidrag, fra [rapportering av feil](https://github.com/fremtind/jokul/issues/new/choose), [ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [nytutvikling](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra ved å lese vår [guide](docs/Contribute.md).
+Les mer om hvordan du kan bidra ved å lese vår [guide](https://fremtind.github.io/jokul/developer/contribute).
 
 ### [Oppførselskode](https://no.wikipedia.org/wiki/Kardemommeloven)
 
