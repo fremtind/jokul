@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@0.6.0...@fremtind/jkl-divider-line@0.6.1) (2019-07-18)
+
+**Note:** Version bump only for package @fremtind/jkl-divider-line
+
+
+
+
+
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@0.5.0...@fremtind/jkl-divider-line@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
+* **build:** normalize react package.json ([6c29e08](https://github.com/fremtind/jokul/commit/6c29e08)), closes [#156](https://github.com/fremtind/jokul/issues/156)
+
+
+### Features
+
+* **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
+
+
+
+
+
 # [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@0.3.0...@fremtind/jkl-divider-line@0.5.0) (2019-07-15)
 
 

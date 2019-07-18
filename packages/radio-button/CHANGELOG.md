@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.6.0...@fremtind/jkl-radio-button@0.6.1) (2019-07-18)
+
+**Note:** Version bump only for package @fremtind/jkl-radio-button
+
+
+
+
+
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.5.0...@fremtind/jkl-radio-button@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
+
+
+### Features
+
+* **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
+
+
+
+
+
 # [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.3.0...@fremtind/jkl-radio-button@0.5.0) (2019-07-15)
 
 

@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.6.0...@fremtind/jkl-accordion@0.6.1) (2019-07-18)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.5.0...@fremtind/jkl-accordion@0.6.0) (2019-07-18)
+
+
+### Bug Fixes
+
+* **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
+
+
+### Features
+
+* **accordion:** consolidate style with sketches and remove unused svgs ([8e7e986](https://github.com/fremtind/jokul/commit/8e7e986))
+* **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
+* **portal:** add getting started guide ([76d742b](https://github.com/fremtind/jokul/commit/76d742b))
+
+
+
+
+
 # [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.3.0...@fremtind/jkl-accordion@0.5.0) (2019-07-15)
 
 
