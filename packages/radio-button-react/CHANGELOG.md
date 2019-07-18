@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.5.1...@fremtind/jkl-radio-button-react@0.5.2) (2019-07-18)
+
+**Note:** Version bump only for package @fremtind/jkl-radio-button-react
+
+
+
+
+
 ## [0.5.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.5.0...@fremtind/jkl-radio-button-react@0.5.1) (2019-07-18)
 
 
