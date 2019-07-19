@@ -16,11 +16,26 @@ import { accordionExample } from "../../examples/AccordionExample";
 /* Import components used in the example, and expose them in an object */
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 
+// @ts-ignore
+import accordionType from "!raw-loader!@fremtind/jkl-accordion-react/build/Accordion.d.ts";
+// @ts-ignore
+import accordionItemType from "!raw-loader!@fremtind/jkl-accordion-react/build/AccordionItem.d.ts";
+
 export default function AccordionPage() {
     return (
-        <Layout>
-            <h2 className="jkl-h1 portal-content__title">Trekkspilliste</h2>
-            <Example exampleComponents={{ Accordion, AccordionItem }} exampleCode={accordionExample} />
+        <Layout
+            title="Trekkspilliste"
+            mainExample={
+                <Example
+                    exampleComponents={{ Accordion, AccordionItem }}
+                    exampleCode={accordionExample}
+                    types={[
+                        { name: "accordion", type: accordionType },
+                        { name: "accordionItem", type: accordionItemType },
+                    ]}
+                />
+            }
+        >
             <div style={{ margin: "2rem 0" }}>
                 <ReactMarkdown renderers={renderer} source={readmeContents} />
             </div>
