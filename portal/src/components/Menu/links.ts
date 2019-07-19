@@ -36,6 +36,7 @@ export const componentLinks = [
     makeComponentLink("Lang tekstfelt", "textarea"),
     makeComponentLink("Meldinger", "messagebox"),
     makeComponentLink("Logo", "logo"),
+    makeComponentLink("Lasteindikator", "loader"),
 ];
 
 export const profileLinks = [
