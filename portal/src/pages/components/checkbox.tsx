@@ -1,0 +1,22 @@
+import React from "react";
+import ReactMarkdown from "react-markdown";
+
+import { Layout, Changelog } from "../../components";
+import { renderer } from "../../presentation/markdownRenderer";
+import { CheckboxExample } from "../../examples";
+
+// @ts-ignore
+import readmeContents from "!raw-loader!@fremtind/jkl-checkbox/README.md";
+// @ts-ignore
+import changelog from "!raw-loader!@fremtind/jkl-checkbox/CHANGELOG.md";
+// @ts-ignore
+import changelogReact from "!raw-loader!@fremtind/jkl-checkbox-react/CHANGELOG.md";
+
+export default function CheckboxPage() {
+    return (
+        <Layout title="Avkryssingsboks" mainExample={<CheckboxExample />}>
+            <ReactMarkdown renderers={renderer} source={readmeContents} />
+            <Changelog changelog={changelog} changelogReact={changelogReact} />
+        </Layout>
+    );
+}

@@ -4,6 +4,7 @@ import { Layout } from "../../components";
 import {
     AccordionExample,
     ButtonExample,
+    CheckboxExample,
     DatepickerExample,
     DividerLineExample,
     LoaderExample,
@@ -38,6 +39,7 @@ export default function AllComponents() {
             <h1 className="jkl-h1">Alle komponenter</h1>
             <Section title="Knapper" link="button" example={<ButtonExample />} />
             <Section title="Radioknapper" link="radiobutton" example={<RadioButtonExample />} />
+            <Section title="Avkryssingsboks" link="checkbox" example={<CheckboxExample />} />
             <Section title="Trekkspillliste" link="accordion" example={<AccordionExample />} />
             <Section title="Datovelger" link="datepicker" example={<DatepickerExample />} />
             <Section title="Typografi" link="typography" example={<TypographyExample />} />

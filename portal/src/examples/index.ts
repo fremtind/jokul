@@ -1,5 +1,6 @@
 export { default as AccordionExample } from "./AccordionExample";
 export { default as ButtonExample } from "./ButtonExample";
+export { default as CheckboxExample } from "./CheckboxExample";
 export { default as DatepickerExample } from "./DatepickerExample";
 export { default as DividerLineExample } from "./DividerLineExample";
 export { default as LoaderExample } from "./LoaderExample";
