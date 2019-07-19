@@ -4,6 +4,7 @@ import { Layout } from "../../components";
 import { AccordionExample } from "../../examples/AccordionExample";
 import { ButtonExample } from "../../examples/ButtonExample";
 import { DatepickerExample } from "../../examples/DatepickerExample";
+import { LoaderExample } from "../../examples/LoaderExample";
 import { LogoExample } from "../../examples/LogoExample";
 import { MessageBoxExample } from "../../examples/MessageBoxExample";
 import { RadioButtonExample } from "../../examples/RadioButtonExample";
@@ -41,6 +42,7 @@ export default function AllComponents() {
             <Section title="Lang tekstfelt" link="textarea" example={<TextAreaExample />} />
             <Section title="Meldinger" link="messagebox" example={<MessageBoxExample />} />
             <Section title="Logo" link="logo" example={<LogoExample />} />
+            <Section title="Lasteindikator" link="loader" example={<LoaderExample />} />
         </Layout>
     );
 }
