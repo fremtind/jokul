@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { Layout } from "../../components";
 import {
     AccordionExample,
+    BulletListExample,
     ButtonExample,
     CardExample,
     CheckboxExample,
@@ -51,6 +52,7 @@ export default function AllComponents() {
             <Section title="Lasteindikator" link="loader" example={<LoaderExample />} />
             <Section title="Delelinje" link="dividerline" example={<DividerLineExample />} />
             <Section title="Kort" link="card" example={<CardExample />} />
+            <Section title="Liste" link="bulletlist" example={<BulletListExample />} />
         </Layout>
     );
 }

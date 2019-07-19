@@ -1,4 +1,5 @@
 export { default as AccordionExample } from "./AccordionExample";
+export { default as BulletListExample } from "./BulletListExample";
 export { default as ButtonExample } from "./ButtonExample";
 export { default as CardExample } from "./CardExample";
 export { default as CheckboxExample } from "./CheckboxExample";

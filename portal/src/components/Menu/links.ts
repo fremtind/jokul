@@ -40,6 +40,7 @@ export const componentLinks = [
     makeComponentLink("Lasteindikator", "loader"),
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
+    makeComponentLink("Liste", "bulletlist"),
 ];
 
 export const profileLinks = [
