@@ -10,7 +10,6 @@ export const getInterface = (definitionFile: string) => {
         switch (true) {
             // interface: take from interface
             case line.startsWith("interface"):
-                console.log("here?");
                 take = true;
                 takeNext = true;
                 break;
