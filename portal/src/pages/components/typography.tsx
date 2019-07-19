@@ -3,18 +3,18 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-import { DatepickerExample } from "../../examples/DatepickerExample";
+import { TypographyExample } from "../../examples/TypographyExample";
 
 // @ts-ignore
-import readmeContents from "!raw-loader!@fremtind/jkl-datepicker/README.md";
+import readmeContents from "!raw-loader!@fremtind/jkl-typography-react/README.md";
 // @ts-ignore
-import changelog from "!raw-loader!@fremtind/jkl-datepicker/CHANGELOG.md";
+import changelog from "!raw-loader!@fremtind/jkl-core/CHANGELOG.md";
 // @ts-ignore
-import changelogReact from "!raw-loader!@fremtind/jkl-datepicker-react/CHANGELOG.md";
+import changelogReact from "!raw-loader!@fremtind/jkl-typography-react/CHANGELOG.md";
 
-export default function DatePickerPage() {
+export default function TypographyPage() {
     return (
-        <Layout title="Datovelger" mainExample={<DatepickerExample />}>
+        <Layout title="Typografi" mainExample={<TypographyExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </Layout>

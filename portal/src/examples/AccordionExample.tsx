@@ -1,5 +1,13 @@
-export const accordionExample = `
-<Accordion>
+import React from "react";
+import { Example } from "../components";
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import "@fremtind/jkl-accordion/accordion.min.css";
+// @ts-ignore
+import accordionType from "!raw-loader!@fremtind/jkl-accordion-react/build/Accordion.d.ts";
+// @ts-ignore
+import accordionItemType from "!raw-loader!@fremtind/jkl-accordion-react/build/AccordionItem.d.ts";
+
+const example = `<Accordion>
     <AccordionItem title="Bak denne er det innhold">The spectacle before us was indeed sublime.</AccordionItem>
     <AccordionItem title="Kan også være åpen som standard" startExpanded={true}>
         For half-an-hour we were muffled in a cold, damp mist, and total darkness, and had begun to think of
@@ -10,3 +18,15 @@ export const accordionExample = `
         interest and sympathy.
     </AccordionItem>
 </Accordion>`;
+
+const exampleImport = `import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import "@fremtind/jkl-accordion/accordion.min.css";`;
+
+export const AccordionExample = () => (
+    <Example
+        exampleComponents={{ Accordion, AccordionItem }}
+        exampleCode={example}
+        types={[{ name: "Accordion", type: accordionType }, { name: "AccordionItem", type: accordionItemType }]}
+        exampleImport={exampleImport}
+    />
+);

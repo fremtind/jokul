@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import Layout from "../../components/Layout/Layout";
+import { Layout } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 
 // @ts-ignore

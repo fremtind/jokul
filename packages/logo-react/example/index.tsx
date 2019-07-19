@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { LogoSymbol, LogoMain, LogoAnimated } from "../src";
 import "@fremtind/jkl-logo/logo.css";
 
-const Buttons = () => {
+const LogoExample = () => {
     const [showSymbol, toggleSymbol] = useState(false);
 
     return (
@@ -31,4 +31,4 @@ const Buttons = () => {
 };
 
 var mountNode = document.getElementById("app");
-ReactDOM.render(<Buttons />, mountNode);
+ReactDOM.render(<LogoExample />, mountNode);

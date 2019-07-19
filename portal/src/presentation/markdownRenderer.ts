@@ -1,4 +1,5 @@
 import { createElement, ReactNode } from "react";
+import "@fremtind/jkl-bullet-list/bullet-list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 
 interface Props {

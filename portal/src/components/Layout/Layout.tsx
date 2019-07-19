@@ -29,8 +29,8 @@ export const Layout = ({ children, title, mainExample }: Props) => (
 
                         <main className="portal-content">
                             {title && <h2 className="jkl-h1 portal-content__title">{title}</h2>}
-                            {mainExample}
-                            {children}
+                            <section className="portal-content__main-example">{mainExample}</section>
+                            <section className="portal-content__rest">{children}</section>
                         </main>
                     </>
                 );
