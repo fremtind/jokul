@@ -1,17 +1,19 @@
 import React, { ReactNode } from "react";
 import { Link } from "gatsby";
 import { Layout } from "../../components";
-import { AccordionExample } from "../../examples";
-import { ButtonExample } from "../../examples";
-import { DatepickerExample } from "../../examples";
-import { DividerLineExample } from "../../examples";
-import { LoaderExample } from "../../examples";
-import { LogoExample } from "../../examples";
-import { MessageBoxExample } from "../../examples";
-import { RadioButtonExample } from "../../examples";
-import { TextFieldExample } from "../../examples";
-import { TextAreaExample } from "../../examples";
-import { TypographyExample } from "../../examples";
+import {
+    AccordionExample,
+    ButtonExample,
+    DatepickerExample,
+    DividerLineExample,
+    LoaderExample,
+    LogoExample,
+    MessageBoxExample,
+    RadioButtonExample,
+    TextFieldExample,
+    TextAreaExample,
+    TypographyExample,
+} from "../../examples";
 
 import "./style.scss";
 
