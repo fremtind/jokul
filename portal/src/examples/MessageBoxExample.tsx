@@ -18,7 +18,7 @@ const example = `<div style={{display: "flex", flexWrap:"wrap"}}>
 const exampleImport = `import { ErrorMessage, InfoMessage, SuccessMessage } from "@fremtind/jkl-message-box-react";
 import "@fremtind/jkl-message-box/message-box.min.css";`;
 
-export const MessageBoxExample = () => (
+const MessageBoxExample = () => (
     <Example
         exampleComponents={{ ErrorMessage, InfoMessage, SuccessMessage }}
         exampleCode={example}
@@ -26,3 +26,5 @@ export const MessageBoxExample = () => (
         exampleImport={exampleImport}
     />
 );
+
+export default MessageBoxExample;

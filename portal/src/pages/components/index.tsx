@@ -1,16 +1,17 @@
 import React, { ReactNode } from "react";
 import { Link } from "gatsby";
 import { Layout } from "../../components";
-import { AccordionExample } from "../../examples/AccordionExample";
-import { ButtonExample } from "../../examples/ButtonExample";
-import { DatepickerExample } from "../../examples/DatepickerExample";
-import { LoaderExample } from "../../examples/LoaderExample";
-import { LogoExample } from "../../examples/LogoExample";
-import { MessageBoxExample } from "../../examples/MessageBoxExample";
-import { RadioButtonExample } from "../../examples/RadioButtonExample";
-import { TextFieldExample } from "../../examples/TextFieldExample";
-import { TextAreaExample } from "../../examples/TextAreaExample";
-import { TypographyExample } from "../../examples/TypographyExample";
+import { AccordionExample } from "../../examples";
+import { ButtonExample } from "../../examples";
+import { DatepickerExample } from "../../examples";
+import { DividerLineExample } from "../../examples";
+import { LoaderExample } from "../../examples";
+import { LogoExample } from "../../examples";
+import { MessageBoxExample } from "../../examples";
+import { RadioButtonExample } from "../../examples";
+import { TextFieldExample } from "../../examples";
+import { TextAreaExample } from "../../examples";
+import { TypographyExample } from "../../examples";
 
 import "./style.scss";
 
@@ -43,6 +44,7 @@ export default function AllComponents() {
             <Section title="Meldinger" link="messagebox" example={<MessageBoxExample />} />
             <Section title="Logo" link="logo" example={<LogoExample />} />
             <Section title="Lasteindikator" link="loader" example={<LoaderExample />} />
+            <Section title="Delelinje" link="dividerline" example={<DividerLineExample />} />
         </Layout>
     );
 }

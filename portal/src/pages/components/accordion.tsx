@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-import { AccordionExample } from "../../examples/AccordionExample";
+import { AccordionExample } from "../../examples";
 
 // @ts-ignore
 import readmeContents from "!raw-loader!@fremtind/jkl-accordion/README.md";

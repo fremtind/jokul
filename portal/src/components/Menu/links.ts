@@ -37,6 +37,7 @@ export const componentLinks = [
     makeComponentLink("Meldinger", "messagebox"),
     makeComponentLink("Logo", "logo"),
     makeComponentLink("Lasteindikator", "loader"),
+    makeComponentLink("Delelinje", "dividerline"),
 ];
 
 export const profileLinks = [

@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-import { ButtonExample } from "../../examples/ButtonExample";
+import { ButtonExample } from "../../examples";
 
 // @ts-ignore
 import readmeContents from "!raw-loader!@fremtind/jkl-button/README.md";

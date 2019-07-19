@@ -4,7 +4,7 @@ import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from 
 // @ts-ignore
 import typeDef from "!raw-loader!@fremtind/jkl-typography-react/build/Typography.d.ts";
 
-export const example = `<div style={{display: "flex", flexWrap: "wrap"}}>
+const example = `<div style={{display: "flex", flexWrap: "wrap"}}>
     <H1 style={{width: "100%"}}>Heading1</H1>
     <H2 style={{width: "100%"}}>Heading2</H2>
     <H3 style={{width: "100%"}}>Heading3</H3>
@@ -26,7 +26,7 @@ export const example = `<div style={{display: "flex", flexWrap: "wrap"}}>
 const exampleImport = `import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "@fremtind/jkl-typography-react";
 import "@fremtind/jkl-core/core.min.css;`;
 
-export const TypographyExample = () => (
+const TypographyExample = () => (
     <Example
         exampleComponents={{ H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph }}
         exampleCode={example}
@@ -34,3 +34,5 @@ export const TypographyExample = () => (
         exampleImport={exampleImport}
     />
 );
+
+export default TypographyExample;

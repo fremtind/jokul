@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-import { TextAreaExample } from "../../examples/TextAreaExample";
+import { TextAreaExample } from "../../examples";
 
 // @ts-ignore
 import readmeContents from "!raw-loader!@fremtind/jkl-text-input/README.md";

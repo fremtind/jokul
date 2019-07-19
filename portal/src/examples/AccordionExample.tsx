@@ -22,7 +22,7 @@ const example = `<Accordion>
 const exampleImport = `import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import "@fremtind/jkl-accordion/accordion.min.css";`;
 
-export const AccordionExample = () => (
+const AccordionExample = () => (
     <Example
         exampleComponents={{ Accordion, AccordionItem }}
         exampleCode={example}
@@ -30,3 +30,5 @@ export const AccordionExample = () => (
         exampleImport={exampleImport}
     />
 );
+
+export default AccordionExample;

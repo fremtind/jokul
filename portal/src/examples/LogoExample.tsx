@@ -38,7 +38,7 @@ const example = `() => {
 const exampleImport = `import { LogoMain, LogoSymbol, LogoAnimated } from "@fremtind/jkl-logo-react";
 import "@fremtind/jkl-logo/logo.min.css";`;
 
-export const LogoExample = () => (
+const LogoExample = () => (
     <Example
         exampleComponents={{ LogoMain, LogoSymbol, LogoAnimated }}
         exampleCode={example}
@@ -50,3 +50,5 @@ export const LogoExample = () => (
         exampleImport={exampleImport}
     />
 );
+
+export default LogoExample;

@@ -3,18 +3,18 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-import { LoaderExample } from "../../examples";
+import { DividerLineExample } from "../../examples";
 
 // @ts-ignore
-import readmeContents from "!raw-loader!@fremtind/jkl-loader/README.md";
+import readmeContents from "!raw-loader!@fremtind/jkl-divider-line/README.md";
 // @ts-ignore
-import changelog from "!raw-loader!@fremtind/jkl-loader/CHANGELOG.md";
+import changelog from "!raw-loader!@fremtind/jkl-divider-line/CHANGELOG.md";
 // @ts-ignore
-import changelogReact from "!raw-loader!@fremtind/jkl-loader-react/CHANGELOG.md";
+import changelogReact from "!raw-loader!@fremtind/jkl-divider-line-react/CHANGELOG.md";
 
-export default function LoaderPage() {
+export default function DividerLinePage() {
     return (
-        <Layout title="Lasteindikator" mainExample={<LoaderExample />}>
+        <Layout title="Delelinje" mainExample={<DividerLineExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </Layout>

@@ -37,6 +37,8 @@ const example = `<>
 const exampleImport = `import { Loader } from "@fremtind/jkl-loader-react";
 import "@fremtind/jkl-loader/loader.min.css";`;
 
-export const LoaderExample = () => (
+const LoaderExample = () => (
     <Example exampleComponents={{ Loader }} exampleCode={example} type={logoType} exampleImport={exampleImport} />
 );
+
+export default LoaderExample;

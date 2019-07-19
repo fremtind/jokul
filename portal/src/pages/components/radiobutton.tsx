@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-import { RadioButtonExample } from "../../examples/RadioButtonExample";
+import { RadioButtonExample } from "../../examples";
 
 // @ts-ignore
 import readmeContents from "!raw-loader!@fremtind/jkl-radio-button/README.md";

@@ -1,12 +1,11 @@
 import React from "react";
 import { Example } from "../components";
-
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
 // @ts-ignore
 import buttonType from "!raw-loader!@fremtind/jkl-button-react/build/Button.d.ts";
 
-export const example = `<>
+const example = `<>
     <PrimaryButton onClick={() => alert("hello!")}>Primærknapp</PrimaryButton>
     <SecondaryButton onClick={() => {}}>Sekundærknapp</SecondaryButton>
     <TertiaryButton onClick={() => {}}>Tertiærknapp</TertiaryButton>
@@ -15,7 +14,7 @@ export const example = `<>
 const exampleImport = `import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";`;
 
-export const ButtonExample = () => (
+const ButtonExample = () => (
     <Example
         exampleComponents={{ PrimaryButton, SecondaryButton, TertiaryButton }}
         exampleCode={example}
@@ -23,3 +22,5 @@ export const ButtonExample = () => (
         exampleImport={exampleImport}
     />
 );
+
+export default ButtonExample;

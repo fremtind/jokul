@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import { Layout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-import { MessageBoxExample } from "../../examples/MessageBoxExample";
+import { MessageBoxExample } from "../../examples";
 
 // @ts-ignore
 import readmeContents from "!raw-loader!@fremtind/jkl-message-box/README.md";

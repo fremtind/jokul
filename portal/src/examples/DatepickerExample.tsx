@@ -5,7 +5,7 @@ import "@fremtind/jkl-datepicker/datepicker.min.css";
 // @ts-ignore
 import datepickerType from "!raw-loader!@fremtind/jkl-datepicker-react/build/DatePicker.d.ts";
 
-export const example = `<>
+const example = `<>
     <DatePicker />
     <DatePicker
         onlyFuture={false}
@@ -19,7 +19,7 @@ export const example = `<>
 const exampleImport = `import { DatePicker } from "@fremtind/jkl-datepicker-react";
 import "@fremtind/jkl-datepicker/datepicker.min.css";`;
 
-export const DatepickerExample = () => (
+const DatepickerExample = () => (
     <Example
         exampleComponents={{ DatePicker }}
         exampleCode={example}
@@ -27,3 +27,5 @@ export const DatepickerExample = () => (
         exampleImport={exampleImport}
     />
 );
+
+export default DatepickerExample;

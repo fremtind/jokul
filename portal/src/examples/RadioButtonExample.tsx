@@ -23,7 +23,7 @@ const example = `() => {
 const exampleImport = `import { RadioButtonChoice } from "@fremtind/jkl-radio-button-react";
 import "@fremtind/jkl-radio-button/radio-button.min.css";`;
 
-export const RadioButtonExample = () => (
+const RadioButtonExample = () => (
     <Example
         exampleComponents={{ RadioButtonChoice }}
         exampleCode={example}
@@ -34,3 +34,5 @@ export const RadioButtonExample = () => (
         exampleImport={exampleImport}
     />
 );
+
+export default RadioButtonExample;
