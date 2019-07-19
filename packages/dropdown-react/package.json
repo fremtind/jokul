@@ -17,7 +17,8 @@
     },
     "dependencies": {
         "@fremtind/jkl-dropdown": "^0.0.1",
-        "@nrk/core-toggle": "^3.0.4"
+        "@nrk/core-toggle": "^3.0.4",
+        "uuid": "^3.3.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -33,6 +34,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "devDependencies": {
-        "prop-types": "^15.7.2"
+        "prop-types": "^15.7.2",
+        "rollup-plugin-css-porter": "^1.0.2"
     }
 }
