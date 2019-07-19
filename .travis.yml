@@ -15,7 +15,7 @@ script:
 branches:
     only:
         - master
-        - /^greenkeeper.*$/
+        - /^greenkeeper/.*$/
 
 before_deploy: yarn build:docs
 deploy:
