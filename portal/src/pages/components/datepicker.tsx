@@ -16,12 +16,17 @@ import { datepickerExample } from "../../examples/DatepickerExample";
 /* Import components used in the example, and expose them in an object */
 import { DatePicker } from "@fremtind/jkl-datepicker-react";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
+// @ts-ignore
+import datepickerType from "!raw-loader!@fremtind/jkl-datepicker-react/build/DatePicker.d.ts";
 
 export default function DatePickerPage() {
     return (
-        <Layout>
-            <h2 className="jkl-h1 portal-content__title">Datovelger</h2>
-            <Example exampleComponents={{ DatePicker }} exampleCode={datepickerExample} />
+        <Layout
+            title="Datovelger"
+            mainExample={
+                <Example exampleComponents={{ DatePicker }} exampleCode={datepickerExample} type={datepickerType} />
+            }
+        >
             <div style={{ margin: "2rem 0" }}>
                 <ReactMarkdown renderers={renderer} source={readmeContents} />
             </div>

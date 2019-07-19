@@ -15,15 +15,21 @@ import changelog from "!raw-loader!@fremtind/jkl-button/CHANGELOG.md";
 import { buttonExample } from "../../examples/ButtonExample";
 /* Import components used in the example, and expose them in an object */
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+// @ts-ignore
+import buttonType from "!raw-loader!@fremtind/jkl-button-react/build/Button.d.ts";
 
 export default function ButtonPage() {
     return (
-        <Layout>
-            <h2 className="jkl-h1 portal-content__title">Knapper</h2>
-            <Example
-                exampleComponents={{ PrimaryButton, SecondaryButton, TertiaryButton }}
-                exampleCode={buttonExample}
-            />
+        <Layout
+            title="Knapper"
+            mainExample={
+                <Example
+                    exampleComponents={{ PrimaryButton, SecondaryButton, TertiaryButton }}
+                    exampleCode={buttonExample}
+                    type={buttonType}
+                />
+            }
+        >
             <div style={{ margin: "2rem 0" }}>
                 <ReactMarkdown renderers={renderer} source={readmeContents} />
             </div>
