@@ -39,6 +39,7 @@ export const componentLinks = [
     makeComponentLink("Logo", "logo"),
     makeComponentLink("Lasteindikator", "loader"),
     makeComponentLink("Delelinje", "dividerline"),
+    makeComponentLink("Kort", "card"),
 ];
 
 export const profileLinks = [

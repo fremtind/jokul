@@ -4,6 +4,7 @@ import { Layout } from "../../components";
 import {
     AccordionExample,
     ButtonExample,
+    CardExample,
     CheckboxExample,
     DatepickerExample,
     DividerLineExample,
@@ -49,6 +50,7 @@ export default function AllComponents() {
             <Section title="Logo" link="logo" example={<LogoExample />} />
             <Section title="Lasteindikator" link="loader" example={<LoaderExample />} />
             <Section title="Delelinje" link="dividerline" example={<DividerLineExample />} />
+            <Section title="Kort" link="card" example={<CardExample />} />
         </Layout>
     );
 }
