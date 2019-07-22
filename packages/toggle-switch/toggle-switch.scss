@@ -14,6 +14,8 @@ $toggle-focus-outline-color: $himmel;
     }
     position: relative;
     min-width: $toggle-width * 5;
+    min-height: $toggle-height;
+    display: block;
 
     &__slider {
         width: $toggle-width;
@@ -62,5 +64,6 @@ $toggle-focus-outline-color: $himmel;
     &__label {
         position: absolute;
         left: $toggle-width + $component-spacing--xxl;
+        top: rem(8px);
     }
 }

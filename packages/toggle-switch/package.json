@@ -1,5 +1,8 @@
 {
     "name": "@fremtind/jkl-toggle-switch",
+    "publishConfig": {
+        "access": "public"
+    },
     "version": "0.0.1",
     "description": "Jøkul style for toggle switch",
     "homepage": "https://fremtind.github.io/jokul",
