@@ -17,13 +17,11 @@ interface CoreToggleSelectEvent {
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
-function lower(value: string | undefined) {
-    return value === undefined
-        ? ""
-        : value
-              .toString()
-              .toLowerCase()
-              .replace(/\s/g, "");
+function lower(str = "") {
+    return str
+        .toString()
+        .toLowerCase()
+        .replace(/\s/g, "");
 }
 
 function focusSelected(listEl: HTMLElement, listId: string, selected: string | undefined) {
@@ -44,21 +42,29 @@ export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) =
     }, [initialInputValue]);
 
     const [listId] = useState("dropdown".concat(uuid().slice(-8)));
-    const [hidden, setHidden] = useState(true);
+    const [dropdownIsShown, setShown] = useState(false);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
 
     function onToggle() {
         const listElement = listRef.current;
-        if (listElement && hidden) {
+        if (listElement && !dropdownIsShown) {
             focusSelected(listElement, listId, selectedValue);
         }
-        setHidden(!hidden);
+        setShown(!dropdownIsShown);
+    }
+
+    function onToggleSelect(e: CoreToggleSelectEvent) {
+        e.target.hidden = true;
+        e.target.button.focus();
+        e.target.value = e.detail;
+        setSelectedValue(e.detail.textContent);
+        onChange && onChange(e.detail.textContent);
     }
 
     let className = `jkl-dropdown`;
 
-    if (!hidden) {
+    if (dropdownIsShown) {
         className = `${className} jkl-dropdown--open`;
     }
 
@@ -78,32 +84,24 @@ export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) =
                 role="listbox"
                 className="jkl-dropdown__core-toggle"
                 popup={label}
-                hidden={hidden}
+                hidden={!dropdownIsShown}
                 onToggle={onToggle}
-                onToggleSelect={(e: CoreToggleSelectEvent) => {
-                    e.target.hidden = true;
-                    e.target.button.focus();
-                    e.target.value = e.detail;
-                    setSelectedValue(e.detail.textContent);
-                    onChange && onChange(e.detail.textContent);
-                }}
+                onToggleSelect={onToggleSelect}
                 aria-activedescendant={hasSelectedValue && `${listId}__${lower(selectedValue)}`}
             >
                 <ul className="jkl-dropdown__option-wrapper" tabIndex={-1} ref={listRef}>
-                    {items.map((item) => {
-                        return (
-                            <li key={item}>
-                                <button
-                                    id={`${listId}__${lower(item)}`}
-                                    className="jkl-dropdown__option"
-                                    aria-selected={item === selectedValue}
-                                    role="option"
-                                >
-                                    {item}
-                                </button>
-                            </li>
-                        );
-                    })}
+                    {items.map((item) => (
+                        <li key={item}>
+                            <button
+                                id={`${listId}__${lower(item)}`}
+                                className="jkl-dropdown__option"
+                                aria-selected={item === selectedValue}
+                                role="option"
+                            >
+                                {item}
+                            </button>
+                        </li>
+                    ))}
                 </ul>
             </CoreToggle>
 

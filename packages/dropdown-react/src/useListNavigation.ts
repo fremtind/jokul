@@ -18,6 +18,13 @@ export function useListNavigation(typeAheadIsEnabled: boolean = true): RefObject
                 handleListKeyNav(listElement, event, typedKeys, searchResetTimer),
             );
         }
+        return () => {
+            if (listElement) {
+                listElement.removeEventListener("keydown", (event) =>
+                    handleListKeyNav(listElement, event, typedKeys, searchResetTimer),
+                );
+            }
+        };
     }, []);
 
     return listRef;
@@ -27,13 +34,11 @@ function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: 
     const { key, target } = event;
     const currentFocus = target as HTMLButtonElement;
     switch (key) {
-        case "ArrowUp":
-        case "PageUp":
+        case "ArrowUp" || "PageUp":
             event.preventDefault();
             moveFocus(list, currentFocus, "prev");
             break;
-        case "ArrowDown":
-        case "PageDown":
+        case "ArrowDown" || "PageDown":
             event.preventDefault();
             moveFocus(list, currentFocus, "next");
             break;
@@ -45,12 +50,11 @@ function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: 
             event.preventDefault();
             moveFocus(list, currentFocus, "last");
             break;
-        case "Enter":
-        case " ":
-            break;
         case "Tab":
-            event.preventDefault();
             // in a standard select, tab does nothing in-menu
+            event.preventDefault();
+            break;
+        case "Enter" || " ":
             break;
 
         default:
@@ -64,9 +68,9 @@ function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: 
     }
 }
 
-function moveFocus(list: HTMLUListElement, current: HTMLButtonElement, dir: Direction) {
+function moveFocus(list: HTMLUListElement, current: HTMLButtonElement, direction: Direction) {
     const thisLI = current.parentElement;
-    switch (dir) {
+    switch (direction) {
         case "prev":
             const prevLI = thisLI && thisLI.previousElementSibling;
             if (prevLI) {
@@ -108,8 +112,8 @@ function findItem(list: HTMLUListElement, key: string, search: KeyBuffer, timer:
         search.keys = search.keys.concat(key);
         resetWhenIdle(search, timer);
 
-        for (var n = 0; n < listItems.length; n++) {
-            var label = (listItems[n] as HTMLButtonElement).innerText;
+        for (let n = 0; n < listItems.length; n++) {
+            let label = (listItems[n] as HTMLButtonElement).innerText;
             if (label && label.toLowerCase().indexOf(search.keys) === 0) {
                 return listItems[n] as HTMLButtonElement;
             }
