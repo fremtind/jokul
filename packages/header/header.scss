@@ -1,5 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_utils.scss";
+@import "~@fremtind/jkl-core/mixins/helpers.scss";
 
 $jkl-header: (
     "background-color": $snøhvit,
@@ -15,7 +15,7 @@ $jkl-header: (
 
 .jkl-header {
     @include flex($justify-content: space-between);
-    @include position($position: fixed, $bottom: initial);
+    @include position($position: fixed, $top: 0, $right: 0, $left: 0);
 
     background-color: map-get($jkl-header, "background-color");
     height: map-get($jkl-header, "height-small");
