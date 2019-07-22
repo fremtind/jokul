@@ -1,0 +1,66 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_utils.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+$toggle-width: rem(72px);
+$toggle-height: rem(40px);
+$toggle-focus-outline-color: $himmel;
+
+.jkl-toggle-switch {
+    & input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    position: relative;
+    min-width: $toggle-width * 5;
+
+    &__slider {
+        width: $toggle-width;
+        height: $toggle-height;
+        @include position(absolute, $right: 50%);
+        cursor: pointer;
+        background-color: transparent;
+        transition: 0.4s;
+        border: 1px solid $svart;
+        border-radius: $toggle-height/2;
+        &:after {
+            @include position(absolute, $left: rem(10px), $top: rem(8px), $bottom: initial, $right: initial);
+            content: "";
+            height: $toggle-height/2;
+            width: $toggle-height/2;
+            border-radius: $toggle-height/2;
+            background-color: $svart;
+            transition: 0.4s;
+            border: 1px solid transparent;
+        }
+        &:before {
+            content: "";
+            @include position(absolute, $left: rem(30px), $top: rem(18px), $bottom: initial, $right: rem(30px));
+            height: rem(1px);
+            background-color: $svart;
+        }
+    }
+    &:hover {
+        & input:checked + .jkl-toggle-switch__slider:after {
+            background-color: $gress;
+            border: 1px solid $svart;
+        }
+        & input:not(:checked) + .jkl-toggle-switch__slider:after {
+            background-color: $snøhvit;
+            border: 1px solid $svart;
+        }
+    }
+    & input:checked + .jkl-toggle-switch__slider:after {
+        transform: translateX(rem(30px)) scale(1.2);
+    }
+    html:not([data-mousenavigation]) & input:focus {
+        + .jkl-toggle-switch__slider {
+            box-shadow: 0 0 0 rem(2px) transparent, 0 0 0 rem(2px) $toggle-focus-outline-color;
+        }
+    }
+    &__label {
+        position: absolute;
+        left: $toggle-width + $component-spacing--xxl;
+    }
+}
