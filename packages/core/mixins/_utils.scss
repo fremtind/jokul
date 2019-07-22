@@ -4,7 +4,7 @@
     justify-content: $justify-content;
 }
 
-@mixin position($position, $top: 0, $left: 0, $right: 0, $bottom: 0) {
+@mixin position($position, $top: initial, $left: initial, $right: initial, $bottom: initial) {
     position: $position;
     top: $top;
     left: $left;
