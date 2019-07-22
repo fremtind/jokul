@@ -4,13 +4,10 @@
 $font-size-1: rem(14px);
 $font-size-2: rem(17px);
 $font-size-3: rem(22px);
-$font-size-4: rem(26px); // TODO: remove (not used)
-$font-size-5: rem(28px);
-$font-size-6: rem(32px); // TODO: remove (not used)
-$font-size-7: rem(36px);
-$font-size-8: rem(40px); // TODO: remove (not used)
-$font-size-9: rem(48px);
-$font-size-10: rem(64px);
+$font-size-4: rem(28px);
+$font-size-5: rem(36px);
+$font-size-6: rem(48px);
+$font-size-7: rem(64px);
 
 $line-height-1: rem(16px);
 $line-height-2: rem(24px);
@@ -26,9 +23,9 @@ $font-size--small-device: (
     "xs": $font-size-2,
     "small": $font-size-2,
     "medium": $font-size-3,
-    "large": $font-size-5,
-    "xl": $font-size-7,
-    "xxl": $font-size-9,
+    "large": $font-size-4,
+    "xl": $font-size-5,
+    "xxl": $font-size-6,
 );
 
 /* desktop: 17, 17, 22, 28, 36, 48, 64 */
@@ -36,10 +33,10 @@ $font-size--large-device: (
     "xxs": $font-size-2,
     "xs": $font-size-2,
     "small": $font-size-3,
-    "medium": $font-size-5,
-    "large": $font-size-7,
-    "xl": $font-size-9,
-    "xxl": $font-size-10,
+    "medium": $font-size-4,
+    "large": $font-size-5,
+    "xl": $font-size-6,
+    "xxl": $font-size-7,
 );
 
 /* mobil: 16, 24, 24, 32, 32, 48, 56 */
