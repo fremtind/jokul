@@ -33,7 +33,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-dropdown": "^0.0.1",
+        "@fremtind/jkl-dropdown": "^0.6.1",
         "@nrk/core-toggle": "^3.0.4",
         "uuid": "^3.3.2"
     },
