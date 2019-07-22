@@ -22,7 +22,7 @@ const DropdownDemo = () => {
                 items={items}
                 onChange={(value) => console.log(`You selected "${value}"!`)}
             />
-            <Dropdown key={d} label="Fødselsår" items={years} initialInputValue="1904" />
+            <Dropdown key={d} label="Fødselsår" items={years} initialInputValue="1986" />
 
             <div>
                 <button
