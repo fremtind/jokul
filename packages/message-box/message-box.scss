@@ -9,7 +9,7 @@
     background-color: $snøhvit;
 
     &::before {
-        @include position(absolute);
+        @include position(absolute, $top: 0, $bottom: 0, $left: 0, $right: 0);
         content: "";
         height: 100%;
         width: $component-spacing--xs;
