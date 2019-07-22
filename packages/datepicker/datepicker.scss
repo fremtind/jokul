@@ -71,14 +71,14 @@ $background-color: $snøhvit;
 
     &__calendar {
         @include position(absolute, $top: 100%, $left: 0, $right: 0);
-        z-index: 1000; // TODO: Align with z-index scale
+        z-index: $z-index--dropdown;
         display: flex;
         justify-content: center;
         flex-direction: column;
         width: $calendar-width - ($calendar-padding * 2);
         padding: $calendar-padding;
         background-color: $background-color;
-        box-shadow: 0px rem(4px) rem(8px) rgba(0, 0, 0, 0.08);
+        box-shadow: $drop-shadow--small;
 
         caption {
             font-size: $font-size-3;
