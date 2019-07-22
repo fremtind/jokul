@@ -3,8 +3,8 @@ module.exports = {
     pathPrefix: "/jokul",
     siteMetadata: {
         title: `Jokul`,
-        description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-        author: `@gatsbyjs`,
+        description: `Documentation of Jøkul design system`,
+        author: `Fremtind`,
     },
     plugins: ["gatsby-plugin-typescript", "gatsby-plugin-sass"],
 };

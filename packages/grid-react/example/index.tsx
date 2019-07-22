@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Grid, GridElement } from "../src";
-import "./style.scss";
+import "@fremtind/jkl-grid/grid.css";
 
 const Buttons = () => (
     <Grid>

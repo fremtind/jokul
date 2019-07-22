@@ -1,0 +1,26 @@
+@import "./variables/font-size";
+@import "./variables/spacing";
+
+.jkl-p {
+    @include font-size("small");
+    @include line-height("small");
+    margin-bottom: $layout-spacing--small;
+}
+
+.jkl-lead {
+    @include font-size("medium");
+    @include line-height("medium");
+    margin-bottom: $layout-spacing--small;
+}
+
+.jkl-small {
+    @include font-size("xs");
+    @include line-height("xs");
+    margin-bottom: $layout-spacing--small;
+}
+
+.jkl-tiny {
+    @include font-size("xxs");
+    @include line-height("xxs");
+    margin-bottom: $layout-spacing--small;
+}

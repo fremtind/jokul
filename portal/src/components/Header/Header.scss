@@ -1,0 +1,16 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.portal-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: $layout-spacing--medium $layout-spacing--large 0 0;
+
+    &__title > a {
+        color: $svart;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

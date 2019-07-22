@@ -1,0 +1,95 @@
+@import "../mixins/screens";
+@import "../functions";
+
+$font-size-1: rem(14px);
+$font-size-2: rem(17px);
+$font-size-3: rem(22px);
+$font-size-4: rem(26px); // TODO: remove (not used)
+$font-size-5: rem(28px);
+$font-size-6: rem(32px); // TODO: remove (not used)
+$font-size-7: rem(36px);
+$font-size-8: rem(40px); // TODO: remove (not used)
+$font-size-9: rem(48px);
+$font-size-10: rem(64px);
+
+$line-height-1: rem(16px);
+$line-height-2: rem(24px);
+$line-height-3: rem(32px);
+$line-height-4: rem(40px);
+$line-height-5: rem(48px);
+$line-height-6: rem(56px);
+$line-height-7: rem(72px);
+
+/* mobil: 14, 17, 17, 22, 28, 36, 48 */
+$font-size--small-device: (
+    "xxs": $font-size-1,
+    "xs": $font-size-2,
+    "small": $font-size-2,
+    "medium": $font-size-3,
+    "large": $font-size-5,
+    "xl": $font-size-7,
+    "xxl": $font-size-9,
+);
+
+/* desktop: 17, 17, 22, 28, 36, 48, 64 */
+$font-size--large-device: (
+    "xxs": $font-size-2,
+    "xs": $font-size-2,
+    "small": $font-size-3,
+    "medium": $font-size-5,
+    "large": $font-size-7,
+    "xl": $font-size-9,
+    "xxl": $font-size-10,
+);
+
+/* mobil: 16, 24, 24, 32, 32, 48, 56 */
+$line-height--small-device: (
+    "xxs": $line-height-1,
+    "xs": $line-height-2,
+    "small": $line-height-2,
+    "medium": $line-height-3,
+    "large": $line-height-3,
+    "xl": $line-height-5,
+    "xxl": $line-height-6,
+);
+
+/* desktop: 24, 24, 32, 40, 48, 56, 64 */
+$line-height--large-device: (
+    "xxs": $line-height-2,
+    "xs": $line-height-2,
+    "small": $line-height-3,
+    "medium": $line-height-4,
+    "large": $line-height-5,
+    "xl": $line-height-6,
+    "xxl": $line-height-7,
+);
+
+@mixin font-size--large-device($size) {
+    font-size: map-get($font-size--large-device, $size);
+}
+
+@mixin font-size--small-device($size) {
+    font-size: map-get($font-size--small-device, $size);
+}
+
+@mixin font-size($size) {
+    @include font-size--large-device($size);
+    @include small-device {
+        @include font-size--small-device($size);
+    }
+}
+
+@mixin line-height--large-device($size) {
+    line-height: map-get($line-height--large-device, $size);
+}
+
+@mixin line-height--small-device($size) {
+    line-height: map-get($line-height--small-device, $size);
+}
+
+@mixin line-height($size) {
+    @include line-height--large-device($size);
+    @include small-device {
+        @include line-height--small-device($size);
+    }
+}

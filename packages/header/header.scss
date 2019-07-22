@@ -1,6 +1,5 @@
-@import "~@fremtind/jkl-core/build/scss/variables/variables.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/typography.scss";
-@import "~@fremtind/jkl-core/build/scss/mixins/utils.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_utils.scss";
 
 $jkl-header: (
     "background-color": $snøhvit,

@@ -1,0 +1,42 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.portal-menu {
+    box-sizing: border-box;
+    min-height: 100vh;
+    width: 20rem;
+    padding: $layout-spacing--xxl $layout-spacing--small;
+    background-color: $matt-svart;
+    color: $snøhvit;
+
+    & .jkl-accordion,
+    & .jkl-accordion-item,
+    & .jkl-accordion-item:first-of-type {
+        border: 0;
+    }
+
+    & .jkl-accordion-item:first-of-type {
+        & > .jkl-accordion-item__title {
+            margin-top: -$component-spacing--large;
+        }
+    }
+
+    & .jkl-accordion-item__title {
+        font-weight: bold;
+        letter-spacing: -0.009em;
+    }
+
+    & .jkl-accordion-item__content {
+        @include font-size(small);
+    }
+
+    &__link {
+        color: $snøhvit;
+        display: block;
+        margin-bottom: $component-spacing--medium;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

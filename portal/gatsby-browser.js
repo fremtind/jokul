@@ -4,7 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import "@fremtind/jkl-core/build/css/core.css";
+import "document-register-element";
+import "@fremtind/jkl-core/core.min.css";
 import "prismjs/themes/prism.css";
 import "prismjs";
 import "prismjs/components/prism-jsx";

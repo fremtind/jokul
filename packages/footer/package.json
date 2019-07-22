@@ -1,23 +1,42 @@
 {
     "name": "@fremtind/jkl-footer",
-    "version": "0.0.1",
-    "description": "Footer style for Jøkul",
+    "version": "0.6.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for Fremtind footer",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "footer"
+        "footer",
+        "jøkul",
+        "fremtind"
     ],
     "license": "MIT",
-    "directories": {
-        "lib": "build"
-    },
     "files": [
-        "src"
+        "!example",
+        "*.css"
     ],
     "scripts": {
-        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
-    }
+        "@fremtind/jkl-core": "^0.6.1"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
 }

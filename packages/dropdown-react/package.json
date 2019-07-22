@@ -1,24 +1,46 @@
 {
     "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.0.1",
-    "description": "react wrapper for dropdown",
-    "homepage": "https://github.com/fremtind/jokul#readme",
+    "version": "0.5.2",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul react dropdown component",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "dropdown",
+        "form",
+        "jøkul",
+        "fremtind"
+    ],
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
     "module": "./build/esm/index.js",
     "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
     "scripts": {
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
-        "build": "yarn run build:scripts && yarn run build:types",
+        "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev:style": "lerna exec --scope=@fremtind/jkl-dropdown yarn build:watch",
+        "dev:js": "parcel example/index.html",
+        "dev": "run-p dev:*"
     },
     "dependencies": {
         "@fremtind/jkl-dropdown": "^0.0.1",
         "@nrk/core-toggle": "^3.0.4",
         "uuid": "^3.3.2"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2",
+        "npm-run-all": "^4.1.5",
+        "prop-types": "^15.7.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -33,8 +55,8 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "devDependencies": {
-        "prop-types": "^15.7.2",
-        "rollup-plugin-css-porter": "^1.0.2"
-    }
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
 }

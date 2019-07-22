@@ -1,24 +1,46 @@
 {
     "name": "@fremtind/jkl-text-input",
-    "version": "0.0.1",
-    "description": "Style for text input components",
+    "version": "0.6.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for text input fields",
+    "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
         "text",
-        "text",
-        "field",
-        "input"
+        "text field",
+        "text area",
+        "input",
+        "form",
+        "jøkul",
+        "fremtind"
     ],
     "license": "MIT",
-    "typings": "build/*.d.ts",
     "files": [
-        "build"
+        "!example",
+        "*.css"
     ],
     "scripts": {
-        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
-    }
+        "@fremtind/jkl-core": "^0.6.1"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
 }

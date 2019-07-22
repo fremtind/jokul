@@ -6,7 +6,7 @@
     "command": {
         "publish": {
             "conventionalCommits": true,
-            "registry": "http://localhost:4873",
+            "registry": "https://registry.npmjs.org/",
             "access": "public",
             "npmClient": "yarn",
             "allowBranch": ["master", "feature/*"],

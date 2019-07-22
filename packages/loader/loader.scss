@@ -1,0 +1,99 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+@keyframes spin1 {
+    0% {
+        transform: rotate(0) scale(0);
+    }
+    30% {
+        transform: rotate(90deg) scale(1);
+    }
+    60% {
+        transform: rotate(180deg) scale(0);
+    }
+    100% {
+        transform: rotate(180deg) scale(0);
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        transform: rotate(20deg) scale(0);
+    }
+    10% {
+        transform: rotate(20deg) scale(0);
+    }
+    40% {
+        transform: rotate(110deg) scale(1.4);
+    }
+    70% {
+        transform: rotate(200deg) scale(0);
+    }
+    100% {
+        transform: rotate(200deg) scale(0);
+    }
+}
+
+@keyframes spin3 {
+    0% {
+        transform: rotate(40deg) scale(0);
+    }
+    20% {
+        transform: rotate(40deg) scale(0);
+    }
+    50% {
+        transform: rotate(130deg) scale(1);
+    }
+    80% {
+        transform: rotate(220deg) scale(0);
+    }
+    100% {
+        transform: rotate(220deg) scale(0);
+    }
+}
+
+$loader-size: rem(18px);
+$loader-color: $svart;
+$loader-color--negative: $snøhvit;
+$loader-spacing: $component-spacing--xxl;
+
+.jkl-loader {
+    display: flex;
+
+    & > span {
+        display: block;
+        transform-origin: center;
+        background-color: $loader-color;
+        height: $loader-size;
+        width: $loader-size;
+    }
+
+    &__1 {
+        animation: spin1 3s linear infinite;
+        margin-right: $loader-spacing * 0.9;
+    }
+    &__2 {
+        animation: spin2 3s linear infinite;
+        margin-right: $loader-spacing;
+    }
+    &__3 {
+        animation: spin3 3s linear infinite;
+    }
+    &--negative > span {
+        background-color: $loader-color--negative;
+    }
+    &--inline {
+        & > span {
+            height: rem(8px);
+            width: rem(8px);
+        }
+
+        & > span:first-of-type {
+            margin-right: $component-spacing--xl * 0.9;
+        }
+
+        & > span:nth-of-type(2) {
+            margin-right: $component-spacing--xl;
+        }
+    }
+}

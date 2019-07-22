@@ -1,20 +1,23 @@
 {
     "name": "@fremtind/webpack-consumer-example",
-    "version": "0.0.1",
+    "version": "0.5.2",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "An example to consume packages with webpack",
     "keywords": [],
     "license": "MIT",
     "main": "src/index.tsx",
     "scripts": {
-        "build": "echo 'noop'",
         "test:integration": "webpack -p",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "webpack-dev-server --open"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.0.1"
+        "@fremtind/jkl-button": "^0.6.1"
     },
     "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2",
         "babel-loader": "^8.0.6",
         "css-loader": "^3.0.0",
         "html-webpack-plugin": "^3.2.0",
@@ -23,5 +26,9 @@
         "webpack": "^4.32.2",
         "webpack-cli": "^3.3.2",
         "webpack-dev-server": "^3.4.1"
-    }
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
 }

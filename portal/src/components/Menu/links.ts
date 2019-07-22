@@ -1,0 +1,46 @@
+const makeLink = (title: string, page: string, section?: string) => ({
+    title,
+    page,
+    section,
+});
+
+const makeDeveloperLink = (title: string, page: string) => makeLink(title, page, "developer");
+const makeDesignerLink = (title: string, page: string) => makeLink(title, page, "designer");
+const makeCoreLink = (title: string, page: string) => makeLink(title, page, "core");
+const makeComponentLink = (title: string, page: string) => makeLink(title, page, "components");
+const makeProfileLink = (title: string, page: string) => makeLink(title, page, "profile");
+
+export const developerLinks = [
+    makeDeveloperLink("Kom i gang", "getting-started"),
+    makeDeveloperLink("Bidragsguide", "contribute"),
+];
+
+export const designerLinks = [makeDesignerLink("Kom i gang", "getting-started")];
+
+export const coreLinks = [
+    makeCoreLink("Designprinsipper", "principle"),
+    makeCoreLink("Bevegelse", "motion"),
+    makeCoreLink("Klarhet", "clarity"),
+    makeCoreLink("Elevasjon", "elevation"),
+    makeCoreLink("Mønstre", "pattern"),
+];
+
+export const componentLinks = [
+    makeComponentLink("Alle komponenter", "a-la-carte"),
+    makeComponentLink("Knapper", "button"),
+    makeComponentLink("Trekkspilliste", "accordion"),
+    makeComponentLink("Datovelger", "datepicker"),
+];
+
+export const profileLinks = [
+    makeProfileLink("Farger", "colors"),
+    makeProfileLink("Tilgjengelighet", "a11y"),
+    makeProfileLink("Stil og tone", "tone"),
+    makeProfileLink("Typograpfi", "typography"),
+    makeProfileLink("Bildestil", "picture"),
+    makeProfileLink("Ikoner", "icon"),
+    makeProfileLink("Sperring", "spacing"),
+    makeProfileLink("Layout", "layout"),
+    makeProfileLink("Skygger", "shadow"),
+    makeProfileLink("Logo", "logo"),
+];

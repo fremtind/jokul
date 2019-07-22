@@ -1,7 +1,18 @@
 {
     "name": "@fremtind/jkl-divider-line-react",
-    "version": "0.0.1",
-    "description": "React wrapper for divider-line",
+    "version": "0.5.2",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul react divider line component",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "divider",
+        "divider line",
+        "line",
+        "jøkul",
+        "fremtind"
+    ],
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
@@ -16,15 +27,35 @@
     "scripts": {
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
-        "build": "yarn run build:scripts && yarn run build:types",
+        "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev:style": "lerna exec --scope=@fremtind/jkl-divider-line yarn build:watch",
+        "dev:js": "parcel example/index.html",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@fremtind/jkl-divider-line": "^0.6.1",
+        "uuid": "^3.3.2"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2",
+        "npm-run-all": "^4.1.5"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "dependencies": {
-        "@fremtind/jkl-divider-line": "^0.0.1",
-        "uuid": "^3.3.2"
-    }
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
 }

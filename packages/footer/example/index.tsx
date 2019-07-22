@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { SmallParagraph } from "@fremtind/jkl-typography-react";
 import { Grid, GridElement } from "@fremtind/jkl-grid-react";
 import "@fremtind/jkl-grid/grid.css";
-import "@fremtind/jkl-core/build/css/core.css";
+import "@fremtind/jkl-core/core.css";
 import "../footer.scss";
 
 // eslint-disable-next-line

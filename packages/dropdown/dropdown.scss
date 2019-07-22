@@ -1,6 +1,5 @@
-@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
-@import "~@fremtind/jkl-core/build/scss/variables/spacing.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/font-size.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_utils.scss";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 

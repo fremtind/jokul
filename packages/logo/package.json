@@ -1,21 +1,31 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "0.0.1",
-    "description": "style for Fremtind logo",
-    "keywords": [
-        "logo"
+    "version": "0.6.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "!example",
+        "*.css"
     ],
-    "homepage": "https://github.com/fremtind/jokul#readme",
+    "description": "Jøkul style for Fremtind logo",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "logo",
+        "jøkul",
+        "fremtind"
+    ],
     "license": "MIT",
     "scripts": {
-        "build": "node-sass . -o . --importer='../../node_modules/node-sass-tilde-importer'",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.0.1"
+        "@fremtind/jkl-core": "^0.6.1"
     },
-    "publishConfig": {
-        "registry": "https://registry.npmjs.com/"
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2"
     },
     "repository": {
         "type": "git",
@@ -23,5 +33,9 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    }
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
 }

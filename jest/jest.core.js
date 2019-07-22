@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
     coverageDirectory: "coverage",
     coverageReporters: ["text", "clover"],
@@ -13,6 +14,7 @@ module.exports = {
     moduleFileExtensions: ["ts", "tsx", "js"],
     notify: true,
     notifyMode: "always",
-    roots: ["../packages"],
+    roots: ["../packages", "../portal"],
     setupFilesAfterEnv: ["./setupTests.ts"],
 };
+/* eslint-enable */

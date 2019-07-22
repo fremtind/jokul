@@ -1,33 +1,33 @@
-@import "~@fremtind/jkl-core/build/scss/variables/spacing.scss";
-@import "~@fremtind/jkl-core/build/scss/variables/colors.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/font-size.scss";
-@import "~@fremtind/jkl-core/build/scss/typography/paragraphs.scss";
-@import "~@fremtind/jkl-core/build/scss/functions.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
+$list-indent: $component-spacing--xl;
 $bullet-size: rem(6px);
-$bullet-point-center-offset: rem(4px);
-$bullet-item-space-between: $component-spacing--xl;
-$bullet-item-indent: $component-spacing--large;
-$bullet-nested-item-indent: $component-spacing--xxl;
+$item-space-between: $component-spacing--large;
+$item-indent: $component-spacing--xxl;
 
 .jkl-bullet-list {
     list-style: none;
     padding: 0;
+    padding-left: $list-indent;
     margin: 0;
-    @extend .jkl-p; // paragraph font-size and line-height
+    margin-bottom: $layout-spacing--small;
 
     & > &__item {
-        margin: $bullet-item-space-between 0;
+        position: relative;
+        margin: $item-space-between 0;
+        padding-left: $item-indent;
 
         &::before {
             content: "";
+            position: absolute;
+            left: 0;
+            top: ($line-height-3 / 2) - rem(2px);
             display: inline-block;
             height: $bullet-size;
             width: $bullet-size;
             background-color: $svart;
-            transform: rotate(45deg);
-            margin-right: $bullet-item-indent;
-            margin-bottom: $bullet-point-center-offset;
+            transform: rotate(45deg) translateY(-50%);
         }
 
         &:first-of-type {
@@ -38,16 +38,15 @@ $bullet-nested-item-indent: $component-spacing--xxl;
         }
     }
     & & > &__item {
-        margin-left: $bullet-nested-item-indent;
         &::before {
             box-shadow: inset 0px 0px 0px rem(1px) $svart;
             background-color: transparent;
         }
         &:first-of-type {
-            margin-top: $bullet-item-space-between;
+            margin-top: $item-space-between;
         }
         &:last-of-type {
-            margin-bottom: $bullet-item-space-between;
+            margin-bottom: $item-space-between;
         }
     }
     & & & > &__item {

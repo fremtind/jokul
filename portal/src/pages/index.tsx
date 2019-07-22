@@ -1,15 +1,13 @@
-import { Link } from "gatsby";
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layout/Layout";
+import ReactMarkdown from "react-markdown";
+import { renderer } from "../presentation/markdownRenderer";
+// @ts-ignore
+import frontPageMarkdown from "!raw-loader!../texts/FrontPage.md";
 
 const IndexPage = () => (
     <Layout>
-        <h2>Jokul - Fremtinds designsystem</h2>
-
-        <div>
-            <Link to="/components/button/">Eksempel på komponent dokumentasjon</Link>
-        </div>
-        <Link to="/a-la-carte">Alle komponenter</Link>
+        <ReactMarkdown renderers={renderer} source={frontPageMarkdown} />
     </Layout>
 );
 

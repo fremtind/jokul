@@ -1,38 +1,37 @@
 {
-  "name": "@fremtind/portal",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.0.1",
-  "author": "Simen Saegrov <simen.saegrov@fremtind.no>",
-  "dependencies": {
-    "@types/prismjs": "^1.16.0",
-    "gatsby": "^2.11.7",
-    "gatsby-plugin-sass": "^2.1.0",
-    "gatsby-plugin-typescript": "^2.1.0",
-    "node-sass": "^4.12.0",
-    "prismjs": "^1.16.0",
-    "raw-loader": "^3.0.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-markdown": "^4.1.0"
-  },
-  "devDependencies": {},
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build:docs": "gatsby build --prefix-paths",
-    "dev": "gatsby develop",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+    "name": "@fremtind/portal",
+    "private": true,
+    "description": "Documentation portal for Jøkul",
+    "version": "0.6.0",
+    "dependencies": {
+        "@types/prismjs": "^1.16.0",
+        "gatsby": "^2.11.7",
+        "gatsby-plugin-sass": "^2.1.0",
+        "gatsby-plugin-typescript": "^2.1.0",
+        "node-sass": "^4.12.0",
+        "prism-react-renderer": "^0.1.7",
+        "prismjs": "^1.16.0",
+        "raw-loader": "^3.0.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-live": "^2.1.2",
+        "react-markdown": "^4.1.0"
+    },
+    "keywords": [
+        "portal"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build:docs": "gatsby build --prefix-paths",
+        "dev": "gatsby develop",
+        "start": "npm run develop",
+        "serve": "gatsby serve"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
 }

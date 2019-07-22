@@ -1,0 +1,24 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+/* This is the main container (@reach/router within gatsby wrapper) */
+#___gatsby > div[role="group"][tabindex] {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+}
+
+.portal-content {
+    padding: $layout-spacing--xxl $layout-spacing--medium 0;
+    box-sizing: border-box;
+    margin-bottom: $layout-spacing--xxl;
+    max-width: 1200px;
+    &__title {
+        margin-bottom: $layout-spacing--large;
+    }
+}
+
+.portal-component-only {
+    width: 100vw;
+    & > :nth-child(n + 2) {
+        display: none;
+    }
+}
