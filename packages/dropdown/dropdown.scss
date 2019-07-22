@@ -15,8 +15,6 @@ $value-font-size: $font-size-3;
 $label-height: $line-height-2;
 $label-font-size: rem(16px);
 
-$arrow-size: $value-height;
-
 $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
 $bottom-margin: $component-spacing--large;
@@ -76,7 +74,7 @@ $bottom-margin: $component-spacing--large;
         height: $value-height + $bottom-padding;
         line-height: $value-height;
         padding: 0 $side-padding $bottom-padding;
-        padding-right: $arrow-size + $side-padding;
+        padding-right: $value-height + $side-padding;
         text-align: left;
         transition: box-shadow $transition-timing, padding $transition-timing;
         width: 100%;
@@ -122,7 +120,7 @@ $bottom-margin: $component-spacing--large;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.16);
         padding: 1rem 0.5rem 0;
         max-height: 60vh;
-        overflow-y: scroll;
+        overflow-y: auto;
         z-index: 100; // TODO Create a system for z-index in Jokul
     }
 
@@ -148,11 +146,15 @@ $bottom-margin: $component-spacing--large;
     }
 
     &__arrow {
-        background-color: transparent;
-        height: $arrow-size;
         position: absolute;
-        right: 0;
+        right: $side-padding;
         top: $label-height;
+
+        height: $value-height;
+        background-color: transparent;
+        stroke: currentColor;
+        stroke-width: 1;
+
         transition: transform 300ms ease-in-out;
     }
 }
