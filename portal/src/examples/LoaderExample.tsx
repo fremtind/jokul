@@ -3,7 +3,7 @@ import { Example } from "../components";
 import { Loader } from "@fremtind/jkl-loader-react";
 import "@fremtind/jkl-loader/loader.min.css";
 // @ts-ignore
-import logoType from "!raw-loader!@fremtind/jkl-loader-react/build/Loader.d.ts";
+import type from "!raw-loader!@fremtind/jkl-loader-react/build/Loader.d.ts";
 
 const example = `<>
     <Loader />
@@ -38,7 +38,7 @@ const exampleImport = `import { Loader } from "@fremtind/jkl-loader-react";
 import "@fremtind/jkl-loader/loader.min.css";`;
 
 const LoaderExample = () => (
-    <Example exampleComponents={{ Loader }} exampleCode={example} type={logoType} exampleImport={exampleImport} />
+    <Example exampleComponents={{ Loader }} exampleCode={example} type={type} exampleImport={exampleImport} />
 );
 
 export default LoaderExample;

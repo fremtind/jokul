@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-import { Layout, Changelog } from "../../components";
+import { ComponentLayout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 import { TextFieldExample } from "../../examples";
 
@@ -14,9 +14,9 @@ import changelogReact from "!raw-loader!@fremtind/jkl-text-input-react/CHANGELOG
 
 export default function TextFieldPage() {
     return (
-        <Layout title="Tekstfelt" mainExample={<TextFieldExample />}>
+        <ComponentLayout title="Tekstfelt" mainExample={<TextFieldExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
-        </Layout>
+        </ComponentLayout>
     );
 }

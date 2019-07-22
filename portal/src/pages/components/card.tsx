@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-import { Layout, Changelog } from "../../components";
+import { ComponentLayout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 import { CardExample } from "../../examples";
 
@@ -14,9 +14,9 @@ import changelogReact from "!raw-loader!@fremtind/jkl-card-react/CHANGELOG.md";
 
 export default function CardPage() {
     return (
-        <Layout title="Kort" mainExample={<CardExample />}>
+        <ComponentLayout title="Kort" mainExample={<CardExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
-        </Layout>
+        </ComponentLayout>
     );
 }

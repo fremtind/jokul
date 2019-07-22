@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-import { Layout, Changelog } from "../../components";
+import { ComponentLayout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 import { AccordionExample } from "../../examples";
 
@@ -14,9 +14,9 @@ import changelogReact from "!raw-loader!@fremtind/jkl-accordion-react/CHANGELOG.
 
 export default function AccordionPage() {
     return (
-        <Layout title="Trekkspilliste" mainExample={<AccordionExample />}>
+        <ComponentLayout title="Trekkspilliste" mainExample={<AccordionExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
-        </Layout>
+        </ComponentLayout>
     );
 }

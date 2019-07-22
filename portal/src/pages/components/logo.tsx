@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-import { Layout, Changelog } from "../../components";
+import { ComponentLayout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 import { LogoExample } from "../../examples";
 
@@ -14,9 +14,9 @@ import changelogReact from "!raw-loader!@fremtind/jkl-logo-react/CHANGELOG.md";
 
 export default function LogoPage() {
     return (
-        <Layout title="Logo" mainExample={<LogoExample />}>
+        <ComponentLayout title="Logo" mainExample={<LogoExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
-        </Layout>
+        </ComponentLayout>
     );
 }

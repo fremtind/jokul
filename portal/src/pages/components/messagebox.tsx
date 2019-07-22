@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-import { Layout, Changelog } from "../../components";
+import { ComponentLayout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 import { MessageBoxExample } from "../../examples";
 
@@ -14,9 +14,9 @@ import changelogReact from "!raw-loader!@fremtind/jkl-message-box-react/CHANGELO
 
 export default function MessageBoxPage() {
     return (
-        <Layout title="Meldingskomponenter" mainExample={<MessageBoxExample />}>
+        <ComponentLayout title="Meldingskomponenter" mainExample={<MessageBoxExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
-        </Layout>
+        </ComponentLayout>
     );
 }
