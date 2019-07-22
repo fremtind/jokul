@@ -55,9 +55,8 @@ $bottom-margin: $component-spacing--large;
             @include nojump-bold();
         }
 
-        &--hover {
-            // STATE SHOULD BE RENAMED
-            color: #696666;
+        &--has-value {
+            color: $varm-fjellgrå;
             transform: translateY(0) scale($label-font-size / $value-font-size);
         }
     }

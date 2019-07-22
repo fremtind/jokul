@@ -73,7 +73,7 @@ export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) =
     }
     return (
         <div className={className}>
-            <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--hover" : ""}`}>
+            <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>
             <button className="jkl-dropdown__value" aria-haspopup="listbox">
