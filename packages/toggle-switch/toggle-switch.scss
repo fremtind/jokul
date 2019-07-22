@@ -18,12 +18,11 @@ $toggle-focus-outline-color: $himmel;
     display: block;
 
     &__slider {
-        width: $toggle-width;
-        height: $toggle-height;
         @include position(absolute, $right: 50%);
         cursor: pointer;
+        width: $toggle-width;
+        height: $toggle-height;
         background-color: transparent;
-        transition: 0.4s;
         border: 1px solid $svart;
         border-radius: $toggle-height/2;
         &:after {
@@ -33,8 +32,8 @@ $toggle-focus-outline-color: $himmel;
             width: $toggle-height/2;
             border-radius: $toggle-height/2;
             background-color: $svart;
-            transition: 0.4s;
-            border: 1px solid transparent;
+            transition: background-color 250ms ease-in, transform 150ms ease-in-out;
+            border: 1px solid $svart;
         }
         &:before {
             content: "";
@@ -46,11 +45,9 @@ $toggle-focus-outline-color: $himmel;
     &:hover {
         & input:checked + .jkl-toggle-switch__slider:after {
             background-color: $gress;
-            border: 1px solid $svart;
         }
         & input:not(:checked) + .jkl-toggle-switch__slider:after {
             background-color: $snøhvit;
-            border: 1px solid $svart;
         }
     }
     & input:checked + .jkl-toggle-switch__slider:after {
