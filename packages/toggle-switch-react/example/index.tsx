@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { ToggleSwitch } from "../src";
 import { initTabListener } from "@fremtind/jkl-core";
@@ -8,13 +8,19 @@ import "@fremtind/jkl-core/core.min.css";
 initTabListener();
 
 const App = () => {
+    const [gpsIsOn, setGpsIsOn] = useState(true);
+    const [glonassIsOn, setGlonassIsOn] = useState(false);
     return (
         <div style={{ margin: "36px", padding: "36px", background: "#fafafa" }}>
             <div style={{ margin: "20px" }}>
-                <ToggleSwitch defaultChecked={true}>GPS</ToggleSwitch>
+                <ToggleSwitch defaultChecked={gpsIsOn} onChange={setGpsIsOn}>
+                    GPS
+                </ToggleSwitch>
             </div>
             <div style={{ margin: "20px" }}>
-                <ToggleSwitch>Glosnas</ToggleSwitch>
+                <ToggleSwitch defaultChecked={glonassIsOn} onChange={setGlonassIsOn}>
+                    Glonass
+                </ToggleSwitch>
             </div>
         </div>
     );
