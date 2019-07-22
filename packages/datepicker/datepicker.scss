@@ -64,7 +64,7 @@ $background-color: $snøhvit;
 
     &__month-label {
         @include font-size(small);
-        @include position(absolute, $top: 0, $bottom: initial);
+        @include position(absolute, $top: 0, $left: 0, $right: 0);
         @include label-font-size--raised();
         line-height: $input-height;
         transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
@@ -72,15 +72,15 @@ $background-color: $snøhvit;
     }
 
     &__calendar {
-        @include position(absolute, $top: 100%, $bottom: initial);
-        z-index: 1000; // TODO: Align with z-index scale
+        @include position(absolute, $top: 100%, $left: 0, $right: 0);
+        z-index: $z-index--dropdown;
         display: flex;
         justify-content: center;
         flex-direction: column;
         width: $calendar-width - ($calendar-padding * 2);
         padding: $calendar-padding;
         background-color: $background-color;
-        box-shadow: 0px rem(4px) rem(8px) rgba(0, 0, 0, 0.08);
+        box-shadow: $drop-shadow--small;
 
         caption {
             font-size: $font-size-3;
