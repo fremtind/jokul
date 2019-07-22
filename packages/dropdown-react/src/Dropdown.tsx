@@ -46,7 +46,7 @@ export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) =
     const [listId] = useState("dropdown".concat(uuid().slice(-8)));
     const [hidden, setHidden] = useState(true);
     const hasSelectedValue = typeof selectedValue !== "undefined";
-    const listRef = useListNavigation(true);
+    const listRef = useListNavigation();
 
     function onToggle() {
         const listElement = listRef.current;

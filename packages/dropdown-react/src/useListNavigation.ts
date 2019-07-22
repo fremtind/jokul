@@ -1,19 +1,21 @@
 import { useRef, useEffect, RefObject } from "react";
 
 type Timer = NodeJS.Timeout | undefined;
-type SearchTerm = { term: string } | undefined;
+type KeyBuffer = { keys: string } | undefined;
 type Direction = "prev" | "next" | "first" | "last";
 
-export function useListNavigation(enableSearch: boolean): RefObject<HTMLUListElement> {
+export function useListNavigation(typeAheadIsEnabled: boolean = true): RefObject<HTMLUListElement> {
     const listRef = useRef<HTMLUListElement>(null);
-    let search: SearchTerm;
+    let typedKeys: KeyBuffer;
     let searchResetTimer: Timer;
-    if (enableSearch) search = { term: "" };
+    if (typeAheadIsEnabled) {
+        typedKeys = { keys: "" }; // keypress buffer is object to preserve state
+    }
     useEffect(() => {
         const listElement = listRef.current;
         if (listElement) {
             listElement.addEventListener("keydown", (event) =>
-                handleListKeyNav(listElement, event, search, searchResetTimer),
+                handleListKeyNav(listElement, event, typedKeys, searchResetTimer),
             );
         }
     }, []);
@@ -21,7 +23,7 @@ export function useListNavigation(enableSearch: boolean): RefObject<HTMLUListEle
     return listRef;
 }
 
-function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: SearchTerm, searchResetTimer: Timer) {
+function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: KeyBuffer, searchResetTimer: Timer) {
     const { key, target } = event;
     const currentFocus = target as HTMLButtonElement;
     switch (key) {
@@ -45,6 +47,10 @@ function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: 
             break;
         case "Enter":
         case " ":
+            break;
+        case "Tab":
+            event.preventDefault();
+            // in a standard select, tab does nothing in-menu
             break;
 
         default:
@@ -94,17 +100,17 @@ function moveFocus(list: HTMLUListElement, current: HTMLButtonElement, dir: Dire
     }
 }
 
-function findItem(list: HTMLUListElement, key: string, search: SearchTerm, timer: Timer): HTMLButtonElement | null {
+function findItem(list: HTMLUListElement, key: string, search: KeyBuffer, timer: Timer): HTMLButtonElement | null {
     const listItems = list.querySelectorAll(`[role="option"]`);
     if (!listItems.length) return null;
 
     if (search) {
-        search.term = search.term.concat(key);
+        search.keys = search.keys.concat(key);
         resetWhenIdle(search, timer);
 
         for (var n = 0; n < listItems.length; n++) {
             var label = (listItems[n] as HTMLButtonElement).innerText;
-            if (label && label.toLowerCase().indexOf(search.term) === 0) {
+            if (label && label.toLowerCase().indexOf(search.keys) === 0) {
                 return listItems[n] as HTMLButtonElement;
             }
         }
@@ -113,14 +119,14 @@ function findItem(list: HTMLUListElement, key: string, search: SearchTerm, timer
     return null;
 }
 
-function resetWhenIdle(search: SearchTerm, timer: Timer) {
+function resetWhenIdle(search: KeyBuffer, timer: Timer) {
     if (timer) {
         clearTimeout(timer);
         timer = undefined;
     }
     timer = setTimeout(
         () => {
-            search ? (search.term = "") : (search = { term: "" });
+            search ? (search.keys = "") : (search = { keys: "" });
             timer = undefined;
         },
         500,
