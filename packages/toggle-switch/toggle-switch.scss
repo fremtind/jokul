@@ -58,7 +58,7 @@ $toggle-focus-outline-color: $himmel;
     }
     html:not([data-mousenavigation]) & input:focus {
         + .jkl-toggle-switch__slider {
-            box-shadow: 0 0 0 rem(2px) transparent, 0 0 0 rem(2px) $toggle-focus-outline-color;
+            box-shadow: 0 0 0 rem(2px) $snøhvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
         }
     }
     &__label {
