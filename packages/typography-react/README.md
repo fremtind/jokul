@@ -1,13 +1,13 @@
-# `typography-react`
+# `@fremtind/jkl-typography-react`
 
-Base components to create headers and texts.
+## Om overskriftsnivåer
 
-## Usage
+Vi bruker overskriftsnivåer til å gi brukeren en tydelig og konsekvent struktur på informasjonen vi skal presentere.
+Slik kan vi organisere informasjon etter viktighet, der overskrift 1 introduserer det som viktigst eller innledningen. Vi kan for eksempel bruke overskrift 1 til hovedsidene i et grensesnitt, mens overskrift 2 for kan brukes på en fane eller et kort på samme side.
 
-```tsx
-<Heading1 variant={"h2"}>Semantic h1, looks like h2</Heading1>
-```
+### Overskrifter skal:
 
-```tsx
-<LeadParagraph>LeadParagraph: With these components you can say what you need in your application</LeadParagraph>
-```
+-   Fremheve det som er viktigst av informasjonen som kommer etter.
+-   Plasseres øverst på siden eller delen av siden den beskriver.
+-   Være lett å skanne – med godt og enkelt språk.
+-   Begrenses til en setning, uten komma, punktum, bindestrek eller semikolon.

@@ -1,15 +1,14 @@
-# `text-field`
+# `@fremtind/jkl-text-field`
 
-Input as text field is one of the core form elements.
+## Om tekstfelt
 
-## Usage
+Tekstfelt gir brukerne anledning til å samhandle med en løsning, ved å legge inn data.
+Tekstfelt kan være korte, der brukerne kan oppgi en setning, eller lange, der brukeren får et helt område til å skrive.
 
-Must have " " as placeholder for animation to work as intended. Also remember aria and htmlFor.
+### Validering og tegnbegrensning
 
-```
-<label className="jkl-text-field" htmlFor="demo-field">
-    <input aria-invalid={valid} className="jkl-text-field__input" type="text" id="demo-field" placeholder=" " />
-    <span className="jkl-text-field__label">{label}</span>
-    <span className="jkl-text-field__border"></span>
-</label>
-```
+Tekstfelt kan utsette en løsning for unødvendige feil eller behov for at fagpersoner sjekker dem. Det kan derfor være lurt å ha validering på feltet og oppgi hvor mange tegn brukerne kan legge inn.
+
+### Tekst
+
+Sørg alltid for å ha gode ledetekster og plassholdertekster. En hjelpetekst under ledeteksten kan også være nyttig.

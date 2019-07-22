@@ -15,7 +15,7 @@ const Demo = () => (
             <ErrorMessage title="Error">
                 In non dolore ullamco minim adipisicing ipsum pariatur deserunt ipsum.
             </ErrorMessage>
-        </div>{" "}
+        </div>
         <div style={{ margin: "20px" }}>
             <SuccessMessage title="Success">Ullamco minim aute Lorem adipisicing.</SuccessMessage>
         </div>

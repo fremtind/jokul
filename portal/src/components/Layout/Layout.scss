@@ -14,6 +14,9 @@
     &__title {
         margin-bottom: $layout-spacing--large;
     }
+    &__main-example {
+        margin: $layout-spacing--large 0;
+    }
 }
 
 .portal-component-only {

@@ -21,6 +21,32 @@
         }
     }
 }
-.portal-content__type {
+.portal-content__section {
     margin-top: $layout-spacing--large;
+    &--copy {
+        position: relative;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        text-align: left;
+        &::before {
+            content: "Kopiert!";
+            position: absolute;
+            border-radius: rem(4px);
+            top: 0;
+            right: 10%;
+            padding: $component-spacing--medium $component-spacing--xl;
+            background-color: $svart;
+            color: $snøhvit;
+            opacity: 0;
+            transition: opacity 250ms ease-out 1000ms, transform 1000ms ease-in-out 100ms;
+        }
+        &:active {
+            &::before {
+                transition: opacity 50ms ease-out 0ms;
+                opacity: 1;
+                transform: translateY(rem(40px));
+            }
+        }
+    }
 }
