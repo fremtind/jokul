@@ -27,8 +27,10 @@ function lower(str = "") {
 function focusSelected(listEl: HTMLElement, listId: string, selected: string | undefined) {
     let focusedItem: HTMLElement | null;
     if (selected !== undefined) {
+        // move focus to selected item
         focusedItem = listEl.querySelector(`#${listId}__${lower(selected)}`);
     } else {
+        // move focus to first option
         focusedItem = listEl.querySelector('[role="option"]');
     }
     focusedItem && focusedItem.focus();
@@ -76,7 +78,7 @@ export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) =
             <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>
-            <button className="jkl-dropdown__value" aria-haspopup="listbox">
+            <button className="jkl-dropdown__value" data-testid="jkl-dropdown__value" aria-haspopup="listbox">
                 {hasSelectedValue ? selectedValue : "Velg"}
             </button>
             <CoreToggle
@@ -89,12 +91,18 @@ export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) =
                 onToggleSelect={onToggleSelect}
                 aria-activedescendant={hasSelectedValue && `${listId}__${lower(selectedValue)}`}
             >
-                <ul className="jkl-dropdown__option-wrapper" tabIndex={-1} ref={listRef}>
+                <ul
+                    className="jkl-dropdown__option-wrapper"
+                    data-testid="jkl-dropdown__option-wrapper"
+                    tabIndex={-1}
+                    ref={listRef}
+                >
                     {items.map((item) => (
                         <li key={item}>
                             <button
                                 id={`${listId}__${lower(item)}`}
                                 className="jkl-dropdown__option"
+                                data-testid="jkl-dropdown__option"
                                 aria-selected={item === selectedValue}
                                 role="option"
                             >
