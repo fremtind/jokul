@@ -10,15 +10,14 @@ $card-padding-normal: $component-spacing--xl;
     max-width: 60ch; //TODO: find out if we want this
     background-color: $card-bg-color;
     border-radius: $card-corner-radius;
-    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.08);
+    box-shadow: $drop-shadow--medium;
     padding: $card-padding-normal;
     text-align: inherit;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 
     &:hover,
     &:focus {
-        // box-shadow: 0 0 0 0.5rem $card-bg-color;
-        box-shadow: 0.25rem 0.375rem 1rem rgba(0, 0, 0, 0.15);
+        box-shadow: $drop-shadow--large;
         transform: translateY(-0.125rem);
     }
 

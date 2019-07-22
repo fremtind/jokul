@@ -1,5 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_utils.scss";
+@import "~@fremtind/jkl-core/mixins/_helpers.scss";
 
 @mixin label-font-size--raised {
     @include font-size(xs);
@@ -81,7 +81,7 @@ $text-area-height: 12rem;
         }
     }
     &__border {
-        @include position(absolute, $top: initial);
+        @include position(absolute, $bottom: 0, $right: 0, $left: 0);
         background-color: $border-color;
         height: $border-weight;
         transition: transform 175ms ease-in, background-color 125ms ease-in;
@@ -89,7 +89,7 @@ $text-area-height: 12rem;
     }
     &__label {
         @include font-size(small);
-        @include position(absolute, $top: $text-field-size, $bottom: initial);
+        @include position(absolute, $top: $text-field-size, $right: 0, $left: 0);
         line-height: $input-height;
         transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
         pointer-events: none;
