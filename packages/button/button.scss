@@ -29,8 +29,12 @@ $hover-elevation-distance: -0.25rem;
     transition: transform $animation-timing;
     position: relative;
 
+    // get rid of dotted border on Firefox
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
     &:-moz-focusring {
-        // get rid of dotted border on Firefox
         outline: none;
     }
 
