@@ -49,12 +49,11 @@ describe("RadioButtonChoice", () => {
 
     it("executes handleChange function correctly", () => {
         const handleChange = jest.fn();
-        const choices = ["one", "two"];
-        const { getByText } = render(
-            <RadioButtonChoice choices={choices} name="test" onChange={handleChange} selectedValue={choices[0]} />,
+        const { getByLabelText } = render(
+            <RadioButtonChoice choices={["one", "two"]} name="test" onChange={handleChange} selectedValue="one" />,
         );
 
-        const twoButton = getByText("two");
+        const twoButton = getByLabelText("two");
         twoButton.click();
 
         expect(handleChange).toHaveBeenCalled();
