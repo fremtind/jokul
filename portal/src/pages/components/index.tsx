@@ -14,6 +14,7 @@ import {
     MessageBoxExample,
     RadioButtonExample,
     TextFieldExample,
+    ToggleSwitchExample,
     TextAreaExample,
     TypographyExample,
 } from "../../examples";
@@ -42,6 +43,7 @@ export default function AllComponents() {
             <Section title="Knapper" link="button" example={<ButtonExample />} />
             <Section title="Radioknapper" link="radiobutton" example={<RadioButtonExample />} />
             <Section title="Avkryssingsboks" link="checkbox" example={<CheckboxExample />} />
+            <Section title="Toggle-knapp" link="toggleswitch" example={<ToggleSwitchExample />} />
             <Section title="Trekkspillliste" link="accordion" example={<AccordionExample />} />
             <Section title="Datovelger" link="datepicker" example={<DatepickerExample />} />
             <Section title="Typografi" link="typography" example={<TypographyExample />} />
