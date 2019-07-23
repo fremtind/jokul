@@ -1,4 +1,4 @@
-# `@fremtind/jkl-bullet-list`
+# [`@fremtind/jkl-bullet-list`](https://fremtind.github.io/jokul/components/bulletlist/)
 
 ## Om lister
 
