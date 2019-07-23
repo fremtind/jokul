@@ -24,4 +24,16 @@ describe("RadioButton", () => {
 
         expect(handleChange).toHaveBeenCalled();
     });
+
+    it("executes handleChange when label is clicked", () => {
+        const handleChange = jest.fn();
+        const { getByTestId } = render(
+            <RadioButton value="The only choice" onChange={handleChange} name="" checked={false} inline={true} />,
+        );
+
+        const button = getByTestId("jkl-radio-button__label-tag");
+        button.click();
+
+        expect(handleChange).toHaveBeenCalled();
+    });
 });
