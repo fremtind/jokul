@@ -1,3 +1,5 @@
+#  [`@fremtind/jkl-button`](https://fremtind.github.io/jokul/components/button/)
+
 Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den.
 
 ## Knappetyper

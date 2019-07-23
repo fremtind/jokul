@@ -1,11 +1,16 @@
-# `browserslist-config-jkl`
+# [`browserslist-config-jkl`](https://fremtind.github.io/jokul)
 
-> TODO: description
+Inneholder browserlist konfigurasjonen til Jøkul. Endringer i denne pakke vil påvirke alle andre pakker i Jøkul, så alle endringer her vil kreve regresjonstesting av alle andre pakker i de browsere vi ønsker å støtte.
 
-## Usage
+## Bruk
 
-```
-const browserslistConfigJkl = require('browserslist-config-jkl');
+Legges til i `package.json`:
 
-// TODO: DEMONSTRATE API
+```json
+{
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2"
+    },
+    "browserslist": ["extends @fremtind/browserslist-config-jkl"]
+}
 ```

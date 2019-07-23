@@ -1,4 +1,4 @@
-# `@fremtind/jkl-logo`
+# [`@fremtind/jkl-logo`](https://fremtind.github.io/jokul/components/logo/)
 
 ## Om logoen og symbolet
 

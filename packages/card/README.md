@@ -1,11 +1,1 @@
-# `card`
-
-> TODO: description
-
-## Usage
-
-```
-const card = require('card');
-
-// TODO: DEMONSTRATE API
-```
+# [`@fremtind/jkl-card`](https://fremtind.github.io/jokul/components/card/)
