@@ -30,6 +30,7 @@ export const componentLinks = [
     makeComponentLink("Knapper", "button"),
     makeComponentLink("Radioknapp", "radiobutton"),
     makeComponentLink("Avkryssingsboks", "checkbox"),
+    makeComponentLink("Toggle-knapp", "toggleswitch"),
     makeComponentLink("Trekkspilliste", "accordion"),
     makeComponentLink("Datovelger", "datepicker"),
     makeComponentLink("Typografi", "typography"),
