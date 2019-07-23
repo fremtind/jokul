@@ -119,7 +119,7 @@ $bottom-margin: $component-spacing--large;
         padding: 1rem 0.5rem 0;
         max-height: 60vh;
         overflow-y: auto;
-        z-index: 100; // TODO Create a system for z-index in Jokul
+        z-index: $z-index--dropdown;
     }
 
     &__option {
