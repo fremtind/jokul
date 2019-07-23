@@ -1,0 +1,43 @@
+{
+    "name": "@fremtind/jkl-toggle-switch",
+    "publishConfig": {
+        "access": "public"
+    },
+    "version": "0.0.1",
+    "description": "Jøkul style for toggle switch",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "switch",
+        "toggle switch",
+        "toggle",
+        "jøkul",
+        "fremtind"
+    ],
+    "license": "MIT",
+    "files": [
+        "!example",
+        "*.css"
+    ],
+    "scripts": {
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.6.1"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ]
+}

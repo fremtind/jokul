@@ -1,0 +1,1 @@
+# `@fremtind/toggle-switch-react`

@@ -3,14 +3,27 @@ export const getInterface = (definitionFile: string) => {
 
     let takeNext = false;
 
-    // Rather naive .d.ts parser, will only pick out whats inside an Interface object
+    // Rather naive .d.ts parser
     const typeDef = typeArray.filter((line: string) => {
         let take = takeNext;
-        if (line.match(/^(interface)/)) {
-            take = true;
-            takeNext = true;
-        } else if (line.match(/^}/)) {
-            takeNext = false;
+
+        switch (true) {
+            // interface: take from interface
+            case line.startsWith("interface"):
+                take = true;
+                takeNext = true;
+                break;
+            // interface: take to end of interface
+            case take && line.startsWith("}"):
+                takeNext = false;
+                break;
+            // declare: take line with declare
+            case line.startsWith("declare"):
+                take = true;
+                takeNext = false;
+                break;
+            default:
+                break;
         }
         return take;
     });
