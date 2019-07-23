@@ -3,25 +3,39 @@ import { useRef, useEffect, RefObject } from "react";
 type Timer = NodeJS.Timeout | undefined;
 type KeyBuffer = { keys: string } | undefined;
 type Direction = "prev" | "next" | "first" | "last";
+interface MoveDetails {
+    event: KeyboardEvent;
+    list: HTMLUListElement;
+    currentFocus: HTMLButtonElement;
+}
+interface ListDetails {
+    list: HTMLUListElement;
+    search: KeyBuffer;
+    searchResetTimer: Timer;
+}
+interface SearchDetails extends ListDetails {
+    key: string;
+}
+interface EventDetails extends ListDetails {
+    event: KeyboardEvent;
+}
 
 export function useListNavigation(typeAheadIsEnabled: boolean = true): RefObject<HTMLUListElement> {
     const listRef = useRef<HTMLUListElement>(null);
-    let typedKeys: KeyBuffer;
+    let search: KeyBuffer;
     let searchResetTimer: Timer;
     if (typeAheadIsEnabled) {
-        typedKeys = { keys: "" }; // keypress buffer is object to preserve state
+        search = { keys: "" }; // keypress buffer is object to preserve state
     }
     useEffect(() => {
-        const listElement = listRef.current;
-        if (listElement) {
-            listElement.addEventListener("keydown", (event) =>
-                handleListKeyNav(listElement, event, typedKeys, searchResetTimer),
-            );
+        const list = listRef.current;
+        if (list) {
+            list.addEventListener("keydown", (event) => handleListKeyNav({ list, event, search, searchResetTimer }));
         }
         return () => {
-            if (listElement) {
-                listElement.removeEventListener("keydown", (event) =>
-                    handleListKeyNav(listElement, event, typedKeys, searchResetTimer),
+            if (list) {
+                list.removeEventListener("keydown", (event) =>
+                    handleListKeyNav({ list, event, search, searchResetTimer }),
                 );
             }
         };
@@ -30,25 +44,33 @@ export function useListNavigation(typeAheadIsEnabled: boolean = true): RefObject
     return listRef;
 }
 
-function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: KeyBuffer, searchResetTimer: Timer) {
+function handleMoveTo(direction: Direction, { event, list, currentFocus }: MoveDetails) {
+    event.preventDefault();
+    moveFocusTo(direction, list, currentFocus);
+}
+
+function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetails, moveFunction = handleMoveTo) {
     const { key, target } = event;
     const currentFocus = target as HTMLButtonElement;
+
+    const moveDetails = {
+        event,
+        list,
+        currentFocus,
+    };
+
     switch (key) {
         case "ArrowUp" || "PageUp":
-            event.preventDefault();
-            moveFocus(list, currentFocus, "prev");
+            moveFunction("prev", moveDetails);
             break;
         case "ArrowDown" || "PageDown":
-            event.preventDefault();
-            moveFocus(list, currentFocus, "next");
+            moveFunction("next", moveDetails);
             break;
         case "Home":
-            event.preventDefault();
-            moveFocus(list, currentFocus, "first");
+            moveFunction("first", moveDetails);
             break;
         case "End":
-            event.preventDefault();
-            moveFocus(list, currentFocus, "last");
+            moveFunction("last", moveDetails);
             break;
         case "Tab":
             // in a standard select, tab does nothing in-menu
@@ -59,7 +81,7 @@ function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: 
 
         default:
             if (search !== undefined) {
-                const searchResult = findItem(list, key, search, searchResetTimer);
+                const searchResult = findItem({ list, key, search, searchResetTimer });
                 if (searchResult) {
                     searchResult.focus();
                 }
@@ -68,7 +90,7 @@ function handleListKeyNav(list: HTMLUListElement, event: KeyboardEvent, search: 
     }
 }
 
-function moveFocus(list: HTMLUListElement, current: HTMLButtonElement, direction: Direction) {
+function moveFocusTo(direction: Direction, list: HTMLUListElement, current: HTMLButtonElement) {
     const thisLI = current.parentElement;
     switch (direction) {
         case "prev":
@@ -104,13 +126,13 @@ function moveFocus(list: HTMLUListElement, current: HTMLButtonElement, direction
     }
 }
 
-function findItem(list: HTMLUListElement, key: string, search: KeyBuffer, timer: Timer): HTMLButtonElement | null {
+function findItem({ list, key, search, searchResetTimer }: SearchDetails): HTMLButtonElement | null {
     const listItems = list.querySelectorAll(`[role="option"]`);
     if (!listItems.length) return null;
 
     if (search) {
         search.keys = search.keys.concat(key);
-        resetWhenIdle(search, timer);
+        resetWhenIdle(search, searchResetTimer);
 
         for (let n = 0; n < listItems.length; n++) {
             let label = (listItems[n] as HTMLButtonElement).innerText;
