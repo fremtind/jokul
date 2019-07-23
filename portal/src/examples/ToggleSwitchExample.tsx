@@ -10,7 +10,7 @@ const example = `
     const [gpsIsOn, setGpsIsOn] = React.useState(false);
     
     return (
-        <ToggleSwitch defaultChecked={gpsIsOn} onChange={setGpsIsOn}>
+        <ToggleSwitch checked={gpsIsOn} onChange={() => setGpsIsOn(!gpsIsOn)}>
             GPS
         </ToggleSwitch>
     );
