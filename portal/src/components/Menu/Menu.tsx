@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { LocationProvider } from "@reach/router";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { coreLinks, developerLinks, designerLinks, componentLinks, profileLinks } from "./links";
+import "@fremtind/jkl-accordion/accordion.min.css";
 
 import "./Menu.scss";
 

@@ -3,7 +3,7 @@ import "@fremtind/jkl-core/core.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { DatePicker } from "../src";
-import "@fremtind/jkl-datepicker/datepicker.scss";
+import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-core/normalize.css";
 
 const App = () => (

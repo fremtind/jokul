@@ -26,10 +26,21 @@ export const coreLinks = [
 ];
 
 export const componentLinks = [
-    makeComponentLink("Alle komponenter", "a-la-carte"),
+    makeComponentLink("Alle komponenter", ""),
     makeComponentLink("Knapper", "button"),
+    makeComponentLink("Radioknapp", "radiobutton"),
+    makeComponentLink("Avkryssingsboks", "checkbox"),
     makeComponentLink("Trekkspilliste", "accordion"),
     makeComponentLink("Datovelger", "datepicker"),
+    makeComponentLink("Typografi", "typography"),
+    makeComponentLink("Tekstfelt", "textfield"),
+    makeComponentLink("Lang tekstfelt", "textarea"),
+    makeComponentLink("Meldinger", "messagebox"),
+    makeComponentLink("Logo", "logo"),
+    makeComponentLink("Lasteindikator", "loader"),
+    makeComponentLink("Delelinje", "dividerline"),
+    makeComponentLink("Kort", "card"),
+    makeComponentLink("Liste", "bulletlist"),
 ];
 
 export const profileLinks = [
