@@ -1,4 +1,4 @@
-# `@fremtind/jkl-checkbox`
+# [`@fremtind/jkl-checkbox`](https://fremtind.github.io/jokul/components/checkbox/)
 
 ## Om avmerkingsbokser
 
