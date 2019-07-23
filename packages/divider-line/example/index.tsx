@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import "../divider-line.scss";
 
 const App = () => (
-    <div style={{ minWidth: "500px" }}>
-        <hr className="jkl-divider" />
+    <div style={{ width: "99vw" }}>
+        <hr className="jkl-divider jkl-divider--spin" />
     </div>
 );
 
