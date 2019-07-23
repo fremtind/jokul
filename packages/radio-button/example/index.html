@@ -6,8 +6,39 @@
         <title>Jøkul RadioButton</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
-    <body style="background: #ded4c7; height: 100%; display: flex; justify-content: center; align-items: center;">
-        <div id="app"></div>
-        <script src="index.tsx"></script>
+    <body style="height: 100%; display: flex; justify-content: space-evenly; align-items: center;">
+        <fieldset class="jkl-radio-button-choice">
+            <legend>Inline</legend>
+            <label class="jkl-radio-button jkl-radio-button--inline">
+                <input class="jkl-radio-button__input" type="radio" value="yes" name="somechoice" />
+                <span class="jkl-radio-button__label">
+                    Yes
+                </span>
+            </label>
+            <label class="jkl-radio-button jkl-radio-button--inline">
+                <input class="jkl-radio-button__input" type="radio" value="no" name="somechoice" />
+                <span class="jkl-radio-button__label">
+                    No
+                </span>
+            </label>
+        </fieldset>
+
+        <fieldset class="jkl-radio-button-choice">
+            <legend>Block</legend>
+            <label class="jkl-radio-button">
+                <input class="jkl-radio-button__input" type="radio" value="yes" name="somechoice" />
+                <span class="jkl-radio-button__label">
+                    Yes
+                </span>
+            </label>
+            <label class="jkl-radio-button">
+                <input class="jkl-radio-button__input" type="radio" value="no" name="somechoice" />
+                <span class="jkl-radio-button__label">
+                    No
+                </span>
+            </label>
+        </fieldset>
+
+        <script src="index.ts"></script>
     </body>
 </html>
