@@ -33,6 +33,7 @@ export const componentLinks = [
     makeComponentLink("Toggle-knapp", "toggleswitch"),
     makeComponentLink("Trekkspilliste", "accordion"),
     makeComponentLink("Datovelger", "datepicker"),
+    makeComponentLink("Nedtrekksliste", "dropdown"),
     makeComponentLink("Typografi", "typography"),
     makeComponentLink("Tekstfelt", "textfield"),
     makeComponentLink("Lang tekstfelt", "textarea"),
