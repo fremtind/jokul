@@ -1,0 +1,31 @@
+$jkl--easings: (
+    standard: ease,
+    entrance: ease-in,
+    exit: ease-out,
+);
+
+$jkl--timings: (
+    productive: 150ms,
+    expressive: 250ms,
+);
+
+@function jkl--motion($name, $easings: $jkl--easings) {
+    @if map-has-key($easings, $name) {
+        @return map-get($easings, $name);
+    } @else {
+        @error 'Unable to find an easing named #{$name} in our supported easings.';
+    }
+}
+
+@function jkl--timing($mode, $timings: $jkl--timings) {
+    @if map-has-key($timings, $mode) {
+        @return map-get($timings, $mode);
+    } @else {
+        @error 'Unable to find a mode for #{$mode}';
+    }
+}
+
+@mixin motion($name, $mode: productive) {
+    transition-duration: jkl--timing($mode);
+    transition-timing-function: jkl--motion($name);
+}
