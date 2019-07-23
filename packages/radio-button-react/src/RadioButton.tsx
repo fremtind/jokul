@@ -1,30 +1,20 @@
-import React, { useState, ChangeEvent } from "react";
-import nanoid from "nanoid";
+import React from "react";
 
 interface Props {
     value: string;
     name: string;
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     inline?: boolean;
     checked?: boolean;
 }
 
-export const RadioButton = ({ value, onChange, name = "", inline = false, checked }: Props) => {
-    const [id] = useState(nanoid(16));
-    return (
-        <span className={"jkl-radio-button".concat(inline ? " jkl-radio-button--inline" : "")}>
-            <input
-                type="radio"
-                id={id}
-                name={name}
-                value={value}
-                className="jkl-radio-button__input"
-                onChange={onChange}
-                checked={checked}
-            />
-            <label htmlFor={id} className="jkl-radio-button__label">
-                {value}
-            </label>
-        </span>
-    );
-};
+export const RadioButton = ({ value, onChange, name = "", inline = false, checked }: Props) => (
+    <label
+        data-testid="jkl-radio-button__label-tag"
+        className={"jkl-radio-button".concat(inline ? " jkl-radio-button--inline" : "")}
+    >
+        <input type="radio" name={name} value={value} onChange={onChange} checked={checked} />
+        <span className="jkl-radio-button__input" />
+        <span className="jkl-radio-button__label">{value}</span>
+    </label>
+);

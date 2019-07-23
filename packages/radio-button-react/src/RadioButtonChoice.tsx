@@ -10,20 +10,18 @@ interface Props {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const RadioButtonChoice = ({ name, legend, choices, selectedValue, onChange, inline = true }: Props) => {
-    return (
-        <fieldset className="jkl-radio-button-choice">
-            <legend>{legend || name}</legend>
-            {choices.map((choice) => (
-                <RadioButton
-                    key={choice}
-                    name={name}
-                    value={choice}
-                    inline={inline}
-                    checked={choice === selectedValue}
-                    onChange={onChange}
-                />
-            ))}
-        </fieldset>
-    );
-};
+export const RadioButtonChoice = ({ name, legend, choices, selectedValue, onChange, inline = true }: Props) => (
+    <fieldset className="jkl-radio-button-choice">
+        <legend>{legend || name}</legend>
+        {choices.map((choice) => (
+            <RadioButton
+                key={choice}
+                name={name}
+                value={choice}
+                inline={inline}
+                checked={choice === selectedValue}
+                onChange={onChange}
+            />
+        ))}
+    </fieldset>
+);

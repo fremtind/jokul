@@ -1,13 +1,12 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 $radio-button-font-size: $font-size-3;
-$radio-button-line-height: 2rem;
+$radio-button-line-height: $line-height-3;
 
-$radio-button-size: $radio-button-font-size;
-$radio-button-top: ($radio-button-line-height / 2) - ($radio-button-font-size / 2);
+$radio-button-size: rem(24px);
 
 $radio-button-background-color: $snøhvit;
-$radio-button-background-color--hover: $himmelgrå;
+$radio-button-background-color--hover: $snøhvit;
 $radio-button-color: $svart;
 
 @keyframes circleexpand {
@@ -37,19 +36,26 @@ $radio-button-color: $svart;
 }
 
 .jkl-radio-button {
+    cursor: pointer;
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
 
-    padding-left: 1.375em;
-    margin: 0.5rem;
-    margin-inline-end: 1rem;
+    margin-bottom: $component-spacing--large;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
 
-    font-size: $radio-button-font-size;
-    line-height: $radio-button-line-height;
-    cursor: pointer;
+    &--inline {
+        display: inline-flex;
+        margin-bottom: 0;
+        margin-right: $component-spacing--xl;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
 
-    &__input {
+    & input {
         /* hide default radio button */
         position: fixed;
         opacity: 0;
@@ -58,37 +64,38 @@ $radio-button-color: $svart;
         overflow: hidden;
     }
 
-    &__label {
-        /* Label and fake radiobutton */
-        cursor: inherit;
-        &::before {
+    &__input {
+        /* create fake input element */
+        width: $radio-button-size;
+        height: $radio-button-size;
+        margin-right: $component-spacing--medium;
+        position: relative;
+
+        &:before {
             /* This is the circle */
             content: "";
-
+            display: inline-block;
             box-sizing: border-box;
-            position: absolute;
-            top: $radio-button-top;
             left: 0;
 
             height: $radio-button-size;
             width: $radio-button-size;
             border-radius: 50%;
 
-            border: 0.0625rem solid $radio-button-color;
+            border: rem(1px) solid $radio-button-color;
             background: $radio-button-background-color;
         }
 
-        &::after {
+        &:after {
             /* This is the dot */
             content: "";
 
+            display: inline-block;
             position: absolute;
-            top: $radio-button-top + 0.25rem;
-            left: 0.25rem;
-
-            /* box-sizing: border-box; */
-            height: $radio-button-size - 0.5rem;
-            width: $radio-button-size - 0.5rem;
+            left: rem(4px);
+            top: rem(4px);
+            height: $radio-button-size - rem(8px);
+            width: $radio-button-size - rem(8px);
             transform-origin: center;
             transform: rotate(-45deg) scale(0);
             border-radius: 0;
@@ -97,33 +104,41 @@ $radio-button-color: $svart;
         }
     }
 
+    &__label {
+        font-size: $radio-button-font-size;
+        line-height: $radio-button-line-height;
+        /* fix weird font baseline: */
+        padding-top: rem(1px);
+        margin-bottom: -1 * rem(1px);
+    }
+
     /* Checked state */
-    &__input:checked + &__label {
-        &::after {
+    & > input:checked ~ &__input {
+        &:after {
             /* animate dot */
             animation: dotexpand 0.3s cubic-bezier(0.17, 0.17, 0.76, 1);
             /* final appearance */
             transform: scale(1);
             border-radius: 50%;
         }
-        &::before {
+        &:before {
             /* animate circle */
             animation: circleexpand 0.25s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
         }
     }
 
     /* Focused state */
-    html:not([data-mousenavigation]) &__input:focus + &__label {
-        &::before {
-            box-shadow: 0 0 0 0.125rem $himmel;
+    html:not([data-mousenavigation]) & > input:focus ~ &__input {
+        &:before {
+            box-shadow: 0 0 0 rem(2px) $himmel;
         }
     }
 
     /* Hovered state */
-    &__input:hover:not(:checked) + &__label {
-        &::before {
+    & > input:hover:not(:checked) ~ &__input {
+        &:before {
             background: $radio-button-background-color--hover;
-            border-width: 0.125rem;
+            border-width: rem(2px);
         }
     }
 }
