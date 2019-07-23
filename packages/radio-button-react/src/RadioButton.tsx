@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-import uuid from "uuid/v4";
+import nanoid from "nanoid";
 
 interface Props {
     value: string;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const RadioButton = ({ value, onChange, name = "", inline = false, checked }: Props) => {
-    const [id] = useState(uuid());
+    const [id] = useState(nanoid(16));
     return (
         <span className={"jkl-radio-button".concat(inline ? " jkl-radio-button--inline" : "")}>
             <input

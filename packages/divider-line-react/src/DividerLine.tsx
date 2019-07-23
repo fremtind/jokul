@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import uuid from "uuid/v4";
+import nanoid from "nanoid";
 
 export const DividerLine = () => {
     const [spin, setSpin] = useState(typeof IntersectionObserver === "undefined");
-    const [id] = useState(uuid());
+    const [id] = useState(nanoid(16));
 
     const checkVisibility = (entries: IntersectionObserverEntry[]) =>
         entries.forEach((entry: IntersectionObserverEntry) => {
@@ -18,7 +18,9 @@ export const DividerLine = () => {
     };
 
     const observer = (typeof IntersectionObserver !== "undefined" &&
-        new IntersectionObserver(checkVisibility, options)) || { observe: () => setSpin(true) };
+        new IntersectionObserver(checkVisibility, options)) || {
+        observe: () => setSpin(true),
+    };
 
     useEffect(() => {
         const target = document.getElementById(id);

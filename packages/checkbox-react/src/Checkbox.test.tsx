@@ -29,16 +29,25 @@ it("should be checked after clicking the input ", function() {
     expect(input).toHaveProperty("checked", true);
 });
 
-it("should be checked if defaultChecked is true", function() {
-    const { getByTestId } = render(<Checkbox defaultChecked={true}>I am groot!</Checkbox>);
+it("should be checked if checked is true", function() {
+    const { getByTestId } = render(<Checkbox checked={true}>I am groot!</Checkbox>);
 
     const input = getByTestId("jkl-checkbox-input");
 
     expect(input).toHaveProperty("checked", true);
 });
 
-it("should be unchecked if defaultChecked is true and input is clicked", function() {
-    const { getByTestId } = render(<Checkbox defaultChecked={true}>I am groot!</Checkbox>);
+it("should be unchecked if checked is true and input is clicked", function() {
+    const TestCheckbox = () => {
+        const [checked, toggle] = React.useState(true);
+        return (
+            <Checkbox checked={checked} onChange={() => toggle(!checked)}>
+                I am groot!
+            </Checkbox>
+        );
+    };
+
+    const { getByTestId } = render(<TestCheckbox />);
 
     const input = getByTestId("jkl-checkbox-input");
 
@@ -47,4 +56,14 @@ it("should be unchecked if defaultChecked is true and input is clicked", functio
     input.click();
 
     expect(input).toHaveProperty("checked", false);
+});
+
+it("should call the passed onChange method when clicked", () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(<Checkbox onChange={onChange}>Switch me!</Checkbox>);
+
+    const input = getByLabelText("Switch me!");
+    input.click();
+
+    expect(onChange).toHaveBeenCalled();
 });

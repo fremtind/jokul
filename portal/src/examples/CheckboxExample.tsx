@@ -5,15 +5,17 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 // @ts-ignore
 import type from "!raw-loader!@fremtind/jkl-checkbox-react/build/Checkbox.d.ts";
 
-const example = `<>
-    <Checkbox>I am checkbox!</Checkbox>
-    <Checkbox>Am I?</Checkbox>
-    <Checkbox defaultChecked={true}>I am a checked checkbox!</Checkbox>
+const example = `() => {const [checked, toggle] = React.useState(false);
+
+return (<>
+    <Checkbox>I am uncontrolled</Checkbox>
+    <Checkbox checked={checked} onChange={()=>toggle(!checked)}>I am controlled</Checkbox>
+    <Checkbox checked={true}>I always checked</Checkbox>
     <div style={{ display: "flex", flexFlow: "column", marginTop: "5rem" }}>
-        <Checkbox>I am checkbox</Checkbox>
-        <Checkbox>Do you like mulitple choices?</Checkbox>
+        <Checkbox onChange={(val) => alert(val)}>I am checkbox</Checkbox>
+        <Checkbox onChange={(val) => alert(val)}>Do you like mulitple choices?</Checkbox>
     </div>
-</>`;
+</>)}`;
 
 const exampleImport = `import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import "@fremtind/jkl-checkbox/checkbox.min.css";`;
