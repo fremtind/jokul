@@ -1,23 +1,9 @@
-# `Jøkul radio buttons`
+# [`@fremtind/jkl-radio-button-react`](https://fremtind.github.io/jokul/components/radiobutton/)
 
-Components for creating choices using radio buttons. The main component is RadioButtonChoice, which creates a fieldset of radio buttons from a given set of input choices. The component is meant to be used as a controlled component, and does not handle state except for an optional `selectedValue` prop.
+## Beskrivelse
 
-There is also a separate RadioButton component, which creates a single radio button with given name and value.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/radiobutton/) er beskrevet i `@fremtind/jkl-radio-button` stil-pakken.
 
-For more information, see the [Jøkul Storybook]()
+## Kom i gang
 
-## Usage
-
-It is recommended to use RadioButtonChoice as a controlled component:
-
-```jsx
-const choices = ["👍", "👎", "🤷‍♀️"];
-const [selectedValue, setSelectedValue] = useState("👍");
-
-<RadioButtonChoice
-    name="Do you like radio buttons?"
-    choices={choices}
-    selectedValue={selectedValue}
-    onChange={(event) => setSelectedValue(event.target.value)}
-/>;
-```
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)

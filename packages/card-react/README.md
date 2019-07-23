@@ -1,11 +1,9 @@
-# `card-react`
+# [`@fremtind/jkl-card-react`](https://fremtind.github.io/jokul/components/card/)
 
-Card component for Jøkul design system
+## Beskrivelse
 
-## Usage
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/card/) er beskrevet i `@fremtind/jkl-card` stil-pakken.
 
-```
-const cardReact = require('card-react');
+## Kom i gang
 
-// TODO: DEMONSTRATE API
-```
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)

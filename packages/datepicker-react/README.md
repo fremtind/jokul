@@ -1,11 +1,9 @@
-# `datepicker-react`
+# [`@fremtind/jkl-datepicker-react`](https://fremtind.github.io/jokul/components/datepicker/)
 
-> TODO: description
+## Beskrivelse
 
-## Usage
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/datepicker/) er beskrevet i `@fremtind/jkl-datepicker` stil-pakken.
 
-```
-const datepickerReact = require('datepicker-react');
+## Kom i gang
 
-// TODO: DEMONSTRATE API
-```
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)

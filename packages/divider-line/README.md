@@ -1,9 +1,1 @@
-# `divider-line`
-
-Style to divide content
-
-## Usage
-
-```
-<hr style="jkl-divider" />
-```
+# [`divider-line`](https://fremtind.github.io/jokul/components/dividerline/)

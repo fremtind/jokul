@@ -1,4 +1,4 @@
-# `@fremtind/jkl-accordion`
+# [`@fremtind/jkl-accordion`](https://fremtind.github.io/jokul/components/accordion/)
 
 ## Beskrivelse
 

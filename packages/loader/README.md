@@ -1,4 +1,4 @@
-# `@fremtind/jkl-loader`
+# [`@fremtind/jkl-loader`](https://fremtind.github.io/jokul/components/loader/)
 
 ## Om spinneren
 
