@@ -6,19 +6,23 @@ import "../checkbox.scss";
 const App = () => (
     <>
         <label className="jkl-checkbox">
-            <input className="jkl-checkbox__input" type="checkbox" />I am checkbox
+            <input type="checkbox" />
+            <span className="jkl-checkbox__input" />I am checkbox
         </label>
         <label className="jkl-checkbox">
-            <input className="jkl-checkbox__input" type="checkbox" />
+            <input type="checkbox" />
+            <span className="jkl-checkbox__input" />
             Do you like mulitple choices?
         </label>
 
         <div style={{ display: "flex", flexFlow: "column", marginTop: "5rem" }}>
             <label className="jkl-checkbox">
-                <input className="jkl-checkbox__input" type="checkbox" />I am checkbox
+                <input type="checkbox" />
+                <span className="jkl-checkbox__input" />I am checkbox
             </label>
             <label className="jkl-checkbox">
-                <input className="jkl-checkbox__input" type="checkbox" />
+                <input type="checkbox" />
+                <span className="jkl-checkbox__input" />
                 Do you like mulitple choices?
             </label>
         </div>

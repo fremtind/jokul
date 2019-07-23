@@ -15,6 +15,7 @@ $line-size: 0.125rem;
     position: relative;
     margin: $diamond-size 0;
     border: none;
+    width: 100%;
 
     &::after {
         content: " ";
