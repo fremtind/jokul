@@ -13,6 +13,10 @@ $chevron-size: 1rem;
 $chevron-weight: rem(1px);
 $chevron-weight--hover: rem(2px);
 
+.jkl-accordion {
+    width: 100%;
+}
+
 .jkl-accordion-item {
     border-bottom: $border-width solid $border-color;
     &:first-of-type {
@@ -34,9 +38,9 @@ $chevron-weight--hover: rem(2px);
         font-family: inherit;
         background-color: inherit;
         color: inherit; // stops Safari from changing color on :active
+        /* fix dotted border on keyboard focus in Firefox: */
         &:-moz-focusring {
-            // fixes dotted border on keyboard focus in Firefox
-            border: 0;
+            outline: 0;
         }
 
         border: $border-width solid transparent;
