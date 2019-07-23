@@ -1,4 +1,6 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_screens.scss";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $button-bg-color: $snøhvit;
@@ -9,21 +11,32 @@ $button-focus-ring-color: $himmel;
 
 $button-text-color: $svart;
 $button-text-color--primary: $snøhvit;
-$button-font-size: $font-size-2;
-$button-height: 2.5rem;
-$button-width: $button-height;
 $button-border-width: rem(1px);
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
+$button-height--large: 3.5rem;
+$button-height--small: 2.5rem;
+
+@mixin deviceScale() {
+    height: $button-height--large;
+    min-width: $button-height--large;
+    line-height: $button-height--large;
+    font-size: map-get($font-size--large-device, "small");
+
+    @include small-device {
+        height: $button-height--small;
+        min-width: $button-height--small;
+        line-height: $button-height--small;
+        font-size: map-get($font-size--small-device, "small");
+    }
+}
+
 .jkl-button {
+    @include deviceScale;
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
     border: none;
-    font-size: $button-font-size;
-    height: $button-height;
-    line-height: $button-height;
-    min-width: $button-width;
     outline: none;
     transform-origin: 50% 90%;
     transition: transform $animation-timing;
