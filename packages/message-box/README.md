@@ -1,4 +1,4 @@
-# `@fremtind/jkl-message-box`
+# [`@fremtind/jkl-message-box`](https://fremtind.github.io/jokul/components/messagebox/)
 
 ## Om varsler
 

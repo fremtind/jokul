@@ -1,4 +1,4 @@
-# `@fremtind/jkl-text-field`
+# [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/components/textfield/)
 
 ## Om tekstfelt
 

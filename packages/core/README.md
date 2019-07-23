@@ -1,4 +1,4 @@
-# `@fremtind/jkl-core`
+# [`@fremtind/jkl-core`](https://fremtind.github.io/jokul/components/)
 
 ## Stil
 

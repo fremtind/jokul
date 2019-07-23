@@ -1,4 +1,4 @@
-# `@fremtind/jkl-typography-react`
+# [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/components/typography/)
 
 ## Om overskriftsnivåer
 
