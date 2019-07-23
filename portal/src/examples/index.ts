@@ -11,4 +11,5 @@ export { default as MessageBoxExample } from "./MessageBoxExample";
 export { default as RadioButtonExample } from "./RadioButtonExample";
 export { default as TextAreaExample } from "./TextAreaExample";
 export { default as TextFieldExample } from "./TextFieldExample";
+export { default as ToggleSwitchExample } from "./ToggleSwitchExample";
 export { default as TypographyExample } from "./TypographyExample";
