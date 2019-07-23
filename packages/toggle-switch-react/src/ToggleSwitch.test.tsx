@@ -29,16 +29,24 @@ it("should be checked after clicking the input ", function() {
     expect(input).toHaveProperty("checked", true);
 });
 
-it("should be checked if defaultChecked is true", function() {
-    const { getByTestId } = render(<ToggleSwitch defaultChecked={true}>I am groot!</ToggleSwitch>);
+it("should be checked if checked is true", function() {
+    const { getByTestId } = render(<ToggleSwitch checked={true}>I am groot!</ToggleSwitch>);
 
     const input = getByTestId("jkl-toggle-input");
 
     expect(input).toHaveProperty("checked", true);
 });
 
-it("should be unchecked if defaultChecked is true and input is clicked", function() {
-    const { getByTestId } = render(<ToggleSwitch defaultChecked={true}>I am groot!</ToggleSwitch>);
+it("should be unchecked if checked is true and input is clicked", function() {
+    const TestToggleSwitch = () => {
+        const [checked, toggle] = React.useState(true);
+        return (
+            <ToggleSwitch checked={checked} onChange={() => toggle(!checked)}>
+                I am groot!
+            </ToggleSwitch>
+        );
+    };
+    const { getByTestId } = render(<TestToggleSwitch />);
 
     const input = getByTestId("jkl-toggle-input");
 

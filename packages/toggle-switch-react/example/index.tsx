@@ -13,15 +13,22 @@ const App = () => {
     return (
         <div style={{ margin: "36px", padding: "36px", background: "#fafafa" }}>
             <div style={{ margin: "20px" }}>
-                <ToggleSwitch defaultChecked={gpsIsOn} onChange={setGpsIsOn}>
+                <ToggleSwitch checked={gpsIsOn} onChange={setGpsIsOn}>
                     GPS
                 </ToggleSwitch>
             </div>
             <div style={{ margin: "20px" }}>
-                <ToggleSwitch defaultChecked={glonassIsOn} onChange={setGlonassIsOn}>
+                <ToggleSwitch checked={glonassIsOn} onChange={setGlonassIsOn}>
                     Glonass
                 </ToggleSwitch>
             </div>
+
+            {glonassIsOn && (
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Glonass_logo.png/220px-Glonass_logo.png"
+                    alt="glonass"
+                />
+            )}
         </div>
     );
 };
