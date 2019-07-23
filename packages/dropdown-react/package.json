@@ -35,7 +35,8 @@
     "dependencies": {
         "@fremtind/jkl-dropdown": "^0.6.1",
         "@nrk/core-toggle": "^3.0.4",
-        "uuid": "^3.3.2"
+        "@types/nanoid": "^2.0.0",
+        "nanoid": "^2.0.3"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.2",

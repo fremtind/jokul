@@ -1,12 +1,13 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useEffect, useState } from "react";
-import { v4 as uuid } from "uuid";
+import React, { useState } from "react";
+import nanoid from "nanoid";
 import { useListNavigation } from "./useListNavigation";
 
 interface Props {
     label: string;
     items: string[];
+    defaultPrompt?: string;
     className?: string;
     initialInputValue?: string;
     onChange?: (value: string) => void;
@@ -18,16 +19,13 @@ interface CoreToggleSelectEvent {
 }
 
 function lower(str = "") {
-    return str
-        .toString()
-        .toLowerCase()
-        .replace(/\s/g, "");
+    return str.toLowerCase().replace(/[\W_]+/g, ""); // strip all non-alphanumeric chars
 }
 
 function focusSelected(listEl: HTMLElement, listId: string, selected: string | undefined) {
     let focusedItem: HTMLElement | null;
     if (selected !== undefined) {
-        // move focus to selected item
+        // move focus to selected option
         focusedItem = listEl.querySelector(`#${listId}__${lower(selected)}`);
     } else {
         // move focus to first option
@@ -36,15 +34,10 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     focusedItem && focusedItem.focus();
 }
 
-export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) => {
+export const Dropdown = ({ items, initialInputValue, label, onChange, defaultPrompt: defaultText = "Velg" }: Props) => {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
-
-    useEffect(() => {
-        setSelectedValue(initialInputValue);
-    }, [initialInputValue]);
-
-    const [listId] = useState("dropdown".concat(uuid().slice(-8)));
     const [dropdownIsShown, setShown] = useState(false);
+    const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
 
@@ -79,7 +72,7 @@ export const Dropdown = ({ items, initialInputValue, label, onChange }: Props) =
                 {label}
             </span>
             <button className="jkl-dropdown__value" data-testid="jkl-dropdown__value" aria-haspopup="listbox">
-                {hasSelectedValue ? selectedValue : "Velg"}
+                {hasSelectedValue ? selectedValue : defaultText}
             </button>
             <CoreToggle
                 id={listId}
