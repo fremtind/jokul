@@ -4,16 +4,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Checkbox } from "../src";
 
-const App = () => (
-    <>
-        <Checkbox>I am checkbox!</Checkbox>
-        <Checkbox>Am I?</Checkbox>
-        <Checkbox defaultChecked={true}>I am a checked checkbox!</Checkbox>
-        <div style={{ display: "flex", flexFlow: "column", marginTop: "5rem" }}>
-            <Checkbox onChange={(val) => console.log(val)}>I am checkbox</Checkbox>
-            <Checkbox onChange={(val) => console.log(val)}>Do you like mulitple choices?</Checkbox>
-        </div>
-    </>
-);
+const App = () => {
+    const [isCool, changeCoolness] = React.useState(false);
+    return (
+        <>
+            <Checkbox>I am checkbox!</Checkbox>
+            <Checkbox>Am I?</Checkbox>
+            <Checkbox checked={true}>I will never change</Checkbox>
+            <Checkbox checked={isCool} onChange={() => changeCoolness(!isCool)}>
+                I am {isCool ? "cool" : "not cool"}{" "}
+            </Checkbox>
+
+            <div style={{ display: "flex", flexFlow: "column", marginTop: "5rem" }}>
+                <Checkbox>I am checkbox</Checkbox>
+                <Checkbox>Do you like mulitple choices?</Checkbox>
+            </div>
+        </>
+    );
+};
 
 ReactDOM.render(<App />, document.getElementById("app"));
