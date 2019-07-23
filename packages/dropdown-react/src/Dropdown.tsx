@@ -34,7 +34,7 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     focusedItem && focusedItem.focus();
 }
 
-export const Dropdown = ({ items, initialInputValue, label, onChange, defaultPrompt: defaultText = "Velg" }: Props) => {
+export const Dropdown = ({ items, initialInputValue, label, onChange, defaultPrompt = "Velg" }: Props) => {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
@@ -72,7 +72,7 @@ export const Dropdown = ({ items, initialInputValue, label, onChange, defaultPro
                 {label}
             </span>
             <button className="jkl-dropdown__value" data-testid="jkl-dropdown__value" aria-haspopup="listbox">
-                {hasSelectedValue ? selectedValue : defaultText}
+                {hasSelectedValue ? selectedValue : defaultPrompt}
             </button>
             <CoreToggle
                 id={listId}
