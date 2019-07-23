@@ -19,8 +19,8 @@ const example = `<>
 const exampleImport = `import { Dropdown } from "@fremtind/jkl-dropdown-react";
 import "@fremtind/jkl-dropdown/dropdown.min.css";`;
 
-const DatepickerExample = () => (
+const DropdownExample = () => (
     <Example exampleComponents={{ Dropdown }} exampleCode={example} type={dropdownType} exampleImport={exampleImport} />
 );
 
-export default DatepickerExample;
+export default DropdownExample;

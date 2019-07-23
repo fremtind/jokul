@@ -12,9 +12,9 @@ import changelog from "!raw-loader!@fremtind/jkl-dropdown/CHANGELOG.md";
 // @ts-ignore
 import changelogReact from "!raw-loader!@fremtind/jkl-dropdown-react/CHANGELOG.md";
 
-export default function DatePickerPage() {
+export default function DropdownPage() {
     return (
-        <ComponentLayout title="Datovelger" mainExample={<DropdownExample />}>
+        <ComponentLayout title="Nedtrekksliste" mainExample={<DropdownExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
