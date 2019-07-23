@@ -10,8 +10,8 @@ const App = () => (
         <Checkbox>Am I?</Checkbox>
         <Checkbox defaultChecked={true}>I am a checked checkbox!</Checkbox>
         <div style={{ display: "flex", flexFlow: "column", marginTop: "5rem" }}>
-            <Checkbox>I am checkbox</Checkbox>
-            <Checkbox>Do you like mulitple choices?</Checkbox>
+            <Checkbox onChange={(val) => console.log(val)}>I am checkbox</Checkbox>
+            <Checkbox onChange={(val) => console.log(val)}>Do you like mulitple choices?</Checkbox>
         </div>
     </>
 );

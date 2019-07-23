@@ -48,3 +48,13 @@ it("should be unchecked if defaultChecked is true and input is clicked", functio
 
     expect(input).toHaveProperty("checked", false);
 });
+
+it("should call the passed onChange method when clicked", () => {
+    const onChange = jest.fn();
+    const { getByLabelText } = render(<Checkbox onChange={onChange}>Switch me!</Checkbox>);
+
+    const input = getByLabelText("Switch me!");
+    input.click();
+
+    expect(onChange).toHaveBeenCalled();
+});

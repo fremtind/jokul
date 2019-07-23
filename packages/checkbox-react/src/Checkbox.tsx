@@ -3,18 +3,21 @@ import React, { ReactNode } from "react";
 interface Props {
     children: ReactNode;
     defaultChecked?: boolean;
+    onChange?: (checked: boolean) => void;
 }
 
-export function Checkbox(props: Props) {
+export function Checkbox({ children, defaultChecked, onChange }: Props) {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => onChange && onChange(e.target.checked);
     return (
         <label className="jkl-checkbox">
             <input
                 data-testid="jkl-checkbox-input"
-                defaultChecked={props.defaultChecked}
-                className="jkl-checkbox__input"
+                defaultChecked={defaultChecked}
                 type="checkbox"
+                onChange={handleChange}
             />
-            {props.children}
+            <span className="jkl-checkbox__input" />
+            {children}
         </label>
     );
 }
