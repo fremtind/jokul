@@ -18,6 +18,8 @@ $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
 $bottom-margin: $component-spacing--large;
 
+$dropdown-total-height: $label-height + $value-height + $bottom-padding;
+
 @mixin nojump-bold {
     // Make font bolder without increasing line length
     font-weight: bold;
@@ -115,6 +117,7 @@ $bottom-margin: $component-spacing--large;
         position: absolute;
         left: 0;
         right: 0;
+        top: $dropdown-total-height;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.16);
         padding: 1rem 0.5rem 0;
         max-height: 60vh;

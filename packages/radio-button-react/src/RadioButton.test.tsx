@@ -13,29 +13,27 @@ describe("RadioButton", () => {
         expect(getByText("The only choice")).toBeInTheDocument();
     });
 
-    it("executes handleChange when label is clicked", () => {
+    it("executes handleChange when clicked", () => {
         const handleChange = jest.fn();
-        const { getByText } = render(
+        const { getByLabelText } = render(
             <RadioButton value="The only choice" onChange={handleChange} name="" checked={false} inline={true} />,
         );
 
-        const label = getByText("The only choice");
-        label.click();
+        const button = getByLabelText("The only choice");
+        button.click();
 
         expect(handleChange).toHaveBeenCalled();
     });
 
-    it("has a unique id", () => {
-        const { getByLabelText } = render(
-            <>
-                <RadioButton value="one" onChange={(f) => f} name="" />
-                <RadioButton value="two" onChange={(f) => f} name="" />
-            </>,
+    it("executes handleChange when label is clicked", () => {
+        const handleChange = jest.fn();
+        const { getByTestId } = render(
+            <RadioButton value="The only choice" onChange={handleChange} name="" checked={false} inline={true} />,
         );
 
-        const buttonOne = getByLabelText("one");
-        const buttonTwo = getByLabelText("two");
+        const button = getByTestId("jkl-radio-button__label-tag");
+        button.click();
 
-        expect(buttonOne.id).not.toBe(buttonTwo.id);
+        expect(handleChange).toHaveBeenCalled();
     });
 });

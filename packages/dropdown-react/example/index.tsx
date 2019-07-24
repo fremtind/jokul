@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 import { Dropdown } from "../src";
 import { initTabListener } from "@fremtind/jkl-core";
 
+import "@fremtind/jkl-core/core.min.css";
+import "@fremtind/jkl-dropdown/dropdown.min.css";
+import "./index.scss";
+
 initTabListener();
 const DropdownDemo = () => {
     let items = ["The flower shop", "I have cancer", "Throwing the football", "ChripChripChrip", "hei, se her!"];

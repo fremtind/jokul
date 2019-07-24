@@ -1,11 +1,9 @@
-# `dropdown-react`
+# [`@fremtind/jlk-dropdown`](https://fremtind.github.io/jokul/components/dropdown/)
 
-> TODO: description
+## Beskrivelse
 
-## Usage
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/dropdown/) er beskrevet i `@fremtind/jkl-dropdown` stil-pakken.
 
-```
-const dropdownReact = require('dropdown-react');
+## Kom i gang
 
-// TODO: DEMONSTRATE API
-```
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
