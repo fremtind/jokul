@@ -1,12 +1,6 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
 
-@mixin nojump-bold {
-    // Make font bolder without increasing line length
-    font-weight: bold;
-    letter-spacing: -0.009em;
-}
-
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
 $input-bg-color: inherit;
@@ -44,7 +38,9 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
     display: block;
     position: relative;
     font-family: inherit;
+    box-sizing: border-box;
     width: 100%;
+    height: $input-total-height;
     padding-top: $label-height;
     background-color: $input-bg-color;
 
@@ -54,11 +50,12 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
         border: none;
         outline: none;
 
+        box-sizing: border-box;
         width: 100%;
+        height: $input-height + $bottom-padding;
         padding: 0 0 $bottom-padding;
         font-size: $input-font-size;
         line-height: $input-height;
-        height: $input-height + $bottom-padding;
         background-color: transparent;
         transition: box-shadow $transition-timing;
 
