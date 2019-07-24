@@ -18,7 +18,7 @@ $hover-elevation-distance: -0.25rem;
 $button-height--large: 3.5rem;
 $button-height--small: 2.5rem;
 
-@mixin deviceScale() {
+.jkl-button {
     height: $button-height--large;
     min-width: $button-height--large;
     line-height: $button-height--large;
@@ -30,10 +30,6 @@ $button-height--small: 2.5rem;
         line-height: $button-height--small;
         font-size: map-get($font-size--small-device, "small");
     }
-}
-
-.jkl-button {
-    @include deviceScale;
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
     border: none;
