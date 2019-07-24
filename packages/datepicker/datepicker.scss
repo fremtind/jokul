@@ -72,7 +72,6 @@ $popup-top-position: $label-height + $input-height + $bottom-padding + rem(2px);
         color: $varm-fjellgrå;
         transform-origin: top left;
         transform: scale($label-font-size / $input-font-size);
-        transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
         pointer-events: none;
     }
 
@@ -90,7 +89,7 @@ $popup-top-position: $label-height + $input-height + $bottom-padding + rem(2px);
         caption {
             font-size: $font-size-3;
             line-height: $line-height-3;
-            padding-top: $component-spacing--xxl - $bottom-padding;
+            padding-top: $component-spacing--xl;
             text-transform: capitalize;
         }
         td {

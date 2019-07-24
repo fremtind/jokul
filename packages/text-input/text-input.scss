@@ -16,6 +16,7 @@ $bottom-padding: $component-spacing--small;
 $bottom-margin: $component-spacing--large;
 
 $input-total-height: $label-height + $input-height + $bottom-padding;
+$textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
 $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compliant
 
@@ -26,10 +27,10 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
         &:not(:placeholder-shown) {
             & .jkl-text-area {
                 height: initial;
-                height: $input-height * 7 + $bottom-padding;
+                height: $textarea-height--expanded;
             }
             height: initial;
-            height: $input-height * 7 + $bottom-padding;
+            height: $textarea-height--expanded;
         }
     }
 }
@@ -38,9 +39,7 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
     display: block;
     position: relative;
     font-family: inherit;
-    box-sizing: border-box;
     width: 100%;
-    height: $input-total-height;
     padding-top: $label-height;
     background-color: $input-bg-color;
 
