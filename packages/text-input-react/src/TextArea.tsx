@@ -13,6 +13,5 @@ export const TextArea = ({ isInvalid = false, id, label, ...rest }: Props) => (
     <label className="jkl-text-field jkl-text-area">
         <textarea aria-invalid={isInvalid} className="jkl-text-field__input" id={id} placeholder=" " {...rest} />
         <span className="jkl-text-field__label">{label}</span>
-        <span className="jkl-text-field__border"></span>
     </label>
 );

@@ -33,6 +33,5 @@ export const TextField = ({
             {...rest}
         />
         <span className="jkl-text-field__label">{label}</span>
-        <span className="jkl-text-field__border"></span>
     </label>
 );
