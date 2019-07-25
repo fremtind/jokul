@@ -40,6 +40,33 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         outline: none;
     }
 
+    & select {
+        /* reset default appearance */
+        appearance: none;
+        border-radius: 0;
+        &::ms-expand {
+            display: none;
+        }
+        /* remove Firefox dotted border */
+        &::-moz-focus-inner {
+            outline: none !important;
+        }
+        &:-moz-focusring {
+            color: transparent;
+            text-shadow: 0 0 0 $border-color;
+        }
+
+        background: no-repeat
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 32'%3E%3Cpolyline points='0,11 10,21 20,11' stroke='currentColor' fill='none' /%3E%3C/svg%3E");
+        background-position: right $side-padding bottom $bottom-padding;
+        background-size: auto $value-height;
+
+        & option {
+            font-weight: normal;
+            font-family: sans-serif;
+        }
+    }
+
     &__label {
         font-size: $value-font-size;
         line-height: $value-height;
@@ -50,12 +77,6 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         transition: transform $transition-timing, color $transition-timing;
         transform-origin: top left;
         transform: translateY($label-height);
-
-        .jkl-dropdown--no-value:hover > &,
-        .jkl-dropdown--no-value:focus-within > & {
-            // Make label bold on hover/focus if dropdown has no value
-            @include nojump-bold();
-        }
 
         &--has-value {
             color: $varm-fjellgrå;
@@ -84,11 +105,10 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
 
         html:not([data-mousenavigation]) &:focus {
             box-shadow: 0 4px 0 0 $border-color--focus;
-            @include nojump-bold();
         }
 
         &:hover {
-            @include nojump-bold();
+            box-shadow: 0 4px 0 0 $border-color;
         }
 
         &:active {
@@ -147,6 +167,7 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
     }
 
     &__arrow {
+        pointer-events: none;
         position: absolute;
         right: $side-padding;
         top: $label-height;
