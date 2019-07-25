@@ -5,7 +5,7 @@ interface Props {
     items: string[];
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-    autocomplete?: string;
+    autoComplete?: string;
 }
 
 export function Select({ label, items, className, onChange, ...rest }: Props) {

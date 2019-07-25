@@ -27,12 +27,7 @@ const DropdownDemo = () => {
             />
             <Dropdown key={d} label="Fødselsår" items={years} initialInputValue="1986" />
 
-            <Select
-                label="Standard select"
-                items={items}
-                onChange={(e) => console.log(e.target.value)}
-                autocomplete=""
-            />
+            <Select label="Standard select" items={items} onChange={(e) => console.log(e.target.value)} />
 
             <div>
                 <button
