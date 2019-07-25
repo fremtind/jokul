@@ -70,7 +70,6 @@
         width: 35px;
         height: 3px;
         background-color: $svart;
-        border-radius: 4px;
         position: absolute;
         transition-property: transform;
         @include motion(standard, productive);
