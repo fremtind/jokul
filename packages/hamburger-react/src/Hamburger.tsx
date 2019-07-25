@@ -32,6 +32,7 @@ export const Hamburger = ({
             className={`jkl-hamburger ${isActive ? "jkl-hamburger--is-active" : ""} ${
                 negative ? "jkl-hamburger--negative" : ""
             } ${className}`}
+            data-testid="jkl-hamburger"
         >
             <span className="jkl-hamburger__box">
                 <span className="jkl-hamburger__inner"></span>
