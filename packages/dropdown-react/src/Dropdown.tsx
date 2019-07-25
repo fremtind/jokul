@@ -34,7 +34,7 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     focusedItem && focusedItem.focus();
 }
 
-export const Dropdown = ({ items, initialInputValue, label, onChange, defaultPrompt = "Velg" }: Props) => {
+export const Dropdown = ({ items, initialInputValue, label, onChange, className, defaultPrompt = "Velg" }: Props) => {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
@@ -57,17 +57,21 @@ export const Dropdown = ({ items, initialInputValue, label, onChange, defaultPro
         onChange && onChange(e.detail.textContent);
     }
 
-    let className = `jkl-dropdown`;
+    let appliedClassName = `jkl-dropdown`;
 
     if (dropdownIsShown) {
-        className = `${className} jkl-dropdown--open`;
+        appliedClassName = `${appliedClassName} jkl-dropdown--open`;
     }
 
     if (!hasSelectedValue) {
-        className = `${className} jkl-dropdown--no-value`;
+        appliedClassName = `${appliedClassName} jkl-dropdown--no-value`;
+    }
+
+    if (className) {
+        appliedClassName = `${appliedClassName} ${className}`;
     }
     return (
-        <div className={className}>
+        <div className={appliedClassName}>
             <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>

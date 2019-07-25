@@ -30,7 +30,7 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
     background-color: $dropdown-bg-color;
     display: inline-block;
     height: $label-height + $value-height + $bottom-padding;
-    min-width: $dropdown-width;
+    width: $dropdown-width;
     padding-top: $label-height;
     position: relative;
     vertical-align: bottom;
@@ -72,11 +72,17 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         line-height: $value-height;
         pointer-events: none; // Allow click to happen on the actual button
         position: absolute;
-        left: $side-padding;
+        left: 0;
         top: 0;
         transition: transform $transition-timing, color $transition-timing;
         transform-origin: top left;
         transform: translateY($label-height);
+
+        /* make sure label does not hit chevron */
+        max-width: calc(100% - #{$value-height + $side-padding});
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
 
         &--has-value {
             color: $varm-fjellgrå;
@@ -94,7 +100,7 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         font-size: $value-font-size;
         height: $value-height + $bottom-padding;
         line-height: $value-height;
-        padding: 0 $side-padding $bottom-padding;
+        padding: 0 $side-padding $bottom-padding 0;
         padding-right: $value-height + $side-padding;
         text-align: left;
         transition: box-shadow $transition-timing, padding $transition-timing;
@@ -142,6 +148,7 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         padding: 1rem 0.5rem 0;
         max-height: 60vh;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         z-index: $z-index--dropdown;
     }
 
