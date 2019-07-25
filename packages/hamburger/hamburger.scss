@@ -1,0 +1,86 @@
+@import "~@fremtind/jkl-core/mixins/_motion.scss";
+@import "~@fremtind/jkl-core/variables/_colors.scss";
+
+.jkl-hamburger {
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    @include motion(standard, productive);
+    color: inherit;
+    background-color: transparent;
+    &:-moz-focusring {
+        outline: none;
+    }
+    &:hover,
+    &--is-active:hover {
+        opacity: 0.7;
+    }
+
+    &--is-active {
+        & .jkl-hamburger__inner {
+            transform: rotate(45deg);
+            transition-delay: 0.12s;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        & .jkl-hamburger__inner::before {
+            top: 0;
+            opacity: 0;
+            transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+        }
+        & .jkl-hamburger__inner::after {
+            bottom: 0;
+            transform: rotate(-90deg);
+            transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+    }
+
+    &__box {
+        width: 40px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+    }
+
+    &__inner {
+        display: block;
+        top: 50%;
+        transition-duration: 0.075s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+        }
+        &::before {
+            content: "";
+            display: block;
+            top: -10px;
+            transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+        }
+        &::after {
+            bottom: -10px;
+            transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+    }
+    &__inner,
+    &__inner::before,
+    &__inner::after {
+        width: 35px;
+        height: 3px;
+        background-color: $svart;
+        border-radius: 4px;
+        position: absolute;
+        transition-property: transform;
+        @include motion(standard, productive);
+    }
+
+    &--negative {
+        & .jkl-hamburger__inner,
+        & .jkl-hamburger__inner::before,
+        & .jkl-hamburger__inner::after {
+            background-color: $snøhvit;
+        }
+    }
+}
