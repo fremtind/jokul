@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-checkbox-react/CHANGELOG.m
 
 export default function CheckboxPage() {
     return (
-        <ComponentLayout title="Avkryssingsboks" mainExample={<CheckboxExample />}>
+        <ComponentLayout title="Avmerkingsbokser" mainExample={<CheckboxExample />}>
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
