@@ -14,7 +14,7 @@ export function Select({ label, items, className, onChange, ...rest }: Props) {
         <label className={`jkl-dropdown ${className}`}>
             <select className="jkl-dropdown__value" onBlur={handleChange} onChange={handleChange} {...rest}>
                 {items.map((item) => (
-                    <option key={item} value={item}>
+                    <option data-testid="jkl-dropdown__option" key={item} value={item}>
                         {item}
                     </option>
                 ))}
