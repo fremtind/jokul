@@ -1,6 +1,6 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-
+import WebComponentInfo from "../../components/Info/WebComponentInfo";
 import { ComponentLayout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 import { DropdownExample } from "../../examples";
@@ -15,6 +15,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-dropdown-react/CHANGELOG.m
 export default function DropdownPage() {
     return (
         <ComponentLayout title="Nedtrekksliste" mainExample={<DropdownExample />}>
+            <WebComponentInfo />
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
