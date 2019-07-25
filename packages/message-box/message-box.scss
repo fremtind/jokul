@@ -7,6 +7,7 @@
     min-height: $layout-spacing--xl;
     padding: $component-spacing--xl;
     background-color: $snøhvit;
+    box-sizing: border-box;
 
     &--full {
         width: 100%;
