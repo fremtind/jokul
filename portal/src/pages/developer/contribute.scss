@@ -1,0 +1,21 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+$portal-max-width: rem(1200px);
+
+.portal-contribute {
+    &__section {
+        padding: $layout-spacing--large;
+        margin-bottom: 0;
+        & > * {
+            max-width: $portal-max-width;
+        }
+        &-2 {
+            background-color: $varde;
+        }
+        &-3 {
+            background-color: $matt-svart;
+            color: $snøhvit;
+        }
+    }
+}

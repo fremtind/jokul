@@ -14,6 +14,7 @@ $portal-max-width: 1200px;
     max-width: $portal-max-width;
     &--component {
         max-width: 100%;
+        padding: $layout-spacing--xxl 0 0;
     }
 
     &__title {

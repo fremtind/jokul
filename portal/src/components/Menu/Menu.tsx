@@ -115,6 +115,12 @@ export function Menu() {
                         >
                             Forslag ny funksjon
                         </a>
+                        <a
+                            className="portal-menu__link portal-menu__link--figma jkl-p"
+                            href="https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-components"
+                        >
+                            Designbibliotek
+                        </a>
                     </nav>
                 </div>
             )}

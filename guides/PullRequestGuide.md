@@ -1,12 +1,14 @@
 # Pull requests
 
+## Hvordan sende pull request til Jøkul
+
 Kjerneteamet følger med på det som skjer på GitHub-repoet til Jøkul.
 Når du sender inn en pull request, får du alltid tilbakemelding fra noen i kjerneteamet.
 Da kan pull requested bli merget eller du vil kunne få tilbakemelding på hva som skal til for at den kan merges.
 
 Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi må kanskje må teste i noen interne applikasjoner først.
 
-## Din første pull request
+### Din første pull request
 
 Flott at du vil bidra! Her er noen smarte tips før du setter i gang:
 
@@ -15,7 +17,7 @@ Flott at du vil bidra! Her er noen smarte tips før du setter i gang:
 -   Kjerneteamet jobber etter en prioritert backlog, men vi er takknemlige for alle som vil ta tak i oppgaver som har lavere prioritet.
 -   Følg gjerne med på andres pull requests og kom med kommentarer og tilbakemeldinger. Da plukker du kjapt opp hva som er viktig og ikke for Jøkul.
 
-## Slik sender du en pull request
+### Slik sender du en pull request
 
 1. Fork prosjektet og lag en ny branch. ( Om du har tilgang til prosjektet trenger du ikke lage en fork)
 2. Kjør `yarn` og `yarn build` på rot i prosjektet.
