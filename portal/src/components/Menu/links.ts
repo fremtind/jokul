@@ -43,6 +43,7 @@ export const componentLinks = [
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
     makeComponentLink("Liste", "bulletlist"),
+    makeComponentLink("Hamburger meny", "hamburger"),
 ];
 
 export const profileLinks = [

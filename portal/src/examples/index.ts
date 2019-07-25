@@ -6,6 +6,7 @@ export { default as CheckboxExample } from "./CheckboxExample";
 export { default as DatepickerExample } from "./DatepickerExample";
 export { default as DividerLineExample } from "./DividerLineExample";
 export { default as DropdownExample } from "./DropdownExample";
+export { default as HamburgerExample } from "./HamburgerExample";
 export { default as LoaderExample } from "./LoaderExample";
 export { default as LogoExample } from "./LogoExample";
 export { default as MessageBoxExample } from "./MessageBoxExample";

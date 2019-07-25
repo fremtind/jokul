@@ -26,6 +26,6 @@ $jkl--timings: (
 }
 
 @mixin motion($name, $mode: productive) {
-    transition-duration: jkl--timing($mode);
     transition-timing-function: jkl--motion($name);
+    transition-duration: jkl--timing($mode);
 }

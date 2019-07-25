@@ -17,6 +17,7 @@ import {
     ToggleSwitchExample,
     TextAreaExample,
     TypographyExample,
+    HamburgerExample,
 } from "../../examples";
 
 import "./style.scss";
@@ -55,6 +56,7 @@ export default function AllComponents() {
             <Section title="Delelinje" link="dividerline" example={<DividerLineExample />} />
             <Section title="Kort" link="card" example={<CardExample />} />
             <Section title="Liste" link="bulletlist" example={<BulletListExample />} />
+            <Section title="Hamburger meny" link="hamburger" example={<HamburgerExample />} />
         </Layout>
     );
 }
