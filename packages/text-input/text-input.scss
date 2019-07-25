@@ -1,46 +1,36 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
 
-@mixin label-font-size--raised {
-    @include font-size(xs);
-}
+$transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
-@mixin label-font-size--normal {
-    @include font-size(medium);
-}
-
-@mixin raise-label {
-    @include label-font-size--raised();
-    top: 0;
-    left: 0;
-}
-
-@mixin grow-border {
-    transform: scaleY(1.5);
-}
-
-$text-field-size: 2rem;
-$padding-top: $text-field-size;
-$input-height: 3rem;
-$input-bg-color: $snøhvit;
+$input-bg-color: inherit;
 $border-color: $svart;
-$border-hover-color: $himmel;
-$border-weight: 0.125rem;
-$error-color: $blomst;
-$text-area-height: 12rem;
+$border-color--focus: $himmel;
+
+$input-height: $line-height-3;
+$input-font-size: $font-size-3;
+$label-height: $line-height-2;
+$label-font-size: rem(16px);
+
+$bottom-padding: $component-spacing--small;
+$bottom-margin: $component-spacing--large;
+
+$input-total-height: $label-height + $input-height + $bottom-padding;
+$textarea-height--expanded: $input-height * 7 + $bottom-padding;
+
+$error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compliant
 
 .jkl-text-area {
     & .jkl-text-field__input {
-        transition: all 175ms ease;
-        margin-top: rem(4px);
-        &:focus-within,
+        transition: height 175ms ease;
+        &:focus,
         &:not(:placeholder-shown) {
             & .jkl-text-area {
                 height: initial;
-                height: $text-area-height;
+                height: $textarea-height--expanded;
             }
             height: initial;
-            height: $text-area-height;
+            height: $textarea-height--expanded;
         }
     }
 }
@@ -50,63 +40,61 @@ $text-area-height: 12rem;
     position: relative;
     font-family: inherit;
     width: 100%;
-    padding-top: $padding-top;
+    padding-top: $label-height;
+    background-color: $input-bg-color;
+
+    margin-bottom: $component-spacing--large;
 
     &__input {
-        @include label-font-size--normal();
-        font-family: inherit;
-        height: $input-height;
-        background-color: $input-bg-color;
         border: none;
         outline: none;
-        width: 100%;
-        transition: background-color 250ms ease-in;
 
-        &:not(:placeholder-shown) {
-            & ~ .jkl-text-field__label {
-                @include raise-label();
-            }
+        box-sizing: border-box;
+        width: 100%;
+        height: $input-height + $bottom-padding;
+        padding: 0 0 $bottom-padding;
+        font-size: $input-font-size;
+        line-height: $input-height;
+        background-color: transparent;
+        transition: box-shadow $transition-timing;
+
+        box-shadow: 0 rem(2px) 0 0 $border-color;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 rem(4px) 0 0 $border-color;
+        }
+
+        html:not([data-mousenavigation]) &:focus {
+            box-shadow: 0 rem(4px) 0 0 $border-color--focus;
         }
 
         &[aria-invalid="true"],
         &:invalid {
-            & ~ .jkl-text-field__border {
-                background-color: $error-color;
-            }
-            & ~ .jkl-text-field__label {
-                @include raise-label();
-                font-weight: bold;
-                color: $error-color;
+            box-shadow: 0 rem(2px) 0 0 $error-color;
+
+            &:focus,
+            &:hover,
+            html:not([data-mousenavigation]) &:focus {
+                box-shadow: 0 rem(4px) 0 0 $error-color;
             }
         }
+
+        &:not(:placeholder-shown) ~ .jkl-text-field__label,
+        &:focus ~ .jkl-text-field__label {
+            color: $varm-fjellgrå;
+            transform: translateY(0) scale($label-font-size / $input-font-size);
+        }
     }
-    &__border {
-        @include position(absolute, $bottom: 0, $right: 0, $left: 0);
-        background-color: $border-color;
-        height: $border-weight;
-        transition: transform 175ms ease-in, background-color 125ms ease-in;
-        transform-origin: bottom;
-    }
+
     &__label {
-        @include font-size(small);
-        @include position(absolute, $top: $text-field-size, $right: 0, $left: 0);
+        font-size: $input-font-size;
         line-height: $input-height;
-        transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
+
+        @include position(absolute, $top: 0, $left: 0);
+        transform-origin: top left;
+        transform: translateY($label-height);
+        transition: transform $transition-timing;
         pointer-events: none;
-    }
-
-    &:hover {
-        & .jkl-text-field__border {
-            @include grow-border();
-        }
-    }
-
-    &:focus-within {
-        & .jkl-text-field__label {
-            @include raise-label();
-        }
-        & .jkl-text-field__border {
-            @include grow-border();
-        }
     }
 }

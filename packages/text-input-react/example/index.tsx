@@ -1,34 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import ReactDOM from "react-dom";
 import { TextField, TextArea } from "../src";
-import "@fremtind/jkl-text-input/text-input.scss";
+import { initTabListener } from "@fremtind/jkl-core";
+import "@fremtind/jkl-core/core.min.css";
+import "@fremtind/jkl-text-input/text-input.min.css";
+import "./index.scss";
+
+initTabListener();
 
 const TextFieldDemo = () => {
     const [value, setValue] = useState("");
+    function handleChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+        setValue(event.target.value);
+    }
     return (
-        <div style={{ margin: "36px", padding: "36px", border: "1px solid black", background: "#fafafa" }}>
-            <div style={{ paddingTop: "64px" }}>
-                <TextField label="Fornavn" value={value} onChange={(e) => setValue(e.target.value)} />
+        <>
+            <div className="side-by-side">
+                <TextField label="Fornavn" value={value} onChange={handleChange} />
+                <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly />
             </div>
-            <div style={{ paddingTop: "64px" }}>
-                <TextField label="Fornavn" value={"Something"} onChange={(e) => setValue(e.target.value)} />
-            </div>
-            <div style={{ paddingTop: "64px" }}>
-                <TextField label="Telefon" type="tel" value={value} onChange={(e) => setValue(e.target.value)} />
-            </div>
-            <div style={{ paddingTop: "64px" }}>
-                <TextField label="Passord" type="password" value={value} onChange={(e) => setValue(e.target.value)} />
-            </div>
-            <div style={{ paddingTop: "64px" }}>
-                <TextField label="Epost" type="email" value={value} onChange={(e) => setValue(e.target.value)} />
-            </div>
-            <div style={{ paddingTop: "64px" }}>
-                <TextArea label="Moreinfo" value={value} onChange={(e) => setValue(e.target.value)} />
-            </div>
-            <div style={{ paddingTop: "64px" }}>
-                <TextArea label="Moreinfo" value={"Something"} onChange={(e) => setValue(e.target.value)} />
-            </div>
-        </div>
+
+            <TextField label="Telefon" type="tel" value={value} onChange={handleChange} />
+            <TextField label="Passord" type="password" value={value} onChange={handleChange} />
+            <TextField label="Epost" type="email" value={value} onChange={handleChange} />
+
+            <TextArea label="Din livshistorie" value={value} onChange={handleChange} />
+            <TextArea label="Din livshistorie" value={"Det hendte i de dager …"} onChange={handleChange} />
+        </>
     );
 };
 
