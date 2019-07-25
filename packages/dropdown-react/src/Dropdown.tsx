@@ -57,21 +57,11 @@ export const Dropdown = ({ items, initialInputValue, label, onChange, className,
         onChange && onChange(e.detail.textContent);
     }
 
-    let appliedClassName = `jkl-dropdown`;
-
-    if (dropdownIsShown) {
-        appliedClassName = `${appliedClassName} jkl-dropdown--open`;
-    }
-
-    if (!hasSelectedValue) {
-        appliedClassName = `${appliedClassName} jkl-dropdown--no-value`;
-    }
-
-    if (className) {
-        appliedClassName = `${appliedClassName} ${className}`;
-    }
+    const classModifiers = `${dropdownIsShown ? " jkl-dropdown--open" : ""}${
+        hasSelectedValue ? "" : " jkl-dropdown--no-value"
+    }`;
     return (
-        <div className={appliedClassName}>
+        <div className={`jkl-dropdown${classModifiers} ${className ? className : ""}`}>
             <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>
