@@ -1,19 +1,23 @@
 import React, { ReactNode } from "react";
-import { H4, P } from "@fremtind/jkl-typography-react";
+import { H4 } from "@fremtind/jkl-typography-react";
 
 interface Props {
     title: string;
     children: ReactNode;
+    fullWidth?: boolean;
+    className?: string;
 }
 
-type messageTypes = "info" | "error" | "success";
+type messageTypes = "info" | "error" | "success" | "warning";
+
+const css = "jkl-message-box";
 
 function messageFactory(messageType: messageTypes) {
-    return function messageBox({ title, children }: Props) {
+    return function messageBox({ title, fullWidth, className = "", children }: Props) {
         return (
-            <div className={`jkl-message-box jkl-message-box__${messageType}`}>
+            <div className={`${css} ${css}__${messageType} ${fullWidth ? css + "--full" : ""} ${className}`}>
                 <H4>{title}</H4>
-                <P>{children}</P>
+                <div className="jkl-p">{children}</div>
             </div>
         );
     };
@@ -21,4 +25,5 @@ function messageFactory(messageType: messageTypes) {
 
 export const InfoMessage = messageFactory("info");
 export const ErrorMessage = messageFactory("error");
+export const WarningMessage = messageFactory("warning");
 export const SuccessMessage = messageFactory("success");
