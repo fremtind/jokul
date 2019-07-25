@@ -10,8 +10,13 @@
     @include motion(standard, productive);
     color: inherit;
     background-color: transparent;
+    height: 100%;
+    width: 100%;
     &:-moz-focusring {
-        outline: none;
+        outline: none !important;
+    }
+    &::-moz-focus-inner {
+        border: 0;
     }
     &:hover,
     &--is-active:hover {
