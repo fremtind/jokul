@@ -1,8 +1,8 @@
-import React from "react";
+import React, { RefObject } from "react";
 
-export function useClickOutside(ref: any, fn: () => void) {
+export function useClickOutside(ref: RefObject<HTMLElement> | null, fn: () => void) {
     function handleClickOutside(event: MouseEvent) {
-        if (ref && ref.current && !ref.current.contains(event.target)) {
+        if (ref && ref.current && !ref.current.contains(event.target as Node)) {
             fn();
         }
     }

@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef, useState, Ref } from "react";
+import React, { RefObject, useRef, useState } from "react";
 import { useClickOutside } from "@fremtind/jkl-core";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
     initialIsActive?: boolean;
     negative?: boolean;
     description?: string;
-    insideRef?: Ref<ReactNode>;
+    insideRef?: RefObject<HTMLElement>;
 }
 
 export const Hamburger = ({
