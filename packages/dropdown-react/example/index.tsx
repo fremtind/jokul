@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Dropdown } from "../src";
+import { Dropdown, Select } from "../src";
 import { initTabListener } from "@fremtind/jkl-core";
 
 import "@fremtind/jkl-core/core.min.css";
@@ -26,6 +26,13 @@ const DropdownDemo = () => {
                 onChange={(value) => console.log(`You selected "${value}"!`)}
             />
             <Dropdown key={d} label="Fødselsår" items={years} initialInputValue="1986" />
+
+            <Select
+                label="Standard select"
+                items={items}
+                onChange={(e) => console.log(e.target.value)}
+                autocomplete=""
+            />
 
             <div>
                 <button
