@@ -7,6 +7,7 @@ $date-width: rem(46px);
 $calendar-padding: $component-spacing--xl;
 $calendar-width: ($date-width * 7) + ($calendar-padding * 2);
 $background-color: $snøhvit;
+$popup-top-position: $label-height + $input-height + $bottom-padding + rem(2px);
 
 .jkl-datepicker {
     position: relative;
@@ -33,7 +34,7 @@ $background-color: $snøhvit;
         &--month {
             position: relative;
             flex-grow: 2;
-            padding-top: $text-field-size;
+            padding-top: $label-height;
 
             select {
                 appearance: none;
@@ -44,35 +45,38 @@ $background-color: $snøhvit;
                 border-radius: 0;
                 outline: none;
 
+                width: 100%;
+
                 display: block;
-                box-shadow: inset 0 rem(-2px) 0 0 $svart;
+                box-shadow: 0 rem(2px) 0 0 $svart;
                 transition: box-shadow 175ms ease-in;
                 background-color: $snøhvit;
                 text-transform: capitalize;
 
-                font-size: 1.75rem;
-                line-height: 3rem;
-                height: rem(50px);
+                font-size: $input-font-size;
+                line-height: $input-height;
+                padding-bottom: $bottom-padding;
 
                 &:focus,
                 &:hover {
-                    box-shadow: inset 0 rem(-3px) 0 0 $svart;
+                    box-shadow: 0 rem(4px) 0 0 $svart;
                 }
             }
         }
     }
 
     &__month-label {
-        @include font-size(small);
         @include position(absolute, $top: 0, $left: 0, $right: 0);
-        @include label-font-size--raised();
-        line-height: $input-height;
-        transition: left 150ms ease-in, top 150ms ease-in, font-size 150ms ease-in;
+        font-size: $input-font-size;
+        line-height: $label-height;
+        color: $varm-fjellgrå;
+        transform-origin: top left;
+        transform: scale($label-font-size / $input-font-size);
         pointer-events: none;
     }
 
     &__calendar {
-        @include position(absolute, $top: 100%, $left: 0, $right: 0);
+        @include position(absolute, $top: $popup-top-position, $left: 0, $right: 0);
         z-index: $z-index--dropdown;
         display: flex;
         justify-content: center;
@@ -85,7 +89,7 @@ $background-color: $snøhvit;
         caption {
             font-size: $font-size-3;
             line-height: $line-height-3;
-            padding-top: $component-spacing--xxl;
+            padding-top: $component-spacing--xl;
             text-transform: capitalize;
         }
         td {
