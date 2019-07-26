@@ -5,7 +5,7 @@ interface Props {
     inline?: boolean;
     children: ReactNode;
     className?: string;
-    target?: string;
+    target?: "_self" | "_blank" | "_parent" | "_top";
     rel?: string;
 }
 
