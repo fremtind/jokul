@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-text-input-react/CHANGELOG
 
 export default function TextAreaPage() {
     return (
-        <ComponentLayout title="Lang tekstfelt" mainExample={<TextAreaExample />}>
+        <ComponentLayout title="Lang tekstfelt" mainExample={<TextAreaExample />} packageName="text-input">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
