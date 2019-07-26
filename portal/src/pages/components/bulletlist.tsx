@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-bullet-list-react/CHANGELO
 
 export default function BulletListPage() {
     return (
-        <ComponentLayout title="Liste" mainExample={<BulletListExample />}>
+        <ComponentLayout title="Liste" mainExample={<BulletListExample />} packageName="bullet-list">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>

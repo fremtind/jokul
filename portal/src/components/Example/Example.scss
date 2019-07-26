@@ -50,3 +50,15 @@
         }
     }
 }
+
+.portal-content__figma {
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &__iframe {
+        border: none;
+        padding-bottom: $layout-spacing--medium;
+    }
+}

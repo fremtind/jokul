@@ -17,9 +17,10 @@ interface Props {
     type?: string;
     types?: TypeShape[];
     exampleImport?: string;
+    figma?: string[];
 }
 
-export function Example({ exampleComponents, exampleCode, type, types, exampleImport }: Props) {
+export function Example({ exampleComponents, exampleCode, type, types, exampleImport, figma }: Props) {
     const copyImport = () => copyToClipboard(exampleImport || "");
 
     return (
@@ -50,6 +51,24 @@ export function Example({ exampleComponents, exampleCode, type, types, exampleIm
                             </div>
                         ))}
                 </AccordionItem>
+                {figma && (
+                    <AccordionItem title={`Design`}>
+                        <div className="portal-content__figma">
+                            {figma.map((sketch) => (
+                                <iframe
+                                    title="Figma skisse"
+                                    key={sketch}
+                                    className="portal-content__figma__iframe"
+                                    width="1000"
+                                    height="500"
+                                    src={`https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(
+                                        sketch,
+                                    )}`}
+                                ></iframe>
+                            ))}
+                        </div>
+                    </AccordionItem>
+                )}
             </Accordion>
         </LiveProvider>
     );

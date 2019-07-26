@@ -14,7 +14,11 @@ import changelogReact from "!raw-loader!@fremtind/jkl-typography-react/CHANGELOG
 
 export default function TypographyPage() {
     return (
-        <ComponentLayout title="Typografi" mainExample={<TypographyExample />}>
+        <ComponentLayout
+            title="Typografi"
+            mainExample={<TypographyExample />}
+            packageNames={{ react: "typography-react", scss: "core" }}
+        >
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
