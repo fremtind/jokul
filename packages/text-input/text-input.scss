@@ -59,6 +59,8 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
         transition: box-shadow $transition-timing;
 
         box-shadow: 0 rem(2px) 0 0 $border-color;
+        /* show border in mobile Safari */
+        -webkit-appearance: none;
 
         &:hover,
         &:focus {
