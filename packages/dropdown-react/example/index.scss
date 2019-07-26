@@ -2,11 +2,15 @@ body {
     padding: 8rem;
 }
 
+button {
+    outline: none;
+}
+
 .jkl-dropdown {
     margin-bottom: 3rem;
     margin-right: 1rem;
-}
 
-button {
-    outline: none;
+    &.short {
+        width: 9rem;
+    }
 }

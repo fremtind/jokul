@@ -13,13 +13,14 @@ import "./Layout.scss";
 
 interface Props {
     children: ReactNode;
+    isComponent?: boolean;
 }
 
-export const Layout = ({ children }: Props) => (
+export const Layout = ({ children, isComponent = false }: Props) => (
     <>
         <Header siteTitle="Jøkul" />
         <Menu />
-        <main className="portal-content">{children}</main>
+        <main className={`portal-content ${isComponent ? "portal-content--component" : ""}`}>{children}</main>
     </>
 );
 

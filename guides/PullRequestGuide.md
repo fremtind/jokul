@@ -1,12 +1,14 @@
 # Pull requests
 
-Kjerneteamet følger med på det som skjer på GitHub-repoet til Jøkul.
+## Sende en pull request til Jøkul
+
+Vi i kjerneteamet følger med på det som skjer på GitHub-repoet til Jøkul.
 Når du sender inn en pull request, får du alltid tilbakemelding fra noen i kjerneteamet.
-Da kan pull requested bli merget eller du vil kunne få tilbakemelding på hva som skal til for at den kan merges.
+Da kan vi enten velge å merge pull requesten, eller gi deg en tilbakemelding på hva du må gjøre før vi kan ta inn endringene dine.
 
-Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi må kanskje må teste i noen interne applikasjoner først.
+Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi kanskje må teste det i noen interne applikasjoner først.
 
-## Din første pull request
+### Din første pull request
 
 Flott at du vil bidra! Her er noen smarte tips før du setter i gang:
 
@@ -15,12 +17,15 @@ Flott at du vil bidra! Her er noen smarte tips før du setter i gang:
 -   Kjerneteamet jobber etter en prioritert backlog, men vi er takknemlige for alle som vil ta tak i oppgaver som har lavere prioritet.
 -   Følg gjerne med på andres pull requests og kom med kommentarer og tilbakemeldinger. Da plukker du kjapt opp hva som er viktig og ikke for Jøkul.
 
-## Slik sender du en pull request
+### Slik sender du en pull request
 
-1. Fork prosjektet og lag en ny branch. ( Om du har tilgang til prosjektet trenger du ikke lage en fork)
-2. Kjør `yarn` og `yarn build` på rot i prosjektet.
-3. Løs feilen eller legg til ny funksjonalitet og legg til tester.
-4. Pass på at alle tester blir grønne når du tester med `yarn test` på rot.
-5. Legg til endrede filer i stage med `git add`.
-6. Commit med `yarn commit` fra rot, for å få hjelp til å lage en korrekt commit-melding. Hvis du kjenner godt til conventional commit style, kan du utføre commit med Git som vanlig. Lint, prettier og typesjekk kjøres automatisk.
-7. Push og opprett pull request mot Jøkul. Fyll ut malen som dukker opp i GitHub.
+1. Lag en ny branch. Hvis du ikke har tilgang til prosjektet, må du forke det først.
+2. Fra rot i prosjektet, kjører du `yarn` og `yarn build`.
+3. Fiks feilen eller legg til ny funksjonalitet.
+4. Legg til tester.
+5. Sjekk at alle testene blir grønne når du tester med `yarn test` på rot.
+6. Legg til endrede filer i stage med `git add`.
+7. Commit med `yarn commit` fra rot, slik at du får hjelp til å lage en korrekt commit-melding. Hvis du kjenner til conventional commit style godt fra før, kan du utføre commit med Git som vanlig. 
+Lint, prettier og typesjekk blir kjørt automatisk.
+8. Push og opprett en pull request mot Jøkul. 
+9. Fyll ut malen som dukker opp i GitHub.

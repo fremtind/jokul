@@ -4,6 +4,7 @@ import CoreDatepicker from "@nrk/core-datepicker/jsx";
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
 import { TextField } from "@fremtind/jkl-text-input-react";
+import { Select } from "@fremtind/jkl-dropdown-react";
 
 interface ChangeDate {
     date: Date;
@@ -56,10 +57,8 @@ export function DatePicker({
                 >
                     <div className="jkl-datepicker__calendar-header">
                         <TextField label={yearLabel} type="year" className="jkl-datepicker__calendar-header--year" />
-                        <label className="jkl-datepicker__calendar-header--month">
-                            <span className="jkl-datepicker__month-label">{monthLabel}</span>
-                            <select />
-                        </label>
+
+                        <Select className="jkl-datepicker__calendar-header--month" label={monthLabel} items={[]} />
                     </div>
                     <table data-testid="jkl-datepicker-calendar" />
                 </CoreDatepicker>

@@ -15,7 +15,7 @@ export const ComponentLayout = ({ children, title, mainExample }: Props) => (
         {({ location }) => {
             if (location.search !== "?fullscreen") {
                 return (
-                    <Layout>
+                    <Layout isComponent>
                         <>
                             {title && <h2 className="jkl-h1 portal-content__title">{title}</h2>}
                             <section className="portal-content__main-example">{mainExample}</section>

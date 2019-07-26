@@ -1,1 +1,1 @@
-export { InfoMessage, ErrorMessage, SuccessMessage } from "./MessageBox";
+export { InfoMessage, ErrorMessage, SuccessMessage, WarningMessage } from "./MessageBox";

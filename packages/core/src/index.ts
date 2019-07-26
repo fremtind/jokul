@@ -1,1 +1,1 @@
-export { initTabListener } from "./utils";
+export { initTabListener, useClickOutside } from "./utils";

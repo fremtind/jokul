@@ -100,6 +100,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Gorild",
+      "name": "Gorild",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51953080?v=4",
+      "profile": "https://github.com/Gorild",
+      "contributions": [
+        "doc",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
