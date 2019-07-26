@@ -6,7 +6,7 @@ Du kan bruke Jøkul på to måter, med rene stilark eller med React-komponenter.
 
 Hvis du vil ta i bruk en Jøkul React-komponent, trenger du å laste inn både stilen og komponenten. Hvis du har satt opp en CSS loader i pakkesystemet, kan du kan laste ned stilen direkte i React. Du kan også velge å legge den inn i en av  dine `.less`- eller `.scss`-filer.
 
-> For å normalisere stilen og få tilgang til rotstilen, kjører du `core.min.css` fra `@fremtind/jkl-core`. Det trenger du bar å gjøre en gang.
+> For å normalisere stilen og få tilgang til rotstilen, laster du inn `core.min.css` fra `@fremtind/jkl-core`. Det trenger du bare å gjøre en gang.
 
 ### Installere avhengigheter
 
