@@ -33,6 +33,9 @@
     },
     "dependencies": {
         "@fremtind/jkl-datepicker": "^0.6.1",
+        "@fremtind/jkl-dropdown": "^0.6.1",
+        "@fremtind/jkl-dropdown-react": "^0.5.2",
+        "@fremtind/jkl-text-input": "^0.6.1",
         "@fremtind/jkl-text-input-react": "^0.5.2",
         "@nrk/core-datepicker": "^3.0.5",
         "@nrk/core-toggle": "^3.0.4"
