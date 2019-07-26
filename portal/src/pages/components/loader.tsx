@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-loader-react/CHANGELOG.md"
 
 export default function LoaderPage() {
     return (
-        <ComponentLayout title="Lasteindikator" mainExample={<LoaderExample />}>
+        <ComponentLayout title="Lasteindikator" mainExample={<LoaderExample />} packageName="loader">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>

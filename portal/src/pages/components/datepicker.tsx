@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-datepicker-react/CHANGELOG
 
 export default function DatePickerPage() {
     return (
-        <ComponentLayout title="Datovelger" mainExample={<DatepickerExample />}>
+        <ComponentLayout title="Datovelger" mainExample={<DatepickerExample />} packageName="datepicker">
             <WebComponentInfo />
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />

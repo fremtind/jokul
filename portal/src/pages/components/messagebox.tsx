@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-message-box-react/CHANGELO
 
 export default function MessageBoxPage() {
     return (
-        <ComponentLayout title="Meldingskomponenter" mainExample={<MessageBoxExample />}>
+        <ComponentLayout title="Meldingskomponenter" mainExample={<MessageBoxExample />} packageName="message-box">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
