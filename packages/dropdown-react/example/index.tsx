@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Dropdown } from "../src";
+import { Dropdown, Select } from "../src";
 import { initTabListener } from "@fremtind/jkl-core";
+
+import "@fremtind/jkl-core/core.min.css";
+import "@fremtind/jkl-dropdown/dropdown.min.css";
+import "./index.scss";
 
 initTabListener();
 const DropdownDemo = () => {
@@ -23,6 +27,8 @@ const DropdownDemo = () => {
             />
             <Dropdown key={d} label="Fødselsår" items={years} initialInputValue="1986" />
 
+            <Select label="Standard select" items={items} onChange={(e) => console.log(e.target.value)} />
+
             <div>
                 <button
                     onClick={() => {
@@ -39,7 +45,7 @@ const DropdownDemo = () => {
             </div>
 
             <div>
-                <Dropdown key={d} label="Fødselsår" items={years} />
+                <Dropdown className="short" key={d} label="Fødselsår" items={years} />
             </div>
         </>
     );

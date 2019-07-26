@@ -2,10 +2,6 @@
 
 ## Om Jøkul
 
-Jøkul er designsystemet til Fremtind forsikring. Med Jøkul kan vi designe og utvikle konsekvente digitale løsninger for både interne fagsystemer og nettsider som forsikringsselskapet distributører og kunder skal bruke.
-
-Målet med Jøkul er å samle alle ressursene som trengs for å bygge små og store løsninger for virksomheten til selskapet. Slik sprer vi kunnskap til alle om hvordan vi lager de beste løsningene for Fremtind.
-
 På disse sidene finner du tankegangen bak designsystemet, komponentbiblioteket vårt og informasjon om hvordan du kommer i gang med å designe eller utvikle.
 Hvem kan bruke Jøkul?
 Innholdet på disse sidene er ment for designere og utviklere som skal lage eller bidra til løsninger for Fremtind. Jobber du med relaterte områder og er nysgjerrig på Jøkul, er du også velkommen til å ta en titt.

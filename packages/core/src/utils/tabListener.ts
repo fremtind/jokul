@@ -1,4 +1,3 @@
-const navKeys = ["Tab", "ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"];
 let mousenavigation = false;
 
 function handleMouseDown() {
@@ -12,7 +11,7 @@ function handleMouseDown() {
 }
 
 function handleKeydown(event: KeyboardEvent) {
-    if (navKeys.indexOf(event.key) !== -1) {
+    if (event.key === "Tab") {
         if (mousenavigation) {
             mousenavigation = false;
             const htmlElement = document.querySelector("html");

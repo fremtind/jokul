@@ -7,6 +7,11 @@
     min-height: $layout-spacing--xl;
     padding: $component-spacing--xl;
     background-color: $snøhvit;
+    box-sizing: border-box;
+
+    &--full {
+        width: 100%;
+    }
 
     &::before {
         @include position(absolute, $top: 0, $bottom: 0, $left: 0, $right: 0);
@@ -20,6 +25,11 @@
     &__info {
         &::before {
             background-color: $himmel;
+        }
+    }
+    &__warning {
+        &::before {
+            background-color: $sol;
         }
     }
     &__error {

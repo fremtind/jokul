@@ -29,7 +29,7 @@ export const componentLinks = [
     makeComponentLink("Alle komponenter", ""),
     makeComponentLink("Knapper", "button"),
     makeComponentLink("Radioknapp", "radiobutton"),
-    makeComponentLink("Avkryssingsboks", "checkbox"),
+    makeComponentLink("Avmerkingsbokser", "checkbox"),
     makeComponentLink("Toggle-knapp", "toggleswitch"),
     makeComponentLink("Trekkspilliste", "accordion"),
     makeComponentLink("Datovelger", "datepicker"),
@@ -43,6 +43,7 @@ export const componentLinks = [
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
     makeComponentLink("Liste", "bulletlist"),
+    makeComponentLink("Hamburger meny", "hamburger"),
 ];
 
 export const profileLinks = [
