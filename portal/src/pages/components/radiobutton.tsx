@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-radio-button-react/CHANGEL
 
 export default function RadioButtonPage() {
     return (
-        <ComponentLayout title="Radioknapp" mainExample={<RadioButtonExample />}>
+        <ComponentLayout title="Radioknapp" mainExample={<RadioButtonExample />} packageName="radio-button">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>

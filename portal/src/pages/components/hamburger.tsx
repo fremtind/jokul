@@ -13,7 +13,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-hamburger-react/CHANGELOG.
 
 export default function HamburgerPage() {
     return (
-        <ComponentLayout title="Hamburger meny" mainExample={<HamburgerExample />}>
+        <ComponentLayout title="Hamburger meny" mainExample={<HamburgerExample />} packageName="hamburger">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>

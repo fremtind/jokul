@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-card-react/CHANGELOG.md";
 
 export default function CardPage() {
     return (
-        <ComponentLayout title="Kort" mainExample={<CardExample />}>
+        <ComponentLayout title="Kort" mainExample={<CardExample />} packageName="card">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
