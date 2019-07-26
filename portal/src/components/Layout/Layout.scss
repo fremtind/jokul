@@ -36,7 +36,7 @@ $portal-max-width: 1200px;
         }
     }
     &__code-links {
-        margin: 0 $layout-spacing--small;
+        margin: 0 $component-spacing--large $layout-spacing--small;
         display: inline-block;
         outline: none;
         border: none;
