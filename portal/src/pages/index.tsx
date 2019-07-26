@@ -1,4 +1,6 @@
 import React from "react";
+import Image, { FluidObject } from "gatsby-image";
+import { graphql } from "gatsby";
 import { Layout } from "../components";
 import ReactMarkdown from "react-markdown";
 import { renderer } from "../presentation/markdownRenderer";
@@ -7,12 +9,21 @@ import frontPageMarkdown from "!raw-loader!../texts/FrontPage.md";
 // @ts-ignore
 import HeroMarkdown from "!raw-loader!../texts/frontpage/Hero.md";
 import "@fremtind/jkl-core/core.min.css";
-import bg from "../assets/fremtind_hovedfoto.jpg";
 import "./style.scss";
 
-const IndexPage = () => (
+interface Query {
+    data: {
+        file: {
+            childImageSharp: {
+                fluid: FluidObject;
+            };
+        };
+    };
+}
+
+const IndexPage = ({ data }: Query) => (
     <Layout>
-        <img className="portal-main__background" src={bg} alt="" />
+        <Image className="portal-main__background" fluid={data.file.childImageSharp.fluid} alt="Fjell illustasjon" />
         <div className="portal-main__hero">
             <ReactMarkdown renderers={renderer} source={HeroMarkdown} />{" "}
         </div>
@@ -21,5 +32,19 @@ const IndexPage = () => (
         </div>
     </Layout>
 );
+
+export const query = graphql`
+  query {
+    file(absolutePath: {
+      regex: "/\\/images\\/fremtind_hovedfoto\\.jpg/"
+    }) {
+      childImageSharp {
+        fluid(maxWidth: 10000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

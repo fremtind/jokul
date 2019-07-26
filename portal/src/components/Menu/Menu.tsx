@@ -40,6 +40,7 @@ export function Menu() {
                                         key={link.title}
                                         className="portal-menu__link"
                                         to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
                                     >
                                         {link.title}
                                     </Link>
@@ -55,6 +56,7 @@ export function Menu() {
                                         key={link.title}
                                         className="portal-menu__link"
                                         to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
                                     >
                                         {link.title}
                                     </Link>
@@ -66,6 +68,7 @@ export function Menu() {
                                         key={link.title}
                                         className="portal-menu__link"
                                         to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
                                     >
                                         {link.title}
                                     </Link>
@@ -80,6 +83,7 @@ export function Menu() {
                                         key={link.title}
                                         className="portal-menu__link"
                                         to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
                                     >
                                         {link.title}
                                     </Link>
@@ -91,6 +95,7 @@ export function Menu() {
                                         key={link.title}
                                         className="portal-menu__link"
                                         to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
                                     >
                                         {link.title}
                                     </Link>
@@ -100,24 +105,28 @@ export function Menu() {
                         <a
                             className="portal-menu__link portal-menu__link--github jkl-p"
                             href="https://github.com/fremtind/jokul"
+                            tabIndex={showMenu ? 0 : -1}
                         >
                             Kode på Github
                         </a>
                         <a
                             className="portal-menu__link portal-menu__link--github jkl-p"
                             href="https://github.com/fremtind/jokul/issues/new?assignees=&labels=bug&template=bug_report.md&title="
+                            tabIndex={showMenu ? 0 : -1}
                         >
                             Rapporter feil
                         </a>
                         <a
                             className="portal-menu__link portal-menu__link--github jkl-p"
                             href="https://github.com/fremtind/jokul/issues/new?assignees=&labels=enhancement&template=feature_request.md&title="
+                            tabIndex={showMenu ? 0 : -1}
                         >
                             Forslag ny funksjon
                         </a>
                         <a
                             className="portal-menu__link portal-menu__link--figma jkl-p"
                             href="https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-components"
+                            tabIndex={showMenu ? 0 : -1}
                         >
                             Designbibliotek
                         </a>
