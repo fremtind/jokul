@@ -45,7 +45,7 @@ const DropdownDemo = () => {
             </div>
 
             <div>
-                <Dropdown key={d} label="Fødselsår" items={years} />
+                <Dropdown className="short" key={d} label="Fødselsår" items={years} />
             </div>
         </>
     );
