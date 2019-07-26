@@ -1,79 +1,137 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import { LocationProvider } from "@reach/router";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { coreLinks, developerLinks, designerLinks, componentLinks, profileLinks } from "./links";
 import "@fremtind/jkl-accordion/accordion.min.css";
+import "@fremtind/jkl-hamburger/hamburger.min.css";
 
 import "./Menu.scss";
 
 export function Menu() {
+    const [showMenu, toggleShowMenu] = useState(false);
+    const menuRef = useRef(null);
+
+    const toggleMenu = (show: boolean) => toggleShowMenu(show);
+
     return (
         <LocationProvider>
             {({ location }) => (
-                <nav className="portal-menu">
-                    <Accordion>
-                        <AccordionItem
-                            title="Grunnleggende"
-                            startExpanded={location.pathname.includes("core") || location.pathname === "/"}
-                        >
-                            {coreLinks.map((link) => (
-                                <Link
-                                    key={link.title}
-                                    className="portal-menu__link"
-                                    to={`/${link.section}/${link.page}`}
-                                >
-                                    {link.title}
-                                </Link>
-                            ))}
-                        </AccordionItem>
+                <div ref={menuRef} className={`portal-menu ${showMenu ? " portal-menu--open" : "portal-menu--closed"}`}>
+                    <div className="portal-menu__toggler">
+                        <Hamburger
+                            negative
+                            onClick={toggleMenu}
+                            enableClickOutside={showMenu}
+                            onClickOutside={toggleMenu}
+                            insideRef={menuRef}
+                        />
+                    </div>
 
-                        <AccordionItem title="Profilelementer" startExpanded={location.pathname.includes("profile")}>
-                            {profileLinks.map((link) => (
-                                <Link
-                                    key={link.title}
-                                    className="portal-menu__link"
-                                    to={`/${link.section}/${link.page}`}
-                                >
-                                    {link.title}
-                                </Link>
-                            ))}
-                        </AccordionItem>
-                        <AccordionItem title="For designere" startExpanded={location.pathname.includes("designer")}>
-                            {designerLinks.map((link) => (
-                                <Link
-                                    key={link.title}
-                                    className="portal-menu__link"
-                                    to={`/${link.section}/${link.page}`}
-                                >
-                                    {link.title}
-                                </Link>
-                            ))}
-                        </AccordionItem>
-                        <AccordionItem title="For utviklere" startExpanded={location.pathname.includes("developer")}>
-                            {developerLinks.map((link) => (
-                                <Link
-                                    key={link.title}
-                                    className="portal-menu__link"
-                                    to={`/${link.section}/${link.page}`}
-                                >
-                                    {link.title}
-                                </Link>
-                            ))}
-                        </AccordionItem>
-                        <AccordionItem title="Komponenter" startExpanded={location.pathname.includes("components")}>
-                            {componentLinks.map((link) => (
-                                <Link
-                                    key={link.title}
-                                    className="portal-menu__link"
-                                    to={`/${link.section}/${link.page}`}
-                                >
-                                    {link.title}
-                                </Link>
-                            ))}
-                        </AccordionItem>
-                    </Accordion>
-                </nav>
+                    <nav className="portal-menu__bar">
+                        <Accordion>
+                            <AccordionItem
+                                title="Grunnleggende"
+                                startExpanded={!!location.pathname.match(/(core|jokul)/) || location.pathname === "/"}
+                            >
+                                {coreLinks.map((link) => (
+                                    <Link
+                                        key={link.title}
+                                        className="portal-menu__link"
+                                        to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                ))}
+                            </AccordionItem>
+
+                            <AccordionItem
+                                title="Profilelementer"
+                                startExpanded={location.pathname.includes("profile")}
+                            >
+                                {profileLinks.map((link) => (
+                                    <Link
+                                        key={link.title}
+                                        className="portal-menu__link"
+                                        to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                ))}
+                            </AccordionItem>
+                            <AccordionItem title="For designere" startExpanded={location.pathname.includes("designer")}>
+                                {designerLinks.map((link) => (
+                                    <Link
+                                        key={link.title}
+                                        className="portal-menu__link"
+                                        to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                ))}
+                            </AccordionItem>
+                            <AccordionItem
+                                title="For utviklere"
+                                startExpanded={location.pathname.includes("developer")}
+                            >
+                                {developerLinks.map((link) => (
+                                    <Link
+                                        key={link.title}
+                                        className="portal-menu__link"
+                                        to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                ))}
+                            </AccordionItem>
+                            <AccordionItem title="Komponenter" startExpanded={location.pathname.includes("components")}>
+                                {componentLinks.map((link) => (
+                                    <Link
+                                        key={link.title}
+                                        className="portal-menu__link"
+                                        to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                ))}
+                            </AccordionItem>
+                        </Accordion>
+                        <a
+                            className="portal-menu__link portal-menu__link--github jkl-p"
+                            href="https://github.com/fremtind/jokul"
+                            tabIndex={showMenu ? 0 : -1}
+                        >
+                            Kode på Github
+                        </a>
+                        <a
+                            className="portal-menu__link portal-menu__link--github jkl-p"
+                            href="https://github.com/fremtind/jokul/issues/new?assignees=&labels=bug&template=bug_report.md&title="
+                            tabIndex={showMenu ? 0 : -1}
+                        >
+                            Rapporter feil
+                        </a>
+                        <a
+                            className="portal-menu__link portal-menu__link--github jkl-p"
+                            href="https://github.com/fremtind/jokul/issues/new?assignees=&labels=enhancement&template=feature_request.md&title="
+                            tabIndex={showMenu ? 0 : -1}
+                        >
+                            Forslag ny funksjon
+                        </a>
+                        <a
+                            className="portal-menu__link portal-menu__link--figma jkl-p"
+                            href="https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-components"
+                            tabIndex={showMenu ? 0 : -1}
+                        >
+                            Designbibliotek
+                        </a>
+                    </nav>
+                </div>
             )}
         </LocationProvider>
     );

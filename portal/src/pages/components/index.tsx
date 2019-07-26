@@ -43,7 +43,7 @@ export default function AllComponents() {
             <h1 className="jkl-h1">Alle komponenter</h1>
             <Section title="Knapper" link="button" example={<ButtonExample />} />
             <Section title="Radioknapper" link="radiobutton" example={<RadioButtonExample />} />
-            <Section title="Avkryssingsboks" link="checkbox" example={<CheckboxExample />} />
+            <Section title="Avmerkingsbokser" link="checkbox" example={<CheckboxExample />} />
             <Section title="Toggle-knapp" link="toggleswitch" example={<ToggleSwitchExample />} />
             <Section title="Trekkspillliste" link="accordion" example={<AccordionExample />} />
             <Section title="Datovelger" link="datepicker" example={<DatepickerExample />} />

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { Layout } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 
@@ -10,11 +9,7 @@ import GettingStaredMarkdown from "!raw-loader!../../../../guides/GettingStarted
 const GettingStarted = () => {
     return (
         <Layout>
-            <Accordion>
-                <AccordionItem title="Kom i gang" startExpanded>
-                    <ReactMarkdown renderers={renderer} source={GettingStaredMarkdown} />
-                </AccordionItem>
-            </Accordion>
+            <ReactMarkdown renderers={renderer} source={GettingStaredMarkdown} />
         </Layout>
     );
 };
