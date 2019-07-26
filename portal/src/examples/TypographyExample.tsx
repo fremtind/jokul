@@ -1,6 +1,6 @@
 import React from "react";
 import { Example } from "../components";
-import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "@fremtind/jkl-typography-react";
+import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph, Link } from "@fremtind/jkl-typography-react";
 // @ts-ignore
 import typeDef from "!raw-loader!@fremtind/jkl-typography-react/build/Typography.d.ts";
 
@@ -21,6 +21,10 @@ const example = `<div style={{display: "flex", flexWrap: "wrap"}}>
     <TinyParagraph>
         TinyParagraph: Ad do dolor elit est minim anim deserunt anim aliquip.
     </TinyParagraph>
+    <P>
+        Link (inline). Bruk denne om det kommer en linje med tekst under linken: <Link inline href="#">Mollit ut</Link> sunt id minim sit est enim ad proident do veniam. In ipsum <Link inline href="#">deserunt</Link> tempor sunt reprehenderit labore Lorem Lorem ullamco adipisicing elit. Irure cillum minim amet ut mollit ullamco non quis duis elit.
+    </P>
+    <P>Link: Alternativ stil for frittstående linjer har <Link href="#">tykkere understrek</Link>.</P>
 </div>;`;
 
 const exampleImport = `import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "@fremtind/jkl-typography-react";
@@ -28,7 +32,7 @@ import "@fremtind/jkl-core/core.min.css;`;
 
 const TypographyExample = () => (
     <Example
-        exampleComponents={{ H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph }}
+        exampleComponents={{ H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph, Link }}
         exampleCode={example}
         type={typeDef}
         exampleImport={exampleImport}
