@@ -1,0 +1,55 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+$hero-size: rem(700px);
+$hero-top-offset: rem(225px);
+
+$content-bg-color: $varm-fjellgrå;
+$content-color: $snøhvit;
+$content-max-width: rem(1200px);
+
+$circle-size: rem(100px);
+
+.portal-main {
+    overflow: hidden;
+
+    &__background {
+        @include position(absolute !important, $top: 0, $left: 0);
+        z-index: -1;
+        width: 100%;
+    }
+    &__hero {
+        @include position(absolute, $top: $hero-top-offset, $left: 0);
+        max-width: $hero-size;
+        padding: $layout-spacing--small $layout-spacing--medium;
+        margin: 0 $layout-spacing--large;
+        background-color: rgba($snøhvit, 0.7);
+
+        @include xl-device {
+            background-color: transparent;
+        }
+    }
+    &__content {
+        @include position(absolute, $top: 100vh, $left: 0, $right: 0);
+        background-color: $content-bg-color;
+        color: $content-color;
+        padding: $layout-spacing--large;
+        &::before {
+            @include position(absolute, $top: -#{$circle-size/2}, $left: calc(50% - #{$circle-size/2}));
+            content: "▼";
+            font-size: $circle-size/4;
+            height: $circle-size;
+            width: $circle-size;
+            border-radius: $circle-size/2;
+            background-color: $content-bg-color;
+            color: $content-color;
+            display: flex;
+            justify-content: center;
+            padding-top: rem(20px);
+        }
+        & > * {
+            max-width: $content-max-width;
+        }
+    }
+}

@@ -1,8 +1,8 @@
-# Kom i gang
+## Kom i gang
 
 Jøkul kan brukes på to måter, rene stilark eller React komponenter. Alle css-stilark kommer både vanlig og minifisert. Vi anbefaler å bruke den minifiserte.
 
-## Quick start
+### Quick start
 
 For å ta ibruk en Jøkul React komponent så trenger man å laste inn både stil og komponent. Stilen kan lastes direkte i React om man har satt opp en css loader i pakke systemet, eller det kan legges inn i en av dine `.less` eller `.scss` filer.
 
