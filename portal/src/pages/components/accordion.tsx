@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-accordion-react/CHANGELOG.
 
 export default function AccordionPage() {
     return (
-        <ComponentLayout title="Trekkspilliste" mainExample={<AccordionExample />}>
+        <ComponentLayout title="Trekkspilliste" mainExample={<AccordionExample />} packageName="accordion">
             <WebComponentInfo />
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />

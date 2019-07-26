@@ -4,7 +4,7 @@
 
 Jøkul er et designsystem, et bibliotek med komponenter. Det gir litt andre utfordringer enn når du driver med klientutvikling. Her får du en liten innføring i hvordan vi jobber med Jøkul. Jøkul brukes av mange forskjellige klienter, med forskjellige behov og ønsker. Det er viktig at vi balanserer funksjonalitet, brukervennlighet, pakkestørrelse og kompleksitet i hver enkelt komponent.
 
-### Hva brukes
+### Dette bruker vi
 
 -   Språk: Typescript
 -   JS-rammeverk: React

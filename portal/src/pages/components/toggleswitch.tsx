@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-toggle-switch-react/CHANGE
 
 export default function ToggleSwitchPage() {
     return (
-        <ComponentLayout title="Toggle-knapp" mainExample={<ToggleSwitchExample />}>
+        <ComponentLayout title="Toggle-knapp" mainExample={<ToggleSwitchExample />} packageName="toggle-switch">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>

@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-divider-line-react/CHANGEL
 
 export default function DividerLinePage() {
     return (
-        <ComponentLayout title="Delelinje" mainExample={<DividerLineExample />}>
+        <ComponentLayout title="Delelinje" mainExample={<DividerLineExample />} packageName="divider-line">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>

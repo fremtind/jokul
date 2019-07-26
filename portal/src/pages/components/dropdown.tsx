@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-dropdown-react/CHANGELOG.m
 
 export default function DropdownPage() {
     return (
-        <ComponentLayout title="Nedtrekksliste" mainExample={<DropdownExample />}>
+        <ComponentLayout title="Nedtrekksliste" mainExample={<DropdownExample />} packageName="dropdown">
             <WebComponentInfo />
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
