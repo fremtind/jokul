@@ -23,10 +23,4 @@ Det kan være viktig å tenke over noen ting før du velger å bruke dette ikone
 - Gjør denne navigasjonsmåten at brukerne får direkte tilgang i stedet for sekvensiell tilgang?
 
 #### Tekst
-Noen bruker teksten "Meny" i forbindelse med hanburgermenyen. Da skal teksten være plassert under de tre strekene og ha samme bredde som dem.
-
-```
-const hamburgerReact = require('hamburger-react');
-
-// TODO: DEMONSTRATE API
-```
+Noen bruker teksten "Meny" i forbindelse med hamburgermenyen. Da skal teksten være plassert under de tre strekene og ha samme bredde som dem.
