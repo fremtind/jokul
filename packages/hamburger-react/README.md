@@ -1,11 +1,9 @@
-# `hamburger-react`
+# [`@fremtind/jkl-hamburger-react`](https://fremtind.github.io/jokul/components/hamburger/)
 
-> TODO: description
+## Beskrivelse
 
-## Usage
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/hamburger/) er beskrevet i `@fremtind/jkl-hamburger` stil-pakken.
 
-```
-const hamburgerReact = require('hamburger-react');
+## Kom i gang
 
-// TODO: DEMONSTRATE API
-```
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
