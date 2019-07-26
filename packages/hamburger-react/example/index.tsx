@@ -3,8 +3,11 @@ import ReactDOM from "react-dom";
 import { Hamburger } from "../src";
 import "@fremtind/jkl-hamburger/hamburger.css";
 import "@fremtind/jkl-core/core.min.css";
+import { initTabListener } from "@fremtind/jkl-core";
 
 const App = () => {
+    initTabListener();
+
     const divRef = React.useRef(null);
     return (
         <>
