@@ -7,5 +7,9 @@ export const visualRegressionTest = (componentName: string, wait = { timeout: 0 
         await page.waitFor(wait.timeout);
 
         const image = await page.screenshot();
-        expect(image).toMatchImageSnapshot({ customDiffConfig: { threshold: 0.05, includeAA: true } });
+        expect(image).toMatchImageSnapshot({
+            customDiffConfig: { threshold: 0.05, includeAA: true },
+            failureThreshold: 0.03,
+            failureThresholdType: 'percent'
+        });
     });

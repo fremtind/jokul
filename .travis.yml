@@ -5,9 +5,9 @@ node_js:
 cache:
     yarn: true
 script:
-    - yarn build
-    - yarn lint
     - yarn typecheck
+    - yarn lint
+    - yarn build
     - yarn ci:test
 
 # Only build PRs and master
