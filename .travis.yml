@@ -5,9 +5,9 @@ node_js:
 cache:
     yarn: true
 script:
-    - yarn typecheck
-    - yarn lint
     - yarn build
+    - yarn lint
+    - yarn typecheck
     - yarn ci:test
 
 # Only build PRs and master
@@ -17,7 +17,6 @@ branches:
         - master
         - /^greenkeeper/.*$/
 
-before_deploy: yarn build:docs
 deploy:
     provider: pages
     local_dir: "./portal/public"
