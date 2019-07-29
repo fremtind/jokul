@@ -10,12 +10,18 @@ interface HeadingProps extends Props {
     level: number;
 }
 
+interface LinkProps extends Props {
+    href: string;
+}
+
 const defaultRenderer = {
     paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p" }, children),
     list: ({ children }: Props) => createElement("ul", { className: "jkl-bullet-list jkl-p" }, children),
     listItem: ({ children }: Props) => createElement("li", { className: "jkl-bullet-list__item" }, children),
     blockquote: ({ children }: Props) =>
         createElement("div", { className: "jkl-message-box jkl-message-box__info" }, children),
+    link: ({ children, href }: LinkProps) =>
+        createElement("a", { className: "jkl-link jkl-link--inline", href }, children),
 };
 
 export const renderer = {

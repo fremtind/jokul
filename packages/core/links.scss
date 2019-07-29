@@ -1,0 +1,33 @@
+@import "./variables/all";
+@import "./functions";
+
+.jkl-link {
+    appearance: none;
+    outline: none;
+    :-moz-focusring {
+        outline: none;
+    }
+    color: currentColor;
+
+    &--inline {
+        html:not([data-mousenavigation]) &:focus {
+            text-decoration-color: $himmel;
+        }
+    }
+
+    &--block {
+        padding-bottom: $component-spacing--xs;
+        text-decoration: none;
+        transition: box-shadow 200ms cubic-bezier(0.7, 0, 0.3, 1);
+        box-shadow: 0 rem(2px) 0 0 currentColor;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 rem(4px) 0 0 currentColor;
+        }
+
+        html:not([data-mousenavigation]) &:focus {
+            box-shadow: 0 rem(4px) 0 0 $himmel;
+        }
+    }
+}
