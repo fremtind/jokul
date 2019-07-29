@@ -6,13 +6,15 @@ import "@fremtind/jkl-datepicker/datepicker.min.css";
 import datepickerType from "!raw-loader!@fremtind/jkl-datepicker-react/build/DatePicker.d.ts";
 
 const example = `<>
-    <DatePicker />
+    <DatePicker initialDate={new Date('August 19, 2024 23:15:30')} />
     <DatePicker
         onlyFuture={false}
-        label="Label kan endres"
-        yearLabel="Denne også"
-        monthLabel="Og denne"
+        label="In english"
+        yearLabel="Year"
+        monthLabel="Month"
         onChange={(date) => console.log(date)}
+        initialShow
+        initialDate={new Date('August 19, 2024 23:15:30')}
     />
 </>`;
 

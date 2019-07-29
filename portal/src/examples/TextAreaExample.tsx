@@ -7,7 +7,11 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 
 const example = `() => {
     const [value, setValue] = React.useState("");
-    return <TextArea label="Fornavn" value={value} onChange={(e) => setValue(e.target.value)} />;
+    return (
+        <>
+            <TextArea label="Livshistorie" value={value} onChange={(e) => setValue(e.target.value)} />
+            <TextArea label="Livshistorie" value="gobjop uvucenli bdachukme sotw uvliljai suibki jocmakocvef ihivusibe nloba bvasowpank ocijuvecgiwom hijub dinmar" />
+        </>);
 }`;
 
 const exampleImport = `import { TextArea } from "@fremtind/jkl-text-input-react";
