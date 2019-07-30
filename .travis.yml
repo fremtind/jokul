@@ -9,6 +9,7 @@ script:
     - yarn lint
     - yarn typecheck
     - yarn ci:test
+skip_cleanup: true
 
 # Only build PRs and master
 # https://stackoverflow.com/questions/31882306/how-to-configure-travis-ci-to-build-pull-requests-merges-to-master-w-o-redunda
@@ -18,16 +19,13 @@ branches:
         - /^greenkeeper/.*$/
 
 deploy:
-    - provider: s3
-      skip_cleanup: true
-      acl: public_read
-    - provider: pages
-      local_dir: "./portal/public"
-      skip_cleanup: true
-      github_token: $GITHUB_TOKEN
-      keep_history: true
-      on:
-          branch: master
+    provider: pages
+    local_dir: "./portal/public"
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    keep_history: true
+    on:
+        branch: master
 
 notifications:
     slack:
