@@ -9,7 +9,6 @@ script:
     - yarn lint
     - yarn typecheck
     - yarn ci:test
-skip_cleanup: true
 
 # Only build PRs and master
 # https://stackoverflow.com/questions/31882306/how-to-configure-travis-ci-to-build-pull-requests-merges-to-master-w-o-redunda
@@ -17,6 +16,10 @@ branches:
     only:
         - master
         - /^greenkeeper/.*$/
+
+after_failure:
+    script:
+        - yarn upload:artifacts
 
 deploy:
     provider: pages

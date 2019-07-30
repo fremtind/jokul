@@ -12,6 +12,8 @@ const example = `
         <>
             <TextField label="Fornavn" value={value} onChange={(e) => setValue(e.target.value)} />
             <TextField label="Fornavn" value="Hannah Hart" />
+            <TextField label="Fornavn" value="Hannah Hart" />
+            <TextField label="Fornavn" value="Hannah Hart" />
         </>
     );
 }`;

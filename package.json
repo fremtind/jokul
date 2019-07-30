@@ -19,7 +19,8 @@
         "prerelease": "yarn build",
         "release": "lerna publish",
         "visual:test": "jest -c './jest/jest.visual.js'",
-        "visual:serve": "lerna run --scope @fremtind/portal serve"
+        "visual:serve": "lerna run --scope @fremtind/portal serve",
+        "upload:artifacts": "node ./scripts/s3upload.js"
     },
     "dependencies": {
         "react": "^16.8.6",
@@ -48,6 +49,7 @@
         "@typescript-eslint/eslint-plugin": "^1.9.0",
         "@typescript-eslint/parser": "^1.11.0",
         "autoprefixer": "^9.6.1",
+        "aws-sdk": "^2.502.0",
         "commitizen": "^4.0.1",
         "cssnano": "^4.1.10",
         "cz-lerna-changelog": "^2.0.0",
@@ -57,6 +59,7 @@
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-react": "^7.14.3",
         "gh-pages": "^2.0.1",
+        "glob": "^7.1.4",
         "gulp": "^4.0.2",
         "gulp-postcss": "^8.0.0",
         "gulp-rename": "^1.4.0",
