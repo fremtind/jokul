@@ -19,8 +19,7 @@
         "prerelease": "yarn build",
         "release": "lerna publish",
         "visual:test": "jest -c './jest/jest.visual.js'",
-        "visual:serve": "lerna run --scope @fremtind/portal serve",
-        "upload:artifacts": "node ./scripts/s3upload.js"
+        "visual:serve": "lerna run --scope @fremtind/portal serve"
     },
     "dependencies": {
         "react": "^16.8.6",
@@ -50,6 +49,7 @@
         "@typescript-eslint/parser": "^1.11.0",
         "autoprefixer": "^9.6.1",
         "aws-sdk": "^2.502.0",
+        "chalk": "^2.4.2",
         "commitizen": "^4.0.1",
         "cssnano": "^4.1.10",
         "cz-lerna-changelog": "^2.0.0",

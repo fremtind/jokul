@@ -4,7 +4,7 @@ const AWS = require('aws-sdk');
 const path = require("path");
 const glob = require("glob");
 const nanoid = require('nanoid');
-
+const chalk = require('chalk');
 
 const upload = (file, id) => {
     const fileStream = fs.createReadStream(file);
@@ -24,7 +24,8 @@ const upload = (file, id) => {
         s3.putObject(params, function(err) {
             if (err) console.log(err);
             else {
-                console.log(`Uploaded image diff file to https://${UPLOAD_BUCKET}.s3.eu-north-1.amazonaws.com/${upload_path}`)
+                console.log(chalk.red("Uploaded image diff file to:"));
+                console.log(chalk.bgRed.white(`https://${UPLOAD_BUCKET}.s3.eu-north-1.amazonaws.com/${upload_path}`));
             };
         });
     });
