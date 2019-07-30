@@ -50,7 +50,7 @@ export const profileLinks = [
     makeProfileLink("Farger", "colors"),
     makeProfileLink("Tilgjengelighet", "a11y"),
     makeProfileLink("Stil og tone", "tone"),
-    makeProfileLink("Typograpfi", "typography"),
+    makeProfileLink("Typografi", "typography"),
     makeProfileLink("Bildestil", "picture"),
     makeProfileLink("Ikoner", "icon"),
     makeProfileLink("Sperring", "spacing"),
