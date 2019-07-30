@@ -10,12 +10,6 @@ script:
     - yarn typecheck
     - yarn ci:test
 
-addons:
-    artifacts:
-        s3_region: "eu-north-1"
-        paths:
-            - $(ls **/src/__image_snapshots__/** | tr "\n" ":")
-
 # Only build PRs and master
 # https://stackoverflow.com/questions/31882306/how-to-configure-travis-ci-to-build-pull-requests-merges-to-master-w-o-redunda
 branches:
@@ -24,13 +18,16 @@ branches:
         - /^greenkeeper/.*$/
 
 deploy:
-    provider: pages
-    local_dir: "./portal/public"
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    keep_history: true
-    on:
-        branch: master
+    - provider: s3
+      skip_cleanup: true
+      acl: public_read
+    - provider: pages
+      local_dir: "./portal/public"
+      skip_cleanup: true
+      github_token: $GITHUB_TOKEN
+      keep_history: true
+      on:
+          branch: master
 
 notifications:
     slack:
