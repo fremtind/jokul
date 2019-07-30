@@ -19,13 +19,14 @@ const DropdownDemo = () => {
     return (
         <>
             <Dropdown
+                inline
                 key={c}
                 label="The Room scene"
                 defaultPrompt="Choose your favorite"
                 items={items}
                 onChange={(value) => console.log(`You selected "${value}"!`)}
             />
-            <Dropdown key={d} label="Fødselsår" items={years} initialInputValue="1986" />
+            <Dropdown inline key={d} label="Fødselsår" items={years} initialInputValue="1986" />
 
             <Select label="Standard select" items={items} onChange={(e) => console.log(e.target.value)} />
 

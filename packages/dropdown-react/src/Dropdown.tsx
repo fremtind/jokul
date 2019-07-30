@@ -7,6 +7,7 @@ import { useListNavigation } from "./useListNavigation";
 interface Props {
     label: string;
     items: string[];
+    inline?: boolean;
     defaultPrompt?: string;
     className?: string;
     initialInputValue?: string;
@@ -34,7 +35,15 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     focusedItem && focusedItem.focus();
 }
 
-export const Dropdown = ({ items, initialInputValue, label, onChange, className, defaultPrompt = "Velg" }: Props) => {
+export const Dropdown = ({
+    items,
+    initialInputValue,
+    label,
+    onChange,
+    className,
+    inline = false,
+    defaultPrompt = "Velg",
+}: Props) => {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
@@ -57,7 +66,7 @@ export const Dropdown = ({ items, initialInputValue, label, onChange, className,
         onChange && onChange(e.detail.textContent);
     }
 
-    const classModifiers = `${dropdownIsShown ? " jkl-dropdown--open" : ""}${
+    const classModifiers = `${inline ? " jkl-dropdown--inline" : ""}${dropdownIsShown ? " jkl-dropdown--open" : ""}${
         hasSelectedValue ? "" : " jkl-dropdown--no-value"
     }`;
     return (
