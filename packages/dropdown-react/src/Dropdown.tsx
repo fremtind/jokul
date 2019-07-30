@@ -65,7 +65,12 @@ export const Dropdown = ({ items, initialInputValue, label, onChange, className,
             <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>
-            <button className="jkl-dropdown__value" data-testid="jkl-dropdown__value" aria-haspopup="listbox">
+            <button
+                type="button"
+                className="jkl-dropdown__value"
+                data-testid="jkl-dropdown__value"
+                aria-haspopup="listbox"
+            >
                 {hasSelectedValue ? selectedValue : defaultPrompt}
             </button>
             <CoreToggle
@@ -87,6 +92,7 @@ export const Dropdown = ({ items, initialInputValue, label, onChange, className,
                     {items.map((item) => (
                         <li key={item}>
                             <button
+                                type="button"
                                 id={`${listId}__${lower(item)}`}
                                 className="jkl-dropdown__option"
                                 data-testid="jkl-dropdown__option"
