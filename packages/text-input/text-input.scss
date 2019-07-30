@@ -37,17 +37,24 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
 
 .jkl-text-field {
     display: block;
+    box-sizing: border-box;
     position: relative;
     font-family: inherit;
     width: 100%;
+    height: $input-total-height;
     padding-top: $label-height;
     background-color: $input-bg-color;
-
     margin-bottom: $component-spacing--large;
+
+    &--inline {
+        display: inline-block;
+        vertical-align: bottom;
+    }
 
     &__input {
         border: none;
         outline: none;
+        border-radius: none;
 
         box-sizing: border-box;
         width: 100%;
