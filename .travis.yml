@@ -13,7 +13,7 @@ script:
 addons:
     artifacts:
         s3_region: "eu-north-1"
-         paths:
+        paths:
             - $(ls **/src/__image_snapshots__/** | tr "\n" ":")
 
 # Only build PRs and master
