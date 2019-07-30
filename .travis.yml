@@ -17,9 +17,6 @@ branches:
         - master
         - /^greenkeeper/.*$/
 
-after_failure:
-    script: yarn upload:artifacts
-
 deploy:
     provider: pages
     local_dir: "./portal/public"
