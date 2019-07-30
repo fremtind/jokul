@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.5.2...@fremtind/jkl-dropdown-react@0.6.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **dropdown:** fix autocomplete prop of Select ([46d79be](https://github.com/fremtind/jokul/commit/46d79be))
+* **dropdown:** fixed minor placement issue, update documentation ([6078299](https://github.com/fremtind/jokul/commit/6078299))
+* **dropdown:** make dropdown use passed classname prop ([a212c1d](https://github.com/fremtind/jokul/commit/a212c1d))
+* **dropdown-react:** fix style import in example ([3e6de60](https://github.com/fremtind/jokul/commit/3e6de60))
+* **dropdown-react:** handle tab in open dropdown, code tweaks ([b84582f](https://github.com/fremtind/jokul/commit/b84582f))
+
+
+### Features
+
+* **dropdown:** add plain select version of dropdown ([09b6766](https://github.com/fremtind/jokul/commit/09b6766))
+* **dropdown:** refactor and redesign dropdown ([eeb010d](https://github.com/fremtind/jokul/commit/eeb010d)), closes [#122](https://github.com/fremtind/jokul/issues/122) [#105](https://github.com/fremtind/jokul/issues/105)
+* **dropdown-react:** add prop for default prompt ([cddb234](https://github.com/fremtind/jokul/commit/cddb234))
+* **dropdown-react:** add typeahead and keyboard navigation ([f6e279b](https://github.com/fremtind/jokul/commit/f6e279b))
+
+
+
+
+
 ## [0.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.5.1...@fremtind/jkl-dropdown-react@0.5.2) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-dropdown-react

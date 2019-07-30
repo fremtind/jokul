@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.6.1...@fremtind/jkl-accordion-react@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **accordion:** make accordion 100% width ([d665fab](https://github.com/fremtind/jokul/commit/d665fab))
+
+
+### Features
+
+* **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.6.0...@fremtind/jkl-accordion-react@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion-react

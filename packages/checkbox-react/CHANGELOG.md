@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.5.2...@fremtind/jkl-checkbox-react@0.5.3) (2019-07-30)
+
+
+### Bug Fixes
+
+* **checkbox:** fix style for older browser, add onchange handler ([d2f0497](https://github.com/fremtind/jokul/commit/d2f0497)), closes [#148](https://github.com/fremtind/jokul/issues/148)
+* **checkbox:** refactor default checked to checked ([ae709fa](https://github.com/fremtind/jokul/commit/ae709fa))
+
+
+
+
+
 ## [0.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.5.1...@fremtind/jkl-checkbox-react@0.5.2) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox-react

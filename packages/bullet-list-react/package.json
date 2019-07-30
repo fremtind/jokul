@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-bullet-list-react",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "publishConfig": {
         "access": "public"
     },
@@ -32,7 +32,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-bullet-list": "^0.6.1",
+        "@fremtind/jkl-bullet-list": "^0.7.0",
         "@nrk/core-toggle": "^3.0.4"
     },
     "devDependencies": {

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.6.1...@fremtind/jkl-dropdown@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **css:** fixed import ([014a7df](https://github.com/fremtind/jokul/commit/014a7df))
+* **dropdown:** fixed minor placement issue, update documentation ([6078299](https://github.com/fremtind/jokul/commit/6078299))
+* **dropdown:** make dropdown use passed classname prop ([a212c1d](https://github.com/fremtind/jokul/commit/a212c1d))
+* **dropdown:** remove magic bottom value ([bf05dbe](https://github.com/fremtind/jokul/commit/bf05dbe))
+
+
+### Features
+
+* **dropdown:** add plain select version of dropdown ([09b6766](https://github.com/fremtind/jokul/commit/09b6766))
+* **dropdown:** change hover style to match input/datepicker ([a56f279](https://github.com/fremtind/jokul/commit/a56f279))
+* **dropdown:** clean up variables and reconcile hover styles ([99ebf47](https://github.com/fremtind/jokul/commit/99ebf47))
+* **dropdown:** refactor and redesign dropdown ([eeb010d](https://github.com/fremtind/jokul/commit/eeb010d)), closes [#122](https://github.com/fremtind/jokul/issues/122) [#105](https://github.com/fremtind/jokul/issues/105)
+* **dropdown:** refactor style and fix inconsistent presentation ([e5a3828](https://github.com/fremtind/jokul/commit/e5a3828))
+* **dropdown:** remove scrollbar from short dropdowns ([639a617](https://github.com/fremtind/jokul/commit/639a617))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.6.0...@fremtind/jkl-dropdown@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-dropdown

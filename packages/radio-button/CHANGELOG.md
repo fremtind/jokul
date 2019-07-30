@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.6.1...@fremtind/jkl-radio-button@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **radio-button:** refactor structure to match other components ([d66f256](https://github.com/fremtind/jokul/commit/d66f256))
+* **radio-button:** style fieldset and label correctly ([bc806a7](https://github.com/fremtind/jokul/commit/bc806a7))
+
+
+### Features
+
+* **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.6.0...@fremtind/jkl-radio-button@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button

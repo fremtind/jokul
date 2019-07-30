@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/webpack-consumer-example",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "publishConfig": {
         "access": "public"
     },
@@ -14,7 +14,7 @@
         "dev": "webpack-dev-server --open"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.6.1"
+        "@fremtind/jkl-button": "^0.6.2"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.2",

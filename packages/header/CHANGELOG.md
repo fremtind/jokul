@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-header@0.6.1...@fremtind/jkl-header@0.6.2) (2019-07-30)
+
+
+### Bug Fixes
+
+* **css:** fixed import ([014a7df](https://github.com/fremtind/jokul/commit/014a7df))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-header@0.6.0...@fremtind/jkl-header@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-header

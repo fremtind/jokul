@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.5.2...@fremtind/jkl-typography-react@0.6.0) (2019-07-30)
+
+
+### Features
+
+* **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
+* **typography:** add style and component for links ([9aeac8d](https://github.com/fremtind/jokul/commit/9aeac8d))
+
+
+
+
+
 ## [0.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.5.1...@fremtind/jkl-typography-react@0.5.2) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react

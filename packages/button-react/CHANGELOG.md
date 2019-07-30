@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@0.5.2...@fremtind/jkl-button-react@0.5.3) (2019-07-30)
+
+
+### Bug Fixes
+
+* **button:** add larger desktop buttons ([040030d](https://github.com/fremtind/jokul/commit/040030d)), closes [#117](https://github.com/fremtind/jokul/issues/117)
+
+
+
+
+
 ## [0.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@0.5.1...@fremtind/jkl-button-react@0.5.2) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-button-react

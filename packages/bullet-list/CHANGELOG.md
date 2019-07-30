@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-bullet-list@0.6.1...@fremtind/jkl-bullet-list@0.7.0) (2019-07-30)
+
+
+### Features
+
+* **portal:** document bulletlist ([6d7c1de](https://github.com/fremtind/jokul/commit/6d7c1de))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-bullet-list@0.6.0...@fremtind/jkl-bullet-list@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-bullet-list

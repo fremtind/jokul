@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/parcel-consumer-example",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "publishConfig": {
         "access": "public"
     },
@@ -14,7 +14,7 @@
         "dev": "parcel index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.6.1"
+        "@fremtind/jkl-button": "^0.6.2"
     },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"

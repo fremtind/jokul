@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-header-react",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "publishConfig": {
         "access": "public"
     },
@@ -32,8 +32,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.6.1",
-        "@fremtind/jkl-header": "^0.6.1"
+        "@fremtind/jkl-core": "^0.7.0",
+        "@fremtind/jkl-header": "^0.6.2"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.2",
