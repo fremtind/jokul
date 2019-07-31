@@ -13,6 +13,13 @@ describe("Dropdown", () => {
         expect(options.length).toBe(5);
     });
 
+    it("should be inline when specified", () => {
+        const { getByTestId } = render(<Dropdown inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+
+        const dropdown = getByTestId("jkl-dropdown");
+        expect(dropdown).toHaveClass("jkl-dropdown--inline");
+    });
+
     it("should set inital value as input value", () => {
         const onChange = jest.fn();
         const initialInput = "drop";

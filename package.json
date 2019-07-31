@@ -12,7 +12,7 @@
         "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint": "yarn run lint:formatting && yarn run lint:scripts",
         "ci:test": "npm-run-all --parallel test test:integration",
-        "test": "run-p test:*",
+        "test": "run-p test:unit test:integration",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "test:visual": "run-s predeploy:docs visual:test",
         "test:integration": "lerna run --scope @fremtind/*-consumer-example test:integration",

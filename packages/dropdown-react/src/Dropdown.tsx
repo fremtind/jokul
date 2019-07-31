@@ -7,6 +7,7 @@ import { useListNavigation } from "./useListNavigation";
 interface Props {
     label: string;
     items: string[];
+    inline?: boolean;
     defaultPrompt?: string;
     className?: string;
     initialInputValue?: string;
@@ -41,6 +42,7 @@ export const Dropdown = ({
     label,
     onChange,
     className,
+    inline = false,
     defaultPrompt = "Velg",
     initialShow = false,
 }: Props) => {
@@ -66,15 +68,20 @@ export const Dropdown = ({
         onChange && onChange(e.detail.textContent);
     }
 
-    const classModifiers = `${dropdownIsShown ? " jkl-dropdown--open" : ""}${
+    const classModifiers = `${inline ? " jkl-dropdown--inline" : ""}${dropdownIsShown ? " jkl-dropdown--open" : ""}${
         hasSelectedValue ? "" : " jkl-dropdown--no-value"
     }`;
     return (
-        <div className={`jkl-dropdown${classModifiers} ${className ? className : ""}`}>
+        <div data-testid="jkl-dropdown" className={`jkl-dropdown${classModifiers} ${className ? className : ""}`}>
             <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>
-            <button className="jkl-dropdown__value" data-testid="jkl-dropdown__value" aria-haspopup="listbox">
+            <button
+                type="button"
+                className="jkl-dropdown__value"
+                data-testid="jkl-dropdown__value"
+                aria-haspopup="listbox"
+            >
                 {hasSelectedValue ? selectedValue : defaultPrompt}
             </button>
             <CoreToggle
@@ -96,6 +103,7 @@ export const Dropdown = ({
                     {items.map((item) => (
                         <li key={item}>
                             <button
+                                type="button"
                                 id={`${listId}__${lower(item)}`}
                                 className="jkl-dropdown__option"
                                 data-testid="jkl-dropdown__option"
