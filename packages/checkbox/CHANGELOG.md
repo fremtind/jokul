@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.7.0...@fremtind/jkl-checkbox@0.7.1) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox
+
+
+
+
+
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.6.1...@fremtind/jkl-checkbox@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **checkbox:** fix style for older browser, add onchange handler ([d2f0497](https://github.com/fremtind/jokul/commit/d2f0497)), closes [#148](https://github.com/fremtind/jokul/issues/148)
+
+
+### Features
+
+* **portal:** document checkbox ([1c038e5](https://github.com/fremtind/jokul/commit/1c038e5))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.6.0...@fremtind/jkl-checkbox@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox

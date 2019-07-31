@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.7.0...@fremtind/jkl-datepicker-react@0.7.1) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.6.1...@fremtind/jkl-datepicker-react@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **datepicker:** minor css fixes ([fc924bc](https://github.com/fremtind/jokul/commit/fc924bc))
+* **datepicker:** update according to changes in text-input ([1284e98](https://github.com/fremtind/jokul/commit/1284e98))
+
+
+### Features
+
+* **datepicker-react:** use select from jkl-dropdown for month picker ([b57ff76](https://github.com/fremtind/jokul/commit/b57ff76))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.6.0...@fremtind/jkl-datepicker-react@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker-react

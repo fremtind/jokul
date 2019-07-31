@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-header",
-    "version": "0.6.1",
+    "version": "0.6.3",
     "publishConfig": {
         "access": "public"
     },
@@ -23,10 +23,10 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.6.1"
+        "@fremtind/jkl-core": "^0.7.1"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.2"
+        "@fremtind/browserslist-config-jkl": "^0.3.3"
     },
     "repository": {
         "type": "git",

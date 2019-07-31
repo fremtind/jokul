@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.7.0...@fremtind/jkl-core@0.7.1) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.6.1...@fremtind/jkl-core@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **core:** remove unused font sizes ([d81a26a](https://github.com/fremtind/jokul/commit/d81a26a))
+* **core:** ship font inline ([06b4d48](https://github.com/fremtind/jokul/commit/06b4d48))
+* **core:** update font-family in [@font-face](https://github.com/font-face) to name used in styles ([01fcb2f](https://github.com/fremtind/jokul/commit/01fcb2f))
+* **css:** add zindexscale and shaddow ([87e526f](https://github.com/fremtind/jokul/commit/87e526f))
+* **font:** add regular font ([b5aaf4b](https://github.com/fremtind/jokul/commit/b5aaf4b))
+* **tablistener:** only listen to Tab key, not arrows ([27ba820](https://github.com/fremtind/jokul/commit/27ba820))
+
+
+### Features
+
+* **hambuger:** add clickoutside option ([607403f](https://github.com/fremtind/jokul/commit/607403f))
+* **hamburger:** add animated hamburger to us as main menu ([79eb9f2](https://github.com/fremtind/jokul/commit/79eb9f2))
+* **motion:** add motion to core ([bbd7cb3](https://github.com/fremtind/jokul/commit/bbd7cb3)), closes [#35](https://github.com/fremtind/jokul/issues/35)
+* **typography:** add style and component for links ([9aeac8d](https://github.com/fremtind/jokul/commit/9aeac8d))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.6.0...@fremtind/jkl-core@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-core
