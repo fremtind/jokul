@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@0.7.0...@fremtind/jkl-divider-line@0.7.1) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/jkl-divider-line
+
+
+
+
+
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@0.6.1...@fremtind/jkl-divider-line@0.7.0) (2019-07-30)
+
+
+### Features
+
+* **nanoid:** replace uuid with nanoid, fixed dividerline ([6e1c231](https://github.com/fremtind/jokul/commit/6e1c231)), closes [#186](https://github.com/fremtind/jokul/issues/186)
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@0.6.0...@fremtind/jkl-divider-line@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-divider-line

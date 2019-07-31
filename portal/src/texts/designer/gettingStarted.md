@@ -1,7 +1,9 @@
 ## Kom i gang
 
 Er du utvikler eller designer og ivrig etter å komme i gang, finner du de ressursene du trenger her. Vi ønsker at det skal være så enkelt så mulig for dere å ta i bruk Jøkul.
-Om Jøkul
+
+### Om Jøkul
+
 Jøkul er designsystemtet for Fremtind. Det utvikles stadig og målet med systemet er at det skal gjøre det lettere for alle i Fremtid å utvikle og vedlikeholde løsningene sine.
 For at Jøkul skal kunne oppfylle det målet, er det viktig at teamene som bruker Jøkul bidrar tilbake.
 

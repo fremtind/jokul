@@ -110,6 +110,16 @@
         "doc",
         "review"
       ]
+    },
+    {
+      "login": "Mikkelinski",
+      "name": "Mikkel Blytt",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/8458054?v=4",
+      "profile": "https://github.com/Mikkelinski",
+      "contributions": [
+        "design",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
