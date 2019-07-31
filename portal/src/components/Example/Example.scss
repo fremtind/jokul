@@ -4,6 +4,7 @@
 .portal-content__example {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-around; // For IE & Edge
     justify-content: space-evenly;
     padding: $layout-spacing--large;

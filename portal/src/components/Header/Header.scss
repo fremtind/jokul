@@ -6,6 +6,10 @@
     right: 0;
     margin: $layout-spacing--medium $layout-spacing--large 0 0;
 
+    @include small-device {
+        margin: 0;
+    }
+
     &__title {
         margin-bottom: 0;
         padding: $layout-spacing--small;

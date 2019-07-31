@@ -1,4 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $portal-max-width: 1200px;
 
@@ -12,8 +13,13 @@ $portal-max-width: 1200px;
     box-sizing: border-box;
     padding: $layout-spacing--xxl $layout-spacing--xl;
     max-width: $portal-max-width;
+
+    @include small-device {
+        padding: $layout-spacing--xxl $layout-spacing--small;
+    }
+
     &--component {
-        max-width: 100%;
+        max-width: 100vw;
         padding: $layout-spacing--xxl 0 0;
     }
 
@@ -21,6 +27,7 @@ $portal-max-width: 1200px;
         display: flex;
         align-items: center;
         margin-bottom: $layout-spacing--medium;
+        max-width: 100vw;
     }
 
     &__title {
@@ -28,11 +35,17 @@ $portal-max-width: 1200px;
     }
     &__main-example {
         padding: 0 $layout-spacing--large;
+        @include small-device {
+            padding: 0;
+        }
     }
     &__rest {
         padding: 0 $layout-spacing--large;
         & > * {
             max-width: $portal-max-width;
+        }
+        @include small-device {
+            padding: 0 $layout-spacing--small;
         }
     }
     &__code-links {

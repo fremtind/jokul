@@ -9,6 +9,10 @@
     background-color: $snøhvit;
     box-sizing: border-box;
 
+    @include small-device {
+        width: initial;
+    }
+
     &--full {
         width: 100%;
     }

@@ -20,8 +20,10 @@ $circle-size: rem(100px);
         @include position(absolute !important, $top: 0, $left: 0);
         z-index: -1;
         width: 100%;
+        @include small-device {
+            height: 100%;
+        }
         @media (min-width: $mountain-overlap-text) {
-            background-color: transparent;
             filter: blur(5px);
         }
     }
@@ -34,10 +36,12 @@ $circle-size: rem(100px);
         @media (min-width: $mountain-overlap-text) {
             background-color: transparent;
         }
-        @media (min-width: 0) and (max-width: $mountain-collapse-width) {
+        @include small-device {
             position: relative;
             top: 0;
-            margin: 0 0 $layout-spacing--xxl;
+            margin: 0px (-$layout-spacing--xl) $layout-spacing--large;
+            box-sizing: border-box;
+            padding: $layout-spacing--small $layout-spacing--small $layout-spacing--large $layout-spacing--small;
         }
     }
     &__content {
@@ -45,11 +49,15 @@ $circle-size: rem(100px);
         background-color: $content-bg-color;
         color: $content-color;
         padding: $layout-spacing--large;
-        @media (min-width: 0) and (max-width: $mountain-collapse-width) {
+        @include small-device {
             position: relative;
             top: 0;
-            margin: 0 -6.5rem;
+            margin: -$layout-spacing--xl;
+            width: 100vw;
+            box-sizing: border-box;
+            padding: $layout-spacing--large $layout-spacing--small;
         }
+
         &::before {
             @include position(absolute, $top: -#{$circle-size/2}, $left: calc(50% - #{$circle-size/2}));
             content: "▼";
@@ -67,4 +75,8 @@ $circle-size: rem(100px);
             max-width: $content-max-width;
         }
     }
+}
+pre {
+    max-width: 80vw;
+    overflow: auto;
 }

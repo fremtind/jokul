@@ -21,9 +21,6 @@ $menu-width: rem(320px);
     & .portal-header__title > a {
         color: $snøhvit;
     }
-    & .portal-content__example {
-        background-color: transparent;
-    }
     & .portal-main__hero {
         background-color: rgba($matt-svart, 0.7);
     }
@@ -63,6 +60,8 @@ $menu-width: rem(320px);
     }
 
     &--closed {
+        height: 0;
+        width: 0;
         & > .portal-menu__bar {
             box-shadow: none;
             transform: translateX(-$menu-width);
