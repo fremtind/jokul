@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.7.0...@fremtind/portal@0.7.1) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.6.0...@fremtind/portal@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **checkbox:** fix style for older browser, add onchange handler ([d2f0497](https://github.com/fremtind/jokul/commit/d2f0497)), closes [#148](https://github.com/fremtind/jokul/issues/148)
+* **checkbox:** refactor default checked to checked ([ae709fa](https://github.com/fremtind/jokul/commit/ae709fa))
+* **hamburger:** fix example, change bg color on example in portal ([f1cbad0](https://github.com/fremtind/jokul/commit/f1cbad0))
+* **portal:** add loader to links ([b7c4849](https://github.com/fremtind/jokul/commit/b7c4849))
+* **portal:** align github and figma links in menu ([c7eb8ec](https://github.com/fremtind/jokul/commit/c7eb8ec))
+* **portal:** fixed image import, taborder in menu ([9c6e25a](https://github.com/fremtind/jokul/commit/9c6e25a))
+* **portal:** hide type for dividerline ([ff689a4](https://github.com/fremtind/jokul/commit/ff689a4))
+
+
+### Features
+
+* **messagebox:** add warning msgbox, add wc info in portal ([56da82f](https://github.com/fremtind/jokul/commit/56da82f))
+* **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
+* **portal:** add github links, add figma iframe to button ([7ee6c19](https://github.com/fremtind/jokul/commit/7ee6c19))
+* **portal:** add types to examples in portal ([625f169](https://github.com/fremtind/jokul/commit/625f169))
+* **portal:** document bulletlist ([6d7c1de](https://github.com/fremtind/jokul/commit/6d7c1de))
+* **portal:** document card ([d3e7033](https://github.com/fremtind/jokul/commit/d3e7033))
+* **portal:** document checkbox ([1c038e5](https://github.com/fremtind/jokul/commit/1c038e5))
+* **portal:** document divider line ([620740d](https://github.com/fremtind/jokul/commit/620740d))
+* **portal:** document loader ([5f83159](https://github.com/fremtind/jokul/commit/5f83159))
+* **portal:** fix styling of devloper pages ([988a90b](https://github.com/fremtind/jokul/commit/988a90b))
+* **portal:** update design, layout and front page ([6c4d018](https://github.com/fremtind/jokul/commit/6c4d018))
+* **typography:** add style and component for links ([9aeac8d](https://github.com/fremtind/jokul/commit/9aeac8d))
+
+
+
+
+
 # [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.5.0...@fremtind/portal@0.6.0) (2019-07-18)
 
 

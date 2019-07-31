@@ -17,6 +17,7 @@ branches:
         - master
         - /^greenkeeper/.*$/
 
+before_deploy: yarn build:docs
 deploy:
     provider: pages
     local_dir: "./portal/public"
