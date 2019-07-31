@@ -14,6 +14,8 @@ interface Props {
     label?: string;
     monthLabel?: string;
     yearLabel?: string;
+    months?: string[];
+    days?: string[];
     initialDate?: Date;
     onChange?: (date: Date) => void;
     onlyFuture?: boolean;
@@ -23,6 +25,8 @@ export function DatePicker({
     label = "Velg dato",
     monthLabel = "Måned",
     yearLabel = "År",
+    months,
+    days,
     initialDate = new Date(),
     onChange,
     onlyFuture = true,
@@ -51,6 +55,8 @@ export function DatePicker({
             <CoreToggle hidden popup>
                 <CoreDatepicker
                     timestamp={date.getTime()}
+                    months={months}
+                    days={days}
                     disabled={onlyFuture ? (date: number) => date <= today : onlyFuture}
                     onDatepickerChange={onDateChange}
                     className="jkl-datepicker__calendar"

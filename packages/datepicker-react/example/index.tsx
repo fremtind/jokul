@@ -6,6 +6,22 @@ import { DatePicker } from "../src";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-core/normalize.css";
 
+const englishMonthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+];
+const englishDayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
 const App = () => (
     <>
         <div style={{ margin: "20px" }}>
@@ -15,6 +31,8 @@ const App = () => (
             <DatePicker
                 onlyFuture={false}
                 initialDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
+                months={englishMonthNames}
+                days={englishDayNames}
             />
         </div>
         <div style={{ margin: "20px" }}>
