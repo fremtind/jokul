@@ -8,7 +8,7 @@ script:
     - yarn build
     - yarn lint
     - yarn typecheck
-    - yarn test:ci
+    - yarn ci:test
 
 # Only build PRs and master
 # https://stackoverflow.com/questions/31882306/how-to-configure-travis-ci-to-build-pull-requests-merges-to-master-w-o-redunda
@@ -17,7 +17,6 @@ branches:
         - master
         - /^greenkeeper/.*$/
 
-before_deploy: yarn build:docs
 deploy:
     provider: pages
     local_dir: "./portal/public"

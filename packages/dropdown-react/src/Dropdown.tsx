@@ -11,6 +11,7 @@ interface Props {
     className?: string;
     initialInputValue?: string;
     onChange?: (value: string) => void;
+    initialShow?: boolean;
 }
 
 interface CoreToggleSelectEvent {
@@ -34,9 +35,17 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     focusedItem && focusedItem.focus();
 }
 
-export const Dropdown = ({ items, initialInputValue, label, onChange, className, defaultPrompt = "Velg" }: Props) => {
+export const Dropdown = ({
+    items,
+    initialInputValue,
+    label,
+    onChange,
+    className,
+    defaultPrompt = "Velg",
+    initialShow = false,
+}: Props) => {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
-    const [dropdownIsShown, setShown] = useState(false);
+    const [dropdownIsShown, setShown] = useState(initialShow);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
