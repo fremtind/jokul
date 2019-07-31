@@ -11,7 +11,7 @@
         "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
         "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint": "yarn run lint:formatting && yarn run lint:scripts",
-        "ci:test": "npm-run-all test:visual --parallel test test:integration",
+        "ci:test": "npm-run-all --parallel test test:integration",
         "test": "run-p test:*",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "test:visual": "run-s predeploy:docs visual:test",

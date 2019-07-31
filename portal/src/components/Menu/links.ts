@@ -13,6 +13,7 @@ const makeProfileLink = (title: string, page: string) => makeLink(title, page, "
 export const developerLinks = [
     makeDeveloperLink("Kom i gang", "getting-started"),
     makeDeveloperLink("Bidragsguide", "contribute"),
+    makeDeveloperLink("Testguide", "test"),
 ];
 
 export const designerLinks = [makeDesignerLink("Kom i gang", "getting-started")];

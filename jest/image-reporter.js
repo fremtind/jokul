@@ -3,7 +3,6 @@ const fs = require('fs');
 const AWS = require('aws-sdk');
 const path = require("path");
 const glob = require("glob");
-const nanoid = require('nanoid');
 const chalk = require('chalk');
 
 const upload = (file, id) => {
@@ -39,12 +38,12 @@ class ImageReporter {
   }
 
   onTestResult(_, testResult) {
-    if (testResult.numFailingTests && testResult.failureMessage.match(/different from snapshot/)) {
+    if (process.env.TRAVIS && testResult.numFailingTests && testResult.failureMessage.match(/different from snapshot/)) {
         glob("./packages/**/__image_snapshots__/__diff_output__/*.png", {}, function(err, files) {
             if (err) {
                 return console.error("error", err);
             }
-            files.forEach( (image) => upload(image, nanoid()));
+            files.forEach( (image) => upload(image, process.env.TRAVIS_BUILD_NUMBER));
         });
     }
   }
