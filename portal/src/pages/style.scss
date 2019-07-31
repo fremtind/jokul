@@ -4,6 +4,8 @@
 
 $hero-size: rem(700px);
 $hero-top-offset: rem(225px);
+$mountain-overlap-text: rem(1600px);
+$mountain-collapse-width: rem(800px);
 
 $content-bg-color: $varm-fjellgrå;
 $content-color: $snøhvit;
@@ -18,6 +20,10 @@ $circle-size: rem(100px);
         @include position(absolute !important, $top: 0, $left: 0);
         z-index: -1;
         width: 100%;
+        @media (min-width: $mountain-overlap-text) {
+            background-color: transparent;
+            filter: blur(5px);
+        }
     }
     &__hero {
         @include position(absolute, $top: $hero-top-offset, $left: 0);
@@ -25,9 +31,13 @@ $circle-size: rem(100px);
         padding: $layout-spacing--small $layout-spacing--medium;
         margin: 0 $layout-spacing--large;
         background-color: rgba($snøhvit, 0.7);
-
-        @include xl-device {
+        @media (min-width: $mountain-overlap-text) {
             background-color: transparent;
+        }
+        @media (min-width: 0) and (max-width: $mountain-collapse-width) {
+            position: relative;
+            top: 0;
+            margin: 0 0 $layout-spacing--xxl;
         }
     }
     &__content {
@@ -35,6 +45,11 @@ $circle-size: rem(100px);
         background-color: $content-bg-color;
         color: $content-color;
         padding: $layout-spacing--large;
+        @media (min-width: 0) and (max-width: $mountain-collapse-width) {
+            position: relative;
+            top: 0;
+            margin: 0 -6.5rem;
+        }
         &::before {
             @include position(absolute, $top: -#{$circle-size/2}, $left: calc(50% - #{$circle-size/2}));
             content: "▼";

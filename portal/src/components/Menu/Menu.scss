@@ -6,8 +6,33 @@
 $toggler-size: rem(56px);
 $menu-width: rem(320px);
 
+.portal-dark {
+    background-color: $matt-svart;
+    color: $snøhvit;
+    & .jkl-message-box {
+        color: $svart;
+    }
+    & .portal-content__section--copy {
+        color: $snøhvit;
+    }
+    & .portal-header {
+        background-color: $matt-svart;
+    }
+    & .portal-header__title > a {
+        color: $snøhvit;
+    }
+    & .portal-content__example {
+        background-color: transparent;
+    }
+    & .portal-main__hero {
+        background-color: rgba($matt-svart, 0.7);
+    }
+}
+
 .portal-menu {
     z-index: 1;
+    height: 100vh;
+    position: fixed;
     &__bar {
         box-sizing: border-box;
         min-height: 100vh;
@@ -19,6 +44,7 @@ $menu-width: rem(320px);
         transition-property: transform, box-shadow;
         @include motion(standard, expressive);
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+        overflow: auto;
     }
 
     &__toggler {

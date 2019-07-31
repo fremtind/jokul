@@ -6,6 +6,11 @@
     right: 0;
     margin: $layout-spacing--medium $layout-spacing--large 0 0;
 
+    &__title {
+        margin-bottom: 0;
+        padding: $layout-spacing--small;
+    }
+
     &__title > a {
         color: $svart;
         text-decoration: none;

@@ -5,12 +5,12 @@ $portal-max-width: 1200px;
 /* This is the main container (@reach/router within gatsby wrapper) */
 #___gatsby > div[role="group"][tabindex] {
     display: grid;
-    grid-template-columns: 0 1fr;
+    grid-template-columns: 1fr;
 }
 
 .portal-content {
     box-sizing: border-box;
-    padding: $layout-spacing--xxl $layout-spacing--large;
+    padding: $layout-spacing--xxl $layout-spacing--xl;
     max-width: $portal-max-width;
     &--component {
         max-width: 100%;
@@ -30,7 +30,7 @@ $portal-max-width: 1200px;
         padding: 0 $layout-spacing--large;
     }
     &__rest {
-        padding: $layout-spacing--large;
+        padding: 0 $layout-spacing--large;
         & > * {
             max-width: $portal-max-width;
         }
