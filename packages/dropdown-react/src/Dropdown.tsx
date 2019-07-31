@@ -70,7 +70,7 @@ export const Dropdown = ({
         hasSelectedValue ? "" : " jkl-dropdown--no-value"
     }`;
     return (
-        <div className={`jkl-dropdown${classModifiers} ${className ? className : ""}`}>
+        <div data-testid="jkl-dropdown" className={`jkl-dropdown${classModifiers} ${className ? className : ""}`}>
             <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>
