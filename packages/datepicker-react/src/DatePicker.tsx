@@ -19,6 +19,7 @@ interface Props {
     initialDate?: Date;
     onChange?: (date: Date) => void;
     onlyFuture?: boolean;
+    initialShow?: boolean;
 }
 
 export function DatePicker({
@@ -30,9 +31,11 @@ export function DatePicker({
     initialDate = new Date(),
     onChange,
     onlyFuture = true,
+    initialShow = false,
 }: Props) {
     const [today] = useState(Date.now() - (Date.now() % 864e3));
     const [date, setDate] = useState(initialDate);
+    const [showPicker, togglePicker] = useState(initialShow);
 
     const onDateChange = (e: ChangeEvent<ChangeDate>) => {
         if (onChange) {
@@ -40,6 +43,7 @@ export function DatePicker({
         }
         setDate(e.target.date);
     };
+    const toggle = () => togglePicker(!showPicker);
 
     return (
         <div className="jkl-datepicker">
@@ -52,7 +56,7 @@ export function DatePicker({
                     data-testid="jkl-datepicker-input"
                 />
             </button>
-            <CoreToggle hidden popup>
+            <CoreToggle hidden={!showPicker} popup onToggle={toggle}>
                 <CoreDatepicker
                     timestamp={date.getTime()}
                     months={months}

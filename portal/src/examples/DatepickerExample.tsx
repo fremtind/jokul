@@ -35,6 +35,8 @@ const example = `<>
                 "Sun"
             ]}
             onChange={(date) => console.log(date)}
+            initialShow
+            initialDate={new Date('August 19, 2024 23:15:30')}
         />
     </>`;
 

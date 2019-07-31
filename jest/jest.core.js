@@ -15,6 +15,5 @@ module.exports = {
     notify: true,
     notifyMode: "always",
     roots: ["../packages", "../portal"],
-    setupFilesAfterEnv: ["./setupTests.ts"],
 };
 /* eslint-enable */

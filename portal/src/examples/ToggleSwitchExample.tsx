@@ -10,9 +10,14 @@ const example = `
     const [gpsIsOn, setGpsIsOn] = React.useState(false);
     
     return (
-        <ToggleSwitch checked={gpsIsOn} onChange={() => setGpsIsOn(!gpsIsOn)}>
-            GPS
-        </ToggleSwitch>
+        <>
+            <ToggleSwitch checked={gpsIsOn} onChange={() => setGpsIsOn(!gpsIsOn)}>
+                GPS
+            </ToggleSwitch>
+            <ToggleSwitch checked={!gpsIsOn} onChange={() => setGpsIsOn(!gpsIsOn)}>
+                Glosnas
+            </ToggleSwitch>
+        </>
     );
 }`;
 
