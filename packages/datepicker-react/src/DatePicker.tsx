@@ -47,7 +47,7 @@ export function DatePicker({
 
     return (
         <div className="jkl-datepicker">
-            <button className="jkl-datepicker__toggler" data-testid="jkl-datepicker-toggler">
+            <button type="button" className="jkl-datepicker__toggler" data-testid="jkl-datepicker-toggler">
                 <TextField
                     label={label}
                     type="text"
