@@ -20,7 +20,7 @@ Per nå er støtten for web components i testrammeverket ganske tynn, så kompon
 
 ### Integrasjonstester
 
-> `/*-consumer-example`
+> `*-consumer-example`
 >
 > Disse er lagt for å kunne plukke opp alvorlige feil i byggprosessen.
 
@@ -36,4 +36,4 @@ For å unngå å bruke masse tid på å lete etter regresjon i Jøkul ved hver u
 
 Dersom en utvikler eksempelvis endrer stilen til knapp-komponenten, og det viser seg at det er en ukjent avhengighet mellom knappen og hamburgermenykomponenten, vil sistnevnte også endre seg. Da vil disse testene vise den visuelle differansen.
 
-Testene skal ligge sammen med koden, og de visuelle regresjonstestene har postfikset `.spec.ts(x)`. Testresultatene ligger under `/__image_snapshots__`.
+Testene skal ligge sammen med koden, og de visuelle regresjonstestene har postfikset `.spec.ts(x)`. Testresultatene ligger under `__image_snapshots__`.
