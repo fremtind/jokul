@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "0.0.1",
+    "version": "0.1.1",
     "description": "Jøkul react toggle switch component",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
@@ -34,11 +34,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-toggle-switch": "^0.0.1"
+        "@fremtind/jkl-toggle-switch": "^0.1.1"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.2",
-        "@fremtind/jkl-core": "^0.6.1",
+        "@fremtind/browserslist-config-jkl": "^0.3.3",
+        "@fremtind/jkl-core": "^0.7.1",
         "npm-run-all": "^4.1.5"
     },
     "peerDependencies": {

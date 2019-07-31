@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.7.0...@fremtind/jkl-message-box@0.7.1) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/jkl-message-box
+
+
+
+
+
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.6.1...@fremtind/jkl-message-box@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **message-box:** dont let it grow beoynd its size ([9f3be1b](https://github.com/fremtind/jokul/commit/9f3be1b))
+
+
+### Features
+
+* **messagebox:** add warning msgbox, add wc info in portal ([56da82f](https://github.com/fremtind/jokul/commit/56da82f))
+* **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.6.0...@fremtind/jkl-message-box@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box

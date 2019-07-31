@@ -8,6 +8,7 @@ import dropdownType from "!raw-loader!@fremtind/jkl-dropdown-react/build/Dropdow
 const example = `
     <>
         <Dropdown label="Merke" items={["Mercedes", "Opel", "Skoda"]} />
+        <Dropdown label="Merke" items={["Mercedes", "Opel", "Skoda"]} initialShow />
         <Dropdown
             label="Home type"
             defaultPrompt="Choose" // for screen readers

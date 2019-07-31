@@ -12,6 +12,7 @@ interface Props {
     className?: string;
     initialInputValue?: string;
     onChange?: (value: string) => void;
+    initialShow?: boolean;
 }
 
 interface CoreToggleSelectEvent {
@@ -43,9 +44,10 @@ export const Dropdown = ({
     className,
     inline = false,
     defaultPrompt = "Velg",
+    initialShow = false,
 }: Props) => {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
-    const [dropdownIsShown, setShown] = useState(false);
+    const [dropdownIsShown, setShown] = useState(initialShow);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();

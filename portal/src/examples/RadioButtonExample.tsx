@@ -8,7 +8,7 @@ import radioButtonType from "!raw-loader!@fremtind/jkl-radio-button-react/build/
 import radioButtonChoiceType from "!raw-loader!@fremtind/jkl-radio-button-react/build/RadioButtonChoice.d.ts";
 
 const example = `() => {
-    const [selectedValue, setSelectedValue] = React.useState("Yes");
+    const [selectedValue, setSelectedValue] = React.useState("No");
     return (
         <RadioButtonChoice
             legend="Do you like radio buttons?"

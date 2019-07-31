@@ -8,7 +8,12 @@ import textFieldType from "!raw-loader!@fremtind/jkl-text-input-react/build/Text
 const example = `
 () => {
     const [value, setValue] = React.useState("");
-    return <TextField label="Fornavn" value={value} onChange={(e) => setValue(e.target.value)} />;
+    return (
+        <>
+            <TextField label="Fornavn" value={value} onChange={(e) => setValue(e.target.value)} />
+            <TextField label="Fornavn" value="Hannah Hart" />
+        </>
+    );
 }`;
 
 const exampleImport = `

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.7.0...@fremtind/jkl-text-input@0.7.1) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.6.1...@fremtind/jkl-text-input@0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **css:** fixed import ([014a7df](https://github.com/fremtind/jokul/commit/014a7df))
+* **datepicker:** update according to changes in text-input ([1284e98](https://github.com/fremtind/jokul/commit/1284e98))
+* **text-input:** show underline in mobile Safari ([26f909d](https://github.com/fremtind/jokul/commit/26f909d))
+
+
+### Features
+
+* **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
+* **text-input:** update style according to sketches ([d60c022](https://github.com/fremtind/jokul/commit/d60c022))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.6.0...@fremtind/jkl-text-input@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input
