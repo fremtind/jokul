@@ -35,6 +35,9 @@ $menu-width: rem(320px);
     & .portal-content__example {
         color: initial;
     }
+    & .portal-icon {
+        color: $himmelgrå;
+    }
 }
 
 .portal-menu {
@@ -53,6 +56,10 @@ $menu-width: rem(320px);
         @include motion(standard, expressive);
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
         overflow: auto;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     &__toggler {

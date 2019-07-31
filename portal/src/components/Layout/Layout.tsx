@@ -12,7 +12,7 @@ import { Menu } from "../Menu/Menu";
 import "./Layout.scss";
 
 const getTheme = () => {
-    if (typeof window !== undefined) {
+    if (typeof window !== `undefined`) {
         return window.localStorage.getItem("portal-theme") || "light";
     }
     return "light";
