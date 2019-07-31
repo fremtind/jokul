@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "dependencies": {
         "@types/prismjs": "^1.16.0",
         "gatsby": "^2.11.7",

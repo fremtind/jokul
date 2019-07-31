@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/parcel-consumer-example",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "publishConfig": {
         "access": "public"
     },
@@ -14,13 +14,13 @@
         "dev": "parcel index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.6.2"
+        "@fremtind/jkl-button": "^0.6.3"
     },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
     "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe",
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.2"
+        "@fremtind/browserslist-config-jkl": "^0.3.3"
     }
 }

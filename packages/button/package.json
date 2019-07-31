@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "publishConfig": {
         "access": "public"
     },
@@ -26,10 +26,10 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.7.0"
+        "@fremtind/jkl-core": "^0.7.1"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.2"
+        "@fremtind/browserslist-config-jkl": "^0.3.3"
     },
     "repository": {
         "type": "git",

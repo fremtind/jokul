@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@0.6.2...@fremtind/jkl-button@0.6.3) (2019-07-31)
+
+**Note:** Version bump only for package @fremtind/jkl-button
+
+
+
+
+
 ## [0.6.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@0.6.1...@fremtind/jkl-button@0.6.2) (2019-07-30)
 
 
