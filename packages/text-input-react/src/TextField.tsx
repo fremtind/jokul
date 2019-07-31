@@ -3,6 +3,7 @@ import React, { ChangeEvent } from "react";
 interface Props {
     label: string;
     value?: string;
+    inline?: boolean;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     isInvalid?: boolean;
@@ -15,6 +16,7 @@ interface Props {
 
 export const TextField = ({
     type = "text",
+    inline = false,
     isInvalid = false,
     readOnly = false,
     id,
@@ -22,7 +24,10 @@ export const TextField = ({
     className = "",
     ...rest
 }: Props) => (
-    <label className={`jkl-text-field ${className}`}>
+    <label
+        data-testid="jkl-text-field"
+        className={`jkl-text-field${inline ? " jkl-text-field--inline" : ""} ${className}`}
+    >
         <input
             type={type}
             aria-invalid={isInvalid}
