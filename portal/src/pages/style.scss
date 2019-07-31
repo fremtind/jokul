@@ -5,7 +5,6 @@
 $hero-size: rem(700px);
 $hero-top-offset: rem(225px);
 $mountain-overlap-text: rem(1600px);
-$mountain-collapse-width: rem(800px);
 
 $content-bg-color: $varm-fjellgrå;
 $content-color: $snøhvit;
@@ -39,7 +38,7 @@ $circle-size: rem(100px);
         @include small-device {
             position: relative;
             top: 0;
-            margin: 0px (-$layout-spacing--xl) $layout-spacing--large;
+            margin: 0;
             box-sizing: border-box;
             padding: $layout-spacing--small $layout-spacing--small $layout-spacing--large $layout-spacing--small;
         }
@@ -52,8 +51,7 @@ $circle-size: rem(100px);
         @include small-device {
             position: relative;
             top: 0;
-            margin: -$layout-spacing--xl;
-            width: 100vw;
+            margin: 0;
             box-sizing: border-box;
             padding: $layout-spacing--large $layout-spacing--small;
         }

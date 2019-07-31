@@ -35,7 +35,7 @@ export function Example({ exampleComponents, exampleCode, type, types, exampleIm
             <LivePreview className="portal-content__example" />
             <Accordion>
                 <AccordionItem title="Kode">
-                    <LiveEditor />
+                    <LiveEditor className="portal-content__code" />
                     <LiveError />
                     {exampleImport && (
                         <button onClick={copyImport} className="portal-content__section portal-content__section--copy">

@@ -31,7 +31,9 @@ interface Props {
 const Section = ({ title, example, link }: Props) => (
     <section>
         <h2 className="jkl-h2">
-            <Link to={`/components/${link}`}>{title}</Link>
+            <Link className="jkl-link" to={`/components/${link}`}>
+                {title}
+            </Link>
         </h2>
         <span className="jkl-component-vertical-spacer">{example}</span>
     </section>

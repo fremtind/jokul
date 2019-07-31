@@ -17,12 +17,23 @@ $menu-width: rem(320px);
     }
     & .portal-header {
         background-color: $matt-svart;
+        margin: 0;
+        padding: $layout-spacing--medium $layout-spacing--large 0 0;
+        left: 0;
+        text-align: right;
+        height: 100px;
+        @include small-device {
+            padding: 0;
+        }
     }
     & .portal-header__title > a {
         color: $snøhvit;
     }
     & .portal-main__hero {
         background-color: rgba($matt-svart, 0.7);
+    }
+    & .portal-content__example {
+        color: initial;
     }
 }
 
@@ -46,7 +57,7 @@ $menu-width: rem(320px);
 
     &__toggler {
         @include motion(standard, expressive);
-        background: $svart;
+        background-color: $svart;
         position: absolute;
         left: 0;
         top: $layout-spacing--small;
@@ -67,6 +78,7 @@ $menu-width: rem(320px);
             transform: translateX(-$menu-width);
         }
         & > .portal-menu__toggler {
+            background-color: $matt-svart;
             transform: translateX(0);
         }
     }
