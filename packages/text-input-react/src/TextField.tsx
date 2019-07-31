@@ -24,7 +24,10 @@ export const TextField = ({
     className = "",
     ...rest
 }: Props) => (
-    <label className={`jkl-text-field${inline ? " jkl-text-field--inline" : ""} ${className}`}>
+    <label
+        data-testid="jkl-text-field"
+        className={`jkl-text-field${inline ? " jkl-text-field--inline" : ""} ${className}`}
+    >
         <input
             type={type}
             aria-invalid={isInvalid}
