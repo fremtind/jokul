@@ -24,6 +24,7 @@ const example = `<>
                 "September",
                 "October",
                 "November",
+                "December"
             ]}
             days={[
                 "Mon",
