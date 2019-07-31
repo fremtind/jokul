@@ -28,12 +28,18 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
 
 .jkl-dropdown {
     background-color: $dropdown-bg-color;
-    display: inline-block;
-    height: $label-height + $value-height + $bottom-padding;
+    display: block;
+    box-sizing: border-box;
+    height: $dropdown-total-height;
     width: $dropdown-width;
     padding-top: $label-height;
     position: relative;
-    vertical-align: bottom;
+    margin-bottom: $bottom-margin;
+
+    &--inline {
+        display: inline-block;
+        vertical-align: bottom;
+    }
 
     & *:focus {
         // Remove default focus outline for all elements within
