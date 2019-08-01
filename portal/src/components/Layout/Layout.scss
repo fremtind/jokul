@@ -1,38 +1,62 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $portal-max-width: 1200px;
 
 /* This is the main container (@reach/router within gatsby wrapper) */
 #___gatsby > div[role="group"][tabindex] {
     display: grid;
-    grid-template-columns: 0 1fr;
+    grid-template-columns: 1fr;
 }
 
 .portal-content {
     box-sizing: border-box;
-    padding: $layout-spacing--xxl $layout-spacing--large;
+    padding: $layout-spacing--xxl $layout-spacing--xl;
     max-width: $portal-max-width;
-    &--component {
-        max-width: 100%;
+
+    @include small-device {
+        padding: $layout-spacing--xxl $layout-spacing--small;
+    }
+
+    &--component-page {
+        max-width: 100vw;
         padding: $layout-spacing--xxl 0 0;
+        @include small-device {
+            padding-top: $layout-spacing--xl;
+        }
     }
 
     &__heading {
         display: flex;
         align-items: center;
         margin-bottom: $layout-spacing--medium;
+        max-width: 100vw;
+        @include small-device {
+            flex-direction: column;
+            margin-bottom: $layout-spacing--small;
+            align-items: flex-start;
+        }
     }
 
     &__title {
         padding: 0 $layout-spacing--small 0 $layout-spacing--large;
+        @include small-device {
+            padding: 0 $component-spacing--large;
+        }
     }
     &__main-example {
         padding: 0 $layout-spacing--large;
+        @include small-device {
+            padding: 0;
+        }
     }
     &__rest {
-        padding: $layout-spacing--large;
+        padding: 0 $layout-spacing--large;
         & > * {
             max-width: $portal-max-width;
+        }
+        @include small-device {
+            padding: 0 $layout-spacing--small;
         }
     }
     &__code-links {
@@ -40,6 +64,9 @@ $portal-max-width: 1200px;
         display: inline-block;
         outline: none;
         border: none;
+        @include small-device {
+            margin: 0 $component-spacing--large;
+        }
 
         :-moz-focusring {
             outline: none;

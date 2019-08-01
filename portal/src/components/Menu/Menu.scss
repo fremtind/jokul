@@ -6,8 +6,44 @@
 $toggler-size: rem(56px);
 $menu-width: rem(320px);
 
+.portal-dark {
+    background-color: $matt-svart;
+    color: $snøhvit;
+    & .jkl-message-box {
+        color: $svart;
+    }
+    & .portal-content__section--copy {
+        color: $snøhvit;
+    }
+    & .portal-header {
+        background-color: $matt-svart;
+        margin: 0;
+        padding: $layout-spacing--medium $layout-spacing--large 0 0;
+        left: 0;
+        text-align: right;
+        height: 100px;
+        @include small-device {
+            padding: 0;
+        }
+    }
+    & .portal-header__title > a {
+        color: $snøhvit;
+    }
+    & .portal-main__hero {
+        background-color: rgba($matt-svart, 0.7);
+    }
+    & .portal-content__example {
+        color: initial;
+    }
+    & .portal-icon {
+        color: $himmelgrå;
+    }
+}
+
 .portal-menu {
     z-index: 1;
+    height: 100vh;
+    position: fixed;
     &__bar {
         box-sizing: border-box;
         min-height: 100vh;
@@ -19,11 +55,16 @@ $menu-width: rem(320px);
         transition-property: transform, box-shadow;
         @include motion(standard, expressive);
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+        overflow: auto;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     &__toggler {
         @include motion(standard, expressive);
-        background: $svart;
+        background-color: $svart;
         position: absolute;
         left: 0;
         top: $layout-spacing--small;
@@ -37,11 +78,14 @@ $menu-width: rem(320px);
     }
 
     &--closed {
+        height: 0;
+        width: 0;
         & > .portal-menu__bar {
             box-shadow: none;
             transform: translateX(-$menu-width);
         }
         & > .portal-menu__toggler {
+            background-color: $matt-svart;
             transform: translateX(0);
         }
     }

@@ -21,7 +21,7 @@ export const ComponentLayout = ({ children, title, mainExample, packageName, pac
         {({ location }) => {
             if (location.search !== "?fullscreen") {
                 return (
-                    <Layout isComponent>
+                    <Layout isComponentPage>
                         <>
                             {title && (
                                 <div className="portal-content__heading">

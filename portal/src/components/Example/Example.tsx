@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import { fremtindLight, copyToClipboard } from "../../utils";
+import { fremtindLight, fremtindDark, copyToClipboard } from "../../utils";
 import { PrismHighlightedCode } from "../../components/PrismHighlightedCode";
 import { getInterface } from "./getInterface";
 import "./Example.scss";
+import { ThemeContext } from "../Layout/Layout";
 
 interface TypeShape {
     name: string;
@@ -23,12 +24,18 @@ interface Props {
 export function Example({ exampleComponents, exampleCode, type, types, exampleImport, figma }: Props) {
     const copyImport = () => copyToClipboard(exampleImport || "");
 
+    const { theme } = useContext(ThemeContext);
+
     return (
-        <LiveProvider scope={exampleComponents} code={exampleCode} theme={fremtindLight}>
+        <LiveProvider
+            scope={exampleComponents}
+            code={exampleCode}
+            theme={theme === "dark" ? fremtindDark : fremtindLight}
+        >
             <LivePreview className="portal-content__example" />
             <Accordion>
                 <AccordionItem title="Kode">
-                    <LiveEditor />
+                    <LiveEditor className="portal-content__code-editor" />
                     <LiveError />
                     {exampleImport && (
                         <button onClick={copyImport} className="portal-content__section portal-content__section--copy">
