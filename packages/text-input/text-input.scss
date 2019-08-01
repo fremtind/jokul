@@ -20,21 +20,6 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
 $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compliant
 
-.jkl-text-area {
-    & .jkl-text-field__input {
-        transition: height 175ms ease;
-        &:focus,
-        &:not(:placeholder-shown) {
-            & .jkl-text-area {
-                height: initial;
-                height: $textarea-height--expanded;
-            }
-            height: initial;
-            height: $textarea-height--expanded;
-        }
-    }
-}
-
 .jkl-text-field {
     display: block;
     box-sizing: border-box;
@@ -105,5 +90,17 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
         transform: translateY($label-height);
         transition: transform $transition-timing;
         pointer-events: none;
+    }
+}
+
+.jkl-text-area {
+    height: auto;
+    & .jkl-text-field__input {
+        transition: height 175ms ease;
+        &:focus,
+        &:not(:placeholder-shown) {
+            height: initial;
+            height: $textarea-height--expanded;
+        }
     }
 }
