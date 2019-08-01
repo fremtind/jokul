@@ -15,8 +15,7 @@ interface LinkProps extends Props {
 }
 
 const defaultRenderer = {
-    paragraph: ({ children }: Props) =>
-        createElement("p", { className: "jkl-p jkl-spacing--top-2 jkl-spacing--bottom-2" }, children),
+    paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p jkl-spacing--bottom-2" }, children),
     list: ({ children }: Props) => createElement("ul", { className: "jkl-bullet-list jkl-p" }, children),
     listItem: ({ children }: Props) => createElement("li", { className: "jkl-bullet-list__item" }, children),
     blockquote: ({ children }: Props) =>
