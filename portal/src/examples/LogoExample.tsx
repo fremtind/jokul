@@ -8,30 +8,41 @@ import logoMainType from "!raw-loader!@fremtind/jkl-logo-react/build/LogoMain.d.
 import logoSymbolType from "!raw-loader!@fremtind/jkl-logo-react/build/LogoSymbol.d.ts";
 // @ts-ignore
 import logoAnimatedType from "!raw-loader!@fremtind/jkl-logo-react/build/LogoAnimated.d.ts";
+import { PrimaryButton } from "@fremtind/jkl-button-react";
 
 const example = `() => {
     const [showSymbol, toggleSymbol] = React.useState(false);
 
     return (
-        <div style={{ width: "300px" }}>
-            <LogoSymbol />
-            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
-                <LogoSymbol />
+        <>
+            <div style={{ width: "100%", display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
+                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+                    <LogoSymbol />
+                </div>
+                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" ,backgroundColor: "#000", color: "#fafafa" }}>
+                    <LogoSymbol />
+                </div>
+                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+                    <LogoMain />
+                </div>
+                <div style={{ width: "300px", marginBottom: "20px", padding: "20px", backgroundColor: "#000", color: "#fafafa" }}>
+                    <LogoMain />
+                </div>
+                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+                    <LogoAnimated showSymbol={showSymbol} />
+                </div>            
+                <div style={{ width: "300px", marginBottom: "20px", padding: "20px", backgroundColor: "#000", color: "#fafafa" }}>
+                    <LogoAnimated showSymbol={showSymbol} centered={false} />
+                </div>
+                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+                    <LogoAnimated showSymbol={!showSymbol} />
+                </div>
+                <div style={{ width: "300px", marginBottom: "40px", padding: "20px", backgroundColor: "#000", color: "#fafafa" }}>
+                    <LogoAnimated showSymbol={!showSymbol} centered={true} />
+                </div>
             </div>
-            <LogoMain />
-            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
-                <LogoMain />
-            </div>
-            <LogoAnimated showSymbol={showSymbol} />
-            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
-                <LogoAnimated showSymbol={showSymbol} centered={false} />
-            </div>
-            <LogoAnimated showSymbol={!showSymbol} />
-            <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
-                <LogoAnimated showSymbol={!showSymbol} centered={true} />
-            </div>
-            <button onClick={() => toggleSymbol(!showSymbol)}>Animer</button>
-        </div>
+            <PrimaryButton onClick={() => toggleSymbol(!showSymbol)}>Animer</PrimaryButton>
+        </>
     );
 };`;
 
@@ -40,7 +51,7 @@ import "@fremtind/jkl-logo/logo.min.css";`;
 
 const LogoExample = () => (
     <Example
-        exampleComponents={{ LogoMain, LogoSymbol, LogoAnimated }}
+        exampleComponents={{ LogoMain, LogoSymbol, LogoAnimated, PrimaryButton }}
         exampleCode={example}
         types={[
             { name: "Hovedlogo", type: logoMainType },
