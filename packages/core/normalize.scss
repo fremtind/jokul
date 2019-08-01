@@ -232,14 +232,34 @@ button::-moz-focus-inner,
 }
 
 /**
- * Restore the focus styles unset by the previous rule.
+ * Remove dotted lines around object, especially for firefox
  */
 
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
+a:hover,
+a:active,
+a:focus,
+a:link,
+a:visited {
+    outline: 0;
+    outline: 0 !important;
+    outline-style: none;
+}
+
+button,
+object,
+embed {
+    outline: 0;
+}
+
+/* All Input elements */
+input::-moz-focus-inner {
+    outline: 0;
+}
+
+/* Or more specifically*/
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner {
+    outline: 0;
 }
 
 /**

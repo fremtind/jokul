@@ -38,15 +38,6 @@ $button-height--small: 2.5rem;
     transition: transform $animation-timing;
     position: relative;
 
-    // get rid of dotted border on Firefox
-    &::-moz-focus-inner {
-        border: 0;
-    }
-
-    &:-moz-focusring {
-        outline: none;
-    }
-
     html:not([data-mousenavigation]) &:focus,
     &:hover {
         transform: scale(1.05);
