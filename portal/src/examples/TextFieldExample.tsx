@@ -10,9 +10,27 @@ const example = `
     const [value, setValue] = React.useState("");
     return (
         <>
-            <TextField label="Fornavn" value={value} onChange={(e) => setValue(e.target.value)} helpText="Ditt første navn" />
-            <TextField label="Fornavn" value="Hannah Hart" onChange={()=>{}} isInvalid errorText="Bare fornavn her" />
-            <TextField label="Etternavn" value="Hart" onChange={()=>{}} />
+            <TextField 
+                className="jkl-spacing--bottom-3"
+                label="Fornavn"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                helpText="Ditt første navn"
+            />
+            <TextField
+                className="jkl-spacing--bottom-3"
+                label="Fornavn"
+                value="Hannah Hart"
+                onChange={()=>{}}
+                isInvalid
+                errorText="Bare fornavn her"
+            />
+            <TextField
+                className="jkl-spacing--bottom-3"
+                label="Etternavn"
+                value="Hart"
+                onChange={()=>{}}
+            />
         </>
     );
 }`;

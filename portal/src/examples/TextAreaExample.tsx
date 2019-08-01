@@ -9,14 +9,26 @@ const example = `() => {
     const [value, setValue] = React.useState("");
     return (
         <>
-            <TextArea label="Livshistorie" value={value} onChange={(e) => setValue(e.target.value)} />
             <TextArea
+                className="jkl-spacing--bottom-3"
                 label="Livshistorie"
-                value="gobjop uvucenli bdachukme sotw uvliljai suibki jocmakocvef ihivusibe nloba bvasowpank ocijuvecgiwom hijub dinmar"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                />
+            <TextArea
+                className="jkl-spacing--bottom-3"
+                label="Livshistorie"
+                value="gobjop uvucenli bdachukme sotw uvliljai suibki"
                 isInvalid
                 errorText="That makes no sense"
             />
-            <TextArea label="Livshistorie" value={value} onChange={(e) => setValue(e.target.value)} helpText="Bruk store ord" />
+            <TextArea
+                className="jkl-spacing--bottom-3"
+                label="Livshistorie"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                helpText="Bruk store ord"
+            />
         </>);
 }`;
 

@@ -4,14 +4,14 @@
 .jkl {
     &__text {
         display: block;
-        margin-top: $component-spacing--medium;
+        margin-top: $component-spacing--large;
         @include font-size(small);
 
         &--help {
             color: $svart;
         }
         &--error {
-            color: $blomst;
+            color: $error-color;
         }
     }
 }

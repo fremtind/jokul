@@ -43,6 +43,6 @@ export const TextField = ({
         />
         <span className="jkl-text-field__label">{label}</span>
         {helpText && <span className="jkl__text jkl__text--help">{helpText}</span>}
-        {errorText && <span className="jkl__text jkl__text--error">{errorText}</span>}
+        {isInvalid && errorText && <span className="jkl__text jkl__text--error">{errorText}</span>}
     </label>
 );

@@ -4,7 +4,7 @@ import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph, Link }
 // @ts-ignore
 import typeDef from "!raw-loader!@fremtind/jkl-typography-react/build/Typography.d.ts";
 
-const example = `<div style={{display: "flex", flexWrap: "wrap"}}>
+const example = `<div>
     <H1 style={{width: "100%"}}>Heading1</H1>
     <H2 style={{width: "100%"}}>Heading2</H2>
     <H3 style={{width: "100%"}}>Heading3</H3>

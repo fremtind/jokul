@@ -17,3 +17,9 @@ $blomst: #ff7059;
 // Function colors
 $gress: #50e68c;
 $himmel: #509ce6;
+
+// Colors by use case
+$error-color: change-color(
+    $blomst,
+    $lightness: 45%
+); // TODO: blomst is not wgac compliant check with stg what color to use

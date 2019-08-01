@@ -17,6 +17,6 @@ export const TextArea = ({ isInvalid = false, id, label, className = "", helpTex
         <textarea aria-invalid={isInvalid} className="jkl-text-field__input" id={id} placeholder=" " {...rest} />
         <span className="jkl-text-field__label">{label}</span>
         {helpText && <span className="jkl__text jkl__text--help">{helpText}</span>}
-        {errorText && <span className="jkl__text jkl__text--error">{errorText}</span>}
+        {isInvalid && errorText && <span className="jkl__text jkl__text--error">{errorText}</span>}
     </label>
 );
