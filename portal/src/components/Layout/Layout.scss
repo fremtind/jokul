@@ -18,7 +18,7 @@ $portal-max-width: 1200px;
         padding: $layout-spacing--xxl $layout-spacing--small;
     }
 
-    &--component {
+    &--component-page {
         max-width: 100vw;
         padding: $layout-spacing--xxl 0 0;
         @include small-device {

@@ -27,10 +27,10 @@ export const ThemeContext = React.createContext<ContextProps>({ theme: "light", 
 
 interface Props {
     children: ReactNode;
-    isComponent?: boolean;
+    isComponentPage?: boolean;
 }
 
-export const Layout = ({ children, isComponent = false }: Props) => {
+export const Layout = ({ children, isComponentPage = false }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
 
     const toggleTheme = (showDark: boolean) => {
@@ -54,7 +54,9 @@ export const Layout = ({ children, isComponent = false }: Props) => {
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <Header siteTitle="Jøkul" />
             <Menu />
-            <main className={`portal-content ${isComponent ? "portal-content--component" : ""}`}>{children}</main>
+            <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
+                {children}
+            </main>
         </ThemeContext.Provider>
     );
 };

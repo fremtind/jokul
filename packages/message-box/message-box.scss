@@ -10,7 +10,7 @@
     box-sizing: border-box;
 
     @include small-device {
-        width: initial;
+        width: 100%;
     }
 
     &--full {
