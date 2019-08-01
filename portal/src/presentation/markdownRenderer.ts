@@ -2,8 +2,6 @@ import { createElement, ReactNode } from "react";
 import "@fremtind/jkl-bullet-list/bullet-list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 
-import "./style.scss";
-
 interface Props {
     children?: ReactNode;
 }
@@ -17,11 +15,16 @@ interface LinkProps extends Props {
 }
 
 const defaultRenderer = {
-    paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p jkl-s__t--m jkl-s__b--m" }, children),
+    paragraph: ({ children }: Props) =>
+        createElement("p", { className: "jkl-p jkl-spacing--top-2 jkl-spacing--bottom-2" }, children),
     list: ({ children }: Props) => createElement("ul", { className: "jkl-bullet-list jkl-p" }, children),
     listItem: ({ children }: Props) => createElement("li", { className: "jkl-bullet-list__item" }, children),
     blockquote: ({ children }: Props) =>
-        createElement("div", { className: "jkl-message-box jkl-message-box__info jkl-s__t--l jkl-s__b--l" }, children),
+        createElement(
+            "div",
+            { className: "jkl-message-box jkl-message-box__info jkl-spacing--top-3 jkl-spacing--bottom-3" },
+            children,
+        ),
     link: ({ children, href }: LinkProps) =>
         createElement("a", { className: "jkl-link jkl-link--inline", href }, children),
 };

@@ -1,0 +1,18 @@
+@import "./variables/spacing";
+
+$counter: 1;
+$positions: top, bottom, left, right;
+
+@each $spacing in $layout-spacing {
+    .jkl-spacing {
+        &--all-#{$counter} {
+            margin: $spacing;
+        }
+        @each $position in $positions {
+            &--#{$position}-#{$counter} {
+                margin-#{$position}: $spacing;
+            }
+        }
+    }
+    $counter: $counter + 1;
+}
