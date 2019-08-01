@@ -135,7 +135,7 @@ export function Menu() {
                             Designbibliotek
                         </a>
                         <ToggleSwitch
-                            className="jkl-s__t--m jkl-s__b--l"
+                            className="jkl-spacing--top-2 jkl-spacing--bottom-3"
                             checked={theme === "dark"}
                             onChange={toggleTheme}
                         >

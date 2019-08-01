@@ -11,7 +11,7 @@ return (<>
     <Checkbox>I am uncontrolled</Checkbox>
     <Checkbox checked={checked} onChange={()=>toggle(!checked)}>I am controlled</Checkbox>
     <Checkbox checked={true}>I always checked</Checkbox>
-    <div style={{ display: "flex", flexFlow: "column", marginTop: "5rem" }}>
+    <div className="jkl-spacing--top-4" style={{ display: "flex", flexFlow: "column" }}>
         <Checkbox onChange={(val) => alert(val)}>I am checkbox</Checkbox>
         <Checkbox onChange={(val) => alert(val)}>Do you like mulitple choices?</Checkbox>
     </div>
