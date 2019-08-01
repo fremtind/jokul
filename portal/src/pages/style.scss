@@ -4,7 +4,6 @@
 
 $hero-size: rem(700px);
 $hero-top-offset: rem(225px);
-$mountain-overlap-text: rem(1600px);
 
 $content-bg-color: $varm-fjellgrå;
 $content-color: $snøhvit;
@@ -19,12 +18,7 @@ $circle-size: rem(100px);
         @include position(absolute !important, $top: 0, $left: 0);
         z-index: -1;
         width: 100%;
-        @include small-device {
-            height: 100%;
-        }
-        @media (min-width: $mountain-overlap-text) {
-            filter: blur(5px);
-        }
+        height: 100%;
     }
     &__hero {
         @include position(absolute, $top: $hero-top-offset, $left: 0);
@@ -32,9 +26,6 @@ $circle-size: rem(100px);
         padding: $layout-spacing--small $layout-spacing--medium;
         margin: 0 $layout-spacing--large;
         background-color: rgba($snøhvit, 0.7);
-        @media (min-width: $mountain-overlap-text) {
-            background-color: transparent;
-        }
         @include small-device {
             position: relative;
             top: 0;
