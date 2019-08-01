@@ -67,10 +67,6 @@ $portal-max-width: 1200px;
         @include small-device {
             margin: 0 $component-spacing--large;
         }
-
-        :-moz-focusring {
-            outline: none;
-        }
     }
 }
 

@@ -53,10 +53,6 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         &::ms-expand {
             display: none;
         }
-        /* remove Firefox dotted border */
-        &::-moz-focus-inner {
-            outline: none !important;
-        }
         &:-moz-focusring {
             color: transparent;
             text-shadow: 0 0 0 $border-color;

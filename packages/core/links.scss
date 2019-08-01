@@ -4,9 +4,6 @@
 .jkl-link {
     appearance: none;
     outline: none;
-    :-moz-focusring {
-        outline: none;
-    }
     color: currentColor;
 
     &--inline {
