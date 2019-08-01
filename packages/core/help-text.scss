@@ -1,0 +1,17 @@
+@import "./variables/all";
+@import "./mixins/all";
+
+.jkl {
+    &__text {
+        display: block;
+        margin-top: $component-spacing--medium;
+        @include font-size(small);
+
+        &--help {
+            color: $svart;
+        }
+        &--error {
+            color: $blomst;
+        }
+    }
+}

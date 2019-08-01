@@ -4,6 +4,8 @@ interface Props {
     label: string;
     value?: string;
     inline?: boolean;
+    helpText?: string;
+    errorText?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     isInvalid?: boolean;
@@ -19,6 +21,8 @@ export const TextField = ({
     inline = false,
     isInvalid = false,
     readOnly = false,
+    helpText,
+    errorText,
     id,
     label,
     className = "",
@@ -38,5 +42,7 @@ export const TextField = ({
             {...rest}
         />
         <span className="jkl-text-field__label">{label}</span>
+        {helpText && <span className="jkl__text jkl__text--help">{helpText}</span>}
+        {errorText && <span className="jkl__text jkl__text--error">{errorText}</span>}
     </label>
 );

@@ -21,8 +21,21 @@ const TextFieldDemo = () => {
             </div>
 
             <TextField label="Telefon" type="tel" value={value} onChange={handleChange} />
-            <TextField label="Passord" type="password" value={value} onChange={handleChange} />
-            <TextField label="Epost" type="email" value={value} onChange={handleChange} />
+            <TextField
+                label="Passord"
+                type="password"
+                value={value}
+                onChange={handleChange}
+                isInvalid
+                errorText="Passord er en vanlig form for autentisering"
+            />
+            <TextField
+                label="Epost"
+                type="email"
+                value={value}
+                onChange={handleChange}
+                helpText="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
+            />
 
             <TextArea label="Din livshistorie" value={value} onChange={handleChange} />
             <TextArea label="Din livshistorie" value={"Det hendte i de dager …"} onChange={handleChange} />

@@ -26,7 +26,7 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
     position: relative;
     font-family: inherit;
     width: 100%;
-    height: $input-total-height;
+    min-height: $input-total-height;
     padding-top: $label-height;
     background-color: $input-bg-color;
     margin-bottom: $component-spacing--large;

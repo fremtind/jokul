@@ -10,7 +10,13 @@ const example = `() => {
     return (
         <>
             <TextArea label="Livshistorie" value={value} onChange={(e) => setValue(e.target.value)} />
-            <TextArea label="Livshistorie" value="gobjop uvucenli bdachukme sotw uvliljai suibki jocmakocvef ihivusibe nloba bvasowpank ocijuvecgiwom hijub dinmar" />
+            <TextArea
+                label="Livshistorie"
+                value="gobjop uvucenli bdachukme sotw uvliljai suibki jocmakocvef ihivusibe nloba bvasowpank ocijuvecgiwom hijub dinmar"
+                isInvalid
+                errorText="That makes no sense"
+            />
+            <TextArea label="Livshistorie" value={value} onChange={(e) => setValue(e.target.value)} helpText="Bruk store ord" />
         </>);
 }`;
 
