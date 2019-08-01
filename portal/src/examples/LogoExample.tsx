@@ -12,36 +12,77 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 
 const example = `() => {
     const [showSymbol, toggleSymbol] = React.useState(false);
+    const style = { 
+        width: "300px",
+        padding: "20px"
+    };
+    const negativeStyle = { 
+        ...style,
+        backgroundColor: "#000",
+        color: "#fafafa"
+    };
+    const wrapperStyle = {
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap"
+    };
 
     return (
         <>
-            <div style={{ width: "100%", display: "flex", justifyContent: "center", flexWrap: "wrap" }}>
-                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+            <div style={wrapperStyle}>
+                <div
+                    className="jkl-spacing--bottom-2"
+                    style={style}
+                >
                     <LogoSymbol />
                 </div>
-                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" ,backgroundColor: "#000", color: "#fafafa" }}>
+                <div
+                    className="jkl-spacing--bottom-2"
+                    style={negativeStyle}
+                >
                     <LogoSymbol />
                 </div>
-                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+                <div
+                    className="jkl-spacing--bottom-2"
+                    style={style}
+                >
                     <LogoMain />
                 </div>
-                <div style={{ width: "300px", marginBottom: "20px", padding: "20px", backgroundColor: "#000", color: "#fafafa" }}>
+                <div
+                    className="jkl-spacing--bottom-2"
+                    style={negativeStyle}
+                >
                     <LogoMain />
                 </div>
-                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+                <div
+                    className="jkl-spacing--bottom-2"
+                    style={style}
+                >
                     <LogoAnimated showSymbol={showSymbol} />
                 </div>            
-                <div style={{ width: "300px", marginBottom: "20px", padding: "20px", backgroundColor: "#000", color: "#fafafa" }}>
+                <div
+                    className="jkl-spacing--bottom-2"
+                    style={negativeStyle}
+                >
                     <LogoAnimated showSymbol={showSymbol} centered={false} />
                 </div>
-                <div style={{ width: "300px", marginBottom: "20px", padding: "20px" }}>
+                <div
+                    className="jkl-spacing--bottom-2"
+                    style={style}
+                >
                     <LogoAnimated showSymbol={!showSymbol} />
                 </div>
-                <div style={{ width: "300px", marginBottom: "40px", padding: "20px", backgroundColor: "#000", color: "#fafafa" }}>
+                <div
+                    className="jkl-spacing--bottom-3"
+                    style={negativeStyle}
+                >
                     <LogoAnimated showSymbol={!showSymbol} centered={true} />
                 </div>
             </div>
-            <PrimaryButton onClick={() => toggleSymbol(!showSymbol)}>Animer</PrimaryButton>
+            <PrimaryButton onClick={() => toggleSymbol(!showSymbol)}>
+                Animer
+            </PrimaryButton>
         </>
     );
 };`;
