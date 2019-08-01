@@ -51,7 +51,7 @@ $circle-size: rem(100px);
         @include small-device {
             position: relative;
             top: 0;
-            margin: 0;
+            margin: 0 (-$layout-spacing--small);
             box-sizing: border-box;
             padding: $layout-spacing--large $layout-spacing--small;
         }
