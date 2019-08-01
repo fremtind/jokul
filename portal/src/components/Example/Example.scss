@@ -3,10 +3,8 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 
 .portal-content {
-    &__code {
-        @include small-device {
-            font-size: 14px;
-        }
+    &__code-editor {
+        @include font-size("xxs");
     }
     &__example {
         display: flex;
