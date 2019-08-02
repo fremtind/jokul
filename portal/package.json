@@ -4,7 +4,6 @@
     "description": "Documentation portal for Jøkul",
     "version": "0.7.1",
     "dependencies": {
-        "@types/prismjs": "^1.16.0",
         "gatsby": "^2.11.7",
         "gatsby-image": "^2.2.6",
         "gatsby-plugin-sass": "^2.1.0",
@@ -14,7 +13,6 @@
         "gatsby-transformer-sharp": "^2.2.4",
         "node-sass": "^4.12.0",
         "prism-react-renderer": "^0.1.7",
-        "prismjs": "^1.16.0",
         "raw-loader": "^3.0.0",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",

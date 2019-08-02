@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { fremtindLight, fremtindDark, copyToClipboard } from "../../utils";
-import { PrismHighlightedCode } from "../../components/PrismHighlightedCode";
-import { getInterface } from "./getInterface";
-import "./Example.scss";
 import { ThemeContext } from "../Layout/Layout";
+import { getInterface } from "./getInterface";
+import CodeHighlight from "./CodeHighlight";
+import "./Example.scss";
 
 interface TypeShape {
     name: string;
@@ -22,16 +22,13 @@ interface Props {
 }
 
 export function Example({ exampleComponents, exampleCode, type, types, exampleImport, figma }: Props) {
+    const { theme } = useContext(ThemeContext);
+    const currentTheme = theme === "dark" ? fremtindDark : fremtindLight;
+
     const copyImport = () => copyToClipboard(exampleImport || "");
 
-    const { theme } = useContext(ThemeContext);
-
     return (
-        <LiveProvider
-            scope={exampleComponents}
-            code={exampleCode}
-            theme={theme === "dark" ? fremtindDark : fremtindLight}
-        >
+        <LiveProvider scope={exampleComponents} code={exampleCode} theme={currentTheme}>
             <LivePreview className="portal-content__example" />
             <Accordion>
                 <AccordionItem title="Kode">
@@ -41,20 +38,20 @@ export function Example({ exampleComponents, exampleCode, type, types, exampleIm
                         <button onClick={copyImport} className="portal-content__section portal-content__section--copy">
                             <h4 className="jkl-h4">Import</h4>
                             <p className="jkl-small">Klikk for å kopiere</p>
-                            <PrismHighlightedCode>{exampleImport}</PrismHighlightedCode>
+                            <CodeHighlight theme={currentTheme} code={exampleImport} />
                         </button>
                     )}
                     {type && (
                         <div className="portal-content__section">
                             <h4 className="jkl-h4">Type</h4>
-                            <PrismHighlightedCode>{getInterface(type)}</PrismHighlightedCode>
+                            <CodeHighlight theme={currentTheme} code={getInterface(type)} />
                         </div>
                     )}
                     {types &&
                         types.map((type) => (
                             <div key={type.name} className="portal-content__section">
                                 <h4 className="jkl-h4">Type: {type.name}</h4>
-                                <PrismHighlightedCode>{getInterface(type.type)}</PrismHighlightedCode>
+                                <CodeHighlight theme={currentTheme} code={getInterface(type.type)} />
                             </div>
                         ))}
                 </AccordionItem>

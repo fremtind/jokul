@@ -15,6 +15,7 @@ $button-focus-ring-color: $himmel;
     background-color: transparent;
     height: 100%;
     width: 100%;
+    padding: 0;
 
     &:hover,
     &--is-active:hover {

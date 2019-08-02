@@ -2,7 +2,7 @@
   "files": [
     "README.md"
   ],
-  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-orange.svg?style=flat-rounded)](#contributors)",
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-green.svg?style=flat-rounded)](#contributors)",
   "imageSize": 100,
   "commit": false,
   "contributors": [
@@ -13,7 +13,8 @@
       "profile": "https://github.com/piofinn",
       "contributions": [
         "code",
-        "review"
+        "review",
+        "doc"
       ]
     },
     {
@@ -34,7 +35,8 @@
       "contributions": [
         "code",
         "doc",
-        "infra"
+        "infra",
+        "review"
       ]
     },
     {
