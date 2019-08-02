@@ -14,7 +14,7 @@ import changelogReact from "!raw-loader!@fremtind/jkl-logo-react/CHANGELOG.md";
 
 export default function LogoPage() {
     return (
-        <ComponentLayout title="Logo stempel" mainExample={<LogoStampExample />} packageName="logo">
+        <ComponentLayout title="Logostempel" mainExample={<LogoStampExample />} packageName="logo">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
             <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
