@@ -12,7 +12,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 
 ## [Kom i gang](https://fremtind.github.io/jokul/developer/getting-started)
 
-Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker. **Viktig**: Du må sette opp en `loader` i byggsystemet ditt for å kunne håndtere scss-importer, for eksempel `style-loader` for Webpack.
+Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker.
 
 ### React-pakker
 
