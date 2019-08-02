@@ -42,6 +42,7 @@ export const componentLinks = [
     makeComponentLink("Lang tekstfelt", "textarea"),
     makeComponentLink("Meldinger", "messagebox"),
     makeComponentLink("Logo", "logo"),
+    makeComponentLink("Logostempel", "logostamp"),
     makeComponentLink("Lasteindikator", "loader"),
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
