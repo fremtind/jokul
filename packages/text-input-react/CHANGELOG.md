@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.6.1...@fremtind/jkl-text-input-react@0.7.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **core:** fix help text spacing, error color, minor ios portal fix ([ae19bb7](https://github.com/fremtind/jokul/commit/ae19bb7))
+* **text-input-react:** pass className to textarea ([4133513](https://github.com/fremtind/jokul/commit/4133513))
+* **textfield:** better naming, fix spacing, add test ([c5e8e82](https://github.com/fremtind/jokul/commit/c5e8e82))
+
+
+### Features
+
+* **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
+* **text-field:** add help and error text to field and area ([e18f117](https://github.com/fremtind/jokul/commit/e18f117)), closes [#41](https://github.com/fremtind/jokul/issues/41)
+* **text-input-react:** add inline version ([3fab7da](https://github.com/fremtind/jokul/commit/3fab7da))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.6.0...@fremtind/jkl-text-input-react@0.6.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

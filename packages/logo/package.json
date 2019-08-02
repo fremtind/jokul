@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "publishConfig": {
         "access": "public"
     },
@@ -22,7 +22,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.7.1"
+        "@fremtind/jkl-core": "^0.8.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3"

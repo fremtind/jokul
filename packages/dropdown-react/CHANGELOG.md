@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.6.1...@fremtind/jkl-dropdown-react@0.7.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **dropdown-react:** stop dropdown from submitting forms when clicked ([1b052fb](https://github.com/fremtind/jokul/commit/1b052fb))
+
+
+### Features
+
+* **dropdown:** make dropdown a block with optional inline version ([d209bec](https://github.com/fremtind/jokul/commit/d209bec))
+* **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.6.0...@fremtind/jkl-dropdown-react@0.6.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-dropdown-react
