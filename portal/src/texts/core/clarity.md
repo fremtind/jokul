@@ -16,4 +16,4 @@ I praksis betyr dette prisnippet at vi ikke skal overlesse brukeren med informas
 
 Som designer kan du benytte deg av skalaene for [typografi]() og [sperring]() for å sørge for konsekvente avstander og størrelsesforhold.
 
-La en språkekspert gå gjennom tekstene du bruker for å sørge for at informasjonen blir formidlet presist og tilgjengelig.
+Det er alltid lurt å bruke en språkekspert til å gå gjennom teksten i løsninger du lager. Han eller hun vet hvordan de skal formulere ledetekster, feilmeldinger, hjelpetekster og generell informasjon på nett, slik at informasjonen blir lett å oppfatte.

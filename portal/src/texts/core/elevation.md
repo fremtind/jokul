@@ -14,4 +14,4 @@ Bruk av skygge indikerer at elementer blir aktivert. Forskyvning ved scroll skap
 
 Vi bruker skygger og elementer som endrer størrelse for å vise hvilke elementer på siden som er viktigst. Bruk av størrelsesforhold med høy kontrast styrer fokus mot viktig innhold og bidrar til å skape naturlige brudd eller pauser i oppsettet.
 
-Som designer eller utvikler kan du benytte deg av skalaene for [skygge](), [typografi]() og [sperring]() for å lage konsistente og konsekvente løsninger med kontrast og nivåforskjeller.
+Som designer eller utvikler kan du benytte deg av skalaene for [skygge](), [typografi]() og [sperring]() for å lage konsekvente løsninger med kontrast og nivåforskjeller.
