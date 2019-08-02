@@ -7,7 +7,7 @@
 Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) som er utviklet av [Fremtind](https://fremtind.no).
 
 -   **Stil**: Jøkul gir deg css- og scss-stilark for de grunnleggende komponentene og designmønstrene til Fremtind. De følger Fremtinds designprinsipper.
--   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at det blir færre feil og utviklerne får en bedre opplevelse av dem.
+-   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
 -   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
 
 ## [Kom i gang](https://fremtind.github.io/jokul/developer/getting-started)
