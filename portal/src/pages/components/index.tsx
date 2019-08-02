@@ -11,6 +11,7 @@ import {
     DividerLineExample,
     LoaderExample,
     LogoExample,
+    LogoStampExample,
     MessageBoxExample,
     RadioButtonExample,
     TextFieldExample,
@@ -54,6 +55,7 @@ export default function AllComponents() {
             <Section title="Lang tekstfelt" link="textarea" example={<TextAreaExample />} />
             <Section title="Meldinger" link="messagebox" example={<MessageBoxExample />} />
             <Section title="Logo" link="logo" example={<LogoExample />} />
+            <Section title="Logostempel" link="logostamp" example={<LogoStampExample />} />
             <Section title="Lasteindikator" link="loader" example={<LoaderExample />} />
             <Section title="Delelinje" link="dividerline" example={<DividerLineExample />} />
             <Section title="Kort" link="card" example={<CardExample />} />

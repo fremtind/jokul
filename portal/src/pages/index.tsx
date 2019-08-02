@@ -22,7 +22,7 @@ interface Query {
 }
 
 const IndexPage = ({ data }: Query) => (
-    <Layout>
+    <Layout isFrontPage>
         <Image className="portal-main__background" fluid={data.file.childImageSharp.fluid} alt="Fjell illustasjon" />
         <div className="portal-main__hero">
             <ReactMarkdown renderers={renderer} source={HeroMarkdown} />{" "}

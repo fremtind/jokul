@@ -6,8 +6,7 @@
  */
 
 import React, { ReactNode } from "react";
-import Header from "../Header/Header";
-import { Menu } from "../Menu/Menu";
+import { Footer, Header, Menu } from "..";
 
 import "./Layout.scss";
 
@@ -28,9 +27,10 @@ export const ThemeContext = React.createContext<ContextProps>({ theme: "light", 
 interface Props {
     children: ReactNode;
     isComponentPage?: boolean;
+    isFrontPage?: boolean;
 }
 
-export const Layout = ({ children, isComponentPage = false }: Props) => {
+export const Layout = ({ children, isComponentPage = false, isFrontPage = false }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
 
     const toggleTheme = (showDark: boolean) => {
@@ -57,6 +57,7 @@ export const Layout = ({ children, isComponentPage = false }: Props) => {
             <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
                 {children}
             </main>
+            {!isFrontPage && <Footer />}
         </ThemeContext.Provider>
     );
 };
