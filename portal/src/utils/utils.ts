@@ -3,7 +3,7 @@ import { PrismTheme } from "prism-react-renderer";
 export const fremtindDark: PrismTheme = {
     plain: {
         color: "#ded4c7",
-        backgroundColor: "#3d3d3d",
+        backgroundColor: "#2B2A2A",
     },
     styles: [
         {
