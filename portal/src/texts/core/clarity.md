@@ -2,6 +2,8 @@
 
 Fremtind skal fremstå som ærlig og transparent, med en klar og varm stemme. Vi skal skape klarhet gjennom å forenkle, fjerne unødvendig støy og gi brukerne kun relevante valg.
 
+Vi vektlegger klarhet også med språket vi bruker. Klarspråk er hovedprinsippet for Fremtinds stil og tone, som du finner i "Stemmen vår".
+
 Vi bruker rikelig med luft. Det bidrar til å dele opp og porsjonere innhold som skaper en behagelig leserytme. Med gode og tydelige designløsninger gir vi brukeren oversikt og skaper en følelse av trygghet.
 
 ### Nøkkelord
