@@ -1,6 +1,6 @@
 ## Mønstre
 
-Mønstre er komponenter som vi kan bruke om igjen. I Jøkul tenker vi å utvikle mønster for handlinger som gjentas ofte, slik at design og bruk blir konsekvent uansett hvilke løsning vi lager for Fremtid.
+Mønstre er komponenter som vi kan bruke om igjen. I Jøkul vil vi utvikle mønstre for handlinger som gjentas ofte, slik at design og bruk blir konsekvent uansett hvilke løsning vi lager for Fremtid.
 Her er eksempler på mønstre som vi tenker kan være nyttige å ha for de som bruker Jøkul til å designe og utvikle løsninger for Fremtind.
 
 ### Vanlige handlinger
@@ -14,7 +14,7 @@ Vi lager mønstre for deaktiverte tilstander, slik at designere og utviklere vet
 
 ### Filtrering
 
-Måten en bruker fjerner eller legger til data i et datasett, kan vi standardisere til et mønster. Brukerne skal gjenkjenne hvordan de kan filtrere informasjon, uansett hvor i Fremtinds løsninger de er.
+Måten vi bruker, fjerner eller legger til data i et datasett, kan vi også standardisere til et mønster. Brukerne skal gjenkjenne hvordan de kan filtrere informasjon, uansett hvor i Fremtinds løsninger de er.
 
 ### Overflytsregler
 
