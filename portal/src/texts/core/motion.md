@@ -1,15 +1,15 @@
 ## Bevegelse
 
-For å sikre at Fremtind fremstår som et selskap i bevegelse med en tydelig retning fremover, er bevegelse definert som et av våre designprinsipper. I ordet ligger det at vi er utforskende, fremtidsrettet og tilpasningsdyktige.
+Fremtind skal være et selskap i bevegelse, som tydelig viser veien fremover. Denne bevegelsen er definert som ett av våre designprinsipper. I order legger vi at vi skal utforske, se fremover og være tilpasningsdyktige.
 
-Vi leter stadig etter nye og bedre måter å løse problemer på, og er ikke redde for å utfordre dagens standard. Bruk av animasjon er med på å synliggjøre Fremtind som et selskap i bevegelse. **Animasjoner skal alltid ha en funksjonell verdi**.
+Vi leter stadig etter nye og bedre måter å løse problemer på, og er ikke redde for å utfordre dagens standard. Vi bruker animasjon til å gjøre Fremtind mer synlig som et selskap i bevegelse. **Vi passer alltid på at animasjoner har en funksjonell verdi**.
 
 ### Nøkkelord
 
 -   Alltid i bevegelse
 -   Tilpasningsdyktig
--   Progressivt
+-   Fremtidsrettet
 
 ### I bruk
 
-Benytt systemet for [bevegelse]() i Jøkul som utgangspunkt når du skal skape animasjoner i løsningene du lager. Sørg for at all animasjon har en tydelig funksjon i å styre oppmerksomhet eller forventning. Det må likevel være mulig å bruke løsningene med redusert bevegelse for de som ønsker eller trenger det.
+Når du skal skape animasjoner i en løsning du lager, bruker du de prinsippene og mulighetene Jøkul har for å skape bevegelse. Pass på at alle animasjoner får en tydelig funksjon og er med på å styre brukerens oppmerksomhet og forventning. Det skal likevel være mulig å bruke løsningene med redusert bevegelse, hvis noen heller ønsker eller trenger det.
