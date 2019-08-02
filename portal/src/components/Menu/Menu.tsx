@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { LocationProvider } from "@reach/router";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
-import { coreLinks, developerLinks, designerLinks, componentLinks, profileLinks } from "./links";
+import { coreLinks, developerLinks, designerLinks, componentLinks, profileLinks, exampleLinks } from "./links";
 import "@fremtind/jkl-accordion/accordion.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
@@ -95,6 +95,18 @@ export function Menu() {
                             </AccordionItem>
                             <AccordionItem title="Komponenter" startExpanded={location.pathname.includes("components")}>
                                 {componentLinks.map((link) => (
+                                    <Link
+                                        key={link.title}
+                                        className="portal-menu__link"
+                                        to={`/${link.section}/${link.page}`}
+                                        tabIndex={showMenu ? 0 : -1}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                ))}
+                            </AccordionItem>
+                            <AccordionItem title="Eksempel" startExpanded={location.pathname.includes("example")}>
+                                {exampleLinks.map((link) => (
                                     <Link
                                         key={link.title}
                                         className="portal-menu__link"
