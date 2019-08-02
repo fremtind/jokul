@@ -12,7 +12,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 
 ## [Kom i gang](https://fremtind.github.io/jokul/developer/getting-started)
 
-Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker. **Viktig**: Du må sette opp en `loader` i byggsystemet ditt for å kunne håndtere scss-importer, for eksempel `style-loader` for Webpack.
+Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker. **Viktig**: Du må sette opp en `loader` i byggsystemet ditt for å kunne håndtere scss-importer, for eksempel `style-loader` for Webpack.
 
 ### React-pakker
 
@@ -27,7 +27,7 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 
 ### Stilark-pakker
 
-Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mix-ins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
+Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mixins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
 `yarn install @fremtind/jkl-button/button.css`
 
 ```tsx
@@ -88,4 +88,4 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!
