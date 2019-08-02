@@ -2,7 +2,7 @@
 
 Prinsippet elevasjon handler om å løfte det som er viktig og skape et intuitivt informasjonshierarki. Det gjør vi blant annet ved å jobbe med nivåer og dybde.
 
-Bruk av skygge indikerer at elementer blir aktivert. Forskyvning ved scroll skaper også dybde og legger viktig innhold høyere opp og nærmere brukeren. Man kan også skape nivåer ved bruk av tydelige størrelsesforhold mellom elementer.
+Vi bruker skygge til å indikere at et element blir aktivt. Vi skaper dybde ved hjelp av parallakse: Viktig innhold beveger seg raskere enn bakgrunnen for å skape inntrykk av å ligge nærme brukeren. Vi kan også skape nivåer ved å lage tydelige størrelsesforhold mellom elementer.
 
 ### Nøkkelord
 
