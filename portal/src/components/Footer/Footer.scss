@@ -1,0 +1,23 @@
+@import "~@fremtind/jkl-core/variables/all";
+
+$footer-height: 350px;
+$footer-height-small: 250px;
+
+.portal-footer {
+    background-color: $matt-svart;
+    color: $snøhvit;
+    height: $footer-height;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--logo-container {
+        width: $footer-height/1.5;
+    }
+    @include small-device {
+        height: $footer-height-small;
+        &--logo-container {
+            width: $footer-height-small/1.5;
+        }
+    }
+}

@@ -9,6 +9,7 @@ export { default as DropdownExample } from "./DropdownExample";
 export { default as HamburgerExample } from "./HamburgerExample";
 export { default as LoaderExample } from "./LoaderExample";
 export { default as LogoExample } from "./LogoExample";
+export { default as LogoStampExample } from "./LogoStampExample";
 export { default as MessageBoxExample } from "./MessageBoxExample";
 export { default as RadioButtonExample } from "./RadioButtonExample";
 export { default as TextAreaExample } from "./TextAreaExample";
