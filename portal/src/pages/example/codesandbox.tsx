@@ -7,7 +7,6 @@ const example = () => {
             <iframe
                 src="https://codesandbox.io/embed/intelligent-lederberg-ihlzd?fontsize=14"
                 title="jokul-demo"
-                allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media"
                 style={{
                     width: "100%",
                     height: "calc(100vh - 175px)",
