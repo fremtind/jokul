@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from "react";
+import { SupportText } from "./SupportText";
 
 interface Props {
     label: string;
@@ -16,7 +17,6 @@ export const TextArea = ({ isInvalid = false, id, label, className = "", helpTex
     <label data-testid="jkl-text-field" className={`jkl-text-field jkl-text-area ${className}`}>
         <textarea aria-invalid={isInvalid} className="jkl-text-field__input" id={id} placeholder=" " {...rest} />
         <span className="jkl-text-field__label">{label}</span>
-        {helpText && <span className="jkl__text jkl__text--help">{helpText}</span>}
-        {isInvalid && errorText && <span className="jkl__text jkl__text--error">{errorText}</span>}
+        <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
     </label>
 );

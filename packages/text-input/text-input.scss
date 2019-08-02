@@ -27,6 +27,7 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
     min-height: $input-total-height;
     padding-top: $label-height;
     background-color: $input-bg-color;
+    padding-bottom: $component-spacing--large;
 
     &--inline {
         display: inline-block;
