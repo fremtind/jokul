@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.7.1...@fremtind/jkl-core@0.8.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **core:** better name for support text scss ([00e0907](https://github.com/fremtind/jokul/commit/00e0907))
+* **core:** fix help text spacing, error color, minor ios portal fix ([ae19bb7](https://github.com/fremtind/jokul/commit/ae19bb7))
+* **textfield:** better naming, fix spacing, add test ([c5e8e82](https://github.com/fremtind/jokul/commit/c5e8e82))
+
+
+### Features
+
+* **core:** add atomic layout spacing classes ([7594f9d](https://github.com/fremtind/jokul/commit/7594f9d))
+* **firefox:** remove dotted line for good ([67187a6](https://github.com/fremtind/jokul/commit/67187a6))
+* **text-field:** add help and error text to field and area ([e18f117](https://github.com/fremtind/jokul/commit/e18f117)), closes [#41](https://github.com/fremtind/jokul/issues/41)
+
+
+
+
+
 ## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.7.0...@fremtind/jkl-core@0.7.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-core

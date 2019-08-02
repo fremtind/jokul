@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/fremtind/jokul/compare/@fremtind/parcel-consumer-example@0.5.4...@fremtind/parcel-consumer-example@0.5.5) (2019-08-02)
+
+**Note:** Version bump only for package @fremtind/parcel-consumer-example
+
+
+
+
+
 ## [0.5.4](https://github.com/fremtind/jokul/compare/@fremtind/parcel-consumer-example@0.5.3...@fremtind/parcel-consumer-example@0.5.4) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/parcel-consumer-example

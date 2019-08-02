@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.7.1...@fremtind/portal@0.8.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **build:** make gatsby prefix paths ([d6f5493](https://github.com/fremtind/jokul/commit/d6f5493))
+* **ci:** colorize error output, fix texteample ([e239375](https://github.com/fremtind/jokul/commit/e239375))
+* **core:** fix help text spacing, error color, minor ios portal fix ([ae19bb7](https://github.com/fremtind/jokul/commit/ae19bb7))
+* **portal:** change bg image ([17b83db](https://github.com/fremtind/jokul/commit/17b83db))
+* **portal:** create script to build locally ([d4f9bf6](https://github.com/fremtind/jokul/commit/d4f9bf6))
+* **portal:** dogfood spacing api ([7b4611c](https://github.com/fremtind/jokul/commit/7b4611c))
+* **portal:** fix mobilstyling on front page ([130518f](https://github.com/fremtind/jokul/commit/130518f))
+* **portal:** fixes based on pr feedback ([d3524ff](https://github.com/fremtind/jokul/commit/d3524ff))
+* **portal:** messagebox mobil width, fixed portal mobile style ([5521675](https://github.com/fremtind/jokul/commit/5521675))
+* **portal:** use lighter green for typename in dark mode ([3a01d4d](https://github.com/fremtind/jokul/commit/3a01d4d))
+* **radiobutton:** fix radio button screenshot ([1cf87b3](https://github.com/fremtind/jokul/commit/1cf87b3))
+* **test:** change travis order, allow more diff on screenshots ([bb42529](https://github.com/fremtind/jokul/commit/bb42529))
+
+
+### Features
+
+* **ci:** add image diff upload to aws ([1a00f7f](https://github.com/fremtind/jokul/commit/1a00f7f))
+* **ci:** add test docs ([7b5f109](https://github.com/fremtind/jokul/commit/7b5f109))
+* **core:** add atomic layout spacing classes ([7594f9d](https://github.com/fremtind/jokul/commit/7594f9d))
+* **firefox:** remove dotted line for good ([67187a6](https://github.com/fremtind/jokul/commit/67187a6))
+* **logo:** add logostamp ([1f90862](https://github.com/fremtind/jokul/commit/1f90862))
+* **portal:** use same code highlighter for all example code ([34bb322](https://github.com/fremtind/jokul/commit/34bb322))
+* **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
+* **text-field:** add help and error text to field and area ([e18f117](https://github.com/fremtind/jokul/commit/e18f117)), closes [#41](https://github.com/fremtind/jokul/issues/41)
+
+
+
+
+
 ## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.7.0...@fremtind/portal@0.7.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/portal

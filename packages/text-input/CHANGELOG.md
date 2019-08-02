@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.7.1...@fremtind/jkl-text-input@0.8.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **core:** fix help text spacing, error color, minor ios portal fix ([ae19bb7](https://github.com/fremtind/jokul/commit/ae19bb7))
+* **text-input:** fix rounded corners on iOS and set correct height ([fc4675b](https://github.com/fremtind/jokul/commit/fc4675b))
+* **text-input:** fix text-area height when expanded ([ad4f42f](https://github.com/fremtind/jokul/commit/ad4f42f))
+* **textfield:** better naming, fix spacing, add test ([c5e8e82](https://github.com/fremtind/jokul/commit/c5e8e82))
+
+
+### Features
+
+* **text-field:** add help and error text to field and area ([e18f117](https://github.com/fremtind/jokul/commit/e18f117)), closes [#41](https://github.com/fremtind/jokul/issues/41)
+
+
+
+
+
 ## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.7.0...@fremtind/jkl-text-input@0.7.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input

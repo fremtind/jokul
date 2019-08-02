@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Jøkul style for toggle switch",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
@@ -25,7 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.7.1"
+        "@fremtind/jkl-core": "^0.8.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3"
