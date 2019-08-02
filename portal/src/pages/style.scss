@@ -18,6 +18,7 @@ $circle-size: rem(100px);
         @include position(absolute !important, $top: 0, $left: 0);
         z-index: -1;
         width: 100%;
+        height: 100%;
     }
     &__hero {
         @include position(absolute, $top: $hero-top-offset, $left: 0);
@@ -25,9 +26,12 @@ $circle-size: rem(100px);
         padding: $layout-spacing--small $layout-spacing--medium;
         margin: 0 $layout-spacing--large;
         background-color: rgba($snøhvit, 0.7);
-
-        @include xl-device {
-            background-color: transparent;
+        @include small-device {
+            position: relative;
+            top: 0;
+            margin: 0;
+            box-sizing: border-box;
+            padding: $layout-spacing--small $layout-spacing--small $layout-spacing--large $layout-spacing--small;
         }
     }
     &__content {
@@ -35,6 +39,14 @@ $circle-size: rem(100px);
         background-color: $content-bg-color;
         color: $content-color;
         padding: $layout-spacing--large;
+        @include small-device {
+            position: relative;
+            top: 0;
+            margin: 0 (-$layout-spacing--small);
+            box-sizing: border-box;
+            padding: $layout-spacing--large $layout-spacing--small;
+        }
+
         &::before {
             @include position(absolute, $top: -#{$circle-size/2}, $left: calc(50% - #{$circle-size/2}));
             content: "▼";
@@ -52,4 +64,8 @@ $circle-size: rem(100px);
             max-width: $content-max-width;
         }
     }
+}
+pre {
+    max-width: 80vw;
+    overflow: auto;
 }

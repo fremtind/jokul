@@ -36,7 +36,7 @@ const IndexPage = ({ data }: Query) => (
 export const query = graphql`
   query {
     file(absolutePath: {
-      regex: "/\\/images\\/fremtind_hovedfoto\\.jpg/"
+      regex: "/\\/images\\/mountains\\.jpg/"
     }) {
       childImageSharp {
         fluid(maxWidth: 10000) {

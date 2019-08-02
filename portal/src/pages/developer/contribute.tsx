@@ -12,7 +12,7 @@ import "./contribute.scss";
 
 export default function Contribute() {
     return (
-        <Layout isComponent>
+        <Layout isComponentPage>
             <div className="portal-contribute">
                 <section className="portal-contribute__section portal-contribute__section-1">
                     <ReactMarkdown renderers={renderer} source={ContributeMarkdown} />

@@ -19,6 +19,7 @@
         "prerelease": "yarn build",
         "release": "lerna publish",
         "visual:test": "jest -c './jest/jest.visual.js'",
+        "visual:build": "lerna run --scope @fremtind/portal build:local",
         "visual:serve": "lerna run --scope @fremtind/portal serve"
     },
     "dependencies": {

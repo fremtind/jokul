@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Link } from "gatsby";
 import { LocationProvider } from "@reach/router";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
@@ -6,14 +6,18 @@ import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { coreLinks, developerLinks, designerLinks, componentLinks, profileLinks } from "./links";
 import "@fremtind/jkl-accordion/accordion.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";
+import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import { ThemeContext } from "../Layout/Layout";
 
 import "./Menu.scss";
 
 export function Menu() {
     const [showMenu, toggleShowMenu] = useState(false);
+
     const menuRef = useRef(null);
 
     const toggleMenu = (show: boolean) => toggleShowMenu(show);
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     return (
         <LocationProvider>
@@ -130,6 +134,13 @@ export function Menu() {
                         >
                             Designbibliotek
                         </a>
+                        <ToggleSwitch
+                            className="jkl-spacing--top-2 jkl-spacing--bottom-3"
+                            checked={theme === "dark"}
+                            onChange={toggleTheme}
+                        >
+                            Dark(beta)
+                        </ToggleSwitch>
                     </nav>
                 </div>
             )}

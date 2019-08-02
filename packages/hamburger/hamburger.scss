@@ -16,14 +16,6 @@ $button-focus-ring-color: $himmel;
     height: 100%;
     width: 100%;
 
-    &:-moz-focusring {
-        outline: none !important;
-    }
-
-    &::-moz-focus-inner {
-        border: 0;
-    }
-
     &:hover,
     &--is-active:hover {
         opacity: 0.7;

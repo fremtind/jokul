@@ -14,6 +14,7 @@ export const developerLinks = [
     makeDeveloperLink("Kom i gang", "getting-started"),
     makeDeveloperLink("Bidragsguide", "contribute"),
     makeDeveloperLink("Testguide", "test"),
+    makeDeveloperLink("Portalguide", "portal"),
 ];
 
 export const designerLinks = [makeDesignerLink("Kom i gang", "getting-started")];

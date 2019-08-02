@@ -26,3 +26,6 @@ $layout-spacing--medium: $spacing-7;
 $layout-spacing--large: $spacing-8;
 $layout-spacing--xl: $spacing-9;
 $layout-spacing--xxl: $spacing-10;
+
+$layout-spacing: $layout-spacing--small, $layout-spacing--medium, $layout-spacing--large, $layout-spacing--xl,
+    $layout-spacing--xxl;
