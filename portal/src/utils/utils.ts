@@ -93,7 +93,7 @@ export const fremtindDark: PrismTheme = {
         {
             types: ["class-name"],
             style: {
-                color: "#0d5745",
+                color: "#50e68c",
             },
         },
         {
