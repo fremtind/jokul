@@ -1,6 +1,6 @@
 # [Jøkul]() av [Fremtind](https://fremtind.no)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=flat-rounded)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-12-green.svg?style=flat-rounded)](#contributors)
 [![build status](https://travis-ci.org/fremtind/jokul.svg?branch=master)](https://travis-ci.org/fremtind/jokul.svg?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/fremtind/jokul.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io//test/github/fremtind/jokul/badge.svg?targetFile=package.json)](https://snyk.io//test/github/fremtind/jokul?targetFile=package.json) [![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
 
