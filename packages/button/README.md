@@ -1,6 +1,6 @@
 #  [`@fremtind/jkl-button`](https://fremtind.github.io/jokul/components/button/)
 
-Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den. Våre knapper bruker elevasjon for å trekke fokus, når brukeren holder pekeren over eller velger en knapp blir den løftet fra siden (forstørret).
+Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den. For å gi fokus blir knappen forstørret dersom brukeren holder pekeren over eller velger en knapp.
 
 ## Knappetyper
 
@@ -15,6 +15,6 @@ En side kan ha en eller flere primærknapper dersom handlingene er like viktige.
 Knapper brukes til handlinger som
 
 -   Lagre
--   Slett (typisk en tertiærknapp
+-   Slett (typisk en tertiærknapp)
 -   Fortsett / Gå videre i et skjema
--   Gå til en side (bare dersom formålet med siden er å få brukeren inn i en flyt, knapper erstatter ikke lenker for navigasjon)
+-   Gå til en side
