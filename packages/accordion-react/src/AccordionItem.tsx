@@ -3,7 +3,7 @@ Hopefully someone (us?) will write types for it sometime soon */
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { ReactNode, useState } from "react";
-import { useAnimatedHeight } from "./animation-hooks";
+import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 
 interface Props {
     title: string;
