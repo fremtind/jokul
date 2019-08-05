@@ -36,7 +36,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-text-input": "^0.8.0"
+        "@fremtind/jkl-text-input": "^0.8.0",
+        "@fremtind/jkl-typography-react": "^0.7.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3",

@@ -26,6 +26,18 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
     letter-spacing: -0.009em;
 }
 
+@mixin box-shadow($color, $focus-color) {
+    box-shadow: 0 2px 0 0 $color;
+
+    html:not([data-mousenavigation]) &:focus {
+        box-shadow: 0 4px 0 0 $focus-color;
+    }
+
+    &:hover {
+        box-shadow: 0 4px 0 0 $color;
+    }
+}
+
 .jkl-dropdown {
     background-color: $dropdown-bg-color;
     display: block;
@@ -109,15 +121,7 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         width: 100%;
         opacity: 1;
         position: relative;
-        box-shadow: 0 2px 0 0 $border-color;
-
-        html:not([data-mousenavigation]) &:focus {
-            box-shadow: 0 4px 0 0 $border-color--focus;
-        }
-
-        &:hover {
-            box-shadow: 0 4px 0 0 $border-color;
-        }
+        @include box-shadow($border-color, $border-color--focus);
 
         &:active {
             color: currentColor; // Safari text will blink on click without this
@@ -126,7 +130,6 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
 
     &--no-value {
         .jkl-dropdown__value {
-            padding-top: $value-height + $bottom-padding; // Use padding to keep text behind the screen
             padding-bottom: 0;
             color: transparent;
         }
@@ -187,5 +190,11 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
         stroke-width: 1;
 
         transition: transform 300ms ease-in-out;
+    }
+
+    &--invalid {
+        .jkl-dropdown__value {
+            @include box-shadow($error-color, $error-color);
+        }
     }
 }

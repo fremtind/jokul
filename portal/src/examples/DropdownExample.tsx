@@ -16,6 +16,7 @@ const example = `<>
     label="Merke"
     items={["Mercedes", "Opel", "Skoda"]}
     initialShow
+    helpText="Velg produsent"
   />
   <Dropdown
     className="jkl-spacing--bottom-2"
@@ -24,6 +25,8 @@ const example = `<>
     items={["Apartment", "Duplex", "House", "Mansion"]}
     initialInputValue="House"
     onChange={value => alert(value)}
+    errorText="Select valid place to live"
+    isInvalid
   />
   <Select
     className="jkl-spacing--bottom-2"
