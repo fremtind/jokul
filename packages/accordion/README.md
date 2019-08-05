@@ -2,17 +2,14 @@
 
 ## Beskrivelse
 
-Trekkspillister gjør at vi kan gi brukerne mer innhold på liten plass, fordi vi viser informasjonen gradvis. Vi antyder for brukerne at det finnes noe mer, og de kan selv velge å vise eller skjule den ekstra informasjonen.
+Trekkspillister gjør at vi kan gi brukere mer innhold på liten plass ved å vise informasjonen gradvis. De lar brukeren identifiser at det finnes mer innhold som de kan selv velge å vise eller skjule.
 
-Trekkspillister er spesielt nyttig når du designer for mobil, eller i andre tilfeller der du trenger å legge mye informasjon vertikalt.
+Trekkspillisten kan bestå av en eller flere rader. Teksten og vinkeltegnet (chevronen) er trykkbare og viser / skjuler informasjonen. Vi unngår å bruke nestede lister, altså trekkspillister inne i andre trekkspillister. 
 
-## Do's and dont's
+Dersom det er plass til å vise informasjonen, og / eller informasjonen er viktig for brukeren, bør den ligge åpent tilgjengelig enten ved å sette trekkspillisten som åpen (by default) eller ved å ikke ha den i en trekkspilliste.
 
-### Vi unngår:
+## Eksempler
+- Liste av spørsmål / svar (FAQer)
+- Tilleggsinformasjon som ikke er viktig for de fleste (e.g. utvidet informasjon om Trafikkforsikringsavgiften)
 
--   _nestede_ lister, altså trekkspillister inni andre trekkspillister.
 
-### Vi gjør:
-
--   bruker et vinkeltegn (chevron) for å angi at brukeren kan vise og skjule informasjon.
--   brukerne kan også klikke på selve tekstområdet for å vise og skjule.
