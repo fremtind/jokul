@@ -2,19 +2,15 @@
 
 ## Om avmerkingsbokser
 
-Du bruker avmerkingsbokser når du vil gi brukeren en liste med flere valg, der brukeren kan velge flere alternativer, alle eller ingen.
-Avmerkingsbokser kan har tre statuser
+Avmerkingsbokser brukes til å gi en liste over valg der brukeren kan velge fritt blant alternativene; en, flere, alle eller ingen. Avmerkingsbokser kan også brukes når brukeren gi sitt samtykke i en prosess.
 
+Avmerkingsbokser kan har tre statuser
 -   Valgt
 -   Ikke valgt
--   Utilgjengelig (nedtonet)
+-   Utilgjengelig (disabled)
 
-> Standard status er `Ikke valgt`.
+Avmerkingsbokser har en ledetekst til høyre for boksen og kan ha en overskrift. Det er viktig at tekstene er tydelige og presise sånn at brukeren forstår hva som skjer dersom de markerer boksen. Standard status for avmerkingsbokser er 'Ikke valgt'.
 
-### Overskrifter til avmerkingsbokser
-
-Hvis det er nødvendig, kan du legge en overskrift over avmerkingsboksene: Det kan være en kort setning.
-
-### Ledetekst
-
-Pass på at du bruker tydelige og presise ledetekster til avmerkingsbokser. Ledeteksten må tydelig vise hva som skjer hvis du merker boksen. Ledeteksten skal alltid stå til høyre for avmerkingsboksen.
+### Eksempler
+- Velg hva som er relevant i en liste av objekter (e.g. kategorier av mistede gjenstander ved tapt baggasje)
+- Gi ditt samtykke til elektronisk kommunikasjon (e.g. Avmerkingsboks med ledetekst "jeg godtar ...")
