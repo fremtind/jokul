@@ -1,14 +1,13 @@
 # [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/components/textfield/)
 
-## Om tekstfelt
+## Tekstfelt
+Tekstfelt lar brukerene legge inn data. Tekstfelt kan være korte, hvor brukeren kan oppgi en setning eller et navn, eller lange, der de kan skrive en lengre beskrivelse.
 
-Tekstfelt gir brukerne anledning til å samhandle med en løsning, ved å legge inn data.
-Tekstfelt kan være korte, der brukerne kan oppgi en setning, eller lange, der brukeren får et helt område til å skrive.
+- Tekstfelt skal ha validering som hindrer at de blir feilaktig fylt inn, og de må ha en ledetekst som tydelig forklarer hva som skal skrives i feltet.
+- Hjelpetekster som forklarer mer kan plasseres under feltet dersom det er behov, bruk av hjelpetekster bør minimeres gjennom gode ledetekster.
+- Bredden på tekstfeltet bør brukes for å forventningsstyre hva som er ønsket input. _E.g. et felt for fødselsnummer bør ikke være mye lengre enn 11 siffer._ 
 
-### Validering og tegnbegrensning
+### Langt tekstfelt
+Dersom det er ønskelig at brukeren skriver en lengre tekst (eller trenger å ha mulighet til å kunne gjøre det) bør man bruke et langt tekstfelt. Dette feltet ekspanderer slik at det blir tydelig for brukeren at man kan skrive mye.
 
-Tekstfelt kan utsette en løsning for unødvendige feil eller behov for at fagpersoner sjekker dem. Det kan derfor være lurt å ha validering på feltet og oppgi hvor mange tegn brukerne kan legge inn.
-
-### Tekst
-
-Sørg alltid for å ha gode ledetekster og plassholdertekster. En hjelpetekst under ledeteksten kan også være nyttig.
+Når man bruker lange tekstfelt er det også viktig med en god ledetekst som forklarer hva som er ønsket input. Man kan også oppgi hvor mange tegn man tillater.
