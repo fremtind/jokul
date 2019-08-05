@@ -1,16 +1,9 @@
 # [`@fremtind/jkl-radio-button`](https://fremtind.github.io/jokul/components/radiobutton/)
 
-## Om alternativknapper
+Radioknapper (alternativknapper) lar brukeren velge mellom to eller fler alternativer som utelukker hverandre. Altså, brukeren må velge kun ett av alternativene.
 
-Vi bruker alternativknapper når vi vil gi brukeren valget mellom to eller fler alternativer som utelukker hverandre. Det vil si at brukeren må velge bare ett alternativ.
+Radioknapper er bygget opp med en overskrift og en ledetekst til høyre for hvert alternativ. Det er viktig med tydelige, presise og korte ledetekster som beskriver hvert alternativ. Dersom det ikke er juridiske hensyn skal det alternativet som er standard eller har minst konsekvens for brukeren starte som valgt.
 
-### Overskrifter
-
-Vi bruker bare overskrift over alternativene hvis det gjør det tydeligere for brukeren.
-
-### Ledetekster
-
-Bruk alltid tydelige og presise ledetekster for hvert av alternativene. Teksten skal ikke ha mer enn tre ord og må si noe om følgene av at brukeren velger alternativet.
-Teksten skal alltid stå til høyre for selve knappen.
-
-> Husk: En av alternativknappene skal alltid være valgt på forhånd.
+### Eksempler
+- Å svare ja eller nei i et skjema
+- Andre spørsmål i skjema der man har såpass få valg at man ikke trenger en dropdown (nedtrekksliste).
