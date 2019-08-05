@@ -1,6 +1,6 @@
 #  [`@fremtind/jkl-button`](https://fremtind.github.io/jokul/components/button/)
 
-Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den. For å gi fokus blir knappen forstørret dersom brukeren holder pekeren over eller velger en knapp.
+Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den. For å gi fokus forstørres knappen når brukeren holder pekeren over eller velger den.
 
 ## Knappetyper
 
