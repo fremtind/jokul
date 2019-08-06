@@ -5,6 +5,7 @@ interface Props {
     label: string;
     value?: string;
     onChange?: (value: ChangeEvent<HTMLTextAreaElement>) => void;
+    onBlur?: (value: ChangeEvent<HTMLTextAreaElement>) => void;
     className?: string;
     isInvalid?: boolean;
     id?: string;
