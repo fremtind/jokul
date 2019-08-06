@@ -1,27 +1,20 @@
 #  [`@fremtind/jkl-button`](https://fremtind.github.io/jokul/components/button/)
 
-Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den.
+Knapper starter en handling. De oppfordrer brukeren til å gjøre noe. Teksten på knappen forteller hva som vil skje når brukeren velger den. For å gi fokus forstørres knappen når brukeren holder pekeren over eller velger den.
 
 ## Knappetyper
 
--   **Primærknapp** – brukes når du vil oppfordre
-    til en hovedhandling på en side.
--   **Sekundærknapp** – for handlinger som kommer i andre rekke på en side.
--   **Tertiærknapp** - brukes for handlinger som har begrenset viktighet eller kan føre til uønskede konsekvenser
+-   **Primærknapp** – brukes for hovedhandlingen(e) på en side.
+-   **Sekundærknapp** – brukes for handlinger som ikke er like viktige for oss eller brukeren.
+-   **Tertiærknapp** - brukes for handlinger som har begrenset viktighet eller kan føre til uønskede konsekvenser.
 
-For Fremtind designer vi knappene med animasjon etter prinsippet om [elevasjon](#). Det vil si at når brukerne beveger pekeren over eller velger en knapp, vil den bli midlertidig forstørret.
+En side kan ha en eller flere primærknapper dersom handlingene er like viktige. Der brukeren gis flere valg samtidig skal det ikke være mer enn en primærknapp, den viktigste handlingen skal være primærknapp mens resten er sekundære eller tertiære (dersom det er et tredje nivå av viktighet).
 
 ## Eksempler
 
 Knapper brukes til handlinger som
 
 -   Lagre
--   Slett
--   Meld skade
--   Fortsett (i et skjema)
-
-Hver side kan ha én eller to primærknapper. Hvis du ønsker at brukeren skal gjøre noe mer, bruk en sekundærknapp.
-
-## Generelle råd
-
-Ikke bruk knapper til å navigere. Hvis du vil at brukeren skal gå til en ny side, bruker du en lenke. Unntak: I skjemaer er det naturlig å hjelpe brukeren videre med en Fortsett-knapp.
+-   Slett (typisk en tertiærknapp)
+-   Fortsett / Gå videre i et skjema
+-   Gå til en side
