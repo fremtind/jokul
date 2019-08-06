@@ -89,7 +89,7 @@ export const Dropdown = ({
     if (isInvalid) {
         cn = `${cn} jkl-dropdown--invalid`;
     }
-    if (!className) {
+    if (className) {
         cn = `${cn} ${className}`;
     }
 

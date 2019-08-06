@@ -41,11 +41,8 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
 .jkl-dropdown {
     background-color: $dropdown-bg-color;
     display: block;
-    box-sizing: border-box;
-    height: $dropdown-total-height;
     width: $dropdown-width;
     padding-top: $label-height;
-    padding-bottom: $dropdown-total-height;
     position: relative;
 
     &--inline {

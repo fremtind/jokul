@@ -33,6 +33,14 @@ const DropdownDemo = () => {
             <Dropdown inline key={d} label="Fødselsår" items={years} initialInputValue="1986" />
 
             <Select isInvalid label="Standard select" items={items} onChange={(e) => console.log(e.target.value)} />
+            <Select
+                helpText="The room is the greatest movie"
+                isInvalid={favoriteScene !== ""}
+                errorText="You can't pick, they are all the best"
+                label="Standard select"
+                items={items}
+                onChange={(e) => console.log(e.target.value)}
+            />
 
             <div>
                 <button
