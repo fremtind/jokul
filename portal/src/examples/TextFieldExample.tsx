@@ -30,6 +30,7 @@ const example = `
                 label="Etternavn"
                 value="Hart"
                 onChange={()=>{}}
+                onBlur={(e) => console.log("It blurred with value: ", e.target.value)}
             />
         </>
     );
