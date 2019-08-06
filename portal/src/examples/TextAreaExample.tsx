@@ -19,6 +19,7 @@ const example = `() => {
                 className="jkl-spacing--bottom-3"
                 label="Livshistorie"
                 value="gobjop uvucenli bdachukme sotw uvliljai suibki"
+                onChange={()=>{}}
                 isInvalid
                 errorText="That makes no sense"
             />
@@ -27,6 +28,7 @@ const example = `() => {
                 label="Livshistorie"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
+                onBlur={(e) => console.log("You wrote: ", e.target.value)}
                 helpText="Bruk store ord"
             />
         </>);

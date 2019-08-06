@@ -2,9 +2,13 @@ import nodeResolve from "rollup-plugin-node-resolve";
 import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
+import fs from "fs";
+import path from "path";
 
 const extensions = [".ts", ".tsx"];
 const outputFolder = "build";
+
+const allFremtindPackagesNames = getFremtindPackageNames();
 
 const defaultPlugins = [
     nodeResolve({ extensions }),
@@ -28,7 +32,8 @@ function config(plugins) {
         input: "src/index.ts",
 
         plugins: plugins,
-        external: ["react"],
+        // Fremtind packages are marked as internal so that packages that depend on each other don't get inlined in each other
+        external: ["react", ...allFremtindPackagesNames],
     };
 }
 
@@ -43,3 +48,21 @@ export default [
     configWithOutput(config(uglifiedPlugins), { file: `${outputFolder}/esm/index.min.js`, format: "esm" }),
     configWithOutput(config(uglifiedPlugins), { file: `${outputFolder}/browser/index.min.js`, format: "esm" }),
 ];
+
+function getFremtindPackageNames() {
+    let basePackagePath = path.resolve(__dirname, "packages");
+    let packagesFolderNames = fs.readdirSync(basePackagePath);
+
+    return packagesFolderNames
+        .map((packageFolderName) => {
+            try {
+                let packageJson = fs.readFileSync(path.resolve(basePackagePath, packageFolderName, "package.json"));
+                return JSON.parse(packageJson).name; // Return package name
+            } catch (e) {
+                // This is just a warning
+                console.log(`Failed to read package.json version for ${packageFolderName}.`);
+            }
+            return undefined;
+        })
+        .filter(Boolean); // Remove undefined in case of failing to find package.json
+}
