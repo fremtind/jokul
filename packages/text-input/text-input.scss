@@ -94,7 +94,7 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 .jkl-text-area {
     height: auto;
     & .jkl-text-field__input {
-        transition: height 175ms ease;
+        transition: height 175ms ease, box-shadow $transition-timing;
         &:focus,
         &:not(:placeholder-shown) {
             height: initial;
