@@ -2,7 +2,7 @@
 
 ## Om avmerkingsbokser
 
-Avmerkingsbokser brukes til å gi en liste over valg der brukeren kan velge fritt blant alternativene; en, flere, alle eller ingen. Avmerkingsbokser kan også brukes når brukeren gi sitt samtykke i en prosess.
+Avmerkingsbokser brukes til å gi en liste over valg der brukeren kan velge fritt blant alternativene; en, flere, alle eller ingen. Avmerkingsbokser kan også brukes når brukeren gir sitt samtykke i en prosess.
 
 Avmerkingsbokser kan har tre statuser
 -   Valgt
