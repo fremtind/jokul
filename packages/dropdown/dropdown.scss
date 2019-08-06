@@ -47,7 +47,7 @@ $dropdown-total-height: $label-height + $value-height + $bottom-padding;
 
     &--inline {
         display: inline-block;
-        vertical-align: bottom;
+        vertical-align: top;
     }
 
     & *:focus {
