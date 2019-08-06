@@ -10,7 +10,7 @@ import "@fremtind/jkl-core/core.min.css";
 import "./style.scss";
 
 const IndexPage = () => (
-    <Layout isFrontPage>
+    <Layout showFooter={false}>
         <img className="portal-main__background" src="mountains.jpg" alt="Fjell illustasjon" />
         <div className="portal-main__hero">
             <ReactMarkdown renderers={renderer} source={HeroMarkdown} />{" "}
