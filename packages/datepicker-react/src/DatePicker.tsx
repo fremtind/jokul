@@ -20,6 +20,7 @@ interface Props {
     onChange?: (date: Date) => void;
     onlyFuture?: boolean;
     initialShow?: boolean;
+    className?: string;
 }
 
 export function DatePicker({
@@ -32,6 +33,7 @@ export function DatePicker({
     onChange,
     onlyFuture = true,
     initialShow = false,
+    className = "",
 }: Props) {
     const [today] = useState(Date.now() - (Date.now() % 864e3));
     const [date, setDate] = useState(initialDate);
@@ -46,7 +48,7 @@ export function DatePicker({
     const toggle = () => togglePicker(!showPicker);
 
     return (
-        <div className="jkl-datepicker">
+        <div className={`jkl-datepicker ${className}`}>
             <button type="button" className="jkl-datepicker__toggler" data-testid="jkl-datepicker-toggler">
                 <TextField
                     label={label}
