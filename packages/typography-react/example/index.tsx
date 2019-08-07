@@ -1,9 +1,9 @@
-import "@fremtind/jkl-core/headings.min.css";
-import "@fremtind/jkl-core/paragraphs.min.css";
-import "@fremtind/jkl-core/normalize.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "../src";
+import { initTabListener } from "@fremtind/jkl-core";
+import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph, Link } from "../src";
+
+import "@fremtind/jkl-core/core.min.css";
 
 const Typography = () => (
     <>
@@ -33,8 +33,31 @@ const Typography = () => (
 
         <H2 styledAs="h1">Semantic h2, looks like h1</H2>
         <H1 styledAs="h3">Semantic h1, looks like h3</H1>
+        <P>
+            A paragraph (P): The sky of a deep dark blue was hung with innumerable stars, which seemed to float in the
+            limpid ether, and the rolling vapours through which we had passed were drawn like a sable curtain between us
+            and the lower world. The{" "}
+            <Link inline href="#">
+                stillness
+            </Link>{" "}
+            was so profound that we could hear the beating of our own hearts.
+        </P>
+
+        <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
+            <P>
+                A paragraph (P): The sky of a deep dark blue was hung with innumerable stars, which seemed to float in
+                the limpid ether, and the rolling vapours through which we had passed were drawn like a sable curtain
+                between us and the lower world. The{" "}
+                <Link negative inline href="#">
+                    stillness
+                </Link>{" "}
+                was so profound that we could hear the beating of our own hearts.
+            </P>
+        </div>
+        <Link href="#">Go away</Link>
     </>
 );
 
+initTabListener();
 var mountNode = document.getElementById("app");
 ReactDOM.render(<Typography />, mountNode);
