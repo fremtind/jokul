@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react";
-import { SupportText } from "./SupportText";
+import { SupportText } from "@fremtind/jkl-typography-react";
 
 interface Props {
     label: string;

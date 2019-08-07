@@ -2,6 +2,7 @@
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState } from "react";
 import nanoid from "nanoid";
+import { SupportText } from "@fremtind/jkl-typography-react";
 import { useListNavigation } from "./useListNavigation";
 
 interface Props {
@@ -13,6 +14,9 @@ interface Props {
     initialInputValue?: string;
     onChange?: (value: string) => void;
     initialShow?: boolean;
+    helpText?: string;
+    errorText?: string;
+    isInvalid?: boolean;
 }
 
 interface CoreToggleSelectEvent {
@@ -42,6 +46,9 @@ export const Dropdown = ({
     label,
     onChange,
     className,
+    helpText,
+    errorText,
+    isInvalid = false,
     inline = false,
     defaultPrompt = "Velg",
     initialShow = false,
@@ -68,11 +75,26 @@ export const Dropdown = ({
         onChange && onChange(e.detail.textContent);
     }
 
-    const classModifiers = `${inline ? " jkl-dropdown--inline" : ""}${dropdownIsShown ? " jkl-dropdown--open" : ""}${
-        hasSelectedValue ? "" : " jkl-dropdown--no-value"
-    }`;
+    let cn = "jkl-dropdown";
+
+    if (inline) {
+        cn = `${cn} jkl-dropdown--inline`;
+    }
+    if (dropdownIsShown) {
+        cn = `${cn} jkl-dropdown--open`;
+    }
+    if (!hasSelectedValue) {
+        cn = `${cn} jkl-dropdown--no-value`;
+    }
+    if (isInvalid) {
+        cn = `${cn} jkl-dropdown--invalid`;
+    }
+    if (className) {
+        cn = `${cn} ${className}`;
+    }
+
     return (
-        <div data-testid="jkl-dropdown" className={`jkl-dropdown${classModifiers} ${className ? className : ""}`}>
+        <div data-testid="jkl-dropdown" className={cn}>
             <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
                 {label}
             </span>
@@ -120,6 +142,7 @@ export const Dropdown = ({
             <svg aria-hidden={"true"} className="jkl-dropdown__arrow" viewBox="0 0 20 32">
                 <polyline points="0,11 10,21 20,11" fill="none" />
             </svg>
+            <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
         </div>
     );
 };

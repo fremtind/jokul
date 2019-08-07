@@ -5,19 +5,35 @@ import "@fremtind/jkl-dropdown/dropdown.min.css";
 // @ts-ignore
 import dropdownType from "!raw-loader!@fremtind/jkl-dropdown-react/build/Dropdown.d.ts";
 
-const example = `
-    <>
-        <Dropdown label="Merke" items={["Mercedes", "Opel", "Skoda"]} />
-        <Dropdown label="Merke" items={["Mercedes", "Opel", "Skoda"]} initialShow />
-        <Dropdown
-            label="Home type"
-            defaultPrompt="Choose" // for screen readers
-            items={["Apartment", "Duplex", "House", "Mansion"]}
-            initialInputValue="House"
-            onChange={(value) => alert(value)}
-        />
-        <Select label="Vanlig select" items={["Valg 1", "Valg 2", "Valg 3"]} />
-    </>
+const example = `<>
+  <Dropdown
+    className="jkl-spacing--bottom-2"
+    label="Merke"
+    items={["Mercedes", "Opel", "Skoda"]}
+  />
+  <Dropdown
+    className="jkl-spacing--bottom-2"
+    label="Merke"
+    items={["Mercedes", "Opel", "Skoda"]}
+    initialShow
+    helpText="Velg produsent"
+  />
+  <Dropdown
+    className="jkl-spacing--bottom-2"
+    label="Home type"
+    defaultPrompt="Choose" // for screen readers
+    items={["Apartment", "Duplex", "House", "Mansion"]}
+    initialInputValue="House"
+    onChange={value => alert(value)}
+    errorText="Select valid place to live"
+    isInvalid
+  />
+  <Select
+    className="jkl-spacing--bottom-2"
+    label="Vanlig select"
+    items={["Valg 1", "Valg 2", "Valg 3"]}
+  />
+</>;
 `;
 
 const exampleImport = `import { Dropdown } from "@fremtind/jkl-dropdown-react";
