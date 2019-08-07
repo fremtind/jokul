@@ -15,6 +15,7 @@ const DropdownDemo = () => {
 
     const [c, setC] = useState(0);
     const [d, setD] = useState(1000);
+    const [favoriteScene, setFavoriteScene] = useState("");
 
     return (
         <>
@@ -24,11 +25,22 @@ const DropdownDemo = () => {
                 label="The Room scene"
                 defaultPrompt="Choose your favorite"
                 items={items}
-                onChange={(value) => console.log(`You selected "${value}"!`)}
+                onChange={(value) => setFavoriteScene(value)}
+                helpText="The room is the greatest movie"
+                isInvalid={favoriteScene !== ""}
+                errorText="You can't pick, they are all the best"
             />
             <Dropdown inline key={d} label="Fødselsår" items={years} initialInputValue="1986" />
 
-            <Select label="Standard select" items={items} onChange={(e) => console.log(e.target.value)} />
+            <Select isInvalid label="Standard select" items={items} onChange={(e) => console.log(e.target.value)} />
+            <Select
+                helpText="The room is the greatest movie"
+                isInvalid={favoriteScene !== ""}
+                errorText="You can't pick, they are all the best"
+                label="Standard select"
+                items={items}
+                onChange={(e) => console.log(e.target.value)}
+            />
 
             <div>
                 <button

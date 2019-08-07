@@ -63,4 +63,8 @@ export const profileLinks = [
     makeProfileLink("Logo", "logo"),
 ];
 
-export const exampleLinks = [makeExampleLink("CodeSandbox", "codesandbox")];
+export const exampleLinks = [
+    makeExampleLink("Kjøpsflyt", "purchaseFlow"),
+    makeExampleLink("Footer", "footer"),
+    makeExampleLink("Header", "header"),
+];

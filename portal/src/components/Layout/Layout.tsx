@@ -27,10 +27,10 @@ export const ThemeContext = React.createContext<ContextProps>({ theme: "light", 
 interface Props {
     children: ReactNode;
     isComponentPage?: boolean;
-    isFrontPage?: boolean;
+    showFooter?: boolean;
 }
 
-export const Layout = ({ children, isComponentPage = false, isFrontPage = false }: Props) => {
+export const Layout = ({ children, isComponentPage = false, showFooter = true }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
 
     const toggleTheme = (showDark: boolean) => {
@@ -57,7 +57,7 @@ export const Layout = ({ children, isComponentPage = false, isFrontPage = false 
             <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
                 {children}
             </main>
-            {!isFrontPage && <Footer />}
+            {showFooter && <Footer />}
         </ThemeContext.Provider>
     );
 };
