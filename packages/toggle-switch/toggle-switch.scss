@@ -5,6 +5,7 @@
 $toggle-width: rem(72px);
 $toggle-height: rem(40px);
 $toggle-focus-outline-color: $himmel;
+$focus-ring: 0 0 0 rem(2px) $snøhvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
 
 .jkl-toggle-switch {
     & input {
@@ -21,41 +22,55 @@ $toggle-focus-outline-color: $himmel;
         @include position(absolute, $left: 0);
         cursor: pointer;
         width: $toggle-width;
-        height: $toggle-height;
+        height: 1px;
         box-sizing: border-box;
-        background-color: transparent;
+        background-color: $gress;
         border: 1px solid $svart;
         border-radius: $toggle-height / 2;
+        transition: height 150ms ease-in-out;
+        transition-delay: 25ms;
+
+        &:before,
         &:after {
-            @include position(absolute, $left: rem(9px), $top: 50%);
             transform: translateY(-50%);
             content: "";
-            height: $toggle-height / 2;
-            width: $toggle-height / 2;
             box-sizing: border-box;
             border-radius: $toggle-height / 2;
             background-color: $svart;
-            transition: background-color 250ms ease-in, transform 150ms ease-in-out;
-            border: 1px solid $svart;
+            transition: transform 175ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         &:before {
-            content: "";
-            @include position(absolute, $left: rem(28px), $right: rem(28px), $top: 50%);
-            height: rem(1px);
-            background-color: $svart;
+            @include position(absolute, $left: -2px, $top: 50%);
+            height: $toggle-height;
+            width: $toggle-height;
+            border: 1px solid $svart;
+        }
+        &:after {
+            @include position(absolute, $left: $toggle-height/4 - rem(2px), $top: 50%);
+            height: $toggle-height/2;
+            width: $toggle-height/2;
+            border: 1px solid $snøhvit;
         }
     }
 
-    & input:checked + .jkl-toggle-switch__slider:after {
-        background-color: $gress;
-        transform: translate(rem(30px), -50%) scale(1.3);
+    & input:checked {
+        & + .jkl-toggle-switch__slider {
+            height: $toggle-height;
+        }
+        & + .jkl-toggle-switch__slider {
+            &:before,
+            &:after {
+                transform: translate(rem(34px), -50%);
+            }
+        }
     }
 
     html:not([data-mousenavigation]) & input:focus {
-        + .jkl-toggle-switch__slider {
-            box-shadow: 0 0 0 rem(2px) $snøhvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
+        + .jkl-toggle-switch__slider:before {
+            box-shadow: $focus-ring;
         }
     }
+
     &__label {
         padding-left: $toggle-width + $component-spacing--xxl;
         margin-bottom: 0 !important; // needs to override paragraph spacing
