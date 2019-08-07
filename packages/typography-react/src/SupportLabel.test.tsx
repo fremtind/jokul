@@ -9,7 +9,9 @@ describe("SupportLabel", () => {
     const errorLabel = "error error error, read in a computer voice";
 
     it("renders with help text when valid", () => {
-        const { getByText } = render(<SupportLabel errorLabel={false && errorLabel} helpLabel={helpLabel} />);
+        const { getByText } = render(
+            <SupportLabel errorLabel={false ? errorLabel : undefined} helpLabel={helpLabel} />,
+        );
 
         expect(getByText(helpLabel)).toBeInTheDocument();
     });
