@@ -2,7 +2,7 @@
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState } from "react";
 import nanoid from "nanoid";
-import { SupportText } from "@fremtind/jkl-typography-react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { useListNavigation } from "./useListNavigation";
 
 interface Props {
@@ -14,9 +14,8 @@ interface Props {
     initialInputValue?: string;
     onChange?: (value: string) => void;
     initialShow?: boolean;
-    helpText?: string;
-    errorText?: string;
-    isInvalid?: boolean;
+    helpLabel?: string;
+    errorLabel?: string;
 }
 
 interface CoreToggleSelectEvent {
@@ -46,9 +45,8 @@ export const Dropdown = ({
     label,
     onChange,
     className,
-    helpText,
-    errorText,
-    isInvalid = false,
+    helpLabel,
+    errorLabel,
     inline = false,
     defaultPrompt = "Velg",
     initialShow = false,
@@ -86,7 +84,7 @@ export const Dropdown = ({
     if (!hasSelectedValue) {
         cn = `${cn} jkl-dropdown--no-value`;
     }
-    if (isInvalid) {
+    if (helpLabel) {
         cn = `${cn} jkl-dropdown--invalid`;
     }
     if (className) {
@@ -142,7 +140,7 @@ export const Dropdown = ({
             <svg aria-hidden={"true"} className="jkl-dropdown__arrow" viewBox="0 0 20 32">
                 <polyline points="0,11 10,21 20,11" fill="none" />
             </svg>
-            <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { SupportText } from "@fremtind/jkl-typography-react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
     label: string;
@@ -8,9 +8,8 @@ interface Props {
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     autoComplete?: string;
-    helpText?: string;
-    errorText?: string;
-    isInvalid?: boolean;
+    helpLabel?: string;
+    errorLabel?: string;
 }
 
 export function Select({
@@ -19,16 +18,15 @@ export function Select({
     className = "",
     onChange,
     inline = false,
-    helpText,
-    errorText,
-    isInvalid = false,
+    helpLabel,
+    errorLabel,
     ...rest
 }: Props) {
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => onChange && onChange(event);
     return (
         <label
             className={`jkl-dropdown ${inline ? "jkl-dropdown--inline" : ""} ${
-                isInvalid ? "jkl-dropdown--invalid" : ""
+                errorLabel ? "jkl-dropdown--invalid" : ""
             } ${className}`}
         >
             <select className="jkl-dropdown__value" onBlur={handleChange} onChange={handleChange} {...rest}>
@@ -39,7 +37,7 @@ export function Select({
                 ))}
             </select>
             <span className="jkl-dropdown__label jkl-dropdown__label--has-value">{label}</span>
-            <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
         </label>
     );
 }
