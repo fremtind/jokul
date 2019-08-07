@@ -84,7 +84,7 @@ export const Dropdown = ({
     if (!hasSelectedValue) {
         cn = `${cn} jkl-dropdown--no-value`;
     }
-    if (helpLabel) {
+    if (!!errorLabel) {
         cn = `${cn} jkl-dropdown--invalid`;
     }
     if (className) {
