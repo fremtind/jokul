@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@0.6.1...@fremtind/jkl-logo-react@0.7.0) (2019-08-02)
+
+
+### Features
+
+* **logo:** add logostamp ([1f90862](https://github.com/fremtind/jokul/commit/1f90862))
+* **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@0.6.0...@fremtind/jkl-logo-react@0.6.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-logo-react

@@ -1,0 +1,15 @@
+@import "./variables/all";
+@import "./mixins/all";
+
+.jkl-form-support-text {
+    display: block;
+    margin-top: $component-spacing--large;
+    @include font-size(small);
+
+    &--help {
+        color: $svart;
+    }
+    &--error {
+        color: $error-color;
+    }
+}

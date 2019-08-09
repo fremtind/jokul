@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.7.1...@fremtind/jkl-dropdown@0.8.0) (2019-08-02)
+
+
+### Features
+
+* **dropdown:** add bottom margin and set total height correctly ([80e3669](https://github.com/fremtind/jokul/commit/80e3669))
+* **dropdown:** make dropdown a block with optional inline version ([d209bec](https://github.com/fremtind/jokul/commit/d209bec))
+* **firefox:** remove dotted line for good ([67187a6](https://github.com/fremtind/jokul/commit/67187a6))
+
+
+
+
+
 ## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.7.0...@fremtind/jkl-dropdown@0.7.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-dropdown

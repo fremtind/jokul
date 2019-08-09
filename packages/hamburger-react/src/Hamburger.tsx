@@ -1,5 +1,5 @@
 import React, { RefObject, useRef, useState } from "react";
-import { useClickOutside } from "@fremtind/jkl-core";
+import { useClickOutside } from "@fremtind/jkl-react-hooks";
 
 interface Props {
     className?: string;

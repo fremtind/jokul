@@ -1,11 +1,7 @@
 # [`@fremtind/jkl-loader`](https://fremtind.github.io/jokul/components/loader/)
 
-## Om spinneren
+Lasteindikatoren viser at systemet jobber og brukes hvis en handling tar lengre tid enn to – tre sekunder. Det er viktig å bruke en lasteindikator for å trygge brukeren på at det faktisk skjer noe i bakkant. Lasteindikatoren kan ha ulik posisjon eller størrelse og skal settes i kontekst av det som trigget den. 
 
-Vi bruker innlastingsspinneren for å vise at noe er underveis. Det kan være at systemet henter data, brukeren blir sendt til et annet sted eller det foregår beregninger. Vi bruker den når handlingen tar mer en tre sekunder.
-
-Spinneren er et viktig designelement. Selv om det ikke er innlysende for brukeren hva som skjer i bakkant, kan vi trygge brukeren på at det faktisk skjer noe og vise det tydelig.
-
-### Størrelse
-
-Når vi vil vise at innlasting gjelder et bestemt element på en side eller et bestemt område, kan vi krympe spinneren, for eksempel slik at den passer på en knapp.
+### Eksempler
+- I en knapp  brukeren har trykket på
+- I et kort eller felt hvor det skjer en beregning før innhold kan vises

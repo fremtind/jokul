@@ -9,6 +9,7 @@ const makeDesignerLink = (title: string, page: string) => makeLink(title, page, 
 const makeCoreLink = (title: string, page: string) => makeLink(title, page, "core");
 const makeComponentLink = (title: string, page: string) => makeLink(title, page, "components");
 const makeProfileLink = (title: string, page: string) => makeLink(title, page, "profile");
+const makeExampleLink = (title: string, page: string) => makeLink(title, page, "example");
 
 export const developerLinks = [
     makeDeveloperLink("Kom i gang", "getting-started"),
@@ -41,6 +42,7 @@ export const componentLinks = [
     makeComponentLink("Lang tekstfelt", "textarea"),
     makeComponentLink("Meldinger", "messagebox"),
     makeComponentLink("Logo", "logo"),
+    makeComponentLink("Logostempel", "logostamp"),
     makeComponentLink("Lasteindikator", "loader"),
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
@@ -59,4 +61,10 @@ export const profileLinks = [
     makeProfileLink("Layout", "layout"),
     makeProfileLink("Skygger", "shadow"),
     makeProfileLink("Logo", "logo"),
+];
+
+export const exampleLinks = [
+    makeExampleLink("Kjøpsflyt", "purchaseFlow"),
+    makeExampleLink("Footer", "footer"),
+    makeExampleLink("Header", "header"),
 ];

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.5.4...@fremtind/jkl-radio-button-react@0.6.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **radiobutton:** fix radio button screenshot ([1cf87b3](https://github.com/fremtind/jokul/commit/1cf87b3))
+* **test:** change travis order, allow more diff on screenshots ([bb42529](https://github.com/fremtind/jokul/commit/bb42529))
+
+
+### Features
+
+* **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
+
+
+
+
+
 ## [0.5.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.5.3...@fremtind/jkl-radio-button-react@0.5.4) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button-react

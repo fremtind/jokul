@@ -18,18 +18,16 @@ $bottom-margin: $component-spacing--large;
 $input-total-height: $label-height + $input-height + $bottom-padding;
 $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
-$error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compliant
-
 .jkl-text-field {
     display: block;
     box-sizing: border-box;
     position: relative;
     font-family: inherit;
     width: 100%;
-    height: $input-total-height;
+    min-height: $input-total-height;
     padding-top: $label-height;
     background-color: $input-bg-color;
-    margin-bottom: $component-spacing--large;
+    padding-bottom: $component-spacing--large;
 
     &--inline {
         display: inline-block;
@@ -96,7 +94,7 @@ $error-color: change-color($blomst, $lightness: 45%); // make $blomst WCAG compl
 .jkl-text-area {
     height: auto;
     & .jkl-text-field__input {
-        transition: height 175ms ease;
+        transition: height 175ms ease, box-shadow $transition-timing;
         &:focus,
         &:not(:placeholder-shown) {
             height: initial;

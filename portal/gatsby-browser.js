@@ -6,11 +6,6 @@
 
 import "document-register-element";
 import "@fremtind/jkl-core/core.min.css";
-import "prismjs/themes/prism.css";
-import "prismjs";
-import "prismjs/components/prism-jsx";
-import "prismjs/components/prism-typescript";
-import "prismjs/components/prism-tsx";
 import { initTabListener } from "@fremtind/jkl-core";
 
 initTabListener();

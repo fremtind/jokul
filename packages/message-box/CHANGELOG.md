@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.7.1...@fremtind/jkl-message-box@0.7.2) (2019-08-02)
+
+
+### Bug Fixes
+
+* **portal:** fixes based on pr feedback ([d3524ff](https://github.com/fremtind/jokul/commit/d3524ff))
+* **portal:** messagebox mobil width, fixed portal mobile style ([5521675](https://github.com/fremtind/jokul/commit/5521675))
+
+
+
+
+
 ## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.7.0...@fremtind/jkl-message-box@0.7.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box

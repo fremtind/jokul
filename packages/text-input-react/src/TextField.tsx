@@ -1,10 +1,14 @@
 import React, { ChangeEvent } from "react";
+import { SupportText } from "@fremtind/jkl-typography-react";
 
 interface Props {
     label: string;
     value?: string;
     inline?: boolean;
+    helpText?: string;
+    errorText?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     isInvalid?: boolean;
     id?: string;
@@ -19,6 +23,8 @@ export const TextField = ({
     inline = false,
     isInvalid = false,
     readOnly = false,
+    helpText,
+    errorText,
     id,
     label,
     className = "",
@@ -38,5 +44,6 @@ export const TextField = ({
             {...rest}
         />
         <span className="jkl-text-field__label">{label}</span>
+        <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
     </label>
 );

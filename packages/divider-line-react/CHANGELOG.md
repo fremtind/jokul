@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line-react@0.6.1...@fremtind/jkl-divider-line-react@0.7.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **test:** change travis order, allow more diff on screenshots ([bb42529](https://github.com/fremtind/jokul/commit/bb42529))
+
+
+### Features
+
+* **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
+
+
+
+
+
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line-react@0.6.0...@fremtind/jkl-divider-line-react@0.6.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-divider-line-react
