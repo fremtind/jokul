@@ -34,7 +34,7 @@
         "@babel/preset-typescript": "^7.3.3",
         "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^8.0.0",
-        "@testing-library/dom": "^5.5.1",
+        "@testing-library/dom": "^6.0.0",
         "@testing-library/jest-dom": "^4.0.0",
         "@testing-library/react": "^8.0.1",
         "@types/expect-puppeteer": "^3.3.1",
