@@ -37,8 +37,8 @@ const TextFieldDemo = () => {
                 helpText="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
             />
 
+            <TextArea rows={3} label="Svar med en kommentar" value={value} onChange={handleChange} />
             <TextArea label="Din livshistorie" value={value} onChange={handleChange} />
-            <TextArea label="Din livshistorie" value={"Det hendte i de dager …"} onChange={handleChange} />
         </>
     );
 };
