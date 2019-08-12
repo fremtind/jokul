@@ -37,11 +37,9 @@ $radio-button-color: $svart;
 
 .jkl-radio-button {
     cursor: pointer;
-    position: relative;
     display: flex;
-    align-items: center;
-
     margin-bottom: $component-spacing--large;
+
     &:last-of-type {
         margin-bottom: 0;
     }
@@ -49,7 +47,8 @@ $radio-button-color: $svart;
     &--inline {
         display: inline-flex;
         margin-bottom: 0;
-        margin-right: $component-spacing--xl;
+        margin-right: rem(32px);
+        padding-bottom: $component-spacing--large;
         &:last-of-type {
             margin-right: 0;
         }
@@ -57,18 +56,16 @@ $radio-button-color: $svart;
 
     & input {
         /* hide default radio button */
-        position: fixed;
+        position: absolute;
         opacity: 0;
-        height: 0;
-        width: 0;
-        overflow: hidden;
     }
 
     &__input {
         /* create fake input element */
         width: $radio-button-size;
         height: $radio-button-size;
-        margin-right: $component-spacing--medium;
+        margin-right: $component-spacing--small;
+        padding: rem(4px) 0;
         position: relative;
 
         &:before {
@@ -76,7 +73,6 @@ $radio-button-color: $svart;
             content: "";
             display: inline-block;
             box-sizing: border-box;
-            left: 0;
 
             height: $radio-button-size;
             width: $radio-button-size;
@@ -93,7 +89,7 @@ $radio-button-color: $svart;
             display: inline-block;
             position: absolute;
             left: rem(4px);
-            top: rem(4px);
+            top: rem(8px);
             height: $radio-button-size - rem(8px);
             width: $radio-button-size - rem(8px);
             transform-origin: center;
@@ -107,9 +103,6 @@ $radio-button-color: $svart;
     &__label {
         font-size: $radio-button-font-size;
         line-height: $radio-button-line-height;
-        /* fix weird font baseline: */
-        padding-top: rem(1px);
-        margin-bottom: -1 * rem(1px);
     }
 
     /* Checked state */
@@ -130,7 +123,7 @@ $radio-button-color: $svart;
     /* Focused state */
     html:not([data-mousenavigation]) & > input:focus ~ &__input {
         &:before {
-            box-shadow: 0 0 0 rem(2px) $himmel;
+            box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $himmel;
         }
     }
 
