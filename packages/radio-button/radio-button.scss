@@ -54,22 +54,51 @@ $radio-button-color: $svart;
         }
     }
 
-    & input {
+    &__input {
         /* hide default radio button */
         position: absolute;
         opacity: 0;
+
+        /* Checked state */
+        &:checked ~ .jkl-radio-button__dot {
+            &:after {
+                /* animate dot */
+                animation: dotexpand 0.3s cubic-bezier(0.17, 0.17, 0.76, 1);
+                /* final appearance */
+                transform: scale(1);
+                border-radius: 50%;
+            }
+            &:before {
+                /* animate circle */
+                animation: circleexpand 0.25s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
+            }
+        }
+
+        /* Focused state */
+        html:not([data-mousenavigation]) &:focus ~ .jkl-radio-button__dot {
+            &:before {
+                box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $himmel;
+            }
+        }
+
+        /* Hovered state */
+        & > &:hover:not(:checked) ~ .jkl-radio-button__dot {
+            &:before {
+                background-color: $radio-button-background-color--hover;
+                border-width: rem(2px);
+            }
+        }
     }
 
-    &__input {
-        /* create fake input element */
+    &__dot {
         width: $radio-button-size;
         height: $radio-button-size;
         margin-right: $component-spacing--small;
         padding: rem(4px) 0;
         position: relative;
 
+        /* Outer circle */
         &:before {
-            /* This is the circle */
             content: "";
             display: inline-block;
             box-sizing: border-box;
@@ -82,8 +111,8 @@ $radio-button-color: $svart;
             background: $radio-button-background-color;
         }
 
+        /* Inner dot */
         &:after {
-            /* This is the dot */
             content: "";
 
             display: inline-block;
@@ -92,47 +121,15 @@ $radio-button-color: $svart;
             top: rem(8px);
             height: $radio-button-size - rem(8px);
             width: $radio-button-size - rem(8px);
-            transform-origin: center;
             transform: rotate(-45deg) scale(0);
-            border-radius: 0;
 
-            background: $radio-button-color;
+            background-color: $radio-button-color;
         }
     }
 
     &__label {
         font-size: $radio-button-font-size;
         line-height: $radio-button-line-height;
-    }
-
-    /* Checked state */
-    & > input:checked ~ &__input {
-        &:after {
-            /* animate dot */
-            animation: dotexpand 0.3s cubic-bezier(0.17, 0.17, 0.76, 1);
-            /* final appearance */
-            transform: scale(1);
-            border-radius: 50%;
-        }
-        &:before {
-            /* animate circle */
-            animation: circleexpand 0.25s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
-        }
-    }
-
-    /* Focused state */
-    html:not([data-mousenavigation]) & > input:focus ~ &__input {
-        &:before {
-            box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $himmel;
-        }
-    }
-
-    /* Hovered state */
-    & > input:hover:not(:checked) ~ &__input {
-        &:before {
-            background: $radio-button-background-color--hover;
-            border-width: rem(2px);
-        }
     }
 }
 
