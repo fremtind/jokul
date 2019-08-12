@@ -21,8 +21,10 @@ export function AccordionItem({ children, title, startExpanded = false }: Props)
     return (
         <div data-testid="jkl-accordion-item" className={`jkl-accordion-item${openClassName}`}>
             <button className="jkl-accordion-item__title" type="button">
-                <div className="jkl-accordion-item__title-text">{title}</div>
-                <div className="jkl-accordion-item__title-icon" />
+                {title}
+                <div className="jkl-accordion-item__title-icon-wrapper">
+                    <div className="jkl-accordion-item__title-icon" />
+                </div>
             </button>
             <CoreToggle
                 ref={elementRef}
