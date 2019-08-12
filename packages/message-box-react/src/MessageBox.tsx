@@ -10,14 +10,18 @@ interface Props {
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
-const css = "jkl-message-box";
+const baseClassName = "jkl-message-box";
 
 function messageFactory(messageType: messageTypes) {
     return function messageBox({ title, fullWidth, className = "", children }: Props) {
         return (
-            <div className={`${css} ${css}__${messageType} ${fullWidth ? css + "--full" : ""} ${className}`}>
-                <H4>{title}</H4>
-                <div className="jkl-p">{children}</div>
+            <div
+                className={`${baseClassName} ${baseClassName}--${messageType} ${
+                    fullWidth ? baseClassName + "--full" : ""
+                } ${className}`}
+            >
+                <H4 className="jkl-message-box__title">{title}</H4>
+                <div className="jkl-p jkl-message-box__message">{children}</div>
             </div>
         );
     };
