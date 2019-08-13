@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { H4 } from "@fremtind/jkl-typography-react";
+import { H4, P } from "@fremtind/jkl-typography-react";
 
 interface Props {
     title: string;
@@ -21,7 +21,7 @@ function messageFactory(messageType: messageTypes) {
                 } ${className}`}
             >
                 <H4 className="jkl-message-box__title">{title}</H4>
-                <div className="jkl-p jkl-message-box__message">{children}</div>
+                <P className="jkl-message-box__message">{children}</P>
             </div>
         );
     };
