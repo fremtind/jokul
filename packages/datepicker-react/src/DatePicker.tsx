@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useRef } from "react";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 // @ts-ignore
@@ -23,6 +23,14 @@ interface Props {
     className?: string;
 }
 
+interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
+    el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
+}
+
+interface CoreToggleElement extends HTMLElement {
+    hidden: boolean;
+}
+
 export function DatePicker({
     label = "Velg dato",
     monthLabel = "Måned",
@@ -38,12 +46,17 @@ export function DatePicker({
     const [today] = useState(Date.now() - (Date.now() % 864e3));
     const [date, setDate] = useState(initialDate);
     const [showPicker, togglePicker] = useState(initialShow);
+    const ref = useRef<HTMLElementOrCoreToggleElement<CoreToggleElement>>(null);
 
     const onDateChange = (e: ChangeEvent<ChangeDate>) => {
         if (onChange) {
             onChange(e.target.date);
         }
         setDate(e.target.date);
+
+        if (ref.current && ref.current.el) {
+            ref.current.el.hidden = true;
+        }
     };
     const toggle = () => togglePicker(!showPicker);
 
@@ -58,7 +71,7 @@ export function DatePicker({
                     data-testid="jkl-datepicker-input"
                 />
             </button>
-            <CoreToggle hidden={!showPicker} popup onToggle={toggle}>
+            <CoreToggle ref={ref} hidden={!showPicker} popup onToggle={toggle}>
                 <CoreDatepicker
                     timestamp={date.getTime()}
                     months={months}
