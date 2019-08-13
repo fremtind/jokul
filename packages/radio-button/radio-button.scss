@@ -82,10 +82,15 @@ $radio-button-color: $svart;
         }
 
         /* Hovered state */
-        & > &:hover:not(:checked) ~ .jkl-radio-button__dot {
+        &:hover ~ .jkl-radio-button__dot {
             &:before {
-                background-color: $radio-button-background-color--hover;
-                border-width: rem(2px);
+                transform: scale(1.1);
+            }
+        }
+        &:active ~ .jkl-radio-button__dot {
+            &:after,
+            &:before {
+                transform: scale(0.9);
             }
         }
     }
@@ -109,6 +114,7 @@ $radio-button-color: $svart;
 
             border: rem(1px) solid $radio-button-color;
             background: $radio-button-background-color;
+            transition: transform 150ms ease-in;
         }
 
         /* Inner dot */
