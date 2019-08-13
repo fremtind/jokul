@@ -36,7 +36,7 @@ const App = () => (
             />
         </div>
         <div style={{ margin: "20px" }}>
-            <DatePicker onChange={(date) => alert(`Date selected is ${date}`)} />
+            <DatePicker onChange={(date) => alert(`Date selected is ${date}`)} bottomText={"Choose visely"} />
         </div>
         <div style={{ margin: "20px" }}>
             <DatePicker
@@ -49,6 +49,8 @@ const App = () => (
                         alert("The greatest date is selected");
                     }
                 }}
+                bottomText={"Not the best date"}
+                isInvalid={true}
             />
         </div>
     </>

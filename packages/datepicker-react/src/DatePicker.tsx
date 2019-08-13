@@ -1,3 +1,4 @@
+import { SupportText } from "@fremtind/jkl-typography-react";
 import React, { useState, ChangeEvent, useRef } from "react";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
@@ -21,6 +22,8 @@ interface Props {
     onlyFuture?: boolean;
     initialShow?: boolean;
     className?: string;
+    bottomText?: string;
+    isInvalid?: boolean;
 }
 
 interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
@@ -42,6 +45,8 @@ export function DatePicker({
     onlyFuture = true,
     initialShow = false,
     className = "",
+    bottomText,
+    isInvalid,
 }: Props) {
     const [today] = useState(Date.now() - (Date.now() % 864e3));
     const [date, setDate] = useState(initialDate);
@@ -64,6 +69,7 @@ export function DatePicker({
         <div className={`jkl-datepicker ${className}`}>
             <button type="button" className="jkl-datepicker__toggler" data-testid="jkl-datepicker-toggler">
                 <TextField
+                    isInvalid={isInvalid}
                     label={label}
                     type="text"
                     readOnly
@@ -88,6 +94,7 @@ export function DatePicker({
                     <table data-testid="jkl-datepicker-calendar" />
                 </CoreDatepicker>
             </CoreToggle>
+            <SupportText isInvalid={!!isInvalid} errorText={bottomText} helpText={isInvalid ? undefined : bottomText} />
         </div>
     );
 }
