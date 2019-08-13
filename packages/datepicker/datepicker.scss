@@ -7,7 +7,7 @@ $date-width: rem(46px);
 $calendar-padding: $component-spacing--xl;
 $calendar-width: ($date-width * 7) + ($calendar-padding * 2);
 $background-color: $snøhvit;
-$popup-top-position: $label-height + $input-height + $bottom-padding + rem(2px);
+$popup-top-position: $label-height + $input-height + $bottom-padding + rem(4px);
 $bottom-margin: $component-spacing--large;
 
 .jkl-datepicker {
