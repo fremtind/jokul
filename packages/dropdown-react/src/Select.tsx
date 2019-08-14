@@ -1,5 +1,5 @@
-import React from "react";
 import { SupportText } from "@fremtind/jkl-typography-react";
+import React from "react";
 
 interface Props {
     label: string;
@@ -39,6 +39,7 @@ export function Select({
                 ))}
             </select>
             <span className="jkl-dropdown__label jkl-dropdown__label--has-value">{label}</span>
+            <span className="jkl-dropdown__chevron" />
             <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
         </label>
     );
