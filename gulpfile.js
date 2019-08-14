@@ -19,7 +19,7 @@ module.exports = function(gulp) {
     gulp.task("build", function() {
         return gulp
             .src(scssFiles)
-            .pipe(sass({ importer }).on("error", throwError))
+            .pipe(sass({ importer }).on("error", sass.logError))
             .pipe(postcss([autoprefixer()]))
             .pipe(gulp.dest("./"))
             .pipe(postcss([cssnano()]))
