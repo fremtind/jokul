@@ -1,15 +1,15 @@
+import "@fremtind/jkl-logo/logo.css";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import {
-    LogoSymbol,
-    LogoMain,
     LogoAnimated,
-    LogoStampTechnology,
+    LogoMain,
     LogoStampDistributor,
     LogoStampInnovation,
     LogoStampInsurance,
+    LogoStampTechnology,
+    LogoSymbol,
 } from "../src";
-import "@fremtind/jkl-logo/logo.css";
 
 const LogoExample = () => {
     const [showSymbol, toggleSymbol] = useState(false);
@@ -48,5 +48,4 @@ const LogoExample = () => {
     );
 };
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<LogoExample />, mountNode);
+ReactDOM.render(<LogoExample />, document.getElementById("app"));

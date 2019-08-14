@@ -1,9 +1,9 @@
 @mixin chevron($size, $color, $weight: 0.125rem, $rotate: 0, $state: closed) {
-    position: relative;
+    box-sizing: border-box;
     width: $size;
     height: $size;
 
-    transform-origin: ($size/4) ($size * (3/4)); // places origin in center of chevron
+    transform-origin: 26.33% 73.66%; // places origin in center of chevron
     transform: rotate((-45 + $rotate) * 1deg); // default orientation is pointing down
 
     border-left: $weight solid $color;

@@ -20,7 +20,7 @@ interface EventDetails extends ListDetails {
     event: KeyboardEvent;
 }
 
-export function useListNavigation(typeAheadIsEnabled: boolean = true): RefObject<HTMLUListElement> {
+export function useListNavigation(typeAheadIsEnabled = true): RefObject<HTMLUListElement> {
     const listRef = useRef<HTMLUListElement>(null);
     let search: KeyBuffer;
     let searchResetTimer: Timer;
@@ -135,7 +135,7 @@ function findItem({ list, key, search, searchResetTimer }: SearchDetails): HTMLB
         resetWhenIdle(search, searchResetTimer);
 
         for (let n = 0; n < listItems.length; n++) {
-            let label = (listItems[n] as HTMLButtonElement).innerText;
+            const label = (listItems[n] as HTMLButtonElement).innerText;
             if (label && label.toLowerCase().indexOf(search.keys) === 0) {
                 return listItems[n] as HTMLButtonElement;
             }

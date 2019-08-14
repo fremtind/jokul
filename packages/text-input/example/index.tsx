@@ -1,6 +1,6 @@
+import "@fremtind/jkl-core/core.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import "@fremtind/jkl-core/core.css";
 import "../text-input.scss";
 
 interface InputProps {
@@ -38,5 +38,4 @@ const Inputs = () => (
     </main>
 );
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Inputs />, mountNode);
+ReactDOM.render(<Inputs />, document.getElementById("app"));
