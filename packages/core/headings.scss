@@ -31,4 +31,5 @@
     @include font-size("medium");
     line-height: $line-height-3; // exeption from scale
     margin-bottom: $layout-spacing--small;
+    font-weight: 600;
 }

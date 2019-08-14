@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 import React from "react";
 import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
 import "../core.scss";
 import "./style.scss";
 
@@ -54,5 +54,4 @@ const Core = () => (
     </main>
 );
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Core />, mountNode);
+ReactDOM.render(<Core />, document.getElementById("app"));

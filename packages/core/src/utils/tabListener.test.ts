@@ -1,7 +1,7 @@
 import { fireEvent } from "@testing-library/dom";
 import { initTabListener } from "./tabListener";
 
-let mouseNavigation = "data-mousenavigation";
+const mouseNavigation = "data-mousenavigation";
 
 test("should initialize data-mousenavigation to null before clicks or tabs", () => {
     initTabListener();

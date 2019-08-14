@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { InfoMessage, ErrorMessage, SuccessMessage } from "../src";
+import "@fremtind/jkl-core/core.css";
 import "@fremtind/jkl-message-box/message-box.scss";
-import "@fremtind/jkl-core/normalize.scss";
-import { WarningMessage } from "../src/MessageBox";
+import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "../src";
 
 const Demo = () => (
     <>
@@ -48,5 +47,4 @@ const Demo = () => (
     </>
 );
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Demo />, mountNode);
+ReactDOM.render(<Demo />, document.getElementById("app"));
