@@ -34,15 +34,8 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
         }
     }
 
-    &__title-layout {
-        align-items: baseline;
-        display: flex;
-        justify-content: space-between;
-    }
-
     &__title {
-        @include font-size("small");
-
+        position: relative;
         padding: $title-padding-top $title-padding $title-padding-bottom;
         text-align: left;
         width: 100%;
@@ -75,17 +68,16 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
         color: inherit; // Make content same color as rest of page text
     }
 
+    &__title-text {
+        @include font-size("small");
+        @include line-height("small");
+        padding-right: 2rem;
+    }
+
     &__title-icon {
         @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
         position: absolute;
-        top: 0;
-        right: 0;
-    }
-
-    &__title-icon-wrapper {
-        position: relative;
-        width: rem(32px);
-        height: rem(22px); // For some reason a higher value than 22 increases the height of jkl-accordion-item__title
-        flex: 0 0 auto;
+        top: $title-padding-top; // magic number to align chevron with base line
+        right: $title-padding;
     }
 }
