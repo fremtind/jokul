@@ -34,11 +34,15 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
         }
     }
 
-    &__title {
-        @include font-size("small");
+    &__title-layout {
         align-items: baseline;
         display: flex;
         justify-content: space-between;
+    }
+
+    &__title {
+        @include font-size("small");
+
         padding: $title-padding-top $title-padding $title-padding-bottom;
         text-align: left;
         width: 100%;
