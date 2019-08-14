@@ -10,7 +10,7 @@ initTabListener();
 const choices = ["Yes", "No", "I don't know"];
 const Demo = () => {
     const [selectedValue, setSelectedValue] = React.useState("Yes");
-    let [s, setS] = useState(false);
+    const [s, setS] = useState(false);
     return (
         <>
             <button style={{ marginBottom: "5rem" }} onClick={() => setS(!s)}>

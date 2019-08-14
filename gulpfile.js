@@ -7,11 +7,7 @@ const autoprefixer = require("autoprefixer");
 const rename = require("gulp-rename");
 
 sass.compiler = require("node-sass");
-
 /* eslint-enable @typescript-eslint/no-var-requires */
-function throwError(e) {
-    throw new Error("sass compilation failed", e);
-}
 
 const scssFiles = ["**/*.scss", "!example/*.scss"];
 

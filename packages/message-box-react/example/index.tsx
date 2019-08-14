@@ -47,5 +47,4 @@ const Demo = () => (
     </>
 );
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Demo />, mountNode);
+ReactDOM.render(<Demo />, document.getElementById("app"));
