@@ -1,9 +1,9 @@
-import React, { useState, ChangeEvent } from "react";
-import ReactDOM from "react-dom";
-import { TextField, TextArea } from "../src";
 import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
+import React, { ChangeEvent, useState } from "react";
+import ReactDOM from "react-dom";
+import { TextArea, TextField } from "../src";
 import "./index.scss";
 
 initTabListener();
@@ -43,5 +43,4 @@ const TextFieldDemo = () => {
     );
 };
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<TextFieldDemo />, mountNode);
+ReactDOM.render(<TextFieldDemo />, document.getElementById("app"));

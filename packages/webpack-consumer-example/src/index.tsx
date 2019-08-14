@@ -1,7 +1,7 @@
 import { PrimaryButton, SecondaryButton } from "@fremtind/jkl-button-react";
+import "@fremtind/jkl-button/button.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import "@fremtind/jkl-button/button.css";
 
 function onClick() {
     console.log("Hello!");
@@ -14,5 +14,4 @@ const Index = () => (
     </>
 );
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Index />, mountNode);
+ReactDOM.render(<Index />, document.getElementById("app"));

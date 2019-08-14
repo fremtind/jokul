@@ -27,7 +27,7 @@ export const TextArea = ({
 }: Props) => {
     const [isFocused, setIsFocused] = useState(false);
 
-    let height = isFocused || restProps.value ? `${rows * 2 + 0.5}rem` : undefined;
+    const height = isFocused || restProps.value ? `${rows * 2 + 0.5}rem` : undefined;
 
     function onBlur(event: FocusEvent<HTMLTextAreaElement>) {
         setIsFocused(false);
