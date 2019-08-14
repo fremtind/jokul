@@ -1,11 +1,14 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+$colored-line-width: $component-spacing--xs;
+$padding: $component-spacing--xl;
+$padding-left: $component-spacing--xl + $colored-line-width; // Add the line width to keep the padding equal on all sides
 
 .jkl-message-box {
     position: relative;
     width: 3 * $layout-spacing--xxl;
     min-height: $layout-spacing--xl;
-    padding: $component-spacing--xl;
+    padding: $padding $padding $padding $padding-left;
     background-color: $snøhvit;
     box-sizing: border-box;
 
@@ -13,37 +16,40 @@
         width: 100%;
     }
 
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        content: "";
+        width: $colored-line-width;
+    }
+
     &--full {
         width: 100%;
     }
 
-    &::before {
-        @include position(absolute, $top: 0, $bottom: 0, $left: 0, $right: 0);
-        content: "";
-        height: 100%;
-        width: $component-spacing--xs;
+    &--info:before {
+        background-color: $himmel;
     }
+
+    &--warning:before {
+        background-color: $sol;
+    }
+
+    &--error:before {
+        background-color: $blomst;
+    }
+
+    &--success:before {
+        background-color: $gress;
+    }
+
     &__title {
         margin-bottom: $component-spacing--large;
     }
-    &__info {
-        &::before {
-            background-color: $himmel;
-        }
-    }
-    &__warning {
-        &::before {
-            background-color: $sol;
-        }
-    }
-    &__error {
-        &::before {
-            background-color: $blomst;
-        }
-    }
-    &__success {
-        &::before {
-            background-color: $gress;
-        }
+
+    &__message {
+        margin-bottom: $component-spacing--small;
     }
 }

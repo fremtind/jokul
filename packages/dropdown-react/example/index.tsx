@@ -9,7 +9,7 @@ import "./index.scss";
 
 initTabListener();
 const DropdownDemo = () => {
-    let items = ["The flower shop", "I have cancer", "Throwing the football", "ChripChripChrip", "hei, se her!"];
+    const items = ["The flower shop", "I have cancer", "Throwing the football", "ChripChripChrip", "hei, se her!"];
 
     const years = [...Array(120)].map((_, i) => (i + 1900).toString()); // 1900 - 2019
 
@@ -64,5 +64,4 @@ const DropdownDemo = () => {
     );
 };
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<DropdownDemo />, mountNode);
+ReactDOM.render(<DropdownDemo />, document.getElementById("app"));

@@ -9,16 +9,17 @@ import {
     CheckboxExample,
     DatepickerExample,
     DividerLineExample,
+    DropdownExample,
+    HamburgerExample,
     LoaderExample,
     LogoExample,
     LogoStampExample,
     MessageBoxExample,
     RadioButtonExample,
+    TextAreaExample,
     TextFieldExample,
     ToggleSwitchExample,
-    TextAreaExample,
     TypographyExample,
-    HamburgerExample,
 } from "../../examples";
 
 import "./style.scss";
@@ -48,7 +49,8 @@ export default function AllComponents() {
             <Section title="Radioknapper" link="radiobutton" example={<RadioButtonExample />} />
             <Section title="Avmerkingsbokser" link="checkbox" example={<CheckboxExample />} />
             <Section title="Toggle-knapp" link="toggleswitch" example={<ToggleSwitchExample />} />
-            <Section title="Trekkspillliste" link="accordion" example={<AccordionExample />} />
+            <Section title="Nedtrekksliste" link="dropdown" example={<DropdownExample />} />
+            <Section title="Trekkspilliste" link="accordion" example={<AccordionExample />} />
             <Section title="Datovelger" link="datepicker" example={<DatepickerExample />} />
             <Section title="Typografi" link="typography" example={<TypographyExample />} />
             <Section title="Tekstfelt" link="textfield" example={<TextFieldExample />} />

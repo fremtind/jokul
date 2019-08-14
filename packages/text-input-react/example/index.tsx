@@ -1,9 +1,9 @@
-import React, { useState, ChangeEvent } from "react";
-import ReactDOM from "react-dom";
-import { TextField, TextArea } from "../src";
 import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
+import React, { ChangeEvent, useState } from "react";
+import ReactDOM from "react-dom";
+import { TextArea, TextField } from "../src";
 import "./index.scss";
 
 initTabListener();
@@ -37,11 +37,10 @@ const TextFieldDemo = () => {
                 helpText="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
             />
 
+            <TextArea rows={3} label="Svar med en kommentar" value={value} onChange={handleChange} />
             <TextArea label="Din livshistorie" value={value} onChange={handleChange} />
-            <TextArea label="Din livshistorie" value={"Det hendte i de dager …"} onChange={handleChange} />
         </>
     );
 };
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<TextFieldDemo />, mountNode);
+ReactDOM.render(<TextFieldDemo />, document.getElementById("app"));

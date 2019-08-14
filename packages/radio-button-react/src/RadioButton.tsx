@@ -13,8 +13,15 @@ export const RadioButton = ({ value, onChange, name = "", inline = false, checke
         data-testid="jkl-radio-button__label-tag"
         className={"jkl-radio-button".concat(inline ? " jkl-radio-button--inline" : "")}
     >
-        <input type="radio" name={name} value={value} onChange={onChange} checked={checked} />
-        <span className="jkl-radio-button__input" />
+        <input
+            className="jkl-radio-button__input"
+            type="radio"
+            name={name}
+            value={value}
+            onChange={onChange}
+            checked={checked}
+        />
+        <span className="jkl-radio-button__dot" />
         <span className="jkl-radio-button__label">{value}</span>
     </label>
 );
