@@ -8,7 +8,8 @@ interface Props {
     helpText?: string;
     errorText?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-    onBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     isInvalid?: boolean;
     id?: string;
