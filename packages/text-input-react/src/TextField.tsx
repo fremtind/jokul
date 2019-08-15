@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, FocusEvent } from "react";
 import { SupportText } from "@fremtind/jkl-typography-react";
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
     required?: boolean;
     readOnly?: boolean;
     className?: string;
+    placeholder?: string;
 }
 
 export const TextField = ({
@@ -28,6 +29,8 @@ export const TextField = ({
     id,
     label,
     className = "",
+    placeholder,
+    value,
     ...rest
 }: Props) => (
     <label
@@ -41,8 +44,10 @@ export const TextField = ({
             id={id}
             placeholder=" "
             readOnly={readOnly}
+            value={value}
             {...rest}
         />
+        {!value && <span className="jkl-text-field__placeholder">{placeholder}</span>}
         <span className="jkl-text-field__label">{label}</span>
         <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
     </label>

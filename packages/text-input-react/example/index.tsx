@@ -16,7 +16,7 @@ const TextFieldDemo = () => {
     return (
         <>
             <div className="side-by-side">
-                <TextField label="Fornavn" value={value} onChange={handleChange} />
+                <TextField label="Fornavn" value={value} onChange={handleChange} placeholder={"Norsk"} />
                 <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly />
             </div>
 
