@@ -1,11 +1,9 @@
+import { Select } from "@fremtind/jkl-dropdown-react";
+import { TextField } from "@fremtind/jkl-text-input-react";
 import { SupportText } from "@fremtind/jkl-typography-react";
-import React, { useState, ChangeEvent, useRef } from "react";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
-// @ts-ignore
-import CoreToggle from "@nrk/core-toggle/jsx";
-import { TextField } from "@fremtind/jkl-text-input-react";
-import { Select } from "@fremtind/jkl-dropdown-react";
+import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from "react";
 
 interface ChangeDate {
     date: Date;
@@ -26,14 +24,6 @@ interface Props {
     isInvalid?: boolean;
 }
 
-interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
-    el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
-}
-
-interface CoreToggleElement extends HTMLElement {
-    hidden: boolean;
-}
-
 export function DatePicker({
     label = "Velg dato",
     monthLabel = "Måned",
@@ -50,7 +40,10 @@ export function DatePicker({
 }: Props) {
     const [today] = useState(Date.now() - (Date.now() % 864e3));
     const [date, setDate] = useState(initialDate);
-    const ref = useRef<HTMLElementOrCoreToggleElement<CoreToggleElement>>(null);
+    const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
+    const [dateString, setDateString] = useState("");
+    const ref = useRef(null);
+    useOnClickOutside(ref, closeDatepicker);
 
     function onDateChange(e: ChangeEvent<ChangeDate>) {
         if (onChange) {
@@ -60,24 +53,22 @@ export function DatePicker({
     }
 
     function closeDatepicker() {
-        if (ref.current && ref.current.el) {
-            ref.current.el.hidden = true;
-        }
+        setDatepickerHidden(true);
     }
 
     return (
-        <div className={`jkl-datepicker ${className}`}>
-            <button type="button" className="jkl-datepicker__toggler" data-testid="jkl-datepicker-toggler">
-                <TextField
-                    isInvalid={isInvalid}
-                    label={label}
-                    type="text"
-                    readOnly
-                    value={date.toLocaleDateString()}
-                    data-testid="jkl-datepicker-input"
-                />
-            </button>
-            <CoreToggle ref={ref} hidden={initialShow} popup>
+        <div className={`jkl-datepicker ${className}`} ref={ref}>
+            <TextField
+                isInvalid={isInvalid}
+                label={label}
+                type="text"
+                value={dateString}
+                onChange={(event) => setDateString(event.target.value)}
+                onFocus={() => setDatepickerHidden(false)}
+                data-testid="jkl-datepicker-input"
+            />
+
+            <div hidden={datepickerHidden}>
                 <CoreDatepicker
                     timestamp={date.getTime()}
                     months={months}
@@ -95,8 +86,25 @@ export function DatePicker({
                     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
                     <table onClick={closeDatepicker} data-testid="jkl-datepicker-calendar" />
                 </CoreDatepicker>
-            </CoreToggle>
+            </div>
             <SupportText isInvalid={!!isInvalid} errorText={bottomText} helpText={isInvalid ? undefined : bottomText} />
         </div>
     );
+}
+
+function useOnClickOutside<T extends HTMLElement>(ref: MutableRefObject<T | null>, onClickOutside: () => void) {
+    function onMouseDown(e: MouseEvent) {
+        if (ref.current && !ref.current.contains(e.target as Node)) {
+            onClickOutside();
+        }
+    }
+
+    useEffect(() => {
+        // Bind the event listener
+        document.addEventListener("mousedown", onMouseDown);
+        return () => {
+            // Unbind the event listener on clean up
+            document.removeEventListener("mousedown", onMouseDown);
+        };
+    });
 }

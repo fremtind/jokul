@@ -1,4 +1,3 @@
-//import "@fremtind/jkl-DatePicker/DatePicker.css";
 import "@fremtind/jkl-core/core.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
