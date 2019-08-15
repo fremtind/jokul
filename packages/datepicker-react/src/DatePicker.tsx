@@ -50,20 +50,20 @@ export function DatePicker({
 }: Props) {
     const [today] = useState(Date.now() - (Date.now() % 864e3));
     const [date, setDate] = useState(initialDate);
-    const [showPicker, togglePicker] = useState(initialShow);
     const ref = useRef<HTMLElementOrCoreToggleElement<CoreToggleElement>>(null);
 
-    const onDateChange = (e: ChangeEvent<ChangeDate>) => {
+    function onDateChange(e: ChangeEvent<ChangeDate>) {
         if (onChange) {
             onChange(e.target.date);
         }
         setDate(e.target.date);
+    }
 
+    function closeDatepicker() {
         if (ref.current && ref.current.el) {
             ref.current.el.hidden = true;
         }
-    };
-    const toggle = () => togglePicker(!showPicker);
+    }
 
     return (
         <div className={`jkl-datepicker ${className}`}>
@@ -77,7 +77,7 @@ export function DatePicker({
                     data-testid="jkl-datepicker-input"
                 />
             </button>
-            <CoreToggle ref={ref} hidden={!showPicker} popup onToggle={toggle}>
+            <CoreToggle ref={ref} hidden={initialShow} popup>
                 <CoreDatepicker
                     timestamp={date.getTime()}
                     months={months}
@@ -91,7 +91,9 @@ export function DatePicker({
 
                         <Select className="jkl-datepicker__calendar-header--month" label={monthLabel} items={[]} />
                     </div>
-                    <table data-testid="jkl-datepicker-calendar" />
+                    {/* CoreDatepicker handles accessibility interactions */}
+                    {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
+                    <table onClick={closeDatepicker} data-testid="jkl-datepicker-calendar" />
                 </CoreDatepicker>
             </CoreToggle>
             <SupportText isInvalid={!!isInvalid} errorText={bottomText} helpText={isInvalid ? undefined : bottomText} />
