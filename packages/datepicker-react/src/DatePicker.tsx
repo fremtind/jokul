@@ -40,7 +40,7 @@ export function DatePicker({
 }: Props) {
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
-    const [dateString, setDateString] = useState("");
+    const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
     const ref = useOnClickOutside<HTMLDivElement>(() => setDatepickerHidden(true));
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
