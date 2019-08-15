@@ -1,13 +1,13 @@
 # [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/components/textfield/)
 
-## Tekstfelt
-Tekstfelt lar brukerne legge inn egne opplysninger. Tekstfeltene kan være korte eller lange og gå over én eller flere linjer.
+## Om tekstfelt
+I et tekstfelt kan brukerne legge inn egne opplysninger. Et tekstfelt kan være kort eller langt, og det kan gå over en eller flere linjer.
 
-- Tekstfelt skal ha validering som hindrer at de blir feilaktig fylt inn, og de må ha en ledetekst som tydelig forklarer hva som skal skrives i feltet.
-- Hjelpetekster som forklarer mer kan plasseres under feltet dersom det er behov, bruk av hjelpetekster bør minimeres gjennom gode ledetekster.
-- Bredden på tekstfeltet bør brukes for å forventningsstyre hva som er ønsket input. _E.g. et felt for fødselsnummer bør ikke være mye lengre enn 11 siffer._ 
+- Vi legger inn validering på tekstfelt, slik at brukeren ikke kan fylle det inn feil. Ledeteksten skal tydelig vise hva brukeren kan skrive i feltet.
+- Vi bruker helst bare ledetekst, men hvis vi trenger hjelpetekst i tillegg, skal den plasseres under feltet.
+- Vi bruker bredden på tekstfeltet til å styre hvor mye vi vil at brukeren skal skrive inn. _Et felt for fødselsnummer bør ikke ta mer plass enn det 11 siffer gjør._ 
 
 ### Langt tekstfelt
-Dersom det er ønskelig at brukeren skriver en lengre tekst (eller trenger å ha mulighet til å kunne gjøre det) bør man bruke et langt tekstfelt. Dette feltet ekspanderer slik at det blir tydelig for brukeren at man kan skrive mye.
+Vi kan bruke et langt tekstfelt når vi vil at brukerne skal skrive en lengre tekst, eller de må ha mulighet til å kunne gjøre det. Dette feltet utvider seg, slik at det blir tydelig for brukerne at de kan skrive mye.
 
-Når man bruker lange tekstfelt er det viktig med en god ledetekst som forklarer hva som er ønsket input. Man kan også oppgi hvor mange tegn man tillater.
+Når vi bruker lange tekstfelt, må vi ha en god ledetekst, som forklarer hva vi forventer at brukeren skal skrive i feltet. Vi kan også angi hvor mange tegn de kan bruke.
