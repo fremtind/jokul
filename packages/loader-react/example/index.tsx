@@ -1,7 +1,7 @@
+import "@fremtind/jkl-loader/loader.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Loader } from "../src";
-import "@fremtind/jkl-loader/loader.min.css";
 
 const App = () => (
     <>
@@ -38,5 +38,4 @@ const App = () => (
     </>
 );
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<App />, document.getElementById("app"));

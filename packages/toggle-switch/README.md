@@ -1,7 +1,10 @@
 # `@fremtind/jkl-toggle-switch`
 
-En toggle-knapp kan ha to statuser, av eller på. Den brukes der man skal bytte tilstand på noe dynamisk (e.g. endringer skjer når man skrur på/av bryteren uten et bekreftelsessteg). Der man må bekrefte eller sende inn valget sitt før endringer skjer skal man ikke benytte en bryter.
+## Om toggle-knapper (veksleknapper)
+En toggle-knapp kan ha to statuser: Av eller på. Vi bruker den når vi vil at brukerne skal bytte tilstand på et element og de ikke trenger å bekrefte valget. 
 
-### Eksempler
-- Bytte mellom darkmode / light mode
-- Ulike brukerinnstillinger
+Hvis vi vil at brukerne skal bekrefte valget sitt først, skal vi ikke bruke toggle, men heller alternatviknapper eller avmerkingsbokser pluss en knapp for å bekrefte.
+
+### Eksempler på når du kan bruke toggle
+- Når du skal bytte mellom mørk og lys modus
+- Når brukeren skal slå av/på ulike innstillinger, for eksempel som ved WiFi og Mobildata på en mobiltelefon.
