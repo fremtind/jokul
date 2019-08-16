@@ -1,6 +1,6 @@
 import "@fremtind/jkl-core/headings.min.css";
-import "@fremtind/jkl-core/paragraphs.min.css";
 import "@fremtind/jkl-core/normalize.min.css";
+import "@fremtind/jkl-core/paragraphs.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "../src";
@@ -36,5 +36,4 @@ const Typography = () => (
     </>
 );
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Typography />, mountNode);
+ReactDOM.render(<Typography />, document.getElementById("app"));

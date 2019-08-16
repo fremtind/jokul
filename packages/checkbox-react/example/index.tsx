@@ -1,8 +1,11 @@
 import "@fremtind/jkl-checkbox/checkbox.css";
+import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Checkbox } from "../src";
+
+initTabListener();
 
 const App = () => {
     const [isCool, changeCoolness] = React.useState(false);

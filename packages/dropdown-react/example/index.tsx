@@ -42,5 +42,4 @@ const DropdownDemo = () => {
     );
 };
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<DropdownDemo />, mountNode);
+ReactDOM.render(<DropdownDemo />, document.getElementById("app"));

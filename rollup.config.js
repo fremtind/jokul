@@ -50,13 +50,13 @@ export default [
 ];
 
 function getFremtindPackageNames() {
-    let basePackagePath = path.resolve(__dirname, "packages");
-    let packagesFolderNames = fs.readdirSync(basePackagePath);
+    const basePackagePath = path.resolve(__dirname, "packages");
+    const packagesFolderNames = fs.readdirSync(basePackagePath);
 
     return packagesFolderNames
         .map((packageFolderName) => {
             try {
-                let packageJson = fs.readFileSync(path.resolve(basePackagePath, packageFolderName, "package.json"));
+                const packageJson = fs.readFileSync(path.resolve(basePackagePath, packageFolderName, "package.json"));
                 return JSON.parse(packageJson).name; // Return package name
             } catch (e) {
                 // This is just a warning

@@ -137,9 +137,7 @@ export const Dropdown = ({
                 </ul>
             </CoreToggle>
 
-            <svg aria-hidden={"true"} className="jkl-dropdown__arrow" viewBox="0 0 20 32">
-                <polyline points="0,11 10,21 20,11" fill="none" />
-            </svg>
+            <span className="jkl-dropdown__chevron" />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
         </div>
     );
