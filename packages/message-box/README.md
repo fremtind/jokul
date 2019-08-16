@@ -1,12 +1,17 @@
 # [`@fremtind/jkl-message-box`](https://fremtind.github.io/jokul/components/messagebox/)
 
-Meldingsbokser lar oss fremheve informasjon som er viktig for brukeren. Dette kan være varsler om at noe er feil, informasjon som er kritisk for utfylling av et skjema eller bekreftelse på at noe har skjedd eller blitt oppdatert.
+Med meldingsbokser kan vi gjøre viktig informasjon tydeligere for brukerne. Dette kan være varsler om at noe er feil, informasjon som må fylles ut i et skjema før brukeren kan gå videre, eller en bekreftelse på at noe har skjedd eller har blitt oppdatert.
 
-Meldingsboksene våre er fargekodet blått, rødt, gult eller grønt der blått og gult kan gi informasjon, rødt brukes til varsler og grønt er suksessmeldinger. Det er viktig med en beskrivende overskrift på meldingsboksene siden farge ikke er tilstrekkelig til å forklare boksens hensikt.
+Meldingsboksene våre er merket med fargene blå, rød, gul eller grønn. 
+* Blå og gule medlinger gir informasjon. 
+* Røde meldinger brukes til å gi varsler.
+* Grønne bokser forteller at en handling brukeren eller systemet har utført var vellykket. 
 
-Teksten i meldingsboksen bør være så konsis som mulig, vi bruker ikke ikoner som en del av innholdet i meldingsbokser.
+Det er viktig at vi bruker en beskrivende overskrift på meldingsboksene, siden farge ikke trenger å være et godt nok kjennetegn for alle brukere på hva hensikten med boksen er.
+
+Selve meldingsteksten skal være så kort og presis som mulig. Bruk klarspråk og si det viktigste først. 
 
 ### Eksempler
-- Bekreftelse på midlertidig lagring av skjema (grønt)
-- Informasjon om relevant lovverk slik som trafikkforsikringsavgiften (blått)
-- Informasjon om at systemet opplever nedetid (rødt)
+- Grønn (infomelding): "Vi har lagret opplysningene dine."
+- Blå (for eksempel til lovverk): "Trafikkforsikringsavgiften har erstattet veiavgiften og betales nå som en del av bilforsikringen din."
+- Rød: "Systemet er dessverre ute av drift nå. Prøv igjen senere.
