@@ -20,8 +20,7 @@ const example = `() => {
                 label="Livshistorie"
                 value="gobjop uvucenli bdachukme sotw uvliljai suibki"
                 onChange={()=>{}}
-                isInvalid
-                errorText="That makes no sense"
+                errorLabel="That makes no sense"
             />
             <TextArea
                 className="jkl-spacing--bottom-3"
@@ -29,7 +28,7 @@ const example = `() => {
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 onBlur={(e) => console.log("You wrote: ", e.target.value)}
-                helpText="Bruk store ord"
+                helpLabel="Bruk store ord"
             />
         </>);
 }`;
