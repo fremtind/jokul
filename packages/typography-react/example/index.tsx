@@ -6,6 +6,8 @@ import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph, Link }
 
 import "@fremtind/jkl-core/core.min.css";
 
+initTabListener();
+
 const Typography = () => (
     <>
         <H1>H1: Hello World, look at this!</H1>
@@ -37,11 +39,8 @@ const Typography = () => (
         <P>
             A paragraph (P): The sky of a deep dark blue was hung with innumerable stars, which seemed to float in the
             limpid ether, and the rolling vapours through which we had passed were drawn like a sable curtain between us
-            and the lower world. The{" "}
-            <Link inline href="#">
-                stillness
-            </Link>{" "}
-            was so profound that we could hear the beating of our own hearts.
+            and the lower world. The <Link href="#">stillness </Link> was so profound that we could hear the beating of
+            our own hearts.
         </P>
 
         <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
@@ -49,7 +48,7 @@ const Typography = () => (
                 A paragraph (P): The sky of a deep dark blue was hung with innumerable stars, which seemed to float in
                 the limpid ether, and the rolling vapours through which we had passed were drawn like a sable curtain
                 between us and the lower world. The{" "}
-                <Link negative inline href="#">
+                <Link negative href="#">
                     stillness
                 </Link>{" "}
                 was so profound that we could hear the beating of our own hearts.
