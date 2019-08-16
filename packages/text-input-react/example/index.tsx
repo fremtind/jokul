@@ -26,15 +26,14 @@ const TextFieldDemo = () => {
                 type="password"
                 value={value}
                 onChange={handleChange}
-                isInvalid
-                errorText="Passord er en vanlig form for autentisering"
+                helpLabel="Passord er en vanlig form for autentisering"
             />
             <TextField
                 label="Epost"
                 type="email"
                 value={value}
                 onChange={handleChange}
-                helpText="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
+                helpLabel="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
             />
 
             <TextArea rows={3} label="Svar med en kommentar" value={value} onChange={handleChange} />
