@@ -1,14 +1,16 @@
 @import "./variables/all";
 @import "./mixins/all";
 
-.jkl-form-support-text {
+.jkl-form-support-label {
     display: block;
     margin-top: $component-spacing--large;
-    @include font-size(small);
+    @include font-size(xs);
+    @include line-height(xs);
 
     &--help {
         color: $svart;
     }
+
     &--error {
         color: $error-color;
     }

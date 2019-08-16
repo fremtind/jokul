@@ -1,3 +1,4 @@
+import "@fremtind/jkl-core/paragraphs.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { initTabListener } from "@fremtind/jkl-core";
@@ -58,6 +59,4 @@ const Typography = () => (
     </>
 );
 
-initTabListener();
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Typography />, mountNode);
+ReactDOM.render(<Typography />, document.getElementById("app"));

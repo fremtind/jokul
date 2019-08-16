@@ -1,9 +1,9 @@
+import { initTabListener } from "@fremtind/jkl-core";
+import "@fremtind/jkl-core/core.min.css";
+import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { ToggleSwitch } from "../src";
-import { initTabListener } from "@fremtind/jkl-core";
-import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
-import "@fremtind/jkl-core/core.min.css";
 
 initTabListener();
 
@@ -33,5 +33,4 @@ const App = () => {
     );
 };
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<App />, document.getElementById("app"));
