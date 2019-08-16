@@ -1,39 +1,35 @@
 @import "./variables/all";
 @import "./functions";
 
-@mixin background($color) {
-    background: linear-gradient(to bottom, $color 0%, $color 100%);
-    background-position: 0 100%;
-    background-repeat: repeat-x;
-    transition: background-size 250ms;
+@mixin background-color($color) {
+    background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
 .jkl-link {
-    appearance: none;
+    @include background-color($svart);
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    transition: background-size 250ms ease, color 100ms ease;
     outline: none;
     text-decoration: none;
-    position: relative;
     color: currentColor;
-    @include background($svart);
     background-size: rem(1px) rem(1px);
+    padding: 4px 0; // Add padding to push the underline down and make the hover/focus background height higher
 
+    html:not([data-mousenavigation]) &:focus,
     &:hover {
         color: $snøhvit;
         background-size: 100% 100%;
     }
-    html:not([data-mousenavigation]) &:focus {
-        color: $snøhvit;
-        @include background($himmel);
-        background-size: 100% 100%;
-    }
 
-    &--block {
-        padding: $component-spacing--xs 0;
+    html:not([data-mousenavigation]) &:focus {
+        @include background-color($himmel);
     }
 
     &--negative {
-        @include background($snøhvit);
+        @include background-color($snøhvit);
         background-size: rem(1px) rem(1px);
+
         &:hover {
             color: $svart;
         }
