@@ -17,6 +17,9 @@ $portal-max-width: rem(1200px);
         &-3 {
             background-color: $matt-svart;
             color: $snøhvit;
+            .jkl-bullet-list>.jkl-bullet-list__item:before {
+                background-color: $snøhvit;
+            }
         }
     }
 }
