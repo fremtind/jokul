@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState, FocusEvent } from "react";
-import { SupportText } from "@fremtind/jkl-typography-react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
     label: string;
@@ -7,24 +7,14 @@ interface Props {
     onChange?: (value: ChangeEvent<HTMLTextAreaElement>) => void;
     onBlur?: (value: FocusEvent<HTMLTextAreaElement>) => void;
     className?: string;
-    isInvalid?: boolean;
     id?: string;
     required?: boolean;
-    helpText?: string;
-    errorText?: string;
+    helpLabel?: string;
+    errorLabel?: string;
     rows?: number;
 }
 
-export const TextArea = ({
-    isInvalid = false,
-    id,
-    label,
-    className = "",
-    helpText,
-    errorText,
-    rows = 7,
-    ...restProps
-}: Props) => {
+export const TextArea = ({ id, label, className = "", helpLabel, errorLabel, rows = 7, ...restProps }: Props) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const height = isFocused || restProps.value ? `${rows * 2 + 0.5}rem` : undefined;
@@ -44,14 +34,14 @@ export const TextArea = ({
                 onFocus={onFocus}
                 onBlur={onBlur}
                 style={{ height }}
-                aria-invalid={isInvalid}
+                aria-invalid={!!errorLabel}
                 className="jkl-text-field__input"
                 id={id}
                 placeholder=" "
                 {...restProps}
             />
             <span className="jkl-text-field__label">{label}</span>
-            <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
         </label>
     );
 };

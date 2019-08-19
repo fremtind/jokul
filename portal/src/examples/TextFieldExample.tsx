@@ -15,15 +15,14 @@ const example = `
                 label="Fornavn"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                helpText="Ditt første navn"
+                helpLabel="Ditt første navn"
             />
             <TextField
                 className="jkl-spacing--bottom-3"
                 label="Fornavn"
                 value="Hannah Hart"
                 onChange={()=>{}}
-                isInvalid
-                errorText="Bare fornavn her"
+                errorLabel="Bare fornavn her"
             />
             <TextField
                 className="jkl-spacing--bottom-3"

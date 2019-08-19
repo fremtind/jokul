@@ -6,14 +6,10 @@ import "./style.scss";
 const WebComponentInfo = () => (
     <WarningMessage fullWidth title="Web component" className="portal-wc-info">
         Denne komponenten bruker web components via{" "}
-        <Link inline href="https://static.nrk.no/core-components/latest/index.html">
-            NRK core components
-        </Link>{" "}
-        under panseret. Det betyr at for å støtte eldre browsere må du laste inn{" "}
-        <Link inline href="https://github.com/WebReflection/document-register-element">
-            polyfills for web components
-        </Link>{" "}
-        og custom elements. <br />
+        <Link href="https://static.nrk.no/core-components/latest/index.html">NRK core components</Link> under panseret.
+        Det betyr at for å støtte eldre browsere må du laste inn{" "}
+        <Link href="https://github.com/WebReflection/document-register-element">polyfills for web components</Link> og
+        custom elements. <br />
         Denne brukes ved boot av portalen:
         <pre>import &quot;document-register-element&quot;;</pre>
     </WarningMessage>

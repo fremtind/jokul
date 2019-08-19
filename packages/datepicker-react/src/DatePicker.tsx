@@ -1,6 +1,6 @@
 import { Select } from "@fremtind/jkl-dropdown-react";
 import { TextField } from "@fremtind/jkl-text-input-react";
-import { SupportText } from "@fremtind/jkl-typography-react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from "react";
@@ -19,8 +19,8 @@ interface Props {
     onChange?: (date: Date) => void;
     initialShow?: boolean;
     className?: string;
-    bottomText?: string;
-    isInvalid?: boolean;
+    helpLabel?: string;
+    errorLabel?: string;
 }
 
 const dayMonthYearRegex = /^(\d\d)\.(\d\d)\.(\d{4})/;
@@ -35,8 +35,8 @@ export function DatePicker({
     onChange,
     initialShow = false,
     className = "",
-    bottomText,
-    isInvalid,
+    helpLabel,
+    errorLabel,
 }: Props) {
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
@@ -76,7 +76,6 @@ export function DatePicker({
         <div className={`jkl-datepicker ${className}`} ref={ref}>
             <TextField
                 placeholder={"dd.mm.åååå"}
-                isInvalid={isInvalid}
                 label={label}
                 type="text"
                 value={dateString}
@@ -101,7 +100,7 @@ export function DatePicker({
                     <table data-testid="jkl-datepicker-calendar" />
                 </CoreDatepicker>
             </div>
-            <SupportText isInvalid={!!isInvalid} errorText={bottomText} helpText={isInvalid ? undefined : bottomText} />
+            <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} />
         </div>
     );
 }

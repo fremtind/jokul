@@ -1,17 +1,16 @@
 import React, { ChangeEvent, FocusEvent } from "react";
-import { SupportText } from "@fremtind/jkl-typography-react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
     label: string;
     value?: string;
     inline?: boolean;
-    helpText?: string;
-    errorText?: string;
+    helpLabel?: string;
+    errorLabel?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
     onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
-    isInvalid?: boolean;
     id?: string;
     autoComplete?: string;
     required?: boolean;
@@ -23,10 +22,9 @@ interface Props {
 export const TextField = ({
     type = "text",
     inline = false,
-    isInvalid = false,
     readOnly = false,
-    helpText,
-    errorText,
+    helpLabel,
+    errorLabel,
     id,
     label,
     className = "",
@@ -40,7 +38,7 @@ export const TextField = ({
     >
         <input
             type={type}
-            aria-invalid={isInvalid}
+            aria-invalid={!!errorLabel}
             className={`jkl-text-field__input`}
             id={id}
             placeholder=" "
@@ -50,6 +48,6 @@ export const TextField = ({
         />
         {!value && <span className="jkl-text-field__placeholder">{placeholder}</span>}
         <span className="jkl-text-field__label">{label}</span>
-        <SupportText helpText={helpText} errorText={errorText} isInvalid={isInvalid} />
+        <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
     </label>
 );
