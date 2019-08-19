@@ -51,6 +51,7 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
         box-shadow: 0 rem(2px) 0 0 $border-color;
         /* show border in mobile Safari */
         -webkit-appearance: none;
+        resize: none; // Disable textarea resize
 
         &:hover,
         &:focus {
@@ -97,8 +98,7 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
         transition: height 175ms ease, box-shadow $transition-timing;
         &:focus,
         &:not(:placeholder-shown) {
-            height: initial;
-            height: $textarea-height--expanded;
+            height: $textarea-height--expanded; // CSS default height (is overridden in react component)
         }
     }
 }

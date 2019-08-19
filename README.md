@@ -4,15 +4,15 @@
 [![build status](https://travis-ci.org/fremtind/jokul.svg?branch=master)](https://travis-ci.org/fremtind/jokul.svg?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/fremtind/jokul.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io//test/github/fremtind/jokul/badge.svg?targetFile=package.json)](https://snyk.io//test/github/fremtind/jokul?targetFile=package.json) [![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
 
-Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) utviklet av [Fremtind](https://fremtind.no).
+Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) som er utviklet av [Fremtind](https://fremtind.no).
 
--   **Stil**: Jøkul gir deg css og scss stilark for basis komponenter og designmønstre som følger design prinsippene til Fremtind.
--   **Komponenter**: React-komponenter som er klar til bruk. Skrevet i Typescript for mindre feil og bedre utvikleropplevelse.
--   **Utvidbar**: Støtter css, scss og React ut av boksen, men er lagt opp til å kunne støtte andre rammeverk og fremtidige teknologier.
+-   **Stil**: Jøkul gir deg css- og scss-stilark for de grunnleggende komponentene og designmønstrene til Fremtind. De følger Fremtinds designprinsipper.
+-   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
+-   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
 
 ## [Kom i gang](https://fremtind.github.io/jokul/developer/getting-started)
 
-Jøkul kan bli brukt på to måter, enten ved å laste inn bare stilark eller ved å bruke de klare komponentene. Komponent-pakkene inneholder det de trenger, inkludert avhengigheter til andre pakker. **Viktig**: Du må sette opp en `loader` i ditt byggsystem for å håntere scss-importer, feks `style-loader` for Webpack.
+Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker.
 
 ### React-pakker
 
@@ -27,7 +27,7 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 
 ### Stilark-pakker
 
-Hvis du ikke vil bruke React-komponentene, så kan du bruke stilarkene direkte. Da kan du enten laste inn css filene, eller du kan laste scss filene inn i din scss fil og få tilgang på Jøkuls variabler og mixins. Pass på at du uansett trenger en riktig loader for å ta det i bruk i ditt prosjekt.
+Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mixins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
 `yarn install @fremtind/jkl-button/button.css`
 
 ```tsx
@@ -39,19 +39,19 @@ import "@fremtind/jkl-button/button.css";
 
 ## [Dokumentasjon](https://fremtind.github.io/jokul/)
 
-På [https://fremtind.github.io/jokul/](https://fremtind.github.io/jokul/) finner du dokumentasjon på bruk av Jøkul, designprinsipper og dokumentasjon av hver enkelt komponent.
+På [https://fremtind.github.io/jokul/](https://fremtind.github.io/jokul/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
 
 ## Bidra
 
-Jøkul er til for å gjøre utvikling av Fremtind løsninger raksere, enklere, lettere å vedlikeholde og føles mer likt på tvers av løsninger. All utvikling skjer åpent på GitHub, så alle som er interessert kan følge med, påvirke retningen og bidra til videreutvikling av designsystemet.
+Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsninger. Det skal være enkelt og lett å vedlikeholde og de ferdige løsningene skal føles like, selv om de er spesifikke for ulike fagområder i Fremtind eller ulike kundebehov. All utvikling skjer åpent på GitHub. Det gjør at alle interesserte kan følge med, påvirke retningen vi går i og være med på å videreutvikle designsystemet.
 
 ### [Bidragsguide](https://fremtind.github.io/jokul/developer/contribute)
 
-Vi setter pris på alle bidrag, fra [rapportering av feil](https://github.com/fremtind/jokul/issues/new/choose), [ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [nytutvikling](https://github.com/fremtind/jokul/labels/enhancement).
+Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra ved å lese vår [guide](https://fremtind.github.io/jokul/developer/contribute).
+Les mer om hvordan du kan bidra i [guiden](https://fremtind.github.io/jokul/developer/contribute) vår.
 
-### [Oppførselskode](https://no.wikipedia.org/wiki/Kardemommeloven)
+### [Oppførsel](https://no.wikipedia.org/wiki/Kardemommeloven)
 
 > Man skal ikke plage andre, man skal være grei og snill, og for øvrig kan man gjøre hva man vil.
 >
@@ -88,4 +88,4 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!

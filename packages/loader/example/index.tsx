@@ -14,5 +14,4 @@ const Loaders = () => {
     );
 };
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<Loaders />, mountNode);
+ReactDOM.render(<Loaders />, document.getElementById("app"));

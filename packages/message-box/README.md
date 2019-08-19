@@ -1,23 +1,17 @@
 # [`@fremtind/jkl-message-box`](https://fremtind.github.io/jokul/components/messagebox/)
 
-## Om varsler
+Med meldingsbokser kan vi gjøre viktig informasjon tydeligere for brukerne. Dette kan være varsler om at noe er feil, informasjon som må fylles ut i et skjema før brukeren kan gå videre, eller en bekreftelse på at noe har skjedd eller har blitt oppdatert.
 
-Varsler er meldinger som skal informere brukeren når noe skjer. Det er to hovedtyper:
+Meldingsboksene våre er merket med fargene blå, rød, gul eller grønn. 
+* Blå og gule medlinger gir informasjon. 
+* Røde meldinger brukes til å gi varsler.
+* Grønne bokser forteller at en handling brukeren eller systemet har utført var vellykket. 
 
-_Tidsbegrensede varsler_ vises vanligvis nederst på skjermen og kan settes til å forsvinne etter noen sekunder, vanligvis fem.
+Det er viktig at vi bruker en beskrivende overskrift på meldingsboksene, siden farge ikke trenger å være et godt nok kjennetegn for alle brukere på hva hensikten med boksen er.
 
-_Innebygde varsler_ er meldinger som kommer når brukeren er i en bestemt kontekst, for eksempel i et bestemt felt i et skjema. Disse varslene må brukerne lukke selv. Den vanligste måten å lukke dem på, er med en liten x øverst i høyre hjørnet av varselet.
+Selve meldingsteksten skal være så kort og presis som mulig. Bruk klarspråk og si det viktigste først. 
 
-### Overskrift
-
-Et varsel må ha en kort og beskrivende overskrift, for eksempel «Det har oppstått en feil».
-
-### Meldingsteksten
-
-Vi begrenser selve meldingsteksten til to linjer. Beskriv hva som har skjedd og fortell hva brukeren bør gjøre nå.
-
-Så ofte som mulig er det er det best å bare bruke overskriften til å gi selve meldingen. Da kan du bruke meldingsteksten til å lede brukeren videre til neste steg, for eksempel med en lenke.
-
-### Ikoner i varsler
-
-Fremtind bruker ikoner sparsomt, men hvis de gjør et varsel tydeligere, så kan vi bruke det, for eksempel når vi lager fagsystemer for saksbehandlere, som ofte skal inneholde mye informasjon på en side.
+### Eksempler
+- Grønn (infomelding): "Vi har lagret opplysningene dine."
+- Blå (for eksempel til lovverk): "Trafikkforsikringsavgiften har erstattet veiavgiften og betales nå som en del av bilforsikringen din."
+- Rød: "Systemet er dessverre ute av drift nå. Prøv igjen senere.
