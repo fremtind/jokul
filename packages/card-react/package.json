@@ -21,6 +21,7 @@
         "build"
     ],
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
