@@ -18,7 +18,7 @@
 
     html:not([data-mousenavigation]) &:focus,
     &:hover {
-        color: $snøhvit;
+        color: $snohvit;
         background-size: 100% 100%;
     }
 
@@ -27,7 +27,7 @@
     }
 
     &--negative {
-        @include background-color($snøhvit);
+        @include background-color($snohvit);
         background-size: rem(1px) rem(1px);
 
         &:hover {
