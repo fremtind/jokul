@@ -20,7 +20,7 @@
         justify-content: space-around; // For IE & Edge
         justify-content: space-evenly;
         padding: $layout-spacing--large;
-        background-color: $snøhvit;
+        background-color: $snohvit;
         margin: 0;
 
         & + .jkl-accordion .jkl-accordion-item__content {
@@ -50,7 +50,7 @@
                 right: 10%;
                 padding: $component-spacing--medium $component-spacing--xl;
                 background-color: $svart;
-                color: $snøhvit;
+                color: $snohvit;
                 opacity: 0;
                 transition: opacity 250ms ease-out 1000ms, transform 1000ms ease-in-out 100ms;
             }

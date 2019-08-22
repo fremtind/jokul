@@ -5,8 +5,8 @@
 $hero-size: rem(700px);
 $hero-top-offset: rem(225px);
 
-$content-bg-color: $varm-fjellgrå;
-$content-color: $snøhvit;
+$content-bg-color: $varm-fjellgra;
+$content-color: $snohvit;
 $content-max-width: rem(1200px);
 
 $circle-size: rem(100px);
@@ -25,7 +25,7 @@ $circle-size: rem(100px);
         max-width: $hero-size;
         padding: $layout-spacing--small $layout-spacing--medium;
         margin: 0 $layout-spacing--large;
-        background-color: rgba($snøhvit, 0.7);
+        background-color: rgba($snohvit, 0.7);
         @include small-device {
             position: relative;
             top: 0;
@@ -65,7 +65,7 @@ $circle-size: rem(100px);
         }
 
         .jkl-bullet-list > .jkl-bullet-list__item:before {
-            background-color: $snøhvit;
+            background-color: $snohvit;
         }
     }
 }

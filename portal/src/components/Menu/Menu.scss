@@ -8,12 +8,12 @@ $menu-width: rem(320px);
 
 .portal-dark {
     background-color: $matt-svart;
-    color: $snøhvit;
+    color: $snohvit;
     & .jkl-message-box {
         color: $svart;
     }
     & .portal-content__section--copy {
-        color: $snøhvit;
+        color: $snohvit;
     }
     & .portal-header {
         background-color: $matt-svart;
@@ -27,7 +27,7 @@ $menu-width: rem(320px);
         }
     }
     & .portal-header__title > a {
-        color: $snøhvit;
+        color: $snohvit;
     }
     & .portal-main__hero {
         background-color: rgba($matt-svart, 0.7);
@@ -36,7 +36,7 @@ $menu-width: rem(320px);
         color: initial;
     }
     & .portal-icon {
-        color: $himmelgrå;
+        color: $himmelgra;
     }
     & .portal-footer {
         background-color: $svart;
@@ -54,7 +54,7 @@ $menu-width: rem(320px);
         width: $menu-width;
         padding: $layout-spacing--xxl $layout-spacing--small;
         background-color: $matt-svart;
-        color: $snøhvit;
+        color: $snohvit;
         transition-property: transform, box-shadow;
         @include motion(standard, expressive);
         box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
@@ -117,7 +117,7 @@ $menu-width: rem(320px);
     }
 
     &__link {
-        color: $snøhvit;
+        color: $snohvit;
         display: block;
         margin-bottom: $component-spacing--medium;
         text-decoration: none;
