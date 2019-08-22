@@ -95,7 +95,7 @@ $chevron-weight: rem(1px);
         text-overflow: ellipsis;
 
         &--has-value {
-            color: $varm-fjellgrå;
+            color: $varm-fjellgra;
             transform: translateY(0) scale($label-font-size / $value-font-size);
         }
     }

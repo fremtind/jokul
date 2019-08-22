@@ -60,13 +60,13 @@
     @include demo-box($layout-spacing--large, $matt-svart);
 }
 .demo-color--3 {
-    @include demo-box($layout-spacing--large, $varm-fjellgrå);
+    @include demo-box($layout-spacing--large, $varm-fjellgra);
 }
 .demo-color--4 {
-    @include demo-box($layout-spacing--large, $himmelgrå);
+    @include demo-box($layout-spacing--large, $himmelgra);
 }
 .demo-color--5 {
-    @include demo-box($layout-spacing--large, $snøhvit);
+    @include demo-box($layout-spacing--large, $snohvit);
 }
 .demo-color--6 {
     @include demo-box($layout-spacing--large, $varde);
