@@ -12,8 +12,9 @@ Vi har tre varianter av skrifttypen:
 -   Long form
 -   Lead
 -   Small
-    Long form er den store brødtekstfonten. Den bruker vi til lengre tekster.
-    Vi har også en mindre font til kortere brødtekster, den heter Lead. Lead brukes som ingress eller der hvor innholdet står nok alene til at det kan erstatte brødteksten, for å gi mer fokus.
+    
+Long form er den store brødtekstfonten. Den bruker vi til lengre tekster.
+Vi har også en mindre font til kortere brødtekster, den heter Lead. Lead brukes som ingress eller der hvor innholdet står nok alene til at det kan erstatte brødteksten, for å gi mer fokus.
 
 Den minste fonten bruker vi bare i tabeller, der det ikke er nok horisontal plass til vanlig brødtekst. Vi bruker den også i interne applikasjoner, for å spare plass. Noen ganger bruker vi Small til bilde- og figurtekster i for eksempel skjemaer.
 
