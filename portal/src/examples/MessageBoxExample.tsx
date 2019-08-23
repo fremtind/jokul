@@ -7,24 +7,20 @@ import "@fremtind/jkl-message-box/message-box.min.css";
 import messageType from "!raw-loader!@fremtind/jkl-message-box-react/build/MessageBox.d.ts";
 
 const example = `<>
-        <InfoMessage title="Info">
+        <InfoMessage title="Informasjon">
             Vi lagrer alle svarene dine underveis, slik at du kan forstsette der du slapp når det passer for deg.
         </InfoMessage>
-        <ErrorMessage title="Error">Vi finner ikke denne kombinasjonen av e-post og passord. Prøv igjen.</ErrorMessage>
-        <SuccessMessage title="Success">Saken din er registrert</SuccessMessage>
-        <WarningMessage title="Warning">Du må fylle ut alle feltene før du kan gå videre</WarningMessage>
-        <InfoMessage fullWidth title="Full width info">
+        <ErrorMessage title="Feilmelding">Vi finner ikke denne kombinasjonen av e-post og passord. Prøv igjen.</ErrorMessage>
+        <SuccessMessage title="Vellykket handling">Saken din er registrert</SuccessMessage>
+        <WarningMessage title="Advarsel">Du må fylle ut alle feltene før du kan gå videre</WarningMessage>
+        <InfoMessage fullWidth title="Informasjon i full bredde">
             <h2 className="jkl-h2"> Slik behandler vi saken din</h2>
             <BulletList>
-                <BulletListItem>Vi dekker skaden på bilen din.</BulletListItem>
-                <BulletListItem>Skadenummeret ditt er 1352630007.</BulletListItem>
+                <BulletListItem>Vi dekker skaden på bilen din. Skadenummeret ditt er 1352630007.</BulletListItem>
                 <BulletListItem>
                     Vi kontakter deg innen klokka 15 neste arbeidsdag. Da får du vite hvem vi mener er ansvarlig for
                     uhellet og om du må betale egenandel.
                 </BulletListItem>
-            </BulletList>
-            <h3 className="jkl-h3">Dette skjer videre</h3>
-            <BulletList>
                 <BulletListItem>Vi kontakter forsikringsselskapet til den andr parten.</BulletListItem>
                 <BulletListItem>Du må oppgi skadenummeret til verkstedet. </BulletListItem>
                 <BulletListItem>
