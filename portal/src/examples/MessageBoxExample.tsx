@@ -21,7 +21,7 @@ const example = `<>
                     Vi kontakter deg innen klokka 15 neste arbeidsdag. Da får du vite hvem vi mener er ansvarlig for
                     uhellet og om du må betale egenandel.
                 </BulletListItem>
-                <BulletListItem>Vi kontakter forsikringsselskapet til den andr parten.</BulletListItem>
+                <BulletListItem>Vi kontakter forsikringsselskapet til den andre parten.</BulletListItem>
                 <BulletListItem>Du må oppgi skadenummeret til verkstedet. </BulletListItem>
                 <BulletListItem>
                     Kontakt Avis Bilutleie på telefon 66 77 11 06 for å få leiebil. Oppgi skadenummeret ditt. Du har
