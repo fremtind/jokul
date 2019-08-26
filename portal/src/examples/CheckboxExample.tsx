@@ -1,27 +1,34 @@
 import React from "react";
 import { Example } from "../components";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
+import { Checkbox, CheckboxGroup } from "@fremtind/jkl-checkbox-react";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
 // @ts-ignore
 import type from "!raw-loader!@fremtind/jkl-checkbox-react/build/Checkbox.d.ts";
 
-const example = `() => {const [checked, toggle] = React.useState(false);
+const example = `() => {const [isChecked, setChecked] = React.useState(false);
 
 return (<>
-    <Checkbox>I am uncontrolled</Checkbox>
-    <Checkbox checked={checked} onChange={()=>toggle(!checked)}>I am controlled</Checkbox>
-    <Checkbox checked={true}>I always checked</Checkbox>
-    <div className="jkl-spacing--top-4" style={{ display: "flex", flexFlow: "column" }}>
-        <Checkbox onChange={(val) => alert(val)}>I am checkbox</Checkbox>
-        <Checkbox onChange={(val) => alert(val)}>Do you like mulitple choices?</Checkbox>
-    </div>
+    <Checkbox name="I am uncontrolled" />
+    <Checkbox name="controlled" checked={isChecked} onChange={()=>setChecked(!isChecked)}>I am controlled</Checkbox>
+    <Checkbox name="locked" checked={true}>I always checked</Checkbox>
+    <CheckboxGroup
+        className="jkl-spacing--top-4"
+        inline={false}
+        choices={["I am checkbox", "Do you like multiple choices?"]}
+        onChange={(name, val) => alert(name + " is now " + val)}
+    />
 </>)}`;
 
 const exampleImport = `import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import "@fremtind/jkl-checkbox/checkbox.min.css";`;
 
 const CheckboxExample = () => (
-    <Example exampleComponents={{ Checkbox }} exampleCode={example} type={type} exampleImport={exampleImport} />
+    <Example
+        exampleComponents={{ Checkbox, CheckboxGroup }}
+        exampleCode={example}
+        type={type}
+        exampleImport={exampleImport}
+    />
 );
 
 export default CheckboxExample;
