@@ -30,7 +30,7 @@ $chevron-weight: rem(1px);
     letter-spacing: -0.009em;
 }
 
-@mixin box-shadow($color, $focus-color) {
+@mixin underline-color($color, $focus-color) {
     box-shadow: 0 2px 0 0 $color;
 
     html:not([data-mousenavigation]) &:focus {
@@ -95,7 +95,7 @@ $chevron-weight: rem(1px);
         text-overflow: ellipsis;
 
         &--has-value {
-            color: $varm-fjellgrå;
+            color: $varm-fjellgra;
             transform: translateY(0) scale($label-font-size / $value-font-size);
         }
     }
@@ -116,7 +116,7 @@ $chevron-weight: rem(1px);
         width: 100%;
         opacity: 1;
         position: relative;
-        @include box-shadow($border-color, $border-color--focus);
+        @include underline-color($border-color, $border-color--focus);
 
         &:active {
             color: currentColor; // Safari text will blink on click without this
@@ -198,7 +198,7 @@ $chevron-weight: rem(1px);
 
     &--invalid {
         .jkl-dropdown__value {
-            @include box-shadow($error-color, $error-color);
+            @include underline-color($error-color, $error-color);
         }
     }
 }

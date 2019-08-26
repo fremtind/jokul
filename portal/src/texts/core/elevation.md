@@ -8,7 +8,7 @@ Vi bruker skygge til å indikere at et element blir aktivt. Vi skaper dybde ved 
 
 -   Bruke nivåer
 -   Løfte viktig innhold
--   SKape et tydelig hierarki
+-   Skape et tydelig hierarki
 
 ### I bruk
 

@@ -3,4 +3,3 @@ dist/
 public/
 .cache/
 jest/
-jest-puppeteer.config.js

@@ -24,7 +24,7 @@ const example = `<div>
     <P>
         Link (inline). Bruk denne om det kommer en linje med tekst under linken: <Link inline href="#">Mollit ut</Link> sunt id minim sit est enim ad proident do veniam. In ipsum <Link inline href="#">deserunt</Link> tempor sunt reprehenderit labore Lorem Lorem ullamco adipisicing elit. Irure cillum minim amet ut mollit ullamco non quis duis elit.
     </P>
-    <P>Link: Alternativ stil for frittstående linjer har <Link href="#">tykkere understrek</Link>.</P>
+    <P>Link: Alternativ stil for frittstående linjer har <Link href="#">mer luft</Link>.</P>
 </div>;`;
 
 const exampleImport = `import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph } from "@fremtind/jkl-typography-react";
