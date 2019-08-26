@@ -10,10 +10,14 @@ $checkbox-focus-outline-color: $himmel;
 .jkl-checkbox {
     align-items: center;
     cursor: pointer;
-    display: inline-flex;
+    display: flex;
     font-size: $font-size-3;
     line-height: $line-height-3;
     padding-right: $component-spacing--xl;
+
+    &--inline {
+        display: inline-flex;
+    }
 
     &:hover > .jkl-checkbox__check-mark {
         transform: scale(1.1);
@@ -44,7 +48,7 @@ $checkbox-focus-outline-color: $himmel;
 
     &__check-mark {
         background-color: $checkbox-unchecked-background-color;
-        border: solid rem(1px) #svart;
+        border: solid rem(1px) $svart;
         box-sizing: border-box;
         border-radius: 0; // fixes rounded corners in iOS Safari
         height: $checkbox-size;
@@ -70,6 +74,20 @@ $checkbox-focus-outline-color: $himmel;
             width: 33%;
             height: 68%;
         }
+    }
+}
+
+.jkl-checkbox-group {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+
+    & > legend {
+        font-size: $font-size-2;
+        line-height: $line-height-2;
+        color: $varm-fjellgra;
+        padding-bottom: $component-spacing--small;
     }
 }
 

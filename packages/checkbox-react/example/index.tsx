@@ -3,7 +3,7 @@ import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Checkbox } from "../src";
+import { Checkbox, CheckboxGroup } from "../src";
 
 initTabListener();
 
@@ -11,17 +11,18 @@ const App = () => {
     const [isCool, changeCoolness] = React.useState(false);
     return (
         <>
-            <Checkbox>I am checkbox!</Checkbox>
-            <Checkbox>Am I?</Checkbox>
-            <Checkbox checked={true}>I will never change</Checkbox>
-            <Checkbox checked={isCool} onChange={() => changeCoolness(!isCool)}>
+            <Checkbox name="checkbox1" onChange={(name, value) => alert(`${name} is now ${value}`)}>
+                I am checkbox!
+            </Checkbox>
+            <Checkbox name="Checkbox without children" />
+            <Checkbox name="checkbox3" checked>
+                I will never change
+            </Checkbox>
+            <Checkbox name="coolness" checked={isCool} onChange={() => changeCoolness(!isCool)}>
                 I am {isCool ? "cool" : "not cool"}{" "}
             </Checkbox>
 
-            <div style={{ display: "flex", flexFlow: "column", marginTop: "5rem" }}>
-                <Checkbox>I am checkbox</Checkbox>
-                <Checkbox>Do you like mulitple choices?</Checkbox>
-            </div>
+            <CheckboxGroup legend="Checkbox group" choices={["I am checkbox", "Du you like multiple choices?"]} />
         </>
     );
 };
