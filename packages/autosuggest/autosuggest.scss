@@ -1,0 +1,129 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_ornaments.scss";
+
+$transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
+
+$border-color: $svart;
+
+$icon-size: rem(20px);
+$controller-button-padding: rem(5px);
+
+$label-color: $varm-fjellgrå;
+$label-font-size: rem(16px);
+
+$input-height: $line-height-3;
+$input-font-size: $font-size-3;
+$input-padding-right: rem(40px);
+$input-padding-bottom: $component-spacing--small;
+
+$item-height: $line-height-3;
+$item-font-size: $font-size-3;
+
+@mixin nojump-bold {
+    // Make font bolder without increasing line length
+    font-weight: bold;
+    letter-spacing: -0.009em;
+}
+
+.jkl-autosuggest {
+    font-family: inherit;
+
+    &__label {
+        color: $label-color;
+        display: block;
+        font-size: $label-font-size;
+    }
+
+    &__input_group {
+        position: relative;
+    }
+
+    &__input {
+        background-color: transparent;
+        border: none;
+        box-sizing: border-box;
+        box-shadow: 0 rem(2px) 0 0 $border-color;
+        display: block;
+        font-size: $input-font-size;
+        line-height: $input-height;
+        outline: none;
+        padding: 0 $input-padding-right $input-padding-bottom 0;
+        transition: box-shadow $transition-timing;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 rem(4px) 0 0 $border-color;
+        }
+
+        &[aria-invalid="true"],
+        &:invalid {
+            box-shadow: 0 rem(2px) 0 0 $error-color;
+
+            &:focus,
+            &:hover,
+            html:not([data-mousenavigation]) &:focus {
+                box-shadow: 0 rem(4px) 0 0 $error-color;
+            }
+        }
+    }
+
+    &__controller-button {
+        align-items: flex-start;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        padding: 0 $controller-button-padding;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &__chevron {
+        @include chevron($icon-size, currentcolor, $weight: rem(1px));
+
+        &--active {
+            transform: rotate((-45 + 180) * 1deg); // default orientation is pointing down
+        }
+    }
+
+    &__x-icon {
+        fill: transparent;
+        padding: rem(5px) rem(5px) 0 0;
+        stroke: $border-color;
+        stroke-width: rem(1.3px);
+        width: $icon-size;
+    }
+
+    &__menu {
+        background-color: white;
+        box-shadow: rem(2px) rem(2px) rem(8px) rgba(0, 0, 0, 0.16);
+        box-sizing: border-box;
+        list-style-type: none;
+        position: absolute;
+        max-height: 60vh;
+        margin-top: rem(4px);
+        overflow-y: auto;
+        padding: 1rem 0.5rem 0;
+        width: 100%;
+        z-index: $z-index--dropdown;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    &__item {
+        border-bottom: 1px solid transparent;
+        cursor: pointer;
+        display: block;
+        line-height: $item-height;
+        font-size: $item-font-size;
+        margin-bottom: $component-spacing--large;
+
+        &--active {
+            @include nojump-bold();
+            border-color: $svart;
+        }
+    }
+}

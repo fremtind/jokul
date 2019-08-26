@@ -1,0 +1,24 @@
+h1 {
+    margin-bottom: 40px;
+}
+
+.container {
+    font-family: inherit;
+    margin: 60px auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container > div {
+    margin: 40px;
+    width: 280px;
+}
+
+.no-hits-message {
+    margin-bottom: 16px;
+    color: #696666;
+    line-height: 32px;
+    font-size: 22px;
+}

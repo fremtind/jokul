@@ -21,7 +21,7 @@ const defaultPlugins = [
         namedExports: {
             "react-is": ["isForwardRef"],
         },
-        include: [/node_modules\/prop-types/, /node_modules\/react-is/],
+        include: [/node_modules\/prop-types/, /node_modules\/react-is/, /node_modules\/remove-accents/],
     }),
 ];
 
