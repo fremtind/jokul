@@ -108,7 +108,7 @@ export function DatePicker({
 function useOnClickOutside<T extends HTMLElement>(onClickOutside: () => void): MutableRefObject<T | null> {
     const ref = useRef<T>(null);
 
-    function onMouseDown(e: MouseEvent) {
+    function onMouseDown(e: MouseEvent | FocusEvent) {
         if (ref.current && !ref.current.contains(e.target as Node)) {
             onClickOutside();
         }
@@ -117,9 +117,14 @@ function useOnClickOutside<T extends HTMLElement>(onClickOutside: () => void): M
     useEffect(() => {
         // Bind the event listener
         document.addEventListener("mousedown", onMouseDown);
+        // @ts-ignore
+        document.addEventListener("focusin", onMouseDown);
+
         return () => {
             // Unbind the event listener on clean up
             document.removeEventListener("mousedown", onMouseDown);
+            // @ts-ignore
+            document.removeEventListener("focusin", onMouseDown);
         };
     }, []);
     return ref;
