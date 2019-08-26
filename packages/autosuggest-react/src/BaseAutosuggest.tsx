@@ -5,7 +5,7 @@ import { CommonProps } from "./Autosuggest";
 
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";
-import { SupportText } from "@fremtind/jkl-typography-react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 type BaseAutosuggestProps<T> = CommonProps & {
     itemToString: (item: T | null) => string;
@@ -81,7 +81,7 @@ function BaseAutosuggest<T>({
                                 isOpen={isOpen}
                             />
                         </div>
-                        {errorText && <SupportText errorText={errorText} isInvalid={isInvalid} />}
+                        {errorText && isInvalid && <SupportLabel errorLabel={errorText} />}
                         {isOpen && (
                             <Menu
                                 downshiftProps={{
