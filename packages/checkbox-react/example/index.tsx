@@ -1,4 +1,5 @@
-import "@fremtind/jkl-checkbox/checkbox.css";
+import "@fremtind/jkl-checkbox/checkbox.min.css";
+import "@fremtind/jkl-field-group/field-group.min.css";
 import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.css";
 import React from "react";
@@ -22,7 +23,10 @@ const App = () => {
                 I am {isCool ? "cool" : "not cool"}{" "}
             </Checkbox>
 
-            <CheckboxGroup legend="Checkbox group" choices={["I am checkbox", "Du you like multiple choices?"]} />
+            <CheckboxGroup legend="Checkbox group" className="jkl-spacing--top-3">
+                <Checkbox name="ch1">I am checkbox</Checkbox>
+                <Checkbox name="ch2">I am also a checkbox</Checkbox>
+            </CheckboxGroup>
         </>
     );
 };

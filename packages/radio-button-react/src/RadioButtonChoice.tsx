@@ -1,9 +1,10 @@
 import React, { ChangeEvent } from "react";
+import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButton } from "./RadioButton";
 
 interface Props {
     name: string;
-    legend?: string;
+    legend: string;
     choices: string[];
     selectedValue: string;
     inline?: boolean;
@@ -11,8 +12,7 @@ interface Props {
 }
 
 export const RadioButtonChoice = ({ name, legend, choices, selectedValue, onChange, inline = true }: Props) => (
-    <fieldset className="jkl-radio-button-choice">
-        <legend>{legend || name}</legend>
+    <FieldGroup legend={legend}>
         {choices.map((choice) => (
             <RadioButton
                 key={choice}
@@ -23,5 +23,5 @@ export const RadioButtonChoice = ({ name, legend, choices, selectedValue, onChan
                 onChange={onChange}
             />
         ))}
-    </fieldset>
+    </FieldGroup>
 );
