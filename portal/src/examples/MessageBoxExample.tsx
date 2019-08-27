@@ -1,6 +1,6 @@
-import { BulletList, BulletListItem } from "@fremtind/jkl-bullet-list-react/src";
 import React from "react";
 import { Example } from "../components";
+import { BulletList, BulletListItem } from "@fremtind/jkl-bullet-list-react";
 import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "@fremtind/jkl-message-box-react";
 import "@fremtind/jkl-message-box/message-box.min.css";
 // @ts-ignore
@@ -31,8 +31,14 @@ const example = `<>
         </InfoMessage>
     </>`;
 
-const exampleImport = `import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "@fremtind/jkl-message-box-react";
-import "@fremtind/jkl-message-box/message-box.min.css";`;
+const exampleImport = `import {
+  ErrorMessage,
+  InfoMessage,
+  SuccessMessage,
+  WarningMessage
+} from "@fremtind/jkl-message-box-react";
+import "@fremtind/jkl-message-box/message-box.min.css";
+`;
 
 const MessageBoxExample = () => (
     <Example
