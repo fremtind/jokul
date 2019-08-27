@@ -8,7 +8,7 @@ interface Props {
 
 export const FieldGroup = ({ legend, className, children }: Props) => (
     <fieldset className={`jkl-field-group ${className ? className : ""}`}>
-        <legend>{legend}</legend>
+        <legend className="jkl-field-group__legend">{legend}</legend>
         {children}
     </fieldset>
 );
