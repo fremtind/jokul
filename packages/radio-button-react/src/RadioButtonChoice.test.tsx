@@ -9,7 +9,13 @@ describe("RadioButtonChoice", () => {
     it("renders a legend with the correct value", () => {
         const choices = ["yes", "no"];
         const { getByText } = render(
-            <RadioButtonChoice choices={choices} name="Does this work?" onChange={(f) => f} selectedValue="yes" />,
+            <RadioButtonChoice
+                choices={choices}
+                legend="Does this work?"
+                name="doeswork"
+                onChange={(f) => f}
+                selectedValue="yes"
+            />,
         );
 
         expect(getByText("Does this work?")).toBeInTheDocument();
@@ -18,7 +24,13 @@ describe("RadioButtonChoice", () => {
     it("renders radio buttons for each choice", () => {
         const choices = ["yes", "no"];
         const { getByText } = render(
-            <RadioButtonChoice choices={choices} name="Does this work?" onChange={(f) => f} selectedValue="yes" />,
+            <RadioButtonChoice
+                choices={choices}
+                legend="Does this work?"
+                name="doeswork"
+                onChange={(f) => f}
+                selectedValue="yes"
+            />,
         );
 
         expect(getByText("yes")).toBeInTheDocument();
@@ -28,7 +40,7 @@ describe("RadioButtonChoice", () => {
     it("selects the correct value from given props", () => {
         const choices = ["one", "two"];
         const { getByLabelText } = render(
-            <RadioButtonChoice choices={choices} name="test" onChange={(f) => f} selectedValue="two" />,
+            <RadioButtonChoice choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="two" />,
         );
 
         const secondButton = getByLabelText("two");
@@ -38,7 +50,7 @@ describe("RadioButtonChoice", () => {
     it("does not preselect a value if empty", () => {
         const choices = ["one", "two"];
         const { getByLabelText } = render(
-            <RadioButtonChoice choices={choices} name="test" onChange={(f) => f} selectedValue="" />,
+            <RadioButtonChoice choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="" />,
         );
 
         const firstButton = getByLabelText("one");
@@ -50,7 +62,13 @@ describe("RadioButtonChoice", () => {
     it("executes handleChange function correctly", () => {
         const handleChange = jest.fn();
         const { getByLabelText } = render(
-            <RadioButtonChoice choices={["one", "two"]} name="test" onChange={handleChange} selectedValue="one" />,
+            <RadioButtonChoice
+                legend="Test"
+                choices={["one", "two"]}
+                name="test"
+                onChange={handleChange}
+                selectedValue="one"
+            />,
         );
 
         const twoButton = getByLabelText("two");

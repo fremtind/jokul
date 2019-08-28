@@ -24,6 +24,8 @@ const Demo = () => {
                 inline={s}
                 selectedValue={selectedValue}
                 onChange={(e) => setSelectedValue(e.target.value)}
+                helpLabel="Choose wisely"
+                errorLabel={selectedValue === "No" ? "Oh no!" : undefined}
             />
         </>
     );

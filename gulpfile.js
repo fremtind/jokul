@@ -10,7 +10,7 @@ sass.compiler = require("node-sass");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const scssFiles = ["**/*.scss", "!example/*.scss"];
-function throwError(e) {
+function throwSassError(e) {
     sass.logError(e);
     throw new Error("sass compilation failed", e);
 }
@@ -19,7 +19,7 @@ module.exports = function(gulp) {
     gulp.task("build", function() {
         return gulp
             .src(scssFiles)
-            .pipe(sass({ importer }).on("error", throwError))
+            .pipe(sass({ importer }).on("error", throwSassError))
             .pipe(postcss([autoprefixer()]))
             .pipe(gulp.dest("./"))
             .pipe(postcss([cssnano()]))

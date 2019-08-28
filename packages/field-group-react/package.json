@@ -34,7 +34,8 @@
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "dependencies": {
-        "@fremtind/jkl-field-group": "^0.1.0"
+        "@fremtind/jkl-field-group": "^0.1.0",
+        "@fremtind/jkl-typography-react": "^0.7.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3",
