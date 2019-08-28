@@ -9,6 +9,7 @@
     "license": "MIT",
     "main": "index.tsx",
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache",
         "test:integration": "parcel build index.html",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel index.html"

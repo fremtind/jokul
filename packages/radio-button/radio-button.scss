@@ -137,4 +137,15 @@ $radio-button-color: $svart;
         font-size: $radio-button-font-size;
         line-height: $radio-button-line-height;
     }
+
+    &--error {
+        .jkl-radio-button__dot {
+            &:before {
+                border-color: $error-color;
+            }
+            &:after {
+                background-color: $error-color;
+            }
+        }
+    }
 }

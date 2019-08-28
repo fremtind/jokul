@@ -32,6 +32,7 @@ export const RadioButtonChoice = ({
                 inline={inline}
                 checked={choice === selectedValue}
                 onChange={onChange}
+                invalid={!!errorLabel}
             />
         ))}
     </FieldGroup>
