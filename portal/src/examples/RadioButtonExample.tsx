@@ -16,6 +16,8 @@ const example = `() => {
             choices={["Yes", "No", "I don't know"]}
             selectedValue={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
+            helpLabel="Choose wisely"
+            errorLabel={selectedValue === "No" ? "Oh no!" : undefined }
         />
     );
 };`;

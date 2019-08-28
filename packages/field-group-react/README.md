@@ -1,11 +1,9 @@
-# `@fremtind/field-group`
+# [`@fremtind/field-group`](https://fremtind.github.io/jokul/components/fieldgroup/)
 
-> TODO: description
+## Beskrivelse
 
-## Usage
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/dropdown/) er beskrevet i `@fremtind/jkl-dropdown` stil-pakken.
 
-```
-const fieldGroup = require('@fremtind/field-group');
+## Kom i gang
 
-// TODO: DEMONSTRATE API
-```
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
