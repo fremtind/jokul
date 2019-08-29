@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/dropdown/) er beskrevet i `@fremtind/jkl-dropdown` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/field-group/) er beskrevet i `@fremtind/jkl-field-group` stil-pakken.
 
 ## Kom i gang
 

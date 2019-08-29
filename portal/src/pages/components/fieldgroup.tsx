@@ -15,7 +15,7 @@ export default function FieldGroupPage() {
     return (
         <ComponentLayout title="Feltgruppering" mainExample={<FieldGroupExample />} packageName="field-group">
             <ReactMarkdown renderers={renderer} source={readmeContents} />
-            <Changelog changelog={""} changelogReact={""} />
+            <Changelog changelog={changelog} changelogReact={changelogReact} />
         </ComponentLayout>
     );
 }
