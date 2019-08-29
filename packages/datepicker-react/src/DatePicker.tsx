@@ -14,6 +14,7 @@ interface Props {
     label?: string;
     monthLabel?: string;
     yearLabel?: string;
+    placeholder?: string;
     months?: string[];
     days?: string[];
     initialDate?: Date;
@@ -30,6 +31,7 @@ export function DatePicker({
     label = "Velg dato",
     monthLabel = "Måned",
     yearLabel = "År",
+    placeholder = "dd.mm.åååå",
     months,
     days,
     initialDate,
@@ -42,10 +44,12 @@ export function DatePicker({
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
+    const openDatepicker = () => setDatepickerHidden(false);
+    const closeDatepicker = () => setDatepickerHidden(true);
 
-    const ref = useRef<HTMLDivElement>(null);
-    useClickOutside(ref, () => setDatepickerHidden(true));
-    useFocusOutside(ref, () => setDatepickerHidden(true));
+    const datepickerRef = useRef<HTMLDivElement>(null);
+    useClickOutside(datepickerRef, closeDatepicker);
+    useFocusOutside(datepickerRef, closeDatepicker);
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
         const newDateString = event.target.value;
@@ -77,14 +81,14 @@ export function DatePicker({
     }
 
     return (
-        <div className={`jkl-datepicker ${className}`} ref={ref}>
+        <div className={`jkl-datepicker ${className}`} ref={datepickerRef}>
             <TextField
-                placeholder={"dd.mm.åååå"}
+                placeholder={placeholder}
                 label={label}
                 type="text"
                 value={dateString}
                 onChange={onInputChange}
-                onFocus={() => setDatepickerHidden(false)}
+                onFocus={openDatepicker}
                 data-testid="jkl-datepicker-input"
             />
 
@@ -109,7 +113,7 @@ export function DatePicker({
     );
 }
 
-function isSameDay(date1: Date, date2: Date) {
+export function isSameDay(date1: Date, date2: Date) {
     return (
         date1.getDate() === date2.getDate() &&
         date1.getMonth() === date2.getMonth() &&
@@ -122,7 +126,7 @@ function isSameDay(date1: Date, date2: Date) {
  * @param date the date to format
  * @return returns a date with "dd.mm.yyyy"-format
  */
-function formatDate(date: Date) {
+export function formatDate(date: Date) {
     const day = pad0(date.getDate());
     const month = pad0(date.getMonth() + 1);
     return `${day}.${month}.${date.getFullYear()}`;
