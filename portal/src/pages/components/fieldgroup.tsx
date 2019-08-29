@@ -1,6 +1,5 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import WebComponentInfo from "../../components/Info/WebComponentInfo";
 import { ComponentLayout, Changelog } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 import { FieldGroupExample } from "../../examples";
