@@ -12,7 +12,7 @@ sass.compiler = require("node-sass");
 const scssFiles = ["**/*.scss", "!example/*.scss"];
 function throwSassError(e) {
     sass.logError(e);
-    throw new Error("sass compilation failed", e);
+    throw new Error("sass compilation failed");
 }
 
 module.exports = function(gulp) {
