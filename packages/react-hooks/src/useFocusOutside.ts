@@ -11,13 +11,13 @@ export function useFocusOutside(ref: RefObject<HTMLElement> | null, fn: () => vo
         if (ref) {
             // focusin event not yet typed. See https://github.com/microsoft/TypeScript/issues/30716
             // @ts-ignore
-            document.addEventListener("focusin", handleFocusOutside);
+            document && document.addEventListener("focusin", handleFocusOutside);
         }
         return () => {
             if (ref) {
                 // focusin event not yet typed. See https://github.com/microsoft/TypeScript/issues/30716
                 // @ts-ignore
-                document.removeEventListener("focusin", handleFocusOutside);
+                document && document.removeEventListener("focusin", handleFocusOutside);
             }
         };
     });
