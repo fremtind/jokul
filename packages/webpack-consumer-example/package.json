@@ -9,6 +9,7 @@
     "license": "MIT",
     "main": "src/index.tsx",
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache",
         "test:integration": "webpack -p",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "webpack-dev-server --open"

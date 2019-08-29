@@ -21,6 +21,7 @@
     ],
     "license": "MIT",
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache",
         "build:docs": "gatsby build --prefix-paths",
         "build:local": "gatsby build",
         "dev": "gatsby develop",

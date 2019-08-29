@@ -25,6 +25,7 @@
         "build"
     ],
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -34,7 +35,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-radio-button": "^0.7.2"
+        "@fremtind/jkl-radio-button": "^0.7.2",
+        "@fremtind/jkl-typography-react": "^0.7.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3",
