@@ -46,7 +46,7 @@ export const TextField = ({
             value={value}
             {...rest}
         />
-        {!value && <span className="jkl-text-field__placeholder">{placeholder}</span>}
+        {!value && placeholder && <span className="jkl-text-field__placeholder">{placeholder}</span>}
         <span className="jkl-text-field__label">{label}</span>
         <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
     </label>
