@@ -2096,7 +2096,7 @@
     "@nodelib/fs.scandir" "2.1.1"
     fastq "^1.6.0"
 
-"@nrk/core-datepicker@^3.0.7":
+"@nrk/core-datepicker@^3.0.5":
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-3.0.7.tgz#1bcea4707b4790393af71cf9033c3d97d1de4dbe"
   integrity sha512-FboEvJvYsT5ZzAuDmfo5tZv9wRgy0z3SYpP5Br/wRvSb7Ei61BUqvHo27Z7afKPFfEJ1WkjdFCLlzTMbvHdpvw==

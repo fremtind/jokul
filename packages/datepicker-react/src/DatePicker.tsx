@@ -1,9 +1,10 @@
+import React, { ChangeEvent, useRef, useState } from "react";
 import { Select } from "@fremtind/jkl-dropdown-react";
 import { TextField } from "@fremtind/jkl-text-input-react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { useClickOutside, useFocusOutside } from "@fremtind/jkl-react-hooks";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
-import React, { ChangeEvent, MutableRefObject, useEffect, useRef, useState } from "react";
 
 interface ChangeDate {
     date: Date;
@@ -41,11 +42,14 @@ export function DatePicker({
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
-    const ref = useOnClickOutside<HTMLDivElement>(() => setDatepickerHidden(true));
+
+    const ref = useRef<HTMLDivElement>(null);
+    useClickOutside(ref, () => setDatepickerHidden(true));
+    useFocusOutside(ref, () => setDatepickerHidden(true));
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
-        const newString = event.target.value;
-        const dayMonthYearMatch = dayMonthYearRegex.exec(newString);
+        const newDateString = event.target.value;
+        const dayMonthYearMatch = dayMonthYearRegex.exec(newDateString);
 
         // Only set the date if it is a valid date
         if (dayMonthYearMatch) {
@@ -55,7 +59,7 @@ export function DatePicker({
 
             setDate(new Date(year, month, day, 0, 0, 0));
         }
-        setDateString(newString);
+        setDateString(newDateString);
     }
 
     function onClickCalendarDay(event: ChangeEvent<ChangeDate>) {
@@ -103,31 +107,6 @@ export function DatePicker({
             <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} />
         </div>
     );
-}
-
-function useOnClickOutside<T extends HTMLElement>(onClickOutside: () => void): MutableRefObject<T | null> {
-    const ref = useRef<T>(null);
-
-    function onMouseDown(e: MouseEvent | FocusEvent) {
-        if (ref.current && !ref.current.contains(e.target as Node)) {
-            onClickOutside();
-        }
-    }
-
-    useEffect(() => {
-        // Bind the event listener
-        document.addEventListener("mousedown", onMouseDown);
-        // @ts-ignore
-        document.addEventListener("focusin", onMouseDown);
-
-        return () => {
-            // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", onMouseDown);
-            // @ts-ignore
-            document.removeEventListener("focusin", onMouseDown);
-        };
-    }, []);
-    return ref;
 }
 
 function isSameDay(date1: Date, date2: Date) {
