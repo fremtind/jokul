@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useFocusOutside } from "./useFocusOutside";
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 
 interface Props {
     fn: () => void;
@@ -22,17 +22,17 @@ function Test({ fn }: Props) {
 afterEach(cleanup);
 
 describe("useFocusOutside", () => {
-    test("should not fire function when focusing an element inside the ref", () => {
+    it("should not fire function when focusing an element inside the ref", () => {
         const fn = jest.fn();
         const { getByTestId } = render(<Test fn={fn} />);
-        getByTestId("withRef").focus();
+        fireEvent.focusIn(getByTestId("withRef"));
 
         expect(fn).toHaveBeenCalledTimes(0);
     });
-    test("should fire function when focusing an element outside the ref", () => {
+    it("should fire function when focusing an element outside the ref", () => {
         const fn = jest.fn();
         const { getByTestId } = render(<Test fn={fn} />);
-        getByTestId("withoutRef").focus();
+        fireEvent.focusIn(getByTestId("withoutRef"));
 
         expect(fn).toHaveBeenCalledTimes(1);
     });

@@ -4,7 +4,7 @@ import { DatePicker } from ".";
 
 beforeEach(cleanup);
 
-it("datepicker should render with the correct format", () => {
+test("datepicker should render with the correct format", () => {
     const thePast = new Date(2019, 11, 24);
     const { getByTestId } = render(<DatePicker initialDate={thePast} />);
 
