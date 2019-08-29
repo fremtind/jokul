@@ -2,7 +2,7 @@ import React, { ChangeEvent, useRef, useState } from "react";
 import { Select } from "@fremtind/jkl-dropdown-react";
 import { TextField } from "@fremtind/jkl-text-input-react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
-import { useClickOutside, useFocusOutside } from "@fremtind/jkl-react-hooks";
+import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 
@@ -50,6 +50,7 @@ export function DatePicker({
     const datepickerRef = useRef<HTMLDivElement>(null);
     useClickOutside(datepickerRef, closeDatepicker);
     useFocusOutside(datepickerRef, closeDatepicker);
+    useKeyListener(datepickerRef, ["Enter", "Escape"], closeDatepicker);
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
         const newDateString = event.target.value;
