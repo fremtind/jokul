@@ -27,6 +27,25 @@ interface Props {
 
 const dayMonthYearRegex = /^(\d\d)\.(\d\d)\.(\d{4})/;
 
+export function isSameDay(date1: Date, date2: Date) {
+    return (
+        date1.getDate() === date2.getDate() &&
+        date1.getMonth() === date2.getMonth() &&
+        date1.getFullYear() === date2.getFullYear()
+    );
+}
+
+/**
+ *
+ * @param date the date to format
+ * @return returns a date with "dd.mm.yyyy"-format
+ */
+export function formatDate(date: Date) {
+    const day = `${date.getDate()}`.padStart(2, "0");
+    const month = `${date.getMonth() + 1}`.padStart(2, "0");
+    return `${day}.${month}.${date.getFullYear()}`;
+}
+
 export function DatePicker({
     label = "Velg dato",
     monthLabel = "Måned",
@@ -65,6 +84,10 @@ export function DatePicker({
             setDate(new Date(year, month, day, 0, 0, 0));
         }
         setDateString(newDateString);
+    }
+
+    function dateHasChanged(date: Date | undefined, newDate: Date) {
+        return !date || !isSameDay(date, newDate);
     }
 
     function onClickCalendarDay(event: ChangeEvent<ChangeDate>) {
@@ -112,34 +135,4 @@ export function DatePicker({
             <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} />
         </div>
     );
-}
-
-export function isSameDay(date1: Date, date2: Date) {
-    return (
-        date1.getDate() === date2.getDate() &&
-        date1.getMonth() === date2.getMonth() &&
-        date1.getFullYear() === date2.getFullYear()
-    );
-}
-
-/**
- *
- * @param date the date to format
- * @return returns a date with "dd.mm.yyyy"-format
- */
-export function formatDate(date: Date) {
-    const day = pad0(date.getDate());
-    const month = pad0(date.getMonth() + 1);
-    return `${day}.${month}.${date.getFullYear()}`;
-}
-
-/**
- * @return returns a string with 0 in front of single digit numbers
- */
-function pad0(nr: number) {
-    return nr >= 0 && nr <= 9 ? `0${nr}` : nr;
-}
-
-function dateHasChanged(date: Date | undefined, newDate: Date) {
-    return !date || !isSameDay(date, newDate);
 }
