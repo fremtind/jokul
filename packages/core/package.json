@@ -31,6 +31,7 @@
         "*.scss"
     ],
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",

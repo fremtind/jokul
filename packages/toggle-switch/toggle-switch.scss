@@ -5,7 +5,7 @@
 $toggle-width: rem(48px);
 $toggle-height: rem(24px);
 $toggle-focus-outline-color: $himmel;
-$focus-ring: 0 0 0 rem(2px) $snøhvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
+$focus-ring: 0 0 0 rem(2px) $snohvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
 $toggle-dot-white-line-inset: rem(5px);
 
 $main-slider-color: $svart;
@@ -50,7 +50,7 @@ $line-left-right-margin: rem(8px);
         /* Sliding dot */
         &:after {
             box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $main-slider-color,
-                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $snøhvit;
+                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $snohvit;
             content: "";
             border-radius: 99rem;
             position: absolute;

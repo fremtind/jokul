@@ -5,8 +5,8 @@ $radio-button-line-height: $line-height-3;
 
 $radio-button-size: rem(24px);
 
-$radio-button-background-color: $snøhvit;
-$radio-button-background-color--hover: $snøhvit;
+$radio-button-background-color: $snohvit;
+$radio-button-background-color--hover: $snohvit;
 $radio-button-color: $svart;
 
 @keyframes circleexpand {
@@ -137,6 +137,17 @@ $radio-button-color: $svart;
         font-size: $radio-button-font-size;
         line-height: $radio-button-line-height;
     }
+
+    &--error {
+        .jkl-radio-button__dot {
+            &:before {
+                border-color: $error-color;
+            }
+            &:after {
+                background-color: $error-color;
+            }
+        }
+    }
 }
 
 .jkl-radio-button-choice {
@@ -148,7 +159,7 @@ $radio-button-color: $svart;
     & > legend {
         font-size: $font-size-2;
         line-height: $line-height-2;
-        color: $varm-fjellgrå;
+        color: $varm-fjellgra;
         padding-bottom: $component-spacing--small;
     }
 }

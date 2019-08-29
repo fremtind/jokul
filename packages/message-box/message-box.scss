@@ -9,7 +9,7 @@ $padding-left: $component-spacing--xl + $colored-line-width; // Add the line wid
     width: 3 * $layout-spacing--xxl;
     min-height: $layout-spacing--xl;
     padding: $padding $padding $padding $padding-left;
-    background-color: $snøhvit;
+    background-color: $snohvit;
     box-sizing: border-box;
 
     @include small-device {

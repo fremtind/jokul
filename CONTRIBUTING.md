@@ -10,7 +10,7 @@ Du finner all koden, feilrapportene og backlogen til designsystemet i GitHub. Al
 
 ### Dette trenger du
 
--   Node v.8.0.0 eller nyere
+-   Node v.10.13.0 eller nyere
 -   Yarn
 -   Git 2.0.0 eller nyere
 

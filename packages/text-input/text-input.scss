@@ -93,7 +93,7 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
         &:not(:placeholder-shown) ~ .jkl-text-field__label,
         &:focus ~ .jkl-text-field__label {
-            color: $varm-fjellgrå;
+            color: $varm-fjellgra;
             transform: translateY(0) scale($label-font-size / $input-font-size);
         }
     }
