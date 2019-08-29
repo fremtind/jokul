@@ -40,7 +40,7 @@
         "@fremtind/jkl-text-input": "^0.8.0",
         "@fremtind/jkl-text-input-react": "^0.7.0",
         "@fremtind/jkl-typography-react": "^0.7.0",
-        "@nrk/core-datepicker": "^3.0.5"
+        "@nrk/core-datepicker": "^3.0.7"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3",
