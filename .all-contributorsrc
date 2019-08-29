@@ -122,6 +122,15 @@
         "design",
         "doc"
       ]
+    },
+    {
+      "login": "42tte",
+      "name": "Kristoffer Nordström",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8436510?v=4",
+      "profile": "https://github.com/42tte",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
