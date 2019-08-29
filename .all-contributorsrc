@@ -8,7 +8,7 @@
   "contributors": [
     {
       "login": "piofinn",
-      "name": "piofinn",
+      "name": "Pio Rasch-Halvorsen",
       "avatar_url": "https://avatars1.githubusercontent.com/u/25739615?v=4",
       "profile": "https://github.com/piofinn",
       "contributions": [
@@ -121,6 +121,15 @@
       "contributions": [
         "design",
         "doc"
+      ]
+    },
+    {
+      "login": "Martinvks",
+      "name": "Martinvks",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5469666?v=4",
+      "profile": "https://github.com/Martinvks",
+      "contributions": [
+        "code"
       ]
     },
     {
