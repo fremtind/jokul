@@ -34,13 +34,13 @@ export const componentLinks = [
     makeComponentLink("Radioknapp", "radiobutton"),
     makeComponentLink("Avmerkingsbokser", "checkbox"),
     makeComponentLink("Feltgruppering", "fieldgroup"),
-    makeComponentLink("Toggle-knapp", "toggleswitch"),
+    makeComponentLink("Bryter", "toggleswitch"),
     makeComponentLink("Trekkspilliste", "accordion"),
     makeComponentLink("Datovelger", "datepicker"),
     makeComponentLink("Nedtrekksliste", "dropdown"),
     makeComponentLink("Typografi", "typography"),
     makeComponentLink("Tekstfelt", "textfield"),
-    makeComponentLink("Lang tekstfelt", "textarea"),
+    makeComponentLink("Langt tekstfelt", "textarea"),
     makeComponentLink("Meldinger", "messagebox"),
     makeComponentLink("Logo", "logo"),
     makeComponentLink("Logostempel", "logostamp"),
@@ -48,7 +48,7 @@ export const componentLinks = [
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
     makeComponentLink("Liste", "bulletlist"),
-    makeComponentLink("Hamburger meny", "hamburger"),
+    makeComponentLink("Hamburgermeny", "hamburger"),
 ];
 
 export const profileLinks = [
