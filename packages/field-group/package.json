@@ -1,0 +1,39 @@
+{
+    "name": "@fremtind/jkl-field-group",
+    "version": "0.1.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Style for fieldsets in Jøkul",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "form"
+    ],
+    "files": [
+        "!example",
+        "*.css"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "dev": "parcel example/index.html",
+        "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^0.8.0"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.3.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ]
+}
