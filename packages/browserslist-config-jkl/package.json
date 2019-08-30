@@ -17,7 +17,7 @@
         "index.js"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache",
+        "clean": "rimraf build/ dist/ .cache node_modules/",
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "repository": {

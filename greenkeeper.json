@@ -4,19 +4,10 @@
             "packages": [
                 "package.json",
                 "packages/accordion-react/package.json",
-                "packages/accordion/package.json",
                 "packages/button-react/package.json",
-                "packages/button/package.json",
-                "packages/card-react/package.json",
-                "packages/card/package.json",
-                "packages/core/package.json",
-                "packages/dropdown/package.json",
-                "packages/logo-react/package.json",
-                "packages/parcel-consumer-example/package.json",
-                "packages/radio-button-react/package.json",
-                "packages/radio-button/package.json",
-                "packages/typography-react/package.json",
-                "packages/webpack-consumer-example/package.json"
+                "packages/datepicker-react/package.json",
+                "packages/divider-line-react/package.json",
+                "packages/dropdown-react/package.json"
             ]
         }
     }

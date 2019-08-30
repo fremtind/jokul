@@ -17,7 +17,7 @@ const exampleImport = `import { Checkbox, CheckboxGroup } from "@fremtind/jkl-ch
 import "@fremtind/jkl-checkbox/checkbox.min.css";`;
 
 const CheckboxExample = () => (
-    <Example exampleComponents={{ Checkbox }} exampleCode={example} types={type} exampleImport={exampleImport} />
+    <Example exampleComponents={{ Checkbox }} exampleCode={example} type={type} exampleImport={exampleImport} />
 );
 
 export default CheckboxExample;
