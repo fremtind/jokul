@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.8.0...@fremtind/portal@0.9.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **dropdown:** remove bottom margin ([7741df9](https://github.com/fremtind/jokul/commit/7741df9))
+* **portal:** add DropdownExample to portal ([344e417](https://github.com/fremtind/jokul/commit/344e417))
+* **portal:** fixed import to used build files ([5fdad6f](https://github.com/fremtind/jokul/commit/5fdad6f))
+* **portal:** remove gatsby image optimizing and use static image ([9e14a69](https://github.com/fremtind/jokul/commit/9e14a69)), closes [#267](https://github.com/fremtind/jokul/issues/267)
+* **portal:** remove old link prop ([2c06d33](https://github.com/fremtind/jokul/commit/2c06d33))
+* **portal:** restrict what codesandbox can access ([7557b40](https://github.com/fremtind/jokul/commit/7557b40))
+* **textinput:** add onblur to textfields ([c49a36e](https://github.com/fremtind/jokul/commit/c49a36e)), closes [#269](https://github.com/fremtind/jokul/issues/269)
+
+
+### Features
+
+* **dropdown:** add invalid state, errortext and help text ([a731e52](https://github.com/fremtind/jokul/commit/a731e52))
+* **link:** updated link style ([8fe8671](https://github.com/fremtind/jokul/commit/8fe8671)), closes [#254](https://github.com/fremtind/jokul/issues/254)
+* **portal:** add codesandbox example ([cef235a](https://github.com/fremtind/jokul/commit/cef235a))
+* **portal:** add examples ([84d9c3c](https://github.com/fremtind/jokul/commit/84d9c3c))
+* **radiobutton:** add error state to radio button ([a2052a7](https://github.com/fremtind/jokul/commit/a2052a7))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.7.1...@fremtind/portal@0.8.0) (2019-08-02)
 
 

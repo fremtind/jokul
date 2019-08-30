@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "publishConfig": {
         "access": "public"
     },
@@ -33,11 +33,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^0.7.0",
+        "@fremtind/jkl-accordion": "^0.8.0",
         "@nrk/core-toggle": "^3.0.4"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.3"
+        "@fremtind/browserslist-config-jkl": "^0.3.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
