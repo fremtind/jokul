@@ -1,4 +1,3 @@
-//import "@fremtind/jkl-DatePicker/DatePicker.css";
 import "@fremtind/jkl-core/core.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -29,18 +28,16 @@ const App = () => (
         </div>
         <div style={{ margin: "20px" }}>
             <DatePicker
-                onlyFuture={false}
                 initialDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
                 months={englishMonthNames}
                 days={englishDayNames}
             />
         </div>
         <div style={{ margin: "20px" }}>
-            <DatePicker onChange={(date) => alert(`Date selected is ${date}`)} />
+            <DatePicker onChange={(date) => alert(`Date selected is ${date}`)} helpLabel={"Choose visely"} />
         </div>
         <div style={{ margin: "20px" }}>
             <DatePicker
-                onlyFuture={false}
                 label="Select the best date"
                 yearLabel="1988 is good"
                 monthLabel="Try september"
@@ -49,6 +46,7 @@ const App = () => (
                         alert("The greatest date is selected");
                     }
                 }}
+                errorLabel={"Not the best date"}
             />
         </div>
     </>

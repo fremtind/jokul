@@ -36,10 +36,11 @@
         "@fremtind/jkl-datepicker": "^0.7.2",
         "@fremtind/jkl-dropdown": "^0.8.0",
         "@fremtind/jkl-dropdown-react": "^0.7.0",
+        "@fremtind/jkl-react-hooks": "^0.1.0",
         "@fremtind/jkl-text-input": "^0.8.0",
         "@fremtind/jkl-text-input-react": "^0.7.0",
-        "@nrk/core-datepicker": "^3.0.7",
-        "@nrk/core-toggle": "^3.0.4"
+        "@fremtind/jkl-typography-react": "^0.7.0",
+        "@nrk/core-datepicker": "^3.0.7"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3",
