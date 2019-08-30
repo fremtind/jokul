@@ -4,12 +4,6 @@ import { Checkbox } from ".";
 
 afterEach(cleanup);
 
-it("should render name as label if no children are passed", () => {
-    const { getByText } = render(<Checkbox name="I am Groot!" />);
-
-    expect(getByText("I am Groot!")).toBeInTheDocument;
-});
-
 it("should be checked after clicking the label", () => {
     const { getByText, getByTestId } = render(<Checkbox name="iamgroot">I am groot!</Checkbox>);
 
