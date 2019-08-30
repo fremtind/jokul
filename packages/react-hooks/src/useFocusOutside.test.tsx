@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useClickOutside } from "./useClickOutside";
+import { useFocusOutside } from "./useFocusOutside";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 function Test({ fn }: Props) {
     const ref = useRef(null);
-    useClickOutside(ref, fn);
+    useFocusOutside(ref, fn);
     return (
         <div>
             <button data-testid="withoutRef">Not with ref</button>
@@ -21,18 +21,18 @@ function Test({ fn }: Props) {
 
 afterEach(cleanup);
 
-describe("useClickOutside", () => {
-    test("should not fire function when click is inside the ref", () => {
+describe("useFocusOutside", () => {
+    it("should not fire function when focusing an element inside the ref", () => {
         const fn = jest.fn();
         const { getByTestId } = render(<Test fn={fn} />);
-        fireEvent.click(getByTestId("withRef"));
+        fireEvent.focusIn(getByTestId("withRef"));
 
         expect(fn).toHaveBeenCalledTimes(0);
     });
-    test("should fire function when click is outside the ref", () => {
+    it("should fire function when focusing an element outside the ref", () => {
         const fn = jest.fn();
         const { getByTestId } = render(<Test fn={fn} />);
-        fireEvent.click(getByTestId("withoutRef"));
+        fireEvent.focusIn(getByTestId("withoutRef"));
 
         expect(fn).toHaveBeenCalledTimes(1);
     });

@@ -9,11 +9,11 @@ export function useClickOutside(ref: RefObject<HTMLElement> | null, fn: () => vo
 
     React.useEffect(() => {
         if (ref) {
-            document.addEventListener("click", handleClickOutside);
+            document && document.addEventListener("click", handleClickOutside);
         }
         return () => {
             if (ref) {
-                document.removeEventListener("click", handleClickOutside);
+                document && document.removeEventListener("click", handleClickOutside);
             }
         };
     });

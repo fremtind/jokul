@@ -1,15 +1,13 @@
 {
-    "name": "@fremtind/jkl-datepicker-react",
-    "version": "0.8.0",
+    "name": "@fremtind/jkl-field-group-react",
+    "version": "0.1.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react datepicker component",
+    "description": "Used to create a fieldset around groups of inputs",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "datepicker",
-        "jøkul",
-        "fremtind"
+        "form"
     ],
     "license": "MIT",
     "types": "./build/index.d.ts",
@@ -23,24 +21,21 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-datepicker yarn build:watch",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-field-group yarn build:watch",
         "dev:js": "parcel example/index.html",
         "dev": "run-p dev:*"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
     "dependencies": {
-        "@fremtind/jkl-datepicker": "^0.7.2",
-        "@fremtind/jkl-dropdown": "^0.8.0",
-        "@fremtind/jkl-dropdown-react": "^0.7.0",
-        "@fremtind/jkl-react-hooks": "^0.1.0",
-        "@fremtind/jkl-text-input": "^0.8.0",
-        "@fremtind/jkl-text-input-react": "^0.7.0",
-        "@fremtind/jkl-typography-react": "^0.7.0",
-        "@nrk/core-datepicker": "^3.0.7"
+        "@fremtind/jkl-field-group": "^0.1.0",
+        "@fremtind/jkl-typography-react": "^0.7.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.3",
@@ -53,15 +48,7 @@
         "react": "^16.8.6",
         "react-dom": "^16.8.6"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
-    },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
-    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
+    }
 }

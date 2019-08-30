@@ -34,6 +34,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@fremtind/jkl-checkbox": "^0.7.2",
         "@fremtind/jkl-core": "^0.8.0"
     },
     "devDependencies": {

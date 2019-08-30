@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, FocusEvent } from "react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
@@ -8,13 +8,15 @@ interface Props {
     helpLabel?: string;
     errorLabel?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-    onBlur?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
+    onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     id?: string;
     autoComplete?: string;
     required?: boolean;
     readOnly?: boolean;
     className?: string;
+    placeholder?: string;
 }
 
 export const TextField = ({
@@ -26,6 +28,8 @@ export const TextField = ({
     id,
     label,
     className = "",
+    placeholder,
+    value,
     ...rest
 }: Props) => (
     <label
@@ -39,8 +43,10 @@ export const TextField = ({
             id={id}
             placeholder=" "
             readOnly={readOnly}
+            value={value}
             {...rest}
         />
+        {!value && placeholder && <span className="jkl-text-field__placeholder">{placeholder}</span>}
         <span className="jkl-text-field__label">{label}</span>
         <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
     </label>
