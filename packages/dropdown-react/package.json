@@ -41,7 +41,7 @@
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.4",
         "@fremtind/jkl-core": "^0.9.0",
-        "@fremtind/jkl-dropdown": "^0.8.0",
+        "@fremtind/jkl-dropdown": "^0.9.0",
         "@fremtind/jkl-typography-react": "^0.8.0",
         "@types/nanoid": "^2.0.0"
     },
