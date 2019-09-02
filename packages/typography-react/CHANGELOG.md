@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.7.0...@fremtind/jkl-typography-react@0.8.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+* **supportext:** fixed test ([767beb2](https://github.com/fremtind/jokul/commit/767beb2))
+* **typography-react:** clean up props and remove unneeded props ([cfef0eb](https://github.com/fremtind/jokul/commit/cfef0eb))
+
+
+### Features
+
+* **dropdown:** add invalid state, errortext and help text ([a731e52](https://github.com/fremtind/jokul/commit/a731e52))
+* **link:** updated link style ([8fe8671](https://github.com/fremtind/jokul/commit/8fe8671)), closes [#254](https://github.com/fremtind/jokul/issues/254)
+
+
+
+
+
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.6.1...@fremtind/jkl-typography-react@0.7.0) (2019-08-02)
 
 

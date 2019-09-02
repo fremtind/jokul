@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.8.0...@fremtind/jkl-datepicker-react@0.9.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+* **date-picker-react:** remove test that didn't make sense ([6592a0d](https://github.com/fremtind/jokul/commit/6592a0d))
+* **date-picker-react:** set datestring with the inital date value ([db35ed0](https://github.com/fremtind/jokul/commit/db35ed0))
+* **datepicker:** allow classname to pass ([63d4394](https://github.com/fremtind/jokul/commit/63d4394)), closes [#290](https://github.com/fremtind/jokul/issues/290)
+* **datepicker:** only close datepicker when picking a day ([b1995f7](https://github.com/fremtind/jokul/commit/b1995f7))
+* **datepicker-react:** make datepicker close on focus outside ([901152f](https://github.com/fremtind/jokul/commit/901152f))
+* **react-hooks:** use correct event firing in tests ([3f74393](https://github.com/fremtind/jokul/commit/3f74393))
+
+
+### Features
+
+* **datepicker:** add bottomText to datepicker ([7123c8e](https://github.com/fremtind/jokul/commit/7123c8e))
+* **datepicker:** close datepicker on choosing date ([104e5ae](https://github.com/fremtind/jokul/commit/104e5ae))
+* **datepicker-react:** add ability to type text in the datepicker ([d4233ba](https://github.com/fremtind/jokul/commit/d4233ba))
+* **datepicker-react:** add ability to type text in the datepicker ([704aa12](https://github.com/fremtind/jokul/commit/704aa12))
+* **datepicker-react:** add placeholder prop ([6b51aaa](https://github.com/fremtind/jokul/commit/6b51aaa))
+* **datepicker-react:** make datepicker close on enter/escape ([126725b](https://github.com/fremtind/jokul/commit/126725b))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.7.1...@fremtind/jkl-datepicker-react@0.8.0) (2019-08-02)
 
 
