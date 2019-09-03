@@ -12,7 +12,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 
 ## [Kom i gang](https://fremtind.github.io/jokul/developer/getting-started)
 
-Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker.
+Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker. NB! Selv om komponentpakkene inneholder alle avhengigheter må du selv sørge for å importere stilpakken i koden din.
 
 ### React-pakker
 
@@ -20,6 +20,7 @@ Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan 
 
 ```tsx
 import { PrimaryButton } from "@fremtind/jkl-button-react";
+import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
 ...
 <PrimaryButton onClick={doStuff}>Cool</PrimaryButton>
 ...
@@ -28,10 +29,10 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 ### Stilark-pakker
 
 Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mixins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
-`yarn install @fremtind/jkl-button/button.css`
+`yarn install @fremtind/jkl-button`
 
 ```tsx
-import "@fremtind/jkl-button/button.css";
+import "@fremtind/jkl-button/button.min.css";
 ...
 <button classname="jkl-button--primary" onClick={doStuff}>Cool</button>
 ...
@@ -51,17 +52,15 @@ Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/f
 
 Les mer om hvordan du kan bidra i [guiden](https://fremtind.github.io/jokul/developer/contribute) vår.
 
-### [Oppførsel](https://no.wikipedia.org/wiki/Kardemommeloven)
+### Oppførsel
 
-> Man skal ikke plage andre, man skal være grei og snill, og for øvrig kan man gjøre hva man vil.
->
-> \- Kardemommeloven
+Jøkul er et åpent og positivt felleskap der alle skal føle seg velkommen. Gjør deg kjent med [våre etiske regler for bidragsytere](./CODE_OF_CONDUCT.md) før du deltar med bidrag.
 
 ## Lisens
 
-Jøkul er [lisensiert med MIT](./LICENSE).
+Jøkul er distribuert under [MIT-lisensen](./LICENSE) for åpen kildekode.
 
-## Contributors
+## Bidragsytere
 
 Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontributors.org/docs/en/emoji-key)):
 
