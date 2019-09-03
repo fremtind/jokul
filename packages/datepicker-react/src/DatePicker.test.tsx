@@ -1,45 +1,39 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 import { DatePicker } from ".";
+import { formatDate, isSameDay } from "./DatePicker";
 
 beforeEach(cleanup);
 
-it("datepicker should render to dom with todays date as default", () => {
-    const { getByTestId } = render(<DatePicker />);
+describe("Datepicker", () => {
+    it("should render with the correct format", () => {
+        const thePast = new Date(2019, 11, 24);
+        const { getByTestId } = render(<DatePicker initialDate={thePast} />);
 
-    const today = new Date();
-
-    const date = getByTestId("jkl-datepicker-input");
-    expect(date).toHaveProperty("value", today.toLocaleDateString());
+        const date = getByTestId("jkl-datepicker-input");
+        expect(date).toHaveProperty("value", "24.12.2019");
+    });
 });
 
-it("datepicker should render to dom with date in the past", () => {
-    const thePast = new Date(new Date().setFullYear(new Date().getFullYear() - 1));
-    const { getByTestId } = render(<DatePicker onlyFuture={false} initialDate={thePast} />);
+describe("formatDate", () => {
+    it("should render the given date correctly", () => {
+        const date = new Date("1986-10-14");
+        const formattedDate = formatDate(date);
 
-    const date = getByTestId("jkl-datepicker-input");
-    expect(date).toHaveProperty("value", thePast.toLocaleDateString());
+        expect(formattedDate).toEqual("14.10.1986");
+    });
 });
 
-it("datepicker should render to dom with date in the future", () => {
-    const theFuture = new Date(new Date().setFullYear(new Date().getFullYear() + 1));
-    const { getByTestId } = render(<DatePicker initialDate={theFuture} />);
+describe("isSameDay", () => {
+    it("should return true for equal dates", () => {
+        const date = new Date("1986-10-14");
 
-    const date = getByTestId("jkl-datepicker-input");
-    expect(date).toHaveProperty("value", theFuture.toLocaleDateString());
-});
+        expect(isSameDay(date, date)).toBeTruthy();
+    });
+    it("should return false for different dates", () => {
+        const date1 = new Date("1986-10-14");
+        const date2 = new Date("2001-10-14");
 
-it("datepicker should render to dom with custom labels", () => {
-    const custom = {
-        label: "Select date",
-        yearLabel: "Year",
-        monthLabel: "Month",
-    };
-    const { getByLabelText } = render(
-        <DatePicker label={custom.label} yearLabel={custom.yearLabel} monthLabel={custom.monthLabel} />,
-    );
-
-    const labels = [getByLabelText(custom.label), getByLabelText(custom.yearLabel), getByLabelText(custom.monthLabel)];
-
-    labels.forEach((label) => expect(label).toBeInTheDocument());
+        expect(isSameDay(date1, date2)).toBeFalsy();
+    });
 });

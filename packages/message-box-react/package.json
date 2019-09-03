@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache",
+        "clean": "rimraf build/ dist/ .cache node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -34,13 +34,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-message-box": "^0.7.2",
-        "@fremtind/jkl-typography-react": "^0.7.0"
+        "@fremtind/jkl-message-box": "^0.7.3",
+        "@fremtind/jkl-typography-react": "^0.8.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.3",
-        "@fremtind/jkl-core": "^0.8.0",
-        "npm-run-all": "^4.1.5"
+        "@fremtind/browserslist-config-jkl": "^0.3.4",
+        "@fremtind/jkl-core": "^0.9.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

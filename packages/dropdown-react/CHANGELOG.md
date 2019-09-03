@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.7.0...@fremtind/jkl-dropdown-react@0.8.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+* **dropdown:** fix invalid on error ([ca9ebb3](https://github.com/fremtind/jokul/commit/ca9ebb3))
+* **dropdown:** make sure it takes correct space in DOM, fixed className ([cfb09bc](https://github.com/fremtind/jokul/commit/cfb09bc))
+* **dropdown:** use correct chevron and fix spacing ([35a3921](https://github.com/fremtind/jokul/commit/35a3921))
+* **dropdown-react:** fix failing first build because of missing dep ([2b7f81a](https://github.com/fremtind/jokul/commit/2b7f81a))
+
+
+### Features
+
+* **dropdown:** add invalid state, errortext and help text ([a731e52](https://github.com/fremtind/jokul/commit/a731e52))
+
+
+
+
+
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.6.1...@fremtind/jkl-dropdown-react@0.7.0) (2019-08-02)
 
 

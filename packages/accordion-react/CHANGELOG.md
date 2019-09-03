@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.8.0...@fremtind/jkl-accordion-react@0.9.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **accordion-react:** don't use button as flex and div inside button ([b035498](https://github.com/fremtind/jokul/commit/b035498))
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+
+
+### Features
+
+* **accordion:** add focus state to accordion ([3807fd6](https://github.com/fremtind/jokul/commit/3807fd6))
+* **accordion:** extract animating height into a react hook ([196748c](https://github.com/fremtind/jokul/commit/196748c))
+* **accordion:** initial version of animated accordion ([2112b5a](https://github.com/fremtind/jokul/commit/2112b5a)), closes [#270](https://github.com/fremtind/jokul/issues/270)
+* **react-hooks:** extract animation hook into separate package ([706ad61](https://github.com/fremtind/jokul/commit/706ad61))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.7.1...@fremtind/jkl-accordion-react@0.8.0) (2019-08-02)
 
 

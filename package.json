@@ -3,7 +3,7 @@
     "private": true,
     "scripts": {
         "clean": "lerna run --parallel clean",
-        "build": "lerna run --ignore @fremtind/*-consumer-example --ignore @fremtind/browserslist-config-jkl build",
+        "build": "lerna run --ignore @fremtind/browserslist-config-jkl build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
         "predeploy:docs": "yarn run build:docs",
@@ -12,19 +12,15 @@
         "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
         "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint": "yarn run lint:formatting && yarn run lint:scripts",
-        "ci:test": "npm-run-all --parallel test test:integration",
-        "test": "run-p test:unit test:integration",
+        "ci:test": "run-p test",
+        "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
-        "test:visual": "run-s predeploy:docs visual:test",
-        "test:integration": "lerna run --scope @fremtind/*-consumer-example test:integration",
         "prerelease": "yarn build",
-        "release": "lerna publish",
-        "visual:build": "lerna run --scope @fremtind/portal build:local",
-        "visual:serve": "lerna run --scope @fremtind/portal serve"
+        "release": "lerna publish"
     },
     "dependencies": {
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6"
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.5.0",
@@ -39,8 +35,8 @@
         "@testing-library/react": "^9.1.1",
         "@types/jest": "^24.0.13",
         "@types/node": "^12.6.2",
-        "@types/react": "^16.8.17",
-        "@types/react-dom": "^16.8.4",
+        "@types/react": "^16.9.2",
+        "@types/react-dom": "^16.9.0",
         "@types/sass": "^1.16.0",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
         "@typescript-eslint/parser": "^2.0.0",
@@ -70,12 +66,12 @@
         "parcel-bundler": "^1.12.3",
         "prettier": "^1.17.1",
         "rimraf": "^3.0.0",
-        "rollup": "^1.16.7",
+        "rollup": "^1.20.3",
         "rollup-plugin-babel": "^4.3.3",
-        "rollup-plugin-commonjs": "^10.0.1",
+        "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-terser": "^5.1.1",
-        "typescript": "^3.5.3"
+        "typescript": "^3.6.2"
     },
     "workspaces": [
         "packages/*",

@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "dependencies": {
         "gatsby": "^2.11.7",
         "gatsby-image": "^2.2.6",
@@ -21,7 +21,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache",
+        "clean": "rimraf build/ dist/ .cache node_modules/",
         "build:docs": "gatsby build --prefix-paths",
         "build:local": "gatsby build",
         "dev": "gatsby develop",

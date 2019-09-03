@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.7.2...@fremtind/jkl-message-box@0.7.3) (2019-08-30)
+
+
+### Bug Fixes
+
+* **message-box:** fix component spacing and clean up css ([db54d92](https://github.com/fremtind/jokul/commit/db54d92))
+
+
+
+
+
 ## [0.7.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.7.1...@fremtind/jkl-message-box@0.7.2) (2019-08-02)
 
 
