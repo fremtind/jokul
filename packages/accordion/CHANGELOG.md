@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.7.0...@fremtind/jkl-accordion@0.8.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **accordion-react:** don't use button as flex and div inside button ([b035498](https://github.com/fremtind/jokul/commit/b035498))
+
+
+### Features
+
+* **accordion:** add focus state to accordion ([3807fd6](https://github.com/fremtind/jokul/commit/3807fd6))
+
+
+
+
+
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.6.3...@fremtind/jkl-accordion@0.7.0) (2019-08-02)
 
 

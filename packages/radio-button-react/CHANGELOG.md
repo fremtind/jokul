@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.6.0...@fremtind/jkl-radio-button-react@0.7.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+
+
+### Features
+
+* **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
+* **field-group:** expand field group functionality ([8a9f40b](https://github.com/fremtind/jokul/commit/8a9f40b))
+* **radiobutton:** add error state to radio button ([a2052a7](https://github.com/fremtind/jokul/commit/a2052a7))
+
+
+
+
+
 # [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.5.4...@fremtind/jkl-radio-button-react@0.6.0) (2019-08-02)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.7.2...@fremtind/jkl-datepicker@0.8.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **datepicker:** capitalize months in selection box ([47b632c](https://github.com/fremtind/jokul/commit/47b632c))
+* **datepicker:** move date-picker popup 2px down ([82831e8](https://github.com/fremtind/jokul/commit/82831e8))
+
+
+### Features
+
+* **datepicker:** add bottomText to datepicker ([7123c8e](https://github.com/fremtind/jokul/commit/7123c8e))
+
+
+
+
+
 ## [0.7.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.7.1...@fremtind/jkl-datepicker@0.7.2) (2019-08-02)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker

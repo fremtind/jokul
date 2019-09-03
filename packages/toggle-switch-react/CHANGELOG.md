@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@0.2.0...@fremtind/jkl-toggle-switch-react@0.2.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+* **toggle-switch:** change the design of toggle switch ([d0f98a0](https://github.com/fremtind/jokul/commit/d0f98a0))
+
+
+
+
+
 # [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@0.1.1...@fremtind/jkl-toggle-switch-react@0.2.0) (2019-08-02)
 
 

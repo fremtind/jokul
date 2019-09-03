@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.7.2...@fremtind/jkl-checkbox@0.8.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **checkbox:** fix correct spacing and font sizes for checkbox ([fca4177](https://github.com/fremtind/jokul/commit/fca4177))
+
+
+### Features
+
+* **checkbox:** add checkbox group style and react component ([8c9ec35](https://github.com/fremtind/jokul/commit/8c9ec35))
+* **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
+
+
+
+
+
 ## [0.7.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.7.1...@fremtind/jkl-checkbox@0.7.2) (2019-08-02)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox

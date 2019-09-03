@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.8.0...@fremtind/jkl-dropdown@0.9.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **dropdown:** align top to align better ([74bcf7b](https://github.com/fremtind/jokul/commit/74bcf7b))
+* **dropdown:** make sure it takes correct space in DOM, fixed className ([cfb09bc](https://github.com/fremtind/jokul/commit/cfb09bc))
+* **dropdown:** remove bottom margin ([7741df9](https://github.com/fremtind/jokul/commit/7741df9))
+* **dropdown:** use correct chevron and fix spacing ([35a3921](https://github.com/fremtind/jokul/commit/35a3921))
+
+
+### Features
+
+* **dropdown:** add invalid state, errortext and help text ([a731e52](https://github.com/fremtind/jokul/commit/a731e52))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.7.1...@fremtind/jkl-dropdown@0.8.0) (2019-08-02)
 
 

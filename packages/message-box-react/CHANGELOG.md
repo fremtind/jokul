@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@0.7.0...@fremtind/jkl-message-box-react@0.7.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+* **message-box:** fix component spacing and clean up css ([db54d92](https://github.com/fremtind/jokul/commit/db54d92))
+
+
+
+
+
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@0.6.1...@fremtind/jkl-message-box-react@0.7.0) (2019-08-02)
 
 
