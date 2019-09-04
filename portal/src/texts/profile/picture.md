@@ -16,7 +16,7 @@ Fremtind har en todelt fotostil. Vi står enten på toppen av tinden, med full o
 
 Fotostilen er ærlig, ekte og upolert. Den er hverdagslig og jordnær, nettopp for å gi kundene våre noe de kan relatere seg til.
 
-Fordi fargene vi bruker er nøkterne og stilrene, vil fotografier utdype identiteten til Fremtind med varme og følelser. Bruk gjerne bilder som henter opp farger fra fremtinds støttefargepallett.
+Fordi fargene vi bruker er nøkterne og stilrene, vil fotografier utdype identiteten med varme og følelser. Bruk gjerne bilder som henter opp farger fra fremtinds støttefargepallett.
 
 **bilde: med profilfarger**
 
