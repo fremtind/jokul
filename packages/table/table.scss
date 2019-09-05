@@ -1,0 +1,53 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+$bottom-border-size: 1px;
+
+.jkl-table {
+    border-collapse: collapse;
+
+    &__heading {
+        color: $matt-svart;
+        font-size: $font-size-1;
+        font-weight: normal;
+        line-height: $line-height-1;
+        padding: $component-spacing--small 0.5rem;
+    }
+
+    &__data-cell {
+        box-sizing: border-box;
+        height: $font-size-7;
+        padding: 0.5rem;
+        line-height: $line-height-2;
+    }
+
+    &__heading,
+    &__data-cell {
+        text-align: left;
+
+        &:first-of-type,
+        &:first-of-type {
+            padding-left: 1rem;
+        }
+
+        &:last-of-type,
+        &:last-of-type {
+            text-align: right;
+            padding-right: 1rem;
+        }
+    }
+
+    &__row {
+        box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.2);
+
+        &--data-row {
+            transition: background-color 150ms ease, box-shadow 150ms ease;
+            &:hover {
+                background-color: white;
+                box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.2);
+            }
+            &:active {
+                box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+}
