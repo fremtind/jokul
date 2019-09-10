@@ -37,6 +37,9 @@ export const renderer = {
 
 export const changelogRenderer = {
     ...defaultRenderer,
-    heading: ({ level, children }: HeadingProps) =>
-        createElement(`h${level}`, { className: `jkl-h${level + 1}` }, children),
+    heading: ({ level, children }: HeadingProps) => {
+        return level === 1
+            ? createElement("h2", { className: "jkl-h2" }, children)
+            : createElement(`h${level}`, { className: `jkl-h${level + 1}` }, children);
+    },
 };

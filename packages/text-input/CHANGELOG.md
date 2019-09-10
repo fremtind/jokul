@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.8.0...@fremtind/jkl-text-input@0.9.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **text-input:** remove padding that causes double spacing ([b8ce82b](https://github.com/fremtind/jokul/commit/b8ce82b))
+* **textarea:** animate line on hover ([8cb6b72](https://github.com/fremtind/jokul/commit/8cb6b72)), closes [#265](https://github.com/fremtind/jokul/issues/265)
+
+
+### Features
+
+* **core:** add temporary shade for placeholder text ([86f2aa7](https://github.com/fremtind/jokul/commit/86f2aa7))
+* **text-field:** add placeholder to text field ([d974be0](https://github.com/fremtind/jokul/commit/d974be0))
+* **text-input:** clean up text-input ([cd8c876](https://github.com/fremtind/jokul/commit/cd8c876))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.7.1...@fremtind/jkl-text-input@0.8.0) (2019-08-02)
 
 

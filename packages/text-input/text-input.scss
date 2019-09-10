@@ -1,4 +1,4 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/variables/all";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
@@ -27,11 +27,29 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
     min-height: $input-total-height;
     padding-top: $label-height;
     background-color: $input-bg-color;
-    padding-bottom: $component-spacing--large;
 
     &--inline {
         display: inline-block;
         vertical-align: bottom;
+    }
+
+    &__input:focus ~ .jkl-text-field__placeholder {
+        color: $placeholder-text-color;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &__placeholder {
+        @include font-size(small);
+        @include line-height(small);
+
+        color: transparent;
+        user-select: none;
+        left: 0;
+        padding-left: 0.125rem;
+        position: absolute;
+        transform: translate3d(0, 20px, 0);
+        transition: color $transition-timing, transform $transition-timing;
+        width: 100%;
     }
 
     &__input {

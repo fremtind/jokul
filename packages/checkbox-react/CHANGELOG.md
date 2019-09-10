@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.6.0...@fremtind/jkl-checkbox-react@0.7.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+* **checkbox:** add classnames to props ([e89edee](https://github.com/fremtind/jokul/commit/e89edee)), closes [#264](https://github.com/fremtind/jokul/issues/264)
+* **checkbox:** fix correct spacing and font sizes for checkbox ([fca4177](https://github.com/fremtind/jokul/commit/fca4177))
+
+
+### Features
+
+* **checkbox:** add checkbox group style and react component ([8c9ec35](https://github.com/fremtind/jokul/commit/8c9ec35))
+* **checkbox-react:** make children required for checkbox ([ac0887c](https://github.com/fremtind/jokul/commit/ac0887c))
+* **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
+* **field-group:** expand field group functionality ([8a9f40b](https://github.com/fremtind/jokul/commit/8a9f40b))
+
+
+
+
+
 # [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.5.4...@fremtind/jkl-checkbox-react@0.6.0) (2019-08-02)
 
 

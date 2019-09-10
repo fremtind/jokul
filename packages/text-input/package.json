@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input",
-    "version": "0.8.0",
+    "version": "0.9.0",
     "publishConfig": {
         "access": "public"
     },
@@ -21,16 +21,17 @@
         "*.css"
     ],
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache node_modules/",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.8.0"
+        "@fremtind/jkl-core": "^0.9.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.3"
+        "@fremtind/browserslist-config-jkl": "^0.3.4"
     },
     "repository": {
         "type": "git",

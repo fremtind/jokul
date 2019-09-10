@@ -137,18 +137,15 @@ $radio-button-color: $svart;
         font-size: $radio-button-font-size;
         line-height: $radio-button-line-height;
     }
-}
 
-.jkl-radio-button-choice {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    line-height: 1;
-
-    & > legend {
-        font-size: $font-size-2;
-        line-height: $line-height-2;
-        color: $varm-fjellgra;
-        padding-bottom: $component-spacing--small;
+    &--error {
+        .jkl-radio-button__dot {
+            &:before {
+                border-color: $error-color;
+            }
+            &:after {
+                background-color: $error-color;
+            }
+        }
     }
 }

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.8.0...@fremtind/jkl-core@0.9.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **core:** adjust hover/focus animation for links ([6085638](https://github.com/fremtind/jokul/commit/6085638))
+* **core:** change rotation origin for chevron ([3ff682f](https://github.com/fremtind/jokul/commit/3ff682f))
+* **core:** fix correct font weight for H4 ([2ebd781](https://github.com/fremtind/jokul/commit/2ebd781))
+* **core:** fix correct line height and font size for support text ([0bd0a1e](https://github.com/fremtind/jokul/commit/0bd0a1e))
+
+
+### Features
+
+* **core:** add temporary shade for placeholder text ([86f2aa7](https://github.com/fremtind/jokul/commit/86f2aa7))
+* **link:** updated link style ([8fe8671](https://github.com/fremtind/jokul/commit/8fe8671)), closes [#254](https://github.com/fremtind/jokul/issues/254)
+* **react-hooks,core:** move useClickOutside to react-hooks ([47626b7](https://github.com/fremtind/jokul/commit/47626b7))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.7.1...@fremtind/jkl-core@0.8.0) (2019-08-02)
 
 

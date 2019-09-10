@@ -23,3 +23,5 @@ $error-color: change-color(
     $blomst,
     $lightness: 45%
 ); // TODO: blomst is not wgac compliant check with stg what color to use
+
+$placeholder-text-color: change-color($varm-fjellgra, $lightness: 60%); // FIXME: define grayscale palette and use here

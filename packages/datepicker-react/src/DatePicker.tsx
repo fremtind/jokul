@@ -1,10 +1,10 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { ChangeEvent, useRef, useState } from "react";
+import { Select } from "@fremtind/jkl-dropdown-react";
+import { TextField } from "@fremtind/jkl-text-input-react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
-// @ts-ignore
-import CoreToggle from "@nrk/core-toggle/jsx";
-import { TextField } from "@fremtind/jkl-text-input-react";
-import { Select } from "@fremtind/jkl-dropdown-react";
 
 interface ChangeDate {
     date: Date;
@@ -14,57 +14,114 @@ interface Props {
     label?: string;
     monthLabel?: string;
     yearLabel?: string;
+    placeholder?: string;
     months?: string[];
     days?: string[];
     initialDate?: Date;
     onChange?: (date: Date) => void;
-    onlyFuture?: boolean;
     initialShow?: boolean;
     className?: string;
+    helpLabel?: string;
+    errorLabel?: string;
+}
+
+const dayMonthYearRegex = /^(\d\d)\.(\d\d)\.(\d{4})/;
+
+export function isSameDay(date1: Date, date2: Date) {
+    return (
+        date1.getDate() === date2.getDate() &&
+        date1.getMonth() === date2.getMonth() &&
+        date1.getFullYear() === date2.getFullYear()
+    );
+}
+
+/**
+ *
+ * @param date the date to format
+ * @return returns a date with "dd.mm.yyyy"-format
+ */
+export function formatDate(date: Date) {
+    const day = `${date.getDate()}`.padStart(2, "0");
+    const month = `${date.getMonth() + 1}`.padStart(2, "0");
+    return `${day}.${month}.${date.getFullYear()}`;
 }
 
 export function DatePicker({
     label = "Velg dato",
     monthLabel = "Måned",
     yearLabel = "År",
+    placeholder = "dd.mm.åååå",
     months,
     days,
-    initialDate = new Date(),
+    initialDate,
     onChange,
-    onlyFuture = true,
     initialShow = false,
     className = "",
+    helpLabel,
+    errorLabel,
 }: Props) {
-    const [today] = useState(Date.now() - (Date.now() % 864e3));
     const [date, setDate] = useState(initialDate);
-    const [showPicker, togglePicker] = useState(initialShow);
+    const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
+    const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
+    const openDatepicker = () => setDatepickerHidden(false);
+    const closeDatepicker = () => setDatepickerHidden(true);
 
-    const onDateChange = (e: ChangeEvent<ChangeDate>) => {
-        if (onChange) {
-            onChange(e.target.date);
+    const datepickerRef = useRef<HTMLDivElement>(null);
+    useClickOutside(datepickerRef, closeDatepicker);
+    useFocusOutside(datepickerRef, closeDatepicker);
+    useKeyListener(datepickerRef, ["Enter", "Escape"], closeDatepicker);
+
+    function onInputChange(event: ChangeEvent<HTMLInputElement>) {
+        const newDateString = event.target.value;
+        const dayMonthYearMatch = dayMonthYearRegex.exec(newDateString);
+
+        // Only set the date if it is a valid date
+        if (dayMonthYearMatch) {
+            const day = parseInt(dayMonthYearMatch[1], 10);
+            const month = parseInt(dayMonthYearMatch[2], 10) - 1;
+            const year = parseInt(dayMonthYearMatch[3], 10);
+
+            setDate(new Date(year, month, day, 0, 0, 0));
         }
-        setDate(e.target.date);
-    };
-    const toggle = () => togglePicker(!showPicker);
+        setDateString(newDateString);
+    }
+
+    function dateHasChanged(date: Date | undefined, newDate: Date) {
+        return !date || !isSameDay(date, newDate);
+    }
+
+    function onClickCalendarDay(event: ChangeEvent<ChangeDate>) {
+        const newDate = event.target.date;
+        setDatepickerHidden(true);
+
+        if (dateHasChanged(date, newDate)) {
+            setDateString(formatDate(newDate));
+            setDate(newDate);
+
+            if (onChange) {
+                onChange(newDate);
+            }
+        }
+    }
 
     return (
-        <div className={`jkl-datepicker ${className}`}>
-            <button type="button" className="jkl-datepicker__toggler" data-testid="jkl-datepicker-toggler">
-                <TextField
-                    label={label}
-                    type="text"
-                    readOnly
-                    value={date.toLocaleDateString()}
-                    data-testid="jkl-datepicker-input"
-                />
-            </button>
-            <CoreToggle hidden={!showPicker} popup onToggle={toggle}>
+        <div className={`jkl-datepicker ${className}`} ref={datepickerRef}>
+            <TextField
+                placeholder={placeholder}
+                label={label}
+                type="text"
+                value={dateString}
+                onChange={onInputChange}
+                onFocus={openDatepicker}
+                data-testid="jkl-datepicker-input"
+            />
+
+            <div hidden={datepickerHidden}>
                 <CoreDatepicker
-                    timestamp={date.getTime()}
+                    timestamp={date ? date.getTime() : undefined}
                     months={months}
                     days={days}
-                    disabled={onlyFuture ? (date: number) => date <= today : onlyFuture}
-                    onDatepickerChange={onDateChange}
+                    onDatepickerClickDay={onClickCalendarDay}
                     className="jkl-datepicker__calendar"
                 >
                     <div className="jkl-datepicker__calendar-header">
@@ -74,7 +131,8 @@ export function DatePicker({
                     </div>
                     <table data-testid="jkl-datepicker-calendar" />
                 </CoreDatepicker>
-            </CoreToggle>
+            </div>
+            <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} />
         </div>
     );
 }

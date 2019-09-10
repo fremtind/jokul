@@ -26,11 +26,13 @@ export const ThemeContext = React.createContext<ContextProps>({ theme: "light", 
 
 interface Props {
     children: ReactNode;
+    title?: string;
+    header?: string;
     isComponentPage?: boolean;
     showFooter?: boolean;
 }
 
-export const Layout = ({ children, isComponentPage = false, showFooter = true }: Props) => {
+export const Layout = ({ children, title, header, isComponentPage = false, showFooter = true }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
 
     const toggleTheme = (showDark: boolean) => {
@@ -43,16 +45,16 @@ export const Layout = ({ children, isComponentPage = false, showFooter = true }:
     React.useEffect(() => {
         if (theme === "dark") {
             window.localStorage.setItem("portal-theme", "dark");
-            document.body.className = "portal-dark";
+            document.body.classList.add("portal-dark");
         } else {
             window.localStorage.setItem("portal-theme", "light");
-            document.body.className = "";
+            document.body.classList.remove("portal-dark");
         }
     }, [theme]);
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <Header siteTitle="Jøkul" />
+            <Header siteHeader={header} siteTitle={title} />
             <Menu />
             <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
                 {children}

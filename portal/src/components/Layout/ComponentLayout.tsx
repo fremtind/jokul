@@ -21,24 +21,36 @@ export const ComponentLayout = ({ children, title, mainExample, packageName, pac
         {({ location }) => {
             if (location.search !== "?fullscreen") {
                 return (
-                    <Layout isComponentPage>
+                    <Layout title={title} isComponentPage>
                         <>
                             {title && (
                                 <div className="portal-content__heading">
                                     <h2 className="jkl-h1 portal-content__title">{title}</h2>
                                     {packageName && (
                                         <div>
-                                            <CodeLink icon={<ReactIcon />} link={`${packageName}-react`} />
-                                            <CodeLink icon={<SassIcon />} link={packageName} />
+                                            <CodeLink
+                                                icon={<ReactIcon />}
+                                                alt="React package"
+                                                link={`${packageName}-react`}
+                                            />
+                                            <CodeLink icon={<SassIcon />} alt="Style package" link={packageName} />
                                         </div>
                                     )}
                                     {packageNames && (
                                         <div>
                                             {packageNames.react && (
-                                                <CodeLink icon={<ReactIcon />} link={`${packageNames.react}`} />
+                                                <CodeLink
+                                                    alt="React package"
+                                                    icon={<ReactIcon />}
+                                                    link={`${packageNames.react}`}
+                                                />
                                             )}
                                             {packageNames.scss && (
-                                                <CodeLink icon={<SassIcon />} link={packageNames.scss} />
+                                                <CodeLink
+                                                    alt="Style package"
+                                                    icon={<SassIcon />}
+                                                    link={packageNames.scss}
+                                                />
                                             )}
                                         </div>
                                     )}

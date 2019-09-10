@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.7.2...@fremtind/jkl-radio-button@0.8.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **radio-button:** fix correct component spacing ([47a97e3](https://github.com/fremtind/jokul/commit/47a97e3))
+* **radio-button:** fix correct hover and active state ([c8c7d87](https://github.com/fremtind/jokul/commit/c8c7d87))
+
+
+### Features
+
+* **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
+* **radiobutton:** add error state to radio button ([a2052a7](https://github.com/fremtind/jokul/commit/a2052a7))
+
+
+
+
+
 ## [0.7.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.7.1...@fremtind/jkl-radio-button@0.7.2) (2019-08-02)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/browserslist-config-jkl",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "description": "Browserlist configuration for jøkul",
     "keywords": [
         "browserlist",
@@ -17,6 +17,7 @@
         "index.js"
     ],
     "scripts": {
+        "clean": "rimraf build/ dist/ .cache node_modules/",
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "repository": {
