@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-bullet-list-react@0.6.0...@fremtind/jkl-bullet-list-react@0.6.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+
+
+
+
+
 # [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-bullet-list-react@0.5.4...@fremtind/jkl-bullet-list-react@0.6.0) (2019-08-02)
 
 

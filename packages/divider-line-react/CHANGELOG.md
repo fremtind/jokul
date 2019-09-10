@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line-react@0.7.0...@fremtind/jkl-divider-line-react@0.7.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+
+
+
+
+
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line-react@0.6.1...@fremtind/jkl-divider-line-react@0.7.0) (2019-08-02)
 
 

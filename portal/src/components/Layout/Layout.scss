@@ -59,7 +59,7 @@ $portal-max-width: 1200px;
             padding: 0 $layout-spacing--small;
         }
     }
-    &__code-links {
+    &__code-link {
         margin: 0 $component-spacing--large $layout-spacing--small;
         display: inline-block;
         outline: none;
@@ -67,6 +67,14 @@ $portal-max-width: 1200px;
         @include small-device {
             margin: 0 $component-spacing--large;
         }
+    }
+    &__code-link-text {
+        position: absolute;
+        left: -10000px;
+        top: auto;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
     }
 }
 

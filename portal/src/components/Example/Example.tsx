@@ -36,21 +36,21 @@ export function Example({ exampleComponents, exampleCode, type, types, exampleIm
                     <LiveError />
                     {exampleImport && (
                         <button onClick={copyImport} className="portal-content__section portal-content__section--copy">
-                            <h4 className="jkl-h4">Import</h4>
+                            <h3 className="jkl-h4">Import</h3>
                             <p className="jkl-small">Klikk for å kopiere</p>
                             <CodeHighlight theme={currentTheme} code={exampleImport} />
                         </button>
                     )}
                     {type && (
                         <div className="portal-content__section">
-                            <h4 className="jkl-h4">Type</h4>
+                            <h3 className="jkl-h4">Type</h3>
                             <CodeHighlight theme={currentTheme} code={getInterface(type)} />
                         </div>
                     )}
                     {types &&
                         types.map((type) => (
                             <div key={type.name} className="portal-content__section">
-                                <h4 className="jkl-h4">Type: {type.name}</h4>
+                                <h3 className="jkl-h4">Type: {type.name}</h3>
                                 <CodeHighlight theme={currentTheme} code={getInterface(type.type)} />
                             </div>
                         ))}

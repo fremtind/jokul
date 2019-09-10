@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.7.0...@fremtind/jkl-text-input-react@0.8.0) (2019-08-30)
+
+
+### Bug Fixes
+
+* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+* **text-input-react:** add onFocus event prop type to textField ([591a836](https://github.com/fremtind/jokul/commit/591a836))
+* **textinput:** add onblur to textfields ([c49a36e](https://github.com/fremtind/jokul/commit/c49a36e)), closes [#269](https://github.com/fremtind/jokul/issues/269)
+
+
+### Features
+
+* **dropdown:** add invalid state, errortext and help text ([a731e52](https://github.com/fremtind/jokul/commit/a731e52))
+* **text-field:** add placeholder to text field ([d974be0](https://github.com/fremtind/jokul/commit/d974be0))
+* **text-input:** clean up text-input ([cd8c876](https://github.com/fremtind/jokul/commit/cd8c876))
+* **text-input-react:** only draw placeholder if provided ([cde4dad](https://github.com/fremtind/jokul/commit/cde4dad))
+
+
+
+
+
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.6.1...@fremtind/jkl-text-input-react@0.7.0) (2019-08-02)
 
 
