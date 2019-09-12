@@ -15,14 +15,14 @@ $bottom-border-size: 1px;
 
     &__data-cell {
         box-sizing: border-box;
-        height: $font-size-7;
-        padding: 0.5rem;
+        padding: 1.5rem 0.5rem;
         line-height: $line-height-2;
     }
 
     &__heading,
     &__data-cell {
         text-align: left;
+        vertical-align: top;
 
         &:first-of-type,
         &:first-of-type {
