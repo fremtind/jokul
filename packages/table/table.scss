@@ -39,6 +39,10 @@ $bottom-border-size: 1px;
     &__row {
         box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.2);
 
+        &--anchor-row {
+            cursor: pointer;
+        }
+
         &--data-row {
             transition: background-color 150ms ease, box-shadow 150ms ease;
             &:hover {
@@ -48,6 +52,12 @@ $bottom-border-size: 1px;
             &:active {
                 box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.4);
             }
+        }
+
+        /* Focus-within is not supported by IE/Edge */
+        &:focus-within {
+            background-color: white;
+            box-shadow: 0 0 0 1px inset $himmel;
         }
     }
 }
