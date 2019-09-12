@@ -34,14 +34,11 @@ $bottom-border-size: 1px;
         text-align: left;
         vertical-align: top;
 
-        &:first-of-type,
         &:first-of-type {
             padding-left: 1rem;
         }
 
-        &:last-of-type,
         &:last-of-type {
-            text-align: right;
             padding-right: 1rem;
         }
     }
