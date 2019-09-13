@@ -29,7 +29,11 @@ export function TableRow(props: Props) {
 
     if (isAnchorRowData(row)) {
         onClick = () => {
-            row.onRowClick && row.onRowClick(row.href);
+            if (row.onRowClick) {
+                row.onRowClick(row.href);
+            } else {
+                window.location.href = row.href;
+            }
         };
         rowModifierClasses += "jkl-table__row--anchor-row";
     }
