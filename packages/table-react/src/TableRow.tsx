@@ -13,7 +13,7 @@ export interface TableAnchorRowData extends BaseTableRowData {
     type: "anchor";
     href: string;
     hrefLabel: string;
-    onClickRow?: (href: string) => void;
+    onRowClick?: (href: string) => void;
 }
 
 interface Props {
@@ -29,7 +29,7 @@ export function TableRow(props: Props) {
 
     if (isAnchorRowData(row)) {
         onClick = () => {
-            row.onClickRow && row.onClickRow(row.href);
+            row.onRowClick && row.onRowClick(row.href);
         };
         rowModifierClasses += "jkl-table__row--anchor-row";
     }

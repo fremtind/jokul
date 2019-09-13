@@ -42,7 +42,7 @@ const example = `() => {
             href: "https://google.com",
             type: "anchor",
             hrefLabel: "Google",
-            onClickRow: navigateToGoogle,
+            onRowClick: navigateToGoogle,
             rowData: [
                 "24.02.2020",
                 "20-1234567",
@@ -57,7 +57,7 @@ const example = `() => {
             href: "https://google.com",
             type: "anchor",
             hrefLabel: "Google",
-            onClickRow: navigateToGoogle,
+            onRowClick: navigateToGoogle,
             rowData: [
                 "24.12.2020",
                 "20-2028732",
@@ -72,7 +72,7 @@ const example = `() => {
             href: "https://google.com",
             type: "anchor",
             hrefLabel: "Google",
-            onClickRow: navigateToGoogle,
+            onRowClick: navigateToGoogle,
             rowData: [
                 "13.04.2019",
                 "20-8382811",
@@ -87,7 +87,7 @@ const example = `() => {
             href: "https://google.com",
             type: "anchor",
             hrefLabel: "Google",
-            onClickRow: navigateToGoogle,
+            onRowClick: navigateToGoogle,
             rowData: [
                 "31.07.2017",
                 "20-1111",
