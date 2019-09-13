@@ -1,1 +1,1 @@
-#  [`@fremtind/jkl-table`](https://fremtind.github.io/jokul/components/button/)
+#  [`@fremtind/jkl-table`](https://fremtind.github.io/jokul/components/table/)

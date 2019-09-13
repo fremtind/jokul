@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper Table](https://fremtind.github.io/jokul/components/tabke/) er beskrevet i `@fremtind/jkl-table` stil-pakken.
+[Bruk og prinsipper Table](https://fremtind.github.io/jokul/components/table/) er beskrevet i `@fremtind/jkl-table` stil-pakken.
 
 ## Kom i gang
 

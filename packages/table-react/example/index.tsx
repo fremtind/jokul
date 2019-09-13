@@ -32,7 +32,7 @@ const rows: Array<string[] | TableAnchorRowData> = [
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Etterlatte", "Opprettet", "Per Persen"],
 ];
 
-const TextFieldDemo = () => {
+const TableDemo = () => {
     return (
         <>
             <Table columns={columns} rows={rows} />
@@ -40,4 +40,4 @@ const TextFieldDemo = () => {
     );
 };
 
-ReactDOM.render(<TextFieldDemo />, document.getElementById("app"));
+ReactDOM.render(<TableDemo />, document.getElementById("app"));
