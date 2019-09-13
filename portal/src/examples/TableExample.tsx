@@ -110,7 +110,7 @@ const example = `() => {
     );
 };`;
 
-const exampleImport = `import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-table-react";
+const exampleImport = `import { Table } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";`;
 
 const TableExample = () => (
