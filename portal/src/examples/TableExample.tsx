@@ -1,4 +1,4 @@
-import { H1 } from "@fremtind/jkl-typography-react";
+import { H3 } from "@fremtind/jkl-typography-react";
 import React from "react";
 import { Example } from "../components";
 import { Table } from "@fremtind/jkl-table-react";
@@ -101,10 +101,10 @@ const example = `() => {
     ];
     return (
         <>
-            <H1>Enkel tabell</H1>
+            <H3>Enkel tabell</H3>
             <Table rows={rows} columns={columns} />
 
-            <H1 className="jkl-spacing--top-4">Enkel tabell med lenker</H1>
+            <H3 className="jkl-spacing--top-3">Enkel tabell med lenker</H3>
             <Table rows={anchorRows} columns={columns} />
         </>
     );
@@ -114,7 +114,7 @@ const exampleImport = `import { Table } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";`;
 
 const TableExample = () => (
-    <Example exampleComponents={{ Table, H1 }} exampleCode={example} type={tableType} exampleImport={exampleImport} />
+    <Example exampleComponents={{ Table, H3 }} exampleCode={example} type={tableType} exampleImport={exampleImport} />
 );
 
 export default TableExample;
