@@ -15,7 +15,7 @@ export function TableData(props: Props) {
             {/* Only create an anchor in the first cell, so that screen readers doesn't read each cell as a link */}
             {/* The downside of this is that only the first cell can be right clicked and get the anchor context menu */}
             {isFirstCell && isAnchorRowData(row) ? (
-                <a className="jkl-table__anchor" href={row.href}>
+                <a className="jkl-sr-only" href={row.href}>
                     {row.hrefLabel}{" "}
                 </a>
             ) : (
