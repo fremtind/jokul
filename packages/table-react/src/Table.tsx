@@ -14,9 +14,9 @@ export function Table(props: Props) {
             <thead>
                 <tr className="jkl-table__row">
                     {props.columns.map((columnValue, i) => (
-                        <td className="jkl-table__heading" key={i}>
+                        <th className="jkl-table__heading" key={i}>
                             {columnValue}
-                        </td>
+                        </th>
                     ))}
                 </tr>
             </thead>
