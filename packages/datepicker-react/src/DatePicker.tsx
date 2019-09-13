@@ -63,7 +63,13 @@ export function DatePicker({
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
-    const openDatepicker = () => setDatepickerHidden(false);
+    const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
+        // Workaround for loosing focus when opening in chrome:
+        // https://github.com/nrkno/core-components/issues/322
+        e.persist();
+        setTimeout(() => e.target.focus(), 0);
+        setDatepickerHidden(false);
+    };
     const closeDatepicker = () => setDatepickerHidden(true);
 
     const datepickerRef = useRef<HTMLDivElement>(null);
