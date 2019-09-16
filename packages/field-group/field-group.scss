@@ -1,4 +1,4 @@
-@import "~@fremtind/jkl-core/variables/all";
+@import "~@fremtind/jkl-core/variables/_all.scss";
 
 .jkl-field-group {
     border: 0;
@@ -7,9 +7,15 @@
     line-height: 1;
 
     &__legend {
-        font-size: $font-size-2;
-        line-height: $line-height-2;
-        color: $varm-fjellgra;
-        padding-bottom: $component-spacing--medium;
+        @include font-size("medium");
+        @include line-height("medium");
+        color: $svart;
+        padding-bottom: $component-spacing--large;
+
+        &--large {
+            @include font-size("xl");
+            @include line-height("xl");
+            padding-bottom: $component-spacing--xl;
+        }
     }
 }
