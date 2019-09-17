@@ -41,6 +41,7 @@
         "@fremtind/jkl-typography-react": "^0.8.0"
     },
     "devDependencies": {
+        "@fremtind/jkl-field-group-react": "^0.2.0",
         "@fremtind/browserslist-config-jkl": "^0.3.4"
     },
     "peerDependencies": {

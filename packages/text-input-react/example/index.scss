@@ -15,9 +15,6 @@ body {
     }
 }
 
-.jkl-text-area,
-.jkl-text-field {
-    &:not(:first-of-type) {
-        margin-top: 64px;
-    }
+.jkl-field {
+    margin-top: 24px;
 }

@@ -11,6 +11,7 @@ interface Props {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     helpLabel?: string;
     errorLabel?: string;
+    standalone?: boolean;
 }
 
 export const RadioButtonChoice = ({
@@ -22,8 +23,9 @@ export const RadioButtonChoice = ({
     inline = true,
     helpLabel,
     errorLabel,
+    standalone,
 }: Props) => (
-    <FieldGroup legend={legend} helpLabel={helpLabel} errorLabel={errorLabel}>
+    <FieldGroup legend={legend} helpLabel={helpLabel} errorLabel={errorLabel} standalone={standalone}>
         {choices.map((choice) => (
             <RadioButton
                 key={choice}
