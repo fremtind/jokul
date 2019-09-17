@@ -1,21 +1,31 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
+.jkl-field,
 .jkl-field-group {
     border: 0;
     padding: 0;
-    margin: 0;
+    display: block;
     line-height: 1;
 
+    &--inline {
+        display: inline-block;
+    }
+
     &__legend {
+        display: block;
         @include font-size("medium");
         @include line-height("medium");
         color: $svart;
-        padding-bottom: $component-spacing--large;
+        margin-bottom: $component-spacing--large;
 
         &--large {
             @include font-size("xl");
             @include line-height("xl");
-            padding-bottom: $component-spacing--xl;
+            margin-bottom: $component-spacing--xl;
         }
     }
+}
+
+.jkl-field-group {
+    margin: 0;
 }
