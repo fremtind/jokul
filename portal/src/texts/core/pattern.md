@@ -36,12 +36,12 @@ Seksjoner må tydelig avgrenses fra hverandre. Enten ved hjelp av whitespace om 
 For interne løsninger tilbyr vi mer kompakte varianter av skjemakomponentene. Disse kan brukes dersom det er viktig å komprimere informasjonen som gis i et skjermbilde, men utover dette skal de samme prinsippene for skjemaoppsett følges.
 
 ### Dynamiske skjema
-Dersom man har dynamiske skjema, altså spørsmål som kommer til syne først etter brukeren har tatt stilling til et eller flere steg i et skjema, så velger man størrelse på label utifra hva som brukeren ser i default state. Altså, dersom en seksjon starter med bare ett spørsmål så velger man stor variant, mens spørsmålene som dukker opp etter at bruker har svart på denne bruker normal variant. Det er også tillatt at svar på et spørsmål kan lage en ny skjemaseksjon for brukeren. 
+Dersom man har dynamiske skjema, altså spørsmål som kommer til syne først etter brukeren har tatt stilling til et eller flere steg i et skjema, velger man størrelse på label utifra hva brukeren ser i default state. Altså, dersom en seksjon starter med bare ett spørsmål så velger man stor variant, mens spørsmålene som dukker opp etter at bruker har svart på denne bruker normal variant. Det er også tillatt at svar på et spørsmål kan lage en ny skjemaseksjon for brukeren. 
 
 ## Skjemavalidering
 
 Som standard bør følgende praksis for validering gjelde: Det valideres når fokus flyttes vekk fra en skjemakomponent (on blur) og det valideres når man prøver å sende inn eller bekrefte skjemaet (submit). 
 
-Dersom noe feilvalideres får komponenten(e) error-state, med en rød valideringstekst som forklarer hva som er feil. Ved feilvalidering på submit scroller vi opp til første skjemakomponent som ikke validerte.
+Dersom noe feilvalideres får komponenten(e) error-state, med en rød underlinje og valideringstekst som forklarer hva som er feil. Ved feilvalidering på submit scroller vi opp til første skjemakomponent som ikke validerte.
 
 MERK! Valideringsteksten ERSTATTER hjelpeteksten på våre skjemakomponenter. Det er derfor veldig viktig at valideringsteksten ivaretar informasjonen som stod i hjelpeteksten i tillegg til å forklare hva som er feil.
