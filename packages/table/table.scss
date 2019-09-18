@@ -39,17 +39,19 @@ $bottom-border-size: rem(1px);
 
         &--anchor-row {
             cursor: pointer;
-        }
 
-        &--data-row {
-            transition: background-color 150ms ease, box-shadow 150ms ease;
             &:hover {
                 background-color: white;
                 box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.2);
             }
+
             &:active {
                 box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.4);
             }
+        }
+
+        &--data-row {
+            transition: background-color 150ms ease, box-shadow 150ms ease;
         }
 
         /* Focus-within is not supported by IE/Edge */
