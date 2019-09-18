@@ -1,4 +1,3 @@
-import { H3 } from "@fremtind/jkl-typography-react";
 import React from "react";
 import { Example } from "../components";
 import { Table } from "@fremtind/jkl-table-react";
@@ -10,10 +9,6 @@ import tableType from "!raw-loader!@fremtind/jkl-table-react/build/Table.d.ts";
 const example = `() => {
     const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Sakstype", "Milepæl", "Følger saken"];
 
-    function navigateToLink(href) {
-        window.location.href = href;
-    }
-    
     const anchorRows = [
         {
             href: "https://google.com",
@@ -76,12 +71,12 @@ const example = `() => {
             ],
         },
     ];
-    return (
-        <>
-            <H3 className="jkl-spacing--top-3">Enkel tabell med lenker</H3>
-            <Table rows={anchorRows} columns={columns} />
-        </>
-    );
+
+    function navigateToLink(href) {
+        window.location.href = href;
+    }
+
+    return <Table rows={anchorRows} columns={columns} />;
 };`;
 
 const exampleImport = `import { Table } from "@fremtind/jkl-table-react";
@@ -89,11 +84,6 @@ import "@fremtind/jkl-table/table.min.css";`;
 
 export function AnchorTableExample() {
     return (
-        <Example
-            exampleComponents={{ Table, H3 }}
-            exampleCode={example}
-            type={tableType}
-            exampleImport={exampleImport}
-        />
+        <Example exampleComponents={{ Table }} exampleCode={example} type={tableType} exampleImport={exampleImport} />
     );
 }

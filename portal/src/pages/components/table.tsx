@@ -1,5 +1,6 @@
 import { WarningMessage } from "@fremtind/jkl-message-box-react/src";
 import { Link } from "@fremtind/jkl-typography-react";
+import { H3 } from "@fremtind/jkl-typography-react";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { ComponentLayout, Changelog } from "../../components";
@@ -17,7 +18,9 @@ import changelogReact from "!raw-loader!@fremtind/jkl-table-react/CHANGELOG.md";
 export default function TablePage() {
     return (
         <ComponentLayout title="Tabell" packageName="table">
+            <H3>Enkel tabell</H3>
             <TableExample />
+            <H3 className="jkl-spacing--top-3">Enkel tabell med lenker</H3>
             <AnchorTableExample />
             <WarningMessage fullWidth title="Fokusring i tabellen" className="jkl-spacing--top-1">
                 Denne komponenten bruker{" "}

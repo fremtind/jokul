@@ -1,4 +1,3 @@
-import { H3 } from "@fremtind/jkl-typography-react";
 import React from "react";
 import { Example } from "../components";
 import { Table } from "@fremtind/jkl-table-react";
@@ -31,20 +30,15 @@ const example = `() => {
         ],
         ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Etterlatte", "Opprettet", "Per Persen"],
     ];
-    
-    return (
-        <>
-            <H3>Enkel tabell</H3>
-            <Table rows={rows} columns={columns} />
-        </>
-    );
+
+    return <Table rows={rows} columns={columns} />;
 };`;
 
 const exampleImport = `import { Table } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";`;
 
 const TableExample = () => (
-    <Example exampleComponents={{ Table, H3 }} exampleCode={example} type={tableType} exampleImport={exampleImport} />
+    <Example exampleComponents={{ Table }} exampleCode={example} type={tableType} exampleImport={exampleImport} />
 );
 
 export default TableExample;
