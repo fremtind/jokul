@@ -3,6 +3,7 @@ import { Link } from "@fremtind/jkl-typography-react";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import { ComponentLayout, Changelog } from "../../components";
+import { AnchorTableExample } from "../../examples/AnchorTableExample";
 import { renderer } from "../../presentation/markdownRenderer";
 import { TableExample } from "../../examples";
 
@@ -15,7 +16,9 @@ import changelogReact from "!raw-loader!@fremtind/jkl-table-react/CHANGELOG.md";
 
 export default function TablePage() {
     return (
-        <ComponentLayout title="Tabell" mainExample={<TableExample />} packageName="table">
+        <ComponentLayout title="Tabell" packageName="table">
+            <TableExample />
+            <AnchorTableExample />
             <WarningMessage fullWidth title="Fokusring i tabellen" className="jkl-spacing--top-1">
                 Denne komponenten bruker{" "}
                 <span>

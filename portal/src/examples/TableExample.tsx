@@ -9,11 +9,6 @@ import tableType from "!raw-loader!@fremtind/jkl-table-react/build/Table.d.ts";
 
 const example = `() => {
     const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Sakstype", "Milepæl", "Følger saken"];
-
-    function navigateToGoogle(href) {
-        window.location.href = href;
-    }
-
     const rows = [
         ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Etterlatte", "Opprettet", "Siri Saksbehandler"],
         [
@@ -36,76 +31,11 @@ const example = `() => {
         ],
         ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Etterlatte", "Opprettet", "Per Persen"],
     ];
-
-    const anchorRows = [
-        {
-            href: "https://google.com",
-            type: "anchor",
-            hrefLabel: "Google",
-            onRowClick: navigateToGoogle,
-            rowData: [
-                "24.02.2020",
-                "20-1234567",
-                "010203 99887",
-                "Ola Nordmann",
-                "Etterlatte",
-                "Opprettet",
-                "Siri Saksbehandler",
-            ],
-        },
-        {
-            href: "https://google.com",
-            type: "anchor",
-            hrefLabel: "Google",
-            onRowClick: navigateToGoogle,
-            rowData: [
-                "24.12.2020",
-                "20-2028732",
-                "010203 99887",
-                "Kari Nordkvinne",
-                "Etterlatte",
-                "Opprettet",
-                "Freja Forsikringstaker",
-            ],
-        },
-        {
-            href: "https://google.com",
-            type: "anchor",
-            hrefLabel: "Google",
-            onRowClick: navigateToGoogle,
-            rowData: [
-                "13.04.2019",
-                "20-8382811",
-                "010203 99887",
-                "Kari Nordkvinne",
-                "Etterlatte",
-                "Opprettet",
-                "Siri Saksbehandler",
-            ],
-        },
-        {
-            href: "https://google.com",
-            type: "anchor",
-            hrefLabel: "Google",
-            onRowClick: navigateToGoogle,
-            rowData: [
-                "31.07.2017",
-                "20-1111",
-                "010203 99887",
-                "Kari Nordkvinne",
-                "Etterlatte",
-                "Opprettet",
-                "Per Persen",
-            ],
-        },
-    ];
+    
     return (
         <>
             <H3>Enkel tabell</H3>
             <Table rows={rows} columns={columns} />
-
-            <H3 className="jkl-spacing--top-3">Enkel tabell med lenker</H3>
-            <Table rows={anchorRows} columns={columns} />
         </>
     );
 };`;
