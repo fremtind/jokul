@@ -1,0 +1,63 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+$bottom-border-size: rem(1px);
+
+.jkl-table {
+    border-collapse: collapse;
+
+    &__heading {
+        color: $matt-svart;
+        font-size: $font-size-1;
+        font-weight: normal;
+        line-height: $line-height-1;
+        padding: $component-spacing--small 0.5rem;
+    }
+
+    &__data-cell {
+        position: relative;
+        box-sizing: border-box;
+        padding: 1.5rem 0.5rem;
+        line-height: $line-height-2;
+    }
+
+    &__heading,
+    &__data-cell {
+        text-align: left;
+        vertical-align: top;
+
+        &:first-of-type {
+            padding-left: 1rem;
+        }
+
+        &:last-of-type {
+            padding-right: 1rem;
+        }
+    }
+
+    &__row {
+        box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.2);
+
+        &--anchor-row {
+            cursor: pointer;
+
+            &:hover {
+                background-color: white;
+                box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.2);
+            }
+
+            &:active {
+                box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        &--data-row {
+            transition: background-color 150ms ease, box-shadow 150ms ease;
+        }
+
+        /* Focus-within is not supported by IE/Edge */
+        &:focus-within {
+            background-color: white;
+            box-shadow: 0 0 0 1px inset $himmel;
+        }
+    }
+}
