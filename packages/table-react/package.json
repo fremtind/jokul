@@ -1,14 +1,12 @@
 {
-    "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.8.0",
+    "name": "@fremtind/jkl-table-react",
+    "version": "0.1.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react dropdown component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "description": "Jøkul react table component",
     "keywords": [
-        "dropdown",
-        "form",
+        "table",
         "jøkul",
         "fremtind"
     ],
@@ -24,25 +22,21 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "clean": "rimraf build/ dist/ .cache",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-dropdown yarn build:watch",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-table yarn build:watch",
         "dev:js": "parcel example/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.9.0",
-        "@fremtind/jkl-dropdown": "^0.9.0",
-        "@fremtind/jkl-typography-react": "^0.8.0",
-        "@nrk/core-toggle": "^3.0.4",
-        "nanoid": "^2.0.3"
+        "@fremtind/jkl-core": "^0.9.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.4",
-        "@types/nanoid": "^2.0.0"
+        "@fremtind/browserslist-config-jkl": "^0.3.3",
+        "npm-run-all": "^4.1.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
