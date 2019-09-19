@@ -1,0 +1,28 @@
+/* Text blocks
+   ========================================================================== */
+
+/**
+ * Remove default margins from all block-level text elements
+ * such as `p` and headings
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Remove margins from fieldset element.
+ */
+
+fieldset {
+    margin: 0;
+}
