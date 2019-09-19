@@ -16,6 +16,7 @@ import {
     LogoStampExample,
     MessageBoxExample,
     RadioButtonExample,
+    TableExample,
     TextAreaExample,
     TextFieldExample,
     ToggleSwitchExample,
@@ -52,6 +53,7 @@ export default function AllComponents() {
             <Section title="Nedtrekksliste" link="dropdown" example={<DropdownExample />} />
             <Section title="Trekkspilliste" link="accordion" example={<AccordionExample />} />
             <Section title="Datovelger" link="datepicker" example={<DatepickerExample />} />
+            <Section title="Tabell" link="table" example={<TableExample />} />
             <Section title="Typografi" link="typography" example={<TypographyExample />} />
             <Section title="Tekstfelt" link="textfield" example={<TextFieldExample />} />
             <Section title="Lang tekstfelt" link="textarea" example={<TextAreaExample />} />
