@@ -13,7 +13,15 @@ const Demo = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [inline, setInline] = useState(false);
     const [invalid, setInvalid] = useState("");
-    const [variant, setVariant] = useState<"secondary" | "small" | undefined>(undefined);
+    const [variant, setVariant] = useState<"secondary" | "small" | undefined>();
+    const typecheckAndSetVariant = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const val = e.target.value;
+        if (val === ("secondary" || "small")) {
+            setVariant(val);
+        } else {
+            setVariant(undefined);
+        }
+    };
     return (
         <>
             <div style={{ marginBottom: "5rem" }}>
@@ -28,7 +36,7 @@ const Demo = () => {
                 </button>
                 <label style={{ margin: ".5rem" }}>
                     {`Choose variant: `}
-                    <select onChange={(e) => setVariant(e.target.value)} value={variant}>
+                    <select onChange={typecheckAndSetVariant} value={variant}>
                         <option value={undefined}>Normal</option>
                         <option value="secondary">Secondary</option>
                         <option value="small">Small</option>
