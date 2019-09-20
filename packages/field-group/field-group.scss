@@ -15,12 +15,18 @@
     }
 
     &--secondary {
-        display: inline-block;
-
         .jkl-field-group__legend {
             @include font-size("medium");
             @include line-height("medium");
             margin-bottom: $component-spacing--large;
+        }
+    }
+
+    &--small {
+        .jkl-field-group__legend {
+            @include font-size("xxs");
+            @include line-height("xxs");
+            margin-bottom: 0;
         }
     }
 }

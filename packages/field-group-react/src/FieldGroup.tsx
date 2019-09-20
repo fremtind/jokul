@@ -7,12 +7,12 @@ interface Props {
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
-    secondary?: boolean;
+    variant?: "secondary" | "small";
 }
 
-export const FieldGroup = ({ legend, className, children, helpLabel, errorLabel, secondary }: Props) => {
+export const FieldGroup = ({ legend, className, children, helpLabel, errorLabel, variant }: Props) => {
     const composedClassName = "jkl-field-group"
-        .concat(secondary ? " jkl-field-group--secondary" : "")
+        .concat(variant ? ` jkl-field-group--${variant}` : "")
         .concat(className ? ` ${className}` : "");
     return (
         <fieldset className={composedClassName}>

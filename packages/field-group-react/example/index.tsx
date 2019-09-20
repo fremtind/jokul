@@ -14,7 +14,12 @@ const FieldGroupExample = () => (
                 <strong>[Felt settes inn her]</strong>
             </p>
         </FieldGroup>
-        <FieldGroup secondary legend="Hvor bodde du før du flyttet til Norge?">
+        <FieldGroup variant="secondary" legend="Hvor bodde du før du flyttet til Norge?">
+            <p className="jkl-p">
+                <strong>[Velg land her]</strong>
+            </p>
+        </FieldGroup>
+        <FieldGroup variant="small" legend="Hvor bodde du før du flyttet til Norge?">
             <p className="jkl-p">
                 <strong>[Velg land her]</strong>
             </p>
