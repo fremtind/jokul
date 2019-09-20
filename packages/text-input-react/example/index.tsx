@@ -1,8 +1,6 @@
 import { initTabListener } from "@fremtind/jkl-core";
-import { Field } from "@fremtind/jkl-field-group-react";
 import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-field-group/field-group.min.css";
-import "@fremtind/jkl-text-input/text-input.scss";
+import "@fremtind/jkl-text-input/text-input.min.css";
 import React, { ChangeEvent, useState } from "react";
 import ReactDOM from "react-dom";
 import { TextArea, TextField } from "../src";
@@ -18,17 +16,44 @@ const TextFieldDemo = () => {
     return (
         <>
             <div className="side-by-side">
-                <TextField value={value} onChange={handleChange} placeholder={"Her kan du skrive!"} />
-                <TextField value={"Per"} onChange={handleChange} readOnly />
+                <TextField
+                    label="Fornavn"
+                    value={value}
+                    onChange={handleChange}
+                    placeholder={"Norsk"}
+                    variant="small"
+                    helpLabel="La oss se..."
+                />
+                <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly variant="small" />
             </div>
 
-            <TextField type="tel" value={value} onChange={handleChange} chars={8} />
-            <TextField type="password" value={value} onChange={handleChange} />
+            <TextField label="Pelefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
+            <TextField
+                label="Passord"
+                type="password"
+                value={value}
+                onChange={handleChange}
+                helpLabel="Passord er en vanlig form for autentisering"
+                variant="secondary"
+            />
+            <TextField
+                label="Epost"
+                type="email"
+                value={value}
+                onChange={handleChange}
+                helpLabel="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
+                variant="small"
+            />
 
-            <TextField type="email" value={value} onChange={handleChange} />
-            <TextArea rows={3} value={value} onChange={handleChange} />
-
-            <TextArea value={value} onChange={handleChange} />
+            <TextArea
+                rows={3}
+                label="Svar med en kommentar"
+                value={value}
+                onChange={handleChange}
+                //variant="small"
+                placeholder="Begrens deg til tre linjer"
+            />
+            <TextArea label="Din livshistorie" value={value} onChange={handleChange} variant="secondary" />
         </>
     );
 };

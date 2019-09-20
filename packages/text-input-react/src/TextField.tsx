@@ -17,6 +17,7 @@ interface Props {
     readOnly?: boolean;
     className?: string;
     placeholder?: string;
+    variant?: "secondary" | "small";
 }
 
 export const TextField = ({
@@ -27,27 +28,30 @@ export const TextField = ({
     errorLabel,
     id,
     label,
-    className = "",
+    className,
     placeholder,
     value,
+    variant,
     ...rest
-}: Props) => (
-    <label
-        data-testid="jkl-text-field"
-        className={`jkl-text-field${inline ? " jkl-text-field--inline" : ""} ${className}`}
-    >
-        <input
-            type={type}
-            aria-invalid={!!errorLabel}
-            className={`jkl-text-field__input`}
-            id={id}
-            placeholder=" "
-            readOnly={readOnly}
-            value={value}
-            {...rest}
-        />
-        {!value && placeholder && <span className="jkl-text-field__placeholder">{placeholder}</span>}
-        <span className="jkl-text-field__label">{label}</span>
-        <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
-    </label>
-);
+}: Props) => {
+    const composedClassNames = "jkl-text-field"
+        .concat(inline ? " jkl-text-field--inline" : "")
+        .concat(variant ? ` jkl-text-field--${variant}` : "")
+        .concat(className ? ` ${className}` : "");
+    return (
+        <label data-testid="jkl-text-field" className={composedClassNames}>
+            <span className="jkl-text-field__label">{label}</span>
+            <input
+                type={type}
+                aria-invalid={!!errorLabel}
+                className={`jkl-text-field__input`}
+                id={id}
+                placeholder={placeholder}
+                readOnly={readOnly}
+                value={value}
+                {...rest}
+            />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+        </label>
+    );
+};
