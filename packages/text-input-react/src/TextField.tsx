@@ -1,7 +1,12 @@
 import React, { ChangeEvent, FocusEvent } from "react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
+    label: string;
     value?: string;
+    inline?: boolean;
+    helpLabel?: string;
+    errorLabel?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
     onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
@@ -10,30 +15,39 @@ interface Props {
     autoComplete?: string;
     required?: boolean;
     readOnly?: boolean;
+    className?: string;
     placeholder?: string;
-    invalid?: boolean;
-    chars?: number;
 }
 
 export const TextField = ({
     type = "text",
+    inline = false,
     readOnly = false,
+    helpLabel,
+    errorLabel,
     id,
+    label,
+    className = "",
     placeholder,
     value,
-    invalid,
-    chars,
     ...rest
 }: Props) => (
-    <input
-        type={type}
-        className={`jkl-text-field`}
-        aria-invalid={!!invalid}
-        id={id}
-        placeholder={placeholder}
-        readOnly={readOnly}
-        value={value}
-        style={{ width: `${chars && chars + 2}ch` }}
-        {...rest}
-    />
+    <label
+        data-testid="jkl-text-field"
+        className={`jkl-text-field${inline ? " jkl-text-field--inline" : ""} ${className}`}
+    >
+        <input
+            type={type}
+            aria-invalid={!!errorLabel}
+            className={`jkl-text-field__input`}
+            id={id}
+            placeholder=" "
+            readOnly={readOnly}
+            value={value}
+            {...rest}
+        />
+        {!value && placeholder && <span className="jkl-text-field__placeholder">{placeholder}</span>}
+        <span className="jkl-text-field__label">{label}</span>
+        <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+    </label>
 );
