@@ -15,3 +15,15 @@
         color: $error-color;
     }
 }
+
+.jkl-form-question {
+    @include font-size("xl");
+    @include line-height("xl");
+    margin-bottom: $component-spacing--large;
+
+    &--secondary {
+        @include font-size("medium");
+        @include line-height("medium");
+        margin-bottom: $component-spacing--large;
+    }
+}

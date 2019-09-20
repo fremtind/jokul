@@ -18,30 +18,17 @@ const TextFieldDemo = () => {
     return (
         <>
             <div className="side-by-side">
-                <Field legend="Fornavn">
-                    <TextField value={value} onChange={handleChange} placeholder={"Her kan du skrive!"} />
-                </Field>
-                <Field legend="Fornavn">
-                    <TextField value={"Per"} onChange={handleChange} readOnly />
-                </Field>
+                <TextField value={value} onChange={handleChange} placeholder={"Her kan du skrive!"} />
+                <TextField value={"Per"} onChange={handleChange} readOnly />
             </div>
 
-            <Field legend="Telefonnummer" helpLabel="Åtte siffer">
-                <TextField type="tel" value={value} onChange={handleChange} chars={8} />
-            </Field>
-            <Field legend="Passord" helpLabel="Passord er en vanlig identifikasjonsmetode">
-                <TextField type="password" value={value} onChange={handleChange} />
-            </Field>
-            <Field legend="E-post">
-                <TextField type="email" value={value} onChange={handleChange} />
-            </Field>
+            <TextField type="tel" value={value} onChange={handleChange} chars={8} />
+            <TextField type="password" value={value} onChange={handleChange} />
 
-            <Field legend="Svar med en kommentar" helpLabel="Høyde begrenset til 3 linjer">
-                <TextArea rows={3} value={value} onChange={handleChange} />
-            </Field>
-            <Field legend="Din livshistorie">
-                <TextArea value={value} onChange={handleChange} placeholder="Her kan du skrive langt" />
-            </Field>
+            <TextField type="email" value={value} onChange={handleChange} />
+            <TextArea rows={3} value={value} onChange={handleChange} />
+
+            <TextArea value={value} onChange={handleChange} />
         </>
     );
 };
