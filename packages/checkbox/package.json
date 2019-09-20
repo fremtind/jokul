@@ -18,7 +18,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf **/*.css",
+        "clean": "rimraf node_modules/ dist/ **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
