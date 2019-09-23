@@ -6,12 +6,12 @@ interface Props {
     value: string;
     checked?: boolean;
     inline?: boolean;
-    onChange?: (name: string, value: string, checked: boolean) => void;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     className?: string;
 }
 
 export function Checkbox({ children, name, value, checked, onChange, className, inline = true }: Props) {
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange && onChange(name, value, e.target.checked);
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange && onChange(e);
     const classNames = "jkl-checkbox"
         .concat(inline ? " jkl-checkbox--inline" : "")
         .concat(className ? ` ${className}` : "");

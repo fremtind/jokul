@@ -9,10 +9,10 @@ import type from "!raw-loader!@fremtind/jkl-field-group-react/build/FieldGroup.d
 
 const example = `() => {
     const [choices, setChoices] = React.useState([]);
-    const handleChange = (_, value, checked) => {
-        checked
-            ? setChoices([...choices, value])
-            : setChoices(choices.filter((c) => c !== value));
+    const handleChange = (e) => {
+        e.target.checked
+            ? setChoices([...choices, e.target.value])
+            : setChoices(choices.filter((c) => c !== e.target.value));
     };
     return (
         <FieldGroup
