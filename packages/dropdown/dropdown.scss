@@ -165,20 +165,6 @@ $chevron-weight: rem(1px);
         right: 0;
     }
 
-    &__arrow {
-        pointer-events: none;
-        position: absolute;
-        right: $side-padding;
-        top: $label-height;
-
-        height: $value-height;
-        background-color: transparent;
-        stroke: currentColor;
-        stroke-width: 1;
-
-        transition: transform 300ms ease-in-out;
-    }
-
     &--invalid {
         .jkl-dropdown__value {
             @include underline-color($error-color, $error-color);
