@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.3.0...@fremtind/jkl-hamburger-react@0.3.1) (2019-09-23)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+
+
+
+
 # [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.2.0...@fremtind/jkl-hamburger-react@0.3.0) (2019-08-30)
 
 

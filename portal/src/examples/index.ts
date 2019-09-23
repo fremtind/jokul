@@ -17,3 +17,4 @@ export { default as TextAreaExample } from "./TextAreaExample";
 export { default as TextFieldExample } from "./TextFieldExample";
 export { default as ToggleSwitchExample } from "./ToggleSwitchExample";
 export { default as TypographyExample } from "./TypographyExample";
+export { default as TableExample } from "./TableExample";

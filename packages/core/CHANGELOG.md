@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.9.0...@fremtind/jkl-core@0.10.0) (2019-09-23)
+
+
+### Features
+
+* **jkl-core:** add class for content that is used by screen readers ([07e8170](https://github.com/fremtind/jokul/commit/07e8170))
+
+
+
+
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.8.0...@fremtind/jkl-core@0.9.0) (2019-08-30)
 
 

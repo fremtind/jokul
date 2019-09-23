@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@0.7.3...@fremtind/jkl-loader@0.7.4) (2019-09-23)
+
+**Note:** Version bump only for package @fremtind/jkl-loader
+
+
+
+
+
 ## [0.7.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@0.7.2...@fremtind/jkl-loader@0.7.3) (2019-08-30)
 
 **Note:** Version bump only for package @fremtind/jkl-loader
