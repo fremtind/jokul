@@ -33,15 +33,15 @@ export function Select({
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange && onChange(event);
     };
-    const composedClassNames = "jkl-dropdown"
+    const componentClassName = "jkl-dropdown"
         .concat(inline ? ` jkl-dropdown--inline` : "")
         .concat(!!errorLabel ? ` jkl-dropdown--invalid` : "")
         .concat(value === "" ? ` jkl-dropdown--no-value` : "")
-        .concat(variant ? ` jkl-dropdown--${variant}` : "")
         .concat(className ? ` ${className}` : "");
+    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
     return (
-        <label className={composedClassNames}>
-            <span className="jkl-dropdown__label">{label}</span>
+        <label className={componentClassName}>
+            <span className={labelClassName}>{label}</span>
             <select
                 value={value}
                 className="jkl-dropdown__value"

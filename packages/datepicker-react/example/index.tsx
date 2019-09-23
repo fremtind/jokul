@@ -1,9 +1,12 @@
-import "@fremtind/jkl-core/core.min.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { DatePicker } from "../src";
+import { initTabListener } from "@fremtind/jkl-core";
+import "@fremtind/jkl-core/core.scss";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-core/normalize.css";
+
+initTabListener();
 
 const englishMonthNames = [
     "January",
@@ -23,20 +26,25 @@ const englishDayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const App = () => (
     <>
-        <div style={{ margin: "20px" }}>
+        <div className="jkl-spacing--all-3">
             <DatePicker />
         </div>
-        <div style={{ margin: "20px" }}>
+        <div className="jkl-spacing--all-3">
             <DatePicker
+                variant="secondary"
                 initialDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
                 months={englishMonthNames}
                 days={englishDayNames}
             />
         </div>
-        <div style={{ margin: "20px" }}>
-            <DatePicker onChange={(date) => alert(`Date selected is ${date}`)} helpLabel={"Choose visely"} />
+        <div className="jkl-spacing--all-3">
+            <DatePicker
+                variant="small"
+                onChange={(date) => alert(`Date selected is ${date}`)}
+                helpLabel={"Choose wisely"}
+            />
         </div>
-        <div style={{ margin: "20px" }}>
+        <div className="jkl-spacing--all-3">
             <DatePicker
                 label="Select the best date"
                 yearLabel="1988 is good"

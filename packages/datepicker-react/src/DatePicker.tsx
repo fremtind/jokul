@@ -114,11 +114,8 @@ export function DatePicker({
     return (
         <div className={`jkl-datepicker ${className}`} ref={datepickerRef}>
             <div className="jkl-datepicker__outer-wrapper">
-                <label
-                    data-testid="jkl-datepicker-input"
-                    className={`jkl-text-field ${variant ? `jkl-text-field--${variant}` : ""}`}
-                >
-                    <span className="jkl-text-field__label">{label}</span>
+                <label data-testid="jkl-datepicker-input" className={`jkl-text-field`}>
+                    <span className={`jkl-label ${variant ? `jkl-label--${variant}` : ""}`}>{label}</span>
                     <input
                         placeholder={placeholder}
                         type="text"
@@ -139,10 +136,8 @@ export function DatePicker({
                         className="jkl-datepicker__calendar"
                     >
                         <div className="jkl-datepicker__calendar-header">
-                            <label
-                                className={`jkl-text-field jkl-text-field--small jkl-datepicker__calendar-header--year`}
-                            >
-                                <span className="jkl-text-field__label">{yearLabel}</span>
+                            <label className={`jkl-text-field jkl-datepicker__calendar-header--year`}>
+                                <span className="jkl-label jkl-label--small">{yearLabel}</span>
                                 <input type="year" className={`jkl-text-field__input`} />
                             </label>
 

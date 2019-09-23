@@ -31,10 +31,8 @@ export const TextArea = ({
 
     const height = isFocused || restProps.value ? `${rows * 2 + 0.5}rem` : undefined;
 
-    const composedClassNames = "jkl-text-field jkl-text-area"
-        .concat(variant ? ` jkl-text-field--${variant}` : "")
-        .concat(className ? ` ${className}` : "");
-
+    const componentClassName = "jkl-text-field jkl-text-area".concat(className ? ` ${className}` : "");
+    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
     function onBlur(event: FocusEvent<HTMLTextAreaElement>) {
         setIsFocused(false);
         restProps.onBlur && restProps.onBlur(event);
@@ -45,8 +43,8 @@ export const TextArea = ({
     }
 
     return (
-        <label data-testid="jkl-text-field" className={composedClassNames}>
-            <span className="jkl-text-field__label">{label}</span>
+        <label data-testid="jkl-text-field" className={componentClassName}>
+            <span className={labelClassName}>{label}</span>
             <textarea
                 onFocus={onFocus}
                 onBlur={onBlur}

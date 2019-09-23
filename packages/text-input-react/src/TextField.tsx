@@ -34,13 +34,13 @@ export const TextField = ({
     variant,
     ...rest
 }: Props) => {
-    const composedClassNames = "jkl-text-field"
+    const componentClassName = "jkl-text-field"
         .concat(inline ? " jkl-text-field--inline" : "")
-        .concat(variant ? ` jkl-text-field--${variant}` : "")
         .concat(className ? ` ${className}` : "");
+    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
     return (
-        <label data-testid="jkl-text-field" className={composedClassNames}>
-            <span className="jkl-text-field__label">{label}</span>
+        <label data-testid="jkl-text-field" className={componentClassName}>
+            <span className={labelClassName}>{label}</span>
             <input
                 type={type}
                 aria-invalid={!!errorLabel}

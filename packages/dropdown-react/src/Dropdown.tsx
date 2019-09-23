@@ -56,13 +56,13 @@ export function Dropdown({
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
-    const composedClassNames = "jkl-dropdown"
+    const componentClassName = "jkl-dropdown"
         .concat(inline ? ` jkl-dropdown--inline` : "")
         .concat(dropdownIsShown ? ` jkl-dropdown--open` : "")
         .concat(!hasSelectedValue ? ` jkl-dropdown--no-value` : "")
         .concat(!!errorLabel ? ` jkl-dropdown--invalid` : "")
-        .concat(variant ? ` jkl-dropdown--${variant}` : "")
         .concat(className ? ` ${className}` : "");
+    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
 
     function onToggle() {
         const listElement = listRef.current;
@@ -82,8 +82,8 @@ export function Dropdown({
 
     return (
         <>
-            <div data-testid="jkl-dropdown" className={composedClassNames}>
-                <span className={`jkl-dropdown__label`}>{label}</span>
+            <div data-testid="jkl-dropdown" className={componentClassName}>
+                <span className={labelClassName}>{label}</span>
                 <div className="jkl-dropdown__outer-wrapper">
                     <button
                         type="button"

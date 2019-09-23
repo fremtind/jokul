@@ -9,62 +9,20 @@ $border-color--focus: $himmel;
 
 $input-height: $line-height-3;
 $input-font-size: $font-size-3;
-
-$label-height: $line-height-6;
-$label-font-size: $font-size-6;
-$label-bottom-margin: $component-spacing--xl;
-
-$label-height--secondary: $line-height-4;
-$label-font-size--secondary: $font-size-4;
-$label-bottom-margin--secondary: $component-spacing--large;
-
-$label-height--small: $line-height-2;
-$label-font-size--small: $font-size-2;
-$label-bottom-margin--small: 0;
-
 $bottom-padding: $component-spacing--small;
-$bottom-margin: $component-spacing--large;
 
-$input-total-height: $label-height + $input-height + $bottom-padding;
 $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
 .jkl-text-field {
     display: block;
     box-sizing: border-box;
-    //position: relative;
     font-family: inherit;
     width: 100%;
-    //min-height: $input-total-height;
     background-color: $input-bg-color;
 
     &--inline {
         display: inline-block;
         vertical-align: bottom;
-    }
-
-    &__label {
-        display: inline-block;
-        font-size: $label-font-size;
-        line-height: $label-height;
-        margin-bottom: $label-bottom-margin;
-        margin-left: rem(-1px);
-    }
-
-    &--secondary {
-        .jkl-text-field__label {
-            font-size: $label-font-size--secondary;
-            line-height: $label-height--secondary;
-            margin-bottom: $label-bottom-margin--secondary;
-        }
-    }
-
-    &--small {
-        .jkl-text-field__label {
-            font-size: $label-font-size--small;
-            line-height: $label-height--small;
-            margin-bottom: $label-bottom-margin--small;
-            margin-left: 0;
-        }
     }
 
     &__input {

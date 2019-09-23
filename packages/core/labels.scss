@@ -1,5 +1,6 @@
 @import "./variables/all";
 @import "./mixins/all";
+@import "./functions";
 
 .jkl-form-support-label {
     display: block;
@@ -16,14 +17,24 @@
     }
 }
 
-.jkl-form-question {
+.jkl-label {
+    display: inline-block;
     @include font-size("xl");
     @include line-height("xl");
-    margin-bottom: $component-spacing--large;
+    margin-bottom: $component-spacing--xl;
+    margin-left: rem(-1px);
 
     &--secondary {
         @include font-size("medium");
         @include line-height("medium");
         margin-bottom: $component-spacing--large;
+        margin-left: initial;
+    }
+
+    &--small {
+        @include font-size("xs");
+        @include line-height("xs");
+        margin-bottom: 0;
+        margin-left: initial;
     }
 }

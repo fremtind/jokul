@@ -86,31 +86,6 @@ $chevron-weight: rem(1px);
         }
     }
 
-    &__label {
-        display: inline-block;
-        font-size: $label-font-size;
-        line-height: $label-height;
-        margin-bottom: $label-bottom-margin;
-        margin-left: rem(-1px);
-    }
-
-    &--secondary {
-        .jkl-dropdown__label {
-            font-size: $label-font-size--secondary;
-            line-height: $label-height--secondary;
-            margin-bottom: $label-bottom-margin--secondary;
-        }
-    }
-
-    &--small {
-        .jkl-dropdown__label {
-            font-size: $label-font-size--small;
-            line-height: $label-height--small;
-            margin-bottom: $label-bottom-margin--small;
-            margin-left: 0;
-        }
-    }
-
     &__value {
         overflow: hidden;
         text-overflow: ellipsis;
