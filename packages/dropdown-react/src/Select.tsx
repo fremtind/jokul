@@ -1,5 +1,5 @@
-import { SupportLabel } from "@fremtind/jkl-typography-react";
 import React from "react";
+import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
     label: string;
@@ -10,6 +10,9 @@ interface Props {
     autoComplete?: string;
     helpLabel?: string;
     errorLabel?: string;
+    variant?: "secondary" | "small";
+    placeholder?: string;
+    value?: string;
 }
 
 export function Select({
@@ -20,23 +23,43 @@ export function Select({
     inline = false,
     helpLabel,
     errorLabel,
+    variant,
+    placeholder,
+    value,
     ...rest
 }: Props) {
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => onChange && onChange(event);
+    // Set value to value given, or to first item if no value or placeholder is given:
+    value = value ? value : placeholder ? "" : items[0];
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        onChange && onChange(event);
+    };
+    const composedClassNames = "jkl-dropdown"
+        .concat(inline ? ` jkl-dropdown--inline` : "")
+        .concat(!!errorLabel ? ` jkl-dropdown--invalid` : "")
+        .concat(value === "" ? ` jkl-dropdown--no-value` : "")
+        .concat(variant ? ` jkl-dropdown--${variant}` : "")
+        .concat(className ? ` ${className}` : "");
     return (
-        <label
-            className={`jkl-dropdown ${inline ? "jkl-dropdown--inline" : ""} ${
-                errorLabel ? "jkl-dropdown--invalid" : ""
-            } ${className}`}
-        >
-            <select className="jkl-dropdown__value" onBlur={handleChange} onChange={handleChange} {...rest}>
+        <label className={composedClassNames}>
+            <span className="jkl-dropdown__label">{label}</span>
+            <select
+                value={value}
+                className="jkl-dropdown__value"
+                onBlur={handleChange}
+                onChange={handleChange}
+                {...rest}
+            >
+                {placeholder && value === "" && (
+                    <option disabled value="">
+                        {placeholder}
+                    </option>
+                )}
                 {items.map((item) => (
                     <option data-testid="jkl-dropdown__option" key={item} value={item}>
                         {item}
                     </option>
                 ))}
             </select>
-            <span className="jkl-dropdown__label jkl-dropdown__label--has-value">{label}</span>
             <span className="jkl-dropdown__chevron" />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
         </label>

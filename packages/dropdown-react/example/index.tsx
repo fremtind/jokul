@@ -8,8 +8,8 @@ import "@fremtind/jkl-dropdown/dropdown.min.css";
 import "./index.scss";
 
 initTabListener();
-const DropdownDemo = () => {
-    const items = ["The flower shop", "I have cancer", "Throwing the football", "ChripChripChrip", "hei, se her!"];
+const SelectDemo = () => {
+    const items = ["The flower shop", "I have cancer", "Throwing the football", "ChirpChirpChirp"];
     const years = [...Array(120)].map((_, i) => (i + 1900).toString()); // 1900 - 2019
 
     const [favoriteScene, setFavoriteScene] = useState("");
@@ -18,28 +18,47 @@ const DropdownDemo = () => {
         <>
             <Dropdown
                 inline
+                className="jkl-spacing--all-2"
                 label="The Room scene"
                 defaultPrompt="Choose your favorite"
                 items={items}
                 onChange={setFavoriteScene}
                 helpLabel="The room is the greatest movie"
                 errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
+                variant="secondary"
             />
-            <Dropdown inline label="Fødselsår" items={years} initialInputValue="1986" />
+            <Dropdown
+                inline
+                className="jkl-spacing--all-2"
+                label="Fødselsår"
+                items={years}
+                initialInputValue="1986"
+                variant="small"
+            />
 
-            <Select label="Standard select" items={items} onChange={(e) => console.log(e.target.value)} />
             <Select
-                helpLabel="The room is the greatest movie"
-                errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
-                label="Standard select"
+                className="jkl-spacing--top-5"
+                label="Native select"
                 items={items}
                 onChange={(e) => console.log(e.target.value)}
+                value="ChirpChirpChirp"
+            />
+            <Select
+                className="jkl-spacing--top-3"
+                helpLabel="The room is the greatest movie"
+                errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
+                label="Native select"
+                items={items}
+                onChange={(e) => setFavoriteScene(e.target.value)}
+                placeholder="Choose your favorite"
+                variant="secondary"
+                value={favoriteScene}
             />
 
-            <Dropdown label="Favorite The Room scene" items={items} />
-            <Dropdown className="short" label="Fødselsår" items={years} />
+            <Dropdown className="jkl-spacing--top-5" label="Favorite The Room scene" items={items} />
+            <Dropdown className="short jkl-spacing--top-3" label="Fødselsår" items={years} />
         </>
     );
 };
 
-ReactDOM.render(<DropdownDemo />, document.getElementById("app"));
+ReactDOM.render(<SelectDemo />, document.getElementById("app"));

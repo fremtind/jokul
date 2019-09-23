@@ -8,7 +8,7 @@ describe("Select", () => {
     it("should render the correct label", () => {
         const { getByText } = render(<Select label="testing" items={[]} />);
 
-        expect(getByText("testing")).toBeInTheDocument;
+        expect(getByText("testing")).toBeInTheDocument();
     });
 
     it("should render the correct number of options", () => {

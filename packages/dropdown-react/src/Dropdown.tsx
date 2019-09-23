@@ -13,9 +13,9 @@ interface Props {
     className?: string;
     initialInputValue?: string;
     onChange?: (value: string) => void;
-    initialShow?: boolean;
     helpLabel?: string;
     errorLabel?: string;
+    variant?: "secondary" | "small";
 }
 
 interface CoreToggleSelectEvent {
@@ -39,7 +39,7 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     focusedItem && focusedItem.focus();
 }
 
-export const Dropdown = ({
+export function Dropdown({
     items,
     initialInputValue,
     label,
@@ -49,13 +49,20 @@ export const Dropdown = ({
     errorLabel,
     inline = false,
     defaultPrompt = "Velg",
-    initialShow = false,
-}: Props) => {
+    variant,
+}: Props) {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
-    const [dropdownIsShown, setShown] = useState(initialShow);
+    const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
+    const composedClassNames = "jkl-dropdown"
+        .concat(inline ? ` jkl-dropdown--inline` : "")
+        .concat(dropdownIsShown ? ` jkl-dropdown--open` : "")
+        .concat(!hasSelectedValue ? ` jkl-dropdown--no-value` : "")
+        .concat(!!errorLabel ? ` jkl-dropdown--invalid` : "")
+        .concat(variant ? ` jkl-dropdown--${variant}` : "")
+        .concat(className ? ` ${className}` : "");
 
     function onToggle() {
         const listElement = listRef.current;
@@ -73,72 +80,55 @@ export const Dropdown = ({
         onChange && onChange(e.detail.textContent);
     }
 
-    let cn = "jkl-dropdown";
-
-    if (inline) {
-        cn = `${cn} jkl-dropdown--inline`;
-    }
-    if (dropdownIsShown) {
-        cn = `${cn} jkl-dropdown--open`;
-    }
-    if (!hasSelectedValue) {
-        cn = `${cn} jkl-dropdown--no-value`;
-    }
-    if (!!errorLabel) {
-        cn = `${cn} jkl-dropdown--invalid`;
-    }
-    if (className) {
-        cn = `${cn} ${className}`;
-    }
-
     return (
-        <div data-testid="jkl-dropdown" className={cn}>
-            <span className={`jkl-dropdown__label ${hasSelectedValue ? "jkl-dropdown__label--has-value" : ""}`}>
-                {label}
-            </span>
-            <button
-                type="button"
-                className="jkl-dropdown__value"
-                data-testid="jkl-dropdown__value"
-                aria-haspopup="listbox"
-            >
-                {hasSelectedValue ? selectedValue : defaultPrompt}
-            </button>
-            <CoreToggle
-                id={listId}
-                role="listbox"
-                className="jkl-dropdown__core-toggle"
-                popup={label}
-                hidden={!dropdownIsShown}
-                onToggle={onToggle}
-                onToggleSelect={onToggleSelect}
-                aria-activedescendant={hasSelectedValue && `${listId}__${lower(selectedValue)}`}
-            >
-                <ul
-                    className="jkl-dropdown__option-wrapper"
-                    data-testid="jkl-dropdown__option-wrapper"
-                    tabIndex={-1}
-                    ref={listRef}
-                >
-                    {items.map((item) => (
-                        <li key={item}>
-                            <button
-                                type="button"
-                                id={`${listId}__${lower(item)}`}
-                                className="jkl-dropdown__option"
-                                data-testid="jkl-dropdown__option"
-                                aria-selected={item === selectedValue}
-                                role="option"
-                            >
-                                {item}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
-            </CoreToggle>
-
-            <span className="jkl-dropdown__chevron" />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
-        </div>
+        <>
+            <div data-testid="jkl-dropdown" className={composedClassNames}>
+                <span className={`jkl-dropdown__label`}>{label}</span>
+                <div className="jkl-dropdown__outer-wrapper">
+                    <button
+                        type="button"
+                        className="jkl-dropdown__value"
+                        data-testid="jkl-dropdown__value"
+                        aria-haspopup="listbox"
+                    >
+                        {hasSelectedValue ? selectedValue : defaultPrompt}
+                    </button>
+                    <CoreToggle
+                        id={listId}
+                        role="listbox"
+                        className="jkl-dropdown__core-toggle"
+                        popup={label}
+                        hidden={!dropdownIsShown}
+                        onToggle={onToggle}
+                        onToggleSelect={onToggleSelect}
+                        aria-activedescendant={hasSelectedValue && `${listId}__${lower(selectedValue)}`}
+                    >
+                        <ul
+                            className="jkl-dropdown__option-wrapper"
+                            data-testid="jkl-dropdown__option-wrapper"
+                            tabIndex={-1}
+                            ref={listRef}
+                        >
+                            {items.map((item) => (
+                                <li key={item}>
+                                    <button
+                                        type="button"
+                                        id={`${listId}__${lower(item)}`}
+                                        className="jkl-dropdown__option"
+                                        data-testid="jkl-dropdown__option"
+                                        aria-selected={item === selectedValue}
+                                        role="option"
+                                    >
+                                        {item}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </CoreToggle>
+                    <span className="jkl-dropdown__chevron" />
+                </div>
+                <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+            </div>
+        </>
     );
-};
+}

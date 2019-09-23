@@ -6,11 +6,6 @@ button {
     outline: none;
 }
 
-.jkl-dropdown {
-    margin-bottom: 3rem;
-    margin-right: 1rem;
-
-    &.short {
-        width: 9rem;
-    }
+.jkl-dropdown.short {
+    width: 9rem;
 }
