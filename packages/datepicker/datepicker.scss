@@ -7,7 +7,6 @@ $date-width: rem(46px);
 $calendar-padding: $component-spacing--xl;
 $calendar-width: ($date-width * 7) + ($calendar-padding * 2);
 $background-color: white;
-$popup-top-position: $label-height + $input-height + $bottom-padding + rem(2px);
 $bottom-margin: $component-spacing--large;
 
 .jkl-datepicker {
@@ -49,16 +48,6 @@ $bottom-margin: $component-spacing--large;
                 text-transform: capitalize;
             }
         }
-    }
-
-    &__month-label {
-        @include position(absolute, $top: 0, $left: 0, $right: 0);
-        font-size: $input-font-size;
-        line-height: $label-height;
-        color: $varm-fjellgra;
-        transform-origin: top left;
-        transform: scale($label-font-size / $input-font-size);
-        pointer-events: none;
     }
 
     &__calendar {
