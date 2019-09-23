@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.9.0...@fremtind/portal@0.10.0) (2019-09-23)
+
+
+### Features
+
+* **jkl-table:** change prop name for click a row in table ([5dfa8c9](https://github.com/fremtind/jokul/commit/5dfa8c9))
+* **portal:** add page title and fix accessibility issues ([e210b78](https://github.com/fremtind/jokul/commit/e210b78))
+* **portal:** add table to documentation ([d0d362e](https://github.com/fremtind/jokul/commit/d0d362e))
+
+
+
+
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.8.0...@fremtind/portal@0.9.0) (2019-08-30)
 
 
