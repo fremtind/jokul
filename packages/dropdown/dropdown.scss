@@ -13,23 +13,8 @@ $border-color--focus: $himmel;
 $value-height: $line-height-3;
 $value-font-size: $font-size-3;
 
-$label-height: $line-height-6;
-$label-font-size: $font-size-6;
-$label-bottom-margin: $component-spacing--xl;
-
-$label-height--secondary: $line-height-4;
-$label-font-size--secondary: $font-size-4;
-$label-bottom-margin--secondary: $component-spacing--large;
-
-$label-height--small: $line-height-2;
-$label-font-size--small: $font-size-2;
-$label-bottom-margin--small: 0;
-
 $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
-$bottom-margin: $component-spacing--large;
-
-$dropdown-total-height: $label-height + $value-height + $bottom-padding;
 
 $chevron-size: rem(20px);
 $chevron-weight: rem(1px);
