@@ -25,4 +25,9 @@ describe("Loader", () => {
 
         expect(getByTestId("jkl-loader")).toBeInTheDocument();
     });
+    it("should apply passed className prop", () => {
+        const { getByTestId } = render(<Loader className="testclass" />);
+
+        expect(getByTestId("jkl-loader")).toHaveClass("testclass");
+    });
 });
