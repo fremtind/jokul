@@ -86,7 +86,7 @@ export function Dropdown({
         e.target.button.focus();
         e.target.value = e.detail;
         setSelectedValue(e.detail.textContent);
-        onChange && onChange(e.detail.textContent);
+        onChange && onChange(selectedValue || "");
     }
 
     return (
