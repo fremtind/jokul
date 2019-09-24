@@ -5,7 +5,6 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-text-input/text-input.min.css";
 // @ts-ignore
 import textFieldType from "!raw-loader!@fremtind/jkl-text-input-react/build/TextField.d.ts";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
 
 const example = `() => {
     const [value, setValue] = React.useState("");
