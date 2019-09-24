@@ -114,13 +114,14 @@ export function DatePicker({
     return (
         <div className={`jkl-datepicker ${className}`} ref={datepickerRef}>
             <div className="jkl-datepicker__outer-wrapper">
-                <label data-testid="jkl-datepicker-input" className={`jkl-text-field`}>
+                <label className={`jkl-text-field`}>
                     <span className={`jkl-label ${variant ? `jkl-label--${variant}` : ""}`}>{label}</span>
                     <input
                         placeholder={placeholder}
                         type="text"
                         aria-invalid={!!errorLabel}
                         className={`jkl-text-field__input`}
+                        data-testid="jkl-datepicker__input"
                         value={dateString}
                         onChange={onInputChange}
                         onFocus={openDatepicker}
