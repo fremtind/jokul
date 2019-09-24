@@ -1,9 +1,10 @@
 import React from "react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { SelectValue, makeSelectValueFrom } from "./Dropdown";
 
 interface Props {
     label: string;
-    items: string[];
+    items: Array<string | SelectValue>;
     inline?: boolean;
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -29,7 +30,7 @@ export function Select({
     ...rest
 }: Props) {
     // Set value to value given, or to first item if no value or placeholder is given:
-    value = value ? value : placeholder ? "" : items[0];
+    value = value ? value : placeholder ? "" : makeSelectValueFrom(items[0]).value;
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange && onChange(event);
     };
@@ -54,11 +55,14 @@ export function Select({
                         {placeholder}
                     </option>
                 )}
-                {items.map((item) => (
-                    <option data-testid="jkl-dropdown__option" key={item} value={item}>
-                        {item}
-                    </option>
-                ))}
+                {items.map((item) => {
+                    item = typeof item === "string" ? { value: item, label: item } : item;
+                    return (
+                        <option data-testid="jkl-dropdown__option" key={item.value} value={item.value}>
+                            {item.label}
+                        </option>
+                    );
+                })}
             </select>
             <span className="jkl-dropdown__chevron" />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />

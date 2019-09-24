@@ -5,9 +5,14 @@ import nanoid from "nanoid";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { useListNavigation } from "./useListNavigation";
 
+export type SelectValue = {
+    value: string;
+    label: string;
+};
+
 interface Props {
     label: string;
-    items: string[];
+    items: Array<string | SelectValue>;
     inline?: boolean;
     defaultPrompt?: string;
     className?: string;
@@ -37,6 +42,10 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
         focusedItem = listEl.querySelector('[role="option"]');
     }
     focusedItem && focusedItem.focus();
+}
+
+export function makeSelectValueFrom(item: string | SelectValue) {
+    return typeof item === "string" ? { value: item, label: item } : item;
 }
 
 export function Dropdown({
@@ -109,20 +118,23 @@ export function Dropdown({
                             tabIndex={-1}
                             ref={listRef}
                         >
-                            {items.map((item) => (
-                                <li key={item}>
-                                    <button
-                                        type="button"
-                                        id={`${listId}__${lower(item)}`}
-                                        className="jkl-dropdown__option"
-                                        data-testid="jkl-dropdown__option"
-                                        aria-selected={item === selectedValue}
-                                        role="option"
-                                    >
-                                        {item}
-                                    </button>
-                                </li>
-                            ))}
+                            {items.map((item) => {
+                                item = makeSelectValueFrom(item);
+                                return (
+                                    <li key={item.value}>
+                                        <button
+                                            type="button"
+                                            id={`${listId}__${lower(item.value)}`}
+                                            className="jkl-dropdown__option"
+                                            data-testid="jkl-dropdown__option"
+                                            aria-selected={item.value === selectedValue}
+                                            role="option"
+                                        >
+                                            {item.label}
+                                        </button>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </CoreToggle>
                     <span className="jkl-dropdown__chevron" />
