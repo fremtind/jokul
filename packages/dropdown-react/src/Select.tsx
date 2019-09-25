@@ -30,8 +30,14 @@ export function Select({
     value,
     ...rest
 }: Props) {
-    // Set value to value given, or to first item if no value or placeholder is given:
-    value = value ? value : placeholder ? "" : items[0];
+    // If no value is given, set it to first item, or to empty string if there is a placeholder
+    if (!value) {
+        if (!placeholder) {
+            value = items[0];
+        } else {
+            value = "";
+        }
+    }
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange && onChange(event);
     };
