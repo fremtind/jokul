@@ -1,3 +1,5 @@
+/* eslint "jsx-a11y/no-onchange": 0 */
+
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { RadioButtonChoice } from "../src";
