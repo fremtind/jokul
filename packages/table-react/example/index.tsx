@@ -35,7 +35,7 @@ const rows: Array<string[] | TableAnchorRowData> = [
 const TableDemo = () => {
     return (
         <>
-            <Table columns={columns} rows={rows} />
+            <Table columns={columns} rows={rows} className={"helloworld"} />
         </>
     );
 };

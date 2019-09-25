@@ -6,11 +6,12 @@ export type TableRowData = string[] | TableAnchorRowData;
 interface Props {
     columns: string[];
     rows: Array<TableRowData>;
+    className?: string;
 }
 
 export function Table(props: Props) {
     return (
-        <table className="jkl-table">
+        <table className={`jkl-table ${props.className ? props.className : ""}`}>
             <thead>
                 <tr className="jkl-table__row">
                     {props.columns.map((columnValue, i) => (
