@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "publishConfig": {
         "access": "public"
     },
@@ -31,7 +31,7 @@
         "*.scss"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "clean": "rimraf build/ dist/ .cache node_modules/ **/*.css",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",

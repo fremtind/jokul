@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.9.0...@fremtind/jkl-datepicker-react@0.10.0) (2019-09-23)
+
+
+### Features
+
+* **jkl-datepicker-react:** fix loss of focus when opening datepicker ([87a8ab8](https://github.com/fremtind/jokul/commit/87a8ab8)), closes [#364](https://github.com/fremtind/jokul/issues/364)
+
+
+
+
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.8.0...@fremtind/jkl-datepicker-react@0.9.0) (2019-08-30)
 
 
