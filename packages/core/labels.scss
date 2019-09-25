@@ -5,8 +5,7 @@
 .jkl-form-support-label {
     display: block;
     margin-top: $component-spacing--small;
-    @include font-size(xs);
-    @include line-height(xs);
+    @include text-sizing("xs");
 
     &--help {
         color: $svart;
@@ -19,22 +18,25 @@
 
 .jkl-label {
     display: inline-block;
-    @include font-size("xl");
-    @include line-height("xl");
     margin-bottom: $component-spacing--xl;
-    margin-left: rem(-1px);
+    margin-left: rem(-1px); // adjust visual alignment
+    @include text-sizing("xl");
+    @include small-device {
+        margin-bottom: $component-spacing--large;
+    }
 
     &--secondary {
-        @include font-size("medium");
-        @include line-height("medium");
         margin-bottom: $component-spacing--large;
         margin-left: initial;
+        @include text-sizing("medium");
+        @include small-device {
+            margin-bottom: $component-spacing--small;
+        }
     }
 
     &--small {
-        @include font-size("xs");
-        @include line-height("xs");
         margin-bottom: 0;
         margin-left: initial;
+        @include text-sizing("xs");
     }
 }

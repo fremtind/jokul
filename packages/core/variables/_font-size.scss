@@ -90,3 +90,9 @@ $line-height--large-device: (
         @include line-height--small-device($size);
     }
 }
+
+// Shorthand for setting both font-size and line-height to same value
+@mixin text-sizing($size) {
+    @include font-size($size);
+    @include line-height($size);
+}
