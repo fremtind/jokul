@@ -56,7 +56,7 @@ const SelectDemo = () => {
             />
 
             <Dropdown className="jkl-spacing--top-5" label="Favorite The Room scene" items={items} />
-            <Dropdown className="short jkl-spacing--top-3" label="Fødselsår" items={years} />
+            <Dropdown className="jkl-spacing--top-3" label="Fødselsår" items={years} />
         </>
     );
 };
