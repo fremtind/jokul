@@ -164,6 +164,7 @@ $chevron-weight: rem(1px);
         @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
         position: absolute;
         right: 0;
+        pointer-events: none;
     }
 
     &--invalid {
