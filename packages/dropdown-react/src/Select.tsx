@@ -1,4 +1,7 @@
+/* eslint "jsx-a11y/no-onchange": 0 */
+
 import React from "react";
+import { labelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { SelectValue, makeSelectValueFrom } from "./Dropdown";
 
@@ -11,7 +14,7 @@ interface Props {
     autoComplete?: string;
     helpLabel?: string;
     errorLabel?: string;
-    variant?: "secondary" | "small";
+    variant?: labelVariant;
     placeholder?: string;
     value?: string;
 }
@@ -29,8 +32,14 @@ export function Select({
     value,
     ...rest
 }: Props) {
-    // Set value to value given, or to first item if no value or placeholder is given:
-    value = value ? value : placeholder ? "" : makeSelectValueFrom(items[0]).value;
+    // If no value is given, set it to first item, or to empty string if there is a placeholder
+    if (!value) {
+        if (!placeholder) {
+            value = makeSelectValueFrom(items[0]).value;
+        } else {
+            value = "";
+        }
+    }
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange && onChange(event);
     };

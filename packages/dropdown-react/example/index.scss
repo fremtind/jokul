@@ -1,11 +1,7 @@
-body {
-    padding: 8rem;
-}
-
-button {
-    outline: none;
-}
-
-.jkl-dropdown.short {
-    width: 9rem;
+body,
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

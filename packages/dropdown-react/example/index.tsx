@@ -20,7 +20,7 @@ const SelectDemo = () => {
         <>
             <Dropdown
                 inline
-                className="jkl-spacing--all-2"
+                className="jkl-spacing--top-3"
                 label="The Room scene"
                 defaultPrompt="Choose your favorite"
                 items={items}
@@ -31,7 +31,7 @@ const SelectDemo = () => {
             />
             <Dropdown
                 inline
-                className="jkl-spacing--all-2"
+                className="jkl-spacing--top-3"
                 label="Fødselsår"
                 items={years}
                 initialInputValue="1986"
@@ -59,7 +59,7 @@ const SelectDemo = () => {
             />
 
             <Dropdown className="jkl-spacing--top-5" label="Favorite The Room scene" items={items} />
-            <Dropdown className="short jkl-spacing--top-3" label="Fødselsår" items={years} />
+            <Dropdown className="jkl-spacing--top-3" label="Fødselsår" items={years} />
         </>
     );
 };

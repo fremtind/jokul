@@ -1,7 +1,9 @@
+/* eslint "jsx-a11y/no-onchange": 0 */
+
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { RadioButtonChoice } from "../src";
-import { initTabListener } from "@fremtind/jkl-core";
+import { initTabListener, labelVariant } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-field-group/field-group.min.css";
@@ -13,7 +15,7 @@ const Demo = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [inline, setInline] = useState(false);
     const [invalid, setInvalid] = useState("");
-    const [variant, setVariant] = useState<"secondary" | "small" | undefined>();
+    const [variant, setVariant] = useState<labelVariant | undefined>();
     const typecheckAndSetVariant = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const val = e.target.value;
         if (val === ("secondary" || "small")) {

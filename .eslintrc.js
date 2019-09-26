@@ -29,6 +29,5 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": 0, // Explicit function return type becomes very annoying for React Function Components
         "@typescript-eslint/no-use-before-define": ["error", { functions: false }],
         "@typescript-eslint/ban-ts-ignore": 0, // We use ts-ignore for modules that don't have type definition files
-        "jsx-a11y/no-onchange": 0, // To allow the onChange method on <select> elements
     },
 };

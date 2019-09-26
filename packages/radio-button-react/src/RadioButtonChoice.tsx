@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { labelVariant } from "@fremtind/jkl-core";
 import { RadioButton } from "./RadioButton";
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     helpLabel?: string;
     errorLabel?: string;
-    variant?: "secondary" | "small";
+    variant?: labelVariant;
 }
 
 export const RadioButtonChoice = ({
