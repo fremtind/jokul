@@ -24,7 +24,7 @@ const example = `<>
     defaultPrompt="Choose" // for screen readers
     items={["Apartment", "Duplex", "House", "Mansion"]}
     initialInputValue="House"
-    onChange={value => alert(value)}
+    onChange={value => console.log(value)}
     errorLabel="Select valid place to live"
   />
   <Select
