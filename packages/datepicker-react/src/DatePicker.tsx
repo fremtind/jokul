@@ -2,6 +2,7 @@ import React, { ChangeEvent, useRef, useState } from "react";
 import { Select } from "@fremtind/jkl-dropdown-react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
+import { labelVariant } from "@fremtind/jkl-core";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 
@@ -22,7 +23,7 @@ interface Props {
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
-    variant?: "secondary" | "small";
+    variant?: labelVariant;
 }
 
 const dayMonthYearRegex = /^(\d\d)\.(\d\d)\.(\d{4})/;

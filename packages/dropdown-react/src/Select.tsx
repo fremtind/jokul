@@ -2,6 +2,7 @@
 
 import React from "react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { labelVariant } from "@fremtind/jkl-core";
 
 interface Props {
     label: string;
@@ -12,7 +13,7 @@ interface Props {
     autoComplete?: string;
     helpLabel?: string;
     errorLabel?: string;
-    variant?: "secondary" | "small";
+    variant?: labelVariant;
     placeholder?: string;
     value?: string;
 }
