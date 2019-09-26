@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-bullet-list@0.7.4...@fremtind/jkl-bullet-list@0.7.5) (2019-09-26)
+
+**Note:** Version bump only for package @fremtind/jkl-bullet-list
+
+
+
+
+
 ## [0.7.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-bullet-list@0.7.3...@fremtind/jkl-bullet-list@0.7.4) (2019-09-23)
 
 **Note:** Version bump only for package @fremtind/jkl-bullet-list

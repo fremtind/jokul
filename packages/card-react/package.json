@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "publishConfig": {
         "access": "public"
     },
@@ -31,7 +31,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-card": "^0.6.6"
+        "@fremtind/jkl-card": "^0.6.7"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.4"
