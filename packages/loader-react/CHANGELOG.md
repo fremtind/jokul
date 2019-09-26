@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@0.1.6...@fremtind/jkl-loader-react@0.2.0) (2019-09-26)
+
+
+### Bug Fixes
+
+* **loader-react:** add missing space in componentClassName function ([7edc767](https://github.com/fremtind/jokul/commit/7edc767))
+
+
+### Features
+
+* **loader-react:** make loader accept className as prop ([1b83cb7](https://github.com/fremtind/jokul/commit/1b83cb7))
+
+
+
+
+
 ## [0.1.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@0.1.5...@fremtind/jkl-loader-react@0.1.6) (2019-09-23)
 
 **Note:** Version bump only for package @fremtind/jkl-loader-react

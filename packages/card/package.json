@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card",
-    "version": "0.6.6",
+    "version": "0.6.7",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.10.0"
+        "@fremtind/jkl-core": "^0.10.1"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.3.4"
