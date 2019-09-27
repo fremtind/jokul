@@ -7,7 +7,7 @@ import hamburgerType from "!raw-loader!@fremtind/jkl-hamburger-react/build/Hambu
 
 const example = `<div style={{backgroundColor: "#696666", padding: "32px"}}>
     <Hamburger />
-    <Hamburger negative initialIsActive description="Burger" onClick={ (next) => alert(next ? "Is opening" : "Is closing")} />
+    <Hamburger negative initialIsActive description="Burger" onClick={ (next) => console.log(next ? "Is opening" : "Is closing")} />
 </div>`;
 
 const exampleImport = `import { Hamburger } from "@fremtind/jkl-hamburger-react";
