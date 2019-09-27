@@ -23,6 +23,7 @@ $button-height--small: 2.5rem;
     min-width: $button-height--large;
     line-height: $button-height--large;
     font-size: map-get($font-size--large-device, "small");
+    cursor: pointer;
 
     @include small-device {
         height: $button-height--small;
