@@ -40,7 +40,7 @@ const App = () => (
         <div className="jkl-spacing--all-3">
             <DatePicker
                 variant="small"
-                onChange={(date) => alert(`Date selected is ${date}`)}
+                onChange={(date) => console.log(`Date selected is ${date}`)}
                 helpLabel={"Choose wisely"}
             />
         </div>
@@ -51,7 +51,7 @@ const App = () => (
                 monthLabel="Try september"
                 onChange={(date) => {
                     if (date.toDateString() === "Mon Sep 26 1988") {
-                        alert("The greatest date is selected");
+                        console.log("The greatest date is selected");
                     }
                 }}
                 errorLabel={"Not the best date"}

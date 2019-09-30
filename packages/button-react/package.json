@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button-react",
-    "version": "0.6.3",
+    "version": "0.6.4",
     "publishConfig": {
         "access": "public"
     },
@@ -36,10 +36,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^0.7.3"
+        "@fremtind/jkl-button": "^0.7.4"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.4"
+        "@fremtind/browserslist-config-jkl": "^0.3.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
