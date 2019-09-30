@@ -27,7 +27,7 @@ const TextFieldDemo = () => {
                 <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly variant="small" />
             </div>
 
-            <TextField label="Pelefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
+            <TextField label="Telefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
             <TextField
                 label="Passord"
                 type="password"
