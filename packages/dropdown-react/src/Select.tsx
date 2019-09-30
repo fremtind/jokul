@@ -34,7 +34,7 @@ export function Select({
 }: Props) {
     // If no value is given, set it to first item, or to empty string if there is a placeholder
     if (!value) {
-        if (!placeholder) {
+        if (!placeholder && items.length) {
             value = getSelectValuePairFrom(items[0]).value;
         } else {
             value = "";
