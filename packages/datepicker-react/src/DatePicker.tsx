@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useRef, useState } from "react";
-import { Select } from "@fremtind/jkl-dropdown-react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -137,18 +136,17 @@ export function DatePicker({
                         onDatepickerClickDay={onClickCalendarDay}
                         className="jkl-datepicker__calendar"
                     >
-                        <div className="jkl-datepicker__calendar-header">
-                            <label className={`jkl-text-field jkl-datepicker__calendar-header--year`}>
+                        <div className="jkl-datepicker__calendar-navigation">
+                            <label className="jkl-text-field jkl-datepicker__year-selector">
                                 <span className="jkl-label jkl-label--small">{yearLabel}</span>
                                 <input type="year" className={`jkl-text-field__input`} />
                             </label>
 
-                            <Select
-                                variant="small"
-                                className="jkl-datepicker__calendar-header--month"
-                                label={monthLabel}
-                                items={[]}
-                            />
+                            <label className="jkl-dropdown jkl-datepicker__month-selector">
+                                <span className="jkl-label jkl-label--small">{monthLabel}</span>
+                                <select className="jkl-dropdown__value"></select>
+                                <span className="jkl-dropdown__chevron" />
+                            </label>
                         </div>
                         <table data-testid="jkl-datepicker-calendar" />
                     </CoreDatepicker>

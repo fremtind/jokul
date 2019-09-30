@@ -32,21 +32,23 @@ $bottom-margin: $component-spacing--large;
         }
     }
 
-    &__calendar-header {
+    &__calendar-navigation {
         display: flex;
         justify-content: center;
         align-content: center;
-        &--year {
-            max-width: 30%;
-            margin-right: $component-spacing--xxl;
-        }
-        &--month {
-            position: relative;
-            flex-grow: 2;
+    }
 
-            & > select {
-                text-transform: capitalize;
-            }
+    &__year-selector {
+        max-width: 30%;
+        margin-right: $component-spacing--xxl;
+    }
+
+    &__month-selector {
+        position: relative;
+        flex-grow: 2;
+
+        & > .jkl-dropdown__value {
+            text-transform: capitalize;
         }
     }
 
