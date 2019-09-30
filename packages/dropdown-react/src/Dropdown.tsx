@@ -5,15 +5,11 @@ import nanoid from "nanoid";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { labelVariant } from "@fremtind/jkl-core";
 import { useListNavigation } from "./useListNavigation";
-
-export type SelectValue = {
-    value: string;
-    label: string;
-};
+import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
 interface Props {
     label: string;
-    items: Array<string | SelectValue>;
+    items: Array<string | SelectValuePair>;
     inline?: boolean;
     defaultPrompt?: string;
     className?: string;
@@ -43,10 +39,6 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
         focusedItem = listEl.querySelector('[role="option"]');
     }
     focusedItem && focusedItem.focus();
-}
-
-export function makeSelectValueFrom(item: string | SelectValue) {
-    return typeof item === "string" ? { value: item, label: item } : item;
 }
 
 export function Dropdown({
@@ -119,7 +111,7 @@ export function Dropdown({
                         ref={listRef}
                     >
                         {items.map((item) => {
-                            item = makeSelectValueFrom(item);
+                            item = getSelectValuePairFrom(item);
                             return (
                                 <li key={item.value}>
                                     <button

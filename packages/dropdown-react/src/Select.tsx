@@ -3,11 +3,11 @@
 import React from "react";
 import { labelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
-import { SelectValue, makeSelectValueFrom } from "./Dropdown";
+import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
 interface Props {
     label: string;
-    items: Array<string | SelectValue>;
+    items: Array<string | SelectValuePair>;
     inline?: boolean;
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -35,7 +35,7 @@ export function Select({
     // If no value is given, set it to first item, or to empty string if there is a placeholder
     if (!value) {
         if (!placeholder) {
-            value = makeSelectValueFrom(items[0]).value;
+            value = getSelectValuePairFrom(items[0]).value;
         } else {
             value = "";
         }
