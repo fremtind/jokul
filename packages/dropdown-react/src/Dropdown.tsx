@@ -5,10 +5,11 @@ import nanoid from "nanoid";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { labelVariant } from "@fremtind/jkl-core";
 import { useListNavigation } from "./useListNavigation";
+import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
 interface Props {
     label: string;
-    items: string[];
+    items: Array<string | SelectValuePair>;
     inline?: boolean;
     defaultPrompt?: string;
     className?: string;
@@ -20,7 +21,7 @@ interface Props {
 }
 
 interface CoreToggleSelectEvent {
-    detail: { textContent: string };
+    detail: { textContent: string; value: string };
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
@@ -53,6 +54,7 @@ export function Dropdown({
     variant,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
+    const [displayedValue, setDisplayedValue] = useState(initialInputValue);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
@@ -77,8 +79,10 @@ export function Dropdown({
         e.target.hidden = true;
         e.target.button.focus();
         e.target.value = e.detail;
-        setSelectedValue(e.detail.textContent);
-        onChange && onChange(e.detail.textContent);
+        const nextValue = e.detail.value;
+        setDisplayedValue(e.detail.textContent);
+        setSelectedValue(nextValue);
+        onChange && onChange(nextValue || "");
     }
 
     return (
@@ -91,7 +95,7 @@ export function Dropdown({
                     data-testid="jkl-dropdown__value"
                     aria-haspopup="listbox"
                 >
-                    {hasSelectedValue ? selectedValue : defaultPrompt}
+                    {hasSelectedValue ? displayedValue : defaultPrompt}
                 </button>
                 <CoreToggle
                     id={listId}
@@ -109,20 +113,24 @@ export function Dropdown({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map((item) => (
-                            <li key={item}>
-                                <button
-                                    type="button"
-                                    id={`${listId}__${lower(item)}`}
-                                    className="jkl-dropdown__option"
-                                    data-testid="jkl-dropdown__option"
-                                    aria-selected={item === selectedValue}
-                                    role="option"
-                                >
-                                    {item}
-                                </button>
-                            </li>
-                        ))}
+                        {items.map((item) => {
+                            item = getSelectValuePairFrom(item);
+                            return (
+                                <li key={item.value}>
+                                    <button
+                                        type="button"
+                                        id={`${listId}__${lower(item.value)}`}
+                                        className="jkl-dropdown__option"
+                                        data-testid="jkl-dropdown__option"
+                                        aria-selected={item.value === selectedValue}
+                                        role="option"
+                                        value={item.value}
+                                    >
+                                        {item.label}
+                                    </button>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </CoreToggle>
                 <span className="jkl-dropdown__chevron" />
