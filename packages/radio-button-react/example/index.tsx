@@ -18,7 +18,7 @@ const Demo = () => {
     const [variant, setVariant] = useState<LabelVariant | undefined>();
     const typecheckAndSetVariant = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const val = e.target.value;
-        if (val === ("secondary" || "small")) {
+        if (val === "secondary" || val === "small") {
             setVariant(val);
         } else {
             setVariant(undefined);
