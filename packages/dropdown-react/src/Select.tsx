@@ -1,7 +1,7 @@
 /* eslint "jsx-a11y/no-onchange": 0 */
 
 import React from "react";
-import { labelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
@@ -14,7 +14,7 @@ interface Props {
     autoComplete?: string;
     helpLabel?: string;
     errorLabel?: string;
-    variant?: labelVariant;
+    variant?: LabelVariant;
     placeholder?: string;
     value?: string;
 }

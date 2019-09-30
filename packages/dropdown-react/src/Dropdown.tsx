@@ -3,7 +3,7 @@ import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState } from "react";
 import nanoid from "nanoid";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
-import { labelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@fremtind/jkl-core";
 import { useListNavigation } from "./useListNavigation";
 import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
@@ -17,7 +17,7 @@ interface Props {
     onChange?: (value: string) => void;
     helpLabel?: string;
     errorLabel?: string;
-    variant?: labelVariant;
+    variant?: LabelVariant;
 }
 
 interface CoreToggleSelectEvent {

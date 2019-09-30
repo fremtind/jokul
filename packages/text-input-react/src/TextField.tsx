@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FocusEvent } from "react";
-import { labelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
     readOnly?: boolean;
     className?: string;
     placeholder?: string;
-    variant?: labelVariant;
+    variant?: LabelVariant;
 }
 
 export const TextField = ({

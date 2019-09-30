@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState, FocusEvent } from "react";
-import { labelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
     errorLabel?: string;
     rows?: number;
     placeholder?: string;
-    variant?: labelVariant;
+    variant?: LabelVariant;
 }
 
 export const TextArea = ({

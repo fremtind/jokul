@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
-import { labelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@fremtind/jkl-core";
 
 interface Props {
     legend: string;
@@ -8,7 +8,7 @@ interface Props {
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
-    variant?: labelVariant;
+    variant?: LabelVariant;
 }
 
 export const FieldGroup = ({ legend, className, children, helpLabel, errorLabel, variant }: Props) => {
