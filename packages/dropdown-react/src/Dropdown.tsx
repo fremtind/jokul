@@ -66,7 +66,7 @@ export function Dropdown({
         !!errorLabel ? ` jkl-dropdown--invalid` : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
+    const labelClassName = variant ? ` jkl-label--${variant}` : "";
 
     function onToggle() {
         const listElement = listRef.current;
@@ -88,7 +88,7 @@ export function Dropdown({
 
     return (
         <div data-testid="jkl-dropdown" className={componentClassName}>
-            <span className={labelClassName}>{label}</span>
+            <span className={"jkl-label" + labelClassName}>{label}</span>
             <div className="jkl-dropdown__outer-wrapper">
                 <button
                     type="button"
@@ -114,24 +114,21 @@ export function Dropdown({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map((item) => {
-                            item = getSelectValuePairFrom(item);
-                            return (
-                                <li key={item.value}>
-                                    <button
-                                        type="button"
-                                        id={`${listId}__${lower(item.value)}`}
-                                        className="jkl-dropdown__option"
-                                        data-testid="jkl-dropdown__option"
-                                        aria-selected={item.value === selectedValue}
-                                        role="option"
-                                        value={item.value}
-                                    >
-                                        {item.label}
-                                    </button>
-                                </li>
-                            );
-                        })}
+                        {items.map(getSelectValuePairFrom).map((item) => (
+                            <li key={item.value}>
+                                <button
+                                    type="button"
+                                    id={`${listId}__${lower(item.value)}`}
+                                    className="jkl-dropdown__option"
+                                    data-testid="jkl-dropdown__option"
+                                    aria-selected={item.value === selectedValue}
+                                    role="option"
+                                    value={item.value}
+                                >
+                                    {item.label}
+                                </button>
+                            </li>
+                        ))}
                     </ul>
                 </CoreToggle>
                 <span className="jkl-dropdown__chevron" />

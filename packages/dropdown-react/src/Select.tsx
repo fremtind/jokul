@@ -49,10 +49,10 @@ export function Select({
         value === "" ? ` jkl-dropdown--no-value` : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
+    const labelClassName = variant ? ` jkl-label--${variant}` : "";
     return (
         <label className={componentClassName}>
-            <span className={labelClassName}>{label}</span>
+            <span className={"jkl-label" + labelClassName}>{label}</span>
             <select
                 value={value}
                 className="jkl-dropdown__value"
@@ -65,14 +65,11 @@ export function Select({
                         {placeholder}
                     </option>
                 )}
-                {items.map((item) => {
-                    item = typeof item === "string" ? { value: item, label: item } : item;
-                    return (
-                        <option data-testid="jkl-dropdown__option" key={item.value} value={item.value}>
-                            {item.label}
-                        </option>
-                    );
-                })}
+                {items.map(getSelectValuePairFrom).map((item) => (
+                    <option data-testid="jkl-dropdown__option" key={item.value} value={item.value}>
+                        {item.label}
+                    </option>
+                ))}
             </select>
             <span className="jkl-dropdown__chevron" />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
