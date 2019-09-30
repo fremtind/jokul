@@ -59,12 +59,13 @@ export function Dropdown({
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
-    const componentClassName = "jkl-dropdown"
-        .concat(inline ? ` jkl-dropdown--inline` : "")
-        .concat(dropdownIsShown ? ` jkl-dropdown--open` : "")
-        .concat(!hasSelectedValue ? ` jkl-dropdown--no-value` : "")
-        .concat(!!errorLabel ? ` jkl-dropdown--invalid` : "")
-        .concat(className ? ` ${className}` : "");
+    const componentClassName = "jkl-dropdown".concat(
+        inline ? ` jkl-dropdown--inline` : "",
+        dropdownIsShown ? ` jkl-dropdown--open` : "",
+        !hasSelectedValue ? ` jkl-dropdown--no-value` : "",
+        !!errorLabel ? ` jkl-dropdown--invalid` : "",
+        className ? ` ${className}` : "",
+    );
     const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
 
     function onToggle() {

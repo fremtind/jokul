@@ -43,11 +43,12 @@ export function Select({
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange && onChange(event);
     };
-    const componentClassName = "jkl-dropdown"
-        .concat(inline ? ` jkl-dropdown--inline` : "")
-        .concat(!!errorLabel ? ` jkl-dropdown--invalid` : "")
-        .concat(value === "" ? ` jkl-dropdown--no-value` : "")
-        .concat(className ? ` ${className}` : "");
+    const componentClassName = "jkl-dropdown".concat(
+        inline ? ` jkl-dropdown--inline` : "",
+        !!errorLabel ? ` jkl-dropdown--invalid` : "",
+        value === "" ? ` jkl-dropdown--no-value` : "",
+        className ? ` ${className}` : "",
+    );
     const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
     return (
         <label className={componentClassName}>

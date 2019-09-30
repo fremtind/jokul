@@ -35,9 +35,10 @@ export const TextField = ({
     variant,
     ...rest
 }: Props) => {
-    const componentClassName = "jkl-text-field"
-        .concat(inline ? " jkl-text-field--inline" : "")
-        .concat(className ? ` ${className}` : "");
+    const componentClassName = "jkl-text-field".concat(
+        inline ? " jkl-text-field--inline" : "",
+        className ? ` ${className}` : "",
+    );
     const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
