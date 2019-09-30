@@ -1,8 +1,9 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import { TableRowData } from "./Table";
-import { TableData } from "./TableData";
+import { AnchorRow } from "./AnchorRow";
+import { AccordionRow } from "./AccordionRow";
 
-export type TableRowDataVariants = "anchor";
+export type TableRowDataVariants = "anchor" | "accordion";
 
 export interface BaseTableRowData {
     type: TableRowDataVariants;
@@ -16,37 +17,43 @@ export interface TableAnchorRowData extends BaseTableRowData {
     onRowClick?: (href: string) => void;
 }
 
+export interface TableAccordionRowData extends BaseTableRowData {
+    rowData: string[];
+    type: "accordion";
+    defaultOpen: boolean;
+    children: string;
+}
+
 interface Props {
     row: TableRowData;
 }
 
-export function TableRow(props: Props) {
-    const { row } = props;
-    const rowData: string[] = isAnchorRowData(row) ? row.rowData : row;
-
-    let onClick: undefined | ((evt: MouseEvent<HTMLTableRowElement>) => void) = undefined;
-    let rowModifierClasses = "";
-
+export function TableRow({ row }: Props) {
     if (isAnchorRowData(row)) {
-        onClick = () => {
-            if (row.onRowClick) {
-                row.onRowClick(row.href);
-            } else {
-                window.location.href = row.href;
-            }
-        };
-        rowModifierClasses += "jkl-table__row--anchor-row";
+        return <AnchorRow row={row} />;
+    }
+
+    if (isAccordionRowData(row)) {
+        return <AccordionRow row={row} />;
     }
 
     return (
-        <tr onClick={onClick} className={`jkl-table__row jkl-table__row--data-row ${rowModifierClasses}`}>
-            {rowData.map((data, j) => (
-                <TableData data={data} row={row} key={j} isFirstCell={j === 0} />
+        <tr className={"jkl-table__row jkl-table__row--data-row"}>
+            {row.map((data, j) => (
+                <td className="jkl-table__data-cell" key={j}>
+                    {data}
+                </td>
             ))}
         </tr>
     );
 }
 
-export function isAnchorRowData(row: string[] | TableAnchorRowData): row is TableAnchorRowData {
+export function isAnchorRowData(row: string[] | TableAnchorRowData | TableAccordionRowData): row is TableAnchorRowData {
     return "type" in row && row.type === "anchor";
+}
+
+export function isAccordionRowData(
+    row: string[] | TableAnchorRowData | TableAccordionRowData,
+): row is TableAccordionRowData {
+    return "type" in row && row.type === "accordion";
 }

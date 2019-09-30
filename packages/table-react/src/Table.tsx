@@ -1,7 +1,7 @@
 import React from "react";
-import { TableAnchorRowData, TableRow } from "./TableRow";
+import { TableAccordionRowData, TableAnchorRowData, TableRow } from "./TableRow";
 
-export type TableRowData = string[] | TableAnchorRowData;
+export type TableRowData = string[] | TableAnchorRowData | TableAccordionRowData;
 
 interface Props {
     columns: string[];
