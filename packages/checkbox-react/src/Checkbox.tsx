@@ -11,7 +11,9 @@ interface Props {
 }
 
 export function Checkbox({ children, name, value, checked, onChange, className, inline = true }: Props) {
-    const classNames = "jkl-checkbox".concat(inline ? " jkl-checkbox--inline" : "", className ? ` ${className}` : "");
+    const classNames = "jkl-checkbox"
+        .concat(inline ? " jkl-checkbox--inline" : "")
+        .concat(className ? ` ${className}` : "");
     return (
         <label className={classNames}>
             <input
