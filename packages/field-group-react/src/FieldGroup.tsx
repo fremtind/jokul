@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { LabelVariant } from "@fremtind/jkl-core";
 
 interface Props {
     legend: string;
@@ -7,12 +8,17 @@ interface Props {
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
+    variant?: LabelVariant;
 }
 
-export const FieldGroup = ({ legend, className, children, helpLabel, errorLabel }: Props) => (
-    <fieldset className={`jkl-field-group ${className ? className : ""}`}>
-        <legend className="jkl-field-group__legend">{legend}</legend>
-        {children}
-        {(helpLabel || errorLabel) && <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />}
-    </fieldset>
-);
+export const FieldGroup = ({ legend, className, children, helpLabel, errorLabel, variant }: Props) => {
+    const componentClassName = "jkl-field-group".concat(className ? ` ${className}` : "");
+    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
+    return (
+        <fieldset className={componentClassName}>
+            <legend className={labelClassName}>{legend}</legend>
+            {children}
+            {(helpLabel || errorLabel) && <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />}
+        </fieldset>
+    );
+};

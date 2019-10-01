@@ -12,9 +12,10 @@ interface Props {
 export const RadioButton = ({ value, onChange, name = "", inline = false, checked, invalid = false }: Props) => (
     <label
         data-testid="jkl-radio-button__label-tag"
-        className={"jkl-radio-button"
-            .concat(inline ? " jkl-radio-button--inline" : "")
-            .concat(invalid ? " jkl-radio-button--error" : "")}
+        className={"jkl-radio-button".concat(
+            inline ? " jkl-radio-button--inline" : "",
+            invalid ? " jkl-radio-button--error" : "",
+        )}
     >
         <input
             className="jkl-radio-button__input"

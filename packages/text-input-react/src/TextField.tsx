@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FocusEvent } from "react";
+import { LabelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
@@ -17,6 +18,7 @@ interface Props {
     readOnly?: boolean;
     className?: string;
     placeholder?: string;
+    variant?: LabelVariant;
 }
 
 export const TextField = ({
@@ -27,27 +29,31 @@ export const TextField = ({
     errorLabel,
     id,
     label,
-    className = "",
+    className,
     placeholder,
     value,
+    variant,
     ...rest
-}: Props) => (
-    <label
-        data-testid="jkl-text-field"
-        className={`jkl-text-field${inline ? " jkl-text-field--inline" : ""} ${className}`}
-    >
-        <input
-            type={type}
-            aria-invalid={!!errorLabel}
-            className={`jkl-text-field__input`}
-            id={id}
-            placeholder=" "
-            readOnly={readOnly}
-            value={value}
-            {...rest}
-        />
-        {!value && placeholder && <span className="jkl-text-field__placeholder">{placeholder}</span>}
-        <span className="jkl-text-field__label">{label}</span>
-        <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
-    </label>
-);
+}: Props) => {
+    const componentClassName = "jkl-text-field".concat(
+        inline ? " jkl-text-field--inline" : "",
+        className ? ` ${className}` : "",
+    );
+    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
+    return (
+        <label data-testid="jkl-text-field" className={componentClassName}>
+            <span className={labelClassName}>{label}</span>
+            <input
+                type={type}
+                aria-invalid={!!errorLabel}
+                className={`jkl-text-field__input`}
+                id={id}
+                placeholder={placeholder}
+                readOnly={readOnly}
+                value={value}
+                {...rest}
+            />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+        </label>
+    );
+};

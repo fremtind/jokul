@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { LabelVariant } from "@fremtind/jkl-core";
 import { RadioButton } from "./RadioButton";
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     helpLabel?: string;
     errorLabel?: string;
+    variant?: LabelVariant;
 }
 
 export const RadioButtonChoice = ({
@@ -22,8 +24,9 @@ export const RadioButtonChoice = ({
     inline = true,
     helpLabel,
     errorLabel,
+    variant,
 }: Props) => (
-    <FieldGroup legend={legend} helpLabel={helpLabel} errorLabel={errorLabel}>
+    <FieldGroup legend={legend} helpLabel={helpLabel} errorLabel={errorLabel} variant={variant}>
         {choices.map((choice) => (
             <RadioButton
                 key={choice}

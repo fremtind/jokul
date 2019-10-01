@@ -16,17 +16,25 @@ const TextFieldDemo = () => {
     return (
         <>
             <div className="side-by-side">
-                <TextField label="Fornavn" value={value} onChange={handleChange} placeholder={"Norsk"} />
-                <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly />
+                <TextField
+                    label="Fornavn"
+                    value={value}
+                    onChange={handleChange}
+                    placeholder={"Norsk"}
+                    variant="small"
+                    helpLabel="La oss se..."
+                />
+                <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly variant="small" />
             </div>
 
-            <TextField label="Telefon" type="tel" value={value} onChange={handleChange} />
+            <TextField label="Telefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
             <TextField
                 label="Passord"
                 type="password"
                 value={value}
                 onChange={handleChange}
                 helpLabel="Passord er en vanlig form for autentisering"
+                variant="secondary"
             />
             <TextField
                 label="Epost"
@@ -34,10 +42,18 @@ const TextFieldDemo = () => {
                 value={value}
                 onChange={handleChange}
                 helpLabel="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
+                variant="small"
             />
 
-            <TextArea rows={3} label="Svar med en kommentar" value={value} onChange={handleChange} />
-            <TextArea label="Din livshistorie" value={value} onChange={handleChange} />
+            <TextArea
+                rows={3}
+                label="Svar med en kommentar"
+                value={value}
+                onChange={handleChange}
+                //variant="small"
+                placeholder="Begrens deg til tre linjer"
+            />
+            <TextArea label="Din livshistorie" value={value} onChange={handleChange} variant="secondary" />
         </>
     );
 };

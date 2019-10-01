@@ -1,36 +1,41 @@
 import React from "react";
 import { Example } from "../components";
 import { TextField } from "@fremtind/jkl-text-input-react";
+import { PrimaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-text-input/text-input.min.css";
 // @ts-ignore
 import textFieldType from "!raw-loader!@fremtind/jkl-text-input-react/build/TextField.d.ts";
 
-const example = `
-() => {
+const example = `() => {
     const [value, setValue] = React.useState("");
+    const [hasError, setError] = React.useState(false);
     return (
         <>
-            <TextField 
-                className="jkl-spacing--bottom-3"
-                label="Fornavn"
+            <TextField
+                label="Hva er fornavnet ditt?"
+                className="jkl-spacing--bottom-2"
+                errorLabel={hasError ? "Kun ett navn her" : undefined}
+                placeholder="Ditt første navn"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                helpLabel="Ditt første navn"
             />
+
             <TextField
-                className="jkl-spacing--bottom-3"
-                label="Fornavn"
+                variant="secondary"
+                className="jkl-spacing--bottom-5"
+                label="Og etternavnet?"
+                errorLabel={hasError ? "Kun ett navn her" : undefined}
                 value="Hannah Hart"
-                onChange={()=>{}}
-                errorLabel="Bare fornavn her"
+                onChange={() => {}}
             />
             <TextField
+                variant="small"
                 className="jkl-spacing--bottom-3"
-                label="Etternavn"
-                value="Hart"
-                onChange={()=>{}}
+                label="Din mors pikenavn"
+                onChange={() => {}}
                 onBlur={(e) => console.log("It blurred with value: ", e.target.value)}
             />
+            <PrimaryButton onClick={() => setError(!hasError)}>{hasError ? "Skjul" : "Vis"} feilmelding</PrimaryButton>
         </>
     );
 }`;
@@ -41,7 +46,7 @@ import "@fremtind/jkl-text-input/text-input.min.css";`;
 
 const TextFieldExample = () => (
     <Example
-        exampleComponents={{ TextField }}
+        exampleComponents={{ TextField, PrimaryButton }}
         exampleCode={example}
         type={textFieldType}
         exampleImport={exampleImport}

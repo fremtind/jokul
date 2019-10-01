@@ -3,14 +3,14 @@ import React, { ReactNode, ChangeEvent } from "react";
 interface Props {
     children: ReactNode;
     name: string;
+    value: string;
     checked?: boolean;
     inline?: boolean;
-    onChange?: (name: string, checked: boolean) => void;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     className?: string;
 }
 
-export function Checkbox({ children, name, checked, onChange, className, inline = true }: Props) {
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange && onChange(name, e.target.checked);
+export function Checkbox({ children, name, value, checked, onChange, className, inline = true }: Props) {
     const classNames = "jkl-checkbox"
         .concat(inline ? " jkl-checkbox--inline" : "")
         .concat(className ? ` ${className}` : "");
@@ -22,7 +22,8 @@ export function Checkbox({ children, name, checked, onChange, className, inline 
                 checked={checked}
                 type="checkbox"
                 name={name}
-                onChange={handleChange}
+                value={value}
+                onChange={onChange}
             />
             <span className="jkl-checkbox__check-mark" />
             {children}

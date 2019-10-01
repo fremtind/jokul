@@ -5,21 +5,17 @@
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
 $dropdown-width: 20rem;
-$dropdown-bg-color: inherit;
+$bg-color: inherit;
+$bg-color--options: $helhvit;
 
 $border-color: $svart;
 $border-color--focus: $himmel;
 
 $value-height: $line-height-3;
 $value-font-size: $font-size-3;
-$label-height: $line-height-2;
-$label-font-size: rem(16px);
 
 $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
-$bottom-margin: $component-spacing--large;
-
-$dropdown-total-height: $label-height + $value-height + $bottom-padding;
 
 $chevron-size: rem(20px);
 $chevron-weight: rem(1px);
@@ -31,22 +27,21 @@ $chevron-weight: rem(1px);
 }
 
 @mixin underline-color($color, $focus-color) {
-    box-shadow: 0 2px 0 0 $color;
+    box-shadow: inset 0 rem(-2px) 0 0 $color;
 
     html:not([data-mousenavigation]) &:focus {
-        box-shadow: 0 4px 0 0 $focus-color;
+        box-shadow: inset 0 rem(-4px) 0 0 $focus-color;
     }
 
     &:hover {
-        box-shadow: 0 4px 0 0 $color;
+        box-shadow: inset 0 rem(-4px) 0 0 $color;
     }
 }
 
 .jkl-dropdown {
-    background-color: $dropdown-bg-color;
+    background-color: $bg-color;
     display: block;
     width: $dropdown-width;
-    padding-top: $label-height;
     position: relative;
 
     &--inline {
@@ -77,29 +72,6 @@ $chevron-weight: rem(1px);
         }
     }
 
-    &__label {
-        font-size: $value-font-size;
-        line-height: $value-height;
-        pointer-events: none; // Allow click to happen on the actual button
-        position: absolute;
-        left: 0;
-        top: 0;
-        transition: transform $transition-timing, color $transition-timing;
-        transform-origin: top left;
-        transform: translateY($label-height);
-
-        /* make sure label does not hit chevron */
-        max-width: calc(100% - #{$value-height + $side-padding});
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-
-        &--has-value {
-            color: $varm-fjellgra;
-            transform: translateY(0) scale($label-font-size / $value-font-size);
-        }
-    }
-
     &__value {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -109,6 +81,7 @@ $chevron-weight: rem(1px);
         border: 0;
         font-size: $value-font-size;
         line-height: $value-height;
+        font-weight: bold;
         padding: 0 $side-padding $bottom-padding 0;
         padding-right: $value-height + $side-padding;
         text-align: left;
@@ -125,7 +98,8 @@ $chevron-weight: rem(1px);
 
     &--no-value {
         .jkl-dropdown__value {
-            color: transparent;
+            color: $varm-fjellgra;
+            font-weight: normal;
         }
     }
 
@@ -139,40 +113,50 @@ $chevron-weight: rem(1px);
         }
     }
 
+    &__outer-wrapper {
+        position: relative;
+    }
+
     &__option-wrapper {
-        background-color: white;
-        list-style-type: none;
         position: absolute;
         left: 0;
         right: 0;
-        top: $dropdown-total-height;
+        top: 100%;
+        z-index: $z-index--dropdown;
+
+        background-color: $bg-color--options;
+        border: rem(1px) solid $svart;
+        border-top: none;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.16);
-        padding: 1rem 0.5rem 0;
+
         max-height: 60vh;
         overflow-y: auto;
+        margin: 0;
+        padding: 0;
+
+        list-style-type: none;
         -webkit-overflow-scrolling: touch;
-        z-index: $z-index--dropdown;
-        margin-top: rem(4px);
     }
 
     &__option {
-        border: 0;
+        border: 0; // removes native styling
+        width: 100%;
         background-color: inherit;
         font-size: $value-font-size;
-        line-height: $value-height;
-        padding: 0;
-        border-bottom: 1px solid transparent;
+        line-height: rem(48px);
+        padding: 0 $component-spacing--medium;
         text-align: left;
-        margin-bottom: $bottom-margin;
 
         &:focus,
         &:hover {
-            @include nojump-bold();
-            border-color: $border-color;
+            background-color: $svart;
+            color: $bg-color--options;
         }
 
         html:not([data-mousenavigation]) &:focus {
-            border-color: $border-color--focus;
+            background-color: $bg-color--options;
+            color: $svart;
+            box-shadow: inset 0 0 0 2px white, inset 0 0 0 4px $border-color--focus;
         }
     }
 
@@ -180,20 +164,7 @@ $chevron-weight: rem(1px);
         @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
         position: absolute;
         right: 0;
-    }
-
-    &__arrow {
         pointer-events: none;
-        position: absolute;
-        right: $side-padding;
-        top: $label-height;
-
-        height: $value-height;
-        background-color: transparent;
-        stroke: currentColor;
-        stroke-width: 1;
-
-        transition: transform 300ms ease-in-out;
     }
 
     &--invalid {
