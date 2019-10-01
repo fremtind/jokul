@@ -13,10 +13,17 @@ $checkbox-focus-outline-color: $focus-color;
     display: flex;
     font-size: $font-size-3;
     line-height: $line-height-3;
-    padding-right: $component-spacing--xl;
+
+    & + & {
+        margin-top: $component-spacing--large;
+    }
 
     &--inline {
         display: inline-flex;
+        & + & {
+            margin-top: unset;
+            margin-left: $component-spacing--xl;
+        }
     }
 
     &:hover > .jkl-checkbox__check-mark {
