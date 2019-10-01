@@ -19,7 +19,7 @@ export const RadioButtonChoice = ({
     choices,
     selectedValue,
     onChange,
-    inline = true,
+    inline = false,
     helpLabel,
     errorLabel,
 }: Props) => (
