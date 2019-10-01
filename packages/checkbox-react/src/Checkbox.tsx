@@ -10,7 +10,7 @@ interface Props {
     className?: string;
 }
 
-export function Checkbox({ children, name, value, checked, onChange, className, inline = true }: Props) {
+export function Checkbox({ children, name, value, checked, onChange, className, inline = false }: Props) {
     const classNames = "jkl-checkbox"
         .concat(inline ? " jkl-checkbox--inline" : "")
         .concat(className ? ` ${className}` : "");
