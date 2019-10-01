@@ -39,18 +39,16 @@ $radio-button-color: $svart;
 .jkl-radio-button {
     cursor: pointer;
     display: flex;
-    margin-bottom: $component-spacing--large;
 
-    &:last-of-type {
-        margin-bottom: 0;
+    & + & {
+        margin-top: $component-spacing--large;
     }
 
     &--inline {
         display: inline-flex;
-        margin-bottom: 0;
-        margin-right: $component-spacing--xl;
-        &:last-of-type {
-            margin-right: 0;
+        & + & {
+            margin-top: unset;
+            margin-left: $component-spacing--xl;
         }
     }
 
