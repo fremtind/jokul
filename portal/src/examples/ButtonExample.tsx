@@ -6,7 +6,7 @@ import "@fremtind/jkl-button/button.min.css";
 import buttonType from "!raw-loader!@fremtind/jkl-button-react/build/Button.d.ts";
 
 const example = `<>
-    <PrimaryButton onClick={() => alert("hello!")}>Primærknapp</PrimaryButton>
+    <PrimaryButton onClick={() => console.log("hello!")}>Primærknapp</PrimaryButton>
     <SecondaryButton onClick={() => {}}>Sekundærknapp</SecondaryButton>
     <TertiaryButton onClick={() => {}}>Tertiærknapp</TertiaryButton>
 </>;`;

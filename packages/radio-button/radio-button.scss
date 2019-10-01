@@ -24,10 +24,11 @@ $radio-button-color: $svart;
 @keyframes dotexpand {
     0% {
         transform: scale(0) rotate(-45deg);
+        border-radius: 0%;
     }
     50% {
         transform: scale(1);
-        border-radius: 15%;
+        border-radius: 40%;
     }
     100% {
         transform: scale(1) rotate(15deg);
@@ -47,8 +48,7 @@ $radio-button-color: $svart;
     &--inline {
         display: inline-flex;
         margin-bottom: 0;
-        margin-right: rem(32px);
-        padding-bottom: $component-spacing--large;
+        margin-right: $component-spacing--xl;
         &:last-of-type {
             margin-right: 0;
         }
@@ -65,12 +65,12 @@ $radio-button-color: $svart;
                 /* animate dot */
                 animation: dotexpand 0.3s cubic-bezier(0.17, 0.17, 0.76, 1);
                 /* final appearance */
-                transform: scale(1);
+                transform: scale(1) rotate(15deg);
                 border-radius: 50%;
             }
             &:before {
                 /* animate circle */
-                animation: circleexpand 0.25s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
+                animation: circleexpand 0.2s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
             }
         }
 
@@ -83,15 +83,10 @@ $radio-button-color: $svart;
 
         /* Hovered state */
         &:hover ~ .jkl-radio-button__dot {
-            &:before {
-                transform: scale(1.1);
-            }
+            transform: scale(1.1);
         }
         &:active ~ .jkl-radio-button__dot {
-            &:after,
-            &:before {
-                transform: scale(0.9);
-            }
+            transform: scale(0.9);
         }
     }
 

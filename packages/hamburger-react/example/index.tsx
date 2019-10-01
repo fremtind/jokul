@@ -16,7 +16,7 @@ const App = () => {
                 <Hamburger
                     initialIsActive
                     negative
-                    onClick={(nextStatus) => alert(nextStatus ? "Is opening" : "Is closing")}
+                    onClick={(nextStatus) => console.log(nextStatus ? "Is opening" : "Is closing")}
                 />
             </div>
             <div style={{ padding: "100px", backgroundColor: "deeppink" }} ref={divRef}>

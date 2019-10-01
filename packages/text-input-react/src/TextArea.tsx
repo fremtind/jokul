@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useState, FocusEvent } from "react";
+import { LabelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
@@ -12,13 +13,27 @@ interface Props {
     helpLabel?: string;
     errorLabel?: string;
     rows?: number;
+    placeholder?: string;
+    variant?: LabelVariant;
 }
 
-export const TextArea = ({ id, label, className = "", helpLabel, errorLabel, rows = 7, ...restProps }: Props) => {
+export const TextArea = ({
+    id,
+    variant,
+    label,
+    className,
+    helpLabel,
+    errorLabel,
+    rows = 7,
+    placeholder = " ",
+    ...restProps
+}: Props) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const height = isFocused || restProps.value ? `${rows * 2 + 0.5}rem` : undefined;
 
+    const componentClassName = "jkl-text-field jkl-text-area".concat(className ? ` ${className}` : "");
+    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
     function onBlur(event: FocusEvent<HTMLTextAreaElement>) {
         setIsFocused(false);
         restProps.onBlur && restProps.onBlur(event);
@@ -29,7 +44,8 @@ export const TextArea = ({ id, label, className = "", helpLabel, errorLabel, row
     }
 
     return (
-        <label data-testid="jkl-text-field" className={`jkl-text-field jkl-text-area ${className}`}>
+        <label data-testid="jkl-text-field" className={componentClassName}>
+            <span className={labelClassName}>{label}</span>
             <textarea
                 onFocus={onFocus}
                 onBlur={onBlur}
@@ -37,10 +53,9 @@ export const TextArea = ({ id, label, className = "", helpLabel, errorLabel, row
                 aria-invalid={!!errorLabel}
                 className="jkl-text-field__input"
                 id={id}
-                placeholder=" "
+                placeholder={placeholder}
                 {...restProps}
             />
-            <span className="jkl-text-field__label">{label}</span>
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
         </label>
     );

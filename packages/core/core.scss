@@ -1,10 +1,11 @@
 @import "./normalize.scss";
+@import "./reset.scss";
 
 @import "./font.scss";
 @import "./headings.scss";
 @import "./paragraphs.scss";
 @import "./links.scss";
-@import "./form-support-label.scss";
+@import "./labels.scss";
 @import "./spacing.scss";
 
 /* Class that hides content visually but not for screen readers */
