@@ -10,7 +10,7 @@ describe("Datepicker", () => {
         const thePast = new Date(2019, 11, 24);
         const { getByTestId } = render(<DatePicker initialDate={thePast} />);
 
-        const date = getByTestId("jkl-datepicker-input");
+        const date = getByTestId("jkl-datepicker__input");
         expect(date).toHaveProperty("value", "24.12.2019");
     });
 });
