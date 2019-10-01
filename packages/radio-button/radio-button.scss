@@ -77,7 +77,7 @@ $radio-button-color: $svart;
         /* Focused state */
         html:not([data-mousenavigation]) &:focus ~ .jkl-radio-button__dot {
             &:before {
-                box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $himmel;
+                box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $focus-color;
             }
         }
 

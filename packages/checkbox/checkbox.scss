@@ -5,7 +5,7 @@ $checkbox-size: rem(24px);
 $checkbox-checked-background-color: $svart;
 $checkbox-unchecked-background-color: $snohvit;
 $checkbox-check-mark-color: $checkbox-unchecked-background-color;
-$checkbox-focus-outline-color: $himmel;
+$checkbox-focus-outline-color: $focus-color;
 
 .jkl-checkbox {
     align-items: center;
@@ -42,7 +42,7 @@ $checkbox-focus-outline-color: $himmel;
         }
 
         html:not([data-mousenavigation]) &:focus + .jkl-checkbox__check-mark {
-            box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $himmel;
+            box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $checkbox-focus-outline-color;
         }
     }
 
