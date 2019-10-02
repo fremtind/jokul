@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { TableRowData } from "./Table";
 import { AnchorRow } from "./AnchorRow";
 import { AccordionRow } from "./AccordionRow";
@@ -21,7 +21,7 @@ export interface TableAccordionRowData extends BaseTableRowData {
     rowData: string[];
     type: "accordion";
     defaultOpen: boolean;
-    children: string;
+    children: ReactNode[];
 }
 
 interface Props {

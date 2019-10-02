@@ -1,10 +1,32 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+// chevron
+$chevron-size: rem(20px);
+$chevron-weight: rem(1px);
+$chevron-weight--hover: rem(2px);
+
+// Padding
+$item-padding-top-bottom: rem(2px);
+$title-padding: $component-spacing--large;
+$title-padding-top: $title-padding - $item-padding-top-bottom;
 
 $bottom-border-size: rem(1px);
 $highlight-color: $helhvit;
 
 .jkl-table {
     border-collapse: collapse;
+
+    &--accordiation {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    &__column {
+        &--narrow {
+            width: $chevron-size + 2rem; //2rem comes from padding of data-cells
+        }
+    }
 
     &__heading {
         color: $matt-svart;
@@ -38,7 +60,7 @@ $highlight-color: $helhvit;
     &__row {
         box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.2);
 
-        &--anchor-row {
+        &--clickable-row {
             cursor: pointer;
 
             &:hover {
@@ -51,6 +73,21 @@ $highlight-color: $helhvit;
             }
         }
 
+        &--accordion-item {
+            &__content {
+                background-color: $highlight-color;
+            }
+
+            &--expanded {
+                background-color: $highlight-color;
+                box-shadow: none;
+
+                & .jkl-table__title-icon {
+                    transform: rotate((-45 + 180) * 1deg); // default orientation is pointing down
+                }
+            }
+        }
+
         &--data-row {
             transition: background-color 150ms ease, box-shadow 150ms ease;
         }
@@ -60,5 +97,11 @@ $highlight-color: $helhvit;
             background-color: $highlight-color;
             box-shadow: 0 0 0 1px inset $himmel;
         }
+    }
+
+    &__title-icon {
+        @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
+        position: absolute;
+        right: $title-padding;
     }
 }

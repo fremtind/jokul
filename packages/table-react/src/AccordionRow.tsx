@@ -9,7 +9,7 @@ interface PropTypes {
 
 export function AccordionRow({ row }: PropTypes) {
     const [isOpen, setIsOpen] = useState(row.defaultOpen);
-    const openClassName = isOpen ? " jkl-accordion-item--expanded" : "";
+    const openClassName = isOpen ? " jkl-table__row--accordion-item--expanded" : "";
 
     const onToggle = () => setIsOpen(!isOpen);
 
@@ -17,17 +17,23 @@ export function AccordionRow({ row }: PropTypes) {
         <React.Fragment>
             <tr
                 onClick={onToggle}
-                className={`jkl-table__row jkl-table__row--data-row jkl-table__row--anchor-row${openClassName}`}
+                className={`jkl-table__row jkl-table__row--data-row jkl-table__row--clickable-row${openClassName}`}
             >
                 {row.rowData.map((data, j) => (
                     <TableData data={data} row={row} key={j} isFirstCell={j === 0} />
                 ))}
+                <td className="jkl-table__data-cell">
+                    <span className="jkl-table__title-icon" />
+                </td>
             </tr>
             {isOpen && (
-                <tr className="jkl-table__row jkl-table__row--data-row">
-                    <td className="jkl-table__data-cell" colSpan={row.rowData.length}>
-                        {row.children}
-                    </td>
+                <tr className="jkl-table__row jkl-table__row--data-row jkl-table__row--accordion-item__content">
+                    {row.children.map((child, i) => (
+                        <td key={i} className="jkl-table__data-cell">
+                            {child}
+                        </td>
+                    ))}
+                    <td />
                 </tr>
             )}
         </React.Fragment>

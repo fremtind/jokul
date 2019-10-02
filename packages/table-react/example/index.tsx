@@ -33,8 +33,18 @@ const rows: Array<string[] | TableAnchorRowData | TableAccordionRowData> = [
         type: "accordion",
         rowData: ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"],
         defaultOpen: false,
-        children:
-            "Testing..........................................................................................................................................................................................................................",
+        children: [
+            <div key={1}>
+                <h4>Test</h4>
+                <span>Expand1 expand1 expand1 expand1 expand1 expand1 expand1</span>
+            </div>,
+            "Expand2",
+            "Expand3",
+            "Expand4",
+            "Expand5",
+            "Expand6",
+            "Expand7",
+        ],
     },
 
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Etterlatte", "Opprettet", "Per Persen"],
@@ -43,7 +53,7 @@ const rows: Array<string[] | TableAnchorRowData | TableAccordionRowData> = [
 const TableDemo = () => {
     return (
         <>
-            <Table columns={columns} rows={rows} className={"helloworld"} />
+            <Table columns={columns} rows={rows} className={"jkl-table--accordiation"} />
         </>
     );
 };

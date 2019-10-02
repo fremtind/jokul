@@ -16,10 +16,11 @@ export function AnchorRow({ row }: PropTypes) {
     };
 
     return (
-        <tr onClick={onClick} className={"jkl-table__row jkl-table__row--data-row jkl-table__row--anchor-row"}>
+        <tr onClick={onClick} className={"jkl-table__row jkl-table__row--data-row jkl-table__row--clickable-row"}>
             {row.rowData.map((data, j) => (
                 <TableData data={data} row={row} key={j} isFirstCell={j === 0} />
             ))}
+            <td />
         </tr>
     );
 }

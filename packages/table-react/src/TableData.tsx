@@ -38,6 +38,7 @@ export function TableData(props: Props) {
             ) : (
                 undefined
             )}
+
             {data}
         </td>
     );
