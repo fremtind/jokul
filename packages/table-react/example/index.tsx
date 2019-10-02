@@ -3,7 +3,7 @@ import "@fremtind/jkl-table/table.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Table } from "../src";
-import { TableAccordionRowData, TableAnchorRowData } from "../src/TableRow";
+import { TableRowAccordionData, TableRowAnchorData } from "../src/Table";
 
 import "./index.scss";
 
@@ -11,7 +11,7 @@ initTabListener();
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Sakstype", "Milepæl", "Følger saken"];
 
-const rows: Array<string[] | TableAnchorRowData | TableAccordionRowData> = [
+const rows: Array<string[] | TableRowAnchorData | TableRowAccordionData> = [
     ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Etterlatte", "Opprettet", "Siri Saksbehandler"],
     {
         href: "https://google.com",
@@ -33,17 +33,110 @@ const rows: Array<string[] | TableAnchorRowData | TableAccordionRowData> = [
         type: "accordion",
         rowData: ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"],
         defaultOpen: false,
+        elementLabel: "Expand", // Hva er typisk verdien til en elementLabel?
         children: [
             <div key={1}>
                 <h4>Test</h4>
                 <span>Expand1 expand1 expand1 expand1 expand1 expand1 expand1</span>
             </div>,
-            "Expand2",
-            "Expand3",
-            "Expand4",
-            "Expand5",
-            "Expand6",
-            "Expand7",
+            <div key={2}>
+                <h4>Test</h4>
+                <span>Expand2</span>
+            </div>,
+            <div key={3}>
+                <h4>Test</h4>
+                <span>Expand3</span>
+            </div>,
+            <div key={4}>
+                <h4>Test</h4>
+                <span>Expand4</span>
+            </div>,
+            <div key={5}>
+                <h4>Test</h4>
+                <span>Expand5</span>
+            </div>,
+            <div key={6}>
+                <h4>Test</h4>
+                <span>Expand6</span>
+            </div>,
+            <div key={7}>
+                <h4>Test</h4>
+                <span>Expand7</span>
+            </div>,
+        ],
+    },
+
+    {
+        type: "accordion",
+        rowData: ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"],
+        defaultOpen: false,
+        elementLabel: "Expand", // Hva er typisk verdien til en elementLabel?
+        children: [
+            <div key={1}>
+                <h4>Test</h4>
+                <span>Expand1 expand1 expand1 expand1 expand1 expand1 expand1</span>
+            </div>,
+            <div key={2}>
+                <h4>Test</h4>
+                <span>Expand2</span>
+            </div>,
+            <div key={3}>
+                <h4>Test</h4>
+                <span>Expand3</span>
+            </div>,
+            <div key={4}>
+                <h4>Test</h4>
+                <span>Expand4</span>
+            </div>,
+            <div key={5}>
+                <h4>Test</h4>
+                <span>Expand5</span>
+            </div>,
+            <div key={6}>
+                <h4>Test</h4>
+                <span>Expand6</span>
+            </div>,
+            <div key={7}>
+                <h4>Test</h4>
+                <span>Expand7</span>
+            </div>,
+        ],
+    },
+
+    {
+        type: "accordion",
+        rowData: ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"],
+        defaultOpen: false,
+        elementLabel: "Expand", // Hva er typisk verdien til en elementLabel?
+        children: [
+            <div key={1}>
+                <h4>Test</h4>
+                <span>Expand1 expand1 expand1 expand1 expand1 expand1 expand1</span>
+            </div>,
+            <div key={2}>
+                <h4>Test</h4>
+                <span>Expand2</span>
+            </div>,
+            <div key={3}>
+                <h4>Test</h4>
+                <span>Expand3</span>
+            </div>,
+            <div key={4}>
+                <h4>Test</h4>
+                <span>Expand4</span>
+            </div>,
+            <div key={5}>
+                <h4>Test</h4>
+                <span>Expand5</span>
+            </div>,
+            <div key={6}>
+                <h4>Test</h4>
+                <span>Expand6</span>
+            </div>,
+            <div key={7}>
+                <h4>Test</h4>
+                <span>Expand7</span>
+            </div>,
         ],
     },
 
@@ -53,7 +146,7 @@ const rows: Array<string[] | TableAnchorRowData | TableAccordionRowData> = [
 const TableDemo = () => {
     return (
         <>
-            <Table columns={columns} rows={rows} className={"jkl-table--accordiation"} />
+            <Table columns={columns} rows={rows} accordion={true} />
         </>
     );
 };

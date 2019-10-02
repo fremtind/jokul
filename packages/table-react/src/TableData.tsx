@@ -1,44 +1,46 @@
-import React from "react";
-import { TableRowData } from "./Table";
-import { isAccordionRowData, isAnchorRowData } from "./TableRow";
+import React, { ReactNode } from "react";
+import { isAccordionRowData, isAnchorRowData, TableRowData } from "./Table";
 
 interface Props {
-    data: string;
+    data: ReactNode; // Endret fra string. Greit?
     row: TableRowData;
     isFirstCell: boolean;
 }
 
 export function TableData(props: Props) {
     const { row, data, isFirstCell } = props;
-    function onAnchorClick(evt: React.MouseEvent<HTMLAnchorElement>) {
-        // Stop browser link navigation and let the clickHandler on TableRow do the job
-        evt.preventDefault();
-    }
-    function onAccordionClick(evt: React.MouseEvent<HTMLButtonElement>) {
-        // Stop accordion toggle and let the clickHandler on TableRow do the job
-        evt.preventDefault();
-    }
+
+    const createAppropriateDataLabel = (tableRow: TableRowData) => {
+        if (isAnchorRowData(tableRow)) {
+            function onAnchorClick(evt: React.MouseEvent<HTMLAnchorElement>) {
+                // Stop browser link navigation and let the clickHandler on TableRowAnchor do the job
+                evt.preventDefault();
+            }
+            return (
+                <a className="jkl-sr-only" href={tableRow.href} onClick={onAnchorClick}>
+                    {tableRow.hrefLabel}{" "}
+                </a>
+            );
+        } else if (isAccordionRowData(tableRow)) {
+            function onAccordionClick(evt: React.MouseEvent<HTMLButtonElement>) {
+                // Stop accordion toggle and let the clickHandler on TableRowAccordion do the job
+                evt.preventDefault();
+            }
+            return (
+                <button className="jkl-sr-only" onClick={onAccordionClick}>
+                    {tableRow.elementLabel}{" "}
+                </button>
+            );
+        } else {
+            return undefined; // TODO: Should there be a 'default' label for TableRowSimple?
+        }
+    };
 
     return (
         <td className="jkl-table__data-cell">
-            {/* Only create an anchor in the first cell, so that screen readers doesn't read each cell as a link */}
-            {/* The downside of this is that only the first cell can be right clicked and get the anchor context menu */}
-            {isFirstCell ? (
-                isAnchorRowData(row) ? (
-                    <a className="jkl-sr-only" href={row.href} onClick={onAnchorClick}>
-                        {row.hrefLabel}{" "}
-                    </a>
-                ) : isAccordionRowData(row) ? (
-                    <button className="jkl-sr-only" onClick={onAccordionClick}>
-                        {""}{" "}
-                    </button>
-                ) : (
-                    undefined
-                )
-            ) : (
-                undefined
-            )}
-
+            {/* Only create a label in the first cell, so that screen readers don't read the label for each cell */}
+            {/* The downside of this is that only the first cell can be right clicked and get the context menu */}
+            {isFirstCell && createAppropriateDataLabel(row)}
             {data}
         </td>
     );

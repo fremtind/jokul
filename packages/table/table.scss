@@ -17,14 +17,15 @@ $highlight-color: $helhvit;
 .jkl-table {
     border-collapse: collapse;
 
-    &--accordiation {
+    &--accordion {
+        // TODO: Foreslår at denne ikke er knyttet til accordion-elementer, da det kan være forvirrende å bruke tabell-komponenter som av og til har bredde og av og til ikke?
         width: 100%;
         table-layout: fixed;
     }
 
     &__column {
-        &--narrow {
-            width: $chevron-size + 2rem; //2rem comes from padding of data-cells
+        &--icon {
+            width: $chevron-size + 2rem; //2rem comes from padding of data-cells. TODO: Create variable?
         }
     }
 

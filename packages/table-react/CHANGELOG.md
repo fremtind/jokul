@@ -28,7 +28,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **jkl-table-react:** add default onRowClick with navigation ([01256b5](https://github.com/fremtind/jokul/commit/01256b5))
-* **jkl-table-react:** let the TableRow click handler handle navigation ([b94847a](https://github.com/fremtind/jokul/commit/b94847a))
+* **jkl-table-react:** let the SimpleRow click handler handle navigation ([b94847a](https://github.com/fremtind/jokul/commit/b94847a))
 * **jkl-table-react:** use jkl-sr-only to hide anchors in tables ([6b79957](https://github.com/fremtind/jokul/commit/6b79957))
 * **jkl-table-react:** use th instead of td in table head row ([9228d0b](https://github.com/fremtind/jokul/commit/9228d0b))
 
