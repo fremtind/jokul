@@ -71,12 +71,14 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
     &__title-text {
         @include font-size("small");
         @include line-height("small");
+        display: block;
         padding-right: 2rem;
     }
 
     &__title-icon {
         @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
         position: absolute;
+        display: block;
         top: $title-padding-top; // magic number to align chevron with base line
         right: $title-padding;
     }
