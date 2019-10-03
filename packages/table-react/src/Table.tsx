@@ -23,7 +23,6 @@ export interface TableRowAnchorData extends BaseTableRowData {
 export interface TableRowAccordionData extends BaseTableRowData {
     rowData: string[];
     type: "accordion";
-    elementLabel: string;
     defaultOpen: boolean;
     children: ReactNode[];
 }

@@ -26,11 +26,7 @@ export function TableData(props: Props) {
                 // Stop accordion toggle and let the clickHandler on TableRowAccordion do the job
                 evt.preventDefault();
             }
-            return (
-                <button className="jkl-sr-only" onClick={onAccordionClick}>
-                    {tableRow.elementLabel}{" "}
-                </button>
-            );
+            return <button className="jkl-sr-only" onClick={onAccordionClick} />;
         } else {
             return undefined; // TODO: Should there be a 'default' label for TableRowSimple?
         }

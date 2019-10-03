@@ -33,7 +33,6 @@ const rows: Array<string[] | TableRowAnchorData | TableRowAccordionData> = [
         type: "accordion",
         rowData: ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"],
         defaultOpen: false,
-        elementLabel: "Expand", // Hva er typisk verdien til en elementLabel?
         children: [
             <div key={1}>
                 <h4>Test</h4>
@@ -70,7 +69,6 @@ const rows: Array<string[] | TableRowAnchorData | TableRowAccordionData> = [
         type: "accordion",
         rowData: ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"],
         defaultOpen: false,
-        elementLabel: "Expand", // Hva er typisk verdien til en elementLabel?
         children: [
             <div key={1}>
                 <h4>Test</h4>
@@ -107,7 +105,6 @@ const rows: Array<string[] | TableRowAnchorData | TableRowAccordionData> = [
         type: "accordion",
         rowData: ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7"],
         defaultOpen: false,
-        elementLabel: "Expand", // Hva er typisk verdien til en elementLabel?
         children: [
             <div key={1}>
                 <h4>Test</h4>
