@@ -5,7 +5,7 @@ import "../accordion.scss";
 const App = () => (
     <>
         <div className="jkl-accordion" style={{ width: 700 }}>
-            <div className="jkl-accordion-item jkl-accordion-item--expanded">
+            <div className="jkl-accordion-item">
                 <button className="jkl-accordion-item__title">
                     <span className="jkl-accordion-item__title-text">
                         Tekst som står her og er så lang at vi får flere linjer som er avhengig av display block
@@ -19,7 +19,7 @@ const App = () => (
                     media queries!).
                 </div>
             </div>
-            <div className="jkl-accordion-item">
+            <div className="jkl-accordion-item jkl-accordion-item--expanded">
                 <button className="jkl-accordion-item__title">
                     <span className="jkl-accordion-item__title-text">Second item</span>
                     <span className="jkl-accordion-item__title-icon"></span>
