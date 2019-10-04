@@ -18,6 +18,7 @@ interface Props {
     days?: string[];
     initialDate?: Date;
     onChange?: (date: Date) => void;
+    extended?: boolean;
     initialShow?: boolean;
     className?: string;
     helpLabel?: string;
@@ -55,6 +56,7 @@ export function DatePicker({
     days,
     initialDate,
     onChange,
+    extended = false,
     initialShow = false,
     className = "",
     errorLabel,
@@ -64,6 +66,11 @@ export function DatePicker({
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
+    const componentClassName = "jkl-datepicker".concat(
+        extended ? " jkl-datepicker--extended" : "",
+        className ? ` ${className}` : "",
+    );
+
     const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
         // Workaround for loosing focus when opening in chrome:
         // https://github.com/nrkno/core-components/issues/322
@@ -112,7 +119,7 @@ export function DatePicker({
     }
 
     return (
-        <div className={`jkl-datepicker ${className}`} ref={datepickerRef}>
+        <div className={componentClassName} ref={datepickerRef}>
             <div className="jkl-datepicker__outer-wrapper">
                 <label className={`jkl-text-field`}>
                     <span className={`jkl-label ${variant ? `jkl-label--${variant}` : ""}`}>{label}</span>
@@ -136,18 +143,40 @@ export function DatePicker({
                         onDatepickerClickDay={onClickCalendarDay}
                         className="jkl-datepicker__calendar"
                     >
-                        <div className="jkl-datepicker__calendar-navigation">
-                            <label className="jkl-text-field jkl-datepicker__year-selector">
-                                <span className="jkl-label jkl-label--small">{yearLabel}</span>
-                                <input type="year" className={`jkl-text-field__input`} />
-                            </label>
+                        {extended && (
+                            <div className="jkl-datepicker__calendar-navigation">
+                                <label className="jkl-text-field jkl-datepicker__year-selector">
+                                    <span className="jkl-label jkl-label--small">{yearLabel}</span>
+                                    <input type="year" className={`jkl-text-field__input`} />
+                                </label>
 
-                            <label className="jkl-dropdown jkl-datepicker__month-selector">
-                                <span className="jkl-label jkl-label--small">{monthLabel}</span>
-                                <select className="jkl-dropdown__value"></select>
-                                <span className="jkl-dropdown__chevron" />
-                            </label>
-                        </div>
+                                <label className="jkl-dropdown jkl-datepicker__month-selector">
+                                    <span className="jkl-label jkl-label--small">{monthLabel}</span>
+                                    <select className="jkl-dropdown__value"></select>
+                                    <span className="jkl-dropdown__chevron" />
+                                </label>
+                            </div>
+                        )}
+                        {!extended && (
+                            <fieldset className="jkl-datepicker__month-navigation">
+                                <button
+                                    title="forrige måned"
+                                    aria-label="forrige måned"
+                                    className="jkl-datepicker__month-button"
+                                    value="- 1 month"
+                                >
+                                    <span className="jkl-datepicker__month-arrow jkl-datepicker__month-arrow--left" />
+                                </button>
+                                <button
+                                    title="neste måned"
+                                    aria-label="neste måned"
+                                    className="jkl-datepicker__month-button jkl-datepicker__month-button--right"
+                                    value="+ 1 month"
+                                >
+                                    <span className="jkl-datepicker__month-arrow jkl-datepicker__month-arrow--right" />
+                                </button>
+                            </fieldset>
+                        )}
                         <table data-testid="jkl-datepicker-calendar" />
                     </CoreDatepicker>
                 </div>
