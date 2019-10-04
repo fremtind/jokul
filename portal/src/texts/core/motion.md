@@ -1,6 +1,6 @@
 ## Bevegelse
 
-Fremtind skal være et selskap i bevegelse, som tydelig viser veien fremover. Denne bevegelsen er definert som ett av våre designprinsipper. I order legger vi at vi skal utforske, se fremover og være tilpasningsdyktige.
+Fremtind skal være et selskap i bevegelse, som tydelig viser veien fremover. Denne bevegelsen er definert som ett av våre designprinsipper. I ordet legger vi at vi skal utforske, se fremover og være tilpasningsdyktige.
 
 Vi leter stadig etter nye og bedre måter å løse problemer på, og er ikke redde for å utfordre dagens standard. Vi bruker animasjon til å gjøre Fremtind mer synlig som et selskap i bevegelse. **Vi passer alltid på at animasjoner har en funksjonell verdi**.
 

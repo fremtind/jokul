@@ -13,16 +13,17 @@ $jord: #765d4b;
 $hav: #0a3166;
 $skog: #0d5745;
 $blomst: #ff7059;
+
 $helhvit: #ffffff;
+$lys-gra: #e0dfdd;
+$mellomgra: #bab8b6;
 
 // Function colors
 $gress: #50e68c;
 $himmel: #509ce6;
+$ux-rod: #d73704;
+$ux-bla: #1c74ca;
 
 // Colors by use case
-$error-color: change-color(
-    $blomst,
-    $lightness: 45%
-); // TODO: blomst is not wgac compliant check with stg what color to use
-
-$placeholder-text-color: change-color($varm-fjellgra, $lightness: 60%); // FIXME: define grayscale palette and use here
+$error-color: $ux-rod;
+$focus-color: $ux-bla;

@@ -58,7 +58,7 @@ $highlight-color: $helhvit;
         /* Focus-within is not supported by IE/Edge */
         &:focus-within {
             background-color: $highlight-color;
-            box-shadow: 0 0 0 1px inset $himmel;
+            box-shadow: 0 0 0 1px inset $focus-color;
         }
     }
 }

@@ -54,7 +54,7 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
         }
 
         html:not([data-mousenavigation]) &:focus {
-            box-shadow: inset 0 0 0 2px $himmel;
+            box-shadow: inset 0 0 0 2px $focus-color;
         }
     }
 
@@ -72,6 +72,7 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
     &__title-text {
         @include font-size("small");
         @include line-height("small");
+        display: block;
         padding-right: 2rem;
         width: inherit;
     }
@@ -79,6 +80,7 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
     &__title-icon {
         @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
         position: absolute;
+        display: block;
         top: $title-padding-top; // magic number to align chevron with base line
         right: $title-padding;
     }
