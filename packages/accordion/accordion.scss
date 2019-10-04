@@ -39,6 +39,7 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
         padding: $title-padding-top $title-padding $title-padding-bottom;
         text-align: left;
         width: 100%;
+        display: flex;
 
         /* Remove button styles */
         outline: none;
@@ -72,6 +73,7 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
         @include font-size("small");
         @include line-height("small");
         padding-right: 2rem;
+        width: inherit;
     }
 
     &__title-icon {

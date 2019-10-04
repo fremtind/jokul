@@ -6,7 +6,7 @@ import React, { ReactNode, useState } from "react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 
 interface Props {
-    title: string;
+    title: string | ReactNode;
     children: ReactNode;
     startExpanded?: boolean;
 }
