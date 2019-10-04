@@ -140,6 +140,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "frisol97",
+      "name": "Frida Thorkildsen Solhaug",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51901763?v=4",
+      "profile": "https://github.com/frisol97",
+      "contributions": [
+        "code",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,
