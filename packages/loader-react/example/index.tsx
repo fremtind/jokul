@@ -5,7 +5,7 @@ import { Loader } from "../src";
 
 const App = () => (
     <>
-        <Loader />
+        <Loader textDescription="Den som venter på noe godt…" />
         <div
             style={{
                 marginTop: "20px",

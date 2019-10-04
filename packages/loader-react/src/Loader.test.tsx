@@ -30,4 +30,16 @@ describe("Loader", () => {
 
         expect(getByTestId("jkl-loader")).toHaveClass("testclass");
     });
+    it("should apply default aria-label and title when none is passed", () => {
+        const { getByTestId } = render(<Loader />);
+
+        expect(getByTestId("jkl-loader")).toHaveAttribute("aria-label", "Laster inn");
+        expect(getByTestId("jkl-loader")).toHaveAttribute("title", "Laster inn");
+    });
+    it("should apply passed aria-label and title", () => {
+        const { getByTestId } = render(<Loader textDescription="Loading" />);
+
+        expect(getByTestId("jkl-loader")).toHaveAttribute("aria-label", "Loading");
+        expect(getByTestId("jkl-loader")).toHaveAttribute("title", "Loading");
+    });
 });
