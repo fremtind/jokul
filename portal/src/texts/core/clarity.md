@@ -14,7 +14,7 @@ Vi bruker rikelig med luft. Det bidrar til å dele opp og porsjonere innhold som
 
 ### I bruk
 
-I praksis betyr dette prisnippet at vi ikke skal overlesse brukeren med informasjon. Vi skal alltid ha få elementer på skjermen og sørge for at størrelse, posisjon og avstand gir god oversikt og rytme.
+I praksis betyr dette prinsippet at vi ikke skal overlesse brukeren med informasjon. Vi skal alltid ha få elementer på skjermen og sørge for at størrelse, posisjon og avstand gir god oversikt og rytme.
 
 Som designer kan du benytte deg av skalaene for [typografi]() og [sperring]() for å sørge for konsekvente avstander og størrelsesforhold.
 
