@@ -1,71 +1,58 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
-$border-color: $svart;
-$border-width: rem(1px);
-
-// chevron
-$chevron-size: rem(20px);
-$chevron-weight: rem(1px);
-$chevron-weight--hover: rem(2px);
-
-// Padding
-$content-padding-left-right: $component-spacing--large;
-$content-padding-bottom: $layout-spacing--xl;
-$content-padding-top: $content-padding-bottom - $component-spacing--large;
-$item-padding-top-bottom: rem(2px);
-$title-padding: $component-spacing--large;
-$title-padding-top: $title-padding - $item-padding-top-bottom;
-$title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width;
-
-.jkl-accordion {
-    // The border-top is set on the accordion rather than the accordion-item to keep all accordion-item an equal height
-    border-top: $border-width solid $border-color;
-    width: 100%;
-}
-
 .jkl-accordion-item {
-    border-bottom: $border-width solid $border-color;
-    padding: $item-padding-top-bottom 0;
+    $title-padding: $component-spacing--large;
+
+    @include motion("standard");
+    transition-property: transform;
+    margin-bottom: $component-spacing--small;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:active {
+        transform: scale(0.99);
+    }
 
     &--expanded {
-        & .jkl-accordion-item__title-icon {
-            transform: rotate((-45 + 180) * 1deg); // default orientation is pointing down
+        background-color: $helhvit;
+        box-shadow: $drop-shadow--small;
+        .jkl-accordion-item {
+            &__title-icon {
+                transform: rotate(135deg);
+            }
+            &__title {
+                background-color: transparent;
+            }
         }
     }
 
     &__title {
         position: relative;
-        padding: $title-padding-top $title-padding $title-padding-bottom;
+        padding: $title-padding;
         text-align: left;
         width: 100%;
 
         /* Remove button styles */
         outline: none;
-        background-color: inherit; // Override default white background color
+        background-color: $varde;
         color: inherit; // stops Safari from changing color on :active
-        border: 0;
+        border: none;
 
         &:hover {
             cursor: pointer;
-            font-weight: bold;
-            letter-spacing: -0.009em;
+            color: $helhvit;
+            background-color: $svart;
         }
 
         html:not([data-mousenavigation]) &:focus {
             box-shadow: inset 0 0 0 2px $focus-color;
         }
-    }
 
-    &__content-wrapper {
-        transition: height 300ms ease;
-    }
-
-    &__content {
-        @include font-size("medium");
-        height: auto;
-        padding: $content-padding-top $content-padding-left-right $content-padding-bottom;
-        color: inherit; // Make content same color as rest of page text
+        @include motion("standard");
+        transition-property: color, background-color;
     }
 
     &__title-text {
@@ -76,10 +63,22 @@ $title-padding-bottom: $title-padding - $item-padding-top-bottom - $border-width
     }
 
     &__title-icon {
-        @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
+        @include chevron(rem(20px), currentcolor, $weight: rem(1px));
         position: absolute;
         display: block;
-        top: $title-padding-top; // magic number to align chevron with base line
+        top: $title-padding; // magic number to align chevron with base line
         right: $title-padding;
+    }
+
+    &__content-wrapper {
+        @include motion("standard");
+        transition-property: height;
+    }
+
+    &__content {
+        @include font-size("medium");
+        height: auto;
+        padding: $layout-spacing--xl $component-spacing--large;
+        color: inherit; // Make content same color as rest of page text
     }
 }
