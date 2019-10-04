@@ -121,7 +121,7 @@ $bottom-margin: $component-spacing--large;
             text-transform: capitalize;
 
             .jkl-datepicker--extended & {
-                display: none;
+                @include screenreader-only();
             }
         }
         th {
