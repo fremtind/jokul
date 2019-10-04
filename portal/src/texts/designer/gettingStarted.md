@@ -1,6 +1,6 @@
 ## Kom i gang
 
-Er du utvikler eller designer og ivrig etter å komme i gang? Her finner du de ressursene du trenger! Vi ønsker at det skal være så enkelt så mulig for alle å ta i bruk Jøkul.
+Er du utvikler eller designer og ivrig etter å komme i gang? Her finner du de ressursene du trenger! Vi ønsker at det skal være så enkelt som mulig for alle å ta i bruk Jøkul.
 
 ### Om Jøkul
 
