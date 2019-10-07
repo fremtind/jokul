@@ -1,11 +1,11 @@
 import React from "react";
 interface Props {
-    textDescription?: string;
+    textDescription: string;
     negative?: boolean;
     inline?: boolean;
     className?: string;
 }
-export const Loader = ({ textDescription = "Laster inn", negative = false, inline = false, className }: Props) => {
+export const Loader = ({ textDescription, negative = false, inline = false, className }: Props) => {
     const componentClassName = "jkl-loader"
         .concat(negative ? " jkl-loader--negative" : "")
         .concat(inline ? " jkl-loader--inline" : "")

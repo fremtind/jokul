@@ -18,7 +18,7 @@ const App = () => (
                 alignItems: "center",
             }}
         >
-            <Loader inline />
+            <Loader textDescription="Laster…" inline />
         </div>
         <div
             style={{
@@ -33,7 +33,7 @@ const App = () => (
                 backgroundColor: "black",
             }}
         >
-            <Loader inline negative />
+            <Loader textDescription="Laster…" inline negative />
         </div>
     </>
 );
