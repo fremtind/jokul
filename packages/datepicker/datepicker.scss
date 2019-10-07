@@ -132,19 +132,21 @@ $bottom-margin: $component-spacing--large;
                 @include screenreader-only();
             }
         }
+        // Weekday names above calendar:
         th {
             font-weight: normal;
             @include text-sizing("xs");
+            padding-bottom: $component-spacing--small;
         }
         td {
             text-align: center;
         }
         td + td,
         th + th {
-            padding-left: rem(4px);
+            padding-left: rem(4px); // space between columns
         }
         tr + tr > td {
-            padding-top: rem(4px);
+            padding-top: rem(4px); // space between rows
         }
         td button {
             appearance: none;
