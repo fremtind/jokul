@@ -24,4 +24,10 @@ describe("TextField", () => {
         const component = getByTestId("jkl-text-field");
         expect(component).toHaveClass("test-class");
     });
+
+    it("has the max-length given", () => {
+        const { getByLabelText } = render(<TextField label="testing" maxLength={10} />);
+
+        expect(getByLabelText("testing")).toHaveAttribute("max-length", 10);
+    });
 });
