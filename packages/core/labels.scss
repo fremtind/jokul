@@ -17,7 +17,7 @@
 }
 
 .jkl-label {
-    display: inline-block;
+    display: block;
     margin-bottom: $component-spacing--xl;
     margin-left: rem(-1px); // adjust visual alignment
     @include text-sizing("xl");

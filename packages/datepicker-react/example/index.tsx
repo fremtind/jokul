@@ -27,7 +27,7 @@ const englishDayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const App = () => (
     <>
         <div className="jkl-spacing--all-3">
-            <DatePicker />
+            <DatePicker extended />
         </div>
         <div className="jkl-spacing--all-3">
             <DatePicker
