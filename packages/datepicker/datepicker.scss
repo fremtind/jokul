@@ -20,6 +20,14 @@ $bottom-margin: $component-spacing--large;
         position: relative;
     }
 
+    &__input > .jkl-text-field__input {
+        width: 10.5ch;
+
+        .jkl-datepicker--open & {
+            width: 100%;
+        }
+    }
+
     /* Navigation in normal (compact) mode
        =================================== */
 
@@ -60,14 +68,6 @@ $bottom-margin: $component-spacing--large;
         html:not([data-mousenavigation]) &:focus .jkl-datepicker__month-arrow {
             border-color: $focus-color;
             border-width: rem(4px);
-        }
-    }
-
-    &__input > .jkl-text-field__input {
-        width: 10.5ch;
-
-        .jkl-datepicker--open & {
-            width: 100%;
         }
     }
 
