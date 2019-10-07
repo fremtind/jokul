@@ -5,7 +5,7 @@ import { Loader } from "../src";
 
 const App = () => (
     <>
-        <Loader />
+        <Loader textDescription="Den som venter på noe godt…" />
         <div
             style={{
                 marginTop: "20px",
@@ -18,7 +18,7 @@ const App = () => (
                 alignItems: "center",
             }}
         >
-            <Loader inline />
+            <Loader textDescription="Laster…" inline />
         </div>
         <div
             style={{
@@ -33,7 +33,7 @@ const App = () => (
                 backgroundColor: "black",
             }}
         >
-            <Loader inline negative />
+            <Loader textDescription="Laster…" inline negative />
         </div>
     </>
 );
