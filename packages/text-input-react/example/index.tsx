@@ -23,6 +23,7 @@ const TextFieldDemo = () => {
                     placeholder={"Norsk"}
                     variant="small"
                     helpLabel="La oss se..."
+                    maxLength={10}
                 />
                 <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly variant="small" />
             </div>
