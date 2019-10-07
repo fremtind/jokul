@@ -68,6 +68,7 @@ export function DatePicker({
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
     const componentClassName = "jkl-datepicker".concat(
         extended ? " jkl-datepicker--extended" : "",
+        !datepickerHidden ? " jkl-datepicker--open" : "",
         className ? ` ${className}` : "",
     );
 
@@ -121,7 +122,7 @@ export function DatePicker({
     return (
         <div className={componentClassName} ref={datepickerRef}>
             <div className="jkl-datepicker__outer-wrapper">
-                <label className={`jkl-text-field`}>
+                <label className={`jkl-text-field jkl-datepicker__input`}>
                     <span className={`jkl-label ${variant ? `jkl-label--${variant}` : ""}`}>{label}</span>
                     <input
                         placeholder={placeholder}

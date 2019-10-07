@@ -63,6 +63,14 @@ $bottom-margin: $component-spacing--large;
         }
     }
 
+    &__input > .jkl-text-field__input {
+        width: 10.5ch;
+
+        .jkl-datepicker--open & {
+            width: 100%;
+        }
+    }
+
     &__month-arrow {
         @include chevron(rem(20px), $svart, rem(1px));
         transform-origin: center;
