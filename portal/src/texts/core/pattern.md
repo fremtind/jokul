@@ -1,7 +1,8 @@
 ## Mønstre
 
-Mønstre er komponenter som vi kan bruke om igjen. I Jøkul vil vi utvikle mønstre for handlinger som gjentas ofte, slik at design og bruk blir konsekvent uansett hvilke løsning vi lager for Fremtid.
-Her er eksempler på mønstre som vi tenker kan være nyttige å ha for de som bruker Jøkul til å designe og utvikle løsninger for Fremtind.
+Mønstre er komponenter som vi kan bruke om igjen. I Jøkul utvikler vi mønstre for handlinger som gjentas ofte, slik at design og bruk blir konsekvent, uansett hvilken løsning vi lager for Fremtind.
+
+Her er eksempler på mønstre som vi tenker kan være nyttige for de som bruker Jøkul til å designe og utvikle løsninger for Fremtind.
 
 ### Vanlige handlinger
 
