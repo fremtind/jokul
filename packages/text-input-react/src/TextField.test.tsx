@@ -28,6 +28,6 @@ describe("TextField", () => {
     it("has the max-length given", () => {
         const { getByLabelText } = render(<TextField label="testing" maxLength={10} />);
 
-        expect(getByLabelText("testing")).toHaveAttribute("max-length", 10);
+        expect(getByLabelText("testing")).toHaveAttribute("maxlength", "10");
     });
 });
