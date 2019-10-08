@@ -3,7 +3,7 @@ import { Example } from "../components";
 import { TextField } from "@fremtind/jkl-text-input-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-text-input/text-input.min.css";
-// @ts-ignore
+
 import textFieldType from "!raw-loader!@fremtind/jkl-text-input-react/build/TextField.d.ts";
 
 const example = `() => {

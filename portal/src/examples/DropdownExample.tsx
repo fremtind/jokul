@@ -2,7 +2,7 @@ import React from "react";
 import { Example } from "../components";
 import { Dropdown, Select } from "@fremtind/jkl-dropdown-react";
 import "@fremtind/jkl-dropdown/dropdown.min.css";
-// @ts-ignore
+
 import dropdownType from "!raw-loader!@fremtind/jkl-dropdown-react/build/Dropdown.d.ts";
 
 const example = `() => {
