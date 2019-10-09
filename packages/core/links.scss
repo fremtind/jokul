@@ -23,7 +23,7 @@
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include background-color($himmel);
+        @include background-color($focus-color);
     }
 
     &--negative {

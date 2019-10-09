@@ -2,7 +2,7 @@
 @import "../functions";
 
 $font-size-1: rem(14px);
-$font-size-2: rem(17px);
+$font-size-2: rem(16px);
 $font-size-3: rem(22px);
 $font-size-4: rem(28px);
 $font-size-5: rem(36px);
@@ -89,4 +89,10 @@ $line-height--large-device: (
     @include small-device {
         @include line-height--small-device($size);
     }
+}
+
+// Shorthand for setting both font-size and line-height to same value
+@mixin text-sizing($size) {
+    @include font-size($size);
+    @include line-height($size);
 }

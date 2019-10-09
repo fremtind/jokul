@@ -16,6 +16,7 @@ const example = `() => {
                 onChange={(e) => setValue(e.target.value)}
                 />
             <TextArea
+                variant="secondary"
                 className="jkl-spacing--bottom-3"
                 label="Livshistorie"
                 value="gobjop uvucenli bdachukme sotw uvliljai suibki"
@@ -23,8 +24,10 @@ const example = `() => {
                 errorLabel="That makes no sense"
             />
             <TextArea
+                variant="small"
                 className="jkl-spacing--bottom-3"
                 label="Livshistorie"
+                placeholder="Her kan du skrive mye"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 onBlur={(e) => console.log("You wrote: ", e.target.value)}

@@ -1,0 +1,42 @@
+@import "./variables/all";
+@import "./mixins/all";
+@import "./functions";
+
+.jkl-form-support-label {
+    display: block;
+    margin-top: $component-spacing--small;
+    @include text-sizing("xs");
+
+    &--help {
+        color: $svart;
+    }
+
+    &--error {
+        color: $error-color;
+    }
+}
+
+.jkl-label {
+    display: block;
+    margin-bottom: $component-spacing--xl;
+    margin-left: rem(-1px); // adjust visual alignment
+    @include text-sizing("xl");
+    @include small-device {
+        margin-bottom: $component-spacing--large;
+    }
+
+    &--secondary {
+        margin-bottom: $component-spacing--large;
+        margin-left: initial;
+        @include text-sizing("medium");
+        @include small-device {
+            margin-bottom: $component-spacing--small;
+        }
+    }
+
+    &--small {
+        margin-bottom: 0;
+        margin-left: initial;
+        @include text-sizing("xs");
+    }
+}

@@ -12,16 +12,20 @@ const App = () => {
     const [isCool, changeCoolness] = React.useState(false);
     return (
         <>
-            <Checkbox name="checkbox1" onChange={(name, value) => console.log(`${name} is now ${value}`)}>
+            <Checkbox
+                name="checklist"
+                value="checkbox1"
+                onChange={(e) => console.log(`${e.target.value} is now ${e.target.checked}`)}
+            >
                 I am checkbox!
             </Checkbox>
-            <Checkbox name="checkbox2" className="custom-classname">
+            <Checkbox name="checklist" value="checkbox2" className="custom-classname">
                 I am special
             </Checkbox>
-            <Checkbox name="checkbox3" checked>
+            <Checkbox name="checklist" value="checkbox3" checked>
                 I will never change
             </Checkbox>
-            <Checkbox name="coolness" checked={isCool} onChange={() => changeCoolness(!isCool)}>
+            <Checkbox name="checklist" value="coolness" checked={isCool} onChange={() => changeCoolness(!isCool)}>
                 I am {isCool ? "cool" : "not cool"}{" "}
             </Checkbox>
         </>

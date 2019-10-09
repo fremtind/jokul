@@ -5,27 +5,19 @@ $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
 $input-bg-color: inherit;
 $border-color: $svart;
-$border-color--focus: $himmel;
+$border-color--focus: $focus-color;
 
 $input-height: $line-height-3;
 $input-font-size: $font-size-3;
-$label-height: $line-height-2;
-$label-font-size: rem(16px);
-
 $bottom-padding: $component-spacing--small;
-$bottom-margin: $component-spacing--large;
 
-$input-total-height: $label-height + $input-height + $bottom-padding;
 $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
 .jkl-text-field {
     display: block;
     box-sizing: border-box;
-    position: relative;
     font-family: inherit;
     width: 100%;
-    min-height: $input-total-height;
-    padding-top: $label-height;
     background-color: $input-bg-color;
 
     &--inline {
@@ -33,29 +25,10 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
         vertical-align: bottom;
     }
 
-    &__input:focus ~ .jkl-text-field__placeholder {
-        color: $placeholder-text-color;
-        transform: translate3d(0, 0, 0);
-    }
-
-    &__placeholder {
-        @include font-size(small);
-        @include line-height(small);
-
-        color: transparent;
-        user-select: none;
-        left: 0;
-        padding-left: 0.125rem;
-        position: absolute;
-        transform: translate3d(0, 20px, 0);
-        transition: color $transition-timing, transform $transition-timing;
-        width: 100%;
-    }
-
     &__input {
         border: none;
         outline: none;
-        border-radius: none;
+        border-radius: 0;
 
         box-sizing: border-box;
         width: 100%;
@@ -63,50 +36,41 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
         padding: 0 0 $bottom-padding;
         font-size: $input-font-size;
         line-height: $input-height;
+        font-weight: bold;
         background-color: transparent;
         transition: box-shadow $transition-timing;
 
-        box-shadow: 0 rem(2px) 0 0 $border-color;
+        box-shadow: inset 0 rem(-2px) 0 0 $border-color;
         /* show border in mobile Safari */
         -webkit-appearance: none;
         resize: none; // Disable textarea resize
 
+        &::placeholder {
+            opacity: 1;
+            color: $varm-fjellgra;
+            font-weight: normal;
+            line-height: $input-height;
+        }
+
         &:hover,
         &:focus {
-            box-shadow: 0 rem(4px) 0 0 $border-color;
+            box-shadow: inset 0 rem(-4px) 0 0 $border-color;
         }
 
         html:not([data-mousenavigation]) &:focus {
-            box-shadow: 0 rem(4px) 0 0 $border-color--focus;
+            box-shadow: inset 0 rem(-4px) 0 0 $border-color--focus;
         }
 
         &[aria-invalid="true"],
         &:invalid {
-            box-shadow: 0 rem(2px) 0 0 $error-color;
+            box-shadow: inset 0 rem(-2px) 0 0 $error-color;
 
             &:focus,
             &:hover,
             html:not([data-mousenavigation]) &:focus {
-                box-shadow: 0 rem(4px) 0 0 $error-color;
+                box-shadow: inset 0 rem(-4px) 0 0 $error-color;
             }
         }
-
-        &:not(:placeholder-shown) ~ .jkl-text-field__label,
-        &:focus ~ .jkl-text-field__label {
-            color: $varm-fjellgra;
-            transform: translateY(0) scale($label-font-size / $input-font-size);
-        }
-    }
-
-    &__label {
-        font-size: $input-font-size;
-        line-height: $input-height;
-
-        @include position(absolute, $top: 0, $left: 0);
-        transform-origin: top left;
-        transform: translateY($label-height);
-        transition: transform $transition-timing;
-        pointer-events: none;
     }
 }
 
@@ -114,6 +78,7 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
     height: auto;
     & .jkl-text-field__input {
         transition: height 175ms ease, box-shadow $transition-timing;
+        font-weight: normal;
         &:focus,
         &:not(:placeholder-shown) {
             height: $textarea-height--expanded; // CSS default height (is overridden in react component)
