@@ -20,6 +20,7 @@ interface Props {
     placeholder?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
+    maxLength?: number;
 }
 
 export const TextField = ({
@@ -35,6 +36,7 @@ export const TextField = ({
     value,
     variant,
     forceCompact,
+    maxLength,
     ...rest
 }: Props) => {
     const componentClassName = "jkl-text-field".concat(
@@ -57,6 +59,7 @@ export const TextField = ({
                 placeholder={placeholder}
                 readOnly={readOnly}
                 value={value}
+                maxLength={maxLength}
                 {...rest}
             />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />

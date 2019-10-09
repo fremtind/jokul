@@ -24,6 +24,7 @@ const TextFieldDemo = () => {
                     variant="small"
                     helpLabel="La oss se..."
                     forceCompact
+                    maxLength={10}
                 />
                 <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly variant="small" />
             </div>
