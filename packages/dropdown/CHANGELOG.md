@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.9.3...@fremtind/jkl-dropdown@0.10.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+* **dropdown:** make the chevron transparent to clicks ([1ba15bb](https://github.com/fremtind/jokul/commit/1ba15bb))
+
+
+### Features
+
+* extract label styles to core ([9fad287](https://github.com/fremtind/jokul/commit/9fad287))
+* **core:** add pure white as a supporting color ([1558fa9](https://github.com/fremtind/jokul/commit/1558fa9))
+* **dropdown:** update dropdown to follow new label style ([aed609e](https://github.com/fremtind/jokul/commit/aed609e))
+
+
+
+
+
 ## [0.9.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.9.2...@fremtind/jkl-dropdown@0.9.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-dropdown

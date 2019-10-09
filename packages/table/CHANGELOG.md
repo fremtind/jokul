@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@0.2.1...@fremtind/jkl-table@0.3.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+
+
+### Features
+
+* **core:** add pure white as a supporting color ([1558fa9](https://github.com/fremtind/jokul/commit/1558fa9))
+
+
+
+
+
 ## [0.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@0.2.0...@fremtind/jkl-table@0.2.1) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-table

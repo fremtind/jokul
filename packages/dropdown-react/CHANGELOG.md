@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.8.3...@fremtind/jkl-dropdown-react@0.9.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **dropdown-react:** handle initial value when there are no items ([c05f988](https://github.com/fremtind/jokul/commit/c05f988))
+* **dropdown-react:** make Dropdown pass correct value to onChange ([ec146a4](https://github.com/fremtind/jokul/commit/ec146a4))
+* **dropdown-react:** make dropdown pass correct value to onChange func ([6ae1230](https://github.com/fremtind/jokul/commit/6ae1230))
+
+
+### Features
+
+* **dropdown:** update dropdown to follow new label style ([aed609e](https://github.com/fremtind/jokul/commit/aed609e))
+* **dropdown-react:** make dropdown and select accept value pairs ([592dde7](https://github.com/fremtind/jokul/commit/592dde7))
+* change name of label variants ([554749c](https://github.com/fremtind/jokul/commit/554749c))
+* extract label styles to core ([9fad287](https://github.com/fremtind/jokul/commit/9fad287))
+
+
+
+
+
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.8.2...@fremtind/jkl-dropdown-react@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-dropdown-react

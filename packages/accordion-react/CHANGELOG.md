@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.3...@fremtind/jkl-accordion-react@0.9.4) (2019-10-09)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion-react
+
+
+
+
+
 ## [0.9.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.2...@fremtind/jkl-accordion-react@0.9.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion-react

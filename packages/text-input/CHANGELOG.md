@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.9.3...@fremtind/jkl-text-input@0.10.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+
+
+### Features
+
+* extract label styles to core ([9fad287](https://github.com/fremtind/jokul/commit/9fad287))
+* implement Field pattern in text input ([f3877e4](https://github.com/fremtind/jokul/commit/f3877e4))
+* **text-field:** add option to force compact mode ([07c7fea](https://github.com/fremtind/jokul/commit/07c7fea))
+* **text-field:** implement new design for text inputs ([13b45c6](https://github.com/fremtind/jokul/commit/13b45c6))
+* **text-input:** restore text field styles ([93ec3b7](https://github.com/fremtind/jokul/commit/93ec3b7))
+
+
+
+
+
 ## [0.9.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.9.2...@fremtind/jkl-text-input@0.9.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input
