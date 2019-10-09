@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, FocusEvent } from "react";
+import React, { ChangeEvent, FocusEvent } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 
@@ -28,30 +28,15 @@ export const TextArea = ({
     placeholder = " ",
     ...restProps
 }: Props) => {
-    const [isFocused, setIsFocused] = useState(false);
-
-    const height = isFocused || restProps.value ? `${rows * 2 + 0.5}rem` : undefined;
-
     const componentClassName = "jkl-text-field jkl-text-area".concat(className ? ` ${className}` : "");
     const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
-    function onBlur(event: FocusEvent<HTMLTextAreaElement>) {
-        setIsFocused(false);
-        restProps.onBlur && restProps.onBlur(event);
-    }
-
-    function onFocus() {
-        return setIsFocused(true);
-    }
 
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <span className={labelClassName}>{label}</span>
             <textarea
-                onFocus={onFocus}
-                onBlur={onBlur}
-                style={{ height }}
                 aria-invalid={!!errorLabel}
-                className="jkl-text-field__input"
+                className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
                 id={id}
                 placeholder={placeholder}
                 {...restProps}

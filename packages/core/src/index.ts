@@ -1,3 +1,3 @@
 export { initTabListener } from "./utils";
 
-export type LabelVariant = "secondary" | "small";
+export type LabelVariant = "small" | "medium" | "large";
