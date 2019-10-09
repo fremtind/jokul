@@ -27,7 +27,7 @@ const SelectDemo = () => {
                 onChange={setFavoriteScene}
                 helpLabel="The room is the greatest movie"
                 errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
-                variant="secondary"
+                variant="large"
             />
             <Dropdown
                 inline
@@ -54,7 +54,7 @@ const SelectDemo = () => {
                 items={items}
                 onChange={(e) => setFavoriteScene(e.target.value)}
                 placeholder="Choose your favorite"
-                variant="secondary"
+                variant="large"
                 value={favoriteScene}
             />
 

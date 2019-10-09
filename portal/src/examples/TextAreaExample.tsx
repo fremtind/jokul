@@ -16,7 +16,7 @@ const example = `() => {
                 onChange={(e) => setValue(e.target.value)}
                 />
             <TextArea
-                variant="secondary"
+                variant="large"
                 className="jkl-spacing--bottom-3"
                 label="Livshistorie"
                 value="gobjop uvucenli bdachukme sotw uvliljai suibki"

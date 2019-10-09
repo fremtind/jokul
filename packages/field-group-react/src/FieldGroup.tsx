@@ -9,11 +9,23 @@ interface Props {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    forceCompact?: boolean;
 }
 
-export const FieldGroup = ({ legend, className, children, helpLabel, errorLabel, variant }: Props) => {
+export const FieldGroup = ({
+    legend,
+    className,
+    children,
+    helpLabel,
+    errorLabel,
+    variant = "medium",
+    forceCompact,
+}: Props) => {
     const componentClassName = "jkl-field-group".concat(className ? ` ${className}` : "");
-    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
+    const labelClassName = "jkl-label".concat(
+        variant ? ` jkl-label--${variant}` : "",
+        forceCompact ? " jkl-label--compact" : "",
+    );
     return (
         <fieldset className={componentClassName}>
             <legend className={labelClassName}>{legend}</legend>
