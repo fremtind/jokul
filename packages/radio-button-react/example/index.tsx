@@ -18,7 +18,7 @@ const Demo = () => {
     const [variant, setVariant] = useState<LabelVariant | undefined>();
     const typecheckAndSetVariant = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const val = e.target.value;
-        if (val === "secondary" || val === "small") {
+        if (val === "large" || val === "medium" || val === "small") {
             setVariant(val);
         } else {
             setVariant(undefined);
@@ -39,8 +39,8 @@ const Demo = () => {
                 <label style={{ margin: ".5rem" }}>
                     {`Choose variant: `}
                     <select onChange={typecheckAndSetVariant} value={variant}>
-                        <option value={undefined}>Normal</option>
-                        <option value="secondary">Secondary</option>
+                        <option value="large">Large</option>
+                        <option value="medium">Medium</option>
                         <option value="small">Small</option>
                     </select>
                 </label>
