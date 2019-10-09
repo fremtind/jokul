@@ -11,7 +11,7 @@ const example = `() => {
         <>
             <Dropdown className="jkl-spacing--bottom-2" label="Merke" items={["Mercedes", "Opel", "Skoda"]} />
             <Dropdown
-                variant="secondary"
+                variant="large"
                 className="jkl-spacing--bottom-2"
                 label="Merke"
                 items={["Mercedes", "Opel", "Skoda"]}
