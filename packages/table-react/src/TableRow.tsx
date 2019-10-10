@@ -14,6 +14,7 @@ export interface TableAnchorRowData extends BaseTableRowData {
     href: string;
     hrefLabel: string;
     onRowClick?: (href: string) => void;
+    customRowClick?: () => void;
 }
 
 interface Props {
@@ -28,13 +29,19 @@ export function TableRow(props: Props) {
     let rowModifierClasses = "";
 
     if (isAnchorRowData(row)) {
-        onClick = () => {
-            if (row.onRowClick) {
-                row.onRowClick(row.href);
-            } else {
-                window.location.href = row.href;
-            }
-        };
+        if (row.customRowClick !== undefined) {
+            onClick = () => {
+                row.customRowClick && row.customRowClick();
+            };
+        } else {
+            onClick = () => {
+                if (row.onRowClick) {
+                    row.onRowClick(row.href);
+                } else {
+                    window.location.href = row.href;
+                }
+            };
+        }
         rowModifierClasses += "jkl-table__row--anchor-row";
     }
 
