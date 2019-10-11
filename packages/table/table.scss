@@ -1,4 +1,4 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "@fremtind/jkl-core/variables/_all.scss";
 
 $bottom-border-size: rem(1px);
 $highlight-color: $helhvit;
@@ -52,6 +52,7 @@ $highlight-color: $helhvit;
         }
 
         &--data-row {
+            -webkit-transition: background-color 150ms ease, box-shadow 150ms ease;
             transition: background-color 150ms ease, box-shadow 150ms ease;
         }
 
