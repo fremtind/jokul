@@ -57,7 +57,7 @@ export function Select({
         forceCompact ? ` jkl-label--compact` : "",
     );
     return (
-        <label className={componentClassName}>
+        <label data-testid="jkl-dropdown" className={componentClassName}>
             <span className={labelClassName}>{label}</span>
             <select
                 value={value}
