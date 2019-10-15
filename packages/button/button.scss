@@ -1,7 +1,7 @@
-@import "@fremtind/jkl-core/variables/_all.scss";
-@import "@fremtind/jkl-core/mixins/_screens.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_screens.scss";
 
-@import "@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 $button-bg-color: $snohvit;
 $button-bg-color--primary: $svart;

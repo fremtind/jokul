@@ -1,5 +1,5 @@
-@import "@fremtind/jkl-core/variables/_all.scss";
-@import "@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .jkl-accordion-item {
     $title-padding: $component-spacing--large;

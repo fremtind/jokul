@@ -4,7 +4,8 @@ const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
 const autoprefixer = require("autoprefixer");
 const rename = require("gulp-rename");
-const Fiber = require("fibers");
+const fiber = require("fibers");
+const importer = require("node-sass-tilde-importer");
 
 sass.compiler = require("dart-sass");
 /* eslint-enable @typescript-eslint/no-var-requires */
@@ -19,9 +20,7 @@ module.exports = function(gulp) {
     gulp.task("build", function() {
         return gulp
             .src(scssFiles)
-            .pipe(
-                sass({ includePaths: ["../../node_modules", "../packages"], fiber: Fiber }).on("error", throwSassError),
-            )
+            .pipe(sass({ fiber, importer }).on("error", throwSassError))
             .pipe(postcss([autoprefixer()]))
             .pipe(gulp.dest("./"))
             .pipe(postcss([cssnano()]))
