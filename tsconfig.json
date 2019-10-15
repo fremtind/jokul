@@ -3,7 +3,7 @@
         /* Basic Options */
         "target": "esnext"                        /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */,
         "noEmit": true                            /* Do not emit outputs. We use babel as our compiler. */,
-        "isolatedModules": false                  /* Transpile each file as a separate module (similar to 'ts.transpileModule'). This is how babel operates */,
+        "isolatedModules": false                  /* Even though we use babel for compilation, we turn this flag off to use declared modules in typechecking (see raw-loader.ts) */,
         "lib": [                                  /* Specify library files to be included in the compilation. */
             "dom"                                 /* We have a browser environment */
         ],
