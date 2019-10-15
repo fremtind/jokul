@@ -8,7 +8,7 @@ import datepickerType from "!raw-loader!@fremtind/jkl-datepicker-react/build/Dat
 const example = `<>
         <DatePicker label="Når skjedde skaden?" initialDate={new Date('August 19, 2024 23:15:30')} />
         <DatePicker
-            variant="secondary"
+            variant="large"
             onlyFuture={true}
             label="On what date will you take ownership of the apartment?"
             yearLabel="Year"

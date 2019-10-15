@@ -19,6 +19,8 @@ interface Props {
     className?: string;
     placeholder?: string;
     variant?: LabelVariant;
+    forceCompact?: boolean;
+    maxLength?: number;
 }
 
 export const TextField = ({
@@ -33,13 +35,19 @@ export const TextField = ({
     placeholder,
     value,
     variant,
+    forceCompact,
+    maxLength,
     ...rest
 }: Props) => {
     const componentClassName = "jkl-text-field".concat(
         inline ? " jkl-text-field--inline" : "",
+        forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = "jkl-label".concat(variant ? ` jkl-label--${variant}` : "");
+    const labelClassName = "jkl-label".concat(
+        variant ? ` jkl-label--${variant}` : "",
+        forceCompact ? " jkl-label--compact" : "",
+    );
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <span className={labelClassName}>{label}</span>
@@ -51,9 +59,10 @@ export const TextField = ({
                 placeholder={placeholder}
                 readOnly={readOnly}
                 value={value}
+                maxLength={maxLength}
                 {...rest}
             />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );
 };

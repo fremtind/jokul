@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.10.2...@fremtind/jkl-core@0.11.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+
+
+### Features
+
+* **core:** add a screenreader-only mixin ([e8e20b4](https://github.com/fremtind/jokul/commit/e8e20b4))
+* **core:** add pure white as a supporting color ([1558fa9](https://github.com/fremtind/jokul/commit/1558fa9))
+* **core:** add reset.scss file ([4c50296](https://github.com/fremtind/jokul/commit/4c50296))
+* **core:** tweak small font size for legibility ([0d70dc9](https://github.com/fremtind/jokul/commit/0d70dc9))
+* **datepicker:** implement new version and styles ([6f1b3e9](https://github.com/fremtind/jokul/commit/6f1b3e9))
+* **datepicker:** make datepicker shorter until opened ([ef87993](https://github.com/fremtind/jokul/commit/ef87993))
+* **field-group:** remove Field component and update style of FieldGroup ([8a451ac](https://github.com/fremtind/jokul/commit/8a451ac))
+* **field-group:** update field group styling according to sketches ([69d94d8](https://github.com/fremtind/jokul/commit/69d94d8))
+* change name of label variants ([554749c](https://github.com/fremtind/jokul/commit/554749c))
+* extract label styles to core ([9fad287](https://github.com/fremtind/jokul/commit/9fad287))
+
+
+
+
+
 ## [0.10.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.10.1...@fremtind/jkl-core@0.10.2) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-core

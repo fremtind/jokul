@@ -21,7 +21,7 @@ const example = `() => {
             />
 
             <TextField
-                variant="secondary"
+                variant="large"
                 className="jkl-spacing--bottom-5"
                 label="Og etternavnet?"
                 errorLabel={hasError ? "Kun ett navn her" : undefined}

@@ -15,7 +15,7 @@ const TextFieldDemo = () => {
     }
     return (
         <>
-            <div className="side-by-side">
+            <div className="side-by-side jkl-spacing--bottom-2">
                 <TextField
                     label="Fornavn"
                     value={value}
@@ -23,18 +23,50 @@ const TextFieldDemo = () => {
                     placeholder={"Norsk"}
                     variant="small"
                     helpLabel="La oss se..."
+                    forceCompact
+                    maxLength={10}
                 />
                 <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly variant="small" />
             </div>
 
-            <TextField label="Telefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
+            <div className="side-by-side jkl-spacing--bottom-2">
+                <TextField
+                    forceCompact
+                    label="Telefon"
+                    type="tel"
+                    value={value}
+                    onChange={handleChange}
+                    placeholder="999 99 999"
+                />
+                <TextField label="Telefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
+            </div>
+
+            <div className="side-by-side jkl-spacing--bottom-5">
+                <TextField
+                    forceCompact
+                    label="Passord"
+                    type="password"
+                    value={value}
+                    onChange={handleChange}
+                    helpLabel="Passord er en vanlig form for autentisering"
+                    variant="large"
+                />
+                <TextField
+                    label="Passord"
+                    type="password"
+                    value={value}
+                    onChange={handleChange}
+                    helpLabel="Passord er en vanlig form for autentisering"
+                    variant="large"
+                />
+            </div>
             <TextField
                 label="Passord"
                 type="password"
                 value={value}
                 onChange={handleChange}
                 helpLabel="Passord er en vanlig form for autentisering"
-                variant="secondary"
+                variant="large"
             />
             <TextField
                 label="Epost"
@@ -53,7 +85,7 @@ const TextFieldDemo = () => {
                 //variant="small"
                 placeholder="Begrens deg til tre linjer"
             />
-            <TextArea label="Din livshistorie" value={value} onChange={handleChange} variant="secondary" />
+            <TextArea label="Din livshistorie" value={value} onChange={handleChange} variant="large" />
         </>
     );
 };

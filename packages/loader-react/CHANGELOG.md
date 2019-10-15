@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@0.2.1...@fremtind/jkl-loader-react@0.3.0) (2019-10-09)
+
+
+### Features
+
+* **loader:** add aria-label and title to loader component ([8479e2b](https://github.com/fremtind/jokul/commit/8479e2b))
+* **loader-react:** make text description compulsory ([9d0a484](https://github.com/fremtind/jokul/commit/9d0a484))
+
+
+
+
+
 ## [0.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@0.2.0...@fremtind/jkl-loader-react@0.2.1) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-loader-react

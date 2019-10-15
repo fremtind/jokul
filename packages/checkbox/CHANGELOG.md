@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.3...@fremtind/jkl-checkbox@0.8.4) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+* **jkl-checkbox:** give checkboxes correct vertical spacing when stacked ([879f8e4](https://github.com/fremtind/jokul/commit/879f8e4))
+
+
+
+
+
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.2...@fremtind/jkl-checkbox@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/fremtind/jokul/compare/@fremtind/browserslist-config-jkl@0.3.5...@fremtind/browserslist-config-jkl@0.4.0) (2019-10-09)
+
+
+### Features
+
+* **browserslist:** update to a more sensible browserslist config ([5b1c057](https://github.com/fremtind/jokul/commit/5b1c057)), closes [#382](https://github.com/fremtind/jokul/issues/382)
+
+
+
+
+
 ## [0.3.5](https://github.com/fremtind/jokul/compare/@fremtind/browserslist-config-jkl@0.3.4...@fremtind/browserslist-config-jkl@0.3.5) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/browserslist-config-jkl
