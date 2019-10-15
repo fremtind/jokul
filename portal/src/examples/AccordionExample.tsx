@@ -2,9 +2,8 @@ import React from "react";
 import { Example } from "../components";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import "@fremtind/jkl-accordion/accordion.min.css";
-// @ts-ignore
+
 import accordionType from "!raw-loader!@fremtind/jkl-accordion-react/build/Accordion.d.ts";
-// @ts-ignore
 import accordionItemType from "!raw-loader!@fremtind/jkl-accordion-react/build/AccordionItem.d.ts";
 
 const example = `<Accordion>
