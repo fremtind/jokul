@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useRef, useState } from "react";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { LabelVariant } from "@fremtind/jkl-core";
 // @ts-ignore
@@ -24,6 +24,7 @@ interface Props {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    forceCompact?: boolean;
 }
 
 const dayMonthYearRegex = /^(\d\d)\.(\d\d)\.(\d{4})/;
@@ -62,6 +63,7 @@ export function DatePicker({
     errorLabel,
     helpLabel,
     variant,
+    forceCompact,
 }: Props) {
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
@@ -70,6 +72,9 @@ export function DatePicker({
         extended ? " jkl-datepicker--extended" : "",
         !datepickerHidden ? " jkl-datepicker--open" : "",
         className ? ` ${className}` : "",
+    );
+    const inputClassName = "jkl-text-field jkl-datepicker__input".concat(
+        forceCompact ? ` jkl-text-field--compact` : "",
     );
 
     const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -122,8 +127,10 @@ export function DatePicker({
     return (
         <div className={componentClassName} ref={datepickerRef}>
             <div className="jkl-datepicker__outer-wrapper">
-                <label className={`jkl-text-field jkl-datepicker__input`}>
-                    <span className={`jkl-label ${variant ? `jkl-label--${variant}` : ""}`}>{label}</span>
+                <label className={inputClassName}>
+                    <Label variant={variant} forceCompact={forceCompact}>
+                        {label}
+                    </Label>
                     <input
                         placeholder={placeholder}
                         type="text"
@@ -182,7 +189,7 @@ export function DatePicker({
                     </CoreDatepicker>
                 </div>
             </div>
-            <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} />
+            <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} forceCompact={forceCompact} />
         </div>
     );
 }
