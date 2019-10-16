@@ -2,7 +2,7 @@
 
 import React from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
 interface Props {
@@ -17,6 +17,7 @@ interface Props {
     variant?: LabelVariant;
     placeholder?: string;
     value?: string;
+    forceCompact?: boolean;
 }
 
 export function Select({
@@ -30,6 +31,7 @@ export function Select({
     variant,
     placeholder,
     value,
+    forceCompact,
     ...rest
 }: Props) {
     // If no value is given, set it to first item, or to empty string if there is a placeholder
@@ -49,10 +51,11 @@ export function Select({
         value === "" ? ` jkl-dropdown--no-value` : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = variant ? ` jkl-label--${variant}` : "";
     return (
         <label className={componentClassName}>
-            <span className={"jkl-label" + labelClassName}>{label}</span>
+            <Label variant={variant} forceCompact={forceCompact}>
+                {label}
+            </Label>
             <select
                 value={value}
                 className="jkl-dropdown__value"
@@ -72,7 +75,7 @@ export function Select({
                 ))}
             </select>
             <span className="jkl-dropdown__chevron" />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );
 }
