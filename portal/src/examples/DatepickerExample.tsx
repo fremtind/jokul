@@ -2,7 +2,7 @@ import React from "react";
 import { Example } from "../components";
 import { DatePicker } from "@fremtind/jkl-datepicker-react";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
-// @ts-ignore
+
 import datepickerType from "!raw-loader!@fremtind/jkl-datepicker-react/build/DatePicker.d.ts";
 
 const example = `<>

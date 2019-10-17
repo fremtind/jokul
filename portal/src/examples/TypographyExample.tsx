@@ -1,7 +1,7 @@
 import React from "react";
 import { Example } from "../components";
 import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph, Link } from "@fremtind/jkl-typography-react";
-// @ts-ignore
+
 import typeDef from "!raw-loader!@fremtind/jkl-typography-react/build/Typography.d.ts";
 
 const example = `<div>

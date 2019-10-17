@@ -3,7 +3,6 @@ import ReactMarkdown from "react-markdown";
 import { Layout } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 
-// @ts-ignore
 import GettingStaredMarkdown from "!raw-loader!../../../../guides/GettingStarted.md";
 
 const GettingStarted = () => {

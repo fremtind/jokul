@@ -3,7 +3,6 @@ import ReactMarkdown from "react-markdown";
 import { Layout } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
 
-// @ts-ignore
 import PortalGuideMarkdown from "!raw-loader!../../../../guides/PortalGuide.md";
 
 const GettingStarted = () => {
