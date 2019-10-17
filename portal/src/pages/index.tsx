@@ -2,9 +2,7 @@ import React from "react";
 import { Layout } from "../components";
 import ReactMarkdown from "react-markdown";
 import { renderer } from "../presentation/markdownRenderer";
-// @ts-ignore
 import frontPageMarkdown from "!raw-loader!../texts/FrontPage.md";
-// @ts-ignore
 import HeroMarkdown from "!raw-loader!../texts/frontpage/Hero.md";
 import "@fremtind/jkl-core/core.min.css";
 import "./style.scss";

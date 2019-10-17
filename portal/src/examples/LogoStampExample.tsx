@@ -7,13 +7,10 @@ import {
     LogoStampTechnology,
 } from "@fremtind/jkl-logo-react";
 import "@fremtind/jkl-logo/logo.min.css";
-// @ts-ignore
+
 import logoStampDistributorType from "!raw-loader!@fremtind/jkl-logo-react/build/stamp/LogoStampDistributor.d.ts";
-// @ts-ignore
 import logoStampInnovationType from "!raw-loader!@fremtind/jkl-logo-react/build/stamp/LogoStampInnovation.d.ts";
-// @ts-ignore
 import logoStampInsuranceType from "!raw-loader!@fremtind/jkl-logo-react/build/stamp/LogoStampInsurance.d.ts";
-// @ts-ignore
 import logoStampTechnologyType from "!raw-loader!@fremtind/jkl-logo-react/build/stamp/LogoStampTechnology.d.ts";
 
 const example = `() => {

@@ -4112,7 +4112,7 @@ charenc@~0.0.1:
   resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
   integrity sha1-wKHS86cJLgN3S/qD8UwPxXkKhmc=
 
-chokidar@3.2.1:
+chokidar@3.2.1, "chokidar@>=2.0.0 <4.0.0":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.2.1.tgz#4634772a1924512d990d4505957bf3a510611387"
   integrity sha512-/j5PPkb5Feyps9e+jo07jUZGvkB5Aj953NrI4s8xSVScrAo/RHeILrtdb4uzR7N6aaFFxxJ+gt8mA8HfNpw76w==
@@ -5296,6 +5296,13 @@ dargs@^4.0.1:
   dependencies:
     number-is-nan "^1.0.0"
 
+dart-sass@^1.23.0:
+  version "1.23.0"
+  resolved "https://registry.yarnpkg.com/dart-sass/-/dart-sass-1.23.0.tgz#73f2de7bcc3353ebb9316bd477ae1d656d801f54"
+  integrity sha512-ll7BF/SStXZs84Ojg859IIDBA6Afi6Kf2IKVmIdrn4nIgLpxy9o3nUwBj9739j4xceSiw7My3r7MnT1iwpxJQQ==
+  dependencies:
+    chokidar ">=2.0.0 <4.0.0"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -5551,7 +5558,7 @@ detect-indent@^5.0.0:
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-5.0.0.tgz#3871cc0a6a002e8c3e5b3cf7f336264675f06b9d"
   integrity sha1-OHHMCmoALow+Wzz38zYmRnXwa50=
 
-detect-libc@^1.0.2:
+detect-libc@^1.0.2, detect-libc@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
@@ -6796,6 +6803,13 @@ fbjs@^1.0.0:
     promise "^7.1.1"
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.18"
+
+fibers@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/fibers/-/fibers-4.0.1.tgz#34fe8a8d010db7f9096adb2558a45bbc1d03fe45"
+  integrity sha512-H79EJn7DMWXk48ygmC82bMP8KNcFBZF1CPfwBpYF6cO85hGWoIrlu7eyX9ayxfjP9Nsl0JXxdI6fpYU4DWVw2w==
+  dependencies:
+    detect-libc "^1.0.3"
 
 figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
   version "3.5.1"

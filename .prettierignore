@@ -3,3 +3,5 @@ dist/
 public/
 .cache/
 jest/
+tsconfig.json
+tsconfig-for-declarations.json

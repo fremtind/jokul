@@ -3,7 +3,6 @@ import { Example } from "../components";
 import { Table } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";
 
-// @ts-ignore
 import tableType from "!raw-loader!@fremtind/jkl-table-react/build/Table.d.ts";
 
 const example = `() => {
