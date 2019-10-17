@@ -20,4 +20,4 @@ jobs:
                   BASE_BRANCH: master # The branch the action should deploy from.
                   BRANCH: gh-pages # The branch the action should deploy to.
                   FOLDER: portal/public # The folder the action should deploy.
-                  BUILD_SCRIPT: yarn build:portal
+                  BUILD_SCRIPT: yarn build:docs
