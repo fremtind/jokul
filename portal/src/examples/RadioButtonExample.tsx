@@ -3,9 +3,8 @@ import { Example } from "../components";
 import { RadioButtonChoice } from "@fremtind/jkl-radio-button-react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
-// @ts-ignore
+
 import radioButtonType from "!raw-loader!@fremtind/jkl-radio-button-react/build/RadioButton.d.ts";
-// @ts-ignore
 import radioButtonChoiceType from "!raw-loader!@fremtind/jkl-radio-button-react/build/RadioButtonChoice.d.ts";
 
 const example = `() => {
