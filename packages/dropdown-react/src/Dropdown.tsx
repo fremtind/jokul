@@ -2,7 +2,7 @@
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState } from "react";
 import nanoid from "nanoid";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { useListNavigation } from "./useListNavigation";
 import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
@@ -69,10 +69,6 @@ export function Dropdown({
         !!errorLabel ? ` jkl-dropdown--invalid` : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = "jkl-label".concat(
-        variant ? ` jkl-label--${variant}` : "",
-        forceCompact ? ` jkl-label--compact` : "",
-    );
 
     function onToggle() {
         const listElement = listRef.current;
@@ -94,7 +90,9 @@ export function Dropdown({
 
     return (
         <div data-testid="jkl-dropdown" className={componentClassName}>
-            <span className={labelClassName}>{label}</span>
+            <Label variant={variant} forceCompact={forceCompact}>
+                {label}
+            </Label>
             <div className="jkl-dropdown__outer-wrapper">
                 <button
                     type="button"
