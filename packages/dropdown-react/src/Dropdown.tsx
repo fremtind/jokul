@@ -18,6 +18,7 @@ interface Props {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    forceCompact?: boolean;
 }
 
 interface CoreToggleSelectEvent {
@@ -52,6 +53,7 @@ export function Dropdown({
     inline = false,
     defaultPrompt = "Velg",
     variant,
+    forceCompact,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
     const [displayedValue, setDisplayedValue] = useState(initialInputValue);
@@ -61,12 +63,16 @@ export function Dropdown({
     const listRef = useListNavigation();
     const componentClassName = "jkl-dropdown".concat(
         inline ? ` jkl-dropdown--inline` : "",
+        forceCompact ? ` jkl-dropdown--compact` : "",
         dropdownIsShown ? ` jkl-dropdown--open` : "",
         !hasSelectedValue ? ` jkl-dropdown--no-value` : "",
         !!errorLabel ? ` jkl-dropdown--invalid` : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = variant ? ` jkl-label--${variant}` : "";
+    const labelClassName = "jkl-label".concat(
+        variant ? ` jkl-label--${variant}` : "",
+        forceCompact ? ` jkl-label--compact` : "",
+    );
 
     function onToggle() {
         const listElement = listRef.current;
@@ -88,7 +94,7 @@ export function Dropdown({
 
     return (
         <div data-testid="jkl-dropdown" className={componentClassName}>
-            <span className={"jkl-label" + labelClassName}>{label}</span>
+            <span className={labelClassName}>{label}</span>
             <div className="jkl-dropdown__outer-wrapper">
                 <button
                     type="button"
@@ -133,7 +139,7 @@ export function Dropdown({
                 </CoreToggle>
                 <span className="jkl-dropdown__chevron" />
             </div>
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </div>
     );
 }

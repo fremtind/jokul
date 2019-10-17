@@ -45,4 +45,10 @@ describe("Dropdown", () => {
 
         expect(button).toHaveTextContent("Velg");
     });
+
+    it("can be forced into compact mode", () => {
+        const { getByTestId } = render(<Dropdown items={["1", "2"]} label="test" forceCompact />);
+
+        expect(getByTestId("jkl-dropdown")).toHaveClass("jkl-dropdown--compact");
+    });
 });

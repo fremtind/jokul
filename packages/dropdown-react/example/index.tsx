@@ -36,6 +36,7 @@ const SelectDemo = () => {
                 items={years}
                 initialInputValue="1986"
                 variant="small"
+                forceCompact
             />
 
             <Select
@@ -56,6 +57,7 @@ const SelectDemo = () => {
                 placeholder="Choose your favorite"
                 variant="large"
                 value={favoriteScene}
+                forceCompact
             />
 
             <Dropdown className="jkl-spacing--top-5" label="Favorite The Room scene" items={items} />
