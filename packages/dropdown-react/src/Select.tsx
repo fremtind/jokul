@@ -53,7 +53,7 @@ export function Select({
         className ? ` ${className}` : "",
     );
     return (
-        <label className={componentClassName}>
+        <label data-testid="jkl-dropdown" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
