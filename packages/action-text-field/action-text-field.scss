@@ -1,0 +1,27 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-text-field {
+    &__input {
+        padding-right: 3rem;
+    }
+}
+
+.jkl-icon-text-field {
+    display: block;
+    position: relative;
+
+    &__field {
+        .jkl-text-field__input {
+            padding-right: 2.5rem;
+        }
+    }
+    &__icon {
+        position: absolute;
+        right: 0;
+        bottom: $component-spacing--small;
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
