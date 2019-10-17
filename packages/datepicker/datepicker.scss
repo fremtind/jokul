@@ -7,6 +7,7 @@
 $date-width: $line-height-4;
 $date-spacing: rem(4px);
 $calendar-padding: $component-spacing--xl;
+$calendar-padding--compact: $component-spacing--small;
 $calendar-width: ($date-width * 7) + ($date-spacing * 6);
 $background-color: $helhvit;
 $bottom-margin: $component-spacing--large;
@@ -15,6 +16,10 @@ $bottom-margin: $component-spacing--large;
     position: relative;
     width: $calendar-width + ($calendar-padding * 2);
     margin-bottom: $bottom-margin;
+
+    @include small-device {
+        width: $calendar-width + ($calendar-padding--compact * 2);
+    }
 
     &__outer-wrapper {
         position: relative;
@@ -121,6 +126,10 @@ $bottom-margin: $component-spacing--large;
         padding: $calendar-padding;
         background-color: $background-color;
         box-shadow: $drop-shadow--small;
+
+        @include small-device {
+            padding: $calendar-padding $calendar-padding--compact;
+        }
 
         caption {
             font-size: $font-size-3;
