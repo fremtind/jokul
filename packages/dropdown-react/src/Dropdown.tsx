@@ -63,6 +63,7 @@ export function Dropdown({
     const listRef = useListNavigation();
     const componentClassName = "jkl-dropdown".concat(
         inline ? ` jkl-dropdown--inline` : "",
+        forceCompact ? ` jkl-dropdown--compact` : "",
         dropdownIsShown ? ` jkl-dropdown--open` : "",
         !hasSelectedValue ? ` jkl-dropdown--no-value` : "",
         !!errorLabel ? ` jkl-dropdown--invalid` : "",

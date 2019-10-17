@@ -39,4 +39,10 @@ describe("Select", () => {
 
         expect(getByText("Please choose")).toBeInTheDocument();
     });
+
+    it("can be forced into compact mode", () => {
+        const { getByTestId } = render(<Select items={["1", "2"]} label="test" forceCompact />);
+
+        expect(getByTestId("jkl-dropdown")).toHaveClass("jkl-dropdown--compact");
+    });
 });

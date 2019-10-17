@@ -47,6 +47,7 @@ export function Select({
     };
     const componentClassName = "jkl-dropdown".concat(
         inline ? ` jkl-dropdown--inline` : "",
+        forceCompact ? ` jkl-dropdown--compact` : "",
         !!errorLabel ? ` jkl-dropdown--invalid` : "",
         value === "" ? ` jkl-dropdown--no-value` : "",
         className ? ` ${className}` : "",
