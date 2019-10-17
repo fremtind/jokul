@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FocusEvent } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 
 export interface Props {
     label: string;
@@ -44,13 +44,11 @@ export const TextField = ({
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = "jkl-label".concat(
-        variant ? ` jkl-label--${variant}` : "",
-        forceCompact ? " jkl-label--compact" : "",
-    );
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
-            <span className={labelClassName}>{label}</span>
+            <Label variant={variant} forceCompact={forceCompact}>
+                {label}
+            </Label>
             <input
                 type={type}
                 aria-invalid={!!errorLabel}

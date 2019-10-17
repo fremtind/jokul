@@ -2,7 +2,7 @@ import React from "react";
 import { Example } from "../components";
 import { Loader } from "@fremtind/jkl-loader-react";
 import "@fremtind/jkl-loader/loader.min.css";
-// @ts-ignore
+
 import type from "!raw-loader!@fremtind/jkl-loader-react/build/Loader.d.ts";
 
 const example = `<>

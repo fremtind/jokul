@@ -3,7 +3,7 @@ import { Example } from "../components";
 import { Card } from "@fremtind/jkl-card-react";
 import "@fremtind/jkl-card/card.min.css";
 import "@fremtind/jkl-core/core.min.css";
-// @ts-ignore
+
 import type from "!raw-loader!@fremtind/jkl-card-react/build/Card.d.ts";
 
 const example = `<Card>

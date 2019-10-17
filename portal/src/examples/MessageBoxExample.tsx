@@ -3,7 +3,7 @@ import { Example } from "../components";
 import { BulletList, BulletListItem } from "@fremtind/jkl-bullet-list-react";
 import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "@fremtind/jkl-message-box-react";
 import "@fremtind/jkl-message-box/message-box.min.css";
-// @ts-ignore
+
 import messageType from "!raw-loader!@fremtind/jkl-message-box-react/build/MessageBox.d.ts";
 
 const example = `<>

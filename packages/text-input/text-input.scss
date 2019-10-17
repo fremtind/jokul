@@ -96,6 +96,9 @@ $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bott
         @include small-device {
             height: $input-height--small-device * $num + $bottom-padding;
         }
+        .jkl-text-field--compact & {
+            height: $input-height--small-device * $num + $bottom-padding;
+        }
     }
 }
 
