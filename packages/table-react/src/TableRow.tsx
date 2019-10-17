@@ -9,7 +9,7 @@ export interface BaseTableRowData {
 }
 
 export interface TableAnchorRowData extends BaseTableRowData {
-    rowData: string[];
+    rowData: string[] | React.ReactNodeArray;
     type: "anchor";
     href: string;
     hrefLabel: string;
@@ -22,7 +22,7 @@ interface Props {
 
 export function TableRow(props: Props) {
     const { row } = props;
-    const rowData: string[] = isAnchorRowData(row) ? row.rowData : row;
+    const rowData: string[] | React.ReactNodeArray = isAnchorRowData(row) ? row.rowData : row;
 
     let onClick: undefined | ((evt: MouseEvent<HTMLTableRowElement>) => void) = undefined;
     let rowModifierClasses = "";
@@ -47,6 +47,8 @@ export function TableRow(props: Props) {
     );
 }
 
-export function isAnchorRowData(row: string[] | TableAnchorRowData): row is TableAnchorRowData {
+export function isAnchorRowData(
+    row: (string[] | React.ReactNodeArray) | TableAnchorRowData,
+): row is TableAnchorRowData {
     return "type" in row && row.type === "anchor";
 }

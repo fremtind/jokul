@@ -10,8 +10,8 @@ import "./index.scss";
 initTabListener();
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Sakstype", "Milepæl", "Følger saken"];
-
-const rows: Array<string[] | TableAnchorRowData> = [
+const htmlElement = <span className="elementStyle" />;
+const rows: Array<(string[] | React.ReactNode[]) | TableAnchorRowData> = [
     ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Etterlatte", "Opprettet", "Siri Saksbehandler"],
     {
         href: "https://google.com",
@@ -30,6 +30,7 @@ const rows: Array<string[] | TableAnchorRowData> = [
     ["13.04.2019", "20-8382811", "010203 99887", "Kari Nordkvinne", "Etterlatte", "Opprettet", "Siri Saksbehandler"],
 
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Etterlatte", "Opprettet", "Per Persen"],
+    [htmlElement, htmlElement, htmlElement, htmlElement, htmlElement, htmlElement, htmlElement],
 ];
 
 const TableDemo = () => {

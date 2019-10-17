@@ -3,7 +3,7 @@ import { TableRowData } from "./Table";
 import { isAnchorRowData } from "./TableRow";
 
 interface Props {
-    data: string;
+    data: string | React.ReactNode;
     row: TableRowData;
     isFirstCell: boolean;
 }

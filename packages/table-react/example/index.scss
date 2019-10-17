@@ -4,3 +4,9 @@ body {
     padding: 5rem;
     background-color: $snohvit;
 }
+.elementStyle {
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    background-image: radial-gradient($snohvit, $himmelgra);
+}
