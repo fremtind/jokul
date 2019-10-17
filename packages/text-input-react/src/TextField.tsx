@@ -2,7 +2,7 @@ import React, { ChangeEvent, FocusEvent } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
 
-interface Props {
+export interface Props {
     label: string;
     value?: string;
     inline?: boolean;
