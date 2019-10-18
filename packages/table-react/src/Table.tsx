@@ -1,11 +1,11 @@
 import React from "react";
 import { TableAnchorRowData, TableRow } from "./TableRow";
 
-export type TableRowData = (string[] | React.ReactNodeArray) | TableAnchorRowData;
+export type TableRowData = React.ReactNodeArray | TableAnchorRowData;
 
 interface Props {
     columns: string[];
-    rows: Array<TableRowData | React.ReactNodeArray>;
+    rows: Array<TableRowData>;
     className?: string;
 }
 
