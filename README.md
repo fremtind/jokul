@@ -1,6 +1,6 @@
 # [Jøkul]() av [Fremtind](https://fremtind.no)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-green.svg?style=flat-rounded)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-green.svg?style=flat-rounded)](#contributors)
 [![build status](https://travis-ci.org/fremtind/jokul.svg?branch=master)](https://travis-ci.org/fremtind/jokul.svg?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/fremtind/jokul.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io//test/github/fremtind/jokul/badge.svg?targetFile=package.json)](https://snyk.io//test/github/fremtind/jokul?targetFile=package.json) [![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
 
@@ -87,6 +87,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/frisol97"><img src="https://avatars3.githubusercontent.com/u/51901763?v=4" width="100px;" alt="Frida Thorkildsen Solhaug"/><br /><sub><b>Frida Thorkildsen Solhaug</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=frisol97" title="Code">💻</a> <a href="#review-frisol97" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/vegardsoerlie"><img src="https://avatars2.githubusercontent.com/u/14551408?v=4" width="100px;" alt="Vegard Sørlie"/><br /><sub><b>Vegard Sørlie</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=vegardsoerlie" title="Code">💻</a></td>
   </tr>
 </table>
 
