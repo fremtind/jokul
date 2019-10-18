@@ -31,6 +31,14 @@ $button-height--small: 2.5rem;
         line-height: $button-height--small;
         font-size: map-get($font-size--small-device, "small");
     }
+
+    &--compact {
+        height: $button-height--small;
+        min-width: $button-height--small;
+        line-height: $button-height--small;
+        font-size: map-get($font-size--small-device, "small");
+    }
+
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
     border: none;
@@ -49,7 +57,8 @@ $button-height--small: 2.5rem;
         transform: scale(1);
     }
 
-    /********* VARIANTS *********/
+    // ********* VARIANTS *********
+
     &--primary {
         background-color: $button-bg-color--primary;
         color: $button-text-color--primary;
