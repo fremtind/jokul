@@ -12,10 +12,10 @@ describe("Button", () => {
         { name: "tertiary", component: TertiaryButton },
     ].map((buttonVariant) => {
         it(`renders the ${buttonVariant.name} button correctly`, () => {
-            const { getByText } = render(
-                <buttonVariant.component onClick={() => {}}>{buttonVariant.name}</buttonVariant.component>,
-            );
-            expect(getByText(buttonVariant.name)).toHaveClass(`jkl-button--${buttonVariant.name}`);
+            const { name, component: Button } = buttonVariant;
+            const { getByText } = render(<Button onClick={() => {}}>{name}</Button>);
+
+            expect(getByText(name)).toHaveClass(`jkl-button--${name}`);
         });
     });
 
