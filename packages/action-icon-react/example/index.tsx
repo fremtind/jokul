@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { DeleteActionIcon, EditActionIcon, SearchActionIcon, ClearActionIcon } from "../src";
+import { ActionIcon } from "../src";
 
 const App = () => (
     <>
-        <EditActionIcon />
-        <DeleteActionIcon />
-        <SearchActionIcon />
-        <ClearActionIcon />
+        <ActionIcon actionType="delete" />
+        <ActionIcon actionType="edit" />
+        <ActionIcon actionType="search" />
+        <ActionIcon actionType="clear" />
     </>
 );
 
