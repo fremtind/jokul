@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-action-text-field-react`](https://fremtind.github.io/jokul/components/icon/)
+# [`@fremtind/jkl-action-text-field-react`](https://fremtind.github.io/jokul/components/actiontextfield/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/icon/) er beskrevet i `@fremtind/jkl-icon` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/action-text-field-react/) er beskrevet i `@fremtind/jkl-action-text-field` stil-pakken.
 
 ## Kom i gang
 
