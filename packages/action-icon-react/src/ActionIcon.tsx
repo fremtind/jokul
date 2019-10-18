@@ -6,30 +6,26 @@ import { IconClear } from "./Icons/IconClear";
 import { IconVariant } from "./index";
 
 interface Props {
-    name: IconVariant;
+    actionType: IconVariant;
 }
 
-function ActionType(name: IconVariant) {
-    switch (name) {
+function ActionType(actionType: IconVariant) {
+    switch (actionType) {
         case "clear":
             return <IconClear />;
-            break;
         case "delete":
             return <IconDelete />;
-            break;
         case "search":
             return <IconSearch />;
-            break;
         case "edit":
             return <IconEdit />;
-            break;
         default:
             return null;
     }
 }
 
-export const ActionIcon = ({ name }: Props) => {
-    const componentClassName = "jkl-action-icon".concat(` jkl-action-icon--${name}`);
+export const ActionIcon = ({ actionType }: Props) => {
+    const componentClassName = "jkl-action-icon".concat(` jkl-action-icon--${actionType}`);
 
-    return <div className={componentClassName}>{ActionType(name)}</div>;
+    return <div className={componentClassName}>{ActionType(actionType)}</div>;
 };
