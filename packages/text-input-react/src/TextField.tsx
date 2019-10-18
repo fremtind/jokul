@@ -21,6 +21,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     maxLength?: number;
+    width?: string;
 }
 
 export const TextField = ({
@@ -37,6 +38,7 @@ export const TextField = ({
     variant,
     forceCompact,
     maxLength,
+    width,
     ...rest
 }: Props) => {
     const componentClassName = "jkl-text-field".concat(
@@ -44,9 +46,18 @@ export const TextField = ({
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
+    function getLength(): string | undefined {
+        if (width) return width; // prioritize width
+
+        if (maxLength && maxLength < 15) {
+            return `${maxLength + 3}ch`; // else use maxLength if not large
+        }
+
+        return undefined;
+    }
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+            <Label srOnly={inline} variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
             <input
@@ -58,9 +69,10 @@ export const TextField = ({
                 readOnly={readOnly}
                 value={value}
                 maxLength={maxLength}
+                style={getLength() ? { width: getLength() } : undefined}
                 {...rest}
             />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+            {!inline && <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />}
         </label>
     );
 };

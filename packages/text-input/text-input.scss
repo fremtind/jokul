@@ -23,7 +23,14 @@ $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bott
 
     &--inline {
         display: inline-block;
-        vertical-align: bottom;
+        width: unset;
+        margin-top: rem(-4px);
+        vertical-align: top;
+
+        .jkl-p & .jkl-text-field__input {
+            padding: 0; // $component-spacing--small;
+            text-align: center;
+        }
     }
 
     &--compact {
@@ -73,6 +80,10 @@ $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bott
 
         html:not([data-mousenavigation]) &:focus {
             box-shadow: inset 0 rem(-4px) 0 0 $border-color--focus;
+        }
+
+        &[type="number"] {
+            text-align: right;
         }
 
         &[aria-invalid="true"],
