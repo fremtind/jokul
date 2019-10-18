@@ -47,7 +47,9 @@ export const TextField = ({
         className ? ` ${className}` : "",
     );
     function getLength(): string | undefined {
-        if (width) return width; // prioritize width
+        if (width) {
+            return width; // prioritize width
+        }
 
         if (maxLength && maxLength < 15) {
             return `${maxLength + 3}ch`; // else use maxLength if not large

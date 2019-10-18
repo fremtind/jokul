@@ -28,7 +28,7 @@ $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bott
         vertical-align: top;
 
         .jkl-p & .jkl-text-field__input {
-            padding: 0; // $component-spacing--small;
+            padding: 0;
             text-align: center;
         }
     }
