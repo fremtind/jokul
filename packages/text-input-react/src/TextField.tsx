@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FocusEvent } from "react";
+import React, { ChangeEvent, FocusEvent, CSSProperties } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 
@@ -46,13 +46,13 @@ export const TextField = ({
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
-    function getLength(): string | undefined {
+    function getWidthAsStyle(): CSSProperties | undefined {
         if (width) {
-            return width; // prioritize width
+            return { width }; // prioritize width prop
         }
 
         if (maxLength && maxLength < 15) {
-            return `${maxLength + 3}ch`; // else use maxLength if not large
+            return { width: `${maxLength + 3}ch` }; // else use maxLength if not large
         }
 
         return undefined;
@@ -71,7 +71,7 @@ export const TextField = ({
                 readOnly={readOnly}
                 value={value}
                 maxLength={maxLength}
-                style={getLength() ? { width: getLength() } : undefined}
+                style={getWidthAsStyle()}
                 {...rest}
             />
             {!inline && <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />}
