@@ -5,22 +5,18 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 describe("Button", () => {
     afterEach(cleanup);
 
-    it("renders the correct button", () => {
-        const { getByText } = render(
-            <>
-                <PrimaryButton onClick={() => {}}>primary</PrimaryButton>
-                <SecondaryButton onClick={() => {}}>secondary</SecondaryButton>
-                <TertiaryButton onClick={() => {}}>tertiary</TertiaryButton>
-            </>,
-        );
-
-        const primaryButton = getByText("primary");
-        const secondaryButton = getByText("secondary");
-        const tertiaryButton = getByText("tertiary");
-
-        expect(primaryButton).toHaveClass("jkl-button--primary");
-        expect(secondaryButton).toHaveClass("jkl-button--secondary");
-        expect(tertiaryButton).toHaveClass("jkl-button--tertiary");
+    // Test all button variants:
+    [
+        { name: "primary", component: PrimaryButton },
+        { name: "secondary", component: SecondaryButton },
+        { name: "tertiary", component: TertiaryButton },
+    ].map((buttonVariant) => {
+        it(`renders the ${buttonVariant.name} button correctly`, () => {
+            const { getByText } = render(
+                <buttonVariant.component onClick={() => {}}>{buttonVariant.name}</buttonVariant.component>,
+            );
+            expect(getByText(buttonVariant.name)).toHaveClass(`jkl-button--${buttonVariant.name}`);
+        });
     });
 
     it("calls the onClick handler when clicked", () => {
