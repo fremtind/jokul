@@ -9,7 +9,7 @@ const App = () => {
     const [value, setValue] = useState("");
 
     return (
-        <div>
+        <>
             <ActionTextField iconType="delete" label="test" onClick={() => console.log("hello")} />
             <ActionTextField iconType="edit" label="test" onClick={() => {}} />
             <ActionTextField iconType="search" label="test" onClick={() => {}} />
@@ -20,7 +20,7 @@ const App = () => {
                 onClick={() => setValue("")}
                 onChange={(e) => setValue(e.target.value)}
             />
-        </div>
+        </>
     );
 };
 
