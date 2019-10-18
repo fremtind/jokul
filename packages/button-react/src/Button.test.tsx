@@ -1,11 +1,29 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import { PrimaryButton, SecondaryButton } from ".";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 
-describe("PrimaryButton", () => {
+describe("Button", () => {
     afterEach(cleanup);
 
-    it("should call the onClick handler when clicked", () => {
+    it("renders the correct button", () => {
+        const { getByText } = render(
+            <>
+                <PrimaryButton onClick={() => {}}>primary</PrimaryButton>
+                <SecondaryButton onClick={() => {}}>secondary</SecondaryButton>
+                <TertiaryButton onClick={() => {}}>tertiary</TertiaryButton>
+            </>,
+        );
+
+        const primaryButton = getByText("primary");
+        const secondaryButton = getByText("secondary");
+        const tertiaryButton = getByText("tertiary");
+
+        expect(primaryButton).toHaveClass("jkl-button--primary");
+        expect(secondaryButton).toHaveClass("jkl-button--secondary");
+        expect(tertiaryButton).toHaveClass("jkl-button--tertiary");
+    });
+
+    it("calls the onClick handler when clicked", () => {
         const clickHandler = jest.fn();
         const { getByText } = render(<PrimaryButton onClick={clickHandler}>I am groot!</PrimaryButton>);
 
@@ -15,19 +33,24 @@ describe("PrimaryButton", () => {
 
         expect(clickHandler).toHaveBeenCalled();
     });
-});
 
-describe("SecondaryButton", () => {
-    afterEach(cleanup);
+    it("applies passed classNames", () => {
+        const { getByText } = render(
+            <PrimaryButton className="test-class" onClick={() => {}}>
+                test
+            </PrimaryButton>,
+        );
 
-    it("should call the onClick handler when clicked", () => {
-        const clickHandler = jest.fn();
-        const { getByText } = render(<SecondaryButton onClick={clickHandler}>Lol</SecondaryButton>);
+        expect(getByText("test")).toHaveClass("test-class");
+    });
 
-        const button = getByText("Lol");
+    it("applies compact mode when forced to", () => {
+        const { getByText } = render(
+            <PrimaryButton forceCompact onClick={() => {}}>
+                test
+            </PrimaryButton>,
+        );
 
-        button.click();
-
-        expect(clickHandler).toHaveBeenCalled();
+        expect(getByText("test")).toHaveClass("jkl-button--compact");
     });
 });
