@@ -159,6 +159,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "BjornBakke",
+      "name": "Bjørn Ole Bakke",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1997921?v=4",
+      "profile": "http://eniro.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
