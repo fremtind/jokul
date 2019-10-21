@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FocusEvent } from "react";
+import React, { ChangeEvent, FocusEvent, CSSProperties } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 
@@ -21,6 +21,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     maxLength?: number;
+    width?: string;
 }
 
 export const TextField = ({
@@ -37,16 +38,37 @@ export const TextField = ({
     variant,
     forceCompact,
     maxLength,
+    width,
     ...rest
 }: Props) => {
+    // Give warning when errorLabel or helpLabel is used on an inline TextField
+    if (process.env.NODE_ENV !== "production") {
+        if (inline && (helpLabel || errorLabel)) {
+            console.warn(
+                "WARNING: Inline TextFields do not display help- or error labels! The errorLabel prop can still be used to trigger an invalid state, but the reason will have to be described elsewhere.",
+            );
+        }
+    }
+
     const componentClassName = "jkl-text-field".concat(
         inline ? " jkl-text-field--inline" : "",
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
+    function getWidthAsStyle(): CSSProperties | undefined {
+        if (width) {
+            return { width }; // prioritize width prop
+        }
+
+        if (maxLength && maxLength < 15) {
+            return { width: `${maxLength + 3}ch` }; // else use maxLength if not large
+        }
+
+        return undefined;
+    }
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+            <Label srOnly={inline} variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
             <input
@@ -58,9 +80,10 @@ export const TextField = ({
                 readOnly={readOnly}
                 value={value}
                 maxLength={maxLength}
+                style={getWidthAsStyle()}
                 {...rest}
             />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+            {!inline && <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />}
         </label>
     );
 };
