@@ -41,6 +41,15 @@ export const TextField = ({
     width,
     ...rest
 }: Props) => {
+    // Give warning when errorLabel or helpLabel is used on an inline TextField
+    if (process.env.NODE_ENV !== "production") {
+        if (inline && (helpLabel || errorLabel)) {
+            console.warn(
+                "WARNING: Inline TextFields do not display help- or error labels! The errorLabel prop can still be used to trigger an invalid state, but the reason will have to be described elsewhere.",
+            );
+        }
+    }
+
     const componentClassName = "jkl-text-field".concat(
         inline ? " jkl-text-field--inline" : "",
         forceCompact ? " jkl-text-field--compact" : "",
