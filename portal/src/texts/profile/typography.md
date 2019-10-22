@@ -1,9 +1,36 @@
 ## Typografi
+
+### Vår skrifttype
+Fremtind Grotesk. En sans serif med geometriske former og høy x-høyde. Kommer i snittene Regular, Bold, Display og Mono. Vi bruker primært Regular og Bold.
+
 **Ny imformasjon om Fremtind Grotesk kommer når det er avklart med SDG/Merkevare**
 
-Fremtinds skriftfamilie - Akkurat Pro
 
-Akkurat Pro er en grotesk skrifttype. Den er ved første øyekast nøktern og solid, men etter hvert gir et rent og optimistisk inntrykk. Dermed reflekter den godt verdiene til Fremtind. Støttefonten er Calibri Light.
+### Typografisk skala
+Den typografiske skalaen tar utgangspunkt i en funksjonell og lesbar størrelse til bodytekst. Herfra skaleres de andre stilene med riktig kontraster til å skape ett tydelig hierarki.
+
+
+### Linjehøyde
+Linjehøyden er en av de viktigste virkemidlene for å oppnå god rytme på sidene våre. Det er derfor viktig at linjehøyden stemmer overens med spacingskalaen vår. For at systemet samtidig skal ha nok fleksibilitet til å gi gode linjehøydeverdier bruker vi verdier som går opp i 4 gangen. 
+
+Stiler for mengdetekst har en linjehøyde på ca. 1,4 ganger teskstørrelse. Headere har ikke samme behov for linjehøyde og ser generelt bedre ut med mindre linjehøyde. De har derfor en linjehøyde på ca 1,2 ganger tekststørrelse.
+
+
+### Tilgjengelighet
+
+#### Linjelengde
+Hold linjelengden mellom 45 og 75 karakterer for best mulig lesbarhet. Unngå over 100 karakterer per linje. 
+
+Hvis linjen blir for lang blir det vanskelig for øyet å fokusere på teksten. Det kan også være vanskelig å fortsette på riktig linje når øyet reiser fra slutten av en linje til starten av en ny linje. 
+
+Hvis linjen blir for kort må øyet flyttet seg til ny linje for ofte, noe som bryter opp leserytemen. Korte linjer oppfordrer også leseren til å skumlese og hoppe til neste linje før de har lest ferdig og kan potensielt gå glipp av viktig informasjon.
+
+#### Store og små bokstaver
+Vi setter tekst normalt og roper ikke med ord satt i versaler/all caps. 
+
+#### Kursiv
+For å fremheve ord i en tekst bruker vi kursiv og ikke fet. 
+
 
 ### Brødtekst
 
