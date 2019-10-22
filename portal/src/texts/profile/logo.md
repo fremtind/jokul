@@ -1,9 +1,25 @@
 ## Logo
 
-Primærlogoen er designet for å fremstå som moderne, tidløs og seriøs. Håndverket i logoen er justert ned til minste detalj for å sikre optimal funksjon på alle flater. I logosymbolet tipper F’en frem og former en tind. Bokstavelig talt et fremoverlent symbol. Dette er et virkemiddel for enkelt å kommunisere verdiene i navnet vårt.
+Logoen er det viktigste kjennetegnet i vår merkevare.
+Primærlogoen er designet for å fremstå som moderne, tidløs og seriøs. I logosymbolet tipper F’en frem og former en tind. 
 
-Vi har også inkludert en rekke logostempler i verktøykassen vår. Disse er utviklet for at bankene enkelt skal kunne bruke Fremtind som en ingrediens i sine egne merkevarer.
 
-Logostemplene er dynamiske, slik at vi hele tiden kan oppdatere budskapene etter behov. Forsikring i bank skal være enkelt og smart. I tillegg til dette har vi også designet logotags. Disse fungerer som kvalitetsstempler og vil være en del av pakken bankene kan velge å bruke i forbindelse med markedsføring. Vi kommer til å arbeide videre med å tilpasse logostemplene og logotaggene.
+Logobruk:
+1. Luft/bestkyttelsesområde: Lage eksempler på dette. Definere forhold (X ganger bredde/høyde på logo/symbol) Ikke lov å ramme/bokse inn logo/logosymbol (vise eksempel på dette). Logoen skal være "fri"
 
-Til sammen får vi et moderne, nyskapende og smidig logosystem som er lett å bruke på alle flater, både de vi har nå og de som kommer i tiden fremover.
+2. Farger: Logo skal være enten sort eller hvit (Ikke lov å bruke den i andre farger). (Lage eksempler på bruk at logo på bakgrunnsfarger. Logoen skal alltid ha god kontrast mot bakgrunnsfargen med tanke på UU/WCAG.
+
+3. Ikke bruke lov å bruke logosymbol og logo på samme flate (man skal ikke se mer enn en logo samtidig)
+
+4. Ikke lov å strekke logoen - skal alltid ha de originale proposjonene (hold inne shift ved skalering)
+
+5. Skygger under logo er ikke lov (eksempel)
+
+------------
+
+Hvor ligger logooriginalene? Hvilke formater - vektor/pixelversjoner - (lenke til Papirfly)
+
+(Generelt: Vise eksempler på riktig og feil bruk)
+
+Uklart mht cobranding - 
+
