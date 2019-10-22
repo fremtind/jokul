@@ -35,3 +35,21 @@ Når vi designer løsninger for Fremtind, bruker vi rikelig med luft. Vi vil at 
 Ved å bruke luft på en god måte mellom og i komponenter, gjør vi det lettere for leserne å oppfatte informasjonen på siden. Hvis innholdet står for tett, kan leserne bli overveldet og gi opp å finne det de skal. 
 
 Deler av en side kan godt være kompakte, men det er viktig at siden ikke virker overfylt. Ved å bruke luft på en god måte, gir vi leserne noen hvileskjær.
+
+
+---
+
+### Skala
+
+Kategori | Skrifttype | Størrelse (px) | Kompakt størrelse | Skalering
+--- | --- | --- | --- | --- 
+H1 | Fremtind Grotesk | X | Y | Z1
+H2 | Fremtind Grotesk | X2 | Y2 | Z2
+H3 | Fremtind Grotesk | X3 | Y3 | Z3
+Brødtekst | Fremtind Grotesk | X4 | Y4 | Z4
+
+### Do's and don'ts
+
+Do | Don't
+--- | --- 
+this | this
