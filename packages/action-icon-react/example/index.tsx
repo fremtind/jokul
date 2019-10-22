@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ActionIcon } from "../src";
+import "./index.scss";
 
 const App = () => (
     <>

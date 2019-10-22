@@ -25,7 +25,7 @@ function ActionType(actionType: IconVariant) {
 }
 
 export const ActionIcon = ({ actionType }: Props) => {
-    const componentClassName = "jkl-action-icon".concat(` jkl-action-icon--${actionType}`);
+    const componentClassName = `jkl-action-icon jkl-action-icon--${actionType}`;
 
-    return <div className={componentClassName}>{ActionType(actionType)}</div>;
+    return <span className={componentClassName}>{ActionType(actionType)}</span>;
 };

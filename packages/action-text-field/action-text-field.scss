@@ -1,5 +1,7 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
+$icon-size: $font-size-3;
+
 .jkl-icon-text-field {
     display: block;
     position: relative;
@@ -17,5 +19,10 @@
         border: none;
         background-color: transparent;
         cursor: pointer;
+
+        .jkl-action-icon {
+            display: inline-block;
+            width: $icon-size;
+        }
     }
 }
