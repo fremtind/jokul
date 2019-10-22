@@ -2,13 +2,13 @@
 
 $icon-size: $font-size-3;
 
-.jkl-icon-text-field {
+.jkl-action-text-field {
     display: block;
     position: relative;
 
     &__field {
         .jkl-text-field__input {
-            padding-right: 2.5rem;
+            padding-right: $component-spacing--small + $icon-size;
         }
     }
     &__icon {
@@ -19,6 +19,7 @@ $icon-size: $font-size-3;
         border: none;
         background-color: transparent;
         cursor: pointer;
+        padding: 0;
 
         .jkl-action-icon {
             display: inline-block;
