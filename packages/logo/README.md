@@ -4,3 +4,8 @@ Logoen til Fremtind er navnet skrevet ut. Logosymbolet er en F som tipper fremov
 
 ### Logostemplene
 Logostemplene er ment for å synliggjøre Fremtind som tilstedeværende eller som en ingrediens i budskapet som formidles. De brukes primært på distributørflater for å synliggjøre Fremtinds rolle.
+
+
+Logoanimasjon
+Symbol i header/footer
+
