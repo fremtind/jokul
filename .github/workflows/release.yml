@@ -21,7 +21,4 @@ jobs:
             - name: Lint and test
               run: |
                   yarn install
-                  yarn lint
-                  yarn build
-                  yarn test
                   yarn release --canary
