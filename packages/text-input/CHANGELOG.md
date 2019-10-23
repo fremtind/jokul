@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.8...@fremtind/jkl-text-input@1.0.0-alpha.9) (2019-11-01)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.7...@fremtind/jkl-text-input@1.0.0-alpha.8) (2019-11-01)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.6...@fremtind/jkl-text-input@1.0.0-alpha.7) (2019-10-31)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.5...@fremtind/jkl-text-input@1.0.0-alpha.6) (2019-10-25)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.4...@fremtind/jkl-text-input@1.0.0-alpha.5) (2019-10-25)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.3...@fremtind/jkl-text-input@1.0.0-alpha.4) (2019-10-25)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.2...@fremtind/jkl-text-input@1.0.0-alpha.3) (2019-10-25)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.1...@fremtind/jkl-text-input@1.0.0-alpha.2) (2019-10-24)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.0...@fremtind/jkl-text-input@1.0.0-alpha.1) (2019-10-24)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+# [1.0.0-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.10.1-alpha.0...@fremtind/jkl-text-input@1.0.0-alpha.0) (2019-10-24)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input
+
+
+
+
+
+## [0.10.1-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.10.0...@fremtind/jkl-text-input@0.10.1-alpha.0) (2019-10-24)
+
+
+### Features
+
+* **text-field:** implement in line version of TextField ([5999a32](https://github.com/fremtind/jokul/commit/5999a32))
+
+
+
+
+
 # [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.9.3...@fremtind/jkl-text-input@0.10.0) (2019-10-09)
 
 

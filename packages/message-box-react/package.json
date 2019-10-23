@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "0.7.5",
+    "version": "1.0.0-alpha.9",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react message box components",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://fremtind.github.io/jokul/",
     "keywords": [
         "messagebox",
         "message",
@@ -34,12 +34,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-message-box": "^0.7.7",
-        "@fremtind/jkl-typography-react": "^0.9.0"
+        "@fremtind/jkl-message-box": "^1.0.0-alpha.9",
+        "@fremtind/jkl-typography-react": "^1.0.0-alpha.9"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.0",
-        "@fremtind/jkl-core": "^0.11.0"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.9",
+        "@fremtind/jkl-core": "^1.0.0-alpha.9"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

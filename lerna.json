@@ -9,7 +9,7 @@
             "registry": "https://registry.npmjs.org/",
             "access": "public",
             "npmClient": "yarn",
-            "allowBranch": ["master", "feature/*"],
+            "allowBranch": ["master", "release/canary"],
             "ignoreChanges": [
                 ".eslintrc",
                 ".prettierrc",

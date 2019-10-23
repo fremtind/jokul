@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-divider-line-react",
-    "version": "0.7.5",
+    "version": "1.0.0-alpha.9",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react divider line component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://fremtind.github.io/jokul/",
     "keywords": [
         "divider",
         "divider line",
@@ -35,11 +35,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-divider-line": "^0.7.7",
+        "@fremtind/jkl-divider-line": "^1.0.0-alpha.9",
         "nanoid": "^2.0.3"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.0",
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.9",
         "@types/nanoid": "^2.0.0"
     },
     "peerDependencies": {

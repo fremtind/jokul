@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "0.3.4",
+    "version": "1.0.0-alpha.9",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react hamburger component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://fremtind.github.io/jokul/",
     "keywords": [
         "hamburger",
         "jøkul",
@@ -33,11 +33,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-hamburger": "^0.2.5",
-        "@fremtind/jkl-react-hooks": "^0.2.2"
+        "@fremtind/jkl-hamburger": "^1.0.0-alpha.9",
+        "@fremtind/jkl-react-hooks": "^1.0.0-alpha.9"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.0"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.9"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-table",
-    "version": "0.3.0",
+    "version": "1.0.0-alpha.9",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for tables",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://fremtind.github.io/jokul/",
     "keywords": [
         "table",
         "jøkul",
@@ -24,7 +24,7 @@
         "dev": "parcel example/index.html"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.0"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.9"
     },
     "repository": {
         "type": "git",

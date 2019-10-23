@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "0.6.5",
+    "version": "1.0.0-alpha.9",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react card component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://fremtind.github.io/jokul/",
     "keywords": [
         "card"
     ],
@@ -31,10 +31,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-card": "^0.6.9"
+        "@fremtind/jkl-card": "^1.0.0-alpha.9"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.0"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.9"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
