@@ -14,6 +14,8 @@ jobs:
 
         steps:
             - uses: actions/checkout@v1
+              with:
+                  ref: release/canary
             - uses: actions/setup-node@v1
               with:
                   node-version: "12.x"
@@ -21,6 +23,5 @@ jobs:
             - name: publish @canary
               run: |
                   yarn
-                  git checkout release/canary
                   yarn version:prerelease --yes
                   yarn release --from-package --yes --dist-tag canary
