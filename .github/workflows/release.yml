@@ -20,6 +20,6 @@ jobs:
                   registry-url: "https://registry.npmjs.org"
             - name: publish @canary
               run: |
-                  git checkout release/canary
+                  yarn
                   yarn version:prerelease
                   yarn release --from-package --yes --dist-tag canary
