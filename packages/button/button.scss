@@ -16,7 +16,6 @@ $button-border-color: $svart;
 $button-border-width: rem(1px);
 $button-padding: $component-spacing--xl;
 
-$focus-ring-color: $focus-color;
 $focus-ring-distance: rem(2px);
 $focus-ring-width: rem(2px);
 
@@ -94,7 +93,7 @@ $hover-elevation-distance: -0.25rem;
 
         html:not([data-mousenavigation]) &:focus {
             &:after {
-                box-shadow: 0 0 0 $focus-ring-width $focus-ring-color;
+                box-shadow: 0 0 0 $focus-ring-width $focus-color;
             }
         }
     }
@@ -113,7 +112,7 @@ $hover-elevation-distance: -0.25rem;
         }
 
         html:not([data-mousenavigation]) &:focus {
-            border-bottom-color: $focus-ring-color;
+            border-bottom-color: $focus-color;
         }
     }
 }
