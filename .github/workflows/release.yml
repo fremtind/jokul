@@ -21,5 +21,6 @@ jobs:
             - name: publish @canary
               run: |
                   yarn
+                  git checkout release/canary
                   yarn version:prerelease
                   yarn release --from-package --yes --dist-tag canary
