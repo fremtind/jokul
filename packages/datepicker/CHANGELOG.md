@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.9.0...@fremtind/jkl-datepicker@0.9.1-alpha.0) (2019-10-24)
+
+
+### Features
+
+* **datepicker:** implement compact version of datepicker ([c8168a5](https://github.com/fremtind/jokul/commit/c8168a5))
+
+
+
+
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.8.3...@fremtind/jkl-datepicker@0.9.0) (2019-10-09)
 
 

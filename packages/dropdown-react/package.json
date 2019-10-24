@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.9.0",
+    "version": "0.9.1-alpha.0",
     "publishConfig": {
         "access": "public"
     },
@@ -34,9 +34,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.11.0",
-        "@fremtind/jkl-dropdown": "^0.10.0",
-        "@fremtind/jkl-typography-react": "^0.9.0",
+        "@fremtind/jkl-core": "^0.11.1-alpha.0",
+        "@fremtind/jkl-dropdown": "^0.10.1-alpha.0",
+        "@fremtind/jkl-typography-react": "^0.9.1-alpha.0",
         "@nrk/core-toggle": "^3.0.4",
         "nanoid": "^2.0.3"
     },

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.11.0...@fremtind/jkl-datepicker-react@0.11.1-alpha.0) (2019-10-24)
+
+
+### Features
+
+* **datepicker:** implement compact version of datepicker ([c8168a5](https://github.com/fremtind/jokul/commit/c8168a5))
+
+
+
+
+
 # [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.10.2...@fremtind/jkl-datepicker-react@0.11.0) (2019-10-09)
 
 

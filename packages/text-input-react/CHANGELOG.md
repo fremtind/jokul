@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.9.0...@fremtind/jkl-text-input-react@0.9.1-alpha.0) (2019-10-24)
+
+
+### Features
+
+* **text-field:** implement in line version of TextField ([5999a32](https://github.com/fremtind/jokul/commit/5999a32))
+
+
+
+
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.8.3...@fremtind/jkl-text-input-react@0.9.0) (2019-10-09)
 
 

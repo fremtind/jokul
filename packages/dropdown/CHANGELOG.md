@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.10.0...@fremtind/jkl-dropdown@0.10.1-alpha.0) (2019-10-24)
+
+
+### Features
+
+* **dropdown:** make dropdowns responsive ([378b7e2](https://github.com/fremtind/jokul/commit/378b7e2))
+
+
+
+
+
 # [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown@0.9.3...@fremtind/jkl-dropdown@0.10.0) (2019-10-09)
 
 
