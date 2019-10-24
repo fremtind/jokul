@@ -18,7 +18,7 @@ jobs:
               with:
                   node-version: "12.x"
                   registry-url: "https://registry.npmjs.org"
-            - name: Lint and test
+            - name: publish @next
               run: |
                   yarn install
-                  yarn release --canary
+                  yarn release --canary --yes --dist-tag next
