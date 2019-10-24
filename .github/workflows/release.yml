@@ -18,7 +18,8 @@ jobs:
               with:
                   node-version: "12.x"
                   registry-url: "https://registry.npmjs.org"
-            - name: publish @next
+            - name: publish @canary
               run: |
+                  git checkout release/canary
                   yarn install
-                  yarn release --from-package --yes --dist-tag next
+                  yarn release --from-package --yes --dist-tag canary
