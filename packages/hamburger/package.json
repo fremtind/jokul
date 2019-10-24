@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger",
-    "version": "0.2.6-alpha.0",
+    "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
@@ -24,10 +24,10 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.11.1-alpha.0"
+        "@fremtind/jkl-core": "^1.0.0-alpha.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.0"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.0"
     },
     "repository": {
         "type": "git",

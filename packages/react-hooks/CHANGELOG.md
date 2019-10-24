@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@0.2.2...@fremtind/jkl-react-hooks@1.0.0-alpha.0) (2019-10-24)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
 ## [0.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@0.2.1...@fremtind/jkl-react-hooks@0.2.2) (2019-10-09)
 
 **Note:** Version bump only for package @fremtind/jkl-react-hooks
