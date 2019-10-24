@@ -22,5 +22,5 @@ jobs:
               run: |
                   yarn
                   git checkout release/canary
-                  yarn version:prerelease
+                  yarn version:prerelease --yes
                   yarn release --from-package --yes --dist-tag canary
