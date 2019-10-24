@@ -17,7 +17,7 @@
 2. Importer _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { Loader } from "@fremtind/jkl.loader-react";
+import { Loader } from "@fremtind/jkl-loader-react";
 import "@fremtind/jkl-loader/loader.min.css";
 ```
 
