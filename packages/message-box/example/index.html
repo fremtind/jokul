@@ -5,30 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Example message-box</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="index.scss" />
         <script src="index.tsx"></script>
     </head>
-    <body style="background-color:#E5E5E5;height:100%;display:flex;align-items:center;justify-content:center;">
-        <div style="display: flex; align-items:center;justify-content:center;flex-direction:column;padding:20px;">
-            <div style="margin:20px">
-                <div class="jkl-message-box jkl-message-box__error">
-                    <h4 class="jkl-h4 jkl-message-box__title">Error</h4>
-                    <p class="jkl-p">Aliqua exercitation quis amet consequat.</p>
-                </div>
-            </div>
-            <div style="margin:20px">
-                <div class="jkl-message-box jkl-message-box__info">
-                    <h4 class="jkl-h4 jkl-message-box__title">Info</h4>
-                    <p class="jkl-p">Est irure eiusmod incididunt aliquip incididunt.</p>
-                </div>
-            </div>
-            <div style="margin:20px">
-                <div class="jkl-message-box jkl-message-box__success">
-                    <h4 class="jkl-h4 jkl-message-box__title">Success</h4>
-                    <p class="jkl-p">
-                        Occaecat aliqua aliqua eiusmod incididunt do laborum ipsum elit duis magna aute pariatur.
-                    </p>
-                </div>
-            </div>
+    <body>
+        <div class="example">
+            <aside class="jkl-message-box jkl-message-box--error">
+                <div class="jkl-h4 jkl-message-box__title">Error</div>
+                <p class="jkl-p">Aliqua exercitation quis amet consequat.</p>
+            </aside>
+            <aside class="jkl-message-box jkl-message-box--info">
+                <div class="jkl-h4 jkl-message-box__title">Info</div>
+                <p class="jkl-p">Est irure eiusmod incididunt aliquip incididunt.</p>
+            </aside>
+            <aside class="jkl-message-box jkl-message-box--success">
+                <div class="jkl-h4 jkl-message-box__title">Success</div>
+                <p class="jkl-p">
+                    Occaecat aliqua aliqua eiusmod incididunt do laborum ipsum elit duis magna aute pariatur.
+                </p>
+                <p class="jkl-p">Some more text here</p>
+            </aside>
+            <aside class="jkl-message-box jkl-message-box--full jkl-message-box--warning">
+                <div class="jkl-h4 jkl-message-box__title">Warning</div>
+                <p class="jkl-p">
+                    Occaecat aliqua aliqua eiusmod incididunt do laborum ipsum elit duis magna aute pariatur.
+                </p>
+            </aside>
         </div>
     </body>
 </html>
