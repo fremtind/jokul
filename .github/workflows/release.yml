@@ -21,4 +21,4 @@ jobs:
             - name: publish @next
               run: |
                   yarn install
-                  yarn release --from-package --dist-tag next --yes
+                  yarn release --from-package --yes --dist-tag next
