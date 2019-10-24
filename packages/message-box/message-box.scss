@@ -1,14 +1,13 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 $colored-line-width: $component-spacing--xs;
-$padding: $component-spacing--xl;
-$padding-left: $component-spacing--xl + $colored-line-width; // Add the line width to keep the padding equal on all sides
+$message-width: rem(560px);
 
 .jkl-message-box {
     position: relative;
-    width: 3 * $layout-spacing--xxl;
+    width: $message-width;
     min-height: $layout-spacing--xl;
-    padding: $padding $padding $padding $padding-left;
+    padding: $component-spacing--xl;
     background-color: $snohvit;
     box-sizing: border-box;
 
@@ -17,11 +16,11 @@ $padding-left: $component-spacing--xl + $colored-line-width; // Add the line wid
     }
 
     &:before {
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         height: 100%;
-        content: "";
         width: $colored-line-width;
     }
 
@@ -49,7 +48,8 @@ $padding-left: $component-spacing--xl + $colored-line-width; // Add the line wid
         margin-bottom: $component-spacing--large;
     }
 
-    &__message {
-        margin-bottom: $component-spacing--small;
+    &__message,
+    &__message:last-child {
+        margin-bottom: 0;
     }
 }
