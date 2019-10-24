@@ -5,7 +5,8 @@ $message-width: rem(560px);
 
 .jkl-message-box {
     position: relative;
-    width: $message-width;
+    width: 100%;
+    max-width: $message-width;
     min-height: $layout-spacing--xl;
     padding: $component-spacing--xl;
     background-color: $snohvit;
@@ -25,7 +26,7 @@ $message-width: rem(560px);
     }
 
     &--full {
-        width: 100%;
+        max-width: 100%;
     }
 
     &--info:before {
