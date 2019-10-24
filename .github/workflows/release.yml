@@ -22,8 +22,8 @@ jobs:
                   registry-url: "https://registry.npmjs.org"
             - name: publish @canary
               run: |
-                  git config --global user.email "leiv.fredrik.berge@fremtind.no"
-                  git config --global user.name "fremtind-bot"
+                  git config --global user.email "leiv.fredrik.berge@elate.no"
+                  git config --global user.name "lfbergee"
                   yarn
                   yarn version:prerelease --yes
                   yarn release --from-package --yes --dist-tag canary
