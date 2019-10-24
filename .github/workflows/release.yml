@@ -21,5 +21,4 @@ jobs:
             - name: publish @next
               run: |
                   yarn install
-                  yarn version:prepatch --yes
                   yarn release --canary --yes --dist-tag next
