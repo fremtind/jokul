@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group",
-    "version": "1.0.0-alpha.0",
+    "version": "1.0.0-alpha.1",
     "publishConfig": {
         "access": "public"
     },
@@ -22,10 +22,10 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^1.0.0-alpha.0"
+        "@fremtind/jkl-core": "^1.0.0-alpha.1"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.0"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.1"
     },
     "repository": {
         "type": "git",

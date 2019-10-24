@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-react-hooks",
-    "version": "1.0.0-alpha.0",
+    "version": "1.0.0-alpha.1",
     "publishConfig": {
         "access": "public"
     },
@@ -34,7 +34,7 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.0"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
