@@ -9,9 +9,6 @@ jobs:
     build:
         runs-on: ubuntu-latest
 
-        env:
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
         steps:
             - uses: actions/checkout@v1
               with:
@@ -21,6 +18,8 @@ jobs:
                   node-version: "12.x"
                   registry-url: "https://registry.npmjs.org"
             - name: publish @canary
+              env:
+                  NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: |
                   yarn
                   yarn release --no-git-reset --canary --yes
