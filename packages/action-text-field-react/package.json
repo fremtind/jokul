@@ -4,7 +4,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react icon component",
+    "description": "Jøkul react action text field component",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
         "icon",
