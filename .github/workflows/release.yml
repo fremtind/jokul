@@ -26,4 +26,4 @@ jobs:
                   git config user.name "lfbergee"
                   git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/fremtind/jokul.git
                   yarn
-                  yarn release --yes
+                  yarn release --yes --registry https://registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
