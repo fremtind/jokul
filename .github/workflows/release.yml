@@ -22,8 +22,6 @@ jobs:
                   NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                   GITHUB_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
               run: |
-                  git config user.email "leiv.fredrik.berge@fremtind.no"
-                  git config user.name "lfbergee"
-                  git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/fremtind/jokul.git
+                  git checkout "${GITHUB_REF:11}"
                   yarn
                   yarn release --yes --registry https://registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
