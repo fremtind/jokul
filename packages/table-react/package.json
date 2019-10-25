@@ -1,6 +1,7 @@
 {
     "name": "@fremtind/jkl-table-react",
     "version": "1.0.0-alpha.3",
+    "homepage": "https://fremtind.github.io/jokul/",
     "publishConfig": {
         "access": "public"
     },
