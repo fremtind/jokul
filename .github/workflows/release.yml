@@ -22,4 +22,4 @@ jobs:
                   NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: |
                   yarn
-                  yarn release --no-git-reset --canary --yes
+                  yarn release --yes
