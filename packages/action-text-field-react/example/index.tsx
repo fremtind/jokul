@@ -13,11 +13,11 @@ const App = () => {
 
     return (
         <>
-            <ActionTextField iconType="delete" label="test" onClick={() => console.log("hello")} />
-            <ActionTextField iconType="edit" label="test" onClick={() => {}} />
-            <ActionTextField iconType="search" label="test" onClick={() => {}} />
+            <ActionTextField icon="delete" label="test" onClick={() => console.log("hello")} />
+            <ActionTextField icon="edit" label="test" onClick={() => {}} />
+            <ActionTextField icon="search" label="test" onClick={() => {}} />
             <ActionTextField
-                iconType="clear"
+                icon="clear"
                 label="test"
                 value={value}
                 onClick={() => setValue("")}

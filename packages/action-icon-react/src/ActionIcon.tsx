@@ -6,11 +6,11 @@ import { IconClear } from "./Icons/IconClear";
 import { IconVariant } from "./index";
 
 interface Props {
-    actionType: IconVariant;
+    action: IconVariant;
 }
 
-function ActionType(actionType: IconVariant) {
-    switch (actionType) {
+function ActionType(action: IconVariant) {
+    switch (action) {
         case "clear":
             return <IconClear />;
         case "delete":
@@ -24,8 +24,8 @@ function ActionType(actionType: IconVariant) {
     }
 }
 
-export const ActionIcon = ({ actionType }: Props) => {
-    const componentClassName = `jkl-action-icon jkl-action-icon--${actionType}`;
+export const ActionIcon = ({ action }: Props) => {
+    const componentClassName = `jkl-action-icon jkl-action-icon--${action}`;
 
-    return <span className={componentClassName}>{ActionType(actionType)}</span>;
+    return <span className={componentClassName}>{ActionType(action)}</span>;
 };

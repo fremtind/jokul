@@ -5,10 +5,10 @@ import "./index.scss";
 
 const App = () => (
     <>
-        <ActionIcon actionType="delete" />
-        <ActionIcon actionType="edit" />
-        <ActionIcon actionType="search" />
-        <ActionIcon actionType="clear" />
+        <ActionIcon action="delete" />
+        <ActionIcon action="edit" />
+        <ActionIcon action="search" />
+        <ActionIcon action="clear" />
     </>
 );
 
