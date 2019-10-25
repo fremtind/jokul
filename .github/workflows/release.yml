@@ -24,4 +24,4 @@ jobs:
               run: |
                   git checkout "${GITHUB_REF:11}"
                   yarn
-                  yarn release --yes --registry https://registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
+                  yarn lerna publish --yes --registry https://registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
