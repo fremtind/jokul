@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.0.0-alpha.4...@fremtind/jkl-accordion@1.0.0-alpha.5) (2019-10-25)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
 # [1.0.0-alpha.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.0.0-alpha.3...@fremtind/jkl-accordion@1.0.0-alpha.4) (2019-10-25)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion
