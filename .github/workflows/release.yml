@@ -23,4 +23,4 @@ jobs:
             - name: publish @canary
               run: |
                   yarn
-                  yarn release --from-git --yes --dist-tag canary
+                  yarn release --no-git-reset --canary --preid next --yes
