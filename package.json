@@ -17,8 +17,7 @@
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "prerelease": "yarn build",
-        "release": "lerna publish",
-        "version:prerelease": "lerna version prerelease --force-publish"
+        "release": "lerna publish"
     },
     "dependencies": {
         "react": "^16.9.0",
