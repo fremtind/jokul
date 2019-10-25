@@ -5,7 +5,7 @@ import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { useListNavigation } from "./useListNavigation";
-import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
+import { SelectValuePair, getSelectValuePair } from "./SelectValuePair";
 
 interface Props {
     label: string;
@@ -13,7 +13,8 @@ interface Props {
     inline?: boolean;
     defaultPrompt?: string;
     className?: string;
-    initialInputValue?: string;
+    value?: string;
+    initialInputValue?: string; // Deprecated!
     onChange?: (value: string) => void;
     helpLabel?: string;
     errorLabel?: string;
@@ -26,7 +27,7 @@ interface CoreToggleSelectEvent {
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
-function lower(str = "") {
+function toLower(str = "") {
     return str.toLowerCase().replace(/[\W_]+/g, ""); // strip all non-alphanumeric chars
 }
 
@@ -34,7 +35,7 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     let focusedItem: HTMLElement | null;
     if (selected !== undefined) {
         // move focus to selected option
-        focusedItem = listEl.querySelector(`#${listId}__${lower(selected)}`);
+        focusedItem = listEl.querySelector(`#${listId}__${toLower(selected)}`);
     } else {
         // move focus to first option
         focusedItem = listEl.querySelector('[role="option"]');
@@ -42,8 +43,9 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
     focusedItem && focusedItem.focus();
 }
 
-export function Dropdown({
+export function Select({
     items,
+    value,
     initialInputValue,
     label,
     onChange,
@@ -55,18 +57,18 @@ export function Dropdown({
     variant,
     forceCompact,
 }: Props) {
-    const [selectedValue, setSelectedValue] = useState(initialInputValue);
-    const [displayedValue, setDisplayedValue] = useState(initialInputValue);
+    const [selectedValue, setSelectedValue] = useState(value || initialInputValue);
+    const [displayedValue, setDisplayedValue] = useState(value || initialInputValue);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
-    const componentClassName = "jkl-dropdown".concat(
-        inline ? ` jkl-dropdown--inline` : "",
-        forceCompact ? ` jkl-dropdown--compact` : "",
-        dropdownIsShown ? ` jkl-dropdown--open` : "",
-        !hasSelectedValue ? ` jkl-dropdown--no-value` : "",
-        !!errorLabel ? ` jkl-dropdown--invalid` : "",
+    const componentClassName = "jkl-select".concat(
+        inline ? ` jkl-select--inline` : "",
+        forceCompact ? ` jkl-select--compact` : "",
+        dropdownIsShown ? ` jkl-select--open` : "",
+        !hasSelectedValue ? ` jkl-select--no-value` : "",
+        !!errorLabel ? ` jkl-select--invalid` : "",
         className ? ` ${className}` : "",
     );
 
@@ -81,23 +83,25 @@ export function Dropdown({
     function onToggleSelect(e: CoreToggleSelectEvent) {
         e.target.hidden = true;
         e.target.button.focus();
-        e.target.value = e.detail;
-        const nextValue = e.detail.value;
-        setDisplayedValue(e.detail.textContent);
-        setSelectedValue(nextValue);
-        onChange && onChange(nextValue || "");
+        if (value && onChange) {
+            e.target.value = e.detail;
+            const nextValue = e.detail.value;
+            setDisplayedValue(e.detail.textContent);
+            setSelectedValue(nextValue);
+            onChange(nextValue || "");
+        }
     }
 
     return (
-        <div data-testid="jkl-dropdown" className={componentClassName}>
+        <div data-testid="jkl-select" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
-            <div className="jkl-dropdown__outer-wrapper">
+            <div className="jkl-select__outer-wrapper">
                 <button
                     type="button"
-                    className="jkl-dropdown__value"
-                    data-testid="jkl-dropdown__value"
+                    className="jkl-select__value"
+                    data-testid="jkl-select__value"
                     aria-haspopup="listbox"
                 >
                     {hasSelectedValue ? displayedValue : defaultPrompt}
@@ -105,26 +109,26 @@ export function Dropdown({
                 <CoreToggle
                     id={listId}
                     role="listbox"
-                    className="jkl-dropdown__core-toggle"
+                    className="jkl-select__core-toggle"
                     popup={label}
                     hidden={!dropdownIsShown}
                     onToggle={onToggle}
                     onToggleSelect={onToggleSelect}
-                    aria-activedescendant={hasSelectedValue && `${listId}__${lower(selectedValue)}`}
+                    aria-activedescendant={hasSelectedValue && `${listId}__${toLower(selectedValue)}`}
                 >
                     <ul
-                        className="jkl-dropdown__option-wrapper"
-                        data-testid="jkl-dropdown__option-wrapper"
+                        className="jkl-select__option-wrapper"
+                        data-testid="jkl-select__option-wrapper"
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map(getSelectValuePairFrom).map((item) => (
+                        {items.map(getSelectValuePair).map((item) => (
                             <li key={item.value}>
                                 <button
                                     type="button"
-                                    id={`${listId}__${lower(item.value)}`}
-                                    className="jkl-dropdown__option"
-                                    data-testid="jkl-dropdown__option"
+                                    id={`${listId}__${toLower(item.value)}`}
+                                    className="jkl-select__option"
+                                    data-testid="jkl-select__option"
                                     aria-selected={item.value === selectedValue}
                                     role="option"
                                     value={item.value}
@@ -135,7 +139,7 @@ export function Dropdown({
                         ))}
                     </ul>
                 </CoreToggle>
-                <span className="jkl-dropdown__chevron" />
+                <span className="jkl-select__chevron" />
             </div>
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </div>

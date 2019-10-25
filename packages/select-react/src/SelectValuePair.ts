@@ -3,6 +3,6 @@ export interface SelectValuePair {
     label: string;
 }
 
-export function getSelectValuePairFrom(item: string | SelectValuePair): SelectValuePair {
+export function getSelectValuePair(item: string | SelectValuePair): SelectValuePair {
     return typeof item === "string" ? { value: item, label: item } : item;
 }
