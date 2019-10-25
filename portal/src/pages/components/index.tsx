@@ -9,7 +9,7 @@ import {
     CheckboxExample,
     DatepickerExample,
     DividerLineExample,
-    DropdownExample,
+    SelectExample,
     HamburgerExample,
     LoaderExample,
     LogoExample,
@@ -50,7 +50,7 @@ export default function AllComponents() {
             <Section title="Radioknapper" link="radiobutton" example={<RadioButtonExample />} />
             <Section title="Avmerkingsbokser" link="checkbox" example={<CheckboxExample />} />
             <Section title="Toggle-knapp" link="toggleswitch" example={<ToggleSwitchExample />} />
-            <Section title="Nedtrekksliste" link="dropdown" example={<DropdownExample />} />
+            <Section title="Nedtrekksliste" link="dropdown" example={<SelectExample />} />
             <Section title="Trekkspilliste" link="accordion" example={<AccordionExample />} />
             <Section title="Datovelger" link="datepicker" example={<DatepickerExample />} />
             <Section title="Tabell" link="table" example={<TableExample />} />
