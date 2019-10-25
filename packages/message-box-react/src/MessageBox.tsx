@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { H4, P } from "@fremtind/jkl-typography-react";
 
 interface Props {
     title: string;
@@ -10,19 +9,18 @@ interface Props {
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
-const baseClassName = "jkl-message-box";
-
 function messageFactory(messageType: messageTypes) {
     return function messageBox({ title, fullWidth, className = "", children }: Props) {
+        const componentClassName = "jkl-message-box".concat(
+            ` jkl-message-box--${messageType}`,
+            fullWidth ? ` jkl-message-box--full` : "",
+            className ? ` ${className}` : "",
+        );
         return (
-            <div
-                className={`${baseClassName} ${baseClassName}--${messageType} ${
-                    fullWidth ? baseClassName + "--full" : ""
-                } ${className}`}
-            >
-                <H4 className="jkl-message-box__title">{title}</H4>
-                <P className="jkl-message-box__message">{children}</P>
-            </div>
+            <aside className={componentClassName}>
+                <div className="jkl-message-box__title jkl-h4">{title}</div>
+                <div className="jkl-message-box__message jkl-p">{children}</div>
+            </aside>
         );
     };
 }

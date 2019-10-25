@@ -1,22 +1,22 @@
-### Hovedprinsipper
-### Persongalleri
-#### Mangfold og variasjon
-### Omgivelser
-### Kategoribilder
-#### Skadeforsikring
-#### Bilforsikring
-#### Reiseforsikring
-#### Dyreforsikring
-### Lys og farger
-### Komposisjon
-### Bevegelse
-### Før du tar i bruk bilder
-#### Bilder som bakgrunn
-#### Bilder i kort
-### Bildearkiv
-#### Kreditering av fotografer
-#### Bidra med bilder
-### Oppsummering
+- [Hovedprinsipper](#hovedprinsipper)
+- [Persongalleri](#persongalleri)
+- [Mangfold og variasjon](#mangfold-og-variasjon)
+- [Omgivelser](#omgivelser)
+- [Kategoribilder](#kategoribilder)
+  - [Skadeforsikring](#skadeforsikring)
+  - [Bilforsikring](#bilforsikring)
+  - [Reiseforsikring](#reiseforsikring)
+  - [Dyreforsikring](#dyreforsikring)
+- [Lys og farger](#lys-og-farger)
+- [Komposisjon](#komposisjon)
+- [Bevegelse](#bevegelse)
+- [Før du tar i bruk bilder](#før-du-tar-i-bruk-bilder)
+  - [Bilder som bakgrunn](#bilder-som-bakgrunn)
+  - [Bilder i kort](#bilder-i-kort)
+- [Bildearkiv](#bildearkiv)
+  - [Kreditering av fotografer](#kreditering-av-fotografer)
+  - [Bidra med bilder](#bidra-med-bilder)
+- [Oppsummering](#oppsummering)
 
 ## Hovedprinsipper
 
@@ -114,7 +114,7 @@ Vi tar bilder i og rundt bilen. I trafikken, ved av-og-pålessing, av folk og ti
 
 **bilde: i bilen + ved bilen**
 
-### Resieforsikring
+### Reiseforsikring
 Når det gjelder reiseforsikring kan vi bruke bilder fra utlandet, men da gjerne i typiske situasjoner man havner i som turist. Her kan vi appellere til ulike typer, for eksempel den eventyrlystne, storbyturisten, solslikkeren eller lokalturisten.
 
 Merk: Fremtind er et bærekraftig selskap og vi unngår å bruke bilder av fly, cruiseskip eller aktiviteter som ødelegger  natur eller lokalsamfunn.
