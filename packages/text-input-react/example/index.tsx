@@ -15,6 +15,9 @@ const TextFieldDemo = () => {
     }
     return (
         <>
+            <p className="jkl-p">
+                Jeg tjener <TextField type="number" maxLength={5} inline label="kronebeløp" /> kroner i måneden.
+            </p>
             <div className="side-by-side jkl-spacing--bottom-2">
                 <pre>
                     <code>{`forceCompact={true}`}</code>
@@ -28,7 +31,7 @@ const TextFieldDemo = () => {
                     label="Fornavn"
                     value={value}
                     onChange={handleChange}
-                    placeholder={"Norsk"}
+                    placeholder={"f.eks. Ola"}
                     variant="small"
                     helpLabel="La oss se..."
                     forceCompact
