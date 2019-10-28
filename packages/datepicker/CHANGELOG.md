@@ -88,7 +88,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **datepicker-react:** use select from jkl-select for month picker ([b57ff76](https://github.com/fremtind/jokul/commit/b57ff76))
+* **datepicker-react:** use select from jkl-dropdown for month picker ([b57ff76](https://github.com/fremtind/jokul/commit/b57ff76))
 
 
 
