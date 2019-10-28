@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-select`](https://fremtind.github.io/jokul/components/dropdown/)
+# [`@fremtind/jkl-select`](https://fremtind.github.io/jokul/components/select/)
 
 Vi bruker nedtrekkslister for å gi brukerne mulighet til å velge et alternativ i en liste med valg. Som standard er ingen av alternativene valgt på forhånd. Vi bruker gjerne nedtrekkslister når det er mer enn tre valg. Hvis det er færre valg, bruker vi radioknapper.
 
