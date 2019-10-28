@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-select-react`](https://fremtind.github.io/jokul/components/dropdown/)
+# [`@fremtind/jkl-select-react`](https://fremtind.github.io/jokul/components/select/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/dropdown/) er beskrevet i `@fremtind/jkl-select` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/components/select/) er beskrevet i `@fremtind/jkl-select` stil-pakken.
 
 ## Kom i gang
 
@@ -23,7 +23,7 @@ import "@fremtind/jkl-select/select.min.css";
 
 ### Bruk
 
-De to versjonene av select benytter seg av forskjellige tilnærminger: `Select` konstruerer en nedtrekksliste ved hjelp av JavaScript (via pakken `@nrk/core-toggle`) slik at vi kan gi den stil som matcher den visuelle profilen vår. `NativeSelect` bruker et vanlig `<select>`-element fra HTML.
+De to versjonene av select benytter seg av forskjellige tilnærminger: `Select` konstruerer en nedtrekksliste ved hjelp av JavaScript (via pakken `@nrk/core-toggle`) slik at vi kan gi den stil som matcher den visuelle profilen vår. `NativeSelect` bruker et vanlig `<select>`-element fra HTML. Dette kan være fordelaktig blant annet til lange lister på mobil, for å få brukt den innebygde velgeren i OSet.
 
 Begge variantene kan ta imot et array av `string`-verdier _eller_ et array av `SelectValuePair`-objekter. Dersom du sender inn `string`-verdier blir de brukt som både tekst for valget og som `value` for valgt verdi:
 
