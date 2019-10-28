@@ -13,6 +13,7 @@ interface Props {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    forceCompact?: boolean;
 }
 
 export const RadioButtonChoice = ({
@@ -25,8 +26,15 @@ export const RadioButtonChoice = ({
     helpLabel,
     errorLabel,
     variant,
+    forceCompact,
 }: Props) => (
-    <FieldGroup legend={legend} helpLabel={helpLabel} errorLabel={errorLabel} variant={variant}>
+    <FieldGroup
+        legend={legend}
+        helpLabel={helpLabel}
+        errorLabel={errorLabel}
+        variant={variant}
+        forceCompact={forceCompact}
+    >
         {choices.map((choice) => (
             <RadioButton
                 key={choice}
@@ -36,6 +44,7 @@ export const RadioButtonChoice = ({
                 checked={choice === selectedValue}
                 onChange={onChange}
                 invalid={!!errorLabel}
+                forceCompact={forceCompact}
             />
         ))}
     </FieldGroup>

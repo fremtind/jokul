@@ -1,9 +1,10 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
-$radio-button-font-size: $font-size-3;
-$radio-button-line-height: $line-height-3;
-
 $radio-button-size: rem(24px);
+$radio-button-size--compact: rem(18px);
+
+$radio-button-dot-padding: rem(4px);
+$radio-button-dot-padding--compact: rem(3px);
 
 $radio-button-background-color: $snohvit;
 $radio-button-background-color--hover: $snohvit;
@@ -39,6 +40,7 @@ $radio-button-color: $svart;
 .jkl-radio-button {
     cursor: pointer;
     display: flex;
+    align-items: center;
 
     & + & {
         margin-top: $component-spacing--large;
@@ -49,6 +51,32 @@ $radio-button-color: $svart;
         & + & {
             margin-top: unset;
             margin-left: $component-spacing--xl;
+        }
+    }
+
+    &--compact {
+        .jkl-radio-button__dot:before {
+            height: $radio-button-size--compact;
+            width: $radio-button-size--compact;
+        }
+        .jkl-radio-button__dot:after {
+            left: $radio-button-dot-padding--compact;
+            top: $radio-button-dot-padding--compact;
+            height: $radio-button-size - (2 * $radio-button-dot-padding--compact);
+            width: $radio-button-size - (2 * $radio-button-dot-padding--compact);
+        }
+    }
+
+    @include small-device {
+        .jkl-radio-button__dot:before {
+            height: $radio-button-size--compact;
+            width: $radio-button-size--compact;
+        }
+        .jkl-radio-button__dot:after {
+            left: $radio-button-dot-padding--compact;
+            top: $radio-button-dot-padding--compact;
+            height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+            width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
         }
     }
 
@@ -71,6 +99,9 @@ $radio-button-color: $svart;
                 animation: circleexpand 0.2s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
             }
         }
+        &:checked ~ .jkl-radio-button__label {
+            font-weight: bold;
+        }
 
         /* Focused state */
         html:not([data-mousenavigation]) &:focus ~ .jkl-radio-button__dot {
@@ -89,11 +120,8 @@ $radio-button-color: $svart;
     }
 
     &__dot {
-        width: $radio-button-size;
-        height: $radio-button-size;
-        margin-right: $component-spacing--small;
-        padding: rem(4px) 0;
         position: relative;
+        margin-right: $component-spacing--small;
 
         /* Outer circle */
         &:before {
@@ -116,10 +144,10 @@ $radio-button-color: $svart;
 
             display: inline-block;
             position: absolute;
-            left: rem(4px);
-            top: rem(8px);
-            height: $radio-button-size - rem(8px);
-            width: $radio-button-size - rem(8px);
+            left: $radio-button-dot-padding;
+            top: $radio-button-dot-padding;
+            height: $radio-button-size - (2 * $radio-button-dot-padding);
+            width: $radio-button-size - (2 * $radio-button-dot-padding);
             transform: rotate(-45deg) scale(0);
 
             background-color: $radio-button-color;
@@ -127,8 +155,7 @@ $radio-button-color: $svart;
     }
 
     &__label {
-        font-size: $radio-button-font-size;
-        line-height: $radio-button-line-height;
+        @include text-sizing("small");
     }
 
     &--error {

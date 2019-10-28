@@ -7,12 +7,22 @@ interface Props {
     inline?: boolean;
     checked?: boolean;
     invalid?: boolean;
+    forceCompact?: boolean;
 }
 
-export const RadioButton = ({ value, onChange, name = "", inline = false, checked, invalid = false }: Props) => (
+export const RadioButton = ({
+    value,
+    onChange,
+    name = "",
+    inline = false,
+    checked,
+    invalid = false,
+    forceCompact,
+}: Props) => (
     <label
         data-testid="jkl-radio-button__label-tag"
         className={"jkl-radio-button".concat(
+            forceCompact ? " jkl-radio-button--compact" : "",
             inline ? " jkl-radio-button--inline" : "",
             invalid ? " jkl-radio-button--error" : "",
         )}
