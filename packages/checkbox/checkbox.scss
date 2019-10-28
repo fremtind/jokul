@@ -2,17 +2,17 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $checkbox-size: rem(24px);
+$checkbox-size--compact: rem(20px);
 $checkbox-checked-background-color: $svart;
 $checkbox-unchecked-background-color: $snohvit;
 $checkbox-check-mark-color: $checkbox-unchecked-background-color;
 $checkbox-focus-outline-color: $focus-color;
 
 .jkl-checkbox {
+    display: flex;
     align-items: center;
     cursor: pointer;
-    display: flex;
-    font-size: $font-size-3;
-    line-height: $line-height-3;
+    @include text-sizing("small");
 
     & + & {
         margin-top: $component-spacing--large;
@@ -26,6 +26,21 @@ $checkbox-focus-outline-color: $focus-color;
         }
     }
 
+    &--compact {
+        @include text-sizing--small-device("small");
+        .jkl-checkbox__check-mark {
+            height: $checkbox-size--compact;
+            width: $checkbox-size--compact;
+        }
+    }
+
+    @include small-device {
+        .jkl-checkbox__check-mark {
+            height: $checkbox-size--compact;
+            width: $checkbox-size--compact;
+        }
+    }
+
     &:hover > .jkl-checkbox__check-mark {
         transform: scale(1.1);
     }
@@ -36,9 +51,11 @@ $checkbox-focus-outline-color: $focus-color;
     }
 
     &__input {
+        /* Hide native checkbox */
         opacity: 0;
         position: absolute;
 
+        /* Handle fake checkmark based on checked state */
         &:checked + .jkl-checkbox__check-mark {
             background-color: $checkbox-checked-background-color;
         }
@@ -54,32 +71,36 @@ $checkbox-focus-outline-color: $focus-color;
     }
 
     &__check-mark {
-        background-color: $checkbox-unchecked-background-color;
-        border: solid rem(1px) $svart;
         box-sizing: border-box;
-        border-radius: 0; // fixes rounded corners in iOS Safari
-        height: $checkbox-size;
-        margin-right: $component-spacing--medium;
-        outline: none;
         position: relative;
-        transition: background-color 200ms ease, transform 150ms ease;
-        vertical-align: middle;
+        height: $checkbox-size;
         width: $checkbox-size;
+
+        margin-right: $component-spacing--medium;
+        vertical-align: middle;
         flex-shrink: 0; // Don't allow the check-mark to shrink in case of really long text
 
+        outline: none;
+        border: solid rem(1px) $svart;
+        border-radius: 0; // fixes rounded corners in iOS Safari
+        background-color: $checkbox-unchecked-background-color;
+        transition: background-color 200ms ease, transform 150ms ease;
+
         &:after {
+            position: absolute;
+            left: 8%;
+            right: 0;
+            bottom: 45%;
+
+            display: block;
+            width: 33%;
+            height: 68%;
+            transform: rotate(45deg);
+            transform-origin: bottom left;
+
             border: solid rem(2px) $checkbox-check-mark-color;
             border-left-width: 0;
             border-top-width: 0;
-            bottom: 45%;
-            display: block;
-            left: 8%;
-            right: 0;
-            position: absolute;
-            transform: rotate(45deg);
-            transform-origin: bottom left;
-            width: 33%;
-            height: 68%;
         }
     }
 }

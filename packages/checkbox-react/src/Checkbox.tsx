@@ -8,10 +8,12 @@ interface Props {
     inline?: boolean;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     className?: string;
+    forceCompact?: boolean;
 }
 
-export function Checkbox({ children, name, value, checked, onChange, className, inline = false }: Props) {
+export function Checkbox({ children, name, value, checked, onChange, className, inline = false, forceCompact }: Props) {
     const classNames = "jkl-checkbox"
+        .concat(forceCompact ? " jkl-checkbox--compact" : "")
         .concat(inline ? " jkl-checkbox--inline" : "")
         .concat(className ? ` ${className}` : "");
     return (
