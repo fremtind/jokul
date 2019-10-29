@@ -1,9 +1,10 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 
 interface Props {
     value: string;
+    label: string;
     name: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange: ChangeEventHandler<HTMLInputElement>;
     inline?: boolean;
     checked?: boolean;
     invalid?: boolean;
@@ -12,6 +13,7 @@ interface Props {
 
 export const RadioButton = ({
     value,
+    label,
     onChange,
     name = "",
     inline = false,
@@ -37,6 +39,6 @@ export const RadioButton = ({
             aria-invalid={invalid}
         />
         <span className="jkl-radio-button__dot" />
-        <span className="jkl-radio-button__label">{value}</span>
+        <span className="jkl-radio-button__label">{label}</span>
     </label>
 );

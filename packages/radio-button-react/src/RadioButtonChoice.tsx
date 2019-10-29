@@ -1,15 +1,15 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEventHandler } from "react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { RadioButton } from "./RadioButton";
 
 interface Props {
     name: string;
     legend: string;
-    choices: string[];
+    choices: Array<string | ValuePair>;
     selectedValue: string;
     inline?: boolean;
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange: ChangeEventHandler<HTMLInputElement>;
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
@@ -35,13 +35,14 @@ export const RadioButtonChoice = ({
         variant={variant}
         forceCompact={forceCompact}
     >
-        {choices.map((choice) => (
+        {choices.map(getValuePair).map(({ label, value }) => (
             <RadioButton
-                key={choice}
+                key={value}
                 name={name}
-                value={choice}
+                value={value}
+                label={label}
                 inline={inline}
-                checked={choice === selectedValue}
+                checked={value === selectedValue}
                 onChange={onChange}
                 invalid={!!errorLabel}
                 forceCompact={forceCompact}

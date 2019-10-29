@@ -1,19 +1,20 @@
-import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
+import { getValuePair } from "./getValuePair";
+import { ValuePair } from "../index";
 
-describe("getSelectValuePairFrom", () => {
+describe("getValuePair", () => {
     it("should convert a string to the correct SelectValuePair", () => {
-        const valuePair = getSelectValuePairFrom("hello");
+        const valuePair = getValuePair("hello");
 
         expect(valuePair.label).toEqual("hello");
         expect(valuePair.value).toEqual(valuePair.label);
     });
 
     it("should return a SelectValuePair unchanged", () => {
-        const valuePair: SelectValuePair = {
+        const valuePair: ValuePair = {
             value: "hello",
             label: "hello",
         };
 
-        expect(getSelectValuePairFrom(valuePair)).toBe(valuePair);
+        expect(getValuePair(valuePair)).toBe(valuePair);
     });
 });
