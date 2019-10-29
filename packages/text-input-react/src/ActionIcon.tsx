@@ -9,8 +9,8 @@ interface Props {
     forceCompact?: boolean;
 }
 
-function ActionType(action: IconVariant) {
-    switch (action) {
+function ActionType(actionType: IconVariant) {
+    switch (actionType) {
         case "clear":
             return <IconClear />;
         case "delete":
