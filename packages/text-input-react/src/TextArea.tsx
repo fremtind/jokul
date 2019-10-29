@@ -1,21 +1,10 @@
-import React, { ChangeEvent, FocusEvent } from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import React, { FocusEvent } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import { Props as TextInputProps } from "./index";
 
-interface Props {
-    label: string;
-    value?: string;
-    onChange?: (value: ChangeEvent<HTMLTextAreaElement>) => void;
+interface Props extends TextInputProps {
     onBlur?: (value: FocusEvent<HTMLTextAreaElement>) => void;
-    className?: string;
-    id?: string;
-    required?: boolean;
-    helpLabel?: string;
-    errorLabel?: string;
     rows?: number;
-    placeholder?: string;
-    variant?: LabelVariant;
-    forceCompact?: boolean;
 }
 
 export const TextArea = ({

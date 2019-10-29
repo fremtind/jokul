@@ -3,7 +3,7 @@ import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import React, { ChangeEvent, useState } from "react";
 import ReactDOM from "react-dom";
-import { TextArea, TextField } from "../src";
+import { TextArea, TextField, ActionTextField, InlineTextField } from "../src";
 import "./index.scss";
 
 initTabListener();
@@ -15,9 +15,6 @@ const TextFieldDemo = () => {
     }
     return (
         <>
-            <p className="jkl-p">
-                Jeg tjener <TextField type="number" maxLength={5} inline label="kronebeløp" /> kroner i måneden.
-            </p>
             <div className="side-by-side jkl-spacing--bottom-2">
                 <pre>
                     <code>{`forceCompact={true}`}</code>
@@ -25,6 +22,33 @@ const TextFieldDemo = () => {
                 <pre>
                     <code>{`forceCompact={false}`}</code>
                 </pre>
+            </div>
+            <div className="side-by-side jkl-spacing--bottom-2">
+                <ActionTextField
+                    forceCompact
+                    icon="clear"
+                    label="Nullstill felt"
+                    value={value}
+                    onClick={() => setValue("")}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+                <ActionTextField
+                    icon="edit"
+                    label="Skriv til konsoll"
+                    value={value}
+                    onClick={() => console.log(value)}
+                    onChange={(e) => setValue(e.target.value)}
+                />
+            </div>
+            <div className="side-by-side jkl-spacing--bottom-2">
+                <p className="jkl-small">
+                    Jeg tjener <InlineTextField type="number" maxLength={5} label="kronebeløp" forceCompact /> kroner i
+                    måneden.
+                </p>
+                <p className="jkl-p">
+                    Jeg tjener <InlineTextField invalid type="number" maxLength={5} label="kronebeløp" /> kroner i
+                    måneden.
+                </p>
             </div>
             <div className="side-by-side jkl-spacing--bottom-2">
                 <TextField
