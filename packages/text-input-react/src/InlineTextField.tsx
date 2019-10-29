@@ -1,5 +1,5 @@
 import React from "react";
-import { Props as TextInputProps } from "./index";
+import { TextInputProps } from "./index";
 import { Label } from "@fremtind/jkl-typography-react";
 import { getWidthAsStyle } from "./index";
 
@@ -22,14 +22,14 @@ export const InlineTextField = ({
     width,
     ...rest
 }: Props) => {
-    const componentClassName = "jkl-text-field--inline".concat(
+    const componentClassName = "jkl-text-field jkl-text-field--inline".concat(
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
 
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
-            <Label srOnly={true} variant={variant} forceCompact={forceCompact}>
+            <Label srOnly variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
             <input

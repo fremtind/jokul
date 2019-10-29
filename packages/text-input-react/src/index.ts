@@ -1,7 +1,6 @@
 import { ChangeEventHandler, FocusEventHandler, CSSProperties } from "react";
 import { TextField } from "./TextField";
 import { TextArea } from "./TextArea";
-import { ActionIcon } from "./ActionIcon";
 import { ActionTextField } from "./ActionTextField";
 import { InlineTextField } from "./InlineTextField";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -18,7 +17,7 @@ export function getWidthAsStyle(width: string | undefined, maxLength: number | u
     return undefined;
 }
 
-export interface Props {
+export interface TextInputProps {
     onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
@@ -34,6 +33,7 @@ export interface Props {
     readOnly?: boolean;
     maxLength?: number;
     width?: string;
+    autoComplete?: string;
 }
 
-export { TextField, TextArea, ActionIcon, ActionTextField, InlineTextField };
+export { TextField, TextArea, ActionTextField, InlineTextField };

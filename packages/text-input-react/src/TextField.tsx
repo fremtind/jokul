@@ -1,10 +1,9 @@
 import React from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { Props as TextInputProps } from "./index";
+import { TextInputProps } from "./index";
 import { getWidthAsStyle } from "./index";
 
 interface Props extends TextInputProps {
-    autoComplete?: string;
     helpLabel?: string;
     errorLabel?: string;
 }
