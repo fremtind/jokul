@@ -56,4 +56,8 @@
             @include text-sizing--small-device("xl");
         }
     }
+
+    &--sr-only {
+        @include screenreader-only;
+    }
 }

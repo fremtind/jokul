@@ -38,7 +38,7 @@
         "@fremtind/jkl-dropdown": "^0.10.0",
         "@fremtind/jkl-typography-react": "^0.9.0",
         "@nrk/core-toggle": "^3.0.4",
-        "nanoid": "^2.0.3"
+        "nanoid": "^2.1.6"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.0",

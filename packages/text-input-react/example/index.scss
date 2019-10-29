@@ -6,6 +6,7 @@ body {
 .side-by-side {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 2.5rem;
 
     & > .jkl-text-area,
     & > .jkl-text-field {
@@ -17,8 +18,4 @@ body {
     & > .jkl-text-field + .jkl-text-field {
         margin-left: 2.5rem;
     }
-}
-
-.jkl-text-field {
-    margin-top: 2.5rem;
 }
