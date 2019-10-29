@@ -5,6 +5,8 @@ import { Props as TextInputProps } from "./index";
 interface Props extends TextInputProps {
     onBlur?: (value: FocusEvent<HTMLTextAreaElement>) => void;
     rows?: number;
+    helpLabel?: string;
+    errorLabel?: string;
 }
 
 export const TextArea = ({
