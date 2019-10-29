@@ -6,6 +6,7 @@ import { getWidthAsStyle } from "./index";
 interface Props extends TextInputProps {
     helpLabel?: string;
     errorLabel?: string;
+    type?: "text" | "number" | "tel" | "password" | "email" | "year";
 }
 
 export const TextField = ({
@@ -36,7 +37,7 @@ export const TextField = ({
             <input
                 type={type}
                 aria-invalid={!!errorLabel}
-                className={`jkl-text-field__input`}
+                className="jkl-text-field__input"
                 id={id}
                 placeholder={placeholder}
                 readOnly={readOnly}

@@ -29,7 +29,6 @@ export interface TextInputProps {
     placeholder?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
-    type?: "text" | "number" | "tel" | "password" | "email" | "year";
     readOnly?: boolean;
     maxLength?: number;
     width?: string;
