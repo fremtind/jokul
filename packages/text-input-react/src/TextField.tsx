@@ -29,6 +29,9 @@ export const TextField = ({
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
+
+    const style = getWidthAsStyle(width, maxLength);
+
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
@@ -43,7 +46,7 @@ export const TextField = ({
                 readOnly={readOnly}
                 value={value}
                 maxLength={maxLength}
-                style={getWidthAsStyle(width, maxLength)}
+                style={style}
                 {...rest}
             />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />

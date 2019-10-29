@@ -5,7 +5,7 @@ import { ActionTextField } from "./ActionTextField";
 import { InlineTextField } from "./InlineTextField";
 import { LabelVariant } from "@fremtind/jkl-core";
 
-export function getWidthAsStyle(width: string | undefined, maxLength: number | undefined): CSSProperties | undefined {
+export function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | undefined {
     if (width) {
         return { width }; // prioritize width prop
     }
