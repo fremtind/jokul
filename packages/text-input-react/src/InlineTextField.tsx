@@ -28,6 +28,8 @@ export const InlineTextField = ({
         className ? ` ${className}` : "",
     );
 
+    const style = getWidthAsStyle(width, maxLength);
+
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label srOnly variant={variant} forceCompact={forceCompact}>
@@ -42,7 +44,7 @@ export const InlineTextField = ({
                 readOnly={readOnly}
                 value={value}
                 maxLength={maxLength}
-                style={getWidthAsStyle(width, maxLength)}
+                style={style}
                 {...rest}
             />
         </label>
