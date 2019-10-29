@@ -4,9 +4,10 @@
 $checkbox-size: rem(24px);
 $checkbox-size--compact: rem(18px);
 
-$checkbox-checked-background-color: $svart;
-$checkbox-unchecked-background-color: $snohvit;
-$checkbox-check-mark-color: $checkbox-unchecked-background-color;
+$checkbox-background-color--checked: $svart;
+$checkbox-background-color--unchecked: $snohvit;
+$checkbox-background-color--error: $error-color;
+$checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
 .jkl-checkbox {
     display: flex;
@@ -34,6 +35,17 @@ $checkbox-check-mark-color: $checkbox-unchecked-background-color;
         }
     }
 
+    &--error {
+        .jkl-checkbox__check-mark {
+            border-color: $checkbox-background-color--error;
+        }
+
+        .jkl-checkbox__input:checked + .jkl-checkbox__check-mark,
+        .jkl-checkbox__input:active + .jkl-checkbox__check-mark {
+            background-color: $checkbox-background-color--error;
+        }
+    }
+
     @include small-device {
         .jkl-checkbox__check-mark {
             height: $checkbox-size--compact;
@@ -47,7 +59,7 @@ $checkbox-check-mark-color: $checkbox-unchecked-background-color;
 
     &:active > .jkl-checkbox__check-mark {
         transform: scale(0.9);
-        background-color: $checkbox-checked-background-color;
+        background-color: $checkbox-background-color--checked;
     }
 
     &__input {
@@ -57,7 +69,7 @@ $checkbox-check-mark-color: $checkbox-unchecked-background-color;
 
         /* Handle fake checkmark based on checked state */
         &:checked + .jkl-checkbox__check-mark {
-            background-color: $checkbox-checked-background-color;
+            background-color: $checkbox-background-color--checked;
         }
 
         &:checked + .jkl-checkbox__check-mark:after {
@@ -83,7 +95,7 @@ $checkbox-check-mark-color: $checkbox-unchecked-background-color;
         outline: none;
         border: solid rem(1px) $svart;
         border-radius: 0; // fixes rounded corners in iOS Safari
-        background-color: $checkbox-unchecked-background-color;
+        background-color: $checkbox-background-color--unchecked;
         transition: background-color 200ms ease, transform 150ms ease;
 
         &:after {

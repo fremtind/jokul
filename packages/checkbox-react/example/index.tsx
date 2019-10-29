@@ -22,6 +22,9 @@ const App = () => {
             <Checkbox name="checklist" value="checkbox2" className="custom-classname">
                 I am special
             </Checkbox>
+            <Checkbox name="checklist" value="checkbox2" invalid={true}>
+                I have an error
+            </Checkbox>
             <Checkbox name="checklist" value="checkbox3" checked>
                 I will never change
             </Checkbox>
