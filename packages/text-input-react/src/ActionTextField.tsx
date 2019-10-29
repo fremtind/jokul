@@ -14,7 +14,7 @@ interface Props extends TextInputProps {
 export const ActionTextField = ({ type = "text", action, onClick, ...rest }: Props) => {
     return (
         <div className="jkl-text-field--action">
-            <button className="jkl-text-field__icon" onClick={onClick} aria-label={action} title={action}>
+            <button type="button" className="jkl-text-field__icon" onClick={onClick} aria-label={action} title={action}>
                 <ActionIcon forceCompact action={action} />
             </button>
             <TextField {...rest} />
