@@ -65,8 +65,8 @@ $radio-button-color: $svart;
         .jkl-radio-button__dot:after {
             left: $radio-button-dot-padding--compact;
             top: $radio-button-dot-padding--compact;
-            height: $radio-button-size - (2 * $radio-button-dot-padding--compact);
-            width: $radio-button-size - (2 * $radio-button-dot-padding--compact);
+            height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+            width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
         }
 
         &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
@@ -82,8 +82,8 @@ $radio-button-color: $svart;
         .jkl-radio-button__dot:after {
             left: $radio-button-dot-padding--compact;
             top: $radio-button-dot-padding--compact;
-            height: $radio-button-size - (2 * $radio-button-dot-padding--compact);
-            width: $radio-button-size - (2 * $radio-button-dot-padding--compact);
+            height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+            width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
         }
 
         &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
