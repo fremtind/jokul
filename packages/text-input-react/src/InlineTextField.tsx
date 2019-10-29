@@ -1,19 +1,16 @@
 import React from "react";
-import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { Props as TextInputProps } from "./index";
+import { Label } from "@fremtind/jkl-typography-react";
 import { getWidthAsStyle } from "./index";
 
 interface Props extends TextInputProps {
-    autoComplete?: string;
-    helpLabel?: string;
-    errorLabel?: string;
+    invalid?: boolean;
 }
 
-export const TextField = ({
+export const InlineTextField = ({
     type = "text",
     readOnly = false,
-    helpLabel,
-    errorLabel,
+    invalid,
     id,
     label,
     className,
@@ -25,18 +22,19 @@ export const TextField = ({
     width,
     ...rest
 }: Props) => {
-    const componentClassName = "jkl-text-field".concat(
+    const componentClassName = "jkl-text-field--inline".concat(
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
     );
+
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+            <Label srOnly={true} variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
             <input
                 type={type}
-                aria-invalid={!!errorLabel}
+                aria-invalid={invalid}
                 className={`jkl-text-field__input`}
                 id={id}
                 placeholder={placeholder}
@@ -46,7 +44,6 @@ export const TextField = ({
                 style={getWidthAsStyle(width, maxLength)}
                 {...rest}
             />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );
 };
