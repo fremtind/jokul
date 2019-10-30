@@ -87,6 +87,12 @@ export function Dropdown({
         onChange && onChange(nextValue || "");
     }
 
+    if (process.env.NODE_ENV !== "production") {
+        console.warn(
+            "WARNING: The Dropdown component in @fremtind/jkl-dropdown-react has been deprecated. Please use the Select component from @fremtind/jkl-select-react instead.",
+        );
+    }
+
     return (
         <div data-testid="jkl-dropdown" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
