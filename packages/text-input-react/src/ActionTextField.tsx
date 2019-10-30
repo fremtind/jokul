@@ -7,6 +7,7 @@ import { getWidthAsStyle } from "./index";
 interface Props extends TextInputProps {
     action: IconVariant;
     onClick: MouseEventHandler<HTMLButtonElement>;
+    description: string;
     helpLabel?: string;
     errorLabel?: string;
     type?: string;
@@ -28,6 +29,7 @@ export const ActionTextField = ({
     value,
     maxLength,
     width,
+    description,
     ...rest
 }: Props) => {
     const componentClassName = "jkl-text-field jkl-text-field--action".concat(
@@ -59,8 +61,8 @@ export const ActionTextField = ({
                     type="button"
                     className="jkl-text-field__action-button"
                     onClick={onClick}
-                    aria-label={action}
-                    title={action}
+                    aria-label={description}
+                    title={description}
                 >
                     <ActionIcon className="jkl-text-field__action-icon" action={action} />
                 </button>
