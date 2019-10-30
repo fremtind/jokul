@@ -103,13 +103,17 @@ $bottom-margin: $component-spacing--large;
     &__year-selector {
         max-width: 30%;
         margin-right: $component-spacing--xxl;
+
+        & > .jkl-datepicker__year-value {
+            text-align: left;
+        }
     }
 
     &__month-selector {
         position: relative;
         flex-grow: 2;
 
-        & > .jkl-select__value {
+        & > .jkl-datepicker__month-value {
             text-transform: capitalize;
         }
     }

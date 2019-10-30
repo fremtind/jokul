@@ -155,12 +155,12 @@ export function DatePicker({
                             <div className="jkl-datepicker__calendar-navigation">
                                 <label className="jkl-text-field jkl-datepicker__year-selector">
                                     <Label variant="small">{yearLabel}</Label>
-                                    <input type="year" className={`jkl-text-field__input`} />
+                                    <input type="year" className="jkl-text-field__input jkl-datepicker__year-value" />
                                 </label>
 
                                 <label className="jkl-select jkl-datepicker__month-selector">
                                     <Label variant="small">{monthLabel}</Label>
-                                    <select className="jkl-select__value"></select>
+                                    <select className="jkl-select__value jkl-datepicker__month-value"></select>
                                     <span className="jkl-select__chevron" />
                                 </label>
                             </div>
