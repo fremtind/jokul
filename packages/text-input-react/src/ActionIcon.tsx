@@ -6,7 +6,7 @@ import { IconClear } from "./Icons/IconClear";
 
 interface Props {
     action: IconVariant;
-    forceCompact?: boolean;
+    className: string;
 }
 
 function ActionType(actionType: IconVariant) {
@@ -24,12 +24,8 @@ function ActionType(actionType: IconVariant) {
     }
 }
 
-export const ActionIcon = ({ action, forceCompact }: Props) => {
-    const componentClassName = `jkl-action-icon jkl-action-icon--${action} `.concat(
-        forceCompact ? "jkl-action-icon--compact" : "",
-    );
-
-    return <span className={componentClassName}>{ActionType(action)}</span>;
+export const ActionIcon = ({ action, className }: Props) => {
+    return <span className={className}>{ActionType(action)}</span>;
 };
 
 export type IconVariant = "clear" | "delete" | "search" | "edit";
