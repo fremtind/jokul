@@ -15,6 +15,7 @@ $textarea-expanded-height: $input-height * 7 + $bottom-padding;
 $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bottom-padding;
 
 $icon-size: $font-size-3;
+$icon-size--compact: $font-size-2;
 
 .jkl-text-field {
     display: block;
@@ -35,14 +36,6 @@ $icon-size: $font-size-3;
         }
     }
 
-    &--action {
-        position: relative;
-
-        .jkl-text-field__input {
-            padding-right: $component-spacing--small + $icon-size;
-        }
-    }
-
     &--compact {
         & .jkl-text-field__input,
         & .jkl-text-field__input::placeholder {
@@ -50,6 +43,17 @@ $icon-size: $font-size-3;
         }
         & .jkl-text-field__input {
             height: $input-height--small-device + $bottom-padding;
+        }
+        & .jkl-text-field__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+
+    &--action {
+        position: relative;
+
+        .jkl-text-field__input {
+            padding-right: $component-spacing--small + $icon-size;
         }
     }
 
@@ -108,7 +112,7 @@ $icon-size: $font-size-3;
         }
     }
 
-    &__icon {
+    &__action-button {
         position: absolute;
         right: 0;
         bottom: $component-spacing--small;
@@ -117,11 +121,15 @@ $icon-size: $font-size-3;
         background-color: transparent;
         cursor: pointer;
         padding: 0;
+    }
 
-        .jkl-action-icon {
-            display: inline-block;
-            width: $icon-size;
-        }
+    &__action-icon {
+        display: inline-block;
+        width: $icon-size;
+    }
+
+    &__input-wrapper {
+        position: relative;
     }
 }
 
