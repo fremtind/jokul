@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { RadioButtonChoice } from "../src";
+import { RadioButtons } from "../src";
 import { initTabListener, LabelVariant } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
@@ -46,7 +46,7 @@ const Demo = () => {
                 </label>
             </div>
 
-            <RadioButtonChoice
+            <RadioButtons
                 legend="Do you like radio buttons?"
                 name="likesradiobuttons"
                 choices={choices}

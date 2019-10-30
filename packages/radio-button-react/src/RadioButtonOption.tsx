@@ -11,7 +11,7 @@ interface Props {
     forceCompact?: boolean;
 }
 
-export const RadioButton = ({
+export const RadioButtonOption = ({
     value,
     label,
     onChange,

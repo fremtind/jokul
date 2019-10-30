@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler } from "react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
-import { RadioButton } from "./RadioButton";
+import { RadioButtonOption } from "./RadioButtonOption";
 
 interface Props {
     name: string;
@@ -16,7 +16,7 @@ interface Props {
     forceCompact?: boolean;
 }
 
-export const RadioButtonChoice = ({
+export const RadioButtons = ({
     name,
     legend,
     choices,
@@ -36,7 +36,7 @@ export const RadioButtonChoice = ({
         forceCompact={forceCompact}
     >
         {choices.map(getValuePair).map(({ label, value }) => (
-            <RadioButton
+            <RadioButtonOption
                 key={value}
                 name={name}
                 value={value}

@@ -16,11 +16,11 @@
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { RadioButtonChoice } from "@fremtind/jkl-radio-button-react";
+import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 ```
 
-Komponenten `RadioButton` brukes ikke for seg selv, men kun gjennom `RadioButtonChoice`. Denne komponenten håndterer alle valg og event handlers. Spørsmålet som stilles gis gjennom prop'en `legend` og valgene gis som et array av `string` eller `ValuePair`-verdier:
+Komponenten `RadioButtonOption` brukes ikke for seg selv, men kun gjennom `RadioButtons`. Denne komponenten håndterer alle valg og event handlers. Spørsmålet som stilles gis gjennom prop'en `legend` og valgene gis som et array av `string` eller `ValuePair`-verdier:
 
 ```ts
 type ValuePair = {
@@ -34,7 +34,7 @@ Du må også spesifisere et `name` som gis til alle valgene, en `selectedValue` 
 ```tsx
 const [selectedValue, setSelectedValue] = useState("full");
 return (
-    <RadioButtonChoice
+    <RadioButtons
         name="coverage"
         legend="Hvilken dekning ønsker du?"
         choices={[{ value: "del", label: "Delkasko" }, { value: "full", label: "Fullkasko" }]}
@@ -47,7 +47,7 @@ return (
 Radioknappene kan vises ved siden av hverandre ved hjelp av prop'en `inline`. Denne bør kun brukes dersom det er to relativt korte valg:
 
 ```tsx
-<RadioButtonChoice inline choices={["Ja", "Nei"]} />
+<RadioButtons inline choices={["Ja", "Nei"]} />
 // Noen påkrevde props fjernet for lesbarhet
 ```
 
@@ -58,7 +58,7 @@ const [selectedValue, setSelectedValue] = useState("");
 const hasError = selectedValue === "";
 
 return (
-    <RadioButtonChoice
+    <RadioButtons
         inline
         legend="Vil du motta informasjon fra oss?"
         choices={["Ja", "Nei"]}

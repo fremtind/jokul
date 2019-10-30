@@ -1,13 +1,13 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import { RadioButton } from "./index";
+import { RadioButtonOption } from "./index";
 
-describe("RadioButton", () => {
+describe("RadioButtonOption", () => {
     afterEach(cleanup);
 
     it("renders with correct label", () => {
         const { getByText } = render(
-            <RadioButton
+            <RadioButtonOption
                 value="choice"
                 label="The only choice"
                 onChange={(f) => f}
@@ -23,7 +23,7 @@ describe("RadioButton", () => {
     it("executes handleChange when clicked", () => {
         const handleChange = jest.fn();
         const { getByLabelText } = render(
-            <RadioButton
+            <RadioButtonOption
                 value="choice"
                 label="The only choice"
                 onChange={handleChange}
@@ -42,7 +42,7 @@ describe("RadioButton", () => {
     it("executes handleChange when label is clicked", () => {
         const handleChange = jest.fn();
         const { getByTestId } = render(
-            <RadioButton
+            <RadioButtonOption
                 value="choice"
                 label="The only choice"
                 onChange={handleChange}
