@@ -1,13 +1,12 @@
 /* eslint "jsx-a11y/no-onchange": 0 */
 
 import React from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
 interface Props {
     label: string;
-    items: Array<string | SelectValuePair>;
+    items: Array<string | ValuePair>;
     inline?: boolean;
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -37,7 +36,7 @@ export function Select({
     // If no value is given, set it to first item, or to empty string if there is a placeholder
     if (!value) {
         if (!placeholder && items.length) {
-            value = getSelectValuePairFrom(items[0]).value;
+            value = getValuePair(items[0]).value;
         } else {
             value = "";
         }
@@ -76,7 +75,7 @@ export function Select({
                         {placeholder}
                     </option>
                 )}
-                {items.map(getSelectValuePairFrom).map((item) => (
+                {items.map(getValuePair).map((item) => (
                     <option data-testid="jkl-dropdown__option" key={item.value} value={item.value}>
                         {item.label}
                     </option>

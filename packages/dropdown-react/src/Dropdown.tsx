@@ -3,13 +3,12 @@ import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { useListNavigation } from "./useListNavigation";
-import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
 interface Props {
     label: string;
-    items: Array<string | SelectValuePair>;
+    items: Array<string | ValuePair>;
     inline?: boolean;
     defaultPrompt?: string;
     className?: string;
@@ -124,7 +123,7 @@ export function Dropdown({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map(getSelectValuePairFrom).map((item) => (
+                        {items.map(getValuePair).map((item) => (
                             <li key={item.value}>
                                 <button
                                     type="button"

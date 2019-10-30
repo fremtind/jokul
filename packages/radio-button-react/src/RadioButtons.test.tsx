@@ -1,15 +1,15 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { RadioButtonChoice } from "./index";
+import { RadioButtons } from "./index";
 
-describe("RadioButtonChoice", () => {
+describe("RadioButtons", () => {
     afterEach(cleanup);
 
     it("renders a legend with the correct value", () => {
         const choices = ["yes", "no"];
         const { getByText } = render(
-            <RadioButtonChoice
+            <RadioButtons
                 choices={choices}
                 legend="Does this work?"
                 name="doeswork"
@@ -24,7 +24,7 @@ describe("RadioButtonChoice", () => {
     it("renders radio buttons for each choice", () => {
         const choices = ["yes", "no"];
         const { getByText } = render(
-            <RadioButtonChoice
+            <RadioButtons
                 choices={choices}
                 legend="Does this work?"
                 name="doeswork"
@@ -40,7 +40,7 @@ describe("RadioButtonChoice", () => {
     it("selects the correct value from given props", () => {
         const choices = ["one", "two"];
         const { getByLabelText } = render(
-            <RadioButtonChoice choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="two" />,
+            <RadioButtons choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="two" />,
         );
 
         const secondButton = getByLabelText("two");
@@ -50,7 +50,7 @@ describe("RadioButtonChoice", () => {
     it("does not preselect a value if empty", () => {
         const choices = ["one", "two"];
         const { getByLabelText } = render(
-            <RadioButtonChoice choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="" />,
+            <RadioButtons choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="" />,
         );
 
         const firstButton = getByLabelText("one");
@@ -62,7 +62,7 @@ describe("RadioButtonChoice", () => {
     it("executes handleChange function correctly", () => {
         const handleChange = jest.fn();
         const { getByLabelText } = render(
-            <RadioButtonChoice
+            <RadioButtons
                 legend="Test"
                 choices={["one", "two"]}
                 name="test"
