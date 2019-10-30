@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.7.3...@fremtind/jkl-radio-button-react@0.8.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* make radio/checkbox stack vertically by default ([11bcdbd](https://github.com/fremtind/jokul/commit/11bcdbd)), closes [#387](https://github.com/fremtind/jokul/issues/387)
+* **radio-button:** fix variant names in example ([775992a](https://github.com/fremtind/jokul/commit/775992a))
+
+
+### Features
+
+* implement Field pattern in text input ([f3877e4](https://github.com/fremtind/jokul/commit/f3877e4))
+* **radio-button:** use updated field group in radio button groups ([ea1f67e](https://github.com/fremtind/jokul/commit/ea1f67e))
+
+
+
+
+
 ## [0.7.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.7.2...@fremtind/jkl-radio-button-react@0.7.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button-react

@@ -1,7 +1,7 @@
 import React from "react";
 import { Example } from "../components";
 import { TextArea } from "@fremtind/jkl-text-input-react";
-// @ts-ignore
+
 import textAreaType from "!raw-loader!@fremtind/jkl-text-input-react/build/TextArea.d.ts";
 import "@fremtind/jkl-text-input/text-input.min.css";
 
@@ -16,7 +16,7 @@ const example = `() => {
                 onChange={(e) => setValue(e.target.value)}
                 />
             <TextArea
-                variant="secondary"
+                variant="large"
                 className="jkl-spacing--bottom-3"
                 label="Livshistorie"
                 value="gobjop uvucenli bdachukme sotw uvliljai suibki"

@@ -27,7 +27,7 @@ const SelectDemo = () => {
                 onChange={setFavoriteScene}
                 helpLabel="The room is the greatest movie"
                 errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
-                variant="secondary"
+                variant="large"
             />
             <Dropdown
                 inline
@@ -36,6 +36,7 @@ const SelectDemo = () => {
                 items={years}
                 initialInputValue="1986"
                 variant="small"
+                forceCompact
             />
 
             <Select
@@ -54,8 +55,9 @@ const SelectDemo = () => {
                 items={items}
                 onChange={(e) => setFavoriteScene(e.target.value)}
                 placeholder="Choose your favorite"
-                variant="secondary"
+                variant="large"
                 value={favoriteScene}
+                forceCompact
             />
 
             <Dropdown className="jkl-spacing--top-5" label="Favorite The Room scene" items={items} />

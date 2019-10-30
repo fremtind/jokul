@@ -1,13 +1,12 @@
 /* eslint "jsx-a11y/no-onchange": 0 */
 
 import React from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
-import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
+import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 
 interface Props {
     label: string;
-    items: Array<string | SelectValuePair>;
+    items: Array<string | ValuePair>;
     inline?: boolean;
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -17,6 +16,7 @@ interface Props {
     variant?: LabelVariant;
     placeholder?: string;
     value?: string;
+    forceCompact?: boolean;
 }
 
 export function Select({
@@ -30,12 +30,13 @@ export function Select({
     variant,
     placeholder,
     value,
+    forceCompact,
     ...rest
 }: Props) {
     // If no value is given, set it to first item, or to empty string if there is a placeholder
     if (!value) {
         if (!placeholder && items.length) {
-            value = getSelectValuePairFrom(items[0]).value;
+            value = getValuePair(items[0]).value;
         } else {
             value = "";
         }
@@ -45,14 +46,23 @@ export function Select({
     };
     const componentClassName = "jkl-dropdown".concat(
         inline ? ` jkl-dropdown--inline` : "",
+        forceCompact ? ` jkl-dropdown--compact` : "",
         !!errorLabel ? ` jkl-dropdown--invalid` : "",
         value === "" ? ` jkl-dropdown--no-value` : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = variant ? ` jkl-label--${variant}` : "";
+
+    if (process.env.NODE_ENV !== "production") {
+        console.warn(
+            "WARNING: The Select component in @fremtind/jkl-dropdown-react has been deprecated. Please use the NativeSelect component from @fremtind/jkl-select-react instead.",
+        );
+    }
+
     return (
-        <label className={componentClassName}>
-            <span className={"jkl-label" + labelClassName}>{label}</span>
+        <label data-testid="jkl-dropdown" className={componentClassName}>
+            <Label variant={variant} forceCompact={forceCompact}>
+                {label}
+            </Label>
             <select
                 value={value}
                 className="jkl-dropdown__value"
@@ -65,14 +75,14 @@ export function Select({
                         {placeholder}
                     </option>
                 )}
-                {items.map(getSelectValuePairFrom).map((item) => (
+                {items.map(getValuePair).map((item) => (
                     <option data-testid="jkl-dropdown__option" key={item.value} value={item.value}>
                         {item.label}
                     </option>
                 ))}
             </select>
             <span className="jkl-dropdown__chevron" />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );
 }

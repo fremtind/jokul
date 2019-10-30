@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.10.2...@fremtind/jkl-datepicker-react@0.11.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **datepicker-react:** add text-input as a dependency ([d574043](https://github.com/fremtind/jokul/commit/d574043))
+* **datepicker-react:** make tests run with new component structure ([e22d76b](https://github.com/fremtind/jokul/commit/e22d76b))
+* remove all alerts from examples ([26abee2](https://github.com/fremtind/jokul/commit/26abee2))
+
+
+### Features
+
+* **datepicker:** implement new version and styles ([6f1b3e9](https://github.com/fremtind/jokul/commit/6f1b3e9))
+* **datepicker:** make datepicker shorter until opened ([ef87993](https://github.com/fremtind/jokul/commit/ef87993))
+* **datepicker:** update datepicker with new label design and variants ([9c479b6](https://github.com/fremtind/jokul/commit/9c479b6))
+* change name of label variants ([554749c](https://github.com/fremtind/jokul/commit/554749c))
+* extract label styles to core ([9fad287](https://github.com/fremtind/jokul/commit/9fad287))
+
+
+
+
+
 ## [0.10.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.10.1...@fremtind/jkl-datepicker-react@0.10.2) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker-react

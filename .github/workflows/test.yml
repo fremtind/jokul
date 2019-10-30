@@ -1,0 +1,19 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - '!master'
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Lint and test
+              run: |
+                  yarn install
+                  yarn lint
+                  yarn build
+                  yarn test

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.8.3...@fremtind/jkl-radio-button@0.9.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+
+
+### Features
+
+* **radio-button:** use updated field group in radio button groups ([ea1f67e](https://github.com/fremtind/jokul/commit/ea1f67e))
+
+
+
+
+
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.8.2...@fremtind/jkl-radio-button@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button

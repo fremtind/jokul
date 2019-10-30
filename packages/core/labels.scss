@@ -5,7 +5,11 @@
 .jkl-form-support-label {
     display: block;
     margin-top: $component-spacing--small;
-    @include text-sizing("xs");
+    @include text-sizing("xxs");
+
+    &--compact {
+        @include text-sizing--small-device("xxs");
+    }
 
     &--help {
         color: $svart;
@@ -17,26 +21,43 @@
 }
 
 .jkl-label {
-    display: inline-block;
-    margin-bottom: $component-spacing--xl;
-    margin-left: rem(-1px); // adjust visual alignment
-    @include text-sizing("xl");
+    display: block;
+    // Medium size is default
+    margin-bottom: $component-spacing--large;
+    margin-left: initial;
+    @include text-sizing("medium");
     @include small-device {
-        margin-bottom: $component-spacing--large;
+        margin-bottom: $component-spacing--small;
     }
 
-    &--secondary {
-        margin-bottom: $component-spacing--large;
-        margin-left: initial;
-        @include text-sizing("medium");
+    &--large {
+        margin-bottom: $component-spacing--xl;
+        margin-left: rem(-1px); // adjust visual alignment
+        @include text-sizing("xl");
         @include small-device {
-            margin-bottom: $component-spacing--small;
+            margin-bottom: $component-spacing--large;
         }
     }
 
     &--small {
         margin-bottom: 0;
         margin-left: initial;
-        @include text-sizing("xs");
+        @include text-sizing("xxs");
+    }
+
+    &--compact {
+        &.jkl-label--medium {
+            @include text-sizing--small-device("medium");
+        }
+        &.jkl-label--small {
+            @include text-sizing--small-device("xxs");
+        }
+        &.jkl-label--large {
+            @include text-sizing--small-device("xl");
+        }
+    }
+
+    &--sr-only {
+        @include screenreader-only;
     }
 }

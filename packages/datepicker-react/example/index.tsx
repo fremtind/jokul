@@ -27,11 +27,11 @@ const englishDayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const App = () => (
     <>
         <div className="jkl-spacing--all-3">
-            <DatePicker />
+            <DatePicker extended />
         </div>
         <div className="jkl-spacing--all-3">
             <DatePicker
-                variant="secondary"
+                variant="large"
                 initialDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
                 months={englishMonthNames}
                 days={englishDayNames}

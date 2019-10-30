@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.8.3",
+    "version": "0.9.0",
     "publishConfig": {
         "access": "public"
     },
@@ -34,18 +34,18 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.10.2",
-        "@fremtind/jkl-dropdown": "^0.9.3",
-        "@fremtind/jkl-typography-react": "^0.8.3",
+        "@fremtind/jkl-core": "^0.11.0",
+        "@fremtind/jkl-dropdown": "^0.10.0",
+        "@fremtind/jkl-typography-react": "^0.9.0",
         "@nrk/core-toggle": "^3.0.4",
-        "nanoid": "^2.0.3"
+        "nanoid": "^2.1.6"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.5",
+        "@fremtind/browserslist-config-jkl": "^0.4.0",
         "@types/nanoid": "^2.0.0"
     },
     "peerDependencies": {
-        "@types/react": "^16.8.17",
+        "@types/react": "^16.9.4",
         "@types/react-dom": "^16.8.4",
         "react": "^16.8.6",
         "react-dom": "^16.8.6"

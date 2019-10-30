@@ -2,13 +2,13 @@ import React from "react";
 import { Example } from "../components";
 import { DatePicker } from "@fremtind/jkl-datepicker-react";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
-// @ts-ignore
+
 import datepickerType from "!raw-loader!@fremtind/jkl-datepicker-react/build/DatePicker.d.ts";
 
 const example = `<>
         <DatePicker label="Når skjedde skaden?" initialDate={new Date('August 19, 2024 23:15:30')} />
         <DatePicker
-            variant="secondary"
+            variant="large"
             onlyFuture={true}
             label="On what date will you take ownership of the apartment?"
             yearLabel="Year"

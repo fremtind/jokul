@@ -1,4 +1,4 @@
-import { RadioButton } from "./RadioButton";
-import { RadioButtonChoice } from "./RadioButtonChoice";
+import { RadioButtonOption } from "./RadioButtonOption";
+import { RadioButtons } from "./RadioButtons";
 
-export { RadioButton, RadioButtonChoice };
+export { RadioButtonOption, RadioButtons };

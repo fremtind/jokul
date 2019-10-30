@@ -26,3 +26,28 @@ p {
 fieldset {
     margin: 0;
 }
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Remove borders from table elements.
+ */
+
+table {
+    border-collapse: collapse;
+}
+
+/**
+ * Remove margins from table elements.
+ */
+
+table,
+thead,
+tbody,
+tr,
+td,
+th {
+    margin: 0;
+    padding: 0;
+}

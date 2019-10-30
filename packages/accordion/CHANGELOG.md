@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.8.3...@fremtind/jkl-accordion@0.9.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **accordion:** use display block on title components ([056fdfb](https://github.com/fremtind/jokul/commit/056fdfb)), closes [#397](https://github.com/fremtind/jokul/issues/397)
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+
+
+### Features
+
+* **accordion:** implement new design for regular page component ([a54ca35](https://github.com/fremtind/jokul/commit/a54ca35))
+
+
+
+
+
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.8.2...@fremtind/jkl-accordion@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-bullet-list",
-    "version": "0.7.6",
+    "version": "0.7.7",
     "publishConfig": {
         "access": "public"
     },
@@ -25,10 +25,10 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^0.10.2"
+        "@fremtind/jkl-core": "^0.11.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.5"
+        "@fremtind/browserslist-config-jkl": "^0.4.0"
     },
     "repository": {
         "type": "git",

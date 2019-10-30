@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.10.1...@fremtind/portal@0.11.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* remove all alerts from examples ([26abee2](https://github.com/fremtind/jokul/commit/26abee2))
+* **portal:** reset style of accordions in main menu ([818d9dc](https://github.com/fremtind/jokul/commit/818d9dc))
+
+
+### Features
+
+* **checkbox-react:** make onChange pass event as parameter ([321ff7a](https://github.com/fremtind/jokul/commit/321ff7a))
+* **field-group:** update field group styling according to sketches ([69d94d8](https://github.com/fremtind/jokul/commit/69d94d8))
+* change name of label variants ([554749c](https://github.com/fremtind/jokul/commit/554749c))
+* implement Field pattern in text input ([f3877e4](https://github.com/fremtind/jokul/commit/f3877e4))
+
+
+
+
+
 ## [0.10.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.10.0...@fremtind/portal@0.10.1) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/portal

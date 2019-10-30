@@ -2,11 +2,9 @@ import React from "react";
 import { Example } from "../components";
 import { LogoMain, LogoSymbol, LogoAnimated } from "@fremtind/jkl-logo-react";
 import "@fremtind/jkl-logo/logo.min.css";
-// @ts-ignore
+
 import logoMainType from "!raw-loader!@fremtind/jkl-logo-react/build/LogoMain.d.ts";
-// @ts-ignore
 import logoSymbolType from "!raw-loader!@fremtind/jkl-logo-react/build/LogoSymbol.d.ts";
-// @ts-ignore
 import logoAnimatedType from "!raw-loader!@fremtind/jkl-logo-react/build/LogoAnimated.d.ts";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 

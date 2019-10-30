@@ -18,6 +18,7 @@ $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
 
 $chevron-size: rem(20px);
+$chevron-size--compact: rem(16px);
 $chevron-weight: rem(1px);
 
 @mixin nojump-bold {
@@ -47,6 +48,20 @@ $chevron-weight: rem(1px);
     &--inline {
         display: inline-block;
         vertical-align: top;
+    }
+
+    &--compact {
+        & .jkl-dropdown__value {
+            @include text-sizing--small-device("small");
+            padding-right: $chevron-size--compact + $side-padding;
+        }
+        & .jkl-dropdown__option {
+            @include font-size--small-device("small");
+            line-height: rem(40px);
+        }
+        & .jkl-dropdown__chevron {
+            @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
+        }
     }
 
     & *:focus {
@@ -79,11 +94,10 @@ $chevron-weight: rem(1px);
         background-color: transparent;
 
         border: 0;
-        font-size: $value-font-size;
-        line-height: $value-height;
+        @include text-sizing("small");
         font-weight: bold;
         padding: 0 $side-padding $bottom-padding 0;
-        padding-right: $value-height + $side-padding;
+        padding-right: $chevron-size + $side-padding;
         text-align: left;
         transition: box-shadow $transition-timing, padding $transition-timing;
         width: 100%;
@@ -142,7 +156,7 @@ $chevron-weight: rem(1px);
         border: 0; // removes native styling
         width: 100%;
         background-color: inherit;
-        font-size: $value-font-size;
+        @include font-size("small");
         line-height: rem(48px);
         padding: 0 $component-spacing--medium;
         text-align: left;
@@ -162,6 +176,9 @@ $chevron-weight: rem(1px);
 
     &__chevron {
         @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
+        @include small-device {
+            @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
+        }
         position: absolute;
         right: 0;
         pointer-events: none;

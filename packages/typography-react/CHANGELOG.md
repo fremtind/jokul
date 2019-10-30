@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.8.3...@fremtind/jkl-typography-react@0.9.0) (2019-10-09)
+
+
+### Features
+
+* **text-field:** add option to force compact mode ([07c7fea](https://github.com/fremtind/jokul/commit/07c7fea))
+
+
+
+
+
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.8.2...@fremtind/jkl-typography-react@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react

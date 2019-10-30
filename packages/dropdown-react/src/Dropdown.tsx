@@ -2,14 +2,13 @@
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState } from "react";
 import nanoid from "nanoid";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { useListNavigation } from "./useListNavigation";
-import { SelectValuePair, getSelectValuePairFrom } from "./SelectValuePair";
 
 interface Props {
     label: string;
-    items: Array<string | SelectValuePair>;
+    items: Array<string | ValuePair>;
     inline?: boolean;
     defaultPrompt?: string;
     className?: string;
@@ -18,6 +17,7 @@ interface Props {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    forceCompact?: boolean;
 }
 
 interface CoreToggleSelectEvent {
@@ -52,6 +52,7 @@ export function Dropdown({
     inline = false,
     defaultPrompt = "Velg",
     variant,
+    forceCompact,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(initialInputValue);
     const [displayedValue, setDisplayedValue] = useState(initialInputValue);
@@ -61,12 +62,12 @@ export function Dropdown({
     const listRef = useListNavigation();
     const componentClassName = "jkl-dropdown".concat(
         inline ? ` jkl-dropdown--inline` : "",
+        forceCompact ? ` jkl-dropdown--compact` : "",
         dropdownIsShown ? ` jkl-dropdown--open` : "",
         !hasSelectedValue ? ` jkl-dropdown--no-value` : "",
         !!errorLabel ? ` jkl-dropdown--invalid` : "",
         className ? ` ${className}` : "",
     );
-    const labelClassName = variant ? ` jkl-label--${variant}` : "";
 
     function onToggle() {
         const listElement = listRef.current;
@@ -86,9 +87,17 @@ export function Dropdown({
         onChange && onChange(nextValue || "");
     }
 
+    if (process.env.NODE_ENV !== "production") {
+        console.warn(
+            "WARNING: The Dropdown component in @fremtind/jkl-dropdown-react has been deprecated. Please use the Select component from @fremtind/jkl-select-react instead.",
+        );
+    }
+
     return (
         <div data-testid="jkl-dropdown" className={componentClassName}>
-            <span className={"jkl-label" + labelClassName}>{label}</span>
+            <Label variant={variant} forceCompact={forceCompact}>
+                {label}
+            </Label>
             <div className="jkl-dropdown__outer-wrapper">
                 <button
                     type="button"
@@ -114,7 +123,7 @@ export function Dropdown({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map(getSelectValuePairFrom).map((item) => (
+                        {items.map(getValuePair).map((item) => (
                             <li key={item.value}>
                                 <button
                                     type="button"
@@ -133,7 +142,7 @@ export function Dropdown({
                 </CoreToggle>
                 <span className="jkl-dropdown__chevron" />
             </div>
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </div>
     );
 }

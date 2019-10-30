@@ -15,45 +15,84 @@ const TextFieldDemo = () => {
     }
     return (
         <>
-            <div className="side-by-side">
+            <p className="jkl-p">
+                Jeg tjener <TextField type="number" maxLength={5} inline label="kronebeløp" /> kroner i måneden.
+            </p>
+            <div className="side-by-side jkl-spacing--bottom-2">
+                <pre>
+                    <code>{`forceCompact={true}`}</code>
+                </pre>
+                <pre>
+                    <code>{`forceCompact={false}`}</code>
+                </pre>
+            </div>
+            <div className="side-by-side jkl-spacing--bottom-2">
                 <TextField
                     label="Fornavn"
                     value={value}
                     onChange={handleChange}
-                    placeholder={"Norsk"}
+                    placeholder={"f.eks. Ola"}
                     variant="small"
                     helpLabel="La oss se..."
+                    forceCompact
+                    maxLength={10}
                 />
                 <TextField label="Fornavn" value={"Per"} onChange={handleChange} readOnly variant="small" />
             </div>
 
-            <TextField label="Telefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
-            <TextField
-                label="Passord"
-                type="password"
-                value={value}
-                onChange={handleChange}
-                helpLabel="Passord er en vanlig form for autentisering"
-                variant="secondary"
-            />
-            <TextField
-                label="Epost"
-                type="email"
-                value={value}
-                onChange={handleChange}
-                helpLabel="Postsystem for oversending av elektroniske dokumenter mellom datamaskiner"
-                variant="small"
-            />
+            <div className="side-by-side jkl-spacing--bottom-2">
+                <TextField
+                    forceCompact
+                    label="Telefon"
+                    type="tel"
+                    value={value}
+                    onChange={handleChange}
+                    placeholder="999 99 999"
+                />
+                <TextField label="Telefon" type="tel" value={value} onChange={handleChange} placeholder="999 99 999" />
+            </div>
 
-            <TextArea
-                rows={3}
-                label="Svar med en kommentar"
-                value={value}
-                onChange={handleChange}
-                //variant="small"
-                placeholder="Begrens deg til tre linjer"
-            />
-            <TextArea label="Din livshistorie" value={value} onChange={handleChange} variant="secondary" />
+            <div className="side-by-side jkl-spacing--bottom-5">
+                <TextField
+                    forceCompact
+                    label="Passord"
+                    type="password"
+                    value={value}
+                    onChange={handleChange}
+                    helpLabel="Passord er en vanlig form for autentisering"
+                    variant="large"
+                />
+                <TextField
+                    label="Passord"
+                    type="password"
+                    value={value}
+                    onChange={handleChange}
+                    helpLabel="Passord er en vanlig form for autentisering"
+                    variant="large"
+                />
+            </div>
+
+            <div className="side-by-side jkl-spacing--bottom-4">
+                <TextArea
+                    rows={3}
+                    label="Svar med en kommentar"
+                    value={value}
+                    onChange={handleChange}
+                    forceCompact
+                    placeholder="Begrens deg til tre linjer"
+                />
+                <TextArea
+                    rows={3}
+                    label="Svar med en kommentar"
+                    value={value}
+                    onChange={handleChange}
+                    placeholder="Begrens deg til tre linjer"
+                />
+            </div>
+            <div className="side-by-side jkl-spacing--bottom-2">
+                <TextArea label="Din livshistorie" value={value} onChange={handleChange} variant="large" forceCompact />
+                <TextArea label="Din livshistorie" value={value} onChange={handleChange} variant="large" />
+            </div>
         </>
     );
 };
