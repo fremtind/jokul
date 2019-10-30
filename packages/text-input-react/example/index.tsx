@@ -26,18 +26,20 @@ const TextFieldDemo = () => {
             <div className="side-by-side jkl-spacing--bottom-2">
                 <ActionTextField
                     forceCompact
-                    icon="clear"
+                    action="clear"
                     label="Nullstill felt"
                     value={value}
                     onClick={() => setValue("")}
                     onChange={(e) => setValue(e.target.value)}
+                    description="Nullstill felt"
                 />
                 <ActionTextField
-                    icon="edit"
+                    action="edit"
                     label="Skriv til konsoll"
                     value={value}
                     onClick={() => console.log(value)}
                     onChange={(e) => setValue(e.target.value)}
+                    description="Skriv til konsoll"
                 />
             </div>
             <div className="side-by-side jkl-spacing--bottom-2">

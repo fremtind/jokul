@@ -6,15 +6,21 @@ import { TextInputProps } from "./index";
 interface Props extends TextInputProps {
     action: IconVariant;
     onClick: MouseEventHandler<HTMLButtonElement>;
+    description: string;
     helpLabel?: string;
     errorLabel?: string;
-    type?: "text" | "number" | "tel" | "password" | "email" | "year";
 }
 
-export const ActionTextField = ({ action, onClick, ...rest }: Props) => {
+export const ActionTextField = ({ action, onClick, description, ...rest }: Props) => {
     return (
         <div className="jkl-text-field--action">
-            <button type="button" className="jkl-text-field__icon" onClick={onClick} aria-label={action} title={action}>
+            <button
+                type="button"
+                className="jkl-text-field__icon"
+                onClick={onClick}
+                aria-label={description}
+                title={description}
+            >
                 <ActionIcon forceCompact action={action} />
             </button>
             <TextField {...rest} />
