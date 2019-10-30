@@ -1,7 +1,6 @@
 import React from "react";
-import { TextInputProps } from "./index";
+import { TextInputProps, getWidthAsStyle } from "./utils";
 import { Label } from "@fremtind/jkl-typography-react";
-import { getWidthAsStyle } from "./index";
 
 interface Props extends TextInputProps {
     invalid?: boolean;

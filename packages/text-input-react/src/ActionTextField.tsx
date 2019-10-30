@@ -1,8 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import { ActionIcon, IconVariant } from "./ActionIcon";
-import { TextInputProps } from "./index";
+import { TextInputProps, getWidthAsStyle } from "./utils";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { getWidthAsStyle } from "./index";
 
 interface Props extends TextInputProps {
     action: IconVariant;
