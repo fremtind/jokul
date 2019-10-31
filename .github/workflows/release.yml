@@ -18,14 +18,14 @@ jobs:
                   node-version: "12.x"
                   registry-url: "https://registry.npmjs.org"
             - name: publish @canary
+              if: "! contains(github.event.head_commit.message, '[ci skip]')"
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                   GH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
               run: |
-                  git checkout "${GITHUB_REF:11}"
                   git config user.email "leiv.fredrik.berge@fremtind.no"
                   git config user.name "lfbergee"
                   git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
                   yarn
                   yarn build
-                  yarn release:canary --yes
+                  yarn release:canary --yes --message "chore(release): canary %s [skip ci]"
