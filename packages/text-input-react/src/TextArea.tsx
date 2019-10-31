@@ -1,8 +1,9 @@
 import React, { FocusEvent } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { TextInputProps } from "./utils";
+import { BaseInputProps } from "./utils";
 
-interface Props extends TextInputProps {
+interface Props extends BaseInputProps {
+    label: string;
     onBlur?: (value: FocusEvent<HTMLTextAreaElement>) => void;
     rows?: number;
     helpLabel?: string;

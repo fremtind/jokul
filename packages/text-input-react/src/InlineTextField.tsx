@@ -1,8 +1,10 @@
 import React from "react";
-import { TextInputProps, getWidthAsStyle } from "./utils";
+import { BaseInputProps } from "./utils";
 import { Label } from "@fremtind/jkl-typography-react";
+import { BaseInputField } from "./BaseInputField";
 
-interface Props extends TextInputProps {
+interface Props extends BaseInputProps {
+    label: string;
     invalid?: boolean;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
 }
@@ -27,25 +29,12 @@ export const InlineTextField = ({
         className ? ` ${className}` : "",
     );
 
-    const style = getWidthAsStyle(width, maxLength);
-
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label srOnly variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
-            <input
-                type={type}
-                aria-invalid={invalid}
-                className="jkl-text-field__input"
-                id={id}
-                placeholder={placeholder}
-                readOnly={readOnly}
-                value={value}
-                maxLength={maxLength}
-                style={style}
-                {...rest}
-            />
+            <BaseInputField />
         </label>
     );
 };

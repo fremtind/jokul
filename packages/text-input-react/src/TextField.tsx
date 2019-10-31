@@ -1,8 +1,10 @@
 import React from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { TextInputProps, getWidthAsStyle } from "./utils";
+import { BaseInputProps } from "./utils";
+import { BaseInputField } from "./BaseInputField";
 
-interface Props extends TextInputProps {
+interface Props extends BaseInputProps {
+    label: string;
     helpLabel?: string;
     errorLabel?: string;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
@@ -29,25 +31,12 @@ export const TextField = ({
         className ? ` ${className}` : "",
     );
 
-    const style = getWidthAsStyle(width, maxLength);
-
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
-            <input
-                type={type}
-                aria-invalid={!!errorLabel}
-                className="jkl-text-field__input"
-                id={id}
-                placeholder={placeholder}
-                readOnly={readOnly}
-                value={value}
-                maxLength={maxLength}
-                style={style}
-                {...rest}
-            />
+            <BaseInputField />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );

@@ -13,11 +13,10 @@ export function getWidthAsStyle(width?: string, maxLength?: number): CSSProperti
     return undefined;
 }
 
-export interface TextInputProps {
+export interface BaseInputProps {
     onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    label: string;
     value?: string;
     className?: string;
     id?: string;

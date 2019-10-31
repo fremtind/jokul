@@ -6,13 +6,30 @@ interface Props {
     forceCompact?: boolean;
     srOnly?: boolean;
     children: ReactNode;
+    standAlone?: boolean;
+    htmlFor?: string;
 }
 
-export function Label({ variant = "medium", forceCompact, srOnly, children }: Props) {
+export function Label({ variant = "medium", forceCompact, srOnly, children, standAlone, htmlFor }: Props) {
     const className = "jkl-label".concat(
         variant ? ` jkl-label--${variant}` : "",
         forceCompact ? ` jkl-label--compact` : "",
         srOnly ? ` jkl-label--sr-only` : "",
     );
-    return <span className={className}>{children}</span>;
+    const C = standAlone ? "span" : "label";
+
+    if (!standAlone && htmlFor) {
+        htmlFor = undefined;
+        if (process.env.NODE_ENV !== "production") {
+            console.warn(
+                "WARNING: htmlFor has been set to undefined since standAlone was undefined. To use htmlFor, set standAlone to true.",
+            );
+        }
+    }
+
+    return (
+        <C className={className} htmlFor={htmlFor}>
+            {children}
+        </C>
+    );
 }

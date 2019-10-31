@@ -1,9 +1,11 @@
 import React, { MouseEventHandler } from "react";
 import { ActionIcon, IconVariant } from "./ActionIcon";
-import { TextInputProps, getWidthAsStyle } from "./utils";
+import { BaseInputProps } from "./utils";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import { BaseInputField } from "./BaseInputField";
 
-interface Props extends TextInputProps {
+interface Props extends BaseInputProps {
+    label: string;
     action: IconVariant;
     onClick: MouseEventHandler<HTMLButtonElement>;
     description: string;
@@ -36,26 +38,13 @@ export const ActionTextField = ({
         className ? ` ${className}` : "",
     );
 
-    const style = getWidthAsStyle(width, maxLength);
-
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
             <div className="jkl-text-field__input-wrapper">
-                <input
-                    type={type}
-                    aria-invalid={!!errorLabel}
-                    className="jkl-text-field__input"
-                    id={id}
-                    placeholder={placeholder}
-                    readOnly={readOnly}
-                    value={value}
-                    maxLength={maxLength}
-                    style={style}
-                    {...rest}
-                />
+                <BaseInputField />
                 <button
                     type="button"
                     className="jkl-text-field__action-button"
