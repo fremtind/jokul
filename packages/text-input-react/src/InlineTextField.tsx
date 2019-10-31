@@ -9,21 +9,7 @@ interface Props extends BaseInputProps {
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
 }
 
-export const InlineTextField = ({
-    type = "text",
-    readOnly = false,
-    invalid,
-    id,
-    label,
-    className,
-    placeholder,
-    value,
-    variant,
-    forceCompact,
-    maxLength,
-    width,
-    ...rest
-}: Props) => {
+export const InlineTextField = ({ label, className, variant, forceCompact, ...rest }: Props) => {
     const componentClassName = "jkl-text-field jkl-text-field--inline".concat(
         forceCompact ? " jkl-text-field--compact" : "",
         className ? ` ${className}` : "",
@@ -34,7 +20,7 @@ export const InlineTextField = ({
             <Label srOnly variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
-            <BaseInputField />
+            <BaseInputField {...rest} />
         </label>
     );
 };

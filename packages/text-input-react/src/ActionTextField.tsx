@@ -11,7 +11,7 @@ interface Props extends BaseInputProps {
     description: string;
     helpLabel?: string;
     errorLabel?: string;
-    type?: string;
+    type?: "text" | "number" | "tel" | "password" | "email" | "year";
 }
 
 export const ActionTextField = ({
@@ -24,12 +24,6 @@ export const ActionTextField = ({
     variant,
     label,
     type,
-    id,
-    placeholder,
-    readOnly,
-    value,
-    maxLength,
-    width,
     description,
     ...rest
 }: Props) => {
@@ -44,7 +38,7 @@ export const ActionTextField = ({
                 {label}
             </Label>
             <div className="jkl-text-field__input-wrapper">
-                <BaseInputField />
+                <BaseInputField invalid={!!errorLabel} {...rest} />
                 <button
                     type="button"
                     className="jkl-text-field__action-button"

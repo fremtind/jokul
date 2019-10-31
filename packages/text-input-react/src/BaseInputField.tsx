@@ -4,18 +4,18 @@ import { BaseInputProps } from "./utils";
 
 interface Props extends BaseInputProps {
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
-    errorLabel?: string;
+    invalid?: boolean;
 }
 
 export const BaseInputField = ({
     type = "text",
-    errorLabel,
     id,
     placeholder,
     readOnly,
     value,
     maxLength,
     width,
+    invalid,
     ...rest
 }: Props) => {
     const style = getWidthAsStyle(width, maxLength);
@@ -23,7 +23,7 @@ export const BaseInputField = ({
     return (
         <input
             type={type}
-            aria-invalid={!!errorLabel}
+            aria-invalid={invalid}
             className="jkl-text-field__input"
             id={id}
             placeholder={placeholder}
