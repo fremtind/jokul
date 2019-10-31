@@ -5,6 +5,7 @@ import { BaseInputProps } from "./utils";
 interface Props extends BaseInputProps {
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     invalid?: boolean;
+    ariaDescribedby?: string;
 }
 
 export const BaseInputField = ({
@@ -16,6 +17,7 @@ export const BaseInputField = ({
     maxLength,
     width,
     invalid,
+    ariaDescribedby,
     ...rest
 }: Props) => {
     const style = getWidthAsStyle(width, maxLength);
@@ -31,6 +33,7 @@ export const BaseInputField = ({
             value={value}
             maxLength={maxLength}
             style={style}
+            aria-describedby={ariaDescribedby}
             {...rest}
         />
     );
