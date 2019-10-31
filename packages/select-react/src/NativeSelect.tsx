@@ -52,12 +52,6 @@ export function NativeSelect({
         className ? ` ${className}` : "",
     );
 
-    if (process.env.NODE_ENV !== "production") {
-        console.warn(
-            "WARNING: The Select component in @fremtind/jkl-dropdown-react has been deprecated. Please use the NativeSelect component from @fremtind/jkl-select-react instead.",
-        );
-    }
-
     return (
         <label data-testid="jkl-select" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
