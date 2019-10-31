@@ -5,10 +5,12 @@ import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { BaseInputField } from "./BaseInputField";
 
 interface Props extends BaseInputProps {
+    action: {
+        icon: IconVariant;
+        label: string;
+        onClick: MouseEventHandler<HTMLButtonElement>;
+    };
     label: string;
-    action: IconVariant;
-    onClick: MouseEventHandler<HTMLButtonElement>;
-    description: string;
     helpLabel?: string;
     errorLabel?: string;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
@@ -16,7 +18,6 @@ interface Props extends BaseInputProps {
 
 export const ActionTextField = ({
     action,
-    onClick,
     forceCompact,
     className,
     helpLabel,
@@ -24,7 +25,6 @@ export const ActionTextField = ({
     variant,
     label,
     type,
-    description,
     ...rest
 }: Props) => {
     const componentClassName = "jkl-text-field jkl-text-field--action".concat(
@@ -42,11 +42,11 @@ export const ActionTextField = ({
                 <button
                     type="button"
                     className="jkl-text-field__action-button"
-                    onClick={onClick}
-                    aria-label={description}
-                    title={description}
+                    onClick={action.onClick}
+                    aria-label={action.label}
+                    title={action.label}
                 >
-                    <ActionIcon className="jkl-text-field__action-icon" action={action} />
+                    <ActionIcon className="jkl-text-field__action-icon" action={action.icon} />
                 </button>
             </div>
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />

@@ -13,6 +13,7 @@ const TextFieldDemo = () => {
     function handleChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         setValue(event.target.value);
     }
+
     return (
         <>
             <div className="side-by-side jkl-spacing--bottom-2">
@@ -26,20 +27,24 @@ const TextFieldDemo = () => {
             <div className="side-by-side jkl-spacing--bottom-2">
                 <ActionTextField
                     forceCompact
-                    action="clear"
+                    action={{
+                        icon: "clear",
+                        label: "Utfør nullstilling",
+                        onClick: () => setValue(""),
+                    }}
                     label="Nullstill felt"
                     value={value}
-                    onClick={() => setValue("")}
                     onChange={(e) => setValue(e.target.value)}
-                    description="Nullstill felt"
                 />
                 <ActionTextField
-                    action="edit"
+                    action={{
+                        icon: "edit",
+                        label: "Skriv til konsoll",
+                        onClick: (e) => console.log(value),
+                    }}
                     label="Skriv til konsoll"
                     value={value}
-                    onClick={() => console.log(value)}
                     onChange={(e) => setValue(e.target.value)}
-                    description="Skriv til konsoll"
                 />
             </div>
             <div className="side-by-side jkl-spacing--bottom-2">
