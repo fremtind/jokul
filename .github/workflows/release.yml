@@ -19,7 +19,7 @@ jobs:
                   registry-url: "https://registry.npmjs.org"
             - name: publish @canary
               env:
-                  NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                   GH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
               run: |
                   yarn
