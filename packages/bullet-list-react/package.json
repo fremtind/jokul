@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-bullet-list-react",
-    "version": "1.0.0-alpha.6",
+    "version": "1.0.0-alpha.7",
     "homepage": "https://fremtind.github.io/jokul/",
     "publishConfig": {
         "access": "public"
@@ -34,10 +34,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-bullet-list": "^1.0.0-alpha.6"
+        "@fremtind/jkl-bullet-list": "^1.0.0-alpha.7"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.6"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.7"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
