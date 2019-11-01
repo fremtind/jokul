@@ -23,7 +23,7 @@ jobs:
                   GH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
               if: "!contains(github.event.head_commit.message, '[ci skip]')"
               run: |
-                  echo ${{github.event.head_commit.message}}
+                  echo github.event.head_commit.message
                   git config user.email "leiv.fredrik.berge@fremtind.no"
                   git config user.name "lfbergee"
                   git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
