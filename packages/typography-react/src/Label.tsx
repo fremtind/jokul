@@ -16,13 +16,13 @@ export function Label({ variant = "medium", forceCompact, srOnly, children, stan
         forceCompact ? ` jkl-label--compact` : "",
         srOnly ? ` jkl-label--sr-only` : "",
     );
-    const C = standAlone ? "span" : "label";
+    const C = standAlone ? "label" : "span";
 
     if (!standAlone && htmlFor) {
         htmlFor = undefined;
         if (process.env.NODE_ENV !== "production") {
             console.warn(
-                "WARNING: htmlFor has been set to undefined since standAlone was undefined. To use htmlFor, set standAlone to true.",
+                "WARNING: The standard Label component renders as a <span> element, which does not take a htmlFor prop. If you want the Label to belong to a specific input, use the standAlone prop, which renders as a <label> element instead. In most cases the Label component should not be used directly, as it is part of all our input components.",
             );
         }
     }
