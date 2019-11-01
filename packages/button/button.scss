@@ -3,40 +3,43 @@
 
 @import "~@fremtind/jkl-core/_functions.scss";
 
+$button-height--large: 3.5rem;
+$button-height--small: 2.5rem;
+
 $button-bg-color: $snohvit;
 $button-bg-color--primary: $svart;
 
-$button-border-color: $svart;
-$button-focus-ring-color: $focus-color;
-
 $button-text-color: $svart;
 $button-text-color--primary: $snohvit;
+
+$button-border-color: $svart;
 $button-border-width: rem(1px);
+$button-padding: $component-spacing--xl;
+
+$focus-ring-distance: rem(2px);
+$focus-ring-width: rem(2px);
+
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
-
-$button-height--large: 3.5rem;
-$button-height--small: 2.5rem;
 
 .jkl-button {
     height: $button-height--large;
     min-width: $button-height--large;
     line-height: $button-height--large;
-    font-size: map-get($font-size--large-device, "small");
+    @include font-size("small");
     cursor: pointer;
 
     @include small-device {
         height: $button-height--small;
         min-width: $button-height--small;
         line-height: $button-height--small;
-        font-size: map-get($font-size--small-device, "small");
     }
 
     &--compact {
         height: $button-height--small;
         min-width: $button-height--small;
         line-height: $button-height--small;
-        font-size: map-get($font-size--small-device, "small");
+        @include font-size--small-device("small");
     }
 
     -moz-osx-font-smoothing: auto;
@@ -72,28 +75,29 @@ $button-height--small: 2.5rem;
     &--primary,
     &--secondary {
         border: solid $button-border-width $button-border-color;
-        border-radius: 99px;
-        padding: 0 1.5rem;
+        border-radius: 999px;
+        padding: 0 $button-padding;
 
         &:after {
             border-radius: 99px;
-            border: solid rem(2px) transparent;
+            border: solid $focus-ring-width transparent;
             box-shadow: none;
             transition: box-shadow $animation-timing;
             content: "";
             position: absolute;
-            bottom: -($button-border-width + rem(2px));
-            left: -($button-border-width + rem(2px));
-            right: -($button-border-width + rem(2px));
-            top: -($button-border-width + rem(2px));
+            bottom: -($button-border-width + $focus-ring-distance);
+            left: -($button-border-width + $focus-ring-distance);
+            right: -($button-border-width + $focus-ring-distance);
+            top: -($button-border-width + $focus-ring-distance);
         }
 
         html:not([data-mousenavigation]) &:focus {
             &:after {
-                box-shadow: 0 0 0 rem(2px) $button-focus-ring-color;
+                box-shadow: 0 0 0 $focus-ring-width $focus-color;
             }
         }
     }
+
     &--tertiary {
         border-bottom: solid $button-border-width $button-border-color;
         border-top: solid $button-border-width transparent;
@@ -108,7 +112,7 @@ $button-height--small: 2.5rem;
         }
 
         html:not([data-mousenavigation]) &:focus {
-            border-bottom-color: $button-focus-ring-color;
+            border-bottom-color: $focus-color;
         }
     }
 }

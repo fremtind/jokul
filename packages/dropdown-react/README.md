@@ -1,4 +1,7 @@
-# [`@fremtind/jlk-dropdown`](https://fremtind.github.io/jokul/components/dropdown/)
+# [`@fremtind/jkl-dropdown-react`](https://fremtind.github.io/jokul/components/dropdown/)
+
+-   **Utgått**: Denne komponenten er utgått, og erstattet av `@fremtind/jkl-select-react`
+-   **Deprecated**: This component is deprecated, and replaced by `@fremtind/jkl-select-react`
 
 ## Beskrivelse
 

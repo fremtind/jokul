@@ -1,13 +1,20 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import { RadioButton } from "./index";
+import { RadioButtonOption } from "./index";
 
-describe("RadioButton", () => {
+describe("RadioButtonOption", () => {
     afterEach(cleanup);
 
     it("renders with correct label", () => {
         const { getByText } = render(
-            <RadioButton value="The only choice" onChange={(f) => f} name="" checked={true} inline={true} />,
+            <RadioButtonOption
+                value="choice"
+                label="The only choice"
+                onChange={(f) => f}
+                name=""
+                checked={true}
+                inline={true}
+            />,
         );
 
         expect(getByText("The only choice")).toBeInTheDocument();
@@ -16,7 +23,14 @@ describe("RadioButton", () => {
     it("executes handleChange when clicked", () => {
         const handleChange = jest.fn();
         const { getByLabelText } = render(
-            <RadioButton value="The only choice" onChange={handleChange} name="" checked={false} inline={true} />,
+            <RadioButtonOption
+                value="choice"
+                label="The only choice"
+                onChange={handleChange}
+                name=""
+                checked={false}
+                inline={true}
+            />,
         );
 
         const button = getByLabelText("The only choice");
@@ -28,7 +42,14 @@ describe("RadioButton", () => {
     it("executes handleChange when label is clicked", () => {
         const handleChange = jest.fn();
         const { getByTestId } = render(
-            <RadioButton value="The only choice" onChange={handleChange} name="" checked={false} inline={true} />,
+            <RadioButtonOption
+                value="choice"
+                label="The only choice"
+                onChange={handleChange}
+                name=""
+                checked={false}
+                inline={true}
+            />,
         );
 
         const button = getByTestId("jkl-radio-button__label-tag");
