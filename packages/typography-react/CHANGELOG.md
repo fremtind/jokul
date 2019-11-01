@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.9.0...@fremtind/jkl-typography-react@1.0.0-alpha.10) (2019-11-01)
+
+
+### Features
+
+* **text-field:** implement in line version of TextField ([5999a32](https://github.com/fremtind/jokul/commit/5999a32))
+* **typography-react:** add label component ([1384269](https://github.com/fremtind/jokul/commit/1384269))
+
+
+
+
+
 # [1.0.0-alpha.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@1.0.0-alpha.8...@fremtind/jkl-typography-react@1.0.0-alpha.9) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react

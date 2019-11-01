@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-divider-line",
-    "version": "1.0.0-alpha.9",
+    "version": "1.0.0-alpha.10",
     "publishConfig": {
         "access": "public"
     },
@@ -26,10 +26,10 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^1.0.0-alpha.9"
+        "@fremtind/jkl-core": "^1.0.0-alpha.10"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.9"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.10"
     },
     "repository": {
         "type": "git",

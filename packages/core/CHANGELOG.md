@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.11.0...@fremtind/jkl-core@1.0.0-alpha.10) (2019-11-01)
+
+
+### Features
+
+* **text-field:** implement in line version of TextField ([5999a32](https://github.com/fremtind/jokul/commit/5999a32))
+
+
+
+
+
 # [1.0.0-alpha.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.8...@fremtind/jkl-core@1.0.0-alpha.9) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-core

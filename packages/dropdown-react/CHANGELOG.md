@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@0.9.0...@fremtind/jkl-dropdown-react@1.0.0-alpha.10) (2019-11-01)
+
+
+### Bug Fixes
+
+* **dropdown-react:** fix failing test ([4eb853d](https://github.com/fremtind/jokul/commit/4eb853d))
+
+
+### Features
+
+* **dropdown:** make dropdowns responsive ([378b7e2](https://github.com/fremtind/jokul/commit/378b7e2))
+
+
+
+
+
 # [1.0.0-alpha.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-dropdown-react@1.0.0-alpha.8...@fremtind/jkl-dropdown-react@1.0.0-alpha.9) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-dropdown-react
