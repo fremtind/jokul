@@ -49,6 +49,12 @@ $icon-size--compact: $font-size-2;
         }
     }
 
+    @include small-device {
+        & .jkl-text-field__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+
     &--action {
         position: relative;
 
@@ -130,12 +136,6 @@ $icon-size--compact: $font-size-2;
 
     &__input-wrapper {
         position: relative;
-    }
-
-    @include small-device {
-        & .jkl-text-field__action-icon {
-            width: $icon-size--compact;
-        }
     }
 }
 
