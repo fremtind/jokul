@@ -1,7 +1,6 @@
 import React from "react";
-import { BaseInputProps } from "./utils";
 import { Label } from "@fremtind/jkl-typography-react";
-import { BaseInputField } from "./BaseInputField";
+import { BaseInputField, BaseInputProps } from "./BaseInputField";
 
 interface Props extends BaseInputProps {
     label: string;

@@ -1,8 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import { ActionIcon, IconVariant } from "./ActionIcon";
-import { BaseInputProps } from "./utils";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { BaseInputField } from "./BaseInputField";
+import { BaseInputField, BaseInputProps } from "./BaseInputField";
 
 interface Props extends BaseInputProps {
     action: {
@@ -24,8 +23,7 @@ export const ActionTextField = ({
     errorLabel,
     variant,
     label,
-    type,
-    ...rest
+    ...baseInputProps
 }: Props) => {
     const componentClassName = "jkl-text-field jkl-text-field--action".concat(
         forceCompact ? " jkl-text-field--compact" : "",
@@ -38,7 +36,7 @@ export const ActionTextField = ({
                 {label}
             </Label>
             <div className="jkl-text-field__input-wrapper">
-                <BaseInputField invalid={!!errorLabel} {...rest} />
+                <BaseInputField invalid={!!errorLabel} {...baseInputProps} />
                 <button
                     type="button"
                     className="jkl-text-field__action-button"

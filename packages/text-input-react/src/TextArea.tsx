@@ -1,6 +1,6 @@
 import React, { FocusEvent } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { BaseInputProps } from "./utils";
+import { BaseInputProps } from "./BaseInputField";
 
 interface Props extends BaseInputProps {
     label: string;

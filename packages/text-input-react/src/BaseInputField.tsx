@@ -1,6 +1,22 @@
-import React from "react";
-import { getWidthAsStyle } from "./utils";
-import { BaseInputProps } from "./utils";
+import React, { FocusEventHandler, ChangeEventHandler, CSSProperties } from "react";
+import { LabelVariant } from "@fremtind/jkl-core";
+
+export interface BaseInputProps {
+    onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    value?: string;
+    className?: string;
+    id?: string;
+    required?: boolean;
+    placeholder?: string;
+    variant?: LabelVariant;
+    forceCompact?: boolean;
+    readOnly?: boolean;
+    maxLength?: number;
+    width?: string;
+    autoComplete?: string;
+}
 
 interface Props extends BaseInputProps {
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
@@ -8,32 +24,28 @@ interface Props extends BaseInputProps {
     ariaDescribedby?: string;
 }
 
-export const BaseInputField = ({
-    type = "text",
-    id,
-    placeholder,
-    readOnly,
-    value,
-    maxLength,
-    width,
-    invalid,
-    ariaDescribedby,
-    ...rest
-}: Props) => {
+function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | undefined {
+    if (width) {
+        return { width }; // prioritize width prop
+    }
+
+    if (maxLength && maxLength < 15) {
+        return { width: `${maxLength + 3}ch` }; // else use maxLength if not large
+    }
+
+    return undefined;
+}
+
+export const BaseInputField = ({ maxLength, width, invalid, ariaDescribedby, ...rest }: Props) => {
     const style = getWidthAsStyle(width, maxLength);
 
     return (
         <input
-            type={type}
-            aria-invalid={invalid}
             className="jkl-text-field__input"
-            id={id}
-            placeholder={placeholder}
-            readOnly={readOnly}
-            value={value}
             maxLength={maxLength}
             style={style}
             aria-describedby={ariaDescribedby}
+            aria-invalid={invalid}
             {...rest}
         />
     );
