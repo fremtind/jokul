@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@1.0.0-alpha.10...@fremtind/jkl-typography-react@1.0.0-alpha.11) (2019-11-01)
+
+
+### Bug Fixes
+
+* **typography-react:** remove capitalization of className for helpLabel ([3f6f5c6](https://github.com/fremtind/jokul/commit/3f6f5c6aa25f28ec873b007ab3a1b3b000ffd781)), closes [#490](https://github.com/fremtind/jokul/issues/490)
+
+
+
+
+
 # [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.9.0...@fremtind/jkl-typography-react@1.0.0-alpha.10) (2019-11-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.0.0-alpha.10...@fremtind/jkl-message-box@1.0.0-alpha.11) (2019-11-01)
+
+
+### Bug Fixes
+
+* **message-box:** set width using max-width to avoid bugs ([e917d88](https://github.com/fremtind/jokul/commit/e917d88615cb4eaf6cc20bf0f99103f09b6ee050))
+
+
+
+
+
 # [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@0.7.7...@fremtind/jkl-message-box@1.0.0-alpha.10) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box

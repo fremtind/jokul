@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.10...@fremtind/jkl-core@1.0.0-alpha.11) (2019-11-01)
+
+
+### Features
+
+* **core:** specify font fallback strategy ([94816d1](https://github.com/fremtind/jokul/commit/94816d1d9fa2e123f0931e18345d182ed4727cf4)), closes [#464](https://github.com/fremtind/jokul/issues/464)
+
+
+
+
+
 # [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.11.0...@fremtind/jkl-core@1.0.0-alpha.10) (2019-11-01)
 
 

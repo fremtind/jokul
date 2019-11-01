@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.8](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.0.0-alpha.7...@fremtind/portal@1.0.0-alpha.8) (2019-11-01)
+
+
+### Features
+
+* **radio-button-react:** rename radio button components ([d09fe6f](https://github.com/fremtind/jokul/commit/d09fe6fd321f2242a94d7d60deb5ae7997da0ccf))
+
+
+
+
+
 # [1.0.0-alpha.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.11.0...@fremtind/portal@1.0.0-alpha.7) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/portal

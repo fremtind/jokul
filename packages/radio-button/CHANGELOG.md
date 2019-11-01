@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@1.0.0-alpha.10...@fremtind/jkl-radio-button@1.0.0-alpha.11) (2019-11-01)
+
+
+### Bug Fixes
+
+* **radio-button:** fix wrong use of [@extend](https://github.com/extend) ([365edc0](https://github.com/fremtind/jokul/commit/365edc0e7ad4b911d94fce6464b2d2da36bcbf7d))
+* **radio-button:** use right size for compact middle dot ([09f96a1](https://github.com/fremtind/jokul/commit/09f96a15cdcf7430fd2aa7a99837ab7248b02d8f))
+
+
+### Features
+
+* **radio-button:** implement compact/mobile version ([e3c2c6f](https://github.com/fremtind/jokul/commit/e3c2c6fdc4de9b59900f1dc8a0b132cea0cb733a))
+* **radio-button:** use correct spacing in compact mode ([863f1e7](https://github.com/fremtind/jokul/commit/863f1e7b3723dd884dbbc530f950b6594ae2ab8f))
+* **radio-button-react:** rename radio button components ([d09fe6f](https://github.com/fremtind/jokul/commit/d09fe6fd321f2242a94d7d60deb5ae7997da0ccf))
+
+
+
+
+
 # [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.9.0...@fremtind/jkl-radio-button@1.0.0-alpha.10) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button

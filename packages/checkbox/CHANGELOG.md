@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.0.0-alpha.10...@fremtind/jkl-checkbox@1.0.0-alpha.11) (2019-11-01)
+
+
+### Bug Fixes
+
+* **checkbox:** use correct size for mobile/compact version ([68c8782](https://github.com/fremtind/jokul/commit/68c878227287009b9af1859a0421c41191fcc5d2))
+
+
+### Features
+
+* **checkbox:** add error state to checkbox ([6c9a554](https://github.com/fremtind/jokul/commit/6c9a5542721cf10b9221f2bd5371cf55e625bc3a))
+* **checkbox:** implement compact/mobile version of checkbox ([7bacff8](https://github.com/fremtind/jokul/commit/7bacff8c5f82580907040cf31259ad098b9f31b4))
+
+
+
+
+
 # [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.4...@fremtind/jkl-checkbox@1.0.0-alpha.10) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
