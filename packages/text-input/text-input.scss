@@ -135,6 +135,7 @@ $icon-size--compact: $font-size-2;
     }
 
     &__input-wrapper {
+        display: inline-block;
         position: relative;
     }
 }
