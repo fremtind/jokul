@@ -131,6 +131,12 @@ $icon-size--compact: $font-size-2;
     &__input-wrapper {
         position: relative;
     }
+
+    @include small-device {
+        & .jkl-text-field__action-icon {
+            width: $icon-size--compact;
+        }
+    }
 }
 
 /* Utility classes for number of rows */
