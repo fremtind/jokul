@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@0.6.5...@fremtind/jkl-button-react@1.0.0-alpha.10) (2019-11-01)
+
+
+### Features
+
+* **button:** implement forceCompact on buttons ([faf1257](https://github.com/fremtind/jokul/commit/faf1257))
+
+
+
+
+
 # [1.0.0-alpha.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.0.0-alpha.8...@fremtind/jkl-button-react@1.0.0-alpha.9) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-button-react
