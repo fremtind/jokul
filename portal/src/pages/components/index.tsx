@@ -15,6 +15,7 @@ import {
     LogoExample,
     LogoStampExample,
     MessageBoxExample,
+    ProgressBarExample,
     RadioButtonExample,
     TableExample,
     TextAreaExample,
@@ -61,6 +62,7 @@ export default function AllComponents() {
             <Section title="Logo" link="logo" example={<LogoExample />} />
             <Section title="Logostempel" link="logostamp" example={<LogoStampExample />} />
             <Section title="Lasteindikator" link="loader" example={<LoaderExample />} />
+            <Section title="Fremdriftsindikator" link="progressbar" example={<ProgressBarExample />} />
             <Section title="Delelinje" link="dividerline" example={<DividerLineExample />} />
             <Section title="Kort" link="card" example={<CardExample />} />
             <Section title="Liste" link="bulletlist" example={<BulletListExample />} />
