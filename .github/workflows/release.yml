@@ -23,4 +23,4 @@ jobs:
                   GH_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
               if: "!contains(github.event.head_commit.message, '[ci skip]')"
               run: |
-                  echo 'hest hest hest'
+                  echo 'skipped?'
