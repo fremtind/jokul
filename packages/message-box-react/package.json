@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "1.0.0-alpha.7",
+    "version": "1.0.0-alpha.8",
     "publishConfig": {
         "access": "public"
     },
@@ -34,12 +34,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-message-box": "^1.0.0-alpha.7",
-        "@fremtind/jkl-typography-react": "^1.0.0-alpha.7"
+        "@fremtind/jkl-message-box": "^1.0.0-alpha.8",
+        "@fremtind/jkl-typography-react": "^1.0.0-alpha.8"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.7",
-        "@fremtind/jkl-core": "^1.0.0-alpha.7"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.8",
+        "@fremtind/jkl-core": "^1.0.0-alpha.8"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

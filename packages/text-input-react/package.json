@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "1.0.0-alpha.7",
+    "version": "1.0.0-alpha.8",
     "homepage": "https://fremtind.github.io/jokul/",
     "publishConfig": {
         "access": "public"
@@ -38,11 +38,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-text-input": "^1.0.0-alpha.7",
-        "@fremtind/jkl-typography-react": "^1.0.0-alpha.7"
+        "@fremtind/jkl-text-input": "^1.0.0-alpha.8",
+        "@fremtind/jkl-typography-react": "^1.0.0-alpha.8"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.7"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.8"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

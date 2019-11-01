@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "1.0.0-alpha.7",
+    "version": "1.0.0-alpha.8",
     "publishConfig": {
         "access": "public"
     },
@@ -42,7 +42,7 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.7"
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.8"
     },
     "repository": {
         "type": "git",
