@@ -8,7 +8,8 @@ describe("InlineTextField", () => {
     it("renders with correct label", () => {
         const { getByLabelText } = render(<InlineTextField label="The best label" />);
 
-        expect(getByLabelText("The best label")).toBeInTheDocument();
+        const component = getByLabelText("The best label");
+        expect(component).toBeInTheDocument();
     });
 
     it("uses the passed class name", () => {
@@ -39,13 +40,6 @@ describe("InlineTextField", () => {
         expect(component).toHaveAttribute("maxlength", "10");
     });
 
-    it("has the width given", () => {
-        const { getByLabelText } = render(<InlineTextField label="testing" width="5" />);
-
-        const component = getByLabelText("testing");
-        expect(component).toHaveStyle("width: 5");
-    });
-
     it("has the placeholder given", () => {
         const { getByLabelText } = render(<InlineTextField label="testing" placeholder="33" />);
 
@@ -54,7 +48,7 @@ describe("InlineTextField", () => {
     });
 
     it("is read-only when specified", () => {
-        const { getByLabelText } = render(<InlineTextField label="testing" readOnly={true} />);
+        const { getByLabelText } = render(<InlineTextField label="testing" readOnly />);
 
         const component = getByLabelText("testing");
         expect(component).toHaveAttribute("readonly");
@@ -65,5 +59,12 @@ describe("InlineTextField", () => {
 
         const component = getByLabelText("testing");
         expect(component).toHaveValue("3");
+    });
+
+    it("renders as invalid when specified", () => {
+        const { getByLabelText } = render(<InlineTextField label="testing" invalid />);
+
+        const component = getByLabelText("testing");
+        expect(component).toHaveAttribute("aria-invalid", "true");
     });
 });
