@@ -18,7 +18,7 @@
         "test:unit": "jest -c './jest/jest.unit.js'",
         "prerelease": "yarn build",
         "release": "lerna publish",
-        "release:canary": "lerna publish --no-git-reset --conventional-prerelease --force-publish --dist-tag canary"
+        "release:canary": "lerna publish --no-git-reset --conventional-prerelease --dist-tag canary"
     },
     "dependencies": {
         "react": "^16.9.0",
