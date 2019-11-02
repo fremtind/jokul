@@ -16,7 +16,7 @@
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { Checkbox } from "@fremtind/jkl-progress-bar-react";
+import { ProgressBar } from "@fremtind/jkl-progress-bar-react";
 import "@fremtind/jkl-progress-bar/checkbox.min.css";
 ```
 
