@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Dropdown, Select } from "../src";
+import { Select, NativeSelect } from "../src";
 import { initTabListener } from "@fremtind/jkl-core";
 
 import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-dropdown/dropdown.min.css";
+import "@fremtind/jkl-select/select.min.css";
 import "./index.scss";
 
 initTabListener();
@@ -13,33 +13,34 @@ const SelectDemo = () => {
     const valuePairs = [{ value: "firstvalue", label: "Value 1" }, { value: "secondvalue", label: "Value 2" }];
     const years = [...Array(120)].map((_, i) => (i + 1900).toString()); // 1900 - 2019
 
-    const [favoriteScene, setFavoriteScene] = useState("");
+    const [favoriteScene, setFavoriteScene] = useState("The flower shop");
     const [valuePair, setValuePair] = useState<string>();
 
     return (
         <>
-            <Dropdown
+            <Select
                 inline
                 className="jkl-spacing--top-3"
                 label="The Room scene"
                 defaultPrompt="Choose your favorite"
                 items={items}
                 onChange={setFavoriteScene}
+                value={favoriteScene}
                 helpLabel="The room is the greatest movie"
                 errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
                 variant="large"
             />
-            <Dropdown
+            <Select
                 inline
                 className="jkl-spacing--top-3"
                 label="Fødselsår"
                 items={years}
-                initialInputValue="1986"
+                value="1986"
                 variant="small"
                 forceCompact
             />
 
-            <Select
+            <NativeSelect
                 className="jkl-spacing--top-5"
                 label="Native select"
                 items={valuePairs}
@@ -47,7 +48,7 @@ const SelectDemo = () => {
                 value={valuePair}
                 helpLabel="This uses value/label pairs"
             />
-            <Select
+            <NativeSelect
                 className="jkl-spacing--top-3"
                 helpLabel="The room is the greatest movie"
                 errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
@@ -60,8 +61,8 @@ const SelectDemo = () => {
                 forceCompact
             />
 
-            <Dropdown className="jkl-spacing--top-5" label="Favorite The Room scene" items={items} />
-            <Dropdown
+            <Select className="jkl-spacing--top-5" label="Favorite The Room scene" items={items} />
+            <Select
                 className="jkl-spacing--top-3"
                 label="Value pairs"
                 items={valuePairs}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Example } from "../components";
-import { Dropdown, Select } from "@fremtind/jkl-dropdown-react";
+import { Select, NativeSelect } from "@fremtind/jkl-select-react";
 import "@fremtind/jkl-dropdown/dropdown.min.css";
 
 import dropdownType from "!raw-loader!@fremtind/jkl-dropdown-react/build/Dropdown.d.ts";
@@ -9,8 +9,8 @@ const example = `() => {
     const [selectValue, setSelectValue] = React.useState("");
     return (
         <>
-            <Dropdown className="jkl-spacing--bottom-2" label="Merke" items={["Mercedes", "Opel", "Skoda"]} />
-            <Dropdown
+            <Select className="jkl-spacing--bottom-2" label="Merke" items={["Mercedes", "Opel", "Skoda"]} />
+            <Select
                 variant="large"
                 className="jkl-spacing--bottom-2"
                 label="Merke"
@@ -18,7 +18,7 @@ const example = `() => {
                 initialShow
                 helpLabel="Velg produsent"
             />
-            <Dropdown
+            <Select
                 variant="small"
                 className="jkl-spacing--bottom-2"
                 label="Home type"
@@ -28,7 +28,7 @@ const example = `() => {
                 onChange={(value) => console.log(value)}
                 errorLabel="Select valid place to live"
             />
-            <Select
+            <NativeSelect
                 className="jkl-spacing--bottom-2"
                 label="Home type"
                 items={["Apartment", "Duplex", "House", "Mansion"]}
@@ -41,16 +41,16 @@ const example = `() => {
     );
 }`;
 
-const exampleImport = `import { Dropdown } from "@fremtind/jkl-dropdown-react";
-import "@fremtind/jkl-dropdown/dropdown.min.css";`;
+const exampleImport = `import { Select, NativeSelect } from "@fremtind/jkl-select-react";
+import "@fremtind/jkl-select/select.min.css";`;
 
-const DropdownExample = () => (
+const SelectExample = () => (
     <Example
-        exampleComponents={{ Dropdown, Select }}
+        exampleComponents={{ Select, NativeSelect }}
         exampleCode={example}
         type={dropdownType}
         exampleImport={exampleImport}
     />
 );
 
-export default DropdownExample;
+export default SelectExample;

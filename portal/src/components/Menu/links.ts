@@ -37,7 +37,7 @@ export const componentLinks = [
     makeComponentLink("Bryter", "toggleswitch"),
     makeComponentLink("Trekkspilliste", "accordion"),
     makeComponentLink("Datovelger", "datepicker"),
-    makeComponentLink("Nedtrekksliste", "dropdown"),
+    makeComponentLink("Nedtrekksliste", "select"),
     makeComponentLink("Typografi", "typography"),
     makeComponentLink("Tabell", "table"),
     makeComponentLink("Tekstfelt", "textfield"),
