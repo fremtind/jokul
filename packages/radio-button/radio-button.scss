@@ -57,7 +57,8 @@ $radio-button-color: $svart;
         }
     }
 
-    &--compact {
+    &--compact,
+    *[data-compactlayout] & {
         .jkl-radio-button__dot:before {
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;

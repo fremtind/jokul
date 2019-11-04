@@ -27,7 +27,8 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
         }
     }
 
-    &--compact {
+    &--compact,
+    *[data-compactlayout] & {
         @include text-sizing--small-device("small");
         .jkl-checkbox__check-mark {
             height: $checkbox-size--compact;

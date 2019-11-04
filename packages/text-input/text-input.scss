@@ -33,7 +33,8 @@ $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bott
         }
     }
 
-    &--compact {
+    &--compact,
+    *[data-compactlayout] & {
         & .jkl-text-field__input,
         & .jkl-text-field__input::placeholder {
             @include text-sizing--small-device("small");

@@ -50,7 +50,8 @@ $chevron-weight: rem(1px);
         vertical-align: top;
     }
 
-    &--compact {
+    &--compact,
+    *[data-compactlayout] & {
         & .jkl-select__value {
             @include text-sizing--small-device("small");
             padding-right: $chevron-size--compact + $side-padding;
