@@ -1,13 +1,14 @@
 {
-    "name": "@fremtind/jkl-dropdown-react",
-    "version": "0.9.0",
+    "name": "@fremtind/jkl-select-react",
+    "version": "0.0.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react dropdown component",
+    "description": "Jøkul react select component",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
         "dropdown",
+        "select",
         "form",
         "jøkul",
         "fremtind"
@@ -29,13 +30,13 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-dropdown yarn build:watch",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-select yarn build:watch",
         "dev:js": "parcel example/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^0.11.0",
-        "@fremtind/jkl-dropdown": "^0.10.0",
+        "@fremtind/jkl-select": "^0.0.0",
         "@fremtind/jkl-typography-react": "^0.9.0",
         "@nrk/core-toggle": "^3.0.4",
         "nanoid": "^2.1.6"

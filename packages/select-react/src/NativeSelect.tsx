@@ -10,7 +10,6 @@ interface Props {
     inline?: boolean;
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-    autoComplete?: string;
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
@@ -19,7 +18,7 @@ interface Props {
     forceCompact?: boolean;
 }
 
-export function Select({
+export function NativeSelect({
     label,
     items,
     className = "",
@@ -44,44 +43,32 @@ export function Select({
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         onChange && onChange(event);
     };
-    const componentClassName = "jkl-dropdown".concat(
-        inline ? ` jkl-dropdown--inline` : "",
-        forceCompact ? ` jkl-dropdown--compact` : "",
-        !!errorLabel ? ` jkl-dropdown--invalid` : "",
-        value === "" ? ` jkl-dropdown--no-value` : "",
+    const componentClassName = "jkl-select".concat(
+        inline ? ` jkl-select--inline` : "",
+        forceCompact ? ` jkl-select--compact` : "",
+        !!errorLabel ? ` jkl-select--invalid` : "",
+        value === "" ? ` jkl-select--no-value` : "",
         className ? ` ${className}` : "",
     );
 
-    if (process.env.NODE_ENV !== "production") {
-        console.warn(
-            "WARNING: The Select component in @fremtind/jkl-dropdown-react has been deprecated. Please use the NativeSelect component from @fremtind/jkl-select-react instead.",
-        );
-    }
-
     return (
-        <label data-testid="jkl-dropdown" className={componentClassName}>
+        <label data-testid="jkl-select" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
-            <select
-                value={value}
-                className="jkl-dropdown__value"
-                onBlur={handleChange}
-                onChange={handleChange}
-                {...rest}
-            >
+            <select value={value} className="jkl-select__value" onBlur={handleChange} onChange={handleChange} {...rest}>
                 {placeholder && value === "" && (
                     <option disabled value="">
                         {placeholder}
                     </option>
                 )}
                 {items.map(getValuePair).map((item) => (
-                    <option data-testid="jkl-dropdown__option" key={item.value} value={item.value}>
+                    <option data-testid="jkl-select__option" key={item.value} value={item.value}>
                         {item.label}
                     </option>
                 ))}
             </select>
-            <span className="jkl-dropdown__chevron" />
+            <span className="jkl-select__chevron" />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );
