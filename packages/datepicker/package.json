@@ -25,8 +25,8 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^1.0.0-alpha.11",
-        "@fremtind/jkl-dropdown": "^1.0.0-alpha.11",
-        "@fremtind/jkl-text-input": "^1.0.0-alpha.11"
+        "@fremtind/jkl-text-input": "^1.0.0-alpha.11",
+        "@fremtind/jkl-select": "^0.0.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.11"
