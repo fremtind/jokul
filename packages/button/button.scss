@@ -1,5 +1,6 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_screens.scss";
+@import "~@fremtind/jkl-core/mixins/_helpers.scss";
 
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -35,8 +36,7 @@ $hover-elevation-distance: -0.25rem;
         line-height: $button-height--small;
     }
 
-    &--compact,
-    *[data-compactlayout] & {
+    @include compactMode {
         height: $button-height--small;
         min-width: $button-height--small;
         line-height: $button-height--small;
