@@ -9,7 +9,7 @@ interface Props {
     className: string;
 }
 
-function ActionType(actionType: IconVariant) {
+function getIcon(actionType: IconVariant) {
     switch (actionType) {
         case "clear":
             return <IconClear />;
@@ -25,7 +25,7 @@ function ActionType(actionType: IconVariant) {
 }
 
 export const ActionIcon = ({ action, className }: Props) => {
-    return <span className={className}>{ActionType(action)}</span>;
+    return <span className={className}>{getIcon(action)}</span>;
 };
 
 export type IconVariant = "clear" | "delete" | "search" | "edit";
