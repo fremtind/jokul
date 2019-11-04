@@ -66,7 +66,9 @@ describe("ProgressBar", () => {
     });
 
     test("should have correct aria values and value text", () => {
-        const { getByTestId } = render(<ProgressBar progress={{ current: 1, total: 2 }} progressRole="Almost there" />);
+        const { getByTestId } = render(
+            <ProgressBar progress={{ current: 1, total: 2 }} progressTextValue="Almost there" />,
+        );
 
         const progressBar = getByTestId("jkl-progress-bar");
 

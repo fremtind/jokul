@@ -30,4 +30,4 @@ Brukes for å indikere til brukeren hvor langt i en prosess man er kommet. Bør 
 <ProgressBar progress={{ current: 50, total: 100 }} />
 ```
 
-Hvis man ikke angir `progressRole` vil skjermlesere lese opp prosenten, om man legger ved en rolle, så vil den isteden lese teksten.
+Hvis man ikke angir `progressTextValue` vil skjermlesere lese opp prosenten, om man legger ved en rolle, så vil den isteden lese teksten.

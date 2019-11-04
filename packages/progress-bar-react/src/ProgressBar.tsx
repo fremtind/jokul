@@ -1,21 +1,25 @@
 import React from "react";
 
-interface Props {
-    progress: { current: number; total: number };
-    className?: string;
-    progressRole?: string;
+interface Progress {
+    current: number;
+    total: number;
 }
 
-export const calculatePercentage = ({ current, total }: { current: number; total: number }) =>
-    total === 0 ? 0 : (current * 100) / total;
+interface Props {
+    progress: Progress;
+    className?: string;
+    progressTextValue?: string;
+}
+
+export const calculatePercentage = ({ current, total }: Progress) => (total === 0 ? 0 : (current * 100) / total);
 
 /**
  *  Jøkul ProgressBar component
  * @param progress
  * @param className
- * @param progressRole if set screen readers will read this string, if not the percentage is read
+ * @param progressTextValue if set screen readers will read this string, if not the percentage is read
  */
-export const ProgressBar: React.FC<Props> = ({ progress, progressRole, className }) => {
+export const ProgressBar: React.FC<Props> = ({ progress, progressTextValue, className }) => {
     const width = `${calculatePercentage(progress)}%`;
 
     return (
@@ -24,7 +28,7 @@ export const ProgressBar: React.FC<Props> = ({ progress, progressRole, className
             role="progressbar"
             aria-valuenow={progress.current}
             aria-valuemin={0}
-            aria-valuetext={progressRole}
+            aria-valuetext={progressTextValue}
             aria-valuemax={progress.total}
             data-testid="jkl-progress-bar"
         >
