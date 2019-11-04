@@ -3,10 +3,10 @@ import { IconDelete } from "./Icons/IconDelete";
 import { IconEdit } from "./Icons/IconEdit";
 import { IconSearch } from "./Icons/IconSearch";
 import { IconClear } from "./Icons/IconClear";
-import { IconVariant } from "./index";
 
 interface Props {
-    actionType: IconVariant;
+    action: IconVariant;
+    className: string;
 }
 
 function ActionType(actionType: IconVariant) {
@@ -24,8 +24,8 @@ function ActionType(actionType: IconVariant) {
     }
 }
 
-export const ActionIcon = ({ actionType }: Props) => {
-    const componentClassName = `jkl-action-icon jkl-action-icon--${actionType}`;
-
-    return <span className={componentClassName}>{ActionType(actionType)}</span>;
+export const ActionIcon = ({ action, className }: Props) => {
+    return <span className={className}>{ActionType(action)}</span>;
 };
+
+export type IconVariant = "clear" | "delete" | "search" | "edit";
