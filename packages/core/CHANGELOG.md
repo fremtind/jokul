@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.11...@fremtind/jkl-core@1.0.0-alpha.12) (2019-11-04)
+
+
+### Features
+
+* **progressbar:** add progressbar ([1ad8754](https://github.com/fremtind/jokul/commit/1ad8754a15e414ff017bce8d829472dfc9a7d01c))
+
+
+
+
+
 # [1.0.0-alpha.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.10...@fremtind/jkl-core@1.0.0-alpha.11) (2019-11-01)
 
 

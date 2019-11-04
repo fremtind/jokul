@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.0.0-alpha.8...@fremtind/portal@1.0.0-alpha.9) (2019-11-04)
+
+
+### Bug Fixes
+
+* **portal:** change wrong imports in SelectExample ([dbe230f](https://github.com/fremtind/jokul/commit/dbe230fe39fda777913b7b349b5fd90c70763372))
+* **portal:** import correct select component in overview ([110cce6](https://github.com/fremtind/jokul/commit/110cce697af6ad3ebfe51570147648b67393521e))
+
+
+### Features
+
+* **progressbar:** add progressbar ([1ad8754](https://github.com/fremtind/jokul/commit/1ad8754a15e414ff017bce8d829472dfc9a7d01c))
+
+
+
+
+
 # [1.0.0-alpha.8](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.0.0-alpha.7...@fremtind/portal@1.0.0-alpha.8) (2019-11-01)
 
 

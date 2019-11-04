@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.0-alpha.11...@fremtind/jkl-datepicker@1.0.0-alpha.12) (2019-11-04)
+
+
+### Features
+
+* remove dropdown pkgs and replace with select pkgs ([14c2b4f](https://github.com/fremtind/jokul/commit/14c2b4fa5a236e2d7824834a7b074ae62ce870b4))
+
+
+### Reverts
+
+* revert datepicker docs ([c1b4b87](https://github.com/fremtind/jokul/commit/c1b4b875c5fba7a034af8ca8d341eba821e7f7a1))
+* revert unnecessary changes to datepicker docs ([3fc3bd1](https://github.com/fremtind/jokul/commit/3fc3bd1c73e4b298fc93cbc3df50bcf2c4977c9e))
+
+
+
+
+
 # [1.0.0-alpha.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.0-alpha.10...@fremtind/jkl-datepicker@1.0.0-alpha.11) (2019-11-01)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker

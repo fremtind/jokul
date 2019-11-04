@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "1.0.0-alpha.11",
+    "version": "1.0.0-alpha.12",
     "homepage": "https://fremtind.github.io/jokul/",
     "publishConfig": {
         "access": "public"
@@ -33,7 +33,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^1.0.0-alpha.11"
+        "@fremtind/jkl-core": "^1.0.0-alpha.12"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.11",
