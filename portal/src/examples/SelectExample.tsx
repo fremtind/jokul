@@ -1,9 +1,9 @@
 import React from "react";
 import { Example } from "../components";
 import { Select, NativeSelect } from "@fremtind/jkl-select-react";
-import "@fremtind/jkl-dropdown/dropdown.min.css";
+import "@fremtind/jkl-select/select.min.css";
 
-import dropdownType from "!raw-loader!@fremtind/jkl-dropdown-react/build/Dropdown.d.ts";
+import dropdownType from "!raw-loader!@fremtind/jkl-select-react/build/Select.d.ts";
 
 const example = `() => {
     const [selectValue, setSelectValue] = React.useState("");
