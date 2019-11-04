@@ -8,11 +8,12 @@
     </head>
     <body>
         <div>
-            <p class="jkl-p">
+            <p class="jkl-p jkl-spacing--bottom-3">
                 Versjon av dropdown til bruk der man ikke kan/vil bruke javascript
             </p>
-            <label class="jkl-dropdown">
-                <select class="jkl-dropdown__value">
+            <label class="jkl-select">
+                <span class="jkl-label jkl-label--medium">Select</span>
+                <select class="jkl-select__value">
                     <option value="Første valg">
                         Første valg
                     </option>
@@ -26,7 +27,8 @@
                         Fjerde valg
                     </option>
                 </select>
-                <span class="jkl-dropdown__label jkl-dropdown__label--has-value">Select</span>
+                <span class="jkl-select__chevron"></span>
+                <span class="jkl-form-support-label jkl-form-support-label--help">Hjelpetekst</span>
             </label>
         </div>
         <script src="index.ts"></script>

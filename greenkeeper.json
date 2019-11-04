@@ -7,7 +7,7 @@
                 "packages/button-react/package.json",
                 "packages/datepicker-react/package.json",
                 "packages/divider-line-react/package.json",
-                "packages/dropdown-react/package.json"
+                "packages/select-react/package.json"
             ]
         }
     }
