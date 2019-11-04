@@ -25,7 +25,11 @@ function getIcon(actionType: IconVariant) {
 }
 
 export const ActionIcon = ({ action, className }: Props) => {
-    return <span className={className}>{getIcon(action)}</span>;
+    return (
+        <span data-testid="jkl-action-icon" className={className}>
+            {getIcon(action)}
+        </span>
+    );
 };
 
 export type IconVariant = "clear" | "delete" | "search" | "edit";

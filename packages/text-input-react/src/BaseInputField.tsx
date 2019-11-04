@@ -41,6 +41,7 @@ export const BaseInputField = ({ maxLength, width, invalid, ariaDescribedby, ...
 
     return (
         <input
+            data-testid="jkl-text-field__input"
             className="jkl-text-field__input"
             maxLength={maxLength}
             style={style}

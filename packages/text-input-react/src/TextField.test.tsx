@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render, getByText } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import { TextField } from ".";
 
 describe("TextField", () => {
@@ -54,30 +54,30 @@ describe("TextField", () => {
     });
 
     it("renders errorLabel when given", () => {
-        const { getByTestId } = render(<TextField label="testing" errorLabel="help" />);
+        const { getByText } = render(<TextField label="testing" errorLabel="det går nok ikke" />);
 
-        const component = getByTestId("jkl-text-field").children;
-        expect(component[2]).toHaveClass("jkl-form-support-label--error");
+        const component = getByText("det går nok ikke");
+        expect(component).toBeInTheDocument();
     });
 
     it("renders helpLabel when given", () => {
-        const { getByTestId } = render(<TextField label="testing" helpLabel="help" />);
+        const { getByText } = render(<TextField label="testing" helpLabel="hjelp" />);
 
-        const component = getByTestId("jkl-text-field").children;
-        expect(component[2]).toHaveClass("jkl-form-support-label--help");
+        const component = getByText("hjelp");
+        expect(component).toBeInTheDocument();
     });
 
     it("does not render helpLabel if both helpLabel and errorLabel is given", () => {
-        const { getByTestId } = render(<TextField label="testing" helpLabel="help" errorLabel="error" />);
+        const { getByText, queryByText } = render(<TextField label="testing" helpLabel="help" errorLabel="error" />);
 
-        const component = getByTestId("jkl-text-field").children;
-        expect(component[2]).not.toHaveClass("jkl-form-support-label--help");
+        expect(queryByText("help")).not.toBeInTheDocument();
+        expect(getByText("error")).toBeInTheDocument();
     });
 
     it("has the type specified", () => {
-        const { getByTestId } = render(<TextField label="testing" type="password" />);
+        const { getByPlaceholderText } = render(<TextField label="testing" type="password" placeholder="test-ph" />);
 
-        const component = getByTestId("jkl-text-field").children;
-        expect(component[1]).toHaveAttribute("type", "password");
+        const component = getByPlaceholderText("test-ph");
+        expect(component).toHaveAttribute("type", "password");
     });
 });
