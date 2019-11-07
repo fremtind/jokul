@@ -1,34 +1,45 @@
 ## Logo
+Logoen er navnetrekket vårt. Den er designet med utgangspunkt i profilfonten vår. Vi skal i utgangspunktet bruke logoen alene, slik at den får fokus.
 
-(Introtekst sakset fra Papirfly for konsistens:)
-Logoen er navnetrekket vårt, designet med utgangspunkt i profilfonten vår (Anm: Det siste her gjelder ikke lenger nå som vi har fått Fremtind Grotesk...). Bokstavene «t» og «i» er knyttet sammen for å gi navnetrekket et mer distinkt preg. Som utgangspunkt skal logoen benyttes alene der logoen ønskes eksponert.
+I tillegg til logoen har vi et logosymbol, som er utledet fra «F-en» i logoen. F-en tipper mot høyre og former en tinde. Logosymbolet passer god til å bruke på små flater, for å skape et tydeligere visuelt uttrykk. Det gir oss også større fleksibilitet i logobruk.
 
-I tillegg til logoen har vi et logosymbol som er utledet fra «F’en» i logoen, tippet mot høyre, og med det former en tinde. Logosymbolet er laget med tanke på bruk på små flater, for å skape et tydeligere visuelt uttrykk, og for å få en større fleksibilitet i logobruk.
+## Slik bruker du logoen
+### Avstand rundt
+Avstanden rundt logoen og logosymbolet bør være minst halvparten av Fremtind-F-ens høyde. Under logoene bør avstanden være minst 3/4 (0,75 %) av F-ens høyde. Ikke sett logo eller logosymbol i en ramme, de skal stå mest mulig fritt på flaten.
 
-Logo og logosymbol skal aldri stå så nærme at de oppfattes som ett og samme symbol. Skal disse brukes sammen, skal de stå tydelig adskilt.  
+_Eksempel_
 
-----------
+### Farger
+Logo og logosymbol skal brukes i svart eller hvitt  - ikke andre farger. Pass på at logoen alltid har god kontrast mot bakgrunnsfargen med tanke på kravene til universell utforming.
 
+_Eksempel_
 
-Logobruk:
-1. Avstand rundt logo og logosymbol bør være minimum halvparten av Fremtind-F-ens høyde. I underkant av logoene bør avstanden minimum være 3/4 (0,75 % ) av F-høyden. Unngå sette logo/logosymbol i en ramme (se eksempel). Logoen skal være mest mulig fri på flaten
+### Avstand mellom logo og logosymbol
+Logoen og logosymbolet skal aldri stå så nær hverandre at de oppfattes som ett symbol. Hvis vi skal bruke dem sammen, skal de stå tydelig adskilt.
 
-2. Farger: Logo og logosymbol skal enten brukes i sort eller hvit (Det er ikke tillatt å bruke andre farger). Se eksempel Logoen skal alltid ha god kontrast mot bakgrunnsfargen med tanke på krav til universell utforming (ref. WCAG 2.1).
+### Proporsjoner
+Logoen skal alltid beholde sine opprinnelige proporsjoner, den skal ikke strekkes. 
+Tips: Hold __Shift__ inne når du skal skalere logo og bilder, så blir proporsjonene riktige.
 
-3. Logo og logosymbol skal ikke stå så nær at de oppfattes som samme symbol. Hvis disse brukes sammen skal de stå tydelig adskilt.
+### Skygge og relieff
+Det er ikke tillatt å legge skygge eller relieffeffekter på eller under logoen.
 
-4. Logoen skal alltid ha de originale proposjonene. Strekking av logoen er ikke tillatt (Tips: Hold inne shift ved skalering av logo og bilder for proposjonal skalering)
+_Eksempler_
 
-5. Skygger og relieffeffekter på og under logo er ikke tillatt (Se eksempel)
+### Plassering i skjema, på nettsider og på kort
+_Eksempel på logosymbolet i toppteksten og og logoen i bunnteksten (nettside og skjema)_
+_Eksempel når de står i en modul, på et kort eller midt på siden_
 
-Eksempler (se forøvrig notater i rødt)
-Figmareferanse: https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-komponenter-byggesone?node-id=5909%3A0
+### Kan vi animere logoen?
+_Når kan vi animere logoen?_ @Steinop
 
+## Eksempler i Figma
+https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-komponenter-byggesone?node-id=5909%3A0
 
-------------
+## Her finner du logooriginalene
+_Lenke_
 
-Annet:
+### Vektor- og pikselversjoner
 
-Hvor ligger logooriginalene? Hvilke formater - vektor/pixelversjoner - (lenke til Papirfly)
-Uklart mht cobranding - 
-
+## Når logoen vår står sammen med andres logo eller logosymbol
+_Hvem føler seg kallet til å si noe om cobranding? For eksempel sammen med DNB og SB1 sine? _ @glenn?
