@@ -101,9 +101,11 @@ export function DatePicker({
             const year = parseInt(dayMonthYearMatch[3], 10);
 
             const newDate = new Date(year, month, day, 0, 0, 0);
-            setDate(newDate);
-            if (onChange) {
-                onChange(newDate);
+            if (dateHasChanged(date, newDate)) {
+                setDate(newDate);
+                if (onChange) {
+                    onChange(newDate);
+                }
             }
         }
         setDateString(newDateString);
