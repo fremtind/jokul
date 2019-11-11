@@ -85,7 +85,7 @@ export function Select({
         const nextValue = e.detail.value;
         setDisplayedValue(e.detail.textContent);
         setSelectedValue(nextValue);
-        onChange && onChange(nextValue || "");
+        onChange && onChange(nextValue);
     }
 
     return (
