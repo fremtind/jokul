@@ -1,6 +1,6 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
@@ -87,6 +87,11 @@ export function Select({
         setSelectedValue(nextValue);
         onChange && onChange(nextValue);
     }
+
+    useEffect(() => {
+        setSelectedValue(value);
+        items.map(getValuePair).map((item) => item.value === value && setDisplayedValue(item.label));
+    }, [value]);
 
     return (
         <div data-testid="jkl-select" className={componentClassName}>
