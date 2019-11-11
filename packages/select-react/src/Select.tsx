@@ -1,6 +1,6 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
@@ -45,7 +45,6 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
 export function Select({
     items,
     value,
-    initialInputValue,
     label,
     onChange,
     className,
@@ -56,8 +55,8 @@ export function Select({
     variant,
     forceCompact,
 }: Props) {
-    const [selectedValue, setSelectedValue] = useState(value || initialInputValue);
-    const [displayedValue, setDisplayedValue] = useState(value || initialInputValue);
+    const [selectedValue, setSelectedValue] = useState(value);
+    const [displayedValue, setDisplayedValue] = useState(value);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
@@ -82,14 +81,17 @@ export function Select({
     function onToggleSelect(e: CoreToggleSelectEvent) {
         e.target.hidden = true;
         e.target.button.focus();
-        if (value && onChange) {
-            e.target.value = e.detail;
-            const nextValue = e.detail.value;
-            setDisplayedValue(e.detail.textContent);
-            setSelectedValue(nextValue);
-            onChange(nextValue || "");
-        }
+        e.target.value = e.detail;
+        const nextValue = e.detail.value;
+        setDisplayedValue(e.detail.textContent);
+        setSelectedValue(nextValue);
+        onChange && onChange(nextValue);
     }
+
+    useEffect(() => {
+        setSelectedValue(value);
+        items.map(getValuePair).map((item) => item.value === value && setDisplayedValue(item.label));
+    }, [value]);
 
     return (
         <div data-testid="jkl-select" className={componentClassName}>
