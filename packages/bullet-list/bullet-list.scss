@@ -2,62 +2,54 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $list-indent: $component-spacing--xl;
-
-$bullet-margin: $component-spacing--xl;
-$bullet-size-tiny: rem(5px);
-$bullet-size-small: rem(6px);
-$bullet-size-p: rem(8px);
-$bullet-size-lead: rem(10px);
-
 $item-space-between: $component-spacing--large;
 $item-indent: $component-spacing--xxl;
 
 .jkl-list {
     list-style: none;
     padding: 0;
-    padding-left: $list-indent;
     margin: 0;
-    white-space: pre;
+    padding-left: $list-indent;
+
+    & > .jkl-list__item {
+        margin: $item-space-between 0;
+        padding-left: $item-indent;
+
+        &::before {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    & & > .jkl-list__item {
+        &:first-of-type {
+            margin-top: $item-space-between;
+        }
+        &:last-of-type {
+            margin-bottom: $item-space-between;
+        }
+    }
 
     &--bullet {
         & > .jkl-list__item {
-            position: relative;
-            margin: $item-space-between 0;
-            padding-left: $item-indent;
-
             &::before {
-                content: "";
-                position: relative;
-                margin-right: $bullet-margin;
-                margin-left: -#{$bullet-margin};
-                display: inline-block;
-                background-color: $svart;
-                transform: rotate(45deg) translateY(-50%);
-            }
-
-            &:first-of-type {
-                margin-top: 0;
-            }
-            &:last-of-type {
-                margin-bottom: 0;
+                content: "\25C6";
             }
         }
         & & > .jkl-list__item {
             &::before {
-                box-shadow: inset 0px 0px 0px rem(1px) $svart;
-                background-color: transparent;
-            }
-            &:first-of-type {
-                margin-top: $item-space-between;
-            }
-            &:last-of-type {
-                margin-bottom: $item-space-between;
+                content: "\25C7";
             }
         }
         & & & > .jkl-list__item {
             &::before {
-                background-color: $svart;
-                transform: rotate(0deg) translateY(-30%);
+                content: "\25A0";
             }
         }
     }
@@ -67,75 +59,11 @@ $item-indent: $component-spacing--xxl;
 
         & > .jkl-list__item {
             counter-increment: my-counter;
-            position: relative;
-            margin: $item-space-between 0;
-            padding-left: $item-indent;
 
             &::before {
-                content: counter(my-counter) ". ";
-                position: relative;
-                display: inline-block;
-                margin-right: $bullet-margin;
-                margin-left: -#{$bullet-margin};
+                content: counters(my-counter, ".") ". ";
                 font-weight: bold;
             }
-            &:first-of-type {
-                margin-top: 0;
-            }
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-        }
-        & & > .jkl-list__item {
-            &::before {
-                content: counter(my-counter, lower-alpha) ". ";
-            }
-            &:first-of-type {
-                margin-top: $item-space-between;
-            }
-            &:last-of-type {
-                margin-bottom: $item-space-between;
-            }
-        }
-        & & & > .jkl-list__item {
-            &::before {
-                content: counter(my-counter, lower-alpha) ". ";
-            }
-        }
-    }
-}
-
-.jkl-p {
-    .jkl-list__item {
-        &::before {
-            width: $bullet-size-p;
-            height: $bullet-size-p;
-        }
-    }
-}
-
-.jkl-small {
-    .jkl-list__item {
-        &::before {
-            width: $bullet-size-small;
-            height: $bullet-size-small;
-        }
-    }
-}
-.jkl-lead {
-    .jkl-list__item {
-        &::before {
-            width: $bullet-size-lead;
-            height: $bullet-size-lead;
-        }
-    }
-}
-
-.jkl-tiny {
-    .jkl-list__item {
-        &::before {
-            width: $bullet-size-tiny;
-            height: $bullet-size-tiny;
         }
     }
 }

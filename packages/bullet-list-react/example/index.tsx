@@ -14,7 +14,8 @@ const UlExample = () => (
                 <BulletList>
                     <BulletListItem>Grace Cortez</BulletListItem>
                     <BulletListItem>
-                        Madge Hodges
+                        Dette er en veldig lang setning som er veldig lang og repeterende for å sjekke hvordan wrapping
+                        funker. Sa jeg at setningen er lang?
                         <BulletList>
                             <BulletListItem>Somebody</BulletListItem>
                         </BulletList>
@@ -30,10 +31,12 @@ const UlExample = () => (
                 Hilda Robbins
                 <BulletList ordered>
                     <BulletListItem>Mattie Lawrence</BulletListItem>
-                    <BulletListItem>Eric Huff</BulletListItem>
-                    <BulletList ordered>
-                        <BulletListItem>Hei</BulletListItem>
-                    </BulletList>
+                    <BulletListItem>
+                        Eric Huff
+                        <BulletList ordered>
+                            <BulletListItem>Hei</BulletListItem>
+                        </BulletList>
+                    </BulletListItem>
                 </BulletList>
             </BulletListItem>
             <BulletListItem>Adam Norris</BulletListItem>
