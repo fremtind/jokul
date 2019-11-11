@@ -90,7 +90,7 @@ Det er utviklet mixins for å lette bruk av vanlige mønstre. For eksempel kan d
 
 Noen løsninger, spesielt rådgiverløsninger, har behov for å vise veldig mye informasjon på skjermen samtidig. Derfor ønsker vi å tilby kompakte versjoner av komponentene til dette formålet. Vi bruker BEM-modifieren `--compact` for å markere kompakt variant av en komponent.
 
-For å gjøre det enklere å ha kompakt modus tillater vi å sette en attributt `data-compactlayout` på `<body>` (eller et annet element) slik at alle komponenter inne i dette elementet blir kompakte. Når du skriver kompakt versjon av en komoponent i Jøkul skal selektoren derfor se slik ut:
+For å gjøre det enklere å ha kompakt modus på en hel løsning tillater vi å sette en attributt `data-compactlayout` på `<body>` (eller et annet element) slik at alle komponenter inne i dette elementet blir kompakte. Når du skriver kompakt versjon av en komponent i Jøkul skal selektoren derfor se slik ut:
 
 ```scss
 .jkl-my-component {
