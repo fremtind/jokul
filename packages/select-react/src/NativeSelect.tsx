@@ -45,10 +45,6 @@ export function NativeSelect({
     );
     const defaultValue = value ? undefined : "";
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        onChange && onChange(event);
-    };
-
     return (
         <label data-testid="jkl-select" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
@@ -58,8 +54,8 @@ export function NativeSelect({
                 value={value}
                 defaultValue={defaultValue}
                 className="jkl-select__value"
-                onBlur={handleChange}
-                onChange={handleChange}
+                onBlur={onChange}
+                onChange={onChange}
             >
                 {placeholder && !value && (
                     <option disabled value="">
