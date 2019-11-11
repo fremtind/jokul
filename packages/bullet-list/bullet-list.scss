@@ -2,57 +2,140 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $list-indent: $component-spacing--xl;
-$bullet-size: rem(6px);
+
+$bullet-margin: $component-spacing--xl;
+$bullet-size-tiny: rem(5px);
+$bullet-size-small: rem(6px);
+$bullet-size-p: rem(8px);
+$bullet-size-lead: rem(10px);
+
 $item-space-between: $component-spacing--large;
 $item-indent: $component-spacing--xxl;
 
-.jkl-bullet-list {
+.jkl-list {
     list-style: none;
     padding: 0;
     padding-left: $list-indent;
     margin: 0;
-    margin-bottom: $layout-spacing--small;
+    white-space: pre;
 
-    & > &__item {
-        position: relative;
-        margin: $item-space-between 0;
-        padding-left: $item-indent;
+    &--bullet {
+        & > .jkl-list__item {
+            position: relative;
+            margin: $item-space-between 0;
+            padding-left: $item-indent;
 
-        &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: ($line-height-3 / 2) - rem(2px);
-            display: inline-block;
-            height: $bullet-size;
-            width: $bullet-size;
-            background-color: $svart;
-            transform: rotate(45deg) translateY(-50%);
+            &::before {
+                content: "";
+                position: relative;
+                margin-right: $bullet-margin;
+                margin-left: -#{$bullet-margin};
+                display: inline-block;
+                background-color: $svart;
+                transform: rotate(45deg) translateY(-50%);
+            }
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
-
-        &:first-of-type {
-            margin-top: 0;
+        & & > .jkl-list__item {
+            &::before {
+                box-shadow: inset 0px 0px 0px rem(1px) $svart;
+                background-color: transparent;
+            }
+            &:first-of-type {
+                margin-top: $item-space-between;
+            }
+            &:last-of-type {
+                margin-bottom: $item-space-between;
+            }
         }
-        &:last-of-type {
-            margin-bottom: 0;
+        & & & > .jkl-list__item {
+            &::before {
+                background-color: $svart;
+                transform: rotate(0deg) translateY(-30%);
+            }
         }
     }
-    & & > &__item {
-        &::before {
-            box-shadow: inset 0px 0px 0px rem(1px) $svart;
-            background-color: transparent;
+
+    &--ordered {
+        counter-reset: my-counter;
+
+        & > .jkl-list__item {
+            counter-increment: my-counter;
+            position: relative;
+            margin: $item-space-between 0;
+            padding-left: $item-indent;
+
+            &::before {
+                content: counter(my-counter) ". ";
+                position: relative;
+                display: inline-block;
+                margin-right: $bullet-margin;
+                margin-left: -#{$bullet-margin};
+                font-weight: bold;
+            }
+            &:first-of-type {
+                margin-top: 0;
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
-        &:first-of-type {
-            margin-top: $item-space-between;
+        & & > .jkl-list__item {
+            &::before {
+                content: counter(my-counter, lower-alpha) ". ";
+            }
+            &:first-of-type {
+                margin-top: $item-space-between;
+            }
+            &:last-of-type {
+                margin-bottom: $item-space-between;
+            }
         }
-        &:last-of-type {
-            margin-bottom: $item-space-between;
+        & & & > .jkl-list__item {
+            &::before {
+                content: counter(my-counter, lower-alpha) ". ";
+            }
         }
     }
-    & & & > &__item {
+}
+
+.jkl-p {
+    .jkl-list__item {
         &::before {
-            background-color: $svart;
-            transform: rotate(0deg);
+            width: $bullet-size-p;
+            height: $bullet-size-p;
+        }
+    }
+}
+
+.jkl-small {
+    .jkl-list__item {
+        &::before {
+            width: $bullet-size-small;
+            height: $bullet-size-small;
+        }
+    }
+}
+.jkl-lead {
+    .jkl-list__item {
+        &::before {
+            width: $bullet-size-lead;
+            height: $bullet-size-lead;
+        }
+    }
+}
+
+.jkl-tiny {
+    .jkl-list__item {
+        &::before {
+            width: $bullet-size-tiny;
+            height: $bullet-size-tiny;
         }
     }
 }

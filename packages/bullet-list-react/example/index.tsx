@@ -8,19 +8,39 @@ import "./index.scss";
 const UlExample = () => (
     <>
         <BulletList>
-            <BulletListItem>Ruth Sims</BulletListItem>
+            <BulletListItem>jkl-p</BulletListItem>
+            <BulletListItem>
+                Linnie Gill
+                <BulletList>
+                    <BulletListItem>Grace Cortez</BulletListItem>
+                    <BulletListItem>
+                        Madge Hodges
+                        <BulletList>
+                            <BulletListItem>Somebody</BulletListItem>
+                        </BulletList>
+                    </BulletListItem>
+                </BulletList>
+            </BulletListItem>
+            <BulletListItem>Cory Wagner</BulletListItem>
+            <BulletListItem>Lora Carroll</BulletListItem>
+        </BulletList>
+        <BulletList ordered>
+            <BulletListItem>jkl-p ordered</BulletListItem>
             <BulletListItem>
                 Hilda Robbins
-                <BulletList>
+                <BulletList ordered>
                     <BulletListItem>Mattie Lawrence</BulletListItem>
                     <BulletListItem>Eric Huff</BulletListItem>
+                    <BulletList ordered>
+                        <BulletListItem>Hei</BulletListItem>
+                    </BulletList>
                 </BulletList>
             </BulletListItem>
             <BulletListItem>Adam Norris</BulletListItem>
             <BulletListItem>Essie Diaz</BulletListItem>
         </BulletList>
         <BulletList className="jkl-lead">
-            <BulletListItem>Ricky Wilkerson</BulletListItem>
+            <BulletListItem>jkl-lead</BulletListItem>
             <BulletListItem>
                 Linnie Gill
                 <BulletList className="jkl-lead">
@@ -28,6 +48,40 @@ const UlExample = () => (
                     <BulletListItem>
                         Madge Hodges
                         <BulletList className="jkl-lead">
+                            <BulletListItem>Somebody</BulletListItem>
+                        </BulletList>
+                    </BulletListItem>
+                </BulletList>
+            </BulletListItem>
+            <BulletListItem>Cory Wagner</BulletListItem>
+            <BulletListItem>Lora Carroll</BulletListItem>
+        </BulletList>
+        <BulletList className="jkl-small">
+            <BulletListItem>jkl-small</BulletListItem>
+            <BulletListItem>
+                Linnie Gill
+                <BulletList className="jkl-small">
+                    <BulletListItem>Grace Cortez</BulletListItem>
+                    <BulletListItem>
+                        Madge Hodges
+                        <BulletList className="jkl-small">
+                            <BulletListItem>Somebody</BulletListItem>
+                        </BulletList>
+                    </BulletListItem>
+                </BulletList>
+            </BulletListItem>
+            <BulletListItem>Cory Wagner</BulletListItem>
+            <BulletListItem>Lora Carroll</BulletListItem>
+        </BulletList>
+        <BulletList className="jkl-tiny">
+            <BulletListItem>jkl-tiny</BulletListItem>
+            <BulletListItem>
+                Linnie Gill
+                <BulletList className="jkl-tiny">
+                    <BulletListItem>Grace Cortez</BulletListItem>
+                    <BulletListItem>
+                        Madge Hodges
+                        <BulletList className="jkl-tiny">
                             <BulletListItem>Somebody</BulletListItem>
                         </BulletList>
                     </BulletListItem>
