@@ -1,4 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $radio-button-size: rem(24px);
 $radio-button-size--compact: rem(18px);
@@ -57,7 +58,7 @@ $radio-button-color: $svart;
         }
     }
 
-    &--compact {
+    @include compactMode {
         .jkl-radio-button__dot:before {
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;

@@ -1,5 +1,6 @@
 @import "./variables/font-size";
 @import "./variables/spacing";
+@import "./mixins/helpers";
 
 %normal-font-weight {
     font-weight: normal;
@@ -9,6 +10,12 @@
     @extend %normal-font-weight;
     @include font-size("xxl");
     @include line-height("xxl");
+
+    @include compactMode {
+        @include font-size--small-device("xxl");
+        @include line-height--small-device("xxl");
+    }
+
     margin-bottom: $layout-spacing--small;
 }
 
@@ -16,6 +23,12 @@
     @extend %normal-font-weight;
     @include font-size("xl");
     @include line-height("xl");
+
+    @include compactMode {
+        @include font-size--small-device("xl");
+        @include line-height--small-device("xl");
+    }
+
     margin-bottom: $layout-spacing--small;
 }
 
@@ -23,13 +36,23 @@
     @extend %normal-font-weight;
     @include font-size("large");
     @include line-height("large");
+
+    @include compactMode {
+        @include font-size--small-device("large");
+        @include line-height--small-device("large");
+    }
+
     margin-bottom: $layout-spacing--small;
 }
 
 .jkl-h4 {
-    @extend %normal-font-weight;
     @include font-size("medium");
     line-height: $line-height-3; // exeption from scale
+
+    @include compactMode {
+        @include font-size--small-device("medium");
+        line-height: $line-height-2;
+    }
+
     margin-bottom: $layout-spacing--small;
-    font-weight: 600;
 }
