@@ -13,7 +13,7 @@ const SelectDemo = () => {
     const valuePairs = [{ value: "firstvalue", label: "Value 1" }, { value: "secondvalue", label: "Value 2" }];
     const years = [...Array(120)].map((_, i) => (i + 1900).toString()); // 1900 - 2019
 
-    const [favoriteScene, setFavoriteScene] = useState("The flower shop");
+    const [favoriteScene, setFavoriteScene] = useState<string>();
     const [valuePair, setValuePair] = useState<string>();
 
     return (
@@ -27,7 +27,7 @@ const SelectDemo = () => {
                 onChange={setFavoriteScene}
                 value={favoriteScene}
                 helpLabel="The room is the greatest movie"
-                errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
+                errorLabel={favoriteScene ? "You can't pick, they are all the best" : undefined}
                 variant="large"
             />
             <Select
@@ -51,7 +51,7 @@ const SelectDemo = () => {
             <NativeSelect
                 className="jkl-spacing--top-3"
                 helpLabel="The room is the greatest movie"
-                errorLabel={favoriteScene !== "" ? "You can't pick, they are all the best" : undefined}
+                errorLabel={favoriteScene ? "You can't pick, they are all the best" : undefined}
                 label="Native select"
                 items={items}
                 onChange={(e) => setFavoriteScene(e.target.value)}
