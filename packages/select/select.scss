@@ -50,7 +50,7 @@ $chevron-weight: rem(1px);
         vertical-align: top;
     }
 
-    &--compact {
+    @include compactMode {
         & .jkl-select__value {
             @include text-sizing--small-device("small");
             padding-right: $chevron-size--compact + $side-padding;
