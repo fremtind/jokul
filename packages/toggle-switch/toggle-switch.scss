@@ -6,6 +6,7 @@ $toggle-width: rem(48px);
 $toggle-height: rem(24px);
 $toggle-focus-outline-color: $focus-color;
 $focus-ring: 0 0 0 rem(2px) $snohvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
+$inverted-focus-ring: 0 0 0 rem(2px) $svart, 0 0 0 rem(4px) $toggle-focus-outline-color;
 $toggle-dot-white-line-inset: rem(5px);
 
 $main-slider-color: $svart;
@@ -13,6 +14,7 @@ $expanding-pill-background-color: $gress;
 $line-left-right-margin: rem(8px);
 
 $disabled-color: $varm-fjellgra;
+$inverted-disabled-color: #969696;
 
 .jkl-toggle-switch {
     height: $toggle-height;
@@ -20,26 +22,67 @@ $disabled-color: $varm-fjellgra;
     align-items: center;
     cursor: pointer;
 
-    &--disabled {
-        cursor: unset;
+    &--inverted {
+        .jkl-toggle-switch {
+            &__slider {
+                &::before {
+                    background-color: $snohvit;
+                }
+                &::after {
+                    background-color: $snohvit;
+                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $snohvit,
+                        inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
+                }
+                & .jkl-toggle-switch__expanding-pill {
+                    background-color: $expanding-pill-background-color;
+                    border-color: $snohvit;
+                }
+            }
 
-        .jkl-toggle-switch__slider::before {
-            background-color: $disabled-color;
+            &__label {
+                color: $snohvit;
+            }
+
+            &__input[disabled] {
+                + .jkl-toggle-switch__slider {
+                    &::before {
+                        background-color: $inverted-disabled-color;
+                    }
+                    &::after {
+                        background-color: $inverted-disabled-color;
+                        box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $inverted-disabled-color,
+                            inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
+                    }
+                    & .jkl-toggle-switch__expanding-pill {
+                        border-color: $inverted-disabled-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__input[disabled] {
+        + .jkl-toggle-switch__slider,
+        ~ .jkl-toggle-switch__label {
+            cursor: default;
+        }
+        + .jkl-toggle-switch__slider {
+            &::before {
+                background-color: $disabled-color;
+            }
+            &::after {
+                background-color: $disabled-color;
+                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
+                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $snohvit;
+            }
+            & .jkl-toggle-switch__expanding-pill {
+                background-color: transparent;
+                border-color: $disabled-color;
+            }
         }
 
-        .jkl-toggle-switch__input[checked] + .jkl-toggle-switch__slider::before {
+        &:checked + .jkl-toggle-switch__slider::before {
             background-color: transparent;
-        }
-
-        .jkl-toggle-switch__slider::after {
-            background-color: $disabled-color;
-            box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
-                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $snohvit;
-        }
-
-        .jkl-toggle-switch__expanding-pill {
-            background-color: transparent;
-            border-color: $disabled-color;
         }
     }
 
@@ -114,5 +157,11 @@ $disabled-color: $varm-fjellgra;
     /* Keyboard focused state */
     html:not([data-mousenavigation]) &__input:focus + &__slider {
         box-shadow: $focus-ring;
+    }
+
+    html:not([data-mousenavigation]) &--inverted {
+        .jkl-toggle-switch__input:focus + .jkl-toggle-switch__slider {
+            box-shadow: $inverted-focus-ring;
+        }
     }
 }

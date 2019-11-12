@@ -6,13 +6,14 @@ interface Props {
     className?: string;
     onChange?: (checked: boolean) => void;
     disabled?: boolean;
+    inverted?: boolean;
 }
 
-export const ToggleSwitch = ({ children, checked, onChange, className = "", disabled }: Props) => {
+export const ToggleSwitch = ({ children, checked, onChange, className = "", disabled, inverted }: Props) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => onChange && onChange(e.target.checked);
     const componentClassName = "jkl-toggle-switch".concat(
         className ? ` ${className}` : "",
-        disabled ? " jkl-toggle-switch--disabled" : "",
+        inverted ? " jkl-toggle-switch--inverted" : "",
     );
     return (
         <label data-testid="jkl-toggle-input--label" className={componentClassName}>
