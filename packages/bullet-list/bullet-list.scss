@@ -16,8 +16,8 @@ $item-indent: $component-spacing--xxl;
         padding-left: $item-indent;
 
         &::before {
-            display: inline-block;
-            margin-right: 1rem;
+            position: absolute;
+            margin-left: -3ch;
         }
 
         &:first-of-type {
@@ -28,6 +28,7 @@ $item-indent: $component-spacing--xxl;
         }
     }
     & & > .jkl-list__item {
+        padding-left: $item-indent;
         &:first-of-type {
             margin-top: $item-space-between;
         }
@@ -61,9 +62,21 @@ $item-indent: $component-spacing--xxl;
             counter-increment: my-counter;
 
             &::before {
-                content: counters(my-counter, ".") ". ";
+                content: counter(my-counter) ". ";
                 font-weight: bold;
             }
+
+            &:nth-child(n + 10):nth-child(-n + 99)::before {
+                margin-left: -4ch;
+            }
+        }
+
+        & & > .jkl-list__item::before {
+            content: counter(my-counter) ". ";
+        }
+
+        & & & > .jkl-list__item::before {
+            content: counter(my-counter) ". ";
         }
     }
 }
