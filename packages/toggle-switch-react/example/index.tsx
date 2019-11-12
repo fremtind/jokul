@@ -9,12 +9,24 @@ initTabListener();
 
 const App = () => {
     const [gpsIsOn, setGpsIsOn] = useState(true);
+    const [switchIsOn, setSwitchIsOn] = useState(false);
+    const [switch2IsOn, setSwitch2IsOn] = useState(true);
     const [glonassIsOn, setGlonassIsOn] = useState(false);
     return (
         <div style={{ margin: "36px", padding: "36px", background: "#fafafa" }}>
             <div style={{ margin: "20px" }}>
                 <ToggleSwitch checked={gpsIsOn} onChange={setGpsIsOn}>
                     GPS
+                </ToggleSwitch>
+            </div>
+            <div style={{ margin: "20px" }}>
+                <ToggleSwitch checked={switch2IsOn} onChange={setSwitch2IsOn} disabled>
+                    Disabled Switch (On)
+                </ToggleSwitch>
+            </div>
+            <div style={{ margin: "20px" }}>
+                <ToggleSwitch checked={switchIsOn} onChange={setSwitchIsOn} disabled>
+                    Disabled Switch (Off)
                 </ToggleSwitch>
             </div>
             <div style={{ margin: "20px" }}>
