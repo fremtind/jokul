@@ -16,7 +16,7 @@ const App = () => {
     const [glonassDummySwitch, setGlonassDummySwitch] = useState(true);
     return (
         <>
-            <div style={{ margin: "36px", padding: "36px", background: "#fafafa" }}>
+            <div style={{ margin: "36px", padding: "36px", backgroundColor: "#fafafa" }}>
                 <div style={{ margin: "20px" }}>
                     <ToggleSwitch checked={gpsDummySwitch} onChange={setGpsDummySwitch}>
                         GPS
@@ -45,7 +45,7 @@ const App = () => {
                     />
                 )}
             </div>
-            <div style={{ margin: "36px", padding: "36px", background: "#000000" }}>
+            <div style={{ margin: "36px", padding: "36px", backgroundColor: "#000000" }}>
                 <div style={{ margin: "20px" }}>
                     <ToggleSwitch checked={gpsIsOn} onChange={setGpsIsOn} inverted>
                         GPS

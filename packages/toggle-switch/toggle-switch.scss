@@ -5,7 +5,7 @@
 $toggle-width: rem(48px);
 $toggle-height: rem(24px);
 $toggle-focus-outline-color: $focus-color;
-$focus-ring: 0 0 0 rem(2px) $snohvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
+$focus-ring: 0 0 0 rem(2px) $helhvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
 $inverted-focus-ring: 0 0 0 rem(2px) $svart, 0 0 0 rem(4px) $toggle-focus-outline-color;
 $toggle-dot-white-line-inset: rem(5px);
 
@@ -26,21 +26,21 @@ $inverted-disabled-color: #969696;
         .jkl-toggle-switch {
             &__slider {
                 &::before {
-                    background-color: $snohvit;
+                    background-color: $helhvit;
                 }
                 &::after {
-                    background-color: $snohvit;
-                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $snohvit,
+                    background-color: $helhvit;
+                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $helhvit,
                         inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
                 }
                 & .jkl-toggle-switch__expanding-pill {
                     background-color: $expanding-pill-background-color;
-                    border-color: $snohvit;
+                    border-color: $helhvit;
                 }
             }
 
             &__label {
-                color: $snohvit;
+                color: $helhvit;
             }
 
             &__input[disabled] {
@@ -73,7 +73,7 @@ $inverted-disabled-color: #969696;
             &::after {
                 background-color: $disabled-color;
                 box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
-                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $snohvit;
+                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $helhvit;
             }
             & .jkl-toggle-switch__expanding-pill {
                 background-color: transparent;
@@ -118,7 +118,7 @@ $inverted-disabled-color: #969696;
         /* Sliding dot */
         &:after {
             box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $main-slider-color,
-                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $snohvit;
+                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $helhvit;
             content: "";
             border-radius: 99rem;
             position: absolute;
