@@ -30,7 +30,11 @@ it("should be checked after clicking the input ", function() {
 });
 
 it("should be checked if checked is true", function() {
-    const { getByTestId } = render(<ToggleSwitch checked={true}>I am groot!</ToggleSwitch>);
+    const { getByTestId } = render(
+        <ToggleSwitch checked={true} onChange={() => ""}>
+            I am groot!
+        </ToggleSwitch>,
+    );
 
     const input = getByTestId("jkl-toggle-input");
 
