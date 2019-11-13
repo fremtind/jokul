@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.0-alpha.12...@fremtind/jkl-datepicker@1.0.0-alpha.13) (2019-11-13)
+
+
+### Bug Fixes
+
+* **datepicker:** fix alignment of year value in picker ([ccd1527](https://github.com/fremtind/jokul/commit/ccd1527539f316752aec3efc6015e6adfa400a9e))
+
+
+
+
+
 # [1.0.0-alpha.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.0-alpha.11...@fremtind/jkl-datepicker@1.0.0-alpha.12) (2019-11-04)
 
 

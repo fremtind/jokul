@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "1.0.0-alpha.12",
+    "version": "1.0.0-alpha.13",
     "publishConfig": {
         "access": "public"
     },
@@ -33,7 +33,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-hamburger": "^1.0.0-alpha.12",
+        "@fremtind/jkl-hamburger": "^1.0.0-alpha.13",
         "@fremtind/jkl-react-hooks": "^1.0.0-alpha.11"
     },
     "devDependencies": {

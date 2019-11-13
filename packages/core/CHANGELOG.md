@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.12...@fremtind/jkl-core@1.0.0-alpha.13) (2019-11-13)
+
+
+### Bug Fixes
+
+* **core:** add missing import in headings.scss ([97dd0d9](https://github.com/fremtind/jokul/commit/97dd0d9de3cb3f193eed8716638471571dcb90ee))
+
+
+### Features
+
+* **core:** add compact mode to paragraphs and headings ([7533c45](https://github.com/fremtind/jokul/commit/7533c458b95d010a15950d4dbc5772d2cc93a28d))
+* add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
+* **core:** add global compact version to labels ([63f5f9f](https://github.com/fremtind/jokul/commit/63f5f9f04836978fecb015c974b23703dbd969a4))
+
+
+
+
+
 # [1.0.0-alpha.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.11...@fremtind/jkl-core@1.0.0-alpha.12) (2019-11-04)
 
 

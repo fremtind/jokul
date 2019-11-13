@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.12...@fremtind/jkl-text-input@1.0.0-alpha.13) (2019-11-13)
+
+
+### Features
+
+* add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
+* add support for global compact mode ([cc11026](https://github.com/fremtind/jokul/commit/cc11026207dfef2a0b3b074b88e071783d2820fd)), closes [#494](https://github.com/fremtind/jokul/issues/494)
+
+
+
+
+
 # [1.0.0-alpha.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.11...@fremtind/jkl-text-input@1.0.0-alpha.12) (2019-11-04)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-divider-line-react",
-    "version": "1.0.0-alpha.12",
+    "version": "1.0.0-alpha.13",
     "publishConfig": {
         "access": "public"
     },
@@ -35,7 +35,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-divider-line": "^1.0.0-alpha.12",
+        "@fremtind/jkl-divider-line": "^1.0.0-alpha.13",
         "nanoid": "^2.1.6"
     },
     "devDependencies": {

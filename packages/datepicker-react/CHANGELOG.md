@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.0.0-alpha.12...@fremtind/jkl-datepicker-react@1.0.0-alpha.13) (2019-11-13)
+
+
+### Bug Fixes
+
+* **datepicker-react:** datepicker fire onChange on edit ([df0cb61](https://github.com/fremtind/jokul/commit/df0cb6138d0fb255dd9eb2b2a347999151bde36d))
+* **datepicker-react:** datepicker fire onChange on edit ([be99c8b](https://github.com/fremtind/jokul/commit/be99c8b1a9f753977483e2c29c0978241fa8d3d8))
+
+
+
+
+
 # [1.0.0-alpha.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.0.0-alpha.11...@fremtind/jkl-datepicker-react@1.0.0-alpha.12) (2019-11-04)
 
 
