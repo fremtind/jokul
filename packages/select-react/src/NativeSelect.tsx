@@ -30,34 +30,34 @@ export function NativeSelect({
     placeholder,
     value,
     forceCompact,
-    ...rest
 }: Props) {
     // If no value is given, set it to first item, or to empty string if there is a placeholder
     if (!value) {
         if (!placeholder && items.length) {
             value = getValuePair(items[0]).value;
-        } else {
-            value = "";
         }
     }
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        onChange && onChange(event);
-    };
     const componentClassName = "jkl-select".concat(
         inline ? ` jkl-select--inline` : "",
         forceCompact ? ` jkl-select--compact` : "",
         !!errorLabel ? ` jkl-select--invalid` : "",
-        value === "" ? ` jkl-select--no-value` : "",
         className ? ` ${className}` : "",
     );
+    const defaultValue = value ? undefined : "";
 
     return (
         <label data-testid="jkl-select" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
-            <select value={value} className="jkl-select__value" onBlur={handleChange} onChange={handleChange} {...rest}>
-                {placeholder && value === "" && (
+            <select
+                value={value}
+                defaultValue={defaultValue}
+                className="jkl-select__value"
+                onBlur={onChange}
+                onChange={onChange}
+            >
+                {placeholder && !value && (
                     <option disabled value="">
                         {placeholder}
                     </option>
