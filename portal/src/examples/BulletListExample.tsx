@@ -36,6 +36,18 @@ const example = `<>
         <BulletListItem>Cory Wagner</BulletListItem>
         <BulletListItem>Lora Carroll</BulletListItem>
     </BulletList>
+    <BulletList ordered>
+        <BulletListItem>Eunice Orn</BulletListItem>
+        <BulletListItem>
+            Hilda Robbins
+            <BulletList ordered>
+                <BulletListItem>Derek Deckow</BulletListItem>
+                <BulletListItem>Juliet Shanahan</BulletListItem>
+            </BulletList>
+        </BulletListItem>
+        <BulletListItem>Miles Hettinger</BulletListItem>
+        <BulletListItem>Vickie Steuber</BulletListItem>
+    </BulletList>
 </>`;
 
 const exampleImport = `import { BulletList, BulletListItem } from "@fremtind/jkl-bullet-list-react";
