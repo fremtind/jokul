@@ -5,6 +5,10 @@ $list-indent: $component-spacing--xl;
 $item-space-between: $component-spacing--large;
 $item-indent: $component-spacing--xxl;
 
+$diamond: "\25C6";
+$diamond-hollow: "\25C7";
+$square: "\25A0";
+
 .jkl-list {
     list-style: none;
     padding: 0;
@@ -40,17 +44,17 @@ $item-indent: $component-spacing--xxl;
     &--bullet {
         & > .jkl-list__item {
             &::before {
-                content: "\25C6";
+                content: $diamond;
             }
         }
         & & > .jkl-list__item {
             &::before {
-                content: "\25C7";
+                content: $diamond-hollow;
             }
         }
         & & & > .jkl-list__item {
             &::before {
-                content: "\25A0";
+                content: $square;
             }
         }
     }
