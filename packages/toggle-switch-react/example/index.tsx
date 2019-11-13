@@ -18,22 +18,22 @@ const App = () => {
         <>
             <div style={{ margin: "36px", padding: "36px", backgroundColor: "#fafafa" }}>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={gpsDummySwitch} onChange={setGpsDummySwitch}>
+                    <ToggleSwitch checked={gpsDummySwitch} onChange={() => setGpsDummySwitch(!gpsDummySwitch)}>
                         GPS
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switch2IsOn} onChange={setSwitch2IsOn} disabled>
+                    <ToggleSwitch checked={switch2IsOn} onChange={() => setSwitch2IsOn(!switch2IsOn)} disabled>
                         Disabled Switch (On)
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switchIsOn} onChange={setSwitchIsOn} disabled>
+                    <ToggleSwitch checked={switchIsOn} onChange={() => setSwitchIsOn(!switchIsOn)} disabled>
                         Disabled Switch (Off)
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={glonassIsOn} onChange={setGlonassIsOn}>
+                    <ToggleSwitch checked={glonassIsOn} onChange={() => setGlonassIsOn(!glonassIsOn)}>
                         Glonass
                     </ToggleSwitch>
                 </div>
@@ -47,22 +47,26 @@ const App = () => {
             </div>
             <div style={{ margin: "36px", padding: "36px", backgroundColor: "#000000" }}>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={gpsIsOn} onChange={setGpsIsOn} inverted>
+                    <ToggleSwitch checked={gpsIsOn} onChange={() => setGpsIsOn(!gpsIsOn)} inverted>
                         GPS
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switch2IsOn} onChange={setSwitch2IsOn} disabled inverted>
+                    <ToggleSwitch checked={switch2IsOn} onChange={() => setSwitch2IsOn(!switch2IsOn)} disabled inverted>
                         Disabled Switch (On)
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switchIsOn} onChange={setSwitchIsOn} disabled inverted>
+                    <ToggleSwitch checked={switchIsOn} onChange={() => setSwitchIsOn(!switchIsOn)} disabled inverted>
                         Disabled Switch (Off)
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={glonassDummySwitch} onChange={setGlonassDummySwitch} inverted>
+                    <ToggleSwitch
+                        checked={glonassDummySwitch}
+                        onChange={() => setGlonassDummySwitch(!glonassDummySwitch)}
+                        inverted
+                    >
                         Glonass
                     </ToggleSwitch>
                 </div>

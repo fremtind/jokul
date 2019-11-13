@@ -1,16 +1,15 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ChangeEvent } from "react";
 
 interface Props {
     children: ReactNode;
     checked?: boolean;
     className?: string;
-    onChange?: (checked: boolean) => void;
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean;
     inverted?: boolean;
 }
 
 export const ToggleSwitch = ({ children, checked, onChange, className = "", disabled, inverted }: Props) => {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => onChange && onChange(e.target.checked);
     const componentClassName = "jkl-toggle-switch".concat(
         className ? ` ${className}` : "",
         inverted ? " jkl-toggle-switch--inverted" : "",
@@ -22,7 +21,7 @@ export const ToggleSwitch = ({ children, checked, onChange, className = "", disa
                 data-testid="jkl-toggle-input"
                 type="checkbox"
                 checked={checked}
-                onChange={handleChange}
+                onChange={onChange}
                 disabled={disabled}
             />
             <span className="jkl-toggle-switch__slider">
