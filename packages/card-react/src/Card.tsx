@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const Card = ({ title, children, className, media, action, dark }: Props) => {
-    const componentClassName = "jkl-card".concat(dark ? " jkl-card--dark" : "", className ? `${className}` : "");
+    const componentClassName = "jkl-card".concat(dark ? " jkl-card--dark" : "", className ? ` ${className}` : "");
 
     let Button = PrimaryButton;
     if (action) {
