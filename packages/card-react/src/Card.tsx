@@ -40,7 +40,11 @@ export const Card = ({ title, children, className, media, action, dark }: Props)
                 <span className="jkl-card__title">{title}</span>
             </div>
             <div className="jkl-card__children">{children}</div>
-            <div className="jkl-card__action">{action && <Button onClick={action.onClick}>{action.name}</Button>}</div>
+            {action && (
+                <div className="jkl-card__action">
+                    <Button onClick={action.onClick}>{action.name}</Button>
+                </div>
+            )}
         </div>
     );
 };
