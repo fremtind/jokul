@@ -6,7 +6,7 @@ interface Props {
     ordered?: boolean;
 }
 
-export const BulletList = ({ children, className = "jkl-p", ordered }: Props) => {
+export const List = ({ children, className = "jkl-p", ordered }: Props) => {
     const componentClassName = "jkl-list".concat(
         className ? ` ${className}` : "",
         ordered ? " jkl-list--ordered" : " jkl-list--bullet",

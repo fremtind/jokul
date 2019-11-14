@@ -1,12 +1,13 @@
 {
-    "name": "@fremtind/jkl-bullet-list-react",
+    "name": "@fremtind/jkl-list-react",
     "version": "0.6.5",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react bullet list component",
+    "description": "Jøkul react list component",
     "keywords": [
-        "bullet-list",
+        "bullet list",
+        "ordered list",
         "list",
         "jøkul",
         "fremtind"
@@ -28,12 +29,12 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-bullet-list yarn build:watch",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-list yarn build:watch",
         "dev:js": "parcel example/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-bullet-list": "^0.7.7"
+        "@fremtind/jkl-list": "^0.7.7"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.0"
