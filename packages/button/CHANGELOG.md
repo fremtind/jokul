@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@0.7.4...@fremtind/jkl-button@0.8.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+
+
+### Features
+
+* **button:** change cursor from default to pointer ([6438b75](https://github.com/fremtind/jokul/commit/6438b75))
+
+
+
+
+
 ## [0.7.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@0.7.3...@fremtind/jkl-button@0.7.4) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-button

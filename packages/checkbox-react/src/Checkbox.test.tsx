@@ -39,7 +39,7 @@ it("should be checked after clicking the input ", function() {
 
 it("should be checked if checked is true", function() {
     const { getByTestId } = render(
-        <Checkbox value="iamgroot" name="iamgroot" checked={true}>
+        <Checkbox value="iamgroot" name="iamgroot" checked={true} onChange={() => {}}>
             I am groot!
         </Checkbox>,
     );

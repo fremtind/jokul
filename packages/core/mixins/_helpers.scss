@@ -11,3 +11,10 @@
     right: $right;
     bottom: $bottom;
 }
+
+@mixin compactMode {
+    &--compact,
+    *[data-compactlayout] & {
+        @content;
+    }
+}

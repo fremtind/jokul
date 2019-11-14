@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.7.3...@fremtind/jkl-checkbox-react@0.8.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **checkbox-react:** update props in tests to match new interface ([2f363e6](https://github.com/fremtind/jokul/commit/2f363e6))
+* make radio/checkbox stack vertically by default ([11bcdbd](https://github.com/fremtind/jokul/commit/11bcdbd)), closes [#387](https://github.com/fremtind/jokul/issues/387)
+
+
+### Features
+
+* **checkbox-react:** make onChange pass event as parameter ([321ff7a](https://github.com/fremtind/jokul/commit/321ff7a))
+
+
+
+
+
 ## [0.7.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.7.2...@fremtind/jkl-checkbox-react@0.7.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox-react

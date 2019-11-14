@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@0.7.6...@fremtind/jkl-loader@0.8.0) (2019-10-09)
+
+
+### Features
+
+* **loader:** add aria-label and title to loader component ([8479e2b](https://github.com/fremtind/jokul/commit/8479e2b))
+
+
+
+
+
 ## [0.7.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@0.7.5...@fremtind/jkl-loader@0.7.6) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-loader

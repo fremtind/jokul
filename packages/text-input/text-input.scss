@@ -1,5 +1,5 @@
 @import "~@fremtind/jkl-core/variables/all";
-@import "~@fremtind/jkl-core/mixins/_helpers.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
@@ -8,10 +8,11 @@ $border-color: $svart;
 $border-color--focus: $focus-color;
 
 $input-height: $line-height-3;
-$input-font-size: $font-size-3;
+$input-height--small-device: $line-height-2;
 $bottom-padding: $component-spacing--small;
 
-$textarea-height--expanded: $input-height * 7 + $bottom-padding;
+$textarea-expanded-height: $input-height * 7 + $bottom-padding;
+$textarea-expanded-height--small-device: $input-height--small-device * 7 + $bottom-padding;
 
 .jkl-text-field {
     display: block;
@@ -22,7 +23,24 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
     &--inline {
         display: inline-block;
-        vertical-align: bottom;
+        width: unset;
+        margin-top: rem(-4px);
+        vertical-align: top;
+
+        .jkl-p & .jkl-text-field__input {
+            padding: 0;
+            text-align: center;
+        }
+    }
+
+    @include compactMode {
+        & .jkl-text-field__input,
+        & .jkl-text-field__input::placeholder {
+            @include text-sizing--small-device("small");
+        }
+        & .jkl-text-field__input {
+            height: $input-height--small-device + $bottom-padding;
+        }
     }
 
     &__input {
@@ -33,9 +51,12 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
         box-sizing: border-box;
         width: 100%;
         height: $input-height + $bottom-padding;
+        @include small-device {
+            height: $input-height--small-device + $bottom-padding;
+        }
         padding: 0 0 $bottom-padding;
-        font-size: $input-font-size;
-        line-height: $input-height;
+
+        @include text-sizing("small");
         font-weight: bold;
         background-color: transparent;
         transition: box-shadow $transition-timing;
@@ -49,7 +70,7 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
             opacity: 1;
             color: $varm-fjellgra;
             font-weight: normal;
-            line-height: $input-height;
+            @include text-sizing("small");
         }
 
         &:hover,
@@ -59,6 +80,10 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
 
         html:not([data-mousenavigation]) &:focus {
             box-shadow: inset 0 rem(-4px) 0 0 $border-color--focus;
+        }
+
+        &[type="number"] {
+            text-align: right;
         }
 
         &[aria-invalid="true"],
@@ -74,14 +99,24 @@ $textarea-height--expanded: $input-height * 7 + $bottom-padding;
     }
 }
 
+/* Utility classes for number of rows */
+@for $num from 3 through 10 {
+    .jkl-text-field__input--#{$num}-rows:focus,
+    .jkl-text-field__input--#{$num}-rows:not(:placeholder-shown) {
+        height: $input-height * $num + $bottom-padding;
+        @include small-device {
+            height: $input-height--small-device * $num + $bottom-padding;
+        }
+        .jkl-text-field--compact & {
+            height: $input-height--small-device * $num + $bottom-padding;
+        }
+    }
+}
+
 .jkl-text-area {
     height: auto;
     & .jkl-text-field__input {
         transition: height 175ms ease, box-shadow $transition-timing;
         font-weight: normal;
-        &:focus,
-        &:not(:placeholder-shown) {
-            height: $textarea-height--expanded; // CSS default height (is overridden in react component)
-        }
     }
 }

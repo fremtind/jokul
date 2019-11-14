@@ -3,15 +3,17 @@ import React from "react";
 interface Props {
     helpLabel?: string;
     errorLabel?: string;
+    forceCompact?: boolean;
 }
 
-export const SupportLabel = ({ helpLabel, errorLabel }: Props) => {
+export const SupportLabel = ({ helpLabel, errorLabel, forceCompact }: Props) => {
+    const className = "jkl-form-support-label".concat(
+        ` jkl-form-support-label--${errorLabel ? "error" : "help"}`,
+        forceCompact ? " jkl-form-support-label--compact" : "",
+    );
+
     if (errorLabel || helpLabel) {
-        return (
-            <span className={`jkl-form-support-label jkl-form-support-label--${errorLabel ? "error" : "help"}`}>
-                {errorLabel || helpLabel}
-            </span>
-        );
+        return <span className={className}>{errorLabel || helpLabel}</span>;
     }
 
     return null;

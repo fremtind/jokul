@@ -96,3 +96,13 @@ $line-height--large-device: (
     @include font-size($size);
     @include line-height($size);
 }
+
+@mixin text-sizing--small-device($size) {
+    font-size: map-get($font-size--small-device, $size);
+    line-height: map-get($line-height--small-device, $size);
+}
+
+@mixin text-sizing--large-device($size) {
+    font-size: map-get($font-size--large-device, $size);
+    line-height: map-get($line-height--large-device, $size);
+}

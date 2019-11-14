@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger@0.2.4...@fremtind/jkl-hamburger@0.2.5) (2019-10-09)
+
+
+### Bug Fixes
+
+* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+
+
+
+
+
 ## [0.2.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger@0.2.3...@fremtind/jkl-hamburger@0.2.4) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-hamburger

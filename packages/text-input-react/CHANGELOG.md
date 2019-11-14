@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.8.3...@fremtind/jkl-text-input-react@0.9.0) (2019-10-09)
+
+
+### Bug Fixes
+
+* **text-field-test:** fixed test for max-length ([9dd8cb1](https://github.com/fremtind/jokul/commit/9dd8cb1)), closes [#419](https://github.com/fremtind/jokul/issues/419)
+
+
+### Features
+
+* **field-group:** remove Field component and update style of FieldGroup ([8a451ac](https://github.com/fremtind/jokul/commit/8a451ac))
+* extract label styles to core ([9fad287](https://github.com/fremtind/jokul/commit/9fad287))
+* implement Field pattern in text input ([f3877e4](https://github.com/fremtind/jokul/commit/f3877e4))
+* **text-field:** add max length to text-input ([4c27f39](https://github.com/fremtind/jokul/commit/4c27f39)), closes [#418](https://github.com/fremtind/jokul/issues/418)
+* **text-field:** add option to force compact mode ([07c7fea](https://github.com/fremtind/jokul/commit/07c7fea))
+* **text-field:** implement new design for text inputs ([13b45c6](https://github.com/fremtind/jokul/commit/13b45c6))
+* **text-input-react:** restore structure of text areas ([588dad5](https://github.com/fremtind/jokul/commit/588dad5))
+* **text-input-react:** restore structure of text inputs ([c520540](https://github.com/fremtind/jokul/commit/c520540))
+
+
+
+
+
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@0.8.2...@fremtind/jkl-text-input-react@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

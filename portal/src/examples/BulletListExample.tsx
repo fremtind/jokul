@@ -2,9 +2,8 @@ import React from "react";
 import { Example } from "../components";
 import { BulletList, BulletListItem } from "@fremtind/jkl-bullet-list-react";
 import "@fremtind/jkl-bullet-list/bullet-list.min.css";
-// @ts-ignore
+
 import bulletListType from "!raw-loader!@fremtind/jkl-bullet-list-react/build/BulletList.d.ts";
-// @ts-ignore
 import bulletListItemType from "!raw-loader!@fremtind/jkl-bullet-list-react/build/BulletListItem.d.ts";
 
 const example = `<>

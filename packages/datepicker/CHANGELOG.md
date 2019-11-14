@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.8.3...@fremtind/jkl-datepicker@0.9.0) (2019-10-09)
+
+
+### Features
+
+* **core:** add pure white as a supporting color ([1558fa9](https://github.com/fremtind/jokul/commit/1558fa9))
+* **datepicker:** add space after weekday names ([104895b](https://github.com/fremtind/jokul/commit/104895b))
+* **datepicker:** implement new version and styles ([6f1b3e9](https://github.com/fremtind/jokul/commit/6f1b3e9))
+* **datepicker:** let screenreaders read calendar caption ([cc837ac](https://github.com/fremtind/jokul/commit/cc837ac))
+* **datepicker:** make datepicker shorter until opened ([ef87993](https://github.com/fremtind/jokul/commit/ef87993))
+* **datepicker:** update datepicker with new label design and variants ([9c479b6](https://github.com/fremtind/jokul/commit/9c479b6))
+
+
+
+
+
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@0.8.2...@fremtind/jkl-datepicker@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker

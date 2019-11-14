@@ -96,8 +96,12 @@ $menu-width: rem(320px);
 
     & .jkl-accordion,
     & .jkl-accordion-item,
-    & .jkl-accordion-item:first-of-type {
+    & .jkl-accordion-item:first-of-type,
+    & .jkl-accordion-item__title {
         border: 0;
+        background-color: transparent;
+        color: inherit;
+        box-shadow: none;
     }
 
     & .jkl-accordion-item:first-of-type {

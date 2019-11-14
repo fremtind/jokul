@@ -2,11 +2,9 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Layout } from "../../components";
 import { renderer } from "../../presentation/markdownRenderer";
-// @ts-ignore
+
 import ContributeMarkdown from "!raw-loader!../../../../CONTRIBUTING.md";
-// @ts-ignore
 import PullRequestGuideMarkdown from "!raw-loader!../../../../guides/PullRequestGuide.md";
-// @ts-ignore
 import CodeGuideMarkdown from "!raw-loader!../../../../guides/CodeGuide.md";
 import "./contribute.scss";
 
