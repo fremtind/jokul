@@ -1,0 +1,16 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "../message-box.scss";
+
+body {
+    background-color: $himmelgra;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: $layout-spacing--large;
+}
+
+.example > * + * {
+    margin-top: $layout-spacing--medium;
+}

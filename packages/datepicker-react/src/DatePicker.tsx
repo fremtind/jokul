@@ -94,14 +94,19 @@ export function DatePicker({
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
         const newDateString = event.target.value;
         const dayMonthYearMatch = dayMonthYearRegex.exec(newDateString);
-
         // Only set the date if it is a valid date
         if (dayMonthYearMatch) {
             const day = parseInt(dayMonthYearMatch[1], 10);
             const month = parseInt(dayMonthYearMatch[2], 10) - 1;
             const year = parseInt(dayMonthYearMatch[3], 10);
 
-            setDate(new Date(year, month, day, 0, 0, 0));
+            const newDate = new Date(year, month, day, 0, 0, 0);
+            if (dateHasChanged(date, newDate)) {
+                setDate(newDate);
+                if (onChange) {
+                    onChange(newDate);
+                }
+            }
         }
         setDateString(newDateString);
     }
@@ -155,13 +160,13 @@ export function DatePicker({
                             <div className="jkl-datepicker__calendar-navigation">
                                 <label className="jkl-text-field jkl-datepicker__year-selector">
                                     <Label variant="small">{yearLabel}</Label>
-                                    <input type="year" className={`jkl-text-field__input`} />
+                                    <input type="year" className="jkl-text-field__input jkl-datepicker__year-value" />
                                 </label>
 
-                                <label className="jkl-dropdown jkl-datepicker__month-selector">
+                                <label className="jkl-select jkl-datepicker__month-selector">
                                     <Label variant="small">{monthLabel}</Label>
-                                    <select className="jkl-dropdown__value"></select>
-                                    <span className="jkl-dropdown__chevron" />
+                                    <select className="jkl-select__value jkl-datepicker__month-value"></select>
+                                    <span className="jkl-select__chevron" />
                                 </label>
                             </div>
                         )}

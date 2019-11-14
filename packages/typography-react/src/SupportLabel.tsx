@@ -8,7 +8,7 @@ interface Props {
 
 export const SupportLabel = ({ helpLabel, errorLabel, forceCompact }: Props) => {
     const className = "jkl-form-support-label".concat(
-        ` jkl-form-support-label--${errorLabel ? "error" : "Help"}`,
+        ` jkl-form-support-label--${errorLabel ? "error" : "help"}`,
         forceCompact ? " jkl-form-support-label--compact" : "",
     );
 

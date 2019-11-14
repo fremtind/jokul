@@ -1,11 +1,11 @@
 import React from "react";
 import { Example } from "../components";
-import { RadioButtonChoice } from "@fremtind/jkl-radio-button-react";
+import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 
-import radioButtonType from "!raw-loader!@fremtind/jkl-radio-button-react/build/RadioButton.d.ts";
-import radioButtonChoiceType from "!raw-loader!@fremtind/jkl-radio-button-react/build/RadioButtonChoice.d.ts";
+import radioButtonOptionType from "!raw-loader!@fremtind/jkl-radio-button-react/build/RadioButtonOption.d.ts";
+import RadioButtonsType from "!raw-loader!@fremtind/jkl-radio-button-react/build/RadioButtons.d.ts";
 
 const example = `() => {
   const [selectedValue, setSelectedValue] = React.useState("No");
@@ -13,14 +13,14 @@ const example = `() => {
 
   return (
     <>
-      <RadioButtonChoice
+      <RadioButtons
         legend="Do you like radio buttons?"
         name="likesradiobuttons"
         choices={["Yes", "No", "I don't know"]}
         selectedValue={selectedValue}
         onChange={e => setSelectedValue(e.target.value)}
       />
-      <RadioButtonChoice
+      <RadioButtons
         legend="Liker du radioknapper"
         name="likesradiobuttons2"
         choices={["Ja", "Nei", "Vet ikke"]}
@@ -43,16 +43,16 @@ const example = `() => {
 };
 `;
 
-const exampleImport = `import { RadioButtonChoice } from "@fremtind/jkl-radio-button-react";
+const exampleImport = `import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import "@fremtind/jkl-radio-button/radio-button.min.css";`;
 
 const RadioButtonExample = () => (
     <Example
-        exampleComponents={{ RadioButtonChoice, SecondaryButton }}
+        exampleComponents={{ RadioButtons, SecondaryButton }}
         exampleCode={example}
         types={[
-            { name: "RadioButton", type: radioButtonType },
-            { name: "RadioButtonChoice", type: radioButtonChoiceType },
+            { name: "RadioButtonOption", type: radioButtonOptionType },
+            { name: "RadioButtons", type: RadioButtonsType },
         ]}
         exampleImport={exampleImport}
     />
