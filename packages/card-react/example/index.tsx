@@ -62,7 +62,7 @@ const CardDemo = () => (
 
         <Card
             title="Meld skade av mobil eller nettbrett"
-            action={{ type: "primary", name: "Logg inn og meld skade", onClick: handleClick }}
+            action={{ type: "secondary", name: "Logg inn og meld skade", onClick: handleClick }}
             dark
         >
             <img
