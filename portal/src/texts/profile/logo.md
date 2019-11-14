@@ -1,5 +1,5 @@
 ## Logo
-Logoen er navnetrekket vårt. Den er designet med utgangspunkt i profilfonten vår. Vi skal i utgangspunktet bruke logoen alene, slik at den får fokus.
+Logoen er navnetrekket vårt. Vi skal i utgangspunktet bruke logoen alene, slik at den får fokus.
 
 I tillegg til logoen har vi et logosymbol, som er utledet fra «F-en» i logoen. F-en tipper mot høyre og former en tinde. Logosymbolet passer god til å bruke på små flater, for å skape et tydeligere visuelt uttrykk. Det gir oss også større fleksibilitet i logobruk.
 
@@ -15,7 +15,7 @@ Logo og logosymbol skal brukes i svart eller hvitt  - ikke andre farger. Pass p�
 _Eksempel_
 
 ### Avstand mellom logo og logosymbol
-Logoen og logosymbolet skal aldri stå så nær hverandre at de oppfattes som ett symbol. Hvis vi skal bruke dem sammen, skal de stå tydelig adskilt.
+Logoen og logosymbolet skal aldri stå så nær hverandre at de oppfattes som ett symbol. Hvis vi skal bruke dem sammen, skal de stå tydelig adskilt. Logosymbolet skal alltid stå i topp, og logoen i bunn, dersom de brukes på samme flate.
 
 ### Proporsjoner
 Logoen skal alltid beholde sine opprinnelige proporsjoner, den skal ikke strekkes. 
@@ -30,9 +30,6 @@ _Eksempler_
 _Eksempel på logosymbolet i toppteksten og og logoen i bunnteksten (nettside og skjema)_
 _Eksempel når de står i en modul, på et kort eller midt på siden_
 
-### Kan vi animere logoen?
-_Når kan vi animere logoen?_ @Steinop
-
 ## Eksempler i Figma
 https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-komponenter-byggesone?node-id=5909%3A0
 
@@ -40,6 +37,3 @@ https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-komponenter-bygge
 _Lenke_
 
 ### Vektor- og pikselversjoner
-
-## Når logoen vår står sammen med andres logo eller logosymbol
-_Hvem føler seg kallet til å si noe om cobranding? For eksempel sammen med DNB og SB1 sine? _ @glenn?
