@@ -5,8 +5,6 @@
 $toggle-width: rem(48px);
 $toggle-height: rem(24px);
 $toggle-focus-outline-color: $focus-color;
-$focus-ring: 0 0 0 rem(2px) $helhvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
-$inverted-focus-ring: 0 0 0 rem(2px) $svart, 0 0 0 rem(4px) $toggle-focus-outline-color;
 $toggle-dot-white-line-inset: rem(5px);
 
 $main-slider-color: $svart;
@@ -40,7 +38,7 @@ $inverted-disabled-color: #969696;
             }
 
             &__label {
-                color: $helhvit;
+                color: currentColor;
             }
 
             &__input[disabled] {
@@ -95,6 +93,10 @@ $inverted-disabled-color: #969696;
     &__label {
         margin-bottom: 0;
         padding-left: $component-spacing--small;
+    }
+
+    &__helplabel {
+        margin-top: $component-spacing--medium;
     }
 
     &__slider {

@@ -44,13 +44,12 @@ const [darkmodeIsOn, setDarkmodeIsOn] = useState(false);
 </ToggleSwitch>;
 ```
 
-Skal bryteren være deaktivert legges prop-en `disabled` til. Hvis det ønskes at bruker skal bli gjort oppmerksom på hvorfor bryteren er deaktivert benyttes `SupportLabel` fra [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/components/typography).
+Skal bryteren være deaktivert legges prop-en `disabled` til. Hvis det ønskes at bruker skal bli gjort oppmerksom på hvorfor bryteren er deaktivert benyttes prop-en `helpLabel`.
 
 ```jsx
-<ToggleSwitch disabled>
+<ToggleSwitch disabled helpLabel="Du har ikke tilgang til darkmode>
     Darkmode
 </ToggleSwitch>
-<SupportLabel helpLabel="Du har ikke tilgang til darkmode">
 ```
 
 ### Props
@@ -63,3 +62,4 @@ Komponenten tar i bruk følgende props:
 -   `onChange`: Angir funksjon for å håndtere endring i verdi. Får en `ChangeEvent` som første argument.
 -   `disabled`: Angir om bryteren er deaktivert. `boolean`
 -   `inverted`: Angir om bryteren skal bruke inverterte farger (til mørke bakgrunner). `boolean`
+-   `helpLabel`: Hjelpetekst som vises under bryterne. `string`

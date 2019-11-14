@@ -28,7 +28,12 @@ const App = () => {
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switchIsOn} onChange={() => setSwitchIsOn(!switchIsOn)} disabled>
+                    <ToggleSwitch
+                        checked={switchIsOn}
+                        onChange={() => setSwitchIsOn(!switchIsOn)}
+                        disabled
+                        helpLabel="Reason switch is disabled"
+                    >
                         Disabled Switch (Off)
                     </ToggleSwitch>
                 </div>
@@ -45,14 +50,20 @@ const App = () => {
                     />
                 )}
             </div>
-            <div style={{ margin: "36px", padding: "36px", backgroundColor: "#000000" }}>
+            <div style={{ margin: "36px", padding: "36px", backgroundColor: "#000000", color: "#ffffff" }}>
                 <div style={{ margin: "20px" }}>
                     <ToggleSwitch checked={gpsIsOn} onChange={() => setGpsIsOn(!gpsIsOn)} inverted>
                         GPS
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switch2IsOn} onChange={() => setSwitch2IsOn(!switch2IsOn)} disabled inverted>
+                    <ToggleSwitch
+                        checked={switch2IsOn}
+                        onChange={() => setSwitch2IsOn(!switch2IsOn)}
+                        disabled
+                        inverted
+                        helpLabel="Reason switch is disabled"
+                    >
                         Disabled Switch (On)
                     </ToggleSwitch>
                 </div>
