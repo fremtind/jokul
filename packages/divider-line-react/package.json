@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-divider-line": "^0.7.7",
-        "nanoid": "^2.0.3"
+        "nanoid": "^2.1.6"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.0",

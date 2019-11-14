@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import { DatePicker } from ".";
 import { formatDate, isSameDay } from "./DatePicker";
 
@@ -12,6 +12,26 @@ describe("Datepicker", () => {
 
         const date = getByTestId("jkl-datepicker__input");
         expect(date).toHaveProperty("value", "24.12.2019");
+    });
+
+    it("should fire onChange on edit input with valid date", () => {
+        const changeHandler = jest.fn();
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+        const input = getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+        fireEvent.change(input, { target: { value: "01.12.2019" } });
+        expect(input).toHaveProperty("value", "01.12.2019");
+        expect(changeHandler).toHaveBeenCalledTimes(1);
+    });
+
+    it("should not fire onChange on edit input with invalid date", () => {
+        const changeHandler = jest.fn();
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+        const input = getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+        fireEvent.change(input, { target: { value: "a random string" } });
+        expect(input).toHaveProperty("value", "a random string");
+        expect(changeHandler).toHaveBeenCalledTimes(0);
     });
 });
 

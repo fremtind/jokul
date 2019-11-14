@@ -19,9 +19,9 @@ export const Loader = ({ textDescription, negative = false, inline = false, clas
             role="alert"
             aria-busy="true"
         >
-            <span className="jkl-loader__1" />
-            <span className="jkl-loader__2" />
-            <span className="jkl-loader__3" />
+            <span className="jkl-loader__dot jkl-loader__dot--left" />
+            <span className="jkl-loader__dot jkl-loader__dot--middle" />
+            <span className="jkl-loader__dot jkl-loader__dot--right" />
         </span>
     );
 };
