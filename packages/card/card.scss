@@ -5,10 +5,6 @@ $card-bg-color: $snohvit;
 $card-corner-radius: 0.5rem;
 $card-padding-normal: $component-spacing--xl;
 
-%normal-font-weight {
-    font-weight: normal;
-}
-
 .jkl-card {
     display: block;
     border: none;
@@ -25,15 +21,10 @@ $card-padding-normal: $component-spacing--xl;
         box-shadow: $drop-shadow--large;
         transform: translateY(-0.125rem);
     }
-
     &:active {
         box-shadow: 0 0 0 0 transparent;
     }
-
     &__title {
-        @extend %normal-font-weight;
-        @include font-size("large");
-        @include line-height("large");
         margin-bottom: $layout-spacing--small;
     }
     &__action {
