@@ -4,7 +4,7 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-bu
 
 type Media = {
     src?: string;
-    label?: string;
+    alt?: string;
 };
 
 interface Props {
@@ -35,7 +35,7 @@ export const Card = ({ title, children, className, media, action, dark }: Props)
 
     return (
         <div className={componentClassName}>
-            {media && <img className="jkl-card__media" src={media.src} alt={media.label}></img>}
+            {media && <img className="jkl-card__media" src={media.src} alt={media.alt}></img>}
             <div>
                 <span className="jkl-card__title">{title}</span>
             </div>
