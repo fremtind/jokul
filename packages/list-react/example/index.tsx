@@ -1,75 +1,75 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { List, ListItem } from "../src";
+import { UnorderedList, OrderedList, ListItem } from "../src";
 import "@fremtind/jkl-list/list.scss";
 import "@fremtind/jkl-core/core.scss";
 import "./index.scss";
 
 const UlExample = () => (
     <>
-        <List>
+        <UnorderedList>
             <ListItem>jkl-p</ListItem>
             <ListItem>
                 Linnie Gill
-                <List>
+                <UnorderedList>
                     <ListItem>Grace Cortez</ListItem>
                     <ListItem>
                         Dette er en veldig lang setning som er veldig lang og repeterende for å sjekke hvordan wrapping
                         funker. Sa jeg at setningen er lang?
                     </ListItem>
-                </List>
+                </UnorderedList>
             </ListItem>
             <ListItem>Cory Wagner</ListItem>
             <ListItem>Lora Carroll</ListItem>
-        </List>
-        <List ordered>
+        </UnorderedList>
+        <OrderedList>
             <ListItem>jkl-p ordered</ListItem>
             <ListItem>
                 Hilda Robbins
-                <List ordered>
+                <OrderedList>
                     <ListItem>Mattie Lawrence</ListItem>
                     <ListItem>Eric Huff</ListItem>
-                </List>
+                </OrderedList>
             </ListItem>
             <ListItem>Adam Norris</ListItem>
             <ListItem>Essie Diaz</ListItem>
-        </List>
-        <List className="jkl-lead">
+        </OrderedList>
+        <UnorderedList className="jkl-lead">
             <ListItem>jkl-lead</ListItem>
             <ListItem>
                 Linnie Gill
-                <List className="jkl-lead">
+                <UnorderedList className="jkl-lead">
                     <ListItem>Grace Cortez</ListItem>
                     <ListItem>Madge Hodges</ListItem>
-                </List>
+                </UnorderedList>
             </ListItem>
             <ListItem>Cory Wagner</ListItem>
             <ListItem>Lora Carroll</ListItem>
-        </List>
-        <List className="jkl-small">
+        </UnorderedList>
+        <UnorderedList className="jkl-small">
             <ListItem>jkl-small</ListItem>
             <ListItem>
                 Linnie Gill
-                <List className="jkl-small">
+                <UnorderedList className="jkl-small">
                     <ListItem>Grace Cortez</ListItem>
                     <ListItem>Madge Hodges</ListItem>
-                </List>
+                </UnorderedList>
             </ListItem>
             <ListItem>Cory Wagner</ListItem>
             <ListItem>Lora Carroll</ListItem>
-        </List>
-        <List className="jkl-tiny">
+        </UnorderedList>
+        <UnorderedList className="jkl-tiny">
             <ListItem>jkl-tiny</ListItem>
             <ListItem>
                 Linnie Gill
-                <List className="jkl-tiny">
+                <UnorderedList className="jkl-tiny">
                     <ListItem>Grace Cortez</ListItem>
                     <ListItem>Madge Hodges</ListItem>
-                </List>
+                </UnorderedList>
             </ListItem>
             <ListItem>Cory Wagner</ListItem>
             <ListItem>Lora Carroll</ListItem>
-        </List>
+        </UnorderedList>
     </>
 );
 const mountNode = document.getElementById("app");

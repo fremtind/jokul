@@ -3,13 +3,27 @@ import React, { ReactNode } from "react";
 interface Props {
     children: ReactNode;
     className?: string;
-    ordered?: boolean;
 }
 
-export const List = ({ children, className = "jkl-p", ordered }: Props) => {
-    const componentClassName = "jkl-list".concat(className ? ` ${className}` : "", ordered ? " jkl-list--ordered" : "");
+type validLists = "unordered" | "ordered";
 
-    const C = ordered ? "ol" : "ul";
+function makeListComponent(listType: validLists) {
+    return function List(props: Props) {
+        const { children, className = "jkl-p" } = props;
+        const componentClassName = "jkl-list".concat(
+            className ? ` ${className}` : "",
+            listType === "ordered" ? " jkl-list--ordered" : "",
+        );
 
-    return <C className={componentClassName}>{children}</C>;
-};
+        const C = listType === "ordered" ? "ol" : "ul";
+
+        return (
+            <C data-testid="jkl-list" className={componentClassName}>
+                {children}
+            </C>
+        );
+    };
+}
+
+export const UnorderedList = makeListComponent("unordered");
+export const OrderedList = makeListComponent("ordered");

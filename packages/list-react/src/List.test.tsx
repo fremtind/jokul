@@ -1,34 +1,44 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import { List, ListItem } from "../src";
+import { UnorderedList, OrderedList, ListItem } from "../src";
 
 afterEach(cleanup);
 
 test(`List and ListItem should render as expected`, () => {
     const { getByText } = render(
-        <List>
+        <UnorderedList>
             <ListItem>Kibogiedo</ListItem>
             <ListItem>Ovoopisow</ListItem>
             <ListItem>Omocebig</ListItem>
-        </List>,
+        </UnorderedList>,
     );
     expect(getByText("Kibogiedo")).toBeInTheDocument();
     expect(getByText("Ovoopisow")).toBeInTheDocument();
     expect(getByText("Omocebig")).toBeInTheDocument();
 });
 
+test(`List gets the passed className`, () => {
+    const { getByTestId } = render(
+        <UnorderedList className="jkl-lead">
+            <ListItem>Kibogiedo</ListItem>
+            <ListItem>Ovoopisow</ListItem>
+        </UnorderedList>,
+    );
+    expect(getByTestId("jkl-list")).toHaveClass("jkl-lead");
+});
+
 test(`Nested lists should render all elements as expected`, () => {
     const { getByText } = render(
-        <List className="jkl-lead">
+        <UnorderedList>
             <ListItem>Kibogiedo</ListItem>
             <ListItem>Ovoopisow</ListItem>
             <ListItem>
                 Omocebig
-                <List className="jkl-lead">
+                <UnorderedList>
                     <ListItem>Ramzoge</ListItem>
-                </List>
+                </UnorderedList>
             </ListItem>
-        </List>,
+        </UnorderedList>,
     );
     expect(getByText("Kibogiedo")).toBeInTheDocument();
     expect(getByText("Ovoopisow")).toBeInTheDocument();

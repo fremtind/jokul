@@ -1,6 +1,6 @@
 import React from "react";
 import { Example } from "../components";
-import { List, ListItem } from "@fremtind/jkl-list-react";
+import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "@fremtind/jkl-message-box-react";
 import "@fremtind/jkl-message-box/message-box.min.css";
 
@@ -15,7 +15,7 @@ const example = `<>
         <WarningMessage title="Advarsel">Du må fylle ut alle feltene før du kan gå videre</WarningMessage>
         <InfoMessage fullWidth title="Informasjon i full bredde">
             <h2 className="jkl-h2"> Slik behandler vi saken din</h2>
-            <List>
+            <UnorderedList>
                 <ListItem>Vi dekker skaden på bilen din. Skadenummeret ditt er 1352630007.</ListItem>
                 <ListItem>
                     Vi kontakter deg innen klokka 15 neste arbeidsdag. Da får du vite hvem vi mener er ansvarlig for
@@ -27,7 +27,7 @@ const example = `<>
                     Kontakt Avis Bilutleie på telefon 66 77 11 06 for å få leiebil. Oppgi skadenummeret ditt. Du har
                     leiebil i inntil 45 dager mens bilen er på verksted.{" "}
                 </ListItem>
-            </List>
+            </UnorderedList>
         </InfoMessage>
     </>`;
 
@@ -42,7 +42,7 @@ import "@fremtind/jkl-message-box/message-box.min.css";
 
 const MessageBoxExample = () => (
     <Example
-        exampleComponents={{ ErrorMessage, InfoMessage, SuccessMessage, WarningMessage, List, ListItem }}
+        exampleComponents={{ ErrorMessage, InfoMessage, SuccessMessage, WarningMessage, UnorderedList, ListItem }}
         exampleCode={example}
         type={messageType}
         exampleImport={exampleImport}

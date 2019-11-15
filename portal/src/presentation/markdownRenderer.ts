@@ -4,6 +4,7 @@ import "@fremtind/jkl-message-box/message-box.min.css";
 
 interface Props {
     children?: ReactNode;
+    ordered?: boolean;
 }
 
 interface HeadingProps extends Props {
@@ -16,7 +17,12 @@ interface LinkProps extends Props {
 
 const defaultRenderer = {
     paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p jkl-spacing--bottom-2" }, children),
-    list: ({ children }: Props) => createElement("ul", { className: "jkl-list jkl-p" }, children),
+    list: ({ children, ordered }: Props) =>
+        createElement(
+            ordered ? "ol" : "ul",
+            { className: `jkl-list jkl-p ${ordered ? "jkl-list--ordered" : ""}` },
+            children,
+        ),
     listItem: ({ children }: Props) => createElement("li", { className: "jkl-list__item" }, children),
     blockquote: ({ children }: Props) =>
         createElement(

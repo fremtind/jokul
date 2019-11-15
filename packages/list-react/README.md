@@ -16,38 +16,34 @@
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { List, ListItem } from "@fremtind/jkl-list-react";
+import { UnorderedList, OrderedList, ListItem } from "@fremtind/jkl-list-react";
 import "@fremtind/jkl-list/list.min.css";
 ```
 
 ### Bruk
 
-`List` brukes sammen med `ItemList` for å bygge en liste.
+`List` er sammensatt av komponentene `OrderedList` og `UnorderedList`. Disse brukes sammen med `ListItem` for å bygge en liste.
 
 ```jsx
-<List>
+<UnorderedList>
     <ListItem>Listeelement 1</ListItem>
     <ListItem>
         Listeelement 2
-        <List>
+        <UnorderedList>
             <ListItem>Nøstet listeelement</ListItem>
-        </List>
+        </UnorderedList>
     </ListItem>
-</List>
-```
+</UnorderedList>
 
-Som standard er listene unummererte. Skal det benyttes nummererte lister brukes prop-en `ordered` på `List`.
-
-```jsx
-<List ordered>
+<OrderedList>
     <ListItem>Nummerert listeelement 1</ListItem>
     <ListItem>
         Nummerert listeelement 2
-        <List ordered>
+        <OrderedList>
             <ListItem>Nøstet nummerert listeelement</ListItem>
-        </List>
+        </OrderedList>
     </ListItem>
-</List>
+</OrderedList>
 ```
 
 ### Props
@@ -58,7 +54,6 @@ Komponenten tar i bruk følgende props:
 
     -   `children`: **Påkrevd**. Listeelementene `ListItem`. `ReactNode`
     -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
-    -   `ordered`: Angir om listen skal være nummerert. `boolean`
 
 -   ListItem
     -   `children`: **Påkrevd**. Innholdet i listeelementene. `ReactNode`

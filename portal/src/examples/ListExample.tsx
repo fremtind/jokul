@@ -1,61 +1,56 @@
 import React from "react";
 import { Example } from "../components";
-import { List, ListItem } from "@fremtind/jkl-list-react";
+import { UnorderedList, OrderedList, ListItem } from "@fremtind/jkl-list-react";
 import "@fremtind/jkl-list/list.min.css";
 
 import listType from "!raw-loader!@fremtind/jkl-list-react/build/List.d.ts";
 import listItemType from "!raw-loader!@fremtind/jkl-list-react/build/ListItem.d.ts";
 
 const example = `<>
-    <List>
+    <UnorderedList>
         <ListItem>Ruth Sims</ListItem>
         <ListItem>
             Hilda Robbins
-            <List>
+            <UnorderedList>
                 <ListItem>Mattie Lawrence</ListItem>
                 <ListItem>Eric Huff</ListItem>
-            </List>
+            </UnorderedList>
         </ListItem>
         <ListItem>Adam Norris</ListItem>
         <ListItem>Essie Diaz</ListItem>
-    </List>
-    <List className="jkl-lead">
+    </UnorderedList>
+    <UnorderedList className="jkl-lead">
         <ListItem>Ricky Wilkerson</ListItem>
         <ListItem>
             Linnie Gill
-            <List className="jkl-lead">
+            <UnorderedList className="jkl-lead">
                 <ListItem>Grace Cortez</ListItem>
-                <ListItem>
-                    Madge Hodges
-                    <List className="jkl-lead">
-                        <ListItem>Somebody</ListItem>
-                    </List>
-                </ListItem>
-            </List>
+                <ListItem>Madge Hodges</ListItem>
+            </UnorderedList>
         </ListItem>
         <ListItem>Cory Wagner</ListItem>
         <ListItem>Lora Carroll</ListItem>
-    </List>
-    <List ordered>
+    </UnorderedList>
+    <OrderedList>
         <ListItem>Eunice Orn</ListItem>
         <ListItem>
             Hilda Robbins
-            <List ordered>
+            <OrderedList>
                 <ListItem>Derek Deckow</ListItem>
                 <ListItem>Juliet Shanahan</ListItem>
-            </List>
+            </OrderedList>
         </ListItem>
         <ListItem>Miles Hettinger</ListItem>
         <ListItem>Vickie Steuber</ListItem>
-    </List>
+    </OrderedList>
 </>`;
 
-const exampleImport = `import { List, ListItem } from "@fremtind/jkl-list-react";
+const exampleImport = `import { UnorderedList, OrderedList, ListItem } from "@fremtind/jkl-list-react";
 import "@fremtind/jkl-list/list.min.css";`;
 
 const ListExample = () => (
     <Example
-        exampleComponents={{ List, ListItem }}
+        exampleComponents={{ UnorderedList, OrderedList, ListItem }}
         exampleCode={example}
         types={[{ name: "List", type: listType }, { name: "ListItem", type: listItemType }]}
         exampleImport={exampleImport}
