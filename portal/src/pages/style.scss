@@ -63,10 +63,6 @@ $circle-size: rem(100px);
         & > * {
             max-width: $content-max-width;
         }
-
-        .jkl-list > .jkl-list__item:before {
-            background-color: $snohvit;
-        }
     }
 }
 pre {
