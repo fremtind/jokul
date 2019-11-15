@@ -7,10 +7,7 @@ interface Props {
 }
 
 export const List = ({ children, className = "jkl-p", ordered }: Props) => {
-    const componentClassName = "jkl-list".concat(
-        className ? ` ${className}` : "",
-        ordered ? " jkl-list--ordered" : " jkl-list--bullet",
-    );
+    const componentClassName = "jkl-list".concat(className ? ` ${className}` : "", ordered ? " jkl-list--ordered" : "");
 
     const C = ordered ? "ol" : "ul";
 
