@@ -11,10 +11,6 @@
         @include text-sizing--small-device("xxs");
     }
 
-    &--help {
-        color: $svart;
-    }
-
     &--error {
         color: $error-color;
     }
