@@ -12,7 +12,7 @@ function handleClick() {
 const CardDemo = () => (
     <>
         <a href="https://fremtind.github.io/jokul/" className="clickable">
-            <Card title="Basic Card">
+            <Card title="Basic Card" className="test-class">
                 <h2 className="jkl-h4">Clickable</h2>
                 <p className="jkl-p">
                     Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag. Hvis den ikke kan

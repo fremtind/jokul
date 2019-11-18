@@ -34,7 +34,7 @@ export const Card = ({ title, children, className, media, action, dark }: Props)
     }
 
     return (
-        <div className={componentClassName}>
+        <div data-testid="jkl-card" className={componentClassName}>
             {media && <img className="jkl-card__media" src={media.src} alt={media.alt}></img>}
             <div className="jkl-card__title jkl-h3">{title}</div>
             <div className="jkl-card__children">{children}</div>
