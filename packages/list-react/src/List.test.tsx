@@ -4,13 +4,26 @@ import { UnorderedList, OrderedList, ListItem } from "../src";
 
 afterEach(cleanup);
 
-test(`List and ListItem should render as expected`, () => {
+test(`UnorderedList and ListItem should render as expected`, () => {
     const { getByText } = render(
         <UnorderedList>
             <ListItem>Kibogiedo</ListItem>
             <ListItem>Ovoopisow</ListItem>
             <ListItem>Omocebig</ListItem>
         </UnorderedList>,
+    );
+    expect(getByText("Kibogiedo")).toBeInTheDocument();
+    expect(getByText("Ovoopisow")).toBeInTheDocument();
+    expect(getByText("Omocebig")).toBeInTheDocument();
+});
+
+test(`OrderedList and ListItem should render as expected`, () => {
+    const { getByText } = render(
+        <OrderedList>
+            <ListItem>Kibogiedo</ListItem>
+            <ListItem>Ovoopisow</ListItem>
+            <ListItem>Omocebig</ListItem>
+        </OrderedList>,
     );
     expect(getByText("Kibogiedo")).toBeInTheDocument();
     expect(getByText("Ovoopisow")).toBeInTheDocument();
