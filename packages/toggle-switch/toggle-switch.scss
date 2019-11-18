@@ -5,18 +5,84 @@
 $toggle-width: rem(48px);
 $toggle-height: rem(24px);
 $toggle-focus-outline-color: $focus-color;
-$focus-ring: 0 0 0 rem(2px) $snohvit, 0 0 0 rem(4px) $toggle-focus-outline-color;
 $toggle-dot-white-line-inset: rem(5px);
 
 $main-slider-color: $svart;
 $expanding-pill-background-color: $gress;
 $line-left-right-margin: rem(8px);
 
+$disabled-color: $varm-fjellgra;
+$inverted-disabled-color: #969696;
+
 .jkl-toggle-switch {
     height: $toggle-height;
     display: flex;
     align-items: center;
     cursor: pointer;
+
+    &--inverted {
+        .jkl-toggle-switch {
+            &__slider {
+                &:before {
+                    background-color: $helhvit;
+                }
+                &:after {
+                    background-color: $helhvit;
+                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $helhvit,
+                        inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
+                }
+                & .jkl-toggle-switch__expanding-pill {
+                    background-color: $expanding-pill-background-color;
+                    border-color: $helhvit;
+                }
+            }
+
+            &__label {
+                color: currentColor;
+            }
+
+            &__input[disabled] {
+                + .jkl-toggle-switch__slider {
+                    &:before {
+                        background-color: $inverted-disabled-color;
+                    }
+                    &:after {
+                        background-color: $inverted-disabled-color;
+                        box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $inverted-disabled-color,
+                            inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
+                    }
+                    & .jkl-toggle-switch__expanding-pill {
+                        border-color: $inverted-disabled-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__input[disabled] {
+        + .jkl-toggle-switch__slider,
+        ~ .jkl-toggle-switch__label {
+            cursor: default;
+        }
+        + .jkl-toggle-switch__slider {
+            &:before {
+                background-color: $disabled-color;
+            }
+            &:after {
+                background-color: $disabled-color;
+                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
+                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $helhvit;
+            }
+            & .jkl-toggle-switch__expanding-pill {
+                background-color: transparent;
+                border-color: $disabled-color;
+            }
+        }
+
+        &:checked + .jkl-toggle-switch__slider:before {
+            background-color: transparent;
+        }
+    }
 
     &__input {
         /* Hide the actual input field */
@@ -26,7 +92,11 @@ $line-left-right-margin: rem(8px);
 
     &__label {
         margin-bottom: 0;
-        padding-left: $toggle-width + $component-spacing--xxl;
+        padding-left: $component-spacing--small;
+    }
+
+    &__helplabel {
+        margin-top: $component-spacing--medium;
     }
 
     &__slider {
@@ -50,7 +120,7 @@ $line-left-right-margin: rem(8px);
         /* Sliding dot */
         &:after {
             box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $main-slider-color,
-                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $snohvit;
+                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $helhvit;
             content: "";
             border-radius: 99rem;
             position: absolute;
@@ -66,12 +136,24 @@ $line-left-right-margin: rem(8px);
         border-radius: 99rem;
         border: solid 1px $main-slider-color;
         box-sizing: border-box;
-        height: 1px;
+        height: $toggle-height;
         left: 0;
         position: absolute;
-        top: 50%;
+        top: 0;
         transition: top 150ms ease 50ms, height 150ms ease 50ms, width 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        width: $toggle-width/2;
+        width: $toggle-height;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: -3px;
+            bottom: -3px;
+            left: -3px;
+            right: -3px;
+            background-color: transparent;
+            border-radius: 99rem;
+            width: $toggle-width + rem(4px);
+        }
     }
 
     /* Toggled/checked state */
@@ -87,7 +169,7 @@ $line-left-right-margin: rem(8px);
     }
 
     /* Keyboard focused state */
-    html:not([data-mousenavigation]) &__input:focus + &__slider {
-        box-shadow: $focus-ring;
+    html:not([data-mousenavigation]) &__input:focus + &__slider > &__expanding-pill:after {
+        box-shadow: 0 0 0 rem(2px) $toggle-focus-outline-color;
     }
 }
