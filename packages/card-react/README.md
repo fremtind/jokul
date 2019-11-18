@@ -22,7 +22,7 @@ import "@fremtind/jkl-card/card.min.css";
 ```
 
 ## Bruk
-Den mest grunnleggende varianten av `Card`-komponenten består bare av en container og en tittel, derfor er en alltid nødt til å definere `title`-propen. `children` gjør det mulig å legge til paragrafer og eventuelle andre komponenter (f.eks `BulletList`). 
+Den mest grunnleggende varianten av `Card`-komponenten består bare av en container og en tittel, derfor er en alltid nødt til å definere `title`-propen. `children` gjør det mulig å legge til paragrafer og eventuelle andre komponenter. 
 
 ## Props
 - `title`: **Påkrevd** Angir tittelen på kortet `title`
@@ -39,8 +39,8 @@ Bruker stilen til `Button` og har tre varianter. `type` definerer hvilke type kn
 export type validButtons = "primary" | "secondary" | "tertiary";
 
 export type Action = {
-    type?: validButtons;
-    name?: string;
+    type: validButtons;
+    name: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
 };
 
@@ -51,4 +51,4 @@ export type Action = {
 ```
 
 ## Media
-Består av `src`og `label` og angir src-path til bilder eller illustrasjoner. Dersom kortet skal inneholde bilder som skal plasseres under tittelen er det mulig å bruke en <img>-tag istedenfor. `label` er den alternative teksten for screenreaders.
+Består av `src`og `alt` og angir src-path til bilder eller illustrasjoner. `alt` er den alternative teksten for screenreaders.
