@@ -1,6 +1,13 @@
-import React, { ReactNode } from "react";
-import { Action } from "./CardAction";
+import React, { ReactNode, MouseEventHandler } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+
+export type validButtons = "primary" | "secondary" | "tertiary";
+
+export type Action = {
+    type: validButtons;
+    name: string;
+    onClick: MouseEventHandler<HTMLButtonElement>;
+};
 
 type Media = {
     src: string;

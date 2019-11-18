@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Card } from "../src";
-import { BulletList, BulletListItem } from "@fremtind/jkl-bullet-list-react";
 import car from "./img/car.jpg";
 import grass from "./img/grass.jpg";
 
@@ -34,23 +33,21 @@ const CardDemo = () => (
         <Card
             title="Meld skade av mobil eller nettbrett"
             action={{ type: "primary", name: "Logg inn og meld skade", onClick: handleClick }}
+            media={{ src: grass, alt: "Grass" }}
         >
-            <img className="jkl-card__media" src={grass} alt="Grass"></img>
             <h2>Slik behandler vi saken din</h2>
-            <BulletList>
-                <BulletListItem>
-                    Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag.
-                </BulletListItem>
-                <BulletListItem>
+            <ul className="jkl-p list">
+                <li>Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag.</li>
+                <li>
                     Hvis den ikke kan behandles automatisk, vurderer vi saken og kontakter deg innen 8 arbeidsdager.
-                </BulletListItem>
-                <BulletListItem>Hvis vi dekker skaden, reparerer vi telefonen eller nettbrettet.</BulletListItem>
-            </BulletList>
+                </li>
+                <li>Hvis vi dekker skaden, reparerer vi telefonen eller nettbrettet.</li>
+            </ul>
         </Card>
         <br></br>
 
         <Card title="Card darkmode" dark>
-            <p>
+            <p className="jkl-p">
                 Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag. Hvis den ikke kan
                 behandles automatisk, vurderer vi saken og kontakter deg innen 8 arbeidsdager.
             </p>
@@ -61,18 +58,16 @@ const CardDemo = () => (
             title="Meld skade av mobil eller nettbrett"
             action={{ type: "secondary", name: "Logg inn og meld skade", onClick: handleClick }}
             dark
+            media={{ src: grass, alt: "Grass" }}
         >
-            <img className="jkl-card__media" src={grass} alt="Grass"></img>
             <h2>Slik behandler vi saken din</h2>
-            <BulletList>
-                <BulletListItem>
-                    Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag.
-                </BulletListItem>
-                <BulletListItem>
+            <ul className="jkl-p list">
+                <li>Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag.</li>
+                <li>
                     Hvis den ikke kan behandles automatisk, vurderer vi saken og kontakter deg innen 8 arbeidsdager.
-                </BulletListItem>
-                <BulletListItem>Hvis vi dekker skaden, reparerer vi telefonen eller nettbrettet.</BulletListItem>
-            </BulletList>
+                </li>
+                <li>Hvis vi dekker skaden, reparerer vi telefonen eller nettbrettet.</li>
+            </ul>
         </Card>
     </>
 );
