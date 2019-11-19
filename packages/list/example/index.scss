@@ -1,5 +1,5 @@
 @import "~@fremtind/jkl-core/core.scss";
-@import "../bullet-list.scss";
+@import "../list.scss";
 
 html,
 body {
@@ -12,6 +12,6 @@ body {
     align-items: center;
 }
 
-body > .jkl-bullet-list {
+body > .jkl-list {
     margin: $layout-spacing--large;
 }

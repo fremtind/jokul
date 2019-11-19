@@ -49,7 +49,7 @@ export const componentLinks = [
     makeComponentLink("Lasteindikator", "loader"),
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
-    makeComponentLink("Liste", "bulletlist"),
+    makeComponentLink("Liste", "list"),
     makeComponentLink("Hamburgermeny", "hamburger"),
 ];
 
