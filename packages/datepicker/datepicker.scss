@@ -103,9 +103,11 @@ $bottom-margin: $component-spacing--large;
     &__year-selector {
         max-width: 30%;
         margin-right: $component-spacing--xxl;
-    }
-    &__year-value {
-        text-align: left;
+
+        // must be nested to override default right-alignment
+        & > .jkl-datepicker__year-value {
+            text-align: left;
+        }
     }
 
     &__month-selector {

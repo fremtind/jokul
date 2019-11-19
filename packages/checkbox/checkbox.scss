@@ -1,4 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_helpers.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $checkbox-size: rem(24px);
@@ -27,7 +28,7 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
         }
     }
 
-    &--compact {
+    @include compactMode {
         @include text-sizing--small-device("small");
         .jkl-checkbox__check-mark {
             height: $checkbox-size--compact;

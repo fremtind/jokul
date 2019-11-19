@@ -20,22 +20,17 @@ describe("Select", () => {
         expect(dropdown).toHaveClass("jkl-select--inline");
     });
 
-    it("should set inital value as input value", () => {
+    it("should use the specified value", () => {
         const onChange = jest.fn();
-        const initialInput = "drop";
+        const value = "drop";
         const { getByTestId } = render(
-            <Select
-                onChange={onChange}
-                items={["drop", "it", "like", "its", "hot"]}
-                label="Snoop"
-                initialInputValue={initialInput}
-            />,
+            <Select onChange={onChange} items={["drop", "it", "like", "its", "hot"]} label="Snoop" value={value} />,
         );
 
         const button = getByTestId("jkl-select__value");
 
         expect(onChange).toHaveBeenCalledTimes(0);
-        expect(button).toHaveTextContent(initialInput);
+        expect(button).toHaveTextContent(value);
     });
 
     it("should have default text value in button when no option selected", () => {

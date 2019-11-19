@@ -1,5 +1,8 @@
 # [`@fremtind/jkl-list`](https://fremtind.github.io/jokul/components/list/)
 
+-   **Utgått:** Denne komponenten er utgått, og erstattet av `@fremtind/jkl-list`
+-   **Deprecated:** This component is deprecated, and replaced by `@fremtind/jkl-list`
+
 ## Om lister
 
 Lister er strukturelementer. De gjør at vi kan utheve viktig informasjon for brukerne eller fortelle dem at de må gjøre noe i en bestemt rekkefølge. Det finnes to forskjellige lister: _nummererte_ og _unummererte_.
