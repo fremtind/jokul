@@ -1,2 +1,2 @@
 export { Table, TableRowData } from "./Table";
-export { TableAnchorRowData, isAnchorRowData } from "./TableRow";
+export { TableRowType, TableAnchorRowData, isAnchorRowData } from "./TableRow";

@@ -2,15 +2,17 @@ import React, { MouseEvent } from "react";
 import { TableRowData } from "./Table";
 import { TableData } from "./TableData";
 
-export type TableRowDataVariants = "anchor";
+export enum TableRowType {
+    Anchor = "ANCHOR",
+}
 
 export interface BaseTableRowData {
-    type: TableRowDataVariants;
+    type: TableRowType;
 }
 
 export interface TableAnchorRowData extends BaseTableRowData {
     rowData: string[];
-    type: "anchor";
+    type: TableRowType.Anchor;
     href: string;
     hrefLabel: string;
     onRowClick?: (href: string) => void;
@@ -49,5 +51,5 @@ export function TableRow({ row }: Props) {
 }
 
 export function isAnchorRowData(row: string[] | TableAnchorRowData): row is TableAnchorRowData {
-    return "type" in row && row.type === "anchor";
+    return "type" in row && row.type === TableRowType.Anchor;
 }
