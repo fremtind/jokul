@@ -8,8 +8,7 @@ interface Props {
     isFirstCell: boolean;
 }
 
-export function TableData(props: Props) {
-    const { row, data, isFirstCell } = props;
+export function TableData({ data, row, isFirstCell }: Props) {
     function onAnchorClick(evt: React.MouseEvent<HTMLAnchorElement>) {
         // Stop browser link navigation and let the clickHandler on TableRow do the job
         evt.preventDefault();

@@ -20,8 +20,7 @@ interface Props {
     row: TableRowData;
 }
 
-export function TableRow(props: Props) {
-    const { row } = props;
+export function TableRow({ row }: Props) {
     const rowData: string[] = isAnchorRowData(row) ? row.rowData : row;
 
     let onClick: undefined | ((evt: MouseEvent<HTMLTableRowElement>) => void) = undefined;
