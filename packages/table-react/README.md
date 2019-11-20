@@ -32,7 +32,7 @@ const rows = [
 <Table columns={cols} rows={rows} />
 ```
 
-En eller flere av radene i kan være klikkbare, med en `href` og en valgfri `onRowClick`-funksjon. Om ingen funksjon er gitt, vil klikk på raden gå til URLen i `href`-verdien. Typen for `AnchorRowData` er tilgjengelig gjennom `enum`en `TableRowType`, som kan importeres med `import { TableRowType } from "@fremtind/jkl-table-react;"`.
+En eller flere av radene i tabellen kan være klikkbare, med en `href` og en valgfri `onRowClick`-funksjon. Om ingen funksjon er gitt, vil klikk på raden gå til URLen i `href`-verdien. Typen for `AnchorRowData` er tilgjengelig gjennom `enum`en `TableRowType`, som kan importeres med `import { TableRowType } from "@fremtind/jkl-table-react;"`.
 
 ```ts
 interface TableAnchorRowData {
