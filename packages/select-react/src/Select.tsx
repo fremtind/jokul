@@ -56,7 +56,7 @@ export function Select({
     forceCompact,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
-    const [displayedValue, setDisplayedValue] = useState(value);
+    const [displayedValue, setDisplayedValue] = useState(value && getValuePair(value).label);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const hasSelectedValue = typeof selectedValue !== "undefined";
