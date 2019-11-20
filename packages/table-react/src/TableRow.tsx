@@ -1,22 +1,6 @@
 import React, { MouseEvent } from "react";
-import { TableRowData } from "./Table";
+import { TableRowData, isAnchorRowData } from "./types";
 import { TableData } from "./TableData";
-
-export enum TableRowType {
-    Anchor = "ANCHOR",
-}
-
-export interface BaseTableRowData {
-    type: TableRowType;
-}
-
-export interface TableAnchorRowData extends BaseTableRowData {
-    rowData: string[];
-    type: TableRowType.Anchor;
-    href: string;
-    hrefLabel: string;
-    onRowClick?: (href: string) => void;
-}
 
 interface Props {
     row: TableRowData;
@@ -48,8 +32,4 @@ export function TableRow({ row }: Props) {
             ))}
         </tr>
     );
-}
-
-export function isAnchorRowData(row: string[] | TableAnchorRowData): row is TableAnchorRowData {
-    return "type" in row && row.type === TableRowType.Anchor;
 }

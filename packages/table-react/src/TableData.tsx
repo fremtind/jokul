@@ -1,6 +1,5 @@
 import React from "react";
-import { TableRowData } from "./Table";
-import { isAnchorRowData } from "./TableRow";
+import { TableRowData, isAnchorRowData } from "./types";
 
 interface Props {
     data: string;
