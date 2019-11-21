@@ -1,13 +1,15 @@
 {
-    "name": "@fremtind/jkl-bullet-list",
+    "name": "@fremtind/jkl-list",
     "version": "0.7.7",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul style for bullet list",
+    "description": "Jøkul style for list",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
         "bullet list",
+        "ordered list",
+        "unordered list",
         "list",
         "jøkul",
         "fremtind"

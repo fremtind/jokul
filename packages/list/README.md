@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-bullet-list`](https://fremtind.github.io/jokul/components/bulletlist/)
+# [`@fremtind/jkl-list`](https://fremtind.github.io/jokul/components/list/)
 
 -   **Utgått:** Denne komponenten er utgått, og erstattet av `@fremtind/jkl-list`
 -   **Deprecated:** This component is deprecated, and replaced by `@fremtind/jkl-list`
