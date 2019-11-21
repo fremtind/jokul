@@ -1,21 +1,28 @@
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
 @import "~@fremtind/jkl-core/variables/_colors.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/variables/_font-size.scss";
 
 $button-focus-ring-color: $focus-color;
+$bounding-touch-size: rem(48px);
+
+$hamburger-line-width: rem(35px);
+$hamburger-line-spacing: rem(-10px);
 
 .jkl-hamburger {
     border: none;
     outline: none;
-    display: inline-block;
+    display: flex;
     cursor: pointer;
     transition-property: opacity, filter;
     @include motion(standard, productive);
     color: inherit;
     background-color: transparent;
-    height: 100%;
-    width: 100%;
+    height: $bounding-touch-size;
+    width: $bounding-touch-size;
     padding: 0;
+    justify-content: center;
+    position: relative;
 
     &:hover,
     &--is-active:hover {
@@ -28,7 +35,8 @@ $button-focus-ring-color: $focus-color;
 
     &--is-active {
         & .jkl-hamburger__inner {
-            transform: rotate(45deg);
+            margin: auto;
+            transform: translateY(-50%) rotate(45deg);
             transition-delay: 0.12s;
             transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
         }
@@ -44,16 +52,11 @@ $button-focus-ring-color: $focus-color;
         }
     }
 
-    &__box {
-        width: 40px;
-        height: 24px;
-        display: inline-block;
-        position: relative;
-    }
-
     &__inner {
+        position: absolute;
         display: block;
         top: 50%;
+        transform: translateY(-50%);
         transition-duration: 0.075s;
         transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 
@@ -65,19 +68,19 @@ $button-focus-ring-color: $focus-color;
         &::before {
             content: "";
             display: block;
-            top: -10px;
+            top: $hamburger-line-spacing;
             transition: top 0.075s 0.12s ease, opacity 0.075s ease;
         }
         &::after {
-            bottom: -10px;
+            bottom: $hamburger-line-spacing;
             transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
         }
     }
     &__inner,
     &__inner::before,
     &__inner::after {
-        width: 35px;
-        height: 3px;
+        width: $hamburger-line-width;
+        height: rem(3px);
         background-color: $svart;
         position: absolute;
         transition-property: transform;
