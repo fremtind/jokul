@@ -54,6 +54,7 @@ export function Select({
     defaultPrompt = "Velg",
     variant,
     forceCompact,
+    initialInputValue,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
     const [displayedValue, setDisplayedValue] = useState(value && getValuePair(value).label);
@@ -69,6 +70,12 @@ export function Select({
         !!errorLabel ? ` jkl-select--invalid` : "",
         className ? ` ${className}` : "",
     );
+
+    if (initialInputValue && process.env.NODE_ENV !== "production") {
+        console.warn(
+            "Warning!: The 'initialInputValue' prop on the Select component is deprecated and does nothing. Use the 'value' prop instead.",
+        );
+    }
 
     function onToggle() {
         const listElement = listRef.current;
