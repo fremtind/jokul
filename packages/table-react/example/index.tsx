@@ -2,8 +2,7 @@ import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-table/table.scss";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Table } from "../src";
-import { TableAnchorRowData } from "../src/TableRow";
+import { Table, TableRowType } from "../src";
 
 import "./index.scss";
 
@@ -11,11 +10,11 @@ initTabListener();
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Sakstype", "Milepæl", "Følger saken"];
 
-const rows: Array<string[] | TableAnchorRowData> = [
+const rows = [
     ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Etterlatte", "Opprettet", "Siri Saksbehandler"],
     {
         href: "https://google.com",
-        type: "anchor",
+        type: TableRowType.Anchor,
         hrefLabel: "Google",
         rowData: [
             "24.12.2020",
