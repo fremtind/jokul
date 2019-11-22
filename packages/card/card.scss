@@ -1,4 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-button/button.scss";
 
 $card-bg-color: $snohvit;
@@ -16,6 +17,8 @@ $card-padding-normal: $component-spacing--xl;
     box-shadow: $drop-shadow--medium;
     padding: $card-padding-normal;
     text-align: inherit;
+    transition-property: box-shadow, transform;
+    @include motion("standard");
 
     &__title {
         margin-bottom: $layout-spacing--small;
