@@ -1,9 +1,9 @@
 import React, { ReactNode, MouseEventHandler } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 
-export type validButtons = "primary" | "secondary" | "tertiary";
+type validButtons = "primary" | "secondary" | "tertiary";
 
-export type Action = {
+type Action = {
     type: validButtons;
     name: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
@@ -14,6 +14,11 @@ type Media = {
     alt: string;
 };
 
+type Clickable = {
+    href?: string;
+    onClick?: MouseEventHandler<HTMLAnchorElement>;
+};
+
 interface Props {
     title: string;
     children?: ReactNode;
@@ -21,10 +26,15 @@ interface Props {
     media?: Media;
     action?: Action;
     dark?: boolean;
+    clickable?: Clickable;
 }
 
-export const Card = ({ title, children, className, media, action, dark }: Props) => {
-    const componentClassName = "jkl-card".concat(dark ? " jkl-card--dark" : "", className ? ` ${className}` : "");
+export const Card = ({ title, children, className, media, action, dark, clickable }: Props) => {
+    const componentClassName = "jkl-card".concat(
+        className ? ` ${className}` : "",
+        dark ? " jkl-card--dark" : "",
+        clickable ? " jkl-card--clickable" : "",
+    );
 
     let Button = PrimaryButton;
     if (action) {
@@ -43,7 +53,15 @@ export const Card = ({ title, children, className, media, action, dark }: Props)
     return (
         <div data-testid="jkl-card" className={componentClassName}>
             {media && <img className="jkl-card__media" src={media.src} alt={media.alt}></img>}
-            <div className="jkl-card__title jkl-h3">{title}</div>
+            <div className="jkl-card__title jkl-h3">
+                {clickable ? (
+                    <a className="jkl-card__link" href={clickable.href} onClick={clickable.onClick}>
+                        {title}
+                    </a>
+                ) : (
+                    `${title}`
+                )}
+            </div>
             <div className="jkl-card__children">{children}</div>
             {action && (
                 <div className="jkl-card__action">

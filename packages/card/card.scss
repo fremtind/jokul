@@ -6,6 +6,8 @@ $card-corner-radius: 0.5rem;
 $card-padding-normal: $component-spacing--xl;
 
 .jkl-card {
+    position: relative;
+    overflow: hidden;
     display: block;
     border: none;
     max-width: 60ch; //TODO: find out if we want this
@@ -14,16 +16,7 @@ $card-padding-normal: $component-spacing--xl;
     box-shadow: $drop-shadow--medium;
     padding: $card-padding-normal;
     text-align: inherit;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
 
-    &:hover,
-    &:focus {
-        box-shadow: $drop-shadow--large;
-        transform: translateY(-0.125rem);
-    }
-    &:active {
-        box-shadow: 0 0 0 0 transparent;
-    }
     &__title {
         margin-bottom: $layout-spacing--small;
     }
@@ -41,5 +34,26 @@ $card-padding-normal: $component-spacing--xl;
     &--dark {
         background-color: $svart;
         color: $helhvit;
+    }
+    &--clickable:hover,
+    &--clickable:focus {
+        box-shadow: $drop-shadow--large;
+        transform: translateY(-0.125rem);
+    }
+    &--clickable:active {
+        box-shadow: 0 0 0 0 transparent;
+    }
+    &__link {
+        text-decoration: none;
+        color: initial;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
     }
 }
