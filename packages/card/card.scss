@@ -2,7 +2,7 @@
 @import "~@fremtind/jkl-button/button.scss";
 
 $card-bg-color: $snohvit;
-$card-corner-radius: 2px;
+$card-corner-radius: rem(2px);
 $card-padding-normal: $component-spacing--xl;
 
 .jkl-card {
@@ -28,11 +28,9 @@ $card-padding-normal: $component-spacing--xl;
         margin-top: $layout-spacing--small;
     }
     &__media {
-        margin-left: -$component-spacing--xl;
-        margin-right: -$component-spacing--xl;
-        margin-top: -$component-spacing--xl;
-        width: calc(100% + 2 * #{$component-spacing--xl});
+        margin: -$card-padding-normal;
         margin-bottom: $layout-spacing--small;
+        width: calc(100% + 2 * #{$card-padding-normal});
     }
     &--dark {
         background-color: $svart;
