@@ -52,7 +52,10 @@ const ListExample = () => (
     <Example
         exampleComponents={{ UnorderedList, OrderedList, ListItem }}
         exampleCode={example}
-        types={[{ name: "List", type: listType }, { name: "ListItem", type: listItemType }]}
+        types={[
+            { name: "List", type: listType },
+            { name: "ListItem", type: listItemType },
+        ]}
         exampleImport={exampleImport}
     />
 );
