@@ -13,7 +13,7 @@
 ### Installasjon
 
 1. Installér pakken med `yarn add @fremtind/jkl-hamburger-react` eller `npm i @fremtind/jkl-hamburger-react`. Stil-pakken blir automatisk installert som en avhengighet.
-2. Importér _både_ React-apkken og stil-pakken i prosjektet ditt:
+2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
