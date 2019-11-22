@@ -6,7 +6,8 @@
 $button-focus-ring-color: $focus-color;
 $bounding-touch-size: rem(48px);
 
-$hamburger-line-width: rem(35px);
+$hamburger-line-width: rem(3px);
+$hamburger-icon-width: rem(35px);
 $hamburger-line-spacing: rem(-10px);
 
 .jkl-hamburger {
@@ -79,8 +80,8 @@ $hamburger-line-spacing: rem(-10px);
     &__inner,
     &__inner::before,
     &__inner::after {
-        width: $hamburger-line-width;
-        height: rem(3px);
+        width: $hamburger-icon-width;
+        height: $hamburger-line-width;
         background-color: $svart;
         position: absolute;
         transition-property: transform;
