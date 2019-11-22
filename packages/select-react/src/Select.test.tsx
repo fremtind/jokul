@@ -46,4 +46,14 @@ describe("Select", () => {
 
         expect(getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
     });
+
+    it("displays the ValuePair label of selected item on first render", () => {
+        const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
+
+        const { getByTestId } = render(
+            <Select label="test" items={valuePairs} value={"datagreier"} onChange={() => {}} />,
+        );
+
+        expect(getByTestId("jkl-select__value").innerHTML).toBe("Fin lesbar tekst");
+    });
 });

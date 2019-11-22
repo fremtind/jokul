@@ -1,6 +1,5 @@
 import React from "react";
-import { TableRowData } from "./Table";
-import { isAnchorRowData } from "./TableRow";
+import { TableRowData, isAnchorRowData } from "./types";
 
 interface Props {
     data: string;
@@ -8,8 +7,7 @@ interface Props {
     isFirstCell: boolean;
 }
 
-export function TableData(props: Props) {
-    const { row, data, isFirstCell } = props;
+export function TableData({ data, row, isFirstCell }: Props) {
     function onAnchorClick(evt: React.MouseEvent<HTMLAnchorElement>) {
         // Stop browser link navigation and let the clickHandler on TableRow do the job
         evt.preventDefault();
@@ -20,8 +18,13 @@ export function TableData(props: Props) {
             {/* Only create an anchor in the first cell, so that screen readers doesn't read each cell as a link */}
             {/* The downside of this is that only the first cell can be right clicked and get the anchor context menu */}
             {isFirstCell && isAnchorRowData(row) ? (
-                <a className="jkl-sr-only" href={row.href} onClick={onAnchorClick}>
-                    {row.hrefLabel}{" "}
+                <a
+                    data-testid="jkl-table__screenreader-link"
+                    className="jkl-sr-only"
+                    href={row.href}
+                    onClick={onAnchorClick}
+                >
+                    {row.hrefLabel}
                 </a>
             ) : (
                 undefined
