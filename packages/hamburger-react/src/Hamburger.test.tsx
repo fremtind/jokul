@@ -6,32 +6,32 @@ afterEach(cleanup);
 
 describe("Hamburger", () => {
     it("should render to document", () => {
-        const { getByTestId } = render(<Hamburger />);
-
-        expect(getByTestId("jkl-hamburger")).toBeInTheDocument();
+        render(<Hamburger />);
     });
-    it("should render set is active on click", () => {
-        const { getByTestId } = render(<Hamburger negative />);
+
+    it("should get class jkl-hamburger--is-active on click", () => {
+        const { getByTestId } = render(<Hamburger />);
 
         const burger = getByTestId("jkl-hamburger");
         burger.click();
 
-        const classNames = burger.getAttribute("class");
-        expect(classNames).toContain("--is-active");
+        expect(burger).toHaveClass("jkl-hamburger--is-active");
     });
-    it("should render negative to document", () => {
+
+    it("should get class jkl-hamburger--negative when specified", () => {
         const { getByTestId } = render(<Hamburger negative />);
 
-        const classNames = getByTestId("jkl-hamburger").getAttribute("class");
-        expect(classNames).toContain("--negative");
+        const component = getByTestId("jkl-hamburger");
+        expect(component).toHaveClass("jkl-hamburger--negative");
     });
-    it("should render active if initialactive is true", () => {
-        const { getByTestId } = render(<Hamburger initialIsActive />);
-        const burger = getByTestId("jkl-hamburger");
 
-        const classNames = burger.getAttribute("class");
-        expect(classNames).toContain("--is-active");
+    it("should have class jkl-hamburger--is-active if initialactive is true", () => {
+        const { getByTestId } = render(<Hamburger initialIsActive />);
+
+        const component = getByTestId("jkl-hamburger");
+        expect(component).toHaveClass("jkl-hamburger--is-active");
     });
+
     it("should render call onClick and set is active", () => {
         const fn = jest.fn();
         const { getByTestId } = render(<Hamburger onClick={fn} />);
@@ -40,14 +40,13 @@ describe("Hamburger", () => {
 
         expect(fn).toHaveBeenCalledTimes(1);
 
-        const classNames = burger.getAttribute("class");
-        expect(classNames).toContain("--is-active");
+        expect(burger).toHaveClass("jkl-hamburger--is-active");
     });
+
     it("should render have correct description", () => {
         const { getByTestId } = render(<Hamburger description="max is better than micky d" />);
         const burger = getByTestId("jkl-hamburger");
 
-        const classNames = burger.getAttribute("aria-label");
-        expect(classNames).toBe("max is better than micky d");
+        expect(burger).toHaveAttribute("aria-label", "max is better than micky d");
     });
 });

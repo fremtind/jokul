@@ -50,9 +50,7 @@ export const Hamburger = ({
             data-testid="jkl-hamburger"
             ref={wrapperRef}
         >
-            <span className="jkl-hamburger__box">
-                <span className="jkl-hamburger__inner"></span>
-            </span>
+            <span className="jkl-hamburger__inner"></span>
         </button>
     );
 };
