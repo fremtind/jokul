@@ -12,3 +12,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.jkl-sr-only {
+    @include screenreader-only();
+
+    &--focusable {
+        @include screenreader-only-focusable();
+    }
+}
