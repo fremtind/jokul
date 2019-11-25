@@ -4,12 +4,14 @@ interface Props {
     className?: string;
     centered?: boolean;
     showSymbol: boolean;
+    title?: string;
 }
 
-export const LogoAnimated = ({ className = "", centered = true, showSymbol = true }: Props) => {
+export const LogoAnimated = ({ className = "", centered = true, showSymbol = true, title = "Fremtind" }: Props) => {
     return (
         <div className={`jkl-logo__wrapper ${centered && showSymbol ? "jkl-logo__wrapper--centered" : ""}`}>
             <svg
+                aria-labelledby="logoAnimatedTitle"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 stroke="currentColor"
@@ -18,10 +20,11 @@ export const LogoAnimated = ({ className = "", centered = true, showSymbol = tru
                     showSymbol ? "jkl-logo--animated__symbol-only" : ""
                 } ${className}`}
             >
+                <title id="logoAnimatedTitle">{title}</title>
                 <g fill="none" className="jkl-logo--animated__F" strokeWidth="8">
                     <line
                         x1="34.3"
-                        x2="99.846844"
+                        x2="104.846844"
                         y1="32.563024"
                         y2="32.563024"
                         className="jkl-logo--animated__F-line"
