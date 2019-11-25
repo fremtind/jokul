@@ -5,9 +5,12 @@ on:
         branches:
             - "*"
             - "!master"
+            - "!feature/*"
+            - "!release/*"
 
 jobs:
     build:
+        name: "Build, lint, typecheck and test"
         runs-on: ubuntu-latest
 
         steps:
