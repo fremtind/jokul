@@ -2,10 +2,18 @@ import React from "react";
 
 interface Props {
     className?: string;
+    title?: string;
 }
 
-export const LogoSymbol = ({ className = "" }: Props) => (
-    <svg className={`jkl-logo ${className}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260.32 140.25">
+export const LogoSymbol = ({ className = "", title = "Fremtind" }: Props) => (
+    <svg
+        aria-labelledby="logoSymbolTitle"
+        role="img"
+        className={`jkl-logo ${className}`}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 260.32 140.25"
+    >
+        <title id="logoSymbolTitle">{title}</title>
         <path
             stroke="currentColor"
             fill="currentColor"
