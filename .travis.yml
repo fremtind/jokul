@@ -2,8 +2,6 @@ dist: xenial
 language: node_js
 node_js:
     - "v12.6.0"
-cache:
-    yarn: true
 
 # Only build on master
 # https://stackoverflow.com/questions/31882306/how-to-configure-travis-ci-to-build-pull-requests-merges-to-master-w-o-redunda
