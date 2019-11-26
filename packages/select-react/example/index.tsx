@@ -10,7 +10,10 @@ import "./index.scss";
 initTabListener();
 const SelectDemo = () => {
     const items = ["The flower shop", "I have cancer", "Throwing the football", "ChirpChirpChirp"];
-    const valuePairs = [{ value: "firstvalue", label: "Value 1" }, { value: "secondvalue", label: "Value 2" }];
+    const valuePairs = [
+        { value: "firstvalue", label: "Value 1" },
+        { value: "secondvalue", label: "Value 2" },
+    ];
     const years = [...Array(120)].map((_, i) => (i + 1900).toString()); // 1900 - 2019
 
     const [favoriteScene, setFavoriteScene] = useState<string>();
