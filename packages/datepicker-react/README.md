@@ -29,7 +29,9 @@ Helt grunnleggende bruk av datovelgeren ser slik ut:
 <DatePicker />
 ```
 
-Datovelgeren kan ta inn prop-en `title` (standardverdi "Velg dato") for å sette tittel. Det samme gjelder `monthLabel` ("Måned"), `yearLabel` ("År"), `months` og `days`. De to sistnevnte er av typen `string[]` og brukes eksempelvis slik dersom det skal være språktilpasset:
+Datovelgeren kan ta inn prop-en `label` (standardverdi "Velg dato") for å sette tittel.
+
+Om du ønsker andre navn på ukedager og/eller måneder, f.eks for andre språk enn norsk, kan dette sendes inn som `string`-arrayer til prop-ene `days` og `months`.
 
 ```jsx
 const englishMonths = [
@@ -52,9 +54,9 @@ const englishDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 <DatePicker months={englishMonths} days={englishDays} />;
 ```
 
-Er det behov for å velge en dato langt frem eller tilbake i tid benyttes prop-en `extended` slik at år og måned kan settes via en nedtrekksliste.
+Er det behov for å velge en dato langt frem eller tilbake i tid benyttes prop-en `extended` slik at år og måned kan settes via en nedtrekksliste. Etikettene på disse nedtrekkslistene settes med prop-ene `monthLabel` og `yearLabel` ("Måned" og "År" er standardverdier).
 
-Teksten i tekstfeltet kan enten settes som en placeholder ved prop-en `placeholder` (standardverdi "dd.mm.åååå") eller ferdig utfylt ved `initialDate`.
+Du kan sette en forhåndsvalgt dato med `initialDate`. Dersom ingen dato er valgt vises teksten fra prop-en `placeholder` (standardverdi er "dd.mm.åååå").
 
 ```jsx
 <DatePicker initialDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))} />
