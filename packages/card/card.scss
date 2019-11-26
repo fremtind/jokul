@@ -7,7 +7,7 @@ $card-corner-radius: rem(2px);
 $card-padding-normal: $component-spacing--xl;
 
 .jkl-card {
-    @include removeOutline;
+    @include reset-outline;
     position: relative;
     overflow: hidden;
     display: block;

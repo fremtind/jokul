@@ -12,7 +12,7 @@ $hamburger-icon-width: rem(35px);
 $hamburger-line-spacing: rem(-10px);
 
 .jkl-hamburger {
-    @include removeOutline;
+    @include reset-outline;
     border: none;
     outline: none;
     display: flex;

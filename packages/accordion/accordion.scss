@@ -2,7 +2,7 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .jkl-accordion-item {
-    @include removeOutline;
+    @include reset-outline;
 
     $title-padding: $component-spacing--large;
 

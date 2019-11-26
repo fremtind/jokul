@@ -40,7 +40,7 @@ $chevron-weight: rem(1px);
 }
 
 .jkl-select {
-    @include removeOutline;
+    @include reset-outline;
     background-color: $bg-color;
     display: block;
     width: $select-width;

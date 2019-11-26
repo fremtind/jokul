@@ -42,7 +42,7 @@ $radio-button-color: $svart;
 }
 
 .jkl-radio-button {
-    @include removeOutline;
+    @include reset-outline;
     cursor: pointer;
     display: flex;
     align-items: center;
