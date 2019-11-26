@@ -8,6 +8,7 @@ interface Props {
 export const LogoStampInnovation = ({ className = "", title = "Innovasjon fra Fremtind" }: Props) => (
     <svg
         aria-labelledby="stampInnovationTitle"
+        role="img"
         className={className}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 682.66669 682.66669"

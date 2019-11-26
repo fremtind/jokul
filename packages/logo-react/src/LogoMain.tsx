@@ -8,6 +8,7 @@ interface Props {
 export const LogoMain = ({ className = "", title = "Fremtind" }: Props) => (
     <svg
         aria-labelledby="logoMainTitle"
+        role="img"
         className={`jkl-logo ${className}`}
         viewBox="0 0 994 187"
         xmlns="http://www.w3.org/2000/svg"

@@ -12,6 +12,7 @@ export const LogoAnimated = ({ className = "", centered = true, showSymbol = tru
         <div className={`jkl-logo__wrapper ${centered && showSymbol ? "jkl-logo__wrapper--centered" : ""}`}>
             <svg
                 aria-labelledby="logoAnimatedTitle"
+                role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 stroke="currentColor"
