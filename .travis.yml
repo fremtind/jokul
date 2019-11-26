@@ -9,10 +9,11 @@ branches:
     only:
         - master
 
-before_deploy:
+script:
     - yarn
     - yarn build
-    - yarn build:docs
+
+before_deploy: yarn build:docs
 deploy:
     provider: pages
     local_dir: "./portal/public"
