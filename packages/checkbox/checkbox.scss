@@ -11,6 +11,7 @@ $checkbox-background-color--error: $error-color;
 $checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
 .jkl-checkbox {
+    @include removeOutline;
     display: flex;
     align-items: center;
     cursor: pointer;

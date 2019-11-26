@@ -1,4 +1,5 @@
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
+@import "~@fremtind/jkl-core/mixins/_helpers.scss";
 @import "~@fremtind/jkl-core/variables/_colors.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/variables/_font-size.scss";
@@ -11,6 +12,7 @@ $hamburger-icon-width: rem(35px);
 $hamburger-line-spacing: rem(-10px);
 
 .jkl-hamburger {
+    @include removeOutline;
     border: none;
     outline: none;
     display: flex;

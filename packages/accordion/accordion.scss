@@ -2,6 +2,8 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .jkl-accordion-item {
+    @include removeOutline;
+
     $title-padding: $component-spacing--large;
 
     margin-bottom: $component-spacing--small;
