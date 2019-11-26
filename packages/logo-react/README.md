@@ -31,10 +31,7 @@ import "@fremtind/jkl-logo/logo.min.css";
 
 ### Bruk
 
-Felles for alle komponentene er at de tar inn følgende props:
-
--   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
--   `title`: Eventuell title for tilgjengelighet. `string`
+Et eksempel på generell bruk av komponentene kan se slik ut:
 
 ```js
 <LogoSymbol className="symbol-example" />
@@ -45,10 +42,9 @@ Felles for alle komponentene er at de tar inn følgende props:
 <LogoStampTechnology />
 ```
 
-`LogoAnimated` tar i tillegg til ovennevnte props også inn:
+Merk at prop-en `title` kan benyttes der det er behov for økt tilgjengelighet. Standardverdien er `Fremtind` for de ulike logotypene, med unntak av stemplene som har mer spesifikke standardverdier.
 
--   `showSymbol`: **Påkrevd**. Benyttes til å utløse animasjonen samt angi starttilstanden. `boolean`
--   `centered`: Sentrerer symbolet. `boolean`
+`LogoAnimated` er litt annerledes i bruk og krever at prop-en `showSymbol` benyttes. `showSymbol` angir om det er logosymbolet eller logotypen som skal vises. Logoen animeres når denne prop-en endres. Et eksempel på bruk kan se slik ut:
 
 ```js
 const [showSymbol, toggleSymbol] = useState(false);
