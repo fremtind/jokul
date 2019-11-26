@@ -38,7 +38,7 @@ const TextFieldDemo = () => {
                 />
                 <ActionTextField
                     action={{
-                        icon: "edit",
+                        icon: "search",
                         label: "Skriv til konsoll",
                         onClick: (e) => console.log(value),
                     }}

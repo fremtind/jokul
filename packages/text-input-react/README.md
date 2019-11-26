@@ -45,7 +45,7 @@ Handlingen/Ikonet som skal brukes på et `ActionTextField` gis gjennom prop-en `
 
 ```jsx
 type action = {
-    icon: IconVariant, // "clear", "delete", "search" eller "edit"
+    icon: IconVariant, // "clear" | "search"
     label: string,
     onClick: (event: MouseEvent) => void,
 };
