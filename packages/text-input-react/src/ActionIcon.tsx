@@ -26,4 +26,4 @@ export const ActionIcon = ({ action, className }: Props) => {
     );
 };
 
-export type IconVariant = "clear" | "delete" | "search" | "edit";
+export type IconVariant = "clear" | "search";
