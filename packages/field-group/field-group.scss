@@ -1,8 +1,15 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 .jkl-field-group {
-    border: 0;
-    padding: 0;
-    display: block;
-    line-height: 1;
+    /* 
+     * Field set legends are displayed straddling the top of the field set by default.
+     * This makes sure the entire legend falls within the field set background. 
+     **/
+    &__legend {
+        float: left;
+
+        & + * {
+            clear: both;
+        }
+    }
 }

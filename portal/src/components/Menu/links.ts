@@ -43,12 +43,13 @@ export const componentLinks = [
     makeComponentLink("Tekstfelt", "textfield"),
     makeComponentLink("Langt tekstfelt", "textarea"),
     makeComponentLink("Meldinger", "messagebox"),
+    makeComponentLink("Fremdriftsindikator", "progressbar"),
     makeComponentLink("Logo", "logo"),
     makeComponentLink("Logostempel", "logostamp"),
     makeComponentLink("Lasteindikator", "loader"),
     makeComponentLink("Delelinje", "dividerline"),
     makeComponentLink("Kort", "card"),
-    makeComponentLink("Liste", "bulletlist"),
+    makeComponentLink("Liste", "list"),
     makeComponentLink("Hamburgermeny", "hamburger"),
 ];
 

@@ -20,22 +20,17 @@ describe("Select", () => {
         expect(dropdown).toHaveClass("jkl-select--inline");
     });
 
-    it("should set inital value as input value", () => {
+    it("should use the specified value", () => {
         const onChange = jest.fn();
-        const initialInput = "drop";
+        const value = "drop";
         const { getByTestId } = render(
-            <Select
-                onChange={onChange}
-                items={["drop", "it", "like", "its", "hot"]}
-                label="Snoop"
-                initialInputValue={initialInput}
-            />,
+            <Select onChange={onChange} items={["drop", "it", "like", "its", "hot"]} label="Snoop" value={value} />,
         );
 
         const button = getByTestId("jkl-select__value");
 
         expect(onChange).toHaveBeenCalledTimes(0);
-        expect(button).toHaveTextContent(initialInput);
+        expect(button).toHaveTextContent(value);
     });
 
     it("should have default text value in button when no option selected", () => {
@@ -50,5 +45,15 @@ describe("Select", () => {
         const { getByTestId } = render(<Select items={["1", "2"]} label="test" forceCompact />);
 
         expect(getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
+    });
+
+    it("displays the ValuePair label of selected item on first render", () => {
+        const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
+
+        const { getByTestId } = render(
+            <Select label="test" items={valuePairs} value={"datagreier"} onChange={() => {}} />,
+        );
+
+        expect(getByTestId("jkl-select__value").innerHTML).toBe("Fin lesbar tekst");
     });
 });

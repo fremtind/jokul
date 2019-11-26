@@ -1,6 +1,6 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
@@ -45,7 +45,6 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
 export function Select({
     items,
     value,
-    initialInputValue,
     label,
     onChange,
     className,
@@ -55,12 +54,19 @@ export function Select({
     defaultPrompt = "Velg",
     variant,
     forceCompact,
+    initialInputValue,
 }: Props) {
-    const [selectedValue, setSelectedValue] = useState(value || initialInputValue);
-    const [displayedValue, setDisplayedValue] = useState(value || initialInputValue);
+    const [selectedValue, setSelectedValue] = useState(value);
+    const hasSelectedValue = typeof selectedValue !== "undefined";
+
+    function getLabelFromValue(value: string | undefined) {
+        const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
+        return matchingItem && matchingItem.label;
+    }
+    const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
+
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
-    const hasSelectedValue = typeof selectedValue !== "undefined";
     const listRef = useListNavigation();
     const componentClassName = "jkl-select".concat(
         inline ? ` jkl-select--inline` : "",
@@ -70,6 +76,12 @@ export function Select({
         !!errorLabel ? ` jkl-select--invalid` : "",
         className ? ` ${className}` : "",
     );
+
+    if (initialInputValue && process.env.NODE_ENV !== "production") {
+        console.warn(
+            "Warning!: The 'initialInputValue' prop on the Select component is deprecated and does nothing. Use the 'value' prop instead.",
+        );
+    }
 
     function onToggle() {
         const listElement = listRef.current;
@@ -82,14 +94,17 @@ export function Select({
     function onToggleSelect(e: CoreToggleSelectEvent) {
         e.target.hidden = true;
         e.target.button.focus();
-        if (value && onChange) {
-            e.target.value = e.detail;
-            const nextValue = e.detail.value;
-            setDisplayedValue(e.detail.textContent);
-            setSelectedValue(nextValue);
-            onChange(nextValue || "");
-        }
+        e.target.value = e.detail;
+        const nextValue = e.detail.value;
+        setDisplayedValue(e.detail.textContent);
+        setSelectedValue(nextValue);
+        onChange && onChange(nextValue);
     }
+
+    useEffect(() => {
+        setSelectedValue(value);
+        setDisplayedValue(getLabelFromValue(value));
+    }, [value]);
 
     return (
         <div data-testid="jkl-select" className={componentClassName}>

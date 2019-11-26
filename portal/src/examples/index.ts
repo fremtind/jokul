@@ -1,5 +1,5 @@
 export { default as AccordionExample } from "./AccordionExample";
-export { default as BulletListExample } from "./BulletListExample";
+export { default as ListExample } from "./ListExample";
 export { default as ButtonExample } from "./ButtonExample";
 export { default as CardExample } from "./CardExample";
 export { default as CheckboxExample } from "./CheckboxExample";
@@ -12,6 +12,7 @@ export { default as LoaderExample } from "./LoaderExample";
 export { default as LogoExample } from "./LogoExample";
 export { default as LogoStampExample } from "./LogoStampExample";
 export { default as MessageBoxExample } from "./MessageBoxExample";
+export { default as ProgressBarExample } from "./ProgressBarExample";
 export { default as RadioButtonExample } from "./RadioButtonExample";
 export { default as TextAreaExample } from "./TextAreaExample";
 export { default as TextFieldExample } from "./TextFieldExample";
