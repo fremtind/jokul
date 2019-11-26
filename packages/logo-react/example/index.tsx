@@ -12,23 +12,23 @@ import {
 } from "../src";
 
 const LogoExample = () => {
-    const [showSymbol, toggleSymbol] = useState(false);
+    const [isSymbol, toggleSymbol] = useState(false);
 
     return (
         <>
-            <button onClick={() => toggleSymbol(!showSymbol)}>Lean !back Lean !back</button>
+            <button onClick={() => toggleSymbol(!isSymbol)}>Lean !back Lean !back</button>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
                 <div style={{ width: "300px" }}>
                     <LogoSymbol />
                     <LogoMain />
-                    <LogoAnimated showSymbol={showSymbol} />
-                    <LogoAnimated showSymbol={!showSymbol} />
+                    <LogoAnimated isSymbol={isSymbol} />
+                    <LogoAnimated isSymbol={!isSymbol} />
                 </div>
                 <div style={{ backgroundColor: "#000", color: "#fafafa", width: "300px" }}>
                     <LogoSymbol />
                     <LogoMain />
-                    <LogoAnimated showSymbol={showSymbol} centered={false} />
-                    <LogoAnimated showSymbol={!showSymbol} centered={true} />
+                    <LogoAnimated isSymbol={isSymbol} centered={false} />
+                    <LogoAnimated isSymbol={!isSymbol} centered={true} />
                 </div>
                 <div style={{ width: "300px" }}>
                     <LogoStampTechnology />
