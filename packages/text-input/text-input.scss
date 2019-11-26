@@ -14,6 +14,9 @@ $bottom-padding: $component-spacing--small;
 $textarea-expanded-height: $input-height * 7 + $bottom-padding;
 $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bottom-padding;
 
+$icon-size: $font-size-3;
+$icon-size--compact: $font-size-2;
+
 .jkl-text-field {
     display: block;
     box-sizing: border-box;
@@ -40,6 +43,23 @@ $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bott
         }
         & .jkl-text-field__input {
             height: $input-height--small-device + $bottom-padding;
+        }
+        & .jkl-text-field__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+
+    @include small-device {
+        & .jkl-text-field__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+
+    &--action {
+        position: relative;
+
+        .jkl-text-field__input {
+            padding-right: $component-spacing--small + $icon-size;
         }
     }
 
@@ -96,6 +116,27 @@ $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bott
                 box-shadow: inset 0 rem(-4px) 0 0 $error-color;
             }
         }
+    }
+
+    &__action-button {
+        position: absolute;
+        right: 0;
+        bottom: $component-spacing--small;
+        appearance: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    &__action-icon {
+        display: inline-block;
+        width: $icon-size;
+    }
+
+    &__input-wrapper {
+        display: inline-block;
+        position: relative;
     }
 }
 
