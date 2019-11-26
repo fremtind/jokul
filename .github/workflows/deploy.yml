@@ -1,10 +1,11 @@
-name: Deploy to GitHub Pages
+name: CD
 on:
     push:
         branches:
             - master
 jobs:
     build-and-deploy:
+        name: Deploy to GitHub Pages
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
