@@ -10,9 +10,9 @@ cache:
 branches:
     only:
         - master
-        - /^greenkeeper/.*$/
 
 before_deploy:
+    - yarn
     - yarn build
     - yarn build:docs
 deploy:
