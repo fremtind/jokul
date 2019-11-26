@@ -4,20 +4,17 @@ node_js:
     - "v12.6.0"
 cache:
     yarn: true
-script:
-    - yarn build
-    - yarn lint
-    - yarn typecheck
-    - yarn ci:test
 
-# Only build PRs and master
+# Only build on master
 # https://stackoverflow.com/questions/31882306/how-to-configure-travis-ci-to-build-pull-requests-merges-to-master-w-o-redunda
 branches:
     only:
         - master
         - /^greenkeeper/.*$/
 
-before_deploy: yarn build:docs
+before_deploy:
+    - yarn build
+    - yarn build:docs
 deploy:
     provider: pages
     local_dir: "./portal/public"
