@@ -44,13 +44,13 @@ Et eksempel på generell bruk av komponentene kan se slik ut:
 
 Merk at prop-en `title` kan benyttes der det er behov for økt tilgjengelighet. Standardverdien er `Fremtind` for de ulike logotypene, med unntak av stemplene som har mer spesifikke standardverdier.
 
-`LogoAnimated` er litt annerledes i bruk og krever at prop-en `showSymbol` benyttes. `showSymbol` angir om det er logosymbolet eller logotypen som skal vises. Logoen animeres når denne prop-en endres. Et eksempel på bruk kan se slik ut:
+`LogoAnimated` er litt annerledes i bruk og krever at prop-en `isSymbol` benyttes. `isSymbol` angir om det er logosymbolet eller logotypen som skal vises. Logoen animeres når denne prop-en endres. Et eksempel på bruk kan se slik ut:
 
 ```js
-const [showSymbol, toggleSymbol] = useState(false);
+const [isSymbol, toggleSymbol] = useState(false);
 
-<button onClick={() => toggleSymbol(!showSymbol)}>Animate Logo</button>
+<button onClick={() => toggleSymbol(!isSymbol)}>Animate Logo</button>
 
-<LogoAnimated showSymbol={showSymbol} />
-<LogoAnimated showSymbol={!showSymbol} />
+<LogoAnimated isSymbol={isSymbol} />
+<LogoAnimated isSymbol={!isSymbol} />
 ```
