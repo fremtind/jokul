@@ -3,25 +3,29 @@ import React from "react";
 interface Props {
     className?: string;
     centered?: boolean;
-    showSymbol: boolean;
+    isSymbol: boolean;
+    title?: string;
 }
 
-export const LogoAnimated = ({ className = "", centered = true, showSymbol = true }: Props) => {
+export const LogoAnimated = ({ className = "", centered = true, isSymbol = true, title = "Fremtind" }: Props) => {
     return (
-        <div className={`jkl-logo__wrapper ${centered && showSymbol ? "jkl-logo__wrapper--centered" : ""}`}>
+        <div className={`jkl-logo__wrapper ${centered && isSymbol ? "jkl-logo__wrapper--centered" : ""}`}>
             <svg
+                aria-labelledby="logoAnimatedTitle"
+                role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
                 stroke="currentColor"
                 viewBox="30 18 658 127"
                 className={`jkl-logo jkl-logo--animated ${
-                    showSymbol ? "jkl-logo--animated__symbol-only" : ""
+                    isSymbol ? "jkl-logo--animated__symbol-only" : ""
                 } ${className}`}
             >
+                <title id="logoAnimatedTitle">{title}</title>
                 <g fill="none" className="jkl-logo--animated__F" strokeWidth="8">
                     <line
                         x1="34.3"
-                        x2="99.846844"
+                        x2="104.846844"
                         y1="32.563024"
                         y2="32.563024"
                         className="jkl-logo--animated__F-line"
