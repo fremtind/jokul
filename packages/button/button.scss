@@ -37,7 +37,7 @@ $hover-elevation-distance: -0.25rem;
         line-height: $button-height--small;
     }
 
-    @include compactMode {
+    @include compact-mode {
         height: $button-height--small;
         min-width: $button-height--small;
         line-height: $button-height--small;
