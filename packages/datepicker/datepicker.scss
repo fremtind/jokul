@@ -13,6 +13,7 @@ $background-color: $helhvit;
 $bottom-margin: $component-spacing--large;
 
 .jkl-datepicker {
+    @include reset-outline;
     position: relative;
     width: $calendar-width + ($calendar-padding * 2);
     margin-bottom: $bottom-margin;
