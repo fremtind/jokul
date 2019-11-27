@@ -37,7 +37,7 @@ $icon-size--compact: $font-size-2;
         }
     }
 
-    @include compactMode {
+    @include compact-mode {
         & .jkl-text-field__input,
         & .jkl-text-field__input::placeholder {
             @include text-sizing--small-device("small");
