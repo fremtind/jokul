@@ -57,7 +57,7 @@ export function Select({
     initialInputValue,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
-    const hasSelectedValue = typeof selectedValue !== "undefined";
+    const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
 
     function getLabelFromValue(value: string | undefined) {
         const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
