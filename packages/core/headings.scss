@@ -11,7 +11,7 @@
     @include font-size("xxl");
     @include line-height("xxl");
 
-    @include compactMode {
+    @include compact-mode {
         @include font-size--small-device("xxl");
         @include line-height--small-device("xxl");
     }
@@ -24,7 +24,7 @@
     @include font-size("xl");
     @include line-height("xl");
 
-    @include compactMode {
+    @include compact-mode {
         @include font-size--small-device("xl");
         @include line-height--small-device("xl");
     }
@@ -37,7 +37,7 @@
     @include font-size("large");
     @include line-height("large");
 
-    @include compactMode {
+    @include compact-mode {
         @include font-size--small-device("large");
         @include line-height--small-device("large");
     }
@@ -49,7 +49,7 @@
     @include font-size("medium");
     line-height: $line-height-3; // exeption from scale
 
-    @include compactMode {
+    @include compact-mode {
         @include font-size--small-device("medium");
         line-height: $line-height-2;
     }

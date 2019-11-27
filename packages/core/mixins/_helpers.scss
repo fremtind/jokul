@@ -12,7 +12,7 @@
     bottom: $bottom;
 }
 
-@mixin compactMode {
+@mixin compact-mode {
     &--compact,
     *[data-compactlayout] & {
         @content;
