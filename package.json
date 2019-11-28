@@ -13,7 +13,7 @@
         "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
         "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint": "yarn run lint:formatting && yarn run lint:scripts",
-        "ci:test": "run-p test",
+        "ci:test": "run-p test lint typecheck",
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "prerelease": "yarn build",
