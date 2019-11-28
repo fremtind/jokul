@@ -180,7 +180,7 @@ $bottom-margin: $component-spacing--large;
             line-height: $line-height-4;
             padding: 0;
             padding-top: $component-spacing--xxs; // adjust visual alignment of text
-            transition: 75ms ease-in;
+            @include motion("entrance", "energetic");
             transition-property: color, background-color, box-shadow;
             &[data-adjacent="true"] {
                 padding: 0; // reset vertical alignment of text
