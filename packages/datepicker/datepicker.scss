@@ -201,7 +201,7 @@ $bottom-margin: $component-spacing--large;
             }
 
             &:focus {
-                box-shadow: 0 0 0 1px $snohvit, 0 0 0 3px $focus-color;
+                box-shadow: 0 0 0 rem(1px) $snohvit, 0 0 0 rem(3px) $focus-color;
             }
         }
     }
