@@ -46,6 +46,7 @@ const App = () => (
         </div>
         <div className="jkl-spacing--all-3">
             <DatePicker
+                extended
                 label="Select the best date"
                 yearLabel="1988 is good"
                 monthLabel="Try september"

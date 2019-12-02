@@ -25,7 +25,10 @@ const AccordionExample = () => (
     <Example
         exampleComponents={{ Accordion, AccordionItem }}
         exampleCode={example}
-        types={[{ name: "Accordion", type: accordionType }, { name: "AccordionItem", type: accordionItemType }]}
+        types={[
+            { name: "Accordion", type: accordionType },
+            { name: "AccordionItem", type: accordionItemType },
+        ]}
         exampleImport={exampleImport}
     />
 );

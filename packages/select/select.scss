@@ -40,6 +40,7 @@ $chevron-weight: rem(1px);
 }
 
 .jkl-select {
+    @include reset-outline;
     background-color: $bg-color;
     display: block;
     width: $select-width;
@@ -50,7 +51,7 @@ $chevron-weight: rem(1px);
         vertical-align: top;
     }
 
-    @include compactMode {
+    @include compact-mode {
         & .jkl-select__value {
             @include text-sizing--small-device("small");
             padding-right: $chevron-size--compact + $side-padding;

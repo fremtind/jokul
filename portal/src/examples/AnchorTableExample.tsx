@@ -1,6 +1,6 @@
 import React from "react";
 import { Example } from "../components";
-import { Table } from "@fremtind/jkl-table-react";
+import { Table, TableRowType } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";
 
 import tableType from "!raw-loader!@fremtind/jkl-table-react/build/Table.d.ts";
@@ -11,7 +11,7 @@ const example = `() => {
     const anchorRows = [
         {
             href: "https://google.com",
-            type: "anchor",
+            type: TableRowType.Anchor,
             hrefLabel: "Google",
             onRowClick: navigateToLink,
             rowData: [
@@ -26,7 +26,7 @@ const example = `() => {
         },
         {
             href: "https://google.com",
-            type: "anchor",
+            type: TableRowType.Anchor,
             hrefLabel: "Google",
             onRowClick: navigateToLink,
             rowData: [
@@ -41,7 +41,7 @@ const example = `() => {
         },
         {
             href: "https://google.com",
-            type: "anchor",
+            type: TableRowType.Anchor,
             hrefLabel: "Google",
             onRowClick: navigateToLink,
             rowData: [
@@ -56,7 +56,7 @@ const example = `() => {
         },
         {
             href: "https://google.com",
-            type: "anchor",
+            type: TableRowType.Anchor,
             hrefLabel: "Google",
             onRowClick: navigateToLink,
             rowData: [
@@ -78,11 +78,16 @@ const example = `() => {
     return <Table rows={anchorRows} columns={columns} />;
 };`;
 
-const exampleImport = `import { Table } from "@fremtind/jkl-table-react";
+const exampleImport = `import { Table, TableRowType } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";`;
 
 export function AnchorTableExample() {
     return (
-        <Example exampleComponents={{ Table }} exampleCode={example} type={tableType} exampleImport={exampleImport} />
+        <Example
+            exampleComponents={{ Table, TableRowType }}
+            exampleCode={example}
+            type={tableType}
+            exampleImport={exampleImport}
+        />
     );
 }
