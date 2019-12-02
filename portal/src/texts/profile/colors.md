@@ -74,3 +74,5 @@ Funksjonsfargene våre - Xrød, Xblå og Xgrønn, gir informasjon til brukeren o
     Blåfarge til bruk… mot hvit bakgrunn og hvite elementer. Kan brukes med hvit tekst.
 -   **UX-Rød (#D73704)**
     Brukes til feilmeldinger i digitale løsninger mot hvit bakgrunn og hvite elementer. Kan brukes med hvit tekst.
+-   **UX-Grønn (#35C16D)**
+    Brukes til suksessmeldinger i digitale løsninger mot hvit bakgrunn og hvite elementer. Kan brukes med hvit tekst.
