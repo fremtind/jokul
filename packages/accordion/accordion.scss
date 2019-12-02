@@ -2,18 +2,14 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .jkl-accordion-item {
+    @include reset-outline;
+
     $title-padding: $component-spacing--large;
 
-    @include motion("standard");
-    transition-property: transform;
     margin-bottom: $component-spacing--small;
 
     &:last-child {
         margin-bottom: 0;
-    }
-
-    &:active {
-        transform: scale(0.99);
     }
 
     &--expanded {
@@ -35,11 +31,18 @@
         text-align: left;
         width: 100%;
 
+        @include motion("standard");
+        transition-property: transform, color, background-color;
+
         /* Remove button styles */
         outline: none;
         background-color: $varde;
         color: inherit; // stops Safari from changing color on :active
         border: none;
+
+        &:active {
+            transform: scale(0.99);
+        }
 
         &:hover {
             cursor: pointer;
@@ -50,9 +53,6 @@
         html:not([data-mousenavigation]) &:focus {
             box-shadow: inset 0 0 0 2px $focus-color;
         }
-
-        @include motion("standard");
-        transition-property: color, background-color;
     }
 
     &__title-text {

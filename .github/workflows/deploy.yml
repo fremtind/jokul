@@ -1,23 +1,21 @@
-name: Deploy portal
-
+name: CD
 on:
     push:
         branches:
             - master
-
 jobs:
-    deploy:
+    build-and-deploy:
+        name: Deploy to GitHub Pages
         runs-on: ubuntu-latest
-
         steps:
-            - uses: actions/checkout@v1
-            - name: Build components
-              run: yarn && yarn build
-            - name: Deploy to GitHub Pages
-              uses: JamesIves/github-pages-deploy-action@2.0.3
+            - name: Checkout
+              uses: actions/checkout@master
+
+            - name: Build and Deploy
+              uses: JamesIves/github-pages-deploy-action@master
               env:
-                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                  BASE_BRANCH: master # The branch the action should deploy from.
-                  BRANCH: gh-pages # The branch the action should deploy to.
-                  FOLDER: portal/public # The folder the action should deploy.
-                  BUILD_SCRIPT: yarn build:docs
+                  ACCESS_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+                  BASE_BRANCH: master
+                  BRANCH: gh-pages
+                  FOLDER: portal/public
+                  BUILD_SCRIPT: yarn && yarn build && yarn build:docs

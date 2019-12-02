@@ -3,10 +3,12 @@ name: CI
 on:
     push:
         branches:
+            - "*"
             - "!master"
 
 jobs:
     build:
+        name: "Build, lint, typecheck and test"
         runs-on: ubuntu-latest
 
         steps:
@@ -14,6 +16,7 @@ jobs:
             - name: Lint and test
               run: |
                   yarn install
-                  yarn lint
                   yarn build
+                  yarn lint
+                  yarn typecheck
                   yarn test

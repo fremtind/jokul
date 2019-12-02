@@ -1,0 +1,17 @@
+@import "~@fremtind/jkl-core/core.scss";
+@import "../list.scss";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body > .jkl-list {
+    margin: $layout-spacing--large;
+}

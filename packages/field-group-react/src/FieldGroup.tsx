@@ -24,7 +24,7 @@ export const FieldGroup = ({
     const componentClassName = "jkl-field-group".concat(className ? ` ${className}` : "");
     return (
         <fieldset className={componentClassName}>
-            <legend>
+            <legend className="jkl-field-group__legend">
                 <Label variant={variant} forceCompact={forceCompact}>
                     {legend}
                 </Label>

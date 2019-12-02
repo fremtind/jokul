@@ -35,7 +35,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-toggle-switch": "^0.1.7"
+        "@fremtind/jkl-toggle-switch": "^0.1.7",
+        "@fremtind/jkl-typography-react": "^0.9.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.0",

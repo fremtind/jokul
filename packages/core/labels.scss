@@ -7,12 +7,8 @@
     margin-top: $component-spacing--small;
     @include text-sizing("xxs");
 
-    &--compact {
+    @include compact-mode {
         @include text-sizing--small-device("xxs");
-    }
-
-    &--help {
-        color: $svart;
     }
 
     &--error {
@@ -45,7 +41,7 @@
         @include text-sizing("xxs");
     }
 
-    &--compact {
+    @include compact-mode {
         &.jkl-label--medium {
             @include text-sizing--small-device("medium");
         }
