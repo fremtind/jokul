@@ -15,8 +15,6 @@ jobs:
             - uses: actions/checkout@v1
             - name: Lint and test
               run: |
-                  yarn install
+                  yarn install --frozen-lockfile
                   yarn build
-                  yarn lint
-                  yarn typecheck
-                  yarn test
+                  yarn ci:test
