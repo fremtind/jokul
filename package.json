@@ -10,9 +10,7 @@
         "predeploy:docs": "yarn run build:docs",
         "deploy:docs": "gh-pages -d portal/public",
         "typecheck": "tsc --noEmit",
-        "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
-        "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "lint": "yarn run lint:formatting && yarn run lint:scripts",
+        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "ci:test": "run-p test lint typecheck",
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
@@ -50,6 +48,7 @@
         "eslint": "^6.0.0",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-react": "^7.14.3",
         "fibers": "^4.0.1",
         "gh-pages": "^2.0.1",
@@ -97,9 +96,8 @@
             "git add"
         ],
         "*.{ts,tsx,js,jsx}": [
-            "prettier --write",
-            "git add",
-            "eslint"
+            "eslint --fix",
+            "git add"
         ]
     }
 }
