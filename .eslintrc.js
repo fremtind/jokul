@@ -13,7 +13,7 @@ module.exports = {
         },
     },
     parser: "@typescript-eslint/parser",
-    plugins: ["jsx-a11y"],
+    plugins: ["prettier", "jsx-a11y"],
     extends: [
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
@@ -30,5 +30,6 @@ module.exports = {
         "@typescript-eslint/no-use-before-define": ["error", { functions: false }],
         "@typescript-eslint/ban-ts-ignore": 0, // We use ts-ignore for modules that don't have type definition files
         "react/prop-types": 0,
+        "prettier/prettier": "error",
     },
 };

@@ -13,6 +13,7 @@ $background-color: $helhvit;
 $bottom-margin: $component-spacing--large;
 
 .jkl-datepicker {
+    @include reset-outline;
     position: relative;
     width: $calendar-width + ($calendar-padding * 2);
     margin-bottom: $bottom-margin;
@@ -179,7 +180,8 @@ $bottom-margin: $component-spacing--large;
             line-height: $line-height-4;
             padding: 0;
             padding-top: $component-spacing--xxs; // adjust visual alignment of text
-            transition: color 75ms ease-in, background-color 75ms ease-in;
+            @include motion("entrance", "energetic");
+            transition-property: color, background-color, box-shadow;
             &[data-adjacent="true"] {
                 padding: 0; // reset vertical alignment of text
                 font-size: $font-size-2;
@@ -196,6 +198,10 @@ $bottom-margin: $component-spacing--large;
                 background-color: $svart;
                 color: $snohvit;
                 font-weight: bold;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 rem(1px) $snohvit, 0 0 0 rem(3px) $focus-color;
             }
         }
     }

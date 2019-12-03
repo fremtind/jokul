@@ -15,6 +15,7 @@ $disabled-color: $varm-fjellgra;
 $inverted-disabled-color: #969696;
 
 .jkl-toggle-switch {
+    @include reset-outline;
     height: $toggle-height;
     display: flex;
     align-items: center;

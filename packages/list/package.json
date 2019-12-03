@@ -1,0 +1,46 @@
+{
+    "name": "@fremtind/jkl-list",
+    "version": "1.0.0-alpha.13",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for list",
+    "homepage": "https://fremtind.github.io/jokul/",
+    "keywords": [
+        "bullet list",
+        "ordered list",
+        "unordered list",
+        "list",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "!example",
+        "*.css"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ dist/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^1.0.0-alpha.13"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.11"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
+}
