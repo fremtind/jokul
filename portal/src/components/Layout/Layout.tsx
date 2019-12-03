@@ -1,11 +1,5 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React, { ReactNode } from "react";
+import { MDXProvider } from "@mdx-js/react";
 import { Footer, Header, Menu } from "..";
 
 import "./Layout.scss";
@@ -52,12 +46,34 @@ export const Layout = ({ children, title, header, isComponentPage = false, showF
         }
     }, [theme]);
 
+    /* eslint-disable */
+    const H1 = (props: any) => <h1 className="jkl-h1" {...props} />;
+    const H2 = (props: any) => <h1 className="jkl-h2" {...props} />;
+    const H3 = (props: any) => <h1 className="jkl-h3" {...props} />;
+    const H4 = (props: any) => <h1 className="jkl-h4" {...props} />;
+    const H5 = (props: any) => <h1 className="jkl-h5" {...props} />;
+    const P = (props: any) => <p className="jkl-p" {...props} />;
+    const Ul = (props: any) => <ul className="jkl-list" {...props} />;
+    const Li = (props: any) => <li className="jkl-list__item" {...props} />;
+    /* eslint-enable */
+
+    const components = {
+        h1: H1,
+        h2: H2,
+        h3: H3,
+        h4: H4,
+        h5: H5,
+        p: P,
+        ul: Ul,
+        li: Li,
+    };
+
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <Header siteHeader={header} siteTitle={title} />
             <Menu />
             <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
-                {children}
+                <MDXProvider components={components}>{children}</MDXProvider>
             </main>
             {showFooter && <Footer />}
         </ThemeContext.Provider>
