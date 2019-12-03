@@ -1065,6 +1065,25 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
+"@fremtind/jkl-button-react@0.6.5":
+  version "0.6.5"
+  resolved "https://registry.yarnpkg.com/@fremtind/jkl-button-react/-/jkl-button-react-0.6.5.tgz#b157a60907c6a4d265b2f3654ff0088d4288b499"
+  integrity sha512-sq5h6TRzR1Fp6kvGnKiHPJoxgJDinW+0PQBWNOuycAI7lXXqEWBnnEw/mY6my1qoJyHATdtfb1TMKogHC9OHdA==
+  dependencies:
+    "@fremtind/jkl-button" "^0.8.0"
+
+"@fremtind/jkl-button@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@fremtind/jkl-button/-/jkl-button-0.8.0.tgz#b4b802c74516de0ea4befb7a30442469d00a2ed1"
+  integrity sha512-92k1bOSxyBJDkqmweNM6i/FeHE9E5VQ8R862GNH/EooGHTunHq/27aJPcJTu1ySmTbpzOWMfZbWtxd9H94+qFQ==
+  dependencies:
+    "@fremtind/jkl-core" "^0.11.0"
+
+"@fremtind/jkl-core@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@fremtind/jkl-core/-/jkl-core-0.11.0.tgz#d714bf6fa6b7ad6523c90829a36b1fe7f3b80399"
+  integrity sha512-3gcveA6JKlyXxBTJrx4086mzy7I2Vnl+n6VBWKzucGcf6+freofJrTG6xkxa6Q/p38UdKZBJSsZi0WKyMlMPGA==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
