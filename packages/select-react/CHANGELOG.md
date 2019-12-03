@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@0.1.0-alpha.1...@fremtind/jkl-select-react@0.1.0-alpha.2) (2019-12-03)
+
+
+### Bug Fixes
+
+* fix visual jump when value is empty ([1301573](https://github.com/fremtind/jokul/commit/130157368ccff963f4b2d9173f317bf92e2b1e72))
+* **select-react:** get actual label as initial display value ([2c9feeb](https://github.com/fremtind/jokul/commit/2c9feebda9e7be2e26a514cdd8b770e108ad0d99))
+* **select-react:** use valuePair label as initial display value ([d7b41f2](https://github.com/fremtind/jokul/commit/d7b41f25542ff789ae80d521a63f31af3c9ba23f))
+
+
+
+
+
 # [0.1.0-alpha.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@0.1.0-alpha.0...@fremtind/jkl-select-react@0.1.0-alpha.1) (2019-11-13)
 
 

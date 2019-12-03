@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@1.0.0-alpha.13...@fremtind/jkl-toggle-switch@1.0.0-alpha.14) (2019-12-03)
+
+
+### Bug Fixes
+
+* change white color to correspond to design sketches ([c7396bc](https://github.com/fremtind/jokul/commit/c7396bccc4ff138871c9e92a3d5d34988677fb3b))
+* fix component spacing for label ([07a34fc](https://github.com/fremtind/jokul/commit/07a34fc75be40054aa2cd1e0e61638f802bae2e5))
+* fix focus state ([ae4aa57](https://github.com/fremtind/jokul/commit/ae4aa5781cd751f3cc3cd00287a834a6986c5352))
+* fix implementation of SupportLabel ([71ba3df](https://github.com/fremtind/jokul/commit/71ba3dfb1b49e2d59c96323ad71bc54d75e0e126))
+
+
+### Features
+
+* **toggle-switch-react:** add disabled state ([f4de742](https://github.com/fremtind/jokul/commit/f4de7420d298e4b88e6f47c2a03b5d9e43837e77)), closes [#450](https://github.com/fremtind/jokul/issues/450)
+* **toggle-switch-react:** add inverted variant ([aab1360](https://github.com/fremtind/jokul/commit/aab13606bf763d72bb6a79057068276c6099a878))
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@1.0.0-alpha.12...@fremtind/jkl-toggle-switch@1.0.0-alpha.13) (2019-11-13)
 
 **Note:** Version bump only for package @fremtind/jkl-toggle-switch

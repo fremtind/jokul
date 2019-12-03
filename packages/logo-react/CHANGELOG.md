@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@1.0.0-alpha.13...@fremtind/jkl-logo-react@1.0.0-alpha.14) (2019-12-03)
+
+
+### Features
+
+* add img role to svg ([94bbd22](https://github.com/fremtind/jokul/commit/94bbd22041baec38eded605661737265d6b62474))
+* add title for accessibility ([d92cccd](https://github.com/fremtind/jokul/commit/d92cccd5530e647030337a28470565e62d66a4ff))
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@1.0.0-alpha.12...@fremtind/jkl-logo-react@1.0.0-alpha.13) (2019-11-13)
 
 **Note:** Version bump only for package @fremtind/jkl-logo-react

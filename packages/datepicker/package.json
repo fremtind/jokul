@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker",
-    "version": "1.0.0-alpha.13",
+    "version": "1.0.0-alpha.14",
     "publishConfig": {
         "access": "public"
     },
@@ -24,9 +24,9 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^1.0.0-alpha.13",
-        "@fremtind/jkl-select": "^0.1.0-alpha.1",
-        "@fremtind/jkl-text-input": "^1.0.0-alpha.13"
+        "@fremtind/jkl-core": "^1.0.0-alpha.14",
+        "@fremtind/jkl-select": "^0.1.0-alpha.2",
+        "@fremtind/jkl-text-input": "^1.0.0-alpha.14"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^1.0.0-alpha.11"

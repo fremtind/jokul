@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group@1.0.0-alpha.13...@fremtind/jkl-field-group@1.0.0-alpha.14) (2019-12-03)
+
+
+### Bug Fixes
+
+* **field-group:** fix position of legend within fieldsets ([1c27076](https://github.com/fremtind/jokul/commit/1c2707658a9fd3eaef75f3635edc98e180cb13a7))
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group@1.0.0-alpha.12...@fremtind/jkl-field-group@1.0.0-alpha.13) (2019-11-13)
 
 **Note:** Version bump only for package @fremtind/jkl-field-group

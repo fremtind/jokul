@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "1.0.0-alpha.13",
+    "version": "1.0.0-alpha.14",
     "publishConfig": {
         "access": "public"
     },
@@ -33,7 +33,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^1.0.0-alpha.13",
+        "@fremtind/jkl-accordion": "^1.0.0-alpha.14",
         "@fremtind/jkl-react-hooks": "^1.0.0-alpha.11",
         "@nrk/core-toggle": "^3.0.4"
     },

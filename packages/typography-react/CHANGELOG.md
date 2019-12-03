@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@1.0.0-alpha.13...@fremtind/jkl-typography-react@1.0.0-alpha.14) (2019-12-03)
+
+
+### Bug Fixes
+
+* fix const C to default to span if standAlone is not specified ([4bd066d](https://github.com/fremtind/jokul/commit/4bd066dda0550631fd7eb96ef49859b538896b33))
+* fix implementation of SupportLabel ([71ba3df](https://github.com/fremtind/jokul/commit/71ba3dfb1b49e2d59c96323ad71bc54d75e0e126))
+
+
+### Features
+
+* add BaseInputField component and enable stand-alone use of Label ([7f37cd4](https://github.com/fremtind/jokul/commit/7f37cd43dd336a18f80edb070017edbdb9dd77ce))
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@1.0.0-alpha.12...@fremtind/jkl-typography-react@1.0.0-alpha.13) (2019-11-13)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react

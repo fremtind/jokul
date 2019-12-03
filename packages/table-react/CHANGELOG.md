@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@1.0.0-alpha.13...@fremtind/jkl-table-react@1.0.0-alpha.14) (2019-12-03)
+
+
+### Features
+
+* **table-react:** change table row types to enum ([d9394a9](https://github.com/fremtind/jokul/commit/d9394a924c82f5d837a91a4cf008c9691b51567d))
+* **table-react:** export table row types from index ([d4afa3b](https://github.com/fremtind/jokul/commit/d4afa3bac4add3090189e726346c67d59a89326c))
+* **table-react:** use hrefLabel as title attribute on anchor rows ([e719622](https://github.com/fremtind/jokul/commit/e719622eeabf14fceb0b5382fc1e53b91d1bd1a4)), closes [#515](https://github.com/fremtind/jokul/issues/515)
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@1.0.0-alpha.12...@fremtind/jkl-table-react@1.0.0-alpha.13) (2019-11-13)
 
 **Note:** Version bump only for package @fremtind/jkl-table-react

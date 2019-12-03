@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.13...@fremtind/jkl-text-input@1.0.0-alpha.14) (2019-12-03)
+
+
+### Bug Fixes
+
+* fix icon placement when width isn't default ([5b2e655](https://github.com/fremtind/jokul/commit/5b2e655323cd5cbffcb6575deec413c1e43a8e32))
+* include small-device so action-icon is responsive ([e6dc30a](https://github.com/fremtind/jokul/commit/e6dc30a7249fa728c917120c92d3b8b493540679))
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.0.0-alpha.12...@fremtind/jkl-text-input@1.0.0-alpha.13) (2019-11-13)
 
 

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.0.0-alpha.13...@fremtind/jkl-text-input-react@1.0.0-alpha.14) (2019-12-03)
+
+
+### Bug Fixes
+
+* add type to button ([aa8f825](https://github.com/fremtind/jokul/commit/aa8f82548fe19c6bd6be16cd88e2643fcf28348d))
+* fix circular dependency in index, move into utils.ts ([fc79bc0](https://github.com/fremtind/jokul/commit/fc79bc0af338127ef306496cd39fceac939d65f0))
+* send props to BaseInputField and fix invalid-state ([9fcf5ec](https://github.com/fremtind/jokul/commit/9fcf5ecfd98c1b22609b29e8d9453140d04d4821))
+
+
+### Features
+
+* add aria-describedby to BaseInputField ([9e8898e](https://github.com/fremtind/jokul/commit/9e8898e9bbb8683631adcee32eacc3a4bc0506ea))
+* add BaseInputField component and enable stand-alone use of Label ([7f37cd4](https://github.com/fremtind/jokul/commit/7f37cd43dd336a18f80edb070017edbdb9dd77ce))
+* add className and remove forceCompact ([c9171c6](https://github.com/fremtind/jokul/commit/c9171c66a65e226c3bf133a8beffde696e4bf5bf))
+* add description prop to action-button ([b6c6139](https://github.com/fremtind/jokul/commit/b6c613970b281fd122de5a004232d51f7f57df0b))
+* add description prop to button ([8c73461](https://github.com/fremtind/jokul/commit/8c734610d1b639e577ec0882549077da062e2aa9))
+* **action-text-field:** add new text-field component ([4fdd80b](https://github.com/fremtind/jokul/commit/4fdd80b06d51ec633f2dd28ebcb1bc5a71f6c8ac))
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.0.0-alpha.12...@fremtind/jkl-text-input-react@1.0.0-alpha.13) (2019-11-13)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

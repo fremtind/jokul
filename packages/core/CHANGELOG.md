@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.13...@fremtind/jkl-core@1.0.0-alpha.14) (2019-12-03)
+
+
+### Bug Fixes
+
+* **core:** add back sr-only class to core.scss ([a126e68](https://github.com/fremtind/jokul/commit/a126e68e5229e622c808ea24fc9c808f823ed10e))
+* **core:** remove rule with side effects from normalize ([1430118](https://github.com/fremtind/jokul/commit/1430118a72a25dd9f749731930efb1b3c6cb3dfc))
+* fix implementation of SupportLabel ([71ba3df](https://github.com/fremtind/jokul/commit/71ba3dfb1b49e2d59c96323ad71bc54d75e0e126))
+* tweak font weights ([be3e1b7](https://github.com/fremtind/jokul/commit/be3e1b7a8f9b6e15b8c77de85adaba58cd0b4800))
+
+
+### Features
+
+* add energetic (75ms) timing ([c48e4a3](https://github.com/fremtind/jokul/commit/c48e4a315fc53be287596e0e9af7157ee578f3c3))
+* use new font in core and portal ([f07f959](https://github.com/fremtind/jokul/commit/f07f9599aa1ec402a332563cf1178aeef7fcc17c))
+* **core:** move fieldset styling to reset.css ([9046a65](https://github.com/fremtind/jokul/commit/9046a65a131ff70c79411778d11aa6e66c22d8de))
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0-alpha.12...@fremtind/jkl-core@1.0.0-alpha.13) (2019-11-13)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.10](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.0.0-alpha.9...@fremtind/portal@1.0.0-alpha.10) (2019-12-03)
+
+
+### Bug Fixes
+
+* **portal:** remove reference to old font stylesheet ([a7bee77](https://github.com/fremtind/jokul/commit/a7bee77162ff0002d962084542d52ea686e79739))
+* **portal:** use prefix path when loading webfonts ([cded83f](https://github.com/fremtind/jokul/commit/cded83f74aaeed19b9b3a074a47d195c10abc61a))
+* **portal-darkmode:** fix toggleswitch after breaking change ([4f51aea](https://github.com/fremtind/jokul/commit/4f51aea45ff7ae8edb949bda11ff04162c305a1c))
+
+
+### Features
+
+* use new font in core and portal ([f07f959](https://github.com/fremtind/jokul/commit/f07f9599aa1ec402a332563cf1178aeef7fcc17c))
+
+
+
+
+
 # [1.0.0-alpha.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.0.0-alpha.8...@fremtind/portal@1.0.0-alpha.9) (2019-11-04)
 
 

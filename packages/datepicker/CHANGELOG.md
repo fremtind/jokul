@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-alpha.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.0-alpha.13...@fremtind/jkl-datepicker@1.0.0-alpha.14) (2019-12-03)
+
+
+### Features
+
+* add keyboard focus state on selected day ([9585a92](https://github.com/fremtind/jokul/commit/9585a92292e267c05bdfa2df762047db9b9bdb77)), closes [#420](https://github.com/fremtind/jokul/issues/420)
+
+
+
+
+
 # [1.0.0-alpha.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.0-alpha.12...@fremtind/jkl-datepicker@1.0.0-alpha.13) (2019-11-13)
 
 
