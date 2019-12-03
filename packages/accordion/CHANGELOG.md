@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.9.0...@fremtind/jkl-accordion@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* **accordion-react:** only scale title when on active state ([dbc0b2c](https://github.com/fremtind/jokul/commit/dbc0b2c1977aba0cb1ffd53decb1a03296d26844)), closes [#489](https://github.com/fremtind/jokul/issues/489)
+
+
+
+
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@0.8.3...@fremtind/jkl-accordion@0.9.0) (2019-10-09)
 
 

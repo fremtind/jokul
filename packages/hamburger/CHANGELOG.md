@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger@0.2.5...@fremtind/jkl-hamburger@1.0.0) (2019-12-03)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger
+
+
+
+
+
 ## [0.2.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger@0.2.4...@fremtind/jkl-hamburger@0.2.5) (2019-10-09)
 
 
