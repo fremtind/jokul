@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@0.2.5...@fremtind/jkl-toggle-switch-react@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* change white color to correspond to design sketches ([c7396bc](https://github.com/fremtind/jokul/commit/c7396bccc4ff138871c9e92a3d5d34988677fb3b))
+* fix implementation of SupportLabel ([71ba3df](https://github.com/fremtind/jokul/commit/71ba3dfb1b49e2d59c96323ad71bc54d75e0e126))
+* rework onChange-handler ([b3a0d6a](https://github.com/fremtind/jokul/commit/b3a0d6a2514d83a4cb46bd532e057b10054c948b))
+* **toggle-switch-react:** update dependencies ([e36d18a](https://github.com/fremtind/jokul/commit/e36d18acda3dae45c24693b840b2f2e9d636fc4e))
+
+
+### Features
+
+* **toggle-switch-react:** add disabled state ([f4de742](https://github.com/fremtind/jokul/commit/f4de7420d298e4b88e6f47c2a03b5d9e43837e77)), closes [#450](https://github.com/fremtind/jokul/issues/450)
+* **toggle-switch-react:** add inverted variant ([aab1360](https://github.com/fremtind/jokul/commit/aab13606bf763d72bb6a79057068276c6099a878))
+
+
+
+
+
 ## [0.2.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@0.2.4...@fremtind/jkl-toggle-switch-react@0.2.5) (2019-10-09)
 
 **Note:** Version bump only for package @fremtind/jkl-toggle-switch-react

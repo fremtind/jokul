@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.8.0...@fremtind/jkl-checkbox-react@1.0.0) (2019-12-03)
+
+
+### Features
+
+* **checkbox:** add error state to checkbox ([6c9a554](https://github.com/fremtind/jokul/commit/6c9a5542721cf10b9221f2bd5371cf55e625bc3a))
+* **checkbox:** implement compact/mobile version of checkbox ([7bacff8](https://github.com/fremtind/jokul/commit/7bacff8c5f82580907040cf31259ad098b9f31b4))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@0.7.3...@fremtind/jkl-checkbox-react@0.8.0) (2019-10-09)
 
 
