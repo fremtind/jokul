@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@0.6.9...@fremtind/jkl-card@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* **card:** add core & fix title ([4120174](https://github.com/fremtind/jokul/commit/412017454b83b1ddec4a9124dd84680d3d2d0d7a))
+* **card:** fix transition on hover ([bf945e4](https://github.com/fremtind/jokul/commit/bf945e4600fb3a78d6253ede9aa0b23e80e9e817))
+
+
+### Features
+
+* **card:** make card clickable & move transition/shadow ([3e18478](https://github.com/fremtind/jokul/commit/3e184784fbaf2eb1126c1192a5165fb972fcd3f8))
+* **card:** make card-component ready for v1 ([86c7171](https://github.com/fremtind/jokul/commit/86c71711f2a85255f032f1e7cdce9319bfb971ee)), closes [#453](https://github.com/fremtind/jokul/issues/453)
+
+
+
+
+
 ## [0.6.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@0.6.8...@fremtind/jkl-card@0.6.9) (2019-10-09)
 
 **Note:** Version bump only for package @fremtind/jkl-card

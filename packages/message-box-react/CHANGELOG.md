@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@0.7.5...@fremtind/jkl-message-box-react@1.0.0) (2019-12-03)
+
+
+### Features
+
+* **message-box-react:** make structure more semantic ([cca5a31](https://github.com/fremtind/jokul/commit/cca5a319dd0b439218d4180368caabc61d6abe2e))
+
+
+
+
+
 ## [0.7.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@0.7.4...@fremtind/jkl-message-box-react@0.7.5) (2019-10-09)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box-react

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.9.0...@fremtind/jkl-typography-react@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* **typography-react:** remove capitalization of className for helpLabel ([3f6f5c6](https://github.com/fremtind/jokul/commit/3f6f5c6aa25f28ec873b007ab3a1b3b000ffd781)), closes [#490](https://github.com/fremtind/jokul/issues/490)
+* fix const C to default to span if standAlone is not specified ([4bd066d](https://github.com/fremtind/jokul/commit/4bd066dda0550631fd7eb96ef49859b538896b33))
+* fix implementation of SupportLabel ([71ba3df](https://github.com/fremtind/jokul/commit/71ba3dfb1b49e2d59c96323ad71bc54d75e0e126))
+
+
+### Features
+
+* **text-field:** implement in line version of TextField ([5999a32](https://github.com/fremtind/jokul/commit/5999a3229f4c752e60f346ee1051f395505d188e))
+* **typography-react:** add label component ([1384269](https://github.com/fremtind/jokul/commit/1384269aaadb0a9828bae279d5608e394a928511))
+* add BaseInputField component and enable stand-alone use of Label ([7f37cd4](https://github.com/fremtind/jokul/commit/7f37cd43dd336a18f80edb070017edbdb9dd77ce))
+
+
+
+
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@0.8.3...@fremtind/jkl-typography-react@0.9.0) (2019-10-09)
 
 

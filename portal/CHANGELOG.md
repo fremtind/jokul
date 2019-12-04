@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.11.0...@fremtind/portal@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* **portal:** change wrong imports in SelectExample ([dbe230f](https://github.com/fremtind/jokul/commit/dbe230fe39fda777913b7b349b5fd90c70763372))
+* **portal:** import correct select component in overview ([110cce6](https://github.com/fremtind/jokul/commit/110cce697af6ad3ebfe51570147648b67393521e))
+* **portal:** remove reference to old font stylesheet ([a7bee77](https://github.com/fremtind/jokul/commit/a7bee77162ff0002d962084542d52ea686e79739))
+* **portal:** use prefix path when loading webfonts ([cded83f](https://github.com/fremtind/jokul/commit/cded83f74aaeed19b9b3a074a47d195c10abc61a))
+* **portal-darkmode:** fix toggleswitch after breaking change ([4f51aea](https://github.com/fremtind/jokul/commit/4f51aea45ff7ae8edb949bda11ff04162c305a1c))
+
+
+### Features
+
+* **progressbar:** add progressbar ([1ad8754](https://github.com/fremtind/jokul/commit/1ad8754a15e414ff017bce8d829472dfc9a7d01c))
+* **radio-button-react:** rename radio button components ([d09fe6f](https://github.com/fremtind/jokul/commit/d09fe6fd321f2242a94d7d60deb5ae7997da0ccf))
+* use new font in core and portal ([f07f959](https://github.com/fremtind/jokul/commit/f07f9599aa1ec402a332563cf1178aeef7fcc17c))
+
+
+
+
+
 # [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.10.1...@fremtind/portal@0.11.0) (2019-10-09)
 
 
