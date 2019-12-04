@@ -2,6 +2,7 @@
 
 $footer-height: 350px;
 $footer-height-small: 250px;
+$footer-margin-top: 150px;
 
 .portal-footer {
     background-color: $matt-svart;
@@ -11,6 +12,8 @@ $footer-height-small: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: $footer-margin-top;
+
     &--logo-container {
         width: $footer-height/1.5;
     }
