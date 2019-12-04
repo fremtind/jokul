@@ -76,7 +76,7 @@ $hover-elevation-distance: -0.25rem;
 
     &--primary,
     &--secondary {
-        border: solid $button-border-width $button-border-color;
+        border: solid $button-border-width currentColor;
         border-radius: 999px;
         padding: 0 $button-padding;
 

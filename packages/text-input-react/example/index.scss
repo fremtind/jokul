@@ -1,5 +1,8 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
 body {
-    background-color: white;
+    background-color: $svart;
+    color: $snohvit;
     padding: 5rem;
 }
 

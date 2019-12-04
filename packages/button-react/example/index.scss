@@ -1,10 +1,13 @@
 @import "~@fremtind/jkl-core/variables/_spacing.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
 
 body,
 html {
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: $svart;
+    color: $snohvit;
 }
 
 #app {

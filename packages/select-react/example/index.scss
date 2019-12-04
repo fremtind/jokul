@@ -1,4 +1,10 @@
-body,
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+body {
+    background-color: $svart;
+    color: $snohvit;
+}
+
 #app {
     display: flex;
     flex-direction: column;

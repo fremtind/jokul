@@ -93,6 +93,8 @@ $chevron-weight: rem(1px);
         text-overflow: ellipsis;
         white-space: nowrap;
         background-color: transparent;
+        color: inherit;
+        box-shadow: inset 0 -0.125rem 0 0 currentColor;
 
         border: 0;
         @include text-sizing("small");
@@ -104,7 +106,11 @@ $chevron-weight: rem(1px);
         width: 100%;
         opacity: 1;
         position: relative;
-        @include underline-color($border-color, $border-color--focus);
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 -0.25rem 0 0 currentColor;
+        }
 
         &:active {
             color: currentColor; // Safari text will blink on click without this
