@@ -94,7 +94,6 @@ $chevron-weight: rem(1px);
         white-space: nowrap;
         background-color: transparent;
         color: inherit;
-        @include underline-color(currentColor, $border-color--focus);
 
         border: 0;
         @include text-sizing("small");
@@ -106,6 +105,7 @@ $chevron-weight: rem(1px);
         width: 100%;
         opacity: 1;
         position: relative;
+        @include underline-color(currentColor, $border-color--focus);
 
         &:active {
             color: currentColor; // Safari text will blink on click without this
