@@ -24,6 +24,7 @@ const SelectDemo = () => {
     return (
         <>
             <Select
+                forceCompact
                 inline
                 className="jkl-spacing--top-3"
                 label="The Room scene"

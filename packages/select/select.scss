@@ -53,11 +53,11 @@ $chevron-weight: rem(1px);
     @include compactMode {
         & .jkl-select__value {
             @include text-sizing--small-device("small");
-            padding-right: $chevron-size--compact + $side-padding;
+            padding-right: $chevron-size--compact + (2 * $side-padding);
         }
         & .jkl-select__option {
             @include font-size--small-device("small");
-            line-height: rem(40px);
+            min-height: rem(40px);
         }
         & .jkl-select__chevron {
             @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
