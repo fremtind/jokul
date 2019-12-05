@@ -97,7 +97,7 @@ $chevron-weight: rem(1px);
         @include text-sizing("small");
         font-weight: bold;
         padding: 0 $side-padding $bottom-padding 0;
-        padding-right: $chevron-size + $side-padding;
+        padding-right: $chevron-size + (2 * $side-padding);
         text-align: left;
         transition: box-shadow $transition-timing, padding $transition-timing;
         width: 100%;
@@ -157,8 +157,8 @@ $chevron-weight: rem(1px);
         width: 100%;
         background-color: inherit;
         @include font-size("small");
-        line-height: rem(48px);
-        padding: 0 $component-spacing--medium;
+        min-height: rem(48px);
+        padding: $component-spacing--small $component-spacing--medium;
         text-align: left;
 
         &:focus,
