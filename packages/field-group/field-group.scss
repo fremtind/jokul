@@ -1,6 +1,8 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_helpers.scss";
 
 .jkl-field-group {
+    @include reset-outline;
     /* 
      * Field set legends are displayed straddling the top of the field set by default.
      * This makes sure the entire legend falls within the field set background. 

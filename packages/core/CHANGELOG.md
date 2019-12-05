@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.11.0...@fremtind/jkl-core@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* fix implementation of SupportLabel ([71ba3df](https://github.com/fremtind/jokul/commit/71ba3dfb1b49e2d59c96323ad71bc54d75e0e126))
+* tweak font weights ([be3e1b7](https://github.com/fremtind/jokul/commit/be3e1b7a8f9b6e15b8c77de85adaba58cd0b4800))
+* **core:** add back sr-only class to core.scss ([a126e68](https://github.com/fremtind/jokul/commit/a126e68e5229e622c808ea24fc9c808f823ed10e))
+* **core:** add missing import in headings.scss ([97dd0d9](https://github.com/fremtind/jokul/commit/97dd0d9de3cb3f193eed8716638471571dcb90ee))
+* **core:** remove rule with side effects from normalize ([1430118](https://github.com/fremtind/jokul/commit/1430118a72a25dd9f749731930efb1b3c6cb3dfc))
+
+
+### Features
+
+* add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
+* **core:** add compact mode to paragraphs and headings ([7533c45](https://github.com/fremtind/jokul/commit/7533c458b95d010a15950d4dbc5772d2cc93a28d))
+* **core:** add global compact version to labels ([63f5f9f](https://github.com/fremtind/jokul/commit/63f5f9f04836978fecb015c974b23703dbd969a4))
+* **core:** move fieldset styling to reset.css ([9046a65](https://github.com/fremtind/jokul/commit/9046a65a131ff70c79411778d11aa6e66c22d8de))
+* **core:** specify font fallback strategy ([94816d1](https://github.com/fremtind/jokul/commit/94816d1d9fa2e123f0931e18345d182ed4727cf4)), closes [#464](https://github.com/fremtind/jokul/issues/464)
+* **progressbar:** add progressbar ([1ad8754](https://github.com/fremtind/jokul/commit/1ad8754a15e414ff017bce8d829472dfc9a7d01c))
+* **text-field:** implement in line version of TextField ([5999a32](https://github.com/fremtind/jokul/commit/5999a3229f4c752e60f346ee1051f395505d188e))
+* add energetic (75ms) timing ([c48e4a3](https://github.com/fremtind/jokul/commit/c48e4a315fc53be287596e0e9af7157ee578f3c3))
+* use new font in core and portal ([f07f959](https://github.com/fremtind/jokul/commit/f07f9599aa1ec402a332563cf1178aeef7fcc17c))
+
+
+
+
+
 # [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.10.2...@fremtind/jkl-core@0.11.0) (2019-10-09)
 
 

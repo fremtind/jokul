@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.10.0...@fremtind/jkl-text-input@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* fix icon placement when width isn't default ([5b2e655](https://github.com/fremtind/jokul/commit/5b2e655323cd5cbffcb6575deec413c1e43a8e32))
+* include small-device so action-icon is responsive ([e6dc30a](https://github.com/fremtind/jokul/commit/e6dc30a7249fa728c917120c92d3b8b493540679))
+
+
+### Features
+
+* **text-field:** implement in line version of TextField ([5999a32](https://github.com/fremtind/jokul/commit/5999a3229f4c752e60f346ee1051f395505d188e))
+* add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
+* add support for global compact mode ([cc11026](https://github.com/fremtind/jokul/commit/cc11026207dfef2a0b3b074b88e071783d2820fd)), closes [#494](https://github.com/fremtind/jokul/issues/494)
+
+
+
+
+
 # [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@0.9.3...@fremtind/jkl-text-input@0.10.0) (2019-10-09)
 
 
