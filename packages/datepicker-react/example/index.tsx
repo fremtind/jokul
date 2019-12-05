@@ -25,7 +25,7 @@ const englishMonthNames = [
 const englishDayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 const App = () => (
-    <div style={{ backgroundColor: "black", color: "white", height: "100vh" }}>
+    <>
         <div className="jkl-spacing--all-3">
             <DatePicker extended />
         </div>
@@ -58,7 +58,7 @@ const App = () => (
                 errorLabel={"Not the best date"}
             />
         </div>
-    </div>
+    </>
 );
 
 ReactDOM.render(<App />, document.getElementById("app"));

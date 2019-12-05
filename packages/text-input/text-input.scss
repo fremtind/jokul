@@ -97,7 +97,7 @@ $icon-size--compact: $font-size-2;
 
         &:hover,
         &:focus {
-            box-shadow: inset 0 rem(-2px) 0 0 currentColor;
+            box-shadow: inset 0 rem(-4px) 0 0 currentColor;
         }
 
         html:not([data-mousenavigation]) &:focus {
