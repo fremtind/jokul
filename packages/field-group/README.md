@@ -1,9 +1,14 @@
 # `@fremtind/field-group`
 
-Vi bruker feltgruppering for å vise at et sett med skjemafelter hører sammen. Feltgrupperingen har en overskrift som beskriver innholdet, og kan ha en hjelpetekst eller feilmelding. Vi bruker kun feilmelding i tilfeller der det ikke gir mening at feilmeldingen er ved selve feltet, som for eksempel i grupper av radioknapper.
+# Feltgruppering
+En feltgruppering er et sett med skjemafelter hører sammen. Gruppen får en overskrift som beskriver innholdet og kan vise en hjelpetekst eller en feilmelding.
 
-## Eksempler
+## Tekst og validering
+Velg størrelse på overskriften til en gruppen etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift som beskriver hva brukeren skal velge. Ved behov benyttes en hjelpetekst under gruppen for å forklare mer.
 
--   En gruppe radioknapper for å foreta et valg
--   En gruppe avmerkingsbokser for å velge alternativer i samme kategori
--   En samling av felter som beskriver et sammenhengende konsept, slik som adresse
+Hvis noe i gruppen ikke validerer kan en feilmelding vises under gruppen dersom det ikke gir mening at den bør stå ved et eller flere elementer i gruppen. For eksempel i en gruppe av radioknapper skal en feilmelding vises under gruppen. Merk at en feilmelding erstatter en eventuell hjelpetekst og må hensynta dette.
+
+## Eksempler på bruk
+- En gruppe radioknapper
+- En gruppe avmerkingsbokser
+- En gruppe felter som til sammen utgjør et konsept (e.g. addresse)
