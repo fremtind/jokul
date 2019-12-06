@@ -1,17 +1,18 @@
 # [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/components/textfield/)
 
-## Om tekstfelt
+# Tekstfelt
+Tekstfelt lar brukeren angi data. Ledeteksten angir hva brukeren skal fylle inn. Tekstfelt støtter data med fast format eller fritekst. Velg riktig type tekstfelt basert på ønsket innhold.
 
-I et tekstfelt kan brukerne legge inn egne opplysninger. Et tekstfelt kan være kort eller langt, og det kan gå over en eller flere linjer. Vi kan også legge et tekstfelt inne i en setning for å la brukeren fylle ut et manglende ord eller tall.
+## Typer av tekstfelt
+**Vanlige tekstfelt:** normalt innhold bør ikke overskride lengden på feltet.
 
--   Vi legger inn validering på tekstfelt, slik at brukeren ikke kan fylle det inn feil. Ledeteksten skal tydelig vise hva brukeren kan skrive i feltet.
--   Vi bruker helst bare ledetekst, men hvis vi trenger hjelpetekst i tillegg, skal den plasseres under feltet.
--   Vi bruker bredden på tekstfeltet til å styre hvor mye vi vil at brukeren skal skrive inn. _Et felt for fødselsnummer bør ikke ta mer plass enn det 11 siffer gjør._
+**Lange tekstfelt:** når innholdet vil være lengre enn en setning. Høyden kan justeres.
 
-> Tekstfelter som er inne i en setning kan ikke ha feil- eller hjelpetekst. Dersom det er feil i utfyllingen av disse må årsaken gjøres klar på annen måte.
+**Inline tekstfelt:** Spesialtilfeller hvor vi vil plassere et tekstfelt i en setning.
 
-### Langt tekstfelt
+For alle tekstfelt bør størrelsen på tekstfeltet samsvare med lengden på dataen som skal angis.
 
-Vi kan bruke et langt tekstfelt når vi vil at brukerne skal skrive en lengre tekst, eller de må ha mulighet til å kunne gjøre det. Dette feltet utvider seg, slik at det blir tydelig for brukerne at de kan skrive mye.
+## Tekst og validering
+Velg størrelse på ledetekst etter våre prinsipper for skjemadesign. Ledeteksten skal være kort og tydelig på hva som skal fylles inn. Ved behov benyttes en hjelpetekst under feltet som forklarer mer.
 
-Når vi bruker lange tekstfelt, må vi ha en god ledetekst, som forklarer hva vi forventer at brukeren skal skrive i feltet. Vi kan også angi hvor mange tegn de kan bruke.
+Hvis feltet ikke validerer får feltet en feiltilstand og det vises en feilmelding som forklarer hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst og må hensynta dette.
