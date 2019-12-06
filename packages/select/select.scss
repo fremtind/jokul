@@ -20,6 +20,7 @@ $bottom-padding: $component-spacing--small;
 $chevron-size: rem(20px);
 $chevron-size--compact: rem(16px);
 $chevron-weight: rem(1px);
+$chevron-padding: (2 * $component-spacing--small);
 
 @mixin nojump-bold {
     // Make font bolder without increasing line length
@@ -54,7 +55,7 @@ $chevron-weight: rem(1px);
     @include compact-mode {
         & .jkl-select__value {
             @include text-sizing--small-device("small");
-            padding-right: $chevron-size--compact + (2 * $side-padding);
+            padding-right: $chevron-size--compact + $chevron-padding;
         }
         & .jkl-select__option {
             @include font-size--small-device("small");
@@ -98,7 +99,7 @@ $chevron-weight: rem(1px);
         @include text-sizing("small");
         font-weight: bold;
         padding: 0 $side-padding $bottom-padding 0;
-        padding-right: $chevron-size + (2 * $side-padding);
+        padding-right: $chevron-size + $chevron-padding;
         text-align: left;
         transition: box-shadow $transition-timing, padding $transition-timing;
         width: 100%;
