@@ -1,10 +1,16 @@
 # [`@fremtind/jkl-select`](https://fremtind.github.io/jokul/components/select/)
 
-Vi bruker nedtrekkslister for å gi brukerne mulighet til å velge et alternativ i en liste med valg. Som standard er ingen av alternativene valgt på forhånd. Vi bruker gjerne nedtrekkslister når det er mer enn tre valg. Hvis det er færre valg, bruker vi radioknapper.
+# Nedtrekksliste
+Nedtrekkslister lar brukeren velge et alternativ i en liste med valg. De brukes når det er for mange valg for radioknapper. Ledeteksten beskriver hva som skal velges.
 
-Nedtrekkslister skal alltid ha en ledetekst som tydelig forklarer hva listen inneholder valg for. Vi kan også legge til en hjelpetekst under, hvis vi trenger å forklare valgene nærmere.
+For nedtrekkslister med veldig mange valg kan feltet også ha en innebygd søke / filtreringsfunksjon.
 
-### Eksempler
+## Tekst og validering
+Velg størrelse ledetekst etter prinsippene for skjemadesign. Ha en kort og tydelig ledetekst som beskriver hva brukeren skal velge. Ved behov benyttes en hjelpetekst under listen som forklarer mer.
 
--   Velge mellom diagnoser, for eksempel når du melder skade/sykdom hos kjæledyr
--   Velge en årsak (skadetype)
+Hvis nedtrekkslisten ikke validerer får det en feiltilstand og det vises en feilmelding som forklarer hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst og må hensynta dette.
+
+## Eksempler på bruk
+- Velg årsak eller skadetype (gjerne mange valg)
+- Velg diagnose (for dyre- eller helseforsikring, gjerne søkbar)
+- Velg stilling (gjerne søkbar)
