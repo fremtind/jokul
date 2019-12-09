@@ -85,6 +85,7 @@ $chevron-weight: rem(1px);
         & option {
             font-weight: normal;
             font-family: sans-serif;
+            color: black;
         }
     }
 
@@ -114,7 +115,7 @@ $chevron-weight: rem(1px);
 
     &--no-value {
         .jkl-select__value {
-            color: $varm-fjellgra;
+            color: currentColor;
             font-weight: normal;
         }
     }

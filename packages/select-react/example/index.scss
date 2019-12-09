@@ -1,7 +1,25 @@
 body,
 #app {
+    height: 100%;
+}
+
+.example-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &__light-mode {
+        background-color: white;
+        color: black;
+    }
+
+    &__dark-mode {
+        background-color: black;
+        color: white;
+    }
+}
+
+.toggle-switch {
+    margin-top: 1rem;
 }

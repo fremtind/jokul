@@ -5,7 +5,9 @@ import { initTabListener } from "@fremtind/jkl-core";
 
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-select/select.min.css";
+import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 import "./index.scss";
+import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 
 initTabListener();
 const SelectDemo = () => {
@@ -18,9 +20,13 @@ const SelectDemo = () => {
 
     const [favoriteScene, setFavoriteScene] = useState<string>();
     const [valuePair, setValuePair] = useState<string>();
+    const [darkMode, isDarkMode] = useState(false);
 
     return (
-        <>
+        <div className={"example-page " + (!darkMode ? "example-page__light-mode" : "example-page__dark-mode")}>
+            <ToggleSwitch className={"toggle-switch"} onChange={() => isDarkMode(!darkMode)}>
+                Dark Mode
+            </ToggleSwitch>
             <Select
                 inline
                 className="jkl-spacing--top-3"
@@ -72,7 +78,7 @@ const SelectDemo = () => {
                 onChange={(v) => console.log(v)}
                 helpLabel="This uses value/label pairs"
             />
-        </>
+        </div>
     );
 };
 
