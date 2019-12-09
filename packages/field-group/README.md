@@ -1,7 +1,7 @@
 # `@fremtind/field-group`
 
 # Feltgruppering
-En feltgruppering er et sett med skjemafelter hører sammen. Gruppen får en overskrift som beskriver innholdet og kan vise en hjelpetekst eller en feilmelding.
+En feltgruppering er et sett med skjemafelter som hører sammen. Gruppen får en overskrift som beskriver innholdet, og kan vise en hjelpetekst eller en feilmelding.
 
 ## Tekst og validering
 Velg størrelse på overskriften til en gruppen etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift som beskriver hva brukeren skal velge. Ved behov benyttes en hjelpetekst under gruppen for å forklare mer.
