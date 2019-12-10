@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-webfonts@1.0.0...@fremtind/jkl-webfonts@1.0.1) (2019-12-10)
+
+
+### Bug Fixes
+
+* **webfonts:** update [@font-face](https://github.com/font-face) rules to handle locally installed fonts ([89b88b8](https://github.com/fremtind/jokul/commit/89b88b8f901016ba4699750ef5402e94c3fc7bd5))
+
+
+
+
+
 # 1.0.0 (2019-12-03)
 
 
