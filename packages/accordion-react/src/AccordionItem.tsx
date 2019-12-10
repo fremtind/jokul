@@ -9,17 +9,21 @@ interface Props {
     title: string;
     children: ReactNode;
     startExpanded?: boolean;
+    className?: string;
 }
 
-export function AccordionItem({ children, title, startExpanded = false }: Props) {
+export function AccordionItem({ children, title, className, startExpanded = false }: Props) {
     const [isOpen, setIsOpen] = useState(startExpanded);
     const [elementRef] = useAnimatedHeight(isOpen);
-    const openClassName = isOpen ? " jkl-accordion-item--expanded" : "";
+    const componentClassName = "jkl-accordion-item".concat(
+        isOpen ? " jkl-accordion-item--expanded" : "",
+        className ? ` ${className}` : "",
+    );
 
     const onToggle = () => setIsOpen(!isOpen);
 
     return (
-        <div data-testid="jkl-accordion-item" className={`jkl-accordion-item${openClassName}`}>
+        <div data-testid="jkl-accordion-item" className={componentClassName}>
             <button className="jkl-accordion-item__title" type="button">
                 <span className="jkl-accordion-item__title-text">{title}</span>
                 <span className="jkl-accordion-item__title-icon" />
