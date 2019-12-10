@@ -44,13 +44,7 @@ $portal-max-width: 1200px;
             padding: 0 $component-spacing--large;
         }
     }
-    &__main-example {
-        padding: 0 $layout-spacing--large;
-        @include small-device {
-            padding: 0;
-        }
-    }
-    &__rest {
+    &__main {
         padding: 0 $layout-spacing--large;
         & > * {
             max-width: $portal-max-width;

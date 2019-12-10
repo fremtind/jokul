@@ -16,7 +16,7 @@ export function Menu() {
 
     const { allSitePage } = useStaticQuery(graphql`
         query getPages {
-            allSitePage(filter: { path: { regex: "-react/example/ex/" } }) {
+            allSitePage(filter: { path: { regex: "-react/example/documentation/" } }) {
                 edges {
                     node {
                         id
@@ -110,7 +110,10 @@ export function Menu() {
                                     </Link>
                                 ))}
                             </AccordionItem>
-                            <AccordionItem title="Komponenter" startExpanded={location.pathname.includes("example/ex")}>
+                            <AccordionItem
+                                title="Komponenter"
+                                startExpanded={location.pathname.includes("example/documentation")}
+                            >
                                 {allSitePage.edges.map((edge: any) => (
                                     <Link
                                         key={edge.node.context.frontmatter.title}
@@ -122,7 +125,7 @@ export function Menu() {
                                     </Link>
                                 ))}
                             </AccordionItem>
-                            <AccordionItem title="Eksempel" startExpanded={location.pathname.includes("example")}>
+                            <AccordionItem title="Eksempel" startExpanded={location.pathname.includes("patterns")}>
                                 {exampleLinks.map((link) => (
                                     <Link
                                         key={link.title}

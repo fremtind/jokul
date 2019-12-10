@@ -9,7 +9,7 @@ const makeDesignerLink = (title: string, page: string) => makeLink(title, page, 
 const makeCoreLink = (title: string, page: string) => makeLink(title, page, "core");
 const makeComponentLink = (title: string, page: string) => makeLink(title, page, "components");
 const makeProfileLink = (title: string, page: string) => makeLink(title, page, "profile");
-const makeExampleLink = (title: string, page: string) => makeLink(title, page, "example");
+const makeExampleLink = (title: string, page: string) => makeLink(title, page, "patterns");
 
 export const developerLinks = [
     makeDeveloperLink("Kom i gang", "getting-started"),
