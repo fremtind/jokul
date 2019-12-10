@@ -107,6 +107,10 @@ $chevron-side-padding: (2 * $component-spacing--small);
         position: relative;
         @include underline-color($border-color, $border-color--focus);
 
+        &::-ms-expand {
+            display: none; // remove dropdown arrow in IE11
+        }
+
         &:active {
             color: currentColor; // Safari text will blink on click without this
         }
