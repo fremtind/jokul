@@ -9,7 +9,7 @@ export const Example = () => {
     const [val, setVal] = useState(50);
 
     return (
-        <div className="jkl-spacing--all-3" style={{ width: "100%" }}>
+        <div className="jkl-spacing--all-3">
             <ProgressBar progress={{ current: val, total: 100 }} />
             <div className="jkl-spacing--top-2" style={{ display: "flex", flexDirection: "column" }}>
                 <h2 className="jkl-h3">Controls</h2>

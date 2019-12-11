@@ -1,7 +1,9 @@
 import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { Footer, Header, Menu } from "..";
+import { H1, H2, H3, H4, LeadParagraph, P, Link } from "@fremtind/jkl-typography-react";
+import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
+import { Footer, Header, Menu } from "..";
 import "./Layout.scss";
 
 const getTheme = () => {
@@ -26,6 +28,32 @@ interface Props {
     showFooter?: boolean;
 }
 
+/* eslint-disable */
+const h1 = (props: any) => <H1 {...props} />;
+const h2 = (props: any) => <H2 {...props} />;
+const h3 = (props: any) => <H3 {...props} />;
+const h4 = (props: any) => <H4 {...props} />;
+const h5 = (props: any) => <LeadParagraph {...props} />;
+const p = (props: any) => <P {...props} />;
+const ul = (props: any) => <UnorderedList {...props} />;
+const li = (props: any) => <ListItem {...props} />;
+const ol = (props: any ) => <OrderedList {...props} />;
+const a = (props: any) => <Link {...props} />;
+/* eslint-enable */
+
+const components = {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    ul,
+    li,
+    ol,
+    a,
+};
+
 export const Layout = ({ children, title, header, isComponentPage = false, showFooter = true }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
 
@@ -45,28 +73,6 @@ export const Layout = ({ children, title, header, isComponentPage = false, showF
             document.body.classList.remove("portal-dark");
         }
     }, [theme]);
-
-    /* eslint-disable */
-    const H1 = (props: any) => <h1 className="jkl-h1" {...props} />;
-    const H2 = (props: any) => <h1 className="jkl-h2" {...props} />;
-    const H3 = (props: any) => <h1 className="jkl-h3" {...props} />;
-    const H4 = (props: any) => <h1 className="jkl-h4" {...props} />;
-    const H5 = (props: any) => <h1 className="jkl-h5" {...props} />;
-    const P = (props: any) => <p className="jkl-p" {...props} />;
-    const Ul = (props: any) => <ul className="jkl-list" {...props} />;
-    const Li = (props: any) => <li className="jkl-list__item" {...props} />;
-    /* eslint-enable */
-
-    const components = {
-        h1: H1,
-        h2: H2,
-        h3: H3,
-        h4: H4,
-        h5: H5,
-        p: P,
-        ul: Ul,
-        li: Li,
-    };
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>

@@ -20,18 +20,18 @@ Eksemplenene hentes direkte fra pakken der koden ligger. Det er mulig å kjøre 
 
 ### I bruk
 
-For å lage nytt eksempel til portalen er veien å lage en `.mdx` fil i `your-package/example/ex`. Den vil plukkes opp automatisk av portalen, gitt at man setter en `title` i [frontmatter](https://www.gatsbyjs.org/docs/adding-markdown-pages/#frontmatter-for-metadata-in-markdown-files) headeren i fila. [Les mer om mdx.](https://mdxjs.com/)
+For å lage nytt eksempel til portalen er veien å lage en `.mdx` fil i `your-package/documenta`tion. Den vil plukkes opp automatisk av portalen, gitt at man setter en `title` i [frontmatter](https://www.gatsbyjs.org/docs/adding-markdown-pages/#frontmatter-for-metadata-in-markdown-files) headeren i fila. For å få lenker til github, legg med `react` og/eller `scss` med pakkenavnet. [Les mer om mdx.](https://mdxjs.com/)
 
 ```mdx
 ---
 title: MyComponent
+react: MyComponent-react-package-name
+scss: MyComponent-style-package-name
 ---
 
-@import { MyComponent } from '../MyComponent'
+@import MyComponent from '../MyComponent'
 
-# A title for MyComponent
-
-<MyCompoenent />
+<MyComponent />
 
 ## More details
 ```
