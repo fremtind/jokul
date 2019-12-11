@@ -186,6 +186,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "sigvehag",
+      "name": "Sigve Hagesæter",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/37373812?v=4",
+      "profile": "https://github.com/sigvehag",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
