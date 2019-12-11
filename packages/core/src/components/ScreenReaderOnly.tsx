@@ -2,11 +2,11 @@ import React, { ReactNode } from "react";
 
 interface Props {
     children: ReactNode;
-    focusableOnly?: boolean;
+    showOnFocus?: boolean;
 }
 
-export const ScreenReaderOnly = ({ children, focusableOnly }: Props) => (
-    <span className={`jkl-sr-only ${focusableOnly ? "jkl-sr-only--focusable" : ""}`}>{children}</span>
+export const ScreenReaderOnly = ({ children, showOnFocus }: Props) => (
+    <span className={`jkl-sr-only ${showOnFocus ? "jkl-sr-only--focusable" : ""}`}>{children}</span>
 );
 
 export default ScreenReaderOnly;

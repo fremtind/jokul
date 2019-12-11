@@ -11,7 +11,7 @@ test("should show content with correct className", () => {
 });
 
 test("should show content with correct className", () => {
-    const { getByText } = render(<ScreenReaderOnly focusableOnly>invisible for normal people</ScreenReaderOnly>);
+    const { getByText } = render(<ScreenReaderOnly showOnFocus>invisible for normal people</ScreenReaderOnly>);
 
     const hiddenText = getByText("invisible for normal people");
 
