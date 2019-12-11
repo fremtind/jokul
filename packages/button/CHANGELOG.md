@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.0.0...@fremtind/jkl-button@1.0.1) (2019-12-10)
+
+
+### Bug Fixes
+
+* **button:** use correct shade of white on the buttons ([3755a17](https://github.com/fremtind/jokul/commit/3755a1728051b29cab03af9b94163d4d1fb1bcf5))
+
+
+
+
+
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@0.8.0...@fremtind/jkl-button@1.0.0) (2019-12-03)
 
 

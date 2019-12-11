@@ -10,6 +10,15 @@ describe("AccordionItem", () => {
 
         expect(getByTestId("jkl-accordion-item")).toBeInTheDocument();
     });
+    it("should apply custom classnames", () => {
+        const { getByTestId } = render(
+            <AccordionItem title="Hello" className="custom-class">
+                Something
+            </AccordionItem>,
+        );
+
+        expect(getByTestId("jkl-accordion-item")).toHaveClass("custom-class");
+    });
     it("should render its children", () => {
         const { getByText } = render(<AccordionItem title="Hello">Something</AccordionItem>);
         const child = getByText("Something");
