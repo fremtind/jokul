@@ -1,21 +1,15 @@
 @import "~@fremtind/jkl-core/variables/_spacing.scss";
 
-body,
-html {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-
-#app {
+.jkl-button-example {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: white;
 
     & > * + * {
-        margin-top: $layout-spacing--large;
+        margin-bottom: $layout-spacing--large;
     }
 }
 

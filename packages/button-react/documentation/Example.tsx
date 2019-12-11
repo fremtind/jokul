@@ -1,18 +1,15 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
-import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-core/core.css";
-
-initTabListener();
+import "./index.scss";
 
 function onClick() {
     console.log("Hello!");
 }
 
-const Buttons = () => (
-    <>
+const Example = () => (
+    <section className="jkl-spacing--all-3 jkl-button-example">
         <div className="side-by-side">
             <pre>
                 <code>{`forceCompact={false}`}</code>
@@ -39,8 +36,7 @@ const Buttons = () => (
                 Avbryt
             </TertiaryButton>
         </div>
-    </>
+    </section>
 );
 
-const mountNode = document.getElementById("app");
-ReactDOM.render(<Buttons />, mountNode);
+export default Example;
