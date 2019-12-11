@@ -75,6 +75,21 @@ $bottom-margin: $component-spacing--large;
             border-color: $focus-color;
             border-width: rem(4px);
         }
+
+        &:disabled {
+            & > .jkl-datepicker__month-arrow {
+                @include chevron(rem(20px), $mellomgra, rem(1px));
+                transform-origin: center;
+                transition: none;
+
+                &--left {
+                    transform: rotate(45deg);
+                }
+                &--right {
+                    transform: rotate(-135deg);
+                }
+            }
+        }
     }
 
     &__month-arrow {
@@ -198,6 +213,10 @@ $bottom-margin: $component-spacing--large;
                 background-color: $svart;
                 color: $snohvit;
                 font-weight: bold;
+            }
+
+            &:disabled {
+                color: $mellomgra;
             }
 
             &:focus {
