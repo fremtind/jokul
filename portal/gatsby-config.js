@@ -14,14 +14,14 @@ module.exports = {
             options: {
                 name: `components`,
                 path: `${__dirname}/../packages`,
-                ignore: [`!**/example/documentation/**`],
+                ignore: [`!**/documentation/**.mdx`],
             },
         },
         {
             resolve: "gatsby-plugin-page-creator",
             options: {
                 path: `${__dirname}/../packages`,
-                ignore: [`!**/example/documentation/**`],
+                ignore: [`!**/documentation/**.mdx`],
             },
         },
         {

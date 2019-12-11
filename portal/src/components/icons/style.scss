@@ -10,7 +10,7 @@ $icon-line-offset: rem(7px);
 .portal-icon {
     transition-property: color;
     @include motion(standard, expressive);
-    color: $varm-fjellgra;
+    color: $himmelgra;
     height: $icon-size;
     width: $icon-size;
     padding-top: $icon-line-offset;

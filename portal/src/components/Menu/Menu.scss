@@ -36,9 +36,6 @@ $menu-width: rem(320px);
     & .portal-content__example {
         color: initial;
     }
-    & .portal-icon {
-        color: $himmelgra;
-    }
     & .portal-footer {
         background-color: $svart;
     }
@@ -68,6 +65,10 @@ $menu-width: rem(320px);
     }
 
     &__toggler {
+        @media (min-width: $breakpoint--medium) {
+            display: none;
+        }
+
         @include motion(standard, expressive);
         background-color: $svart;
         position: absolute;
@@ -83,15 +84,17 @@ $menu-width: rem(320px);
     }
 
     &--closed {
-        height: 0;
-        width: 0;
-        & > .portal-menu__bar {
-            box-shadow: none;
-            transform: translateX(-$menu-width);
-        }
-        & > .portal-menu__toggler {
-            background-color: $matt-svart;
-            transform: translateX(0);
+        @media (max-width: $breakpoint--medium) {
+            height: 0;
+            width: 0;
+            & > .portal-menu__bar {
+                box-shadow: none;
+                transform: translateX(-$menu-width);
+            }
+            & > .portal-menu__toggler {
+                background-color: $matt-svart;
+                transform: translateX(0);
+            }
         }
     }
 

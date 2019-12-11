@@ -2,8 +2,8 @@ import React, { ReactNode } from "react";
 import Layout from "./Layout";
 import { ReactIcon, SassIcon } from "../icons";
 import { CodeLink } from "./CodeLink";
-import TypeLoader from "./TypeLoader";
 import "./Layout.scss";
+import { TinyParagraph } from "@fremtind/jkl-typography-react";
 
 interface Props {
     children: ReactNode;
@@ -12,7 +12,6 @@ interface Props {
             title: string;
             react?: string;
             scss?: string;
-            types?: Array<string>;
         };
     };
 }
@@ -20,25 +19,22 @@ interface Props {
 export const ComponentLayout = ({
     children,
     pageContext: {
-        frontmatter: { title, react, scss, types },
+        frontmatter: { title, react, scss },
     },
 }: Props) => (
     <Layout title={title} isComponentPage>
         <>
-            <div className="portal-content__heading">
+            <header className="portal-content__heading">
                 <h2 className="jkl-h1 portal-content__title">{title}</h2>
-                <div>
-                    {react && <CodeLink alt="React package" icon={<ReactIcon />} link={`${react}`} />}
-                    {scss && <CodeLink alt="Style package" icon={<SassIcon />} link={scss} />}
-                </div>
-            </div>
+                {(react || scss) && (
+                    <aside className="portal-content__packages">
+                        {react && <CodeLink alt="React package" icon={<ReactIcon />} link={`${react}`} />}
+                        {scss && <CodeLink alt="Style package" icon={<SassIcon />} link={scss} />}
+                        <TinyParagraph className="portal-content__packages__description">Se på GitHub</TinyParagraph>
+                    </aside>
+                )}
+            </header>
             <section className="portal-content__main">{children}</section>
-            {types &&
-                types.map((typeName) => (
-                    <section key={typeName} className="portal-content__main jkl-spacing--top-2">
-                        <TypeLoader path={`${react}/build/${typeName}`} />
-                    </section>
-                ))}
         </>
     </Layout>
 );
