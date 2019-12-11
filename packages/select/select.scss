@@ -20,6 +20,7 @@ $bottom-padding: $component-spacing--small;
 $chevron-size: rem(20px);
 $chevron-size--compact: rem(16px);
 $chevron-weight: rem(1px);
+$chevron-side-padding: (2 * $component-spacing--small);
 
 @mixin nojump-bold {
     // Make font bolder without increasing line length
@@ -54,11 +55,11 @@ $chevron-weight: rem(1px);
     @include compact-mode {
         & .jkl-select__value {
             @include text-sizing--small-device("small");
-            padding-right: $chevron-size--compact + $side-padding;
+            padding-right: $chevron-size--compact + $chevron-side-padding;
         }
         & .jkl-select__option {
             @include font-size--small-device("small");
-            line-height: rem(40px);
+            min-height: rem(40px);
         }
         & .jkl-select__chevron {
             @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
@@ -98,13 +99,17 @@ $chevron-weight: rem(1px);
         @include text-sizing("small");
         font-weight: bold;
         padding: 0 $side-padding $bottom-padding 0;
-        padding-right: $chevron-size + $side-padding;
+        padding-right: $chevron-size + $chevron-side-padding;
         text-align: left;
         transition: box-shadow $transition-timing, padding $transition-timing;
         width: 100%;
         opacity: 1;
         position: relative;
         @include underline-color($border-color, $border-color--focus);
+
+        &::-ms-expand {
+            display: none; // remove dropdown arrow in IE11
+        }
 
         &:active {
             color: currentColor; // Safari text will blink on click without this
@@ -158,8 +163,8 @@ $chevron-weight: rem(1px);
         width: 100%;
         background-color: inherit;
         @include font-size("small");
-        line-height: rem(48px);
-        padding: 0 $component-spacing--medium;
+        min-height: rem(48px);
+        padding: $component-spacing--small $component-spacing--medium;
         text-align: left;
 
         &:focus,

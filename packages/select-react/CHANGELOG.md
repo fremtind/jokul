@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.0.0...@fremtind/jkl-select-react@1.0.1) (2019-12-10)
+
+
+### Bug Fixes
+
+* **select:** fix padding on forcecompact ([b5a276a](https://github.com/fremtind/jokul/commit/b5a276a8effd08a5cc276eb7dc927be11b4c6020))
+* **select:** increase padding on value-items in select ([2341c33](https://github.com/fremtind/jokul/commit/2341c33519b43df1e669cb3ebc61ed0f89bca4ca))
+
+
+
+
+
 # 1.0.0 (2019-12-03)
 
 
