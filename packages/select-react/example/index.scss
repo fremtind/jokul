@@ -1,3 +1,5 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
 body,
 #app {
     height: 100%;
@@ -9,14 +11,14 @@ body,
     justify-content: center;
     align-items: center;
 
-    &__light-mode {
-        background-color: white;
-        color: black;
+    &--light-mode {
+        background-color: $helhvit;
+        color: $svart;
     }
 
-    &__dark-mode {
-        background-color: black;
-        color: white;
+    &--dark-mode {
+        background-color: $svart;
+        color: $helhvit;
     }
 }
 

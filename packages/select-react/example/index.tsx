@@ -23,8 +23,8 @@ const SelectDemo = () => {
     const [darkMode, isDarkMode] = useState(false);
 
     return (
-        <div className={"example-page " + (!darkMode ? "example-page__light-mode" : "example-page__dark-mode")}>
-            <ToggleSwitch className={"toggle-switch"} onChange={() => isDarkMode(!darkMode)}>
+        <div className={"example-page " + (!darkMode ? "example-page--light-mode" : "example-page--dark-mode")}>
+            <ToggleSwitch className={"toggle-switch"} inverted={darkMode} onChange={() => isDarkMode(!darkMode)}>
                 Dark Mode
             </ToggleSwitch>
             <Select
