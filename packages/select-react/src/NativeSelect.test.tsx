@@ -30,7 +30,10 @@ describe("NativeSelect", () => {
     });
 
     it("should render correct label and value when given values as objects", () => {
-        const items = [{ value: "item1", label: "Item 1" }, { value: "item2", label: "Item 2" }];
+        const items = [
+            { value: "item1", label: "Item 1" },
+            { value: "item2", label: "Item 2" },
+        ];
         const { getAllByTestId } = render(<NativeSelect label="testing" items={items} onChange={dummyFunc} />);
 
         expect(getAllByTestId("jkl-select__option")[1]).toHaveAttribute("value", "item2");

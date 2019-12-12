@@ -1,0 +1,62 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+$item-space-between: $component-spacing--large;
+$item-indent: $component-spacing--xxl;
+
+$diamond: "\25C6";
+$diamond-hollow: "\25C7";
+$square: "\25A0";
+
+.jkl-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    & > .jkl-list__item {
+        margin: $item-space-between 0;
+        padding-left: $item-indent;
+
+        &::before {
+            content: $diamond;
+            position: absolute;
+            margin-left: -3ch;
+        }
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+    & & > .jkl-list__item {
+        &:before {
+            content: $diamond-hollow;
+        }
+        padding-left: $item-indent;
+        &:first-of-type {
+            margin-top: $item-space-between;
+        }
+        &:last-of-type {
+            margin-bottom: $item-space-between;
+        }
+    }
+
+    &--ordered {
+        counter-reset: my-counter;
+
+        & > .jkl-list__item {
+            counter-increment: my-counter;
+
+            &::before {
+                content: counter(my-counter) ". ";
+                font-weight: bold;
+            }
+        }
+
+        & & > .jkl-list__item::before {
+            content: counter(my-counter, lower-alpha) ". ";
+        }
+    }
+}

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.8.0...@fremtind/jkl-radio-button-react@1.0.0) (2019-12-03)
+
+
+### Features
+
+* **radio-button:** implement compact/mobile version ([e3c2c6f](https://github.com/fremtind/jokul/commit/e3c2c6fdc4de9b59900f1dc8a0b132cea0cb733a))
+* **radio-button-react:** rename radio button components ([d09fe6f](https://github.com/fremtind/jokul/commit/d09fe6fd321f2242a94d7d60deb5ae7997da0ccf))
+
+
+
+
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@0.7.3...@fremtind/jkl-radio-button-react@0.8.0) (2019-10-09)
 
 

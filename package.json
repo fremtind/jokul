@@ -10,10 +10,8 @@
         "predeploy:docs": "yarn run build:docs",
         "deploy:docs": "gh-pages -d portal/public",
         "typecheck": "tsc --noEmit",
-        "lint:formatting": "prettier -c '**/*.{js,jsx,ts,tsx}' '**/*.scss' '**/*.html'",
-        "lint:scripts": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "lint": "yarn run lint:formatting && yarn run lint:scripts",
-        "ci:test": "run-p test",
+        "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "ci:test": "run-p test lint typecheck",
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "prerelease": "yarn build",
@@ -32,14 +30,14 @@
         "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^8.0.0",
         "@testing-library/dom": "^6.0.0",
-        "@testing-library/jest-dom": "^4.0.0",
+        "@testing-library/jest-dom": "^4.2.1",
         "@testing-library/react": "^9.1.1",
-        "@types/jest": "^24.0.13",
+        "@types/jest": "^24.0.20",
         "@types/node": "^12.6.2",
         "@types/react": "^16.9.4",
         "@types/react-dom": "^16.9.0",
         "@types/sass": "^1.16.0",
-        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "@typescript-eslint/eslint-plugin": "^2.8.0",
         "@typescript-eslint/parser": "^2.0.0",
         "autoprefixer": "^9.6.1",
         "commitizen": "^4.0.1",
@@ -50,6 +48,7 @@
         "eslint": "^6.0.0",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-react": "^7.14.3",
         "fibers": "^4.0.1",
         "gh-pages": "^2.0.1",
@@ -97,9 +96,8 @@
             "git add"
         ],
         "*.{ts,tsx,js,jsx}": [
-            "prettier --write",
-            "git add",
-            "eslint"
+            "eslint --fix",
+            "git add"
         ]
     }
 }

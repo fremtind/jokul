@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.0.0...@fremtind/jkl-datepicker-react@1.0.1) (2019-12-10)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.11.0...@fremtind/jkl-datepicker-react@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* **datepicker-react:** datepicker fire onChange on edit ([df0cb61](https://github.com/fremtind/jokul/commit/df0cb6138d0fb255dd9eb2b2a347999151bde36d))
+* **datepicker-react:** datepicker fire onChange on edit ([be99c8b](https://github.com/fremtind/jokul/commit/be99c8b1a9f753977483e2c29c0978241fa8d3d8))
+
+
+### Features
+
+* **datepicker:** implement compact version of datepicker ([c8168a5](https://github.com/fremtind/jokul/commit/c8168a5f336c93980ca3e05a8205f3d7bb057e45))
+* remove dropdown pkgs and replace with select pkgs ([14c2b4f](https://github.com/fremtind/jokul/commit/14c2b4fa5a236e2d7824834a7b074ae62ce870b4))
+
+
+### Reverts
+
+* revert datepicker docs ([c1b4b87](https://github.com/fremtind/jokul/commit/c1b4b875c5fba7a034af8ca8d341eba821e7f7a1))
+* revert unnecessary changes to datepicker docs ([3fc3bd1](https://github.com/fremtind/jokul/commit/3fc3bd1c73e4b298fc93cbc3df50bcf2c4977c9e))
+
+
+
+
+
 # [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@0.10.2...@fremtind/jkl-datepicker-react@0.11.0) (2019-10-09)
 
 

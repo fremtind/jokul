@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.0.0...@fremtind/jkl-card-react@1.0.1) (2019-12-10)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@0.6.5...@fremtind/jkl-card-react@1.0.0) (2019-12-03)
+
+
+### Bug Fixes
+
+* **card:** add core & fix title ([4120174](https://github.com/fremtind/jokul/commit/412017454b83b1ddec4a9124dd84680d3d2d0d7a))
+* **card:** change prop name ([a9e2eba](https://github.com/fremtind/jokul/commit/a9e2eba90f00bb677826f0fe952adff3b8b1f2be))
+* **card:** fix empty div ([6fcbaf5](https://github.com/fremtind/jokul/commit/6fcbaf5d63fad260fb8ea3d545747d079233884d))
+* **card:** fix image import ([6a546d4](https://github.com/fremtind/jokul/commit/6a546d42aca4b3e809d648a6d5a921992fcaf909))
+* **card:** fix space on className ([513eaf2](https://github.com/fremtind/jokul/commit/513eaf20b25df75cb2845a4ed066ed1900946717))
+* **card:** make props mandatory ([47559f6](https://github.com/fremtind/jokul/commit/47559f6d7a404da75d60ae65b8b1bca506205e92))
+
+
+### Features
+
+* **card:** make card clickable & move transition/shadow ([3e18478](https://github.com/fremtind/jokul/commit/3e184784fbaf2eb1126c1192a5165fb972fcd3f8))
+* **card:** make card-component ready for v1 ([2b608b7](https://github.com/fremtind/jokul/commit/2b608b7ecc345261e5918823040cb9710a112c35)), closes [#453](https://github.com/fremtind/jokul/issues/453)
+* **card:** make card-component ready for v1 ([86c7171](https://github.com/fremtind/jokul/commit/86c71711f2a85255f032f1e7cdce9319bfb971ee)), closes [#453](https://github.com/fremtind/jokul/issues/453)
+
+
+
+
+
 ## [0.6.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@0.6.4...@fremtind/jkl-card-react@0.6.5) (2019-10-09)
 
 **Note:** Version bump only for package @fremtind/jkl-card-react

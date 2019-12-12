@@ -1,9 +1,10 @@
 import { createElement, ReactNode } from "react";
-import "@fremtind/jkl-bullet-list/bullet-list.min.css";
+import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 
 interface Props {
     children?: ReactNode;
+    ordered?: boolean;
 }
 
 interface HeadingProps extends Props {
@@ -16,8 +17,13 @@ interface LinkProps extends Props {
 
 const defaultRenderer = {
     paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p jkl-spacing--bottom-2" }, children),
-    list: ({ children }: Props) => createElement("ul", { className: "jkl-bullet-list jkl-p" }, children),
-    listItem: ({ children }: Props) => createElement("li", { className: "jkl-bullet-list__item" }, children),
+    list: ({ children, ordered }: Props) =>
+        createElement(
+            ordered ? "ol" : "ul",
+            { className: `jkl-list jkl-p ${ordered ? "jkl-list--ordered" : ""}` },
+            children,
+        ),
+    listItem: ({ children }: Props) => createElement("li", { className: "jkl-list__item" }, children),
     blockquote: ({ children }: Props) =>
         createElement(
             "div",

@@ -5,20 +5,21 @@ $highlight-color: $helhvit;
 
 .jkl-table {
     border-collapse: collapse;
+    line-height: $line-height-2;
+    font-size: $font-size-2;
 
     &__heading {
         color: $matt-svart;
         font-size: $font-size-1;
         font-weight: normal;
         line-height: $line-height-1;
-        padding: $component-spacing--small 0.5rem;
+        padding: $component-spacing--small;
     }
 
     &__data-cell {
         position: relative;
         box-sizing: border-box;
-        padding: 1.5rem 0.5rem;
-        line-height: $line-height-2;
+        padding: $component-spacing--xl $component-spacing--small;
     }
 
     &__heading,
@@ -27,16 +28,16 @@ $highlight-color: $helhvit;
         vertical-align: top;
 
         &:first-of-type {
-            padding-left: 1rem;
+            padding-left: $component-spacing--large;
         }
 
         &:last-of-type {
-            padding-right: 1rem;
+            padding-right: $component-spacing--large;
         }
     }
 
     &__row {
-        box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 $bottom-border-size 0 0 rgba(0, 0, 0, 0.2);
 
         &--anchor-row {
             cursor: pointer;
@@ -47,7 +48,7 @@ $highlight-color: $helhvit;
             }
 
             &:active {
-                box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 $bottom-border-size 0 0 rgba(0, 0, 0, 0.4);
             }
         }
 
@@ -58,7 +59,7 @@ $highlight-color: $helhvit;
         /* Focus-within is not supported by IE/Edge */
         &:focus-within {
             background-color: $highlight-color;
-            box-shadow: 0 0 0 1px inset $focus-color;
+            box-shadow: 0 0 0 $bottom-border-size inset $focus-color;
         }
     }
 }

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.0.0...@fremtind/jkl-accordion-react@1.1.0) (2019-12-10)
+
+
+### Features
+
+* **accordion-react:** add support for custom className on AccordionItem ([ae612ef](https://github.com/fremtind/jokul/commit/ae612ef1b95c80989b81b650dda926d749a0f0c9))
+
+
+
+
+
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.4...@fremtind/jkl-accordion-react@1.0.0) (2019-12-03)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion-react
+
+
+
+
+
 ## [0.9.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.3...@fremtind/jkl-accordion-react@0.9.4) (2019-10-09)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion-react

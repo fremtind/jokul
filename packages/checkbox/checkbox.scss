@@ -11,6 +11,7 @@ $checkbox-background-color--error: $error-color;
 $checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
 .jkl-checkbox {
+    @include reset-outline;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -28,7 +29,7 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
         }
     }
 
-    @include compactMode {
+    @include compact-mode {
         @include text-sizing--small-device("small");
         .jkl-checkbox__check-mark {
             height: $checkbox-size--compact;

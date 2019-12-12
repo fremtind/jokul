@@ -7,11 +7,11 @@
 $button-height--large: 3.5rem;
 $button-height--small: 2.5rem;
 
-$button-bg-color: $snohvit;
+$button-bg-color: $helhvit;
 $button-bg-color--primary: $svart;
 
 $button-text-color: $svart;
-$button-text-color--primary: $snohvit;
+$button-text-color--primary: $helhvit;
 
 $button-border-color: $svart;
 $button-border-width: rem(1px);
@@ -24,6 +24,7 @@ $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
 .jkl-button {
+    @include reset-outline;
     height: $button-height--large;
     min-width: $button-height--large;
     line-height: $button-height--large;
@@ -36,7 +37,7 @@ $hover-elevation-distance: -0.25rem;
         line-height: $button-height--small;
     }
 
-    @include compactMode {
+    @include compact-mode {
         height: $button-height--small;
         min-width: $button-height--small;
         line-height: $button-height--small;

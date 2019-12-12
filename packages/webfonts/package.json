@@ -1,0 +1,35 @@
+{
+    "name": "@fremtind/jkl-webfonts",
+    "version": "1.0.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Web fonts for Jøkul design system",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "fremtind",
+        "jøkul",
+        "font"
+    ],
+    "files": [
+        "!example",
+        "/fonts",
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ dist/ **/*.css",
+        "build": "gulp build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ]
+}

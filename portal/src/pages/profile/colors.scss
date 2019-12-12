@@ -1,6 +1,5 @@
 @import "~@fremtind/jkl-core/variables/colors";
 @import "~@fremtind/jkl-core/variables/spacing";
-@import "~@fremtind/jkl-core/font.min.css";
 
 @mixin demo-box($size, $color: $matt-svart) {
     display: flex;

@@ -1,18 +1,22 @@
 @import "./normalize.scss";
 @import "./reset.scss";
 
-@import "./font.scss";
 @import "./headings.scss";
 @import "./paragraphs.scss";
 @import "./links.scss";
 @import "./labels.scss";
 @import "./spacing.scss";
 
-/* Class that hides content visually but not for screen readers */
+:root {
+    font-family: "Fremtind Grotesk";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .jkl-sr-only {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    clip: rect(0, 0, 0, 0) !important;
+    @include screenreader-only();
+
+    &--focusable {
+        @include screenreader-only-focusable();
+    }
 }
