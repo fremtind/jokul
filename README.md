@@ -92,7 +92,11 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="http://eniro.com"><img src="https://avatars3.githubusercontent.com/u/1997921?v=4" width="100px;" alt=""/><br /><sub><b>Bjørn Ole Bakke</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=BjornBakke" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/almli"><img src="https://avatars2.githubusercontent.com/u/818715?v=4" width="100px;" alt=""/><br /><sub><b>almli</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=almli" title="Code">💻</a></td>
     <td align="center"><a href="https://thomasrognes.github.io/"><img src="https://avatars1.githubusercontent.com/u/33520517?v=4" width="100px;" alt=""/><br /><sub><b>Thomas Rognes</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=thomasrognes" title="Code">💻</a></td>
+<<<<<<< HEAD
     <td align="center"><a href="https://github.com/EspenSmith"><img src="https://avatars1.githubusercontent.com/u/58692206?v=4" width="100px;" alt=""/><br /><sub><b>EspenSmith</b></sub></a><br /><a href="#ideas-EspenSmith" title="Ideas, Planning, & Feedback">🤔</a></td>
+=======
+    <td align="center"><a href="https://github.com/sigvehag"><img src="https://avatars0.githubusercontent.com/u/37373812?v=4" width="100px;" alt=""/><br /><sub><b>Sigve Hagesæter</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Asigvehag" title="Bug reports">🐛</a></td>
+>>>>>>> origin/master
   </tr>
 </table>
 
