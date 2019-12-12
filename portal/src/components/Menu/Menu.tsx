@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { LocationProvider } from "@reach/router";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
@@ -11,6 +11,18 @@ import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { ThemeContext } from "../Layout/Layout";
 
 import "./Menu.scss";
+
+interface DocumentationPage {
+    node: {
+        id: string;
+        path: string;
+        context: {
+            frontmatter: {
+                title: string;
+            };
+        };
+    };
+}
 
 export function Menu() {
     const [showMenu, toggleShowMenu] = useState(false);
@@ -37,7 +49,16 @@ export function Menu() {
     const toggleMenu = (show: boolean) => toggleShowMenu(show);
     const { theme, toggleTheme } = useContext(ThemeContext);
 
+    const [filter, setFilter] = useState("");
     const [components, setComponents] = useState(allSitePage.edges);
+    useEffect(() => {
+        function filterComponents(filter: string) {
+            return allSitePage.edges.filter((edge: DocumentationPage) => {
+                return edge.node.context.frontmatter.title.toLowerCase().includes(filter.toLowerCase());
+            });
+        }
+        setComponents(filterComponents(filter));
+    }, [filter]);
 
     return (
         <LocationProvider>
@@ -119,22 +140,20 @@ export function Menu() {
                             >
                                 <>
                                     <ActionTextField
-                                        action={{ icon: "search", label: "Filtrer komponenter", onClick: () => {} }}
-                                        label="Søk"
+                                        action={{
+                                            icon: "clear",
+                                            label: "Nullstill filter",
+                                            onClick: () => setFilter(""),
+                                        }}
+                                        label="Filtrér komponenter"
+                                        value={filter}
+                                        variant="small"
                                         type="text"
                                         className="portal-menu__search jkl-spacing--top-1 jkl-spacing--bottom-1"
                                         forceCompact
-                                        onChange={(e) =>
-                                            setComponents(
-                                                allSitePage.edges.filter((edge: any) => {
-                                                    return edge.node.context.frontmatter.title
-                                                        .toLowerCase()
-                                                        .includes(e.target.value.toLowerCase());
-                                                }),
-                                            )
-                                        }
+                                        onChange={(e) => setFilter(e.target.value)}
                                     />
-                                    {components.map((edge: any) => (
+                                    {components.map((edge: DocumentationPage) => (
                                         <Link
                                             key={edge.node.context.frontmatter.title}
                                             className="portal-menu__link"
