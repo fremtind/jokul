@@ -91,7 +91,7 @@ export function DatePicker({
         if (disableBeforeDate && now < disableBeforeDate) {
             setDate(disableBeforeDate);
         }
-    }, []);
+    }, [disableBeforeDate, disableAfterDate]);
 
     const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
         // Workaround for loosing focus when opening in chrome:
