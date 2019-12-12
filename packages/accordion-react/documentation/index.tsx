@@ -1,9 +1,7 @@
 import { initTabListener } from "@fremtind/jkl-core/src";
 import React from "react";
 import ReactDOM from "react-dom";
-
-import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-accordion/accordion.min.css";
+import "../../webfonts/documentation/internal.scss";
 
 import { Example } from "./Example";
 

@@ -1,8 +1,10 @@
 import React from "react";
 import { Accordion, AccordionItem } from "../src";
+import "@fremtind/jkl-core/core.min.css";
+import "@fremtind/jkl-accordion/accordion.min.css";
 
 export const Example = () => (
-    <div className="jkl-spacing--all-3">
+    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <Accordion>
             <AccordionItem title="Accordion First item">
                 Now let‘s use some more properties. Consider a list of 6 items, all with a fixed dimensions in a matter
@@ -15,5 +17,5 @@ export const Example = () => (
                 horizontal axis so that when we resize the browser, everything is fine (without media queries!).
             </AccordionItem>
         </Accordion>
-    </div>
+    </section>
 );

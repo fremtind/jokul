@@ -1,0 +1,16 @@
+.side-by-side {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2.5rem;
+
+    & > .jkl-text-area,
+    & > .jkl-text-field {
+        margin-top: 0;
+        max-width: 20rem;
+    }
+
+    & > .jkl-text-area + .jkl-text-area,
+    & > .jkl-text-field + .jkl-text-field {
+        margin-left: 2.5rem;
+    }
+}

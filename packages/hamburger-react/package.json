@@ -29,7 +29,7 @@
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:style": "lerna exec --scope=@fremtind/jkl-hamburger yarn build:watch",
-        "dev:js": "parcel example/index.html",
+        "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
