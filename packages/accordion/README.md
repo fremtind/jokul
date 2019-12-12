@@ -1,7 +1,7 @@
 # [`@fremtind/jkl-accordion`](https://fremtind.github.io/jokul/components/accordion/)
 
 # Trekkspillister
-Trekkspillister lar oss presentere mye innhold på liten plass. En trekkspilliste består av en eller flere rader som kan trykkes på for å vise eller skjule informasjon.
+Med trekkspillister kan vi presentere mye innhold på liten plass. En trekkspilliste har én eller flere rader, som brukeren kan trykek på for å vise eller skjule informasjon.
 
 ## Bruk
-Viktig informasjon bør ligge åpent tilgjengelig. Legg viktig informasjon utenfor en trekkspilliste eller som en rad som er åpen som standard. Vinkeltegnet beskriver hva som skjer ved å trykke på listeelementet (pil ned for å åpne, pil opp for å lukke). Teksten på hver rad skal være klar, konsis og beskrive innholdet for brukeren.
+Viktig informasjon bør alltid ligge synlig, ikke skjult i en trekkspilliste. Trekkspillister passer godt til tilleggsinformasjon som kan være viktig for brukerne, men som de selv tar valget om å se på. Vinkeltegnet indikerer hva som skjer når brukerne klikker på det: da åpner og lukker listen seg. Trekkspillister må ha en god overskrift, som forteller hva som kommer. Teksten på hver rad i listen må være tydelig og beskrive innholdet for brukeren.
