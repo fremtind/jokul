@@ -83,9 +83,14 @@ export function DatePicker({
 
     useEffect(() => {
         const now = new Date();
-        disableAfterDate && now > disableAfterDate && setDate(disableAfterDate);
-        disableBeforeDate && now < disableBeforeDate && setDate(disableBeforeDate);
-    });
+
+        if (disableAfterDate && now > disableAfterDate) {
+            setDate(disableAfterDate);
+        }
+        if (disableBeforeDate && now < disableBeforeDate) {
+            setDate(disableBeforeDate);
+        }
+    }, []);
 
     const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
         // Workaround for loosing focus when opening in chrome:
@@ -142,13 +147,15 @@ export function DatePicker({
     function disableDates(date: Date) {
         disableAfterDate && disableAfterDate.setHours(23, 59, 59, 999);
 
-        return disableBeforeDate && disableAfterDate
-            ? date < disableBeforeDate || date > disableAfterDate
-            : disableBeforeDate
-            ? date < disableBeforeDate
-            : disableAfterDate
-            ? date > disableAfterDate
-            : false;
+        if (disableBeforeDate && disableAfterDate) {
+            return date < disableBeforeDate || date > disableAfterDate;
+        } else if (disableBeforeDate) {
+            return date < disableBeforeDate;
+        } else if (disableAfterDate) {
+            return date > disableAfterDate;
+        } else {
+            return false;
+        }
     }
 
     return (
