@@ -1,6 +1,8 @@
 # [`@fremtind/jkl-logo`](https://fremtind.github.io/jokul/components/logo/)
 
-Logoen til Fremtind er navnet skrevet ut. Logosymbolet er en F som tipper fremover og former en tind. Logo og logosymbolet kan animeres slik at vi kan veksle mellom de. Vi bruker ikke logo og logosymbolet sammen eller ved siden av hverandre.
+# Logo, logosymbol og stempel
+Logo, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger eller i andre løsninger vi er en del av.
 
-### Logostemplene
-Logostemplene er ment for å synliggjøre Fremtind som tilstedeværende eller som en ingrediens i budskapet som formidles. De brukes primært på distributørflater for å synliggjøre Fremtinds rolle.
+For bruk av logo og logosymbol se prinsippene for bruk. Logo og logosymbol skal ikke stå synlige sammen men kan skifte ved hjelp av animasjon.
+
+Logostemplene kan brukes der det er behov for å synliggjøre at Fremtind er en del av budskapet som formidles. De skal ikke brukes på samme måte som logo eller logosymbolet.
