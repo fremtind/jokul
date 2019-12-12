@@ -82,6 +82,7 @@ export function DatePicker({
     );
 
     useEffect(() => {
+        disableAfterDate && disableAfterDate.setHours(23, 59, 59, 999);
         const now = new Date();
 
         if (disableAfterDate && now > disableAfterDate) {
@@ -144,18 +145,8 @@ export function DatePicker({
         }
     }
 
-    function disableDates(date: Date) {
-        disableAfterDate && disableAfterDate.setHours(23, 59, 59, 999);
-
-        if (disableBeforeDate && disableAfterDate) {
-            return date < disableBeforeDate || date > disableAfterDate;
-        } else if (disableBeforeDate) {
-            return date < disableBeforeDate;
-        } else if (disableAfterDate) {
-            return date > disableAfterDate;
-        } else {
-            return false;
-        }
+    function disableDate(date: Date) {
+        return (disableAfterDate && date > disableAfterDate) || (disableBeforeDate && date < disableBeforeDate);
     }
 
     return (
@@ -184,7 +175,7 @@ export function DatePicker({
                         days={days}
                         onDatepickerClickDay={onClickCalendarDay}
                         className="jkl-datepicker__calendar"
-                        disabled={disableDates}
+                        disabled={disableDate}
                     >
                         {extended && (
                             <div className="jkl-datepicker__calendar-navigation">
