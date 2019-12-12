@@ -36,7 +36,7 @@ const Example = () => {
                     action={{
                         icon: "search",
                         label: "Skriv til konsoll",
-                        onClick: (e) => console.log(e.target.value),
+                        onClick: console.log,
                     }}
                     label="Skriv til konsoll"
                     value={value}
