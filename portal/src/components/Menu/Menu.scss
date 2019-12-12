@@ -83,6 +83,10 @@ $menu-width: rem(320px);
         transform: translateX($menu-width);
     }
 
+    &__search {
+        fill: $snohvit;
+    }
+
     &--closed {
         @media (max-width: $breakpoint--medium) {
             height: 0;
