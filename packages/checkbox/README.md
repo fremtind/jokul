@@ -1,14 +1,15 @@
 # [`@fremtind/jkl-checkbox`](https://fremtind.github.io/jokul/components/checkbox/)
 
 # Avmerkingsbokser
-En gruppe avmerkingsbokser brukes til å gi en liste over valg der brukeren kan velge fritt blant alternativene. Enkeltstående avmerkingsbokser kan brukes for å innhente et samtykke i en prosess. Ledeteksten på hver avmerkingsboks beskriver alternativet.
+Vi bruker flere avmerkingsbokser sammen når vi vil gi  brukerne en liste med valg, der de kan velge ett eller flere  alternativer. 
+Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene jeg har gitt er riktige". 
 
 ## Bruk
-En gruppe med avmerkingsbokser kan gis en felles overskrift og stables vertikalt eller horisontalt. Det skal i hovedsak brukes vertikal stabling. Avmerkingsbokser har standard status som ‘ikke valgt’.
+En gruppe avmerkingsbokser må ha en god overskrift, og ledeteksten til hver avmerkingsboks må beskrive alternativet. En avmerkingsboks som står alene trenger ikke noen overskrift, så lenge ledeteksten er god og beskrivende.
 
-En avmerkingsboks som står alene trenger ikke en overskrift dersom ledeteksten er tilstrekkelig.
+Du kan sette boksene under eller etter hverandre, men vi anbefaler at du plasserer dem under hverandre. Standard status for avmerkingsbokser er _ikke valgt_.
 
 ## Tekst og validering
-Velg størrelse på overskriften til en gruppe avmerkingsbokser etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift som beskriver hva brukeren skal velge. Ved behov benyttes en hjelpetekst under gruppen for å forklare mer.
+Velg størrelse på overskriften til en gruppe avmerkingsbokser etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift, som beskriver hva brukeren skal velge. Hvis du trenger å gi mer forklaring, kan du bruke en hjelpetekst under gruppen.
 
-Hvis avmerkingsboksene ikke validerer får de en feiltilstand og det vises en feilmelding som forklarer hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst og må hensynta dette.
+Hvis brukeren glemmer å velge avmerkingsboksene, vises det en feilmelding som forklarer hva som er galt. Denne feilmeldingen erstatter en eventuell hjelpetekst du har der fra før, og bør formuleres slik at brukeren både får hjelp og får vite hva som er feil. Eksempel: Hjelpetekst: "Oppgi fødselsnummeret ditt, 11 siffer". Feilmelding: "Du må oppgi fødselsnummeret ditt, 11 siffer".
