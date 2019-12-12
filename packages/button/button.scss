@@ -101,10 +101,10 @@ $hover-elevation-distance: -0.25rem;
     }
 
     &--tertiary {
-        border-bottom: solid $button-border-width $button-border-color;
+        border-bottom: solid $button-border-width currentColor;
         border-top: solid $button-border-width transparent;
         background-color: transparent;
-        color: $button-text-color;
+        color: currentColor;
         padding: 0;
         transition: transform $animation-timing, border $animation-timing;
 
