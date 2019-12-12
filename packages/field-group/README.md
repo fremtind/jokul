@@ -1,14 +1,16 @@
 # `@fremtind/field-group`
 
-# Feltgruppering
-En feltgruppering er et sett med skjemafelter som hører sammen. Gruppen får en overskrift som beskriver innholdet, og kan vise en hjelpetekst eller en feilmelding.
+# Feltsett
+Et feltsett er et sett med skjemafelter som hører sammen, for eksempel navn, adresse og postnummer/sted. 
+Feltsettet må ha en overskrift som beskriver innholdet, og kan også ha en hjelpetekst eller en feilmelding.
 
 ## Tekst og validering
-Velg størrelse på overskriften til en gruppen etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift som beskriver hva brukeren skal velge. Ved behov benyttes en hjelpetekst under gruppen for å forklare mer.
+Velg størrelse på overskriften til feltsettet etter prinsippene for skjemadesign. Lag en kort og tydelig overskrift, som beskriver hva brukeren skal gjøre. Du kan også legge en forklarende hjelpetekst under feltsettet.
 
-Hvis noe i gruppen ikke validerer kan en feilmelding vises under gruppen dersom det ikke gir mening at den bør stå ved et eller flere elementer i gruppen. For eksempel i en gruppe av radioknapper skal en feilmelding vises under gruppen. Merk at en feilmelding erstatter en eventuell hjelpetekst og må hensynta dette.
+Hvis brukeren ikke gjør noen valg i feltsettet, kan vi enten velge å legge en feilemelding under hele settet, eller under ett eller flere felt, hvis det gir bedre hjelp. 
+Eksempel: I et sett med radioknapper, viser vi feilmeldingen under feltsettet. Merk at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var. 
 
-## Eksempler på bruk
-- En gruppe radioknapper
-- En gruppe avmerkingsbokser
-- En gruppe felter som til sammen utgjør et konsept (e.g. addresse)
+## Bruk
+- Et sett med radioknapper
+- Et sett med avmerkingsbokser
+- Et feltsett som til sammen utgjør et konsept (for eksempel adressefelter)
