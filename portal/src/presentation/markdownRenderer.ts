@@ -16,7 +16,7 @@ interface LinkProps extends Props {
 }
 
 const defaultRenderer = {
-    paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p jkl-spacing--bottom-2" }, children),
+    paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p" }, children),
     list: ({ children, ordered }: Props) =>
         createElement(
             ordered ? "ol" : "ul",
