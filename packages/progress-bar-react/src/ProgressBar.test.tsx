@@ -1,5 +1,6 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
+import { axe, toHaveNoViolations } from "jest-axe";
 import { ProgressBar } from ".";
 import { calculatePercentage } from "./ProgressBar";
 
@@ -98,5 +99,16 @@ describe("calculatePercentage", () => {
     test("should calculate 200% correctly 2/1", () => {
         const res = calculatePercentage({ current: 2, total: 1 });
         expect(res).toEqual(200);
+    });
+});
+
+expect.extend(toHaveNoViolations);
+
+describe("a11y", () => {
+    it("progress bar should be a11y compliant", async () => {
+        const { container } = render(<ProgressBar {...defaultProps} />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
