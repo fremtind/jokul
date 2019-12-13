@@ -41,7 +41,9 @@ const App = () => (
             <DatePicker
                 variant="small"
                 onChange={(date) => console.log(`Date selected is ${date}`)}
-                helpLabel={"Choose wisely"}
+                helpLabel={"Kun gyldig mellom 20.12.2019 og 25.12.2019"}
+                disableBeforeDate={new Date(2019, 11, 20)}
+                disableAfterDate={new Date(2019, 11, 25)}
             />
         </div>
         <div className="jkl-spacing--all-3">

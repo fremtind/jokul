@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "../core.scss";
 import "./style.scss";
+import { ScreenReaderOnly } from "../src";
 
 interface BoxProps {
     type: "color" | "component" | "layout";
@@ -49,6 +50,14 @@ const Core = () => (
                 {[...Array(9)].map((_, idx) => (
                     <Box key={idx} type="component" number={idx} />
                 ))}
+            </div>
+        </section>
+        <section>
+            <h2 className="jkl-h2">ScreenReaderOnly</h2>
+            <div className="demo-wrapper">
+                <p>
+                    This is only readable for people with <ScreenReaderOnly>superpowers</ScreenReaderOnly>
+                </p>
             </div>
         </section>
     </main>
