@@ -134,7 +134,8 @@ $menu-width: rem(320px);
         margin-bottom: $component-spacing--medium;
         text-decoration: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
             text-decoration: underline;
         }
 
