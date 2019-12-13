@@ -179,6 +179,7 @@ export function Menu() {
                         <ToggleSwitch
                             className="jkl-spacing--top-2 jkl-spacing--bottom-3"
                             checked={theme === "dark"}
+                            inverted={theme === "dark"}
                             onChange={(e) => toggleTheme(e.target.checked)}
                         >
                             Dark(beta)
