@@ -9,6 +9,7 @@ import "@fremtind/jkl-accordion/accordion.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { ThemeContext } from "../Layout/Layout";
+import { MenuLink } from "./MenuLink";
 
 import "./Menu.scss";
 
@@ -27,13 +28,16 @@ interface DocumentationPage {
 export function Menu() {
     const [showMenu, toggleShowMenu] = useState(false);
 
-    const { allSitePage } = useStaticQuery(graphql`
-        query getPages {
-            allSitePage(filter: { path: { regex: "-react/documentation/" } }) {
+    const { allSitePage: componentDocumentationPage } = useStaticQuery(graphql`
+        query getComponentDocumentation {
+            allSitePage(
+                sort: { order: ASC, fields: context___frontmatter___title }
+                filter: { path: { regex: "-react/documentation/" } }
+            ) {
                 edges {
                     node {
-                        id
                         path
+                        id
                         context {
                             frontmatter {
                                 title
@@ -44,16 +48,17 @@ export function Menu() {
             }
         }
     `);
+
     const menuRef = useRef(null);
 
     const toggleMenu = (show: boolean) => toggleShowMenu(show);
     const { theme, toggleTheme } = useContext(ThemeContext);
 
     const [filter, setFilter] = useState("");
-    const [components, setComponents] = useState(allSitePage.edges);
+    const [components, setComponents] = useState(componentDocumentationPage.edges);
     useEffect(() => {
         function filterComponents(filter: string) {
-            return allSitePage.edges.filter((edge: DocumentationPage) => {
+            return componentDocumentationPage.edges.filter((edge: DocumentationPage) => {
                 return edge.node.context.frontmatter.title.toLowerCase().includes(filter.toLowerCase());
             });
         }
@@ -81,14 +86,7 @@ export function Menu() {
                                 startExpanded={!!location.pathname.match(/(core|jokul)/) || location.pathname === "/"}
                             >
                                 {coreLinks.map((link) => (
-                                    <Link
-                                        key={link.title}
-                                        className="portal-menu__link"
-                                        to={`/${link.section}/${link.page}`}
-                                        tabIndex={showMenu ? 0 : -1}
-                                    >
-                                        {link.title}
-                                    </Link>
+                                    <MenuLink key={link.title} link={link} />
                                 ))}
                             </AccordionItem>
 
@@ -97,26 +95,12 @@ export function Menu() {
                                 startExpanded={location.pathname.includes("profile")}
                             >
                                 {profileLinks.map((link) => (
-                                    <Link
-                                        key={link.title}
-                                        className="portal-menu__link"
-                                        to={`/${link.section}/${link.page}`}
-                                        tabIndex={showMenu ? 0 : -1}
-                                    >
-                                        {link.title}
-                                    </Link>
+                                    <MenuLink key={link.title} link={link} />
                                 ))}
                             </AccordionItem>
                             <AccordionItem title="For designere" startExpanded={location.pathname.includes("designer")}>
                                 {designerLinks.map((link) => (
-                                    <Link
-                                        key={link.title}
-                                        className="portal-menu__link"
-                                        to={`/${link.section}/${link.page}`}
-                                        tabIndex={showMenu ? 0 : -1}
-                                    >
-                                        {link.title}
-                                    </Link>
+                                    <MenuLink key={link.title} link={link} />
                                 ))}
                             </AccordionItem>
                             <AccordionItem
@@ -124,14 +108,7 @@ export function Menu() {
                                 startExpanded={location.pathname.includes("developer")}
                             >
                                 {developerLinks.map((link) => (
-                                    <Link
-                                        key={link.title}
-                                        className="portal-menu__link"
-                                        to={`/${link.section}/${link.page}`}
-                                        tabIndex={showMenu ? 0 : -1}
-                                    >
-                                        {link.title}
-                                    </Link>
+                                    <MenuLink key={link.title} link={link} />
                                 ))}
                             </AccordionItem>
                             <AccordionItem
@@ -167,14 +144,7 @@ export function Menu() {
                             </AccordionItem>
                             <AccordionItem title="Eksempel" startExpanded={location.pathname.includes("patterns")}>
                                 {exampleLinks.map((link) => (
-                                    <Link
-                                        key={link.title}
-                                        className="portal-menu__link"
-                                        to={`/${link.section}/${link.page}`}
-                                        tabIndex={showMenu ? 0 : -1}
-                                    >
-                                        {link.title}
-                                    </Link>
+                                    <MenuLink key={link.title} link={link} />
                                 ))}
                             </AccordionItem>
                         </Accordion>
