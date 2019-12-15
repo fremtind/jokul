@@ -1,14 +1,20 @@
 # [`@fremtind/jkl-radio-button`](https://fremtind.github.io/jokul/components/radiobutton/)
 
 ## Radioknapper
-Radioknapper lar brukeren velge ett alternativ blant flere. Dersom brukeren kan velge mellom mer enn fire alternativ bør man vurdere å bruke en nedtrekksliste. Hver radioknapp har en kort og tydelig ledetekst som beskriver alternativet.
+Vi bruker radioknapper når vi vil at brukeren skal få velge ett av flere alternativ. Det er mest vanlig å bruke radioknapper ved to alternativer, for eksempel ved Ja og Nei, men vi _kan_ bruke radioknapper for inntil fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det bedre med en _nedtrekksliste_. 
+
+Over radioknappene setter vi inn en tydelig overskrift, som forteller hva det er brukeren skal velge mellom. I tillegg skal hver radioknapp ha en kort og tydelig ledetekst til høyre for knappen, som beskriver alternativet.
 
 ## Bruk
-En gruppe med radioknapper kan stables vertikalt eller horisontalt. Det skal i hovedsak brukes vertikal stabling.
+En gruppe radioknapper kan enten settes opp under eller ved siden av hverandre. Det er mest brukervennlig å sette dem opp vertikalt.
 
-Det alternativet som har minst konsekvens for brukeren, og/eller det alternativet som er foretrukket av flest, bør være forhåndsvalgt. Hvis det er viktig at brukeren selv angir sitt valg, eller ingen av alternativene utmerker seg så kan man la vær å ha et forhåndsvalgt alternativ. 
+En av radioknappene bør alltid være valgt på forhånd. Det kan være det alternativet som de fleste vil velge, eller det som har minst følger for brukeren. 
+I noen tilfeller kan det være viktig at brukeren selv velger, uten å bli påvirket av et forhåndsvalg. Da kan vi sette opp radioknapper uten forhåndsvalg **Vis eksempler på det**. 
 
 ## Tekst og validering
-Velg størrelse på overskriften til en gruppe radioknapper etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift som beskriver hva brukeren skal velge. Ved behov benyttes en hjelpetekst under gruppen for å forklare mer.
+Bruk prinsippene for skjemadesign når du velger størrelse på overskriften til en gruppe radioknapper. Ha en kort og tydelig overskrift, som forteller hva det er brukeren skal gjøre. Eksempel fra innstillinger på mobil: Slå på Wi-fi: Ja/Nei. 
+Hvis det er behov for det, kan vi legge inn en  hjelpetekst under gruppen, for å forklare mer.
 
-Hvis radioknappene ikke validerer får de en feiltilstand og det vises en feilmelding som forklarer hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst og må hensynta dette.
+Hvis brukeren ikke velger en radioknapp, viser systemet en feilmelding som forklarer hva som er galt. Feilmeldingen erstatter en eventuell hjelpetekst, så den må eventuelt gjenta det viktigste fra hjelpeteksten. 
+Eksempel fra helsevurdering: 
+**Hjelpetekst**: _Velg om du har hatt diagnosen de siste 5, 10 eller 15 årene_. **Feilmelding**: _Du har ikke valgt hvor lenge du har hatt diagnosen_.
