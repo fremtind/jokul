@@ -3,8 +3,8 @@
 # Lasteindikator
 En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren når vi har handlinger eller prosesser som tar lengre tid enn ett sekund.  
 
-Den skal plasseres i kontekst av det som trigget den og kan ha ulik posisjon og størrelse enn det som vises her.
+Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik posisjon og størrelse, avhengig av konteksten den skal fungere i.
 
-### Eksempler på bruk
+### Bruk
 - I en knapp som brukeren har trykket på
-- I et kort eller felt hvor det skjer en beregning før innhold kan vises
+- I et kort eller felt der noe blir beregnet før innholdet vises.
