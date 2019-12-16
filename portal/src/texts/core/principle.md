@@ -2,7 +2,7 @@
 
 Fremtind sin stil er enkel, tydelig og moderne. Vi skal fremstå med en nordisk minimalisme og klar skandinavisk designtankegang. Visuelt oppnår vi dette gjennom følgende virkemidler: få farger, stor typografi, naturlige bilder, rikelig med luft og ingen unødig dekor. I tillegg er Fremtinds stemme modig, presis og klar.
 
-Felles for alt vi lager er at det følger våre tre hovedprinsipper: Bevegelse, Elevasjon og Klarhet. Dersom du lager noe i vår profil og er usikker på hvordan å løse en designutfordring kan du prøve å se det opp mot disse.
+Felles for alt vi lager er at det følger våre tre hovedprinsipper: Bevegelse, Elevasjon og Klarhet. Dersom du lager noe i vår profil og er usikker på hvordan designutfordringen skal løses bør du prøve å se det opp mot disse.
 
 
 ### Bevegelse 
