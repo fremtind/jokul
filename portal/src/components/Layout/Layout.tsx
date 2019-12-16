@@ -37,7 +37,7 @@ const h5 = (props: any) => <LeadParagraph {...props} />;
 const p = (props: any) => <P {...props} />;
 const ul = (props: any) => <UnorderedList {...props} />;
 const li = (props: any) => <ListItem {...props} />;
-const ol = (props: any ) => <OrderedList {...props} />;
+const ol = (props: any) => <OrderedList {...props} />;
 const a = (props: any) => <Link {...props} />;
 /* eslint-enable */
 
