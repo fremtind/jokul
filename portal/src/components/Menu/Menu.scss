@@ -62,7 +62,7 @@ $menu-width: rem(320px);
         color: $snohvit;
         transition-property: transform, box-shadow;
         @include motion(standard, expressive);
-        box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: none;
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
@@ -86,16 +86,22 @@ $menu-width: rem(320px);
         transform: translateX($menu-width);
     }
 
-    &--closed {
-        height: 0;
-        width: 0;
-        & > .portal-menu__bar {
-            box-shadow: none;
-            transform: translateX(-$menu-width);
+    @media (max-width: $breakpoint--medium) {
+        &--closed {
+            height: 0;
+            width: 0;
+            & > .portal-menu__bar {
+                box-shadow: none;
+                transform: translateX(-$menu-width);
+            }
+            & > .portal-menu__toggler {
+                background-color: $matt-svart;
+                transform: translateX(0);
+            }
         }
-        & > .portal-menu__toggler {
-            background-color: $matt-svart;
-            transform: translateX(0);
+
+        &__bar {
+            box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
         }
     }
 

@@ -7,6 +7,7 @@ $webfonts-dir: "../../static/fonts";
 
 $hero-size: rem(700px);
 $hero-top-offset: rem(0px);
+$menu-width: 320px;
 
 $content-bg-color: $varm-fjellgra;
 $content-color: $snohvit;
@@ -49,6 +50,9 @@ $circle-size: rem(100px);
 
     &__content {
         @include position(absolute, $top: 100vh, $left: 0, $right: 0);
+        @media (min-width: $breakpoint--medium) {
+            margin-left: $menu-width;
+        }
         background-color: $content-bg-color;
         color: $content-color;
         padding: $layout-spacing--large;
