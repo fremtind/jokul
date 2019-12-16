@@ -74,6 +74,7 @@ export function Menu() {
                                         <Link
                                             key={title}
                                             className="portal-menu__link"
+                                            activeClassName="portal-menu__link--current"
                                             to={path}
                                             tabIndex={showMenu ? 0 : -1}
                                         >

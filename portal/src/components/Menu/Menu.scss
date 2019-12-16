@@ -79,7 +79,7 @@ $menu-width: rem(320px);
         top: $layout-spacing--small;
         height: $toggler-size;
         width: $toggler-size;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
         z-index: 1;
@@ -102,6 +102,10 @@ $menu-width: rem(320px);
 
         &__bar {
             box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        &__toggler {
+            display: flex;
         }
     }
 
@@ -137,8 +141,23 @@ $menu-width: rem(320px);
         margin-bottom: $component-spacing--medium;
         text-decoration: none;
 
-        &:hover {
+        &:hover,
+        &:focus {
             text-decoration: underline;
+        }
+
+        &--current {
+            position: relative;
+            &:after {
+                content: "";
+                background-color: currentColor;
+                position: absolute;
+                display: block;
+                height: rem(8px);
+                width: rem(8px);
+                top: 50%;
+                transform: translate(rem(-24px), -50%) rotate(-45deg);
+            }
         }
 
         &--github {
