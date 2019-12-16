@@ -36,6 +36,9 @@ $menu-width: rem(320px);
     & .portal-content__example {
         color: initial;
     }
+    & .portal-icon {
+        color: $himmelgra;
+    }
     & .portal-footer {
         background-color: $svart;
     }
@@ -45,6 +48,10 @@ $menu-width: rem(320px);
     z-index: 1;
     height: 100vh;
     position: fixed;
+    &__link:first-letter {
+        text-transform: capitalize;
+    }
+
     &__bar {
         box-sizing: border-box;
         min-height: 100vh;
@@ -65,10 +72,6 @@ $menu-width: rem(320px);
     }
 
     &__toggler {
-        @media (min-width: $breakpoint--medium) {
-            display: none;
-        }
-
         @include motion(standard, expressive);
         background-color: $svart;
         position: absolute;
@@ -83,22 +86,16 @@ $menu-width: rem(320px);
         transform: translateX($menu-width);
     }
 
-    &__search {
-        fill: $snohvit;
-    }
-
     &--closed {
-        @media (max-width: $breakpoint--medium) {
-            height: 0;
-            width: 0;
-            & > .portal-menu__bar {
-                box-shadow: none;
-                transform: translateX(-$menu-width);
-            }
-            & > .portal-menu__toggler {
-                background-color: $matt-svart;
-                transform: translateX(0);
-            }
+        height: 0;
+        width: 0;
+        & > .portal-menu__bar {
+            box-shadow: none;
+            transform: translateX(-$menu-width);
+        }
+        & > .portal-menu__toggler {
+            background-color: $matt-svart;
+            transform: translateX(0);
         }
     }
 
@@ -134,8 +131,7 @@ $menu-width: rem(320px);
         margin-bottom: $component-spacing--medium;
         text-decoration: none;
 
-        &:hover,
-        &:focus {
+        &:hover {
             text-decoration: underline;
         }
 

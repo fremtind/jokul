@@ -8,25 +8,21 @@ module.exports = {
     },
     plugins: [
         "gatsby-plugin-typescript",
+        "gatsby-plugin-sass",
         {
-            resolve: `gatsby-plugin-sass`,
+            resolve: `gatsby-source-filesystem`,
             options: {
-                implementation: require("sass"),
+                name: `markdown-pages`,
+                path: `${__dirname}/src/texts`,
             },
         },
-        {
-            resolve: "gatsby-source-filesystem",
-            options: {
-                name: `components`,
-                path: `${__dirname}/../packages`,
-                ignore: [`!**/documentation/**.mdx`],
-            },
-        },
+        `gatsby-transformer-remark`,
         {
             resolve: "gatsby-plugin-page-creator",
             options: {
+                name: `components`,
                 path: `${__dirname}/../packages`,
-                ignore: [`!**/documentation/**.mdx`],
+                ignore: [`!**/documentation/*.mdx`],
             },
         },
         {
