@@ -1,4 +1,9 @@
-## Klarhet
+---
+title: klarhet
+path: /kjerne/klarhet
+---
+
+# Klarhet
 
 Fremtind skal fremstå som ærlig og transparent, med en klar og varm stemme. Vi skal skape klarhet gjennom å forenkle, fjerne unødvendig støy og gi brukerne kun relevante valg.
 
@@ -6,13 +11,13 @@ Vi vektlegger klarhet også med språket vi bruker. Klarspråk er hovedprinsippe
 
 Vi bruker rikelig med luft. Det bidrar til å dele opp og porsjonere innhold som skaper en behagelig leserytme. Med gode og tydelige designløsninger gir vi brukeren oversikt og skaper en følelse av trygghet.
 
-### Nøkkelord
+## Nøkkelord
 
 -   Forenkle
 -   Styre fokus
 -   Skape oversiktlige løsninger
 
-### I bruk
+## I bruk
 
 I praksis betyr dette prinsippet at vi ikke skal overlesse brukeren med informasjon. Vi skal alltid ha få elementer på skjermen og sørge for at størrelse, posisjon og avstand gir god oversikt og rytme.
 

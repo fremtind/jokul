@@ -1,9 +1,13 @@
-## Klart språk
+---
+title: stil og tone
+path: /profil/stilogtone
+---
 
-Her kan det hende vi må supplere med mer info fra marked/Charlotte etter hvert som det blir klart. For eksempel forslag til gode måter å formulere seg på.
+# Stil og tone
+
 For deg som designer og utvikler løsninger for Fremtind, er det viktig at du tenker på klarspråk når du skriver tekster som brukerne skal lese. Veiledninger til brukeren i fagsystemer og skjemaer ut mot publikum må også være tydelige og klare. Spesielt viktig med klarspråk er det for eksempel når skriver feilmeldinger og hjelpetekster. En feilmelding skal fortelle tydelig hva som er feil og foreslå en løsning.
 
-### Stemmen vår
+## Stemmen vår
 
 Fremtind bruker klarspråk i all kommunikasjon, internt og eksternt. Vi har en egen stil og tone, som kalles Stemmen vår. Hovedprinsippene i Stemmen vår er
 

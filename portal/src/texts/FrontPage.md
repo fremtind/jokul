@@ -1,6 +1,4 @@
-# Landingsside
-
-## Om Jøkul
+# Om Jøkul
 
 På disse sidene finner du tankegangen bak designsystemet, komponentbiblioteket vårt og informasjon om hvordan du kommer i gang med å designe eller utvikle.
 Hvem kan bruke Jøkul?
@@ -10,11 +8,11 @@ Jøkul er et levende bibliotek. Det vil aldri være helt ferdig, men vi skal hol
 
 Endringsloggen vår er alltid oppdatert med siste nytt om nye komponenter som har kommet til eller om det har skjedd endringer.
 
-### Vi setter pris på bidrag
+## Vi setter pris på bidrag
 
 Vi trenger dine tanker og erfaringer! Utforsk komponentene vi har laget og foreslå gjerne endringer og forbedringer. Vi blir glade for alle kommentarer og innspill.
 
-### Kontakt oss
+## Kontakt oss
 
 Lurer du på noe om Jøkul og hvordan du skal bruke komponentene og retningslinjene våre?
 
@@ -23,7 +21,7 @@ Lurer du på noe om Jøkul og hvordan du skal bruke komponentene og retningslinj
 -   Designspørsmål: TODO: set responsible
 -   Hvordan vi bruker merkevaren: [jarle@fremtind.no](mailto:jarle@fremtind.no)
 
-### Forum og kanaler
+## Forum og kanaler
 
 Vi er på Slack og GitHub. Du finner oss ved å søke på Fremtind.
 
