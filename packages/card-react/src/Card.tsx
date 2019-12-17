@@ -20,7 +20,7 @@ type Clickable = {
 };
 
 interface Props {
-    title: string;
+    title?: string;
     children?: ReactNode;
     className?: string;
     media?: Media;
@@ -53,15 +53,17 @@ export const Card = ({ title, children, className, media, action, dark, clickabl
     return (
         <div data-testid="jkl-card" className={componentClassName}>
             {media && <img className="jkl-card__media" src={media.src} alt={media.alt}></img>}
-            <div className="jkl-card__title jkl-h3">
-                {clickable ? (
-                    <a className="jkl-card__link" href={clickable.href} onClick={clickable.onClick}>
-                        {title}
-                    </a>
-                ) : (
-                    `${title}`
-                )}
-            </div>
+            {title && (
+                <div data-testid="jkl-card__title" className="jkl-card__title jkl-h3">
+                    {clickable ? (
+                        <a className="jkl-card__link" href={clickable.href} onClick={clickable.onClick}>
+                            {title}
+                        </a>
+                    ) : (
+                        title
+                    )}
+                </div>
+            )}
             <div className="jkl-card__children">{children}</div>
             {action && (
                 <div className="jkl-card__action">
