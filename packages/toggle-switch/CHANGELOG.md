@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@1.0.0...@fremtind/jkl-toggle-switch@1.0.1) (2019-12-17)
+
+
+### Bug Fixes
+
+* **toggle-switch:** fix formatting of toggle switch label ([a561fac](https://github.com/fremtind/jokul/commit/a561fac49abcd3b00e16cbddce41237ebeb63f1d))
+
+
+
+
+
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@0.1.7...@fremtind/jkl-toggle-switch@1.0.0) (2019-12-03)
 
 

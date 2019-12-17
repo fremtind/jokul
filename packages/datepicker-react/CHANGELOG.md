@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.0.1...@fremtind/jkl-datepicker-react@1.1.0) (2019-12-17)
+
+
+### Features
+
+* add functionality for disabling dates ([cc8bb42](https://github.com/fremtind/jokul/commit/cc8bb42eb00e6b9566df99b3fdb8e51f7366143b)), closes [#567](https://github.com/fremtind/jokul/issues/567)
+
+
+
+
+
 ## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.0.0...@fremtind/jkl-datepicker-react@1.0.1) (2019-12-10)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker-react

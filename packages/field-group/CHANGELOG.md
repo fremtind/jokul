@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group@1.0.0...@fremtind/jkl-field-group@1.0.1) (2019-12-17)
+
+
+### Bug Fixes
+
+* **field-group:** remove float in field-group to fix wrapping issue ([2b09d15](https://github.com/fremtind/jokul/commit/2b09d1554bd35ca9dcc17154cb332d8d4aedb59e))
+
+
+
+
+
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group@0.3.0...@fremtind/jkl-field-group@1.0.0) (2019-12-03)
 
 
