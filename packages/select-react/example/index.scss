@@ -1,7 +1,27 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
 body,
 #app {
+    height: 100%;
+}
+
+.example-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &--light-mode {
+        background-color: $helhvit;
+        color: $svart;
+    }
+
+    &--dark-mode {
+        background-color: $svart;
+        color: $helhvit;
+    }
+}
+
+.toggle-switch {
+    margin-top: 1rem;
 }

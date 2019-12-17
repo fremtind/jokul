@@ -47,6 +47,7 @@ $bottom-margin: $component-spacing--large;
         top: 0;
         width: $calendar-width;
         justify-content: space-between;
+        color: $svart;
     }
 
     &__month-button {
@@ -114,6 +115,7 @@ $bottom-margin: $component-spacing--large;
         justify-content: center;
         align-content: center;
         margin-bottom: $component-spacing--xl;
+        color: $svart;
     }
 
     &__year-selector {
@@ -146,6 +148,7 @@ $bottom-margin: $component-spacing--large;
         padding: $calendar-padding;
         background-color: $background-color;
         box-shadow: $drop-shadow--small;
+        color: $svart;
 
         @include small-device {
             padding: $calendar-padding $calendar-padding--compact;
