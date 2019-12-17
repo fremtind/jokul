@@ -1,22 +1,28 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { LocationProvider } from "@reach/router";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import { ActionTextField } from "@fremtind/jkl-text-input-react";
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
-import { staticLinks, mainMenu } from "./links";
+import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import { ComponentDocPage, staticLinks, mainMenu } from "./links";
 import "@fremtind/jkl-accordion/accordion.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";
-import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import "@fremtind/jkl-text-input/text-input.min.css";
 import { ThemeContext } from "../Layout/Layout";
+import { FilterField } from "./FilterField";
 
 import "./Menu.scss";
 
 export function Menu() {
     const [showMenu, toggleShowMenu] = useState(false);
 
-    const { allSitePage, allMarkdownRemark } = useStaticQuery(graphql`
+    const { allSitePage: componentDocumentationPage, allMarkdownRemark } = useStaticQuery(graphql`
         query getPages {
-            allSitePage(filter: { path: { regex: "-react/documentation/" } }) {
+            allSitePage(
+                filter: { path: { regex: "/-react/documentation/" } }
+                sort: { order: ASC, fields: context___frontmatter___title }
+            ) {
                 edges {
                     node {
                         id
@@ -24,6 +30,7 @@ export function Menu() {
                         context {
                             frontmatter {
                                 title
+                                react
                             }
                         }
                     }
@@ -46,7 +53,21 @@ export function Menu() {
     const toggleMenu = (show: boolean) => toggleShowMenu(show);
     const { theme, toggleTheme } = useContext(ThemeContext);
 
-    const menu = mainMenu(allMarkdownRemark, allSitePage);
+    //const menu = mainMenu(allMarkdownRemark, componentDocumentationPage);
+
+    const [menu, setMenu] = useState(mainMenu(allMarkdownRemark, componentDocumentationPage));
+    const [filter, setFilter] = useState("");
+    const [components, setComponents] = useState<Array<ComponentDocPage>>(componentDocumentationPage.edges);
+    useEffect(() => {
+        function filterComponents(filter: string) {
+            return componentDocumentationPage.edges.filter((edge: ComponentDocPage) => {
+                return edge.node.context.frontmatter.title.toLowerCase().includes(filter.toLowerCase());
+            });
+        }
+        const filteredComponents = filterComponents(filter);
+        setComponents(filteredComponents);
+        setMenu(mainMenu(allMarkdownRemark, { edges: filteredComponents }));
+    }, [filter]);
 
     return (
         <LocationProvider>
@@ -70,6 +91,9 @@ export function Menu() {
                                     title={sectionTitle}
                                     startExpanded={matchingLocation(location)}
                                 >
+                                    {sectionTitle === "Komponenter" && (
+                                        <FilterField filter={filter} setFilter={setFilter} />
+                                    )}
                                     {pages.map(({ title, path }) => (
                                         <Link
                                             key={title}
@@ -97,6 +121,7 @@ export function Menu() {
                         ))}
 
                         <ToggleSwitch
+                            inverted={theme === "dark"}
                             className="jkl-spacing--top-2 jkl-spacing--bottom-3"
                             checked={theme === "dark"}
                             onChange={(e) => toggleTheme(e.target.checked)}

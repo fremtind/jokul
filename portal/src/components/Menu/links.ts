@@ -12,7 +12,7 @@ interface GeneralDocPages {
     edges: GeneralDocPage[];
 }
 
-interface ComponentDocPage {
+export interface ComponentDocPage {
     node: {
         id: string;
         path: string;
@@ -25,6 +25,11 @@ interface ComponentDocPage {
 }
 interface ComponentDocPages {
     edges: ComponentDocPage[];
+}
+
+export interface ComponentLink {
+    title: string;
+    path: string;
 }
 
 const by = (regex: RegExp) => (edge: GeneralDocPage) =>
@@ -60,7 +65,7 @@ const components = (rawComponents: ComponentDocPages) => ({
         path: edge.node.path,
     })),
     sectionTitle: "Komponenter",
-    matchingLocation: (location: WindowLocation) => location.pathname.includes("example/ex"),
+    matchingLocation: (location: WindowLocation) => location.pathname.includes("-react/documentation"),
 });
 
 const makeLink = (title: string, page: string, section?: string) => ({

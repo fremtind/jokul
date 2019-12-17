@@ -86,6 +86,10 @@ $menu-width: rem(320px);
         width: 1px;
         overflow: hidden;
     }
+
+    & .jkl-h1 {
+        margin-top: 0;
+    }
 }
 
 .portal-component-only {
