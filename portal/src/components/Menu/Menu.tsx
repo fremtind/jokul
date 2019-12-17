@@ -2,7 +2,6 @@ import React, { useState, useRef, useContext, useEffect } from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { LocationProvider } from "@reach/router";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import { ActionTextField } from "@fremtind/jkl-text-input-react";
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { ComponentDocPage, staticLinks, mainMenu } from "./links";
@@ -53,11 +52,8 @@ export function Menu() {
     const toggleMenu = (show: boolean) => toggleShowMenu(show);
     const { theme, toggleTheme } = useContext(ThemeContext);
 
-    //const menu = mainMenu(allMarkdownRemark, componentDocumentationPage);
-
     const [menu, setMenu] = useState(mainMenu(allMarkdownRemark, componentDocumentationPage));
     const [filter, setFilter] = useState("");
-    const [components, setComponents] = useState<Array<ComponentDocPage>>(componentDocumentationPage.edges);
     useEffect(() => {
         function filterComponents(filter: string) {
             return componentDocumentationPage.edges.filter((edge: ComponentDocPage) => {
@@ -65,7 +61,6 @@ export function Menu() {
             });
         }
         const filteredComponents = filterComponents(filter);
-        setComponents(filteredComponents);
         setMenu(mainMenu(allMarkdownRemark, { edges: filteredComponents }));
     }, [filter]);
 
