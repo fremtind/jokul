@@ -12,6 +12,10 @@ function handleClick() {
 
 const CardDemo = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+        <Card className="test-class">
+            <p className="jkl-p">Empty card</p>
+        </Card>
+
         <Card title="Basic Card" clickable={{ href: "https://fremtind.github.io/jokul/" }} className="test-class">
             <h2 className="jkl-h4">Clickable</h2>
             <p className="jkl-p">
