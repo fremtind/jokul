@@ -22,10 +22,7 @@ $menu-width: rem(320px);
         padding: $layout-spacing--medium $layout-spacing--large 0 0;
         left: 0;
         text-align: right;
-        height: 100px;
-        @include small-device {
-            padding: 0;
-        }
+        height: 120px;
     }
     & .portal-header__title > a {
         color: $snohvit;

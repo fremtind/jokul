@@ -6,10 +6,10 @@ $webfonts-dir: "../../static/fonts";
 @import "~@fremtind/jkl-webfonts/webfonts.scss";
 
 $hero-size: rem(700px);
-$hero-top-offset: rem(0px);
+$hero-top-offset: rem(40px);
 $menu-width: 320px;
 
-$content-bg-color: $varm-fjellgra;
+$content-bg-color: $matt-svart;
 $content-color: $snohvit;
 $content-max-width: rem(1200px);
 

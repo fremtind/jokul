@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import { ReactIcon, SassIcon } from "../icons";
 import { CodeLink } from "./CodeLink";
 import "./Layout.scss";
-import { TinyParagraph } from "@fremtind/jkl-typography-react";
+import { H1, TinyParagraph } from "@fremtind/jkl-typography-react";
 
 interface Props {
     children: ReactNode;
@@ -25,7 +25,7 @@ export const ComponentLayout = ({
     <Layout title={title} isComponentPage>
         <>
             <header className="portal-content__heading">
-                <h2 className="jkl-h1 portal-content__title">{title}</h2>
+                <H1 className="portal-content__title">{title}</H1>
                 {(react || scss) && (
                     <aside className="portal-content__packages">
                         {react && <CodeLink alt="React package" icon={<ReactIcon />} link={`${react}`} />}
