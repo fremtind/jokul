@@ -168,7 +168,7 @@ $radio-button-color: $svart;
     }
 
     &__label {
-        @include text-sizing("small");
+        @include body-paragraph;
     }
 
     &--error {

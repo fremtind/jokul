@@ -24,11 +24,11 @@ $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
 .jkl-button {
+    @include body-paragraph;
     @include reset-outline;
     height: $button-height--large;
     min-width: $button-height--large;
     line-height: $button-height--large;
-    @include font-size("small");
     cursor: pointer;
 
     @include small-device {
@@ -38,10 +38,10 @@ $hover-elevation-distance: -0.25rem;
     }
 
     @include compact-mode {
+        @include body-paragraph--mobile;
         height: $button-height--small;
         min-width: $button-height--small;
         line-height: $button-height--small;
-        @include font-size--small-device("small");
     }
 
     -moz-osx-font-smoothing: auto;
