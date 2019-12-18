@@ -1,7 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_helpers.scss";
-@import "~@fremtind/jkl-core/mixins/_ornaments.scss";
-@import "~@fremtind/jkl-core/mixins/all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
@@ -22,6 +20,21 @@ $chevron-size: rem(20px);
 $chevron-size--compact: rem(16px);
 $chevron-weight: rem(1px);
 $chevron-side-padding: (2 * $component-spacing--small);
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    75% {
+        opacity: 0.75;
+        transform: translateX(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 @mixin nojump-bold {
     // Make font bolder without increasing line length
@@ -128,7 +141,9 @@ $chevron-side-padding: (2 * $component-spacing--small);
         position: relative;
     }
 
-    &__option-wrapper {
+    &__toggler {
+        @include motion("standard");
+        transition-property: height;
         position: absolute;
         left: 0;
         right: 0;
@@ -140,13 +155,30 @@ $chevron-side-padding: (2 * $component-spacing--small);
         border-top: none;
         box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.16);
 
-        max-height: 60vh;
         overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 60vh;
+    }
+
+    &__option-wrapper {
         margin: 0;
         padding: 0;
 
         list-style-type: none;
         -webkit-overflow-scrolling: touch;
+
+        // Create stacked animation for first 10 element
+        @for $i from 1 through 10 {
+            & > li:nth-child(#{$i}) {
+                animation-duration: #{0.2 + $i * 0.1}s;
+            }
+        }
+
+        // Let all elements after the frist 10 animate in as block
+        & > li {
+            animation: slide-up ease;
+            animation-duration: 1.2s;
+        }
     }
 
     &__option {
