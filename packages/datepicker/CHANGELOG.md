@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.1...@fremtind/jkl-datepicker@1.1.0) (2019-12-17)
+
+
+### Features
+
+* **components on black background:** rewritten css ([04fb8c6](https://github.com/fremtind/jokul/commit/04fb8c62aecfb2aa2141687d561d36cf5893dd04)), closes [#544](https://github.com/fremtind/jokul/issues/544)
+* add functionality for disabling dates ([cc8bb42](https://github.com/fremtind/jokul/commit/cc8bb42eb00e6b9566df99b3fdb8e51f7366143b)), closes [#567](https://github.com/fremtind/jokul/issues/567)
+
+
+
+
+
 ## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.0.0...@fremtind/jkl-datepicker@1.0.1) (2019-12-10)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker

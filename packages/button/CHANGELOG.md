@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.0.1...@fremtind/jkl-button@1.1.0) (2019-12-17)
+
+
+### Features
+
+* **components:** css endringer, flytting av funksjon ([7390edd](https://github.com/fremtind/jokul/commit/7390eddfadd941a0465267afba35a81ca446f438)), closes [#545](https://github.com/fremtind/jokul/issues/545)
+* **components on black background:** rewritten css ([04fb8c6](https://github.com/fremtind/jokul/commit/04fb8c62aecfb2aa2141687d561d36cf5893dd04)), closes [#544](https://github.com/fremtind/jokul/issues/544)
+
+
+
+
+
 ## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.0.0...@fremtind/jkl-button@1.0.1) (2019-12-10)
 
 

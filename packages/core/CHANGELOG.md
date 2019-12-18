@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.0.0...@fremtind/jkl-core@1.1.0) (2019-12-17)
+
+
+### Bug Fixes
+
+* **core:** fix import and example of screenreaderonly ([4ac4a93](https://github.com/fremtind/jokul/commit/4ac4a93de97b295410a1dd4679967ce293e1b9f3))
+
+
+### Features
+
+* **components:** css endringer, flytting av funksjon ([7390edd](https://github.com/fremtind/jokul/commit/7390eddfadd941a0465267afba35a81ca446f438)), closes [#545](https://github.com/fremtind/jokul/issues/545)
+* **core:** make a component of screenreader only ([5a4a038](https://github.com/fremtind/jokul/commit/5a4a038b9fb5d61cfc46d804326386670cb3990e))
+
+
+
+
+
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@0.11.0...@fremtind/jkl-core@1.0.0) (2019-12-03)
 
 

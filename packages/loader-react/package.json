@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-loader-react",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -33,7 +33,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-loader": "^1.0.0"
+        "@fremtind/jkl-loader": "^1.0.1"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.0"

@@ -1,6 +1,7 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
 @import "~@fremtind/jkl-core/mixins/_ornaments.scss";
+@import "~@fremtind/jkl-core/mixins/all.scss";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
@@ -26,18 +27,6 @@ $chevron-side-padding: (2 * $component-spacing--small);
     // Make font bolder without increasing line length
     font-weight: bold;
     letter-spacing: -0.009em;
-}
-
-@mixin underline-color($color, $focus-color) {
-    box-shadow: inset 0 rem(-2px) 0 0 $color;
-
-    html:not([data-mousenavigation]) &:focus {
-        box-shadow: inset 0 rem(-4px) 0 0 $focus-color;
-    }
-
-    &:hover {
-        box-shadow: inset 0 rem(-4px) 0 0 $color;
-    }
 }
 
 .jkl-select {
@@ -86,6 +75,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
         & option {
             font-weight: normal;
             font-family: sans-serif;
+            color: black;
         }
     }
 
@@ -94,6 +84,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
         text-overflow: ellipsis;
         white-space: nowrap;
         background-color: transparent;
+        color: inherit;
 
         border: 0;
         @include text-sizing("small");
@@ -105,7 +96,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
         width: 100%;
         opacity: 1;
         position: relative;
-        @include underline-color($border-color, $border-color--focus);
+        @include underline-color(currentColor, $border-color--focus);
 
         &::-ms-expand {
             display: none; // remove dropdown arrow in IE11
@@ -118,7 +109,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
     &--no-value {
         .jkl-select__value {
-            color: $varm-fjellgra;
+            color: currentColor;
             font-weight: normal;
         }
     }

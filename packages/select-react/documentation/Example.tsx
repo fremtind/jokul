@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Select, NativeSelect } from "../src";
+import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-select/select.min.css";
+import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
+import "./index.scss";
 
 const Example = () => {
     const items = [
@@ -18,9 +21,13 @@ const Example = () => {
 
     const [favoriteScene, setFavoriteScene] = useState<string>();
     const [valuePair, setValuePair] = useState<string>();
+    const [darkMode, isDarkMode] = useState(false);
 
     return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+        <section className={"example-page " + (!darkMode ? "example-page--light-mode" : "example-page--dark-mode")}>
+            <ToggleSwitch className={"toggle-switch"} inverted={darkMode} onChange={() => isDarkMode(!darkMode)}>
+                Dark Mode
+            </ToggleSwitch>
             <Select
                 forceCompact
                 inline

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.0.1...@fremtind/jkl-card-react@1.0.2) (2019-12-17)
+
+
+### Bug Fixes
+
+* **card:** lets title be a optional prop ([1ed7c19](https://github.com/fremtind/jokul/commit/1ed7c191f2a4f2ca94e75b5ec864adaae0d5535e)), closes [#576](https://github.com/fremtind/jokul/issues/576)
+
+
+
+
+
 ## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.0.0...@fremtind/jkl-card-react@1.0.1) (2019-12-10)
 
 **Note:** Version bump only for package @fremtind/jkl-card-react
