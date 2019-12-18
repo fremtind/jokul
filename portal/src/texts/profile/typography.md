@@ -39,15 +39,15 @@ De ulike tekststilene har forskjellig formål, det er derfor viktig å velge rik
 
 ### Overskrifter
 
-De ulike overskriftsstilene lager et informasjonshierarki. En mindre overskrift er underordnet en større. Prøv å bruke de store overskriftene der det er mulig.
+De ulike overskriftsstilene lager et informasjonshierarki. En mindre overskrift er underordnet en større. Prøv å bruke de store overskriftene der det er mulig, og prøv å ikke bruke mer enn tre overskriftsstiler på en side.
 
 
-### Brødtekst
+### Mengdetekst
 
-Vi har fire stiler for brødtekst:
-- Lead er til kortere brødtekster. Den bruker vi som ingress eller når innholdet er kort nok og vi vil gi det større fokus.
+Vi har fire stiler for mengdetekst:
+- Lead er til kortere tekster. Den bruker vi som ingress eller når innholdet er kort nok og vi vil gi det større fokus. I kombinasjon med overskrifter bør Lead stå til H1 eller H2 for å sikre god kontrast.
 - Body er hovedstilen for brødtekst, og skal brukes hvis man ikke har et spesielt behov. 
-- Body Small er alternativet hvis man _må_ ha en mer kompakt stil. 
+- Body Small er en alterantiv brødtekst hvis man _må_ ha en mer kompakt stil. 
 - Small er den minste skriftstilen vår, og brukes bare i tabeller eller interne applikasjoner for å spare plass ved behov. Den kan også brukes i bilde- og figurtekster.
 
 
