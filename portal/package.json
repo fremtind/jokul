@@ -20,14 +20,14 @@
         "gatsby-source-filesystem": "^2.1.40",
         "gatsby-transformer-react-docgen": "^5.0.22",
         "gatsby-transformer-remark": "^2.6.39",
-        "node-sass": "^4.12.0",
         "raw-loader": "^3.0.0",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-helmet": "^5.2.1",
         "react-live": "^2.1.2",
         "react-markdown": "^4.1.0",
-        "react-syntax-highlighter": "^12.2.1"
+        "react-syntax-highlighter": "^12.2.1",
+        "sass": "^1.23.7"
     },
     "keywords": [
         "portal"
