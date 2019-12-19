@@ -25,6 +25,8 @@ jobs:
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
                   git remote set-url origin https://fremtind-bot:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  git branch -D release/master
+                  git checkout -b release/master
                   yarn install --frozen-lockfile
                   yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): next [ci skip release]"
 
@@ -32,7 +34,14 @@ jobs:
               uses: JamesIves/github-pages-deploy-action@master
               env:
                   ACCESS_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-                  BASE_BRANCH: master
+                  BASE_BRANCH: release/master
                   BRANCH: gh-pages
                   FOLDER: portal/public
                   BUILD_SCRIPT: yarn install --frozen-lockfile && yarn build && yarn build:docs
+
+            - name: Create Pull Request
+              uses: peter-evans/create-pull-request@v1
+              with:
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                  base: master
+                  commit-message: "chore(release): update version number and changelog [ci skip release]"
