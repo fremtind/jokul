@@ -5,11 +5,23 @@ on:
             - master
 jobs:
     build-and-deploy:
-        name: Deploy to GitHub Pages
+        name: Release packages and deploy portal
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@master
+
+            - name: Release master to @next
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  GH_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+              if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  yarn install --frozen-lockfile
+                  yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): %s next [ci skip release]"
 
             - name: Build and Deploy
               uses: JamesIves/github-pages-deploy-action@master
