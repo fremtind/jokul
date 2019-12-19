@@ -2,7 +2,7 @@ name: CD
 on:
     push:
         branches:
-            - master-release2
+            - master
 jobs:
     build-and-deploy:
         name: Release packages and deploy portal
@@ -24,7 +24,7 @@ jobs:
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
-                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  git remote set-url origin https://fremtind-bot:${GH_TOKEN}@github.com/fremtind/jokul.git
                   yarn install --frozen-lockfile
                   yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): %s next [ci skip release]"
 
@@ -32,7 +32,7 @@ jobs:
               uses: JamesIves/github-pages-deploy-action@master
               env:
                   ACCESS_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-                  BASE_BRANCH: master-release2
+                  BASE_BRANCH: master
                   BRANCH: gh-pages
                   FOLDER: portal/public
                   BUILD_SCRIPT: yarn install --frozen-lockfile && yarn build && yarn build:docs
