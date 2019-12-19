@@ -15,4 +15,4 @@ Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn.
 **Grønn:** forteller at en handling var vellykket.
 
 ### Tilgjengelighet
-Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende overskrift, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en så presis meldingstekst som mulig, og husk å si det viktigste først.
+Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende overskrift, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.
