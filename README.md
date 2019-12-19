@@ -16,7 +16,7 @@ Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan 
 
 ### React-pakker
 
-`yarn install @fremtind/jkl-button-react`
+`yarn add @fremtind/jkl-button-react`
 
 ```tsx
 import { PrimaryButton } from "@fremtind/jkl-button-react";
@@ -29,7 +29,7 @@ import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
 ### Stilark-pakker
 
 Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mixins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
-`yarn install @fremtind/jkl-button`
+`yarn add @fremtind/jkl-button`
 
 ```tsx
 import "@fremtind/jkl-button/button.min.css";
