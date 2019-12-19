@@ -1,8 +1,13 @@
 # `@fremtind/jkl-toggle-switch`
 
-# Bryter
-En bryter lar brukeren veksle mellom to statuser (av eller på) uten å bekrefte valget. Ledeteksten beskriver alternativet. En bryter skal ikke benyttes dersom brukeren må bekrefte valget sitt for at endringen skal tre i kraft.
+# Veksleknapp (toggle switch)
+Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. 
+Veksleknapper skal ha en god overskrift som forteller hva det er brukerne slår av og på. Ledeteksten veksler mellom Av og På, og skal stå til  høyre for selve knappen. 
+
+Veksleknapper passer til situasjoner der brukerne selv kan velge å ha en funksjon av eller på, for eksempel automatisk oppdatering eller automatisk lagring. 
+
+Ikke bruk veksleknapp hvis du vil at brukeren skal bekrefte valget sitt. 
 
 ## Eksempler på bruk
-- Skru av eller på ulike innstillinger i en applikasjon
-- Bytte mellom lys eller mørk modus for et grensesnitt
+- Slå innstillinger av eller på i en applikasjon.
+- Bytte mellom lys eller mørk modus i et grensesnitt.
