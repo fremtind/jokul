@@ -7,14 +7,14 @@ $input-bg-color: inherit;
 $border-color: $svart;
 $border-color--focus: $focus-color;
 
-$input-height: $line-height-3;
+$input-height: $line-height-4;
 $input-height--small-device: $line-height-2;
 $bottom-padding: $component-spacing--small;
 
 $textarea-expanded-height: $input-height * 7 + $bottom-padding;
 $textarea-expanded-height--small-device: $input-height--small-device * 7 + $bottom-padding;
 
-$icon-size: $font-size-3;
+$icon-size: $font-size-6;
 $icon-size--compact: $font-size-2;
 
 .jkl-text-field {
@@ -40,7 +40,7 @@ $icon-size--compact: $font-size-2;
     @include compact-mode {
         & .jkl-text-field__input,
         & .jkl-text-field__input::placeholder {
-            @include text-sizing--small-device("small");
+            @include body-paragraph--mobile;
         }
         & .jkl-text-field__input {
             height: $input-height--small-device + $bottom-padding;
@@ -65,6 +65,7 @@ $icon-size--compact: $font-size-2;
     }
 
     &__input {
+        @include body-paragraph;
         border: none;
         outline: none;
         border-radius: 0;
@@ -78,8 +79,7 @@ $icon-size--compact: $font-size-2;
         }
         padding: 0 0 $bottom-padding;
 
-        @include text-sizing("small");
-        font-weight: bold;
+        font-weight: $bold-weight;
         background-color: transparent;
         transition: box-shadow $transition-timing;
         @include underline-color(currentColor, $border-color--focus);
@@ -88,10 +88,9 @@ $icon-size--compact: $font-size-2;
         resize: none; // Disable textarea resize
 
         &::placeholder {
+            @include body-paragraph;
             opacity: 1;
             color: $varm-fjellgra;
-            font-weight: normal;
-            @include text-sizing("small");
         }
 
         &:hover,
