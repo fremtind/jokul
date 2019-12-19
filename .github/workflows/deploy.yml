@@ -26,7 +26,7 @@ jobs:
                   git config user.name "fremtind-bot"
                   git remote set-url origin https://fremtind-bot:${GH_TOKEN}@github.com/fremtind/jokul.git
                   yarn install --frozen-lockfile
-                  yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): %s next [ci skip release]"
+                  yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): next [ci skip release]"
 
             - name: Build and Deploy
               uses: JamesIves/github-pages-deploy-action@master
