@@ -1,18 +1,24 @@
 # [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/components/textfield/)
 
 # Tekstfelt
-Tekstfelt lar brukeren angi data. Ledeteksten angir hva brukeren skal fylle inn. Tekstfelt støtter data med fast format eller fritekst. Velg riktig type tekstfelt basert på ønsket innhold.
+Vi bruker tekstfelt når vi vil at brukerne skal legge inn informasjon. Ledeteksten skal fortelle hva brukeren skal oppgi i feltet. Tekstfelt godtar data med fast format eller fritekst. Fast format bruker du for eksempel når du vil at brukeren skal angi fødselsnummer eller et postnummer, mens fritekst passer til felt der brukerne skal fortelle noe med egne ord.
 
-## Typer av tekstfelt
-**Vanlige tekstfelt:** normalt innhold bør ikke overskride lengden på feltet.
+Velg størrelse på tekstefelt etter typen data brukerne skal legge inn. 
 
-**Lange tekstfelt:** når innholdet vil være lengre enn en setning. Høyden kan justeres.
+## Typer tekstfelt
+**Vanlige tekstfelt:** 
+For innhold som ikke overskrider lengden på feltet.
 
-**Inline tekstfelt:** Spesialtilfeller hvor vi vil plassere et tekstfelt i en setning.
+**Lange tekstfelt:** 
+Når innholdet blir lengre enn en setning. Høyden på feltet kan justeres.
 
-For alle tekstfelt bør størrelsen på tekstfeltet samsvare med lengden på dataen som skal angis.
+**Inline tekstfelt:** 
+Til spesialtilfeller, hvis vi for eksempel trenger å plassere et tekstfelt i en setning.
 
 ## Tekst og validering
-Velg størrelse på ledetekst etter våre prinsipper for skjemadesign. Ledeteksten skal være kort og tydelig på hva som skal fylles inn. Ved behov benyttes en hjelpetekst under feltet som forklarer mer.
+Velg størrelse på ledetekst etter prinsippene for skjemadesign. Skriv en kort og tydelig ledetekst, som  forteller brukerne hva de skal oppgi i feltet. Hvis det trengs, kan vi sette inn en hjelpetekst under feltet, som forklarer mer.
 
-Hvis feltet ikke validerer får feltet en feiltilstand og det vises en feilmelding som forklarer hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst og må hensynta dette.
+Hvis brukerne ikke legger inn noe i feltet, vises en feilmelding som forteller hva som er galt. Vær oppmerskom på at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
+
+Eksempel:
+Hjelpetekst for et tekstfelt med fast format: _Fyll ut fødselsnummer, 11 siffer._  Feilemeldingstekst: _Du må fylle ut fødselsnummer, 11 siffer_. 
