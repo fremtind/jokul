@@ -1,7 +1,7 @@
 # [`datepicker`](https://fremtind.github.io/jokul/components/datepicker/)
 
 # Datovelger
-Vi bruker datovelgeren til å gi brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver hvilken dato som brukeren skal fylle inn, for eksempel: "Oppgi datoen da skaden skjedde".
+Vi bruker datovelgeren til å gi brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver hvilken dato  brukeren skal fylle inn, for eksempel: "Oppgi datoen da skaden skjedde".
 
 ## Typer og bruk
 **Enkel datovelger:** Når brukeren skal velge en dato, som er nær dagens dato.
