@@ -28,6 +28,7 @@ jobs:
                   git checkout -b release/master
                   yarn install --frozen-lockfile
                   yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): next [ci skip release]"
+                  git push origin release/master
 
             - name: Build and Deploy
               uses: JamesIves/github-pages-deploy-action@master
