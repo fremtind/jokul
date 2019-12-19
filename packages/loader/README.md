@@ -6,5 +6,5 @@ En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren 
 Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik posisjon og størrelse, avhengig av konteksten den skal fungere i.
 
 ### Bruk
-- I en knapp som brukeren har trykket på
-- I et kort eller felt der noe blir beregnet før innholdet vises.
+- På en knapp som brukeren har klikket på.
+- På et kort eller i felt der noe blir beregnet før innholdet vises.
