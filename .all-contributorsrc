@@ -213,6 +213,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "fremtind-bot",
+      "name": "fremtind-bot",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/57256715?v=4",
+      "profile": "https://github.com/fremtind-bot",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
