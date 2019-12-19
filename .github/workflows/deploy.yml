@@ -14,7 +14,7 @@ jobs:
             - name: Release master to @next
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  GH_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               if: "!contains(github.event.head_commit.message, '[ci skip release]')"
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
