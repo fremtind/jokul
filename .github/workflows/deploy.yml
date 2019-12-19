@@ -25,8 +25,8 @@ jobs:
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
                   git remote set-url origin https://fremtind-bot:${GH_TOKEN}@github.com/fremtind/jokul.git
-                  git checkout -b release/master
-                  git push origin release/master
+                  git checkout -b release
+                  git push origin release
                   yarn install --frozen-lockfile
                   yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): next [ci skip release]"
 
@@ -34,7 +34,7 @@ jobs:
               uses: JamesIves/github-pages-deploy-action@master
               env:
                   ACCESS_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-                  BASE_BRANCH: release/master
+                  BASE_BRANCH: release
                   BRANCH: gh-pages
                   FOLDER: portal/public
                   BUILD_SCRIPT: yarn install --frozen-lockfile && yarn build && yarn build:docs
