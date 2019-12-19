@@ -41,6 +41,8 @@ De ulike tekststilene har forskjellig formål, det er derfor viktig å velge rik
 
 De ulike overskriftsstilene lager et informasjonshierarki. En mindre overskrift er underordnet en større. Prøv å bruke de store overskriftene der det er mulig, og prøv å ikke bruke mer enn tre overskriftsstiler på en side.
 
+Når du skriver overskrifter må du tenke at de skal være enkle å skanne – med godt og enkelt språk. Begrens overskrifter til en setning, uten komma, punktum, bindestrek eller semikolon.
+
 
 ### Mengdetekst
 
