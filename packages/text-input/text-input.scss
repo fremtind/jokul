@@ -79,7 +79,7 @@ $icon-size--compact: $font-size-2;
         }
         padding: 0 0 $bottom-padding;
 
-        font-weight: bold;
+        font-weight: $bold-weight;
         background-color: transparent;
         transition: box-shadow $transition-timing;
         @include underline-color(currentColor, $border-color--focus);

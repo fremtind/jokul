@@ -25,7 +25,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
 @mixin nojump-bold {
     // Make font bolder without increasing line length
-    font-weight: bold;
+    font-weight: $bold-weight;
     letter-spacing: -0.009em;
 }
 
@@ -88,7 +88,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
         color: inherit;
 
         border: 0;
-        font-weight: bold;
+        font-weight: $bold-weight;
         padding: 0 $side-padding $bottom-padding 0;
         padding-right: $chevron-size + $chevron-side-padding;
         text-align: left;

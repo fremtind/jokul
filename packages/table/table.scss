@@ -7,7 +7,7 @@ $highlight-color: $helhvit;
     border-collapse: collapse;
     line-height: $line-height-2;
     font-size: $font-size-2;
-    font-weight: bold;
+    font-weight: $bold-weight;
 
     &__heading {
         color: $matt-svart;
