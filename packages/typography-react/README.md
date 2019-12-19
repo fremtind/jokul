@@ -1,6 +1,6 @@
 # [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/components/typography/)
 
 # Typografi
-Vi bruker typografien som et grafisk element og for å gi brukeren en konsekvent struktur på informasjonen vi presenterer.
+Vi bruker typografien som et grafisk element. I tillegg vil vi at den skal gi brukeren informasjon med en konsekvent struktur.
 
-For mer informasjon om bruk av typografi se våre prinsipper for typografi.
+Du kan lese mer om hvordan vi bruker typografi i emnet Prinsipper for typografi.
