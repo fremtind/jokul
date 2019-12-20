@@ -5,7 +5,7 @@
 .portal-content {
     &__code {
         &-editor {
-            @include font-size("xxs");
+            @include body-small-paragraph;
         }
         &-highlight {
             font-size: 1rem !important;
