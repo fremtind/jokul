@@ -3,13 +3,9 @@
 @import "./functions";
 
 .jkl-form-support-label {
+    @include body-small-paragraph;
     display: block;
     margin-top: $component-spacing--small;
-    @include text-sizing("xxs");
-
-    @include compact-mode {
-        @include text-sizing--small-device("xxs");
-    }
 
     &--error {
         color: $error-color;
@@ -17,39 +13,35 @@
 }
 
 .jkl-label {
+    @include lead-paragraph;
     display: block;
-    // Medium size is default
     margin-bottom: $component-spacing--large;
     margin-left: initial;
-    @include text-sizing("medium");
     @include small-device {
         margin-bottom: $component-spacing--small;
     }
 
     &--large {
+        @include h2-heading;
         margin-bottom: $component-spacing--xl;
         margin-left: rem(-1px); // adjust visual alignment
-        @include text-sizing("xl");
         @include small-device {
             margin-bottom: $component-spacing--large;
         }
     }
 
     &--small {
+        @include body-small-paragraph;
         margin-bottom: 0;
         margin-left: initial;
-        @include text-sizing("xxs");
     }
 
     @include compact-mode {
         &.jkl-label--medium {
-            @include text-sizing--small-device("medium");
-        }
-        &.jkl-label--small {
-            @include text-sizing--small-device("xxs");
+            @include lead-paragraph--mobile;
         }
         &.jkl-label--large {
-            @include text-sizing--small-device("xl");
+            @include h2-heading--mobile;
         }
     }
 

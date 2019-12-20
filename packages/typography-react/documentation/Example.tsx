@@ -1,6 +1,6 @@
 import React from "react";
-import { H1, H2, H3, H4, LeadParagraph, P, SmallParagraph, TinyParagraph, Link } from "../src";
-import "@fremtind/jkl-core/paragraphs.min.css";
+import { H1, H2, H3, H4, H5, LeadParagraph, P, SmallParagraph, TinyParagraph, Link } from "../src";
+
 import "@fremtind/jkl-core/core.min.css";
 
 const Example = () => (
@@ -9,6 +9,7 @@ const Example = () => (
         <H2>H2: This is typography</H2>
         <H3>H3: components for</H3>
         <H4>H4: jøkul design system</H4>
+        <H5>H5: This is the last heading component</H5>
         <LeadParagraph>
             LeadParagraph: For half-an-hour we were muffled in a cold, damp mist, and total darkness, and had begun to
             think of going indoors when, all at once, the car burst into the pure and starlit region of the upper air.
