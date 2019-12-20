@@ -110,7 +110,7 @@ pre {
         padding: $component-spacing--small;
         background-color: $svart;
         color: $snohvit;
-        @include text-sizing("xxs");
+        @include micro-paragraph;
         text-transform: uppercase;
         content: attr(data-language);
     }
