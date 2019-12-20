@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { ProgressBar } from "../src";
-import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-progress-bar/progress-bar.css";
 import "@fremtind/jkl-core/core.min.css";
 
 export const Example = () => {
-    initTabListener();
     const [val, setVal] = useState(50);
 
     return (
