@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -37,11 +37,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-text-input": "^1.1.4",
-        "@fremtind/jkl-typography-react": "^1.0.5"
+        "@fremtind/jkl-text-input": "^1.1.5",
+        "@fremtind/jkl-typography-react": "^1.0.6"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.4"
+        "@fremtind/browserslist-config-jkl": "^0.4.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
