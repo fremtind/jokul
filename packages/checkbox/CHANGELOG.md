@@ -3,182 +3,107 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 1.0.3 (2019-12-19)
+## 1.0.3 (2019-12-20)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
-
-
-
-
 
 ## 1.0.2 (2019-12-19)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
 
-
-
-
-
 ## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.0.0...@fremtind/jkl-checkbox@1.0.1) (2019-12-17)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
 
-
-
-
-
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.4...@fremtind/jkl-checkbox@1.0.0) (2019-12-03)
-
 
 ### Bug Fixes
 
-* **checkbox:** use correct size for mobile/compact version ([68c8782](https://github.com/fremtind/jokul/commit/68c878227287009b9af1859a0421c41191fcc5d2))
-
+-   **checkbox:** use correct size for mobile/compact version ([68c8782](https://github.com/fremtind/jokul/commit/68c878227287009b9af1859a0421c41191fcc5d2))
 
 ### Features
 
-* **checkbox:** add error state to checkbox ([6c9a554](https://github.com/fremtind/jokul/commit/6c9a5542721cf10b9221f2bd5371cf55e625bc3a))
-* **checkbox:** implement compact/mobile version of checkbox ([7bacff8](https://github.com/fremtind/jokul/commit/7bacff8c5f82580907040cf31259ad098b9f31b4))
-* add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
-* add support for global compact mode ([cc11026](https://github.com/fremtind/jokul/commit/cc11026207dfef2a0b3b074b88e071783d2820fd)), closes [#494](https://github.com/fremtind/jokul/issues/494)
-
-
-
-
+-   **checkbox:** add error state to checkbox ([6c9a554](https://github.com/fremtind/jokul/commit/6c9a5542721cf10b9221f2bd5371cf55e625bc3a))
+-   **checkbox:** implement compact/mobile version of checkbox ([7bacff8](https://github.com/fremtind/jokul/commit/7bacff8c5f82580907040cf31259ad098b9f31b4))
+-   add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
+-   add support for global compact mode ([cc11026](https://github.com/fremtind/jokul/commit/cc11026207dfef2a0b3b074b88e071783d2820fd)), closes [#494](https://github.com/fremtind/jokul/issues/494)
 
 ## [0.8.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.3...@fremtind/jkl-checkbox@0.8.4) (2019-10-09)
 
-
 ### Bug Fixes
 
-* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
-* **jkl-checkbox:** give checkboxes correct vertical spacing when stacked ([879f8e4](https://github.com/fremtind/jokul/commit/879f8e4))
-
-
-
-
+-   **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
+-   **jkl-checkbox:** give checkboxes correct vertical spacing when stacked ([879f8e4](https://github.com/fremtind/jokul/commit/879f8e4))
 
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.2...@fremtind/jkl-checkbox@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
 
-
-
-
-
 ## [0.8.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.1...@fremtind/jkl-checkbox@0.8.2) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
-
-
-
-
 
 ## [0.8.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.8.0...@fremtind/jkl-checkbox@0.8.1) (2019-09-23)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
 
-
-
-
-
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.7.2...@fremtind/jkl-checkbox@0.8.0) (2019-08-30)
-
 
 ### Bug Fixes
 
-* **checkbox:** fix correct spacing and font sizes for checkbox ([fca4177](https://github.com/fremtind/jokul/commit/fca4177))
-
+-   **checkbox:** fix correct spacing and font sizes for checkbox ([fca4177](https://github.com/fremtind/jokul/commit/fca4177))
 
 ### Features
 
-* **checkbox:** add checkbox group style and react component ([8c9ec35](https://github.com/fremtind/jokul/commit/8c9ec35))
-* **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
-
-
-
-
+-   **checkbox:** add checkbox group style and react component ([8c9ec35](https://github.com/fremtind/jokul/commit/8c9ec35))
+-   **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
 
 ## [0.7.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.7.1...@fremtind/jkl-checkbox@0.7.2) (2019-08-02)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
 
-
-
-
-
 ## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.7.0...@fremtind/jkl-checkbox@0.7.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
 
-
-
-
-
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.6.1...@fremtind/jkl-checkbox@0.7.0) (2019-07-30)
-
 
 ### Bug Fixes
 
-* **checkbox:** fix style for older browser, add onchange handler ([d2f0497](https://github.com/fremtind/jokul/commit/d2f0497)), closes [#148](https://github.com/fremtind/jokul/issues/148)
-
+-   **checkbox:** fix style for older browser, add onchange handler ([d2f0497](https://github.com/fremtind/jokul/commit/d2f0497)), closes [#148](https://github.com/fremtind/jokul/issues/148)
 
 ### Features
 
-* **portal:** document checkbox ([1c038e5](https://github.com/fremtind/jokul/commit/1c038e5))
-
-
-
-
+-   **portal:** document checkbox ([1c038e5](https://github.com/fremtind/jokul/commit/1c038e5))
 
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.6.0...@fremtind/jkl-checkbox@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
 
-
-
-
-
 # [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.5.0...@fremtind/jkl-checkbox@0.6.0) (2019-07-18)
-
 
 ### Bug Fixes
 
-* **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
-* **css:** output prefixed css files, fix import from core ([db7413d](https://github.com/fremtind/jokul/commit/db7413d))
-
+-   **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
+-   **css:** output prefixed css files, fix import from core ([db7413d](https://github.com/fremtind/jokul/commit/db7413d))
 
 ### Features
 
-* **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
-
-
-
-
+-   **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
 
 # [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.3.0...@fremtind/jkl-checkbox@0.5.0) (2019-07-15)
 
-
 ### Bug Fixes
 
-* use correct syntax for importing sass index files ([46fa8f6](https://github.com/fremtind/jokul/commit/46fa8f6))
-* **build:** publish correct files for style pkgs ([a89d768](https://github.com/fremtind/jokul/commit/a89d768))
-
-
-
-
+-   use correct syntax for importing sass index files ([46fa8f6](https://github.com/fremtind/jokul/commit/46fa8f6))
+-   **build:** publish correct files for style pkgs ([a89d768](https://github.com/fremtind/jokul/commit/a89d768))
 
 # [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.2.0...@fremtind/jkl-checkbox@0.3.0) (2019-07-15)
 
-
 ### Features
 
-* **build:** publish correct files in all packages ([b1fbb8f](https://github.com/fremtind/jokul/commit/b1fbb8f))
-* **core:** flatten structure of core package ([5b2287b](https://github.com/fremtind/jokul/commit/5b2287b))
-
-
-
-
+-   **build:** publish correct files in all packages ([b1fbb8f](https://github.com/fremtind/jokul/commit/b1fbb8f))
+-   **core:** flatten structure of core package ([5b2287b](https://github.com/fremtind/jokul/commit/5b2287b))
 
 # [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@0.1.0...@fremtind/jkl-checkbox@0.2.0) (2019-07-15)
 

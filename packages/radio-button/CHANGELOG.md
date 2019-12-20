@@ -3,189 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## 1.0.3 (2019-12-19)
+## 1.0.3 (2019-12-20)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
-
-
-
-
 
 ## 1.0.2 (2019-12-19)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
 
-
-
-
-
 ## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@1.0.0...@fremtind/jkl-radio-button@1.0.1) (2019-12-17)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
 
-
-
-
-
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.9.0...@fremtind/jkl-radio-button@1.0.0) (2019-12-03)
-
 
 ### Bug Fixes
 
-* **radio-button:** fix wrong use of [@extend](https://github.com/extend) ([365edc0](https://github.com/fremtind/jokul/commit/365edc0e7ad4b911d94fce6464b2d2da36bcbf7d))
-* **radio-button:** use right size for compact middle dot ([09f96a1](https://github.com/fremtind/jokul/commit/09f96a15cdcf7430fd2aa7a99837ab7248b02d8f))
-
+-   **radio-button:** fix wrong use of [@extend](https://github.com/extend) ([365edc0](https://github.com/fremtind/jokul/commit/365edc0e7ad4b911d94fce6464b2d2da36bcbf7d))
+-   **radio-button:** use right size for compact middle dot ([09f96a1](https://github.com/fremtind/jokul/commit/09f96a15cdcf7430fd2aa7a99837ab7248b02d8f))
 
 ### Features
 
-* **radio-button:** implement compact/mobile version ([e3c2c6f](https://github.com/fremtind/jokul/commit/e3c2c6fdc4de9b59900f1dc8a0b132cea0cb733a))
-* **radio-button:** use correct spacing in compact mode ([863f1e7](https://github.com/fremtind/jokul/commit/863f1e7b3723dd884dbbc530f950b6594ae2ab8f))
-* **radio-button-react:** rename radio button components ([d09fe6f](https://github.com/fremtind/jokul/commit/d09fe6fd321f2242a94d7d60deb5ae7997da0ccf))
-* add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
-* add support for global compact mode ([cc11026](https://github.com/fremtind/jokul/commit/cc11026207dfef2a0b3b074b88e071783d2820fd)), closes [#494](https://github.com/fremtind/jokul/issues/494)
-
-
-
-
+-   **radio-button:** implement compact/mobile version ([e3c2c6f](https://github.com/fremtind/jokul/commit/e3c2c6fdc4de9b59900f1dc8a0b132cea0cb733a))
+-   **radio-button:** use correct spacing in compact mode ([863f1e7](https://github.com/fremtind/jokul/commit/863f1e7b3723dd884dbbc530f950b6594ae2ab8f))
+-   **radio-button-react:** rename radio button components ([d09fe6f](https://github.com/fremtind/jokul/commit/d09fe6fd321f2242a94d7d60deb5ae7997da0ccf))
+-   add compact mode mixin ([ca9fa96](https://github.com/fremtind/jokul/commit/ca9fa96b7de2be50646af0cb444206c3eebcfc4a))
+-   add support for global compact mode ([cc11026](https://github.com/fremtind/jokul/commit/cc11026207dfef2a0b3b074b88e071783d2820fd)), closes [#494](https://github.com/fremtind/jokul/issues/494)
 
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.8.3...@fremtind/jkl-radio-button@0.9.0) (2019-10-09)
 
-
 ### Bug Fixes
 
-* **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
-
+-   **core:** add and use wcag-compliant error/focus colors ([c714b45](https://github.com/fremtind/jokul/commit/c714b45))
 
 ### Features
 
-* **radio-button:** use updated field group in radio button groups ([ea1f67e](https://github.com/fremtind/jokul/commit/ea1f67e))
-
-
-
-
+-   **radio-button:** use updated field group in radio button groups ([ea1f67e](https://github.com/fremtind/jokul/commit/ea1f67e))
 
 ## [0.8.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.8.2...@fremtind/jkl-radio-button@0.8.3) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
 
-
-
-
-
 ## [0.8.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.8.1...@fremtind/jkl-radio-button@0.8.2) (2019-09-26)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
-
-
-
-
 
 ## [0.8.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.8.0...@fremtind/jkl-radio-button@0.8.1) (2019-09-23)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
 
-
-
-
-
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.7.2...@fremtind/jkl-radio-button@0.8.0) (2019-08-30)
-
 
 ### Bug Fixes
 
-* **radio-button:** fix correct component spacing ([47a97e3](https://github.com/fremtind/jokul/commit/47a97e3))
-* **radio-button:** fix correct hover and active state ([c8c7d87](https://github.com/fremtind/jokul/commit/c8c7d87))
-
+-   **radio-button:** fix correct component spacing ([47a97e3](https://github.com/fremtind/jokul/commit/47a97e3))
+-   **radio-button:** fix correct hover and active state ([c8c7d87](https://github.com/fremtind/jokul/commit/c8c7d87))
 
 ### Features
 
-* **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
-* **radiobutton:** add error state to radio button ([a2052a7](https://github.com/fremtind/jokul/commit/a2052a7))
-
-
-
-
+-   **field-group:** add field group style and react component ([f002974](https://github.com/fremtind/jokul/commit/f002974))
+-   **radiobutton:** add error state to radio button ([a2052a7](https://github.com/fremtind/jokul/commit/a2052a7))
 
 ## [0.7.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.7.1...@fremtind/jkl-radio-button@0.7.2) (2019-08-02)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
 
-
-
-
-
 ## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.7.0...@fremtind/jkl-radio-button@0.7.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
 
-
-
-
-
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.6.1...@fremtind/jkl-radio-button@0.7.0) (2019-07-30)
-
 
 ### Bug Fixes
 
-* **radio-button:** refactor structure to match other components ([d66f256](https://github.com/fremtind/jokul/commit/d66f256))
-* **radio-button:** style fieldset and label correctly ([bc806a7](https://github.com/fremtind/jokul/commit/bc806a7))
-
+-   **radio-button:** refactor structure to match other components ([d66f256](https://github.com/fremtind/jokul/commit/d66f256))
+-   **radio-button:** style fieldset and label correctly ([bc806a7](https://github.com/fremtind/jokul/commit/bc806a7))
 
 ### Features
 
-* **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
-
-
-
-
+-   **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
 
 ## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.6.0...@fremtind/jkl-radio-button@0.6.1) (2019-07-18)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button
 
-
-
-
-
 # [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.5.0...@fremtind/jkl-radio-button@0.6.0) (2019-07-18)
-
 
 ### Bug Fixes
 
-* **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
-
+-   **build:** add watch job to pkg json ([a0039e0](https://github.com/fremtind/jokul/commit/a0039e0))
 
 ### Features
 
-* **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
-
-
-
-
+-   **build:** add watch job for css, refactor gulp ([8adafd6](https://github.com/fremtind/jokul/commit/8adafd6))
 
 # [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.3.0...@fremtind/jkl-radio-button@0.5.0) (2019-07-15)
 
-
 ### Bug Fixes
 
-* use correct syntax for importing sass index files ([46fa8f6](https://github.com/fremtind/jokul/commit/46fa8f6))
-* **build:** publish correct files for style pkgs ([a89d768](https://github.com/fremtind/jokul/commit/a89d768))
-
-
-
-
+-   use correct syntax for importing sass index files ([46fa8f6](https://github.com/fremtind/jokul/commit/46fa8f6))
+-   **build:** publish correct files for style pkgs ([a89d768](https://github.com/fremtind/jokul/commit/a89d768))
 
 # [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.2.0...@fremtind/jkl-radio-button@0.3.0) (2019-07-15)
 
-
 ### Features
 
-* **build:** publish correct files in all packages ([b1fbb8f](https://github.com/fremtind/jokul/commit/b1fbb8f))
-* **core:** flatten structure of core package ([5b2287b](https://github.com/fremtind/jokul/commit/5b2287b))
-
-
-
-
+-   **build:** publish correct files in all packages ([b1fbb8f](https://github.com/fremtind/jokul/commit/b1fbb8f))
+-   **core:** flatten structure of core package ([5b2287b](https://github.com/fremtind/jokul/commit/5b2287b))
 
 # [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@0.1.0...@fremtind/jkl-radio-button@0.2.0) (2019-07-15)
 
