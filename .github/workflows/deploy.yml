@@ -1,4 +1,4 @@
-name: CD
+name: npm-publish
 on:
   push:
     branches:
@@ -35,4 +35,5 @@ jobs:
         with:
           token: ${{ secrets.BOT_PUBLISH_TOKEN }}
           base: master
+          branch: release
           commit-message: "chore(release): update version number and changelog [ci skip release]"

@@ -1,4 +1,4 @@
-name: CD
+name: release-portal
 on:
   push:
     branches:
@@ -15,7 +15,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@master
         env:
           ACCESS_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-          BASE_BRANCH: release
+          BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: portal/public
           BUILD_SCRIPT: yarn install --frozen-lockfile && yarn build && yarn build:docs
