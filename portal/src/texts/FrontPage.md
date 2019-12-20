@@ -1,5 +1,3 @@
-# Landingsside
-
 ## Om Jøkul
 
 På disse sidene finner du tankegangen bak designsystemet, komponentbiblioteket vårt og informasjon om hvordan du kommer i gang med å designe eller utvikle.

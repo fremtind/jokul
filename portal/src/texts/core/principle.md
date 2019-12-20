@@ -1,4 +1,9 @@
-## Designprinsipper
+---
+title: designprinsipper
+path: /kjerne/designprinsipper
+---
+
+# Designprinsipper
 
 Jøkul er et system laget med utgangspunkt i Fremtinds designprinsipper. Disse prinsippene skal bidra til at alle som jobber med merkevaren Fremtind samles om én konsekvent retning. De tre designprinsippene vi abeider etter er
 
