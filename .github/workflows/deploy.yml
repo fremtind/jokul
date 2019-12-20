@@ -29,6 +29,8 @@ jobs:
                   git push origin release
                   yarn install --frozen-lockfile
                   yarn release --no-git-reset --conventional-commits --dist-tag next --yes --message "chore(release): next [ci skip release]"
+            - name: Create Pull Request
+              if: "!contains(github.event.head_commit.message, '[ci skip release]')"
               uses: peter-evans/create-pull-request@v1
               with:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
