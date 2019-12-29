@@ -37,7 +37,7 @@ Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer
 Hvit er også en av Fremtinds profilbærende farger. Den bruker vi som bakgrunnsfarge, og som tekstfarge på mørke flater. I tillegg er den _fokusfarge_, for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel et felt i et skjema.
 
 - **Varde #DED4C7**
-Varde er vår tredje og siste profilbærende farge. Den bruker vi som bakgrunnsfarge eller på elementer, for å fremheve innhold. Når vi velger å bruke den på en flate, unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
+Varde er vår siste profilbærende farge. Den bruker vi som bakgrunnsfarge eller på elementer, for å fremheve innhold. Når vi velger å bruke den på en flate, unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
 
 - **Matt svart #3D3D3D** 
 Vi kan bruke matt svart som en mørkere bakgrunnsfarge. Som bakgrunnsfarge kan den ha hvit tekst.
