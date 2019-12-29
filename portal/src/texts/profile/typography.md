@@ -37,7 +37,7 @@ Vi har fire stiler for mengdetekst:
 - _Body Small_ er en alternativ brødtekst. Den kan vi bruke hvis vi _må_ ha en mer kompakt stil. 
 - _Small_ er den minste skriftstilen vår. Den bruker vi når vi vil spare plass, for eksempel i tabeller eller interne applikasjoner. Vi kan også bruke den i bilde- og figurtekster.
 
-## Linjelengde
+### Linjelengde
 Innhold blir lettest å lese hvis linjelengden er mellom 45 og 75 tegn. Unngå å ha over 80 tegn per linje. Korte linjer skaper også problemer, for da må blikket skifte linje for ofte og det bryter leserytmen. 
 
 ## Eksempler på god typografi
