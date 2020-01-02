@@ -1,12 +1,11 @@
 # `@fremtind/jkl-toggle-switch`
 
 # Veksleknapp (toggle switch)
-Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. 
-Veksleknapper skal ha en god overskrift som forteller hva det er brukerne slår av og på. Ledeteksten veksler mellom Av og På, og skal stå til  høyre for selve knappen. 
+Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. Ledeteksten forteller hva brukeren slår av og på.
 
 Veksleknapper passer til situasjoner der brukerne selv kan velge å ha en funksjon av eller på, for eksempel automatisk oppdatering eller automatisk lagring. 
 
-Ikke bruk veksleknapp hvis du vil at brukeren skal bekrefte valget sitt. 
+Ikke bruk veksleknapp hvis brukeren må bekrefte valget sitt. 
 
 ## Eksempler på bruk
 - Slå innstillinger av eller på i en applikasjon.
