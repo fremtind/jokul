@@ -1,5 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_helpers.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $toggle-width: rem(48px);
@@ -36,10 +36,6 @@ $inverted-disabled-color: #969696;
                     background-color: $expanding-pill-background-color;
                     border-color: $helhvit;
                 }
-            }
-
-            &__label {
-                color: currentColor;
             }
 
             &__input[disabled] {
@@ -92,7 +88,8 @@ $inverted-disabled-color: #969696;
     }
 
     &__label {
-        margin-bottom: 0;
+        @include body-paragraph;
+        color: currentColor;
         padding-left: $component-spacing--small;
     }
 

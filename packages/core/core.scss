@@ -6,17 +6,10 @@
 @import "./links.scss";
 @import "./labels.scss";
 @import "./spacing.scss";
+@import "./screen-reader";
 
 :root {
     font-family: "Fremtind Grotesk";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-.jkl-sr-only {
-    @include screenreader-only();
-
-    &--focusable {
-        @include screenreader-only-focusable();
-    }
 }

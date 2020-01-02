@@ -1,51 +1,101 @@
-import { createElement, ReactNode } from "react";
+import { createElement, ReactNode, FunctionComponent } from "react";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
+import { H1, H2, H3, H4, LeadParagraph, P, Link } from "@fremtind/jkl-typography-react";
+import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import { InfoMessage } from "@fremtind/jkl-message-box-react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+const style = {
+    ...prism,
+    'pre[class*="language-"]': {
+        lineHeight: "1.4",
+    },
+    operator: {
+        ...prism.operator,
+        background: "transparent",
+    },
+};
 
 interface Props {
     children?: ReactNode;
-    ordered?: boolean;
 }
 
 interface HeadingProps extends Props {
     level: number;
 }
 
-interface LinkProps extends Props {
-    href: string;
+interface ListProps extends Props {
+    ordered: boolean;
 }
 
-const defaultRenderer = {
-    paragraph: ({ children }: Props) => createElement("p", { className: "jkl-p jkl-spacing--bottom-2" }, children),
-    list: ({ children, ordered }: Props) =>
-        createElement(
-            ordered ? "ol" : "ul",
-            { className: `jkl-list jkl-p ${ordered ? "jkl-list--ordered" : ""}` },
-            children,
-        ),
-    listItem: ({ children }: Props) => createElement("li", { className: "jkl-list__item" }, children),
-    blockquote: ({ children }: Props) =>
-        createElement(
-            "div",
-            { className: "jkl-message-box jkl-message-box__info jkl-spacing--top-3 jkl-spacing--bottom-3" },
-            children,
-        ),
-    link: ({ children, href }: LinkProps) =>
-        createElement("a", { className: "jkl-link jkl-link--inline", href }, children),
+interface CodeProps extends Props {
+    language?: string;
+    value: string;
+}
+
+export const jokulRenderer = {
+    paragraph: P,
+    list: jokulList,
+    listItem: ListItem,
+    heading: jokulHeading,
+    link: Link,
+    code: codeBlock,
+    inlineCode,
+    blockquote: infoBox,
 };
 
-export const renderer = {
-    ...defaultRenderer,
-    heading: ({ level, children }: HeadingProps) => {
-        return level === 1 ? null : createElement(`h${level}`, { className: `jkl-h${level + 1}` }, children);
-    },
-};
+function jokulList({ ordered, children }: ListProps) {
+    return ordered ? createElement(OrderedList, null, children) : createElement(UnorderedList, null, children);
+}
 
-export const changelogRenderer = {
-    ...defaultRenderer,
-    heading: ({ level, children }: HeadingProps) => {
-        return level === 1
-            ? createElement("h2", { className: "jkl-h2" }, children)
-            : createElement(`h${level}`, { className: `jkl-h${level + 1}` }, children);
-    },
-};
+function jokulHeading({ level, children }: HeadingProps) {
+    let Element: FunctionComponent;
+    switch (level) {
+        case 1:
+            Element = H1;
+            break;
+        case 2:
+            Element = H2;
+            break;
+        case 3:
+            Element = H3;
+            break;
+        case 4:
+            Element = H4;
+            break;
+        case 5:
+            Element = LeadParagraph;
+            break;
+
+        default:
+            Element = P;
+            break;
+    }
+    return createElement(Element, null, children);
+}
+
+function codeBlock({ language, value }: CodeProps) {
+    return createElement(
+        SyntaxHighlighter,
+        {
+            language,
+            style,
+            className: "portal-code-block",
+            codeTagProps: { style: {} },
+            "data-language": language,
+        },
+        value,
+    );
+}
+
+function inlineCode({ children }: Props) {
+    return createElement("code", { className: "portal-inline-code" }, children);
+}
+
+function infoBox({ children }: Props) {
+    return createElement(InfoMessage, { className: "jkl-spacing--bottom-2", title: "Tips", children });
+}
+
+export const renderer = {};

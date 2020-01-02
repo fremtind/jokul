@@ -1,0 +1,26 @@
+@import "~@fremtind/jkl-core/variables/_spacing.scss";
+
+.jkl-button-example {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+
+    & > * + * {
+        margin-bottom: $layout-spacing--large;
+    }
+}
+
+.side-by-side {
+    width: 100%;
+    max-width: 50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * + * {
+        margin-left: $layout-spacing--medium;
+    }
+}
