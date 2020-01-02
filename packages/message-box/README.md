@@ -8,9 +8,9 @@ Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn.
 
 **Blå:** gir informasjon til brukeren.
 
-**Gul:** gir brukeren et varsel, for eksempel i et skjema, når noe mangler eller er fylt ut feil.
+**Gul:** gir brukeren en advarsel, for eksempel at en funksjonalitet er i beta og derfor er ustabil.
 
-**Rød:** gir brukeren en feilmelding eller en advarsel, for eksempel hvis det oppstår en systemfeil eller brukeren avbryter en handling.
+**Rød:** gir brukeren en feilmelding, for eksempel hvis det oppstår en systemfeil eller brukeren avbryter en handling.
 
 **Grønn:** forteller at en handling var vellykket.
 
