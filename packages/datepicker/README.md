@@ -14,7 +14,7 @@ Eksempel: "Hvor lenge var du syk da du var på ferie? Velg dato fra og til".
 ## Tekst og validering
 Velg størrelse på ledeteksten etter prinsippene for skjemadesign. Bruk en kort og tydelig ledetekst, som forteller hva brukeren skal velge. Hvis det trengs, kan du også gi mer forklaring med en hjelpetekst under feltet.
 
-Hvis brukeren ikke velger en dato, vises en feilmelding, som forteller hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var. 
+Hvis datovelgeren ikke validerer, vises en feilmelding, som forteller hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var. 
 
 Eksempel:
 Hjelpetekst for første kalender i en periode: 
