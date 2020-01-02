@@ -18,7 +18,7 @@ Til spesialtilfeller, hvis vi for eksempel trenger å plassere et tekstfelt i en
 ## Tekst og validering
 Velg størrelse på ledetekst etter prinsippene for skjemadesign. Skriv en kort og tydelig ledetekst, som  forteller brukerne hva de skal oppgi i feltet. Hvis det trengs, kan vi sette inn en hjelpetekst under feltet, som forklarer mer.
 
-Hvis brukerne ikke legger inn noe i feltet, vises en feilmelding som forteller hva som er galt. Vær oppmerskom på at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
+Hvis tekstfeltet ikke validerer, vises en feilmelding som forteller hva som er galt. Vær oppmerskom på at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
 
 Eksempel:
 Hjelpetekst for et tekstfelt med fast format: _Fyll ut fødselsnummer, 11 siffer._  Feilemeldingstekst: _Du må fylle ut fødselsnummer, 11 siffer_. 
