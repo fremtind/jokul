@@ -15,4 +15,4 @@ Disse tre knappetypene har et hierarki. Når brukeren har flere valg samtidig, s
 
 ## Tekst på knapper
 
-Knappetekster skal være så enkle og korte som mulig og skal oppfordre til handling. Bruk helst bare to ord. Eksempel: Når vi ber brukeren om å gå til en ny side, kan vi bruke teksten “Fortsett” eller “Gå videre” i stedet for “Gå til neste steg”. I chatbot har vi eksempel på at vi har tillatt tre ord: "Gå til skjema".
+Knappetekster skal være så enkle og korte som mulig og skal oppfordre til handling. Bruk helst bare to ord. 
