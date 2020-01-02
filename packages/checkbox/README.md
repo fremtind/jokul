@@ -1,16 +1,17 @@
 # [`@fremtind/jkl-checkbox`](https://fremtind.github.io/jokul/components/checkbox/)
 
-## Om avmerkingsbokser
+# Avmerkingsbokser
+Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene jeg har gitt er riktige". Vi bruker flere avmerkingsbokser sammen når vi vil gi  brukerne en liste med valg, der de kan velge ett eller flere  alternativer. 
 
-Avmerkingsbokser brukes til å gi en liste over valg der brukeren kan velge fritt blant alternativene; en, flere, alle eller ingen. Avmerkingsbokser kan også brukes når brukeren gir sitt samtykke i en prosess.
+## Bruk
+En gruppe avmerkingsbokser må ha en god overskrift, og ledeteksten til hver avmerkingsboks må beskrive alternativet. En avmerkingsboks som står alene trenger ikke noen overskrift, så lenge ledeteksten er god og beskrivende.
 
-Avmerkingsbokser kan har tre statuser
--   Valgt
--   Ikke valgt
--   Utilgjengelig (disabled)
+Du kan sette boksene under eller etter hverandre, men vi anbefaler at du plasserer dem under hverandre. Standard status for avmerkingsbokser er _ikke valgt_.
 
-Avmerkingsbokser har en ledetekst til høyre for boksen og kan ha en overskrift. Det er viktig at tekstene er tydelige og presise sånn at brukeren forstår hva som skjer dersom de markerer boksen. Standard status for avmerkingsbokser er 'Ikke valgt'.
+## Tekst og validering
+Velg størrelse på overskriften til en gruppe avmerkingsbokser etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift, som beskriver hva brukeren skal velge. Hvis du trenger å gi mer forklaring, kan du sette en hjelpetekst under gruppen.
 
-### Eksempler
-- Velg hva som er relevant i en liste av objekter (e.g. kategorier av mistede gjenstander ved tapt bagasje)
-- Gi ditt samtykke til elektronisk kommunikasjon (e.g. Avmerkingsboks med ledetekst "jeg godtar ...")
+Hvis avmerkingsboksene ikke validerer, vises det en feilmelding som forklarer hva som er galt. Denne feilmeldingen erstatter en eventuell hjelpetekst du har der fra før, og bør formuleres slik at brukeren både får hjelp og får vite hva som er feil.
+
+Eksempel: 
+Hjelpetekst: "Oppgi fødselsnummeret ditt, 11 siffer". Feilmelding: "Du må oppgi fødselsnummeret ditt, 11 siffer".
