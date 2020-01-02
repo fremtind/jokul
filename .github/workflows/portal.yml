@@ -3,7 +3,6 @@ on:
     push:
         branches:
             - master
-            - "update-deploy"
 jobs:
     build-and-deploy:
         name: Deploy portal
