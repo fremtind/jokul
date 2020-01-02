@@ -4,7 +4,7 @@
 @import "~@fremtind/jkl-text-input/text-input.scss";
 @import "~@fremtind/jkl-select/select.scss";
 
-$date-width: $line-height-4;
+$date-width: $line-height-5;
 $date-spacing: rem(4px);
 $calendar-padding: $component-spacing--xl;
 $calendar-padding--compact: $component-spacing--small;
@@ -47,6 +47,7 @@ $bottom-margin: $component-spacing--large;
         top: 0;
         width: $calendar-width;
         justify-content: space-between;
+        color: $svart;
     }
 
     &__month-button {
@@ -59,8 +60,8 @@ $bottom-margin: $component-spacing--large;
         align-items: center;
         background-color: transparent;
         border: none;
-        height: $line-height-3;
-        width: $line-height-3;
+        height: $line-height-4;
+        width: $line-height-4;
         border-radius: 50%;
 
         &--right {
@@ -74,6 +75,21 @@ $bottom-margin: $component-spacing--large;
         html:not([data-mousenavigation]) &:focus .jkl-datepicker__month-arrow {
             border-color: $focus-color;
             border-width: rem(4px);
+        }
+
+        &:disabled {
+            & > .jkl-datepicker__month-arrow {
+                @include chevron(rem(20px), $mellomgra, rem(1px));
+                transform-origin: center;
+                transition: none;
+
+                &--left {
+                    transform: rotate(45deg);
+                }
+                &--right {
+                    transform: rotate(-135deg);
+                }
+            }
         }
     }
 
@@ -99,6 +115,7 @@ $bottom-margin: $component-spacing--large;
         justify-content: center;
         align-content: center;
         margin-bottom: $component-spacing--xl;
+        color: $svart;
     }
 
     &__year-selector {
@@ -131,14 +148,15 @@ $bottom-margin: $component-spacing--large;
         padding: $calendar-padding;
         background-color: $background-color;
         box-shadow: $drop-shadow--small;
+        color: $svart;
 
         @include small-device {
             padding: $calendar-padding $calendar-padding--compact;
         }
 
         caption {
-            font-size: $font-size-3;
-            line-height: $line-height-3;
+            font-size: $font-size-6;
+            line-height: $line-height-4;
             margin-bottom: $component-spacing--xl;
             text-transform: capitalize;
 
@@ -148,8 +166,7 @@ $bottom-margin: $component-spacing--large;
         }
         // Weekday names above calendar:
         th {
-            font-weight: normal;
-            @include text-sizing("xs");
+            @include body-small-paragraph;
             padding-bottom: $component-spacing--small;
         }
         td {
@@ -176,8 +193,8 @@ $bottom-margin: $component-spacing--large;
             border-radius: 50%;
             background-color: transparent;
 
-            font-size: $font-size-3;
-            line-height: $line-height-4;
+            font-size: $font-size-6;
+            line-height: $line-height-5;
             padding: 0;
             padding-top: $component-spacing--xxs; // adjust visual alignment of text
             @include motion("entrance", "energetic");
@@ -198,6 +215,10 @@ $bottom-margin: $component-spacing--large;
                 background-color: $svart;
                 color: $snohvit;
                 font-weight: bold;
+            }
+
+            &:disabled {
+                color: $mellomgra;
             }
 
             &:focus {

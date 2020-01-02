@@ -20,6 +20,11 @@ describe("Card", () => {
         expect(getByText("Fremtind")).toBeInTheDocument();
     });
 
+    it("renders without title", () => {
+        const { queryByTestId } = render(<Card />);
+        expect(queryByTestId("jkl-card__title")).not.toBeInTheDocument();
+    });
+
     it("has an image", () => {
         const { getByRole } = render(<Card title="Test" media={{ src: "image.jpg", alt: "Image" }} />);
 

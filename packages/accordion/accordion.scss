@@ -56,8 +56,7 @@
     }
 
     &__title-text {
-        @include font-size("small");
-        @include line-height("small");
+        @include body-paragraph;
         display: block;
         padding-right: 2rem;
     }
@@ -76,7 +75,7 @@
     }
 
     &__content {
-        @include font-size("medium");
+        @include lead-paragraph;
         height: auto;
         padding: $layout-spacing--xl $component-spacing--large;
         color: inherit; // Make content same color as rest of page text

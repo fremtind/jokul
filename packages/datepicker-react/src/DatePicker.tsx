@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState, useEffect } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -25,6 +25,8 @@ interface Props {
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
+    disableBeforeDate?: Date;
+    disableAfterDate?: Date;
 }
 
 const dayMonthYearRegex = /^(\d\d)\.(\d\d)\.(\d{4})/;
@@ -64,6 +66,8 @@ export function DatePicker({
     helpLabel,
     variant,
     forceCompact,
+    disableBeforeDate,
+    disableAfterDate,
 }: Props) {
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
@@ -76,6 +80,18 @@ export function DatePicker({
     const inputClassName = "jkl-text-field jkl-datepicker__input".concat(
         forceCompact ? ` jkl-text-field--compact` : "",
     );
+
+    useEffect(() => {
+        disableAfterDate && disableAfterDate.setHours(23, 59, 59, 999);
+        const now = new Date();
+
+        if (disableAfterDate && now > disableAfterDate) {
+            setDate(disableAfterDate);
+        }
+        if (disableBeforeDate && now < disableBeforeDate) {
+            setDate(disableBeforeDate);
+        }
+    }, [disableBeforeDate, disableAfterDate]);
 
     const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
         // Workaround for loosing focus when opening in chrome:
@@ -129,6 +145,10 @@ export function DatePicker({
         }
     }
 
+    function disableDate(date: Date) {
+        return (disableAfterDate && date > disableAfterDate) || (disableBeforeDate && date < disableBeforeDate);
+    }
+
     return (
         <div className={componentClassName} ref={datepickerRef}>
             <div className="jkl-datepicker__outer-wrapper">
@@ -155,6 +175,7 @@ export function DatePicker({
                         days={days}
                         onDatepickerClickDay={onClickCalendarDay}
                         className="jkl-datepicker__calendar"
+                        disabled={disableDate}
                     >
                         {extended && (
                             <div className="jkl-datepicker__calendar-navigation">

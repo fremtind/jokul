@@ -1,108 +1,172 @@
 @import "../mixins/screens";
 @import "../functions";
 
-$font-size-1: rem(14px);
+$normal-weight: 400;
+$bold-weight: 700;
+
+$font-size-1: rem(12px);
 $font-size-2: rem(16px);
-$font-size-3: rem(22px);
-$font-size-4: rem(28px);
-$font-size-5: rem(36px);
-$font-size-6: rem(48px);
-$font-size-7: rem(64px);
+$font-size-3: rem(18px);
+$font-size-4: rem(20px);
+$font-size-5: rem(21px);
+$font-size-6: rem(22px);
+$font-size-7: rem(25px);
+$font-size-8: rem(28px);
+$font-size-9: rem(32px);
+$font-size-10: rem(42px);
+$font-size-11: rem(48px);
+$font-size-12: rem(64px);
 
 $line-height-1: rem(16px);
 $line-height-2: rem(24px);
-$line-height-3: rem(32px);
-$line-height-4: rem(40px);
-$line-height-5: rem(48px);
-$line-height-6: rem(56px);
-$line-height-7: rem(72px);
+$line-height-3: rem(28px);
+$line-height-4: rem(32px);
+$line-height-5: rem(40px);
+$line-height-6: rem(48px);
+$line-height-7: rem(56px);
+$line-height-8: rem(72px);
 
-/* mobil: 14, 17, 17, 22, 28, 36, 48 */
-$font-size--small-device: (
-    "xxs": $font-size-1,
-    "xs": $font-size-2,
-    "small": $font-size-2,
-    "medium": $font-size-3,
-    "large": $font-size-4,
-    "xl": $font-size-5,
-    "xxl": $font-size-6,
-);
-
-/* desktop: 17, 17, 22, 28, 36, 48, 64 */
-$font-size--large-device: (
-    "xxs": $font-size-2,
-    "xs": $font-size-2,
-    "small": $font-size-3,
-    "medium": $font-size-4,
-    "large": $font-size-5,
-    "xl": $font-size-6,
-    "xxl": $font-size-7,
-);
-
-/* mobil: 16, 24, 24, 32, 32, 48, 56 */
-$line-height--small-device: (
-    "xxs": $line-height-1,
-    "xs": $line-height-2,
-    "small": $line-height-2,
-    "medium": $line-height-3,
-    "large": $line-height-3,
-    "xl": $line-height-5,
-    "xxl": $line-height-6,
-);
-
-/* desktop: 24, 24, 32, 40, 48, 56, 64 */
-$line-height--large-device: (
-    "xxs": $line-height-2,
-    "xs": $line-height-2,
-    "small": $line-height-3,
-    "medium": $line-height-4,
-    "large": $line-height-5,
-    "xl": $line-height-6,
-    "xxl": $line-height-7,
-);
-
-@mixin font-size--large-device($size) {
-    font-size: map-get($font-size--large-device, $size);
-}
-
-@mixin font-size--small-device($size) {
-    font-size: map-get($font-size--small-device, $size);
-}
-
-@mixin font-size($size) {
-    @include font-size--large-device($size);
+@mixin h1-heading {
+    @include h1-heading--desktop;
     @include small-device {
-        @include font-size--small-device($size);
+        @include h1-heading--mobile;
     }
 }
 
-@mixin line-height--large-device($size) {
-    line-height: map-get($line-height--large-device, $size);
+@mixin h1-heading--desktop {
+    font-size: $font-size-12;
+    line-height: $line-height-8;
+    font-weight: $normal-weight;
 }
 
-@mixin line-height--small-device($size) {
-    line-height: map-get($line-height--small-device, $size);
+@mixin h1-heading--mobile {
+    font-size: $font-size-10;
+    line-height: $line-height-6;
+    font-weight: $normal-weight;
 }
 
-@mixin line-height($size) {
-    @include line-height--large-device($size);
+@mixin h2-heading {
+    @include h2-heading--desktop;
     @include small-device {
-        @include line-height--small-device($size);
+        @include h2-heading--mobile;
     }
 }
 
-// Shorthand for setting both font-size and line-height to same value
-@mixin text-sizing($size) {
-    @include font-size($size);
-    @include line-height($size);
+@mixin h2-heading--desktop {
+    font-size: $font-size-11;
+    line-height: $line-height-7;
+    font-weight: $normal-weight;
 }
 
-@mixin text-sizing--small-device($size) {
-    font-size: map-get($font-size--small-device, $size);
-    line-height: map-get($line-height--small-device, $size);
+@mixin h2-heading--mobile {
+    font-size: $font-size-9;
+    line-height: $line-height-5;
+    font-weight: $normal-weight;
 }
 
-@mixin text-sizing--large-device($size) {
-    font-size: map-get($font-size--large-device, $size);
-    line-height: map-get($line-height--large-device, $size);
+@mixin h3-heading {
+    @include h3-heading--desktop;
+    @include small-device {
+        @include h3-heading--mobile;
+    }
+}
+
+@mixin h3-heading--desktop {
+    font-size: $font-size-9;
+    line-height: $line-height-5;
+    font-weight: $bold-weight;
+}
+
+@mixin h3-heading--mobile {
+    font-size: $font-size-7;
+    line-height: $line-height-4;
+    font-weight: $bold-weight;
+}
+
+@mixin h4-heading {
+    @include h4-heading--desktop;
+    @include small-device {
+        @include h4-heading--mobile;
+    }
+}
+
+@mixin h4-heading--desktop {
+    font-size: $font-size-7;
+    line-height: $line-height-4;
+    font-weight: $bold-weight;
+}
+
+@mixin h4-heading--mobile {
+    font-size: $font-size-5;
+    line-height: $line-height-3;
+    font-weight: $bold-weight;
+}
+
+@mixin h5-heading {
+    @include h5-heading--desktop;
+    @include small-device {
+        @include h5-heading--mobile;
+    }
+}
+
+@mixin h5-heading--desktop {
+    font-size: $font-size-5;
+    line-height: $line-height-3;
+    font-weight: $bold-weight;
+}
+
+@mixin h5-heading--mobile {
+    font-size: $font-size-3;
+    line-height: $line-height-2;
+    font-weight: $bold-weight;
+}
+
+@mixin lead-paragraph {
+    @include lead-paragraph--desktop;
+    @include small-device {
+        @include lead-paragraph--mobile;
+    }
+}
+
+@mixin lead-paragraph--desktop {
+    font-size: $font-size-8;
+    line-height: $line-height-5;
+    font-weight: $normal-weight;
+}
+
+@mixin lead-paragraph--mobile {
+    font-size: $font-size-6;
+    line-height: $line-height-4;
+    font-weight: $normal-weight;
+}
+
+@mixin body-paragraph {
+    @include body-paragraph--desktop;
+    @include small-device {
+        @include body-paragraph--mobile;
+    }
+}
+
+@mixin body-paragraph--desktop {
+    font-size: $font-size-4;
+    line-height: $line-height-4;
+    font-weight: $normal-weight;
+}
+
+@mixin body-paragraph--mobile {
+    font-size: $font-size-3;
+    line-height: $line-height-3;
+    font-weight: $normal-weight;
+}
+
+@mixin body-small-paragraph {
+    font-size: $font-size-2;
+    line-height: $line-height-2;
+    font-weight: $normal-weight;
+}
+
+@mixin micro-paragraph {
+    font-size: $font-size-1;
+    line-height: $line-height-1;
+    font-weight: $bold-weight;
 }

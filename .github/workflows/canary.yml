@@ -1,0 +1,31 @@
+name: release canary
+
+on:
+    push:
+        branches:
+            - release/canary
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+              with:
+                  ref: release/canary
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: "12.x"
+                  registry-url: "https://registry.npmjs.org"
+            - name: publish @canary
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+              if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  yarn
+                  yarn build
+                  yarn release --no-git-reset --conventional-prerelease --dist-tag canary --yes --message "chore(release): canary [ci skip release]"
