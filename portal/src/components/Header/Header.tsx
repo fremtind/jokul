@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Location } from "@reach/router";
+import { LogoSymbol } from "@fremtind/jkl-logo-react";
 
 import "./Header.scss";
 
@@ -10,20 +11,24 @@ interface Props {
     siteHeader?: string;
 }
 
-export const Header = ({ siteHeader = "Jøkul", siteTitle }: Props) => (
+export const Header = ({ siteHeader = "Jøkul Designsystem", siteTitle }: Props) => (
     <Location>
         {({ location }) => {
             /* Vis sidetittelen som h1 på forsiden, som div ellers */
-            const TitleElm = location.pathname === "/" ? "h1" : "div";
             return (
                 <header className="portal-header">
                     <Helmet>
                         <html lang="no-nb" />
-                        <title>{siteTitle ? `${siteTitle} - ` : ""}Jøkul designsystem</title>
+                        <title>{siteTitle ? `${siteTitle} - ` : ""}Jøkul Designsystem</title>
                     </Helmet>
-                    <TitleElm className="portal-header__title jkl-h2">
-                        <Link to="/">{siteHeader}</Link>
-                    </TitleElm>
+                    <div className="portal-header__title">
+                        <Link to="/">
+                            Jøkul <span className="portal-header__title-thin">Designsystem</span>
+                        </Link>
+                    </div>
+                    <span className="portal-header__logo">
+                        <LogoSymbol />
+                    </span>
                 </header>
             );
         }}
