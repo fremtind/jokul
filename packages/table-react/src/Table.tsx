@@ -1,19 +1,19 @@
 import React from "react";
-import { TableAnchorRowData, TableRow } from "./TableRow";
-
-export type TableRowData = string[] | TableAnchorRowData;
+import { TableRow } from "./TableRow";
+import { TableRowData } from "./types";
 
 interface Props {
     columns: string[];
     rows: Array<TableRowData>;
+    className?: string;
 }
 
-export function Table(props: Props) {
+export function Table({ columns, rows, className }: Props) {
     return (
-        <table className="jkl-table">
+        <table className={`jkl-table ${className ? className : ""}`}>
             <thead>
                 <tr className="jkl-table__row">
-                    {props.columns.map((columnValue, i) => (
+                    {columns.map((columnValue, i) => (
                         <th className="jkl-table__heading" key={i}>
                             {columnValue}
                         </th>
@@ -21,7 +21,7 @@ export function Table(props: Props) {
                 </tr>
             </thead>
             <tbody>
-                {props.rows.map((row, i) => (
+                {rows.map((row, i) => (
                     <TableRow row={row} key={i} />
                 ))}
             </tbody>

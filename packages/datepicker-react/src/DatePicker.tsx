@@ -1,8 +1,7 @@
-import React, { ChangeEvent, useRef, useState } from "react";
-import { Select } from "@fremtind/jkl-dropdown-react";
-import { TextField } from "@fremtind/jkl-text-input-react";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import React, { ChangeEvent, useRef, useState, useEffect } from "react";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
+import { LabelVariant } from "@fremtind/jkl-core";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 
@@ -19,10 +18,15 @@ interface Props {
     days?: string[];
     initialDate?: Date;
     onChange?: (date: Date) => void;
+    extended?: boolean;
     initialShow?: boolean;
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
+    variant?: LabelVariant;
+    forceCompact?: boolean;
+    disableBeforeDate?: Date;
+    disableAfterDate?: Date;
 }
 
 const dayMonthYearRegex = /^(\d\d)\.(\d\d)\.(\d{4})/;
@@ -55,14 +59,40 @@ export function DatePicker({
     days,
     initialDate,
     onChange,
+    extended = false,
     initialShow = false,
     className = "",
-    helpLabel,
     errorLabel,
+    helpLabel,
+    variant,
+    forceCompact,
+    disableBeforeDate,
+    disableAfterDate,
 }: Props) {
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
+    const componentClassName = "jkl-datepicker".concat(
+        extended ? " jkl-datepicker--extended" : "",
+        !datepickerHidden ? " jkl-datepicker--open" : "",
+        className ? ` ${className}` : "",
+    );
+    const inputClassName = "jkl-text-field jkl-datepicker__input".concat(
+        forceCompact ? ` jkl-text-field--compact` : "",
+    );
+
+    useEffect(() => {
+        disableAfterDate && disableAfterDate.setHours(23, 59, 59, 999);
+        const now = new Date();
+
+        if (disableAfterDate && now > disableAfterDate) {
+            setDate(disableAfterDate);
+        }
+        if (disableBeforeDate && now < disableBeforeDate) {
+            setDate(disableBeforeDate);
+        }
+    }, [disableBeforeDate, disableAfterDate]);
+
     const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
         // Workaround for loosing focus when opening in chrome:
         // https://github.com/nrkno/core-components/issues/322
@@ -80,14 +110,19 @@ export function DatePicker({
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
         const newDateString = event.target.value;
         const dayMonthYearMatch = dayMonthYearRegex.exec(newDateString);
-
         // Only set the date if it is a valid date
         if (dayMonthYearMatch) {
             const day = parseInt(dayMonthYearMatch[1], 10);
             const month = parseInt(dayMonthYearMatch[2], 10) - 1;
             const year = parseInt(dayMonthYearMatch[3], 10);
 
-            setDate(new Date(year, month, day, 0, 0, 0));
+            const newDate = new Date(year, month, day, 0, 0, 0);
+            if (dateHasChanged(date, newDate)) {
+                setDate(newDate);
+                if (onChange) {
+                    onChange(newDate);
+                }
+            }
         }
         setDateString(newDateString);
     }
@@ -110,35 +145,77 @@ export function DatePicker({
         }
     }
 
+    function disableDate(date: Date) {
+        return (disableAfterDate && date > disableAfterDate) || (disableBeforeDate && date < disableBeforeDate);
+    }
+
     return (
-        <div className={`jkl-datepicker ${className}`} ref={datepickerRef}>
-            <TextField
-                placeholder={placeholder}
-                label={label}
-                type="text"
-                value={dateString}
-                onChange={onInputChange}
-                onFocus={openDatepicker}
-                data-testid="jkl-datepicker-input"
-            />
+        <div className={componentClassName} ref={datepickerRef}>
+            <div className="jkl-datepicker__outer-wrapper">
+                <label className={inputClassName}>
+                    <Label variant={variant} forceCompact={forceCompact}>
+                        {label}
+                    </Label>
+                    <input
+                        placeholder={placeholder}
+                        type="text"
+                        aria-invalid={!!errorLabel}
+                        className={`jkl-text-field__input`}
+                        data-testid="jkl-datepicker__input"
+                        value={dateString}
+                        onChange={onInputChange}
+                        onFocus={openDatepicker}
+                    />
+                </label>
 
-            <div hidden={datepickerHidden}>
-                <CoreDatepicker
-                    timestamp={date ? date.getTime() : undefined}
-                    months={months}
-                    days={days}
-                    onDatepickerClickDay={onClickCalendarDay}
-                    className="jkl-datepicker__calendar"
-                >
-                    <div className="jkl-datepicker__calendar-header">
-                        <TextField label={yearLabel} type="year" className="jkl-datepicker__calendar-header--year" />
+                <div hidden={datepickerHidden}>
+                    <CoreDatepicker
+                        timestamp={date ? date.getTime() : undefined}
+                        months={months}
+                        days={days}
+                        onDatepickerClickDay={onClickCalendarDay}
+                        className="jkl-datepicker__calendar"
+                        disabled={disableDate}
+                    >
+                        {extended && (
+                            <div className="jkl-datepicker__calendar-navigation">
+                                <label className="jkl-text-field jkl-datepicker__year-selector">
+                                    <Label variant="small">{yearLabel}</Label>
+                                    <input type="year" className="jkl-text-field__input jkl-datepicker__year-value" />
+                                </label>
 
-                        <Select className="jkl-datepicker__calendar-header--month" label={monthLabel} items={[]} />
-                    </div>
-                    <table data-testid="jkl-datepicker-calendar" />
-                </CoreDatepicker>
+                                <label className="jkl-select jkl-datepicker__month-selector">
+                                    <Label variant="small">{monthLabel}</Label>
+                                    <select className="jkl-select__value jkl-datepicker__month-value"></select>
+                                    <span className="jkl-select__chevron" />
+                                </label>
+                            </div>
+                        )}
+                        {!extended && (
+                            <fieldset className="jkl-datepicker__month-navigation">
+                                <button
+                                    title="forrige måned"
+                                    aria-label="forrige måned"
+                                    className="jkl-datepicker__month-button"
+                                    value="- 1 month"
+                                >
+                                    <span className="jkl-datepicker__month-arrow jkl-datepicker__month-arrow--left" />
+                                </button>
+                                <button
+                                    title="neste måned"
+                                    aria-label="neste måned"
+                                    className="jkl-datepicker__month-button jkl-datepicker__month-button--right"
+                                    value="+ 1 month"
+                                >
+                                    <span className="jkl-datepicker__month-arrow jkl-datepicker__month-arrow--right" />
+                                </button>
+                            </fieldset>
+                        )}
+                        <table data-testid="jkl-datepicker-calendar" />
+                    </CoreDatepicker>
+                </div>
             </div>
-            <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} />
+            <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} forceCompact={forceCompact} />
         </div>
     );
 }

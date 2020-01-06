@@ -140,11 +140,94 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "frisol97",
+      "name": "Frida Thorkildsen Solhaug",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51901763?v=4",
+      "profile": "https://github.com/frisol97",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "vegardsoerlie",
+      "name": "Vegard Sørlie",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/14551408?v=4",
+      "profile": "https://github.com/vegardsoerlie",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BjornBakke",
+      "name": "Bjørn Ole Bakke",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1997921?v=4",
+      "profile": "http://eniro.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "almli",
+      "name": "almli",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/818715?v=4",
+      "profile": "https://github.com/almli",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "thomasrognes",
+      "name": "Thomas Rognes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/33520517?v=4",
+      "profile": "https://thomasrognes.github.io/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "sigvehag",
+      "name": "Sigve Hagesæter",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/37373812?v=4",
+      "profile": "https://github.com/sigvehag",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "EspenSmith",
+      "name": "EspenSmith",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/58692206?v=4",
+      "profile": "https://github.com/EspenSmith",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "Murstam",
+      "name": "Murstam",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/47025023?v=4",
+      "profile": "https://github.com/Murstam",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "fremtind-bot",
+      "name": "fremtind-bot",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/57256715?v=4",
+      "profile": "https://github.com/fremtind-bot",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "jokul",
   "projectOwner": "fremtind",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }

@@ -1,23 +1,26 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 $bottom-border-size: rem(1px);
+$highlight-color: $helhvit;
 
 .jkl-table {
     border-collapse: collapse;
+    line-height: $line-height-2;
+    font-size: $font-size-2;
+    font-weight: $bold-weight;
 
     &__heading {
         color: $matt-svart;
         font-size: $font-size-1;
         font-weight: normal;
         line-height: $line-height-1;
-        padding: $component-spacing--small 0.5rem;
+        padding: $component-spacing--small;
     }
 
     &__data-cell {
         position: relative;
         box-sizing: border-box;
-        padding: 1.5rem 0.5rem;
-        line-height: $line-height-2;
+        padding: $component-spacing--xl $component-spacing--small;
     }
 
     &__heading,
@@ -26,27 +29,27 @@ $bottom-border-size: rem(1px);
         vertical-align: top;
 
         &:first-of-type {
-            padding-left: 1rem;
+            padding-left: $component-spacing--large;
         }
 
         &:last-of-type {
-            padding-right: 1rem;
+            padding-right: $component-spacing--large;
         }
     }
 
     &__row {
-        box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 $bottom-border-size 0 0 rgba(0, 0, 0, 0.2);
 
         &--anchor-row {
             cursor: pointer;
 
             &:hover {
-                background-color: white;
+                background-color: $highlight-color;
                 box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.2);
             }
 
             &:active {
-                box-shadow: 0 ($bottom-border-size * 2) 0px -1px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 $bottom-border-size 0 0 rgba(0, 0, 0, 0.4);
             }
         }
 
@@ -56,8 +59,8 @@ $bottom-border-size: rem(1px);
 
         /* Focus-within is not supported by IE/Edge */
         &:focus-within {
-            background-color: white;
-            box-shadow: 0 0 0 1px inset $himmel;
+            background-color: $highlight-color;
+            box-shadow: 0 0 0 $bottom-border-size inset $focus-color;
         }
     }
 }

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-checkbox-react",
-    "version": "0.7.1",
+    "version": "1.0.7",
     "publishConfig": {
         "access": "public"
     },
@@ -30,15 +30,15 @@
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:style": "lerna exec --scope=@fremtind/jkl-checkbox yarn build:watch",
-        "dev:js": "parcel example/index.html",
+        "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-checkbox": "^0.8.1",
-        "@fremtind/jkl-core": "^0.10.0"
+        "@fremtind/jkl-checkbox": "^1.0.7",
+        "@fremtind/jkl-core": "^1.1.6"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.4"
+        "@fremtind/browserslist-config-jkl": "^0.4.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -56,5 +56,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
+    "gitHead": "e161df7072d73fd2c3e28a935ffaeaca6d9ea6d8"
 }

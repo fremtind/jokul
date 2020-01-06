@@ -1,0 +1,17 @@
+name: lint-test-typecheck
+
+on: push
+
+jobs:
+    build:
+        name: "Build, lint, typecheck and test"
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Lint and test
+              if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+              run: |
+                  yarn install --frozen-lockfile
+                  yarn build
+                  yarn ci:test

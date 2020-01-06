@@ -1,32 +1,51 @@
-## Typografi
+---
+title: typografi
+path: /profil/typografi
+---
 
-Fremtinds skriftfamilie - Akkurat Pro
+# Typografi
 
-> Akkurat Pro er en grotesk skrifttype, som ved første øyekast er nøktern og solid, men etter hvert gir et rent og optimistisk inntrykk. Dermed reflekter den godt verdiene til Fremtind. Støttefonten er Calibri Light.
 
-### Brødtekst
+Typografi er et profilbærende element i løsningene vi lager. Vi bruker stor og tydelig typografi som grafisk element, i stedet for illustrasjoner og ikoner. Vær modig når du bruker typografi som virkemiddel i våre løsninger.
 
-Designerne må arbeide videre med denne teksten
-Vi har tre varianter av skrifttypen:
 
--   Long form
--   Lead
--   Small
-    
-Long form er den store brødtekstfonten. Den bruker vi til lengre tekster.
-Vi har også en mindre font til kortere brødtekster, den heter Lead. Lead brukes som ingress eller der hvor innholdet står nok alene til at det kan erstatte brødteksten, for å gi mer fokus.
+## Skrifttype
+Vi har vår egen skrifttype: Fremtind Grotesk. Den finnes i snittene Regular, Bold, Display og Mono. Vi bruker hovedsakelig Regular og Bold. Som erstatningsfont bruker vi Calibri Light. Ikke bruk andre skrifttyper når du designer løsninger for Fremtind.
 
-Den minste fonten bruker vi bare i tabeller, der det ikke er nok horisontal plass til vanlig brødtekst. Vi bruker den også i interne applikasjoner, for å spare plass. Noen ganger bruker vi Small til bilde- og figurtekster i for eksempel skjemaer.
+## Regler for typografi
 
-Overskriftsstilene brukes etter hierarkiet på siden. H1 er for det viktigste nivået H2 for det nest viktigste og så videre.
+### Tilgjengelighet
+Vi følger reglene for tilgjengelighet. Vi bruker relative verdier når vi koder, og passer på at kontrasten mellom tekst og bakgrunn blir god. Vi bruker svart eller hvit som skriftfarge.
 
-Vi kan bruke kursiv til å fokusere på enkelte ord.
-Skrifttype 1
-Eksempel på hovedskriften og støtteskriftene Regular, Bold og Mono.
-Skrifttype 2
-Eksempel på Calibri Light. Si noe om i hvilke tilfeller vi kan bruke den.
-Luft (whitespace)
-Designerne må bidra med mer tekst her.
-Når vi designer løsninger for Fremtind, bruker vi rikelig med luft. Vi vil at informasjonen skal være oppdelt og behagelig å lese og at elementene ikke skal konkurrere oppmerksomheten.
+### Små og store bokstaver
+Vi følger vanlige skriveregler for store og små bokstaver. Du finner de viktigste reglene for store og små bokstaver i Fremtinds språkprofil (lenke). Vi setter ikke ord i store bokstaver (versaler) for å fokusere på et ord eller en setning.
 
-Ved å bruke luft på en god måte mellom og i komponenter, gjør vi det lettere for leserne å ta til seg informasjonen på siden. Hvis innholdet står for tett kan de bli overveldet og gi opp å finne det de skal. Deler av en side kan godt være kompakte, men det er viktig at helheten på siden ikke gir et overfylt inntrykk. Vi gir leserne noen hvileskjær, ved å bruke luft på en god måte.
+### Fremheve tekst
+Vi fremhever tekst med _kursiv_ (italic) og ikke __fet__ (bold).
+
+### Justere tekst
+Vi bruker stort sett venstrejustert tekst. Vi bruker aldri blokkjustert tekst (full justification).
+
+### Skape luft
+Vi bruker rikelig med luft i våre løsninger. Vi presenterer informasjonen på en slik måte at de ulike elementene ikke sloss om oppmerksomheten. Dette gjelder også for typografi. Du finner mer informasjon om hvordan vi bruker luft på våre flater, under Layout (lenke).
+
+## Typografisk skala
+De ulike tekststilene har forskjellig formål, det er derfor viktig å velge riktig stil.
+
+### Overskrifter
+De ulike overskriftsstilene lager et informasjonshierarki. Mindre overskrifter er underordnet de som er større. Bruk de store overskriftene så ofte som mulig, og unngå flere enn tre overskriftsstiler på en side.
+
+Når du lager en overskrift, må du også tenke på at den skal være enkel å skanne. Bruk godt og enkelt språk. En god overskrift er en kort setning, uten komma, punktum, bindestrek eller semikolon.
+
+### Mengdetekst
+Vi har fire stiler for mengdetekst:
+- _Lead_ er til kortere tekster. Den bruker vi som ingress eller når innholdet er kort og vi vil gi det fokus. Når vi setter Lead sammen med en overskrift, bør vi bruke H1 eller H2, for å sikre god kontrast.
+- _Body_ er hovedstilen for brødtekst. Den brukervi alltid, så sant det ikke finnes spesielle grunner til å velge noe annet. 
+- _Body Small_ er en alternativ brødtekst. Den kan vi bruke hvis vi _må_ ha en mer kompakt stil. 
+- _Small_ er den minste skriftstilen vår. Den bruker vi når vi vil spare plass, for eksempel i tabeller eller interne applikasjoner. Vi kan også bruke den i bilde- og figurtekster.
+
+### Linjelengde
+Innhold blir lettest å lese hvis linjelengden er mellom 45 og 75 tegn. Unngå å ha over 80 tegn per linje. Korte linjer skaper også problemer, for da må blikket skifte linje for ofte og det bryter leserytmen. 
+
+## Eksempler på god typografi
+TBD

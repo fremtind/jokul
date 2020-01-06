@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-react-hooks",
-    "version": "0.2.0",
+    "version": "0.2.8",
     "publishConfig": {
         "access": "public"
     },
@@ -30,11 +30,11 @@
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:style": "lerna exec --scope=@fremtind/jkl-button yarn build:watch",
-        "dev:js": "parcel example/index.html",
+        "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.3.4"
+        "@fremtind/browserslist-config-jkl": "^0.4.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -51,5 +51,6 @@
     },
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
-    ]
+    ],
+    "gitHead": "e161df7072d73fd2c3e28a935ffaeaca6d9ea6d8"
 }

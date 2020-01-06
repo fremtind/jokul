@@ -1,47 +1,45 @@
-import React, { ChangeEvent, useState, FocusEvent } from "react";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import React, { FocusEvent } from "react";
+import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import { BaseInputProps } from "./BaseInputField";
 
-interface Props {
+interface Props extends BaseInputProps {
     label: string;
-    value?: string;
-    onChange?: (value: ChangeEvent<HTMLTextAreaElement>) => void;
     onBlur?: (value: FocusEvent<HTMLTextAreaElement>) => void;
-    className?: string;
-    id?: string;
-    required?: boolean;
+    rows?: number;
     helpLabel?: string;
     errorLabel?: string;
-    rows?: number;
 }
 
-export const TextArea = ({ id, label, className = "", helpLabel, errorLabel, rows = 7, ...restProps }: Props) => {
-    const [isFocused, setIsFocused] = useState(false);
-
-    const height = isFocused || restProps.value ? `${rows * 2 + 0.5}rem` : undefined;
-
-    function onBlur(event: FocusEvent<HTMLTextAreaElement>) {
-        setIsFocused(false);
-        restProps.onBlur && restProps.onBlur(event);
-    }
-
-    function onFocus() {
-        return setIsFocused(true);
-    }
+export const TextArea = ({
+    id,
+    variant,
+    label,
+    className,
+    helpLabel,
+    errorLabel,
+    rows = 7,
+    placeholder = " ",
+    forceCompact,
+    ...restProps
+}: Props) => {
+    const componentClassName = "jkl-text-field jkl-text-area".concat(
+        forceCompact ? ` jkl-text-field--compact` : "",
+        className ? ` ${className}` : "",
+    );
 
     return (
-        <label data-testid="jkl-text-field" className={`jkl-text-field jkl-text-area ${className}`}>
+        <label data-testid="jkl-text-field" className={componentClassName}>
+            <Label variant={variant} forceCompact={forceCompact}>
+                {label}
+            </Label>
             <textarea
-                onFocus={onFocus}
-                onBlur={onBlur}
-                style={{ height }}
                 aria-invalid={!!errorLabel}
-                className="jkl-text-field__input"
+                className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
                 id={id}
-                placeholder=" "
+                placeholder={placeholder}
                 {...restProps}
             />
-            <span className="jkl-text-field__label">{label}</span>
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );
 };

@@ -1,17 +1,15 @@
 @import "./normalize.scss";
+@import "./reset.scss";
 
-@import "./font.scss";
 @import "./headings.scss";
 @import "./paragraphs.scss";
 @import "./links.scss";
-@import "./form-support-label.scss";
+@import "./labels.scss";
 @import "./spacing.scss";
+@import "./screen-reader";
 
-/* Class that hides content visually but not for screen readers */
-.jkl-sr-only {
-    position: absolute !important;
-    overflow: hidden !important;
-    width: 1px !important;
-    height: 1px !important;
-    clip: rect(0, 0, 0, 0) !important;
+:root {
+    font-family: "Fremtind Grotesk";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

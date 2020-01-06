@@ -1,0 +1,51 @@
+@import "./variables/all";
+@import "./mixins/all";
+@import "./functions";
+
+.jkl-form-support-label {
+    @include body-small-paragraph;
+    display: block;
+    margin-top: $component-spacing--small;
+
+    &--error {
+        color: $error-color;
+    }
+}
+
+.jkl-label {
+    @include lead-paragraph;
+    display: block;
+    margin-bottom: $component-spacing--large;
+    margin-left: initial;
+    @include small-device {
+        margin-bottom: $component-spacing--small;
+    }
+
+    &--large {
+        @include h2-heading;
+        margin-bottom: $component-spacing--xl;
+        margin-left: rem(-1px); // adjust visual alignment
+        @include small-device {
+            margin-bottom: $component-spacing--large;
+        }
+    }
+
+    &--small {
+        @include body-small-paragraph;
+        margin-bottom: 0;
+        margin-left: initial;
+    }
+
+    @include compact-mode {
+        &.jkl-label--medium {
+            @include lead-paragraph--mobile;
+        }
+        &.jkl-label--large {
+            @include h2-heading--mobile;
+        }
+    }
+
+    &--sr-only {
+        @include screenreader-only;
+    }
+}

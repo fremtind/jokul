@@ -1,108 +1,206 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-text-input/text-input.scss";
-@import "~@fremtind/jkl-dropdown/dropdown.scss";
+@import "~@fremtind/jkl-select/select.scss";
 
-$date-width: rem(46px);
+$date-width: $line-height-5;
+$date-spacing: rem(4px);
 $calendar-padding: $component-spacing--xl;
-$calendar-width: ($date-width * 7) + ($calendar-padding * 2);
-$background-color: $snohvit;
-$popup-top-position: $label-height + $input-height + $bottom-padding + rem(2px);
+$calendar-padding--compact: $component-spacing--small;
+$calendar-width: ($date-width * 7) + ($date-spacing * 6);
+$background-color: $helhvit;
 $bottom-margin: $component-spacing--large;
 
 .jkl-datepicker {
+    @include reset-outline;
     position: relative;
-    width: $calendar-width;
-    background-color: $background-color;
+    width: $calendar-width + ($calendar-padding * 2);
     margin-bottom: $bottom-margin;
 
-    &__toggler {
-        border: none;
-        padding: 0;
-        outline: none;
-        background-color: transparent;
-        text-align: left;
-        width: $calendar-width;
+    @include small-device {
+        width: $calendar-width + ($calendar-padding--compact * 2);
+    }
 
-        & > .jkl-text-field {
-            margin-bottom: 0;
-            padding-bottom: 0;
+    &__outer-wrapper {
+        position: relative;
+    }
+
+    &__input > .jkl-text-field__input {
+        width: 10.5ch;
+
+        .jkl-datepicker--open & {
+            width: 100%;
         }
     }
 
-    &__calendar-header {
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        &--year {
-            max-width: 30%;
-            margin-right: $component-spacing--xxl;
-        }
-        &--month {
-            position: relative;
-            flex-grow: 2;
-            padding-top: $label-height;
+    /* Navigation in normal (compact) mode
+       =================================== */
 
-            & > select {
-                text-transform: capitalize;
+    &__month-navigation {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        box-sizing: border-box;
+        position: relative;
+        top: 0;
+        width: $calendar-width;
+        justify-content: space-between;
+        color: $svart;
+    }
+
+    &__month-button {
+        position: absolute;
+        display: inline-flex;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        height: $line-height-4;
+        width: $line-height-4;
+        border-radius: 50%;
+
+        &--right {
+            right: 0;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        html:not([data-mousenavigation]) &:focus .jkl-datepicker__month-arrow {
+            border-color: $focus-color;
+            border-width: rem(4px);
+        }
+
+        &:disabled {
+            & > .jkl-datepicker__month-arrow {
+                @include chevron(rem(20px), $mellomgra, rem(1px));
+                transform-origin: center;
+                transition: none;
+
+                &--left {
+                    transform: rotate(45deg);
+                }
+                &--right {
+                    transform: rotate(-135deg);
+                }
             }
         }
     }
 
-    &__month-label {
-        @include position(absolute, $top: 0, $left: 0, $right: 0);
-        font-size: $input-font-size;
-        line-height: $label-height;
-        color: $varm-fjellgra;
-        transform-origin: top left;
-        transform: scale($label-font-size / $input-font-size);
-        pointer-events: none;
+    &__month-arrow {
+        @include chevron(rem(20px), $svart, rem(1px));
+        transform-origin: center;
+        transition: none;
+
+        &--left {
+            transform: rotate(45deg);
+        }
+
+        &--right {
+            transform: rotate(-135deg);
+        }
     }
 
-    &__calendar {
-        @include position(absolute, $top: $popup-top-position, $left: 0, $right: 0);
-        z-index: $z-index--dropdown;
+    /* Navigation in extended mode
+       =========================== */
+
+    &__calendar-navigation {
         display: flex;
         justify-content: center;
+        align-content: center;
+        margin-bottom: $component-spacing--xl;
+        color: $svart;
+    }
+
+    &__year-selector {
+        max-width: 30%;
+        margin-right: $component-spacing--xxl;
+
+        // must be nested to override default right-alignment
+        & > .jkl-datepicker__year-value {
+            text-align: left;
+        }
+    }
+
+    &__month-selector {
+        position: relative;
+        flex-grow: 2;
+    }
+    &__month-value {
+        text-transform: capitalize;
+    }
+
+    /* Calendar display
+       ================ */
+
+    &__calendar {
+        @include position(absolute, $top: 100%, $left: 0, $right: 0);
+        z-index: $z-index--dropdown;
+        justify-content: center;
         flex-direction: column;
-        width: $calendar-width - ($calendar-padding * 2);
+        width: $calendar-width;
         padding: $calendar-padding;
         background-color: $background-color;
         box-shadow: $drop-shadow--small;
+        color: $svart;
+
+        @include small-device {
+            padding: $calendar-padding $calendar-padding--compact;
+        }
 
         caption {
-            font-size: $font-size-3;
-            line-height: $line-height-3;
-            padding-top: $component-spacing--xl;
+            font-size: $font-size-6;
+            line-height: $line-height-4;
+            margin-bottom: $component-spacing--xl;
             text-transform: capitalize;
+
+            .jkl-datepicker--extended & {
+                @include screenreader-only();
+            }
+        }
+        // Weekday names above calendar:
+        th {
+            @include body-small-paragraph;
+            padding-bottom: $component-spacing--small;
         }
         td {
-            padding: 0;
-            margin: 0;
             text-align: center;
         }
-        th {
-            font-weight: normal;
-            font-size: $font-size-2;
-            padding: $component-spacing--medium 0 $component-spacing--large;
+        td + td,
+        th + th {
+            padding-left: rem(4px); // space between columns
         }
-        button {
-            font-size: $font-size-3;
-            line-height: $line-height-3;
+        tr + tr > td {
+            padding-top: rem(4px); // space between rows
+        }
+        td button {
+            appearance: none;
+            border: 0;
+            outline: none;
+
+            box-sizing: border-box;
             display: inline-flex;
-            height: 40px;
-            width: 40px;
-            padding: 0;
-            padding-top: $component-spacing--xxs; // fixes font basline-issue
-            margin: $component-spacing--xxs;
             justify-content: center;
             align-items: center;
-            background-color: transparent;
-            border: none;
+            height: $date-width;
+            width: $date-width;
             border-radius: 50%;
-            outline: none;
-            transition: all 75ms ease-in;
+            background-color: transparent;
+
+            font-size: $font-size-6;
+            line-height: $line-height-5;
+            padding: 0;
+            padding-top: $component-spacing--xxs; // adjust visual alignment of text
+            @include motion("entrance", "energetic");
+            transition-property: color, background-color, box-shadow;
             &[data-adjacent="true"] {
+                padding: 0; // reset vertical alignment of text
                 font-size: $font-size-2;
                 color: $varm-fjellgra;
             }
@@ -117,6 +215,14 @@ $bottom-margin: $component-spacing--large;
                 background-color: $svart;
                 color: $snohvit;
                 font-weight: bold;
+            }
+
+            &:disabled {
+                color: $mellomgra;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 rem(1px) $snohvit, 0 0 0 rem(3px) $focus-color;
             }
         }
     }

@@ -18,22 +18,4 @@ Kjerneteamet har ikke satt opp noen formelle testdekningskrav, men dette er noe 
 
 Per nå er støtten for web components i testrammeverket ganske tynn, så komponentene som baserer seg på NRK Core Components er vanskelig å teste godt. Dog er komponentene godt testet fra NRK sin side. Når støtten for web components i jsdom blir bedre, vil det bli enklere å teste disse komponentene selv.
 
-### Integrasjonstester
-
-> `*-consumer-example`
->
-> Disse er lagt for å kunne plukke opp alvorlige feil i byggprosessen.
-
-Dette er miniprosjekter som bruker komponentene fra Jøkul i webpack- og et parcel-baserte prosjekter. Disse sjekker at det er mulig å installere og bruke pakkene våre, men sjekker ikke innholdet i dem.
-
-### Visuelle regresjonstester
-
-> `.spec.ts`
->
-> Disse testene er ment til å oppdage utilsiktede endringer fra en komponent inn i en annen.
-
-For å unngå å bruke masse tid på å lete etter regresjon i Jøkul ved hver utgivelse, har vi laget en automatisk test for hver komponent. Disse testene tar et bilde av komponenten i bruk i portalen, og sammenligner det med forrige versjon.
-
-Dersom en utvikler eksempelvis endrer stilen til knapp-komponenten, og det viser seg at det er en ukjent avhengighet mellom knappen og hamburgermenykomponenten, vil sistnevnte også endre seg. Da vil disse testene vise den visuelle differansen.
-
-Testene skal ligge sammen med koden, og de visuelle regresjonstestene har postfikset `.spec.ts(x)`. Testresultatene ligger under `__image_snapshots__`.
+Husk å også teste eventuelle støttefunksjoner og gjenbrukbar kode som f.eks. custom hooks.

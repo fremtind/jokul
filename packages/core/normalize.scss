@@ -42,24 +42,6 @@ h1 {
     margin: 0.67em 0;
 }
 
-/* Text blocks
-   ========================================================================== */
-
-/**
- * Remove default margins from all block-level text elements
- * such as `p` and headings
- */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
-}
-
 /* Grouping content
    ========================================================================== */
 
@@ -217,49 +199,6 @@ button,
 [type="reset"],
 [type="submit"] {
     -webkit-appearance: button;
-}
-
-/**
- * Remove the inner border and padding in Firefox.
- */
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-}
-
-/**
- * Remove dotted lines around object, especially for firefox
- */
-
-a:hover,
-a:active,
-a:focus,
-a:link,
-a:visited {
-    outline: 0;
-    outline: 0 !important;
-    outline-style: none;
-}
-
-button,
-object,
-embed {
-    outline: 0;
-}
-
-/* All Input elements */
-input::-moz-focus-inner {
-    outline: 0;
-}
-
-/* Or more specifically*/
-input[type="submit"]::-moz-focus-inner,
-input[type="button"]::-moz-focus-inner {
-    outline: 0;
 }
 
 /**

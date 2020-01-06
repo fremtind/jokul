@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.3.0...@fremtind/jkl-hamburger-react@0.3.1) (2019-09-23)
+## 1.0.7 (2019-12-20)
 
 **Note:** Version bump only for package @fremtind/jkl-hamburger-react
 
@@ -11,51 +11,92 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.2.0...@fremtind/jkl-hamburger-react@0.3.0) (2019-08-30)
+## 1.0.6 (2019-12-20)
 
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+
+
+
+
+## 1.0.5 (2019-12-20)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+
+
+
+
+## 1.0.4 (2019-12-20)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+
+
+
+
+## 1.0.3 (2019-12-20)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+## 1.0.2 (2019-12-19)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+## [1.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@1.0.0...@fremtind/jkl-hamburger-react@1.0.1) (2019-12-17)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.3.4...@fremtind/jkl-hamburger-react@1.0.0) (2019-12-03)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+## [0.3.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.3.3...@fremtind/jkl-hamburger-react@0.3.4) (2019-10-09)
 
 ### Bug Fixes
 
-* **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
+-   remove all alerts from examples ([26abee2](https://github.com/fremtind/jokul/commit/26abee2))
 
+## [0.3.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.3.2...@fremtind/jkl-hamburger-react@0.3.3) (2019-09-26)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+## [0.3.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.3.1...@fremtind/jkl-hamburger-react@0.3.2) (2019-09-26)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+## [0.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.3.0...@fremtind/jkl-hamburger-react@0.3.1) (2019-09-23)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger-react
+
+# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.2.0...@fremtind/jkl-hamburger-react@0.3.0) (2019-08-30)
+
+### Bug Fixes
+
+-   **build:** remove visual regression tests ([a4502ea](https://github.com/fremtind/jokul/commit/a4502ea))
 
 ### Features
 
-* **react-hooks,core:** move useClickOutside to react-hooks ([47626b7](https://github.com/fremtind/jokul/commit/47626b7))
-
-
-
-
+-   **react-hooks,core:** move useClickOutside to react-hooks ([47626b7](https://github.com/fremtind/jokul/commit/47626b7))
 
 # [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.1.1...@fremtind/jkl-hamburger-react@0.2.0) (2019-08-02)
 
-
 ### Features
 
-* **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
-
-
-
-
+-   **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
 
 ## [0.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@0.1.0...@fremtind/jkl-hamburger-react@0.1.1) (2019-07-31)
 
 **Note:** Version bump only for package @fremtind/jkl-hamburger-react
 
-
-
-
-
 # 0.1.0 (2019-07-30)
-
 
 ### Bug Fixes
 
-* **hamburger:** add focusring on keynav ([aeaea10](https://github.com/fremtind/jokul/commit/aeaea10))
-* **hamburger:** fix example, change bg color on example in portal ([f1cbad0](https://github.com/fremtind/jokul/commit/f1cbad0))
-
+-   **hamburger:** add focusring on keynav ([aeaea10](https://github.com/fremtind/jokul/commit/aeaea10))
+-   **hamburger:** fix example, change bg color on example in portal ([f1cbad0](https://github.com/fremtind/jokul/commit/f1cbad0))
 
 ### Features
 
-* **hambuger:** add clickoutside option ([607403f](https://github.com/fremtind/jokul/commit/607403f))
-* **hamburger:** add animated hamburger to us as main menu ([79eb9f2](https://github.com/fremtind/jokul/commit/79eb9f2))
+-   **hambuger:** add clickoutside option ([607403f](https://github.com/fremtind/jokul/commit/607403f))
+-   **hamburger:** add animated hamburger to us as main menu ([79eb9f2](https://github.com/fremtind/jokul/commit/79eb9f2))

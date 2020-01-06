@@ -1,26 +1,23 @@
 @import "./variables/font-size";
 @import "./variables/spacing";
+@import "./mixins/helpers";
 
 .jkl-p {
-    @include font-size("small");
-    @include line-height("small");
+    @include body-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
 .jkl-lead {
-    @include font-size("medium");
-    @include line-height("medium");
+    @include lead-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
 .jkl-small {
-    @include font-size("xs");
-    @include line-height("xs");
+    @include body-small-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
 .jkl-tiny {
-    @include font-size("xxs");
-    @include line-height("xxs");
+    @include micro-paragraph;
     margin-bottom: $layout-spacing--small;
 }

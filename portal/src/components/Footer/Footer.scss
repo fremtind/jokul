@@ -1,16 +1,24 @@
 @import "~@fremtind/jkl-core/variables/all";
+@import "~@fremtind/jkl-core/_functions.scss";
 
-$footer-height: 350px;
-$footer-height-small: 250px;
+$footer-height: rem(350px);
+$footer-height-small: rem(250px);
+$footer-margin-top: rem(150px);
+$menu-width: rem(320px);
 
 .portal-footer {
+    @media (min-width: $breakpoint--medium) {
+        margin-left: $menu-width;
+    }
+
     background-color: $matt-svart;
     color: $snohvit;
     height: $footer-height;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: $footer-margin-top;
+
     &--logo-container {
         width: $footer-height/1.5;
     }

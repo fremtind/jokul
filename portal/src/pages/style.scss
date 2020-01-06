@@ -2,10 +2,14 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$hero-size: rem(700px);
-$hero-top-offset: rem(225px);
+$webfonts-dir: "../../static/fonts";
+@import "~@fremtind/jkl-webfonts/webfonts.scss";
 
-$content-bg-color: $varm-fjellgra;
+$hero-size: rem(700px);
+$hero-top-offset: rem(40px);
+$menu-width: 320px;
+
+$content-bg-color: $matt-svart;
 $content-color: $snohvit;
 $content-max-width: rem(1200px);
 
@@ -17,13 +21,14 @@ $circle-size: rem(100px);
     &__background {
         @include position(absolute !important, $top: 0, $left: 0);
         z-index: -1;
-        width: 100%;
-        height: 100%;
+        min-width: 100%;
+        height: 100vh;
     }
+
     &__hero {
-        @include position(absolute, $top: $hero-top-offset, $left: 0);
+        @include position(relative, $top: $hero-top-offset, $left: 0);
         max-width: $hero-size;
-        padding: $layout-spacing--small $layout-spacing--medium;
+        padding: $layout-spacing--large $layout-spacing--medium;
         margin: 0 $layout-spacing--large;
         background-color: rgba($snohvit, 0.7);
         @include small-device {
@@ -33,9 +38,21 @@ $circle-size: rem(100px);
             box-sizing: border-box;
             padding: $layout-spacing--small $layout-spacing--small $layout-spacing--large $layout-spacing--small;
         }
+
+        & > * + * {
+            margin-top: $layout-spacing--medium;
+        }
+
+        & > *:last-child {
+            margin-bottom: 0;
+        }
     }
+
     &__content {
         @include position(absolute, $top: 100vh, $left: 0, $right: 0);
+        @media (min-width: $breakpoint--medium) {
+            margin-left: $menu-width;
+        }
         background-color: $content-bg-color;
         color: $content-color;
         padding: $layout-spacing--large;
@@ -63,13 +80,38 @@ $circle-size: rem(100px);
         & > * {
             max-width: $content-max-width;
         }
-
-        .jkl-bullet-list > .jkl-bullet-list__item:before {
-            background-color: $snohvit;
-        }
     }
 }
 pre {
     max-width: 80vw;
     overflow: auto;
+}
+
+.portal-inline-code {
+    display: inline-block;
+    background-color: $himmelgra;
+    font-size: rem(16px);
+    padding: 0 $component-spacing--small;
+    margin: 0 $component-spacing--xxs;
+    transform: translateY(rem(-2px));
+    border-radius: rem(2px);
+}
+
+.portal-code-block {
+    position: relative;
+    background-color: $himmelgra;
+    padding: $component-spacing--xl $component-spacing--large;
+    border-radius: rem(2px);
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $component-spacing--small;
+        background-color: $svart;
+        color: $snohvit;
+        @include micro-paragraph;
+        text-transform: uppercase;
+        content: attr(data-language);
+    }
 }
