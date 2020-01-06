@@ -1,11 +1,16 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 .portal-header {
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 0;
-    margin: $layout-spacing--medium $layout-spacing--large 0 0;
-
+    left: 0;
+    width: 100%;
+    height: 96px;
+    margin: 0;
+    z-index: $z-index--header;
+    background-color: $helhvit;
+    display: flex;
+    align-items: center;
     @include small-device {
         margin: 0;
     }
@@ -13,13 +18,28 @@
     &__title {
         margin-bottom: 0;
         padding: $layout-spacing--small;
+        font-size: 21px;
+        font-weight: 700;
+        & > a {
+            color: $svart;
+            font-size: 21px;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &-thin {
+            font-weight: 500;
+        }
     }
-
-    &__title > a {
-        color: $svart;
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
+    &__logo {
+        position: absolute;
+        right: 40px;
+        & > .jkl-logo {
+            width: 40px;
+        }
+        @media (max-width: $breakpoint--medium) {
+            display: none;
         }
     }
 }

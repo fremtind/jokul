@@ -55,7 +55,7 @@ const components = {
     a,
 };
 
-export const Layout = ({ children, title, header, isComponentPage = false, showFooter = true }: Props) => {
+export const Layout = ({ children, title, header, isComponentPage = false, showFooter = false }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
 
     const toggleTheme = (showDark: boolean) => {
