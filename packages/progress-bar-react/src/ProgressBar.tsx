@@ -23,7 +23,7 @@ export const ProgressBar: React.FC<Props> = ({ progress, progressTextValue, clas
     const width = `${calculatePercentage(progress)}%`;
 
     return (
-        <aside
+        <div
             className={`jkl-progress-bar ${className}`}
             role="progressbar"
             aria-valuenow={progress.current}
@@ -33,6 +33,6 @@ export const ProgressBar: React.FC<Props> = ({ progress, progressTextValue, clas
             data-testid="jkl-progress-bar"
         >
             <span className="jkl-progress-bar__tracker" style={{ width }} data-testid="jkl-progress-bar__tracker" />
-        </aside>
+        </div>
     );
 };

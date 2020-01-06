@@ -33,10 +33,12 @@
         "@testing-library/jest-dom": "^4.2.1",
         "@testing-library/react": "^9.1.1",
         "@types/jest": "^24.0.20",
+        "@types/jest-axe": "^3.2.1",
         "@types/node": "^12.6.2",
         "@types/react": "^16.9.4",
         "@types/react-dom": "^16.9.0",
         "@types/sass": "^1.16.0",
+        "@types/vfile-message": "^2.0.0",
         "@typescript-eslint/eslint-plugin": "^2.8.0",
         "@typescript-eslint/parser": "^2.0.0",
         "autoprefixer": "^9.6.1",
@@ -55,10 +57,11 @@
         "glob": "^7.1.4",
         "gulp": "^4.0.2",
         "gulp-postcss": "^8.0.0",
-        "gulp-rename": "^1.4.0",
+        "gulp-rename": "^2.0.0",
         "gulp-sass": "^4.0.2",
         "husky": "^3.0.0",
         "jest": "^24.8.0",
+        "jest-axe": "^3.2.0",
         "lerna": "^3.16.4",
         "lint-staged": "^9.2.1",
         "mkdirp": "^0.5.1",
@@ -72,7 +75,8 @@
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-terser": "^5.1.1",
-        "typescript": "^3.6.2"
+        "typescript": "^3.6.2",
+        "vfile-message": "^2.0.2"
     },
     "workspaces": [
         "packages/*",
@@ -99,5 +103,8 @@
             "eslint --fix",
             "git add"
         ]
+    },
+    "greenkeeper": {
+        "label": "🌱 greenkeeper"
     }
 }

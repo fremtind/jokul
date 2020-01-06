@@ -1,6 +1,13 @@
+---
+title: typografi
+path: /profil/typografi
+---
+
 # Typografi
 
+
 Typografi er et profilbærende element i løsningene vi lager. Vi bruker stor og tydelig typografi som grafisk element, i stedet for illustrasjoner og ikoner. Vær modig når du bruker typografi som virkemiddel i våre løsninger.
+
 
 ## Skrifttype
 Vi har vår egen skrifttype: Fremtind Grotesk. Den finnes i snittene Regular, Bold, Display og Mono. Vi bruker hovedsakelig Regular og Bold. Som erstatningsfont bruker vi Calibri Light. Ikke bruk andre skrifttyper når du designer løsninger for Fremtind.

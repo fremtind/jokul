@@ -22,10 +22,11 @@ Flott at du vil bidra! Her er noen smarte tips før du setter i gang:
 1. Lag en ny branch. Hvis du ikke har tilgang til prosjektet, må du forke det først.
 2. Fra rot i prosjektet, kjører du `yarn` og `yarn build`.
 3. Fiks feilen eller legg til ny funksjonalitet.
-4. Legg til tester.
-5. Sjekk at alle testene blir grønne når du tester med `yarn test` på rot.
-6. Legg til endrede filer i stage med `git add`.
-7. Commit med `yarn commit` fra rot, slik at du får hjelp til å lage en korrekt commit-melding. Hvis du kjenner til conventional commit style godt fra før, kan du utføre commit med Git som vanlig. 
+4. Lag eller oppdater eksempelet i `/documentation`
+5. Legg til tester.
+6. Sjekk at alle testene blir grønne når du tester med `yarn test` på rot.
+7. Legg til endrede filer i stage med `git add`.
+8. Commit med `yarn commit` fra rot, slik at du får hjelp til å lage en korrekt commit-melding. Hvis du kjenner til conventional commit style godt fra før, kan du utføre commit med Git som vanlig. 
 Lint, prettier og typesjekk blir kjørt automatisk.
-8. Push og opprett en pull request mot Jøkul. 
-9. Fyll ut malen som dukker opp i GitHub.
+9. Push og opprett en pull request mot Jøkul. 
+10. Fyll ut malen som dukker opp i GitHub.

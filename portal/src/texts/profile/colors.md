@@ -1,3 +1,8 @@
+---
+title: farger
+path: /profil/farger
+---
+
 # Farger
 
 Farger er en viktig del av Fremtinds identitet. Fargepaletten vår domineres av varme gråtoner, og støttes av farger som er inspirert av norsk natur. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. 

@@ -1,0 +1,21 @@
+---
+title: Buttons
+scss: button
+react: button-react
+---
+
+import Example from "./Example"
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
+
+<Example />
+
+### Knappetyper
+
+-   **Primærknapp** – brukes for hovedhandlingen(e) på en side.
+<PrimaryButton onClick={()=>{}}>PrimaryButton</PrimaryButton>
+
+-   **Sekundærknapp** – brukes for handlinger som ikke er like viktige for oss eller brukeren.
+<SecondaryButton onClick={()=>{}}>SecondaryButton</SecondaryButton>
+
+-   **Tertiærknapp** - brukes for handlinger som er mindre viktige eller kan føre til uønskede konsekvenser.
+<TertiaryButton onClick={()=>{}}>TertiaryButton</TertiaryButton>

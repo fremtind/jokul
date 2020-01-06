@@ -1,17 +1,18 @@
 # [`@fremtind/jkl-message-box`](https://fremtind.github.io/jokul/components/messagebox/)
 
-Med meldingsbokser kan vi gjøre viktig informasjon tydeligere for brukerne. Dette kan være varsler om at noe er feil, informasjon som må fylles ut i et skjema før brukeren kan gå videre, eller en bekreftelse på at noe har skjedd eller har blitt oppdatert.
+# Meldinger
+En melding er en beskjed til brukeren. Det kan være et varsel om at noe er feil, informasjon om at noe mangler i et skjema, eller en bekreftelse på at noe har blitt oppdatert. Meldingene består av en overskrift og en meldingstekst.
 
-Meldingsboksene våre er merket med fargene blå, rød, gul eller grønn. 
-* Blå og gule medlinger gir informasjon. 
-* Røde meldinger brukes til å gi varsler.
-* Grønne bokser forteller at en handling brukeren eller systemet har utført var vellykket. 
+## Meldingstyper
+Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn.
 
-Det er viktig at vi bruker en beskrivende overskrift på meldingsboksene, siden farge ikke trenger å være et godt nok kjennetegn for alle brukere på hva hensikten med boksen er.
+**Blå:** gir informasjon til brukeren.
 
-Selve meldingsteksten skal være så kort og presis som mulig. Bruk klarspråk og si det viktigste først. 
+**Gul:** gir brukeren en advarsel, for eksempel at en funksjonalitet er i beta og derfor er ustabil.
 
-### Eksempler
-- Grønn (infomelding): "Vi har lagret opplysningene dine."
-- Blå (for eksempel til lovverk): "Trafikkforsikringsavgiften har erstattet veiavgiften og betales nå som en del av bilforsikringen din."
-- Rød: "Systemet er dessverre ute av drift nå. Prøv igjen senere.
+**Rød:** gir brukeren en feilmelding, for eksempel hvis det oppstår en systemfeil eller brukeren avbryter en handling.
+
+**Grønn:** forteller at en handling var vellykket.
+
+### Tilgjengelighet
+Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende overskrift, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.

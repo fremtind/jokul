@@ -10,7 +10,7 @@ const importer = require("node-sass-tilde-importer");
 sass.compiler = require("dart-sass");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
-const scssFiles = ["**/*.scss", "!example/*.scss"];
+const scssFiles = ["**/*.scss", "!example/*.scss", "!documentation/*.scss"];
 function throwSassError(e) {
     sass.logError(e);
     throw new Error("sass compilation failed");

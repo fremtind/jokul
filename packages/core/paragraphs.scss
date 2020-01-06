@@ -3,49 +3,21 @@
 @import "./mixins/helpers";
 
 .jkl-p {
-    @include font-size("small");
-    @include line-height("small");
-
-    @include compact-mode {
-        @include font-size--small-device("small");
-        @include line-height--small-device("small");
-    }
-
+    @include body-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
 .jkl-lead {
-    @include font-size("medium");
-    @include line-height("medium");
-
-    @include compact-mode {
-        @include font-size--small-device("medium");
-        @include line-height--small-device("medium");
-    }
-
+    @include lead-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
 .jkl-small {
-    @include font-size("xs");
-    @include line-height("xs");
-
-    @include compact-mode {
-        @include font-size--small-device("xs");
-        @include line-height--small-device("xs");
-    }
-
+    @include body-small-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
 .jkl-tiny {
-    @include font-size("xxs");
-    @include line-height("xxs");
-
-    @include compact-mode {
-        @include font-size--small-device("xxs");
-        @include line-height--small-device("xxs");
-    }
-
+    @include micro-paragraph;
     margin-bottom: $layout-spacing--small;
 }

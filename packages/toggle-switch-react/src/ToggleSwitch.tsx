@@ -30,7 +30,7 @@ export const ToggleSwitch = ({ children, checked, onChange, className, disabled,
                 <span className="jkl-toggle-switch__slider">
                     <span className="jkl-toggle-switch__expanding-pill"></span>
                 </span>
-                <span className="jkl-p jkl-toggle-switch__label">{children}</span>
+                <span className="jkl-toggle-switch__label">{children}</span>
             </label>
             <SupportLabel className="jkl-toggle-switch__helplabel" helpLabel={helpLabel} />
         </>
