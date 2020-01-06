@@ -3,81 +3,98 @@ title: farger
 path: /profil/farger
 ---
 
-## Farger
+# Farger
 
-Farger er en viktig del av Fremtinds identitet. Fargepaletten vår er dominert av varme gråtoner, støttet av farger inspirert av den norske naturen.
+Farger er en viktig del av Fremtinds identitet. Fargepaletten vår domineres av varme gråtoner, og støttes av farger som er inspirert av norsk natur. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. 
 
-Fargene er delt inn i tre grupper etter bruksområde
+Fargepaletten vår er delt inn i tre grupper: Hovedfarger, støttefarger og funksjonsfarger. Nederst på siden finner du eksempler på hvordan vi vekter fargene og hvordan du kan kombinere dem.
 
--   Hovedfarger
--   Støttefarger
--   Funksjonsfarger
+**Hovedfargene** er de vi skal bruke både på trykk og i digitale flater, med hovedvekt på svart, hvit og varde. Gråtonene bruker vi til å skape flere nyanser.
 
-**Hovedfargene** er de som i hovedsak skal brukes både på trykk og i digitale flater, med hovedvekt på valørene med høy kontrast, slik som Svart og Snøhvit.
+**Støttefargene** er forbeholdt illustrasjoner og små detaljer (for eksempel farger i en graf). De bruker vi ikke på store flater. 
 
-**Støttefargene** brukes i hovedsak til illustrasjoner og figurer (slik som diagrammer i presentasjoner og rapporter), men kan også brukes sparsomt for å skape oppmerksomhet rundt viktig innhold.
+**Funksjonsfargene** tar vi i bruk på digitale flater, når vi trenger flere valører enn det som finnes i hoved- og støttefargene. De brukes også når vi skal oppfylle krav om tilgjengelighet på en god måte (for eksempel røde feilmeldinger mot lys bakgrunn).
 
-**Funksjonsfargene** brukes i digitale flater, der man trenger å vise funksjonalitet ved hjelp av farge, eller har behov for flere valører enn det som finnes i hoved- og støttefargene. Disse inkluderer blant annet rød-, grønn- og blåtoner som tilfredsstiller krav om tilgjengelighet.
 
 ### Farger i digitale løsninger
 
-I digitale løsninger benytter vi oss av våre hovedfarger og funksjonsfarger. Disse gjør det enkelt å sette opp et visuelt hierarki og sikre god kontrast. Støttefargene våre er i all hovedsak forbeholdt illustrasjoner og grafikk. De kan også sparsomt brukes til å skape litt mer liv og varme i løsningene våre, men spør alltid om det kan heller løses via våre hovedfarger.
+I digitale løsninger bruker vi hovedfargene og funksjonsfargene. Støttefargene reserverer vi til illustrasjoner og grafikk, men vi kan bruke dem sparsomt til å fremheve informasjon i løsningene våre. Spør deg selv alltid om du heller kan løse det ved å bruke hovedfargene.
 
-#### Tilgjengelighet
 
-Tilgjengelighet er det viktigste å tenke på når du benytter fargene i digitale løsninger. Vi skal alltid etterkomme kravene til universell utforming, som for farger vil bety [AA-kravet for kontrast](link). Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin bakgrunn (e.g. ikke bare tekst på knappebakgrunnen, men også knappebakgrunnen mot sidens bakgrunnsfarge).
+### Tilgjengelighet
 
-Tekstfargene våre er helhvit eller svart. Referer til fargebeskrivelsene for å vite hvilken farge du skal benytte mot hvilken bakgrunn for å ivareta kontrastkravet.
+Tilgjengelighet er det viktigste å tenke på når vi bruker fargene i digitale løsninger. Vi skal alltid følge kravene til universell utforming. For farger betyr det [AA-kravet for kontrast](lenke). Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin bakgrunn, når det har betydning for å forstå funksjonaliteten 
+I tillegg til å tenke på tekst mot knappebakgrunnen, må vi for eksempel også tenke på knappebakgrunnen mot sidens bakgrunnsfarge.
 
-#### Funksjonsfarger
-
-Funksjonsfargene våre - Xrød, Xblå og Xgrønn, gir informasjon til brukeren om systemets tilstand. Rødt for feilmeldinger, grønt for suksess og blå for nøytral informasjon. Disse fargene skal bare brukes til dette formålet og ikke benyttes i øvrige illustrasjoner eller grafikker (benytt da støttefargene).
-
-### Våre farger
-
-#### Hovedfarger
-
--   **Svart (#000000)**
-    Svart er en av Fremtinds hovedfarger og benyttes gjerne i elementer som ønskes og fremheves. Et godt eksempel på bruk av svart er en primærknapp, som krever både synlighet og handling.
--   **Matt svart (#3D3D3D)**
-    I skalaen med gråfarger finner du fargen Matt svart. Fargen er fin å bruke på mørke bakgrunner f.eks som bakgrunnsfarge på et kort. Matt svart kan også benyttes i stedet for svart tekst, for en noe mykere opplevelse. Som bakgrunnsfarge tåler Matt svart hvit tekst.
--   **Varm fjellgrå (#696666)**
-    En noe lysere variant i gråskalaen. Varm fjellgrå kan benyttes på mindre flater og elementer for å bryte opp layout. Fargen kan brukes med hvir tekst.
--   **Himmelgrå (#F0F0F0)**
-    En lys grå. Kan brukes med svart tekst.
--   **Snøhvit (#FAFAFA)**
-    Vår hvitfarge. Brukes primært som bakgrunnsfarge eller på kort. Tåler matt svart eller mørkere for å sikre god kontrast.
--   **Varde (#DED4C7)**
-    En varm farge med lav intensitet. I hovedsak tiltenkt felter og elementer for å samle innhold og bryte opp layout. Fungerer fint som bakgrunnsfarge på mindre områder, og sammen med både mørke og lyse toner i gråskalaen. Blir Varde brukt som bakgrunnsfarge skal teksten være Svart eller Matt svart for å sikre god kontrast.
-
-#### Støttefarger
-
--   **Sand (#DCB28C)**
-    En bruntone for bruk i illustrasjoner og grafikk
--   **Jord (#765D4B)**
-    En mørk bruntone for bruk i illustrasjoner og grafikk
--   **Sol (#FFC880)**
-    En gultone, egnet til å formidle nøytral informasjon. Tåler svart tekst.
--   **Blomst (#FF7059)**
-    En rødtone for bruk i illustrasjoner og grafikk. Blomst er også en funksjonsfarge (varselsfarge på mørke bakgrunner).
--   **Skog (#0D5745)**
-    En mørk grønn for bruk i illustrasjoner og grafikk.
--   **Hav (#0A3166)**
-    En mørk blå for bruk i illustrasjoner og grafikk
+Tekstfargene våre er helhvit eller svart. Se på fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
 
 #### Funksjonsfarger
+Vi bruker funksjonsfargene rød, blå og grønn til å gi informasjon om systemets tilstand. Rødt er til feilmeldinger, grønt til en vellykket operasjon og blå til nøytral informasjon. Vi skal bare bruke disse fargene til dette formålet, og ikke i illustrasjoner eller grafikk. Vi kan bruke alle støttefargene i illustrasjoner og grafikk.
 
--   **Helhvit (#FFFFFF)**
-    Tekstfarge på mørke flater. Brukes også som en “fokusfarge” e.g. kort som er hevet over andre eller inputelementer som brukeren har valgt.
--   **Gress (#50E68C)**
-    Grønnfarge til bruk ved behov for å fremheve en funksjon eller et fokus. Skal benyttes i liten grad og kan kun brukes mot de aller mørkeste bakgrunnene (Svart og Matt svart).
--   **Himmel (#509CE6)**
-    Brukes til … mot svart bakgrunn
--   **Blomst (#FF7059)**
-    Brukes til varsler og feilmeldinger mot svart
--   **UX-Blå (#1C74CA)**
-    Blåfarge til bruk… mot hvit bakgrunn og hvite elementer. Kan brukes med hvit tekst.
--   **UX-Rød (#D73704)**
-    Brukes til feilmeldinger i digitale løsninger mot hvit bakgrunn og hvite elementer. Kan brukes med hvit tekst.
--   **UX-Grønn (#35C16D)**
-    Brukes til suksessmeldinger i digitale løsninger mot hvit bakgrunn og hvite elementer. Kan brukes med hvit tekst.
+## Våre farger
+
+### Hovedfarger
+
+- **Svart #000000**
+Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nært bakgrunner som har fargen varde.
+
+- **Hvit #FFFFFF**
+Hvit er også en av Fremtinds profilbærende farger. Den bruker vi som bakgrunnsfarge, og som tekstfarge på mørke flater. I tillegg er den _fokusfarge_, for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel et felt i et skjema.
+
+- **Varde #DED4C7**
+Varde er vår siste profilbærende farge. Den bruker vi som bakgrunnsfarge eller på elementer, for å fremheve innhold. Når vi velger å bruke den på en flate, unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
+
+- **Matt svart #3D3D3D** 
+Vi kan bruke matt svart som en mørkere bakgrunnsfarge. Som bakgrunnsfarge kan den ha hvit tekst.
+
+- **Varm fjellgrå #696666**
+Varm fjellgrå er en mellomtone i gråskalaen. Vi kan bruke den på  mindre flater og elementer, for å bryte opp layouten. På denne fargen kan vi bruke hvit tekst.
+
+- **Himmelgrå #F0F0F0**
+Himmelgrå har samme bruksområde som varm fjellgrå, og vi bruker den med svart tekst.
+
+- **Snøhvit #FAFAFA**
+Snøhvit er en hvitfarge, som vi helst bare bruker som bakgrunnsfarge eller på kort. For å få god kontrast, fungerer den best med matt svart eller mørkere som kontrastfarge.
+
+
+### Støttefarger
+
+- **Sand #DCB28C**
+Sand er en bruntone, som vi kan bruke i illustrasjoner og grafikk.
+
+- **Jord #765D4B**
+Jord er en mørk bruntone, som passer til illustrasjoner og grafikk.
+
+- **Sol #FFC880**
+Sol er fin til illustrasjoner og grafikk. Sol er også en funksjonsfarge, som vi kan bruke til å formidle nøytral informasjon. Den kan ha svart tekst. 
+
+- **Blomst #FF7059**
+Blomst er en rødtone til bruk i illustrasjoner og grafikk. Blomst er også en funksjonsfarge, som er god som varselfarge på svart bakgrunn. 
+
+- **Skog #0D5745**
+Skog er en mørk grønn, til illustrasjoner og grafikk. 
+
+- **Hav #0A3166** 
+Hav er en mørk blåfarge, til illustrasjoner og grafikk.
+
+
+### Funksjonsfarger
+
+- **Gress #50E68C**
+Gress er den funksjonsfargen vi bruker til å vise at noe er vellykket, for eksempel at brukeren er ferdig med en handling. Den bruker vi bare mot svart eller matt svart.
+
+- **Himmel #509CE6**
+Himmel er en av funksjonsfarge vi bruker til informasjonsmeldinger. Den brukes bare mot svart.
+
+- **UX Blå #1C74CA**
+UX-blå er en funksjonsfarge for å formidle informasjon fra systemet. Benyttes kun mot hvit.
+
+- **UX Rød #D73704** 
+UX-rød bruker vi til varsler eller feil, mot hvit bakgrunn.
+
+- **UX Grønn** Mikkel? Snakk med Stein Olav.
+
+
+## Eksempler
+
+TBD
