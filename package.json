@@ -103,5 +103,8 @@
             "eslint --fix",
             "git add"
         ]
+    },
+    "greenkeeper": {
+        "label": "🌱 greenkeeper"
     }
 }
