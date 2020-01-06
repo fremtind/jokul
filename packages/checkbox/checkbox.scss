@@ -11,11 +11,11 @@ $checkbox-background-color--error: $error-color;
 $checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
 .jkl-checkbox {
+    @include body-paragraph;
     @include reset-outline;
     display: flex;
     align-items: center;
     cursor: pointer;
-    @include text-sizing("small");
 
     & + & {
         margin-top: $component-spacing--large;
@@ -30,7 +30,7 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
     }
 
     @include compact-mode {
-        @include text-sizing--small-device("small");
+        @include body-paragraph--mobile;
         .jkl-checkbox__check-mark {
             height: $checkbox-size--compact;
             width: $checkbox-size--compact;

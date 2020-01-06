@@ -10,8 +10,8 @@ $bg-color--options: $helhvit;
 $border-color: $svart;
 $border-color--focus: $focus-color;
 
-$value-height: $line-height-3;
-$value-font-size: $font-size-3;
+$value-height: $line-height-4;
+$value-font-size: $font-size-6;
 
 $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
@@ -38,7 +38,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
 @mixin nojump-bold {
     // Make font bolder without increasing line length
-    font-weight: bold;
+    font-weight: $bold-weight;
     letter-spacing: -0.009em;
 }
 
@@ -56,11 +56,11 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
     @include compact-mode {
         & .jkl-select__value {
-            @include text-sizing--small-device("small");
+            @include body-paragraph--mobile;
             padding-right: $chevron-size--compact + $chevron-side-padding;
         }
         & .jkl-select__option {
-            @include font-size--small-device("small");
+            @include body-paragraph--mobile;
             min-height: rem(40px);
         }
         & .jkl-select__chevron {
@@ -93,6 +93,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
     }
 
     &__value {
+        @include body-paragraph;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -100,8 +101,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
         color: inherit;
 
         border: 0;
-        @include text-sizing("small");
-        font-weight: bold;
+        font-weight: $bold-weight;
         padding: 0 $side-padding $bottom-padding 0;
         padding-right: $chevron-size + $chevron-side-padding;
         text-align: left;
@@ -182,10 +182,10 @@ $chevron-side-padding: (2 * $component-spacing--small);
     }
 
     &__option {
+        @include body-paragraph;
         border: 0; // removes native styling
         width: 100%;
         background-color: inherit;
-        @include font-size("small");
         min-height: rem(48px);
         padding: $component-spacing--small $component-spacing--medium;
         text-align: left;

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button-react",
-    "version": "1.0.1",
+    "version": "1.0.7",
     "publishConfig": {
         "access": "public"
     },
@@ -31,15 +31,15 @@
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:style": "lerna exec --scope=@fremtind/jkl-radio-button yarn build:watch",
-        "dev:js": "parcel example/index.html",
+        "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-field-group-react": "^1.0.1",
-        "@fremtind/jkl-radio-button": "^1.0.1"
+        "@fremtind/jkl-field-group-react": "^1.0.7",
+        "@fremtind/jkl-radio-button": "^1.0.7"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.0"
+        "@fremtind/browserslist-config-jkl": "^0.4.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -57,5 +57,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "d2f6e412cb758cef989870d635fceab6c0367bfe"
+    "gitHead": "e161df7072d73fd2c3e28a935ffaeaca6d9ea6d8"
 }

@@ -16,7 +16,7 @@ Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan 
 
 ### React-pakker
 
-`yarn install @fremtind/jkl-button-react`
+`yarn add @fremtind/jkl-button-react`
 
 ```tsx
 import { PrimaryButton } from "@fremtind/jkl-button-react";
@@ -29,7 +29,7 @@ import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
 ### Stilark-pakker
 
 Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mixins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
-`yarn install @fremtind/jkl-button`
+`yarn add @fremtind/jkl-button`
 
 ```tsx
 import "@fremtind/jkl-button/button.min.css";
@@ -92,17 +92,17 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="http://eniro.com"><img src="https://avatars3.githubusercontent.com/u/1997921?v=4" width="100px;" alt=""/><br /><sub><b>Bjørn Ole Bakke</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=BjornBakke" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/almli"><img src="https://avatars2.githubusercontent.com/u/818715?v=4" width="100px;" alt=""/><br /><sub><b>almli</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=almli" title="Code">💻</a></td>
     <td align="center"><a href="https://thomasrognes.github.io/"><img src="https://avatars1.githubusercontent.com/u/33520517?v=4" width="100px;" alt=""/><br /><sub><b>Thomas Rognes</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=thomasrognes" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/EspenSmith"><img src="https://avatars1.githubusercontent.com/u/58692206?v=4" width="100px;" alt=""/><br /><sub><b>EspenSmith</b></sub></a><br /><a href="#ideas-EspenSmith" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/sigvehag"><img src="https://avatars0.githubusercontent.com/u/37373812?v=4" width="100px;" alt=""/><br /><sub><b>Sigve Hagesæter</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Asigvehag" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/EspenSmith"><img src="https://avatars1.githubusercontent.com/u/58692206?v=4" width="100px;" alt=""/><br /><sub><b>EspenSmith</b></sub></a><br /><a href="#ideas-EspenSmith" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Murstam"><img src="https://avatars1.githubusercontent.com/u/47025023?v=4" width="100px;" alt=""/><br /><sub><b>Murstam</b></sub></a><br /><a href="#design-Murstam" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/fremtind-bot"><img src="https://avatars1.githubusercontent.com/u/57256715?v=4" width="100px;" alt=""/><br /><sub><b>fremtind-bot</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=fremtind-bot" title="Documentation">📖</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!

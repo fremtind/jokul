@@ -1,13 +1,9 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React, { ReactNode } from "react";
-import { Footer, Header, Menu } from "..";
+import { MDXProvider } from "@mdx-js/react";
+import { H1, H2, H3, H4, LeadParagraph, P, Link } from "@fremtind/jkl-typography-react";
+import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
+import { Footer, Header, Menu } from "..";
 import "./Layout.scss";
 
 const getTheme = () => {
@@ -31,6 +27,32 @@ interface Props {
     isComponentPage?: boolean;
     showFooter?: boolean;
 }
+
+/* eslint-disable */
+const h1 = (props: any) => <H1 {...props} />;
+const h2 = (props: any) => <H2 {...props} />;
+const h3 = (props: any) => <H3 {...props} />;
+const h4 = (props: any) => <H4 {...props} />;
+const h5 = (props: any) => <LeadParagraph {...props} />;
+const p = (props: any) => <P {...props} />;
+const ul = (props: any) => <UnorderedList {...props} />;
+const li = (props: any) => <ListItem {...props} />;
+const ol = (props: any) => <OrderedList {...props} />;
+const a = (props: any) => <Link {...props} />;
+/* eslint-enable */
+
+const components = {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    ul,
+    li,
+    ol,
+    a,
+};
 
 export const Layout = ({ children, title, header, isComponentPage = false, showFooter = true }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
@@ -57,7 +79,7 @@ export const Layout = ({ children, title, header, isComponentPage = false, showF
             <Header siteHeader={header} siteTitle={title} />
             <Menu />
             <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
-                {children}
+                <MDXProvider components={components}>{children}</MDXProvider>
             </main>
             {showFooter && <Footer />}
         </ThemeContext.Provider>

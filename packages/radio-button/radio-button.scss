@@ -113,7 +113,7 @@ $radio-button-color: $svart;
             }
         }
         &:checked ~ .jkl-radio-button__label {
-            font-weight: bold;
+            font-weight: $bold-weight;
         }
 
         /* Focused state */
@@ -168,7 +168,7 @@ $radio-button-color: $svart;
     }
 
     &__label {
-        @include text-sizing("small");
+        @include body-paragraph;
     }
 
     &--error {

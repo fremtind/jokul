@@ -9,7 +9,7 @@
             "registry": "https://registry.npmjs.org/",
             "access": "public",
             "npmClient": "yarn",
-            "allowBranch": ["master", "feature/*"],
+            "allowBranch": ["master", "release"],
             "ignoreChanges": [
                 ".eslintrc",
                 ".prettierrc",
@@ -20,7 +20,7 @@
                 "*.test.js",
                 "jest/**/*"
             ],
-            "message": "chore(release): publish"
+            "message": "chore(release): publish [ci skip release]"
         }
     }
 }

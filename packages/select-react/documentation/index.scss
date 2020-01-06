@@ -1,0 +1,31 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+body,
+#app {
+    height: 100%;
+}
+
+.example-page {
+    margin-bottom: $layout-spacing--large;
+
+    &--light-mode {
+        background-color: $helhvit;
+        color: $svart;
+    }
+
+    &--dark-mode {
+        background-color: $svart;
+        color: $helhvit;
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: space-evenly;
+        padding: $layout-spacing--small;
+        margin-bottom: $layout-spacing--large;
+    }
+}
+
+.toggle-switch {
+    margin-top: 1rem;
+}

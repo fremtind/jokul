@@ -23,7 +23,7 @@ function handleKeydown(event: KeyboardEvent) {
 }
 
 export function initTabListener() {
-    if (document) {
+    if (typeof document !== "undefined") {
         document.addEventListener("mousedown", handleMouseDown);
     }
 }
