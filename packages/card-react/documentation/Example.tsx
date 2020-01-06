@@ -16,6 +16,8 @@ const CardDemo = () => (
             <p className="jkl-p">Empty card</p>
         </Card>
 
+        <br></br>
+
         <Card title="Basic Card" clickable={{ href: "https://fremtind.github.io/jokul/" }} className="test-class">
             <h2 className="jkl-h4">Clickable</h2>
             <p className="jkl-p">

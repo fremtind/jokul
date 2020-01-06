@@ -12,8 +12,8 @@ export const Example = () => {
             <div className="jkl-spacing--top-2" style={{ display: "flex", flexDirection: "column" }}>
                 <h2 className="jkl-h3">Controls</h2>
                 <div>
-                    <button onClick={() => setVal(val + 10 > 100 ? 100 : val + 10)}>+</button>
                     <button onClick={() => setVal(val - 10 < 0 ? 0 : val - 10)}>-</button>
+                    <button onClick={() => setVal(val + 10 > 100 ? 100 : val + 10)}>+</button>
                 </div>
                 <input
                     className="jkl-spacing--top-2"

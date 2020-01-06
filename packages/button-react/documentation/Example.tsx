@@ -19,21 +19,21 @@ const Example = () => (
             </pre>
         </div>
         <div className="side-by-side">
-            <PrimaryButton onClick={onClick}>Send inn</PrimaryButton>
+            <PrimaryButton onClick={onClick}>PrimaryButton</PrimaryButton>
             <PrimaryButton forceCompact onClick={onClick}>
-                Send inn
+                PrimaryButton
             </PrimaryButton>
         </div>
         <div className="side-by-side">
-            <SecondaryButton onClick={onClick}>Svar senere</SecondaryButton>
+            <SecondaryButton onClick={onClick}>SecondaryButton</SecondaryButton>
             <SecondaryButton forceCompact onClick={onClick}>
-                Svar senere
+                SecondaryButton
             </SecondaryButton>
         </div>
         <div className="side-by-side">
-            <TertiaryButton onClick={onClick}>Avbryt</TertiaryButton>
+            <TertiaryButton onClick={onClick}>TertiaryButton</TertiaryButton>
             <TertiaryButton forceCompact onClick={onClick}>
-                Avbryt
+                TertiaryButton
             </TertiaryButton>
         </div>
     </section>

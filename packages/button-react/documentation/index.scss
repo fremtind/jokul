@@ -9,7 +9,7 @@
     background-color: white;
 
     & > * + * {
-        margin-bottom: $layout-spacing--large;
+        margin-bottom: $layout-spacing--small;
     }
 }
 
