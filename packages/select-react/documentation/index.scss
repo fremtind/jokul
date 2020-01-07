@@ -6,10 +6,7 @@ body,
 }
 
 .example-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: $layout-spacing--large;
 
     &--light-mode {
         background-color: $helhvit;
@@ -19,6 +16,13 @@ body,
     &--dark-mode {
         background-color: $svart;
         color: $helhvit;
+    }
+
+    &__controls {
+        display: flex;
+        justify-content: space-evenly;
+        padding: $layout-spacing--small;
+        margin-bottom: $layout-spacing--large;
     }
 }
 
