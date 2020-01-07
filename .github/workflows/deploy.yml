@@ -37,6 +37,8 @@ jobs:
                   base: master
                   branch: release
                   branch-suffix: none
+                  committer: fremtind-bot <fremtind.designsystem@fremtind.no>
                   commit-message: "chore(release): update version number and changelog [ci skip release]"
-                  title: Apply to published components to master
-                  body: New packages published to npm
+                  title: Merge release branch into master
+                  body: Inlcudes version tags and changelogs from latest release to npm
+                  labels: "⚙️ automerge"
