@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "publishConfig": {
         "access": "public"
     },
@@ -24,10 +24,10 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^1.1.8"
+        "@fremtind/jkl-core": "^1.1.9"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.8"
+        "@fremtind/browserslist-config-jkl": "^0.4.9"
     },
     "repository": {
         "type": "git",
