@@ -1,5 +1,0 @@
-📚 documentation:
-    - "**/*.md*"
-    - "packages/*-react/documentation/*"
-    - "portal/*"
-    - "portal/**/*"
