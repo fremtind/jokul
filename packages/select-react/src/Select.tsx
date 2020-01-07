@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 
 interface Props {
@@ -106,6 +107,8 @@ export function Select({
         setDisplayedValue(getLabelFromValue(value));
     }, [value]);
 
+    const [elementRef] = useAnimatedHeight(dropdownIsShown);
+
     return (
         <div data-testid="jkl-select" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
@@ -122,8 +125,9 @@ export function Select({
                 </button>
                 <CoreToggle
                     id={listId}
+                    ref={elementRef}
                     role="listbox"
-                    className="jkl-select__core-toggle"
+                    className="jkl-select__toggler"
                     popup={label}
                     hidden={!dropdownIsShown}
                     onToggle={onToggle}

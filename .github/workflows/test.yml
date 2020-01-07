@@ -1,6 +1,10 @@
 name: lint-test-typecheck
 
-on: push
+on:
+    push:
+        branches:
+            - "**"
+            - "!release"
 
 jobs:
     build:
