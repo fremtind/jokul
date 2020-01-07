@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "publishConfig": {
         "access": "public"
     },
@@ -31,11 +31,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^1.0.8",
-        "@fremtind/jkl-card": "^1.0.7"
+        "@fremtind/jkl-button-react": "^1.0.9",
+        "@fremtind/jkl-card": "^1.0.8"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.6"
+        "@fremtind/browserslist-config-jkl": "^0.4.7"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
