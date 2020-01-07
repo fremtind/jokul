@@ -13,3 +13,6 @@ jobs:
                   repo-token: "${{ secrets.GITHUB_TOKEN }}"
                   📚 documentation:
                       - "**/*.md*"
+                      - "packages/*-react/documentation/*"
+                      - "portal/*"
+                      - "portal/**/*"
