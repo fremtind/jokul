@@ -3,3 +3,4 @@
     - "packages/*-react/documentation/*"
     - "portal/*"
     - "portal/**/*"
+    - "!CHANGELOG.md"
