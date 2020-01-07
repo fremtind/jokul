@@ -1,15 +1,16 @@
-name: Triage new issues
+name: Triage
 
 on:
     issues:
         types: [opened]
 
 jobs:
-    add_correct_label:
+    triage_issues:
+        name: Triage issues
         runs-on: ubuntu-latest
         steps:
             - uses: Naturalclar/issue-action@v1.0.0
               with:
-                  keywords: ["bug", "feil"]
-                  labels: ["🐝 bug"]
+                  keywords: '["bug", "feil"]'
+                  labels: '["🐝 bug"]'
                   github-token: "${{ secrets.GITHUB_TOKEN }}"
