@@ -38,6 +38,7 @@
         "@fremtind/jkl-core": "^1.1.6",
         "@fremtind/jkl-select": "^1.1.6",
         "@fremtind/jkl-typography-react": "^1.0.7",
+        "@fremtind/jkl-react-hooks": "^0.2.2",
         "@nrk/core-toggle": "^3.0.4",
         "nanoid": "^2.1.6"
     },
