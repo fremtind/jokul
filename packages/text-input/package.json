@@ -43,5 +43,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "10658b9be9920e46630db3557e04dac7adfbdaab"
+    "gitHead": "d8f356b99481b48e3bf9e26674c27704a442be7b"
 }
