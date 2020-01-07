@@ -1,6 +1,6 @@
 ---
 title: Vanlige mønstre
-path: /kjerne/monstre
+path: /profil/monstre
 ---
 
 # Mønstre
