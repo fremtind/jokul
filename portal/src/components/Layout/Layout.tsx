@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { H1, H2, H3, H4, LeadParagraph, P, Link } from "@fremtind/jkl-typography-react";
+import { H1, H2, H3, H4, H5, Body, Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
 import { Footer, Header, Menu } from "..";
@@ -33,8 +33,8 @@ const h1 = (props: any) => <H1 {...props} />;
 const h2 = (props: any) => <H2 {...props} />;
 const h3 = (props: any) => <H3 {...props} />;
 const h4 = (props: any) => <H4 {...props} />;
-const h5 = (props: any) => <LeadParagraph {...props} />;
-const p = (props: any) => <P {...props} />;
+const h5 = (props: any) => <H5 {...props} />;
+const p = (props: any) => <Body {...props} />;
 const ul = (props: any) => <UnorderedList {...props} />;
 const li = (props: any) => <ListItem {...props} />;
 const ol = (props: any) => <OrderedList {...props} />;

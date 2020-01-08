@@ -3,7 +3,7 @@ import Layout from "./Layout";
 import { ReactIcon, SassIcon } from "../icons";
 import { CodeLink } from "./CodeLink";
 import "./Layout.scss";
-import { H1, MicroParagraph } from "@fremtind/jkl-typography-react";
+import { H1, Micro } from "@fremtind/jkl-typography-react";
 
 interface Props {
     children: ReactNode;
@@ -30,7 +30,7 @@ export const ComponentLayout = ({
                     <aside className="portal-content__packages">
                         {react && <CodeLink alt="React package" icon={<ReactIcon />} link={`${react}`} />}
                         {scss && <CodeLink alt="Style package" icon={<SassIcon />} link={scss} />}
-                        <MicroParagraph className="portal-content__packages__description">Se på GitHub</MicroParagraph>
+                        <Micro className="portal-content__packages__description">Se på GitHub</Micro>
                     </aside>
                 )}
             </header>
