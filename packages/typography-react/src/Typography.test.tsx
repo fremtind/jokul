@@ -1,12 +1,12 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
-import { H1, H2, H3, H4, H5, LeadParagraph, BodyParagraph, SmallParagraph, MicroParagraph } from ".";
+import { H1, H2, H3, H4, H5, Lead, Body, Small, Micro } from ".";
 
 describe("typography", () => {
     afterEach(cleanup);
     const text = "Hello Mr Universe";
 
-    [H1, H2, H3, H4, H5, LeadParagraph, BodyParagraph, SmallParagraph, MicroParagraph].forEach((element) => {
+    [H1, H2, H3, H4, H5, Lead, Body, Small, Micro].forEach((element) => {
         test(`should not explode`, () => {
             const C = element;
             const { getByText } = render(<C>{text}</C>);
