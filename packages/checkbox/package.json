@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-checkbox",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "publishConfig": {
         "access": "public"
     },
@@ -25,10 +25,10 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^1.1.9"
+        "@fremtind/jkl-core": "^1.1.10"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.9"
+        "@fremtind/browserslist-config-jkl": "^0.4.10"
     },
     "repository": {
         "type": "git",
