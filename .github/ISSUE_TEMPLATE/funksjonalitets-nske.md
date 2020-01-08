@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-**Er ønsket tilknyttet et problem? Fortell os mer!**
+**Er ønsket tilknyttet et problem? Fortell oss mer!**
 Gi oss en klar og konsis beskrivelse av problemet. F.eks "Det er dumt at jeg alltid må [...]"
 
 **Beskriv løsningen du ønsker**
