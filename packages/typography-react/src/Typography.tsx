@@ -1,8 +1,8 @@
 import React, { BaseHTMLAttributes } from "react";
 
 type ValidSemanticHeaders = "h1" | "h2" | "h3" | "h4" | "h5";
-type ValidSemanticTexts = "p";
-type ValidModifiers = "lead" | "small" | "tiny";
+type ValidSemanticTexts = "body";
+type ValidModifiers = "lead" | "small" | "micro";
 type ValidSemanticElement = ValidSemanticHeaders | ValidSemanticTexts;
 
 interface Props extends BaseHTMLAttributes<HTMLElement> {
@@ -28,7 +28,7 @@ export const H2 = makeTypographyComponent("h2");
 export const H3 = makeTypographyComponent("h3");
 export const H4 = makeTypographyComponent("h4");
 export const H5 = makeTypographyComponent("h5");
-export const LeadParagraph = makeTypographyComponent("p", "lead");
-export const P = makeTypographyComponent("p");
-export const SmallParagraph = makeTypographyComponent("p", "small");
-export const TinyParagraph = makeTypographyComponent("p", "tiny");
+export const LeadParagraph = makeTypographyComponent("body", "lead");
+export const BodyParagraph = makeTypographyComponent("body");
+export const SmallParagraph = makeTypographyComponent("body", "small");
+export const MicroParagraph = makeTypographyComponent("body", "micro");

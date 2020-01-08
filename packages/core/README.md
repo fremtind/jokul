@@ -70,19 +70,21 @@ Det er utviklet mixins for å lette bruk av vanlige mønstre. For eksempel kan d
 
 ```scss
 .jkl-some-component {
-    @include text-sizing("small");
+    @include body-paragraph;
 }
 
 /* Resulterer i følgende css: */
+.jkl-some-component {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
 @media (min-width: 0) and (max-width: 767px) {
     .jkl-some-component {
-        font-size: 1rem;
-        line-height: 1.5rem;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        font-weight: 400;
     }
-}
-.jkl-some-component {
-    font-size: 1.375rem;
-    line-height: 2rem;
 }
 ```
 
