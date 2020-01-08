@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **Er ønsket tilknyttet et problem? Fortell os mer!**
-Gi oss en klar og konis beskrivelse av problemet. F.eks "Det irriterer meg at jeg alltid må [...]"
+Gi oss en klar og konsis beskrivelse av problemet. F.eks "Det er dumt at jeg alltid må [...]"
 
 **Beskriv løsningen du ønsker**
 En klar og konsis beskrivelse av hva du ønsker at skal skje.
