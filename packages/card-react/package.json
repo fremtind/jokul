@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "publishConfig": {
         "access": "public"
     },
@@ -31,11 +31,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^1.0.10",
-        "@fremtind/jkl-card": "^1.0.9"
+        "@fremtind/jkl-button-react": "^1.0.11",
+        "@fremtind/jkl-card": "^1.0.10"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.8"
+        "@fremtind/browserslist-config-jkl": "^0.4.9"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -53,5 +53,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "10658b9be9920e46630db3557e04dac7adfbdaab"
+    "gitHead": "d8f356b99481b48e3bf9e26674c27704a442be7b"
 }
