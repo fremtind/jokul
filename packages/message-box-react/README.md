@@ -40,12 +40,12 @@ Du kan sende mer enn bare ren tekst som innhold. Innholdet blir rendret inne i e
 
 ```jsx
 <ErrorMessage title="Feil under innsending av skjema">
-    <P>Skjemaet kunne ikke sendes inn på grunn av feil i følgende felter:</P>
+    <BodyParagraph>Skjemaet kunne ikke sendes inn på grunn av feil i følgende felter:</BodyParagraph>
     <UnorderedList>
         <ListItem>Fødselsnummer</ListItem>
         <ListItem>Epostadresse</ListItem>
         <ListItem>Telefonnummer</ListItem>
     </UnorderedList>
-    <P>Rett opp feilene og send deretter inn skjemaet på nytt</P>
+    <BodyParagraph>Rett opp feilene og send deretter inn skjemaet på nytt</BodyParagraph>
 </ErrorMessage>
 ```

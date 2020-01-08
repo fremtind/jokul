@@ -13,14 +13,14 @@ function handleClick() {
 const CardDemo = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <Card className="test-class">
-            <p className="jkl-p">Empty card</p>
+            <p className="jkl-body">Empty card</p>
         </Card>
 
         <br></br>
 
         <Card title="Basic Card" clickable={{ href: "https://fremtind.github.io/jokul/" }} className="test-class">
             <h2 className="jkl-h4">Clickable</h2>
-            <p className="jkl-p">
+            <p className="jkl-body">
                 Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag. Hvis den ikke kan
                 behandles automatisk, vurderer vi saken og kontakter deg innen 8 arbeidsdager.
             </p>
@@ -43,7 +43,7 @@ const CardDemo = () => (
             media={{ src: grass, alt: "Grass" }}
         >
             <h2>Slik behandler vi saken din</h2>
-            <ul className="jkl-p list">
+            <ul className="jkl-body list">
                 <li>Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag.</li>
                 <li>
                     Hvis den ikke kan behandles automatisk, vurderer vi saken og kontakter deg innen 8 arbeidsdager.
@@ -54,7 +54,7 @@ const CardDemo = () => (
         <br></br>
 
         <Card title="Card darkmode" dark>
-            <p className="jkl-p">
+            <p className="jkl-body">
                 Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag. Hvis den ikke kan
                 behandles automatisk, vurderer vi saken og kontakter deg innen 8 arbeidsdager.
             </p>
@@ -68,7 +68,7 @@ const CardDemo = () => (
             media={{ src: grass, alt: "Grass" }}
         >
             <h2>Slik behandler vi saken din</h2>
-            <ul className="jkl-p list">
+            <ul className="jkl-body list">
                 <li>Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag.</li>
                 <li>
                     Hvis den ikke kan behandles automatisk, vurderer vi saken og kontakter deg innen 8 arbeidsdager.

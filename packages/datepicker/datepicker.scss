@@ -166,7 +166,7 @@ $bottom-margin: $component-spacing--large;
         }
         // Weekday names above calendar:
         th {
-            @include body-small-paragraph;
+            @include small-paragraph;
             padding-bottom: $component-spacing--small;
         }
         td {

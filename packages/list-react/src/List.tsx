@@ -9,7 +9,7 @@ type validLists = "unordered" | "ordered";
 
 function makeListComponent(listType: validLists) {
     return function List(props: Props) {
-        const { children, className = "jkl-p" } = props;
+        const { children, className = "jkl-body" } = props;
         const componentClassName = "jkl-list".concat(
             className ? ` ${className}` : "",
             listType === "ordered" ? " jkl-list--ordered" : "",
