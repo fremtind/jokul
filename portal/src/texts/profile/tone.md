@@ -1,6 +1,6 @@
 ---
-title: stemmen vår
-path: /profil/stemmenvaar
+title: stil og tone
+path: /profil/stilogtone
 ---
 
 # Stil og tone
