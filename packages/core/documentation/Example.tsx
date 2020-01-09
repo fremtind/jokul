@@ -19,7 +19,7 @@ export const Colors = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <h1 className="jkl-h1">Colors</h1>
         <div className="demo-wrapper">
-            {[...Array(14)].map((_, idx) => (
+            {[...Array(16)].map((_, idx) => (
                 <Box key={idx} type="color" number={idx} />
             ))}
         </div>
