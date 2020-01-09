@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "1.0.7",
+    "version": "1.0.11",
     "publishConfig": {
         "access": "public"
     },
@@ -23,10 +23,10 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^1.1.6"
+        "@fremtind/jkl-core": "^1.1.10"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.6"
+        "@fremtind/browserslist-config-jkl": "^0.4.10"
     },
     "repository": {
         "type": "git",
@@ -38,5 +38,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "e161df7072d73fd2c3e28a935ffaeaca6d9ea6d8"
+    "gitHead": "83abf586ad007fc4c308d7762a414965b1edf463"
 }
