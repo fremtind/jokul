@@ -13,7 +13,7 @@ $height: rem(8px);
     &__tracker {
         display: block;
         height: $height;
-        background-color: $ux-gronn;
+        background-color: $suksess;
         transition-property: width;
         @include motion("easeInBounceOut", "lazy");
     }
