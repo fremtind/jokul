@@ -30,19 +30,19 @@ $message-width: rem(560px);
     }
 
     &--info:before {
-        background-color: $himmel;
+        background-color: $info;
     }
 
     &--warning:before {
-        background-color: $sol;
+        background-color: $advarsel;
     }
 
     &--error:before {
-        background-color: $blomst;
+        background-color: $feil;
     }
 
     &--success:before {
-        background-color: $gress;
+        background-color: $suksess;
     }
 
     &__title {
