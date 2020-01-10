@@ -1,9 +1,9 @@
 import React, { BaseHTMLAttributes } from "react";
 
 type ValidSemanticHeaders = "h1" | "h2" | "h3" | "h4" | "h5";
-type ValidSemanticTexts = "body";
-type ValidModifiers = "lead" | "small" | "micro";
-type ValidSemanticElement = ValidSemanticHeaders | ValidSemanticTexts;
+type ValidSemanticBlocks = "p";
+type ValidModifiers = "lead" | "small" | "micro" | "body";
+type ValidSemanticElement = ValidSemanticHeaders | ValidSemanticBlocks;
 
 interface Props extends BaseHTMLAttributes<HTMLElement> {
     styledAs?: ValidSemanticHeaders;
@@ -28,7 +28,7 @@ export const H2 = makeTypographyComponent("h2");
 export const H3 = makeTypographyComponent("h3");
 export const H4 = makeTypographyComponent("h4");
 export const H5 = makeTypographyComponent("h5");
-export const Lead = makeTypographyComponent("body", "lead");
-export const Body = makeTypographyComponent("body");
-export const Small = makeTypographyComponent("body", "small");
-export const Micro = makeTypographyComponent("body", "micro");
+export const Lead = makeTypographyComponent("p", "lead");
+export const Body = makeTypographyComponent("p", "body");
+export const Small = makeTypographyComponent("p", "small");
+export const Micro = makeTypographyComponent("p", "micro");
