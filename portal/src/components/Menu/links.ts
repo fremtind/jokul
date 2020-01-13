@@ -44,11 +44,6 @@ const profile = (rawPages: GeneralDocPages) => ({
     sectionTitle: "Profilelementer",
     matchingLocation: (location: WindowLocation) => location.pathname.includes("profil"),
 });
-const core = (rawPages: GeneralDocPages) => ({
-    pages: rawPages.edges.filter(by(/^\/kjerne/)).map(edgeToPage),
-    sectionTitle: "Grunnleggende",
-    matchingLocation: (location: WindowLocation) => !!location.pathname.match(/kjerne/) || location.pathname === "/",
-});
 const developer = (rawPages: GeneralDocPages) => ({
     pages: rawPages.edges.filter(by(/^\/utvikler/)).map(edgeToPage),
     sectionTitle: "For utviklere",
@@ -89,7 +84,6 @@ const examples = {
 };
 
 export const mainMenu = (rawPages: GeneralDocPages, rawComponents: ComponentDocPages) => [
-    core(rawPages),
     profile(rawPages),
     designer(rawPages),
     developer(rawPages),
