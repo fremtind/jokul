@@ -1,27 +1,24 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$item-space-between: $component-spacing--large;
-$item-indent: $component-spacing--xxl;
+$item-space-between: $component-spacing--small;
+$list-padding-left: $layout-spacing--small;
 
-$diamond: "\25C6";
-$diamond-hollow: "\25C7";
-$square: "\25A0";
+$black-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='1 0 9 9' fill='none'%3E%3Cpath fill='%23000' d='M5 0l4.002 4.002L5 8.004.998 4.002z'/%3E%3C/svg%3E");
+$white-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 9 9' fill='none'%3E%3Cpath stroke='%23000' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
 
 .jkl-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style: disc $black-diamond;
+    padding-left: $list-padding-left;
+
+    &.jkl-body {
+        & > .jkl-list__item {
+            padding-left: rem(4px);
+        }
+    }
 
     & > .jkl-list__item {
         margin: $item-space-between 0;
-        padding-left: $item-indent;
-
-        &::before {
-            content: $diamond;
-            position: absolute;
-            margin-left: -3ch;
-        }
 
         &:first-of-type {
             margin-top: 0;
@@ -29,12 +26,15 @@ $square: "\25A0";
         &:last-of-type {
             margin-bottom: 0;
         }
-    }
-    & & > .jkl-list__item {
-        &:before {
-            content: $diamond-hollow;
+        & > .jkl-list {
+            margin-bottom: 0;
         }
-        padding-left: $item-indent;
+    }
+
+    & & > .jkl-list__item {
+        list-style: disc $white-diamond;
+        margin: 0;
+
         &:first-of-type {
             margin-top: $item-space-between;
         }
@@ -44,19 +44,12 @@ $square: "\25A0";
     }
 
     &--ordered {
-        counter-reset: my-counter;
-
         & > .jkl-list__item {
-            counter-increment: my-counter;
-
-            &::before {
-                content: counter(my-counter) ". ";
-                font-weight: bold;
-            }
+            list-style: decimal;
         }
 
-        & & > .jkl-list__item::before {
-            content: counter(my-counter, lower-alpha) ". ";
+        & & > .jkl-list__item {
+            list-style: lower-alpha;
         }
     }
 }
