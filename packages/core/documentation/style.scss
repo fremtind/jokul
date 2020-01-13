@@ -90,8 +90,16 @@
     @include demo-box($layout-spacing--large, $blomst);
 }
 .demo-color--13 {
-    @include demo-box($layout-spacing--large, $gress);
+    @include demo-box($layout-spacing--large, $suksess);
 }
 .demo-color--14 {
-    @include demo-box($layout-spacing--large, $himmel);
+    @include demo-box($layout-spacing--large, $info);
+}
+
+.demo-color--15 {
+    @include demo-box($layout-spacing--large, $advarsel);
+}
+
+.demo-color--16 {
+    @include demo-box($layout-spacing--large, $feil);
 }

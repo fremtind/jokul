@@ -1,6 +1,6 @@
 ---
 title: designprinsipper
-path: /kjerne/designprinsipper
+path: /profil/designprinsipper
 ---
 
 # Vår profil
