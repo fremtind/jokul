@@ -28,7 +28,7 @@ $hover-elevation-distance: -0.25rem;
 .jkl-button {
     display: inline-flex;
     justify-content: center;
-    @include body-paragraph--desktop;
+    @include body-paragraph;
     @include reset-outline;
     height: $button-height--normal;
     min-width: $button-min-width--normal;
