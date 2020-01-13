@@ -1,4 +1,4 @@
-// Main colors
+// Primærfarger
 $svart: #000;
 $matt-svart: #3d3d3d;
 $varm-fjellgra: #696666;
@@ -6,7 +6,7 @@ $himmelgra: #f0f0f0;
 $snohvit: #fafafa;
 $varde: #ded4c7;
 
-// Support colors
+// Sekundær- og illustrasjonsfarger
 $sol: #ffc880;
 $sand: #dcb28b;
 $jord: #765d4b;
@@ -18,13 +18,12 @@ $helhvit: #ffffff;
 $lys-gra: #e0dfdd;
 $mellomgra: #bab8b6;
 
-// Function colors
-$gress: #50e68c;
-$himmel: #509ce6;
-$ux-rod: #d73704;
-$ux-bla: #1c74ca;
-$ux-gronn: #35c16d;
+// Meldingsfarger
+$suksess: #2f8551;
+$info: #0073e3;
+$advarsel: #ffa647;
+$feil: #d73704;
 
-// Colors by use case
-$error-color: $ux-rod;
-$focus-color: $ux-bla;
+// Farger knyttet til bruksområde
+$error-color: $feil;
+$focus-color: $info;
