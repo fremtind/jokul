@@ -6,19 +6,22 @@ describe("typography", () => {
     afterEach(cleanup);
     const text = "Hello Mr Universe";
 
-    const elements = [
+    const headings = [
         { type: "heading 1", component: H1, expectedClassName: "jkl-h1" },
         { type: "heading 2", component: H2, expectedClassName: "jkl-h2" },
         { type: "heading 3", component: H3, expectedClassName: "jkl-h3" },
         { type: "heading 4", component: H4, expectedClassName: "jkl-h4" },
         { type: "heading 5", component: H5, expectedClassName: "jkl-h5" },
+    ];
+
+    const paragraphs = [
         { type: "lead paragraph", component: Lead, expectedClassName: "jkl-lead" },
         { type: "body paragraph", component: Body, expectedClassName: "jkl-body" },
         { type: "small paragraph", component: Small, expectedClassName: "jkl-small" },
         { type: "micro paragraph", component: Micro, expectedClassName: "jkl-micro" },
     ];
 
-    elements.forEach((element) => {
+    [...headings, ...paragraphs].forEach((element) => {
         test(`should render ${element.type} with correct text`, () => {
             const C = element.component;
             const { getByText } = render(<C>{text}</C>);
@@ -40,7 +43,7 @@ describe("typography", () => {
         { element: "h5", expectedClassName: "jkl-h5" },
     ];
 
-    elements.slice(0, 5).forEach((element) => {
+    headings.forEach((element) => {
         styleElements.forEach((styleElement) => {
             test(`should render ${element.type} styled as ${styleElement.element}`, () => {
                 const C = element.component;
