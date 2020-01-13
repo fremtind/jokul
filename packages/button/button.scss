@@ -111,6 +111,7 @@ $hover-elevation-distance: -0.25rem;
         color: currentColor;
         padding: 0;
         transition: transform $animation-timing, border $animation-timing;
+        min-width: unset;
 
         &:focus,
         &:hover {
