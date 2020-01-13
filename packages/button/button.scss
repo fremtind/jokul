@@ -4,8 +4,11 @@
 
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$button-height--large: 3.5rem;
-$button-height--small: 2.5rem;
+$button-height--large: rem(56px);
+$button-height--small: rem(48px);
+$button-height--xs: rem(40px);
+$button-min-width--large: rem(128px);
+$button-min-width--small: rem(104px);
 
 $button-bg-color: $helhvit;
 $button-bg-color--primary: $svart;
@@ -24,24 +27,26 @@ $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
 .jkl-button {
-    @include body-paragraph;
+    display: inline-flex;
+    justify-content: center;
+    @include body-paragraph--desktop;
     @include reset-outline;
     height: $button-height--large;
-    min-width: $button-height--large;
+    min-width: $button-min-width--large;
     line-height: $button-height--large;
     cursor: pointer;
 
     @include small-device {
-        height: $button-height--small;
-        min-width: $button-height--small;
-        line-height: $button-height--small;
+        height: $button-height--xs;
+        min-width: $button-min-width--small;
+        line-height: $button-height--xs;
     }
 
     @include compact-mode {
         @include body-paragraph--mobile;
-        height: $button-height--small;
-        min-width: $button-height--small;
-        line-height: $button-height--small;
+        height: $button-height--xs;
+        min-width: $button-min-width--small;
+        line-height: $button-height--xs;
     }
 
     -moz-osx-font-smoothing: auto;
