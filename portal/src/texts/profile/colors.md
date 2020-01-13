@@ -5,20 +5,20 @@ path: /profil/farger
 
 # Farger
 
-Farger er en viktig del av Fremtinds identitet. Fargepaletten vår domineres av varme gråtoner, og støttes av farger som er inspirert av norsk natur. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. 
+Farger er en viktig del av Fremtinds identitet. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. Profilen støttes av illustrasjonsfarger som er inspirert av norsk natur. 
 
-Fargepaletten vår er delt inn i tre grupper: Hovedfarger, støttefarger og funksjonsfarger. Nederst på siden finner du eksempler på hvordan vi vekter fargene og hvordan du kan kombinere dem.
+Fargepaletten vår er delt inn i tre grupper: Primærfarger, illustrasjonsfarger og meldingssfarger. Nederst på siden finner du eksempler på hvordan vi vekter fargene og hvordan du kan kombinere dem.
 
-**Hovedfargene** er de vi skal bruke både på trykk og i digitale flater, med hovedvekt på svart, hvit og varde. Gråtonene bruker vi til å skape flere nyanser.
+**Primærfargene** er de vi skal bruke både på trykk og i digitale flater, med hovedvekt på svart, hvit og varde. Gråtonene bruker vi til å skape flere nyanser.
 
-**Støttefargene** er forbeholdt illustrasjoner og små detaljer (for eksempel farger i en graf). De bruker vi ikke på store flater. 
+**Illustrasjonsfargene** er forbeholdt illustrasjoner og små detaljer (for eksempel farger i en graf). De bruker vi ikke på store flater. 
 
-**Funksjonsfargene** tar vi i bruk på digitale flater, når vi trenger flere valører enn det som finnes i hoved- og støttefargene. De brukes også når vi skal oppfylle krav om tilgjengelighet på en god måte (for eksempel røde feilmeldinger mot lys bakgrunn).
+**Meldingsfarger** tar vi i bruk på digitale flater, når vi trenger å gi informasjon om systemets tilstand. De brukes også når vi skal oppfylle krav om tilgjengelighet på en god måte (for eksempel røde feilmeldinger mot lys bakgrunn).
 
 
 ### Farger i digitale løsninger
 
-I digitale løsninger bruker vi hovedfargene og funksjonsfargene. Støttefargene reserverer vi til illustrasjoner og grafikk, men vi kan bruke dem sparsomt til å fremheve informasjon i løsningene våre. Spør deg selv alltid om du heller kan løse det ved å bruke hovedfargene.
+I digitale løsninger bruker vi primærfargene og meldingssfargene. Illustrasjonsfargene reserverer vi til illustrasjoner og grafikk.
 
 
 ### Tilgjengelighet
@@ -28,12 +28,8 @@ I tillegg til å tenke på tekst mot knappebakgrunnen, må vi for eksempel også
 
 Tekstfargene våre er helhvit eller svart. Se på fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
 
-#### Funksjonsfarger
-Vi bruker funksjonsfargene rød, blå og grønn til å gi informasjon om systemets tilstand. Rødt er til feilmeldinger, grønt til en vellykket operasjon og blå til nøytral informasjon. Vi skal bare bruke disse fargene til dette formålet, og ikke i illustrasjoner eller grafikk. Vi kan bruke alle støttefargene i illustrasjoner og grafikk.
 
-## Våre farger
-
-### Hovedfarger
+### Primærfarger
 
 - **Svart #000000**
 Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nært bakgrunner som har fargen varde.
@@ -57,42 +53,37 @@ Himmelgrå har samme bruksområde som varm fjellgrå, og vi bruker den med svart
 Snøhvit er en hvitfarge, som vi helst bare bruker som bakgrunnsfarge eller på kort. For å få god kontrast, fungerer den best med matt svart eller mørkere som kontrastfarge.
 
 
-### Støttefarger
+### Illustrasjonsfarger
 
 - **Sand #DCB28C**
-Sand er en bruntone, som vi kan bruke i illustrasjoner og grafikk.
 
 - **Jord #765D4B**
-Jord er en mørk bruntone, som passer til illustrasjoner og grafikk.
 
 - **Sol #FFC880**
-Sol er fin til illustrasjoner og grafikk. Sol er også en funksjonsfarge, som vi kan bruke til å formidle nøytral informasjon. Den kan ha svart tekst. 
 
 - **Blomst #FF7059**
-Blomst er en rødtone til bruk i illustrasjoner og grafikk. Blomst er også en funksjonsfarge, som er god som varselfarge på svart bakgrunn. 
 
 - **Skog #0D5745**
-Skog er en mørk grønn, til illustrasjoner og grafikk. 
 
 - **Hav #0A3166** 
-Hav er en mørk blåfarge, til illustrasjoner og grafikk.
 
 
-### Funksjonsfarger
+### Meldingsfarger
 
-- **Gress #50E68C**
-Gress er den funksjonsfargen vi bruker til å vise at noe er vellykket, for eksempel at brukeren er ferdig med en handling. Den bruker vi bare mot svart eller matt svart.
+Vi bruker fargene suksess, info, advarsel og feil til å gi informasjon om systemets tilstand. Vi skal bare bruke disse fargene til dette formålet, og ikke i illustrasjoner eller grafikk.
 
-- **Himmel #509CE6**
-Himmel er en av funksjonsfarge vi bruker til informasjonsmeldinger. Den brukes bare mot svart.
+- **Suksess #2F8551**
+Brukes til å vise at noe er vellykket, for eksempel at brukeren er ferdig med en handling.
 
-- **UX Blå #1C74CA**
-UX-blå er en funksjonsfarge for å formidle informasjon fra systemet. Benyttes kun mot hvit.
+- **Info #0073E3**
+Brukes til informasjonsmeldinger og focus states.
 
-- **UX Rød #D73704** 
-UX-rød bruker vi til varsler eller feil, mot hvit bakgrunn.
+- **Advarsel #D73704** 
+Brukes til advarsler.
 
-- **UX Grønn** Mikkel? Snakk med Stein Olav.
+- **Feil** 
+Brukes til varsler eller feil.
+
 
 
 ## Eksempler
