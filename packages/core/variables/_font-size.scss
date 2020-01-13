@@ -131,13 +131,11 @@ $line-height-8: rem(72px);
 @mixin lead-paragraph--desktop {
     font-size: $font-size-8;
     line-height: $line-height-5;
-    font-weight: $normal-weight;
 }
 
 @mixin lead-paragraph--mobile {
     font-size: $font-size-6;
     line-height: $line-height-4;
-    font-weight: $normal-weight;
 }
 
 @mixin body-paragraph {
@@ -150,19 +148,16 @@ $line-height-8: rem(72px);
 @mixin body-paragraph--desktop {
     font-size: $font-size-4;
     line-height: $line-height-4;
-    font-weight: $normal-weight;
 }
 
 @mixin body-paragraph--mobile {
     font-size: $font-size-3;
     line-height: $line-height-3;
-    font-weight: $normal-weight;
 }
 
 @mixin body-small-paragraph {
     font-size: $font-size-2;
     line-height: $line-height-2;
-    font-weight: $normal-weight;
 }
 
 @mixin micro-paragraph {
