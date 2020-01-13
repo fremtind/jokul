@@ -1,7 +1,7 @@
 import { createElement, ReactNode, FunctionComponent } from "react";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
-import { H1, H2, H3, H4, LeadParagraph, P, Link } from "@fremtind/jkl-typography-react";
+import { H1, H2, H3, H4, H5, Body, Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -36,7 +36,7 @@ interface CodeProps extends Props {
 }
 
 export const jokulRenderer = {
-    paragraph: P,
+    paragraph: Body,
     list: jokulList,
     listItem: ListItem,
     heading: jokulHeading,
@@ -66,11 +66,11 @@ function jokulHeading({ level, children }: HeadingProps) {
             Element = H4;
             break;
         case 5:
-            Element = LeadParagraph;
+            Element = H5;
             break;
 
         default:
-            Element = P;
+            Element = Body;
             break;
     }
     return createElement(Element, null, children);

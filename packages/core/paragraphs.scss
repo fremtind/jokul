@@ -2,22 +2,22 @@
 @import "./variables/spacing";
 @import "./mixins/helpers";
 
-.jkl-p {
-    @include body-paragraph;
-    margin-bottom: $layout-spacing--small;
-}
-
 .jkl-lead {
     @include lead-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
-.jkl-small {
-    @include body-small-paragraph;
+.jkl-body {
+    @include body-paragraph;
     margin-bottom: $layout-spacing--small;
 }
 
-.jkl-tiny {
+.jkl-small {
+    @include small-paragraph;
+    margin-bottom: $layout-spacing--small;
+}
+
+.jkl-micro {
     @include micro-paragraph;
     margin-bottom: $layout-spacing--small;
 }
