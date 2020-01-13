@@ -6,7 +6,7 @@ import "@fremtind/jkl-core/core.scss";
 export const Ordered = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <OrderedList className="jkl-spacing--all-4">
-            <ListItem>jkl-p ordered</ListItem>
+            <ListItem>jkl-body ordered</ListItem>
             <ListItem>
                 Hilda Robbins
                 <OrderedList>
@@ -23,7 +23,7 @@ export const Ordered = () => (
 export const Unordered = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <UnorderedList className="jkl-spacing--all-4">
-            <ListItem>jkl-p</ListItem>
+            <ListItem>jkl-body</ListItem>
             <ListItem>
                 Linnie Gill
                 <UnorderedList>
@@ -62,11 +62,11 @@ export const Unordered = () => (
             <ListItem>Cory Wagner</ListItem>
             <ListItem>Lora Carroll</ListItem>
         </UnorderedList>
-        <UnorderedList className="jkl-tiny jkl-spacing--all-4">
-            <ListItem>jkl-tiny</ListItem>
+        <UnorderedList className="jkl-micro jkl-spacing--all-4">
+            <ListItem>jkl-micro</ListItem>
             <ListItem>
                 Linnie Gill
-                <UnorderedList className="jkl-tiny">
+                <UnorderedList className="jkl-micro">
                     <ListItem>Grace Cortez</ListItem>
                     <ListItem>Madge Hodges</ListItem>
                 </UnorderedList>

@@ -66,25 +66,7 @@ $button-background-color: $svart;
 
 #### Mixins
 
-Det er utviklet mixins for å lette bruk av vanlige mønstre. For eksempel kan du håndtere riktig skriftstørrelse og linjehøyde på desktop og mobil med mixin'en `text-sizing`:
-
-```scss
-.jkl-some-component {
-    @include text-sizing("small");
-}
-
-/* Resulterer i følgende css: */
-@media (min-width: 0) and (max-width: 767px) {
-    .jkl-some-component {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-}
-.jkl-some-component {
-    font-size: 1.375rem;
-    line-height: 2rem;
-}
-```
+Det er utviklet mixins for å lette bruk av vanlige mønstre. Disse ligger i mappen `mixins`.
 
 ### Implementere kompakt modus
 

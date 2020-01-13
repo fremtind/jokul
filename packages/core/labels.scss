@@ -3,7 +3,7 @@
 @import "./functions";
 
 .jkl-form-support-label {
-    @include body-small-paragraph;
+    @include small-paragraph;
     display: block;
     margin-top: $component-spacing--small;
 
@@ -31,7 +31,7 @@
     }
 
     &--small {
-        @include body-small-paragraph;
+        @include small-paragraph;
         margin-bottom: 0;
         margin-left: initial;
     }

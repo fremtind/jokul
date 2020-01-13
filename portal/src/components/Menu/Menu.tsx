@@ -106,7 +106,7 @@ export function Menu() {
 
                         {staticLinks.map(({ linkText, href, className }) => (
                             <a
-                                className={`portal-menu__link jkl-p ${className}`}
+                                className={`portal-menu__link jkl-body ${className}`}
                                 href={href}
                                 tabIndex={showMenu ? 0 : -1}
                                 key={linkText}

@@ -75,7 +75,7 @@ const Example = () => {
                     <InlineTextField type="number" maxLength={5} label="kronebeløp" forceCompact={isCompact} /> kroner i
                     måneden.
                 </p>
-                <p className="jkl-p">
+                <p className="jkl-body">
                     Jeg tjener{" "}
                     <InlineTextField invalid type="number" maxLength={5} label="kronebeløp" forceCompact={isCompact} />{" "}
                     kroner i måneden.
