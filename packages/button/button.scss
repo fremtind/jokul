@@ -4,11 +4,10 @@
 
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$button-height--large: rem(56px);
-$button-height--small: rem(48px);
-$button-height--xs: rem(40px);
-$button-min-width--large: rem(128px);
-$button-min-width--small: rem(104px);
+$button-height--normal: rem(56px);
+$button-height--compact: rem(48px);
+$button-min-width--normal: rem(128px);
+$button-min-width--compact: rem(104px);
 
 $button-bg-color: $helhvit;
 $button-bg-color--primary: $svart;
@@ -31,21 +30,21 @@ $hover-elevation-distance: -0.25rem;
     justify-content: center;
     @include body-paragraph--desktop;
     @include reset-outline;
-    height: $button-height--large;
-    min-width: $button-min-width--large;
-    line-height: $button-height--large;
+    height: $button-height--normal;
+    min-width: $button-min-width--normal;
+    line-height: $button-height--normal;
     cursor: pointer;
 
     @include small-device {
         height: $button-height--xs;
-        min-width: $button-min-width--small;
+        min-width: $button-min-width--compact;
         line-height: $button-height--xs;
     }
 
     @include compact-mode {
         @include body-paragraph--mobile;
         height: $button-height--xs;
-        min-width: $button-min-width--small;
+        min-width: $button-min-width--compact;
         line-height: $button-height--xs;
     }
 
