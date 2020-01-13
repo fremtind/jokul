@@ -5,7 +5,7 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $button-height--normal: rem(56px);
-$button-height--compact: rem(48px);
+$button-height--compact: rem(40px);
 $button-min-width--normal: rem(128px);
 $button-min-width--compact: rem(104px);
 
@@ -36,16 +36,16 @@ $hover-elevation-distance: -0.25rem;
     cursor: pointer;
 
     @include small-device {
-        height: $button-height--xs;
+        height: $button-height--compact;
         min-width: $button-min-width--compact;
-        line-height: $button-height--xs;
+        line-height: $button-height--compact;
     }
 
     @include compact-mode {
         @include body-paragraph--mobile;
-        height: $button-height--xs;
+        height: $button-height--compact;
         min-width: $button-min-width--compact;
-        line-height: $button-height--xs;
+        line-height: $button-height--compact;
     }
 
     -moz-osx-font-smoothing: auto;
