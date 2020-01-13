@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[26],{uAyl:function(e,n,o){"use strict";o.r(n);var t=o("mXGw"),c=o.n(t),s=o("Nhdc");n.default=function(){return c.a.createElement(s.e,{src:"https://codesandbox.io/embed/jokul-examplefooter-5l4vu?fontsize=14"})}}}]);
-//# sourceMappingURL=component---src-pages-patterns-footer-tsx-a5bfec4d02eedda6e120.js.map
