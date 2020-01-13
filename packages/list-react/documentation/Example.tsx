@@ -5,74 +5,58 @@ import "@fremtind/jkl-core/core.scss";
 
 export const Ordered = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <OrderedList className="jkl-spacing--all-4">
-            <ListItem>jkl-body ordered</ListItem>
+        <h3 className="jkl-h5">Nummerert liste</h3>
+        <OrderedList>
+            <ListItem>Steg 1</ListItem>
             <ListItem>
-                Hilda Robbins
+                Steg 2
                 <OrderedList>
-                    <ListItem>Mattie Lawrence</ListItem>
-                    <ListItem>Eric Huff</ListItem>
+                    <ListItem>Steg 2a</ListItem>
+                    <ListItem>Steg 2b</ListItem>
                 </OrderedList>
             </ListItem>
-            <ListItem>Adam Norris</ListItem>
-            <ListItem>Essie Diaz</ListItem>
+            <ListItem>Steg 3</ListItem>
+            <ListItem>Steg 4</ListItem>
+            <ListItem>Steg 5</ListItem>
+            <ListItem>Steg 6</ListItem>
+            <ListItem>Steg 7</ListItem>
+            <ListItem>Steg 8</ListItem>
+            <ListItem>Steg 9</ListItem>
+            <ListItem>Steg 10</ListItem>
         </OrderedList>
     </section>
 );
 
 export const Unordered = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <UnorderedList className="jkl-spacing--all-4">
-            <ListItem>jkl-body</ListItem>
-            <ListItem>
-                Linnie Gill
-                <UnorderedList>
-                    <ListItem>Grace Cortez</ListItem>
-                    <ListItem>
-                        Dette er en veldig lang setning som er veldig lang og repeterende for å sjekke hvordan wrapping
-                        funker. Sa jeg at setningen er lang?
-                    </ListItem>
-                </UnorderedList>
-            </ListItem>
-            <ListItem>Cory Wagner</ListItem>
-            <ListItem>Lora Carroll</ListItem>
+        <h3 className="jkl-h5">Standard liste</h3>
+        <UnorderedList>
+            <ListItem>Listeelement 1</ListItem>
+            <ListItem>Listeelement 2</ListItem>
+            <ListItem>Listelement 3</ListItem>
         </UnorderedList>
+        <br></br>
+        <h3 className="jkl-h5">Mobile/Compact liste</h3>
+        <UnorderedList className="jkl-small">
+            <ListItem>Listeelement 1</ListItem>
+            <ListItem>Listeelement 2</ListItem>
+            <ListItem>Listelement 3</ListItem>
+        </UnorderedList>
+    </section>
+);
 
-        <UnorderedList className="jkl-lead jkl-spacing--all-4">
-            <ListItem>jkl-lead</ListItem>
+export const Indent = () => (
+    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+        <h3 className="jkl-h5">Nøstet liste</h3>
+        <UnorderedList>
             <ListItem>
-                Linnie Gill
-                <UnorderedList className="jkl-lead">
-                    <ListItem>Grace Cortez</ListItem>
-                    <ListItem>Madge Hodges</ListItem>
+                Listeelement 1
+                <UnorderedList>
+                    <ListItem>Nøstet listeelement 1</ListItem>
+                    <ListItem>Nøstet listeelement 2</ListItem>
                 </UnorderedList>
             </ListItem>
-            <ListItem>Cory Wagner</ListItem>
-            <ListItem>Lora Carroll</ListItem>
-        </UnorderedList>
-        <UnorderedList className="jkl-small jkl-spacing--all-4">
-            <ListItem>jkl-small</ListItem>
-            <ListItem>
-                Linnie Gill
-                <UnorderedList className="jkl-small">
-                    <ListItem>Grace Cortez</ListItem>
-                    <ListItem>Madge Hodges</ListItem>
-                </UnorderedList>
-            </ListItem>
-            <ListItem>Cory Wagner</ListItem>
-            <ListItem>Lora Carroll</ListItem>
-        </UnorderedList>
-        <UnorderedList className="jkl-micro jkl-spacing--all-4">
-            <ListItem>jkl-micro</ListItem>
-            <ListItem>
-                Linnie Gill
-                <UnorderedList className="jkl-micro">
-                    <ListItem>Grace Cortez</ListItem>
-                    <ListItem>Madge Hodges</ListItem>
-                </UnorderedList>
-            </ListItem>
-            <ListItem>Cory Wagner</ListItem>
-            <ListItem>Lora Carroll</ListItem>
+            <ListItem>Listelement 2</ListItem>
         </UnorderedList>
     </section>
 );
@@ -81,6 +65,7 @@ const Example = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <Ordered />
         <Unordered />
+        <Indent />
     </section>
 );
 
