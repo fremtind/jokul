@@ -20,7 +20,7 @@ Se gjerne på aktive/tidligere pull requests, og samtalene i dem, så får du fo
 
 ## Krav til kode og utviklingsprosess
 
-Det skal ikke være vanskelig å utvikle for Jøkul, men vi vil gjerne at du følger [vår kodestil](utvikler/kodestil) og bruker [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Sistnevnte er ekstra viktig, siden versjonsloggene genereres automatisk ut fra commit-meldingene. Vi har satt opp verktøy i biblioteket for å hjelpe deg med dette:
+Det skal ikke være vanskelig å utvikle for Jøkul, men vi vil gjerne at du følger [vår kodestil](/utvikler/kodestil) og bruker [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Sistnevnte er ekstra viktig, siden versjonsloggene genereres automatisk ut fra commit-meldingene. Vi har satt opp verktøy i biblioteket for å hjelpe deg med dette:
 
 1. Når du har lagt til ny funksjonalitet og dokumentasjon og tester for denne, kjører du testene **fra rot** i prosjektet med kommandoen `yarn test:unit`.
 2. For å committe endringene dine legger du dem til med `git add` på vanlig måte, og kjører deretter `yarn commit` **fra rot** i prosjektet. Du får spørsmål som hjelper deg å lage en commit-melding i henhold til conventional commits.
