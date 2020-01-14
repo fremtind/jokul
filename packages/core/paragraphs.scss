@@ -1,23 +1,30 @@
 @import "./variables/font-size";
 @import "./variables/spacing";
-@import "./mixins/helpers";
 
 .jkl-lead {
     @include lead-paragraph;
-    margin-bottom: $layout-spacing--small;
+    &:not(:last-child) {
+        margin-bottom: $component-spacing--xl;
+    }
 }
 
 .jkl-body {
     @include body-paragraph;
-    margin-bottom: $layout-spacing--small;
+    &:not(:last-child) {
+        margin-bottom: $component-spacing--xl;
+    }
 }
 
 .jkl-small {
     @include small-paragraph;
-    margin-bottom: $layout-spacing--small;
+    &:not(:last-child) {
+        margin-bottom: $component-spacing--large;
+    }
 }
 
 .jkl-micro {
     @include micro-paragraph;
-    margin-bottom: $layout-spacing--small;
+    &:not(:last-child) {
+        margin-bottom: $component-spacing--large;
+    }
 }
