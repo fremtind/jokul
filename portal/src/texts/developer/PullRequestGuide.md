@@ -3,35 +3,29 @@ title: pull requests
 path: /utvikler/pullrequests
 ---
 
-# Pull requests
+# Bidra til Jøkul på GitHub
 
-## Sende en pull request til Jøkul
+Jøkul-biblioteket ligger på GitHub som et åpent kildekode-prosjekt, og følger vanlige regler for bidrag i slike prosjekter. Om du er en del av [organisasjonen Fremtind](https://github.com/fremtind) på GitHub kan du klone ned prosjektet direkte, hvis ikke må du jobbe i en fork under din egen GitHub-bruker. Ta kontakt med oss om du ikke er med i organisasjonen og mener du burde vært det!
 
-Vi i kjerneteamet følger med på det som skjer på GitHub-repoet til Jøkul.
-Når du sender inn en pull request, får du alltid tilbakemelding fra noen i kjerneteamet.
-Da kan vi enten velge å merge pull requesten, eller gi deg en tilbakemelding på hva du må gjøre før vi kan ta inn endringene dine.
+## Krav til kode og utviklingsprosess
+
+Det skal ikke være vanskelig å utvikle for Jøkul, men vi vil gjerne at du følger [vår kodestil](utvikler/kodestil) og bruker [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Sistnevnte er ekstra viktig, siden versjonsloggene genereres automatisk ut fra commit-meldingene. Vi har satt opp verktøy i biblioteket for å hjelpe deg med dette:
+
+1. Når du har lagt til ny funksjonalitet og dokumentasjon og tester for denne, kjører du testene **fra rot** i prosjektet med kommandoen `yarn test:unit`.
+2. For å committe endringene dine legger du dem til med `git add` på vanlig måte, og kjører deretter `yarn commit` **fra rot** i prosjektet. Du får spørsmål som hjelper deg å lage en commit-melding i henhold til conventional commits.
+3. Push endringene dine til Jøkul.
+4. Når du er klar til å legge inn en pull request fyller du inn malen som kommer opp i GitHub.
+
+## Når legger du inn en pull request?
+
+En pull request bør inneholde kode som er fungerende og _klar til bruk_, gode enhetstester, og [dokumentasjon av komponenten](/utvikler/portalen) du har laget eller endret. Vi hjelper deg gjerne med spørsmål du har under utvikling av komponenten, men ønsker ikke at pull requests skal ligge lenge i prosjektet. Om du ikke føler deg ferdig med komponenten, men ønsker tilbakemelding eller hjelp, blir vi veldig glade om du kommer og snakker med oss! Du kan også legge inn en [draft pull request](https://github.blog/2019-02-14-introducing-draft-pull-requests/) på GitHub, men det er stort sett enklest å se på ting sammen.
+
+## Hva skjer når requesten er lagt inn?
+
+Designsystemteamet følger med på det som skjer på GitHub-repoet til Jøkul. Når du sender inn en pull request skal du alltid få tilbakemelding fra noen i kjerneteamet i løpet av kort tid. Vi kan enten velge å merge pull requesten direkte, eller gi deg en tilbakemelding på hva du må gjøre før vi kan ta inn endringene dine.
 
 Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi kanskje må teste det i noen interne applikasjoner først.
 
-### Din første pull request
+Vi viser alle bidragsytere til prosjektet ved hjelp av [`all-contributors`](https://allcontributors.org/). Gi beskjed dersom du ikke vil vises i listen!
 
-Flott at du vil bidra! Her er noen smarte tips før du setter i gang:
-
--   Sjekk i tråden på en oppgave at ingen andre har tatt den.
--   Sjekk med den personen som eventuelt har tatt oppgaven og legg igjen en kommentar om at du ser på den.
--   Kjerneteamet jobber etter en prioritert backlog, men vi er takknemlige for alle som vil ta tak i oppgaver som har lavere prioritet.
--   Følg gjerne med på andres pull requests og kom med kommentarer og tilbakemeldinger. Da plukker du kjapt opp hva som er viktig og ikke for Jøkul.
-
-### Slik sender du en pull request
-
-1. Lag en ny branch. Hvis du ikke har tilgang til prosjektet, må du forke det først.
-2. Fra rot i prosjektet, kjører du `yarn` og `yarn build`.
-3. Fiks feilen eller legg til ny funksjonalitet.
-4. Lag eller oppdater eksempelet i `/documentation`
-5. Legg til tester.
-6. Sjekk at alle testene blir grønne når du tester med `yarn test` på rot.
-7. Legg til endrede filer i stage med `git add`.
-8. Commit med `yarn commit` fra rot, slik at du får hjelp til å lage en korrekt commit-melding. Hvis du kjenner til conventional commit style godt fra før, kan du utføre commit med Git som vanlig.
-   Lint, prettier og typesjekk blir kjørt automatisk.
-9. Push og opprett en pull request mot Jøkul.
-10. Fyll ut malen som dukker opp i GitHub.
+Takk for at du bidrar ❤️
