@@ -7,6 +7,17 @@ path: /utvikler/pullrequests
 
 Jøkul-biblioteket ligger på GitHub som et åpent kildekode-prosjekt, og følger vanlige regler for bidrag i slike prosjekter. Om du er en del av [organisasjonen Fremtind](https://github.com/fremtind) på GitHub kan du klone ned prosjektet direkte, hvis ikke må du jobbe i en fork under din egen GitHub-bruker. Ta kontakt med oss om du ikke er med i organisasjonen og mener du burde vært det!
 
+## Din første pull request
+
+Vi setter pris på at du vil bidra til jøkul! Enten du vil legge til funksjonalitet du trenger selv, eller plukker et issue fra prosjektet på GitHub er det det fint om du først
+
+-   sjekker at ingen andre jobber aktivt med samme oppgave
+-   sier fra om at du jobber med oppgaven
+
+Designsystemteamet jobber med en prioritert backlog, så om du vil bidra blir vi ekstra glade om du tar tak i issues som er lavt prioritert eller har ligget en stund uten å bli sett på. Vi vil gjerne at du har det gøy når du bidrar, så velg først og fremst noe du synes ser spennende ut!
+
+Se gjerne på aktive/tidligere pull requests, og samtalene i dem, så får du fort en følelse av hvordan vi jobber i prosjektet.
+
 ## Krav til kode og utviklingsprosess
 
 Det skal ikke være vanskelig å utvikle for Jøkul, men vi vil gjerne at du følger [vår kodestil](utvikler/kodestil) og bruker [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Sistnevnte er ekstra viktig, siden versjonsloggene genereres automatisk ut fra commit-meldingene. Vi har satt opp verktøy i biblioteket for å hjelpe deg med dette:
