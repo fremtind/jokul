@@ -5,7 +5,7 @@
 .jkl-h1 {
     @include h1-heading;
     &:not(:first-child) {
-        margin-top: $component-spacing--giant;
+        margin-top: $layout-spacing--xl;
     }
     &:not(:last-child) {
         margin-bottom: $component-spacing--large;
@@ -15,7 +15,7 @@
 .jkl-h2 {
     @include h2-heading;
     &:not(:first-child) {
-        margin-top: $component-spacing--giant;
+        margin-top: $layout-spacing--large;
     }
     &:not(:last-child) {
         margin-bottom: $component-spacing--large;
@@ -25,7 +25,7 @@
 .jkl-h3 {
     @include h3-heading;
     &:not(:first-child) {
-        margin-top: $component-spacing--xxl;
+        margin-top: $layout-spacing--medium;
     }
     &:not(:last-child) {
         margin-bottom: $component-spacing--large;
@@ -35,7 +35,7 @@
 .jkl-h4 {
     @include h4-heading;
     &:not(:first-child) {
-        margin-top: $component-spacing--xl;
+        margin-top: $layout-spacing--medium;
     }
     &:not(:last-child) {
         margin-bottom: $component-spacing--small;
@@ -45,7 +45,7 @@
 .jkl-h5 {
     @include h5-heading;
     &:not(:first-child) {
-        margin-top: $component-spacing--xl;
+        margin-top: $layout-spacing--medium;
     }
     &:not(:last-child) {
         margin-bottom: $component-spacing--small;
