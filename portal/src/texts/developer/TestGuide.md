@@ -15,7 +15,7 @@ Enhetstester er første nivå av tester, og det du trenger å forholde deg til n
 
 Eksempelvis kan testene for en knapp sjekke at den blir rendret til DOM, og at den kaller riktig funksjon ved klikk. Så langt det er fornuftig bør man ha 100% branch coverage på komponenter, men bruk sunn fornuft. Skriver man støttefunksjoner bør disse også ha 100% branch coverage, og dekke alle edge-verdier.
 
-Designsystemteamet har ikke satt opp noen formelle testdekningskrav, men dette er noe vi ser på i forbindelse med pull requester. Vi bruker [Jest](https://jestjs.io/) som test runner og [React testing library](https://testing-library.com/docs/react-testing-library/intro) for å håntere React-komponenter. Testene skal ligge sammen med koden, og enhetstestene har postfikset `.test.ts(x)`.
+Designsystemteamet har ikke satt opp noen formelle testdekningskrav, men dette er noe vi ser på i forbindelse med pull requester. Vi bruker [Jest](https://jestjs.io/) som test runner og [React testing library](https://testing-library.com/docs/react-testing-library/intro) for å håndtere React-komponenter. Testene skal ligge sammen med koden og ha filendelsen `.test.ts(x)`.
 
 Per nå er støtten for web components i testrammeverket ganske tynn, så komponentene som baserer seg på NRK Core Components er vanskelig å teste godt. Dog er komponentene godt testet fra NRK sin side. Når støtten for web components i jsdom blir bedre, vil det bli enklere å teste disse komponentene selv.
 

@@ -5,7 +5,7 @@ path: /utvikler/portalen
 
 # Dokumentasjon til portalen
 
-For at et designsystem skal fungere, må dokumentasjonen av system holde høy kvalitet. Hvis utviklere og designer ikke vet hvilke muligheter og begrensninger som finnes i systemet, kommer man til å gjøre feil og dobbeltarbeid. Vi i kjerneteamet setter stor stolthet i å levere Jøkul med god dokumentasjon. Vi har bygd dokumentasjonsriggen selv for å sikre oss at den gir oss akkurat det vi trenger for Jøkul og for å gjøre utvikleropplevelsen så smidig som mulig. Det skal bare være én kilde til sannhet.
+For at et designsystem skal fungere, må dokumentasjonen av systemet holde høy kvalitet. Hvis utviklere og designer ikke vet hvilke muligheter og begrensninger som finnes i systemet, kommer man til å gjøre feil og dobbeltarbeid. Vi i kjerneteamet setter stor stolthet i å levere Jøkul med god dokumentasjon. Vi har bygd dokumentasjonsriggen selv for å sikre oss at den gir oss akkurat det vi trenger for Jøkul og for å gjøre utvikleropplevelsen så smidig som mulig. Det skal bare være én kilde til sannhet.
 
 ## Komponenteksempler
 

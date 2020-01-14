@@ -11,7 +11,7 @@ Jøkul er et designsystem, et bibliotek med komponenter. Det gir litt andre utfo
 
 -   Språk: [Typescript](https://www.typescriptlang.org/docs/home.html)
 -   JS-rammeverk: [React](https://reactjs.org/)
--   Byggverktøy: [Rollup](https://rollupjs.org/guide/en/)
+-   Byggverktøy: [Rollup](https://rollupjs.org/guide/en/) og [Gulp](https://gulpjs.com/)
 -   Test runner: [Jest](https://jestjs.io/)
 -   Test rammeverk: [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 -   CSS-preprosessor: [Sass](https://sass-lang.com/)
@@ -30,7 +30,7 @@ Alle komponentene er organisert under `/packages`. De som slutter på `-react` e
 
 1. Gå til rot og kjør kommandoen `lerna create <pakke-navn>`.
 2. Du får noen spørsmål om pakken. Fyll ut så godt du kan. Husk at navnet på pakken skal starte med `@fremtind/jkl-`
-3. Når pakken er opprettet, finner du en pakke av typen du skal lage (stil eller React). Kopier de script- og oppsettfilene du trenger, for eksempel tsconfig-for-declarations.json for React-pakker.
+3. Når pakken er opprettet, finner du en pakke av typen du skal lage (stil eller React). Kopier de script- og oppsettfilene du trenger, for eksempel `tsconfig-for-declarations.json` for React-pakker eller `gulpfile.js` for stilpakker.
 
 ## Slik lenker du pakker sammen
 
