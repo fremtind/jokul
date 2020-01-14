@@ -4,7 +4,7 @@
 @mixin background-color($color) {
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
-$link-underline-width: rem(1px);
+$link-underline-thickness: rem(1px);
 $link-side-padding: 0.075em; // relative value to work with all paragraph styles
 
 .jkl-link {
@@ -15,7 +15,7 @@ $link-side-padding: 0.075em; // relative value to work with all paragraph styles
     outline: none;
     text-decoration: none;
     color: currentColor;
-    background-size: $link-underline-width $link-underline-width;
+    background-size: $link-underline-thickness $link-underline-thickness;
     padding: 0 $link-side-padding; // Add slight padding to sides to keep hover effect from "clipping" letters
 
     html:not([data-mousenavigation]) &:focus,
@@ -30,7 +30,6 @@ $link-side-padding: 0.075em; // relative value to work with all paragraph styles
 
     &--negative {
         @include background-color($snohvit);
-        background-size: $link-underline-width $link-underline-width;
 
         &:hover {
             color: $svart;
