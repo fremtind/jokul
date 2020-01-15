@@ -9,7 +9,10 @@ const MutationObserverExample = () => {
 
     listRef.current = listOfMutations;
     const onObservation = (mutationList: MutationRecord[]) => {
-        appendToMutationList([...(listRef.current || []), ...mutationList.map((item: any) => item.target.data)]);
+        appendToMutationList([
+            ...(listRef.current || []),
+            ...mutationList.map((item) => item.target.textContent || ""),
+        ]);
     };
 
     useMutationObserver(mutationTargetRef, onObservation, { characterData: true, subtree: true });
