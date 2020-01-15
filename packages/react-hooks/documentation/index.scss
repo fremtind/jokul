@@ -1,3 +1,6 @@
+@import "@fremtind/jkl-core/variables/_colors";
+@import "@fremtind/jkl-core/_functions";
+
 .lorem-text-wrapper {
     transition: 200ms height ease-in-out;
 
@@ -7,6 +10,8 @@
 }
 
 .lorem-text {
+    margin-top: rem(8px);
     padding: 1rem;
-    background-color: #509ce6;
+    background-color: $varde;
+    border-radius: rem(4px);
 }
