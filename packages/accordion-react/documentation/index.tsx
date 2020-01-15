@@ -1,4 +1,4 @@
-import { initTabListener } from "@fremtind/jkl-core/src";
+import { initTabListener } from "@fremtind/jkl-core";
 import React from "react";
 import ReactDOM from "react-dom";
 import "../../webfonts/documentation/internal.scss";
