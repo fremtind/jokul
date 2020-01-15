@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-divider-line-react`](https://fremtind.github.io/jokul/components/dividerline/)
+# [`@fremtind/jkl-divider-line-react`](https://fremtind.github.io/jokul/divider-line-react/documentation/Dividerline/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/dividerline/) er beskrevet i `@fremtind/jkl-divider-line` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/divider-line-react/documentation/Dividerline/) er beskrevet i `@fremtind/jkl-divider-line` stil-pakken.
 
 ## Kom i gang
 

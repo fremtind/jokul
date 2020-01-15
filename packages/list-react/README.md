@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-list-react`](https://fremtind.github.io/jokul/components/list/)
+# [`@fremtind/jkl-list-react`](https://fremtind.github.io/jokul/list-react/documentation/List/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/list/) er beskrevet i `@fremtind/jkl-list` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/list-react/documentation/List/) er beskrevet i `@fremtind/jkl-list` stil-pakken.
 
 ## Kom i gang
 

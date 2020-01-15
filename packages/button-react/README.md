@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-button-react`](https://fremtind.github.io/jokul/components/button/)
+# [`@fremtind/jkl-button-react`](https://fremtind.github.io/jokul/button-react/documentation/buttons/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/button/) er beskrevet i `@fremtind/jkl-button` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/button-react/documentation/buttons/) er beskrevet i `@fremtind/jkl-button` stil-pakken.
 
 ## Kom i gang
 

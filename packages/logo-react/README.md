@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-logo-react`](https://fremtind.github.io/jokul/components/logo/)
+# [`@fremtind/jkl-logo-react`](https://fremtind.github.io/jokul/logo-react/documentation/Logo/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/logo/) er beskrevet i `@fremtind/jkl-logo` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/logo-react/documentation/Logo/) er beskrevet i `@fremtind/jkl-logo` stil-pakken.
 
 ## Kom i gang
 

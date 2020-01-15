@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/components/typography/)
+# [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/typography-react/documentation/Typography/)
 
 # Typografi
 Vi bruker typografien som et grafisk element. I tillegg vil vi at den skal gi brukeren informasjon med en konsekvent struktur.

@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-select-react`](https://fremtind.github.io/jokul/components/select/)
+# [`@fremtind/jkl-select-react`](https://fremtind.github.io/jokul/select-react/documentation/Select/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/select/) er beskrevet i `@fremtind/jkl-select` stil-pakken.
+[Bruk og prinsipper](https://fremtind.github.io/jokul/select-react/documentation/Select/) er beskrevet i `@fremtind/jkl-select` stil-pakken.
 
 ## Kom i gang
 

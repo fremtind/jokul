@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-radio-button-react`](https://fremtind.github.io/jokul/components/radiobutton/)
+# [`@fremtind/jkl-radio-button-react`](hhttps://fremtind.github.io/jokul/radio-button-react/documentation/RadioButton/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/radiobutton/) er beskrevet i `@fremtind/jkl-radio-button` stil-pakken.
+[Bruk og prinsipper](hhttps://fremtind.github.io/jokul/radio-button-react/documentation/RadioButton/) er beskrevet i `@fremtind/jkl-radio-button` stil-pakken.
 
 ## Kom i gang
 
