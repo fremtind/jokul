@@ -19,7 +19,7 @@ export function Menu() {
     const { allSitePage: componentDocumentationPage, allMarkdownRemark } = useStaticQuery(graphql`
         query getPages {
             allSitePage(
-                filter: { path: { regex: "/-react/documentation/" } }
+                filter: { path: { regex: "/(-react|react-hooks)/documentation/" } }
                 sort: { order: ASC, fields: context___frontmatter___title }
             ) {
                 edges {

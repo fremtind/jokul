@@ -18,7 +18,7 @@ interface ContextProps {
     toggleTheme: (checked: boolean) => void;
 }
 
-export const ThemeContext = React.createContext<ContextProps>({ theme: "light", toggleTheme: () => {} });
+export const ThemeContext = React.createContext<ContextProps>({ theme: "light", toggleTheme: () => "" });
 
 interface Props {
     children: ReactNode;
