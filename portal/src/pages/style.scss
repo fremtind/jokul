@@ -20,6 +20,7 @@ $circle-size: rem(100px);
 
     &__background {
         @include position(absolute !important, $top: 0, $left: 0);
+        object-fit: cover;
         z-index: -1;
         min-width: 100%;
         height: 100vh;
