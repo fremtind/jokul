@@ -9,7 +9,7 @@ Det er mange som er avhengige av at Jøkul virker, men vi har ikke ressurser til
 
 ## Enhetstester
 
-Enhetstester er første nivå av tester, og det du trenger å forholde deg til når du skriver komponenter til Jøkul. De skal ligge sammen med komponenten med filnavn på formen `<MinKomponent>.test.tsx` eller `<minFunksjon>.test.ts`.
+Enhetstester er første nivå av tester, og det du trenger å forholde deg til når du skriver komponenter til Jøkul. De skal ligge sammen med komponenten, med filnavn på formen `<MinKomponent>.test.tsx` eller `<minFunksjon>.test.ts`.
 
 > Enhetstestene skal sikre at nøkkelfunksjonaliteten til komponenten virker.
 

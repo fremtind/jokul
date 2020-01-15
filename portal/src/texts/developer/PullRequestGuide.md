@@ -9,7 +9,7 @@ Jøkul-biblioteket ligger på GitHub som et åpent kildekode-prosjekt, og følge
 
 ## Din første pull request
 
-Vi setter pris på at du vil bidra til jøkul! Enten du vil legge til funksjonalitet du trenger selv, eller plukker et issue fra prosjektet på GitHub er det det fint om du først
+Vi setter pris på at du vil bidra til Jøkul! Enten du vil legge til funksjonalitet du trenger selv, eller plukker et issue fra prosjektet på GitHub er det fint om du først
 
 -   sjekker at ingen andre jobber aktivt med samme oppgave
 -   sier fra om at du jobber med oppgaven
@@ -29,7 +29,7 @@ Det skal ikke være vanskelig å utvikle for Jøkul, men vi vil gjerne at du fø
 
 ## Når legger du inn en pull request?
 
-En pull request bør inneholde kode som er fungerende og _klar til bruk_, gode enhetstester, og [dokumentasjon av komponenten](/utvikler/portalen) du har laget eller endret. Vi hjelper deg gjerne med spørsmål du har under utvikling av komponenten, men ønsker ikke at pull requests skal ligge lenge i prosjektet. Om du ikke føler deg ferdig med komponenten, men ønsker tilbakemelding eller hjelp, blir vi veldig glade om du kommer og snakker med oss! Du kan også legge inn en [draft pull request](https://github.blog/2019-02-14-introducing-draft-pull-requests/) på GitHub, men det er stort sett enklest å se på ting sammen.
+En pull request bør inneholde kode som er fungerende og _klar til bruk_, gode [enhetstester](/utvikler/tester), og [dokumentasjon av komponenten](/utvikler/portalen) du har laget eller endret. Vi hjelper deg gjerne med spørsmål du har under utvikling av komponenten, men ønsker ikke at pull requests skal ligge lenge i prosjektet. Om du ikke føler deg ferdig med komponenten, men ønsker tilbakemelding eller hjelp, blir vi veldig glade om du kommer og snakker med oss! Du kan også legge inn en [draft pull request](https://github.blog/2019-02-14-introducing-draft-pull-requests/) på GitHub, men det er stort sett enklest å se på ting sammen.
 
 ## Hva skjer når requesten er lagt inn?
 
