@@ -105,7 +105,7 @@ export function Select({
     useEffect(() => {
         setSelectedValue(value);
         setDisplayedValue(getLabelFromValue(value));
-    }, [value]);
+    }, [value, items]);
 
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
 
