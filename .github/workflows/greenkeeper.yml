@@ -1,0 +1,19 @@
+name: lint-test-typecheck
+
+on:
+    push:
+        branches:
+            - "greenkeeper/*"
+
+jobs:
+    build:
+        name: "Build, lint, typecheck and test"
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Lint and test
+              run: |
+                  yarn install
+                  yarn build
+                  yarn ci:test
