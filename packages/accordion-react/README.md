@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-accordion-react`](https://fremtind.github.io/jokul/components/accordion/)
+# [`@fremtind/jkl-accordion-react`](https://fremtind.github.io/jokul/accordion-react/documentation/accordion/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/accordion/) er beskrevet i `@fremtind/jkl-accordion` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/accordion-react/documentation/accordion/).
 
 ## Kom i gang
 

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/components/textfield/)
+# [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/text-input-react/documentation/TextInput/)
 
 # Tekstfelt
 Vi bruker tekstfelt når vi vil at brukerne skal legge inn informasjon. Ledeteksten skal fortelle hva brukeren skal oppgi i feltet. Tekstfelt godtar data med fast format eller fritekst. Fast format bruker du for eksempel når du vil at brukeren skal angi fødselsnummer eller et postnummer, mens fritekst passer til felt der brukerne skal fortelle noe med egne ord.

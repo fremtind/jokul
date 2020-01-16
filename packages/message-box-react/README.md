@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-message-box-react`](https://fremtind.github.io/jokul/components/messagebox/)
+# [`@fremtind/jkl-message-box-react`](https://fremtind.github.io/jokul/message-box-react/documentation/MessageBox/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/messagebox/) er beskrevet i `@fremtind/jkl-message-box` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/message-box-react/documentation/MessageBox/).
 
 ## Kom i gang
 

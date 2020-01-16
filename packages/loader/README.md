@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-loader`](https://fremtind.github.io/jokul/components/loader/)
+# [`@fremtind/jkl-loader`](https://fremtind.github.io/jokul/loader-react/documentation/Loader/)
 
 # Lasteindikator
 En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren når vi har handlinger eller prosesser som tar lengre tid enn ett sekund.  
