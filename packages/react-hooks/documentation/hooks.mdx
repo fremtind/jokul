@@ -6,6 +6,7 @@ react: react-hooks
 import AnimationExample from "./AnimationExample";
 import ClickOutsideExample from "./ClickOutsideExample";
 import MutationObserverExample from "./MutationObserverExample";
+import IntersectionObserverExample from "./IntersectionObserverExample";
 
 Denne pakken innholder støttefunksjoner i form av React hooks.
 
@@ -34,3 +35,9 @@ TODO: https://github.com/fremtind/jokul/issues/677
 ### useKeyListner
 
 TODO: https://github.com/fremtind/jokul/issues/678
+
+### useIntersectionObserver
+
+IntersectionObserver lar deg lytte på om et element er synlig eller ikke. Det gjør det mulig å animere innhold inn, eller prelaste innhold som er rett uten for viewporten. I eksemplet brukes det til å bytte bakgrunnsfarge når andre paragrafen kommer helt inn i visning.
+
+<IntersectionObserverExample />
