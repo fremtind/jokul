@@ -3,7 +3,7 @@ name: lint-test-typecheck
 on:
     push:
         branches:
-            - "greenkeeper/*"
+            - "greenkeeper/**"
 
 jobs:
     build:

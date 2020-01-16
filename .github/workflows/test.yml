@@ -5,6 +5,7 @@ on:
         branches:
             - "**"
             - "!release"
+            - "!greenkeeper/**"
 
 jobs:
     build:
