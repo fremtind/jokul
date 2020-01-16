@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-react-hooks`](https://fremtind.github.io/react-hooks/documentation/hooks/)
+# [`@fremtind/jkl-react-hooks`](https://fremtind.github.io/jokul/react-hooks/documentation/hooks/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/react-hooks/documentation/hooks/).
+[Bruk og prinsipper](https://fremtind.github.io/jokul/react-hooks/documentation/hooks/).
 
 ## Kom i gang
 
