@@ -1,4 +1,4 @@
-#  [`@fremtind/jkl-button`](https://fremtind.github.io/jokul/components/button/)
+#  [`@fremtind/jkl-button`](https://fremtind.github.io/jokul/button-react/documentation/buttons/)
 
 # Knapper
 Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.

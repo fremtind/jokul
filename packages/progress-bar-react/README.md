@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-progress-bar-react`](https://fremtind.github.io/jokul/components/progressbar/)
+# [`@fremtind/jkl-progress-bar-react`](https://fremtind.github.io/jokul/progress-bar-react/documentation/ProgessBar/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/progressbar/) er beskrevet i `@fremtind/jkl-progress-bar` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/progress-bar-react/documentation/ProgessBar/).
 
 ## Kom i gang
 

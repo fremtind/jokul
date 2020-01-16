@@ -1,4 +1,4 @@
-# [`@fremtind/jlk-hamburger`](https://fremtind.github.io/jokul/components/hamburger/)
+# [`@fremtind/jlk-hamburger`](https://fremtind.github.io/jokul/hamburger-react/documentation/Hamburger/)
 
 ## Om hamburgermenyen
 

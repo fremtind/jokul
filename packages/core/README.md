@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-core`](https://fremtind.github.io/jokul/components/)
+# `@fremtind/jkl-core`
 
 -   Stil
     -   Bruk av stilark
