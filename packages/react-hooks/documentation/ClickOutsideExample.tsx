@@ -11,27 +11,23 @@ const ClickOutsideExample = () => {
     clickOutsideListRef.current = listOfClicksOutside;
     const onClickOutside = () => {
         if (isEnabled) {
-            appendToClickOutsideList([...(clickOutsideListRef.current || []), "Clicked outside"]);
+            appendToClickOutsideList([...(clickOutsideListRef.current || []), "Klikk utenfor"]);
         }
     };
 
     useClickOutside(clickOutsideRef, onClickOutside);
 
     return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3 jkl-body">
+        <section ref={clickOutsideRef} className="jkl-spacing--top-3 jkl-spacing--bottom-3 jkl-body jkl-click-outside">
+            <p>Klikk utenfor dette området</p>
             <button
                 className="jkl-button jkl-button--primary jkl-spacing--right-2"
-                ref={clickOutsideRef}
                 onClick={() => setIsEnabled(!isEnabled)}
             >
-                {isEnabled ? "Disable" : "Enable"}
+                {isEnabled ? "Skru av" : "Skru på"}
             </button>
-            <button
-                className="jkl-button jkl-button--secondary"
-                ref={clickOutsideRef}
-                onClick={() => appendToClickOutsideList([])}
-            >
-                Reset list
+            <button className="jkl-button jkl-button--secondary" onClick={() => appendToClickOutsideList([])}>
+                Reset liste
             </button>
             <ul className="jkl-list">
                 {listOfClicksOutside.map((item, idx) => (
