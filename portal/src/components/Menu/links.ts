@@ -43,7 +43,7 @@ const edgeToPage = (edge: GeneralDocPage) => ({
 
 const profile = (rawPages: GeneralDocPages) => ({
     pages: rawPages.edges.filter(by(/^\/profil/)).map(edgeToPage),
-    sectionTitle: "Profilelementer",
+    sectionTitle: "Profilen vår",
     matchingLocation: (location: WindowLocation) => location.pathname.includes("profil"),
 });
 const developer = (rawPages: GeneralDocPages) => ({
