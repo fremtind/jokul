@@ -1,5 +1,5 @@
 ---
-title: kom i gang
+title: kom i gang - design
 path: /designer/komigang
 ---
 
