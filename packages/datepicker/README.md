@@ -1,4 +1,4 @@
-# [`datepicker`](https://fremtind.github.io/jokul/components/datepicker/)
+# [`datepicker`](https://fremtind.github.io/jokul/datepicker-react/documentation/Datepicker/)
 
 # Datovelger
 Vi bruker datovelgeren til å gi brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver hvilken dato  brukeren skal fylle inn, for eksempel: "Oppgi datoen da skaden skjedde".

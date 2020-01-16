@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-logo`](https://fremtind.github.io/jokul/components/logo/)
+# [`@fremtind/jkl-logo`](https://fremtind.github.io/jokul/logo-react/documentation/Logo/)
 
 # Logo, logosymbol og stempel
 Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger, eller i andre løsninger der Fremtind skal være synlig.
