@@ -1,36 +1,24 @@
-## Om Jøkul
+## Hva du finner her
+På disse sidene finner du informasjon om profilen vår, komponentene våre og hvordan disse skal implementeres i digitale løsninger.
 
-På disse sidene finner du tankegangen bak designsystemet, komponentbiblioteket vårt og informasjon om hvordan du kommer i gang med å designe eller utvikle.
-Hvem kan bruke Jøkul?
-Innholdet på disse sidene er ment for designere og utviklere som skal lage eller bidra til løsninger for Fremtind. Jobber du med relaterte områder og er nysgjerrig på Jøkul, er du også velkommen til å ta en titt.
+## Bidra
+Jøkul er et levende designsystem. For at vi skal holde det relevant er det viktig at alle som bruker designsystemet og merkevareprofilen vår hjelper til med å forbedre det vi har.
 
-Jøkul er et levende bibliotek. Det vil aldri være helt ferdig, men vi skal holde det så godt oppdatert som mulig. Vi vil at du enkelt skal kunne finne ut hva som gjelder for å kunne levere gode opplevelser til alle de som bruker løsningen våre, både innomhus og ut mot kundene.
+Har du laget noe nytt i vår profil, funnet feil, endret noe eller har forslag til forbedringer så bidra via GitHub eller ta kontakt med oss. Vi setter stor pris på alle bidrag.
 
-Endringsloggen vår er alltid oppdatert med siste nytt om nye komponenter som har kommet til eller om det har skjedd endringer.
-
-### Vi setter pris på bidrag
-
-Vi trenger dine tanker og erfaringer! Utforsk komponentene vi har laget og foreslå gjerne endringer og forbedringer. Vi blir glade for alle kommentarer og innspill.
-
-### Kontakt oss
-
-Lurer du på noe om Jøkul og hvordan du skal bruke komponentene og retningslinjene våre?
-
--   Leder for Designsystemteamet: [glenn.brownlee@fremtind.no](mailto:glenn.brownlee@fremtind.no)
--   Utviklerspørsmål: TODO: set responsible
--   Designspørsmål: TODO: set responsible
--   Hvordan vi bruker merkevaren: [jarle@fremtind.no](mailto:jarle@fremtind.no)
-
-### Forum og kanaler
-
-Vi er på Slack og GitHub. Du finner oss ved å søke på Fremtind.
-
-På huset har Designsystem-teamet et åpent forum hver tirsdag fra klokken 14 til 14.30. Her er alle velkomne. Da viser vi ofte hva som har skjedd siden sist og hva vi holder på med for øyeblikket. Vi er glade for aktive diskusjoner og innspill på forumet.
+## Kontakt oss
+Lurer du på noe om Jøkul eller vår profil så kan du kontakte oss på:
+- Epost: [Fremtind.designsystem@fremtind.no](mailto:fremtind.designsystem@fremtind.no)
+- Teams: Kanalen “Support Designsystem” 
+- Forum: Designsystemforumet. Vi holder åpent forum hver tirsdag fra klokken 14 til 14:30. Her informerer vi om hva som skjer og tar imot innspill.
 
 ## Om Fremtind
+_Fremtind Forsikring – et nytt forsikringsselskap med lang erfaring._ 
 
-Fremtind forsikring er en ny aktør på forsikringsmarkedet, men selskapet har likevel lang erfaring. Selskapet er opprettet og eid av DNB og Sparebank 1, som begge selger Fremtinds forsikringer gjennom sine banker.
+1.januar 2019 fusjonerte forsikringsselskapene til SpareBank 1 og DNB, og Fremtind ble født.
 
-Fremtind sitter på kunnskap om forsikringsmarkedet som vi ønsker å ta med oss inn i fremtiden, der forsikringsløsningene skal være gode, enkle og praktiske for kunden.
+Vi er landets tredje største forsikringsselskap, og det største med distribusjon i bank. Vi tilbyr alle skade- og personforsikringer for privatpersoner og bedrifter.
 
-Designsystemet vårt, Jøkul, gjenspeiler Fremtinds visjon. Det inneholder komponenter og informasjon som gjør det lett å designe og utvikle brukervennlige løsninger.
+Vi har solid erfaring og kunnskap om forsikring og utvikler nye produkter og tjenester som betyr noe i folks liv. Vi var de første til å utnytte teknologi for å gjøre bilforsikringen smart. Vi var også først ute med en enkel, selvbetjent helsevurdering.
+
+Slik vil vi fortsette å bruke digital innovasjon og fornyelse for å gjøre hverdagen enklere og tryggere for folk og bedrifter flest.
