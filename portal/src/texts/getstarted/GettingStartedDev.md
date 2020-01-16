@@ -1,6 +1,6 @@
 ---
 title: kom i gang - utvikling
-path: /utvikler/komigang
+path: /utvikler/komigangutvikling
 ---
 
 # Kom i gang som utvikler
