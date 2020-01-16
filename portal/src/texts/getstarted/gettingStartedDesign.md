@@ -1,6 +1,7 @@
 ---
-title: kom i gang - design
-path: /utvikler/komigangdesign
+title: For designere
+path: /komigang/design
+order: 1
 ---
 
 # Kom i gang som designer

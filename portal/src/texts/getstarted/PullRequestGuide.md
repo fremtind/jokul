@@ -1,6 +1,7 @@
 ---
 title: pull requests
-path: /utvikler/pullrequests
+path: /komigang/pullrequests
+order: 5
 ---
 
 # Pull requests

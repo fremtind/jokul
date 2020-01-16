@@ -1,6 +1,7 @@
 ---
-title: kom i gang - utvikling
-path: /utvikler/komigangutvikling
+title: For utviklere
+path: /komigang/utvikling
+order: 2
 ---
 
 # Kom i gang som utvikler

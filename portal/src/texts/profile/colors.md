@@ -1,6 +1,7 @@
 ---
 title: farger
 path: /profil/farger
+order: 3
 ---
 
 # Farger

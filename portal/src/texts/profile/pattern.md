@@ -1,6 +1,7 @@
 ---
 title: Vanlige mønstre
 path: /profil/monstre
+order: 12
 ---
 
 # Mønstre
