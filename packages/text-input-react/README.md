@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-text-input-react`](https://fremtind.github.io/jokul/components/textfield/)
+# [`@fremtind/jkl-text-input-react`](https://fremtind.github.io/jokul/text-input-react/documentation/TextInput/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/textfield/) er beskrevet i `@fremtind/jkl-text-input` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/text-input-react/documentation/TextInput/).
 
 ## Kom i gang
 
@@ -56,7 +56,7 @@ type action = {
 #### BaseInputField
 
 Denne er kun eksponert for å dekke spesielle behov og anbefales ikke å brukes.
-Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/components/typography/) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
+Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/typography-react/documentation/Typography/) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
 
 ```tsx
 <Label standAlone htmlFor="complicatedquestion">

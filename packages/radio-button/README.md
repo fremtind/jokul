@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-radio-button`](https://fremtind.github.io/jokul/components/radiobutton/)
+# [`@fremtind/jkl-radio-button`](https://fremtind.github.io/jokul/radio-button-react/documentation/RadioButton/)
 
 ## Radioknapper
 Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en _nedtrekksliste_. 
