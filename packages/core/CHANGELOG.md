@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@1.1.3...@fremtind/jkl-core@2.0.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **core:** remove font-weight ([d63ab8c](https://github.com/fremtind/jokul/commit/d63ab8cbfc6436c1cd78fdac4af8b703d09e02b3))
+* **core:** stop reset-outline mixin from overriding padding ([8303f5a](https://github.com/fremtind/jokul/commit/8303f5aa6c594b995fbc24052d1ca10ff0d810b3))
+* **core:** use better check for document in tablistener ([8a027e5](https://github.com/fremtind/jokul/commit/8a027e5fb3e3febd6098d7214b591b76ef3f54a9))
+* **links:** adjust padding around links for new font ([a884fbd](https://github.com/fremtind/jokul/commit/a884fbd90629997c801a68542799254faa6096fe))
+* **motion:** fix reversed bezier-timing ([99acfa6](https://github.com/fremtind/jokul/commit/99acfa636b1cc36d16f1618672c2949df2dbc4e7))
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+* new function colors (notification colors) ([17deb16](https://github.com/fremtind/jokul/commit/17deb165aa2549110540e8f5510b6571e4869a86)), closes [#617](https://github.com/fremtind/jokul/issues/617) [#618](https://github.com/fremtind/jokul/issues/618)
+* unify naming spanning typography-react, mixins, classes ([f90174a](https://github.com/fremtind/jokul/commit/f90174a638ebe5438fab72770f8d089fecd7b986)), closes [#592](https://github.com/fremtind/jokul/issues/592)
+
+
+### BREAKING CHANGES
+
+* variable names for function colors are changed
+* changes to naming of certain components, paragraphs, headings and classes regarding typography
+
+
+
+
+
 ## 1.1.12 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-core

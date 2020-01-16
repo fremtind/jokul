@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-progress-bar-react@1.1.3...@fremtind/jkl-progress-bar-react@1.2.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **core:** use better check for document in tablistener ([8a027e5](https://github.com/fremtind/jokul/commit/8a027e5fb3e3febd6098d7214b591b76ef3f54a9))
+* **portal:** refactor examples, show menu for large screens ([ae59e7a](https://github.com/fremtind/jokul/commit/ae59e7aef89098e09ad138bf7cf8574a0d56de7f))
+* **portal:** use jokul components, update doc and footer ([2bfe5cd](https://github.com/fremtind/jokul/commit/2bfe5cd5486d97ec66e92567a0169ed2ae6027d9))
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **portal:** show typedef, refactor ([248a88e](https://github.com/fremtind/jokul/commit/248a88ee776ff4f16f1fa96de76bb047bbdb9e2a))
+
+
+
+
+
 ## 1.1.12 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-progress-bar-react

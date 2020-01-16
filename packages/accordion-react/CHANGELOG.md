@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.1.4...@fremtind/jkl-accordion-react@1.2.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **portal:** refactor examples, show menu for large screens ([ae59e7a](https://github.com/fremtind/jokul/commit/ae59e7aef89098e09ad138bf7cf8574a0d56de7f))
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **portal:** autogenerate component docs from example ([40249b5](https://github.com/fremtind/jokul/commit/40249b5189b69af74d1c2b8f38bad118a65b03c0))
+* **portal:** show typedef, refactor ([248a88e](https://github.com/fremtind/jokul/commit/248a88ee776ff4f16f1fa96de76bb047bbdb9e2a))
+* **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+
+
+
+
+
 ## 1.1.13 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion-react

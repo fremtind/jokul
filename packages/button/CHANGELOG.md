@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.1.3...@fremtind/jkl-button@1.2.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **button:** remove min-width for TertiaryButton ([8280409](https://github.com/fremtind/jokul/commit/828040969097aa21c2b5e570a6b8515a21ee5bb7))
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **button:** set minimum width for buttons ([fe9257d](https://github.com/fremtind/jokul/commit/fe9257d587db97d8f5e8622b756411f1d93b329f))
+
+
+
+
+
 ## 1.1.12 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-button

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.1.3...@fremtind/jkl-select-react@1.2.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+* **select-react:** make select set selectedValue if items change ([e74bd50](https://github.com/fremtind/jokul/commit/e74bd509a99fd43c854557b97e1e300bc7cb9ab3))
+
+
+### Features
+
+* **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+* **select:** animate select ([97db449](https://github.com/fremtind/jokul/commit/97db449eb11b3454bb879ff2db9d1e44707ba8b9)), closes [#370](https://github.com/fremtind/jokul/issues/370)
+
+
+
+
+
 ## 1.1.12 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-select-react

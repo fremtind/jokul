@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.0.5...@fremtind/jkl-button-react@1.1.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **portal:** document button, fix security issue with node-sass ([70ff97c](https://github.com/fremtind/jokul/commit/70ff97ce1072302d82f092c92513f7e96fe1d6c5))
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+
+
+
+
+
 ## 1.0.14 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-button-react
