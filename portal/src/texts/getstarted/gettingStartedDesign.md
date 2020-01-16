@@ -1,6 +1,6 @@
 ---
 title: kom i gang - design
-path: /designer/komigang
+path: /utvikler/komigangdesign
 ---
 
 # Kom i gang som designer
