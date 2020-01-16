@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/text-input-react/documentation/TextInput/) er beskrevet i `@fremtind/jkl-text-input` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/text-input-react/documentation/TextInput/).
 
 ## Kom i gang
 

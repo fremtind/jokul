@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/field-group-react/documentation/FieldGroup/) er beskrevet i `@fremtind/jkl-field-group` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/field-group-react/documentation/FieldGroup/).
 
 ## Kom i gang
 

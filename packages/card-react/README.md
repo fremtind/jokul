@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/card-react/documentation/card/) er beskrevet i `@fremtind/jkl-card` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/card-react/documentation/card/).
 
 ## Kom i gang
 

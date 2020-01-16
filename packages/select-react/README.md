@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/select-react/documentation/Select/) er beskrevet i `@fremtind/jkl-select` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/select-react/documentation/Select/).
 
 ## Kom i gang
 

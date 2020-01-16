@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/accordion-react/documentation/accordion/) er beskrevet i `@fremtind/jkl-accordion` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/accordion-react/documentation/accordion/).
 
 ## Kom i gang
 

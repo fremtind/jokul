@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](hhttps://fremtind.github.io/jokul/radio-button-react/documentation/RadioButton/) er beskrevet i `@fremtind/jkl-radio-button` stil-pakken.
+Se portalen for [bruk og prinsipper](hhttps://fremtind.github.io/jokul/radio-button-react/documentation/RadioButton/).
 
 ## Kom i gang
 

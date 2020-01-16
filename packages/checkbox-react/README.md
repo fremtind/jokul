@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/checkbox-react/documentation/Checkbox/) er beskrevet i `@fremtind/jkl-checkbox` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/checkbox-react/documentation/Checkbox/).
 
 ## Kom i gang
 

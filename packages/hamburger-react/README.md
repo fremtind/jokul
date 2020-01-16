@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/hamburger-react/documentation/Hamburger/) er beskrevet i `@fremtind/jkl-hamburger` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/hamburger-react/documentation/Hamburger/).
 
 ## Kom i gang
 

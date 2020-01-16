@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/list-react/documentation/List/) er beskrevet i `@fremtind/jkl-list` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/list-react/documentation/List/).
 
 ## Kom i gang
 

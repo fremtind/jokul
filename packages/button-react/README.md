@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/button-react/documentation/buttons/) er beskrevet i `@fremtind/jkl-button` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/button-react/documentation/buttons/).
 
 ## Kom i gang
 

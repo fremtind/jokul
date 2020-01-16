@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/progress-bar-react/documentation/ProgessBar/) er beskrevet i `@fremtind/jkl-progress-bar` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/progress-bar-react/documentation/ProgessBar/).
 
 ## Kom i gang
 

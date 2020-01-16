@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/datepicker-react/documentation/Datepicker/) er beskrevet i `@fremtind/jkl-datepicker` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/datepicker-react/documentation/Datepicker/).
 
 ## Kom i gang
 

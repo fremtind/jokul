@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper Table](https://fremtind.github.io/jokul/table-react/documentation/Table/) er beskrevet i `@fremtind/jkl-table` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/table-react/documentation/Table/).
 
 ## Kom i gang
 

@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/logo-react/documentation/Logo/) er beskrevet i `@fremtind/jkl-logo` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/logo-react/documentation/Logo/).
 
 ## Kom i gang
 

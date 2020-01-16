@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/toggle-switch-react/documentation/ToggleSwitch/) er beskrevet i `@fremtind/jkl-toggle-switch` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/toggle-switch-react/documentation/ToggleSwitch/).
 
 ## Kom i gang
 

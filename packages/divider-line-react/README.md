@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/divider-line-react/documentation/Dividerline/) er beskrevet i `@fremtind/jkl-divider-line` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/divider-line-react/documentation/Dividerline/).
 
 ## Kom i gang
 

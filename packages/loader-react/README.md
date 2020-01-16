@@ -2,7 +2,7 @@
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/loader-react/documentation/Loader/) er beskrevet i `@fremtind/jkl-loader` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/loader-react/documentation/Loader/).
 
 ## Kom i gang
 
