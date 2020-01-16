@@ -3,22 +3,14 @@ title: kom i gang
 path: /designer/komigang
 ---
 
-# Kom i gang
+# Kom i gang som designer
+Alle designressurser er i Figma. Trykk på lenke i sidemenyen for å komme til Figmabiblioteket vårt. I Figma finner du også skisser, prototyper og andre eksempler på løsninger laget i vår drakt.
 
-Er du utvikler eller designer og ivrig etter å komme i gang, finner du de ressursene du trenger her. Vi ønsker at det skal være så enkelt så mulig for dere å ta i bruk Jøkul.
+Før du starter å designe løsninger i vår drakt så bør du gjøre deg kjent med profilen vår. Den kan du lese om her i portalen.
 
-## Om Jøkul
+## Spørsmål om designsystemet
+Har du spørsmål om designsystemet som designer kan du ta kontakt med designsystemteamet direkte eller møte på designsystem forumet kl 14:00 i kreativ sone.
 
-Jøkul er designsystemtet for Fremtind. Det utvikles stadig og målet med systemet er at det skal gjøre det lettere for alle i Fremtid å utvikle og vedlikeholde løsningene sine.
-For at Jøkul skal kunne oppfylle det målet, er det viktig at teamene som bruker Jøkul bidrar tilbake.
+Hvis du oppdager noe du syntes er rart eller feil kan du opprette issue på GitHub.
 
-Vi har utviklet og samlet komponenter i GitHub og i et eget designbibliotek i Figma.
-
-## For designere
-
-Vi lager skisser og prototyper i Figma.
-Dette trenger du
-Det er enkelt å komme i gang med design for Fremtind. Sett deg inn i fargepaletten og prinsippene våre. Studer gjerne eksemplene her i Jøkul før du starter, så får du et overblikk over hvordan Fremtinds design er tenkt og hvordan vi implementerer. Vi lager komponenter både til interne fagsystemer og kundeløsninger, så løsningene er varierte.
-Du trenger tilgang til:
-Designbiblioteket vårt. Send en e-post til mikkel.blytt@fremtind.no.
-Skrifttypen vår, Akkurat Pro. Last ned fonten her
+Om du har behov for tilganger kan du kontakte Fremtind.designsystem@fremtind.no.
