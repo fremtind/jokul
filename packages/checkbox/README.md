@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-checkbox`](https://fremtind.github.io/jokul/components/checkbox/)
+# [`@fremtind/jkl-checkbox`](https://fremtind.github.io/jokul/checkbox-react/documentation/Checkbox/)
 
 # Avmerkingsbokser
 Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene jeg har gitt er riktige". Vi bruker flere avmerkingsbokser sammen når vi vil gi  brukerne en liste med valg, der de kan velge ett eller flere  alternativer. 

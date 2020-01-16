@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-toggle-switch-react`](https://fremtind.github.io/jokul/components/toggleswitch/)
+# [`@fremtind/jkl-toggle-switch-react`](https://fremtind.github.io/jokul/toggle-switch-react/documentation/ToggleSwitch/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/toggleswitch/) er beskrevet i `@fremtind/jkl-toggle-switch` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/toggle-switch-react/documentation/ToggleSwitch/).
 
 ## Kom i gang
 
