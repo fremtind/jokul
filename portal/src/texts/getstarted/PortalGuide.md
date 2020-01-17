@@ -1,6 +1,7 @@
 ---
 title: portalen
-path: /utvikler/portalen
+path: /komigang/portalen
+order: 6
 ---
 
 # Jøkul portal

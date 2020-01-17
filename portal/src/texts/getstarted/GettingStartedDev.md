@@ -1,9 +1,10 @@
 ---
-title: kom i gang
-path: /utvikler/komigang
+title: For utviklere
+path: /komigang/utvikling
+order: 2
 ---
 
-# Kom i gang
+# Kom i gang som utvikler
 
 Du kan bruke Jøkul på to måter, med rene stilark eller med React-komponenter. Alle CSS-stilark finnes i både vanlig og minifisert utgave. Vi anbefaler å bruke den minifiserte.
 

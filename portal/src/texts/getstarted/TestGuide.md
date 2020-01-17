@@ -1,6 +1,7 @@
 ---
 title: tester
-path: /utvikler/tester
+path: /komigang/tester
+order: 4
 ---
 
 # Kom i gang med tester
