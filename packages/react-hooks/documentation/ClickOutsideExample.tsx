@@ -18,24 +18,29 @@ const ClickOutsideExample = () => {
     useClickOutside(clickOutsideRef, onClickOutside);
 
     return (
-        <section ref={clickOutsideRef} className="jkl-spacing--top-3 jkl-spacing--bottom-3 jkl-body jkl-click-outside">
-            <p>Klikk utenfor dette området</p>
+        <section ref={clickOutsideRef} className="hooks-example jkl-spacing--bottom-3 jkl-body jkl-click-outside">
+            <p className="hooks-example__header">Lytter på klikk utenfor dette området</p>
+            <p className="hooks-example__text">
+                Klikk utenfor eksempelet for å se klikket listet opp under. Klikk inne i eksempelet vil ikke listes opp
+            </p>
             <button
-                className="jkl-button jkl-button--primary jkl-spacing--right-2"
+                className="jkl-button jkl-button--secondary jkl-spacing--right-1"
                 onClick={() => setIsEnabled(!isEnabled)}
             >
                 {isEnabled ? "Skru av" : "Skru på"}
             </button>
-            <button className="jkl-button jkl-button--secondary" onClick={() => appendToClickOutsideList([])}>
-                Reset liste
+            <button className="jkl-button jkl-button--tertiary" onClick={() => appendToClickOutsideList([])}>
+                Nullstill liste
             </button>
-            <ul className="jkl-list">
-                {listOfClicksOutside.map((item, idx) => (
-                    <li className="jkl-list--item" key={idx}>
-                        {item}
-                    </li>
-                ))}
-            </ul>
+            {listOfClicksOutside.length !== 0 && (
+                <ul className="jkl-list hooks-example__list">
+                    {listOfClicksOutside.map((item, idx) => (
+                        <li className="jkl-list--item" key={idx}>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </section>
     );
 };

@@ -17,24 +17,26 @@ const MutationObserverExample = () => {
 
     useMutationObserver(mutationTargetRef, onObservation, { characterData: true, subtree: true });
     return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3 jkl-body">
-            <button className="jkl-button jkl-button--primary jkl-spacing--right-2" onClick={() => setIsOpen(!isOpen)}>
-                Change status
+        <section className="hooks-example jkl-spacing--bottom-3">
+            <button className="jkl-button jkl-button--primary jkl-spacing--right-1" onClick={() => setIsOpen(!isOpen)}>
+                Endre status
             </button>
             <button className="jkl-button jkl-button--secondary" onClick={() => appendToMutationList([])}>
-                Reset list
+                Nullstill liste
             </button>
-            <p ref={mutationTargetRef} className="jkl-spacing--top-3">
-                Current state: {isOpen ? "OPEN" : "CLOSED"}
+            <p ref={mutationTargetRef} className="jkl-spacing--top-1 hooks-example__text">
+                Nåværende status: <strong>{isOpen ? "Åpen" : "Lukket"}</strong>
             </p>
-            <p>List of changes in state:</p>
-            <ul className="jkl-list">
-                {listOfMutations.map((item, idx) => (
-                    <li className="jkl-list__item" key={idx}>
-                        {item}
-                    </li>
-                ))}
-            </ul>
+            <p className="hooks-example__text">Liste over endringer:</p>
+            {listOfMutations.length !== 0 && (
+                <ul className="jkl-list hooks-example__list">
+                    {listOfMutations.map((item, idx) => (
+                        <li className="jkl-list__item" key={idx}>
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </section>
     );
 };

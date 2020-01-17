@@ -6,7 +6,7 @@ const AnimationExample = () => {
     const [isOpen, setIsOpen] = useState();
     const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
     return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3 jkl-body">
+        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3 hooks-example">
             <button className="jkl-button jkl-button--primary" onClick={() => setIsOpen(!isOpen)}>
                 Animate {isOpen ? "Out" : "In"}
             </button>
