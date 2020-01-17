@@ -1,1 +1,1 @@
-Grunnleggende prinsipper som definerer vår identitet. Her finner du for eksempel farger, typografi, skjemadesign mm.
+Grunnleggende prinsipper som definerer vår identitet, for eksempel om farger, typografi og skjemadesign.
