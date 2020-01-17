@@ -32,4 +32,12 @@ module.exports = {
         "react/prop-types": 0,
         "prettier/prettier": "error",
     },
+    overrides: [
+        {
+            files: ["**/*test.ts", "**/*test.tsx"],
+            rules: {
+                "@typescript-eslint/no-empty-function": "off",
+            },
+        },
+    ],
 };
