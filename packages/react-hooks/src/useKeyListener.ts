@@ -1,6 +1,10 @@
 import { RefObject, useEffect } from "react";
 
-export function useKeyListener(ref: RefObject<HTMLElement> | null, keys: string[] | string | null, fn: () => void) {
+export function useKeyListener(
+    ref: RefObject<HTMLElement> | null,
+    keys: string[] | string | null,
+    fn: (event: KeyboardEvent) => void,
+) {
     if (typeof keys === "string") {
         keys = [keys];
     }
@@ -8,7 +12,7 @@ export function useKeyListener(ref: RefObject<HTMLElement> | null, keys: string[
         if (keys && !keys.includes(event.key)) {
             return;
         }
-        fn();
+        fn(event);
     }
 
     useEffect(() => {
