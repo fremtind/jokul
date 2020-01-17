@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.2.0...@fremtind/jkl-datepicker-react@1.2.1) (2020-01-16)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
 # [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.1.3...@fremtind/jkl-datepicker-react@1.2.0) (2020-01-16)
 
 
