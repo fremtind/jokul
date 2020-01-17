@@ -42,7 +42,10 @@ const edgeToPage = (edge: GeneralDocPage) => ({
 });
 
 const profile = (rawPages: GeneralDocPages) => ({
-    pages: rawPages.edges.filter(by(/^\/profil/)).map(edgeToPage),
+    pages: rawPages.edges
+        .filter(by(/^\/profil/))
+        .sort((a, b) => parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order))
+        .map(edgeToPage),
     sectionTitle: "Profilen vår",
     matchingLocation: (location: WindowLocation) => location.pathname.includes("profil"),
 });
