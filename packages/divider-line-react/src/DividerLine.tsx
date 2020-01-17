@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import nanoid from "nanoid";
+import React, { useState, useRef } from "react";
+import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 
 export const DividerLine = () => {
     const [spin, setSpin] = useState(typeof IntersectionObserver === "undefined");
-    const [id] = useState(nanoid(16));
-
-    const observerRef = useRef<IntersectionObserver>(null);
+    const ref = useRef(null);
 
     const checkVisibility = (entries: IntersectionObserverEntry[]) =>
         entries.forEach((entry: IntersectionObserverEntry) => {
@@ -19,29 +17,9 @@ export const DividerLine = () => {
         threshold: 1.0,
     };
 
-    useEffect(() => {
-        if (typeof IntersectionObserver !== "undefined") {
-            const target = document.getElementById(id);
-            let observer = observerRef.current;
+    const fallback = () => setSpin(true);
 
-            if (observer) {
-                observer.disconnect();
-            }
+    useIntersectionObserver(ref, checkVisibility, fallback, options);
 
-            observer = new IntersectionObserver(checkVisibility, options);
-
-            if (target) {
-                observer.observe(target);
-            }
-        } else {
-            setSpin(true);
-        }
-        return () => {
-            if (typeof IntersectionObserver !== "undefined" && observerRef && observerRef.current) {
-                observerRef.current.disconnect();
-            }
-        };
-    }, []);
-
-    return <hr id={id} className={`jkl-divider ${spin ? "jkl-divider--spin" : ""}`} />;
+    return <hr ref={ref} className={`jkl-divider ${spin ? "jkl-divider--spin" : ""}`} />;
 };

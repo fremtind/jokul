@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-message-box`](https://fremtind.github.io/jokul/components/messagebox/)
+# [`@fremtind/jkl-message-box`](https://fremtind.github.io/jokul/message-box-react/documentation/MessageBox/)
 
 # Meldinger
 En melding er en beskjed til brukeren. Det kan være et varsel om at noe er feil, informasjon om at noe mangler i et skjema, eller en bekreftelse på at noe har blitt oppdatert. Meldingene består av en overskrift og en meldingstekst.

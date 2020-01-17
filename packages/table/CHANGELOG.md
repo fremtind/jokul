@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@1.1.0...@fremtind/jkl-table@1.1.1) (2020-01-16)
+
+**Note:** Version bump only for package @fremtind/jkl-table
+
+
+
+
+
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@1.0.3...@fremtind/jkl-table@1.1.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **table:** update table with new paragraph styles ([f5f8a35](https://github.com/fremtind/jokul/commit/f5f8a351bd4b3a0be90c6ea07f735b719c28a127))
+
+
+
+
+
 ## 1.0.12 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-table

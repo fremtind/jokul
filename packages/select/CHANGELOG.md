@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@1.2.0...@fremtind/jkl-select@1.2.1) (2020-01-16)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@1.1.3...@fremtind/jkl-select@1.2.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **select:** animate select ([97db449](https://github.com/fremtind/jokul/commit/97db449eb11b3454bb879ff2db9d1e44707ba8b9)), closes [#370](https://github.com/fremtind/jokul/issues/370)
+* update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+
+
+
+
+
 ## 1.1.12 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-select

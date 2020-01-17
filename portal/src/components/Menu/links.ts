@@ -76,18 +76,19 @@ export const staticLinks = [
         className: "portal-menu__link--github",
     },
     {
-        href: "https://github.com/fremtind/jokul/issues/new?assignees=&labels=bug&template=bug_report.md&title=",
+        href:
+            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=🐝+bug&template=feilmelding.md&title=Feil%3A+",
         linkText: "Rapporter feil",
         className: "portal-menu__link--github",
     },
     {
         href:
-            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=",
+            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=✨+enhancement&template=funksjonalitets-nske.md&title=",
         linkText: "Forslag ny funksjon",
         className: "portal-menu__link--github",
     },
     {
-        href: "https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-components",
+        href: "https://www.figma.com/file/kjIQcfLr1wYdFGnUmD4rF4/J%C3%B8kul-eksempler?node-id=1%3A9",
         linkText: "Designbibliotek",
         className: "portal-menu__link--figma",
     },
