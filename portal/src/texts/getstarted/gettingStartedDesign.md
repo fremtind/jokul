@@ -5,13 +5,13 @@ order: 1
 ---
 
 # Kom i gang som designer
-Vi designer våre løsninger i Figma. Trykk på lenke i sidemenyen for å komme til Figmabiblioteket vårt. Der finner du også skisser, prototyper og andre eksempler på løsninger laget i vår drakt.
+Vi designer våre løsninger i Figma. Klikk på lenken i sidemenyen for å komme til Figmabiblioteket vårt. Der finner du også skisser, prototyper og andre eksempler på løsninger som er laget i vår drakt.
 
-Før du starter å designe løsninger i vår drakt så bør du gjøre deg kjent med profilen vår. Den kan du lese om her i portalen.
+Før du starter å designe løsninger for Fremtind, bør du gjøre deg kjent med profilen vår. Den kan du lese om her i portalen.
 
 ## Spørsmål om designsystemet
-Har du spørsmål om designsystemet som designer kan du ta kontakt med designsystemteamet direkte eller møte på designsystem forumet kl 14:00 i kreativ sone.
+Er du designer og har spørsmål om designsystemet? Ta kontakt med designsystemteamet direkte, eller møt opp på Designsystemforum kl 14 på tirsdager, i Kreativ sone.
 
-Hvis du oppdager noe du syntes er rart eller feil kan du opprette issue på GitHub.
+- Hvis du ser noe i designsystemet du syntes er rart eller feil, kan du opprette issue i GitHub.
 
-Om du har behov for tilganger kan du kontakte Fremtind.designsystem@fremtind.no.
+- Har du behov for tilganger, kan du kontakte fremtind.designsystem@fremtind.no.

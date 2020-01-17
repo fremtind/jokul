@@ -15,3 +15,22 @@
     background-color: $varde;
     border-radius: rem(4px);
 }
+
+.jlk-intersection-example {
+    transition: 200ms background-color ease-in-out;
+    border-radius: rem(4px);
+}
+.jlk-intersection-example--visible {
+    background-color: $varde;
+}
+
+.jlk-intersection-example--not-visible {
+    background-color: $blomst;
+}
+
+.jkl-click-outside {
+    padding: 1rem;
+    background-color: $varde;
+    user-select: none;
+    border-radius: rem(4px);
+}

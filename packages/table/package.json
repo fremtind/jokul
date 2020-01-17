@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table",
-    "version": "1.0.12",
+    "version": "1.1.1",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "dev": "parcel example/index.html"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.12"
+        "@fremtind/browserslist-config-jkl": "^0.4.14"
     },
     "repository": {
         "type": "git",
