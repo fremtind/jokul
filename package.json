@@ -47,7 +47,7 @@
         "commitizen": "^4.0.1",
         "cssnano": "^4.1.10",
         "cz-lerna-changelog": "^2.0.0",
-        "dart-sass": "^1.23.0",
+        "dart-sass": "^1.25.0",
         "document-register-element": "^1.13.2",
         "eslint": "^6.8.0",
         "eslint-config-prettier": "^6.9.0",
