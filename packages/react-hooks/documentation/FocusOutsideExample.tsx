@@ -18,7 +18,7 @@ export default function FocusOutsideExample() {
         <section className="hooks-example focus-outside-example jkl-spacing--bottom-3">
             <p className="hooks-example__header">Lytter på fokus utenfor kortet under</p>
             <p className="hooks-example__text">
-                Fokuser på et element utenfor kortet for å øke telleren. Når du flytter fokus tilbake, vil telleren ikke
+                Fokuser på et element utenfor kortet for å øke telleren. Når du flytter fokus tilbake vil ikke telleren
                 øke.
             </p>
             <div ref={ref} className="jkl-card focus-outside-example__card jkl-spacing--top-1">
