@@ -18,10 +18,13 @@ const MutationObserverExample = () => {
     useMutationObserver(mutationTargetRef, onObservation, { characterData: true, subtree: true });
     return (
         <section className="hooks-example jkl-spacing--bottom-3">
-            <button className="jkl-button jkl-button--primary jkl-spacing--right-1" onClick={() => setIsOpen(!isOpen)}>
+            <button
+                className="jkl-button jkl-button--secondary jkl-spacing--right-1"
+                onClick={() => setIsOpen(!isOpen)}
+            >
                 Endre status
             </button>
-            <button className="jkl-button jkl-button--secondary" onClick={() => appendToMutationList([])}>
+            <button className="jkl-button jkl-button--tertiary" onClick={() => appendToMutationList([])}>
                 Nullstill liste
             </button>
             <p ref={mutationTargetRef} className="jkl-spacing--top-1 hooks-example__text">
