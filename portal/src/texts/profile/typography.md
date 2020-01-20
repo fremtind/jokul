@@ -1,6 +1,7 @@
 ---
 title: typografi
 path: /profil/typografi
+order: 7
 ---
 
 # Typografi

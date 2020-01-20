@@ -41,6 +41,7 @@ export function Menu() {
                         frontmatter {
                             path
                             title
+                            order
                         }
                     }
                 }
