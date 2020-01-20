@@ -5,36 +5,44 @@ react: react-hooks
 
 import AnimationExample from "./AnimationExample";
 import ClickOutsideExample from "./ClickOutsideExample";
+import FocusOutsideExample from "./FocusOutsideExample";
+import KeyListenerExample from "./KeyListenerExample";
 import MutationObserverExample from "./MutationObserverExample";
 import IntersectionObserverExample from "./IntersectionObserverExample";
 
-Denne pakken innholder støttefunksjoner i form av React hooks.
+<p>
+    <span class="jkl-lead">Denne pakken innholder støttefunksjoner i form av React hooks.</span>
+</p>
 
 ### useAnimatedHeight
 
-<AnimationExample />
+Animering av ting inn og ut av DOMet i React er ikke lett, men med useAnimatedHeight blir jobben en god del lettere.
 
-Animering av ting inn og ut av DOMet i React er ikke lett, men med useAnimatedHeight så blir jobben en god del lettere.
+<AnimationExample />
 
 ### useMutationObserver
 
-<MutationObserverExample />
+Med `useMutationObserver` kan du lytte på endringer i DOMet. Dette er en tynn wrapper over MutationObserver APIet som gjør det lettere å ta det i bruk i React. Den er nyttig om du f.eks. ønsker å spore når en bruker trykker på et element der du ikke har tilgang på `onChange`-funksjonen, som `Accordion`.
 
-Med useMutationObserver kan du lytte på endringer i DOMet. Dette er en tynn wrapper over MutationObserver APIet som gjør det lettere å ta det i bruk i React. Er nyttig om du feks ønsker å tracke om en bruker har trykket på et element du ikke har tilgang på onChange funksjonen, feks Accordion.
+<MutationObserverExample />
 
 ### useClickOutside
 
-<ClickOutsideExample />
+`useClickOutside` lar deg lytte på klikk utenfor et element. Det kan være nyttig for å lukke modaler o.l.
 
-Denne lar det lytte på klikk utenfor et element. Det kan være nyttig for å lukke en modal feks.
+<ClickOutsideExample />
 
 ### useFocusOutside
 
-TODO: https://github.com/fremtind/jokul/issues/677
+`useFocusOutside` lar deg lytte etter elementfokus utenfor et gitt element, for eksempel når du tabber ut av en datovelger, og utføre en gitt handling.
 
-### useKeyListner
+<FocusOutsideExample />
 
-TODO: https://github.com/fremtind/jokul/issues/678
+### useKeyListener
+
+`useKeyListener` lar deg lytte etter spesifiserte tastetrykk når fokus er inne i et gitt element. Dette kan være nyttig for blandt annet søkefunksjonalitet i lister, og tastaturnavigasjon i karuseller o.l.
+
+<KeyListenerExample />
 
 ### useIntersectionObserver
 
