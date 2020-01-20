@@ -1,6 +1,7 @@
 ---
 title: kodestil
-path: /utvikler/kodestil
+path: /komigang/kodestil
+order: 3 
 ---
 
 # Slik skriver du kode til Jøkul

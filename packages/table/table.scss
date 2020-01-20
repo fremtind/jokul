@@ -2,25 +2,23 @@
 
 $bottom-border-size: rem(1px);
 $highlight-color: $helhvit;
+$cell-padding: $component-spacing--xl $component-spacing--small;
+$row-end-padding: $component-spacing--large;
 
 .jkl-table {
     border-collapse: collapse;
-    line-height: $line-height-2;
-    font-size: $font-size-2;
-    font-weight: $bold-weight;
+    @include small-paragraph;
 
     &__heading {
         color: $matt-svart;
-        font-size: $font-size-1;
-        font-weight: normal;
-        line-height: $line-height-1;
+        @include micro-paragraph;
         padding: $component-spacing--small;
     }
 
     &__data-cell {
         position: relative;
         box-sizing: border-box;
-        padding: $component-spacing--xl $component-spacing--small;
+        padding: $cell-padding;
     }
 
     &__heading,
@@ -29,11 +27,11 @@ $highlight-color: $helhvit;
         vertical-align: top;
 
         &:first-of-type {
-            padding-left: $component-spacing--large;
+            padding-left: $row-end-padding;
         }
 
         &:last-of-type {
-            padding-right: $component-spacing--large;
+            padding-right: $row-end-padding;
         }
     }
 

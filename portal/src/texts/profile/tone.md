@@ -1,6 +1,7 @@
 ---
 title: stil og tone
 path: /profil/stilogtone
+order: 6
 ---
 
 # Stil og tone

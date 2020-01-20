@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-card-react`](https://fremtind.github.io/jokul/components/card/)
+# [`@fremtind/jkl-card-react`](https://fremtind.github.io/jokul/card-react/documentation/card/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/card/) er beskrevet i `@fremtind/jkl-card` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/card-react/documentation/card/).
 
 ## Kom i gang
 

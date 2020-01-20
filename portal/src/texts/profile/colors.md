@@ -1,6 +1,7 @@
 ---
 title: farger
 path: /profil/farger
+order: 3
 ---
 
 # Farger
@@ -81,7 +82,7 @@ Brukes til informasjonsmeldinger og focus states.
 - **Advarsel #D73704** 
 Brukes til advarsler.
 
-- **Feil** 
+- **Feil #DD3500** 
 Brukes til varsler eller feil.
 
 

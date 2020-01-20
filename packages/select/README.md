@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-select`](https://fremtind.github.io/jokul/components/select/)
+# [`@fremtind/jkl-select`](https://fremtind.github.io/jokul/select-react/documentation/Select/)
 
 # Nedtrekksliste
 Vi bruker nedtrekkslister til å gi brukeren en liste med alternativ. Nedtrekkslister passer i de tilfellene det er for mange valg til å bruke _radioknapper_. Nedtrekkslisten må ha en overskrift, som forteller hva det er brukerne kan velge mellom i listen.

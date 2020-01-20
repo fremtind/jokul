@@ -1,6 +1,7 @@
 ---
-title: kom i gang
-path: /utvikler/komigang
+title: For utviklere
+path: /komigang/utvikling
+order: 2
 ---
 
 # Slik bruker du Jøkul

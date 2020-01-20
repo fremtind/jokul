@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-accordion`](https://fremtind.github.io/jokul/components/accordion/)
+# [`@fremtind/jkl-accordion`](https://fremtind.github.io/jokul/accordion-react/documentation/accordion/)
 
 # Trekkspillister
 Med trekkspillister kan vi presentere mye innhold på liten plass. En trekkspilliste har én eller flere rader, som brukeren kan klikke på for å vise eller skjule informasjon.
