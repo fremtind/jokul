@@ -1,10 +1,11 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
+import { axe, toHaveNoViolations } from "jest-axe";
+
+afterEach(cleanup);
 
 describe("Button", () => {
-    afterEach(cleanup);
-
     // Test all button variants:
     [
         { name: "primary", component: PrimaryButton },
@@ -48,5 +49,16 @@ describe("Button", () => {
         );
 
         expect(getByText("test")).toHaveClass("jkl-button--compact");
+    });
+});
+
+expect.extend(toHaveNoViolations);
+
+describe("a11y", () => {
+    test("button should be a11y compliant", async () => {
+        const { container } = render(<PrimaryButton onClick={() => {}}>Primary</PrimaryButton>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
