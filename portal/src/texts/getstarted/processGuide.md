@@ -1,68 +1,26 @@
-## Design system prosessen
+# Designsystemprosessen
 
-Mange team bruker design systemet vårt Jøkul ved utvikling av digitale flater. Noen er godt kjente med det, andre er kanskje ikke like kjent, mens noen ikke kjenner til det i det hele tatt. Dette er for deg som ønsker å bli bedre kjent med prosessen ved å bidra til design systemet.
+Mange team bruker designsystemet vårt, Jøkul, når de skal  utvikle for digitale flater. Noen er godt kjente med det, andre har vært litt innom det, mens noen ikke kjenner til det i det hele tatt.  For at Jøkul skal være til nytte, er det avgjørende at alle bidrar til å vedlikeholde og gjøre systemet best mulig. Det gjelder alle roller, ikke bare utviklere og designere. Under beskriver vi prosessen du skal følge når du har et behov.  
 
-For at Jøkul skal være til nytte er det avgjørende at alle bidrar til vedlikehold og optimalisering. Det gjelder alle roller, ikke bare utviklere og designere. Videre kan du se prosessen ved å bruke Jøkul og hvordan en eventuelt løser utfordringer ved det.
+## Undersøke
+Portalen er en god kilde til å undersøke og avdekke behov. Her har du oversikt over alle komponenter og profilelementer, og du finner beskrivende eksempler. Spør gjerne også andre team om de  har hatt samme utfordring.
 
-# Research
+## Rapportere
+Hvis du ikke finner det du leter etter, kan du opprette et issue på GitHub-siden til Jøkul. Beskriv behovet og ta gjerne med relevante illustrasjoner eller skjermbilder. Du kan også ta kontakt med oss i designsystemteamet direkte. Vi holder til i tredje etasje, ut mot Sentrum scene.
 
-Portalen er en god kilde til å avdekke behov. Her har du oversikt
+Designsystemteamet holder hele tiden oversikten over issues som kommer inn, så det vil sjelden ta mer enn et døgn før du får tilbakemelding. 
 
-over alle komponenter, profilelementer og beskrivende eksempler.
+## Avklare
+Designsystemteamet og interessenter tydeliggjør behovet og forsikrer seg om at det krever at vi gjør endringer i designsystemet. Kanskje finnes det en eksisterende løsning? 
 
-Utenom det kan det være greit å høre med andre team om de
+Vi må også stille spørsmålet om dette behovet er unikt for denne løsningen (det vi kaller et snøfnugg), og noe som ikke kan brukes av andre team.
 
-har hatt samme utfordring.
+## Spesifisere krav
+Designsystemteamet og interessenter avtaler et møte for å beskrive kravene. Møtet resulterer i en POC (Proof of Concept).
+Vi dokumenterer kravene og løsningen på GitHub.
 
-Behov innrapporteres
-Dersom du ikke finner det du leter etter kan du opprette et issue
+## Utvikle
+Den som skal utvikle oppretter en pull request på GitHub. Løsningen blir utviklet og godkjennes til slutt av designsystemteamet. Når løsningen er godkjent, merger vi den inn i masteren og publiserer den. 
 
-på github-siden til Jøkul. Her beskriver du behovet og tar gjerne
-
-med relevante illustrasjoner eller skjermbilder.
-
-Eventuelt kan du ta kontakt med oss i design system teamet
-
-direkte. Vi holder til i 3.etasje mot sentrum scene.
-
-# Mottak
-
-Design system teamet holder kontinuerlig oversikt over
-
-innkommende issues, så det vil aldri ta lenger enn et døgn
-
-før du får tilbakemelding.
-
-# Avklaring
-
-Design system teamet og interessenter tydeliggjør behov og
-
-forsikrer at dette krever en endring i design systemet.
-
-Finnes det en eksisterende løsning? Er det et snøfnugg som
-
-ikke kan brukes av andre team?
-
-# Kravspesifisering
-
-Design system teamet og interessenter avtaler møte for å
-
-utarbeide en kravbeskrivelse. Møtet resulterer i en POC
-
-(Proof of Concept). Krav og løsning blir dokumentert på github.
-
-# Under utvikling
-
-Det opprettes en pull request på github. Løsningen designes,
-
-utvikles og etterhvert godkjennes av design system teamet.
-
-Når løsningen er godkjent merges den inn i master og publiseres.
-
-# Ferdig
-
-Etter at løsningen er publisert kan den tas i bruk. Kanskje et
-
-annet team oppdager et nytt behov ved denne nye løsningen og
-
-gjentar prosessen.
+## Ferdig
+Når løsningen er publisert, kan den tas i bruk. Kanskje oppdager et annet team et nytt behov når de ser denne løsningen, og prosessen gjentar seg.
