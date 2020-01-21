@@ -36,7 +36,7 @@ En pull request bør inneholde kode som er fungerende og _klar til bruk_, gode [
 
 Designsystemteamet følger med på det som skjer på GitHub-repoet til Jøkul. Når du sender inn en pull request skal du alltid få tilbakemelding fra noen i kjerneteamet i løpet av kort tid. Vi kan enten velge å merge pull requesten direkte, eller gi deg en tilbakemelding på hva du må gjøre før vi kan ta inn endringene dine.
 
-Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi kanskje må teste det i noen interne applikasjoner først.
+Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi kanskje må teste det i noen interne applikasjoner først .
 
 Vi viser alle bidragsytere til prosjektet ved hjelp av [`all-contributors`](https://allcontributors.org/). Gi beskjed dersom du ikke vil vises i listen!
 

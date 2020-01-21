@@ -22,7 +22,7 @@ Dersom du bruker React-komponenten installerer du den med `yarn add @fremtind/jk
 
 Dersom du kun bruker stilpakken installerer du den med `yarn add @fremtind/jkl-accordion`.
 
-> Vi bruker Yarn for pakkehåndtering i Jøkul. Hvis ditt prosjekt bruker NPM kan du selvfølgelig installere pakkene med `npm i` som vanlig.
+> Vi bruker Yarn for pakkehåndtering i Jøkul. Hvis ditt prosjekt bruker NPM kan du selvfølgelig installere pakkene med `npm i` som vanlig .
 
 ## Ta i bruk komponenten
 

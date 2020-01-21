@@ -53,4 +53,4 @@ Kundene skal oppleve at de får informasjon tilpasset akkurat seg, som er releva
 Eksempler i kommunikasjonen:
 Vi bruker «Ti tips for å skrive bedre».
 Vi fjerner stammespråk.
-Vi hjelper hverandre med å lese korrektur på alle tekster.
+Vi hjelper hverandre med å lese korrektur på alle tekster .

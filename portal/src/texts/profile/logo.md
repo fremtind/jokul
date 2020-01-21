@@ -35,7 +35,7 @@ Tips: Hold **Shift** inne når du skal skalere logo og bilder, så blir proporsj
 
 ### Skygge og relieff
 
-Det er ikke tillatt å legge skygge eller relieffeffekter på eller under logoen.
+Det er ikke tillatt å legge skygge eller relieffeffekter på eller under logoen .
 
 _Eksempler_
 

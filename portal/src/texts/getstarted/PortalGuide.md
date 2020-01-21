@@ -61,4 +61,4 @@ Litt generell informasjon om knappene
 Slik kan du bruke primærknappen: <PrimaryButton>Send inn</PrimaryButton> // Rendres som en knapp!
 ```
 
-Du kan lese mer om MDX og hvordan det brukes på [MDX-prosjektets hjemmeside](https://mdxjs.com/).
+Du kan lese mer om MDX og hvordan det brukes på [MDX-prosjektets hjemmeside](https://mdxjs.com/) .

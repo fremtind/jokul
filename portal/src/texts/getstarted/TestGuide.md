@@ -20,4 +20,4 @@ Designsystemteamet har ikke satt opp noen formelle testdekningskrav, men dette e
 
 Per nå er støtten for web components i testrammeverket ganske tynn, så komponentene som baserer seg på NRK Core Components er vanskelig å teste godt. Dog er komponentene godt testet fra NRK sin side. Når støtten for web components i jsdom blir bedre, vil det bli enklere å teste disse komponentene selv.
 
-Husk å også teste eventuelle støttefunksjoner og gjenbrukbar kode som f.eks. custom hooks.
+Husk å også teste eventuelle støttefunksjoner og gjenbrukbar kode som f.eks. custom hooks .

@@ -316,4 +316,4 @@ Vær oppmerksom på at du gir Fremtind rettighetene til fri bruk og redigering. 
 -   Skift gjerne bilder med årstider og høytider.
 -   Meld behov for fotograf.
 -   Bidra til bildearkivet.
--   La deg inspirere av hvordan vi har brukt bilder her og ellers i Jøkul!
+-   La deg inspirere av hvordan vi har brukt bilder her og ellers i Jøkul !
