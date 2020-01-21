@@ -6,21 +6,22 @@ order: 6
 
 # Dokumentasjon til portalen
 
-For at et designsystem skal fungere, må dokumentasjonen av systemet holde høy kvalitet. Hvis utviklere og designer ikke vet hvilke muligheter og begrensninger som finnes i systemet, kommer man til å gjøre feil og dobbeltarbeid. Vi i kjerneteamet setter stor stolthet i å levere Jøkul med god dokumentasjon. Vi har bygd dokumentasjonsriggen selv for å sikre oss at den gir oss akkurat det vi trenger for Jøkul og for å gjøre utvikleropplevelsen så smidig som mulig. Det skal bare være én kilde til sannhet.
+For at et designsystem skal fungere, må systemdokumentasjonen være god. Hvis utviklere og designere ikke vet hvilke muligheter og begrensninger som finnes i systemet, kommer de til å gjøre feil og dobbeltarbeid. 
+
+Vi i kjerneteamet legger vår stolthet i å levere Jøkul med god dokumentasjon. Vi har bygd opp dokumentasjonen selv, for å sikre at den inneholder akkurat det vi trenger. Slik tror vi at utvikling og design med Jøkul blir en smidig prosess. Det skal bare være én kilde til sannhet.
 
 ## Komponenteksempler
-
-Eksemplene hentes direkte fra pakken der koden ligger. Det er mulig å kjøre opp eksemplene alene per pakke, eller som en del av portalen. I portalen ligger alle komponentene fra Jøkul dokumentert. Der skal det være
+Eksemplene hentes direkte fra pakken der koden ligger. Det er mulig å kjøre opp eksemplene alene per pakke, eller som en del av portalen. I portalen ligger alle komponentene fra Jøkul dokumentert. Der skal det være en
 
 -   fungerende utgave av komponenten i alle fornuftige varianter og statuser
 -   beskrivelse av hva komponenten er og hvordan den skal brukes
--   lenke til koden på github (genereres automatisk, se under)
+-   lenke til koden på GitHub (genereres automatisk, se under)
 
-Snakk gjerne med en designer om hvordan du best setter opp eksempelet for å få med alle varianter uten at det blir rotete. Husk at eksempelet skal vises i portalen.
+Snakk gjerne med en designer om hvordan du best setter opp eksempelet og får med alle varianter uten at det blir rotete. Husk at eksempelet skal vises i portalen.
 
 ## Slik dokumenterer vi komponentene
 
-For å lage nytt eksempel til portalen oppretter du en `.mdx` fil i `<pakkenavn>/documentation`. MDX er en versjon av [Markdown](https://www.markdownguide.org) som lar deg bygge inn React direkte i dokumentet. MDX-filen vil plukkes opp automatisk av portalen, gitt at den har en `title` definert i [frontmatter](https://www.gatsbyjs.org/docs/adding-markdown-pages/#frontmatter-for-metadata-in-markdown-files) (se under). I tillegg til tittelen forventer portalen å finne pakkenavnet (uten `@fremtind/jkl-`) til stilpakken og React-pakken. Lenker til GitHub genereres automatisk ut fra dette.
+For å lage et nytt eksempel til portalen oppretter du en `.mdx` fil i `<pakkenavn>/documentation`. MDX er en versjon av [Markdown](https://www.markdownguide.org) som lar deg bygge inn React direkte i dokumentet. MDX-filen plukkes opp automatisk av portalen hvis den har en `title` definert i [frontmatter](https://www.gatsbyjs.org/docs/adding-markdown-pages/#frontmatter-for-metadata-in-markdown-files) (se under). I tillegg til tittelen forventer portalen å finne pakkenavnet (uten `@fremtind/jkl-`) til stilpakken og React-pakken. Lenker til GitHub blir generert automatisk.
 
 Dokumentasjonsfilen til `Accordion` kan for eksempel se ut som dette:
 
@@ -61,4 +62,4 @@ Litt generell informasjon om knappene
 Slik kan du bruke primærknappen: <PrimaryButton>Send inn</PrimaryButton> // Rendres som en knapp!
 ```
 
-Du kan lese mer om MDX og hvordan det brukes på [MDX-prosjektets hjemmeside](https://mdxjs.com/) .
+Du kan lese mer om MDX og hvordan du bruker det på [MDX-prosjektets hjemmeside](https://mdxjs.com/) .
