@@ -11,7 +11,7 @@ For at et designsystem skal fungere, må systemdokumentasjonen være god. Hvis u
 Vi i kjerneteamet legger vår stolthet i å levere Jøkul med god dokumentasjon. Vi har bygd opp dokumentasjonen selv, for å sikre at den inneholder akkurat det vi trenger. Slik tror vi at utvikling og design med Jøkul blir en smidig prosess. Det skal bare være én kilde til sannhet.
 
 ## Komponenteksempler
-Eksemplene hentes direkte fra pakken der koden ligger. Det er mulig å kjøre opp eksemplene alene per pakke, eller som en del av portalen. I portalen ligger alle komponentene fra Jøkul dokumentert. Der skal det være en
+Eksemplene hentes direkte fra pakken der koden ligger. Det er mulig å kjøre eksemplene alene per pakke, eller som en del av portalen. I portalen ligger alle komponentene fra Jøkul dokumentert. Der skal det være en
 
 -   fungerende utgave av komponenten i alle fornuftige varianter og statuser
 -   beskrivelse av hva komponenten er og hvordan den skal brukes
@@ -62,4 +62,4 @@ Litt generell informasjon om knappene
 Slik kan du bruke primærknappen: <PrimaryButton>Send inn</PrimaryButton> // Rendres som en knapp!
 ```
 
-Du kan lese mer om MDX og hvordan du bruker det på [MDX-prosjektets hjemmeside](https://mdxjs.com/) .
+Du kan lese mer om MDX og hvordan du bruker det på [MDX-prosjektets hjemmeside](https://mdxjs.com/).
