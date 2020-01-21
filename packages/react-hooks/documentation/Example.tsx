@@ -1,24 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import "@fremtind/jkl-button/button.css";
+import "@fremtind/jkl-card/card.css";
 import "@fremtind/jkl-core/core.min.css";
-import "./index.scss";
-import { useAnimatedHeight } from "../src";
+import AnimationExample from "./AnimationExample";
+import MutationObserverExample from "./MutationObserverExample";
+import ClickOutsideExample from "./ClickOutsideExample";
+import FocusOutsideExample from "./FocusOutsideExample";
+import KeyListenerExample from "./KeyListenerExample";
+import IntersectionObserverExample from "./IntersectionObserverExample";
 
-const Example = () => {
-    const [isOpen, setIsOpen] = useState();
-    const [ref] = useAnimatedHeight<HTMLDivElement>(isOpen);
-    return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-            <button onClick={() => setIsOpen(!isOpen)}> Open lorem ipsum </button>
-            <div className={`lorem-text-wrapper ${isOpen ? "" : "lorem-text-wrapper--hidden"}`} ref={ref}>
-                <div className={`lorem-text`}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, aperiam asperiores aut
-                    beatae consequuntur cumque delectus dolore doloremque ea fugit inventore ipsam libero magnam
-                    officiis optio soluta veniam voluptatibus!
-                </div>
-            </div>
-        </section>
-    );
-};
+const Example = () => (
+    <>
+        <AnimationExample />
+        <MutationObserverExample />
+        <ClickOutsideExample />
+        <FocusOutsideExample />
+        <KeyListenerExample />
+        <IntersectionObserverExample />
+    </>
+);
 
 export default Example;

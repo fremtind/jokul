@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.1.0...@fremtind/jkl-text-input-react@1.1.1) (2020-01-16)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input-react
+
+
+
+
+
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.0.4...@fremtind/jkl-text-input-react@1.1.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* **text-input:** fix lint ([50145a2](https://github.com/fremtind/jokul/commit/50145a29f0c7760b7b9664ff0ea47b6089767216))
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+* update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+
+
+
+
+
 ## 1.0.13 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

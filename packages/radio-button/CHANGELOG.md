@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@1.0.14...@fremtind/jkl-radio-button@1.0.15) (2020-01-16)
+
+**Note:** Version bump only for package @fremtind/jkl-radio-button
+
+
+
+
+
+## [1.0.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@1.0.4...@fremtind/jkl-radio-button@1.0.14) (2020-01-16)
+
+
+### Bug Fixes
+
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+
+
+
 ## 1.0.13 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button

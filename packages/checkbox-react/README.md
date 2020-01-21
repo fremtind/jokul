@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-checkbox-react`](https://fremtind.github.io/jokul/components/checkbox/)
+# [`@fremtind/jkl-checkbox-react`](https://fremtind.github.io/jokul/checkbox-react/documentation/Checkbox/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/checkbox/) er beskrevet i `@fremtind/jkl-checkbox` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/checkbox-react/documentation/Checkbox/).
 
 ## Kom i gang
 
@@ -22,7 +22,7 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 
 ### Bruk
 
-Som regel vil du bruke `Checkbox`-komponenten sammen med `FieldGroup` for å skape en forståelse av konteksten rundt valgene. Se [dokumentasjonen i den pakken](https://fremtind.github.io/jokul/components/fieldgroup/) for nærmere forklaring av funksjonaliteten.
+Som regel vil du bruke `Checkbox`-komponenten sammen med `FieldGroup` for å skape en forståelse av konteksten rundt valgene. Se [dokumentasjonen i den pakken](https://fremtind.github.io/jokul/field-group-react/documentation/FieldGroup/) for nærmere forklaring av funksjonaliteten.
 
 `Checkbox` tar et `name`, som kan være det samme for flere bokser, og en `value` som er unik blandt avmerkingsbokser som deler samme `name`:
 

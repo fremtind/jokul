@@ -1,6 +1,7 @@
 ---
 title: bildebruk
 path: /profil/bildebruk
+order: 8
 ---
 
 # Bildebruk

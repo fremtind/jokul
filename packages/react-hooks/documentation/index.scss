@@ -1,3 +1,8 @@
+@import "~@fremtind/jkl-core/variables/_colors";
+@import "~@fremtind/jkl-core/variables/_spacing";
+@import "~@fremtind/jkl-core/variables/_font-size";
+@import "~@fremtind/jkl-core/_functions";
+
 .lorem-text-wrapper {
     transition: 200ms height ease-in-out;
 
@@ -7,6 +12,73 @@
 }
 
 .lorem-text {
+    @include body-paragraph;
+    margin-top: $layout-spacing--small;
     padding: 1rem;
-    background-color: #509ce6;
+    background-color: $varde;
+    border-radius: rem(4px);
+}
+
+.jlk-intersection-example {
+    transition: 200ms background-color ease-in-out;
+    border-radius: rem(4px);
+}
+.jlk-intersection-example--visible {
+    background-color: $varde;
+}
+
+.jlk-intersection-example--not-visible {
+    background-color: $blomst;
+}
+
+.hooks-example {
+    position: relative;
+    background-color: #f8f8f8;
+    box-shadow: inset 0 0 0 rem(1px) #b8b8b8;
+    padding: $layout-spacing--small;
+    user-select: none;
+
+    &:before {
+        content: "Eksempel";
+        display: block;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        @include h5-heading;
+        margin-bottom: $component-spacing--large;
+    }
+    // Add padding equaling height of title + layout-spacing--medium
+    margin-top: $component-spacing--large + rem(28px) + $layout-spacing--medium;
+
+    & > &__text {
+        @include body-paragraph;
+        &:not(:last-child) {
+            margin-bottom: $layout-spacing--small;
+        }
+    }
+    & > &__header {
+        @include h5-heading;
+        margin-bottom: $component-spacing--large;
+    }
+    & > &__list {
+        @include body-paragraph;
+        margin: 0;
+        margin-top: $layout-spacing--small;
+    }
+    & > &__spaced-item {
+        margin-top: $layout-spacing--small;
+    }
+}
+
+.focus-outside-example {
+    & > &__card {
+        box-sizing: border-box;
+        width: 100%;
+        background-color: $helhvit;
+        @include body-paragraph;
+
+        & > * + * {
+            margin-top: $layout-spacing--small;
+        }
+    }
 }

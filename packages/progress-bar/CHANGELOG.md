@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-progress-bar@1.1.0...@fremtind/jkl-progress-bar@1.1.1) (2020-01-16)
+
+**Note:** Version bump only for package @fremtind/jkl-progress-bar
+
+
+
+
+
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-progress-bar@1.0.4...@fremtind/jkl-progress-bar@1.1.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+
+
+### Features
+
+* update components to use the new notification colors ([8bd78ff](https://github.com/fremtind/jokul/commit/8bd78ff371cf382c1c7fabfe1deab5e199e5750a))
+
+
+
+
+
 ## 1.0.13 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-progress-bar

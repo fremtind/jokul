@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@2.0.0...@fremtind/jkl-typography-react@2.0.1) (2020-01-16)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@1.0.4...@fremtind/jkl-typography-react@2.0.0) (2020-01-16)
+
+
+### Bug Fixes
+
+* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+* fix parapgraphs rendering as wrong element ([91f70f6](https://github.com/fremtind/jokul/commit/91f70f6aed4f6491d827e80249d301c872d6bdd9))
+
+
+### Features
+
+* **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+* shorten typography paragraph components ([77e3d76](https://github.com/fremtind/jokul/commit/77e3d7693c1ea420f267a52ec4ad816afdb49797))
+* unify naming spanning typography-react, mixins, classes ([f90174a](https://github.com/fremtind/jokul/commit/f90174a638ebe5438fab72770f8d089fecd7b986)), closes [#592](https://github.com/fremtind/jokul/issues/592)
+
+
+### BREAKING CHANGES
+
+* paragraphs in typography-react are simplified, removing the suffix "Paragraph"
+* changes to naming of certain components, paragraphs, headings and classes regarding typography
+
+
+
+
+
 ## 1.0.13 (2020-01-10)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react

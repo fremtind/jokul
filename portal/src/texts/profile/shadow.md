@@ -1,6 +1,7 @@
 ---
 title: skygger
 path: /profil/skygger
+order: 10
 ---
 
 # Skygger

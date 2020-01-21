@@ -1,6 +1,7 @@
 ---
 title: designprinsipper
 path: /profil/designprinsipper
+order: 1
 ---
 
 # Vår profil

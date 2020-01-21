@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-hamburger-react`](https://fremtind.github.io/jokul/components/hamburger/)
+# [`@fremtind/jkl-hamburger-react`](https://fremtind.github.io/jokul/hamburger-react/documentation/Hamburger/)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/components/hamburger/) er beskrevet i `@fremtind/jkl-hamburger` stil-pakken.
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/hamburger-react/documentation/Hamburger/).
 
 ## Kom i gang
 

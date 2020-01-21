@@ -5,6 +5,7 @@ interface GeneralDocPage {
         frontmatter: {
             path: string;
             title: string;
+            order: string;
         };
     };
 }
@@ -30,6 +31,7 @@ interface ComponentDocPages {
 export interface ComponentLink {
     title: string;
     path: string;
+    order: string;
 }
 
 const by = (regex: RegExp) => (edge: GeneralDocPage) =>
@@ -40,19 +42,20 @@ const edgeToPage = (edge: GeneralDocPage) => ({
 });
 
 const profile = (rawPages: GeneralDocPages) => ({
-    pages: rawPages.edges.filter(by(/^\/profil/)).map(edgeToPage),
-    sectionTitle: "Profilelementer",
+    pages: rawPages.edges
+        .filter(by(/^\/profil/))
+        .sort((a, b) => parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order))
+        .map(edgeToPage),
+    sectionTitle: "Profilen vår",
     matchingLocation: (location: WindowLocation) => location.pathname.includes("profil"),
 });
 const developer = (rawPages: GeneralDocPages) => ({
-    pages: rawPages.edges.filter(by(/^\/utvikler/)).map(edgeToPage),
-    sectionTitle: "For utviklere",
-    matchingLocation: (location: WindowLocation) => location.pathname.includes("utvikler"),
-});
-const designer = (rawPages: GeneralDocPages) => ({
-    pages: rawPages.edges.filter(by(/^\/designer/)).map(edgeToPage),
-    sectionTitle: "For designere",
-    matchingLocation: (location: WindowLocation) => location.pathname.includes("designer"),
+    pages: rawPages.edges
+        .filter(by(/^\/komigang/))
+        .sort((a, b) => parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order))
+        .map(edgeToPage),
+    sectionTitle: "Kom i gang",
+    matchingLocation: (location: WindowLocation) => location.pathname.includes("komigang"),
 });
 const components = (rawComponents: ComponentDocPages) => ({
     pages: rawComponents.edges.map((edge: ComponentDocPage) => ({
@@ -60,35 +63,13 @@ const components = (rawComponents: ComponentDocPages) => ({
         path: edge.node.path,
     })),
     sectionTitle: "Komponenter",
-    matchingLocation: (location: WindowLocation) => location.pathname.includes("-react/documentation"),
+    matchingLocation: (location: WindowLocation) => location.pathname.includes("/documentation"),
 });
-
-const makeLink = (title: string, page: string, section?: string) => ({
-    title,
-    page,
-    section,
-});
-
-const makeExampleLink = (title: string, page: string) => makeLink(title, page, "patterns");
-
-export const exampleLinks = [
-    makeExampleLink("Kjøpsflyt", "purchaseFlow"),
-    makeExampleLink("Footer", "footer"),
-    makeExampleLink("Header", "header"),
-];
-
-const examples = {
-    pages: exampleLinks.map(({ title, section, page }) => ({ title, path: `/${section}/${page}` })),
-    sectionTitle: "Eksempler",
-    matchingLocation: (location: WindowLocation) => location.pathname.includes("patterns"),
-};
 
 export const mainMenu = (rawPages: GeneralDocPages, rawComponents: ComponentDocPages) => [
     profile(rawPages),
-    designer(rawPages),
-    developer(rawPages),
     components(rawComponents),
-    examples,
+    developer(rawPages),
 ];
 
 export const staticLinks = [
@@ -98,18 +79,19 @@ export const staticLinks = [
         className: "portal-menu__link--github",
     },
     {
-        href: "https://github.com/fremtind/jokul/issues/new?assignees=&labels=bug&template=bug_report.md&title=",
+        href:
+            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=🐝+bug&template=feilmelding.md&title=Feil%3A+",
         linkText: "Rapporter feil",
         className: "portal-menu__link--github",
     },
     {
         href:
-            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=",
+            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=✨+enhancement&template=funksjonalitets-nske.md&title=",
         linkText: "Forslag ny funksjon",
         className: "portal-menu__link--github",
     },
     {
-        href: "https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-components",
+        href: "https://www.figma.com/file/kjIQcfLr1wYdFGnUmD4rF4/J%C3%B8kul-eksempler?node-id=1%3A9",
         linkText: "Designbibliotek",
         className: "portal-menu__link--figma",
     },
