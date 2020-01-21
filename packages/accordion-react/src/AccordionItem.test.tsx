@@ -1,6 +1,7 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { AccordionItem } from ".";
+import { axe, toHaveNoViolations } from "jest-axe";
 
 afterEach(cleanup);
 
@@ -40,5 +41,20 @@ describe("AccordionItem", () => {
         const wrapper = getByTestId("jkl-accordion-item__content-wrapper");
 
         expect(wrapper).toHaveProperty("hidden", false);
+    });
+});
+
+expect.extend(toHaveNoViolations);
+
+describe("a11y", () => {
+    it("accordion-item should be a11y compliant", async () => {
+        const { container } = render(
+            <AccordionItem title="Hello" startExpanded>
+                Something
+            </AccordionItem>,
+        );
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
