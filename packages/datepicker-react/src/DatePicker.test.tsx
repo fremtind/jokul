@@ -2,7 +2,7 @@ import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { DatePicker } from ".";
 import { formatDate, isSameDay } from "./DatePicker";
-import { axe, toHaveNoViolations } from "jest-axe";
+import { axe } from "jest-axe";
 
 beforeEach(cleanup);
 
@@ -58,8 +58,6 @@ describe("isSameDay", () => {
         expect(isSameDay(date1, date2)).toBeFalsy();
     });
 });
-
-expect.extend(toHaveNoViolations);
 
 describe("a11y", () => {
     it("default datepicker should be a11y compliant", async () => {
