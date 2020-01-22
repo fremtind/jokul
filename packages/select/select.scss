@@ -49,25 +49,6 @@ $chevron-side-padding: (2 * $component-spacing--small);
     width: $select-width;
     position: relative;
 
-    &--inline {
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    @include compact-mode {
-        & .jkl-select__value {
-            @include body-paragraph--mobile;
-            padding-right: $chevron-size--compact + $chevron-side-padding;
-        }
-        & .jkl-select__option {
-            @include body-paragraph--mobile;
-            min-height: rem(40px);
-        }
-        & .jkl-select__chevron {
-            @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
-        }
-    }
-
     & *:focus {
         // Remove default focus outline for all elements within
         outline: none;
@@ -93,7 +74,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
     }
 
     &__value {
-        @include body-paragraph;
+        @include body-paragraph--desktop;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -117,23 +98,6 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
         &:active {
             color: currentColor; // Safari text will blink on click without this
-        }
-    }
-
-    &--no-value {
-        .jkl-select__value {
-            color: currentColor;
-            font-weight: normal;
-        }
-    }
-
-    &--open {
-        .jkl-select__arrow {
-            transform: rotate(180deg);
-        }
-
-        .jkl-select__chevron {
-            transform: rotate((-45 + 180) * 1deg); // default orientation is pointing down
         }
     }
 
@@ -182,7 +146,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
     }
 
     &__option {
-        @include body-paragraph;
+        @include body-paragraph--desktop;
         border: 0; // removes native styling
         width: 100%;
         background-color: inherit;
@@ -205,17 +169,50 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
     &__chevron {
         @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
-        @include small-device {
-            @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
-        }
         position: absolute;
         right: 0;
         pointer-events: none;
     }
 
+    &--inline {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &--no-value {
+        .jkl-select__value {
+            color: currentColor;
+            font-weight: normal;
+        }
+    }
+
+    &--open {
+        .jkl-select__arrow {
+            transform: rotate(180deg);
+        }
+
+        .jkl-select__chevron {
+            transform: rotate((-45 + 180) * 1deg); // default orientation is pointing down
+        }
+    }
+
     &--invalid {
         .jkl-select__value {
             @include underline-color($error-color, $error-color);
+        }
+    }
+
+    @include compact-mode {
+        & .jkl-select__value {
+            @include body-paragraph--mobile;
+            padding-right: $chevron-size--compact + $chevron-side-padding;
+        }
+        & .jkl-select__option {
+            @include body-paragraph--mobile;
+            min-height: rem(40px);
+        }
+        & .jkl-select__chevron {
+            @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
         }
     }
 }

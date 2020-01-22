@@ -11,48 +11,14 @@ $checkbox-background-color--error: $error-color;
 $checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
 .jkl-checkbox {
-    @include body-paragraph;
     @include reset-outline;
+    @include body-paragraph--desktop;
     display: flex;
     align-items: center;
     cursor: pointer;
 
     & + & {
         margin-top: $component-spacing--large;
-    }
-
-    &--inline {
-        display: inline-flex;
-        & + & {
-            margin-top: unset;
-            margin-left: $component-spacing--xl;
-        }
-    }
-
-    @include compact-mode {
-        @include body-paragraph--mobile;
-        .jkl-checkbox__check-mark {
-            height: $checkbox-size--compact;
-            width: $checkbox-size--compact;
-        }
-    }
-
-    &--error {
-        .jkl-checkbox__check-mark {
-            border-color: $checkbox-background-color--error;
-        }
-
-        .jkl-checkbox__input:checked + .jkl-checkbox__check-mark,
-        .jkl-checkbox__input:active + .jkl-checkbox__check-mark {
-            background-color: $checkbox-background-color--error;
-        }
-    }
-
-    @include small-device {
-        .jkl-checkbox__check-mark {
-            height: $checkbox-size--compact;
-            width: $checkbox-size--compact;
-        }
     }
 
     &:hover > .jkl-checkbox__check-mark {
@@ -62,26 +28,6 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
     &:active > .jkl-checkbox__check-mark {
         transform: scale(0.9);
         background-color: $checkbox-background-color--checked;
-    }
-
-    &__input {
-        /* Hide native checkbox */
-        opacity: 0;
-        position: absolute;
-
-        /* Handle fake checkmark based on checked state */
-        &:checked + .jkl-checkbox__check-mark {
-            background-color: $checkbox-background-color--checked;
-        }
-
-        &:checked + .jkl-checkbox__check-mark:after {
-            animation: jkl-checkbox-checked-animation 150ms ease-in-out 0ms forwards;
-            content: " ";
-        }
-
-        html:not([data-mousenavigation]) &:focus + .jkl-checkbox__check-mark {
-            box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $focus-color;
-        }
     }
 
     &__check-mark {
@@ -115,6 +61,61 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
             border: solid rem(2px) $checkbox-check-mark-color;
             border-left-width: 0;
             border-top-width: 0;
+        }
+    }
+
+    &__input {
+        // Hide native checkbox
+        opacity: 0;
+        position: absolute;
+
+        // Handle fake checkmark based on checked state
+        &:checked + .jkl-checkbox__check-mark {
+            background-color: $checkbox-background-color--checked;
+        }
+
+        &:checked + .jkl-checkbox__check-mark:after {
+            animation: jkl-checkbox-checked-animation 150ms ease-in-out 0ms forwards;
+            content: " ";
+        }
+
+        html:not([data-mousenavigation]) &:focus + .jkl-checkbox__check-mark {
+            box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $focus-color;
+        }
+    }
+
+    &--inline {
+        display: inline-flex;
+        & + & {
+            margin-top: unset;
+            margin-left: $component-spacing--xl;
+        }
+    }
+
+    &--error {
+        .jkl-checkbox__check-mark {
+            border-color: $checkbox-background-color--error;
+        }
+
+        .jkl-checkbox__input:checked + .jkl-checkbox__check-mark,
+        .jkl-checkbox__input:active + .jkl-checkbox__check-mark {
+            background-color: $checkbox-background-color--error;
+        }
+    }
+
+    @include compact-mode {
+        @include body-paragraph--mobile;
+        .jkl-checkbox__check-mark {
+            height: $checkbox-size--compact;
+            width: $checkbox-size--compact;
+        }
+    }
+
+    @include small-device {
+        @include body-paragraph--mobile;
+        .jkl-checkbox__check-mark {
+            height: $checkbox-size--compact;
+            width: $checkbox-size--compact;
         }
     }
 }

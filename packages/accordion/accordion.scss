@@ -56,7 +56,7 @@
     }
 
     &__title-text {
-        @include body-paragraph;
+        @include body-paragraph--desktop;
         display: block;
         padding-right: 2rem;
     }
@@ -75,7 +75,7 @@
     }
 
     &__content {
-        @include lead-paragraph;
+        @include lead-paragraph--desktop;
         height: auto;
         padding: $layout-spacing--xl $component-spacing--large;
         color: inherit; // Make content same color as rest of page text
