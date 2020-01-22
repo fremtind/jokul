@@ -26,27 +26,14 @@ $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
 .jkl-button {
+    @include reset-outline;
     display: inline-flex;
     justify-content: center;
-    @include body-paragraph;
-    @include reset-outline;
+    @include body-paragraph--desktop;
     height: $button-height--normal;
     min-width: $button-min-width--normal;
     line-height: $button-height--normal;
     cursor: pointer;
-
-    @include small-device {
-        height: $button-height--compact;
-        min-width: $button-min-width--compact;
-        line-height: $button-height--compact;
-    }
-
-    @include compact-mode {
-        @include body-paragraph--mobile;
-        height: $button-height--compact;
-        min-width: $button-min-width--compact;
-        line-height: $button-height--compact;
-    }
 
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
@@ -139,5 +126,19 @@ $hover-elevation-distance: -0.25rem;
         &.jkl-button--tertiary {
             color: $button-text-color--primary;
         }
+    }
+
+    @include small-device {
+        @include body-paragraph--mobile;
+        height: $button-height--compact;
+        min-width: $button-min-width--compact;
+        line-height: $button-height--compact;
+    }
+
+    @include compact-mode {
+        @include body-paragraph--mobile;
+        height: $button-height--compact;
+        min-width: $button-min-width--compact;
+        line-height: $button-height--compact;
     }
 }
