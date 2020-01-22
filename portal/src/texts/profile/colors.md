@@ -79,7 +79,7 @@ Brukes til å vise at noe er vellykket, for eksempel at brukeren er ferdig med e
 - **Info #0073E3**
 Brukes til informasjonsmeldinger og focus states.
 
-- **Advarsel #D73704** 
+- **Advarsel #FFA647** 
 Brukes til advarsler.
 
 - **Feil #DD3500** 
