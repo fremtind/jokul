@@ -1,85 +1,143 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { Checkbox } from ".";
+import { axe } from "jest-axe";
 
 afterEach(cleanup);
 
-it("should be checked after clicking the label", () => {
-    const { getByText, getByTestId } = render(
-        <Checkbox value="iamgroot" name="iamgroot">
-            I am groot!
-        </Checkbox>,
-    );
-
-    const label = getByText("I am groot!");
-    const input = getByTestId("jkl-checkbox-input");
-
-    expect(input).toHaveProperty("checked", false);
-
-    label.click();
-
-    expect(input).toHaveProperty("checked", true);
-});
-
-it("should be checked after clicking the input ", function() {
-    const { getByTestId } = render(
-        <Checkbox value="iamgroot" name="iamgroot">
-            I am groot!
-        </Checkbox>,
-    );
-
-    const input = getByTestId("jkl-checkbox-input");
-
-    expect(input).toHaveProperty("checked", false);
-
-    input.click();
-
-    expect(input).toHaveProperty("checked", true);
-});
-
-it("should be checked if checked is true", function() {
-    const { getByTestId } = render(
-        <Checkbox value="iamgroot" name="iamgroot" checked={true} onChange={() => {}}>
-            I am groot!
-        </Checkbox>,
-    );
-
-    const input = getByTestId("jkl-checkbox-input");
-
-    expect(input).toHaveProperty("checked", true);
-});
-
-it("should be unchecked if checked is true and input is clicked", function() {
-    const TestCheckbox = () => {
-        const [checked, toggle] = React.useState(true);
-        return (
-            <Checkbox value="iamgroot" name="iamgroot" checked={checked} onChange={() => toggle(!checked)}>
+describe("checkbox", () => {
+    it("should be checked after clicking the label", () => {
+        const { getByText, getByTestId } = render(
+            <Checkbox value="iamgroot" name="iamgroot">
                 I am groot!
-            </Checkbox>
+            </Checkbox>,
         );
-    };
 
-    const { getByTestId } = render(<TestCheckbox />);
+        const label = getByText("I am groot!");
+        const input = getByTestId("jkl-checkbox-input");
 
-    const input = getByTestId("jkl-checkbox-input");
+        expect(input).toHaveProperty("checked", false);
 
-    expect(input).toHaveProperty("checked", true);
+        label.click();
 
-    input.click();
+        expect(input).toHaveProperty("checked", true);
+    });
 
-    expect(input).toHaveProperty("checked", false);
+    it("should be checked after clicking the input ", function() {
+        const { getByTestId } = render(
+            <Checkbox value="iamgroot" name="iamgroot">
+                I am groot!
+            </Checkbox>,
+        );
+
+        const input = getByTestId("jkl-checkbox-input");
+
+        expect(input).toHaveProperty("checked", false);
+
+        input.click();
+
+        expect(input).toHaveProperty("checked", true);
+    });
+
+    it("should be checked if checked is true", function() {
+        const { getByTestId } = render(
+            <Checkbox value="iamgroot" name="iamgroot" checked={true} onChange={() => {}}>
+                I am groot!
+            </Checkbox>,
+        );
+
+        const input = getByTestId("jkl-checkbox-input");
+
+        expect(input).toHaveProperty("checked", true);
+    });
+
+    it("should be unchecked if checked is true and input is clicked", function() {
+        const TestCheckbox = () => {
+            const [checked, toggle] = React.useState(true);
+            return (
+                <Checkbox value="iamgroot" name="iamgroot" checked={checked} onChange={() => toggle(!checked)}>
+                    I am groot!
+                </Checkbox>
+            );
+        };
+
+        const { getByTestId } = render(<TestCheckbox />);
+
+        const input = getByTestId("jkl-checkbox-input");
+
+        expect(input).toHaveProperty("checked", true);
+
+        input.click();
+
+        expect(input).toHaveProperty("checked", false);
+    });
+
+    it("should call the passed onChange method when clicked", () => {
+        const onChange = jest.fn();
+        const { getByLabelText } = render(
+            <Checkbox value="switchme" name="switchme" onChange={onChange}>
+                Switch me!
+            </Checkbox>,
+        );
+
+        const input = getByLabelText("Switch me!");
+        input.click();
+
+        expect(onChange).toHaveBeenCalled();
+    });
 });
 
-it("should call the passed onChange method when clicked", () => {
-    const onChange = jest.fn();
-    const { getByLabelText } = render(
-        <Checkbox value="switchme" name="switchme" onChange={onChange}>
-            Switch me!
-        </Checkbox>,
-    );
+describe("a11y", () => {
+    test("checkbox should be a11y compliant", async () => {
+        const { container } = render(
+            <Checkbox name="box" value="checkbox">
+                I am special
+            </Checkbox>,
+        );
+        const results = await axe(container);
 
-    const input = getByLabelText("Switch me!");
-    input.click();
+        expect(results).toHaveNoViolations();
+    });
 
-    expect(onChange).toHaveBeenCalled();
+    test("checked checkbox should be a11y compliant", async () => {
+        const { container } = render(
+            <Checkbox name="box" value="static" checked onChange={() => {}}>
+                I am special
+            </Checkbox>,
+        );
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("invalid checkbox should be a11y compliant", async () => {
+        const { container } = render(
+            <Checkbox name="box" value="static" invalid>
+                I am special
+            </Checkbox>,
+        );
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("inline checkbox should be a11y compliant", async () => {
+        const { container } = render(
+            <>
+                <Checkbox name="box" value="static" inline>
+                    I am special
+                </Checkbox>
+                <Checkbox name="box2" value="static" inline>
+                    I am special
+                </Checkbox>
+            </>,
+        );
+        const results = await axe(container, {
+            rules: {
+                "form-field-multiple-labels": { enabled: false },
+            },
+        });
+
+        expect(results).toHaveNoViolations();
+    });
 });
