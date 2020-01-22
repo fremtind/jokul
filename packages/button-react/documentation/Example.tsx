@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
+import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-core/core.css";
 import "./index.scss";
@@ -8,35 +9,50 @@ function onClick() {
     console.log("Hello!");
 }
 
-const Example = () => (
-    <section className="jkl-spacing--all-3 jkl-button-example">
-        <div className="side-by-side">
-            <pre>
-                <code>{`forceCompact={false}`}</code>
-            </pre>
-            <pre>
-                <code>{`forceCompact={true}`}</code>
-            </pre>
-        </div>
-        <div className="side-by-side">
-            <PrimaryButton onClick={onClick}>PrimaryButton</PrimaryButton>
-            <PrimaryButton forceCompact onClick={onClick}>
+const Example = () => {
+    const [isCompact, setCompact] = useState(false);
+    const toggleCompact = () => setCompact(!isCompact);
+    const [isInverted, setIsInverted] = useState(false);
+    const toggleInverted = () => setIsInverted(!isInverted);
+
+    const exampleClassName = "buttons-example jkl-spacing--top-3 jkl-spacing--bottom-3".concat(
+        isInverted ? " buttons-example--inverted" : "",
+    );
+
+    return (
+        <section className={exampleClassName}>
+            <aside className="buttons-example__controls">
+                <ToggleSwitch onChange={toggleCompact} className="jkl-spacing--bottom-1">
+                    Kompakt variant
+                </ToggleSwitch>
+                <ToggleSwitch onChange={toggleInverted}>Inverterte farger</ToggleSwitch>
+            </aside>
+            <PrimaryButton
+                forceCompact={isCompact}
+                inverted={isInverted}
+                onClick={onClick}
+                className="portal-example-button"
+            >
                 PrimaryButton
             </PrimaryButton>
-        </div>
-        <div className="side-by-side">
-            <SecondaryButton onClick={onClick}>SecondaryButton</SecondaryButton>
-            <SecondaryButton forceCompact onClick={onClick}>
+            <SecondaryButton
+                forceCompact={isCompact}
+                inverted={isInverted}
+                onClick={onClick}
+                className="portal-example-button"
+            >
                 SecondaryButton
             </SecondaryButton>
-        </div>
-        <div className="side-by-side">
-            <TertiaryButton onClick={onClick}>TertiaryButton</TertiaryButton>
-            <TertiaryButton forceCompact onClick={onClick}>
+            <TertiaryButton
+                forceCompact={isCompact}
+                inverted={isInverted}
+                onClick={onClick}
+                className="portal-example-button"
+            >
                 TertiaryButton
             </TertiaryButton>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 export default Example;
