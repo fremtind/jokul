@@ -28,17 +28,6 @@ $line-size: 0.125rem;
         transform: scaleX(0.5);
     }
 
-    &--spin {
-        &.jkl-divider {
-            &::after {
-                transform: scaleX(1);
-            }
-            &::before {
-                transform: rotate($diamond-rotation);
-            }
-        }
-    }
-
     &::before {
         content: " ";
         @include animate-in();
@@ -49,5 +38,16 @@ $line-size: 0.125rem;
         width: $diamond-size;
         height: $diamond-size;
         transform: scale(1.2) rotate(-$diamond-rotation);
+    }
+
+    &--spin {
+        &.jkl-divider {
+            &::after {
+                transform: scaleX(1);
+            }
+            &::before {
+                transform: rotate($diamond-rotation);
+            }
+        }
     }
 }

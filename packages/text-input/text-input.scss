@@ -25,47 +25,8 @@ $icon-size--compact: $font-size-2;
     width: 100%;
     background-color: $input-bg-color;
 
-    &--inline {
-        display: inline-block;
-        width: unset;
-        margin-top: rem(-4px);
-        vertical-align: top;
-
-        .jkl-body & .jkl-text-field__input {
-            padding: 0;
-            text-align: center;
-        }
-    }
-
-    @include compact-mode {
-        & .jkl-text-field__input,
-        & .jkl-text-field__input::placeholder {
-            @include body-paragraph--mobile;
-        }
-        & .jkl-text-field__input {
-            height: $input-height--small-device + $bottom-padding;
-        }
-        & .jkl-text-field__action-icon {
-            width: $icon-size--compact;
-        }
-    }
-
-    @include small-device {
-        & .jkl-text-field__action-icon {
-            width: $icon-size--compact;
-        }
-    }
-
-    &--action {
-        position: relative;
-
-        .jkl-text-field__input {
-            padding-right: $component-spacing--small + $icon-size;
-        }
-    }
-
     &__input {
-        @include body-paragraph;
+        @include body-paragraph--desktop;
         border: none;
         outline: none;
         border-radius: 0;
@@ -74,9 +35,6 @@ $icon-size--compact: $font-size-2;
         box-sizing: border-box;
         width: 100%;
         height: $input-height + $bottom-padding;
-        @include small-device {
-            height: $input-height--small-device + $bottom-padding;
-        }
         padding: 0 0 $bottom-padding;
 
         font-weight: $bold-weight;
@@ -88,7 +46,7 @@ $icon-size--compact: $font-size-2;
         resize: none; // Disable textarea resize
 
         &::placeholder {
-            @include body-paragraph;
+            @include body-paragraph--desktop;
             opacity: 1;
             color: $varm-fjellgra;
         }
@@ -133,6 +91,52 @@ $icon-size--compact: $font-size-2;
     &__input-wrapper {
         display: inline-block;
         position: relative;
+    }
+
+    &--inline {
+        display: inline-block;
+        width: unset;
+        margin-top: rem(-4px);
+        vertical-align: top;
+
+        .jkl-body & .jkl-text-field__input {
+            padding: 0;
+            text-align: center;
+        }
+    }
+
+    &--action {
+        position: relative;
+
+        .jkl-text-field__input {
+            padding-right: $component-spacing--small + $icon-size;
+        }
+    }
+
+    @include compact-mode {
+        & .jkl-text-field__input,
+        & .jkl-text-field__input::placeholder {
+            @include body-paragraph--mobile;
+        }
+        & .jkl-text-field__input {
+            height: $input-height--small-device + $bottom-padding;
+        }
+        & .jkl-text-field__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+
+    @include small-device {
+        .jkl-text-field__input,
+        .jkl-text-field__input::placeholder {
+            @include body-paragraph--mobile;
+        }
+        & .jkl-text-field__input {
+            height: $input-height--small-device + $bottom-padding;
+        }
+        & .jkl-text-field__action-icon {
+            width: $icon-size--compact;
+        }
     }
 }
 

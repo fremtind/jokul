@@ -88,7 +88,7 @@ $inverted-disabled-color: #969696;
     }
 
     &__label {
-        @include body-paragraph;
+        @include body-paragraph--desktop;
         color: currentColor;
         padding-left: $component-spacing--small;
     }
