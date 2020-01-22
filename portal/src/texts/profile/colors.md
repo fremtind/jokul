@@ -5,8 +5,7 @@ order: 3
 ---
 
 # Farger
-
-Farger er en viktig del av Fremtinds identitet. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. Profilen støttes av illustrasjonsfarger som er inspirert av norsk natur.
+Farger er en viktig del av Fremtinds identitet. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. Profilen støttes av illustrasjonsfarger, som er inspirert av norsk natur.
 
 Fargepaletten vår er delt inn i tre grupper: Primærfarger, illustrasjonsfarger og meldingssfarger. Nederst på siden finner du eksempler på hvordan vi vekter fargene og hvordan du kan kombinere dem.
 
@@ -14,23 +13,20 @@ Fargepaletten vår er delt inn i tre grupper: Primærfarger, illustrasjonsfarger
 
 **Illustrasjonsfargene** er forbeholdt illustrasjoner og små detaljer (for eksempel farger i en graf). De bruker vi ikke på store flater.
 
-**Meldingsfarger** tar vi i bruk på digitale flater, når vi trenger å gi informasjon om systemets tilstand. De brukes også når vi skal oppfylle krav om tilgjengelighet på en god måte (for eksempel røde feilmeldinger mot lys bakgrunn).
+**Meldingsfargene** bruker vi på digitale flater, for eksempel når vi trenger å gi informasjon fra systemet. De bruker vi  også når vi skal oppfylle krav om tilgjengelighet på en god måte (for eksempel røde feilmeldinger mot lys bakgrunn).
 
-### Farger i digitale løsninger
-
+## Farger i digitale løsninger
 I digitale løsninger bruker vi primærfargene og meldingssfargene. Illustrasjonsfargene reserverer vi til illustrasjoner og grafikk.
 
-### Tilgjengelighet
-
-Tilgjengelighet er det viktigste å tenke på når vi bruker fargene i digitale løsninger. Vi skal alltid følge kravene til universell utforming. For farger betyr det [AA-kravet for kontrast](lenke). Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin bakgrunn, når det har betydning for å forstå funksjonaliteten
+## Tilgjengelighet
+Tilgjengelighet er det viktigste å tenke på når vi bruker fargene i digitale løsninger. Vi skal alltid følge kravene til universell utforming. For farger betyr det [AA-kravet for kontrast](lenke). Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin egen bakgrunn, når det har betydning for å forstå funksjonaliteten.
 I tillegg til å tenke på tekst mot knappebakgrunnen, må vi for eksempel også tenke på knappebakgrunnen mot sidens bakgrunnsfarge.
 
-Tekstfargene våre er helhvit eller svart. Se på fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet .
+Tekstfargene våre er helhvit eller svart. Se på fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
 
-### Primærfarger
-
+## Primærfarger
 -   **Svart #000000**
-    Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nært bakgrunner som har fargen varde.
+    Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær bakgrunner med fargen varde.
 
 -   **Hvit #FFFFFF**
     Hvit er også en av Fremtinds profilbærende farger. Den bruker vi som bakgrunnsfarge, og som tekstfarge på mørke flater. I tillegg er den _fokusfarge_, for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel et felt i et skjema.
@@ -45,12 +41,12 @@ Tekstfargene våre er helhvit eller svart. Se på fargebeskrivelsene for å finn
     Varm fjellgrå er en mellomtone i gråskalaen. Vi kan bruke den på mindre flater og elementer, for å bryte opp layouten. På denne fargen kan vi bruke hvit tekst.
 
 -   **Himmelgrå #F0F0F0**
-    Himmelgrå har samme bruksområde som varm fjellgrå, og vi bruker den med svart tekst.
+    Himmelgrå har samme bruksområde som varm fjellgrå, bortsett fra at vi bruker den med svart tekst.
 
 -   **Snøhvit #FAFAFA**
-    Snøhvit er en hvitfarge, som vi helst bare bruker som bakgrunnsfarge eller på kort. For å få god kontrast, fungerer den best med matt svart eller mørkere som kontrastfarge.
+    Snøhvit er en hvitfarge som vi helst bare bruker som bakgrunnsfarge eller på kort. For å få god kontrast, fungerer den best med matt svart eller mørkere, som kontrastfarge.
 
-### Illustrasjonsfarger
+## Illustrasjonsfarger
 
 -   **Sand #DCB28C**
 
@@ -64,21 +60,21 @@ Tekstfargene våre er helhvit eller svart. Se på fargebeskrivelsene for å finn
 
 -   **Hav #0A3166**
 
-### Meldingsfarger
+## Meldingsfarger
 
-Vi bruker fargene suksess, info, advarsel og feil til å gi informasjon om systemets tilstand. Vi skal bare bruke disse fargene til dette formålet, og ikke i illustrasjoner eller grafikk.
+Vi bruker fargene Suksess, Info, Advarsel og Feil til å gi informasjon om systemets tilstand. Vi skal bare bruke disse fargene til dette formålet, og ikke i illustrasjoner eller grafikk.
 
 -   **Suksess #2F8551**
-    Brukes til å vise at noe er vellykket, for eksempel at brukeren er ferdig med en handling.
+    En grønnfarge som vi bruker til å vise at en handling er vellykket, for eksempel at brukeren er ferdig med noe.
 
 -   **Info #0073E3**
-    Brukes til informasjonsmeldinger og focus states.
+    Denne blåfargen bruker vi til informasjonsmeldinger og fokustilstander.
 
 -   **Advarsel #FFA647**
-    Brukes til advarsler.
+    Denne gulfargen er til advarsler. 
 
 -   **Feil #DD3500**
-    Brukes til varsler eller feil.
+    En rødfarge som vi bruker til feilmeldinger eller andre viktige varsler.
 
 ## Eksempler
 
