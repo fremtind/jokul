@@ -1,7 +1,7 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
-import { axe, toHaveNoViolations } from "jest-axe";
+import { axe } from "jest-axe";
 
 afterEach(cleanup);
 
@@ -52,11 +52,42 @@ describe("Button", () => {
     });
 });
 
-expect.extend(toHaveNoViolations);
-
 describe("a11y", () => {
     test("button should be a11y compliant", async () => {
         const { container } = render(<PrimaryButton onClick={() => {}}>Primary</PrimaryButton>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("button should be a11y compliant", async () => {
+        const { container } = render(<SecondaryButton onClick={() => {}}>Secondary</SecondaryButton>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("button should be a11y compliant", async () => {
+        const { container } = render(<TertiaryButton onClick={() => {}}>Tertiary</TertiaryButton>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("compact buttons should be a11y compliant", async () => {
+        const { container } = render(
+            <>
+                <PrimaryButton forceCompact onClick={() => {}}>
+                    Primary
+                </PrimaryButton>
+                <SecondaryButton forceCompact onClick={() => {}}>
+                    Secondary
+                </SecondaryButton>
+                <TertiaryButton forceCompact onClick={() => {}}>
+                    Tertiary
+                </TertiaryButton>
+            </>,
+        );
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
