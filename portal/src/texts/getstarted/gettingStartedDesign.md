@@ -14,6 +14,6 @@ Før du starter å designe løsninger for Fremtind, bør du gjøre deg kjent med
 
 Er du designer og har spørsmål om designsystemet? Ta kontakt med designsystemteamet direkte, eller møt opp på Designsystemforum kl 14 på tirsdager, i Kreativ sone.
 
--   Hvis du ser noe i designsystemet du syntes er rart eller feil, kan du opprette issue i GitHub.
+-   Hvis du ser noe i designsystemet du syntes er rart eller feil, kan du opprette et issue i GitHub.
 
--   Har du behov for tilganger, kan du kontakte fremtind.designsystem@fremtind.no .
+-   Har du behov for tilganger, kan du kontakte fremtind.designsystem@fremtind.no.
