@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import "@fremtind/jkl-toggle-switch/toggle-switch.css";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-core/core.css";
 import "./index.scss";
