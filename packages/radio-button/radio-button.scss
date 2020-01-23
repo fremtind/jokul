@@ -51,48 +51,6 @@ $radio-button-color: $svart;
         margin-top: $radio-button-vertical-spacing;
     }
 
-    &--inline {
-        display: inline-flex;
-        & + & {
-            margin-top: unset;
-            margin-left: $component-spacing--xl;
-        }
-    }
-
-    @include compact-mode {
-        .jkl-radio-button__dot:before {
-            height: $radio-button-size--compact;
-            width: $radio-button-size--compact;
-        }
-        .jkl-radio-button__dot:after {
-            left: $radio-button-dot-padding--compact;
-            top: $radio-button-dot-padding--compact;
-            height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-            width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-        }
-
-        &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
-            margin-top: $radio-button-vertical-spacing--compact;
-        }
-    }
-
-    @include small-device {
-        .jkl-radio-button__dot:before {
-            height: $radio-button-size--compact;
-            width: $radio-button-size--compact;
-        }
-        .jkl-radio-button__dot:after {
-            left: $radio-button-dot-padding--compact;
-            top: $radio-button-dot-padding--compact;
-            height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-            width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-        }
-
-        &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
-            margin-top: $radio-button-vertical-spacing--compact;
-        }
-    }
-
     &__input {
         /* hide default radio button */
         position: absolute;
@@ -168,7 +126,15 @@ $radio-button-color: $svart;
     }
 
     &__label {
-        @include body-paragraph;
+        @include body-paragraph--desktop;
+    }
+
+    &--inline {
+        display: inline-flex;
+        & + & {
+            margin-top: unset;
+            margin-left: $component-spacing--xl;
+        }
     }
 
     &--error {
@@ -179,6 +145,46 @@ $radio-button-color: $svart;
             &:after {
                 background-color: $error-color;
             }
+        }
+    }
+
+    @include compact-mode {
+        .jkl-radio-button__label {
+            @include body-paragraph--mobile;
+        }
+        .jkl-radio-button__dot:before {
+            height: $radio-button-size--compact;
+            width: $radio-button-size--compact;
+        }
+        .jkl-radio-button__dot:after {
+            left: $radio-button-dot-padding--compact;
+            top: $radio-button-dot-padding--compact;
+            height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+            width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+        }
+
+        &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
+            margin-top: $radio-button-vertical-spacing--compact;
+        }
+    }
+
+    @include small-device {
+        .jkl-radio-button__label {
+            @include body-paragraph--mobile;
+        }
+        .jkl-radio-button__dot:before {
+            height: $radio-button-size--compact;
+            width: $radio-button-size--compact;
+        }
+        .jkl-radio-button__dot:after {
+            left: $radio-button-dot-padding--compact;
+            top: $radio-button-dot-padding--compact;
+            height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+            width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+        }
+
+        &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
+            margin-top: $radio-button-vertical-spacing--compact;
         }
     }
 }

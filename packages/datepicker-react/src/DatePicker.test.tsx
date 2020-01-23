@@ -2,6 +2,7 @@ import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { DatePicker } from ".";
 import { formatDate, isSameDay } from "./DatePicker";
+import { axe } from "jest-axe";
 
 beforeEach(cleanup);
 
@@ -55,5 +56,25 @@ describe("isSameDay", () => {
         const date2 = new Date("2001-10-14");
 
         expect(isSameDay(date1, date2)).toBeFalsy();
+    });
+});
+
+describe("a11y", () => {
+    it("default datepicker should be a11y compliant", async () => {
+        const { container } = render(<DatePicker initialShow />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    it("extended datepicker should be a11y compliant", async () => {
+        const { container } = render(<DatePicker extended initialShow />);
+        const results = await axe(container, {
+            rules: {
+                "form-field-multiple-labels": { enabled: false },
+            },
+        });
+
+        expect(results).toHaveNoViolations();
     });
 });

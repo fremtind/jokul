@@ -1,6 +1,7 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { FieldGroup } from "./FieldGroup";
+import { axe } from "jest-axe";
 
 afterEach(cleanup);
 
@@ -27,5 +28,21 @@ describe("FieldGroup", () => {
 
         expect(queryByText("Helpful text")).not.toBeInTheDocument;
         expect(queryByText("Helpful suggestion")).toBeInTheDocument;
+    });
+});
+
+describe("a11y", () => {
+    it("field group should be a11y compliant", async () => {
+        const { container } = render(<FieldGroup legend="hello"></FieldGroup>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    it("compact field group should be a11y compliant", async () => {
+        const { container } = render(<FieldGroup legend="hello" forceCompact></FieldGroup>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });

@@ -26,27 +26,14 @@ $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
 .jkl-button {
+    @include reset-outline;
     display: inline-flex;
     justify-content: center;
-    @include body-paragraph;
-    @include reset-outline;
+    @include body-paragraph--desktop;
     height: $button-height--normal;
     min-width: $button-min-width--normal;
     line-height: $button-height--normal;
     cursor: pointer;
-
-    @include small-device {
-        height: $button-height--compact;
-        min-width: $button-min-width--compact;
-        line-height: $button-height--compact;
-    }
-
-    @include compact-mode {
-        @include body-paragraph--mobile;
-        height: $button-height--compact;
-        min-width: $button-min-width--compact;
-        line-height: $button-height--compact;
-    }
 
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
@@ -80,7 +67,7 @@ $hover-elevation-distance: -0.25rem;
 
     &--primary,
     &--secondary {
-        border: solid $button-border-width currentColor;
+        border: solid $button-border-width $button-border-color;
         border-radius: 999px;
         padding: 0 $button-padding;
 
@@ -121,5 +108,37 @@ $hover-elevation-distance: -0.25rem;
         html:not([data-mousenavigation]) &:focus {
             border-bottom-color: $focus-color;
         }
+    }
+
+    &--inverted {
+        &.jkl-button--primary {
+            background-color: $button-bg-color;
+            color: $button-text-color;
+            border-color: $button-bg-color;
+        }
+
+        &.jkl-button--secondary {
+            background-color: $button-bg-color--primary;
+            color: $button-text-color--primary;
+            border-color: $button-text-color--primary;
+        }
+
+        &.jkl-button--tertiary {
+            color: $button-text-color--primary;
+        }
+    }
+
+    @include small-device {
+        @include body-paragraph--mobile;
+        height: $button-height--compact;
+        min-width: $button-min-width--compact;
+        line-height: $button-height--compact;
+    }
+
+    @include compact-mode {
+        @include body-paragraph--mobile;
+        height: $button-height--compact;
+        min-width: $button-min-width--compact;
+        line-height: $button-height--compact;
     }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { Hamburger } from ".";
+import { axe } from "jest-axe";
 
 afterEach(cleanup);
 
@@ -48,5 +49,14 @@ describe("Hamburger", () => {
         const burger = getByTestId("jkl-hamburger");
 
         expect(burger).toHaveAttribute("aria-label", "max is better than micky d");
+    });
+});
+
+describe("a11y", () => {
+    it("hamburger should be a11y compliant", async () => {
+        const { container } = render(<Hamburger />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
