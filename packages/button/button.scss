@@ -67,7 +67,7 @@ $hover-elevation-distance: -0.25rem;
 
     &--primary,
     &--secondary {
-        border: solid $button-border-width currentColor;
+        border: solid $button-border-width $button-border-color;
         border-radius: 999px;
         padding: 0 $button-padding;
 
@@ -107,6 +107,24 @@ $hover-elevation-distance: -0.25rem;
 
         html:not([data-mousenavigation]) &:focus {
             border-bottom-color: $focus-color;
+        }
+    }
+
+    &--inverted {
+        &.jkl-button--primary {
+            background-color: $button-bg-color;
+            color: $button-text-color;
+            border-color: $button-bg-color;
+        }
+
+        &.jkl-button--secondary {
+            background-color: $button-bg-color--primary;
+            color: $button-text-color--primary;
+            border-color: $button-text-color--primary;
+        }
+
+        &.jkl-button--tertiary {
+            color: $button-text-color--primary;
         }
     }
 
