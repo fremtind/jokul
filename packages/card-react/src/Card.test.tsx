@@ -1,6 +1,7 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { Card } from ".";
+import { axe } from "jest-axe";
 
 describe("Card", () => {
     afterAll(cleanup);
@@ -80,5 +81,21 @@ describe("Card", () => {
         button.click();
 
         expect(clickHandler).toHaveBeenCalled();
+    });
+});
+
+describe("a11y", () => {
+    test("card should be a11y compliant", async () => {
+        const { container } = render(<Card title="Card" clickable={{ href: "#" }} />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("dark card should be a11y compliant", async () => {
+        const { container } = render(<Card title="Dark Card" clickable={{ href: "#" }} dark />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
