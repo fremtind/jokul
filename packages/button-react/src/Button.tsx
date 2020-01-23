@@ -5,16 +5,18 @@ interface Props {
     className?: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
     forceCompact?: boolean;
+    inverted?: boolean;
 }
 
 type ValidButtons = "primary" | "secondary" | "tertiary";
 
 function makeButtonComponent(buttonType: ValidButtons) {
     return function button(props: Props) {
-        const { children, className = "", onClick, forceCompact } = props;
+        const { children, className = "", onClick, forceCompact, inverted } = props;
         const componentClassName = "jkl-button".concat(
             ` jkl-button--${buttonType}`,
             forceCompact ? ` jkl-button--compact` : "",
+            inverted ? ` jkl-button--inverted` : "",
             className ? ` ${className}` : "",
         );
         return (
