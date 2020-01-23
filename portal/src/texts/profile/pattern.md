@@ -5,19 +5,18 @@ order: 12
 ---
 
 # Mønstre
-
-Mønstre er kombinasjoner av komponenter som vi kan bruke om igjen. I Jøkul utvikler vi mønstre for handlinger som gjentas ofte, slik at design og bruk blir konsekvent, uavhengig av hvilke løsninger vi lager for Fremtind. Her finner du eksempler på mønstre for vanlige funksjoner i våre løsninger .
+Mønstre er kombinasjoner av komponenter som vi kan bruke om igjen. I Jøkul utvikler vi mønstre for handlinger som gjentas ofte, slik at design og bruk blir konsekvent i alle løsninger vi lager for Fremtind. Her finner du eksempler på mønstre for vanlige funksjoner i våre løsninger.
 
 -   Deaktiverte tilstander
 -   Overflytsregler
 -   Filtrering
--   Scrolljacking
+-   Scrolljacking (endre forventet oppførsel ved scrolling, for å oppnå en effekt)
 -   Vanlige sammensatte komponenter
     -   Navn og personnummer
-    -   Søk og listeresultat
+    -   Søke- og listeresultat
     -   Dekningsvelger
     -   LEGG TIL FLERE
 -   Andre eksempler
-    -   Header
-    -   Footer
-    -   Grid
+    -   Header (topptekst)
+    -   Footer (bunntekst)
+    -   Rutenett (grid)
