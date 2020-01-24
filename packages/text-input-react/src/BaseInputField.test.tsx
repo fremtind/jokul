@@ -26,7 +26,7 @@ describe("a11y", () => {
         const { container } = render(<BaseInputField />);
         const results = await axe(container, {
             rules: {
-                label: { enabled: false },
+                label: { enabled: false }, //This component renders without a label because it's not intended for standalone usage. See the documentation for a usage pattern.
             },
         });
 
@@ -37,7 +37,7 @@ describe("a11y", () => {
         const { container } = render(<BaseInputField forceCompact />);
         const results = await axe(container, {
             rules: {
-                label: { enabled: false },
+                label: { enabled: false }, //This component renders without a label because it's not intended for standalone usage. See the documentation for a usage pattern.
             },
         });
 
