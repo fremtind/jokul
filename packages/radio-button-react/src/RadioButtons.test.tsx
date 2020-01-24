@@ -4,9 +4,9 @@ import "@testing-library/jest-dom/extend-expect";
 import { RadioButtons } from "./index";
 import { axe } from "jest-axe";
 
-describe("RadioButtons", () => {
-    afterEach(cleanup);
+afterEach(cleanup);
 
+describe("RadioButtons", () => {
     it("renders a legend with the correct value", () => {
         const choices = ["yes", "no"];
         const { getByText } = render(
