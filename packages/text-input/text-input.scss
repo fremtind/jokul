@@ -48,7 +48,7 @@ $icon-size--compact: $font-size-2;
         &::placeholder {
             @include body-paragraph--desktop;
             opacity: 1;
-            color: $varm-fjellgra;
+            color: $gra-60;
         }
 
         &:hover,

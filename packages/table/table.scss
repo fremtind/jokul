@@ -10,7 +10,7 @@ $row-end-padding: $component-spacing--large;
     @include small-paragraph;
 
     &__heading {
-        color: $matt-svart;
+        color: $gra-80;
         @include micro-paragraph;
         padding: $component-spacing--small;
     }
