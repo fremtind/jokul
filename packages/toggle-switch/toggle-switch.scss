@@ -38,6 +38,7 @@ $inverted-disabled-color: #969696;
         position: relative;
         width: $toggle-width;
         margin-right: $component-spacing--small;
+        pointer-events: none;
 
         /* The line the dot slides on */
         &:before {
