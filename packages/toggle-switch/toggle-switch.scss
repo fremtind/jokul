@@ -17,6 +17,7 @@ $inverted-disabled-color: #969696;
 .jkl-toggle-switch {
     @include reset-outline;
     cursor: pointer;
+    position: relative;
     display: flex;
     height: $toggle-height;
     padding: 0;
@@ -24,13 +25,7 @@ $inverted-disabled-color: #969696;
 
     background-color: transparent;
     color: currentColor;
-    position: relative;
-
-    &__label {
-        @include body-paragraph--desktop;
-        color: currentColor;
-        padding-left: $component-spacing--small;
-    }
+    @include body-paragraph--desktop;
 
     &__help-label {
         margin-top: $component-spacing--medium;
@@ -42,6 +37,7 @@ $inverted-disabled-color: #969696;
         height: $toggle-height;
         position: relative;
         width: $toggle-width;
+        margin-right: $component-spacing--small;
 
         /* The line the dot slides on */
         &:before {
