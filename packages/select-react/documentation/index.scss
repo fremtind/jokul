@@ -9,13 +9,13 @@ body,
     margin-bottom: $layout-spacing--large;
 
     &--light-mode {
-        background-color: $helhvit;
+        background-color: $hvit;
         color: $svart;
     }
 
     &--dark-mode {
         background-color: $svart;
-        color: $helhvit;
+        color: $hvit;
     }
 
     &__controls {
