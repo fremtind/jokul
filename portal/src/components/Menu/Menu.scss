@@ -8,16 +8,16 @@ $toggler-size: rem(56px);
 $menu-width: rem(320px);
 
 .portal-dark {
-    background-color: $matt-svart;
-    color: $snohvit;
+    background-color: $gra-80;
+    color: $gra-10;
     & .jkl-message-box {
         color: $svart;
     }
     & .portal-content__section--copy {
-        color: $snohvit;
+        color: $gra-10;
     }
     & .portal-header {
-        background-color: $matt-svart;
+        background-color: $gra-80;
         margin: 0;
         padding: $layout-spacing--medium $layout-spacing--large 0 0;
         left: 0;
@@ -25,16 +25,16 @@ $menu-width: rem(320px);
         height: 120px;
     }
     & .portal-header__title > a {
-        color: $snohvit;
+        color: $gra-10;
     }
     & .portal-main__hero {
-        background-color: rgba($matt-svart, 0.7);
+        background-color: rgba($gra-80, 0.7);
     }
     & .portal-content__example {
         color: initial;
     }
     & .portal-icon {
-        color: $himmelgra;
+        color: $gra-20;
     }
     & .portal-footer {
         background-color: $svart;
@@ -70,7 +70,7 @@ $menu-width: rem(320px);
 
         .portal-dark & {
             background-color: $svart;
-            color: $snohvit;
+            color: $gra-10;
         }
     }
 
@@ -98,7 +98,7 @@ $menu-width: rem(320px);
                 transform: translateX(-$menu-width);
             }
             & > .portal-menu__toggler {
-                background-color: $matt-svart;
+                background-color: $gra-80;
                 transform: translateX(0);
             }
         }
