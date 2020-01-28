@@ -1,10 +1,11 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { InfoMessage, ErrorMessage, SuccessMessage, WarningMessage } from ".";
+import { axe } from "jest-axe";
+
+afterEach(cleanup);
 
 describe("Message boxes", () => {
-    afterEach(cleanup);
-
     [true, false].map((fullWidth) => {
         [InfoMessage, ErrorMessage, SuccessMessage, WarningMessage].map((E) => {
             it("should render message title and content", () => {
@@ -17,5 +18,35 @@ describe("Message boxes", () => {
                 getByText("test");
             });
         });
+    });
+});
+
+describe("a11y", () => {
+    it("InfoMessage should be a11y compliant", async () => {
+        const { container } = render(<InfoMessage title="info">Lorem Ipsum</InfoMessage>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    it("ErrorMessage should be a11y compliant", async () => {
+        const { container } = render(<ErrorMessage title="error">Lorem Ipsum</ErrorMessage>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    it("WarningMessage should be a11y compliant", async () => {
+        const { container } = render(<WarningMessage title="warning">Lorem Ipsum</WarningMessage>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    it("SuccessMessage should be a11y compliant", async () => {
+        const { container } = render(<SuccessMessage title="success">Lorem Ipsum</SuccessMessage>);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
