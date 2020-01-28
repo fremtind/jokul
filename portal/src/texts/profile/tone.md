@@ -52,36 +52,28 @@ Vi fjerner stammespråk.
 Vi hjelper hverandre med å lese korrektur på alle tekster.
 
 ## Skriveråd
-1.	_Hvem skriver du for?_
- -	Vurder hvem som er målgruppen din. 
- -	Hvor skal mottakeren lese teksten? På en nettside eller et digitalt skjema?
- 
-2.	_Hva er målet med teksten?_
-- Gjør budskapet tydelig fra begynnelsen av. 
--	Tenk på hva mottakeren vet fra før. Ta bare med det som er nødvendig.
-
+1. _Hvem skriver du for?_
+  -	Vurder hvem som er målgruppen din.
+  -	Hvor skal mottakeren lese teksten? På en nettside eller et digitalt skjema?
+2. _Hva er målet med teksten?_
+  - Gjør budskapet tydelig fra begynnelsen av. 
+  -	Tenk på hva mottakeren vet fra før. Ta bare med det som er nødvendig.
 3.	_Fortell det viktigste først og lag en god struktur_
-- Del opp teksten og bruk overskrifter og mellomtitler.
--	Bruk avsnitt så ofte du kan. En tekst med luft er lettere å lese. 
--	Sett punktum ofte.
--	Bruk lister og tabeller for å skape oversikt. 
-
+  - Del opp teksten og bruk overskrifter og mellomtitler.
+  -	Bruk avsnitt så ofte du kan. En tekst med luft er lettere å lese. 
+  -	Sett punktum ofte.
+  -	Bruk lister og tabeller for å skape oversikt. 
 4.	_Skriv direkte til mottakeren_
-- Bruk "du" og "vi". 
--	Vær høflig når du skriver – det er umulig å vite hvilken situasjon mottakeren er i.
-
+  - Bruk "du" og "vi". 
+  -	Vær høflig når du skriver – det er umulig å vite hvilken situasjon mottakeren er i.
 5.	_Skriv aktivt_
-- Skriv slik du snakker.Tenk deg at du forklarer til mor eller bestefar.
-
-6.	_Forklar fagord og forkortelser_ 
-Ikke alle vet hva "erverv" og "premie" betyr. 
--	Velg enkle og kjente ord. 
--	Skriv ut forkortelser.
--	Forklar fagord og gi eksempler.
-
+  - Skriv slik du snakker.Tenk deg at du forklarer til mor eller bestefar.
+6.	_Forklar fagord og forkortelser_. Ikke alle vet hva "erverv" og "premie" betyr. 
+  -	Velg enkle og kjente ord. 
+  -	Skriv ut forkortelser.
+  -	Forklar fagord og gi eksempler.
 7.	_Skriv på en moderne måte_
-- Det er tungt å lese "denne sak" og "dette brev". "Denne saken" og "dette brevet" gir bedre flyt. 
-
+  - Det er tungt å lese "denne sak" og "dette brev". "Denne saken" og "dette brevet" gir bedre flyt. 
 8. _Les alltid korrektur_
-- Be gjerne en kollega om å lese teksten din også.
+  - Be gjerne en kollega om å lese teksten din også.
 
