@@ -4,69 +4,64 @@ import { ToggleSwitch } from ".";
 
 afterEach(cleanup);
 
-it("should be checked after clicking the input ", function() {
-    const { getByTestId } = render(<ToggleSwitch>GPS</ToggleSwitch>);
+it("should be pressed after clicking the button", function() {
+    const TestToggleSwitch = () => {
+        const [pressed, toggle] = React.useState(false);
+        return (
+            <ToggleSwitch pressed={pressed} onClick={() => toggle(!pressed)}>
+                GPS
+            </ToggleSwitch>
+        );
+    };
+    const { getByText } = render(<TestToggleSwitch />);
 
-    const input = getByTestId("jkl-toggle-input");
-    const label = getByTestId("jkl-toggle-input--label");
+    const input = getByText("GPS");
 
-    expect(input).toHaveProperty("checked", false);
-
-    label.click();
-
-    expect(input).toHaveProperty("checked", true);
-});
-
-it("should be checked after clicking the input ", function() {
-    const { getByTestId } = render(<ToggleSwitch>I am groot!</ToggleSwitch>);
-
-    const input = getByTestId("jkl-toggle-input");
-
-    expect(input).toHaveProperty("checked", false);
+    expect(input).toHaveAttribute("aria-pressed", "false");
 
     input.click();
 
-    expect(input).toHaveProperty("checked", true);
+    expect(input).toHaveAttribute("aria-pressed", "true");
 });
 
-it("should be checked if checked is true", function() {
-    const { getByTestId } = render(
-        <ToggleSwitch checked={true} onChange={() => ""}>
+it("should be pressed if pressed is true", function() {
+    const { getByText } = render(
+        <ToggleSwitch pressed={true} onClick={() => ""}>
             I am groot!
         </ToggleSwitch>,
     );
 
-    const input = getByTestId("jkl-toggle-input");
+    const input = getByText("I am groot!");
 
-    expect(input).toHaveProperty("checked", true);
+    expect(input).toHaveAttribute("aria-pressed", "true");
 });
 
-it("should be unchecked if checked is true and input is clicked", function() {
+it("should be unchecked if pressed is true and input is clicked", function() {
     const TestToggleSwitch = () => {
-        const [checked, toggle] = React.useState(true);
+        const [pressed, toggle] = React.useState(true);
         return (
-            <ToggleSwitch checked={checked} onChange={() => toggle(!checked)}>
+            <ToggleSwitch pressed={pressed} onClick={() => toggle(!pressed)}>
                 I am groot!
             </ToggleSwitch>
         );
     };
-    const { getByTestId } = render(<TestToggleSwitch />);
+    const { getByText } = render(<TestToggleSwitch />);
 
-    const input = getByTestId("jkl-toggle-input");
+    const input = getByText("I am groot!");
 
-    expect(input).toHaveProperty("checked", true);
+    expect(input).toHaveAttribute("aria-pressed", "true");
 
     input.click();
 
-    expect(input).toHaveProperty("checked", false);
+    expect(input).toHaveAttribute("aria-pressed", "false");
 });
 
-it("should call the passed onChange method when clicked", () => {
-    const onChange = jest.fn();
-    const { getByLabelText } = render(<ToggleSwitch onChange={onChange}>Switch me!</ToggleSwitch>);
+it("should call the passed onClick method when clicked", () => {
+    const onClick = jest.fn();
+    const { getByText } = render(<ToggleSwitch onClick={onClick}>Switch me!</ToggleSwitch>);
 
-    const input = getByLabelText("Switch me!");
+    const input = getByText("Switch me!");
     input.click();
 
-    expect(onChange).toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
 });
