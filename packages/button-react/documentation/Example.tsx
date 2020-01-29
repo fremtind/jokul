@@ -23,10 +23,12 @@ const Example = () => {
     return (
         <section className={exampleClassName}>
             <aside className="buttons-example__controls">
-                <ToggleSwitch onClick={toggleCompact} className="jkl-spacing--bottom-1">
+                <ToggleSwitch pressed={isCompact} onClick={toggleCompact} className="jkl-spacing--bottom-1">
                     Kompakt variant
                 </ToggleSwitch>
-                <ToggleSwitch onClick={toggleInverted}>Inverterte farger</ToggleSwitch>
+                <ToggleSwitch pressed={isInverted} onClick={toggleInverted}>
+                    Inverterte farger
+                </ToggleSwitch>
             </aside>
             <PrimaryButton
                 forceCompact={isCompact}
