@@ -1,17 +1,20 @@
 import React from "react";
+import nanoid from "nanoid";
 
 interface Props {
     className?: string;
     centered?: boolean;
-    isSymbol: boolean;
+    isSymbol?: boolean;
     title?: string;
 }
 
-export const LogoAnimated = ({ className = "", centered = true, isSymbol = true, title = "Fremtind" }: Props) => {
+export const Logo = ({ className = "", centered = true, isSymbol = false, title = "Fremtind" }: Props) => {
+    const uniqueId = nanoid(16);
+
     return (
-        <div className={`jkl-logo__wrapper ${centered && isSymbol ? "jkl-logo__wrapper--centered" : ""}`}>
+        <div className={`jkl-logo__wrapper ${centered && isSymbol ? "jkl-logo__wrapper--centered" : ""} `}>
             <svg
-                aria-labelledby="logoAnimatedTitle"
+                aria-labelledby={uniqueId}
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -21,7 +24,7 @@ export const LogoAnimated = ({ className = "", centered = true, isSymbol = true,
                     isSymbol ? "jkl-logo--animated__symbol-only" : ""
                 } ${className}`}
             >
-                <title id="logoAnimatedTitle">{title}</title>
+                <title id={uniqueId}>{title}</title>
                 <g fill="none" className="jkl-logo--animated__F" strokeWidth="8">
                     <line
                         x1="34.3"

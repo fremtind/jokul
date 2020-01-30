@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-    LogoAnimated,
-    LogoMain,
-    LogoStampDistributor,
-    LogoStampInnovation,
-    LogoStampInsurance,
-    LogoStampTechnology,
-    LogoSymbol,
-} from "../src";
+import { Logo, LogoStampDistributor, LogoStampInnovation, LogoStampInsurance, LogoStampTechnology } from "../src";
 import "@fremtind/jkl-logo/logo.css";
 
 const Example = () => {
@@ -18,16 +10,16 @@ const Example = () => {
             <button onClick={() => toggleSymbol(!isSymbol)}>Animer symbol</button>
             <div style={{ display: "flex", flexWrap: "wrap" }}>
                 <div style={{ width: "300px" }}>
-                    <LogoSymbol />
-                    <LogoMain />
-                    <LogoAnimated isSymbol={isSymbol} />
-                    <LogoAnimated isSymbol={!isSymbol} />
+                    <Logo />
+                    <Logo isSymbol centered={false} />
+                    <Logo isSymbol={isSymbol} />
+                    <Logo isSymbol={!isSymbol} />
                 </div>
                 <div style={{ backgroundColor: "#000", color: "#fafafa", width: "300px" }}>
-                    <LogoSymbol />
-                    <LogoMain />
-                    <LogoAnimated isSymbol={isSymbol} centered={false} />
-                    <LogoAnimated isSymbol={!isSymbol} centered={true} />
+                    <Logo />
+                    <Logo isSymbol />
+                    <Logo isSymbol={isSymbol} centered={false} />
+                    <Logo isSymbol={!isSymbol} centered />
                 </div>
                 <div style={{ width: "300px" }}>
                     <LogoStampTechnology />
