@@ -18,9 +18,7 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/logo-react
 
 ```js
 import {
-    LogoAnimated,
-    LogoMain,
-    LogoSymbol,
+    Logo,
     LogoStampDistributor,
     LogoStampInnovation,
     LogoStampInsurance,
@@ -34,23 +32,29 @@ import "@fremtind/jkl-logo/logo.min.css";
 Et eksempel på generell bruk av komponentene kan se slik ut:
 
 ```js
-<LogoSymbol className="symbol-example" />
-<LogoMain />
+<Logo className="logo-example" />
 <LogoStampDistributor />
 <LogoStampInnovation />
 <LogoStampInsurance />
 <LogoStampTechnology />
 ```
 
-Merk at prop-en `title` kan benyttes der det er behov for økt tilgjengelighet. Standardverdien er `Fremtind` for de ulike logotypene, med unntak av stemplene som har mer spesifikke standardverdier.
+Prop-en `isSymbol` angir om det er logosymbolet eller logotypen som skal vises:
 
-`LogoAnimated` er litt annerledes i bruk og krever at prop-en `isSymbol` benyttes. `isSymbol` angir om det er logosymbolet eller logotypen som skal vises. Logoen animeres når denne prop-en endres. Et eksempel på bruk kan se slik ut:
+```js
+<Logo isSymbol />
+<Logo isSymbol centered />
+```
+
+Logoen animeres når `isSymbol` endres:
 
 ```js
 const [isSymbol, toggleSymbol] = useState(false);
 
 <button onClick={() => toggleSymbol(!isSymbol)}>Animate Logo</button>
 
-<LogoAnimated isSymbol={isSymbol} />
-<LogoAnimated isSymbol={!isSymbol} />
+<Logo isSymbol={isSymbol} />
+<Logo isSymbol={!isSymbol} />
 ```
+
+Merk at prop-en `title` kan benyttes der det er behov for økt tilgjengelighet. Standardverdien er `Fremtind` for de ulike logotypene, med unntak av stemplene som har mer spesifikke standardverdier.
