@@ -17,15 +17,7 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/logo-react
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import {
-    LogoAnimated,
-    LogoMain,
-    LogoSymbol,
-    LogoStampDistributor,
-    LogoStampInnovation,
-    LogoStampInsurance,
-    LogoStampTechnology,
-} from "@fremtind/jkl-logo-react";
+import { LogoAnimated, LogoMain, LogoSymbol } from "@fremtind/jkl-logo-react";
 import "@fremtind/jkl-logo/logo.min.css";
 ```
 
@@ -36,10 +28,6 @@ Et eksempel på generell bruk av komponentene kan se slik ut:
 ```js
 <LogoSymbol className="symbol-example" />
 <LogoMain />
-<LogoStampDistributor />
-<LogoStampInnovation />
-<LogoStampInsurance />
-<LogoStampTechnology />
 ```
 
 Merk at prop-en `title` kan benyttes der det er behov for økt tilgjengelighet. Standardverdien er `Fremtind` for de ulike logotypene, med unntak av stemplene som har mer spesifikke standardverdier.

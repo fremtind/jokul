@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-    LogoAnimated,
-    LogoMain,
-    LogoStampDistributor,
-    LogoStampInnovation,
-    LogoStampInsurance,
-    LogoStampTechnology,
-    LogoSymbol,
-} from "../src";
+import { LogoAnimated, LogoMain, LogoSymbol } from "../src";
 import "@fremtind/jkl-logo/logo.css";
 
 const Example = () => {
@@ -28,19 +20,6 @@ const Example = () => {
                     <LogoMain />
                     <LogoAnimated isSymbol={isSymbol} centered={false} />
                     <LogoAnimated isSymbol={!isSymbol} centered={true} />
-                </div>
-                <div style={{ width: "300px" }}>
-                    <LogoStampTechnology />
-                    <LogoStampDistributor />
-                    <LogoStampInnovation />
-                    <LogoStampInsurance />
-                </div>
-
-                <div style={{ backgroundColor: "#000", color: "#fafafa", width: "300px" }}>
-                    <LogoStampTechnology />
-                    <LogoStampDistributor />
-                    <LogoStampInnovation />
-                    <LogoStampInsurance />
                 </div>
             </div>
         </>
