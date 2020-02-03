@@ -12,14 +12,14 @@ const Example = () => {
                 <div style={{ width: "300px" }}>
                     <Logo />
                     <Logo isSymbol centered={false} />
-                    <Logo isSymbol={isSymbol} />
-                    <Logo isSymbol={!isSymbol} />
+                    <Logo animated isSymbol={isSymbol} />
+                    <Logo animated isSymbol={!isSymbol} />
                 </div>
                 <div style={{ backgroundColor: "#000", color: "#fafafa", width: "300px" }}>
                     <Logo />
                     <Logo isSymbol />
-                    <Logo isSymbol={isSymbol} centered={false} />
-                    <Logo isSymbol={!isSymbol} centered />
+                    <Logo animated isSymbol={isSymbol} centered={false} />
+                    <Logo animated isSymbol={!isSymbol} centered />
                 </div>
                 <div style={{ width: "300px" }}>
                     <LogoStampTechnology />
