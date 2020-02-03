@@ -6,44 +6,43 @@ $jkl-logo-magic-origin--f: 30px 132px; /* Is connected to the viewbox of the log
 $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
 
 .jkl-logo {
-    &--animated {
-        &__F {
-            transition: transform 250ms ease;
-            transform-origin: $jkl-logo-magic-origin--f;
-            &-line {
-                transition: transform 250ms ease-in;
-                transform-origin: $jkl-logo-magic-origin--line;
-            }
-        }
-        &__remtind {
-            transition: opacity 250ms ease-in, transform 251ms ease;
-            opacity: 1;
-            transition-delay: 75ms;
-        }
-        &__symbol-only {
-            & .jkl-logo--animated {
-                &__F {
-                    transition-timing-function: cubic-bezier(0.5, 0.01, 0.62, 1.36);
-                    transform: rotate(45deg);
-                    transition-delay: 75ms;
-                    &-line {
-                        transform: scaleX(1.5);
-                    }
-                }
-                &__remtind {
-                    transition-delay: 0ms;
-                    opacity: 0;
-                    transform: translateX(5%);
-                }
-            }
-        }
-    }
-}
-
-.jkl-logo__wrapper {
     transition-delay: 0ms;
     transition: transform 300ms ease;
     transform: translate(0);
+
+    &__F {
+        transition: transform 250ms ease;
+        transform-origin: $jkl-logo-magic-origin--f;
+        &-line {
+            transition: transform 250ms ease-in;
+            transform-origin: $jkl-logo-magic-origin--line;
+        }
+    }
+
+    &__remtind {
+        transition: opacity 250ms ease-in, transform 251ms ease;
+        opacity: 1;
+        transition-delay: 75ms;
+    }
+
+    &--symbol-only {
+        & .jkl-logo {
+            &__F {
+                transition-timing-function: cubic-bezier(0.5, 0.01, 0.62, 1.36);
+                transform: rotate(45deg);
+                transition-delay: 75ms;
+                &-line {
+                    transform: scaleX(1.5);
+                }
+            }
+            &__remtind {
+                transition-delay: 0ms;
+                opacity: 0;
+                transform: translateX(5%);
+            }
+        }
+    }
+
     &--centered {
         transform: translate(35%);
     }
