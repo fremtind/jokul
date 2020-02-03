@@ -29,11 +29,11 @@ import "@fremtind/jkl-logo/logo.min.css";
 
 ### Bruk
 
-Et eksempel på generell bruk av komponentene kan se slik ut:
+Logo og Logostempel trenger ingen props eller children ved bruk. Tekst for skjermlesere kan angis med `title`, og er som standard angitt til "Fremtind" for logoen og teksten i stempelet for stemplene. Et eksempel på generell bruk av komponentene kan se slik ut:
 
-```js
+```jsx
 <Logo className="logo-example" />
-<LogoStampDistributor />
+<LogoStampDistributor title="Laget av Fremtind" />
 <LogoStampInnovation />
 <LogoStampInsurance />
 <LogoStampTechnology />
@@ -41,20 +41,18 @@ Et eksempel på generell bruk av komponentene kan se slik ut:
 
 Prop-en `isSymbol` angir om det er logosymbolet eller logotypen som skal vises:
 
-```js
-<Logo isSymbol />
-<Logo isSymbol centered />
+```jsx
+<Logo />            // Viser logotype
+<Logo isSymbol />   // Viser logosymbol
 ```
 
-Logoen animeres når `isSymbol` endres:
+Dersom prop-en `animated` er angitt vil logoen animeres mellom tilstander:
 
-```js
-const [isSymbol, toggleSymbol] = useState(false);
+```jsx
+const [isSymbol, setIsSymbol] = useState(false);
 
-<button onClick={() => toggleSymbol(!isSymbol)}>Animate Logo</button>
+<button onClick={() => setIsSymbol(!isSymbol)}>Veksle visning</button>
 
-<Logo isSymbol={isSymbol} />
-<Logo isSymbol={!isSymbol} />
+<Logo animated isSymbol={isSymbol} />
+<Logo animated centered isSymbol={isSymbol} /> // Symbolet animeres til midten
 ```
-
-Merk at prop-en `title` kan benyttes der det er behov for økt tilgjengelighet. Standardverdien er `Fremtind` for de ulike logotypene, med unntak av stemplene som har mer spesifikke standardverdier.
