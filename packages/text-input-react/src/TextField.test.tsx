@@ -1,10 +1,11 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { TextField } from ".";
+import { axe } from "jest-axe";
+
+afterEach(cleanup);
 
 describe("TextField", () => {
-    afterEach(cleanup);
-
     it("renders with correct label", () => {
         const { getByLabelText } = render(<TextField label="Cool text field" />);
 
@@ -79,5 +80,14 @@ describe("TextField", () => {
 
         const component = getByPlaceholderText("test-ph");
         expect(component).toHaveAttribute("type", "password");
+    });
+});
+
+describe("a11y", () => {
+    test("text-field should be a11y compliant", async () => {
+        const { container } = render(<TextField label="testing" type="text" helpLabel="some help 4 u" />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
