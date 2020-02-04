@@ -47,7 +47,7 @@ $controls-width: rem(300px);
 
     &--inverted {
         background-color: $svart;
-        color: $helhvit;
+        color: $hvit;
     }
 
     @include small-device {

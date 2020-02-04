@@ -1,6 +1,6 @@
 @import "../variables/_all.scss";
 
-@mixin demo-box($size, $color: $matt-svart) {
+@mixin demo-box($size, $color: $gra-80) {
     width: $size;
     height: $size;
     background-color: $color;
@@ -57,16 +57,16 @@
     @include demo-box($layout-spacing--large, $svart);
 }
 .demo-color--2 {
-    @include demo-box($layout-spacing--large, $matt-svart);
+    @include demo-box($layout-spacing--large, $gra-80);
 }
 .demo-color--3 {
-    @include demo-box($layout-spacing--large, $varm-fjellgra);
+    @include demo-box($layout-spacing--large, $gra-60);
 }
 .demo-color--4 {
-    @include demo-box($layout-spacing--large, $himmelgra);
+    @include demo-box($layout-spacing--large, $gra-20);
 }
 .demo-color--5 {
-    @include demo-box($layout-spacing--large, $snohvit);
+    @include demo-box($layout-spacing--large, $gra-10);
 }
 .demo-color--6 {
     @include demo-box($layout-spacing--large, $varde);

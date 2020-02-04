@@ -64,7 +64,6 @@
         "jest-axe": "^3.2.0",
         "lerna": "^3.16.4",
         "lint-staged": "^10.0.3",
-        "mkdirp": "^0.5.1",
         "node-sass-tilde-importer": "^1.0.2",
         "npm-run-all": "^4.1.5",
         "parcel-bundler": "^1.12.3",
