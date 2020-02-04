@@ -134,7 +134,7 @@ $menu-width: rem(320px);
     }
 
     & .jkl-accordion-item__content {
-        @include body-paragraph;
+        @include jkl-text-style("desktop/body");
         padding: $layout-spacing--small;
     }
 
