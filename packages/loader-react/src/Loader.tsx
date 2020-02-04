@@ -1,4 +1,6 @@
 import React from "react";
+import cx from "classnames";
+
 interface Props {
     textDescription: string;
     negative?: boolean;
@@ -6,10 +8,11 @@ interface Props {
     className?: string;
 }
 export const Loader = ({ textDescription, negative = false, inline = false, className }: Props) => {
-    const componentClassName = "jkl-loader"
-        .concat(negative ? " jkl-loader--negative" : "")
-        .concat(inline ? " jkl-loader--inline" : "")
-        .concat(className ? ` ${className}` : "");
+    const componentClassName = cx("jkl-loader", className, {
+        "jkl-loader--negative": negative,
+        "jkl-loader--inline": inline,
+    });
+
     return (
         <span
             className={componentClassName}

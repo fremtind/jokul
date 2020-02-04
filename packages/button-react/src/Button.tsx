@@ -1,4 +1,5 @@
 import React, { MouseEventHandler, ReactNode } from "react";
+import cx from "classnames";
 
 interface Props {
     children: ReactNode;
@@ -13,12 +14,11 @@ type ValidButtons = "primary" | "secondary" | "tertiary";
 function makeButtonComponent(buttonType: ValidButtons) {
     return function button(props: Props) {
         const { children, className = "", onClick, forceCompact, inverted } = props;
-        const componentClassName = "jkl-button".concat(
-            ` jkl-button--${buttonType}`,
-            forceCompact ? ` jkl-button--compact` : "",
-            inverted ? ` jkl-button--inverted` : "",
-            className ? ` ${className}` : "",
-        );
+        const componentClassName = cx("jkl-button", "jkl-button--" + buttonType, className, {
+            "jkl-button--compact": forceCompact,
+            "jkl-button--inverted": inverted,
+        });
+
         return (
             <button onClick={onClick} className={componentClassName}>
                 {children}

@@ -1,4 +1,5 @@
 import React, { ReactNode, ChangeEvent } from "react";
+import cx from "classnames";
 
 interface Props {
     children: ReactNode;
@@ -23,11 +24,12 @@ export function Checkbox({
     inline = false,
     forceCompact,
 }: Props) {
-    const classNames = "jkl-checkbox"
-        .concat(forceCompact ? " jkl-checkbox--compact" : "")
-        .concat(inline ? " jkl-checkbox--inline" : "")
-        .concat(invalid ? " jkl-checkbox--error" : "")
-        .concat(className ? ` ${className}` : "");
+    const classNames = cx("jkl-checkbox", className, {
+        "jkl-checkbox--compact": forceCompact,
+        "jkl-checkbox--inline": inline,
+        "jkl-checkbox--error": invalid,
+    });
+
     return (
         <label className={classNames}>
             <input

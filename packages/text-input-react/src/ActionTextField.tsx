@@ -2,6 +2,7 @@ import React, { MouseEventHandler } from "react";
 import { ActionIcon, IconVariant } from "./ActionIcon";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { BaseInputField, BaseInputProps } from "./BaseInputField";
+import cx from "classnames";
 
 interface Props extends BaseInputProps {
     action: {
@@ -25,10 +26,9 @@ export const ActionTextField = ({
     label,
     ...baseInputProps
 }: Props) => {
-    const componentClassName = "jkl-text-field jkl-text-field--action".concat(
-        forceCompact ? " jkl-text-field--compact" : "",
-        className ? ` ${className}` : "",
-    );
+    const componentClassName = cx("jkl-text-field jkl-text-field--action", className, {
+        "jkl-text-field--compact": forceCompact,
+    });
 
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
