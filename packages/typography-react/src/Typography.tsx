@@ -11,15 +11,16 @@ interface Props extends BaseHTMLAttributes<HTMLElement> {
 
 function makeTypographyComponent(variant: ValidSemanticElement, modifier?: ValidModifiers) {
     return function typography(props: Props) {
-        const { children, className = "", styledAs, ...rest } = props;
+        const tagName = (modifier || variant).replace(/^\w/, (c) => c.toUpperCase());
+        if (process.env.NODE_ENV === "development") {
+            console.warn(
+                `ATTENTION! The typographic components in jkl-core, like "${tagName}", are deprecated. Please stop using them and start using typographic CSS classes or the jkl-text-style Sass mixin instead. Refer to the dosumentation for more info.`,
+            );
+        }
+        const { children, ...rest } = props;
         const Element = variant;
-        const elementStyle = styledAs || variant;
 
-        return (
-            <Element className={`jkl-${modifier || elementStyle} ${className}`} {...rest}>
-                {children}
-            </Element>
-        );
+        return <Element {...rest}>{children}</Element>;
     };
 }
 
