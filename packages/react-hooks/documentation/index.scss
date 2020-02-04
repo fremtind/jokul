@@ -12,7 +12,7 @@
 }
 
 .lorem-text {
-    @include body-paragraph;
+    @include jkl-text-style("desktop/body");
     margin-top: $layout-spacing--small;
     padding: 1rem;
     background-color: $varde;
@@ -51,7 +51,7 @@
     margin-top: $component-spacing--large + rem(28px) + $layout-spacing--medium;
 
     & > &__text {
-        @include body-paragraph;
+        @include jkl-text-style("desktop/body");
         &:not(:last-child) {
             margin-bottom: $layout-spacing--small;
         }
@@ -61,7 +61,7 @@
         margin-bottom: $component-spacing--large;
     }
     & > &__list {
-        @include body-paragraph;
+        @include jkl-text-style("desktop/body");
         margin: 0;
         margin-top: $layout-spacing--small;
     }
@@ -75,7 +75,7 @@
         box-sizing: border-box;
         width: 100%;
         background-color: $hvit;
-        @include body-paragraph;
+        @include jkl-text-style("desktop/body");
 
         & > * + * {
             margin-top: $layout-spacing--small;
