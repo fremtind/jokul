@@ -6,7 +6,7 @@ order: 3
 
 # Slik skriver du kode til Jøkul
 
-Jøkul er et designsystem: Et bibliotek med komponenter. Det gir litt andre utfordringer enn når du driver med klientutvikling. Her får du en liten innføring i hvordan vi jobber med Jøkul. Jøkul blir brukt til å utvikle mange forskjellige løsninger, som skal dekke forskjellige behov og ønsker. Det er viktig at vi balanserer funksjonalitet, brukervennlighet, pakkestørrelse og kompleksitet i hver enkelt komponent.
+Jøkul er et designsystem: Et bibliotek med komponenter. Det gir litt andre utfordringer enn når du driver med klientutvikling. Her får du en liten innføring i hvordan vi jobber med Jøkul. Jøkul blir brukt til å utvikle mange forskjellige løsninger, og må derfor dekke forskjellige behov og ønsker. Det er viktig at vi balanserer funksjonalitet, brukervennlighet, pakkestørrelse og kompleksitet i hver enkelt komponent.
 
 ## Dette bruker vi
 
