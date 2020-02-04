@@ -14,19 +14,19 @@ const Example = () => {
         <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
             <div style={{ margin: "36px", padding: "36px", backgroundColor: "#fafafa" }}>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={gpsDummySwitch} onChange={() => setGpsDummySwitch(!gpsDummySwitch)}>
+                    <ToggleSwitch pressed={gpsDummySwitch} onClick={() => setGpsDummySwitch(!gpsDummySwitch)}>
                         GPS
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switch2IsOn} onChange={() => setSwitch2IsOn(!switch2IsOn)} disabled>
+                    <ToggleSwitch pressed={switch2IsOn} onClick={() => setSwitch2IsOn(!switch2IsOn)} disabled>
                         Disabled Switch (On)
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
                     <ToggleSwitch
-                        checked={switchIsOn}
-                        onChange={() => setSwitchIsOn(!switchIsOn)}
+                        pressed={switchIsOn}
+                        onClick={() => setSwitchIsOn(!switchIsOn)}
                         disabled
                         helpLabel="Reason switch is disabled"
                     >
@@ -34,7 +34,7 @@ const Example = () => {
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={glonassIsOn} onChange={() => setGlonassIsOn(!glonassIsOn)}>
+                    <ToggleSwitch pressed={glonassIsOn} onClick={() => setGlonassIsOn(!glonassIsOn)}>
                         Glonass
                     </ToggleSwitch>
                 </div>
@@ -48,14 +48,14 @@ const Example = () => {
             </div>
             <div style={{ margin: "36px", padding: "36px", backgroundColor: "#000000", color: "#ffffff" }}>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={gpsIsOn} onChange={() => setGpsIsOn(!gpsIsOn)} inverted>
+                    <ToggleSwitch pressed={gpsIsOn} onClick={() => setGpsIsOn(!gpsIsOn)} inverted>
                         GPS
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
                     <ToggleSwitch
-                        checked={switch2IsOn}
-                        onChange={() => setSwitch2IsOn(!switch2IsOn)}
+                        pressed={switch2IsOn}
+                        onClick={() => setSwitch2IsOn(!switch2IsOn)}
                         disabled
                         inverted
                         helpLabel="Reason switch is disabled"
@@ -64,14 +64,14 @@ const Example = () => {
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
-                    <ToggleSwitch checked={switchIsOn} onChange={() => setSwitchIsOn(!switchIsOn)} disabled inverted>
+                    <ToggleSwitch pressed={switchIsOn} onClick={() => setSwitchIsOn(!switchIsOn)} disabled inverted>
                         Disabled Switch (Off)
                     </ToggleSwitch>
                 </div>
                 <div style={{ margin: "20px" }}>
                     <ToggleSwitch
-                        checked={glonassDummySwitch}
-                        onChange={() => setGlonassDummySwitch(!glonassDummySwitch)}
+                        pressed={glonassDummySwitch}
+                        onClick={() => setGlonassDummySwitch(!glonassDummySwitch)}
                         inverted
                     >
                         Glonass

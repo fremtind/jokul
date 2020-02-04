@@ -16,84 +16,18 @@ $inverted-disabled-color: #969696;
 
 .jkl-toggle-switch {
     @include reset-outline;
-    height: $toggle-height;
-    display: flex;
-    align-items: center;
     cursor: pointer;
+    position: relative;
+    display: flex;
+    height: $toggle-height;
+    padding: 0;
+    align-items: center;
 
-    &--inverted {
-        .jkl-toggle-switch {
-            &__slider {
-                &:before {
-                    background-color: $hvit;
-                }
-                &:after {
-                    background-color: $hvit;
-                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $hvit,
-                        inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
-                }
-                & .jkl-toggle-switch__expanding-pill {
-                    background-color: $expanding-pill-background-color;
-                    border-color: $hvit;
-                }
-            }
+    background-color: transparent;
+    color: currentColor;
+    @include body-paragraph--desktop;
 
-            &__input[disabled] {
-                + .jkl-toggle-switch__slider {
-                    &:before {
-                        background-color: $inverted-disabled-color;
-                    }
-                    &:after {
-                        background-color: $inverted-disabled-color;
-                        box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $inverted-disabled-color,
-                            inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
-                    }
-                    & .jkl-toggle-switch__expanding-pill {
-                        border-color: $inverted-disabled-color;
-                    }
-                }
-            }
-        }
-    }
-
-    &__input[disabled] {
-        + .jkl-toggle-switch__slider,
-        ~ .jkl-toggle-switch__label {
-            cursor: default;
-        }
-        + .jkl-toggle-switch__slider {
-            &:before {
-                background-color: $disabled-color;
-            }
-            &:after {
-                background-color: $disabled-color;
-                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
-                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $hvit;
-            }
-            & .jkl-toggle-switch__expanding-pill {
-                background-color: transparent;
-                border-color: $disabled-color;
-            }
-        }
-
-        &:checked + .jkl-toggle-switch__slider:before {
-            background-color: transparent;
-        }
-    }
-
-    &__input {
-        /* Hide the actual input field */
-        opacity: 0;
-        position: absolute;
-    }
-
-    &__label {
-        @include body-paragraph--desktop;
-        color: currentColor;
-        padding-left: $component-spacing--small;
-    }
-
-    &__helplabel {
+    &__help-label {
         margin-top: $component-spacing--medium;
     }
 
@@ -103,6 +37,8 @@ $inverted-disabled-color: #969696;
         height: $toggle-height;
         position: relative;
         width: $toggle-width;
+        margin-right: $component-spacing--small;
+        pointer-events: none;
 
         /* The line the dot slides on */
         &:before {
@@ -122,6 +58,8 @@ $inverted-disabled-color: #969696;
             content: "";
             border-radius: 99rem;
             position: absolute;
+            left: 0;
+            top: 0;
             width: $toggle-height;
             height: $toggle-height;
             background-color: $main-slider-color;
@@ -142,6 +80,7 @@ $inverted-disabled-color: #969696;
         width: $toggle-height;
 
         &:after {
+            // Focus ring for keyboard navigation
             content: "";
             position: absolute;
             top: -3px;
@@ -151,11 +90,72 @@ $inverted-disabled-color: #969696;
             background-color: transparent;
             border-radius: 99rem;
             width: $toggle-width + rem(4px);
+            box-shadow: 0 0 0 rem(2px) transparent;
+            @include motion("standard");
+            transition-property: box-shadow;
+        }
+    }
+
+    &--inverted {
+        .jkl-toggle-switch {
+            &__slider {
+                &:before {
+                    background-color: $helhvit;
+                }
+                &:after {
+                    background-color: $helhvit;
+                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $helhvit,
+                        inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
+                }
+                & .jkl-toggle-switch__expanding-pill {
+                    background-color: $expanding-pill-background-color;
+                    border-color: $helhvit;
+                }
+            }
+        }
+
+        &[disabled] > .jkl-toggle-switch__slider {
+            &:before {
+                background-color: $inverted-disabled-color;
+            }
+            &:after {
+                background-color: $inverted-disabled-color;
+                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $inverted-disabled-color,
+                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
+            }
+            & .jkl-toggle-switch__expanding-pill {
+                border-color: $inverted-disabled-color;
+            }
+        }
+    }
+
+    &:disabled {
+        > .jkl-toggle-switch__slider,
+        ~ .jkl-toggle-switch__label {
+            cursor: default;
+        }
+        > .jkl-toggle-switch__slider {
+            &:before {
+                background-color: $disabled-color;
+            }
+            &:after {
+                background-color: $disabled-color;
+                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
+                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $helhvit;
+            }
+            & .jkl-toggle-switch__expanding-pill {
+                background-color: transparent;
+                border-color: $disabled-color;
+            }
+        }
+
+        &[aria-pressed="true"] > .jkl-toggle-switch__slider:before {
+            background-color: transparent;
         }
     }
 
     /* Toggled/checked state */
-    &__input:checked + &__slider {
+    &[aria-pressed="true"] > &__slider {
         & > .jkl-toggle-switch__expanding-pill {
             width: $toggle-width;
             top: 0;
@@ -167,7 +167,7 @@ $inverted-disabled-color: #969696;
     }
 
     /* Keyboard focused state */
-    html:not([data-mousenavigation]) &__input:focus + &__slider > &__expanding-pill:after {
+    html:not([data-mousenavigation]) &:focus > &__slider > &__expanding-pill:after {
         box-shadow: 0 0 0 rem(2px) $toggle-focus-outline-color;
     }
 }

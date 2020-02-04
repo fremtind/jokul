@@ -34,12 +34,12 @@ Som standard blir `ToggleSwitch` fremvist som en komponent tiltenkt lys bakgrunn
 </ToggleSwitch>
 ```
 
-`ToggleSwitch` brukes som en kontrollert komponent gjennom prop-en `checked` og en `onChange`-handler som tar et `ChangeEvent` som første argument:
+`ToggleSwitch` brukes som en kontrollert komponent gjennom prop-en `pressed` og en `onClick`-handler som tar et `MouseEvent` som første argument:
 
 ```jsx
 const [darkmodeIsOn, setDarkmodeIsOn] = useState(false);
 
-<ToggleSwitch checked={darkmodeIsOn} onChange={() => setDarkmodeIsOn(!darkmodeIsOn)}>
+<ToggleSwitch pressed={darkmodeIsOn} onClick={() => setDarkmodeIsOn(!darkmodeIsOn)}>
     Darkmode
 </ToggleSwitch>;
 ```
@@ -57,9 +57,9 @@ Skal bryteren være deaktivert legges prop-en `disabled` til. Hvis det ønskes a
 Komponenten tar i bruk følgende props:
 
 -   `children`: **Påkrevd**. Etiketten til bryteren. `ReactNode`
--   `checked`: Angir om bryterens status er av/på. `boolean`
+-   `pressed`: Angir om bryterens status er av/på. `boolean`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
--   `onChange`: Angir funksjon for å håndtere endring i verdi. Får en `ChangeEvent` som første argument.
+-   `onClick`: Angir funksjon for å håndtere endring i verdi. Får en `MouseEvent` som første argument.
 -   `disabled`: Angir om bryteren er deaktivert. `boolean`
 -   `inverted`: Angir om bryteren skal bruke inverterte farger (til mørke bakgrunner). `boolean`
 -   `helpLabel`: Hjelpetekst som vises under bryterne. `string`

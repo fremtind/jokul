@@ -47,6 +47,7 @@ $icon-size--compact: $font-size-2;
 
         &::placeholder {
             @include body-paragraph--desktop;
+            font-weight: normal;
             opacity: 1;
             color: $gra-60;
         }
