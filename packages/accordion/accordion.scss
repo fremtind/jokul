@@ -13,7 +13,7 @@
     }
 
     &--expanded {
-        background-color: $helhvit;
+        background-color: $hvit;
         box-shadow: $drop-shadow--small;
         .jkl-accordion-item {
             &__title-icon {
@@ -46,7 +46,7 @@
 
         &:hover {
             cursor: pointer;
-            color: $helhvit;
+            color: $hvit;
             background-color: $svart;
         }
 
