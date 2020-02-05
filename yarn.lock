@@ -5706,7 +5706,7 @@ dargs@^4.0.1:
   dependencies:
     number-is-nan "^1.0.0"
 
-dart-sass@^1.23.0:
+dart-sass@^1.25.0:
   version "1.25.0"
   resolved "https://registry.yarnpkg.com/dart-sass/-/dart-sass-1.25.0.tgz#e00c0348118916e9d81cb485297184c131af1dad"
   integrity sha512-syNOAstJXAmvD3RifcDk3fiPMyYE2fY8so6w9gf2/wNlKpG0zyH+oiXubEYVOy1WAWkzOc72pbAxwx+3OU4JJA==
