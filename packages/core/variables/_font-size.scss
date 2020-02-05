@@ -106,7 +106,11 @@ $text-styles: (
 );
 
 @mixin jkl-text-style($text-style) {
-    @each $property, $value in map-get($text-styles, $text-style) {
-        #{$property}: $value;
+    @if map-has-key($map: $text-styles, $key: $text-style) {
+        @each $property, $value in map-get($text-styles, $text-style) {
+            #{$property}: $value;
+        }
+    } @else {
+        @error "No text style with the name #{$text-style} was found. Try one of these: #{map-keys($text-styles)}";
     }
 }
