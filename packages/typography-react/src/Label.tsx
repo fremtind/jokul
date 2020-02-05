@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
+import classNames from "classnames";
 
 interface Props {
     variant?: LabelVariant;
@@ -11,11 +12,12 @@ interface Props {
 }
 
 export function Label({ variant = "medium", forceCompact, srOnly, children, standAlone, htmlFor }: Props) {
-    const className = "jkl-label".concat(
-        variant ? ` jkl-label--${variant}` : "",
-        forceCompact ? ` jkl-label--compact` : "",
-        srOnly ? ` jkl-label--sr-only` : "",
-    );
+    const className = classNames("jkl-label", {
+        [`jkl-label--${variant}`]: variant,
+        "jkl-label--compact": forceCompact,
+        "jkl-label--sr-only": srOnly,
+    });
+
     const C = standAlone ? "label" : "span";
 
     if (!standAlone && htmlFor) {
