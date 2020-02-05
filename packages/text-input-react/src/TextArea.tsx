@@ -1,6 +1,7 @@
 import React, { FocusEvent } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { BaseInputProps } from "./BaseInputField";
+import classNames from "classnames";
 
 interface Props extends BaseInputProps {
     label: string;
@@ -22,10 +23,9 @@ export const TextArea = ({
     forceCompact,
     ...restProps
 }: Props) => {
-    const componentClassName = "jkl-text-field jkl-text-area".concat(
-        forceCompact ? ` jkl-text-field--compact` : "",
-        className ? ` ${className}` : "",
-    );
+    const componentClassName = classNames("jkl-text-field jkl-text-area", className, {
+        "jkl-text-field--compact": forceCompact,
+    });
 
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>

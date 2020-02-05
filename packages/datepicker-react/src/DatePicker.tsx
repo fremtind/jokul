@@ -4,6 +4,7 @@ import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-
 import { LabelVariant } from "@fremtind/jkl-core";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
+import classNames from "classnames";
 
 interface ChangeDate {
     date: Date;
@@ -72,14 +73,13 @@ export function DatePicker({
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
-    const componentClassName = "jkl-datepicker".concat(
-        extended ? " jkl-datepicker--extended" : "",
-        !datepickerHidden ? " jkl-datepicker--open" : "",
-        className ? ` ${className}` : "",
-    );
-    const inputClassName = "jkl-text-field jkl-datepicker__input".concat(
-        forceCompact ? ` jkl-text-field--compact` : "",
-    );
+    const componentClassName = classNames("jkl-datepicker", className, {
+        "jkl-datepicker--extended": extended,
+        "jkl-datepicker--open": !datepickerHidden,
+    });
+    const inputClassName = classNames("jkl-text-field jkl-datepicker__input", {
+        "jkl-text-field--compact": forceCompact,
+    });
 
     useEffect(() => {
         disableAfterDate && disableAfterDate.setHours(23, 59, 59, 999);
