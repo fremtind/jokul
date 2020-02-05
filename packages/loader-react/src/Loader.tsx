@@ -1,5 +1,5 @@
 import React from "react";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     textDescription: string;
@@ -8,7 +8,7 @@ interface Props {
     className?: string;
 }
 export const Loader = ({ textDescription, negative = false, inline = false, className }: Props) => {
-    const componentClassName = cx("jkl-loader", className, {
+    const componentClassName = classNames("jkl-loader", className, {
         "jkl-loader--negative": negative,
         "jkl-loader--inline": inline,
     });

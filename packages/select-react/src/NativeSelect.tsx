@@ -3,7 +3,7 @@
 import React from "react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     label: string;
@@ -39,7 +39,7 @@ export function NativeSelect({
         }
     }
 
-    const componentClassName = cx("jkl-select", className, {
+    const componentClassName = classNames("jkl-select", className, {
         "jkl-select--inline": inline,
         "jkl-select--compact": forceCompact,
         "jkl-select--invalid": !!errorLabel,

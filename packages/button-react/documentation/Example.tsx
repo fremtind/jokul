@@ -5,7 +5,7 @@ import "@fremtind/jkl-toggle-switch/toggle-switch.css";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-core/core.css";
 import "./index.scss";
-import cx from "classnames";
+import classNames from "classnames";
 
 function onClick() {
     console.log("Hello!");
@@ -17,7 +17,7 @@ const Example = () => {
     const [isInverted, setIsInverted] = useState(false);
     const toggleInverted = () => setIsInverted(!isInverted);
 
-    const exampleClassName = cx("buttons-example jkl-spacing--top-3 jkl-spacing--bottom-3", {
+    const exampleClassName = classNames("buttons-example jkl-spacing--top-3 jkl-spacing--bottom-3", {
         "buttons-example--inverted": isInverted,
     });
 

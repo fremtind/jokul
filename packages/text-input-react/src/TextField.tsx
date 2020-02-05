@@ -1,7 +1,7 @@
 import React from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { BaseInputField, BaseInputProps } from "./BaseInputField";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props extends BaseInputProps {
     label: string;
@@ -11,7 +11,7 @@ interface Props extends BaseInputProps {
 }
 
 export const TextField = ({ helpLabel, errorLabel, label, className, variant, forceCompact, ...rest }: Props) => {
-    const componentClassName = cx("jkl-text-field", className, {
+    const componentClassName = classNames("jkl-text-field", className, {
         "jkl-text-field--compact": forceCompact,
     });
 

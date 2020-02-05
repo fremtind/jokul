@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     variant?: LabelVariant;
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export function Label({ variant = "medium", forceCompact, srOnly, children, standAlone, htmlFor }: Props) {
-    const className = cx("jkl-label", {
+    const className = classNames("jkl-label", {
         [`jkl-label--${variant}`]: variant,
         "jkl-label--compact": forceCompact,
         "jkl-label--sr-only": srOnly,

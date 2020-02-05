@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     title: string;
@@ -12,7 +12,7 @@ type messageTypes = "info" | "error" | "success" | "warning";
 
 function messageFactory(messageType: messageTypes) {
     return function messageBox({ title, fullWidth, className = "", children }: Props) {
-        const componentClassName = cx("jkl-message-box", "jkl-message-box--" + messageType, className, {
+        const componentClassName = classNames("jkl-message-box", "jkl-message-box--" + messageType, className, {
             "jkl-message-box--full": fullWidth,
         });
 

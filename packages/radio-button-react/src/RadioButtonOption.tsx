@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler } from "react";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     value: string;
@@ -24,7 +24,7 @@ export const RadioButtonOption = ({
 }: Props) => (
     <label
         data-testid="jkl-radio-button__label-tag"
-        className={cx("jkl-radio-button", {
+        className={classNames("jkl-radio-button", {
             "jkl-radio-button--compact": forceCompact,
             "jkl-radio-button--inline": inline,
             "jkl-radio-button--error": invalid,

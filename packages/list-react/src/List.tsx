@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     children: ReactNode;
@@ -11,7 +11,7 @@ type validLists = "unordered" | "ordered";
 function makeListComponent(listType: validLists) {
     return function List(props: Props) {
         const { children, className = "jkl-body" } = props;
-        const componentClassName = cx("jkl-list", className, {
+        const componentClassName = classNames("jkl-list", className, {
             "jkl-list--ordered": listType === "ordered",
         });
 

@@ -6,7 +6,7 @@ import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     label: string;
@@ -70,7 +70,7 @@ export function Select({
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(`dropdown${nanoid(16)}`);
     const listRef = useListNavigation();
-    const componentClassName = cx("jkl-select", className, {
+    const componentClassName = classNames("jkl-select", className, {
         "jkl-select--inline": inline,
         "jkl-select--compact": forceCompact,
         "jkl-select--open": dropdownIsShown,

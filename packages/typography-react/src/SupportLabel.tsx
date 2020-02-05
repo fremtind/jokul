@@ -1,5 +1,5 @@
 import React from "react";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     helpLabel?: string;
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const SupportLabel = ({ helpLabel, errorLabel, forceCompact, className }: Props) => {
-    const componentClassName = cx("jkl-form-support-label", className, {
+    const componentClassName = classNames("jkl-form-support-label", className, {
         "jkl-form-support-label--compact": forceCompact,
         "jkl-form-support-label--error": errorLabel,
         "jkl-form-support-label--help": !errorLabel,

@@ -1,6 +1,6 @@
 import React from "react";
 import nanoid from "nanoid";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     className?: string;
@@ -12,7 +12,7 @@ interface Props {
 
 export const Logo = ({ className, centered = true, isSymbol, animated, title = "Fremtind" }: Props) => {
     const uniqueId = nanoid(16);
-    const componentClassName = cx("jkl-logo", className, {
+    const componentClassName = classNames("jkl-logo", className, {
         "jkl-logo--animated": animated,
         "jkl-logo--symbol-only": isSymbol,
         "jkl-logo--centered": centered && isSymbol,

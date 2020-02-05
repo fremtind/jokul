@@ -1,6 +1,6 @@
 import React, { ReactNode, MouseEventHandler } from "react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
-import cx from "classnames";
+import classNames from "classnames";
 
 interface Props {
     children: ReactNode;
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const ToggleSwitch = ({ children, pressed, onClick, className, disabled, inverted, helpLabel }: Props) => {
-    const componentClassName = cx("jkl-toggle-switch", className, {
+    const componentClassName = classNames("jkl-toggle-switch", className, {
         "jkl-toggle-switch--inverted": inverted,
     });
 
