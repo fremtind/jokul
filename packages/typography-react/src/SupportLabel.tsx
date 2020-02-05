@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 
 interface Props {
     helpLabel?: string;
@@ -8,11 +9,11 @@ interface Props {
 }
 
 export const SupportLabel = ({ helpLabel, errorLabel, forceCompact, className }: Props) => {
-    const componentClassName = "jkl-form-support-label".concat(
-        ` jkl-form-support-label--${errorLabel ? "error" : "help"}`,
-        forceCompact ? " jkl-form-support-label--compact" : "",
-        className ? ` ${className}` : "",
-    );
+    const componentClassName = classNames("jkl-form-support-label", className, {
+        "jkl-form-support-label--compact": forceCompact,
+        "jkl-form-support-label--error": errorLabel,
+        "jkl-form-support-label--help": !errorLabel,
+    });
 
     if (errorLabel || helpLabel) {
         return <span className={componentClassName}>{errorLabel || helpLabel}</span>;

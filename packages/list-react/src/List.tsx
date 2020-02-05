@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import classNames from "classnames";
 
 interface Props {
     children: ReactNode;
@@ -10,10 +11,9 @@ type validLists = "unordered" | "ordered";
 function makeListComponent(listType: validLists) {
     return function List(props: Props) {
         const { children, className = "jkl-body" } = props;
-        const componentClassName = "jkl-list".concat(
-            className ? ` ${className}` : "",
-            listType === "ordered" ? " jkl-list--ordered" : "",
-        );
+        const componentClassName = classNames("jkl-list", className, {
+            "jkl-list--ordered": listType === "ordered",
+        });
 
         const C = listType === "ordered" ? "ol" : "ul";
 

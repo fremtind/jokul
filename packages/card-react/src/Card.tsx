@@ -1,5 +1,6 @@
 import React, { ReactNode, MouseEventHandler } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import classNames from "classnames";
 
 type validButtons = "primary" | "secondary" | "tertiary";
 
@@ -30,11 +31,10 @@ interface Props {
 }
 
 export const Card = ({ title, children, className, media, action, dark, clickable }: Props) => {
-    const componentClassName = "jkl-card".concat(
-        className ? ` ${className}` : "",
-        dark ? " jkl-card--dark" : "",
-        clickable ? " jkl-card--clickable" : "",
-    );
+    const componentClassName = classNames("jkl-card", className, {
+        "jkl-card--dark": dark,
+        "jkl-card--clickable": clickable,
+    });
 
     let Button = PrimaryButton;
     if (action) {

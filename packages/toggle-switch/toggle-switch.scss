@@ -11,7 +11,7 @@ $main-slider-color: $svart;
 $expanding-pill-background-color: $suksess;
 $line-left-right-margin: rem(8px);
 
-$disabled-color: $varm-fjellgra;
+$disabled-color: $gra-60;
 $inverted-disabled-color: #969696;
 
 .jkl-toggle-switch {
@@ -54,7 +54,7 @@ $inverted-disabled-color: #969696;
         /* Sliding dot */
         &:after {
             box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $main-slider-color,
-                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $helhvit;
+                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $hvit;
             content: "";
             border-radius: 99rem;
             position: absolute;
@@ -100,16 +100,16 @@ $inverted-disabled-color: #969696;
         .jkl-toggle-switch {
             &__slider {
                 &:before {
-                    background-color: $helhvit;
+                    background-color: $hvit;
                 }
                 &:after {
-                    background-color: $helhvit;
-                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $helhvit,
+                    background-color: $hvit;
+                    box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $hvit,
                         inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $svart;
                 }
                 & .jkl-toggle-switch__expanding-pill {
                     background-color: $expanding-pill-background-color;
-                    border-color: $helhvit;
+                    border-color: $hvit;
                 }
             }
         }
@@ -141,7 +141,7 @@ $inverted-disabled-color: #969696;
             &:after {
                 background-color: $disabled-color;
                 box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
-                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $helhvit;
+                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $hvit;
             }
             & .jkl-toggle-switch__expanding-pill {
                 background-color: transparent;

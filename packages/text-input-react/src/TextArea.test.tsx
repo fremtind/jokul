@@ -1,10 +1,11 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { TextArea } from ".";
+import { axe } from "jest-axe";
+
+afterEach(cleanup);
 
 describe("TextArea", () => {
-    afterEach(cleanup);
-
     it("renders with correct label", () => {
         const { getByLabelText } = render(<TextArea label="Cool text field" />);
 
@@ -16,5 +17,14 @@ describe("TextArea", () => {
 
         const component = getByTestId("jkl-text-field");
         expect(component).toHaveClass("test-class");
+    });
+});
+
+describe("a11y", () => {
+    test("text-area should be a11y compliant", async () => {
+        const { container } = render(<TextArea label="testing" helpLabel="tips" />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });

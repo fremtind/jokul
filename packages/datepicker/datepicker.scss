@@ -9,7 +9,7 @@ $date-spacing: rem(4px);
 $calendar-padding: $component-spacing--xl;
 $calendar-padding--compact: $component-spacing--small;
 $calendar-width: ($date-width * 7) + ($date-spacing * 6);
-$background-color: $helhvit;
+$background-color: $hvit;
 $bottom-margin: $component-spacing--large;
 
 .jkl-datepicker {
@@ -75,7 +75,7 @@ $bottom-margin: $component-spacing--large;
 
         &:disabled {
             & > .jkl-datepicker__month-arrow {
-                @include chevron(rem(20px), $mellomgra, rem(1px));
+                @include chevron(rem(20px), $gra-40, rem(1px));
                 transform-origin: center;
                 transition: none;
 
@@ -194,27 +194,27 @@ $bottom-margin: $component-spacing--large;
             &[data-adjacent="true"] {
                 padding: 0; // reset vertical alignment of text
                 font-size: $font-size-2;
-                color: $varm-fjellgra;
+                color: $gra-60;
             }
             &[aria-current="date"] {
                 background-color: $varde;
             }
             &:hover:not(:disabled) {
-                background-color: $varm-fjellgra;
-                color: $snohvit;
+                background-color: $gra-60;
+                color: $gra-10;
             }
             &[autofocus] {
                 background-color: $svart;
-                color: $snohvit;
+                color: $gra-10;
                 font-weight: bold;
             }
 
             &:disabled {
-                color: $mellomgra;
+                color: $gra-40;
             }
 
             &:focus {
-                box-shadow: 0 0 0 rem(1px) $snohvit, 0 0 0 rem(3px) $focus-color;
+                box-shadow: 0 0 0 rem(1px) $gra-10, 0 0 0 rem(3px) $focus-color;
             }
         }
     }

@@ -20,7 +20,7 @@ $link-side-padding: 0.075em; // relative value to work with all paragraph styles
 
     html:not([data-mousenavigation]) &:focus,
     &:hover {
-        color: $snohvit;
+        color: $gra-10;
         background-size: 100% 100%;
     }
 
@@ -29,7 +29,7 @@ $link-side-padding: 0.075em; // relative value to work with all paragraph styles
     }
 
     &--negative {
-        @include background-color($snohvit);
+        @include background-color($gra-10);
 
         &:hover {
             color: $svart;
