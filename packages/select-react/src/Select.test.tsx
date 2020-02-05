@@ -62,7 +62,11 @@ describe("Select", () => {
 describe("a11y", () => {
     test("select should be a11y compliant", async () => {
         const { container } = render(<Select label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />);
-        const results = await axe(container);
+        const results = await axe(container, {
+            rules: {
+                "aria-input-field-name": { enabled: false },
+            },
+        });
 
         expect(results).toHaveNoViolations();
     });
@@ -71,7 +75,11 @@ describe("a11y", () => {
         const { container } = render(
             <Select forceCompact label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
-        const results = await axe(container);
+        const results = await axe(container, {
+            rules: {
+                "aria-input-field-name": { enabled: false },
+            },
+        });
 
         expect(results).toHaveNoViolations();
     });
