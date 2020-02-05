@@ -29,6 +29,10 @@ describe("FieldGroup", () => {
         expect(queryByText("Helpful text")).not.toBeInTheDocument;
         expect(queryByText("Helpful suggestion")).toBeInTheDocument;
     });
+    it("should render supplied className", () => {
+        const { container } = render(<FieldGroup legend="Hello" className="this-is--a-class"></FieldGroup>);
+        expect(container.firstChild).toHaveClass("this-is--a-class");
+    });
 });
 
 describe("a11y", () => {
