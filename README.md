@@ -98,6 +98,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
   <tr>
     <td align="center"><a href="https://github.com/Murstam"><img src="https://avatars1.githubusercontent.com/u/47025023?v=4" width="100px;" alt=""/><br /><sub><b>Murstam</b></sub></a><br /><a href="#design-Murstam" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/fremtind-bot"><img src="https://avatars1.githubusercontent.com/u/57256715?v=4" width="100px;" alt=""/><br /><sub><b>fremtind-bot</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=fremtind-bot" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/joms"><img src="https://avatars2.githubusercontent.com/u/537060?v=4" width="100px;" alt=""/><br /><sub><b>Jo Emil Holen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=joms" title="Code">💻</a></td>
   </tr>
 </table>
 
