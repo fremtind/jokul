@@ -1,5 +1,6 @@
 import React from "react";
 import nanoid from "nanoid";
+import classNames from "classnames";
 
 interface Props {
     className?: string;
@@ -11,12 +12,11 @@ interface Props {
 
 export const Logo = ({ className, centered = true, isSymbol, animated, title = "Fremtind" }: Props) => {
     const uniqueId = nanoid(16);
-    const componentClassName = "jkl-logo".concat(
-        animated ? ` jkl-logo--animated` : "",
-        isSymbol ? ` jkl-logo--symbol-only` : "",
-        centered && isSymbol ? ` jkl-logo--centered` : "",
-        className ? ` ${className}` : "",
-    );
+    const componentClassName = classNames("jkl-logo", className, {
+        "jkl-logo--animated": animated,
+        "jkl-logo--symbol-only": isSymbol,
+        "jkl-logo--centered": centered && isSymbol,
+    });
 
     return (
         <div className={componentClassName}>
