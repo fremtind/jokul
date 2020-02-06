@@ -1,3 +1,6 @@
+# Velkommen til Jøkul
+Jøkul er designsystemet til Fremtind Forsikring. Her har vi samlet alt du trenger for å lage løsninger i vår profil.
+
 ## Hva du finner her
 På disse sidene finner du informasjon om profilen vår, komponentene våre og hvordan disse skal implementeres i digitale løsninger.
 
