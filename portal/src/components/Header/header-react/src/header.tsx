@@ -1,5 +1,5 @@
 import React, { ReactNode, MouseEventHandler } from "react";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import classNames from "classnames";
 
 type validButtons = "primary" | "secondary" | "tertiary";
 
@@ -31,7 +31,7 @@ interface Props {
 }
 
 export const Header = ({ title, brand, children, className, logo, dark, clickable }: Props) => {
-    const componentClassName = "jkl-header".concat(className ? ` ${className}` : "", dark ? " jkl-header--dark" : "");
+    const componentClassName = classNames("jkl-header", className, { "jkl-header--dark": dark });
 
     return (
         <div data-testid="jkl-header" className={componentClassName}>
