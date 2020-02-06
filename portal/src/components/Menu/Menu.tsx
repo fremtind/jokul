@@ -11,6 +11,9 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 import { ThemeContext } from "../Layout/Layout";
 import { FilterField } from "./FilterField";
 
+//New compontents
+import { Sidebar } from "../Sidebar";
+
 import "./Menu.scss";
 
 export function Menu() {
@@ -68,7 +71,10 @@ export function Menu() {
     return (
         <LocationProvider>
             {({ location }) => (
-                <div ref={menuRef} className={`portal-menu ${showMenu ? " portal-menu--open" : "portal-menu--closed"}`}>
+                <Sidebar
+                    ref={menuRef}
+                    className={`portal-menu ${showMenu ? " portal-menu--open" : "portal-menu--closed"}`}
+                >
                     <div className="portal-menu__toggler">
                         <Hamburger
                             negative
@@ -104,7 +110,7 @@ export function Menu() {
                                 </AccordionItem>
                             ))}
                         </Accordion>
-
+                        <hr className="portal-menu-hr" />
                         {staticLinks.map(({ linkText, href, className }) => (
                             <a
                                 className={`portal-menu__link jkl-body ${className}`}
@@ -125,7 +131,7 @@ export function Menu() {
                             Dark(beta)
                         </ToggleSwitch>
                     </nav>
-                </div>
+                </Sidebar>
             )}
         </LocationProvider>
     );

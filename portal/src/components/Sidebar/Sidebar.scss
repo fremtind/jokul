@@ -1,52 +1,8 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_motion.scss";
-
-@import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-toggle-switch/toggle-switch.scss";
-
-$toggler-size: rem(56px);
-$menu-width: rem(320px);
-
-.portal-dark {
-    background-color: $gra-80;
-    color: $gra-10;
-    & .jkl-message-box {
-        color: $svart;
-    }
-    & .portal-content__section--copy {
-        color: $gra-10;
-    }
-    & .portal-header {
-        background-color: $gra-80;
-        margin: 0;
-        padding: $layout-spacing--medium $layout-spacing--large 0 0;
-        left: 0;
-        text-align: right;
-        height: 120px;
-    }
-    & .portal-header__title > a {
-        color: $gra-10;
-    }
-    & .portal-main__hero {
-        background-color: rgba($gra-80, 0.7);
-    }
-    & .portal-content__example {
-        color: initial;
-    }
-    & .portal-icon {
-        color: $gra-20;
-    }
-    & .portal-footer {
-        background-color: $svart;
-    }
-}
-
-.portal-menu {
+.jkl-sidebar {
     z-index: 1;
     height: 100vh;
     position: fixed;
     margin-top: 96px;
-    font-size: rem(18px);
 
     &__link:first-letter {
         text-transform: capitalize;
@@ -72,7 +28,7 @@ $menu-width: rem(320px);
 
         .portal-dark & {
             background-color: $svart;
-            color: $gra-10;
+            color: $snohvit;
         }
     }
 
@@ -100,7 +56,7 @@ $menu-width: rem(320px);
                 transform: translateX(-$menu-width);
             }
             & > .portal-menu__toggler {
-                background-color: $gra-80;
+                background-color: $matt-svart;
                 transform: translateX(0);
             }
         }
@@ -125,10 +81,6 @@ $menu-width: rem(320px);
         padding: 0;
     }
 
-    & .jkl-accordion-item__title {
-        margin-top: 0 !important;
-    }
-
     & .jkl-accordion-item:first-of-type {
         & > .jkl-accordion-item__title {
             margin-top: -$component-spacing--large;
@@ -140,25 +92,9 @@ $menu-width: rem(320px);
         letter-spacing: -0.009em;
     }
 
-    & .jkl-accordion-item__title-text {
-        font-size: rem(18px);
-    }
-
     & .jkl-accordion-item__content {
-        @include jkl-text-style("desktop/body");
+        @include body-paragraph;
         padding: $layout-spacing--small;
-    }
-
-    & .jkl-accordion-item__title-icon {
-        width: 16px;
-        height: 16px;
-        margin-top: -12px;
-    }
-
-    & .portal-menu-hr {
-        margin: 3rem 0;
-        border-top: 1px solid #baa589;
-        border-bottom: none;
     }
 
     &__link {
@@ -167,9 +103,6 @@ $menu-width: rem(320px);
         margin-bottom: $component-spacing--medium;
         text-decoration: none;
         font-weight: bold;
-        font-size: rem(18px) !important;
-        height: 3rem !important;
-        margin: 0 0 !important;
 
         &:hover,
         &:focus {

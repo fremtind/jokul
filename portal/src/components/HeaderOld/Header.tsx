@@ -19,7 +19,7 @@ export const Header = ({ siteHeader = "Jøkul Designsystem", siteTitle }: Props)
                 <header className="portal-header">
                     <Helmet>
                         <html lang="no-nb" />
-                        <title>{siteTitle ? `${siteTitle} - ` : ""}Jøkul Designsystem</title>
+                        <title>{siteHeader}</title>
                     </Helmet>
                     <div className="portal-header__title">
                         <Link to="/">

@@ -55,7 +55,7 @@ const components = {
     a,
 };
 
-export const Layout = ({ children, title, header, isComponentPage = false, showFooter = false }: Props) => {
+export const Layout = ({ children, isComponentPage = false, showFooter = false }: Props) => {
     const [theme, toggleDarkMode] = React.useState(getTheme());
 
     const toggleTheme = (showDark: boolean) => {
@@ -77,7 +77,7 @@ export const Layout = ({ children, title, header, isComponentPage = false, showF
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <Header siteHeader={header} siteTitle={title} />
+            <Header brand="Jøkul" title="Design System 2" />
             <Menu />
             <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
                 <MDXProvider components={components}>{children}</MDXProvider>

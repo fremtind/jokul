@@ -1,0 +1,25 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-button/button.scss";
+
+$header-bg-color: $snohvit;
+$header-padding: 33px 24px;
+
+.jkl-header {
+    height: 96px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: $header-bg-color;
+
+    &__title {
+        font-size: 21px;
+        &--brand {
+            font-weight: 700;
+        }
+    }
+    &__logo {
+        float: right;
+        width: 40px;
+    }
+}

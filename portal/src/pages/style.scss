@@ -23,7 +23,7 @@ $circle-size: rem(100px);
         object-fit: cover;
         z-index: -1;
         min-width: 100%;
-        height: 100vh;
+        height: 65vh;
     }
 
     &__hero {
@@ -50,12 +50,12 @@ $circle-size: rem(100px);
     }
 
     &__content {
-        @include position(absolute, $top: 100vh, $left: 0, $right: 0);
+        @include position(absolute, $top: 65vh, $left: 0, $right: 0);
         @media (min-width: $breakpoint--medium) {
             margin-left: $menu-width;
         }
-        background-color: $content-bg-color;
-        color: $content-color;
+        background-color: white;
+        color: black;
         padding: $layout-spacing--large;
         @include small-device {
             position: relative;
@@ -63,20 +63,6 @@ $circle-size: rem(100px);
             margin: 0 (-$layout-spacing--small);
             box-sizing: border-box;
             padding: $layout-spacing--large $layout-spacing--small;
-        }
-
-        &::before {
-            @include position(absolute, $top: -#{$circle-size/2}, $left: calc(50% - #{$circle-size/2}));
-            content: "▼";
-            font-size: $circle-size/4;
-            height: $circle-size;
-            width: $circle-size;
-            border-radius: $circle-size/2;
-            background-color: $content-bg-color;
-            color: $content-color;
-            display: flex;
-            justify-content: center;
-            padding-top: rem(20px);
         }
         & > * {
             max-width: $content-max-width;

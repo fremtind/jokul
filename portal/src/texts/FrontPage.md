@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 # Profilen vår og komponentene våre
 
 På disse sidene finner du informasjon om profilen vår, komponentene våre og hvordan vi implementerer dem i digitale løsninger.
+=======
+# Velkommen til Jøkul
+Jøkul er designsystemet til Fremtind Forsikring. Her har vi samlet alt du trenger for å lage løsninger i vår profil.
+
+## Hva du finner her
+På disse sidene finner du informasjon om profilen vår, komponentene våre og hvordan disse skal implementeres i digitale løsninger.
+>>>>>>> refactor(portal): refactoring the portal
 
 ## Bidra
 Jøkul er et levende designsystem. For at vi skal holde det relevant, er det viktig at alle som bruker designsystemet og merkevareprofilen vår hjelper til med å forbedre det vi har.
