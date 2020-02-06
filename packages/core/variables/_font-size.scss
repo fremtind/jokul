@@ -50,58 +50,72 @@ $text-styles: (
     "desktop/heading-large": (
         font-size: $font-size-9,
         line-height: $line-height-5,
+        font-weight: $bold-weight,
     ),
     "compact/heading-large": (
         font-size: $font-size-7,
         line-height: $line-height-4,
+        font-weight: $bold-weight,
     ),
     "desktop/heading-medium": (
         font-size: $font-size-7,
         line-height: $line-height-4,
+        font-weight: $bold-weight,
     ),
     "compact/heading-medium": (
         font-size: $font-size-5,
         line-height: $line-height-3,
+        font-weight: $bold-weight,
     ),
     "desktop/heading-small": (
         font-size: $font-size-5,
         line-height: $line-height-3,
+        font-weight: $bold-weight,
     ),
     "compact/heading-small": (
         font-size: $font-size-3,
         line-height: $line-height-2,
+        font-weight: $bold-weight,
     ),
     "desktop/lead": (
         font-size: $font-size-8,
         line-height: $line-height-5,
+        font-weight: $normal-weight,
     ),
     "compact/lead": (
         font-size: $font-size-6,
         line-height: $line-height-4,
+        font-weight: $normal-weight,
     ),
     "desktop/body": (
         font-size: $font-size-4,
         line-height: $line-height-4,
+        font-weight: $normal-weight,
     ),
     "compact/body": (
         font-size: $font-size-3,
         line-height: $line-height-2,
+        font-weight: $normal-weight,
     ),
     "desktop/small": (
         font-size: $font-size-2,
         line-height: $line-height-2,
+        font-weight: $normal-weight,
     ),
     "compact/small": (
         font-size: $font-size-2,
         line-height: $line-height-2,
+        font-weight: $normal-weight,
     ),
     "desktop/micro": (
         font-size: $font-size-1,
         line-height: $line-height-1,
+        font-weight: $bold-weight,
     ),
     "compact/micro": (
         font-size: $font-size-1,
         line-height: $line-height-1,
+        font-weight: $bold-weight,
     ),
 );
 
