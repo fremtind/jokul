@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react";
-import { Header } from "../Header/header-react/src";
-import "./Layout.scss";
-import { Menu } from "..";
-import useTheme, { THEME_DARK, THEME_LIGHT } from "./useTheme";
+import { Header } from "../../../Header/header-react/src";
+import useTheme, { THEME_DARK, THEME_LIGHT } from "../../useTheme";
+import { Sidebar } from "../../../Sidebar/sidebar-react/src";
+import { Menu } from "../../..";
+import "../../layout/Layout.scss";
 
 interface Props {
     children: ReactNode;
@@ -25,16 +26,12 @@ export const Layout = ({ children }: Props) => {
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <div className="portal-content">
-                <header className="portal-content__header">
-                    <Header brand="Jøkul" title="Designsystem" />
-                </header>
-                <aside className="portal-content__sidebar">
+                <Header brand="Jøkul" title="Designsystem" className="portal-content__header" />
+                <Sidebar className="portal-content__sidebar">
                     <Menu />
-                </aside>
+                </Sidebar>
                 <main className="portal-content__main">{children}</main>
             </div>
         </ThemeContext.Provider>
     );
 };
-
-export default Layout;

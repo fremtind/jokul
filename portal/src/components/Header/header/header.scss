@@ -5,12 +5,14 @@
 $header-bg-color: $hvit;
 $header-padding: 33px 24px;
 
-.jkl-header {
-    height: 96px;
+.portal-header {
+    align-items: center;
     background-color: $header-bg-color;
     display: flex;
+    height: 96px;
     justify-content: space-between;
-    align-items: center;
+    z-index: 1;
+    background-color: $hvit;
 
     &__title {
         font-size: 21px;

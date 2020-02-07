@@ -1,0 +1,9 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+.portal-sidebar {
+    z-index: 1;
+    height: 100vh;
+    background-color: $varde;
+    overflow: auto;
+}

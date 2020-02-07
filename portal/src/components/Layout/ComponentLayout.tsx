@@ -1,8 +1,7 @@
 import React, { ReactNode } from "react";
-import Layout from "./Layout";
 import { ReactIcon, SassIcon } from "../icons";
+import { Layout } from "./layout-react/src";
 import { CodeLink } from "./CodeLink";
-// import "./Layout.old.scss";
 import { H1, Micro } from "@fremtind/jkl-typography-react";
 
 interface Props {

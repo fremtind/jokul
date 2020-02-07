@@ -7,110 +7,54 @@
 $toggler-size: rem(56px);
 $menu-width: 100%;
 
-.portal-dark {
-    background-color: $gra-80;
-    color: $gra-10;
-    & .jkl-message-box {
-        color: $svart;
-    }
-    & .portal-content__section--copy {
-        color: $gra-10;
-    }
-    & .portal-header {
-        background-color: $gra-80;
-        margin: 0;
-        padding: $layout-spacing--medium $layout-spacing--large 0 0;
-        left: 0;
-        text-align: right;
-        height: 120px;
-    }
-    & .portal-header__title > a {
-        color: $gra-10;
-    }
-    & .portal-main__hero {
-        background-color: rgba($gra-80, 0.7);
-    }
-    & .portal-content__example {
-        color: initial;
-    }
-    & .portal-icon {
-        color: $gra-20;
-    }
-    & .portal-footer {
-        background-color: $svart;
-    }
-}
-
 .portal-menu {
-    z-index: 1;
-    height: 100vh;
-    position: fixed;
-    // margin-top: 96px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: $svart;
     font-size: rem(18px);
+    overflow: auto;
+    padding: $line-height-2 $line-height-2;
+    scrollbar-width: none;
+    transition-property: transform, box-shadow;
+    -webkit-overflow-scrolling: touch;
+    @include motion(standard, expressive);
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    & .portal-menu-hr {
+        margin: 3rem 0;
+        border-top: 1px solid #baa589;
+        border-bottom: none;
+    }
+
+    &__link {
+        color: currentColor;
+        display: block;
+        margin-bottom: $component-spacing--medium;
+        text-decoration: none;
+        font-size: rem(18px);
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+
+        &--current {
+            position: relative;
+            &:after {
+                content: "";
+                position: absolute;
+                left: -24px;
+                top: 0;
+                height: 100%;
+                border-left: 2px solid $svart;
+            }
+        }
+    }
 
     &__link:first-letter {
         text-transform: capitalize;
-    }
-
-    &__bar {
-        box-sizing: border-box;
-        min-height: 100vh;
-        height: 100%;
-        width: $menu-width;
-        padding: $line-height-2 $line-height-2;
-        color: $svart;
-        transition-property: transform, box-shadow;
-        @include motion(standard, expressive);
-        box-shadow: none;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        .portal-dark & {
-            background-color: $svart;
-            color: $gra-10;
-        }
-    }
-
-    &__toggler {
-        @include motion(standard, expressive);
-        background-color: $svart;
-        position: absolute;
-        left: 0;
-        top: $layout-spacing--small;
-        height: $toggler-size;
-        width: $toggler-size;
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-        transform: translateX($menu-width);
-    }
-
-    @media (max-width: $breakpoint--medium) {
-        &--closed {
-            height: 0;
-            width: 0;
-            & > .portal-menu__bar {
-                box-shadow: none;
-                transform: translateX(-$menu-width);
-            }
-            & > .portal-menu__toggler {
-                background-color: $gra-80;
-                transform: translateX(0);
-            }
-        }
-
-        &__bar {
-            box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.5);
-        }
-
-        &__toggler {
-            display: flex;
-        }
     }
 
     & .jkl-accordion,
@@ -152,41 +96,5 @@ $menu-width: 100%;
         width: 16px;
         height: 16px;
         margin-top: -12px;
-    }
-
-    & .portal-menu-hr {
-        margin: 3rem 0;
-        border-top: 1px solid #baa589;
-        border-bottom: none;
-    }
-
-    &__link {
-        color: currentColor;
-        display: block;
-        margin-bottom: $component-spacing--medium;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: rem(18px) !important;
-        height: 3rem !important;
-        margin: 0 0 !important;
-
-        &:hover,
-        &:focus {
-            text-decoration: underline;
-        }
-
-        &--current {
-            position: relative;
-            &:after {
-                content: "";
-                background-color: currentColor;
-                position: absolute;
-                display: block;
-                height: rem(8px);
-                width: rem(8px);
-                top: 50%;
-                transform: translate(rem(-24px), -50%) rotate(-45deg);
-            }
-        }
     }
 }
