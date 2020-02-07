@@ -4,7 +4,7 @@ import classNames from "classnames";
 interface Props {
     children: ReactNode;
     className?: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
     forceCompact?: boolean;
     inverted?: boolean;
 }
