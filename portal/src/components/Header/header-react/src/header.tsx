@@ -1,6 +1,7 @@
 import React, { ReactNode, MouseEventHandler } from "react";
 import classNames from "classnames";
 import { Logo } from "@fremtind/jkl-logo-react";
+import "../../header/header.scss";
 
 type validButtons = "primary" | "secondary" | "tertiary";
 
@@ -26,27 +27,27 @@ interface Props {
 }
 
 export const Header = ({ title, brand, children, className, dark, clickable }: Props) => {
-    const componentClassName = classNames("jkl-header", className, { "jkl-header--dark": dark });
+    const componentClassName = classNames("portal-header", className, { "portal-header--dark": dark });
 
     return (
-        <div data-testid="jkl-header" className={componentClassName}>
+        <header data-testid="portal-header" className={componentClassName}>
             {title && (
-                <div data-testid="jkl-header__title" className="jkl-header__title">
+                <div data-testid="portal-header__title" className="portal-header__title">
                     {clickable ? (
-                        <a className="jkl-header__link" href={clickable.href} onClick={clickable.onClick}>
-                            {brand && <span className="jkl-header__link--brand">{brand}</span>} {title}
+                        <a className="portal-header__link" href={clickable.href} onClick={clickable.onClick}>
+                            {brand && <span className="portal-header__link--brand">{brand}</span>} {title}
                         </a>
                     ) : (
                         <span>
-                            {brand && <span className="jkl-header__link--brand">{brand}</span>} {title}
+                            {brand && <span className="portal-header__link--brand">{brand}</span>} {title}
                         </span>
                     )}
                 </div>
             )}
             {children}
-            <div className="jkl-header__logo">
+            <div className="portal-header__logo">
                 <Logo isSymbol centered={false} />
             </div>
-        </div>
+        </header>
     );
 };

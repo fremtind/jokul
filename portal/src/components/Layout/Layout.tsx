@@ -19,45 +19,7 @@ interface ContextProps {
     toggleTheme: (checked: boolean) => void;
 }
 
-<<<<<<< HEAD
-/* eslint-disable */
-const h1 = PageTitle;
-const h2 = HeadingLarge;
-const h3 = HeadingMedium;
-const h4 = HeadingSmall;
-const h5 = HeadingXS;
-const p = Paragraph;
-const ul = (props: any) => <UnorderedList {...props} />;
-const li = (props: any) => <ListItem {...props} />;
-const ol = (props: any) => <OrderedList {...props} />;
-const a = (props: any) => <Link {...props} />;
-/* eslint-enable */
-
-const components = {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p,
-    ul,
-    li,
-    ol,
-    a,
-};
-
-export const Layout = ({ children, isComponentPage = false, showFooter = false }: Props) => {
-    const [theme, toggleDarkMode] = React.useState(getTheme());
-
-    const toggleTheme = (showDark: boolean) => {
-        if (showDark) {
-            return toggleDarkMode("dark");
-        }
-        return toggleDarkMode("light");
-    };
-=======
 export const ThemeContext = React.createContext<ContextProps>({ theme: THEME_LIGHT, toggleTheme: () => "" });
->>>>>>> fix(portal): convert layout to use css grid
 
 export const Layout = ({ children }: Props) => {
     const [theme, setTheme] = useTheme();

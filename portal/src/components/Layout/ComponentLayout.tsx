@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import Layout from "./Layout";
 import { ReactIcon, SassIcon } from "../icons";
+import { Layout } from "./layout-react/src";
 import { CodeLink } from "./CodeLink";
 import "./Layout.scss";
 

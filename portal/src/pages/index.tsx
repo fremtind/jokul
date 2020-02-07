@@ -8,7 +8,6 @@ import "./style.scss";
 
 const IndexPage = () => (
     <Layout>
-        <img className="portal-main__background" src="mountains.jpg" alt="Fjell illustasjon" />
         <div className="portal-main__content">
             <ReactMarkdown renderers={jokulRenderer} source={frontPageMarkdown} />
         </div>

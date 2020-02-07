@@ -10,14 +10,20 @@
 
     &__header {
         grid-area: header;
+        position: fixed;
+        width: 100%;
     }
 
     &__sidebar {
         grid-row: sidebar;
         background-color: $varde;
+        position: fixed;
+        width: 276px;
+        top: 96px;
     }
 
     &__main {
         grid-column: main;
+        margin-top: 96px;
     }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout/Layout";
+import { Layout } from "../components";
 import "@fremtind/jkl-core/core.min.css";
 import "../pages/style.scss";
 import "../components/Typography/typography.scss";
