@@ -10,6 +10,7 @@ import "@fremtind/jkl-hamburger/hamburger.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import { ThemeContext } from "../Layout/Layout";
 import { FilterField } from "./FilterField";
+import { THEME_DARK, THEME_LIGHT } from "../Layout/useTheme";
 
 //New compontents
 import { Sidebar } from "../Sidebar";
@@ -123,10 +124,10 @@ export function Menu() {
                         ))}
 
                         <ToggleSwitch
-                            inverted={theme === "dark"}
+                            inverted={theme === THEME_DARK}
                             className="jkl-spacing--top-2 jkl-spacing--bottom-3"
-                            pressed={theme === "dark"}
-                            onClick={() => toggleTheme(theme === "light")}
+                            pressed={theme === THEME_DARK}
+                            onClick={() => toggleTheme(theme === THEME_LIGHT)}
                         >
                             Dark(beta)
                         </ToggleSwitch>

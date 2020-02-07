@@ -1,100 +1,23 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
-
-$portal-max-width: 1200px;
-$menu-width: rem(320px);
-
-/* This is the main container (@reach/router within gatsby wrapper) */
-#___gatsby > div[role="group"][tabindex] {
-    display: grid;
-    grid-template-columns: 1fr;
-}
 
 .portal-content {
-    @media (min-width: $breakpoint--medium) {
-        margin-left: $menu-width;
+    display: grid;
+    grid-template-columns: 276px 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "sidebar main";
+
+    &__header {
+        grid-area: header;
     }
 
-    box-sizing: border-box;
-    padding: $layout-spacing--xxl $layout-spacing--xl;
-    max-width: $portal-max-width;
-
-    @include small-device {
-        padding: $layout-spacing--xxl $layout-spacing--small;
+    &__sidebar {
+        grid-row: sidebar;
+        background-color: $varde;
     }
 
-    &--component-page {
-        max-width: 100vw;
-        padding: $layout-spacing--xxl 0 0;
-        @include small-device {
-            padding-top: $layout-spacing--xl;
-        }
-    }
-
-    &__heading {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: $layout-spacing--medium;
-        max-width: 100vw;
-        @include small-device {
-            flex-direction: column;
-            margin-bottom: $layout-spacing--small;
-            align-items: flex-start;
-        }
-    }
-
-    &__packages {
-        padding: $component-spacing--medium $layout-spacing--small 0;
-        border-radius: rem(4px);
-        box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.75);
-        background-color: $gra-80;
-        color: $gra-10;
-
-        &__description {
-            margin-top: $component-spacing--medium;
-        }
-    }
-
-    &__title {
-        padding: 0 $layout-spacing--small 0 $layout-spacing--large;
-        @include small-device {
-            padding: 0 $component-spacing--large;
-        }
-    }
     &__main {
-        padding: 0 $layout-spacing--large;
-        & > * {
-            max-width: $portal-max-width;
-        }
-        @include small-device {
-            padding: 0 $layout-spacing--small;
-        }
-    }
-    &__code-link {
-        margin: 0 $component-spacing--small;
-        display: inline-block;
-        outline: none;
-        border: none;
-    }
-    &__code-link-text {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        height: 1px;
-        width: 1px;
-        overflow: hidden;
-    }
-
-    & .jkl-h1 {
-        margin-top: 0;
-    }
-}
-
-.portal-component-only {
-    width: 100vw;
-    & > :nth-child(n + 2) {
-        display: none;
+        grid-column: main;
     }
 }

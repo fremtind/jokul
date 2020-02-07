@@ -85,7 +85,7 @@ export const staticLinks = [
     {
         href:
             "https://github.com/fremtind/jokul/issues/new?assignees=&labels=✨+enhancement&template=funksjonalitets-nske.md&title=",
-        linkText: "Forslag ny funksjon",
+        linkText: "Foreslå ny funksjonalitet",
     },
     {
         href: "https://www.figma.com/file/kjIQcfLr1wYdFGnUmD4rF4/J%C3%B8kul-eksempler?node-id=1%3A9",

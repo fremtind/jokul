@@ -5,7 +5,7 @@
 @import "~@fremtind/jkl-toggle-switch/toggle-switch.scss";
 
 $toggler-size: rem(56px);
-$menu-width: rem(320px);
+$menu-width: 100%;
 
 .portal-dark {
     background-color: $gra-80;
@@ -45,7 +45,7 @@ $menu-width: rem(320px);
     z-index: 1;
     height: 100vh;
     position: fixed;
-    margin-top: 96px;
+    // margin-top: 96px;
     font-size: rem(18px);
 
     &__link:first-letter {
@@ -58,7 +58,6 @@ $menu-width: rem(320px);
         height: 100%;
         width: $menu-width;
         padding: $line-height-2 $line-height-2;
-        background-color: $varde;
         color: $svart;
         transition-property: transform, box-shadow;
         @include motion(standard, expressive);

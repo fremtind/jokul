@@ -1,25 +1,11 @@
 import React, { ReactNode } from "react";
-import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
 import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
-import { Footer, Header, Menu } from "..";
+import { Header, Menu } from "..";
 import "./Layout.scss";
-
-const getTheme = () => {
-    if (typeof window !== `undefined`) {
-        return window.localStorage.getItem("portal-theme") || "light";
-    }
-    return "light";
-};
-
-interface ContextProps {
-    theme: string;
-    toggleTheme: (checked: boolean) => void;
-}
-
-export const ThemeContext = React.createContext<ContextProps>({ theme: "light", toggleTheme: () => "" });
+import useTheme, { THEME_DARK, THEME_LIGHT } from "./useTheme";
 
 interface Props {
     children: ReactNode;
@@ -28,7 +14,12 @@ interface Props {
     isComponentPage?: boolean;
     showFooter?: boolean;
 }
+interface ContextProps {
+    theme: string;
+    toggleTheme: (checked: boolean) => void;
+}
 
+<<<<<<< HEAD
 /* eslint-disable */
 const h1 = PageTitle;
 const h2 = HeadingLarge;
@@ -64,25 +55,25 @@ export const Layout = ({ children, isComponentPage = false, showFooter = false }
         }
         return toggleDarkMode("light");
     };
+=======
+export const ThemeContext = React.createContext<ContextProps>({ theme: THEME_LIGHT, toggleTheme: () => "" });
+>>>>>>> fix(portal): convert layout to use css grid
 
-    React.useEffect(() => {
-        if (theme === "dark") {
-            window.localStorage.setItem("portal-theme", "dark");
-            document.body.classList.add("portal-dark");
-        } else {
-            window.localStorage.setItem("portal-theme", "light");
-            document.body.classList.remove("portal-dark");
-        }
-    }, [theme]);
+export const Layout = ({ children }: Props) => {
+    const [theme, setTheme] = useTheme();
+    const toggleTheme = (isDarkTheme: boolean) => setTheme(isDarkTheme ? THEME_DARK : THEME_LIGHT);
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <Header brand="Jøkul" title="Design System 2" />
-            <Menu />
-            <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
-                <MDXProvider components={components}>{children}</MDXProvider>
-            </main>
-            {showFooter && <Footer />}
+            <div className="portal-content">
+                <header className="portal-content__header">
+                    <Header brand="Jøkul" title="Designsystem" />
+                </header>
+                <aside className="portal-content__sidebar">
+                    <Menu />
+                </aside>
+                <main className="portal-content__main">{children}</main>
+            </div>
         </ThemeContext.Provider>
     );
 };

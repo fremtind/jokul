@@ -19,7 +19,7 @@ $circle-size: rem(100px);
     overflow: hidden;
 
     &__background {
-        @include position(absolute !important, $top: 0, $left: 0);
+        // @include position(absolute !important, $top: 0, $left: 0);
         object-fit: cover;
         z-index: -1;
         min-width: 100%;
@@ -27,7 +27,7 @@ $circle-size: rem(100px);
     }
 
     &__hero {
-        @include position(relative, $top: $hero-top-offset, $left: 0);
+        // @include position(relative, $top: $hero-top-offset, $left: 0);
         max-width: $hero-size;
         padding: $layout-spacing--large $layout-spacing--medium;
         margin: 0 $layout-spacing--large;
@@ -50,7 +50,7 @@ $circle-size: rem(100px);
     }
 
     &__content {
-        @include position(absolute, $top: 65vh, $left: 0, $right: 0);
+        // @include position(absolute, $top: 65vh, $left: 0, $right: 0);
         @media (min-width: $breakpoint--medium) {
             margin-left: $menu-width;
         }
