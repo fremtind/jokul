@@ -7,19 +7,21 @@ $header-padding: 33px 24px;
 
 .jkl-header {
     height: 96px;
-    position: fixed;
-    top: 0;
-    width: 100%;
     background-color: $header-bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     &__title {
         font-size: 21px;
-        &--brand {
-            font-weight: 700;
-        }
+        padding: $header-padding;
+    }
+    &__link--brand {
+        font-weight: 700;
     }
     &__logo {
         float: right;
         width: 40px;
+        padding: $header-padding;
     }
 }

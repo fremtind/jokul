@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import "./Layout.scss";
+// import "./Layout.old.scss";
 
 interface Props {
     icon: ReactNode;

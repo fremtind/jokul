@@ -1,24 +1,8 @@
 import React, { ReactNode } from "react";
-import { MDXProvider } from "@mdx-js/react";
-import { H1, H2, H3, H4, H5, Body, Link } from "@fremtind/jkl-typography-react";
-import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-
-import { Footer, Header, Menu } from "..";
+import { Header } from "../Header/header-react/src";
 import "./Layout.scss";
-
-const getTheme = () => {
-    if (typeof window !== `undefined`) {
-        return window.localStorage.getItem("portal-theme") || "light";
-    }
-    return "light";
-};
-
-interface ContextProps {
-    theme: string;
-    toggleTheme: (checked: boolean) => void;
-}
-
-export const ThemeContext = React.createContext<ContextProps>({ theme: "light", toggleTheme: () => "" });
+import { Menu } from "..";
+import useTheme, { THEME_DARK, THEME_LIGHT } from "./useTheme";
 
 interface Props {
     children: ReactNode;
@@ -27,61 +11,28 @@ interface Props {
     isComponentPage?: boolean;
     showFooter?: boolean;
 }
+interface ContextProps {
+    theme: string;
+    toggleTheme: (checked: boolean) => void;
+}
 
-/* eslint-disable */
-const h1 = (props: any) => <H1 {...props} />;
-const h2 = (props: any) => <H2 {...props} />;
-const h3 = (props: any) => <H3 {...props} />;
-const h4 = (props: any) => <H4 {...props} />;
-const h5 = (props: any) => <H5 {...props} />;
-const p = (props: any) => <Body {...props} />;
-const ul = (props: any) => <UnorderedList {...props} />;
-const li = (props: any) => <ListItem {...props} />;
-const ol = (props: any) => <OrderedList {...props} />;
-const a = (props: any) => <Link {...props} />;
-/* eslint-enable */
+export const ThemeContext = React.createContext<ContextProps>({ theme: THEME_LIGHT, toggleTheme: () => "" });
 
-const components = {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p,
-    ul,
-    li,
-    ol,
-    a,
-};
-
-export const Layout = ({ children, isComponentPage = false, showFooter = false }: Props) => {
-    const [theme, toggleDarkMode] = React.useState(getTheme());
-
-    const toggleTheme = (showDark: boolean) => {
-        if (showDark) {
-            return toggleDarkMode("dark");
-        }
-        return toggleDarkMode("light");
-    };
-
-    React.useEffect(() => {
-        if (theme === "dark") {
-            window.localStorage.setItem("portal-theme", "dark");
-            document.body.classList.add("portal-dark");
-        } else {
-            window.localStorage.setItem("portal-theme", "light");
-            document.body.classList.remove("portal-dark");
-        }
-    }, [theme]);
+export const Layout = ({ children }: Props) => {
+    const [theme, setTheme] = useTheme();
+    const toggleTheme = (isDarkTheme: boolean) => setTheme(isDarkTheme ? THEME_DARK : THEME_LIGHT);
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <Header brand="Jøkul" title="Design System 2" />
-            <Menu />
-            <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
-                <MDXProvider components={components}>{children}</MDXProvider>
-            </main>
-            {showFooter && <Footer />}
+            <div className="portal-content">
+                <header className="portal-content__header">
+                    <Header brand="Jøkul" title="Designsystem" />
+                </header>
+                <aside className="portal-content__sidebar">
+                    <Menu />
+                </aside>
+                <main className="portal-content__main">{children}</main>
+            </div>
         </ThemeContext.Provider>
     );
 };

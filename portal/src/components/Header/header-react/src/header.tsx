@@ -1,5 +1,6 @@
 import React, { ReactNode, MouseEventHandler } from "react";
 import classNames from "classnames";
+import { Logo } from "@fremtind/jkl-logo-react";
 
 type validButtons = "primary" | "secondary" | "tertiary";
 
@@ -7,11 +8,6 @@ type Action = {
     type: validButtons;
     name: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
-};
-
-type Media = {
-    src: string;
-    alt: string;
 };
 
 type Clickable = {
@@ -24,20 +20,18 @@ interface Props {
     brand?: string;
     children?: ReactNode;
     className?: string;
-    logo?: Media;
     action?: Action;
     dark?: boolean;
     clickable?: Clickable;
 }
 
-export const Header = ({ title, brand, children, className, logo, dark, clickable }: Props) => {
+export const Header = ({ title, brand, children, className, dark, clickable }: Props) => {
     const componentClassName = classNames("jkl-header", className, { "jkl-header--dark": dark });
 
     return (
         <div data-testid="jkl-header" className={componentClassName}>
-            {logo && <img className="jkl-header__media" src={logo.src} alt={logo.alt}></img>}
             {title && (
-                <div data-testid="jkl-header__title">
+                <div data-testid="jkl-header__title" className="jkl-header__title">
                     {clickable ? (
                         <a className="jkl-header__link" href={clickable.href} onClick={clickable.onClick}>
                             {brand && <span className="jkl-header__link--brand">{brand}</span>} {title}
@@ -50,6 +44,9 @@ export const Header = ({ title, brand, children, className, logo, dark, clickabl
                 </div>
             )}
             {children}
+            <div className="jkl-header__logo">
+                <Logo isSymbol centered={false} />
+            </div>
         </div>
     );
 };
