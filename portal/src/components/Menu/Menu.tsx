@@ -88,8 +88,8 @@ export function Menu() {
                             ))}
                         </Accordion>
                         <hr className="portal-menu-hr" />
-                        {staticLinks.map(({ linkText, href, className }) => (
-                            <a className={`portal-menu__link jkl-body ${className}`} href={href} key={linkText}>
+                        {staticLinks.map(({ linkText, href }) => (
+                            <a className={`portal-menu__link jkl-body`} href={href} key={linkText}>
                                 {linkText}
                             </a>
                         ))}

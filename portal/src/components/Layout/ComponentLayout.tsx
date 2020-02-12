@@ -33,7 +33,7 @@ export const ComponentLayout = ({
                     </aside>
                 )}
             </header>
-            <section className="portal-content__main">{children}</section>
+            <section className="portal-content__main--children">{children}</section>
         </>
     </Layout>
 );

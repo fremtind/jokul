@@ -34,6 +34,7 @@ $menu-width: 100%;
         margin-bottom: $component-spacing--medium;
         text-decoration: none;
         font-size: rem(18px);
+        line-height: 40px;
 
         &:hover,
         &:focus {
@@ -42,13 +43,27 @@ $menu-width: 100%;
 
         &--current {
             position: relative;
+            font-weight: $bold-weight;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 276px;
+                background-color: $varde-20;
+                margin-left: -3rem;
+                z-index: -1;
+            }
+
             &:after {
                 content: "";
                 position: absolute;
                 left: -24px;
-                top: 0;
-                height: 100%;
-                border-left: 2px solid $svart;
+                top: calc(50% - 3px);
+                background-color: $svart;
+                height: 6px;
+                width: 6px;
+                transform: rotate(45deg);
             }
         }
     }
