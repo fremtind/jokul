@@ -4,6 +4,7 @@ Hopefully someone (us?) will write types for it sometime soon */
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { ReactNode, useState } from "react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import classNames from "classnames";
 
 interface Props {
     title: string;
@@ -15,10 +16,9 @@ interface Props {
 export function AccordionItem({ children, title, className, startExpanded = false }: Props) {
     const [isOpen, setIsOpen] = useState(startExpanded);
     const [elementRef] = useAnimatedHeight(isOpen);
-    const componentClassName = "jkl-accordion-item".concat(
-        isOpen ? " jkl-accordion-item--expanded" : "",
-        className ? ` ${className}` : "",
-    );
+    const componentClassName = classNames("jkl-accordion-item", className, {
+        "jkl-accordion-item--expanded": isOpen,
+    });
 
     const onToggle = () => setIsOpen(!isOpen);
 
