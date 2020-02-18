@@ -2,9 +2,31 @@
 
 Fra `jkl-core@2.x.x` til `jkl-core@3.0.0`
 
+## Farger
+
+Fargene har fått en overhaling i `jkl-core@3.0.0`. **Hovedfargene** er redusert til kun tre, men det har kommet til **Sekundærfarger** i form av 10-punkts skalaer for gråtoner og nyanser av fargen "Varde". **Støttefargene** er delt opp i **Meldingsfarger** og **Illustrasjonsfarger**.
+
+### Hvordan bruke de nye fargene i Figma
+
+I Figma har fargestilene allerede endret navn, og vil være oppdatert i skissene dine dersom du har godtatt oppdateringen av biblioteket.
+
+### Hvordan bruke de nye fargestilene i CSS/Sass
+
+Vi eksponerer alle fargene som Sass-variabler fra `variables/_colors.scss`. De nye fargeskalaene er tilgjengelige som `$gra-10, $gra-20, ... $gra-100` og `$varde-10, $varde-20, ... $varde-100`. De nye meldingsfargene heter `$suksess, $info, $advarsel og $feil`.
+
+Følgende variabler vil ikke fungere lenger fra `jkl-core@3.0.0`:
+
+| Gammel variabel  | Ny (eller nærmeste nye) variabel |
+| ---------------- | -------------------------------- |
+| `$helhvit`       | `$hvit`                          |
+| `$varm-fjellgra` | `$gra-60`                        |
+| `$matt-svart`    | `$gra-80`                        |
+| `$snohvit`       | `$gra-10`                        |
+| `$himmelgra`     | `$gra-20`                        |
+
 ## Tekststiler
 
-Den største endringen, og den eneste breaking change, i `jkl-core` v3.x.x er en overhaling av tekststilene. Der de tidligere eksisterte i de to kategoriene `desktop` og `mobile` er kategorinavnene nå endret til `desktop` og `compact` for bedre å formidle variasjon i bruk. Hver tekststil inneholder informasjon om tekststørrelse, linjehøyde, og fontvekt.
+Den største endringen i `jkl-core` v3.x.x er en overhaling av tekststilene. Der de tidligere eksisterte i de to kategoriene `desktop` og `mobile` er kategorinavnene nå endret til `desktop` og `compact` for bedre å formidle variasjon i bruk. Hver tekststil inneholder informasjon om tekststørrelse, linjehøyde, og fontvekt.
 
 Variantene under `compact` er fortsatt de som skal brukes på mobile flater.
 
