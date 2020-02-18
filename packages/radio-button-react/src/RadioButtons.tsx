@@ -15,6 +15,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     className?: string;
+    inverted?: boolean;
 }
 
 export const RadioButtons = ({
@@ -29,6 +30,7 @@ export const RadioButtons = ({
     variant,
     forceCompact,
     className,
+    inverted,
 }: Props) => (
     <FieldGroup
         legend={legend}
@@ -49,6 +51,7 @@ export const RadioButtons = ({
                 onChange={onChange}
                 invalid={!!errorLabel}
                 forceCompact={forceCompact}
+                inverted={inverted}
             />
         ))}
     </FieldGroup>

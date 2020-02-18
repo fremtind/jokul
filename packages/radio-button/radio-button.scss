@@ -148,6 +148,18 @@ $radio-button-color: $svart;
         }
     }
 
+    &--inverted {
+        .jkl-radio-button__dot {
+            &:before {
+                border-color: $hvit;
+                background-color: transparent;
+            }
+            &:after {
+                background-color: $hvit;
+            }
+        }
+    }
+
     @include compact-mode {
         .jkl-radio-button__label {
             @include jkl-text-style("compact/body");
