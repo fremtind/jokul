@@ -1,4 +1,4 @@
-import { createElement, ReactNode, ReactElement } from "react";
+import { createElement, ReactNode } from "react";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 import { Link } from "@fremtind/jkl-typography-react";
@@ -6,6 +6,8 @@ import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+import { Paragraph, PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS } from "../components/Typography";
 
 const style = {
     ...prism,
@@ -51,75 +53,25 @@ function jokulList({ ordered, children }: ListProps) {
 }
 
 function jokulHeading({ level, children }: HeadingProps) {
-    let Element: ReactElement;
     switch (level) {
         case 1:
-            Element = createElement(
-                "h1",
-                {
-                    className: "jkl-title-large",
-                },
-                children,
-            );
-            break;
+            return createElement(PageTitle, null, children);
         case 2:
-            Element = createElement(
-                "h2",
-                {
-                    className: "jkl-heading-large",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingLarge, null, children);
         case 3:
-            Element = createElement(
-                "h3",
-                {
-                    className: "jkl-heading-medium",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingMedium, null, children);
         case 4:
-            Element = createElement(
-                "h4",
-                {
-                    className: "jkl-heading-small",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingSmall, null, children);
         case 5:
-            Element = createElement(
-                "h5",
-                {
-                    className: "jkl-micro",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingXS, null, children);
 
         default:
-            Element = createElement(
-                "p",
-                {
-                    className: "jkl-body",
-                },
-                children,
-            );
-            break;
+            return createElement(Paragraph, null, children);
     }
-    return Element;
 }
 
 function paragraph({ children }: Props) {
-    return createElement(
-        "p",
-        {
-            className: "jkl-body",
-        },
-        children,
-    );
+    return createElement(Paragraph, null, children);
 }
 
 function codeBlock({ language, value }: CodeProps) {
