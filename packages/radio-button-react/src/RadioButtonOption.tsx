@@ -1,4 +1,5 @@
 import React, { ChangeEventHandler } from "react";
+import classNames from "classnames";
 
 interface Props {
     value: string;
@@ -9,6 +10,7 @@ interface Props {
     checked?: boolean;
     invalid?: boolean;
     forceCompact?: boolean;
+    inverted?: boolean;
 }
 
 export const RadioButtonOption = ({
@@ -20,14 +22,16 @@ export const RadioButtonOption = ({
     checked,
     invalid = false,
     forceCompact,
+    inverted,
 }: Props) => (
     <label
         data-testid="jkl-radio-button__label-tag"
-        className={"jkl-radio-button".concat(
-            forceCompact ? " jkl-radio-button--compact" : "",
-            inline ? " jkl-radio-button--inline" : "",
-            invalid ? " jkl-radio-button--error" : "",
-        )}
+        className={classNames("jkl-radio-button", {
+            "jkl-radio-button--compact": forceCompact,
+            "jkl-radio-button--inline": inline,
+            "jkl-radio-button--error": invalid,
+            "jkl-radio-button--inverted": inverted,
+        })}
     >
         <input
             className="jkl-radio-button__input"

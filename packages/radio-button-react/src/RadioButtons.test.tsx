@@ -2,10 +2,11 @@ import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { RadioButtons } from "./index";
+import { axe } from "jest-axe";
+
+afterEach(cleanup);
 
 describe("RadioButtons", () => {
-    afterEach(cleanup);
-
     it("renders a legend with the correct value", () => {
         const choices = ["yes", "no"];
         const { getByText } = render(
@@ -75,5 +76,80 @@ describe("RadioButtons", () => {
         twoButton.click();
 
         expect(handleChange).toHaveBeenCalled();
+    });
+});
+
+describe("a11y", () => {
+    test("radio buttons should be a11y compliant", async () => {
+        const { container } = render(
+            <RadioButtons legend="Test" choices={["one", "two"]} name="test" onChange={() => {}} selectedValue="one" />,
+        );
+        const results = await axe(container, {
+            rules: {
+                "form-field-multiple-labels": { enabled: false },
+            },
+        });
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("inline radio buttons should be a11y compliant", async () => {
+        const { container } = render(
+            <RadioButtons
+                inline
+                legend="Test"
+                choices={["one", "two"]}
+                name="test"
+                onChange={() => {}}
+                selectedValue="one"
+            />,
+        );
+        const results = await axe(container, {
+            rules: {
+                "form-field-multiple-labels": { enabled: false },
+            },
+        });
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("compact radio buttons should be a11y compliant", async () => {
+        const { container } = render(
+            <RadioButtons
+                forceCompact
+                legend="Test"
+                choices={["one", "two"]}
+                name="test"
+                onChange={() => {}}
+                selectedValue="one"
+            />,
+        );
+        const results = await axe(container, {
+            rules: {
+                "form-field-multiple-labels": { enabled: false },
+            },
+        });
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("invalid radio buttons should be a11y compliant", async () => {
+        const { container } = render(
+            <RadioButtons
+                errorLabel="err"
+                legend="Test"
+                choices={["one", "two"]}
+                name="test"
+                onChange={() => {}}
+                selectedValue="one"
+            />,
+        );
+        const results = await axe(container, {
+            rules: {
+                "form-field-multiple-labels": { enabled: false },
+            },
+        });
+
+        expect(results).toHaveNoViolations();
     });
 });

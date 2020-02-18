@@ -9,8 +9,8 @@ $hero-size: rem(700px);
 $hero-top-offset: rem(40px);
 $menu-width: 320px;
 
-$content-bg-color: $matt-svart;
-$content-color: $snohvit;
+$content-bg-color: $gra-80;
+$content-color: $gra-10;
 $content-max-width: rem(1200px);
 
 $circle-size: rem(100px);
@@ -31,7 +31,7 @@ $circle-size: rem(100px);
         max-width: $hero-size;
         padding: $layout-spacing--large $layout-spacing--medium;
         margin: 0 $layout-spacing--large;
-        background-color: rgba($snohvit, 0.7);
+        background-color: rgba($gra-10, 0.7);
         @include small-device {
             position: relative;
             top: 0;
@@ -90,7 +90,7 @@ pre {
 
 .portal-inline-code {
     display: inline-block;
-    background-color: $himmelgra;
+    background-color: $gra-20;
     font-size: rem(16px);
     padding: 0 $component-spacing--small;
     margin: 0 $component-spacing--xxs;
@@ -100,7 +100,7 @@ pre {
 
 .portal-code-block {
     position: relative;
-    background-color: $himmelgra;
+    background-color: $gra-20;
     padding: $component-spacing--xl $component-spacing--large;
     border-radius: rem(2px);
 
@@ -110,8 +110,8 @@ pre {
         right: 0;
         padding: $component-spacing--small;
         background-color: $svart;
-        color: $snohvit;
-        @include micro-paragraph;
+        color: $gra-10;
+        @include jkl-text-style("desktop/micro");
         text-transform: uppercase;
         content: attr(data-language);
     }

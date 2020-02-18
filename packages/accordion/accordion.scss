@@ -13,7 +13,7 @@
     }
 
     &--expanded {
-        background-color: $helhvit;
+        background-color: $hvit;
         box-shadow: $drop-shadow--small;
         .jkl-accordion-item {
             &__title-icon {
@@ -46,7 +46,7 @@
 
         &:hover {
             cursor: pointer;
-            color: $helhvit;
+            color: $hvit;
             background-color: $svart;
         }
 
@@ -56,7 +56,7 @@
     }
 
     &__title-text {
-        @include body-paragraph--desktop;
+        @include jkl-text-style("desktop/body");
         display: block;
         padding-right: 2rem;
     }
@@ -75,7 +75,7 @@
     }
 
     &__content {
-        @include lead-paragraph--desktop;
+        @include jkl-text-style("desktop/lead");
         height: auto;
         padding: $layout-spacing--xl $component-spacing--large;
         color: inherit; // Make content same color as rest of page text

@@ -18,9 +18,7 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/logo-react
 
 ```js
 import {
-    LogoAnimated,
-    LogoMain,
-    LogoSymbol,
+    Logo,
     LogoStampDistributor,
     LogoStampInnovation,
     LogoStampInsurance,
@@ -31,26 +29,30 @@ import "@fremtind/jkl-logo/logo.min.css";
 
 ### Bruk
 
-Et eksempel på generell bruk av komponentene kan se slik ut:
+Logo og Logostempel trenger ingen props eller children ved bruk. Tekst for skjermlesere kan angis med `title`, og er som standard angitt til "Fremtind" for logoen og teksten i stempelet for stemplene. Et eksempel på generell bruk av komponentene kan se slik ut:
 
-```js
-<LogoSymbol className="symbol-example" />
-<LogoMain />
-<LogoStampDistributor />
+```jsx
+<Logo className="logo-example" />
+<LogoStampDistributor title="Laget av Fremtind" />
 <LogoStampInnovation />
 <LogoStampInsurance />
 <LogoStampTechnology />
 ```
 
-Merk at prop-en `title` kan benyttes der det er behov for økt tilgjengelighet. Standardverdien er `Fremtind` for de ulike logotypene, med unntak av stemplene som har mer spesifikke standardverdier.
+Prop-en `isSymbol` angir om det er logosymbolet eller logotypen som skal vises:
 
-`LogoAnimated` er litt annerledes i bruk og krever at prop-en `isSymbol` benyttes. `isSymbol` angir om det er logosymbolet eller logotypen som skal vises. Logoen animeres når denne prop-en endres. Et eksempel på bruk kan se slik ut:
+```jsx
+<Logo />            // Viser logotype
+<Logo isSymbol />   // Viser logosymbol
+```
 
-```js
-const [isSymbol, toggleSymbol] = useState(false);
+Dersom prop-en `animated` er angitt vil logoen animeres mellom tilstander:
 
-<button onClick={() => toggleSymbol(!isSymbol)}>Animate Logo</button>
+```jsx
+const [isSymbol, setIsSymbol] = useState(false);
 
-<LogoAnimated isSymbol={isSymbol} />
-<LogoAnimated isSymbol={!isSymbol} />
+<button onClick={() => setIsSymbol(!isSymbol)}>Veksle visning</button>
+
+<Logo animated isSymbol={isSymbol} />
+<Logo animated centered isSymbol={isSymbol} /> // Symbolet animeres til midten
 ```

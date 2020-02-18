@@ -6,13 +6,13 @@ $checkbox-size: rem(24px);
 $checkbox-size--compact: rem(18px);
 
 $checkbox-background-color--checked: $svart;
-$checkbox-background-color--unchecked: $snohvit;
+$checkbox-background-color--unchecked: $gra-10;
 $checkbox-background-color--error: $error-color;
 $checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
 .jkl-checkbox {
     @include reset-outline;
-    @include body-paragraph--desktop;
+    @include jkl-text-style("desktop/body");
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -104,7 +104,7 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
     }
 
     @include compact-mode {
-        @include body-paragraph--mobile;
+        @include jkl-text-style("compact/body");
         .jkl-checkbox__check-mark {
             height: $checkbox-size--compact;
             width: $checkbox-size--compact;
@@ -112,7 +112,7 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
     }
 
     @include small-device {
-        @include body-paragraph--mobile;
+        @include jkl-text-style("compact/body");
         .jkl-checkbox__check-mark {
             height: $checkbox-size--compact;
             width: $checkbox-size--compact;

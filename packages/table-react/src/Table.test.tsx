@@ -2,6 +2,7 @@ import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { Table, TableRowType } from "./index";
+import { axe } from "jest-axe";
 
 afterEach(cleanup);
 
@@ -69,5 +70,25 @@ describe("Table", () => {
         getByText("20-1234567").click();
 
         expect(handleClick).toHaveBeenCalled();
+    });
+});
+
+describe("a11y", () => {
+    test("table should be a11y compliant", async () => {
+        const cols = ["Dato", "Saksnummer"];
+        const rows = [
+            {
+                type: TableRowType.Anchor,
+                rowData: ["24.02.2020", "20-1234567"],
+                href: "/relative/path",
+                hrefLabel: "Se detaljer",
+                onRowClick: jest.fn(),
+            },
+        ];
+
+        const { container } = render(<Table columns={cols} rows={rows} />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });

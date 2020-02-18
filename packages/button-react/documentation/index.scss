@@ -21,7 +21,7 @@ $controls-width: rem(300px);
         position: absolute;
         bottom: 100%;
         left: 0;
-        @include h5-heading;
+        @include jkl-text-style("desktop/heading-small");
         margin-bottom: $component-spacing--large;
     }
 
@@ -47,7 +47,7 @@ $controls-width: rem(300px);
 
     &--inverted {
         background-color: $svart;
-        color: $helhvit;
+        color: $hvit;
     }
 
     @include small-device {

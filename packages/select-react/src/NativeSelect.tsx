@@ -3,6 +3,7 @@
 import React from "react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import classNames from "classnames";
 
 interface Props {
     label: string;
@@ -37,12 +38,13 @@ export function NativeSelect({
             value = getValuePair(items[0]).value;
         }
     }
-    const componentClassName = "jkl-select".concat(
-        inline ? ` jkl-select--inline` : "",
-        forceCompact ? ` jkl-select--compact` : "",
-        !!errorLabel ? ` jkl-select--invalid` : "",
-        className ? ` ${className}` : "",
-    );
+
+    const componentClassName = classNames("jkl-select", className, {
+        "jkl-select--inline": inline,
+        "jkl-select--compact": forceCompact,
+        "jkl-select--invalid": !!errorLabel,
+    });
+
     const defaultValue = value ? undefined : "";
 
     return (

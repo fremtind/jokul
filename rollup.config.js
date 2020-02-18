@@ -20,8 +20,9 @@ const defaultPlugins = [
     commonjs({
         namedExports: {
             "react-is": ["isForwardRef"],
+            classnames: ["named"],
         },
-        include: [/node_modules\/prop-types/, /node_modules\/react-is/],
+        include: [/node_modules\/prop-types/, /node_modules\/react-is/, /node_modules\/classnames/],
     }),
 ];
 

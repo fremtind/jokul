@@ -9,11 +9,11 @@ $button-height--compact: rem(40px);
 $button-min-width--normal: rem(128px);
 $button-min-width--compact: rem(104px);
 
-$button-bg-color: $helhvit;
+$button-bg-color: $hvit;
 $button-bg-color--primary: $svart;
 
 $button-text-color: $svart;
-$button-text-color--primary: $helhvit;
+$button-text-color--primary: $hvit;
 
 $button-border-color: $svart;
 $button-border-width: rem(1px);
@@ -29,7 +29,8 @@ $hover-elevation-distance: -0.25rem;
     @include reset-outline;
     display: inline-flex;
     justify-content: center;
-    @include body-paragraph--desktop;
+    @include jkl-text-style("desktop/body");
+    font-weight: $bold-weight;
     height: $button-height--normal;
     min-width: $button-min-width--normal;
     line-height: $button-height--normal;
@@ -129,14 +130,16 @@ $hover-elevation-distance: -0.25rem;
     }
 
     @include small-device {
-        @include body-paragraph--mobile;
+        @include jkl-text-style("compact/body");
+        font-weight: $bold-weight;
         height: $button-height--compact;
         min-width: $button-min-width--compact;
         line-height: $button-height--compact;
     }
 
     @include compact-mode {
-        @include body-paragraph--mobile;
+        @include jkl-text-style("compact/body");
+        font-weight: $bold-weight;
         height: $button-height--compact;
         min-width: $button-min-width--compact;
         line-height: $button-height--compact;
