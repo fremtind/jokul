@@ -1,56 +1,34 @@
 import React from "react";
-import { H1, H2, H3, H4, H5, Lead, Body, Small, Micro, Link } from "../src";
+import { Label, SupportLabel, Link } from "../src";
 
 import "@fremtind/jkl-core/core.min.css";
 
 const Example = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <H1>H1: Hello World, look at this!</H1>
-        <H2>H2: This is typography</H2>
-        <H3>H3: components for</H3>
-        <H4>H4: jøkul design system</H4>
-        <H5>H5: This is the last heading component</H5>
-        <Lead>
-            Lead-paragraph: For half-an-hour we were muffled in a cold, damp mist, and total darkness, and had begun to
-            think of going indoors when, all at once, the car burst into the pure and starlit region of the upper air.
-        </Lead>
-        <Body>
-            Body-paragraph: The sky of a deep dark blue was hung with innumerable stars, which seemed to float in the
-            limpid ether, and the rolling vapours through which we had passed were drawn like a sable curtain between us
-            and the lower world. The stillness was so profound that we could hear the beating of our own hearts.
-        </Body>
-        <Small>
-            Small-paragraph (same size desktop/mobile): The telescope was very powerful for its size, and showed the
-            dusky night side of the planet against the brilliant crescent of the day like the &quot;new moon in the arms
-            of the old,&quot; or, as Miss Carmichael said, &quot;like an amethyst in a silver clasp.&quot;
-        </Small>
-        <Micro>
-            Micro-paragraph (same size desktop/mobile): The unwonted sadness of her tone reminded me of her devoted
-            life, and I turned towards her with new interest and sympathy. She was looking at the Evening Star, whose
-            bright beam softened the irregularities of her profile, and made her almost beautiful.
-        </Micro>
-
-        <H2 styledAs="h1">Semantic h2, looks like h1</H2>
-        <H1 styledAs="h3">Semantic h1, looks like h3</H1>
-        <Body>
-            Body-paragraph: The sky of a deep dark blue was hung with innumerable stars, which seemed to float in the
-            limpid ether, and the rolling vapours through which we had passed were drawn like a sable curtain between us
-            and the lower world. The <Link href="#">stillness </Link> was so profound that we could hear the beating of
-            our own hearts.
-        </Body>
-
-        <div style={{ backgroundColor: "#000", color: "#fafafa" }}>
-            <Body>
-                Body-paragraph: The sky of a deep dark blue was hung with innumerable stars, which seemed to float in
-                the limpid ether, and the rolling vapours through which we had passed were drawn like a sable curtain
-                between us and the lower world. The{" "}
-                <Link negative href="#">
-                    stillness
-                </Link>{" "}
-                was so profound that we could hear the beating of our own hearts.
-            </Body>
-        </div>
-        <Link href="#">Go away</Link>
+    <section className="jkl-spacing--top-3">
+        <h2 className="jkl-heading-large jkl-spacing--bottom-1">Label</h2>
+        <Label standAlone variant="small">
+            Small
+        </Label>
+        <Label standAlone variant="medium">
+            Medium
+        </Label>
+        <Label standAlone variant="large">
+            Large
+        </Label>
+        <h2 className="jkl-heading-large jkl-spacing--bottom-1 jkl-spacing--top-3">SupportLabel</h2>
+        <SupportLabel helpLabel="Hjelpetekst" />
+        <SupportLabel errorLabel="Feilmelding" />
+        <h2 className="jkl-heading-large jkl-spacing--bottom-1 jkl-spacing--top-3">Link</h2>
+        <p className="jkl-body" style={{ padding: "1.5rem" }}>
+            Lorem ipsum dolor sin amet <Link href="#">Link</Link> consectetur adipiscing elit
+        </p>
+        <p className="jkl-body" style={{ backgroundColor: "#181818", color: "#FFF", padding: "1.5rem" }}>
+            Lorem ipsum dolor sin amet{" "}
+            <Link negative href="#">
+                Link
+            </Link>{" "}
+            consectetur adipiscing elit
+        </p>
     </section>
 );
 export default Example;

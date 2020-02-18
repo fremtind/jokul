@@ -111,7 +111,7 @@ pre {
         padding: $component-spacing--small;
         background-color: $svart;
         color: $gra-10;
-        @include micro-paragraph;
+        @include jkl-text-style("desktop/micro");
         text-transform: uppercase;
         content: attr(data-language);
     }

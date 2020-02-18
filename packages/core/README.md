@@ -64,6 +64,12 @@ $button-background-color: $svart;
 }
 ```
 
+#### Tekststiler
+
+Du får tilgang til tekststilene i Jøkul gjennom mixin-en `jkl-text-style()`. Den tar navnet på tekststilen som argument, og navnet samsvarer med navnet i Figma, f.eks. `"compact/body"`. Legg merke til at det ikke er bygget inn noen responsivitet i tekststilene. Dette må du implementere selv der/om du ønsker det, f.eks. ved hjelp av media queries.
+
+Tekststilene eksponeres også som CSS-klasser, dersom du vil bruke dem direkte i generert HTML i stedet for å skrive egne stilklasser. Disse klassene _er_ responsive, og gir den kompakte varianten av tekststilen på små skjermer.
+
 #### Mixins
 
 Det er utviklet mixins for å lette bruk av vanlige mønstre. Disse ligger i mappen `mixins`.

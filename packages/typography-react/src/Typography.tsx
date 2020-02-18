@@ -1,34 +1,36 @@
-import React, { BaseHTMLAttributes } from "react";
+import React, { HTMLAttributes } from "react";
 
 type ValidSemanticHeaders = "h1" | "h2" | "h3" | "h4" | "h5";
 type ValidSemanticBlocks = "p";
 type ValidModifiers = "lead" | "small" | "micro" | "body";
 type ValidSemanticElement = ValidSemanticHeaders | ValidSemanticBlocks;
 
-interface Props extends BaseHTMLAttributes<HTMLElement> {
-    styledAs?: ValidSemanticHeaders;
-}
+type Props = HTMLAttributes<HTMLHeadingElement> | HTMLAttributes<HTMLParagraphElement>;
 
-function makeTypographyComponent(variant: ValidSemanticElement, modifier?: ValidModifiers) {
-    return function typography(props: Props) {
-        const { children, className = "", styledAs, ...rest } = props;
+function makeTypographyComponent(variant: ValidSemanticElement, textStyle: string, modifier?: ValidModifiers) {
+    return function typography({ children, className, ...rest }: Props) {
+        const tagName = (modifier || variant).replace(/^\w/, (c) => c.toUpperCase());
+        if (process.env.NODE_ENV === "development") {
+            console.warn(
+                `ATTENTION! The typographic components in jkl-core, like "${tagName}", are deprecated. Please stop using them and start using typographic CSS classes or the jkl-text-style Sass mixin instead. Refer to the documentation for more info.`,
+            );
+        }
         const Element = variant;
-        const elementStyle = styledAs || variant;
 
         return (
-            <Element className={`jkl-${modifier || elementStyle} ${className}`} {...rest}>
+            <Element className={`${textStyle} ${className || ""}`} {...rest}>
                 {children}
             </Element>
         );
     };
 }
 
-export const H1 = makeTypographyComponent("h1");
-export const H2 = makeTypographyComponent("h2");
-export const H3 = makeTypographyComponent("h3");
-export const H4 = makeTypographyComponent("h4");
-export const H5 = makeTypographyComponent("h5");
-export const Lead = makeTypographyComponent("p", "lead");
-export const Body = makeTypographyComponent("p", "body");
-export const Small = makeTypographyComponent("p", "small");
-export const Micro = makeTypographyComponent("p", "micro");
+export const H1 = makeTypographyComponent("h1", "jkl-title-large");
+export const H2 = makeTypographyComponent("h2", "jkl-title-small");
+export const H3 = makeTypographyComponent("h3", "jkl-heading-large");
+export const H4 = makeTypographyComponent("h4", "jkl-heading-medium");
+export const H5 = makeTypographyComponent("h5", "jkl-heading-small");
+export const Lead = makeTypographyComponent("p", "jkl-lead", "lead");
+export const Body = makeTypographyComponent("p", "jkl-body", "body");
+export const Small = makeTypographyComponent("p", "jkl-small", "small");
+export const Micro = makeTypographyComponent("p", "jkl-micro", "micro");
