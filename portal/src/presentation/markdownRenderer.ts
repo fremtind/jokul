@@ -57,7 +57,7 @@ function jokulHeading({ level, children }: HeadingProps) {
             Element = createElement(
                 "h1",
                 {
-                    className: "jkl-title-large",
+                    className: "jkl-title-large jkl-portal-page-title",
                 },
                 children,
             );
@@ -66,7 +66,7 @@ function jokulHeading({ level, children }: HeadingProps) {
             Element = createElement(
                 "h2",
                 {
-                    className: "jkl-heading-large",
+                    className: "jkl-heading-large jkl-portal-heading-large",
                 },
                 children,
             );
@@ -75,7 +75,7 @@ function jokulHeading({ level, children }: HeadingProps) {
             Element = createElement(
                 "h3",
                 {
-                    className: "jkl-heading-medium",
+                    className: "jkl-heading-medium jkl-portal-heading-medium",
                 },
                 children,
             );
@@ -84,7 +84,7 @@ function jokulHeading({ level, children }: HeadingProps) {
             Element = createElement(
                 "h4",
                 {
-                    className: "jkl-heading-small",
+                    className: "jkl-heading-small jkl-portal-heading-small",
                 },
                 children,
             );
@@ -93,7 +93,7 @@ function jokulHeading({ level, children }: HeadingProps) {
             Element = createElement(
                 "h5",
                 {
-                    className: "jkl-micro",
+                    className: "jkl-micro jkl-portal-heading-xs",
                 },
                 children,
             );
@@ -103,7 +103,7 @@ function jokulHeading({ level, children }: HeadingProps) {
             Element = createElement(
                 "p",
                 {
-                    className: "jkl-body",
+                    className: "jkl-body jkl-portal-paragraph",
                 },
                 children,
             );
@@ -116,7 +116,7 @@ function paragraph({ children }: Props) {
     return createElement(
         "p",
         {
-            className: "jkl-body",
+            className: "jkl-body jkl-portal-paragraph",
         },
         children,
     );

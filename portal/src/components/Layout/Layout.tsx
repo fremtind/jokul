@@ -29,12 +29,12 @@ interface Props {
 }
 
 /* eslint-disable */
-const h1 = (props: any) => <h1 className="jkl-title-large" {...props} />;
-const h2 = (props: any) => <h2 className="jkl-heading-large" {...props} />;
-const h3 = (props: any) => <h3 className="jkl-heading-medium" {...props} />;
-const h4 = (props: any) => <h4 className="jkl-heading-small" {...props} />;
-const h5 = (props: any) => <h5 className="jkl-micro" {...props} />;
-const p = (props: any) => <p className="jkl-body" {...props} />;
+const h1 = (props: any) => <h1 className="jkl-title-large jkl-portal-page-title" {...props} />;
+const h2 = (props: any) => <h2 className="jkl-heading-large jkl-portal-heading-large" {...props} />;
+const h3 = (props: any) => <h3 className="jkl-heading-medium jkl-portal-heading-medium" {...props} />;
+const h4 = (props: any) => <h4 className="jkl-heading-small jkl-portal-heading-small" {...props} />;
+const h5 = (props: any) => <h5 className="jkl-micro jkl-portal-heading-xs" {...props} />;
+const p = (props: any) => <p className="jkl-body jkl-portal-paragraph" {...props} />;
 const ul = (props: any) => <UnorderedList {...props} />;
 const li = (props: any) => <ListItem {...props} />;
 const ol = (props: any) => <OrderedList {...props} />;
