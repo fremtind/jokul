@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@1.1.1...@fremtind/jkl-radio-button-react@1.2.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+* **radiobutton-react:** add support for className prop ([6f058ef](https://github.com/fremtind/jokul/commit/6f058ef95cec01ceb1a0322a65413097583ada68))
+
+
+### Features
+
+* **radio-button:** add inverted mode ([fda7e5f](https://github.com/fremtind/jokul/commit/fda7e5f26ed7742be1a4fce9afe5ba5a4cacf292))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@1.1.0...@fremtind/jkl-radio-button-react@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button-react

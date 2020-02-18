@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@1.1.1...@fremtind/jkl-logo-react@2.0.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+
+
+### Features
+
+* **logo:** tweak bounding boxes, add "animated" prop ([b611af6](https://github.com/fremtind/jokul/commit/b611af69747b425a602eeb2ac02819912464250b))
+* **logo-react:** unify logo components ([1f5f630](https://github.com/fremtind/jokul/commit/1f5f63067fcf34db09f34df0004766328ac54a04))
+
+
+### BREAKING CHANGES
+
+* **logo:** Logo component now requires "animated" prop to be true in order to animate. The logo now fills the
+entire width of the component, including the symbol version when "animated" is set to false
+* **logo-react:** logo components have been combined into one component: Logo
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@1.1.0...@fremtind/jkl-logo-react@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-logo-react

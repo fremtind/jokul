@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo@1.0.15...@fremtind/jkl-logo@2.0.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+
+
+### Features
+
+* **logo:** tweak bounding boxes, add "animated" prop ([b611af6](https://github.com/fremtind/jokul/commit/b611af69747b425a602eeb2ac02819912464250b))
+
+
+### BREAKING CHANGES
+
+* **logo:** Logo component now requires "animated" prop to be true in order to animate. The logo now fills the
+entire width of the component, including the symbol version when "animated" is set to false
+
+
+
+
+
 ## [1.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo@1.0.14...@fremtind/jkl-logo@1.0.15) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-logo

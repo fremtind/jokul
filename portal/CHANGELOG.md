@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.1.1...@fremtind/portal@1.2.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+* **portal:** stop using deprecated typography components from core ([c1c56e3](https://github.com/fremtind/jokul/commit/c1c56e390578ee31fd9c16d1cdd676be1609f5b6))
+
+
+### Features
+
+* **portal:** add styles for typographic components ([081e345](https://github.com/fremtind/jokul/commit/081e345edd7c4a654ea097e92e33660c2b3416c1))
+* **portal:** add typographic React components ([fb40367](https://github.com/fremtind/jokul/commit/fb40367b3149e38f3920e1b836c82e6203a5ded6))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.1.0...@fremtind/portal@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/portal

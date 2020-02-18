@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group",
-    "version": "1.0.15",
+    "version": "1.0.16",
     "publishConfig": {
         "access": "public"
     },
@@ -22,7 +22,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^2.0.1"
+        "@fremtind/jkl-core": "^3.0.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14"
