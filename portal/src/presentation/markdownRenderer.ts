@@ -7,6 +7,8 @@ import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
 
+import { Paragraph, PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS } from "../components/Typography";
+
 const style = {
     ...prism,
     'pre[class*="language-"]': {
@@ -51,75 +53,26 @@ function jokulList({ ordered, children }: ListProps) {
 }
 
 function jokulHeading({ level, children }: HeadingProps) {
-    let Element: ReactElement;
     switch (level) {
         case 1:
-            Element = createElement(
-                "h1",
-                {
-                    className: "jkl-title-large jkl-portal-page-title",
-                },
-                children,
-            );
-            break;
+            return createElement(PageTitle, null, children);
         case 2:
-            Element = createElement(
-                "h2",
-                {
-                    className: "jkl-heading-large jkl-portal-heading-large",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingLarge, null, children);
         case 3:
-            Element = createElement(
-                "h3",
-                {
-                    className: "jkl-heading-medium jkl-portal-heading-medium",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingMedium, null, children);
         case 4:
-            Element = createElement(
-                "h4",
-                {
-                    className: "jkl-heading-small jkl-portal-heading-small",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingSmall, null, children);
         case 5:
-            Element = createElement(
-                "h5",
-                {
-                    className: "jkl-micro jkl-portal-heading-xs",
-                },
-                children,
-            );
-            break;
+            return createElement(HeadingXS, null, children);
 
         default:
-            Element = createElement(
-                "p",
-                {
-                    className: "jkl-body jkl-portal-paragraph",
-                },
-                children,
-            );
-            break;
+            return createElement(Paragraph, null, children);
     }
     return Element;
 }
 
 function paragraph({ children }: Props) {
-    return createElement(
-        "p",
-        {
-            className: "jkl-body jkl-portal-paragraph",
-        },
-        children,
-    );
+    return createElement(Paragraph, null, children);
 }
 
 function codeBlock({ language, value }: CodeProps) {

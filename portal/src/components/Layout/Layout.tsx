@@ -3,6 +3,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
+import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
 import { Footer, Header, Menu } from "..";
 import "./Layout.scss";
 
@@ -29,12 +30,12 @@ interface Props {
 }
 
 /* eslint-disable */
-const h1 = (props: any) => <h1 className="jkl-title-large jkl-portal-page-title" {...props} />;
-const h2 = (props: any) => <h2 className="jkl-heading-large jkl-portal-heading-large" {...props} />;
-const h3 = (props: any) => <h3 className="jkl-heading-medium jkl-portal-heading-medium" {...props} />;
-const h4 = (props: any) => <h4 className="jkl-heading-small jkl-portal-heading-small" {...props} />;
-const h5 = (props: any) => <h5 className="jkl-micro jkl-portal-heading-xs" {...props} />;
-const p = (props: any) => <p className="jkl-body jkl-portal-paragraph" {...props} />;
+const h1 = PageTitle;
+const h2 = HeadingLarge;
+const h3 = HeadingMedium;
+const h4 = HeadingSmall;
+const h5 = HeadingXS;
+const p = Paragraph;
 const ul = (props: any) => <UnorderedList {...props} />;
 const li = (props: any) => <ListItem {...props} />;
 const ol = (props: any) => <OrderedList {...props} />;
