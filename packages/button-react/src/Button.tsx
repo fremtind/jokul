@@ -1,10 +1,7 @@
-import React, { MouseEventHandler, ReactNode } from "react";
+import React, { HTMLAttributes } from "react";
 import classNames from "classnames";
 
-interface Props {
-    children: ReactNode;
-    className?: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
+interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
     forceCompact?: boolean;
     inverted?: boolean;
 }
@@ -12,15 +9,19 @@ interface Props {
 type ValidButtons = "primary" | "secondary" | "tertiary";
 
 function makeButtonComponent(buttonType: ValidButtons) {
-    return function button(props: Props) {
-        const { children, className = "", onClick, forceCompact, inverted } = props;
-        const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
-            "jkl-button--compact": forceCompact,
-            "jkl-button--inverted": inverted,
-        });
+    return function button({ children, className, forceCompact, inverted, ...rest }: Props) {
+        const componentClassName = classNames(
+            "jkl-button",
+            "jkl-button--" + buttonType,
+            {
+                "jkl-button--compact": forceCompact,
+                "jkl-button--inverted": inverted,
+            },
+            className,
+        );
 
         return (
-            <button onClick={onClick} className={componentClassName}>
+            <button className={componentClassName} {...rest}>
                 {children}
             </button>
         );
