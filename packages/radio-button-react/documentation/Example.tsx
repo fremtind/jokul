@@ -10,6 +10,7 @@ const choices = ["Yes", "No", "I don't know"];
 const Example = () => {
     const [selectedValue, setSelectedValue] = React.useState();
     const [inline, setInline] = useState(false);
+    const [inverted, setInverted] = useState(false);
     const [invalid, setInvalid] = useState("");
     const [variant, setVariant] = useState<LabelVariant | undefined>("medium");
     const typecheckAndSetVariant = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -20,12 +21,16 @@ const Example = () => {
             setVariant(undefined);
         }
     };
+    const style = inverted ? { backgroundColor: "#000", color: "#FFF" } : undefined;
 
     return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3" style={style}>
             <div className="jkl-spacing--bottom-3">
                 <button className="jkl-spacing--right-1" onClick={() => setInline(!inline)}>
                     Toggle inlined radio buttons
+                </button>
+                <button className="jkl-spacing--right-1" onClick={() => setInverted(!inverted)}>
+                    Toggle inverted
                 </button>
                 <button
                     className="jkl-spacing--right-1"
@@ -55,6 +60,7 @@ const Example = () => {
                 helpLabel="Who dosent like radio buttons?"
                 errorLabel={invalid}
                 variant={variant}
+                inverted={inverted}
             />
         </section>
     );
