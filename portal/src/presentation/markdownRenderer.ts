@@ -1,4 +1,4 @@
-import { createElement, ReactNode, ReactElement } from "react";
+import { createElement, ReactNode } from "react";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 import { Link } from "@fremtind/jkl-typography-react";
