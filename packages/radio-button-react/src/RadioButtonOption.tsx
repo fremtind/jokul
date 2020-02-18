@@ -10,6 +10,7 @@ interface Props {
     checked?: boolean;
     invalid?: boolean;
     forceCompact?: boolean;
+    inverted?: boolean;
 }
 
 export const RadioButtonOption = ({
@@ -21,6 +22,7 @@ export const RadioButtonOption = ({
     checked,
     invalid = false,
     forceCompact,
+    inverted,
 }: Props) => (
     <label
         data-testid="jkl-radio-button__label-tag"
@@ -28,6 +30,7 @@ export const RadioButtonOption = ({
             "jkl-radio-button--compact": forceCompact,
             "jkl-radio-button--inline": inline,
             "jkl-radio-button--error": invalid,
+            "jkl-radio-button--inverted": inverted,
         })}
     >
         <input

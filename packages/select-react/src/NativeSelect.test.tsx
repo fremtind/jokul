@@ -1,12 +1,13 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { NativeSelect } from ".";
+import { axe } from "jest-axe";
 
 const dummyFunc = () => {};
 
-describe("NativeSelect", () => {
-    afterEach(cleanup);
+afterEach(cleanup);
 
+describe("NativeSelect", () => {
     it("should render the correct label", () => {
         const { getByText } = render(<NativeSelect label="testing" items={["test"]} onChange={dummyFunc} />);
 
@@ -55,5 +56,25 @@ describe("NativeSelect", () => {
         );
 
         expect(getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
+    });
+});
+
+describe("a11y", () => {
+    test("native select should be a11y compliant", async () => {
+        const { container } = render(
+            <NativeSelect label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+        );
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("compact native select should be a11y compliant", async () => {
+        const { container } = render(
+            <NativeSelect forceCompact label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+        );
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
