@@ -1,0 +1,120 @@
+# Migrasjonsguide
+
+Fra `jkl-core@2.x.x` til `jkl-core@3.0.0`
+
+## Tekststiler
+
+Den største endringen, og den eneste breaking change, i `jkl-core` v3.x.x er en overhaling av tekststilene. Der de tidligere eksisterte i de to kategoriene `desktop` og `mobile` er kategorinavnene nå endret til `desktop` og `compact` for bedre å formidle variasjon i bruk. Hver tekststil inneholder informasjon om tekststørrelse, linjehøyde, og fontvekt.
+
+Variantene under `compact` er fortsatt de som skal brukes på mobile flater.
+
+Overskriftstilene har også endret navn, slik at de ikke lenger er koblet til et semantisk overskriftsnivå. Dette gir oss større frihet i hvordan vi bruker typografien i nettløsninger. En effekt av dette er at typografikomponentene i Jøkul utgår. Dette er beskrevet nærmere lenger ned i guiden.
+
+| Gammelt navn | Nytt navn      |
+| ------------ | -------------- |
+| h1-heading   | title-large    |
+| h2-heading   | title-small    |
+| h3-heading   | heading-large  |
+| h4-heading   | heading-medium |
+| h5-heading   | heading-small  |
+
+### Hvordan bruke de nye tekststilene i Figma
+
+I Figma har tekststilene allerede endret navn, og vil være oppdatert i skissene dine dersom du har godtatt oppdateringen av biblioteket.
+
+### Hvordan bruke de nye tekststilene i CSS/Sass
+
+Måten man bruker tekststilene på er gjort om totalt, for å bedre sørge for at konseptet i større grad er likt for designere og utviklere:
+
+Tidligere benyttet man seg av tekststilene i Sass-stilark gjennom å bruke mixins med samme navn som tekststilen, men på litt annen form enn i Figma. Dette er nå erstattet med én mixin som kalles med navnet på tekststilen, der dette navnet er det samme som i Figma.
+
+```scss
+// Tidligere:
+.jkl-component {
+    @include body-paragraph--mobile;
+}
+
+// Nå:
+.jkl-component {
+    @include jkl-text-style("compact/body");
+}
+```
+
+Tidligere fantes det mixins for tekststilene som automatisk vekslet mellom "desktop" og "mobile" etter skjermstørrelse (f.eks. `@include lead-paragraph`). Disse mixin-ene finnes ikke i det nye systemet, og man må derfor selv definere hvilke stiler som skal brukes på forskjellige skjermstørrelser. Det finnes imidlertid hjelpeklasser man kan bruke der man trenger responsivitet, som f.eks. i løpetekst.
+
+```html
+<p class="jkl-body">Lorem ipsum...</p>
+```
+
+Disse hjelpeklassene heter det samme som tekststilen, men uten `compact`/`desktop` foran, og med prefikset `jkl-`. Under følger en komplett oversikt over gamle og nye mixins og klassenavn (uendrede er ikke tatt med).
+
+| Der du før brukte...                | ...bruk nå                                          |
+| ----------------------------------- | --------------------------------------------------- |
+| `@include lead-paragraph`           | Se under                                            |
+| `@include lead-paragraph--desktop`  | `@include jkl-text-style("desktop/lead")`           |
+| `@include lead-paragraph--mobile`   | `@include jkl-text-style("compact/lead")`           |
+| `@include body-paragraph`           | Se under                                            |
+| `@include body-paragraph--desktop`  | `@include jkl-text-style("desktop/body")`           |
+| `@include body-paragraph--mobile`   | `@include jkl-text-style("compact/body")`           |
+| `@include small-paragraph`          | Se under                                            |
+| `@include small-paragraph--desktop` | `@include jkl-text-style("desktop/small")`          |
+| `@include small-paragraph--mobile`  | `@include jkl-text-style("compact/small")`          |
+| `@include micro-paragraph`          | Se under                                            |
+| `@include micro-paragraph--desktop` | `@include jkl-text-style("desktop/micro")`          |
+| `@include micro-paragraph--mobile`  | `@include jkl-text-style("compact/micro")`          |
+| `@include body-paragraph`           | Se under                                            |
+| `@include body-paragraph--desktop`  | `@include jkl-text-style("desktop/body")`           |
+| `@include body-paragraph--mobile`   | `@include jkl-text-style("compact/body")`           |
+| `@include h1-heading`               | Se under                                            |
+| `@include h1-heading--desktop`      | `@include jkl-text-style("desktop/title-large")`    |
+| `@include h1-heading--mobile`       | `@include jkl-text-style("compact/title-large")`    |
+| `.jkl-h1`                           | `.jkl-title-large`                                  |
+| `@include h2-heading`               | Se under                                            |
+| `@include h2-heading--desktop`      | `@include jkl-text-style("desktop/title-small")`    |
+| `@include h2-heading--mobile`       | `@include jkl-text-style("compact/title-small")`    |
+| `.jkl-h2`                           | `.jkl-title-small`                                  |
+| `@include h3-heading`               | Se under                                            |
+| `@include h3-heading--desktop`      | `@include jkl-text-style("desktop/heading-large")`  |
+| `@include h3-heading--mobile`       | `@include jkl-text-style("compact/heading-large")`  |
+| `.jkl-h3`                           | `.jkl-heading-small`                                |
+| `@include h4-heading`               | Se under                                            |
+| `@include h4-heading--desktop`      | `@include jkl-text-style("desktop/heading-medium")` |
+| `@include h4-heading--mobile`       | `@include jkl-text-style("compact/heading-medium")` |
+| `.jkl-h4`                           | `.jkl-heading-medium`                               |
+| `@include h5-heading`               | Se under                                            |
+| `@include h5-heading--desktop`      | `@include jkl-text-style("desktop/heading-small")`  |
+| `@include h5-heading--mobile`       | `@include jkl-text-style("compact/heading-small")`  |
+| `.jkl-h5`                           | `.jkl-heading-small`                                |
+
+For å erstatte de "responsive" mixin-ene anbefaler vi mønstret vi selv bruker i komponentene i Jøkul, med mixins for skjermstørrelse brukt sist i stildefinisjonen:
+
+```scss
+.jkl-component {
+    @include jkl-text-style("desktop/title-large");
+    // andre stiler
+
+    @include small-device {
+        // importert fra jkl-core/mixins/screens
+        @include jkl-text-style("compact/title-large");
+    }
+}
+```
+
+## Typografielementer
+
+I forbindelse med endringen av tekststilene utgår React-komponentene for typografi i pakken `@fremtind/jkl-typography-react`. De er fortsatt tilgjengelige for bruk i `v2.x.x` av den pakken, men vil bli tatt helt vekk i `v3.0.0`.
+
+Vi anbefaler at du allerede nå refaktorerer til å bruke semantisk riktige html-elementer med riktig hjelpeklasse fra `jkl-core`:
+
+```jsx
+// I stedet for <H1>En overskrift</H1>:
+<h1 className="jkl-title-large">En overskrift</h1>
+
+// I stedet for <H1 styledAs="h2">En overskrift</H1>:
+<h1 className="jkl-title-small">En overskrift</h1>
+
+// I stedet for <Lead>Lorem ipsum...</Lead>:
+<p className="jkl-lead">Lorem ipsum...</p>
+```
+
+Se tabellen over for å finne riktig navn på tekststilen du ønsker.

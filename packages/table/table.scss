@@ -7,11 +7,11 @@ $row-end-padding: $component-spacing--large;
 
 .jkl-table {
     border-collapse: collapse;
-    @include small-paragraph;
+    @include jkl-text-style("desktop/small");
 
     &__heading {
         color: $gra-80;
-        @include micro-paragraph;
+        @include jkl-text-style("desktop/micro");
         padding: $component-spacing--small;
     }
 

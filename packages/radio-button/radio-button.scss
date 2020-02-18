@@ -126,7 +126,7 @@ $radio-button-color: $svart;
     }
 
     &__label {
-        @include body-paragraph--desktop;
+        @include jkl-text-style("desktop/body");
     }
 
     &--inline {
@@ -150,7 +150,7 @@ $radio-button-color: $svart;
 
     @include compact-mode {
         .jkl-radio-button__label {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         .jkl-radio-button__dot:before {
             height: $radio-button-size--compact;
@@ -170,7 +170,7 @@ $radio-button-color: $svart;
 
     @include small-device {
         .jkl-radio-button__label {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         .jkl-radio-button__dot:before {
             height: $radio-button-size--compact;
