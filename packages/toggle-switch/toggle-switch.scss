@@ -25,7 +25,7 @@ $inverted-disabled-color: #969696;
 
     background-color: transparent;
     color: currentColor;
-    @include body-paragraph--desktop;
+    @include jkl-text-style("desktop/body");
 
     &__help-label {
         margin-top: $component-spacing--medium;

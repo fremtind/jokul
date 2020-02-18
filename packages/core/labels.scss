@@ -3,7 +3,7 @@
 @import "./functions";
 
 .jkl-form-support-label {
-    @include small-paragraph;
+    @include jkl-text-style("desktop/small");
     display: block;
     margin-top: $component-spacing--small;
 
@@ -13,39 +13,46 @@
 }
 
 .jkl-label {
-    @include lead-paragraph;
+    @include jkl-text-style("desktop/lead");
     display: block;
     margin-bottom: $component-spacing--large;
     margin-left: initial;
-    @include small-device {
-        margin-bottom: $component-spacing--small;
-    }
 
     &--large {
-        @include h2-heading;
+        @include jkl-text-style("desktop/title-small");
         margin-bottom: $component-spacing--xl;
         margin-left: rem(-1px); // adjust visual alignment
-        @include small-device {
-            margin-bottom: $component-spacing--large;
-        }
     }
 
     &--small {
-        @include small-paragraph;
+        @include jkl-text-style("desktop/small");
         margin-bottom: 0;
         margin-left: initial;
     }
 
-    @include compact-mode {
+    &--sr-only {
+        @include screenreader-only;
+    }
+
+    @include small-device {
         &.jkl-label--medium {
-            @include lead-paragraph--mobile;
+            @include jkl-text-style("compact/lead");
+            margin-bottom: $component-spacing--small;
         }
         &.jkl-label--large {
-            @include h2-heading--mobile;
+            @include jkl-text-style("compact/title-small");
+            margin-bottom: $component-spacing--large;
         }
     }
 
-    &--sr-only {
-        @include screenreader-only;
+    @include compact-mode {
+        &.jkl-label--medium {
+            @include jkl-text-style("compact/lead");
+            margin-bottom: $component-spacing--small;
+        }
+        &.jkl-label--large {
+            @include jkl-text-style("compact/title-small");
+            margin-bottom: $component-spacing--large;
+        }
     }
 }

@@ -26,142 +26,105 @@ $line-height-6: rem(48px);
 $line-height-7: rem(56px);
 $line-height-8: rem(72px);
 
-@mixin h1-heading {
-    @include h1-heading--desktop;
-    @include small-device {
-        @include h1-heading--mobile;
+$text-styles: (
+    "desktop/title-large": (
+        font-size: $font-size-12,
+        line-height: $line-height-8,
+        font-weight: $normal-weight,
+    ),
+    "compact/title-large": (
+        font-size: $font-size-10,
+        line-height: $line-height-6,
+        font-weight: $normal-weight,
+    ),
+    "desktop/title-small": (
+        font-size: $font-size-11,
+        line-height: $line-height-7,
+        font-weight: $normal-weight,
+    ),
+    "compact/title-small": (
+        font-size: $font-size-9,
+        line-height: $line-height-5,
+        font-weight: $normal-weight,
+    ),
+    "desktop/heading-large": (
+        font-size: $font-size-9,
+        line-height: $line-height-5,
+        font-weight: $bold-weight,
+    ),
+    "compact/heading-large": (
+        font-size: $font-size-7,
+        line-height: $line-height-4,
+        font-weight: $bold-weight,
+    ),
+    "desktop/heading-medium": (
+        font-size: $font-size-7,
+        line-height: $line-height-4,
+        font-weight: $bold-weight,
+    ),
+    "compact/heading-medium": (
+        font-size: $font-size-5,
+        line-height: $line-height-3,
+        font-weight: $bold-weight,
+    ),
+    "desktop/heading-small": (
+        font-size: $font-size-5,
+        line-height: $line-height-3,
+        font-weight: $bold-weight,
+    ),
+    "compact/heading-small": (
+        font-size: $font-size-3,
+        line-height: $line-height-2,
+        font-weight: $bold-weight,
+    ),
+    "desktop/lead": (
+        font-size: $font-size-8,
+        line-height: $line-height-5,
+        font-weight: $normal-weight,
+    ),
+    "compact/lead": (
+        font-size: $font-size-6,
+        line-height: $line-height-4,
+        font-weight: $normal-weight,
+    ),
+    "desktop/body": (
+        font-size: $font-size-4,
+        line-height: $line-height-4,
+        font-weight: $normal-weight,
+    ),
+    "compact/body": (
+        font-size: $font-size-3,
+        line-height: $line-height-2,
+        font-weight: $normal-weight,
+    ),
+    "desktop/small": (
+        font-size: $font-size-2,
+        line-height: $line-height-2,
+        font-weight: $normal-weight,
+    ),
+    "compact/small": (
+        font-size: $font-size-2,
+        line-height: $line-height-2,
+        font-weight: $normal-weight,
+    ),
+    "desktop/micro": (
+        font-size: $font-size-1,
+        line-height: $line-height-1,
+        font-weight: $bold-weight,
+    ),
+    "compact/micro": (
+        font-size: $font-size-1,
+        line-height: $line-height-1,
+        font-weight: $bold-weight,
+    ),
+);
+
+@mixin jkl-text-style($text-style) {
+    @if map-has-key($map: $text-styles, $key: $text-style) {
+        @each $property, $value in map-get($text-styles, $text-style) {
+            #{$property}: $value;
+        }
+    } @else {
+        @error "No text style with the name #{$text-style} was found. Try one of these: #{map-keys($text-styles)}";
     }
-}
-
-@mixin h1-heading--desktop {
-    font-size: $font-size-12;
-    line-height: $line-height-8;
-    font-weight: $normal-weight;
-}
-
-@mixin h1-heading--mobile {
-    font-size: $font-size-10;
-    line-height: $line-height-6;
-    font-weight: $normal-weight;
-}
-
-@mixin h2-heading {
-    @include h2-heading--desktop;
-    @include small-device {
-        @include h2-heading--mobile;
-    }
-}
-
-@mixin h2-heading--desktop {
-    font-size: $font-size-11;
-    line-height: $line-height-7;
-    font-weight: $normal-weight;
-}
-
-@mixin h2-heading--mobile {
-    font-size: $font-size-9;
-    line-height: $line-height-5;
-    font-weight: $normal-weight;
-}
-
-@mixin h3-heading {
-    @include h3-heading--desktop;
-    @include small-device {
-        @include h3-heading--mobile;
-    }
-}
-
-@mixin h3-heading--desktop {
-    font-size: $font-size-9;
-    line-height: $line-height-5;
-    font-weight: $bold-weight;
-}
-
-@mixin h3-heading--mobile {
-    font-size: $font-size-7;
-    line-height: $line-height-4;
-    font-weight: $bold-weight;
-}
-
-@mixin h4-heading {
-    @include h4-heading--desktop;
-    @include small-device {
-        @include h4-heading--mobile;
-    }
-}
-
-@mixin h4-heading--desktop {
-    font-size: $font-size-7;
-    line-height: $line-height-4;
-    font-weight: $bold-weight;
-}
-
-@mixin h4-heading--mobile {
-    font-size: $font-size-5;
-    line-height: $line-height-3;
-    font-weight: $bold-weight;
-}
-
-@mixin h5-heading {
-    @include h5-heading--desktop;
-    @include small-device {
-        @include h5-heading--mobile;
-    }
-}
-
-@mixin h5-heading--desktop {
-    font-size: $font-size-5;
-    line-height: $line-height-3;
-    font-weight: $bold-weight;
-}
-
-@mixin h5-heading--mobile {
-    font-size: $font-size-3;
-    line-height: $line-height-2;
-    font-weight: $bold-weight;
-}
-
-@mixin lead-paragraph {
-    @include lead-paragraph--desktop;
-    @include small-device {
-        @include lead-paragraph--mobile;
-    }
-}
-
-@mixin lead-paragraph--desktop {
-    font-size: $font-size-8;
-    line-height: $line-height-5;
-}
-
-@mixin lead-paragraph--mobile {
-    font-size: $font-size-6;
-    line-height: $line-height-4;
-}
-
-@mixin body-paragraph {
-    @include body-paragraph--desktop;
-    @include small-device {
-        @include body-paragraph--mobile;
-    }
-}
-
-@mixin body-paragraph--desktop {
-    font-size: $font-size-4;
-    line-height: $line-height-4;
-}
-
-@mixin body-paragraph--mobile {
-    font-size: $font-size-3;
-    line-height: $line-height-3;
-}
-
-@mixin small-paragraph {
-    font-size: $font-size-2;
-    line-height: $line-height-2;
-}
-
-@mixin micro-paragraph {
-    font-size: $font-size-1;
-    line-height: $line-height-1;
-    font-weight: $bold-weight;
 }

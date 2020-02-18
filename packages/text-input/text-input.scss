@@ -26,7 +26,7 @@ $icon-size--compact: $font-size-2;
     background-color: $input-bg-color;
 
     &__input {
-        @include body-paragraph--desktop;
+        @include jkl-text-style("desktop/body");
         border: none;
         outline: none;
         border-radius: 0;
@@ -46,7 +46,7 @@ $icon-size--compact: $font-size-2;
         resize: none; // Disable textarea resize
 
         &::placeholder {
-            @include body-paragraph--desktop;
+            @include jkl-text-style("desktop/body");
             font-weight: normal;
             opacity: 1;
             color: $gra-60;
@@ -117,7 +117,7 @@ $icon-size--compact: $font-size-2;
     @include compact-mode {
         & .jkl-text-field__input,
         & .jkl-text-field__input::placeholder {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         & .jkl-text-field__input {
             height: $input-height--small-device + $bottom-padding;
@@ -130,7 +130,7 @@ $icon-size--compact: $font-size-2;
     @include small-device {
         .jkl-text-field__input,
         .jkl-text-field__input::placeholder {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         & .jkl-text-field__input {
             height: $input-height--small-device + $bottom-padding;

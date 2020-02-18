@@ -7,18 +7,18 @@ describe("typography", () => {
     const text = "Hello Mr Universe";
 
     const headings = [
-        { type: "heading 1", component: H1, expectedClassName: "jkl-h1" },
-        { type: "heading 2", component: H2, expectedClassName: "jkl-h2" },
-        { type: "heading 3", component: H3, expectedClassName: "jkl-h3" },
-        { type: "heading 4", component: H4, expectedClassName: "jkl-h4" },
-        { type: "heading 5", component: H5, expectedClassName: "jkl-h5" },
+        { type: "heading 1", component: H1, expectedElement: "H1" },
+        { type: "heading 2", component: H2, expectedElement: "H2" },
+        { type: "heading 3", component: H3, expectedElement: "H3" },
+        { type: "heading 4", component: H4, expectedElement: "H4" },
+        { type: "heading 5", component: H5, expectedElement: "H5" },
     ];
 
     const paragraphs = [
-        { type: "lead paragraph", component: Lead, expectedClassName: "jkl-lead" },
-        { type: "body paragraph", component: Body, expectedClassName: "jkl-body" },
-        { type: "small paragraph", component: Small, expectedClassName: "jkl-small" },
-        { type: "micro paragraph", component: Micro, expectedClassName: "jkl-micro" },
+        { type: "lead paragraph", component: Lead, expectedElement: "P" },
+        { type: "body paragraph", component: Body, expectedElement: "P" },
+        { type: "small paragraph", component: Small, expectedElement: "P" },
+        { type: "micro paragraph", component: Micro, expectedElement: "P" },
     ];
 
     [...headings, ...paragraphs].forEach((element) => {
@@ -26,31 +26,7 @@ describe("typography", () => {
             const C = element.component;
             const { getByText } = render(<C>{text}</C>);
             const res = getByText(text);
-            expect(res).toHaveClass(element.expectedClassName);
-        });
-    });
-
-    type styleElement = {
-        element: "h1" | "h2" | "h3" | "h4" | "h5";
-        expectedClassName: string;
-    };
-
-    const styleElements: styleElement[] = [
-        { element: "h1", expectedClassName: "jkl-h1" },
-        { element: "h2", expectedClassName: "jkl-h2" },
-        { element: "h3", expectedClassName: "jkl-h3" },
-        { element: "h4", expectedClassName: "jkl-h4" },
-        { element: "h5", expectedClassName: "jkl-h5" },
-    ];
-
-    headings.forEach((element) => {
-        styleElements.forEach((styleElement) => {
-            test(`should render ${element.type} styled as ${styleElement.element}`, () => {
-                const C = element.component;
-                const { getByText } = render(<C styledAs={styleElement.element}>{text}</C>);
-                const res = getByText(text);
-                expect(res).toHaveClass(styleElement.expectedClassName);
-            });
+            expect(res.tagName).toBe(element.expectedElement);
         });
     });
 });
