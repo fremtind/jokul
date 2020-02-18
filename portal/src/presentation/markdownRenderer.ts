@@ -68,7 +68,6 @@ function jokulHeading({ level, children }: HeadingProps) {
         default:
             return createElement(Paragraph, null, children);
     }
-    return Element;
 }
 
 function paragraph({ children }: Props) {
