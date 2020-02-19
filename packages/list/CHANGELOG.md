@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@1.1.2...@fremtind/jkl-list@1.2.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
 ## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@1.1.1...@fremtind/jkl-list@1.1.2) (2020-02-18)
 
 **Note:** Version bump only for package @fremtind/jkl-list
