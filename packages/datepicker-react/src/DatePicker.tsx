@@ -18,6 +18,7 @@ interface Props {
     placeholder?: string;
     months?: string[];
     days?: string[];
+    calendarButtonTitle?: string;
     initialDate?: Date;
     onChange?: (date: Date) => void;
     extended?: boolean;
@@ -59,6 +60,7 @@ export function DatePicker({
     placeholder = "dd.mm.åååå",
     months,
     days,
+    calendarButtonTitle = "Vis kalender",
     initialDate,
     onChange,
     extended = false,
@@ -167,9 +169,10 @@ export function DatePicker({
                             onChange={onInputChange}
                         />
                         <button
-                            aria-label="Vis kalender"
-                            title="Vis kalender"
+                            aria-label={calendarButtonTitle}
+                            title={calendarButtonTitle}
                             onClick={toggleDatepicker}
+                            data-testid="jkl-datepicker__calendar-button"
                             className="jkl-text-field__action-button"
                         >
                             <CalendarIcon className="jkl-text-field__action-icon" />
