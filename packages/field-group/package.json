@@ -11,7 +11,8 @@
     ],
     "files": [
         "!example",
-        "*.css"
+        "*.css",
+        "*.scss"
     ],
     "license": "MIT",
     "scripts": {

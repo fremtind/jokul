@@ -6,7 +6,8 @@
     },
     "files": [
         "!example",
-        "*.css"
+        "*.css",
+        "*.scss"
     ],
     "description": "Jøkul style for Fremtind logo",
     "homepage": "https://fremtind.github.io/jokul",
