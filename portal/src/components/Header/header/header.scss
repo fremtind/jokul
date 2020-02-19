@@ -1,25 +1,25 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-button/button.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 $header-bg-color: $hvit;
-$header-padding: 33px 24px;
+$header-height: rem(96px);
+$header-padding: 0 $component-spacing--xl;
 
 .portal-header {
-    align-items: center;
-    background-color: $header-bg-color;
+    grid-area: header;
     display: flex;
-    height: 96px;
+    height: $header-height;
+    background-color: $header-bg-color;
+    padding: $header-padding;
+    align-items: center;
     justify-content: space-between;
-    z-index: 1;
-    background-color: $hvit;
+    z-index: $z-index--header;
 
     &__title {
-        font-size: 21px;
-        padding: $header-padding;
-    }
-    &__link--brand {
-        font-weight: 700;
+        @include h5-heading--desktop;
+        color: $svart;
+        text-decoration: none;
+        font-weight: $normal-weight;
     }
     &__logo {
         float: right;
