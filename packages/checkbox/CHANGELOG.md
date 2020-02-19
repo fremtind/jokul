@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.0.16...@fremtind/jkl-checkbox@1.1.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
 ## [1.0.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.0.15...@fremtind/jkl-checkbox@1.0.16) (2020-02-18)
 
 

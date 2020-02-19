@@ -4,8 +4,8 @@ import "@fremtind/jkl-list/list.scss";
 import "@fremtind/jkl-core/core.scss";
 
 export const Ordered = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <h3 className="jkl-h5">Nummerert liste</h3>
+    <section>
+        <h3 className="jkl-heading-small">Nummerert liste</h3>
         <OrderedList>
             <ListItem>Steg 1</ListItem>
             <ListItem>
@@ -28,15 +28,15 @@ export const Ordered = () => (
 );
 
 export const Unordered = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <h3 className="jkl-h5">Standard liste</h3>
+    <section>
+        <h3 className="jkl-heading-small">Standard liste</h3>
         <UnorderedList>
             <ListItem>Listeelement 1</ListItem>
             <ListItem>Listeelement 2</ListItem>
             <ListItem>Listelement 3</ListItem>
         </UnorderedList>
         <br></br>
-        <h3 className="jkl-h5">Mobile/Compact liste</h3>
+        <h3 className="jkl-heading-small">Mobile/Compact liste</h3>
         <UnorderedList className="jkl-small">
             <ListItem>Listeelement 1</ListItem>
             <ListItem>Listeelement 2</ListItem>
@@ -46,8 +46,8 @@ export const Unordered = () => (
 );
 
 export const Indent = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <h3 className="jkl-h5">Nøstet liste</h3>
+    <section>
+        <h3 className="jkl-heading-small">Nøstet liste</h3>
         <UnorderedList>
             <ListItem>
                 Listeelement 1

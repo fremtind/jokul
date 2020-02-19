@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.2.0...@fremtind/portal@1.2.1) (2020-02-19)
+
+
+### Bug Fixes
+
+* **portal:** use correct text style for site title ([5922949](https://github.com/fremtind/jokul/commit/59229491a2d3cafcf6c5e45baf28679b740aaefc))
+
+
+
+
+
 # [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.1.1...@fremtind/portal@1.2.0) (2020-02-18)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.2.2...@fremtind/jkl-text-input@1.3.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+* **text-input:** tweak action icon placement and add focus state ([7b37ee1](https://github.com/fremtind/jokul/commit/7b37ee1bd6aee1c33db48f3b85024693d63790dd))
+
+
+
+
+
 ## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.2.1...@fremtind/jkl-text-input@1.2.2) (2020-02-18)
 
 
