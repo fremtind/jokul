@@ -16,7 +16,8 @@
     "license": "MIT",
     "files": [
         "!example",
-        "*.css"
+        "*.css",
+        "*.scss"
     ],
     "scripts": {
         "clean": "rimraf node_modules/ dist/ **/*.css",
