@@ -62,7 +62,7 @@ export const Layout = ({ children }: Props) => {
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <div className="portal-content">
-                <Header brand="Jøkul" title="Designsystem" className="portal-content__header" />
+                <Header />
                 <Sidebar className="portal-content__sidebar">
                     <Menu />
                 </Sidebar>
