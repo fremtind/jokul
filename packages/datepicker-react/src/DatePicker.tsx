@@ -2,6 +2,7 @@ import React, { ChangeEvent, useRef, useState, useEffect } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { LabelVariant } from "@fremtind/jkl-core";
+import { CalendarIcon } from "./CalendarIcon";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 import classNames from "classnames";
@@ -73,10 +74,15 @@ export function DatePicker({
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
-    const componentClassName = classNames("jkl-datepicker", className, {
-        "jkl-datepicker--extended": extended,
-        "jkl-datepicker--open": !datepickerHidden,
-    });
+    const componentClassName = classNames(
+        "jkl-datepicker",
+        {
+            "jkl-datepicker--extended": extended,
+            "jkl-datepicker--open": !datepickerHidden,
+        },
+        "jkl-text-field--action",
+        className,
+    );
     const inputClassName = classNames("jkl-text-field jkl-datepicker__input", {
         "jkl-text-field--compact": forceCompact,
     });
@@ -93,14 +99,8 @@ export function DatePicker({
         }
     }, [disableBeforeDate, disableAfterDate]);
 
-    const openDatepicker = (e: React.FocusEvent<HTMLInputElement>) => {
-        // Workaround for loosing focus when opening in chrome:
-        // https://github.com/nrkno/core-components/issues/322
-        e.persist();
-        setTimeout(() => e.target.focus(), 0);
-        setDatepickerHidden(false);
-    };
     const closeDatepicker = () => setDatepickerHidden(true);
+    const toggleDatepicker = () => setDatepickerHidden(!datepickerHidden);
 
     const datepickerRef = useRef<HTMLDivElement>(null);
     useClickOutside(datepickerRef, closeDatepicker);
@@ -156,16 +156,25 @@ export function DatePicker({
                     <Label variant={variant} forceCompact={forceCompact}>
                         {label}
                     </Label>
-                    <input
-                        placeholder={placeholder}
-                        type="text"
-                        aria-invalid={!!errorLabel}
-                        className={`jkl-text-field__input`}
-                        data-testid="jkl-datepicker__input"
-                        value={dateString}
-                        onChange={onInputChange}
-                        onFocus={openDatepicker}
-                    />
+                    <div className="jkl-text-field__input-wrapper  jkl-datepicker__input">
+                        <input
+                            placeholder={placeholder}
+                            type="text"
+                            aria-invalid={!!errorLabel}
+                            className="jkl-text-field__input"
+                            data-testid="jkl-datepicker__input"
+                            value={dateString}
+                            onChange={onInputChange}
+                        />
+                        <button
+                            aria-label="Vis kalender"
+                            title="Vis kalender"
+                            onClick={toggleDatepicker}
+                            className="jkl-text-field__action-button"
+                        >
+                            <CalendarIcon className="jkl-text-field__action-icon" />
+                        </button>
+                    </div>
                 </label>
 
                 <div hidden={datepickerHidden}>

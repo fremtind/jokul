@@ -22,12 +22,10 @@ $bottom-margin: $component-spacing--large;
         position: relative;
     }
 
-    &__input > .jkl-text-field__input {
-        width: 10.5ch;
-
-        .jkl-datepicker--open & {
-            width: 100%;
-        }
+    &__input {
+        // $icon-size comes from text-input.scss
+        // using it ensures correct layout even if we change the text input styling
+        width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});
     }
 
     /* Navigation in normal (compact) mode
@@ -136,7 +134,7 @@ $bottom-margin: $component-spacing--large;
        ================ */
 
     &__calendar {
-        @include position(absolute, $top: 100%, $left: 0, $right: 0);
+        @include position(absolute, $top: calc(100% - 4px), $left: 0, $right: 0);
         z-index: $z-index--dropdown;
         justify-content: center;
         flex-direction: column;
@@ -145,6 +143,7 @@ $bottom-margin: $component-spacing--large;
         background-color: $background-color;
         box-shadow: $drop-shadow--small;
         color: $svart;
+        border-top: 4px solid $svart;
 
         caption {
             font-size: $font-size-6;
