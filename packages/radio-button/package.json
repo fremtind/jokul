@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -16,7 +16,8 @@
     "license": "MIT",
     "files": [
         "!example",
-        "*.css"
+        "*.css",
+        "*.scss"
     ],
     "scripts": {
         "clean": "rimraf node_modules/ dist/ **/*.css",

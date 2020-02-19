@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.1.2...@fremtind/jkl-text-input-react@1.2.0) (2020-02-19)
+
+
+### Bug Fixes
+
+* **text-input-react:** fix cropped search icon ([5d45405](https://github.com/fremtind/jokul/commit/5d4540517ab748111a25c598ba282bf72ca2a3e2))
+
+
+### Features
+
+* **text-input:** tweak action icon placement and add focus state ([7b37ee1](https://github.com/fremtind/jokul/commit/7b37ee1bd6aee1c33db48f3b85024693d63790dd))
+
+
+
+
+
 ## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.1.1...@fremtind/jkl-text-input-react@1.1.2) (2020-02-18)
 
 
