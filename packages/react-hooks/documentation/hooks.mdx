@@ -14,37 +14,37 @@ import IntersectionObserverExample from "./IntersectionObserverExample";
     <span class="jkl-lead">Denne pakken innholder støttefunksjoner i form av React hooks.</span>
 </p>
 
-### useAnimatedHeight
+## useAnimatedHeight
 
 Animering av ting inn og ut av DOMet i React er ikke lett, men med useAnimatedHeight blir jobben en god del lettere.
 
 <AnimationExample />
 
-### useMutationObserver
+## useMutationObserver
 
 Med `useMutationObserver` kan du lytte på endringer i DOMet. Dette er en tynn wrapper over MutationObserver APIet som gjør det lettere å ta det i bruk i React. Den er nyttig om du f.eks. ønsker å spore når en bruker trykker på et element der du ikke har tilgang på `onChange`-funksjonen, som `Accordion`.
 
 <MutationObserverExample />
 
-### useClickOutside
+## useClickOutside
 
 `useClickOutside` lar deg lytte på klikk utenfor et element. Det kan være nyttig for å lukke modaler o.l.
 
 <ClickOutsideExample />
 
-### useFocusOutside
+## useFocusOutside
 
 `useFocusOutside` lar deg lytte etter elementfokus utenfor et gitt element, for eksempel når du tabber ut av en datovelger, og utføre en gitt handling.
 
 <FocusOutsideExample />
 
-### useKeyListener
+## useKeyListener
 
 `useKeyListener` lar deg lytte etter spesifiserte tastetrykk når fokus er inne i et gitt element. Dette kan være nyttig for blandt annet søkefunksjonalitet i lister, og tastaturnavigasjon i karuseller o.l.
 
 <KeyListenerExample />
 
-### useIntersectionObserver
+## useIntersectionObserver
 
 IntersectionObserver lar deg lytte på om et element er synlig eller ikke. Det gjør det mulig å animere innhold inn, eller prelaste innhold som er rett uten for viewporten. I eksemplet brukes det til å bytte bakgrunnsfarge når andre paragrafen kommer helt inn i visning.
 
