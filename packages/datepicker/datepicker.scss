@@ -13,16 +13,9 @@ $background-color: $hvit;
 $bottom-margin: $component-spacing--large;
 
 .jkl-datepicker {
-    @include reset-outline;
-    position: relative;
-    width: $calendar-width + ($calendar-padding * 2);
-    margin-bottom: $bottom-margin;
-
-    &__outer-wrapper {
-        position: relative;
-    }
-
     &__input {
+        position: relative;
+        display: block;
         // $icon-size comes from text-input.scss
         // using it ensures correct layout even if we change the text input styling
         width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});

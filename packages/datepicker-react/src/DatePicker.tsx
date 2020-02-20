@@ -1,14 +1,21 @@
-import React, { ChangeEvent, useRef, useState, useEffect } from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
+import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { CalendarIcon } from "./CalendarIcon";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
+// @ts-ignore
+import CoreToggle from "@nrk/core-toggle/jsx";
 import classNames from "classnames";
 
 interface ChangeDate {
     date: Date;
+}
+
+interface CoreToggleSelectEvent {
+    detail: { textContent: string; value: string };
+    target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
 interface Props {
@@ -73,6 +80,7 @@ export function DatePicker({
     disableBeforeDate,
     disableAfterDate,
 }: Props) {
+    const uuid = `jkl-datepicker-${nanoid(8)}`;
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
@@ -82,10 +90,9 @@ export function DatePicker({
             "jkl-datepicker--extended": extended,
             "jkl-datepicker--open": !datepickerHidden,
         },
-        "jkl-text-field--action",
         className,
     );
-    const inputClassName = classNames("jkl-text-field jkl-datepicker__input", {
+    const inputClassName = classNames("jkl-text-field jkl-text-field--action jkl-datepicker__input", {
         "jkl-text-field--compact": forceCompact,
     });
 
@@ -101,13 +108,7 @@ export function DatePicker({
         }
     }, [disableBeforeDate, disableAfterDate]);
 
-    const closeDatepicker = () => setDatepickerHidden(true);
     const toggleDatepicker = () => setDatepickerHidden(!datepickerHidden);
-
-    const datepickerRef = useRef<HTMLDivElement>(null);
-    useClickOutside(datepickerRef, closeDatepicker);
-    useFocusOutside(datepickerRef, closeDatepicker);
-    useKeyListener(datepickerRef, ["Enter", "Escape"], closeDatepicker);
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
         const newDateString = event.target.value;
@@ -135,7 +136,6 @@ export function DatePicker({
 
     function onClickCalendarDay(event: ChangeEvent<ChangeDate>) {
         const newDate = event.target.date;
-        setDatepickerHidden(true);
 
         if (dateHasChanged(date, newDate)) {
             setDateString(formatDate(newDate));
@@ -152,35 +152,38 @@ export function DatePicker({
     }
 
     return (
-        <div className={componentClassName} ref={datepickerRef}>
-            <div className="jkl-datepicker__outer-wrapper">
-                <label className={inputClassName}>
-                    <Label variant={variant} forceCompact={forceCompact}>
-                        {label}
-                    </Label>
-                    <div className="jkl-text-field__input-wrapper  jkl-datepicker__input">
-                        <input
-                            placeholder={placeholder}
-                            type="text"
-                            aria-invalid={!!errorLabel}
-                            className="jkl-text-field__input"
-                            data-testid="jkl-datepicker__input"
-                            value={dateString}
-                            onChange={onInputChange}
-                        />
-                        <button
-                            aria-label={calendarButtonTitle}
-                            title={calendarButtonTitle}
-                            onClick={toggleDatepicker}
-                            data-testid="jkl-datepicker__calendar-button"
-                            className="jkl-text-field__action-button"
-                        >
-                            <CalendarIcon className="jkl-text-field__action-icon" />
-                        </button>
-                    </div>
-                </label>
-
-                <div hidden={datepickerHidden}>
+        <div className={componentClassName}>
+            <Label htmlFor={uuid} standAlone variant={variant} forceCompact={forceCompact}>
+                {label}
+            </Label>
+            <div className={inputClassName}>
+                <input
+                    id={uuid}
+                    placeholder={placeholder}
+                    type="text"
+                    aria-invalid={!!errorLabel}
+                    className="jkl-text-field__input"
+                    data-testid="jkl-datepicker__input"
+                    value={dateString}
+                    onChange={onInputChange}
+                />
+                <button
+                    aria-label={calendarButtonTitle}
+                    title={calendarButtonTitle}
+                    data-testid="jkl-datepicker__calendar-button"
+                    className="jkl-text-field__action-button"
+                >
+                    <CalendarIcon className="jkl-text-field__action-icon" />
+                </button>
+                <CoreToggle
+                    popup
+                    hidden={datepickerHidden}
+                    onToggle={toggleDatepicker}
+                    onToggleSelect={(e: CoreToggleSelectEvent) => {
+                        console.log("onToggleSelect");
+                        e.target.hidden = true;
+                    }}
+                >
                     <CoreDatepicker
                         timestamp={date ? date.getTime() : undefined}
                         months={months}
@@ -225,7 +228,7 @@ export function DatePicker({
                         )}
                         <table data-testid="jkl-datepicker-calendar" />
                     </CoreDatepicker>
-                </div>
+                </CoreToggle>
             </div>
             <SupportLabel errorLabel={errorLabel} helpLabel={helpLabel} forceCompact={forceCompact} />
         </div>
