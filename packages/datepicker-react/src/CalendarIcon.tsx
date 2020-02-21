@@ -5,21 +5,11 @@ interface Props {
 }
 
 export const CalendarIcon = ({ className }: Props) => (
-    <svg className={className ? className : ""} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0.5" y="3.5" width="23" height="20" stroke="currentColor" />
-        <line x1="6.5" x2="6.5" y2="7" stroke="currentColor" />
-        <line x1="17.5" x2="17.5" y2="7" stroke="currentColor" />
-        <rect x="4.5" y="9.5" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="4.5" y="14" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="4.5" y="18.5" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="9" y="9.5" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="9" y="14" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="9" y="18.5" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="13.5" y="9.5" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="13.5" y="14" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="13.5" y="18.5" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="18" y="9.5" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="18" y="14" width="1.5" height="1.5" fill="currentColor" />
-        <rect x="18" y="18.5" width="1.5" height="1.5" fill="currentColor" />
+    <svg className={className ? className : ""} viewBox="0 0 24 24" fill="none">
+        <path stroke="currentColor" d="M.5 3.5h23v20H.5zM6.5 0v7M17.5 0v7" />
+        <path
+            fill="currentColor"
+            d="M4.5 9.5H6V11H4.5zM4.5 14H6v1.5H4.5zM4.5 18.5H6V20H4.5zM9 9.5h1.5V11H9zM9 14h1.5v1.5H9zM9 18.5h1.5V20H9zM13.5 9.5H15V11h-1.5zM13.5 14H15v1.5h-1.5zM13.5 18.5H15V20h-1.5zM18 9.5h1.5V11H18zM18 14h1.5v1.5H18zM18 18.5h1.5V20H18z"
+        />
     </svg>
 );
