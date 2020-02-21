@@ -168,19 +168,19 @@ export function DatePicker({
                     onChange={onInputChange}
                 />
                 <button
-                    aria-label={calendarButtonTitle}
+                    type="button"
                     title={calendarButtonTitle}
                     data-testid="jkl-datepicker__calendar-button"
                     className="jkl-text-field__action-button"
                 >
                     <CalendarIcon className="jkl-text-field__action-icon" />
+                    <span className="jkl-sr-only">{calendarButtonTitle}</span>
                 </button>
                 <CoreToggle
                     popup
                     hidden={datepickerHidden}
                     onToggle={toggleDatepicker}
                     onToggleSelect={(e: CoreToggleSelectEvent) => {
-                        console.log("onToggleSelect");
                         e.target.hidden = true;
                     }}
                 >
