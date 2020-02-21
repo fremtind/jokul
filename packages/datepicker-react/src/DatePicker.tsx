@@ -14,7 +14,7 @@ interface ChangeDate {
 }
 
 interface CoreToggleSelectEvent {
-    detail: { textContent: string; value: string };
+    detail: { textContent: string; value: string; classList: DOMTokenList };
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
@@ -109,6 +109,11 @@ export function DatePicker({
     }, [disableBeforeDate, disableAfterDate]);
 
     const toggleDatepicker = () => setDatepickerHidden(!datepickerHidden);
+    const handleCalendarClick = (e: CoreToggleSelectEvent) => {
+        if (!e.detail.classList.contains("jkl-datepicker__month-button")) {
+            e.target.hidden = true;
+        }
+    };
 
     function onInputChange(event: ChangeEvent<HTMLInputElement>) {
         const newDateString = event.target.value;
@@ -182,9 +187,7 @@ export function DatePicker({
                     popup
                     hidden={datepickerHidden}
                     onToggle={toggleDatepicker}
-                    onToggleSelect={(e: CoreToggleSelectEvent) => {
-                        e.target.hidden = true;
-                    }}
+                    onToggleSelect={handleCalendarClick}
                 >
                     <CoreDatepicker
                         timestamp={date ? date.getTime() : undefined}
