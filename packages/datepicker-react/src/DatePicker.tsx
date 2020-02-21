@@ -174,7 +174,9 @@ export function DatePicker({
                     className="jkl-text-field__action-button"
                 >
                     <CalendarIcon className="jkl-text-field__action-icon" />
-                    <span className="jkl-sr-only">{calendarButtonTitle}</span>
+                    <span data-testid="jkl-datepicker__calendar-button-text" className="jkl-sr-only">
+                        {calendarButtonTitle}
+                    </span>
                 </button>
                 <CoreToggle
                     popup
