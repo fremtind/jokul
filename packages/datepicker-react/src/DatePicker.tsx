@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
+import React, { ChangeEvent, useState, useEffect, useRef } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -80,7 +80,7 @@ export function DatePicker({
     disableBeforeDate,
     disableAfterDate,
 }: Props) {
-    const uuid = `jkl-datepicker-${nanoid(8)}`;
+    const { current: uuid } = useRef(`jkl-datepicker-${nanoid(8)}`);
     const [date, setDate] = useState(initialDate);
     const [datepickerHidden, setDatepickerHidden] = useState(!initialShow);
     const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
