@@ -24,14 +24,14 @@ const useInterval = (callback, delay) => {
 export const DelayText = ({ text, delay }) => {
     const [index, setIndex] = useState(-1);
     const [isRunning, setIsRunning] = useState(true);
+    const [animated, setIsAnimated] = useState(0);
+    const noiseMap = Array.from(new Array(text.length)).map(() => Math.random() * 600);
 
-    const joinedText = useMemo(() => {
+    const filteredText = useMemo(() => {
         const splitText = text.split("");
-        const strFilteredByLength = splitText.filter((char, i) => {
+        return splitText.filter((char, i) => {
             return i <= index;
         });
-
-        return strFilteredByLength.join("");
     }, [index]);
 
     const lolRandom = Math.random() * delay + delay / 2;
@@ -47,9 +47,30 @@ export const DelayText = ({ text, delay }) => {
         isRunning ? (lolRandom < 50 ? delay : lolRandom) : null,
     );
 
-    const textClassName = classNames("jkl-delay-text", "jkl-delay-text__text", {
-        "jkl-delay-text__text--done": !isRunning,
+    const containerClassName = classNames("jkl-delay-text", "jkl-delay-text__underscore", {
+        "jkl-delay-text__underscore--done": !isRunning,
     });
 
-    return <div className={textClassName}>{joinedText}</div>;
+    const textClassName = classNames("jkl-delay-text__text", {
+        "jkl-delay-text__text--fadeout": !isRunning,
+    });
+
+    return (
+        <div className={containerClassName}>
+            {!!animated && animated === filteredText.length ? (
+                <h1>YOLO SWAG</h1>
+            ) : (
+                filteredText.map((c, i) => (
+                    <span
+                        key={c + i}
+                        className={textClassName}
+                        style={{ transitionDelay: noiseMap[i] + "ms" }}
+                        onTransitionEnd={() => setIsAnimated(animated + 1)}
+                    >
+                        {c}
+                    </span>
+                ))
+            )}
+        </div>
+    );
 };

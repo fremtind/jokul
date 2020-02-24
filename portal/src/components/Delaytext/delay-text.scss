@@ -5,7 +5,7 @@
 .jkl-delay-text {
     font-size: rem(120px);
 
-    &__text {
+    &__underscore {
         &:after {
             opacity: 1;
             content: "_";
@@ -17,6 +17,16 @@
             &:after {
                 opacity: 0;
             }
+        }
+    }
+
+    &__text {
+        opacity: 1;
+        @include motion("exit");
+        transition-property: opacity;
+
+        &--fadeout {
+            opacity: 0;
         }
     }
 }
