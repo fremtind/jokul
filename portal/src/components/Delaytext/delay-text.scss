@@ -1,0 +1,22 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_motion.scss";
+
+.jkl-delay-text {
+    font-size: rem(120px);
+
+    &__text {
+        &:after {
+            opacity: 1;
+            content: "_";
+            @include motion("exit");
+            transition-property: opacity;
+        }
+
+        &--done {
+            &:after {
+                opacity: 0;
+            }
+        }
+    }
+}
