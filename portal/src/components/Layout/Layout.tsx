@@ -4,7 +4,7 @@ import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
 import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
 import { Header, Menu } from "..";
-import { Sidebar } from "../Sidebar/sidebar-react/src";
+import { Sidebar } from "../Sidebar";
 import "./Layout.scss";
 
 interface Props {

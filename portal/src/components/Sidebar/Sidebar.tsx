@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import classNames from "classnames";
-import "../../sidebar/Sidebar.scss";
+import "../Sidebar/Sidebar.scss";
 
 interface Props {
     children?: ReactNode;
