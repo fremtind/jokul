@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.3.0...@fremtind/jkl-datepicker@1.4.0) (2020-02-24)
+
+
+### Features
+
+* **datepicker:** add button to open datepicker calendar ([df636f8](https://github.com/fremtind/jokul/commit/df636f87a1934f970f3cff962564cf7d5032bef8)), closes [#593](https://github.com/fremtind/jokul/issues/593) [#773](https://github.com/fremtind/jokul/issues/773) [#774](https://github.com/fremtind/jokul/issues/774)
+* **datepicker:** use core-toggle for datepicker calendar ([a868bdb](https://github.com/fremtind/jokul/commit/a868bdb9f50f31bf5839b37a515e010b8abb98bd))
+
+
+
+
+
 # [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.2.2...@fremtind/jkl-datepicker@1.3.0) (2020-02-19)
 
 
