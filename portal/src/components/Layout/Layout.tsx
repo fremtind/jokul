@@ -4,8 +4,8 @@ import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
 import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
 import { Header, Menu } from "..";
+import { Sidebar } from "../Sidebar/sidebar-react/src";
 import "./Layout.scss";
-import useTheme, { THEME_DARK, THEME_LIGHT } from "./useTheme";
 
 interface Props {
     children: ReactNode;
@@ -14,30 +14,41 @@ interface Props {
     isComponentPage?: boolean;
     showFooter?: boolean;
 }
-interface ContextProps {
-    theme: string;
-    toggleTheme: (checked: boolean) => void;
-}
 
-export const ThemeContext = React.createContext<ContextProps>({ theme: THEME_LIGHT, toggleTheme: () => "" });
+/* eslint-disable */
+const h1 = PageTitle;
+const h2 = HeadingLarge;
+const h3 = HeadingMedium;
+const h4 = HeadingSmall;
+const h5 = HeadingXS;
+const p = Paragraph;
+const ul = (props: any) => <UnorderedList {...props} />;
+const li = (props: any) => <ListItem {...props} />;
+const ol = (props: any) => <OrderedList {...props} />;
+const a = (props: any) => <Link {...props} />;
+/* eslint-enable */
 
-export const Layout = ({ children }: Props) => {
-    const [theme, setTheme] = useTheme();
-    const toggleTheme = (isDarkTheme: boolean) => setTheme(isDarkTheme ? THEME_DARK : THEME_LIGHT);
-
-    return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <div className="portal-content">
-                <header className="portal-content__header">
-                    <Header brand="Jøkul" title="Designsystem" />
-                </header>
-                <aside className="portal-content__sidebar">
-                    <Menu />
-                </aside>
-                <main className="portal-content__main">{children}</main>
-            </div>
-        </ThemeContext.Provider>
-    );
+const components = {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    ul,
+    li,
+    ol,
+    a,
 };
 
-export default Layout;
+export const Layout = ({ children }: Props) => {
+    return (
+        <div className="portal-content">
+            <Header />
+            <Sidebar className="portal-content__sidebar">
+                <Menu />
+            </Sidebar>
+            <main className="portal-content__main">{children}</main>
+        </div>
+    );
+};

@@ -16,7 +16,7 @@ $header-padding: 0 $component-spacing--xl;
     z-index: $z-index--header;
 
     &__title {
-        @include h5-heading--desktop;
+        @include jkl-text-style("desktop/heading-small");
         color: $svart;
         text-decoration: none;
         font-weight: $normal-weight;
