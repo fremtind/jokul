@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.2.0...@fremtind/jkl-text-input-react@1.2.1) (2020-02-24)
+
+
+### Bug Fixes
+
+* **text-input-react:** adjust size of "clear" action icon ([19761c4](https://github.com/fremtind/jokul/commit/19761c44fdea534fdc177a3753db10e8d0b53870))
+
+
+
+
+
 # [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.1.2...@fremtind/jkl-text-input-react@1.2.0) (2020-02-19)
 
 
