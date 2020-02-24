@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { Logo } from "@fremtind/jkl-logo-react";
-import "../../header/header.scss";
+import "./header.scss";
 
 export const Header = () => (
     <header className="portal-header">

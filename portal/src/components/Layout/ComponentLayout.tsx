@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import { ReactIcon, SassIcon } from "../icons";
 import { Layout } from "./layout-react/src";
 import { CodeLink } from "./CodeLink";
-import "./Layout.scss";
+import "../layout/Layout.scss";
 
 interface Props {
     children: ReactNode;
