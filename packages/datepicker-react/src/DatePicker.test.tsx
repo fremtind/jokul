@@ -7,7 +7,7 @@ import { axe } from "jest-axe";
 beforeEach(cleanup);
 
 describe("Datepicker", () => {
-    it("should render with the correct format", () => {
+    it("renders with the correct format", () => {
         const thePast = new Date(2019, 11, 24);
         const { getByTestId } = render(<DatePicker initialDate={thePast} />);
 
@@ -15,7 +15,7 @@ describe("Datepicker", () => {
         expect(date).toHaveProperty("value", "24.12.2019");
     });
 
-    it("should fire onChange on edit input with valid date", () => {
+    it("fires onChange method on edit input with valid date", () => {
         const changeHandler = jest.fn();
         const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
         const input = getByTestId("jkl-datepicker__input");
@@ -25,7 +25,7 @@ describe("Datepicker", () => {
         expect(changeHandler).toHaveBeenCalledTimes(1);
     });
 
-    it("should not fire onChange on edit input with invalid date", () => {
+    it("does not fire onChange on edit input with invalid date", () => {
         const changeHandler = jest.fn();
         const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
         const input = getByTestId("jkl-datepicker__input");
@@ -34,10 +34,25 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "a random string");
         expect(changeHandler).toHaveBeenCalledTimes(0);
     });
+
+    it("uses the supplied title for the calendar button", () => {
+        const { getByTestId } = render(<DatePicker calendarButtonTitle="hallo" />);
+        const button = getByTestId("jkl-datepicker__calendar-button");
+
+        expect(button).toHaveAttribute("title", "hallo");
+    });
+
+    it("renders the supplied button title as sr-only text", () => {
+        const { getByTestId } = render(<DatePicker calendarButtonTitle="hallo" />);
+        const button = getByTestId("jkl-datepicker__calendar-button-text");
+
+        expect(button).toHaveClass("jkl-sr-only");
+        expect(button.textContent).toBe("hallo");
+    });
 });
 
 describe("formatDate", () => {
-    it("should render the given date correctly", () => {
+    it("renders the given date correctly", () => {
         const date = new Date("1986-10-14");
         const formattedDate = formatDate(date);
 
@@ -46,12 +61,12 @@ describe("formatDate", () => {
 });
 
 describe("isSameDay", () => {
-    it("should return true for equal dates", () => {
+    it("returns true for equal dates", () => {
         const date = new Date("1986-10-14");
 
         expect(isSameDay(date, date)).toBeTruthy();
     });
-    it("should return false for different dates", () => {
+    it("returns false for different dates", () => {
         const date1 = new Date("1986-10-14");
         const date2 = new Date("2001-10-14");
 
