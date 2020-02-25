@@ -33,6 +33,6 @@ Designsystemteamet følger med på det som skjer på GitHub-repoet til Jøkul. N
 
 Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi kanskje må teste det i noen interne applikasjoner først.
 
-Vi viser alle bidragsytere til prosjektet ved hjelp av [`all-contributors`](https://allcontributors.org/). Gi beskjed hvis  du ikke vil vises i listen!
+Vi viser alle bidragsytere til prosjektet ved hjelp av [`all-contributors`](https://allcontributors.org/). Gi beskjed hvis du ikke vil vises i listen!
 
 Takk for at du bidrar ❤️
