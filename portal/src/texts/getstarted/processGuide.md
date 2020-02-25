@@ -13,7 +13,7 @@ Designsystemteamet holder hele tiden oversikten over issues som kommer inn, så 
 ## Avklare
 Designsystemteamet og interessenter tydeliggjør behovet og forsikrer seg om at det krever at vi gjør endringer i designsystemet. Kanskje finnes det en eksisterende løsning? 
 
-Vi stiller oss også spørsmålet om dette behovet er unikt for denne løsningen (det vi kaller et snøfnugg), og noe som ikke kan brukes av andre team.
+Vi stiller oss også spørsmålet om dette behovet er unikt for denne løsningen, og noe som ikke kan brukes av andre team. Hvis det er det kaller vi det et snøfnugg og det skal løses av teamet selv.
 
 ## Spesifisere krav
 Designsystemteamet og interessenter avtaler et møte for å beskrive kravene. Møtet resulterer i en POC (Proof of Concept).
