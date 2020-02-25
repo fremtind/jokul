@@ -1,5 +1,10 @@
-# Designsystemprosessen
+---
+title: Designsystemprosessen
+path: /komigang/prosessen
+order: 0
+---
 
+# Designsystemprosessen
 Mange team bruker designsystemet vårt, Jøkul, når de skal  utvikle for digitale flater. Noen er godt kjent med det, andre har vært litt innom det, mens noen ikke kjenner til det i det hele tatt.  For at Jøkul skal være til nytte, er det avgjørende at alle bidrar til å vedlikeholde systemet og gjøre det best mulig. Det gjelder alle roller, ikke bare utviklere og designere. Under beskriver vi prosessen du skal følge når du har et behov.  
 
 ## Undersøke
