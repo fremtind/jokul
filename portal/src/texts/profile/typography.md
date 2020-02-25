@@ -1,5 +1,5 @@
 ---
-title: typografi
+title: Typografi
 path: /profil/typografi
 order: 7
 ---

@@ -1,0 +1,65 @@
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-full-screen-menu-toggle {
+    @include reset-outline;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    padding: $component-spacing--small 0;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 rem(2px) 0 0 currentColor;
+    }
+
+    &--active {
+        font-weight: $bold-weight;
+        color: #000afa;
+    }
+
+    *[data-theme="dark"] & {
+        &--active {
+            color: #00faff;
+        }
+    }
+}
+
+.jkl-portal-full-screen-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    background-color: $varde;
+    @include motion("standard", "lazy");
+    transition-property: height;
+
+    &--open {
+        height: auto;
+    }
+
+    &__wrapper {
+        box-sizing: border-box;
+        padding: 25vh 15vh;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100vw;
+    }
+
+    &__items {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        list-style-type: none;
+    }
+
+    *[data-theme="dark"] & {
+        background-color: $gra-100;
+    }
+}

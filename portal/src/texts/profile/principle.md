@@ -1,5 +1,5 @@
 ---
-title: designprinsipper
+title: Designprinsipper
 path: /profil/designprinsipper
 order: 1
 ---

@@ -1,11 +1,12 @@
-import React, { ReactNode } from "react";
-import { Link } from "@fremtind/jkl-typography-react";
-import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import React, { ReactNode, useContext, useLayoutEffect, useRef } from "react";
 
-import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
-import { Header, Menu } from "..";
-import { Sidebar } from "../Sidebar";
+import { FormatProvider } from "../Typography";
+import { Header } from "../Header";
+import { ThemeBG } from "./components";
+import { themeContext } from "../../contexts/themeContext";
+
 import "./Layout.scss";
+import Helmet from "react-helmet";
 
 interface Props {
     children: ReactNode;
@@ -15,40 +16,24 @@ interface Props {
     showFooter?: boolean;
 }
 
-/* eslint-disable */
-const h1 = PageTitle;
-const h2 = HeadingLarge;
-const h3 = HeadingMedium;
-const h4 = HeadingSmall;
-const h5 = HeadingXS;
-const p = Paragraph;
-const ul = (props: any) => <UnorderedList {...props} />;
-const li = (props: any) => <ListItem {...props} />;
-const ol = (props: any) => <OrderedList {...props} />;
-const a = (props: any) => <Link {...props} />;
-/* eslint-enable */
-
-const components = {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p,
-    ul,
-    li,
-    ol,
-    a,
-};
-
-export const Layout = ({ children }: Props) => {
+export const Layout = ({ children, title }: Props) => {
+    const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
+    const { theme } = useContext(themeContext);
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    useLayoutEffect(() => {
+        wrapperRef.current?.setAttribute("data-theme", theme || "");
+    }, [theme, wrapperRef]);
     return (
-        <div className="portal-content">
+        <div className="portal-content" data-theme={theme} ref={wrapperRef}>
+            <Helmet>
+                <html lang="no-nb" />
+                <title>{PageTitle}</title>
+            </Helmet>
+            <ThemeBG />
             <Header />
-            <Sidebar className="portal-content__sidebar">
-                <Menu />
-            </Sidebar>
-            <main className="portal-content__main">{children}</main>
+            <main className="portal-content__main">
+                <FormatProvider>{children}</FormatProvider>
+            </main>
         </div>
     );
 };

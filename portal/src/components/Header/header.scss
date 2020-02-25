@@ -4,26 +4,49 @@
 $header-bg-color: $hvit;
 $header-height: rem(96px);
 $header-padding: 0 $component-spacing--xl;
+$header-padding--right: $layout-spacing--xl;
 
-.portal-header {
+.jkl-portal-header {
     grid-area: header;
     display: flex;
     height: $header-height;
-    background-color: $header-bg-color;
     padding: $header-padding;
+    padding-right: $header-padding--right;
     align-items: center;
     justify-content: space-between;
     z-index: $z-index--header;
 
     &__title {
         @include jkl-text-style("desktop/heading-small");
-        color: $svart;
+        color: inherit;
         text-decoration: none;
         font-weight: $normal-weight;
+    }
+    &__navigation {
+        &-list {
+            list-style-type: none;
+        }
+
+        &-item {
+            @include jkl-text-style("desktop/body");
+            display: inline;
+            color: inherit;
+            &:not(:last-child) {
+                margin-right: $component-spacing--xxl;
+            }
+        }
     }
     &__logo {
         float: right;
         width: 40px;
         padding: $header-padding;
+    }
+
+    *[data-theme="dark"] & {
+        color: $hvit;
+
+        &__title {
+            color: $hvit;
+        }
     }
 }

@@ -1,5 +1,5 @@
 ---
-title: pull requests
+title: Pull requests
 path: /komigang/pullrequests
 order: 5
 ---

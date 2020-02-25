@@ -1,6 +1,11 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .portal-content {
+    @include motion("standard");
+    transition-property: color;
+    transition-delay: 150ms;
+    color: $svart;
     display: grid;
     grid-template-columns: 276px 1fr;
     grid-template-areas:
@@ -25,5 +30,9 @@
     &__main {
         grid-column: main;
         margin-top: 96px;
+    }
+
+    &[data-theme="dark"] {
+        color: $gra-10;
     }
 }

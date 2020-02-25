@@ -1,5 +1,5 @@
 ---
-title: kodestil
+title: Kodestil
 path: /komigang/kodestil
 order: 3
 ---
