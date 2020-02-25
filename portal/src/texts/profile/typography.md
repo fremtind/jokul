@@ -5,7 +5,6 @@ order: 7
 ---
 
 # Typografi
-
 Typografi er et profilbærende element i løsningene vi lager. Vi bruker stor og tydelig typografi som grafisk element, i stedet for illustrasjoner og ikoner. Vær modig når du bruker typografi som virkemiddel i våre løsninger.
 
 ## Skrifttype
@@ -23,8 +22,7 @@ Vi følger reglene for tilgjengelighet. Vi bruker relative verdier når vi koder
 Vi følger vanlige skriveregler for store og små bokstaver. Du finner de viktigste reglene for store og små bokstaver i Fremtinds språkprofil (lenke). Vi setter ikke ord i store bokstaver (versaler) for å fokusere på et ord eller en setning.
 
 ### Fremheve tekst
-
-Vi fremhever tekst med _kursiv_ (italic) og ikke **fet** (bold).
+Vi uthever tekst med _kursiv_ (italic) og ikke **fet** (bold).
 
 ### Justere tekst
 
@@ -39,8 +37,7 @@ Vi bruker rikelig med luft i våre løsninger. Vi presenterer informasjonen på 
 De ulike tekststilene har forskjellig formål, det er derfor viktig å velge riktig stil.
 
 ### Overskrifter
-
-De ulike overskriftsstilene lager et informasjonshierarki. Mindre overskrifter er underordnet de som er større. Bruk de store overskriftene så ofte som mulig, og unngå flere enn tre overskriftsstiler på en side.
+De ulike overskriftsnivåene skaper et informasjonshierarki. Mindre overskrifter er underordnet de som er større. Bruk de store overskriftene så ofte som mulig, og unngå flere enn tre overskriftsstiler på samme side.
 
 Når du lager en overskrift, må du også tenke på at den skal være enkel å skanne. Bruk godt og enkelt språk. En god overskrift er en kort setning, uten komma, punktum, bindestrek eller semikolon.
 
@@ -48,15 +45,15 @@ Når du lager en overskrift, må du også tenke på at den skal være enkel å s
 
 Vi har fire stiler for mengdetekst:
 
--   _Lead_ er til kortere tekster. Den bruker vi som ingress eller når innholdet er kort og vi vil gi det fokus. Når vi setter Lead sammen med en overskrift, bør vi bruke Title Large eller Title Small, for å sikre god kontrast.
--   _Body_ er hovedstilen for brødtekst. Den brukervi alltid, så sant det ikke finnes spesielle grunner til å velge noe annet.
--   _Small_ er en alternativ brødtekst. Den kan vi bruke hvis vi _må_ ha en mer kompakt stil.
--   _Micro_ er den minste skriftstilen vår. Den bruker vi når vi vil spare plass, for eksempel i tabeller eller interne applikasjoner. Vi kan også bruke den i bilde- og figurtekster.
+-   _Lead_ er til kortere tekster. Den bruker vi som ingress eller når innholdet er kort og vi vil gi det fokus. Når vi setter Lead sammen med en overskrift, bør vi bruke H1 eller H2, for å sikre god kontrast.
+-   _Body_ er hovedstilen for brødtekst. Den bruker vi alltid, så sant det ikke finnes spesielle grunner til å velge noe annet.
+-   _Body Small_ er en alternativ brødtekst. Den kan vi bruke hvis vi _må_ ha en mer kompakt stil.
+-   _Small_ er den minste skriftstilen vår. Den bruker vi når vi vil spare plass, for eksempel i tabeller eller interne applikasjoner. Vi kan også bruke den i bilde- og figurtekster.
 
 ### Linjelengde
-
-Innhold blir lettest å lese hvis linjelengden er mellom 45 og 75 tegn. Unngå å ha over 80 tegn per linje. Korte linjer skaper også problemer, for da må blikket skifte linje for ofte og det bryter leserytmen.
+Innhold blir lettest å lese hvis linjelengden er mellom 45 og 75 tegn. Unngå å ha over 80 tegn per linje. 
+For korte linjer skaper også problemer, for da må blikket skifte linje for ofte og det bryter leserytmen.
 
 ## Eksempler på god typografi
 
-TBD
+**TBD**
