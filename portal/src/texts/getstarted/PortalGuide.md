@@ -36,7 +36,7 @@ import Example from "./Example";
 
 <Example />
 
-Her kommer informasjon om bruken av komponenten (kommer fra design), formatert i Markdown .
+Her kommer informasjon om bruken av komponenten (kommer fra design), formatert i Markdown.
 
 ## Overskrifter må være nivå to eller lavere
 ```
