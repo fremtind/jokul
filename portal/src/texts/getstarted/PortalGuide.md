@@ -17,7 +17,7 @@ Eksemplene hentes direkte fra pakken der koden ligger. Det er mulig å kjøre ek
 -   beskrivelse av hva komponenten er og hvordan den skal brukes
 -   lenke til koden på GitHub (genereres automatisk, se under)
 
-Snakk gjerne med en designer om hvordan du best setter opp eksempelet og får med alle varianter uten at det blir rotete. Husk at eksempelet skal vises i portalen.
+Snakk gjerne med en designer om hvordan du får med alle varianter uten at det blir rotete. Husk at eksempelet skal vises i portalen.
 
 ## Slik dokumenterer vi komponentene
 
