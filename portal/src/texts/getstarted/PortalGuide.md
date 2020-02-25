@@ -6,9 +6,9 @@ order: 6
 
 # Dokumentasjon til portalen
 
-For at et designsystem skal fungere, må systemdokumentasjonen være god. Hvis utviklere og designere ikke vet hvilke muligheter og begrensninger som finnes i systemet, kommer de til å gjøre feil og dobbeltarbeid. 
+For at designsystemet skal fungere må systemdokumentasjonen være god. Hvis utviklere og designere ikke vet hvilke muligheter og begrensninger som finnes i systemet, kommer de til å gjøre feil og dobbeltarbeid.
 
-Vi i kjerneteamet legger vår stolthet i å levere Jøkul med god dokumentasjon. Vi har bygd opp dokumentasjonen selv, for å sikre at den inneholder akkurat det vi trenger. Slik tror vi at utvikling og design med Jøkul blir en smidig prosess. Det skal bare være én kilde til sannhet.
+Vi prøver å levere god dokumentasjon for Jøkul, og vi har bygd opp rammeverket for dokumentasjon slik at Jøkul har det som trengs og sånn at vi kan levere en smidig utvikleropplevelse. Det skal bare være én kilde til sannhet.
 
 ## Komponenteksempler
 Eksemplene hentes direkte fra pakken der koden ligger. Det er mulig å kjøre eksemplene alene per pakke, eller som en del av portalen. I portalen ligger alle komponentene fra Jøkul dokumentert. Der skal det være en
