@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.3.0...@fremtind/jkl-button@1.4.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.2.1...@fremtind/jkl-button@1.3.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+
+
+### Features
+
+* **button:** add inverted color mode for buttons ([4e9c2d5](https://github.com/fremtind/jokul/commit/4e9c2d5a4a6aed610eb87f354fa65415be34a323))
+* **button:** make button text bold ([70a1736](https://github.com/fremtind/jokul/commit/70a17367ec3f42aba65e0a4779ff8edf8e054da2))
+
+
+
+
+
 ## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.2.0...@fremtind/jkl-button@1.2.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-button

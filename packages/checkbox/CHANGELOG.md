@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.0.16...@fremtind/jkl-checkbox@1.1.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
+## [1.0.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.0.15...@fremtind/jkl-checkbox@1.0.16) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+
+
+
+
+
 ## [1.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.0.14...@fremtind/jkl-checkbox@1.0.15) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox

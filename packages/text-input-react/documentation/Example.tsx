@@ -27,13 +27,28 @@ const Example = () => {
     return (
         <section className={"example-page " + (!darkMode ? "example-page--light-mode" : "example-page--dark-mode")}>
             <fieldset className="example-page__controls">
-                <ToggleSwitch className={"toggle-switch"} inverted={darkMode} onChange={() => setDarkMode(!darkMode)}>
+                <ToggleSwitch
+                    className={"toggle-switch"}
+                    pressed={darkMode}
+                    inverted={darkMode}
+                    onClick={() => setDarkMode(!darkMode)}
+                >
                     Dark Mode
                 </ToggleSwitch>
-                <ToggleSwitch className={"toggle-switch"} inverted={darkMode} onChange={() => setHasError(!hasError)}>
+                <ToggleSwitch
+                    className={"toggle-switch"}
+                    pressed={hasError}
+                    inverted={darkMode}
+                    onClick={() => setHasError(!hasError)}
+                >
                     Vis feilmelding
                 </ToggleSwitch>
-                <ToggleSwitch className={"toggle-switch"} inverted={darkMode} onChange={() => setIsCompact(!isCompact)}>
+                <ToggleSwitch
+                    className={"toggle-switch"}
+                    pressed={isCompact}
+                    inverted={darkMode}
+                    onClick={() => setIsCompact(!isCompact)}
+                >
                     Kompakt variant
                 </ToggleSwitch>
                 <Select

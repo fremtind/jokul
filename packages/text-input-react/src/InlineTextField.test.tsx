@@ -1,10 +1,11 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { InlineTextField } from ".";
+import { axe } from "jest-axe";
+
+afterEach(cleanup);
 
 describe("InlineTextField", () => {
-    afterEach(cleanup);
-
     it("renders with correct label", () => {
         const { getByLabelText } = render(<InlineTextField label="The best label" />);
 
@@ -66,5 +67,14 @@ describe("InlineTextField", () => {
 
         const component = getByLabelText("testing");
         expect(component).toHaveAttribute("aria-invalid", "true");
+    });
+});
+
+describe("a11y", () => {
+    test("inline-text-feild should be a11y compliant", async () => {
+        const { container } = render(<InlineTextField label="testing" />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });

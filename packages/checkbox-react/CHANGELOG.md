@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.1.2...@fremtind/jkl-checkbox-react@1.1.3) (2020-02-19)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.1.1...@fremtind/jkl-checkbox-react@1.1.2) (2020-02-18)
+
+
+### Bug Fixes
+
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.1.0...@fremtind/jkl-checkbox-react@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox-react

@@ -1,8 +1,9 @@
 import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { H1, H2, H3, H4, H5, Body, Link } from "@fremtind/jkl-typography-react";
+import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
+import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
 import { Footer, Header, Menu } from "..";
 import "./Layout.scss";
 
@@ -29,12 +30,12 @@ interface Props {
 }
 
 /* eslint-disable */
-const h1 = (props: any) => <H1 {...props} />;
-const h2 = (props: any) => <H2 {...props} />;
-const h3 = (props: any) => <H3 {...props} />;
-const h4 = (props: any) => <H4 {...props} />;
-const h5 = (props: any) => <H5 {...props} />;
-const p = (props: any) => <Body {...props} />;
+const h1 = PageTitle;
+const h2 = HeadingLarge;
+const h3 = HeadingMedium;
+const h4 = HeadingSmall;
+const h5 = HeadingXS;
+const p = Paragraph;
 const ul = (props: any) => <UnorderedList {...props} />;
 const li = (props: any) => <ListItem {...props} />;
 const ol = (props: any) => <OrderedList {...props} />;

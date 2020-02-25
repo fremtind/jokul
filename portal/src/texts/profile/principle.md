@@ -11,13 +11,11 @@ Fremtinds stil er enkel, tydelig og moderne. Vi skal fremstå med nordisk minima
 Felles for alt vi lager, er at det følger våre tre hovedprinsipper: bevegelse, elevasjon og klarhet. Hvis du lager noe til vår profil og er usikker på hvordan du skal designe løsningen på best mulig måte, kan det blir lettere om du tenker på disse prinsippene.
 
 ### Bevegelse
-
 Fremtind skal være et selskap i bevegelse, som tydelig viser veien fremover. I ordet legger vi at vi skal utforske, se fremover og være tilpasningsdyktige.
 
 Vi leter stadig etter nye og bedre måter å løse problemer på, og er ikke redde for å utfordre dagens standard. Vi bruker animasjon til å gjøre Fremtind mer synlig, som et selskap som er i bevegelse. Vi passer alltid på at animasjoner har en funksjonell verdi.
 
 ### Elevasjon
-
 Vi løfter det som er viktig og skaper et naturlig informasjonshierarki. Det gjør vi gjennom å jobbe med nivåer og dybde.
 
 Vi bruker skygger og elementer med ulik størrelse for å vise hva som er viktigst på en side. Kontrastene i størrelse gjør at brukerne lettere finner fram til det viktigste innholdet. Det skaper også naturlige pauser i oppsettet.

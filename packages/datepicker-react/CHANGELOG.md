@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.2.3...@fremtind/jkl-datepicker-react@1.3.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* **datepicker-react:** fix small problems with calendar button ([927626b](https://github.com/fremtind/jokul/commit/927626b95b6f6516a63e1b8dbe6af2879047bf30))
+* **datepicker-react:** stop month nav from closing calendar ([2b3c52a](https://github.com/fremtind/jokul/commit/2b3c52af6baffa8658037952fe53ab2e83370a89))
+* **datepicker-react:** use ref for storing unique id ([01aedf6](https://github.com/fremtind/jokul/commit/01aedf65fcdccc74026f39362ef8f3e56fd24be6))
+
+
+### Features
+
+* **datepicker:** add button to open datepicker calendar ([df636f8](https://github.com/fremtind/jokul/commit/df636f87a1934f970f3cff962564cf7d5032bef8)), closes [#593](https://github.com/fremtind/jokul/issues/593) [#773](https://github.com/fremtind/jokul/issues/773) [#774](https://github.com/fremtind/jokul/issues/774)
+* **datepicker:** use core-toggle for datepicker calendar ([a868bdb](https://github.com/fremtind/jokul/commit/a868bdb9f50f31bf5839b37a515e010b8abb98bd))
+* **datepicker-react:** expose calendar button title as a prop ([ea708b4](https://github.com/fremtind/jokul/commit/ea708b4efa485abff210b24ca3aedee14d500503))
+
+
+
+
+
+## [1.2.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.2.2...@fremtind/jkl-datepicker-react@1.2.3) (2020-02-19)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.2.1...@fremtind/jkl-datepicker-react@1.2.2) (2020-02-18)
+
+
+### Bug Fixes
+
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+
+
+
+
+
 ## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.2.0...@fremtind/jkl-datepicker-react@1.2.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker-react

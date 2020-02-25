@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant } from "@fremtind/jkl-core";
+import classNames from "classnames";
 
 interface Props {
     legend: string;
@@ -21,7 +22,7 @@ export const FieldGroup = ({
     variant = "medium",
     forceCompact,
 }: Props) => {
-    const componentClassName = "jkl-field-group".concat(className ? ` ${className}` : "");
+    const componentClassName = classNames("jkl-field-group", className);
     return (
         <fieldset className={componentClassName}>
             <legend className="jkl-field-group__legend">

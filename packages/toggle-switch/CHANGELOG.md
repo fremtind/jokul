@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@2.0.0...@fremtind/jkl-toggle-switch@2.1.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@1.1.1...@fremtind/jkl-toggle-switch@2.0.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+* **toggle-switch:** ensure correct evt target when pressed ([76dd6f1](https://github.com/fremtind/jokul/commit/76dd6f1aa05251a062c39f61c1132b2b029e3040))
+* **toggle-switch:** use new color variable for white color ([17919b6](https://github.com/fremtind/jokul/commit/17919b6c614b576f3c9407becf92d61e148aae1e))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+
+
+### Features
+
+* **toggle-switch:** change toggle switch to button element (from input) ([2e9b340](https://github.com/fremtind/jokul/commit/2e9b3406f5bfbaa4233a3f63aa14bad017317efb))
+
+
+### BREAKING CHANGES
+
+* **toggle-switch:** checked prop is replaced by pressed, onChange prop is replaced by onClick
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@1.1.0...@fremtind/jkl-toggle-switch@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-toggle-switch

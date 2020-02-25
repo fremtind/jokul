@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import "@fremtind/jkl-core/core.min.css";
 import "../pages/style.scss";
+import "../components/Typography/typography.scss";
 import { jokulRenderer } from "../presentation/markdownRenderer";
 import ReactMarkdown from "react-markdown";
 

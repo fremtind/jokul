@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.3.0...@fremtind/jkl-datepicker@1.4.0) (2020-02-24)
+
+
+### Features
+
+* **datepicker:** add button to open datepicker calendar ([df636f8](https://github.com/fremtind/jokul/commit/df636f87a1934f970f3cff962564cf7d5032bef8)), closes [#593](https://github.com/fremtind/jokul/issues/593) [#773](https://github.com/fremtind/jokul/issues/773) [#774](https://github.com/fremtind/jokul/issues/774)
+* **datepicker:** use core-toggle for datepicker calendar ([a868bdb](https://github.com/fremtind/jokul/commit/a868bdb9f50f31bf5839b37a515e010b8abb98bd))
+
+
+
+
+
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.2.2...@fremtind/jkl-datepicker@1.3.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
+## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.2.1...@fremtind/jkl-datepicker@1.2.2) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+
+
+
+
+
 ## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.2.0...@fremtind/jkl-datepicker@1.2.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker

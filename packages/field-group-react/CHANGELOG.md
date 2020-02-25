@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.2.0...@fremtind/jkl-field-group-react@1.2.1) (2020-02-19)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.1.1...@fremtind/jkl-field-group-react@1.2.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+
+
+### Features
+
+* **fieldgroup-react:** add test for checking className prop support ([3f361bc](https://github.com/fremtind/jokul/commit/3f361bc8ce9b172efc712aec1dfded556b4b196b))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.1.0...@fremtind/jkl-field-group-react@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-field-group-react

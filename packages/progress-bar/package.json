@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-progress-bar",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -13,7 +13,8 @@
     ],
     "files": [
         "!example",
-        "*.css"
+        "*.css",
+        "*.scss"
     ],
     "license": "MIT",
     "scripts": {
@@ -24,7 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^2.0.1"
+        "@fremtind/jkl-core": "^3.0.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14"

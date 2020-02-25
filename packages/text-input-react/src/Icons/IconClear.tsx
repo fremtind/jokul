@@ -1,7 +1,8 @@
 import React from "react";
 
 export const IconClear = () => (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd">
-        <path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z" />
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 21L21 3" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M3 3L21 21" stroke="currentColor" strokeWidth="1.5" />
     </svg>
 );

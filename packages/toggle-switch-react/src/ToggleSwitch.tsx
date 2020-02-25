@@ -1,38 +1,37 @@
-import React, { ReactNode, ChangeEvent } from "react";
+import React, { ReactNode, MouseEventHandler } from "react";
 import { SupportLabel } from "@fremtind/jkl-typography-react";
+import classNames from "classnames";
 
 interface Props {
     children: ReactNode;
-    checked?: boolean;
+    pressed?: boolean;
     className?: string;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
     disabled?: boolean;
     inverted?: boolean;
     helpLabel?: string;
 }
 
-export const ToggleSwitch = ({ children, checked, onChange, className, disabled, inverted, helpLabel }: Props) => {
-    const componentClassName = "jkl-toggle-switch".concat(
-        className ? ` ${className}` : "",
-        inverted ? " jkl-toggle-switch--inverted" : "",
-    );
+export const ToggleSwitch = ({ children, pressed, onClick, className, disabled, inverted, helpLabel }: Props) => {
+    const componentClassName = classNames("jkl-toggle-switch", className, {
+        "jkl-toggle-switch--inverted": inverted,
+    });
+
     return (
         <>
-            <label data-testid="jkl-toggle-input--label" className={componentClassName}>
-                <input
-                    className="jkl-toggle-switch__input"
-                    data-testid="jkl-toggle-input"
-                    type="checkbox"
-                    checked={checked}
-                    onChange={onChange}
-                    disabled={disabled}
-                />
+            <button
+                type="button"
+                aria-pressed={!!pressed}
+                disabled={disabled}
+                className={componentClassName}
+                onClick={onClick}
+            >
                 <span className="jkl-toggle-switch__slider">
                     <span className="jkl-toggle-switch__expanding-pill"></span>
                 </span>
-                <span className="jkl-toggle-switch__label">{children}</span>
-            </label>
-            <SupportLabel className="jkl-toggle-switch__helplabel" helpLabel={helpLabel} />
+                {children}
+            </button>
+            {helpLabel && <SupportLabel className="jkl-toggle-switch__help-label" helpLabel={helpLabel} />}
         </>
     );
 };

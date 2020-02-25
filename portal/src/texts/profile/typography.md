@@ -8,26 +8,32 @@ order: 7
 Typografi er et profilbærende element i løsningene vi lager. Vi bruker stor og tydelig typografi som grafisk element, i stedet for illustrasjoner og ikoner. Vær modig når du bruker typografi som virkemiddel i våre løsninger.
 
 ## Skrifttype
+
 Vi har vår egen skrifttype: Fremtind Grotesk. Den finnes i snittene Regular, Bold, Display og Mono. Vi bruker hovedsakelig Regular og Bold. Som erstatningsfont bruker vi Calibri Light. Ikke bruk andre skrifttyper når du designer løsninger for Fremtind.
 
 ## Regler for typografi
 
 ### Tilgjengelighet
+
 Vi følger reglene for tilgjengelighet. Vi bruker relative verdier når vi koder, og passer på at kontrasten mellom tekst og bakgrunn blir god. Vi bruker svart eller hvit som skriftfarge.
 
 ### Små og store bokstaver
+
 Vi følger vanlige skriveregler for store og små bokstaver. Du finner de viktigste reglene for store og små bokstaver i Fremtinds språkprofil (lenke). Vi setter ikke ord i store bokstaver (versaler) for å fokusere på et ord eller en setning.
 
 ### Fremheve tekst
 Vi uthever tekst med _kursiv_ (italic) og ikke **fet** (bold).
 
 ### Justere tekst
+
 Vi bruker stort sett venstrejustert tekst. Vi bruker aldri blokkjustert tekst (full justification).
 
 ### Skape luft
+
 Vi bruker rikelig med luft i våre løsninger. Vi presenterer informasjonen på en slik måte at de ulike elementene ikke sloss om oppmerksomheten. Dette gjelder også for typografi. Du finner mer informasjon om hvordan vi bruker luft på våre flater, under Layout (lenke).
 
 ## Typografisk skala
+
 De ulike tekststilene har forskjellig formål, det er derfor viktig å velge riktig stil.
 
 ### Overskrifter

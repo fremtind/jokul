@@ -21,7 +21,7 @@ export const Header = ({ siteHeader = "Jøkul", siteTitle }: Props) => (
                         <html lang="no-nb" />
                         <title>{siteTitle ? `${siteTitle} - ` : ""}Jøkul designsystem</title>
                     </Helmet>
-                    <TitleElm className="portal-header__title jkl-h2">
+                    <TitleElm className="portal-header__title jkl-title-small">
                         <Link to="/">{siteHeader}</Link>
                     </TitleElm>
                 </header>

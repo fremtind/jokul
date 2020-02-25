@@ -15,16 +15,20 @@ Fargepaletten vår er delt inn i tre grupper: Primærfarger, illustrasjonsfarger
 
 **Meldingsfargene** bruker vi på digitale flater, for eksempel når vi trenger å gi informasjon fra systemet. De bruker vi  også når vi skal oppfylle krav om tilgjengelighet på en god måte (for eksempel røde feilmeldinger mot lys bakgrunn).
 
+
 ## Farger i digitale løsninger
 I digitale løsninger bruker vi primærfargene og meldingssfargene. Illustrasjonsfargene reserverer vi til illustrasjoner og grafikk.
 
 ## Tilgjengelighet
+
 Tilgjengelighet er det viktigste å tenke på når vi bruker fargene i digitale løsninger. Vi skal alltid følge kravene til universell utforming. For farger betyr det [AA-kravet for kontrast](lenke). Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin egen bakgrunn, når det har betydning for å forstå funksjonaliteten.
+
 I tillegg til å tenke på tekst mot knappebakgrunnen, må vi for eksempel også tenke på knappebakgrunnen mot sidens bakgrunnsfarge.
 
 Tekstfargene våre er helhvit eller svart. Se på fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
 
 ## Primærfarger
+
 -   **Svart #000000**
     Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær bakgrunner med fargen varde.
 

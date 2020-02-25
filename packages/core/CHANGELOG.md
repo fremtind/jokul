@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@2.0.1...@fremtind/jkl-core@3.0.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+* **core:** assign $varde value in correct order ([7c300ce](https://github.com/fremtind/jokul/commit/7c300ce23b18215544c00431f8555acc719043a8))
+* **core:** specify font weight for all text styles ([d1e73de](https://github.com/fremtind/jokul/commit/d1e73de064c2e2cd4209816977d01cd1968299e7))
+
+
+### Features
+
+* **core:** add error handling to text style mixin ([d17e544](https://github.com/fremtind/jokul/commit/d17e544e918bfb2d34444fbf22805cad0aec90eb))
+* **core:** change names of varde color scale entries ([4d9adca](https://github.com/fremtind/jokul/commit/4d9adca35cf0ec761d474d5c72300e40f8834246))
+* **core:** rename/restructure text styles and typography classes ([d0510fb](https://github.com/fremtind/jokul/commit/d0510fba55597052d9f2c9fd53360f86db6a26fe))
+* **core:** update to new color values ([ea38d34](https://github.com/fremtind/jokul/commit/ea38d34e7c6ff01d4683d59040dd0efa73e5a5bd))
+
+
+### BREAKING CHANGES
+
+* **core:** All text style mixins and typography classes have new names and new usage
+* **core:** Varde color scale entries changed from $varde-20, $varde-40 ... $varde-200 to $varde-10, $varde-20
+... $varde-100
+* **core:** color tokens have changed
+
+
+
+
+
 ## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@2.0.0...@fremtind/jkl-core@2.0.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-core

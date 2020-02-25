@@ -10,8 +10,8 @@ $radio-button-dot-padding--compact: rem(3px);
 $radio-button-vertical-spacing: $component-spacing--large;
 $radio-button-vertical-spacing--compact: $component-spacing--medium;
 
-$radio-button-background-color: $snohvit;
-$radio-button-background-color--hover: $snohvit;
+$radio-button-background-color: $gra-10;
+$radio-button-background-color--hover: $gra-10;
 $radio-button-color: $svart;
 
 @keyframes circleexpand {
@@ -126,7 +126,7 @@ $radio-button-color: $svart;
     }
 
     &__label {
-        @include body-paragraph--desktop;
+        @include jkl-text-style("desktop/body");
     }
 
     &--inline {
@@ -148,9 +148,21 @@ $radio-button-color: $svart;
         }
     }
 
+    &--inverted {
+        .jkl-radio-button__dot {
+            &:before {
+                border-color: $hvit;
+                background-color: transparent;
+            }
+            &:after {
+                background-color: $hvit;
+            }
+        }
+    }
+
     @include compact-mode {
         .jkl-radio-button__label {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         .jkl-radio-button__dot:before {
             height: $radio-button-size--compact;
@@ -170,7 +182,7 @@ $radio-button-color: $svart;
 
     @include small-device {
         .jkl-radio-button__label {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         .jkl-radio-button__dot:before {
             height: $radio-button-size--compact;

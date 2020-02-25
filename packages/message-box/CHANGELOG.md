@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.1.2...@fremtind/jkl-message-box@1.2.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
+## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.1.1...@fremtind/jkl-message-box@1.1.2) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.1.0...@fremtind/jkl-message-box@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.0.16...@fremtind/jkl-accordion@1.1.0) (2020-02-19)
+
+
+### Features
+
+* export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+
+
+
+
+
+## [1.0.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.0.15...@fremtind/jkl-accordion@1.0.16) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+
+
+
+
+
 ## [1.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.0.14...@fremtind/jkl-accordion@1.0.15) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion

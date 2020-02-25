@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@0.4.0...@fremtind/jkl-react-hooks@0.4.1) (2020-02-19)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+# [0.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@0.3.1...@fremtind/jkl-react-hooks@0.4.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+
+
+### Features
+
+* **react-hooks:** pass event to function in useKeyListener ([432ce11](https://github.com/fremtind/jokul/commit/432ce1160d85c7674e98277b2309d93f9f355d46))
+
+
+
+
+
 ## [0.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@0.3.0...@fremtind/jkl-react-hooks@0.3.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-react-hooks

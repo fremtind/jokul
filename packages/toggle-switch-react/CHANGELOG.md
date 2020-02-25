@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@2.0.0...@fremtind/jkl-toggle-switch-react@2.0.1) (2020-02-19)
+
+**Note:** Version bump only for package @fremtind/jkl-toggle-switch-react
+
+
+
+
+
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@1.1.1...@fremtind/jkl-toggle-switch-react@2.0.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+
+
+### Features
+
+* **toggle-switch:** change toggle switch to button element (from input) ([2e9b340](https://github.com/fremtind/jokul/commit/2e9b3406f5bfbaa4233a3f63aa14bad017317efb))
+
+
+### BREAKING CHANGES
+
+* **toggle-switch:** checked prop is replaced by pressed, onChange prop is replaced by onClick
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@1.1.0...@fremtind/jkl-toggle-switch-react@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-toggle-switch-react

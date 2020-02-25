@@ -7,14 +7,16 @@ $input-bg-color: inherit;
 $border-color: $svart;
 $border-color--focus: $focus-color;
 
-$input-height: $line-height-4;
-$input-height--small-device: $line-height-3;
 $bottom-padding: $component-spacing--small;
+$input-line-height: $line-height-4;
+$input-height: $input-line-height + $bottom-padding;
+$input-line-height--small-device: $line-height-3;
+$input-height--small-device: $input-line-height--small-device + $bottom-padding;
 
-$textarea-expanded-height: $input-height * 7 + $bottom-padding;
-$textarea-expanded-height--small-device: $input-height--small-device * 7 + $bottom-padding;
+$textarea-expanded-height: $input-line-height * 7 + $bottom-padding;
+$textarea-expanded-height--small-device: $input-line-height--small-device * 7 + $bottom-padding;
 
-$icon-size: $font-size-6;
+$icon-size: rem(20px);
 $icon-size--compact: $font-size-2;
 
 .jkl-text-field {
@@ -26,7 +28,7 @@ $icon-size--compact: $font-size-2;
     background-color: $input-bg-color;
 
     &__input {
-        @include body-paragraph--desktop;
+        @include jkl-text-style("desktop/body");
         border: none;
         outline: none;
         border-radius: 0;
@@ -34,7 +36,7 @@ $icon-size--compact: $font-size-2;
 
         box-sizing: border-box;
         width: 100%;
-        height: $input-height + $bottom-padding;
+        height: $input-height;
         padding: 0 0 $bottom-padding;
 
         font-weight: $bold-weight;
@@ -46,9 +48,10 @@ $icon-size--compact: $font-size-2;
         resize: none; // Disable textarea resize
 
         &::placeholder {
-            @include body-paragraph--desktop;
+            @include jkl-text-style("desktop/body");
+            font-weight: normal;
             opacity: 1;
-            color: $varm-fjellgra;
+            color: $gra-60;
         }
 
         &:hover,
@@ -75,12 +78,21 @@ $icon-size--compact: $font-size-2;
     &__action-button {
         position: absolute;
         right: 0;
-        bottom: $component-spacing--small;
+        display: flex;
+        align-items: center;
+        top: 0;
         appearance: none;
         border: none;
         background-color: transparent;
         cursor: pointer;
         padding: 0;
+        padding-bottom: $component-spacing--small;
+        height: $input-height;
+        color: $svart;
+
+        *:not([data-mousenavigation]) &:focus {
+            color: $focus-color;
+        }
     }
 
     &__action-icon {
@@ -116,10 +128,13 @@ $icon-size--compact: $font-size-2;
     @include compact-mode {
         & .jkl-text-field__input,
         & .jkl-text-field__input::placeholder {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         & .jkl-text-field__input {
-            height: $input-height--small-device + $bottom-padding;
+            height: $input-height--small-device;
+        }
+        & .jkl-text-input__action-button {
+            height: $input-height--small-device;
         }
         & .jkl-text-field__action-icon {
             width: $icon-size--compact;
@@ -129,10 +144,13 @@ $icon-size--compact: $font-size-2;
     @include small-device {
         .jkl-text-field__input,
         .jkl-text-field__input::placeholder {
-            @include body-paragraph--mobile;
+            @include jkl-text-style("compact/body");
         }
         & .jkl-text-field__input {
-            height: $input-height--small-device + $bottom-padding;
+            height: $input-height--small-device;
+        }
+        & .jkl-text-input__action-button {
+            height: $input-height--small-device;
         }
         & .jkl-text-field__action-icon {
             width: $icon-size--compact;
@@ -144,12 +162,12 @@ $icon-size--compact: $font-size-2;
 @for $num from 3 through 10 {
     .jkl-text-field__input--#{$num}-rows:focus,
     .jkl-text-field__input--#{$num}-rows:not(:placeholder-shown) {
-        height: $input-height * $num + $bottom-padding;
+        height: $input-line-height * $num + $bottom-padding;
         @include small-device {
-            height: $input-height--small-device * $num + $bottom-padding;
+            height: $input-line-height--small-device * $num + $bottom-padding;
         }
         .jkl-text-field--compact & {
-            height: $input-height--small-device * $num + $bottom-padding;
+            height: $input-line-height--small-device * $num + $bottom-padding;
         }
     }
 }

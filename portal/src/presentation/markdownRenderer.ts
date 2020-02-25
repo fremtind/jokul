@@ -1,11 +1,13 @@
-import { createElement, ReactNode, FunctionComponent } from "react";
+import { createElement, ReactNode } from "react";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
-import { H1, H2, H3, H4, H5, Body, Link } from "@fremtind/jkl-typography-react";
+import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+import { Paragraph, PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS } from "../components/Typography";
 
 const style = {
     ...prism,
@@ -36,7 +38,7 @@ interface CodeProps extends Props {
 }
 
 export const jokulRenderer = {
-    paragraph: Body,
+    paragraph,
     list: jokulList,
     listItem: ListItem,
     heading: jokulHeading,
@@ -51,29 +53,25 @@ function jokulList({ ordered, children }: ListProps) {
 }
 
 function jokulHeading({ level, children }: HeadingProps) {
-    let Element: FunctionComponent;
     switch (level) {
         case 1:
-            Element = H1;
-            break;
+            return createElement(PageTitle, null, children);
         case 2:
-            Element = H2;
-            break;
+            return createElement(HeadingLarge, null, children);
         case 3:
-            Element = H3;
-            break;
+            return createElement(HeadingMedium, null, children);
         case 4:
-            Element = H4;
-            break;
+            return createElement(HeadingSmall, null, children);
         case 5:
-            Element = H5;
-            break;
+            return createElement(HeadingXS, null, children);
 
         default:
-            Element = Body;
-            break;
+            return createElement(Paragraph, null, children);
     }
-    return createElement(Element, null, children);
+}
+
+function paragraph({ children }: Props) {
+    return createElement(Paragraph, null, children);
 }
 
 function codeBlock({ language, value }: CodeProps) {

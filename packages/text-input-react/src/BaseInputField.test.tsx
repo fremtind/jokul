@@ -1,10 +1,11 @@
 import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { BaseInputField } from ".";
+import { axe } from "jest-axe";
+
+afterEach(cleanup);
 
 describe("BaseInputField", () => {
-    afterEach(cleanup);
-
     it("has the max-length given", () => {
         const { getByTestId } = render(<BaseInputField maxLength={10} />);
 
@@ -17,5 +18,29 @@ describe("BaseInputField", () => {
 
         const component = getByTestId("jkl-text-field__input");
         expect(component).toHaveAttribute("readonly");
+    });
+});
+
+describe("a11y", () => {
+    test("base-input-field should be a11y compliant", async () => {
+        const { container } = render(<BaseInputField />);
+        const results = await axe(container, {
+            rules: {
+                label: { enabled: false }, //This component renders without a label because it's not intended for standalone usage. See the documentation for a usage pattern.
+            },
+        });
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("compact base-input-field should be a11y compliant", async () => {
+        const { container } = render(<BaseInputField forceCompact />);
+        const results = await axe(container, {
+            rules: {
+                label: { enabled: false }, //This component renders without a label because it's not intended for standalone usage. See the documentation for a usage pattern.
+            },
+        });
+
+        expect(results).toHaveNoViolations();
     });
 });

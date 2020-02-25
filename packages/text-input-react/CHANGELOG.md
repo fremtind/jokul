@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.2.0...@fremtind/jkl-text-input-react@1.2.1) (2020-02-24)
+
+
+### Bug Fixes
+
+* **text-input-react:** adjust size of "clear" action icon ([19761c4](https://github.com/fremtind/jokul/commit/19761c44fdea534fdc177a3753db10e8d0b53870))
+
+
+
+
+
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.1.2...@fremtind/jkl-text-input-react@1.2.0) (2020-02-19)
+
+
+### Bug Fixes
+
+* **text-input-react:** fix cropped search icon ([5d45405](https://github.com/fremtind/jokul/commit/5d4540517ab748111a25c598ba282bf72ca2a3e2))
+
+
+### Features
+
+* **text-input:** tweak action icon placement and add focus state ([7b37ee1](https://github.com/fremtind/jokul/commit/7b37ee1bd6aee1c33db48f3b85024693d63790dd))
+
+
+
+
+
+## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.1.1...@fremtind/jkl-text-input-react@1.1.2) (2020-02-18)
+
+
+### Bug Fixes
+
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.1.0...@fremtind/jkl-text-input-react@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

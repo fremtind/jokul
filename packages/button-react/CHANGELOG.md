@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.2.0...@fremtind/jkl-button-react@1.2.1) (2020-02-19)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.1.1...@fremtind/jkl-button-react@1.2.0) (2020-02-18)
+
+
+### Bug Fixes
+
+* make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+* **button-react:** fix toggle-switch pressed state in button example ([2501f7e](https://github.com/fremtind/jokul/commit/2501f7e88aab8627adf4d8366b4595308a2f563d))
+* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+
+
+### Features
+
+* **button:** add inverted color mode for buttons ([4e9c2d5](https://github.com/fremtind/jokul/commit/4e9c2d5a4a6aed610eb87f354fa65415be34a323))
+* **button-react:** add support for all button attrs except disabled ([47950d9](https://github.com/fremtind/jokul/commit/47950d9303409261ced43da5779c20aef97665ba))
+* **button-react:** add support for type prop on buttons ([40ab289](https://github.com/fremtind/jokul/commit/40ab289d8a05bd7624c97f147c7f5e85e9cab6a9))
+* **button-react:** make onClick handler optional ([45552c8](https://github.com/fremtind/jokul/commit/45552c85d8e4ab5ffd026163d1591547efbcc599))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.1.0...@fremtind/jkl-button-react@1.1.1) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/jkl-button-react
