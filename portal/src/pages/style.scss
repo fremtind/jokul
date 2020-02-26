@@ -15,60 +15,6 @@ $content-max-width: rem(1200px);
 
 $circle-size: rem(100px);
 
-.portal-main {
-    overflow: hidden;
-
-    &__background {
-        // @include position(absolute !important, $top: 0, $left: 0);
-        object-fit: cover;
-        z-index: -1;
-        min-width: 100%;
-        height: 65vh;
-    }
-
-    &__hero {
-        // @include position(relative, $top: $hero-top-offset, $left: 0);
-        max-width: $hero-size;
-        padding: $layout-spacing--large $layout-spacing--medium;
-        margin: 0 $layout-spacing--large;
-        background-color: rgba($gra-10, 0.7);
-        @include small-device {
-            position: relative;
-            top: 0;
-            margin: 0;
-            box-sizing: border-box;
-            padding: $layout-spacing--small $layout-spacing--small $layout-spacing--large $layout-spacing--small;
-        }
-
-        & > * + * {
-            margin-top: $layout-spacing--medium;
-        }
-
-        & > *:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    &__content {
-        // @include position(absolute, $top: 65vh, $left: 0, $right: 0);
-        @media (min-width: $breakpoint--medium) {
-            margin-left: $menu-width;
-        }
-        background-color: white;
-        color: black;
-        padding: $layout-spacing--large;
-        @include small-device {
-            position: relative;
-            top: 0;
-            margin: 0 (-$layout-spacing--small);
-            box-sizing: border-box;
-            padding: $layout-spacing--large $layout-spacing--small;
-        }
-        & > * {
-            max-width: $content-max-width;
-        }
-    }
-}
 pre {
     max-width: 80vw;
     overflow: auto;

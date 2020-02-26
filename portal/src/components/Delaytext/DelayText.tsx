@@ -2,17 +2,19 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import classNames from "classnames";
 import "./delay-text.scss";
 
-const useInterval = (callback, delay) => {
-    const savedCallback = useRef();
+const useInterval = (callback: () => void, delay: number | null) => {
+    const savedCallback = useRef<() => void>();
 
     useEffect(() => {
         savedCallback.current = callback;
     });
 
     useEffect(() => {
-        function tick() {
-            savedCallback.current();
-        }
+        const tick = () => {
+            if (savedCallback && savedCallback.current) {
+                savedCallback.current();
+            }
+        };
 
         if (delay !== null) {
             const id = setInterval(tick, delay);
@@ -21,11 +23,16 @@ const useInterval = (callback, delay) => {
     }, [delay]);
 };
 
-export const DelayText = ({ text, delay }) => {
+interface Props {
+    text: string;
+    delay: number;
+}
+
+export const DelayText: React.FunctionComponent<Props> = ({ text, delay, children }) => {
     const [index, setIndex] = useState(-1);
     const [isRunning, setIsRunning] = useState(true);
     const [animated, setIsAnimated] = useState(0);
-    const noiseMap = Array.from(new Array(text.length)).map(() => Math.random() * 600);
+    const noiseMap = Array.from(new Array(text.length)).map(() => Math.random() * 500 + 250);
 
     const filteredText = useMemo(() => {
         const splitText = text.split("");
@@ -47,20 +54,20 @@ export const DelayText = ({ text, delay }) => {
         isRunning ? (lolRandom < 50 ? delay : lolRandom) : null,
     );
 
-    const containerClassName = classNames("jkl-delay-text", "jkl-delay-text__underscore", {
-        "jkl-delay-text__underscore--done": !isRunning,
+    const textWrapper = classNames("jkl-portal__delay-text__content", "jkl-portal__delay-text__underscore", {
+        "jkl-portal__delay-text__underscore--hidden": !isRunning,
     });
 
-    const textClassName = classNames("jkl-delay-text__text", {
-        "jkl-delay-text__text--fadeout": !isRunning,
+    const textClassName = classNames("jkl-portal__delay-text__content-text", {
+        "jkl-portal__delay-text__content-text--hidden": !isRunning,
     });
 
-    return (
-        <div className={containerClassName}>
-            {!!animated && animated === filteredText.length ? (
-                <h1>YOLO SWAG</h1>
-            ) : (
-                filteredText.map((c, i) => (
+    return !!animated && animated === filteredText.length ? (
+        <div className="jkl-portal__delay-text__ending">{children}</div>
+    ) : (
+        <div className="jkl-portal__delay-text">
+            <div className={textWrapper}>
+                {filteredText.map((c, i) => (
                     <span
                         key={c + i}
                         className={textClassName}
@@ -69,8 +76,8 @@ export const DelayText = ({ text, delay }) => {
                     >
                         {c}
                     </span>
-                ))
-            )}
+                ))}
+            </div>
         </div>
     );
 };

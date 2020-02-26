@@ -1,0 +1,51 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+.jkl-portal__frontpage {
+    section {
+        margin-bottom: $spacing-9;
+    }
+
+    &__section {
+        &-intro {
+            display: flex;
+
+            &--content {
+                &-text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    p {
+                        max-width: rem(490px);
+                    }
+                }
+
+                img {
+                    max-height: 427px;
+                }
+            }
+        }
+        &-image {
+            img {
+                width: 100%;
+                max-height: 491px;
+                object-fit: cover;
+            }
+        }
+        &-contribute,
+        &-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &--wrapper {
+            max-width: rem(549px);
+        }
+
+        &-contact {
+        }
+    }
+}

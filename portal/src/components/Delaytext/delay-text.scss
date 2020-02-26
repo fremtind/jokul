@@ -2,8 +2,11 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
 
-.jkl-delay-text {
-    font-size: rem(120px);
+.jkl-portal__delay-text {
+    font-size: rem(180px);
+    display: flex;
+    align-items: center;
+    margin-top: $spacing-10;
 
     &__underscore {
         &:after {
@@ -13,20 +16,38 @@
             transition-property: opacity;
         }
 
-        &--done {
+        &--hidden {
             &:after {
                 opacity: 0;
             }
         }
     }
 
-    &__text {
+    &__content {
+        margin-left: $spacing-9;
+    }
+
+    &__content-text {
         opacity: 1;
         @include motion("exit");
         transition-property: opacity;
 
-        &--fadeout {
+        &--hidden {
             opacity: 0;
+        }
+    }
+
+    &__ending {
+        animation: fade-in 0.25s ease-out;
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
         }
     }
 }

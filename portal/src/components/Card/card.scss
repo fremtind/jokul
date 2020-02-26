@@ -1,0 +1,35 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+.jkl-portal-card {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-4;
+    transition: box-shadow 0.25s ease-out;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0);
+
+    &:hover {
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+
+        .jkl-portal-card__footer {
+            padding-left: $spacing-4;
+        }
+    }
+
+    &__heading {
+        @include jkl-text-style("desktop/heading-medium");
+    }
+
+    &__content {
+        @include jkl-text-style("desktop/body");
+    }
+
+    &__footer {
+        font-size: 48px;
+        line-height: 73px;
+        padding: 0;
+        transition: padding 0.15s ease-in-out;
+    }
+}
