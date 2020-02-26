@@ -25,7 +25,7 @@ export const Header = () => {
             <nav className="jkl-portal-header__navigation">
                 <ul className="jkl-portal-header__navigation-list">
                     <li className="jkl-portal-header__navigation-item">
-                        <FullScreenMenu title="Profilen vår" items={profileDocPages} />
+                        <FullScreenMenu filterable title="Profilen vår" items={profileDocPages} />
                     </li>
                     <li className="jkl-portal-header__navigation-item">
                         <FullScreenMenu filterable title="Komponenter" items={componentPages} />

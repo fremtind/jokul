@@ -9,7 +9,8 @@ import { FullScreenMenuItem, FullScreenMenuItemProps } from "./FullScreenMenuIte
 import "./FullScreenMenu.scss";
 
 interface CoreToggleSelectEvent {
-    detail: { textContent: string; value: string };
+    //detail: { textContent: string; value: string };
+    detail: HTMLButtonElement | HTMLAnchorElement;
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
@@ -29,8 +30,11 @@ export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps
     const [elementRef] = useAnimatedHeight(isOpen);
     const onToggle = () => setIsOpen(!isOpen);
     const onToggleSelect = (e: CoreToggleSelectEvent) => {
+        setFilter("");
         console.log(e.detail);
-        e.target.hidden = true;
+        if (e.detail.className.includes("-menu-item__link") || e.detail.className.includes("full-screen-menu__close")) {
+            e.target.hidden = true;
+        }
     };
 
     const toggleClassName = classNames("jkl-portal-full-screen-menu-toggle", {
@@ -53,8 +57,8 @@ export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps
             >
                 <div className="jkl-portal-full-screen-menu__wrapper">
                     <ul className="jkl-portal-full-screen-menu__items">
-                        {filteredItems.map((item, i) => (
-                            <FullScreenMenuItem key={i} path={item.path} title={item.title} />
+                        {filteredItems.map((item) => (
+                            <FullScreenMenuItem key={item.title} path={item.path} title={item.title} />
                         ))}
                     </ul>
                     {filterable && (
@@ -63,9 +67,12 @@ export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps
                             label="Filtrér"
                             value={filter}
                             onChange={handleFilter}
-                            action={{ icon: "clear", label: "Nullstill filtrering", onClick: () => console.log("hei") }}
+                            action={{ icon: "clear", label: "Nullstill filtrering", onClick: () => setFilter("") }}
                         />
                     )}
+                    <button type="button" className="jkl-portal-full-screen-menu__close">
+                        Lukk meny
+                    </button>
                 </div>
             </CoreToggle>
         </>

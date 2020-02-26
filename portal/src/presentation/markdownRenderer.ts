@@ -80,7 +80,7 @@ function codeBlock({ language, value }: CodeProps) {
         {
             language,
             style,
-            className: "portal-code-block",
+            className: "jkl-portal-code-block",
             codeTagProps: { style: {} },
             "data-language": language,
         },
@@ -89,7 +89,7 @@ function codeBlock({ language, value }: CodeProps) {
 }
 
 function inlineCode({ children }: Props) {
-    return createElement("code", { className: "portal-inline-code" }, children);
+    return createElement("code", { className: "jkl-portal-inline-code" }, children);
 }
 
 function infoBox({ children }: Props) {

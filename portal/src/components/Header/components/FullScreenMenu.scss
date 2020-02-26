@@ -32,6 +32,7 @@
     top: 0;
     left: 0;
     z-index: -1;
+    overflow-x: scroll;
 
     background-color: $varde;
     @include motion("standard", "lazy");
@@ -39,6 +40,7 @@
 
     &--open {
         height: auto;
+        @include motion("entrance", "lazy");
     }
 
     &__wrapper {
@@ -53,13 +55,27 @@
         height: 100%;
         padding: 0;
         margin: 0;
+        list-style-type: none;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        list-style-type: none;
+        flex-basis: 30%;
+    }
+
+    &__close {
+        @include reset-outline;
+        @include jkl-text-style("desktop/lead");
+        height: rem(56px);
+        background-color: transparent;
+        color: inherit;
+        cursor: pointer;
+        position: absolute;
+        bottom: $layout-spacing--large;
+        right: $layout-spacing--xl;
+        box-shadow: 0 rem(2px) 0 0 currentColor;
     }
 
     *[data-theme="dark"] & {
-        background-color: $gra-100;
+        background-color: $gra-90;
     }
 }

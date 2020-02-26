@@ -8,8 +8,9 @@ import React from "react";
 import "document-register-element";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
-
 import { initTabListener } from "@fremtind/jkl-core";
+
+import "./src/components/Typography/Typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";
 
 initTabListener();

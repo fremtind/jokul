@@ -12,7 +12,7 @@ export function FullScreenMenuItem({ path, title }: FullScreenMenuItemProps) {
         // wait for closing animation before navigating
         setTimeout(() => {
             navigate(path);
-        }, 250);
+        }, 300);
     };
     return (
         <li className="jkl-portal-full-screen-menu-item">

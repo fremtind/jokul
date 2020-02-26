@@ -1,17 +1,15 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
-.portal-content {
+.jkl-portal {
     @include motion("standard");
     transition-property: color;
     transition-delay: 150ms;
     color: $svart;
     display: grid;
-    grid-template-columns: 276px 1fr;
-    grid-template-areas:
-        "header header"
-        "sidebar main"
-        "sidebar main";
+    grid-template:
+        "header header" 96px
+        "sidebar main" auto / rem(400px) 1fr;
 
     &__header {
         grid-area: header;
@@ -23,13 +21,19 @@
         grid-row: sidebar;
         background-color: $varde;
         position: fixed;
-        width: 276px;
-        top: 96px;
+        width: rem(400px);
     }
 
     &__main {
         grid-column: main;
-        margin-top: 96px;
+        padding-top: $layout-spacing--large;
+        padding-bottom: $layout-spacing--xxl;
+        padding-right: $layout-spacing--xl;
+        padding-left: $layout-spacing--small;
+
+        &--frontpage {
+            grid-column: sidebar / span 2;
+        }
     }
 
     &[data-theme="dark"] {

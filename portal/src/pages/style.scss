@@ -73,32 +73,3 @@ pre {
     max-width: 80vw;
     overflow: auto;
 }
-
-.portal-inline-code {
-    display: inline-block;
-    background-color: $gra-20;
-    font-size: rem(16px);
-    padding: 0 $component-spacing--small;
-    margin: 0 $component-spacing--xxs;
-    transform: translateY(rem(-2px));
-    border-radius: rem(2px);
-}
-
-.portal-code-block {
-    position: relative;
-    background-color: $gra-20;
-    padding: $component-spacing--xl $component-spacing--large;
-    border-radius: rem(2px);
-
-    &:before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: $component-spacing--small;
-        background-color: $svart;
-        color: $gra-10;
-        @include jkl-text-style("desktop/micro");
-        text-transform: uppercase;
-        content: attr(data-language);
-    }
-}
