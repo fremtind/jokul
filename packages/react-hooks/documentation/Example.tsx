@@ -8,6 +8,7 @@ import ClickOutsideExample from "./ClickOutsideExample";
 import FocusOutsideExample from "./FocusOutsideExample";
 import KeyListenerExample from "./KeyListenerExample";
 import IntersectionObserverExample from "./IntersectionObserverExample";
+import ScreenExample from "./ScreenExample";
 
 const Example = () => (
     <>
@@ -17,6 +18,7 @@ const Example = () => (
         <FocusOutsideExample />
         <KeyListenerExample />
         <IntersectionObserverExample />
+        <ScreenExample />
     </>
 );
 
