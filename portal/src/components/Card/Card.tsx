@@ -3,10 +3,9 @@ import "./card.scss";
 
 interface Props {
     heading: string;
-    to: string;
 }
 
-export const Card: React.FunctionComponent<Props> = ({ heading, children, to }) => {
+export const Card: React.FunctionComponent<Props> = ({ heading, children }) => {
     return (
         <div className="jkl-portal-card">
             <h1 className="jkl-portal-card__heading">{heading}</h1>

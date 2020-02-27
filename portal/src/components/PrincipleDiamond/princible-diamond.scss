@@ -1,0 +1,52 @@
+.jkl-portal-principle-diamond {
+    position: sticky;
+    top: calc(30vh);
+
+    width: 250px;
+    height: 250px;
+
+    &__diamond {
+        transform: translateY(75%) scale(0.5);
+        transition: all 0.25s ease-out;
+        position: absolute;
+        z-index: 2;
+
+        &--elevated {
+            transform: rotate(45deg) scale(1);
+        }
+
+        &--movement {
+            transform: rotate(45deg) scale(0.8);
+        }
+
+        &--clarity {
+            transform: rotate(135deg) scale(0.8);
+        }
+    }
+
+    &__shadow {
+        transform: translateY(75%) rotate3d(1, 0, 0, 70deg) scale(0.5);
+        transition: all 0.25s ease-out;
+        position: absolute;
+        z-index: 1;
+        filter: blur(15px);
+
+        bottom: 50px;
+        opacity: 0;
+
+        &--elevated {
+            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(1);
+            opacity: 0.15;
+        }
+
+        &--movement {
+            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(0.8);
+            opacity: 0.1;
+        }
+
+        &--clarity {
+            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(135deg) scale(0.8);
+            opacity: 0.1;
+        }
+    }
+}

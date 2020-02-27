@@ -1,39 +1,49 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
-.jkl-portal__frontpage {
+.jkl-portal-frontpage {
     section {
         margin-bottom: $spacing-9;
     }
 
     &__section {
         &-intro {
-            display: flex;
+            h2 {
+                margin-bottom: $spacing-9;
+            }
 
-            &--content {
-                &-text {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
+            &--image-container {
+                img {
+                    max-height: 538px;
+                    transform: scale(1);
+                    transition: transform 0.1s ease-in-out;
 
-                    p {
-                        max-width: rem(490px);
+                    &:hover {
+                        transform: scale(1.01);
                     }
                 }
+            }
 
-                img {
-                    max-height: 427px;
+            &--content {
+                display: flex;
+                margin-left: -$spacing-6;
+                justify-content: space-between;
+
+                .jkl-portal__card-list {
+                    margin-left: $spacing-9;
+
+                    a {
+                        text-decoration: none;
+                        color: $svart;
+                    }
                 }
             }
         }
-        &-image {
-            img {
-                width: 100%;
-                max-height: 491px;
-                object-fit: cover;
-            }
+
+        &--wrapper {
+            max-width: rem(549px);
         }
+
         &-contribute,
         &-contact {
             display: flex;
@@ -41,11 +51,42 @@
             align-items: center;
         }
 
-        &--wrapper {
-            max-width: rem(549px);
-        }
+        &-principles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "heading heading"
+                "diamond principle";
 
-        &-contact {
+            &__principle {
+                margin-bottom: $spacing-10;
+                height: 90vh;
+                display: flex;
+                align-items: center;
+                // background-color: pink;
+
+                &--container {
+                    grid-area: principle;
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+
+            &__diamond-container {
+                grid-area: diamond;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &--heading {
+                grid-area: heading;
+                max-width: 28ch;
+                margin-bottom: calc(#{$spacing-10}* 1.5);
+            }
         }
     }
 }
