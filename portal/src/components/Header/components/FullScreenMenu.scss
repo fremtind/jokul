@@ -75,6 +75,10 @@
         box-shadow: 0 rem(2px) 0 0 currentColor;
     }
 
+    &__darkmode-switch {
+        margin-top: $layout-spacing--large;
+    }
+
     *[data-theme="dark"] & {
         background-color: $gra-90;
     }

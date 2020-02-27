@@ -5,11 +5,12 @@ react: button-react
 ---
 
 import Example from "./Example";
+import { ComponentExample } from "./ComponentExample";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.
 
-<Example />
+<ComponentExample component={Example} test="Heisann!" knobs={{ boolKnobs: ["Kompakt"] }} />
 
 ## Knappetyper
 

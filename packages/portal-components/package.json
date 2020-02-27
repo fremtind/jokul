@@ -1,0 +1,46 @@
+{
+    "name": "@fremtind/jkl-portal-components",
+    "version": "0.0.1",
+    "private": true,
+    "description": "Components for use in portal documentation",
+    "homepage": "https://github.com/fremtind/jokul#readme",
+    "keywords": [
+        "example",
+        "dos and donts",
+        "documentation"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-logo yarn build:watch",
+        "dev:js": "parcel documentation/index.html",
+        "dev": "run-p dev:*"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.4.14"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ]
+}

@@ -25,6 +25,7 @@ $animation-timing: 300ms ease-out both;
 
     &__link {
         @include jkl-text-style("desktop/body");
+        display: block;
         text-decoration: none;
         color: inherit;
         animation: $animation-timing;
@@ -48,7 +49,8 @@ $animation-timing: 300ms ease-out both;
         &--active {
             color: #000afa;
             font-weight: $bold-weight;
-            margin-left: $component-spacing--large;
+            /* @include jkl-text-style("desktop/lead");
+            margin: $component-spacing--xs 0; */
         }
 
         *[data-theme="dark"] & {
@@ -63,10 +65,10 @@ $animation-timing: 300ms ease-out both;
 
 @keyframes blinds {
     0% {
-        clip-path: inset(0 -3ch 100% 0);
+        clip-path: inset(0 -6ch 100% 0);
     }
     100% {
-        clip-path: inset(0 -3ch 0 0);
+        clip-path: inset(0 -6ch 0 0);
     }
 }
 

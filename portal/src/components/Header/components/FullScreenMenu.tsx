@@ -1,10 +1,12 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useContext } from "react";
 import classNames from "classNames";
 //@ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
 import { ActionTextField } from "@fremtind/jkl-text-input-react";
+import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { FullScreenMenuItem, FullScreenMenuItemProps } from "./FullScreenMenuItem";
+import { themeContext } from "../../../contexts/themeContext";
 
 import "./FullScreenMenu.scss";
 
@@ -20,6 +22,7 @@ interface FullScreenMenuProps {
     filterable?: boolean;
 }
 export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps) {
+    const { theme, toggleTheme } = useContext(themeContext);
     const [filter, setFilter] = useState("");
     const handleFilter = (e: ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value);
@@ -63,6 +66,7 @@ export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps
                     </ul>
                     {filterable && (
                         <ActionTextField
+                            className="jkl-portal-full-screen-menu__filter"
                             variant="small"
                             label="Filtrér"
                             value={filter}
@@ -70,6 +74,14 @@ export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps
                             action={{ icon: "clear", label: "Nullstill filtrering", onClick: () => setFilter("") }}
                         />
                     )}
+                    <ToggleSwitch
+                        className="jkl-portal-full-screen-menu__darkmode-switch"
+                        inverted={theme === "dark"}
+                        pressed={theme === "dark"}
+                        onClick={toggleTheme}
+                    >
+                        Dark mode
+                    </ToggleSwitch>
                     <button type="button" className="jkl-portal-full-screen-menu__close">
                         Lukk meny
                     </button>

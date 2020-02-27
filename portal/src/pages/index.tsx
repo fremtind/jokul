@@ -53,8 +53,8 @@ const IndexPage = () => {
                 <div className="jkl-portal-frontpage">
                     <section className="jkl-portal-frontpage__section-intro">
                         <h2 className="jkl-title-small">
-                            Velkommen til Jøkul — designsystemet til Fremtind Forsikring. Her har vi samlet alt du
-                            trenger for å lage løsninger i vår profil.
+                            Velkommen til Jøkul — designsystemet til Fremtind. Her har vi samlet alt du trenger for å
+                            lage løsninger i vår profil.
                         </h2>
                         <div className="jkl-portal-frontpage__section-intro--content">
                             <div className="jkl-portal-frontpage__section-intro--image-container">
