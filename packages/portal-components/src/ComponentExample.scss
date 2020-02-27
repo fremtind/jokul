@@ -1,0 +1,51 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-component-example {
+    background-color: $gra-20;
+    padding: $component-spacing--medium;
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - #{$layout-spacing--xxl});
+    max-width: 50vw;
+
+    &__example-wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: $hvit;
+        position: relative;
+        padding: $layout-spacing--large $component-spacing--large;
+
+        &:before {
+            content: "Komponent";
+            color: $svart;
+            @include jkl-text-style("desktop/micro");
+            position: absolute;
+            top: $component-spacing--large;
+            left: $component-spacing--large;
+        }
+
+        &--dark {
+            background-color: $svart;
+            color: $gra-10;
+
+            &:before {
+                color: $gra-10;
+            }
+        }
+    }
+
+    &__example-options {
+        display: block;
+        padding: $component-spacing--medium $component-spacing--xl;
+    }
+
+    &__choice-option {
+        margin-top: $layout-spacing--small;
+    }
+
+    *[data-theme="dark"] & {
+        background-color: $gra-80;
+    }
+}
