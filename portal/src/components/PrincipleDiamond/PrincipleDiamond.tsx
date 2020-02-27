@@ -16,9 +16,32 @@ export class PrincipleDiamond extends React.Component {
         this.saveContext = this.saveContext.bind(this);
         this.draw = this.draw.bind(this);
         this.generateClasses = this.generateClasses.bind(this);
+        this.getScale = this.getScale.bind(this);
+
+        this.lastMinScale = 0;
+        this.lastMaxScale = 0;
+        this.updatedScaleAt = 0;
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
+        this.lastMinScale = this.props.minScale;
+        this.lastMaxScale = this.props.maxScale;
+        this.updatedScaleAt = 0;
+    }
+
+    componentDidUpdate(nextProps) {
+        if (this.props.minScale !== nextProps.minScale) {
+            console.log("updating minScale", this.lastMinScale, this.props.minScale, nextProps.minScale);
+            this.lastMinScale = this.props.minScale;
+            this.updatedScaleAt = Date.now();
+        }
+
+        if (this.props.maxSxcale !== nextProps.maxSxcale) {
+            console.log("updating minScale", this.lastMaxScale, this.props.maxScale, nextProps.maxScale);
+            this.lastMaxScale = this.props.maxScale;
+            this.updatedScaleAt = Date.now();
+        }
+
         this.draw();
     }
 
@@ -29,9 +52,23 @@ export class PrincipleDiamond extends React.Component {
         this.draw();
     }
 
+    getScale() {
+        const t = (Date.now() - this.updatedScaleAt) / 150;
+
+        let amount = t < 0 ? 0 : t;
+        amount = t > 1 ? 1 : t;
+
+        const lerpMin = this.lastMinScale + (this.props.minScale - this.lastMinScale) * amount;
+        const lerpMax = this.lastMaxScale + (this.props.maxScale - this.lastMaxScale) * amount;
+
+        // console.log(amount, this.lastMinScale, this.props.minScale);
+
+        return [lerpMin, lerpMax];
+    }
+
     draw() {
         const { tileSize, ctx, size } = this;
-        const { tiles, minScale, maxScale } = this.props;
+        const { tiles } = this.props;
 
         const width = size[0];
         const height = size[1];
@@ -42,11 +79,14 @@ export class PrincipleDiamond extends React.Component {
 
         const time = Date.now();
 
+        const scale = this.getScale();
+        console.log(scale);
+
         for (let x = 0; x < tiles; x++) {
             for (let y = 0; y < tiles; y++) {
                 const baseScale = Math.abs(Math.sin(time * 0.001 + x * 50 + y * 50));
 
-                const nBaseScale = baseScale * (maxScale - minScale) + minScale;
+                const nBaseScale = baseScale * (scale[1] - scale[0]) + scale[0];
                 const position = tileSize;
                 const size = nBaseScale * tileSize;
 

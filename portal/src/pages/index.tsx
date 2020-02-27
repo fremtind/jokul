@@ -10,6 +10,9 @@ import { Link } from "gatsby";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
 
+// TODO Links on cards
+// TODO Fix top section
+
 const IndexPage = () => {
     const [intersections, setIntersections] = useState({});
     const [principleState, setPrincipleState] = useState(0);
@@ -32,19 +35,25 @@ const IndexPage = () => {
     };
 
     const minScale = useMemo(() => {
-        if (principleState > 1) {
-            return 0.2;
+        switch (principleState) {
+            case 2:
+                return 0.2;
+            case 3:
+                return 0.1;
+            default:
+                return 1.1;
         }
-
-        return 1.1;
     }, [principleState]);
 
     const maxScale = useMemo(() => {
-        if (principleState > 1) {
-            return 0.8;
+        switch (principleState) {
+            case 2:
+                return 0.8;
+            case 3:
+                return 0.3;
+            default:
+                return 1.1;
         }
-
-        return 1.1;
     }, [principleState]);
 
     return (

@@ -6,21 +6,35 @@
     height: 250px;
 
     &__diamond {
-        transform: translateY(75%) scale(0.5);
         transition: all 0.25s ease-out;
         position: absolute;
         z-index: 2;
+        transform: rotate(45deg);
 
         &--elevated {
-            transform: rotate(45deg) scale(1);
+            animation-name: bob-bob;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
         }
 
         &--movement {
-            transform: rotate(45deg) scale(0.8);
+            transform: rotate(45deg);
         }
 
         &--clarity {
-            transform: rotate(135deg) scale(0.8);
+            transform: rotate(135deg);
+        }
+
+        @keyframes bob-bob {
+            0% {
+                transform: translateY(5%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateY(0%) rotate(45deg);
+            }
         }
     }
 
@@ -29,24 +43,24 @@
         transition: all 0.25s ease-out;
         position: absolute;
         z-index: 1;
-        filter: blur(15px);
+        filter: blur(30px);
 
-        bottom: 50px;
+        bottom: -50px;
         opacity: 0;
 
         &--elevated {
             transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(1);
-            opacity: 0.15;
+            opacity: 0.2;
         }
 
         &--movement {
-            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(0.8);
-            opacity: 0.1;
+            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(1);
+            // opacity: 0.1;
         }
 
         &--clarity {
-            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(135deg) scale(0.8);
-            opacity: 0.1;
+            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(135deg) scale(1);
+            // opacity: 0.1;
         }
     }
 }

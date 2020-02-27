@@ -64,10 +64,12 @@
                 height: 90vh;
                 display: flex;
                 align-items: center;
-                // background-color: pink;
 
                 &--container {
                     grid-area: principle;
+                    h1 {
+                        margin-bottom: $component-spacing--xl;
+                    }
                 }
 
                 &:last-of-type {
@@ -80,6 +82,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin-bottom: $spacing-9;
             }
 
             &--heading {
