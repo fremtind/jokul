@@ -11,7 +11,7 @@
     left: 0;
     background-color: $svart;
 
-    @include motion("standard");
+    @include motion("standard", "lazy");
     transition-property: height;
 
     *[data-theme="dark"] & {

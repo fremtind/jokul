@@ -2,7 +2,7 @@ import React, { ReactNode, useContext, useLayoutEffect, useRef } from "react";
 import classNames from "classNames";
 
 import { FormatProvider } from "../Typography";
-import { Header } from "../Header";
+import { Header, Sidebar } from "..";
 import { ThemeBG } from "./components";
 import { themeContext } from "../../contexts/themeContext";
 
@@ -36,6 +36,7 @@ export const Layout = ({ children, title, isFrontpage }: Props) => {
                 <title>{PageTitle}</title>
             </Helmet>
             <ThemeBG />
+            <Sidebar />
             <Header />
             <main className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>

@@ -4,6 +4,8 @@
 
 .jkl-portal-full-screen-menu-item {
     display: inline-block;
+    position: relative;
+    animation: appear 350ms ease-out;
 
     &__link {
         position: relative;
@@ -16,6 +18,8 @@
         padding: 0;
         padding-right: 3ch;
         cursor: pointer;
+        animation: blinds 350ms ease-out;
+        animation-fill-mode: both;
 
         &:after {
             position: absolute;
@@ -41,5 +45,23 @@
                 color: #00faff;
             }
         }
+    }
+}
+
+@keyframes blinds {
+    0% {
+        clip-path: inset(0 -3ch 100% 0);
+    }
+    100% {
+        clip-path: inset(0 -3ch 0 0);
+    }
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
     }
 }

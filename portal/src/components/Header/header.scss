@@ -3,7 +3,7 @@
 
 $header-bg-color: $hvit;
 $header-height: rem(96px);
-$header-padding: 0 $component-spacing--xl;
+$header-padding: 0 $layout-spacing--medium;
 $header-padding--right: $layout-spacing--xl;
 
 .jkl-portal-header {
@@ -35,11 +35,6 @@ $header-padding--right: $layout-spacing--xl;
                 margin-right: $component-spacing--xxl;
             }
         }
-    }
-    &__logo {
-        float: right;
-        width: 40px;
-        padding: $header-padding;
     }
 
     *[data-theme="dark"] & {

@@ -9,7 +9,7 @@
     display: grid;
     grid-template:
         "header header" 96px
-        "sidebar main" auto / rem(400px) 1fr;
+        "sidebar main" auto / rem(375px) 1fr;
 
     &__header {
         grid-area: header;
