@@ -12,11 +12,14 @@
 
     &:hover {
         box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
 
         .jkl-portal-card__footer {
             padding-left: $spacing-4;
         }
+    }
+
+    a:hover {
+        cursor: pointer;
     }
 
     &__heading {

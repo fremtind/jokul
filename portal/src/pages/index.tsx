@@ -6,29 +6,19 @@ import "@fremtind/jkl-core/core.min.css";
 import "./style.scss";
 import "./index.scss";
 import { CardList, Card } from "../components/Card";
-import { Link } from "gatsby";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
 
-// TODO Links on cards
 // TODO Fix top section
 
 const IndexPage = () => {
-    const [intersections, setIntersections] = useState({});
     const [principleState, setPrincipleState] = useState(0);
 
-    const onPrincipleStateChange = (entries, state) => {
+    const onPrincipleStateChange = (state: number) => {
         setPrincipleState(state);
-
-        setIntersections({
-            ...intersections,
-            [state]: {
-                entries,
-            },
-        });
     };
 
-    const onLeave = (entries, state) => {
+    const onLeave = (state: number) => {
         if (state === principleState) {
             setPrincipleState(0);
         }
@@ -70,19 +60,13 @@ const IndexPage = () => {
                                 <img alt="Terreng" src="/Fremtind 1411-16.jpg" />
                             </div>
                             <CardList vertical>
-                                {/* <Link to="/komigang/utvikling"> */}
-                                <Card heading="For utviklere">
+                                <Card heading="For utviklere" to="/komigang/utvikling">
                                     Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
                                 </Card>
-                                {/* </Link> */}
-                                {/* <Link to="/komigang/design"> */}
-                                <Card heading="For designere">
+                                <Card heading="For designere" to="/komigang/design">
                                     Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
                                 </Card>
-                                {/* </Link> */}
-                                {/* <Link to="#"> */}
                                 <Card heading="Prosessen">Hvordan du kan jobbe med designsystemet.</Card>
-                                {/* </Link> */}
                             </CardList>
                         </div>
                     </section>
@@ -109,9 +93,8 @@ const IndexPage = () => {
                         </div>
                         <div className="jkl-portal-frontpage__section-principles__principle--container">
                             <VisibleDetector
-                                onEnter={(e) => onPrincipleStateChange(e, 1)}
-                                onLeave={(e) => onLeave(e, 1)}
-                                name="elevasjon"
+                                onEnter={() => onPrincipleStateChange(1)}
+                                onLeave={() => onLeave(1)}
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
@@ -124,9 +107,8 @@ const IndexPage = () => {
                                 )}
                             />
                             <VisibleDetector
-                                name="bevegelse"
-                                onEnter={(e) => onPrincipleStateChange(e, 2)}
-                                onLeave={(e) => onLeave(e, 2)}
+                                onEnter={() => onPrincipleStateChange(2)}
+                                onLeave={() => onLeave(2)}
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
@@ -139,9 +121,8 @@ const IndexPage = () => {
                                 )}
                             />
                             <VisibleDetector
-                                name="klarhet"
-                                onEnter={(e) => onPrincipleStateChange(e, 3)}
-                                onLeave={(e) => onLeave(e, 3)}
+                                onEnter={() => onPrincipleStateChange(3)}
+                                onLeave={() => onLeave(3)}
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
