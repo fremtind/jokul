@@ -5,12 +5,12 @@ react: button-react
 ---
 
 import Example from "./Example";
-import { ComponentExample } from "./ComponentExample";
+import { ComponentExample } from "@fremtind/jkl-portal-components";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.
 
-<ComponentExample component={Example} test="Heisann!" knobs={{ boolKnobs: ["Kompakt"] }} />
+<ComponentExample component={Example} knobs={{ boolProps: ["Kompakt", "Invertert"] }} />
 
 ## Knappetyper
 

@@ -15,6 +15,10 @@ $header-padding--right: $layout-spacing--xl;
     align-items: center;
     justify-content: space-between;
     z-index: $z-index--header;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: $hvit;
 
     &__title {
         @include jkl-text-style("desktop/heading-small");
@@ -38,6 +42,7 @@ $header-padding--right: $layout-spacing--xl;
     }
 
     *[data-theme="dark"] & {
+        background-color: $svart;
         color: $hvit;
 
         &__title {
