@@ -11,11 +11,16 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-portal-components/src/ComponentExample.scss";
 import { initTabListener } from "@fremtind/jkl-core";
 
-import "./src/components/Typography/Typography.scss";
+import "./src/components/Typography/typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";
+import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
 
 initTabListener();
 
 export const wrapRootElement = ({ element }) => {
-    return <ThemeContextProvider>{element}</ThemeContextProvider>;
+    return (
+        <ThemeContextProvider>
+            <FSMenuContextProvider>{element}</FSMenuContextProvider>
+        </ThemeContextProvider>
+    );
 };

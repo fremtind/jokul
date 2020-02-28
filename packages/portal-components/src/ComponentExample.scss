@@ -1,4 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 .jkl-portal-component-example {
     background-color: $gra-20;
@@ -7,12 +8,15 @@
     flex-direction: row;
     width: calc(100% - #{$layout-spacing--xxl});
     max-width: 50vw;
+    min-height: rem(208px);
+    margin-bottom: $layout-spacing--large;
 
     &__example-wrapper {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+        color: $svart;
         background-color: $hvit;
         position: relative;
         padding: $layout-spacing--large $component-spacing--large;
@@ -22,7 +26,7 @@
             color: $svart;
             @include jkl-text-style("desktop/micro");
             position: absolute;
-            top: $component-spacing--large;
+            top: $component-spacing--medium;
             left: $component-spacing--large;
         }
 
@@ -39,6 +43,12 @@
     &__example-options {
         display: block;
         padding: $component-spacing--medium $component-spacing--xl;
+        min-width: rem(180px);
+    }
+
+    &__example-options-header {
+        @include jkl-text-style("desktop/micro");
+        margin-bottom: $component-spacing--medium;
     }
 
     &__choice-option {
@@ -46,6 +56,6 @@
     }
 
     *[data-theme="dark"] & {
-        background-color: $gra-80;
+        background-color: $gra-100;
     }
 }

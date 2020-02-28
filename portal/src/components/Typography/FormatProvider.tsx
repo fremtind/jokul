@@ -2,8 +2,17 @@ import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import { ComponentExample } from "@fremtind/jkl-portal-components";
 
-import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
+import {
+    PageTitle,
+    HeadingLarge,
+    HeadingMedium,
+    HeadingSmall,
+    HeadingXS,
+    Paragraph,
+    ArticleLead as Ingress,
+} from "../Typography";
 
 /* eslint-disable */
 const components = {
@@ -17,6 +26,8 @@ const components = {
     li: OrderedList,
     ol: ListItem,
     a: Link,
+    Ingress,
+    ComponentExample,
 };
 /* eslint-enable */
 

@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, useContext } from "react";
-import classNames from "classNames";
+import classNames from "classnames";
+import { Location } from "@reach/router";
 //@ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
 import { ActionTextField } from "@fremtind/jkl-text-input-react";
@@ -7,11 +8,11 @@ import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { FullScreenMenuItem, FullScreenMenuItemProps } from "./FullScreenMenuItem";
 import { themeContext } from "../../../contexts/themeContext";
+import { fullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
 
 import "./FullScreenMenu.scss";
 
 interface CoreToggleSelectEvent {
-    //detail: { textContent: string; value: string };
     detail: HTMLButtonElement | HTMLAnchorElement;
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
@@ -20,9 +21,12 @@ interface FullScreenMenuProps {
     title: string;
     items: FullScreenMenuItemProps[];
     filterable?: boolean;
+    activePath?: string;
 }
-export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps) {
+export function FullScreenMenu({ title, items, filterable, activePath }: FullScreenMenuProps) {
     const { theme, toggleTheme } = useContext(themeContext);
+    const { menuIsOpen, setMenuIsOpen } = useContext(fullscreenMenuContext);
+
     const [filter, setFilter] = useState("");
     const handleFilter = (e: ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value);
@@ -31,25 +35,36 @@ export function FullScreenMenu({ title, items, filterable }: FullScreenMenuProps
 
     const [isOpen, setIsOpen] = useState(false);
     const [elementRef] = useAnimatedHeight(isOpen);
-    const onToggle = () => setIsOpen(!isOpen);
+    const onToggle = () => {
+        setMenuIsOpen(!isOpen ? title : "");
+        setIsOpen(!isOpen);
+    };
     const onToggleSelect = (e: CoreToggleSelectEvent) => {
         setFilter("");
-        console.log(e.detail);
         if (e.detail.className.includes("-menu-item__link") || e.detail.className.includes("full-screen-menu__close")) {
             e.target.hidden = true;
         }
     };
 
-    const toggleClassName = classNames("jkl-portal-full-screen-menu-toggle", {
-        "jkl-portal-full-screen-menu-toggle--active": isOpen,
-    });
     const componentClassName = classNames("jkl-portal-full-screen-menu", {
         "jkl-portal-full-screen-menu--open": isOpen,
     });
 
     return (
         <>
-            <button className={toggleClassName}>{title}</button>
+            <Location>
+                {({ location }) => {
+                    const isActivePath = activePath && location.pathname.includes(activePath);
+                    const isActive =
+                        isOpen || menuIsOpen === title || (isActivePath && (menuIsOpen === title || menuIsOpen == ""));
+
+                    const toggleClassName = classNames("jkl-portal-full-screen-menu-toggle", {
+                        "jkl-portal-full-screen-menu-toggle--active": isActive,
+                    });
+
+                    return <button className={toggleClassName}>{title}</button>;
+                }}
+            </Location>
             <CoreToggle
                 popup
                 className={componentClassName}

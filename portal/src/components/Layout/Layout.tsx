@@ -1,5 +1,5 @@
 import React, { ReactNode, useContext, useLayoutEffect, useRef } from "react";
-import classNames from "classNames";
+import classNames from "classnames";
 
 import { FormatProvider } from "../Typography";
 import { Header, Sidebar } from "..";

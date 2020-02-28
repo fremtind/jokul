@@ -1,9 +1,16 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 .jkl-portal-paragraph {
-    max-width: 60ch;
+    max-width: rem(750px);
     &:not(:last-child) {
         margin-bottom: $layout-spacing--small;
+    }
+}
+
+.jkl-portal-article-lead {
+    max-width: rem(850px);
+    &:not(:last-child) {
+        margin-bottom: $layout-spacing--large;
     }
 }
 

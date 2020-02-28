@@ -1,4 +1,4 @@
-import React, { createElement, useState, useLayoutEffect, useEffect } from "react";
+import React, { createElement, useState, useLayoutEffect } from "react";
 import classNames from "classnames";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
@@ -16,9 +16,6 @@ export function ComponentExample({ component, knobs }: Props) {
     const [choices, setChoices] = useState<Dictionary<string[]>>({});
     const [choiceValues, setChoiceValues] = useState<Dictionary<string>>({});
     const [darkBackground, setDarkBackground] = useState(false);
-    useEffect(() => {
-        console.log(choiceValues);
-    }, [choiceValues]);
     useLayoutEffect(() => {
         const defaultChoices: Dictionary<string[]> = {};
         const defaultBoolValues: Dictionary<boolean> = {};
@@ -47,10 +44,8 @@ export function ComponentExample({ component, knobs }: Props) {
         setBoolValues({ ...boolValuesCopy });
     };
     const setChoiceValue = (key: string, value: string) => {
-        console.log("Setting choice value");
         const choiceValuesCopy = choiceValues;
         choiceValuesCopy[key] = value;
-        console.log(choiceValuesCopy);
         setChoiceValues({ ...choiceValuesCopy });
     };
     const wrapperClassName = classNames({
@@ -62,6 +57,7 @@ export function ComponentExample({ component, knobs }: Props) {
         <section className="jkl-portal-component-example">
             <div className={wrapperClassName}>{createElement(component, { boolValues, choiceValues })}</div>
             <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
+                <p className="jkl-portal-component-example__example-options-header">Egenskaper</p>
                 {Object.entries(boolValues).map(([key, value]) => (
                     <Checkbox
                         key={key}
@@ -74,7 +70,6 @@ export function ComponentExample({ component, knobs }: Props) {
                     </Checkbox>
                 ))}
                 {Object.entries(choiceValues).map(([key, value]) => {
-                    //console.log(choiceValues, value);
                     return (
                         <RadioButtons
                             className="jkl-portal-component-example__choice-option"

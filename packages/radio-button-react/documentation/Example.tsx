@@ -18,6 +18,7 @@ const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
             name="likesradiobuttons"
             choices={choices}
             inline={boolValues && boolValues["Inline"]}
+            forceCompact={boolValues && boolValues["Kompakt"]}
             selectedValue={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
             helpLabel="Who dosent like radio buttons?"

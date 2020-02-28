@@ -5,14 +5,15 @@ scss: radio-button
 ---
 
 import Example from "./Example";
-import { ComponentExample } from "@fremtind/jkl-portal-components";
 
-Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en _nedtrekksliste_.
-
+<Ingress>
+    Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil
+    fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en nedtrekksliste.
+</Ingress>
 <ComponentExample
     component={Example}
     knobs={{
-        boolProps: ["Inline", "Med feil", "Invertert"],
+        boolProps: ["Kompakt", "Inline", "Med feil", "Invertert"],
         choiceProps: [
             {
                 name: "Variant",
