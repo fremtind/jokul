@@ -8,6 +8,10 @@
     align-items: center;
     margin-top: $spacing-8;
 
+    &--hidden {
+        display: none;
+    }
+
     &__underscore {
         &:after {
             opacity: 1;

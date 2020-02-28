@@ -13,13 +13,16 @@
             }
 
             &--image-container {
+                max-height: 538px;
+                overflow: hidden;
+
                 img {
-                    max-height: 538px;
+                    height: 100%;
                     transform: scale(1);
-                    transition: transform 0.1s ease-in-out;
+                    transition: transform 0.5s ease-in-out;
 
                     &:hover {
-                        transform: scale(1.01);
+                        transform: scale(1.05);
                     }
                 }
             }
@@ -27,7 +30,6 @@
             &--content {
                 display: flex;
                 margin-left: -$layout-spacing--medium;
-                justify-content: space-between;
 
                 .jkl-portal__card-list {
                     margin-left: $spacing-9;

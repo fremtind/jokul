@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { Layout } from "../components";
 import { DelayText } from "../components/Delaytext";
 
@@ -9,8 +9,6 @@ import { CardList, Card } from "../components/Card";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
 
-// TODO Fix layout of top section
-// TODO Scale image on top when hovering
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
 
@@ -51,32 +49,7 @@ const IndexPage = () => {
 
     return (
         <Layout isFrontpage>
-            <DelayText
-                text="Jøkul Designsystem"
-                delay={100}
-                onEnd={(ref: HTMLDivElement) => {
-                    if (window.scrollY > 50) {
-                        return;
-                    }
-
-                    let elHeight = ref.offsetHeight;
-                    elHeight += parseInt(window.getComputedStyle(ref).getPropertyValue("margin-top"));
-                    elHeight += parseInt(window.getComputedStyle(ref).getPropertyValue("margin-bottom"));
-
-                    const options = {
-                        top: elHeight,
-                        left: 0,
-                        behavior: "smooth",
-                    };
-
-                    window.setTimeout(() => {
-                        if (window.scrollY > 50) {
-                            return;
-                        }
-                        window.scrollBy(options);
-                    }, 500);
-                }}
-            >
+            <DelayText text="Jøkul Designsystem" delay={100}>
                 <div className="jkl-portal-frontpage">
                     <section className="jkl-portal-frontpage__section-intro">
                         <h2 className="jkl-title-small">
@@ -85,7 +58,7 @@ const IndexPage = () => {
                         </h2>
                         <div className="jkl-portal-frontpage__section-intro--content">
                             <div className="jkl-portal-frontpage__section-intro--image-container">
-                                <img alt="Terreng" src="/Fremtind 1411-16.jpg" />
+                                <img alt="Utviklere" src="/Fremtind 1411-16.jpg" />
                             </div>
                             <CardList vertical>
                                 <Card heading="For utviklere" to="/komigang/utvikling">
@@ -94,7 +67,9 @@ const IndexPage = () => {
                                 <Card heading="For designere" to="/komigang/design">
                                     Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
                                 </Card>
-                                <Card heading="Prosessen">Hvordan du kan jobbe med designsystemet.</Card>
+                                <Card heading="Prosessen" to="/komigang/prosessen">
+                                    Hvordan du kan jobbe med designsystemet.
+                                </Card>
                             </CardList>
                         </div>
                     </section>
