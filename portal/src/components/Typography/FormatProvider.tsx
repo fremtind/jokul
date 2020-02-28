@@ -3,6 +3,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { ComponentExample } from "../ComponentExample";
+import { DoDontExample } from "../DoDontExample";
 
 import {
     PageTitle,
@@ -28,6 +29,7 @@ const components = {
     a: Link,
     Ingress,
     ComponentExample,
+    DoDontExample,
 };
 /* eslint-enable */
 
