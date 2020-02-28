@@ -76,7 +76,7 @@ const IndexPage = () => {
 
                     <section className="jkl-portal-frontpage__section-principles">
                         <h2 className="jkl-title-small jkl-portal-frontpage__section-principles--heading">
-                            Hovedprinsipper du kan tenke på for å designe en løsning til vår profil på best mulig måte.
+                            Hovedprinsipper du kan tenke på for å designe en løsning til vår profil på best mulig måte:
                         </h2>
                         <div className="jkl-portal-frontpage__section-principles__diamond-container">
                             <div className="jkl-portal-principle-diamond">
