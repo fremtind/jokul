@@ -1,13 +1,16 @@
 import React from "react";
 import { RadioButtons } from "../src";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-field-group/field-group.min.css";
 
-const choices = ["Yes", "No", "I don't know"];
+interface Props {
+    boolValues: { [key: string]: boolean };
+    choiceValues: { [key: string]: string };
+}
 
-const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+const Example = ({ boolValues, choiceValues }: Props) => {
+    const choices = ["Yes", "No", "I don't know"];
     const [selectedValue, setSelectedValue] = React.useState();
     const errorLabel = boolValues && boolValues["Med feil"] ? "Her er det noe feil" : undefined;
     const variant = choiceValues && choiceValues["Variant"] ? choiceValues["Variant"] : "medium";

@@ -1,6 +1,5 @@
 import React from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import "@fremtind/jkl-toggle-switch/toggle-switch.css";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-core/core.css";
@@ -10,7 +9,11 @@ function onClick() {
     console.log("Hello!");
 }
 
-const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+interface Props {
+    boolValues: { [key: string]: boolean };
+}
+
+const Example: React.FC<Props> = ({ boolValues }) => {
     return (
         <>
             <PrimaryButton

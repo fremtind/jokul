@@ -40,8 +40,7 @@
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14",
-        "@fremtind/jkl-toggle-switch-react": "^2.0.1",
-        "@fremtind/jkl-portal-components": "^0.0.1"
+        "@fremtind/jkl-toggle-switch-react": "^2.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",

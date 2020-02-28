@@ -4,6 +4,8 @@ import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { Dictionary, ExampleComponentProps, ChoiceProp } from ".";
 
+import "./ComponentExample.scss";
+
 interface Props extends ExampleComponentProps {
     component: React.FC<ExampleComponentProps>;
     knobs?: {
