@@ -4,7 +4,7 @@
     display: flex;
     border-top: solid rem(1px) $gra-30;
     padding-top: $layout-spacing--medium;
-    margin: 0 $layout-spacing--medium;
+    margin: $layout-spacing--large $layout-spacing--medium;
     margin-bottom: $layout-spacing--medium;
 
     &__column {

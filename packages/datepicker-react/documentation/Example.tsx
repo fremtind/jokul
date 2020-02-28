@@ -19,44 +19,28 @@ const englishMonthNames = [
     "December",
 ];
 const englishDayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+type Variant = "small" | "medium" | "large";
 
-const Example = () => (
-    <>
-        <div className="jkl-spacing--all-3">
-            <DatePicker extended />
-        </div>
-        <div className="jkl-spacing--all-3">
-            <DatePicker
-                variant="large"
-                initialDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))}
-                months={englishMonthNames}
-                days={englishDayNames}
-            />
-        </div>
-        <div className="jkl-spacing--all-3">
-            <DatePicker
-                variant="small"
-                onChange={(date) => console.log(`Date selected is ${date}`)}
-                helpLabel={"Kun gyldig mellom 20.12.2019 og 25.12.2019"}
-                disableBeforeDate={new Date(2019, 11, 20)}
-                disableAfterDate={new Date(2019, 11, 25)}
-            />
-        </div>
-        <div className="jkl-spacing--all-3">
-            <DatePicker
-                extended
-                label="Select the best date"
-                yearLabel="1988 is good"
-                monthLabel="Try september"
-                onChange={(date) => {
-                    if (date.toDateString() === "Mon Sep 26 1988") {
-                        console.log("The greatest date is selected");
-                    }
-                }}
-                errorLabel={"Not the best date"}
-            />
-        </div>
-    </>
-);
+interface Props {
+    boolValues: { [key: string]: boolean };
+    choiceValues: { [key: string]: string };
+}
+
+const Example = ({ boolValues, choiceValues }: Props) => {
+    const helpLabel = boolValues["Med hjelpetekst"] ? "Du vil være forsikret fra denne datoen" : undefined;
+    const errorLabel = boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;
+    const variant = choiceValues["Variant"] as Variant;
+
+    return (
+        <DatePicker
+            label="Velg startdato for forsikringen"
+            extended={boolValues["Utvidet velger"]}
+            forceCompact={boolValues["Kompakt"]}
+            variant={variant}
+            errorLabel={errorLabel}
+            helpLabel={helpLabel}
+        />
+    );
+};
 
 export default Example;

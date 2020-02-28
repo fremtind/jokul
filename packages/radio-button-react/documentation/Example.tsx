@@ -11,7 +11,7 @@ interface Props {
 
 const Example = ({ boolValues, choiceValues }: Props) => {
     const choices = ["Yes", "No", "I don't know"];
-    const [selectedValue, setSelectedValue] = React.useState();
+    const [selectedValue, setSelectedValue] = React.useState("Yes");
     const errorLabel = boolValues && boolValues["Med feil"] ? "Her er det noe feil" : undefined;
     const variant = choiceValues && choiceValues["Variant"] ? choiceValues["Variant"] : "medium";
 

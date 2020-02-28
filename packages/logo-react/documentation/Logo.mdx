@@ -6,9 +6,16 @@ scss: logo
 
 import { LogoExample } from "./LogoExample";
 
-<LogoExample />
-
-Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger, eller i andre løsninger der Fremtind skal være synlig.
+<Ingress>
+    Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger, eller i andre
+    løsninger der Fremtind skal være synlig.
+</Ingress>
+<ComponentExample
+component={LogoExample}
+knobs={{
+boolProps: ["Animert", "Kun symbol", "Sentrert", "Invertert"],
+}}
+/>
 
 Du kan lese mer om hvordan vi skal bruke logo og logosymbol, under [Prinsipper for bruk](/profil/logo). Logoen og logosymbolet skal ikke stå synlige sammen.
 Vi kan animere dem, slik at vi ser at det skifter mellom logo og logosymbol. Se eksempelet.

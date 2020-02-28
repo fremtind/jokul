@@ -1,118 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Select, NativeSelect } from "../src";
-import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-select/select.min.css";
-import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
-import "./index.scss";
 
-const Example = () => {
-    const valuePairs = [
+interface Props {
+    boolValues: { [key: string]: boolean };
+    choiceValues: { [key: string]: string };
+}
+
+export const Example = ({ boolValues, choiceValues }: Props) => {
+    const C = boolValues["Native"] ? NativeSelect : Select;
+
+    const values = [
         { value: "firstvalue", label: "Value 1" },
         { value: "secondvalue", label: "Value 2" },
     ];
-    const years = [...Array(120)].map((_, i) => (i + 1900).toString()); // 1900 - 2019
-
-    const [valuePair, setValuePair] = useState<string>();
-    const [darkMode, setDarkMode] = useState(false);
-    const [hasError, setHasError] = useState(false);
-    const [isCompact, setIsCompact] = useState(false);
-    const [variant, setVariant] = useState<LabelVariant | undefined>("medium");
-    const typecheckAndSetVariant = (val: string) => {
-        if (val === "large" || val === "medium" || val === "small") {
-            setVariant(val);
+    const [value, setValue] = useState<string>();
+    const universalSetValue = (input: string | ChangeEvent<HTMLSelectElement>) => {
+        if (typeof input === "string") {
+            setValue(input);
         } else {
-            setVariant(undefined);
+            setValue(input.target.value);
         }
     };
 
+    const errorLabel = boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
+    const helpLabel = boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
+    const variant = choiceValues["Etikettvariant"] as LabelVariant;
+
     return (
-        <section className={"example-page " + (!darkMode ? "example-page--light-mode" : "example-page--dark-mode")}>
-            <fieldset className="example-page__controls">
-                <ToggleSwitch
-                    className={"toggle-switch"}
-                    inverted={darkMode}
-                    pressed={darkMode}
-                    onClick={() => setDarkMode(!darkMode)}
-                >
-                    Dark Mode
-                </ToggleSwitch>
-                <ToggleSwitch
-                    className={"toggle-switch"}
-                    inverted={darkMode}
-                    pressed={hasError}
-                    onClick={() => setHasError(!hasError)}
-                >
-                    Vis feilmelding
-                </ToggleSwitch>
-                <ToggleSwitch
-                    className={"toggle-switch"}
-                    inverted={darkMode}
-                    pressed={isCompact}
-                    onClick={() => setIsCompact(!isCompact)}
-                >
-                    Kompakt variant
-                </ToggleSwitch>
-                <Select
-                    forceCompact
-                    variant="small"
-                    label="Etikettvariant"
-                    items={["large", "medium", "small"]}
-                    onChange={typecheckAndSetVariant}
-                    value={variant}
-                />
-            </fieldset>
-
-            <Select
-                inline
-                forceCompact={isCompact}
-                variant={variant}
-                label="Select"
-                items={years}
-                value="1986"
-                helpLabel="Med strengverdier"
-                errorLabel={hasError ? "Beskrivende feilmelding" : undefined}
-                className="jkl-spacing--all-2"
-            />
-            <Select
-                inline
-                forceCompact={isCompact}
-                variant={variant}
-                label="Select"
-                defaultPrompt="Velg et alternativ"
-                items={valuePairs}
-                onChange={setValuePair}
-                value={valuePair}
-                helpLabel="Med verdipar"
-                errorLabel={hasError ? "Beskrivende feilmelding" : undefined}
-                className="jkl-spacing--all-2"
-            />
-
-            <NativeSelect
-                inline
-                forceCompact={isCompact}
-                variant={variant}
-                label="NativeSelect"
-                items={years}
-                value="1986"
-                helpLabel="Med strengverdier"
-                errorLabel={hasError ? "Beskrivende feilmelding" : undefined}
-                className="jkl-spacing--all-2"
-            />
-            <NativeSelect
-                inline
-                forceCompact={isCompact}
-                variant={variant}
-                label="NativeSelect"
-                items={valuePairs}
-                onChange={(e) => setValuePair(e.target.value)}
-                value={valuePair}
-                helpLabel="Med verdipar"
-                errorLabel={hasError ? "Beskrivende feilmelding" : undefined}
-                className="jkl-spacing--all-2"
-            />
-        </section>
+        <C
+            forceCompact={boolValues["Kompakt"]}
+            variant={variant}
+            label="Select"
+            items={values}
+            value={value}
+            helpLabel={helpLabel}
+            errorLabel={errorLabel}
+            onChange={universalSetValue}
+        />
     );
 };
 

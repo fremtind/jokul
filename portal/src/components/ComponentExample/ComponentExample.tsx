@@ -58,34 +58,36 @@ export function ComponentExample({ component, knobs }: Props) {
     return (
         <section className="jkl-portal-component-example">
             <div className={wrapperClassName}>{createElement(component, { boolValues, choiceValues })}</div>
-            <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
-                <p className="jkl-portal-component-example__example-options-header">Egenskaper</p>
-                {Object.entries(boolValues).map(([key, value]) => (
-                    <Checkbox
-                        key={key}
-                        name={key}
-                        value={key}
-                        checked={value}
-                        onChange={(e) => setBoolValue(key, e.target.checked)}
-                    >
-                        {key}
-                    </Checkbox>
-                ))}
-                {Object.entries(choiceValues).map(([key, value]) => {
-                    return (
-                        <RadioButtons
-                            className="jkl-portal-component-example__choice-option"
-                            variant="small"
+            {(knobs?.boolProps || knobs?.choiceProps) && (
+                <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
+                    <p className="jkl-portal-component-example__example-options-header">Egenskaper</p>
+                    {Object.entries(boolValues).map(([key, value]) => (
+                        <Checkbox
                             key={key}
                             name={key}
-                            legend={key}
-                            choices={[...choices[key]]}
-                            selectedValue={value}
-                            onChange={(e) => setChoiceValue(key, e.target.value)}
-                        />
-                    );
-                })}
-            </aside>
+                            value={key}
+                            checked={value}
+                            onChange={(e) => setBoolValue(key, e.target.checked)}
+                        >
+                            {key}
+                        </Checkbox>
+                    ))}
+                    {Object.entries(choiceValues).map(([key, value]) => {
+                        return (
+                            <RadioButtons
+                                className="jkl-portal-component-example__choice-option"
+                                variant="small"
+                                key={key}
+                                name={key}
+                                legend={key}
+                                choices={[...choices[key]]}
+                                selectedValue={value}
+                                onChange={(e) => setChoiceValue(key, e.target.value)}
+                            />
+                        );
+                    })}
+                </aside>
+            )}
         </section>
     );
 }
