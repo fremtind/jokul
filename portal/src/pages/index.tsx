@@ -9,7 +9,10 @@ import { CardList, Card } from "../components/Card";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
 
-// TODO Fix top section
+// TODO Fix layout of top section
+// TODO Scale image on top when hovering
+// TODO Try to use scrollY in stead of time when lerping diamonds
+// TODO Remove DelayText when it's done
 
 const IndexPage = () => {
     const [principleState, setPrincipleState] = useState(0);
@@ -48,7 +51,32 @@ const IndexPage = () => {
 
     return (
         <Layout isFrontpage>
-            <DelayText text="Jøkul Designsystem" delay={100}>
+            <DelayText
+                text="Jøkul Designsystem"
+                delay={100}
+                onEnd={(ref: HTMLDivElement) => {
+                    if (window.scrollY > 50) {
+                        return;
+                    }
+
+                    let elHeight = ref.offsetHeight;
+                    elHeight += parseInt(window.getComputedStyle(ref).getPropertyValue("margin-top"));
+                    elHeight += parseInt(window.getComputedStyle(ref).getPropertyValue("margin-bottom"));
+
+                    const options = {
+                        top: elHeight,
+                        left: 0,
+                        behavior: "smooth",
+                    };
+
+                    window.setTimeout(() => {
+                        if (window.scrollY > 50) {
+                            return;
+                        }
+                        window.scrollBy(options);
+                    }, 500);
+                }}
+            >
                 <div className="jkl-portal-frontpage">
                     <section className="jkl-portal-frontpage__section-intro">
                         <h2 className="jkl-title-small">
@@ -139,46 +167,38 @@ const IndexPage = () => {
 
                     <section className="jkl-portal-frontpage__section-contribute">
                         <div className="jkl-portal-frontpage__section--wrapper">
-                            <h1 className="jkl-title-small">Bidra</h1>
-                            <p className="jkl-body">
-                                <i>Jøkul</i> er et levende designsystem. For at vi skal holde det relevant er det viktig
-                                at alle som bruker designsystemet og merkevareprofilen vår hjelper til med å forbedre
-                                det vi har.
+                            <h2 className="jkl-title-small">Bidra</h2>
+                            <p className="jkl-lead">
+                                Jøkul er et levende designsystem. For at vi skal holde det relevant, er det viktig at
+                                alle som bruker designsystemet og merkevareprofilen vår hjelper til med å forbedre det
+                                vi har. Send oss en mail eller bidra i GitHub.
                             </p>
-                            <p className="jkl-body">
-                                Har du laget noe nytt i vår profil, funnet feil, endret noe eller har forslag til
-                                forbedringer så bidra via GitHub eller ta kontakt med oss. Vi setter stor pris på alle
-                                bidrag.
+                            <p className="jkl-lead">
+                                Finn oss i Teams kanalen “Support Designsystem” eller kom på åpent forum hver tirsdag 14
+                                til 14.30. Her informerer vi om hva som skjer og tar imot innspill.
                             </p>
                         </div>
                     </section>
 
-                    {/*<section className="jkl-portal-frontpage__section-image">
-                    <img alt="flere utviklere" src="/Fremtind 31.jpg" />
-                </section>
-
-                <section className="jkl-portal-frontpage__section-contact">
-                    <div className="jkl-portal-frontpage__section--wrapper">
-                        <h3 className="jkl-title-small">Kontakt oss</h3>
-                        <div>
-                            <h5 className="jkl-heading-small">Epost</h5>
-                            <p className="jkl-body">Fremtind.designsystem@fremtind.no</p>
-                        </div>
-                        <div>
-                            <h5 className="jkl-heading-small">Teams</h5>
-                            <p className="jkl-body">
-                                Kanalen <i>Support Designsystem</i>
-                            </p>
-                        </div>
-                        <div>
-                            <h5 className="jkl-heading-small">Forum</h5>
-                            <p className="jkl-body">
-                                Designsystemforumet. Vi holder åpent forum hver tirsdag fra klokken 14 til 14:30. Her
-                                informerer vi om hva som skjer og tar imot innspill.
-                            </p>
-                        </div>
-                    </div>
-                </section> */}
+                    <section className="jkl-portal-frontpage__section-footer">
+                        <p>
+                            Fremtind Forsikring er et nytt forsikringsselskap med lang erfaring. 1.januar 2019
+                            fusjonerte forsikringsselskapene til SpareBank 1 og DNB, og Fremtind ble født.
+                        </p>
+                        <p>
+                            Vi er landets tredje største forsikringsselskap, og det største med distribusjon i bank. Vi
+                            tilbyr alle skade- og personforsikringer for privatpersoner og bedrifter.
+                        </p>
+                        <p>
+                            Vi har solid erfaring og kunnskap om forsikring, og utvikler nye produkter og tjenester som
+                            betyr noe i folks liv. Vi var de første til å utnytte teknologi for å gjøre bilforsikringen
+                            smart. Vi var også først ute med en enkel, selvbetjent helsevurdering.
+                        </p>
+                        <p>
+                            Vi vil fortsette å bruke digital innovasjon og fornyelse for å gjøre hverdagen enklere og
+                            tryggere for folk og bedrifter flest.
+                        </p>
+                    </section>
                 </div>
             </DelayText>
         </Layout>

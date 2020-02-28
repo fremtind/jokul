@@ -31,18 +31,24 @@ export class PrincipleDiamond extends React.Component {
 
     componentDidUpdate(nextProps) {
         if (this.props.minScale !== nextProps.minScale) {
-            console.log("updating minScale", this.lastMinScale, this.props.minScale, nextProps.minScale);
+            // console.log("updating minScale", this.lastMinScale, this.props.minScale, nextProps.minScale);
             this.lastMinScale = this.props.minScale;
             this.updatedScaleAt = Date.now();
         }
 
         if (this.props.maxSxcale !== nextProps.maxSxcale) {
-            console.log("updating minScale", this.lastMaxScale, this.props.maxScale, nextProps.maxScale);
+            // console.log("updating minScale", this.lastMaxScale, this.props.maxScale, nextProps.maxScale);
             this.lastMaxScale = this.props.maxScale;
             this.updatedScaleAt = Date.now();
         }
 
         this.draw();
+    }
+
+    componentWillUnmount() {
+        if (this.animationTimeout) {
+            window.clearTimeout(this.animationTimeout);
+        }
     }
 
     saveContext(ctx) {
@@ -61,8 +67,6 @@ export class PrincipleDiamond extends React.Component {
         const lerpMin = this.lastMinScale + (this.props.minScale - this.lastMinScale) * amount;
         const lerpMax = this.lastMaxScale + (this.props.maxScale - this.lastMaxScale) * amount;
 
-        // console.log(amount, this.lastMinScale, this.props.minScale);
-
         return [lerpMin, lerpMax];
     }
 
@@ -80,7 +84,6 @@ export class PrincipleDiamond extends React.Component {
         const time = Date.now();
 
         const scale = this.getScale();
-        console.log(scale);
 
         for (let x = 0; x < tiles; x++) {
             for (let y = 0; y < tiles; y++) {

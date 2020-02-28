@@ -49,7 +49,11 @@
         opacity: 0;
 
         &--elevated {
-            transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(1);
+            animation-name: bob-bob-shadow;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
             opacity: 0.2;
         }
 
@@ -61,6 +65,16 @@
         &--clarity {
             transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(135deg) scale(1);
             // opacity: 0.1;
+        }
+
+        @keyframes bob-bob-shadow {
+            0% {
+                transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(1);
+            }
+
+            100% {
+                transform: translateY(75%) rotate3d(1, 0, 0, 70deg) rotate(45deg) scale(0.9);
+            }
         }
     }
 }

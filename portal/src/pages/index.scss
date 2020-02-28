@@ -41,14 +41,18 @@
         }
 
         &--wrapper {
-            max-width: rem(549px);
+            max-width: 86ch;
         }
 
-        &-contribute,
-        &-contact {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        &-contribute {
+            margin-left: $layout-spacing--large;
+
+            h2 {
+                padding-bottom: $layout-spacing--large;
+            }
+            p {
+                padding-bottom: $layout-spacing--small;
+            }
         }
 
         &-principles {
@@ -89,6 +93,23 @@
                 grid-area: heading;
                 max-width: 28ch;
                 margin-bottom: calc(#{$spacing-10}* 1.5);
+            }
+        }
+
+        &-footer {
+            display: flex;
+            border-top: 1px $gra-30 solid;
+            padding-top: $layout-spacing--medium;
+
+            p {
+                @include jkl-text-style("compact/small");
+                color: $gra-70;
+                flex: 1 1 0px;
+                padding-right: $layout-spacing--large;
+
+                &:last-of-type {
+                    padding-right: 0;
+                }
             }
         }
     }

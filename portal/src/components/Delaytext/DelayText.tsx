@@ -26,13 +26,15 @@ const useInterval = (callback: () => void, delay: number | null) => {
 interface Props {
     text: string;
     delay: number;
+    onEnd?: Function;
 }
 
-export const DelayText: React.FunctionComponent<Props> = ({ text, delay, children }) => {
+export const DelayText: React.FunctionComponent<Props> = ({ text, delay, children, onEnd }) => {
     const [index, setIndex] = useState(-1);
     const [isRunning, setIsRunning] = useState(true);
-    const [animated, setIsAnimated] = useState(0);
+    const [charactersAnimated, setCharactersAnimated] = useState(0);
     const noiseMap = Array.from(new Array(text.length)).map(() => Math.random() * 500 + 250);
+    const elRef = useRef(null);
 
     const filteredText = useMemo(() => {
         const splitText = text.split("");
@@ -40,6 +42,12 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
             return i <= index;
         });
     }, [index]);
+
+    useEffect(() => {
+        if (filteredText.length === text.length && onEnd) {
+            onEnd(elRef.current);
+        }
+    }, [filteredText, text, onEnd]);
 
     const lolRandom = Math.random() * delay + delay / 2;
 
@@ -55,29 +63,32 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
     );
 
     const textWrapper = classNames("jkl-portal__delay-text__content", "jkl-portal__delay-text__underscore", {
-        "jkl-portal__delay-text__underscore--hidden": !isRunning,
+        // "jkl-portal__delay-text__underscore--hidden": !isRunning,
     });
 
     const textClassName = classNames("jkl-portal__delay-text__content-text", {
-        "jkl-portal__delay-text__content-text--hidden": !isRunning,
+        // "jkl-portal__delay-text__content-text--hidden": !isRunning,
     });
 
-    return !!animated && animated === filteredText.length ? (
-        <div className="jkl-portal__delay-text__ending">{children}</div>
-    ) : (
-        <div className="jkl-portal__delay-text">
-            <div className={textWrapper}>
-                {filteredText.map((c, i) => (
-                    <span
-                        key={c + i}
-                        className={textClassName}
-                        style={{ transitionDelay: noiseMap[i] + "ms" }}
-                        onTransitionEnd={() => setIsAnimated(animated + 1)}
-                    >
-                        {c}
-                    </span>
-                ))}
+    const childrenClassName = classNames("jkl-portal__delay-text__children");
+
+    return (
+        <>
+            <div ref={elRef} className="jkl-portal__delay-text">
+                <div className={textWrapper}>
+                    {filteredText.map((c, i) => (
+                        <span
+                            key={c + i}
+                            className={textClassName}
+                            style={{ transitionDelay: noiseMap[i] + "ms" }}
+                            onTransitionEnd={() => setCharactersAnimated(charactersAnimated + 1)}
+                        >
+                            {c}
+                        </span>
+                    ))}
+                </div>
             </div>
-        </div>
+            <div className={childrenClassName}>{children}</div>
+        </>
     );
 };

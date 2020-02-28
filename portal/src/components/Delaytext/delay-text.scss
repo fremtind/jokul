@@ -25,6 +25,7 @@
 
     &__content {
         margin-left: $spacing-9;
+        height: 100vh;
     }
 
     &__content-text {
@@ -37,7 +38,7 @@
         }
     }
 
-    &__ending {
+    &__children {
         animation: fade-in 0.75s cubic-bezier(0, 0, 0.07, 0.99);
     }
 
