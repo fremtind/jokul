@@ -8,8 +8,10 @@
     color: $svart;
     display: grid;
     grid-template:
-        "header header" 96px
-        "sidebar main" auto / rem(375px) 1fr;
+        "header header header" 96px
+        "sidebar main main" minmax(calc(100vh - 96px), auto)
+        "footer footer footer" auto
+        / rem(375px) 1fr;
 
     &__header {
         grid-area: header;
@@ -18,14 +20,14 @@
     }
 
     &__sidebar {
-        grid-row: sidebar;
+        grid-area: sidebar;
         background-color: $varde;
         position: fixed;
         width: rem(400px);
     }
 
     &__main {
-        grid-column: main;
+        grid-area: main;
         padding-top: $layout-spacing--large;
         padding-right: $layout-spacing--xl;
         padding-left: $layout-spacing--medium;
@@ -33,6 +35,10 @@
         &--frontpage {
             grid-column: sidebar / span 2;
         }
+    }
+
+    &__footer {
+        grid-area: footer;
     }
 
     &[data-theme="dark"] {

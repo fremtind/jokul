@@ -2,7 +2,7 @@ import React, { ReactNode, useContext, useLayoutEffect, useRef } from "react";
 import classNames from "classnames";
 
 import { FormatProvider } from "../Typography";
-import { Header, Sidebar } from "..";
+import { Header, Sidebar, Footer } from "..";
 import { ThemeBG } from "./components";
 import { themeContext } from "../../contexts/themeContext";
 
@@ -41,6 +41,7 @@ export const Layout = ({ children, title, isFrontpage }: Props) => {
             <main className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>
             </main>
+            <Footer className="jkl-portal__footer" />
         </div>
     );
 };

@@ -154,26 +154,6 @@ const IndexPage = () => {
                             </p>
                         </div>
                     </section>
-
-                    <section className="jkl-portal-frontpage__section-footer">
-                        <p>
-                            Fremtind Forsikring er et nytt forsikringsselskap med lang erfaring. 1.januar 2019
-                            fusjonerte forsikringsselskapene til SpareBank 1 og DNB, og Fremtind ble født.
-                        </p>
-                        <p>
-                            Vi er landets tredje største forsikringsselskap, og det største med distribusjon i bank. Vi
-                            tilbyr alle skade- og personforsikringer for privatpersoner og bedrifter.
-                        </p>
-                        <p>
-                            Vi har solid erfaring og kunnskap om forsikring, og utvikler nye produkter og tjenester som
-                            betyr noe i folks liv. Vi var de første til å utnytte teknologi for å gjøre bilforsikringen
-                            smart. Vi var også først ute med en enkel, selvbetjent helsevurdering.
-                        </p>
-                        <p>
-                            Vi vil fortsette å bruke digital innovasjon og fornyelse for å gjøre hverdagen enklere og
-                            tryggere for folk og bedrifter flest.
-                        </p>
-                    </section>
                 </div>
             </DelayText>
         </Layout>

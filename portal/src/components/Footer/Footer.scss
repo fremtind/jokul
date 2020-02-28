@@ -1,0 +1,20 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-footer {
+    display: flex;
+    border-top: solid rem(1px) $gra-30;
+    padding-top: $layout-spacing--medium;
+    margin: 0 $layout-spacing--medium;
+    margin-bottom: $layout-spacing--medium;
+
+    &__column {
+        @include jkl-text-style("compact/small");
+        color: $gra-70;
+        flex: 1 1 0px;
+        padding-right: $layout-spacing--large;
+
+        &:last-of-type {
+            padding-right: 0;
+        }
+    }
+}

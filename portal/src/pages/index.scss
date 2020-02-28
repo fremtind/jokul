@@ -97,22 +97,5 @@
                 margin-bottom: calc(#{$spacing-10}* 1.5);
             }
         }
-
-        &-footer {
-            display: flex;
-            border-top: 1px $gra-30 solid;
-            padding-top: $layout-spacing--medium;
-
-            p {
-                @include jkl-text-style("compact/small");
-                color: $gra-70;
-                flex: 1 1 0px;
-                padding-right: $layout-spacing--large;
-
-                &:last-of-type {
-                    padding-right: 0;
-                }
-            }
-        }
     }
 }
