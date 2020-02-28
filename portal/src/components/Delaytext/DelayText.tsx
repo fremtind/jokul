@@ -97,7 +97,7 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
     );
 
     const onLeft = (e) => {
-        setHidden(true);
+        //setHidden(true);
     };
 
     const delayTextClassName = classNames("jkl-portal__delay-text", {
