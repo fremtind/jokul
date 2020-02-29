@@ -32,4 +32,16 @@
     &__description {
         @include jkl-text-style("desktop/body");
     }
+
+    *[data-theme="dark"] & {
+        background-color: $gra-100;
+
+        &__heading--do {
+            color: #5effa0;
+        }
+
+        &__heading--dont {
+            color: #ff8b79;
+        }
+    }
 }

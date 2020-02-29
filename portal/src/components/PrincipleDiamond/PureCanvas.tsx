@@ -1,22 +1,19 @@
 import React from "react";
 
-export class PureCanvas extends React.Component {
-    shouldComponentUpdate(nextProps) {
-        if (nextProps.className !== this.props.className) {
-            return true;
-        }
+interface Props {
+    className?: string;
+    width: number;
+    height: number;
+    contextRef: (context: CanvasRenderingContext2D | null) => void;
+}
 
-        return false;
-    }
-
-    render() {
-        return (
-            <canvas
-                className={this.props.className}
-                width={this.props.width}
-                height={this.props.height}
-                ref={(node) => (node ? this.props.contextRef(node.getContext("2d")) : null)}
-            />
-        );
-    }
+export function PureCanvas({ className, width, height, contextRef }: Props) {
+    return (
+        <canvas
+            className={className}
+            width={width}
+            height={height}
+            ref={(node) => (node ? contextRef(node.getContext("2d")) : null)}
+        />
+    );
 }

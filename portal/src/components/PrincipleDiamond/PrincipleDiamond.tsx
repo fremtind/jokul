@@ -52,6 +52,9 @@ export class PrincipleDiamond extends React.Component {
     }
 
     saveContext(ctx) {
+        if (!ctx) {
+            return;
+        }
         this.ctx = ctx;
         this.size = [this.ctx.canvas.width, this.ctx.canvas.height];
         this.tileSize = this.size[0] / this.props.tiles;
