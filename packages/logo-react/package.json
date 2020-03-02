@@ -33,12 +33,14 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-logo": "^2.1.0"
+        "@fremtind/jkl-logo": "^2.1.0",
+        "nanoid": "^2.1.6"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14",
         "@fremtind/jkl-field-group-react": "^1.2.1",
-        "@fremtind/jkl-toggle-switch-react": "^2.0.1"
+        "@fremtind/jkl-toggle-switch-react": "^2.0.1",
+        "@types/nanoid": "^2.0.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
