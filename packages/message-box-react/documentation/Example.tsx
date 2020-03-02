@@ -21,7 +21,7 @@ export function Example({ boolValues, choiceValues }: Props) {
     //@ts-ignore
     const C = types[choiceValues["Type"]] || InfoMessage;
     return (
-        <C fullWidth={boolValues["Full bredde"]} className="jkl-spacing--bottom-2" title={choiceValues["Type"]}>
+        <C fullWidth={boolValues["Full bredde"]} title={choiceValues["Type"]}>
             Cupidatat Lorem incididunt incididunt in non mollit cillum Lorem eiusmod sunt magna.
         </C>
     );
