@@ -36,6 +36,9 @@
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14"
     },
+    "dependencies": {
+        "@fremtind/jkl-core": "^3.0.0"
+    },
     "peerDependencies": {
         "@types/react": "^16.8.17",
         "@types/react-dom": "^16.8.4",
