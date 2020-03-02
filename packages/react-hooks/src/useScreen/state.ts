@@ -54,8 +54,8 @@ export const initialState = {
 };
 
 export const init = () => {
-    const width = typeof window !== undefined ? window.innerWidth : 0;
-    const height = typeof window !== undefined ? window.innerHeight : 0;
+    const width = typeof window !== "undefined" ? window.innerWidth : 0;
+    const height = typeof window !== "undefined" ? window.innerHeight : 0;
     return setDeviceSize(width, height);
 };
 
