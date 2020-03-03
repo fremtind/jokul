@@ -20,16 +20,12 @@ $animation-timing: 300ms ease-out both;
 
 .jkl-portal-sidebar-menu-item {
     position: relative;
-    animation: $animation-timing;
-    animation-name: appear;
 
     &__link {
         @include jkl-text-style("desktop/body");
         display: block;
         text-decoration: none;
         color: inherit;
-        animation: $animation-timing;
-        animation-name: blinds;
 
         &:after {
             content: "\2192";
@@ -59,6 +55,16 @@ $animation-timing: 300ms ease-out both;
             &:focus {
                 color: #00faff;
             }
+        }
+    }
+
+    .jkl-portal-sidebar-menu--animated & {
+        animation: $animation-timing;
+        animation-name: appear;
+
+        &__link {
+            animation: $animation-timing;
+            animation-name: blinds;
         }
     }
 }

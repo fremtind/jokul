@@ -5,16 +5,6 @@
 $webfonts-dir: "../../static/fonts";
 @import "~@fremtind/jkl-webfonts/webfonts.scss";
 
-$hero-size: rem(700px);
-$hero-top-offset: rem(40px);
-$menu-width: 320px;
-
-$content-bg-color: $gra-80;
-$content-color: $gra-10;
-$content-max-width: rem(1200px);
-
-$circle-size: rem(100px);
-
 pre {
     max-width: 80vw;
     overflow: auto;

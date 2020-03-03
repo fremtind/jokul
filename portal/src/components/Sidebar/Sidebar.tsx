@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import { Location } from "@reach/router";
+import classNames from "classnames";
 import { ActionTextField } from "@fremtind/jkl-text-input-react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 
@@ -17,6 +18,13 @@ export function Sidebar() {
         <Location>
             {({ location }) => {
                 const path = location.pathname.split("/")[1];
+                const { lastPath } = location.state as { lastPath?: string };
+                const pathHasChanged =
+                    lastPath && lastPath !== path && lastPath.includes("react") !== path.includes("react");
+                const sidebarClassName = classNames({
+                    "jkl-portal-sidebar-menu": true,
+                    "jkl-portal-sidebar-menu--animated": pathHasChanged,
+                });
                 if (path === "") {
                     return null;
                 }
@@ -36,8 +44,8 @@ export function Sidebar() {
                         break;
                 }
                 return (
-                    <nav className="jkl-portal-sidebar-menu">
-                        <SidebarMenu links={links} />
+                    <nav className={sidebarClassName}>
+                        <SidebarMenu currentPath={path} links={links} />
                     </nav>
                 );
             }}
@@ -45,7 +53,7 @@ export function Sidebar() {
     );
 }
 
-function SidebarMenu({ links }: { links: DocumentationPageInfo[] }) {
+function SidebarMenu({ links, currentPath }: { links: DocumentationPageInfo[]; currentPath: string }) {
     const [filter, setFilter] = useState("");
     function filterLinks(e: ChangeEvent<HTMLInputElement>) {
         setFilter(e.target.value);
@@ -64,7 +72,13 @@ function SidebarMenu({ links }: { links: DocumentationPageInfo[] }) {
             />
             <ul className="jkl-portal-sidebar-menu__items">
                 {filteredLinks.map((item: DocumentationPageInfo, i: number) => (
-                    <SidebarMenuItem idx={i} key={item.title} path={item.path} title={item.title} />
+                    <SidebarMenuItem
+                        idx={i}
+                        key={item.title}
+                        currentPath={currentPath}
+                        path={item.path}
+                        title={item.title}
+                    />
                 ))}
             </ul>
         </>

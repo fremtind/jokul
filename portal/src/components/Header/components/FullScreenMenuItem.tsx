@@ -7,14 +7,15 @@ import "./FullScreenMenuItem.scss";
 export interface FullScreenMenuItemProps {
     idx: number;
     path: string;
+    currentPath: string;
     title: string;
 }
-export function FullScreenMenuItem({ idx, path, title }: FullScreenMenuItemProps) {
+export function FullScreenMenuItem({ idx, path, currentPath, title }: FullScreenMenuItemProps) {
     const { setMenuIsOpen } = useContext(fullscreenMenuContext);
     const handleClick = () => {
         // wait for closing animation before navigating
         setTimeout(() => {
-            navigate(path);
+            navigate(path, { state: { lastPath: currentPath } });
             setMenuIsOpen("");
         }, 300);
     };

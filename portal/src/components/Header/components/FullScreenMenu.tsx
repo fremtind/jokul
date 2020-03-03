@@ -76,7 +76,13 @@ export function FullScreenMenu({ title, items, filterable, activePath }: FullScr
                 <div className="jkl-portal-full-screen-menu__wrapper">
                     <ul className="jkl-portal-full-screen-menu__items">
                         {filteredItems.map((item, i) => (
-                            <FullScreenMenuItem idx={i} key={item.title} path={item.path} title={item.title} />
+                            <FullScreenMenuItem
+                                idx={i}
+                                key={item.title}
+                                currentPath={location.pathname.split("/")[1]}
+                                path={item.path}
+                                title={item.title}
+                            />
                         ))}
                     </ul>
                     {filterable && (

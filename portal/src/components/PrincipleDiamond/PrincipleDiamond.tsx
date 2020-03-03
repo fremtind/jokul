@@ -126,8 +126,8 @@ export class PrincipleDiamond extends React.Component {
             <PureCanvas
                 className={this.generateClasses("jkl-portal-principle-diamond__" + this.props.type)}
                 contextRef={this.saveContext}
-                height="250"
-                width="250"
+                height={250}
+                width={250}
             />
         );
     }

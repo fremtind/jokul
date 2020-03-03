@@ -1,4 +1,5 @@
-import React, { useState, ReactNode, createContext } from "react";
+import React, { useState, ReactNode, createContext, useLayoutEffect } from "react";
+import { getCookie, setCookie } from "../utils";
 
 interface ThemeContext {
     theme?: string;
@@ -15,7 +16,16 @@ interface Props {
 }
 export function ThemeContextProvider({ children }: Props) {
     const [theme, setTheme] = useState(THEMES.THEME_LIGHT);
-    const toggleTheme = () => setTheme(theme === THEMES.THEME_DARK ? THEMES.THEME_LIGHT : THEMES.THEME_DARK);
+    useLayoutEffect(() => {
+        if (document) {
+            setTheme(getCookie("theme") || theme);
+        }
+    }, []);
+    const toggleTheme = () => {
+        const newTheme = theme === THEMES.THEME_DARK ? THEMES.THEME_LIGHT : THEMES.THEME_DARK;
+        setTheme(newTheme);
+        document && setCookie("theme", newTheme, 60 * 60 * 24 * 365);
+    };
 
     return <themeContext.Provider value={{ theme, toggleTheme }}>{children}</themeContext.Provider>;
 }

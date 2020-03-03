@@ -4,9 +4,10 @@ import { Link } from "gatsby";
 interface SidebarMenuItemProps {
     idx: number;
     path: string;
+    currentPath: string;
     title: string;
 }
-export function SidebarMenuItem({ idx, path, title }: SidebarMenuItemProps) {
+export function SidebarMenuItem({ idx, path, currentPath, title }: SidebarMenuItemProps) {
     return (
         <li
             style={{
@@ -21,6 +22,7 @@ export function SidebarMenuItem({ idx, path, title }: SidebarMenuItemProps) {
                     animationDelay: `${idx * 20}ms`,
                 }}
                 to={path}
+                state={{ lastPath: currentPath }}
             >
                 {title}
             </Link>
