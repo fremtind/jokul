@@ -1,14 +1,8 @@
 import React from "react";
-import "@fremtind/jkl-core/core.css";
-import "@fremtind/jkl-message-box/message-box.scss";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "../src";
 
-interface Props {
-    boolValues: { [key: string]: boolean };
-    choiceValues: { [key: string]: string };
-}
-
-export function Example({ boolValues, choiceValues }: Props) {
+export function Example({ boolValues, choiceValues }: ExampleComponentProps) {
     const types = {
         Infomelding: InfoMessage,
         Suksessmelding: SuccessMessage,
@@ -16,12 +10,10 @@ export function Example({ boolValues, choiceValues }: Props) {
         Feilmelding: ErrorMessage,
     };
 
-    console.log(choiceValues["Type"]);
-
     //@ts-ignore
     const C = types[choiceValues["Type"]] || InfoMessage;
     return (
-        <C fullWidth={boolValues["Full bredde"]} title={choiceValues["Type"]}>
+        <C fullWidth={boolValues && boolValues["Full bredde"]} title={choiceValues && choiceValues["Type"]}>
             Cupidatat Lorem incididunt incididunt in non mollit cillum Lorem eiusmod sunt magna.
         </C>
     );

@@ -15,7 +15,8 @@
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "prerelease": "yarn build",
-        "release": "lerna publish"
+        "release": "lerna publish",
+        "start": "lerna run --scope @fremtind/portal dev --stream"
     },
     "dependencies": {
         "classnames": "^2.2.6",
@@ -26,6 +27,7 @@
     "devDependencies": {
         "@babel/cli": "^7.5.0",
         "@babel/core": "^7.5.4",
+        "@babel/plugin-proposal-optional-chaining": "^7.8.3",
         "@babel/preset-env": "^7.5.4",
         "@babel/preset-react": "^7.0.0",
         "@babel/preset-typescript": "^7.3.3",

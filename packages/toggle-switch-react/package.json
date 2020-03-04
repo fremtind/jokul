@@ -39,6 +39,7 @@
         "@fremtind/jkl-typography-react": "^2.0.3"
     },
     "devDependencies": {
+        "@fremtind/jkl-portal-components": "^0.1.0",
         "@fremtind/browserslist-config-jkl": "^0.4.14",
         "@fremtind/jkl-core": "^4.0.0"
     },

@@ -3,10 +3,12 @@
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
 
 .jkl-portal__delay-text {
-    font-size: rem(180px);
+    font-size: 12vw;
     display: flex;
     align-items: center;
-    margin-top: $spacing-8;
+    max-width: 85vw;
+    box-sizing: border-box;
+    height: calc(100vh - 96px);
 
     &--hidden {
         display: none;
@@ -28,8 +30,11 @@
     }
 
     &__content {
-        margin-left: $spacing-9;
-        height: 100vh;
+        box-sizing: border-box;
+        padding-top: $layout-spacing--large;
+        padding-left: $layout-spacing--xl;
+        height: 100%;
+        width: 100%;
     }
 
     &__content-text {

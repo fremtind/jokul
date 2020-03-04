@@ -18,9 +18,8 @@ const ClickOutsideExample = () => {
     useClickOutside(clickOutsideRef, onClickOutside);
 
     return (
-        <section ref={clickOutsideRef} className="hooks-example jkl-spacing--bottom-3 jkl-body jkl-click-outside">
-            <p className="hooks-example__header">Lytter på klikk utenfor dette området</p>
-            <p className="hooks-example__text">
+        <section ref={clickOutsideRef}>
+            <p className="jkl-body jkl-spacing--bottom-1">
                 Klikk utenfor eksempelet for å se klikket listet opp under. Klikk inne i eksempelet vil ikke listes opp
             </p>
             <button
@@ -33,9 +32,9 @@ const ClickOutsideExample = () => {
                 Nullstill liste
             </button>
             {listOfClicksOutside.length !== 0 && (
-                <ul className="jkl-list hooks-example__list">
+                <ul className="jkl-list jkl-list--unordered jkl-body">
                     {listOfClicksOutside.map((item, idx) => (
-                        <li className="jkl-list--item" key={idx}>
+                        <li className="jkl-list__item" key={idx}>
                             {item}
                         </li>
                     ))}

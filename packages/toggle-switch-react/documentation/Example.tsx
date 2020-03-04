@@ -1,21 +1,17 @@
 import React, { useState } from "react";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { ToggleSwitch } from "../src";
-import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 
-interface Props {
-    boolValues: { [key: string]: boolean };
-}
-
-const Example: React.FC<Props> = ({ boolValues }) => {
+const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOn, setIsOn] = useState(false);
-    const helpLabel = boolValues["Med hjelpetekst"] ? "Du må være koblet til wifi for å velge dette" : undefined;
+    const helpLabel =
+        boolValues && boolValues["Med hjelpetekst"] ? "Du må være koblet til wifi for å velge dette" : undefined;
     return (
         <ToggleSwitch
             pressed={isOn}
             onClick={() => setIsOn(!isOn)}
-            inverted={boolValues["Invertert"]}
-            disabled={boolValues["Deaktivert"]}
+            inverted={boolValues && boolValues["Invertert"]}
+            disabled={boolValues && boolValues["Deaktivert"]}
             helpLabel={helpLabel}
         >
             Send inn data om min kjørestil

@@ -13,9 +13,8 @@
 
     &__example-wrapper {
         width: 100%;
-        overflow-x: auto;
         display: flex;
-        //flex-wrap: wrap;
+        flex-wrap: wrap;
         align-items: center;
         color: $svart;
         background-color: $hvit;
@@ -26,7 +25,7 @@
             content: "Komponent";
             color: $svart;
             @include jkl-text-style("desktop/micro");
-            position: fixed;
+            position: absolute;
             top: $component-spacing--medium;
             left: $component-spacing--large;
         }

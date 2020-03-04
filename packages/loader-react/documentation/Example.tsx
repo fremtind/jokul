@@ -1,9 +1,8 @@
 import React from "react";
 import { Loader } from "../src";
-import "@fremtind/jkl-loader/loader.min.css";
 
 const Example = () => (
-    <section className="jkl-spacing--all-3">
+    <section>
         <Loader textDescription="Den som venter på noe godt…" />
         <div
             style={{

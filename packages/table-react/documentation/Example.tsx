@@ -1,6 +1,5 @@
 import React from "react";
 import { Table, TableRowType } from "../src";
-import "@fremtind/jkl-table/table.min.css";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Sakstype", "Milepæl", "Følger saken"];
 
@@ -26,11 +25,7 @@ const rows = [
 ];
 
 const Example = () => {
-    return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-            <Table columns={columns} rows={rows} className={"helloworld"} />
-        </section>
-    );
+    return <Table columns={columns} rows={rows} className={"helloworld"} />;
 };
 
 export default Example;

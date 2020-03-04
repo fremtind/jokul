@@ -34,7 +34,8 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14"
+        "@fremtind/browserslist-config-jkl": "^0.4.14",
+        "@fremtind/jkl-portal-components": "^0.1.0"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^4.0.0"

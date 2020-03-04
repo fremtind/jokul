@@ -35,6 +35,7 @@
         "@fremtind/jkl-card": "^1.2.1"
     },
     "devDependencies": {
+        "@fremtind/jkl-portal-components": "^0.1.0",
         "@fremtind/browserslist-config-jkl": "^0.4.14"
     },
     "peerDependencies": {

@@ -1,7 +1,6 @@
 import React from "react";
+
 import { Accordion, AccordionItem } from "../src";
-import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-accordion/accordion.min.css";
 
 export const Example = () => (
     <Accordion>

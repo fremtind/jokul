@@ -1,16 +1,12 @@
 import React, { useState, ChangeEvent } from "react";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-select/select.min.css";
 
-interface Props {
-    boolValues: { [key: string]: boolean };
-    choiceValues: { [key: string]: string };
-}
-
-export const Example = ({ boolValues, choiceValues }: Props) => {
-    const C = boolValues["Native"] ? NativeSelect : Select;
+export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+    const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
         { value: "firstvalue", label: "Value 1" },
@@ -25,13 +21,13 @@ export const Example = ({ boolValues, choiceValues }: Props) => {
         }
     };
 
-    const errorLabel = boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
-    const helpLabel = boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
-    const variant = choiceValues["Etikettvariant"] as LabelVariant;
+    const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
+    const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
+    const variant = choiceValues && (choiceValues["Etikettvariant"] as LabelVariant);
 
     return (
         <C
-            forceCompact={boolValues["Kompakt"]}
+            forceCompact={boolValues && boolValues["Kompakt"]}
             variant={variant}
             label="Select"
             items={values}

@@ -1,6 +1,5 @@
 import React from "react";
 import { Logo } from "../src";
-import "@fremtind/jkl-logo/logo.css";
 
 interface Props {
     boolValues: { [key: string]: boolean };

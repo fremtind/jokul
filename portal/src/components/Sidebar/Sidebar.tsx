@@ -18,7 +18,11 @@ export function Sidebar() {
         <Location>
             {({ location }) => {
                 const path = location.pathname.split("/")[1];
-                const { lastPath } = location.state as { lastPath?: string };
+                let lastPath: string | undefined = undefined;
+                if (location.state) {
+                    const state = location.state as { lastPath?: string };
+                    lastPath = state.lastPath;
+                }
                 const pathHasChanged =
                     lastPath && lastPath !== path && lastPath.includes("react") !== path.includes("react");
                 const sidebarClassName = classNames({

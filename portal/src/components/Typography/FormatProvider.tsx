@@ -2,8 +2,10 @@ import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import { ComponentExample } from "../ComponentExample";
+import { ComponentExample } from "@fremtind/jkl-portal-components";
+import "@fremtind/jkl-portal-components/component-example.scss";
 import { DoDontExample } from "../DoDontExample";
+import "./typography.scss";
 
 import {
     PageTitle,
@@ -15,7 +17,6 @@ import {
     ArticleLead as Ingress,
 } from "../Typography";
 
-/* eslint-disable */
 const components = {
     h1: PageTitle,
     h2: HeadingLarge,
@@ -31,7 +32,6 @@ const components = {
     ComponentExample,
     DoDontExample,
 };
-/* eslint-enable */
 
 interface Props {
     children: ReactNode;

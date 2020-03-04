@@ -1,22 +1,16 @@
 import React from "react";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Checkbox } from "../src";
-import "@fremtind/jkl-core/core.css";
-import "@fremtind/jkl-checkbox/checkbox.min.css";
-import "@fremtind/jkl-field-group/field-group.min.css";
 
-interface Props {
-    boolValues: { [key: string]: boolean };
-}
-
-const Example = ({ boolValues }: Props) => {
+export const Example = ({ boolValues }: ExampleComponentProps) => {
     const [checked, setChecked] = React.useState(false);
     return (
         <Checkbox
             name="checklist"
             value="checkbox"
             checked={checked}
-            invalid={boolValues["Med feil"]}
-            forceCompact={boolValues["Kompakt"]}
+            invalid={boolValues && boolValues["Med feil"]}
+            forceCompact={boolValues && boolValues["Kompakt"]}
             onChange={() => setChecked(!checked)}
         >
             Jeg vil bli kontaktet via epost
