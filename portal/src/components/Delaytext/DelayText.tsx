@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, forwardRef } from "react";
-import { findDOMNode } from "react-dom";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import classNames from "classnames";
 import "./delay-text.scss";
 import { VisibleDetector } from "../VisibleDetector";
@@ -63,7 +62,7 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-bottom"));
         elHeight += parseInt(window.getComputedStyle(parentEl).getPropertyValue("padding-top"));
 
-        const options = {
+        const options: ScrollToOptions = {
             top: elHeight,
             left: 0,
             behavior: "smooth",
@@ -96,7 +95,7 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
         isRunning ? (lolRandom < 50 ? delay : lolRandom) : null,
     );
 
-    const onLeft = (e) => {
+    const onLeft = () => {
         //setHidden(true);
     };
 

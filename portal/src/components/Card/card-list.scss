@@ -1,36 +1,20 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/variables/_spacing.scss";
 
 .jkl-portal__card-list {
     display: flex;
+    flex-direction: row;
 
-    .jkl-portal-card {
-        margin: $spacing-6;
-        flex: 1 1 0px;
-
-        &:first-child {
-            margin-left: 0;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
+    & > *:not(:last-child) {
+        margin: 0;
+        margin-right: $layout-spacing--medium;
     }
 
     &--vertical {
         flex-direction: column;
 
-        .jkl-portal-card {
-            margin-left: 0;
-
-            &:first-child {
-                margin-top: -$spacing-5;
-            }
-
-            &:last-child {
-                margin-right: $spacing-6;
-            }
+        & > *:not(:last-child) {
+            margin: 0;
+            margin-bottom: $layout-spacing--medium;
         }
     }
 }

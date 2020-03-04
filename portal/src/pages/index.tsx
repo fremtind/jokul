@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo } from "react";
 import { Layout } from "../components";
 import { DelayText } from "../components/Delaytext";
 
@@ -58,16 +58,16 @@ const IndexPage = () => {
                         </h2>
                         <div className="jkl-portal-frontpage__section-intro--content">
                             <div className="jkl-portal-frontpage__section-intro--image-container">
-                                <img alt="Utviklere" src="/Fremtind 1411-16.jpg" />
+                                <div className="jkl-portal-frontpage__section-intro--image" />
                             </div>
                             <CardList vertical>
-                                <Card heading="For utviklere" to="/komigang/utvikling">
+                                <Card heading="For utviklere" link="/komigang/utvikling">
                                     Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
                                 </Card>
-                                <Card heading="For designere" to="/komigang/design">
+                                <Card heading="For designere" link="/komigang/design">
                                     Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
                                 </Card>
-                                <Card heading="Prosessen" to="/komigang/prosessen">
+                                <Card heading="Prosessen" link="/komigang/prosessen">
                                     Hvordan du kan jobbe med designsystemet.
                                 </Card>
                             </CardList>
