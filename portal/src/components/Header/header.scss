@@ -27,10 +27,19 @@ $header-padding--right: $layout-spacing--xl;
     transition-property: height;
 
     &__title {
+        @include reset-outline;
         @include jkl-text-style("desktop/heading-small");
         color: inherit;
         text-decoration: none;
         font-weight: $normal-weight;
+
+        &:hover,
+        &:focus {
+            color: #000afa;
+        }
+        &:focus {
+            font-weight: $bold-weight;
+        }
     }
     &__navigation {
         height: 100%;

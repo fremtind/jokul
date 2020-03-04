@@ -22,6 +22,7 @@ $animation-timing: 300ms ease-out both;
     position: relative;
 
     &__link {
+        @include reset-outline;
         @include jkl-text-style("desktop/body");
         display: block;
         text-decoration: none;

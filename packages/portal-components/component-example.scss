@@ -8,6 +8,7 @@
     flex-direction: row;
     width: calc(100% - #{$layout-spacing--xxl});
     max-width: 50vw;
+    min-width: rem(600px);
     min-height: rem(208px);
     margin-bottom: $layout-spacing--large;
 

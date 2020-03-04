@@ -1,11 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { Layout } from "../components";
-import "@fremtind/jkl-core/core.min.css";
 import "../pages/style.scss";
 import "../components/Typography/typography.scss";
 import { jokulRenderer } from "../presentation/markdownRenderer";
-import { FormatProvider } from "../components/Typography";
 import ReactMarkdown from "react-markdown";
 
 export default function Template({
@@ -19,9 +17,7 @@ export default function Template({
 
     return (
         <Layout title={title}>
-            <FormatProvider>
-                <ReactMarkdown renderers={jokulRenderer}>{rawMarkdownBody}</ReactMarkdown>
-            </FormatProvider>
+            <ReactMarkdown renderers={jokulRenderer}>{rawMarkdownBody}</ReactMarkdown>
         </Layout>
     );
 }

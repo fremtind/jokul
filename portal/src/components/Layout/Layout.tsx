@@ -36,8 +36,8 @@ export const Layout = ({ children, title, isFrontpage }: Props) => {
                 <title>{PageTitle}</title>
             </Helmet>
             <ThemeBG />
-            <Sidebar />
             <Header />
+            <Sidebar />
             <main className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>
             </main>
