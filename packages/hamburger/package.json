@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^3.0.0"
+        "@fremtind/jkl-core": "^4.0.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14"

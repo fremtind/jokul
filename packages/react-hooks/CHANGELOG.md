@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@0.4.1...@fremtind/jkl-react-hooks@1.0.0) (2020-03-05)
+
+
+### Bug Fixes
+
+* **react-hooks:** fix check for window object in useScreen ([fce24bc](https://github.com/fremtind/jokul/commit/fce24bc8bf96960a15334017c2c54fc7cd75762d))
+* **react-hooks:** fix import ([c47c0bc](https://github.com/fremtind/jokul/commit/c47c0bcb9ebf320ef67800c8925179406504a520))
+
+
+### Features
+
+* **core:** add new func colors, remove illustration colors ([7847426](https://github.com/fremtind/jokul/commit/7847426fe77f723cd68085d4d995b3d867693c86))
+* **react-hooks:** add hook for responsivity in js ([4c36d27](https://github.com/fremtind/jokul/commit/4c36d27a8928a329e4ead16636f7f5a33d6b423f))
+
+
+### BREAKING CHANGES
+
+* **core:** Removes illustration colors: sand, jord, sol, blomst, skog, hav
+
+
+
+
+
 ## [0.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@0.4.0...@fremtind/jkl-react-hooks@0.4.1) (2020-02-19)
 
 **Note:** Version bump only for package @fremtind/jkl-react-hooks
