@@ -10,6 +10,7 @@ const useInterval = (callback: () => void, delay: number | null) => {
         savedCallback.current = callback;
     });
 
+    //@ts-ignore
     useEffect(() => {
         const tick = () => {
             if (savedCallback && savedCallback.current) {
@@ -35,7 +36,7 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
     const [index, setIndex] = useState(-1);
     const [isRunning, setIsRunning] = useState(true);
     const [charactersAnimated, setCharactersAnimated] = useState(0);
-    const [hidden, setHidden] = useState(false);
+    const [hidden] = useState(false);
     const noiseMap = Array.from(new Array(text.length)).map(() => Math.random() * 500 + 250);
     const textRef = useRef();
 
