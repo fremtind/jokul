@@ -51,63 +51,69 @@ export function FullScreenMenu({ title, items, filterable, activePath }: FullScr
     });
 
     return (
-        <>
-            <Location>
-                {({ location }) => {
-                    const isActivePath = activePath && location.pathname.includes(activePath);
-                    const isActive =
-                        isOpen || menuIsOpen === title || (isActivePath && (menuIsOpen === title || menuIsOpen == ""));
+        <Location>
+            {({ location: pageLocation }) => {
+                const isActivePath = activePath && pageLocation.pathname.includes(activePath);
+                const isActive =
+                    isOpen || menuIsOpen === title || (isActivePath && (menuIsOpen === title || menuIsOpen == ""));
 
-                    const toggleClassName = classNames("jkl-portal-full-screen-menu-toggle", {
-                        "jkl-portal-full-screen-menu-toggle--active": isActive,
-                    });
+                const toggleClassName = classNames("jkl-portal-full-screen-menu-toggle", {
+                    "jkl-portal-full-screen-menu-toggle--active": isActive,
+                });
 
-                    return <button className={toggleClassName}>{title}</button>;
-                }}
-            </Location>
-            <CoreToggle
-                popup
-                className={componentClassName}
-                ref={elementRef}
-                hidden={!isOpen}
-                onToggle={onToggle}
-                onToggleSelect={onToggleSelect}
-            >
-                <div className="jkl-portal-full-screen-menu__wrapper">
-                    <ul className="jkl-portal-full-screen-menu__items">
-                        {filteredItems.map((item, i) => (
-                            <FullScreenMenuItem
-                                idx={i}
-                                key={item.title}
-                                currentPath={location.pathname.split("/")[1]}
-                                path={item.path}
-                                title={item.title}
-                            />
-                        ))}
-                    </ul>
-                    {filterable && (
-                        <ActionTextField
-                            className="jkl-portal-full-screen-menu__filter"
-                            variant="small"
-                            label="Filtrér"
-                            value={filter}
-                            onChange={handleFilter}
-                            action={{ icon: "clear", label: "Nullstill filtrering", onClick: () => setFilter("") }}
-                        />
-                    )}
-                    <ToggleSwitch
-                        className="jkl-portal-full-screen-menu__darkmode-switch"
-                        inverted={theme === "dark"}
-                        pressed={theme === "dark"}
-                        onClick={toggleTheme}
-                    >
-                        Dark mode
-                    </ToggleSwitch>
-                    <button type="button" className="jkl-portal-full-screen-menu__close">
-                        Lukk meny
-                    </button>
-                </div>
-            </CoreToggle>
-        </>
+                return (
+                    <>
+                        <button className={toggleClassName}>{title}</button>
+                        <CoreToggle
+                            popup
+                            className={componentClassName}
+                            ref={elementRef}
+                            hidden={!isOpen}
+                            onToggle={onToggle}
+                            onToggleSelect={onToggleSelect}
+                        >
+                            <div className="jkl-portal-full-screen-menu__wrapper">
+                                <ul className="jkl-portal-full-screen-menu__items">
+                                    {filteredItems.map((item, i) => (
+                                        <FullScreenMenuItem
+                                            idx={i}
+                                            key={item.title}
+                                            currentPath={pageLocation.pathname.split("/")[1]}
+                                            path={item.path}
+                                            title={item.title}
+                                        />
+                                    ))}
+                                </ul>
+                                {filterable && (
+                                    <ActionTextField
+                                        className="jkl-portal-full-screen-menu__filter"
+                                        variant="small"
+                                        label="Filtrér"
+                                        value={filter}
+                                        onChange={handleFilter}
+                                        action={{
+                                            icon: "clear",
+                                            label: "Nullstill filtrering",
+                                            onClick: () => setFilter(""),
+                                        }}
+                                    />
+                                )}
+                                <ToggleSwitch
+                                    className="jkl-portal-full-screen-menu__darkmode-switch"
+                                    inverted={theme === "dark"}
+                                    pressed={theme === "dark"}
+                                    onClick={toggleTheme}
+                                >
+                                    Dark mode
+                                </ToggleSwitch>
+                                <button type="button" className="jkl-portal-full-screen-menu__close">
+                                    Lukk meny
+                                </button>
+                            </div>
+                        </CoreToggle>
+                    </>
+                );
+            }}
+        </Location>
     );
 }

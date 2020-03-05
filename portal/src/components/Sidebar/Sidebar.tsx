@@ -16,11 +16,11 @@ export function Sidebar() {
 
     return (
         <Location>
-            {({ location }) => {
-                const path = location.pathname.split("/")[1];
+            {({ location: pageLocation }) => {
+                const path = pageLocation.pathname.split("/")[1];
                 let lastPath: string | undefined = undefined;
-                if (location.state) {
-                    const state = location.state as { lastPath?: string };
+                if (pageLocation.state) {
+                    const state = pageLocation.state as { lastPath?: string };
                     lastPath = state.lastPath;
                 }
                 const pathHasChanged =

@@ -18,7 +18,7 @@ interface Props {
     tiles: number;
 }
 
-declare class PrincipleDiamondComponent extends React.Component<Props> {
+export class PrincipleDiamond extends React.Component<Props> {
     lastMinScale: number;
     lastMaxScale: number;
     updatedScaleAt: number;
@@ -27,9 +27,7 @@ declare class PrincipleDiamondComponent extends React.Component<Props> {
     tiles: number;
     ctx: CanvasRenderingContext2D | null;
     size: number[];
-}
 
-export class PrincipleDiamond extends PrincipleDiamondComponent {
     constructor(props: Props) {
         super(props);
         this.saveContext = this.saveContext.bind(this);
@@ -40,6 +38,10 @@ export class PrincipleDiamond extends PrincipleDiamondComponent {
         this.lastMinScale = 0;
         this.lastMaxScale = 0;
         this.updatedScaleAt = 0;
+        this.tileSize = 0;
+        this.tiles = 7;
+        this.ctx = null;
+        this.size = [250, 250];
     }
 
     componentDidMount() {
