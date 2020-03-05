@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { useNavigationLinks, DocumentationPageInfo } from "./useNavigationLinks";
 import { FullScreenMenu } from "./components/FullScreenMenu";
-import "./Header.scss";
+import "./header.scss";
 
 export const Header = () => {
     const [collapsed, setCollapsed] = useState(false);
