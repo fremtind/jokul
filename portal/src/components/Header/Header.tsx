@@ -4,7 +4,6 @@ import classNames from "classnames";
 
 import { useNavigationLinks, DocumentationPageInfo } from "./useNavigationLinks";
 import { FullScreenMenu } from "./components/FullScreenMenu";
-//
 import "./Header.scss";
 
 export const Header = () => {
