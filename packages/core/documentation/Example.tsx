@@ -15,17 +15,6 @@ Box.propTypes = {
     number: PropTypes.number,
 };
 
-export const Colors = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <h1 className="jkl-h1">Colors</h1>
-        <div className="demo-wrapper">
-            {[...Array(16)].map((_, idx) => (
-                <Box key={idx} type="color" number={idx} />
-            ))}
-        </div>
-    </section>
-);
-
 export const Typo = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <h1 className="jkl-h1">Heading1</h1>
@@ -58,7 +47,6 @@ export const Spacing = () => (
 
 const Example = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <Colors />
         <Typo />
         <Spacing />
     </section>

@@ -28,7 +28,18 @@ $link-side-padding: 0.075em; // relative value to work with all paragraph styles
         @include background-color($focus-color);
     }
 
-    &--negative {
+    /* Show arrow after external links, or links opening
+    in a new window or tab: */
+    &[target="_blank"],
+    &[href^="http://"],
+    &[href^="https://"] {
+        &:after {
+            content: "\2197"; // unicode north east arrow (up/right)
+        }
+    }
+
+    &--negative,
+    *[data-theme="dark"] & {
         @include background-color($gra-10);
 
         &:hover {

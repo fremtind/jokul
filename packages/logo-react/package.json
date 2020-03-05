@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo-react",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -33,12 +33,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-logo": "^2.1.0"
+        "@fremtind/jkl-logo": "^2.1.1"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14",
-        "@fremtind/jkl-field-group-react": "^1.2.1",
-        "@fremtind/jkl-toggle-switch-react": "^2.0.1"
+        "@fremtind/jkl-field-group-react": "^1.2.2",
+        "@fremtind/jkl-toggle-switch-react": "^2.0.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
