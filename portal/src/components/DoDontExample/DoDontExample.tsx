@@ -1,4 +1,5 @@
 import React from "react";
+import { withPrefix } from "gatsby";
 import classNames from "classnames";
 
 import "./DoDontExample.scss";
@@ -19,7 +20,7 @@ export function DoDontExample({ type, image, description }: Props) {
     });
     return (
         <aside className="jkl-portal-do-dont-example">
-            <img className="jkl-portal-do-dont-example__image" src={image} alt={altText} />
+            <img className="jkl-portal-do-dont-example__image" src={withPrefix(image)} alt={altText} />
             <p className={headingClass}>{heading}</p>
             <p className="jkl-portal-do-dont-example__description">{description}</p>
         </aside>

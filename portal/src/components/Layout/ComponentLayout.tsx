@@ -4,6 +4,7 @@ import { GitHubLinks } from "./components";
 import "../Layout/Layout.scss";
 
 interface Props {
+    location: Location;
     children: ReactNode;
     pageContext: {
         frontmatter: {
@@ -15,16 +16,19 @@ interface Props {
 }
 
 export const ComponentLayout = ({
+    location,
     children,
     pageContext: {
         frontmatter: { title, react, scss },
     },
-}: Props) => (
-    <Layout title={title} isComponentPage>
-        <h1 className="jkl-title-large">{title}</h1>
-        <GitHubLinks react={react} scss={scss} />
-        {children}
-    </Layout>
-);
+}: Props) => {
+    return (
+        <Layout location={location} title={title} isComponentPage>
+            <h1 className="jkl-title-large">{title}</h1>
+            <GitHubLinks react={react} scss={scss} />
+            {children}
+        </Layout>
+    );
+};
 
 export default ComponentLayout;

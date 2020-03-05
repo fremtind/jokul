@@ -16,9 +16,10 @@ interface Props {
     isComponentPage?: boolean;
     isFrontpage?: boolean;
     showFooter?: boolean;
+    location: Location;
 }
 
-export const Layout = ({ children, title, isFrontpage }: Props) => {
+export const Layout = ({ children, title, isFrontpage, location }: Props) => {
     const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
     const mainClassName = classNames({
         "jkl-portal__main": true,
@@ -37,7 +38,7 @@ export const Layout = ({ children, title, isFrontpage }: Props) => {
             </Helmet>
             <ThemeBG />
             <Header />
-            <Sidebar />
+            <Sidebar location={location} />
             <main className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>
             </main>

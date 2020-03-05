@@ -7,6 +7,7 @@ import { jokulRenderer } from "../presentation/markdownRenderer";
 import ReactMarkdown from "react-markdown";
 
 export default function Template({
+    location,
     data, // this prop will be injected by the GraphQL query below.
 }) {
     const { markdownRemark } = data; // data.markdownRemark holds our post data
@@ -16,7 +17,7 @@ export default function Template({
     } = markdownRemark;
 
     return (
-        <Layout title={title}>
+        <Layout location={location} title={title}>
             <ReactMarkdown renderers={jokulRenderer}>{rawMarkdownBody}</ReactMarkdown>
         </Layout>
     );
