@@ -33,6 +33,12 @@ export const HeadingXS = ({ children, ...rest }: HeadingProps) => (
     </h5>
 );
 
+export const ArticleLead = ({ children, ...rest }: ParagraphProps) => (
+    <p className="jkl-lead jkl-portal-article-lead" {...rest}>
+        {children}
+    </p>
+);
+
 export const Paragraph = ({ children, ...rest }: ParagraphProps) => (
     <p className="jkl-body jkl-portal-paragraph" {...rest}>
         {children}

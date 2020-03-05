@@ -1,5 +1,5 @@
 ---
-title: tester
+title: Tester
 path: /komigang/tester
 order: 4
 ---

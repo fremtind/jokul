@@ -1,0 +1,47 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-do-dont-example {
+    display: inline-block;
+    background-color: $gra-20;
+    padding: $component-spacing--medium;
+    padding-bottom: $component-spacing--large;
+    margin-bottom: $layout-spacing--large;
+
+    &:not(:last-of-type) {
+        margin-right: $layout-spacing--medium;
+    }
+
+    &__image {
+        width: 100%;
+        margin-bottom: $component-spacing--large;
+    }
+
+    &__heading {
+        @include jkl-text-style("desktop/heading-small");
+        margin-bottom: $component-spacing--xs;
+
+        &--do {
+            color: #005f47;
+        }
+
+        &--dont {
+            color: #aa1f23;
+        }
+    }
+
+    &__description {
+        @include jkl-text-style("desktop/body");
+    }
+
+    *[data-theme="dark"] & {
+        background-color: $gra-100;
+
+        &__heading--do {
+            color: #5effa0;
+        }
+
+        &__heading--dont {
+            color: #ff8b79;
+        }
+    }
+}

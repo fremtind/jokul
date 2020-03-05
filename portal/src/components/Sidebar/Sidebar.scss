@@ -1,0 +1,89 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+$animation-timing: 300ms ease-out both;
+
+.jkl-portal-sidebar-menu {
+    padding-left: $layout-spacing--medium;
+    padding-top: $layout-spacing--large;
+
+    &__filter {
+        margin-bottom: $layout-spacing--medium;
+    }
+
+    &__items {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.jkl-portal-sidebar-menu-item {
+    position: relative;
+
+    &__link {
+        @include reset-outline;
+        @include jkl-text-style("desktop/body");
+        display: block;
+        text-decoration: none;
+        color: inherit;
+
+        &:after {
+            content: "\2192";
+            position: absolute;
+            @include motion("standard");
+            transition-property: transform;
+        }
+
+        &:hover,
+        &:focus {
+            color: #000afa;
+            &:after {
+                transform: translateX(60%);
+            }
+        }
+
+        &--active {
+            color: #000afa;
+            font-weight: $bold-weight;
+            /* @include jkl-text-style("desktop/lead");
+            margin: $component-spacing--xs 0; */
+        }
+
+        *[data-theme="dark"] & {
+            &--active,
+            &:hover,
+            &:focus {
+                color: #00faff;
+            }
+        }
+    }
+
+    .jkl-portal-sidebar-menu--animated & {
+        animation: $animation-timing;
+        animation-name: appear;
+
+        &__link {
+            animation: $animation-timing;
+            animation-name: blinds;
+        }
+    }
+}
+
+@keyframes blinds {
+    0% {
+        clip-path: inset(0 -6ch 100% 0);
+    }
+    100% {
+        clip-path: inset(0 -6ch 0 0);
+    }
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}

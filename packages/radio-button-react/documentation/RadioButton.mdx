@@ -6,9 +6,23 @@ scss: radio-button
 
 import Example from "./Example";
 
-<Example />
-
-Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en _nedtrekksliste_.
+<Ingress>
+    Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil
+    fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en nedtrekksliste.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Kompakt", "Inline", "Med feil", "Invertert"],
+        choiceProps: [
+            {
+                name: "Variant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+/>
 
 Over radioknappene setter vi inn en tydelig overskrift, som forteller hva det er brukeren skal velge mellom. I tillegg skal hver radioknapp ha en kort og tydelig ledetekst til høyre for knappen, som beskriver alternativet.
 

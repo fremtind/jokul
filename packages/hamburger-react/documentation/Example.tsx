@@ -9,7 +9,7 @@ const Example = () => {
 
     const divRef = React.useRef(null);
     return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3" style={{ border: "solid 1px grey" }}>
+        <section style={{ border: "solid 1px black" }}>
             <div
                 style={{
                     backgroundColor: "black",

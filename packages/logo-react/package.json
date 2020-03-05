@@ -36,9 +36,8 @@
         "@fremtind/jkl-logo": "^2.1.1"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14",
-        "@fremtind/jkl-field-group-react": "^1.2.2",
-        "@fremtind/jkl-toggle-switch-react": "^2.0.2"
+        "@fremtind/jkl-portal-components": "^0.1.0",
+        "@fremtind/browserslist-config-jkl": "^0.4.14"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

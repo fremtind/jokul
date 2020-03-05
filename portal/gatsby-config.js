@@ -2,8 +2,8 @@
 module.exports = {
     pathPrefix: "/jokul",
     siteMetadata: {
-        title: `Jokul`,
-        description: `Documentation of Jøkul design system`,
+        title: `Jøkul`,
+        description: `Jøkul er designsystemet til Fremtind`,
         author: `Fremtind`,
     },
     plugins: [

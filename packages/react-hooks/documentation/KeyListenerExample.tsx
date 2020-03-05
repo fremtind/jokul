@@ -17,9 +17,8 @@ export default function KeyListenerExample() {
     useKeyListener(ref, keys, onKeyPressInside);
 
     return (
-        <section className="hooks-example key-listener-example jkl-spacing--bottom-3">
-            <p className="hooks-example__header">Lytter etter trykk på piltastene</p>
-            <p className="hooks-example__text">
+        <section>
+            <p className="jkl-body jkl-spacing--bottom-1">
                 Flytt fokus til aktiver-knappen under med Tab eller ved å trykke på den. Trykk på piltastene vil nå
                 listes opp under. Klikk utenfor knappen, eller flytt fokus med Tab, for å se at tastetrykkene ikke
                 lenger registreres.
@@ -27,11 +26,11 @@ export default function KeyListenerExample() {
             <button ref={ref} className="jkl-button jkl-button--secondary jkl-spacing--right-1" onClick={toggleActive}>
                 {active ? "Deaktiver" : "Aktiver"}
             </button>
-            <button className="key-listener-example__spaced-item jkl-button jkl-button--tertiary" onClick={resetList}>
+            <button className="jkl-button jkl-button--tertiary" onClick={resetList}>
                 Nullstill liste
             </button>
             {pressedKeys.length !== 0 && (
-                <ul className="hooks-example__list jkl-list jkl-list--unordered">
+                <ul className="jkl-list jkl-list--unordered jkl-body">
                     {pressedKeys.map((key, i) => (
                         <li key={i} className="jkl-list__item">
                             {key}
