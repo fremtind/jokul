@@ -33,11 +33,11 @@ $header-padding--right: $layout-spacing--xl;
         text-decoration: none;
         font-weight: $normal-weight;
 
-        &:hover,
-        &:focus {
+        &:hover {
             color: #000afa;
         }
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
+            color: #000afa;
             font-weight: $bold-weight;
         }
     }
