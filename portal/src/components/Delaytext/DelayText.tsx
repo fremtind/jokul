@@ -47,7 +47,11 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
     }, [index]);
 
     const onEnd = () => {
-        const elRef = textRef.current;
+        const elRef = (textRef.current as unknown) as {
+            parentElement: HTMLElement;
+            offsetHeight: number;
+            getPropertyValue: (s: string) => number;
+        };
 
         if (!elRef) {
             return;
@@ -56,9 +60,13 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
         const parentEl = elRef.parentElement;
 
         let elHeight = elRef.offsetHeight;
+        //@ts-ignore
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-top"));
+        //@ts-ignore
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-bottom"));
+        //@ts-ignore
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("padding-top"));
+        //@ts-ignore
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-bottom"));
         elHeight += parseInt(window.getComputedStyle(parentEl).getPropertyValue("padding-top"));
 
@@ -116,9 +124,11 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
     return (
         <>
             <VisibleDetector
-                onLeave={(e) => onLeft(e)}
+                onLeave={() => onLeft()}
                 threshold={[0]}
+                //@ts-ignore
                 ref={textRef}
+                //@ts-ignore
                 render={(ref) => (
                     <div ref={ref} className={delayTextClassName}>
                         <div className={textWrapper}>

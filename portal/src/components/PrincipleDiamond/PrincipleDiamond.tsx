@@ -10,8 +10,27 @@ export enum States {
     Clarity = 3,
 }
 
-export class PrincipleDiamond extends React.Component {
-    constructor(props) {
+interface Props {
+    minScale: number;
+    maxScale: number;
+    principleState?: number;
+    type?: string;
+    tiles: number;
+}
+
+declare class PrincipleDiamondComponent extends React.Component<Props> {
+    lastMinScale: number;
+    lastMaxScale: number;
+    updatedScaleAt: number;
+    animationTimeout?: number;
+    tileSize: number;
+    tiles: number;
+    ctx: CanvasRenderingContext2D | null;
+    size: number[];
+}
+
+export class PrincipleDiamond extends PrincipleDiamondComponent {
+    constructor(props: Props) {
         super(props);
         this.saveContext = this.saveContext.bind(this);
         this.draw = this.draw.bind(this);
@@ -29,14 +48,14 @@ export class PrincipleDiamond extends React.Component {
         this.updatedScaleAt = 0;
     }
 
-    componentDidUpdate(nextProps) {
+    componentDidUpdate(nextProps: Props) {
         if (this.props.minScale !== nextProps.minScale) {
             // console.log("updating minScale", this.lastMinScale, this.props.minScale, nextProps.minScale);
             this.lastMinScale = this.props.minScale;
             this.updatedScaleAt = Date.now();
         }
 
-        if (this.props.maxSxcale !== nextProps.maxSxcale) {
+        if (this.props.maxScale !== nextProps.maxScale) {
             // console.log("updating minScale", this.lastMaxScale, this.props.maxScale, nextProps.maxScale);
             this.lastMaxScale = this.props.maxScale;
             this.updatedScaleAt = Date.now();
@@ -51,7 +70,7 @@ export class PrincipleDiamond extends React.Component {
         }
     }
 
-    saveContext(ctx) {
+    saveContext(ctx: CanvasRenderingContext2D | null) {
         if (!ctx) {
             return;
         }
@@ -80,9 +99,10 @@ export class PrincipleDiamond extends React.Component {
         const width = size[0];
         const height = size[1];
 
-        ctx.clearRect(0, 0, width, height);
-
-        ctx.fillStyle = "black";
+        if (ctx) {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = "black";
+        }
 
         const time = Date.now();
 
@@ -96,12 +116,13 @@ export class PrincipleDiamond extends React.Component {
                 const position = tileSize;
                 const size = nBaseScale * tileSize;
 
-                ctx.fillRect(
-                    x * position - size / 2 + tileSize / 2,
-                    y * position - size / 2 + tileSize / 2,
-                    size,
-                    size,
-                );
+                ctx &&
+                    ctx.fillRect(
+                        x * position - size / 2 + tileSize / 2,
+                        y * position - size / 2 + tileSize / 2,
+                        size,
+                        size,
+                    );
             }
         }
 

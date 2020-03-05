@@ -19,6 +19,8 @@ const IndexPage = () => {
         setPrincipleState(state);
     };
 
+    const ref = React.useRef(null);
+
     const onLeave = (state: number) => {
         if (state === principleState) {
             setPrincipleState(0);
@@ -49,7 +51,7 @@ const IndexPage = () => {
 
     return (
         <Layout isFrontpage>
-            <DelayText text="Jøkul Designsystem" delay={100}>
+            <DelayText ref={ref} text="Jøkul Designsystem" delay={100}>
                 <div className="jkl-portal-frontpage">
                     <section className="jkl-portal-frontpage__section-intro">
                         <h2 className="jkl-title-small">
@@ -98,6 +100,7 @@ const IndexPage = () => {
                             <VisibleDetector
                                 onEnter={() => onPrincipleStateChange(1)}
                                 onLeave={() => onLeave(1)}
+                                //@ts-ignore
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
@@ -112,6 +115,7 @@ const IndexPage = () => {
                             <VisibleDetector
                                 onEnter={() => onPrincipleStateChange(2)}
                                 onLeave={() => onLeave(2)}
+                                //@ts-ignore
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
@@ -126,6 +130,7 @@ const IndexPage = () => {
                             <VisibleDetector
                                 onEnter={() => onPrincipleStateChange(3)}
                                 onLeave={() => onLeave(3)}
+                                //@ts-ignore
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
