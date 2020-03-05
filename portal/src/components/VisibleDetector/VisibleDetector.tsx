@@ -33,9 +33,7 @@ export const VisibleDetector: React.FC<Props> = forwardRef<HTMLElement, Props>(
         const fallback = () => console.log("IntersectionObserver not supported");
         const options = { rootMargin: "0px", threshold };
 
-        if (targetRef?.current) {
-            useIntersectionObserver(targetRef, onIntersect, fallback, options);
-        }
+        useIntersectionObserver(targetRef, onIntersect, fallback, options);
 
         return render(targetRef);
     },
