@@ -71,14 +71,8 @@ export const TextArea = ({
                 {label}
             </Label>
             <textarea
-                onFocus={(e) => {
-                    setTextAreaFocused(true);
-                    restProps.onFocus && restProps.onFocus(e);
-                }}
-                onBlur={(e) => {
-                    setTextAreaFocused(false);
-                    restProps.onBlur && restProps.onBlur(e);
-                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 ref={textAreaRef}
                 aria-invalid={!!errorLabel}
                 className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
@@ -90,6 +84,16 @@ export const TextArea = ({
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>
     );
+
+    function onFocus(e: FocusEvent<HTMLTextAreaElement>) {
+        setTextAreaFocused(true);
+        restProps.onFocus && restProps.onFocus(e);
+    }
+
+    function onBlur(e: FocusEvent<HTMLTextAreaElement>) {
+        setTextAreaFocused(false);
+        restProps.onBlur && restProps.onBlur(e);
+    }
 };
 
 function calculateAndSetElementHeight(rows: number, textAreaElement: HTMLTextAreaElement) {
