@@ -8,11 +8,16 @@ import "./index.scss";
 import { CardList, Card } from "../components/Card";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
+import { withPrefix } from "gatsby";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
 
-const IndexPage = () => {
+interface Props {
+    location: Location;
+}
+
+const IndexPage = ({ location }: Props) => {
     const [principleState, setPrincipleState] = useState(0);
 
     const onPrincipleStateChange = (state: number) => {
@@ -50,7 +55,7 @@ const IndexPage = () => {
     }, [principleState]);
 
     return (
-        <Layout isFrontpage>
+        <Layout location={location} isFrontpage>
             <DelayText ref={ref} text="Jøkul Designsystem" delay={100}>
                 <div className="jkl-portal-frontpage">
                     <section className="jkl-portal-frontpage__section-intro">
@@ -60,7 +65,12 @@ const IndexPage = () => {
                         </h2>
                         <div className="jkl-portal-frontpage__section-intro--content">
                             <div className="jkl-portal-frontpage__section-intro--image-container">
-                                <div className="jkl-portal-frontpage__section-intro--image" />
+                                <div
+                                    className="jkl-portal-frontpage__section-intro--image"
+                                    style={{
+                                        backgroundImage: `url(${withPrefix("assets/img/frontpage.jpg")})`,
+                                    }}
+                                />
                             </div>
                             <CardList vertical>
                                 <Card heading="For utviklere" link="/komigang/utvikling">

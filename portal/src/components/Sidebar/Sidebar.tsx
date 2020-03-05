@@ -1,59 +1,56 @@
 import React, { useState, ChangeEvent } from "react";
-import { Location } from "@reach/router";
 import classNames from "classnames";
+import { withPrefix } from "gatsby";
 import { ActionTextField } from "@fremtind/jkl-text-input-react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
 
-export function Sidebar() {
+type GatsbyLocation = Location & { state?: Record<string, string> };
+interface Props {
+    location: GatsbyLocation;
+}
+
+export function Sidebar({ location }: Props) {
     const { documentationPages, componentPages } = useNavigationLinks();
     const profileDocPages = documentationPages.filter((page: DocumentationPageInfo) => page.path.includes("profil"));
     const getStartedDocPages = documentationPages.filter((page: DocumentationPageInfo) =>
         page.path.includes("komigang"),
     );
 
+    const trimmedPath = location.pathname.substr(withPrefix("").length);
+    const relativePath = trimmedPath.split("/")[0];
+    const lastPath = location.state && location.state?.lastPath;
+    const pathHasChanged =
+        lastPath && lastPath !== relativePath && lastPath.includes("react") !== relativePath.includes("react");
+    const sidebarClassName = classNames({
+        "jkl-portal-sidebar-menu": true,
+        "jkl-portal-sidebar-menu--animated": pathHasChanged,
+    });
+    if (relativePath === "") {
+        return null;
+    }
+    let links: DocumentationPageInfo[];
+    switch (true) {
+        case relativePath === "profil":
+            links = profileDocPages;
+            break;
+        case relativePath === "komigang":
+            links = getStartedDocPages;
+            break;
+        case relativePath.includes("react"):
+            links = componentPages;
+            break;
+        default:
+            links = [];
+            break;
+    }
+
     return (
-        <Location>
-            {({ location: pageLocation }) => {
-                const path = pageLocation.pathname.split("/")[1];
-                let lastPath: string | undefined = undefined;
-                if (pageLocation.state) {
-                    const state = pageLocation.state as { lastPath?: string };
-                    lastPath = state.lastPath;
-                }
-                const pathHasChanged =
-                    lastPath && lastPath !== path && lastPath.includes("react") !== path.includes("react");
-                const sidebarClassName = classNames({
-                    "jkl-portal-sidebar-menu": true,
-                    "jkl-portal-sidebar-menu--animated": pathHasChanged,
-                });
-                if (path === "") {
-                    return null;
-                }
-                let links: DocumentationPageInfo[];
-                switch (true) {
-                    case path === "profil":
-                        links = profileDocPages;
-                        break;
-                    case path === "komigang":
-                        links = getStartedDocPages;
-                        break;
-                    case path.includes("react"):
-                        links = componentPages;
-                        break;
-                    default:
-                        links = [];
-                        break;
-                }
-                return (
-                    <nav className={sidebarClassName}>
-                        <SidebarMenu currentPath={path} links={links} />
-                    </nav>
-                );
-            }}
-        </Location>
+        <nav className={sidebarClassName}>
+            <SidebarMenu currentPath={relativePath} links={links} />
+        </nav>
     );
 }
 
