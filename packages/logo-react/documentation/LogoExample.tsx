@@ -1,10 +1,11 @@
 import React from "react";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Logo } from "../src";
 
-interface Props {
-    boolValues: { [key: string]: boolean };
-}
-
-export const LogoExample = ({ boolValues }: Props) => (
-    <Logo animated={boolValues["Animert"]} isSymbol={boolValues["Kun symbol"]} centered={boolValues["Sentrert"]} />
+export const LogoExample = ({ boolValues }: ExampleComponentProps) => (
+    <Logo
+        animated={boolValues && boolValues["Animert"]}
+        isSymbol={boolValues && boolValues["Kun symbol"]}
+        centered={boolValues && boolValues["Sentrert"]}
+    />
 );
