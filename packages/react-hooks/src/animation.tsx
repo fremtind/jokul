@@ -1,10 +1,10 @@
-import { MutableRefObject, Ref, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState, RefObject } from "react";
 
 interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
-export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [Ref<T>, () => void] {
+export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefObject<T>, () => void] {
     let raf1: number;
     let raf2: number;
     const elementRef = useRef<T>(null);
