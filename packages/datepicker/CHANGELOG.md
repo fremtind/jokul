@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.4.1...@fremtind/jkl-datepicker@1.4.2) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
 ## [1.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.4.0...@fremtind/jkl-datepicker@1.4.1) (2020-03-05)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker
