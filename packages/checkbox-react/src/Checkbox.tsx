@@ -43,7 +43,7 @@ export function Checkbox({
                 onChange={onChange}
             />
             <span className="jkl-checkbox__check-mark" />
-            {children}
+            <span className="jkl-checkbox__label">{children}</span>
         </label>
     );
 }

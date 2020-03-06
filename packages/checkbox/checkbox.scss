@@ -69,6 +69,11 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
         opacity: 0;
         position: absolute;
 
+        // Bold text when checked
+        &:checked ~ .jkl-checkbox__label {
+            font-weight: $bold-weight;
+        }
+
         // Handle fake checkmark based on checked state
         &:checked + .jkl-checkbox__check-mark {
             background-color: $checkbox-background-color--checked;
