@@ -370,17 +370,3 @@ $icon-size--compact: $font-size-2;
         }
     }
 }
-
-/* Utility classes for number of rows */
-@for $num from 3 through 10 {
-    .jkl-datepicker-text-input--#{$num}-rows:focus,
-    .jkl-datepicker-text-input--#{$num}-rows:not(:placeholder-shown) {
-        height: $input-line-height * $num + $bottom-padding;
-        @include small-device {
-            height: $input-line-height--small-device * $num + $bottom-padding;
-        }
-        .jkl-datepicker--compact & {
-            height: $input-line-height--small-device * $num + $bottom-padding;
-        }
-    }
-}
