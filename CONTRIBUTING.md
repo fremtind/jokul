@@ -6,7 +6,7 @@ Vi er avhengige av at folk vil bidra til Jøkul. Der er «så mye å gjøre og s
 
 ### Vi utvikler på GitHub
 
-Du finner all koden, feilrapportene og backlogen til designsystemet i GitHub. Alt er er åpent, og du har mulighet til å påvirke ved å bidra i samtalen på GitHub.
+Du finner all koden, feilrapportene og backlogen til designsystemet i GitHub. Alt er åpent, og du har mulighet til å påvirke ved å bidra i samtalen på GitHub.
 
 ### Dette trenger du
 
