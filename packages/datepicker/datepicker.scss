@@ -37,9 +37,11 @@ $icon-size--compact: $font-size-2;
     &__input {
         position: relative;
         display: block;
-        // $icon-size comes from text-input.scss
-        // using it ensures correct layout even if we change the text input styling
         width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});
+
+        .jkl-datepicker-text-input {
+            padding-right: $component-spacing--small + $icon-size;
+        }
     }
 
     &-text-input {
@@ -113,16 +115,6 @@ $icon-size--compact: $font-size-2;
     &__action-icon {
         display: inline-block;
         width: $icon-size;
-    }
-
-
-
-    &--action {
-        position: relative;
-
-        .jkl-datepicker-text-input {
-            padding-right: $component-spacing--small + $icon-size;
-        }
     }
 
     @include compact-mode {

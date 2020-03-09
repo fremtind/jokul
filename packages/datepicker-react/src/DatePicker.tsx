@@ -93,7 +93,7 @@ export function DatePicker({
         className,
     );
 
-    const inputClassName = classNames("jkl-datepicker jkl-datepicker--action jkl-datepicker__input", {
+    const inputClassName = classNames("jkl-datepicker jkl-datepicker__input", {
         "jkl-datepicker--compact": forceCompact,
     });
 
