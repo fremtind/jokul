@@ -17,7 +17,7 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
     align-items: center;
     cursor: pointer;
 
-    & + & {
+    &:not(:first-of-type) {
         margin-top: $component-spacing--large;
     }
 
@@ -64,6 +64,10 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
         }
     }
 
+    &__label {
+        cursor: inherit;
+    }
+
     &__input {
         // Hide native checkbox
         opacity: 0;
@@ -91,7 +95,7 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
     &--inline {
         display: inline-flex;
-        & + & {
+        &:not(:first-of-type) {
             margin-top: unset;
             margin-left: $component-spacing--xl;
         }

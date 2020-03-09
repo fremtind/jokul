@@ -1,5 +1,6 @@
-import React, { ReactNode, ChangeEvent } from "react";
+import React, { ReactNode, ChangeEvent, useState } from "react";
 import classNames from "classnames";
+import nanoid from "nanoid";
 
 interface Props {
     children: ReactNode;
@@ -29,9 +30,10 @@ export function Checkbox({
         "jkl-checkbox--inline": inline,
         "jkl-checkbox--error": invalid,
     });
+    const [uuid] = useState(`jkl-checkbox-${nanoid(8)}`);
 
     return (
-        <label className={componentClassNames}>
+        <div className={componentClassNames}>
             <input
                 className="jkl-checkbox__input"
                 data-testid="jkl-checkbox-input"
@@ -41,9 +43,12 @@ export function Checkbox({
                 name={name}
                 value={value}
                 onChange={onChange}
+                id={uuid}
             />
             <span className="jkl-checkbox__check-mark" />
-            <span className="jkl-checkbox__label">{children}</span>
-        </label>
+            <label htmlFor={uuid} className="jkl-checkbox__label">
+                {children}
+            </label>
+        </div>
     );
 }
