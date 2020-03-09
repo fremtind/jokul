@@ -120,17 +120,6 @@ $icon-size--compact: $font-size-2;
         position: relative;
     }
 
-    &--inline {
-        display: inline-block;
-        width: unset;
-        margin-top: rem(-4px);
-        vertical-align: top;
-
-        .jkl-body & .jkl-datepicker-text-input {
-            padding: 0;
-            text-align: center;
-        }
-    }
 
     &--action {
         position: relative;
