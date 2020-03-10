@@ -59,38 +59,6 @@ $icon-size--compact: $font-size-2;
         width: $icon-size;
     }
 
-    @include compact-mode {
-        & .jkl-datepicker-text-input,
-        & .jkl-datepicker-text-input::placeholder {
-            @include jkl-text-style("compact/body");
-        }
-        & .jkl-datepicker-text-input {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-button {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-icon {
-            width: $icon-size--compact;
-        }
-    }
-
-    @include small-device {
-        .jkl-datepicker-text-input,
-        .jkl-datepicker-text-input::placeholder {
-            @include jkl-text-style("compact/body");
-        }
-        & .jkl-datepicker-text-input {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-button {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-icon {
-            width: $icon-size--compact;
-        }
-    }
-
     /* Navigation in normal (compact) mode
        =================================== */
 
@@ -284,6 +252,38 @@ $icon-size--compact: $font-size-2;
     @include small-device {
         &__calendar {
             padding: $calendar-padding $calendar-padding--compact;
+        }
+    }
+
+    @include compact-mode {
+        & .jkl-datepicker-text-input,
+        & .jkl-datepicker-text-input::placeholder {
+            @include jkl-text-style("compact/body");
+        }
+        & .jkl-datepicker-text-input {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-button {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+
+    @include small-device {
+        .jkl-datepicker-text-input,
+        .jkl-datepicker-text-input::placeholder {
+            @include jkl-text-style("compact/body");
+        }
+        & .jkl-datepicker-text-input {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-button {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-icon {
+            width: $icon-size--compact;
         }
     }
 }
