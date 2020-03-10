@@ -25,6 +25,17 @@ describe("Datepicker", () => {
         expect(changeHandler).toHaveBeenCalledTimes(1);
     });
 
+    it("fires onChange method with undefined when text input is cleared", () => {
+        const changeHandler = jest.fn();
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+        const input = getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+        fireEvent.change(input, { target: { value: "some value to be cleared" } });
+        fireEvent.change(input, { target: { value: "" } });
+        expect(input).toHaveProperty("value", "");
+        expect(changeHandler).toHaveBeenCalledWith(undefined);
+    });
+
     it("does not fire onChange on edit input with invalid date", () => {
         const changeHandler = jest.fn();
         const { getByTestId } = render(<DatePicker onChange={changeHandler} />);

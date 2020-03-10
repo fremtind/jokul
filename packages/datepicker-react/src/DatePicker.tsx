@@ -27,7 +27,7 @@ interface Props {
     days?: string[];
     calendarButtonTitle?: string;
     initialDate?: Date;
-    onChange?: (date: Date) => void;
+    onChange?: (date?: Date) => void;
     extended?: boolean;
     initialShow?: boolean;
     className?: string;
@@ -131,6 +131,11 @@ export function DatePicker({
                 if (onChange) {
                     onChange(newDate);
                 }
+            }
+        } else if (newDateString === "") {
+            setDate(undefined);
+            if (onChange) {
+                onChange(undefined);
             }
         }
         setDateString(newDateString);
