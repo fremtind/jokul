@@ -16,7 +16,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf node_modules/ dist/ **/*.css",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "dev": "parcel example/index.html",
