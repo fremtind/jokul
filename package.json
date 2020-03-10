@@ -18,7 +18,7 @@
         "release": "lerna publish",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
         "start": "yarn run dev",
-        "boot": "yarn install && yarn build",
+        "boot": "run-s install build",
         "reboot": "yarn run clean && rimraf node_modules/ && yarn run boot"
     },
     "dependencies": {
