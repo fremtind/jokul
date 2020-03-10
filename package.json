@@ -11,7 +11,7 @@
         "deploy:docs": "gh-pages -d portal/public",
         "typecheck": "tsc --noEmit",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "lint-fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
+        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
         "ci:test": "run-p test lint typecheck",
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
