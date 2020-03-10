@@ -30,7 +30,7 @@ export function Checkbox({
         "jkl-checkbox--inline": inline,
         "jkl-checkbox--error": invalid,
     });
-    const [uuid] = useState(`jkl-checkbox-${nanoid(8)}`);
+    const [id] = useState(`jkl-checkbox-${nanoid(8)}`);
 
     return (
         <div className={componentClassNames}>
@@ -43,10 +43,10 @@ export function Checkbox({
                 name={name}
                 value={value}
                 onChange={onChange}
-                id={uuid}
+                id={id}
             />
             <span className="jkl-checkbox__check-mark" />
-            <label htmlFor={uuid} className="jkl-checkbox__label">
+            <label htmlFor={id} className="jkl-checkbox__label">
                 {children}
             </label>
         </div>
