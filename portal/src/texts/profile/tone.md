@@ -1,5 +1,5 @@
 ---
-title: stemmen vår
+title: Stemmen vår
 path: /profil/stilogtone
 order: 6
 ---
