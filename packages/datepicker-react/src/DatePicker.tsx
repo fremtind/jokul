@@ -93,7 +93,7 @@ export function DatePicker({
         className,
     );
 
-    const inputClassName = classNames("jkl-datepicker-text-input__input", {
+    const inputClassName = classNames("jkl-datepicker-text-input", {
         "jkl-datepicker--compact": forceCompact,
     });
 
@@ -168,7 +168,7 @@ export function DatePicker({
                     placeholder={placeholder}
                     type="text"
                     aria-invalid={!!errorLabel}
-                    className="jkl-datepicker-text-input"
+                    className="jkl-datepicker-text-input__input"
                     data-testid="jkl-datepicker__input"
                     value={dateString}
                     onChange={onInputChange}
@@ -204,7 +204,7 @@ export function DatePicker({
                                     <Label variant="small">{yearLabel}</Label>
                                     <input
                                         type="year"
-                                        className="jkl-datepicker-text-input jkl-datepicker__year-value"
+                                        className="jkl-datepicker-text-input__input jkl-datepicker__year-value"
                                     />
                                 </label>
 

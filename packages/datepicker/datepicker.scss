@@ -34,8 +34,6 @@ $icon-size--compact: $font-size-2;
     width: 100%;
     background-color: $input-bg-color;
 
-
-
     &__action-button {
         position: absolute;
         right: 0;
@@ -291,59 +289,55 @@ $icon-size--compact: $font-size-2;
 }
 
 .jkl-datepicker-text-input {
-    @include jkl-text-style("desktop/body");
-    border: none;
-    outline: none;
-    border-radius: 0;
-    color: inherit;
-
-    box-sizing: border-box;
-    width: 100%;
-    height: $input-height;
-    padding: 0 0 $bottom-padding;
-
-    font-weight: $bold-weight;
-    background-color: transparent;
-    transition: box-shadow $transition-timing;
-    @include underline-color(currentColor, $border-color--focus);
-    /* show border in mobile Safari */
-    -webkit-appearance: none;
-    resize: none; // Disable textarea resize
-
-    &::placeholder {
-        @include jkl-text-style("desktop/body");
-        font-weight: normal;
-        opacity: 1;
-        color: $gra-60;
-    }
-
-    &:hover,
-    &:focus {
-        box-shadow: inset 0 rem(-4px) 0 0 currentColor;
-    }
-
-    &[type="number"] {
-        text-align: right;
-    }
-
-    &[aria-invalid="true"],
-    &:invalid {
-        box-shadow: inset 0 rem(-2px) 0 0 $error-color;
-
-        &:focus,
-        &:hover,
-        html:not([data-mousenavigation]) &:focus {
-            box-shadow: inset 0 rem(-4px) 0 0 $error-color;
-        }
-    }
+    position: relative;
+    display: block;
+    width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});
 
     &__input {
-        position: relative;
-        display: block;
-        width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});
+        @include jkl-text-style("desktop/body");
+        border: none;
+        outline: none;
+        border-radius: 0;
+        color: inherit;
 
-        .jkl-datepicker-text-input {
-            padding-right: $component-spacing--small + $icon-size;
+        box-sizing: border-box;
+        width: 100%;
+        height: $input-height;
+        padding: 0 0 $bottom-padding;
+
+        font-weight: $bold-weight;
+        background-color: transparent;
+        transition: box-shadow $transition-timing;
+        @include underline-color(currentColor, $border-color--focus);
+        /* show border in mobile Safari */
+        -webkit-appearance: none;
+        resize: none; // Disable textarea resize
+
+        &::placeholder {
+            @include jkl-text-style("desktop/body");
+            font-weight: normal;
+            opacity: 1;
+            color: $gra-60;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 rem(-4px) 0 0 currentColor;
+        }
+
+        &[type="number"] {
+            text-align: right;
+        }
+
+        &[aria-invalid="true"],
+        &:invalid {
+            box-shadow: inset 0 rem(-2px) 0 0 $error-color;
+
+            &:focus,
+            &:hover,
+            html:not([data-mousenavigation]) &:focus {
+                box-shadow: inset 0 rem(-4px) 0 0 $error-color;
+            }
         }
     }
 }
