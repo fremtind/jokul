@@ -22,8 +22,7 @@ export function Sidebar({ location }: Props) {
     const trimmedPath = location.pathname.substr(withPrefix("").length);
     const relativePath = trimmedPath.split("/")[0];
     const lastPath = location.state && location.state?.lastPath;
-    const pathHasChanged =
-        lastPath && lastPath !== relativePath && lastPath.includes("react") !== relativePath.includes("react");
+    const pathHasChanged = lastPath && lastPath !== relativePath;
     const sidebarClassName = classNames({
         "jkl-portal-sidebar-menu": true,
         "jkl-portal-sidebar-menu--animated": pathHasChanged,
@@ -39,7 +38,7 @@ export function Sidebar({ location }: Props) {
         case relativePath === "komigang":
             links = getStartedDocPages;
             break;
-        case relativePath.includes("react"):
+        case relativePath === "komponenter":
             links = componentPages;
             break;
         default:

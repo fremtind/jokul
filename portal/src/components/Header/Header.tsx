@@ -38,7 +38,12 @@ export const Header = () => {
                         <FullScreenMenu filterable title="Profilen vår" items={profileDocPages} activePath="profil" />
                     </li>
                     <li className="jkl-portal-header__navigation-item">
-                        <FullScreenMenu filterable title="Komponenter" items={componentPages} activePath="react" />
+                        <FullScreenMenu
+                            filterable
+                            title="Komponenter"
+                            items={componentPages}
+                            activePath="komponenter"
+                        />
                     </li>
                     <li className="jkl-portal-header__navigation-item">
                         <FullScreenMenu title="Kom i gang" items={getStartedDocPages} activePath="komigang" />
