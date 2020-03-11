@@ -32,9 +32,9 @@ export function FullScreenMenu({ title, items, filterable, activePath }: FullScr
     const pathIsActive = activePath && currentSection.includes(activePath);
     const isActive =
         isOpen || // this menu is open, OR
-        menuIsOpen === activePath || // open menu is the current menu, OR
+        (activePath && menuIsOpen.includes(activePath)) || // open menu is the current menu, OR
         (pathIsActive && // the page is a subpage of this menu, AND
-            (menuIsOpen === activePath || menuIsOpen == "")); // open menu is either this menu or no menu
+            ((activePath && menuIsOpen.includes(activePath)) || menuIsOpen == "")); // open menu is either this menu or no menu
 
     const [filter, setFilter] = useState("");
     const handleFilter = (e: ChangeEvent<HTMLInputElement>) => {
