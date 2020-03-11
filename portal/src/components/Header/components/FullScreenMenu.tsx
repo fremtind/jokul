@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useContext } from "react";
+import React, { useState, ChangeEvent } from "react";
 import classNames from "classnames";
 //@ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
@@ -6,8 +6,8 @@ import { ActionTextField } from "@fremtind/jkl-text-input-react";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { FullScreenMenuItem, FullScreenMenuItemProps } from "./FullScreenMenuItem";
-import { themeContext } from "../../../contexts/themeContext";
-import { fullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
+import { useTheme } from "../../../contexts/themeContext";
+import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
 import { useLocation } from "../../../contexts/locationContext";
 
 import "./FullScreenMenu.scss";
@@ -24,8 +24,8 @@ interface FullScreenMenuProps {
     activePath?: string;
 }
 export function FullScreenMenu({ title, items, filterable, activePath }: FullScreenMenuProps) {
-    const { theme, toggleTheme } = useContext(themeContext);
-    const { menuIsOpen, setMenuIsOpen } = useContext(fullscreenMenuContext);
+    const { theme, toggleTheme } = useTheme();
+    const { menuIsOpen, setMenuIsOpen } = useFullscreenMenu();
 
     const [isOpen, setIsOpen] = useState(false);
     const { currentSection } = useLocation();

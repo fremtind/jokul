@@ -1,10 +1,10 @@
-import React, { ReactNode, useContext, useLayoutEffect, useRef } from "react";
+import React, { ReactNode, useLayoutEffect, useRef } from "react";
 import classNames from "classnames";
 
 import { FormatProvider } from "../Typography";
 import { Header, Sidebar, Footer } from "..";
 import { ThemeBG } from "./components";
-import { themeContext } from "../../contexts/themeContext";
+import { useTheme } from "../../contexts/themeContext";
 import { useLocation } from "../../contexts/locationContext";
 
 import "./Layout.scss";
@@ -29,7 +29,7 @@ export const Layout = ({ children, title, isFrontpage, location }: Props) => {
         "jkl-portal__main": true,
         "jkl-portal__main--frontpage": isFrontpage,
     });
-    const { theme } = useContext(themeContext);
+    const { theme } = useTheme();
     const wrapperRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
         wrapperRef.current?.setAttribute("data-theme", theme || "");

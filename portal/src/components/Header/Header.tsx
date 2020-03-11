@@ -1,14 +1,14 @@
-import React, { useLayoutEffect, useState, useContext } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Link } from "gatsby";
 import classNames from "classnames";
 
-import { fullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+import { useFullscreenMenu } from "../../contexts/fullscreenMenuContext";
 import { useNavigationLinks, DocumentationPageInfo } from "./useNavigationLinks";
 import { FullScreenMenu } from "./components/FullScreenMenu";
 import "./header.scss";
 
 export const Header = () => {
-    const { setMenuIsOpen } = useContext(fullscreenMenuContext);
+    const { setMenuIsOpen } = useFullscreenMenu();
     const [collapsed, setCollapsed] = useState(false);
     useLayoutEffect(() => {
         setMenuIsOpen("");

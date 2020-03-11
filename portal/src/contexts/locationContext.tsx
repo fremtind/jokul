@@ -9,15 +9,14 @@ interface LocationContext {
     setLocation: (location: GatsbyLocation) => void;
 }
 
-export const locationContext = createContext<LocationContext>({
+const locationContext = createContext<LocationContext>({
     currentPath: "",
     currentSection: "",
     setLocation: () => null,
 });
 
 export function useLocation() {
-    const temp = useContext(locationContext);
-    return { ...temp };
+    return useContext(locationContext);
 }
 
 interface Props {

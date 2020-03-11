@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { navigate } from "gatsby";
 
-import { fullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
+import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
 import { useLocation } from "../../../contexts/locationContext";
 import "./FullScreenMenuItem.scss";
 
@@ -11,7 +11,7 @@ export interface FullScreenMenuItemProps {
     title: string;
 }
 export function FullScreenMenuItem({ idx, path, title }: FullScreenMenuItemProps) {
-    const { setMenuIsOpen } = useContext(fullscreenMenuContext);
+    const { setMenuIsOpen } = useFullscreenMenu();
     const { currentSection } = useLocation();
     const handleClick = () => {
         // wait for closing animation before navigating
