@@ -33,7 +33,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-logo": "^2.1.3"
+        "@fremtind/jkl-logo": "^2.1.3",
+        "nanoid": "^2.1.11"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14",
