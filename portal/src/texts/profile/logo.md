@@ -1,5 +1,5 @@
 ---
-title: logo
+title: Logo
 path: /profil/logo
 order: 4
 ---

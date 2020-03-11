@@ -27,20 +27,20 @@ $varde-80: #ab9271;
 $varde-90: #8d7453;
 $varde-100: #68563e;
 
-// Meldingsfarger
-$suksess: #2f8551;
-$info: #0073e3;
-$advarsel: #ffa647;
-$feil: #d73704;
+// Meldingsfarger for lys bakgrunn
+$suksess: #005f47;
+$info: #000afa;
+$advarsel: #fbb15b;
+$feil: #aa1f23;
 
-// Illustrasjonsfarger
-$sand: #dcb28b;
-$jord: #765d4b;
-$sol: #ffc880;
-$blomst: #ff7059;
-$skog: #0d5745;
-$hav: #0a3166;
+// Meldingsfarger for mørk bakgrunn
+$suksess--darkbg: #5effa0;
+$info--darkbg: #00faff;
+$advarsel--darkbg: #fec97b;
+$feil--darkbg: #ff8b79;
 
 // Farger knyttet til bruksområde
 $error-color: $feil;
 $focus-color: $info;
+$error-color--darkbg: $feil--darkbg;
+$focus-color--darkbg: $info--darkbg;

@@ -9,6 +9,7 @@ import FocusOutsideExample from "./FocusOutsideExample";
 import KeyListenerExample from "./KeyListenerExample";
 import MutationObserverExample from "./MutationObserverExample";
 import IntersectionObserverExample from "./IntersectionObserverExample";
+import ScreenExample from "./ScreenExample";
 
 <p>
     <span class="jkl-lead">Denne pakken innholder støttefunksjoner i form av React hooks.</span>
@@ -18,34 +19,40 @@ import IntersectionObserverExample from "./IntersectionObserverExample";
 
 Animering av ting inn og ut av DOMet i React er ikke lett, men med useAnimatedHeight blir jobben en god del lettere.
 
-<AnimationExample />
+<ComponentExample component={AnimationExample} />
 
 ## useMutationObserver
 
 Med `useMutationObserver` kan du lytte på endringer i DOMet. Dette er en tynn wrapper over MutationObserver APIet som gjør det lettere å ta det i bruk i React. Den er nyttig om du f.eks. ønsker å spore når en bruker trykker på et element der du ikke har tilgang på `onChange`-funksjonen, som `Accordion`.
 
-<MutationObserverExample />
+<ComponentExample component={MutationObserverExample} />
 
 ## useClickOutside
 
 `useClickOutside` lar deg lytte på klikk utenfor et element. Det kan være nyttig for å lukke modaler o.l.
 
-<ClickOutsideExample />
+<ComponentExample component={ClickOutsideExample} />
 
 ## useFocusOutside
 
 `useFocusOutside` lar deg lytte etter elementfokus utenfor et gitt element, for eksempel når du tabber ut av en datovelger, og utføre en gitt handling.
 
-<FocusOutsideExample />
+<ComponentExample component={FocusOutsideExample} />
 
 ## useKeyListener
 
 `useKeyListener` lar deg lytte etter spesifiserte tastetrykk når fokus er inne i et gitt element. Dette kan være nyttig for blandt annet søkefunksjonalitet i lister, og tastaturnavigasjon i karuseller o.l.
 
-<KeyListenerExample />
+<ComponentExample component={KeyListenerExample} />
 
 ## useIntersectionObserver
 
 IntersectionObserver lar deg lytte på om et element er synlig eller ikke. Det gjør det mulig å animere innhold inn, eller prelaste innhold som er rett uten for viewporten. I eksemplet brukes det til å bytte bakgrunnsfarge når andre paragrafen kommer helt inn i visning.
 
-<IntersectionObserverExample />
+<ComponentExample component={IntersectionObserverExample} />
+
+## useScreen
+
+`useScreen` lar deg få tilgang til de samme breakpoints som cssen bruker til media queries. Av og til er kan det være nødvendig å endre strukturen på innholdet bassert på hvor stor skjerm innholdet skal presenteres på. Anbefalt implementasjon er å legge `useScreen` så høyt oppe i applikasjonen din som du mener er nødvendig i en `context`, for å benytte den contexten når du trenger å plukke ut verdiene i en komponent. Dette er for å unngå å sette opp flere eventlyttere enn nødvendig. Om du bruker server side rendering bør denne brukes med forsiktighet, da serveren ikke vil vite hvilken size den skal rendre for.
+
+<ScreenExample />

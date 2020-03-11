@@ -187,6 +187,8 @@ const Example = () => {
                     label="Din livshistorie"
                     value={value}
                     onChange={handleChange}
+                    placeholder="Dette feltet vokser mens du skriver"
+                    autoExpand
                     variant={variant}
                     forceCompact={isCompact}
                 />

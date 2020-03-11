@@ -27,7 +27,7 @@ interface Props {
     days?: string[];
     calendarButtonTitle?: string;
     initialDate?: Date;
-    onChange?: (date: Date) => void;
+    onChange?: (date?: Date) => void;
     extended?: boolean;
     initialShow?: boolean;
     className?: string;
@@ -92,8 +92,9 @@ export function DatePicker({
         },
         className,
     );
-    const inputClassName = classNames("jkl-text-field jkl-text-field--action jkl-datepicker__input", {
-        "jkl-text-field--compact": forceCompact,
+
+    const inputClassName = classNames("jkl-datepicker-text-input", {
+        "jkl-datepicker--compact": forceCompact,
     });
 
     useEffect(() => {
@@ -131,6 +132,11 @@ export function DatePicker({
                     onChange(newDate);
                 }
             }
+        } else if (newDateString === "") {
+            setDate(undefined);
+            if (onChange) {
+                onChange(undefined);
+            }
         }
         setDateString(newDateString);
     }
@@ -167,7 +173,7 @@ export function DatePicker({
                     placeholder={placeholder}
                     type="text"
                     aria-invalid={!!errorLabel}
-                    className="jkl-text-field__input"
+                    className="jkl-datepicker-text-input__input"
                     data-testid="jkl-datepicker__input"
                     value={dateString}
                     onChange={onInputChange}
@@ -176,9 +182,9 @@ export function DatePicker({
                     type="button"
                     title={calendarButtonTitle}
                     data-testid="jkl-datepicker__calendar-button"
-                    className="jkl-text-field__action-button"
+                    className="jkl-datepicker__action-button"
                 >
-                    <CalendarIcon className="jkl-text-field__action-icon" />
+                    <CalendarIcon className="jkl-datepicker__action-icon" />
                     <span data-testid="jkl-datepicker__calendar-button-text" className="jkl-sr-only">
                         {calendarButtonTitle}
                     </span>
@@ -199,9 +205,12 @@ export function DatePicker({
                     >
                         {extended && (
                             <div className="jkl-datepicker__calendar-navigation">
-                                <label className="jkl-text-field jkl-datepicker__year-selector">
+                                <label className="jkl-datepicker__year-selector">
                                     <Label variant="small">{yearLabel}</Label>
-                                    <input type="year" className="jkl-text-field__input jkl-datepicker__year-value" />
+                                    <input
+                                        type="year"
+                                        className="jkl-datepicker-text-input__input jkl-datepicker__year-value"
+                                    />
                                 </label>
 
                                 <label className="jkl-select jkl-datepicker__month-selector">

@@ -8,5 +8,5 @@ build/
 *.css
 dist/
 .idea/
-*.iml
+.iml
 .DS_Store

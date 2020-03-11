@@ -1,7 +1,7 @@
-import { Footer } from "./Footer/Footer";
-import { Header } from "./Header/Header";
-import { Layout } from "./Layout/Layout";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { Layout, ThemeBG } from "./Layout";
 import { ComponentLayout } from "./Layout/ComponentLayout";
-import { Menu } from "./Menu/Menu";
+import { Sidebar } from "./Sidebar";
 
-export { Footer, Header, Layout, Menu, ComponentLayout };
+export { Header, Footer, Layout, ThemeBG, ComponentLayout, Sidebar };

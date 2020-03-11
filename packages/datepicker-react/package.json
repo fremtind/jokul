@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker-react",
-    "version": "1.3.0",
+    "version": "1.4.1",
     "publishConfig": {
         "access": "public"
     },
@@ -28,20 +28,22 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-datepicker yarn build:watch",
         "dev:js": "parcel documentation/index.html",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-datepicker yarn build:watch",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-datepicker": "^1.4.0",
-        "@fremtind/jkl-react-hooks": "^0.4.1",
-        "@fremtind/jkl-typography-react": "^2.0.2",
+        "@fremtind/jkl-datepicker": "^1.4.3",
+        "@fremtind/jkl-react-hooks": "^1.1.1",
+        "@fremtind/jkl-typography-react": "^2.1.1",
         "@nrk/core-datepicker": "^3.0.7",
         "@nrk/core-toggle": "^3.0.7"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.4.14",
-        "@fremtind/jkl-core": "^3.0.0"
+        "@fremtind/jkl-core": "^3.0.0",
+        "@fremtind/jkl-portal-components": "^0.2.1",
+        "@mdx-js/parcel-plugin-mdx": "^1.5.7"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",
@@ -59,5 +61,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "6e8cfc145a406bc8e38ffe53ad9600bb73ea4ff8"
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

@@ -5,27 +5,34 @@ order: 0
 ---
 
 # Designsystemprosessen
-Mange team bruker designsystemet vårt, Jøkul, når de skal  utvikle for digitale flater. Noen er godt kjent med det, andre har vært litt innom det, mens noen ikke kjenner til det i det hele tatt.  For at Jøkul skal være til nytte, er det avgjørende at alle bidrar til å vedlikeholde systemet og gjøre det best mulig. Det gjelder alle roller, ikke bare utviklere og designere. Under beskriver vi prosessen du skal følge når du har et behov.  
+
+Mange team bruker designsystemet vårt, Jøkul, når de skal utvikle for digitale flater. Noen er godt kjent med det, andre har vært litt innom det, mens noen ikke kjenner til det i det hele tatt. For at Jøkul skal være til nytte, er det avgjørende at alle bidrar til å vedlikeholde systemet og gjøre det best mulig. Det gjelder alle roller, ikke bare utviklere og designere. Under beskriver vi prosessen du skal følge når du har et behov.
 
 ## Undersøke
+
 Portalen er en god kilde til å undersøke og avdekke behov. Her har du oversikt over alle komponenter og profilelementer, og du finner beskrivende eksempler. Spør gjerne også andre team om de har hatt samme utfordring.
 
 ## Rapportere
+
 Hvis du ikke finner det du leter etter, kan du opprette et issue på GitHub-siden til Jøkul. Beskriv behovet og ta gjerne med relevante illustrasjoner eller skjermbilder. Du kan også ta kontakt med oss i designsystemteamet direkte. Vi holder til i tredje etasje, ut mot Sentrum scene.
 
-Designsystemteamet holder hele tiden oversikten over issues som kommer inn, så det vil sjelden ta mer enn et døgn før du får tilbakemelding. 
+Designsystemteamet holder hele tiden oversikten over issues som kommer inn, så det vil sjelden ta mer enn et døgn før du får tilbakemelding.
 
 ## Avklare
-Designsystemteamet og interessenter tydeliggjør behovet og forsikrer seg om at det krever at vi gjør endringer i designsystemet. Kanskje finnes det en eksisterende løsning? 
+
+Designsystemteamet og interessenter tydeliggjør behovet og forsikrer seg om at det krever at vi gjør endringer i designsystemet. Kanskje finnes det en eksisterende løsning?
 
 Vi stiller oss også spørsmålet om dette behovet er unikt for denne løsningen, og noe som ikke kan brukes av andre team. Hvis det er det kaller vi det et snøfnugg og det skal løses av teamet selv.
 
 ## Spesifisere krav
+
 Designsystemteamet og interessenter avtaler et møte for å beskrive kravene. Møtet resulterer i en POC (Proof of Concept).
 Vi dokumenterer kravene og løsningen på GitHub.
 
 ## Utvikle
-Den som skal utvikle oppretter en pull request på GitHub. Løsningen blir utviklet og godkjennes til slutt av Designsystemteamet. Når løsningen er godkjent, merger vi den inn i masteren og publiserer den. 
+
+Den som skal utvikle oppretter en pull request på GitHub. Løsningen blir utviklet og godkjennes til slutt av Designsystemteamet. Når løsningen er godkjent, merger vi den inn i masteren og publiserer den.
 
 ## Ferdig
+
 Når løsningen er publisert, kan den tas i bruk. Kanskje oppdager et annet team et nytt behov når de ser denne løsningen, og prosessen gjentar seg.

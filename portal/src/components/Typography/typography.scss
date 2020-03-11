@@ -1,8 +1,16 @@
-@import "~@fremtind/jkl-core/variables/_spacing.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
 
 .jkl-portal-paragraph {
+    max-width: rem(750px);
     &:not(:last-child) {
         margin-bottom: $layout-spacing--small;
+    }
+}
+
+.jkl-portal-article-lead {
+    max-width: rem(850px);
+    &:not(:last-child) {
+        margin-bottom: $layout-spacing--large;
     }
 }
 
@@ -40,5 +48,47 @@
     }
     &:not(:last-child) {
         margin-bottom: $component-spacing--small;
+    }
+}
+
+.jkl-portal-inline-code {
+    display: inline-block;
+    background-color: $gra-20;
+    font-size: rem(16px);
+    padding: 0 $component-spacing--small;
+    margin: 0 $component-spacing--xxs;
+    transform: translateY(rem(-2px));
+    border-radius: rem(2px);
+
+    *[data-theme="dark"] & {
+        background-color: $gra-80;
+    }
+}
+
+.jkl-portal-code-block {
+    position: relative;
+    background-color: $gra-20;
+    padding: $component-spacing--xl $component-spacing--large;
+    border-radius: rem(2px);
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $component-spacing--small;
+        background-color: $svart;
+        color: $gra-10;
+        @include jkl-text-style("desktop/micro");
+        text-transform: uppercase;
+        content: attr(data-language);
+    }
+
+    *[data-theme="dark"] & {
+        background-color: $gra-90;
+
+        &:before {
+            background-color: $gra-50;
+            color: $svart;
+        }
     }
 }

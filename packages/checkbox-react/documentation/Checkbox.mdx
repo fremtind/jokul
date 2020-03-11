@@ -6,9 +6,17 @@ scss: checkbox
 
 import Example from "./Example";
 
-<Example />
-
-Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene jeg har gitt er riktige". Vi bruker flere avmerkingsbokser sammen når vi vil gi brukerne en liste med valg, der de kan velge ett eller flere alternativer.
+<Ingress>
+    Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene
+    jeg har gitt er riktige". Vi bruker flere avmerkingsbokser sammen når vi vil gi brukerne en liste med valg, der de
+    kan velge ett eller flere alternativer.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Kompakt", "Med feil"],
+    }}
+/>
 
 ## Bruk
 

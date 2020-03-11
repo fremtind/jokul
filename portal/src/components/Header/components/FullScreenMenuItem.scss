@@ -1,0 +1,67 @@
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-full-screen-menu-item {
+    display: inline-block;
+    position: relative;
+    animation: appear 350ms ease-out;
+
+    &__link {
+        position: relative;
+        @include reset-outline;
+        @include jkl-text-style("desktop/title-small");
+        line-height: rem(72px);
+        text-decoration: none;
+        color: $svart;
+        background-color: transparent;
+        padding: 0;
+        padding-right: 3ch;
+        cursor: pointer;
+        animation: blinds 350ms ease-out;
+        animation-fill-mode: both;
+
+        &:after {
+            position: absolute;
+            content: "\2192";
+            @include motion("standard");
+            transition-property: transform;
+            transform: translateX(0);
+        }
+
+        &:hover,
+        &:focus {
+            color: #000afa;
+            &:after {
+                transform: translateX(60%);
+            }
+        }
+
+        *[data-theme="dark"] & {
+            color: $hvit;
+
+            &:hover,
+            &:focus {
+                color: #00faff;
+            }
+        }
+    }
+}
+
+@keyframes blinds {
+    0% {
+        clip-path: inset(0 -3ch 100% 0);
+    }
+    100% {
+        clip-path: inset(0 -3ch 0 0);
+    }
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}

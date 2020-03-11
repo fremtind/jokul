@@ -1,90 +1,48 @@
-import React, { ReactNode } from "react";
-import { MDXProvider } from "@mdx-js/react";
-import { Link } from "@fremtind/jkl-typography-react";
-import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import React, { ReactNode, useContext, useLayoutEffect, useRef } from "react";
+import classNames from "classnames";
 
-import { PageTitle, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, Paragraph } from "../Typography";
-import { Footer, Header, Menu } from "..";
+import { FormatProvider } from "../Typography";
+import { Header, Sidebar, Footer } from "..";
+import { ThemeBG } from "./components";
+import { themeContext } from "../../contexts/themeContext";
+
 import "./Layout.scss";
-
-const getTheme = () => {
-    if (typeof window !== `undefined`) {
-        return window.localStorage.getItem("portal-theme") || "light";
-    }
-    return "light";
-};
-
-interface ContextProps {
-    theme: string;
-    toggleTheme: (checked: boolean) => void;
-}
-
-export const ThemeContext = React.createContext<ContextProps>({ theme: "light", toggleTheme: () => "" });
+import Helmet from "react-helmet";
 
 interface Props {
     children: ReactNode;
     title?: string;
     header?: string;
     isComponentPage?: boolean;
+    isFrontpage?: boolean;
     showFooter?: boolean;
+    location: Location;
 }
 
-/* eslint-disable */
-const h1 = PageTitle;
-const h2 = HeadingLarge;
-const h3 = HeadingMedium;
-const h4 = HeadingSmall;
-const h5 = HeadingXS;
-const p = Paragraph;
-const ul = (props: any) => <UnorderedList {...props} />;
-const li = (props: any) => <ListItem {...props} />;
-const ol = (props: any) => <OrderedList {...props} />;
-const a = (props: any) => <Link {...props} />;
-/* eslint-enable */
-
-const components = {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p,
-    ul,
-    li,
-    ol,
-    a,
-};
-
-export const Layout = ({ children, title, header, isComponentPage = false, showFooter = true }: Props) => {
-    const [theme, toggleDarkMode] = React.useState(getTheme());
-
-    const toggleTheme = (showDark: boolean) => {
-        if (showDark) {
-            return toggleDarkMode("dark");
-        }
-        return toggleDarkMode("light");
-    };
-
-    React.useEffect(() => {
-        if (theme === "dark") {
-            window.localStorage.setItem("portal-theme", "dark");
-            document.body.classList.add("portal-dark");
-        } else {
-            window.localStorage.setItem("portal-theme", "light");
-            document.body.classList.remove("portal-dark");
-        }
-    }, [theme]);
-
+export const Layout = ({ children, title, isFrontpage, location }: Props) => {
+    const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
+    const mainClassName = classNames({
+        "jkl-portal__main": true,
+        "jkl-portal__main--frontpage": isFrontpage,
+    });
+    const { theme } = useContext(themeContext);
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    useLayoutEffect(() => {
+        wrapperRef.current?.setAttribute("data-theme", theme || "");
+    }, [theme, wrapperRef]);
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <Header siteHeader={header} siteTitle={title} />
-            <Menu />
-            <main className={`portal-content ${isComponentPage ? "portal-content--component-page" : ""}`}>
-                <MDXProvider components={components}>{children}</MDXProvider>
+        <div className="jkl-portal" data-theme={theme} ref={wrapperRef}>
+            <Helmet>
+                <html lang="no-nb" />
+                <title>{PageTitle}</title>
+            </Helmet>
+            <ThemeBG />
+            <Header />
+            <Sidebar location={location} />
+            <main className={mainClassName}>
+                <FormatProvider>{children}</FormatProvider>
             </main>
-            {showFooter && <Footer />}
-        </ThemeContext.Provider>
+            <Footer className="jkl-portal__footer" />
+        </div>
     );
 };
-
-export default Layout;

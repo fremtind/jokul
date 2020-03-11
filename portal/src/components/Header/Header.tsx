@@ -1,33 +1,47 @@
+import React, { useLayoutEffect, useState } from "react";
 import { Link } from "gatsby";
-import React from "react";
-import { Helmet } from "react-helmet";
-import { Location } from "@reach/router";
+import classNames from "classnames";
 
-import "./Header.scss";
+import { useNavigationLinks, DocumentationPageInfo } from "./useNavigationLinks";
+import { FullScreenMenu } from "./components/FullScreenMenu";
+import "./header.scss";
 
-interface Props {
-    siteTitle?: string;
-    siteHeader?: string;
-}
+export const Header = () => {
+    const [collapsed, setCollapsed] = useState(false);
+    useLayoutEffect(() => {
+        window &&
+            window.addEventListener("scroll", () => {
+                setCollapsed(window.scrollY > 96);
+            });
+    }, []);
+    const { documentationPages, componentPages } = useNavigationLinks();
+    const profileDocPages = documentationPages.filter((page: DocumentationPageInfo) => page.path.includes("profil"));
+    const getStartedDocPages = documentationPages.filter((page: DocumentationPageInfo) =>
+        page.path.includes("komigang"),
+    );
+    const componentClassName = classNames({
+        "jkl-portal-header": true,
+        "jkl-portal-header--collapsed": collapsed,
+    });
 
-export const Header = ({ siteHeader = "Jøkul", siteTitle }: Props) => (
-    <Location>
-        {({ location }) => {
-            /* Vis sidetittelen som h1 på forsiden, som div ellers */
-            const TitleElm = location.pathname === "/" ? "h1" : "div";
-            return (
-                <header className="portal-header">
-                    <Helmet>
-                        <html lang="no-nb" />
-                        <title>{siteTitle ? `${siteTitle} - ` : ""}Jøkul designsystem</title>
-                    </Helmet>
-                    <TitleElm className="portal-header__title jkl-title-small">
-                        <Link to="/">{siteHeader}</Link>
-                    </TitleElm>
-                </header>
-            );
-        }}
-    </Location>
-);
-
-export default Header;
+    return (
+        <header className={componentClassName}>
+            <Link to="/" className="jkl-portal-header__title">
+                Jøkul
+            </Link>
+            <nav className="jkl-portal-header__navigation">
+                <ul className="jkl-portal-header__navigation-list">
+                    <li className="jkl-portal-header__navigation-item">
+                        <FullScreenMenu filterable title="Profilen vår" items={profileDocPages} activePath="profil/" />
+                    </li>
+                    <li className="jkl-portal-header__navigation-item">
+                        <FullScreenMenu filterable title="Komponenter" items={componentPages} activePath="react" />
+                    </li>
+                    <li className="jkl-portal-header__navigation-item">
+                        <FullScreenMenu title="Kom i gang" items={getStartedDocPages} activePath="komigang/" />
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    );
+};

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "3.0.0",
+    "version": "4.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -54,5 +54,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "6e8cfc145a406bc8e38ffe53ad9600bb73ea4ff8"
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }
