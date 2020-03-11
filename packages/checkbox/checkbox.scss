@@ -11,11 +11,8 @@ $checkbox-background-color--error: $error-color;
 $checkbox-check-mark-color: $checkbox-background-color--unchecked;
 
 .jkl-checkbox {
-    @include reset-outline;
+    //@include reset-outline;
     @include jkl-text-style("desktop/body");
-    display: flex;
-    align-items: center;
-    cursor: pointer;
 
     &:not(:first-of-type) {
         margin-top: $component-spacing--large;
@@ -65,7 +62,10 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
     }
 
     &__label {
-        cursor: inherit;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        flex-shrink: 0;
     }
 
     &__input {
@@ -74,21 +74,21 @@ $checkbox-check-mark-color: $checkbox-background-color--unchecked;
         position: absolute;
 
         // Bold text when checked
-        &:checked ~ .jkl-checkbox__label {
+        &:checked + .jkl-checkbox__label {
             font-weight: $bold-weight;
         }
 
         // Handle fake checkmark based on checked state
-        &:checked + .jkl-checkbox__check-mark {
+        &:checked + .jkl-checkbox__label > .jkl-checkbox__check-mark {
             background-color: $checkbox-background-color--checked;
         }
 
-        &:checked + .jkl-checkbox__check-mark:after {
+        &:checked + .jkl-checkbox__label > .jkl-checkbox__check-mark:after {
             animation: jkl-checkbox-checked-animation 150ms ease-in-out 0ms forwards;
             content: " ";
         }
 
-        html:not([data-mousenavigation]) &:focus + .jkl-checkbox__check-mark {
+        html:not([data-mousenavigation]) &:focus + .jkl-checkbox__label > .jkl-checkbox__check-mark {
             box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $focus-color;
         }
     }
