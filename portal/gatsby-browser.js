@@ -29,13 +29,16 @@ import { initTabListener } from "@fremtind/jkl-core";
 import "./src/components/Typography/typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";
 import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
+import { LocationContextProvider } from "./src/contexts/locationContext";
 
 initTabListener();
 
 export const wrapRootElement = ({ element }) => {
     return (
-        <ThemeContextProvider>
-            <FSMenuContextProvider>{element}</FSMenuContextProvider>
-        </ThemeContextProvider>
+        <LocationContextProvider>
+            <ThemeContextProvider>
+                <FSMenuContextProvider>{element}</FSMenuContextProvider>
+            </ThemeContextProvider>
+        </LocationContextProvider>
     );
 };

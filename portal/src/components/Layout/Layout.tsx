@@ -5,6 +5,7 @@ import { FormatProvider } from "../Typography";
 import { Header, Sidebar, Footer } from "..";
 import { ThemeBG } from "./components";
 import { themeContext } from "../../contexts/themeContext";
+import { useLocation } from "../../contexts/locationContext";
 
 import "./Layout.scss";
 import Helmet from "react-helmet";
@@ -20,6 +21,9 @@ interface Props {
 }
 
 export const Layout = ({ children, title, isFrontpage, location }: Props) => {
+    const { setLocation } = useLocation();
+    setLocation(location);
+
     const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
     const mainClassName = classNames({
         "jkl-portal__main": true,
