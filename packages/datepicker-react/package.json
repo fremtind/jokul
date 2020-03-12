@@ -29,6 +29,7 @@
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:js": "parcel documentation/index.html",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-datepicker yarn build:watch",
         "dev": "run-p dev:*"
     },
     "dependencies": {

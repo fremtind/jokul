@@ -132,6 +132,7 @@ $icon-size--compact: $font-size-2;
         }
         & .jkl-text-field__input {
             height: $input-height--small-device;
+            font-weight: $bold-weight;
         }
         & .jkl-text-input__action-button {
             height: $input-height--small-device;
@@ -148,6 +149,7 @@ $icon-size--compact: $font-size-2;
         }
         & .jkl-text-field__input {
             height: $input-height--small-device;
+            font-weight: $bold-weight;
         }
         & .jkl-text-input__action-button {
             height: $input-height--small-device;

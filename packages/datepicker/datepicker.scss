@@ -1,8 +1,19 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-text-input/text-input.scss";
 @import "~@fremtind/jkl-select/select.scss";
+
+$transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
+
+$input-bg-color: inherit;
+$border-color: $svart;
+$border-color--focus: $focus-color;
+
+$bottom-padding: $component-spacing--small;
+$input-line-height: $line-height-4;
+$input-height: $input-line-height + $bottom-padding;
+$input-line-height--small-device: $line-height-3;
+$input-height--small-device: $input-line-height--small-device + $bottom-padding;
 
 $date-width: $line-height-5;
 $date-spacing: rem(4px);
@@ -12,13 +23,39 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6);
 $background-color: $hvit;
 $bottom-margin: $component-spacing--large;
 
+$icon-size: rem(20px);
+$icon-size--compact: $font-size-2;
+
 .jkl-datepicker {
-    &__input {
-        position: relative;
-        display: block;
-        // $icon-size comes from text-input.scss
-        // using it ensures correct layout even if we change the text input styling
-        width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});
+    display: block;
+    box-sizing: border-box;
+    font-family: inherit;
+    width: 100%;
+    background-color: $input-bg-color;
+
+    &__action-button {
+        @include reset-outline;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        top: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0;
+        padding-bottom: $component-spacing--small;
+        height: $input-height;
+        color: $svart;
+
+        *:not([data-mousenavigation]) &:focus {
+            color: $focus-color;
+        }
+    }
+
+    &__action-icon {
+        display: inline-block;
+        width: $icon-size;
     }
 
     /* Navigation in normal (compact) mode
@@ -212,10 +249,90 @@ $bottom-margin: $component-spacing--large;
     }
 
     @include small-device {
-        width: $calendar-width + ($calendar-padding--compact * 2);
-
         &__calendar {
             padding: $calendar-padding $calendar-padding--compact;
+        }
+    }
+
+    @include compact-mode {
+        & .jkl-datepicker-text-input,
+        & .jkl-datepicker-text-input::placeholder {
+            @include jkl-text-style("compact/body");
+        }
+        & .jkl-datepicker-text-input {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-button {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+
+    @include small-device {
+        .jkl-datepicker-text-input,
+        .jkl-datepicker-text-input::placeholder {
+            @include jkl-text-style("compact/body");
+        }
+        & .jkl-datepicker-text-input {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-button {
+            height: $input-height--small-device;
+        }
+        & .jkl-datepicker__action-icon {
+            width: $icon-size--compact;
+        }
+    }
+}
+
+.jkl-datepicker-text-input {
+    position: relative;
+    display: block;
+    width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});
+
+    &__input {
+        @include jkl-text-style("desktop/body");
+        border: none;
+        outline: none;
+        border-radius: 0;
+        color: inherit;
+
+        box-sizing: border-box;
+        width: 100%;
+        height: $input-height;
+        padding: 0 0 $bottom-padding;
+
+        font-weight: $bold-weight;
+        background-color: transparent;
+        transition: box-shadow $transition-timing;
+        @include underline-color(currentColor, $border-color--focus);
+        /* show border in mobile Safari */
+        -webkit-appearance: none;
+        resize: none; // Disable textarea resize
+
+        &::placeholder {
+            @include jkl-text-style("desktop/body");
+            font-weight: normal;
+            opacity: 1;
+            color: $gra-60;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 rem(-4px) 0 0 currentColor;
+        }
+
+        &[aria-invalid="true"],
+        &:invalid {
+            box-shadow: inset 0 rem(-2px) 0 0 $error-color;
+
+            &:focus,
+            &:hover,
+            html:not([data-mousenavigation]) &:focus {
+                box-shadow: inset 0 rem(-4px) 0 0 $error-color;
+            }
         }
     }
 }

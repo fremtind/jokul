@@ -206,6 +206,7 @@ $chevron-side-padding: (2 * $component-spacing--small);
         & .jkl-select__value {
             @include jkl-text-style("compact/body");
             padding-right: $chevron-size--compact + $chevron-side-padding;
+            font-weight: $bold-weight;
         }
         & .jkl-select__option {
             @include jkl-text-style("compact/body");
