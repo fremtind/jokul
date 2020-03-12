@@ -3,8 +3,8 @@
     "private": true,
     "scripts": {
         "clean": "run-p clean:*",
-        "clean: root": "rimraf node_modules/",
-        "clean: packages": "lerna run --parallel clean",
+        "clean:root": "rimraf node_modules/",
+        "clean:packages": "lerna run --parallel clean",
         "build": "lerna run --ignore @fremtind/browserslist-config-jkl build",
         "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/jkl-react-hooks build",
         "build:docs": "lerna run build:docs",
