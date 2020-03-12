@@ -42,7 +42,7 @@ export const Layout = ({ children, title, isFrontpage, location }: Props) => {
             </Helmet>
             <ThemeBG />
             <Header />
-            <Sidebar location={location} />
+            <Sidebar />
             <main className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>
             </main>
