@@ -31,7 +31,7 @@
         "*.scss"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/ **/*.css",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
