@@ -39,7 +39,7 @@
         "@babel/preset-typescript": "^7.3.3",
         "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^8.0.0",
-        "@testing-library/dom": "^6.0.0",
+        "@testing-library/dom": "^7.0.0",
         "@testing-library/jest-dom": "^5.1.1",
         "@testing-library/react": "^9.1.1",
         "@types/classnames": "^2.2.9",
