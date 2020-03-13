@@ -1,0 +1,161 @@
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+$text-input-height: rem(48px);
+$text-input-height--compact: rem(40px);
+$text-input-button-width: rem(48px);
+$text-input-padding: $component-spacing--small;
+
+.jkl-text-input {
+    @include reset-outline;
+
+    &__input-wrapper {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    &__input {
+        border: none;
+        outline: none;
+        border-radius: 0;
+        -webkit-appearance: none;
+
+        box-sizing: border-box;
+        height: $text-input-height;
+        padding: $text-input-padding;
+        @include jkl-text-style("desktop/body");
+        font-weight: $bold-weight;
+        color: $svart;
+
+        background-color: $varde-20;
+        box-shadow: inset 0 rem(-1px) 0 0 $svart;
+
+        @include motion("standard");
+        transition-property: color, background-color, box-shadow;
+
+        /* Placeholder text style */
+        &::placeholder {
+            color: $gra-60;
+            font-weight: $normal-weight;
+        }
+
+        /* Color of text selection */
+        &::selection {
+            background-color: transparentize($info, 0.85);
+        }
+
+        /* Focus and hover states */
+        &:hover,
+        &:focus {
+            color: $info;
+            background-color: transparentize($info, 0.96);
+            box-shadow: inset 0 rem(-2px) 0 0 $info;
+        }
+
+        /*  Invalid states */
+        &[aria-invalid="true"],
+        &:invalid {
+            color: $feil;
+            background-color: transparentize($feil, 0.92);
+            box-shadow: inset 0 rem(-2px) 0 0 $feil;
+
+            &::selection {
+                background-color: transparentize($feil, 0.8);
+            }
+        }
+    }
+
+    &__action-button {
+        //@include reset-outline;
+        display: inline-flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0;
+        padding: $component-spacing--small 0;
+        height: $text-input-button-width;
+        width: $text-input-height;
+        margin-left: rem(-48px);
+        color: inherit;
+
+        &:focus,
+        &:hover {
+            color: $focus-color;
+        }
+    }
+
+    &__action-icon {
+        display: inline-block;
+        width: rem(20px);
+    }
+
+    /* Modifications for inline version */
+    &--inline {
+        display: inline-block;
+        margin: rem(-2px) rem(4px);
+    }
+
+    /* Modifications for input with action */
+    &--action {
+        .jkl-text-input__input {
+            padding-right: $text-input-height;
+        }
+    }
+
+    /* Modifications for compact variant (also inline) */
+    *[data-compactlayout] &,
+    &--compact,
+    &--inline {
+        .jkl-text-input__input {
+            @include jkl-text-style("compact/body");
+            font-weight: $bold-weight;
+            height: $text-input-height--compact;
+        }
+        .jkl-text-input__action-button {
+            height: $text-input-height--compact;
+        }
+        .jkl-text-input__action-icon {
+            width: rem(18px);
+        }
+    }
+
+    /* Modifications for dark mode */
+    /* *[data-theme="dark"] &, */
+    &--inverted {
+        & .jkl-text-input__input {
+            color: $hvit;
+            background-color: $gra-90;
+            box-shadow: inset 0 rem(-1px) 0 0 $gra-50;
+
+            &::placeholder {
+                color: $gra-30;
+            }
+
+            &::selection {
+                background-color: transparentize($info--darkbg, 0.8);
+            }
+
+            &:focus,
+            &:hover {
+                color: $info--darkbg;
+                background-color: transparentize($info--darkbg, 0.84);
+                box-shadow: inset 0 rem(-2px) 0 0 $info--darkbg;
+            }
+
+            &[aria-invalid="true"],
+            &:invalid {
+                color: $feil--darkbg;
+                background-color: transparentize($feil--darkbg, 0.84);
+                box-shadow: inset 0 rem(-2px) 0 0 $feil--darkbg;
+
+                &::selection {
+                    background-color: transparentize($feil--darkbg, 0.75);
+                }
+            }
+        }
+    }
+}
