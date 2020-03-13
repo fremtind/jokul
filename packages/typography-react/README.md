@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/typography-react/documentation/Typography/)
+# [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/komponenter/typography)
 
 Denne pakken inneholder komponenter for spesifikke typografiske komponenter, slik som `Label`, `SupportLabel` og `Link`, som brukes av flere av komponentene i Jøkul. Bruk av andre typografiske elementer, som overskrifter og avsnittstiler, se s[iden om typografi](https://fremtind.github.io/jokul/profil/typografi) i portalen.
 
@@ -6,7 +6,7 @@ Denne pakken inneholder komponenter for spesifikke typografiske komponenter, sli
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/typography-react/documentation/Typography/).
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/typography).
 
 ## Kom i gang
 
