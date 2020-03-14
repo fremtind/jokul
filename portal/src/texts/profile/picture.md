@@ -5,7 +5,7 @@ order: 8
 ---
 
 # Bildebruk
-Vi bruker bilder som virkemidler til å skape en stemning, understreke et poeng eller hjelpe brukeren med å navigere i våre løsninger. Vi skal bruke bilder fremfor illustrasjoner og ikoner så lenge tematikken ikke blir for tung. Bruk bilder fra vår bildebank når du skal bruke bilder i våre løsninger eller i en presentasjon.
+Vi bruker bilder som virkemidler til å skape en stemning, understreke et poeng eller hjelpe brukeren med å navigere i våre løsninger. Vi skal bruke bilder fremfor illustrasjoner og ikoner. Bruk bilder fra vår bildebank når du skal bruke bilder i våre løsninger eller i en presentasjon.
 
 ## Før du tar i bruk bilder
 Tenk gjennom dette før du velger et bilde:
@@ -48,10 +48,10 @@ Dyr har sin egen personlighet og de kan gjerne eie bildet alene, men det er ogs�
 ## Lys og farger
 Vi vil at atmosfæren i bildene skal virke inviterende og virkelighetsnær. For å skape det bruker vi dagslys, eller naturlig lyssetting og fargekorrigering.
 
-Vi bruker ikke effekter, filtre eller for mye refleksjon (lens flare) på bildene våre. Alle bildene i Fremtinds bildedatabase er redigert og fargekorrigert, slik at de oppfyller kravene til bildestilen. De skal oppleves som like.
+Vi bruker ikke effekter eller filtre på bildene våre. Alle bildene i Fremtinds bildedatabase er redigert og fargekorrigert, slik at de oppfyller kravene til bildestilen. De skal oppleves som like.
 
 ## Bevegelse
-For å skape ekstra liv kan man legge på enkle effekter som parallakse, blur og elevasjon. Vi kan også bruke animerte bilder, så lenge animasjonen tilfører noe og ikke oppleves som forstyrrende.
+For å skape ekstra liv kan man legge på enkle effekter som parallakse, uskarphet og elevasjon. Vi kan også bruke animerte bilder, så lenge animasjonen tilfører noe og ikke oppleves som forstyrrende.
 
 ## Responsivitet
 Bildene vil ofte brukes på responsive nettsider. Det betyr at både format og størrelse kan bli endret, og andre elementer kan bytte plass i forhold til bildet. Hvis vi bruker godt med rom rundt hovedmotivet i bildet, blir det lettere å plassere designelementer over bildet. Da får vi også et sikkerhetsrom rundt hovedmotivet, slik at det ikke blir beskåret når vi skalerer.
