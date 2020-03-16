@@ -24,14 +24,14 @@ export function Sidebar() {
         return null;
     }
     let links: DocumentationPageInfo[];
-    switch (true) {
-        case currentSection === "profil":
+    switch (currentSection) {
+        case "profil":
             links = profileDocPages;
             break;
-        case currentSection === "komigang":
+        case "komigang":
             links = getStartedDocPages;
             break;
-        case currentSection === "komponenter":
+        case "komponenter":
             links = componentPages;
             break;
         default:
