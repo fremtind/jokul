@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.1.1...@fremtind/jkl-react-hooks@1.1.2) (2020-03-16)
+
+
+### Bug Fixes
+
+* **react-hooks:** correct return signature in useAnimatedHeight ([c20ef3c](https://github.com/fremtind/jokul/commit/c20ef3cb6d7cda14cba6751bf8f62fc1fcd866d5))
+
+
+
+
+
 ## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.1.0...@fremtind/jkl-react-hooks@1.1.1) (2020-03-06)
 
 **Note:** Version bump only for package @fremtind/jkl-react-hooks

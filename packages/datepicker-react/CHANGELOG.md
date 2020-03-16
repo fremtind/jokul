@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.4.1...@fremtind/jkl-datepicker-react@2.0.0) (2020-03-16)
+
+
+### Bug Fixes
+
+* **datepicker-react:** add dev:style command to watch scss builds ([f2e9088](https://github.com/fremtind/jokul/commit/f2e908825c4c299ef03ec15139e00d32cc5962f8))
+* **datepicker-react:** add handling of empty dates in datepicker ([12caf46](https://github.com/fremtind/jokul/commit/12caf4646037b9993ef4dc13fd86795797f837c6)), closes [#801](https://github.com/fremtind/jokul/issues/801)
+
+
+### BREAKING CHANGES
+
+* **datepicker-react:** The function passed to the onChange prop on Datepicker must now accept a Date or undefined as its
+first argument
+
+
+
+
+
 ## [1.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@1.4.0...@fremtind/jkl-datepicker-react@1.4.1) (2020-03-06)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker-react
