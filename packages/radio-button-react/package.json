@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button-react",
-    "version": "1.2.1",
+    "version": "1.3.2",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -35,11 +35,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-field-group-react": "^1.2.1",
-        "@fremtind/jkl-radio-button": "^1.2.0"
+        "@fremtind/jkl-field-group-react": "^1.3.2",
+        "@fremtind/jkl-radio-button": "^1.2.4"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14"
+        "@fremtind/browserslist-config-jkl": "^0.5.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -57,5 +57,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "6e8cfc145a406bc8e38ffe53ad9600bb73ea4ff8"
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

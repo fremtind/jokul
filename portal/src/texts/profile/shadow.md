@@ -1,5 +1,5 @@
 ---
-title: skygger
+title: Skygger
 path: /profil/skygger
 order: 10
 ---

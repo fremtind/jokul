@@ -1,34 +1,25 @@
 import React from "react";
+import { LabelVariant } from "@fremtind/jkl-core";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { FieldGroup } from "../src/index";
-import "./index.scss";
 
-const Example = () => (
-    <section className="form-section">
-        <h2 className="jkl-h3 form-section__header">Livsstil og helse</h2>
+export function Example({ boolValues, choiceValues }: ExampleComponentProps) {
+    const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpetekst for feltene samlet" : undefined;
+    const errorLabel = boolValues && boolValues["Med feil"] ? "Feilmelding for feltene samlet" : undefined;
+    const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
+
+    return (
         <FieldGroup
-            variant="large"
+            forceCompact={boolValues && boolValues["Kompakt"]}
+            variant={variant}
+            helpLabel={helpLabel}
+            errorLabel={errorLabel}
             className="jkl-spacing--bottom-3"
-            legend="Har du bodd fast i Norge de siste 5 årene?"
+            legend="Samleoverskrift for feltene"
         >
-            <p className="jkl-lead">
-                Du trenger ikke ta hensyn til korte utenlandsopphold på grunn av studier eller feriereiser når du skal
-                svare på spørsmålet.
-            </p>
-            <p className="jkl-body">
-                <strong>[Felt settes inn her]</strong>
-            </p>
+            <p className="jkl-body">her kan du sette inn innhold og felter</p>
         </FieldGroup>
-        <FieldGroup legend="Hvor bodde du før du flyttet til Norge?">
-            <p className="jkl-body">
-                <strong>[Velg land her]</strong>
-            </p>
-        </FieldGroup>
-        <FieldGroup variant="small" forceCompact legend="Hvor bodde du før du flyttet til Norge?">
-            <p className="jkl-body">
-                <strong>[Velg land her]</strong>
-            </p>
-        </FieldGroup>
-    </section>
-);
+    );
+}
 
 export default Example;

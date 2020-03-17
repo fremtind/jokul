@@ -2,7 +2,9 @@
     "name": "@fremtind/jkl",
     "private": true,
     "scripts": {
-        "clean": "lerna run --parallel clean",
+        "clean": "run-p clean:*",
+        "clean:root": "rimraf node_modules/",
+        "clean:packages": "lerna run --parallel clean",
         "build": "lerna run --ignore @fremtind/browserslist-config-jkl build",
         "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/jkl-react-hooks build",
         "build:docs": "lerna run build:docs",
@@ -11,20 +13,27 @@
         "deploy:docs": "gh-pages -d portal/public",
         "typecheck": "tsc --noEmit",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+        "lint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
         "ci:test": "run-p test lint typecheck",
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "prerelease": "yarn build",
-        "release": "lerna publish"
+        "release": "lerna publish",
+        "dev": "lerna run --scope @fremtind/portal dev --stream",
+        "start": "yarn run dev",
+        "boot": "run-s install build",
+        "reboot": "run-s clean boot"
     },
     "dependencies": {
         "classnames": "^2.2.6",
+        "framer-motion": "^1.8.4",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.5.0",
         "@babel/core": "^7.5.4",
+        "@babel/plugin-proposal-optional-chaining": "^7.8.3",
         "@babel/preset-env": "^7.5.4",
         "@babel/preset-react": "^7.0.0",
         "@babel/preset-typescript": "^7.3.3",
@@ -71,7 +80,7 @@
         "parcel-bundler": "^1.12.3",
         "prettier": "^1.17.1",
         "rimraf": "^3.0.0",
-        "rollup": "^1.20.3",
+        "rollup": "^2.0.4",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",

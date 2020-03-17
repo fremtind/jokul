@@ -1,10 +1,10 @@
 # Migrasjonsguide
 
-Fra `jkl-core@2.x.x` til `jkl-core@3.0.0`
+Fra `jkl-core@2.x.x` til `jkl-core@3.0.0` eller `jkl-core@4.0.0`
 
 ## Farger
 
-Fargene har fått en overhaling i `jkl-core@3.0.0`. **Hovedfargene** er redusert til kun tre, men det har kommet til **Sekundærfarger** i form av 10-punkts skalaer for gråtoner og nyanser av fargen "Varde". **Støttefargene** er delt opp i **Meldingsfarger** og **Illustrasjonsfarger**.
+Fargene har fått en overhaling i `jkl-core@3.0.0`. **Hovedfargene** er redusert til kun tre, men det har kommet til **Sekundærfarger** i form av 10-punkts skalaer for gråtoner og nyanser av fargen "Varde". ~~**Støttefargene** er delt opp i **Meldingsfarger** og **Illustrasjonsfarger**~~ Fra `jkl-core@4.0.0` finnes kun **Meldingsfarger** i tillegg til hoved- og sekundærfargene.
 
 ### Hvordan bruke de nye fargene i Figma
 
@@ -23,6 +23,8 @@ Følgende variabler vil ikke fungere lenger fra `jkl-core@3.0.0`:
 | `$matt-svart`    | `$gra-80`                        |
 | `$snohvit`       | `$gra-10`                        |
 | `$himmelgra`     | `$gra-20`                        |
+
+Fra `jkl-core@4.0.0` utgår også følgende variabler uten erstatning: `$jord`, `$sand`, `$sol`, `$blomst`, `$skog` og `$hav`.
 
 ## Tekststiler
 

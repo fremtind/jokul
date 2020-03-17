@@ -18,7 +18,7 @@ function messageFactory(messageType: messageTypes) {
 
         return (
             <aside className={componentClassName}>
-                <div className="jkl-message-box__title jkl-h4">{title}</div>
+                <div className="jkl-message-box__title jkl-heading-medium">{title}</div>
                 <div className="jkl-message-box__message jkl-body">{children}</div>
             </aside>
         );

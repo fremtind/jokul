@@ -1,5 +1,5 @@
 ---
-title: portalen
+title: Portalen
 path: /komigang/portalen
 order: 6
 ---

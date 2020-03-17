@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.3.1...@fremtind/jkl-button-react@1.3.2) (2020-03-16)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
+## [1.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.3.0...@fremtind/jkl-button-react@1.3.1) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.2.2...@fremtind/jkl-button-react@1.3.0) (2020-03-06)
+
+
+### Features
+
+* implement component example ([9c34865](https://github.com/fremtind/jokul/commit/9c3486570b6dd74bc843431ffc9ddadd63b9d647))
+* **portal:** add do-dont example component ([7c880c6](https://github.com/fremtind/jokul/commit/7c880c6abefc3ca01a0df79d363242c7288a879a))
+* **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+* **portal:** portal component examples and meu fixes ([2ffe8fe](https://github.com/fremtind/jokul/commit/2ffe8fe39ff826983f027dad1ea7ffa97a013ccf))
+
+
+
+
+
+## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.2.1...@fremtind/jkl-button-react@1.2.2) (2020-03-05)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
 ## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.2.0...@fremtind/jkl-button-react@1.2.1) (2020-02-19)
 
 **Note:** Version bump only for package @fremtind/jkl-button-react

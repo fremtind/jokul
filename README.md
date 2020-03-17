@@ -10,7 +10,17 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 -   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
 -   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
 
-## [Kom i gang](https://fremtind.github.io/jokul/developer/getting-started)
+## [Kom i gang](https://fremtind.github.io/jokul/komigang/utvikling)
+
+1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
+2. Installer avhengigheter og bygg pakkene med `yarn boot`
+3. Start portalen lokalt med `yarn dev`
+
+**NB!** Når du sjekker ut en ny branch bør du bygge på nytt for å hindre at gammel bygget kode blir med når du kjører opp eksempler eller portalen. Kommandoen `yarn reboot` sletter alle bygde filer, installerer avhengigheter, og bygger pakkene på nytt.
+
+**Tips**: Du kan starte opp én og én komponent ved å kjøre `yarn dev` i react-pakken til komponenten. Den vil lytte på endringer i både react-og stilpakkene.
+
+## Bruk av pakkene
 
 Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker. NB! Selv om komponentpakkene inneholder alle avhengigheter må du selv sørge for å importere stilpakken i koden din.
 
@@ -46,11 +56,11 @@ På [https://fremtind.github.io/jokul/](https://fremtind.github.io/jokul/) finne
 
 Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsninger. Det skal være enkelt og lett å vedlikeholde og de ferdige løsningene skal føles like, selv om de er spesifikke for ulike fagområder i Fremtind eller ulike kundebehov. All utvikling skjer åpent på GitHub. Det gjør at alle interesserte kan følge med, påvirke retningen vi går i og være med på å videreutvikle designsystemet.
 
-### [Bidragsguide](https://fremtind.github.io/jokul/developer/contribute)
+### Bidragsguide
 
 Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra i [guiden](https://fremtind.github.io/jokul/developer/contribute) vår.
+Les mer om hvordan du kan bidra i [guiden](https://fremtind.github.io/jokul/komigang/utvikling) vår.
 
 ### Oppførsel
 
@@ -100,11 +110,13 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="https://github.com/fremtind-bot"><img src="https://avatars1.githubusercontent.com/u/57256715?v=4" width="100px;" alt=""/><br /><sub><b>fremtind-bot</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=fremtind-bot" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/joms"><img src="https://avatars2.githubusercontent.com/u/537060?v=4" width="100px;" alt=""/><br /><sub><b>Jo Emil Holen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=joms" title="Code">💻</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/eduardoir"><img src="https://avatars1.githubusercontent.com/u/56429532?v=4" width="100px;" alt=""/><br /><sub><b>eduardodir</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=eduardodir" title="Code">💻</a></td>
+    <td align="center"><a href="https://storksnestblog.wordpress.com"><img src="https://avatars2.githubusercontent.com/u/50489699?v=4" width="100px;" alt=""/><br /><sub><b>Sercan Leylek</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=SercanSercan" title="Code">💻</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!

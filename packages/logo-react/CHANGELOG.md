@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@2.1.1...@fremtind/jkl-logo-react@3.0.0) (2020-03-16)
+
+
+### Features
+
+* **logo-react:** remove LogoStamp components ([41d18c2](https://github.com/fremtind/jokul/commit/41d18c22cf4e6fc3026dc65cc6558814ff5033c1))
+
+
+### BREAKING CHANGES
+
+* **logo-react:** LogoStamp components are no longer available for use
+
+
+
+
+
+## [2.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@2.1.0...@fremtind/jkl-logo-react@2.1.1) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
+# [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@2.0.2...@fremtind/jkl-logo-react@2.1.0) (2020-03-06)
+
+
+### Features
+
+* **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+
+
+
+
+
+## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@2.0.1...@fremtind/jkl-logo-react@2.0.2) (2020-03-05)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
 ## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@2.0.0...@fremtind/jkl-logo-react@2.0.1) (2020-02-19)
 
 **Note:** Version bump only for package @fremtind/jkl-logo-react

@@ -6,9 +6,16 @@ scss: toggle-switch
 
 import Example from "./Example";
 
-<Example />
-
-Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. Ledeteksten forteller hva brukeren slår av og på.
+<Ingress>
+    Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. Ledeteksten
+    forteller hva brukeren slår av og på.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Invertert", "Deaktivert", "Med hjelpetekst"],
+    }}
+/>
 
 Veksleknapper passer til situasjoner der brukerne selv kan velge å ha en funksjon av eller på, for eksempel automatisk oppdatering eller automatisk lagring.
 

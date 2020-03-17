@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.3.1...@fremtind/jkl-text-input-react@1.3.2) (2020-03-16)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input-react
+
+
+
+
+
+## [1.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.3.0...@fremtind/jkl-text-input-react@1.3.1) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input-react
+
+
+
+
+
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.2.2...@fremtind/jkl-text-input-react@1.3.0) (2020-03-06)
+
+
+### Features
+
+* **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+* **text-input-react:** add autoExpand to TextArea ([919193b](https://github.com/fremtind/jokul/commit/919193b542c50c583da6d4575386cce3e1ae758c)), closes [#769](https://github.com/fremtind/jokul/issues/769)
+
+
+
+
+
+## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.2.1...@fremtind/jkl-text-input-react@1.2.2) (2020-03-05)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input-react
+
+
+
+
+
 ## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.2.0...@fremtind/jkl-text-input-react@1.2.1) (2020-02-24)
 
 

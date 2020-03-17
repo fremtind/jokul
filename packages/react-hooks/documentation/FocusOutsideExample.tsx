@@ -15,9 +15,8 @@ export default function FocusOutsideExample() {
     });
 
     return (
-        <section className="hooks-example focus-outside-example jkl-spacing--bottom-3">
-            <p className="hooks-example__header">Lytter på fokus utenfor kortet under</p>
-            <p className="hooks-example__text">
+        <section>
+            <p className="jkl-body jkl-spacing--bottom-1">
                 Fokuser på et element utenfor kortet for å øke telleren. Når du flytter fokus tilbake vil ikke telleren
                 øke.
             </p>
@@ -31,7 +30,7 @@ export default function FocusOutsideExample() {
                     Nullstill teller
                 </button>
             </div>
-            <button className="jkl-button jkl-button--secondary hooks-example__spaced-item">Utenfor kortet</button>
+            <button className="jkl-button jkl-button--secondary jkl-spacing--top-2">Utenfor kortet</button>
         </section>
     );
 }

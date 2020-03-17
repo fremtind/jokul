@@ -1,20 +1,23 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout/Layout";
-import "@fremtind/jkl-core/core.min.css";
+import { Layout } from "../components";
 import "../pages/style.scss";
 import "../components/Typography/typography.scss";
 import { jokulRenderer } from "../presentation/markdownRenderer";
 import ReactMarkdown from "react-markdown";
 
 export default function Template({
+    location,
     data, // this prop will be injected by the GraphQL query below.
 }) {
     const { markdownRemark } = data; // data.markdownRemark holds our post data
-    const { rawMarkdownBody } = markdownRemark;
+    const {
+        rawMarkdownBody,
+        frontmatter: { title },
+    } = markdownRemark;
 
     return (
-        <Layout>
+        <Layout location={location} title={title}>
             <ReactMarkdown renderers={jokulRenderer}>{rawMarkdownBody}</ReactMarkdown>
         </Layout>
     );

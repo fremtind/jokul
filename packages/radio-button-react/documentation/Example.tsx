@@ -1,68 +1,28 @@
-import React, { useState } from "react";
-import { RadioButtons } from "../src";
+import React from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
-import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-radio-button/radio-button.min.css";
-import "@fremtind/jkl-field-group/field-group.min.css";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { RadioButtons } from "../src";
 
-const choices = ["Yes", "No", "I don't know"];
-
-const Example = () => {
-    const [selectedValue, setSelectedValue] = React.useState();
-    const [inline, setInline] = useState(false);
-    const [inverted, setInverted] = useState(false);
-    const [invalid, setInvalid] = useState("");
-    const [variant, setVariant] = useState<LabelVariant | undefined>("medium");
-    const typecheckAndSetVariant = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const val = e.target.value;
-        if (val === "large" || val === "medium" || val === "small") {
-            setVariant(val);
-        } else {
-            setVariant(undefined);
-        }
-    };
-    const style = inverted ? { backgroundColor: "#000", color: "#FFF" } : undefined;
+const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+    const choices = ["Yes", "No", "I don't know"];
+    const [selectedValue, setSelectedValue] = React.useState("Yes");
+    const errorLabel = boolValues && boolValues["Med feil"] ? "Her er det noe feil" : undefined;
+    const variant = choiceValues && choiceValues["Variant"] ? (choiceValues["Variant"] as LabelVariant) : "medium";
 
     return (
-        <section className="jkl-spacing--top-3 jkl-spacing--bottom-3" style={style}>
-            <div className="jkl-spacing--bottom-3">
-                <button className="jkl-spacing--right-1" onClick={() => setInline(!inline)}>
-                    Toggle inlined radio buttons
-                </button>
-                <button className="jkl-spacing--right-1" onClick={() => setInverted(!inverted)}>
-                    Toggle inverted
-                </button>
-                <button
-                    className="jkl-spacing--right-1"
-                    onClick={() => setInvalid(invalid === "" ? "Hmm... this is not right" : "")}
-                >
-                    Toggle invalid
-                </button>
-                <label>
-                    {`Choose variant: `}
-                    {/* eslint-disable jsx-a11y/no-onchange */}
-                    <select onChange={typecheckAndSetVariant} value={variant}>
-                        <option value="large">Large</option>
-                        <option value="medium">Medium</option>
-                        <option value="small">Small</option>
-                    </select>
-                    {/* eslint-enable jsx-a11y/no-onchange */}
-                </label>
-            </div>
-
-            <RadioButtons
-                legend="Do you like radio buttons?"
-                name="likesradiobuttons"
-                choices={choices}
-                inline={inline}
-                selectedValue={selectedValue}
-                onChange={(e) => setSelectedValue(e.target.value)}
-                helpLabel="Who dosent like radio buttons?"
-                errorLabel={invalid}
-                variant={variant}
-                inverted={inverted}
-            />
-        </section>
+        <RadioButtons
+            legend="Do you like radio buttons?"
+            name="likesradiobuttons"
+            choices={choices}
+            inline={boolValues && boolValues["Inline"]}
+            forceCompact={boolValues && boolValues["Kompakt"]}
+            selectedValue={selectedValue}
+            onChange={(e) => setSelectedValue(e.target.value)}
+            helpLabel="Who dosent like radio buttons?"
+            errorLabel={errorLabel}
+            variant={variant}
+            inverted={boolValues && boolValues["Invertert"]}
+        />
     );
 };
 

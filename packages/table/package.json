@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "publishConfig": {
         "access": "public"
     },
@@ -18,14 +18,14 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14"
+        "@fremtind/browserslist-config-jkl": "^0.5.0"
     },
     "repository": {
         "type": "git",

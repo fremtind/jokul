@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.0.2...@fremtind/jkl-core@4.1.0) (2020-03-16)
+
+
+### Features
+
+* **core:** add support for prefers-reduced-motion ([ee9886b](https://github.com/fremtind/jokul/commit/ee9886bf1daf894c9b912ae02a92929b2e4fa8da))
+
+
+
+
+
+## [4.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.0.1...@fremtind/jkl-core@4.0.2) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+## [4.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.0.0...@fremtind/jkl-core@4.0.1) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+# [4.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@3.0.0...@fremtind/jkl-core@4.0.0) (2020-03-05)
+
+
+### Features
+
+* **core:** add new func colors, remove illustration colors ([7847426](https://github.com/fremtind/jokul/commit/7847426fe77f723cd68085d4d995b3d867693c86))
+* **core:** update warning and error colors ([13f6976](https://github.com/fremtind/jokul/commit/13f697673012acd39d5d8ecb6fd835805d2e18b2))
+* **links:** add indicator for external links ([4562e46](https://github.com/fremtind/jokul/commit/4562e469cf865b9d5f04f133d1db37450bbd2731))
+* **react-hooks:** add hook for responsivity in js ([4c36d27](https://github.com/fremtind/jokul/commit/4c36d27a8928a329e4ead16636f7f5a33d6b423f))
+
+
+### BREAKING CHANGES
+
+* **core:** Removes illustration colors: sand, jord, sol, blomst, skog, hav
+
+
+
+
+
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@2.0.1...@fremtind/jkl-core@3.0.0) (2020-02-18)
 
 

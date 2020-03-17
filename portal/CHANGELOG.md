@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.1...@fremtind/portal@2.0.2) (2020-03-16)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.0...@fremtind/portal@2.0.1) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.2.1...@fremtind/portal@2.0.0) (2020-03-06)
+
+
+### Bug Fixes
+
+* **portal:** syntax changes in worded sentence ([8ce791a](https://github.com/fremtind/jokul/commit/8ce791a2513f984c2bf73b1471ec9dfdb95ef3cc))
+* implement className, and remove unused import ([224de84](https://github.com/fremtind/jokul/commit/224de843ca40b678e4fab7bfcb8368376c6983f0))
+* **portal:** convert layout to use css grid ([612dc5d](https://github.com/fremtind/jokul/commit/612dc5d15d75a111c411c3f725a7738e5df8618a))
+* **portal:** fix color name from deprecated snøhvit ([dbb4186](https://github.com/fremtind/jokul/commit/dbb418689b2ac28e1cab2c030308e4d44c77b38c))
+* **portal:** fix focus state of title ([3bd0c2e](https://github.com/fremtind/jokul/commit/3bd0c2e723577cb84eabfcf61faf270e61c5b2ef))
+* **portal:** fix header export ([6c22852](https://github.com/fremtind/jokul/commit/6c228529b13f5abae7891fe42394480b8b3b5962))
+* **portal:** fix more type issues ([5b4bfbf](https://github.com/fremtind/jokul/commit/5b4bfbf16454f85ede7ca7f5d4aa6f4270c355ca))
+* **portal:** fix types in frontpage components ([6a9bba2](https://github.com/fremtind/jokul/commit/6a9bba294f44f88d4ecb6f96078816c2fc7369c8))
+* **portal:** fix wrong case in import ([60df779](https://github.com/fremtind/jokul/commit/60df7796621094be89556d3223ce7a4a14d3991d))
+* **portal:** fix wrong use of hook ([f0bf89e](https://github.com/fremtind/jokul/commit/f0bf89ed56b80ba81e68ebb3b808acedca9bf7a9))
+* **portal:** fixes path/location based issues in prod build ([7c75f1c](https://github.com/fremtind/jokul/commit/7c75f1c55cb7955bf4748366daff866bbf3c963c))
+* **portal:** front page fixup ([b38085c](https://github.com/fremtind/jokul/commit/b38085cfb7972e2d8b95eb06157cb55330ec50c9))
+* **portal:** move Header component ([4ccdba5](https://github.com/fremtind/jokul/commit/4ccdba50c06ae3a990093b1c983b09d2747d0e29))
+* **portal:** refactor component structure ([abd749e](https://github.com/fremtind/jokul/commit/abd749ed3eaa9057325d3e27890f9d32ba091441))
+* **portal:** remove "Forsikring" from the Fremtind name ([d09b641](https://github.com/fremtind/jokul/commit/d09b6410cc2403297735f002ff25aa0b4bdf106c))
+* **portal:** remove unsued header code ([6abb412](https://github.com/fremtind/jokul/commit/6abb4123a877bccd5046c02ba33b078f82fcf7a8))
+* menu styling changes ([adc6be9](https://github.com/fremtind/jokul/commit/adc6be94a4b89dcbfcac717541ef7910485f93c5))
+
+
+### Code Refactoring
+
+* **portal:** refactoring the portal ([f1f1d7e](https://github.com/fremtind/jokul/commit/f1f1d7e379e3d0c097f3d5b7b3eda5e5ecd377c1))
+
+
+### Features
+
+* **portal:** add back github links ([3765cff](https://github.com/fremtind/jokul/commit/3765cff7335631531b4921af1d1bea701024dd14))
+* **portal:** add basic landing page content ([4a8dc2b](https://github.com/fremtind/jokul/commit/4a8dc2b72152f5ba7a1d52b8b184467a9fa5f820))
+* **portal:** add do-dont example component ([7c880c6](https://github.com/fremtind/jokul/commit/7c880c6abefc3ca01a0df79d363242c7288a879a))
+* **portal:** add fullscreen menus and dark mode ([3b7da49](https://github.com/fremtind/jokul/commit/3b7da4986352c22c081d8aaa3533083bbc106e15))
+* **portal:** add PoC for delayed text strings ([756a160](https://github.com/fremtind/jokul/commit/756a1604230818d093da8e0d2a02ad88a339a035))
+* **portal:** add PoC for fading out delayed text ([7ed33cd](https://github.com/fremtind/jokul/commit/7ed33cd57411d654dae03c94f171db89c25dd304))
+* **portal:** additions and fixes to portal landing and content ([31853bd](https://github.com/fremtind/jokul/commit/31853bdc9a49e7a2fafe28899c5eccb9a9860d91))
+* **portal:** animate menu items ([bf410ae](https://github.com/fremtind/jokul/commit/bf410aed23ee38432297feabf5aa9977d338902d))
+* **portal:** feat: made stuff in the portal ([1b75e62](https://github.com/fremtind/jokul/commit/1b75e6219ef2f2d18c6614897e0fd843f9db3224))
+* **portal:** finish implementing comp.examples ([8765859](https://github.com/fremtind/jokul/commit/8765859d88f88ab567c4ca1daad96e6d667992f1))
+* **portal:** front page fixes ([eff7576](https://github.com/fremtind/jokul/commit/eff7576d8e08df86c0dac7ee536e0cde32768a3e))
+* **portal:** frontpage changes ([cd28aa0](https://github.com/fremtind/jokul/commit/cd28aa0b0847e2627a0bcc067eb14a53e10546b8))
+* **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+* **portal:** more work on portal principles ([754cee0](https://github.com/fremtind/jokul/commit/754cee0b72bde7a90e8f566c841c951800342419))
+* **portal:** move footer to own component ([8865168](https://github.com/fremtind/jokul/commit/8865168e4efabcb8da94bff890bea77fe6d79bd5))
+* **portal:** new frontpage content ([9a63066](https://github.com/fremtind/jokul/commit/9a6306654abc3bf82646542182047595e1a0c67c))
+* **portal:** portal component examples and meu fixes ([2ffe8fe](https://github.com/fremtind/jokul/commit/2ffe8fe39ff826983f027dad1ea7ffa97a013ccf))
+* **portal:** proper theme handling in component example ([051580b](https://github.com/fremtind/jokul/commit/051580b2d56ec5101387cff97552ac611016bb4d))
+* **portal:** remember dark mode setting ([303999c](https://github.com/fremtind/jokul/commit/303999c1fb1bee2292850e425064d5fee3de850f))
+* **portal:** remove unused code, and add link support to card ([c1014f6](https://github.com/fremtind/jokul/commit/c1014f66d76d0db3f9d684d242326bf96cd1c4c6))
+* **portal:** updating the layout for the portal, work in progress ([80d3626](https://github.com/fremtind/jokul/commit/80d36266130a9e37cf2677d82340bdbf2e98a496))
+* implement component example ([9c34865](https://github.com/fremtind/jokul/commit/9c3486570b6dd74bc843431ffc9ddadd63b9d647))
+
+
+### BREAKING CHANGES
+
+* **portal:** none
+
+
+
+
+
 ## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.2.0...@fremtind/portal@1.2.1) (2020-02-19)
 
 

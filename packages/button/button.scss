@@ -96,7 +96,7 @@ $hover-elevation-distance: -0.25rem;
         border-bottom: solid $button-border-width currentColor;
         border-top: solid $button-border-width transparent;
         background-color: transparent;
-        color: currentColor;
+        color: $button-text-color;
         padding: 0;
         transition: transform $animation-timing, border $animation-timing;
         min-width: unset;
@@ -133,15 +133,21 @@ $hover-elevation-distance: -0.25rem;
         @include jkl-text-style("compact/body");
         font-weight: $bold-weight;
         height: $button-height--compact;
-        min-width: $button-min-width--compact;
         line-height: $button-height--compact;
+        min-width: $button-min-width--compact;
+        &.jkl-button--tertiary {
+            min-width: unset;
+        }
     }
 
     @include compact-mode {
         @include jkl-text-style("compact/body");
         font-weight: $bold-weight;
         height: $button-height--compact;
-        min-width: $button-min-width--compact;
         line-height: $button-height--compact;
+        min-width: $button-min-width--compact;
+        &.jkl-button--tertiary {
+            min-width: unset;
+        }
     }
 }

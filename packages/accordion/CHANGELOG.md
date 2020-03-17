@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.1.3...@fremtind/jkl-accordion@1.1.4) (2020-03-16)
+
+
+### Bug Fixes
+
+* **accordion:** make accordion fill entire width of container ([f15f3b3](https://github.com/fremtind/jokul/commit/f15f3b32b509827ff208d45835dd06d5874744d7))
+
+
+
+
+
+## [1.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.1.2...@fremtind/jkl-accordion@1.1.3) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.1.1...@fremtind/jkl-accordion@1.1.2) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.1.0...@fremtind/jkl-accordion@1.1.1) (2020-03-05)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
 # [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.0.16...@fremtind/jkl-accordion@1.1.0) (2020-02-19)
 
 

@@ -4,11 +4,25 @@ react: message-box-react
 scss: message-box
 ---
 
-import Example from "./Example";
+import { Example } from "./Example";
 
-<Example />
-
-En melding er en beskjed til brukeren. Det kan være et varsel om at noe er feil, informasjon om at noe mangler i et skjema, eller en bekreftelse på at noe har blitt oppdatert. Meldingene består av en overskrift og en meldingstekst.
+<Ingress>
+    En melding er en beskjed til brukeren. Det kan være et varsel om at noe er feil, informasjon om at noe mangler i et
+    skjema, eller en bekreftelse på at noe har blitt oppdatert. Meldingene består av en overskrift og en meldingstekst.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Full bredde"],
+        choiceProps: [
+            {
+                name: "Type",
+                values: ["Infomelding", "Suksessmelding", "Advarselsmelding", "Feilmelding"],
+                defaultValue: 0,
+            },
+        ],
+    }}
+/>
 
 ## Meldingstyper
 

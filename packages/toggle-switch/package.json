@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "2.1.0",
+    "version": "2.1.4",
     "description": "Jøkul style for toggle switch",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
@@ -20,17 +20,17 @@
         "*.scss"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ dist/ **/*.css",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^3.0.0"
+        "@fremtind/jkl-core": "^4.1.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14"
+        "@fremtind/browserslist-config-jkl": "^0.5.0"
     },
     "repository": {
         "type": "git",
@@ -42,5 +42,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "6e8cfc145a406bc8e38ffe53ad9600bb73ea4ff8"
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

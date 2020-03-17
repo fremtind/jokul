@@ -4,11 +4,26 @@ react: select-react
 scss: select
 ---
 
-import Example from "./Example";
+import { Example } from "./Example";
 
-<Example />
-
-Vi bruker nedtrekkslister til å gi brukeren en liste med alternativ. Nedtrekkslister passer i de tilfellene det er for mange valg til å bruke _radioknapper_. Nedtrekkslisten må ha en overskrift, som forteller hva det er brukerne kan velge mellom i listen.
+<Ingress>
+    Vi bruker nedtrekkslister til å gi brukeren en liste med alternativ. Nedtrekkslister passer i de tilfellene det er
+    for mange valg til å bruke radioknapper. Nedtrekkslisten må ha en overskrift, som forteller hva det er brukerne kan
+    velge mellom i listen.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Native", "Kompakt", "Invertert", "Med hjelpetekst", "Med feil"],
+        choiceProps: [
+            {
+                name: "Etikettvariant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+/>
 
 Hvis du trenger en nedtrekksliste med mange valg, kan du også legge inn en søke- eller filtreringsfunksjon.
 

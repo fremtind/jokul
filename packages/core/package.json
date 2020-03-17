@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "3.0.0",
+    "version": "4.1.0",
     "publishConfig": {
         "access": "public"
     },
@@ -31,7 +31,7 @@
         "*.scss"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/ **/*.css",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
@@ -42,7 +42,7 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14"
+        "@fremtind/browserslist-config-jkl": "^0.5.0"
     },
     "repository": {
         "type": "git",
@@ -54,5 +54,5 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "gitHead": "6e8cfc145a406bc8e38ffe53ad9600bb73ea4ff8"
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

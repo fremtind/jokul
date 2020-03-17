@@ -1,5 +1,5 @@
 ---
-title: ikoner
+title: Ikoner
 path: /profil/ikoner
 order: 9
 ---

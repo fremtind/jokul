@@ -1,31 +1,20 @@
-@import "~@fremtind/jkl-core/variables/all";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
 
-$footer-height: rem(350px);
-$footer-height-small: rem(250px);
-$footer-margin-top: rem(150px);
-$menu-width: rem(320px);
-
-.portal-footer {
-    @media (min-width: $breakpoint--medium) {
-        margin-left: $menu-width;
-    }
-
-    background-color: $gra-80;
-    color: $gra-10;
-    height: $footer-height;
+.jkl-portal-footer {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: $footer-margin-top;
+    border-top: solid rem(1px) $gra-30;
+    padding-top: $layout-spacing--medium;
+    margin: $layout-spacing--large $layout-spacing--medium;
+    margin-bottom: $layout-spacing--medium;
 
-    &--logo-container {
-        width: $footer-height/1.5;
-    }
-    @include small-device {
-        height: $footer-height-small;
-        &--logo-container {
-            width: $footer-height-small/1.5;
+    &__column {
+        @include jkl-text-style("compact/small");
+        color: $gra-70;
+        flex: 1 1 0px;
+        padding-right: $layout-spacing--large;
+
+        &:last-of-type {
+            padding-right: 0;
         }
     }
 }

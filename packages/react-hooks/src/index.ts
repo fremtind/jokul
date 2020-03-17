@@ -4,3 +4,5 @@ export { useFocusOutside } from "./useFocusOutside";
 export { useKeyListener } from "./useKeyListener";
 export { useMutationObserver } from "./useMutationObserver/useMutationObserver";
 export { useIntersectionObserver } from "./useIntersectionObserver/useIntersectionObserver";
+export { useScreen } from "./useScreen/useScreen";
+export { initialState as initialScreenState } from "./useScreen/state";

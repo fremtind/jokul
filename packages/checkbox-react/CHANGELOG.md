@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.2.1...@fremtind/jkl-checkbox-react@1.2.2) (2020-03-16)
+
+
+### Bug Fixes
+
+* **checkbox:** fix html structure to avoid onClick event bugs ([02b2343](https://github.com/fremtind/jokul/commit/02b2343f7323e6c3ab11ed8e58bb5bdafc9d54a8))
+* **checkbox:** make fake checkmark clickable again ([e9688d6](https://github.com/fremtind/jokul/commit/e9688d6253148207031fe2363751f91656897cf4))
+* **checkbox:** make text bold when checkbox is checked ([7126a44](https://github.com/fremtind/jokul/commit/7126a44c4e66b94ad9cd214a281fc1940840b04c))
+
+
+
+
+
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.2.0...@fremtind/jkl-checkbox-react@1.2.1) (2020-03-06)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.1.4...@fremtind/jkl-checkbox-react@1.2.0) (2020-03-06)
+
+
+### Features
+
+* **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+
+
+
+
+
+## [1.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.1.3...@fremtind/jkl-checkbox-react@1.1.4) (2020-03-05)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
 ## [1.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.1.2...@fremtind/jkl-checkbox-react@1.1.3) (2020-02-19)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox-react
