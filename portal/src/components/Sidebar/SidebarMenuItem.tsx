@@ -1,28 +1,25 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { Link } from "gatsby";
+import { useLocation } from "../../contexts/locationContext";
 
 interface SidebarMenuItemProps {
     idx: number;
     path: string;
-    currentPath: string;
     title: string;
 }
-export function SidebarMenuItem({ idx, path, currentPath, title }: SidebarMenuItemProps) {
+export function SidebarMenuItem({ idx, path, title }: SidebarMenuItemProps) {
+    const { currentSection } = useLocation();
+    const delayAnimation: CSSProperties = {
+        animationDelay: `${idx * 20}ms`,
+    };
     return (
-        <li
-            style={{
-                animationDelay: `${idx * 20}ms`,
-            }}
-            className="jkl-portal-sidebar-menu-item"
-        >
+        <li style={delayAnimation} className="jkl-portal-sidebar-menu-item">
             <Link
                 activeClassName="jkl-portal-sidebar-menu-item__link--active"
                 className="jkl-portal-sidebar-menu-item__link"
-                style={{
-                    animationDelay: `${idx * 20}ms`,
-                }}
+                style={delayAnimation}
                 to={path}
-                state={{ lastPath: currentPath }}
+                state={{ lastPath: currentSection }}
             >
                 {title}
             </Link>

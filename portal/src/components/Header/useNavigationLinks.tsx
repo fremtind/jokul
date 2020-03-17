@@ -29,7 +29,7 @@ export function useNavigationLinks() {
     const { allSitePage, allMarkdownRemark } = useStaticQuery(graphql`
         query getPages {
             allSitePage(
-                filter: { path: { regex: "/(-react|react-hooks)/documentation/" } }
+                filter: { path: { regex: "/komponenter/" } }
                 sort: { order: ASC, fields: context___frontmatter___title }
             ) {
                 edges {
