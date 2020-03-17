@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-typography-react",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -37,10 +37,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.0.2"
+        "@fremtind/jkl-core": "^4.1.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14"
+        "@fremtind/browserslist-config-jkl": "^0.5.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

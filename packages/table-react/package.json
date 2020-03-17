@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "publishConfig": {
         "access": "public"
     },
@@ -22,7 +22,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -32,11 +32,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.0.2"
+        "@fremtind/jkl-core": "^4.1.0"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14",
-        "@fremtind/jkl-portal-components": "^0.2.1",
+        "@fremtind/browserslist-config-jkl": "^0.5.0",
+        "@fremtind/jkl-portal-components": "^0.2.2",
         "npm-run-all": "^4.1.5"
     },
     "peerDependencies": {

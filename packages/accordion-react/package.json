@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "1.3.1",
+    "version": "1.3.2",
     "publishConfig": {
         "access": "public"
     },
@@ -23,23 +23,23 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-accordion yarn build",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-accordion yarn build:watch",
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^1.1.3",
-        "@fremtind/jkl-react-hooks": "^1.1.1",
+        "@fremtind/jkl-accordion": "^1.1.4",
+        "@fremtind/jkl-react-hooks": "^1.1.2",
         "@nrk/core-toggle": "^3.0.4"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14",
-        "@fremtind/jkl-portal-components": "^0.2.1"
+        "@fremtind/browserslist-config-jkl": "^0.5.0",
+        "@fremtind/jkl-portal-components": "^0.2.2"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",
