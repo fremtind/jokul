@@ -34,3 +34,14 @@ exports.createPages = ({ actions, graphql }) => {
         });
     });
 };
+
+exports.onCreatePage = async ({ page, actions }) => {
+    const { createPage } = actions;
+    const pageMatch = page.path.match(/\/.*react.*\/documentation\/(.*)\//);
+
+    // If page is a component doc page, create simpler path
+    if (pageMatch) {
+        page.path = `/komponenter/${pageMatch[1].toLowerCase()}`;
+        createPage(page);
+    }
+};

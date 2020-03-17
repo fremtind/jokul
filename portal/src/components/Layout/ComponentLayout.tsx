@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { Layout } from ".";
 import { GitHubLinks } from "./components";
+import { useLocation } from "../../contexts/locationContext";
 import "../Layout/Layout.scss";
 
 interface Props {
@@ -22,6 +23,8 @@ export const ComponentLayout = ({
         frontmatter: { title, react, scss },
     },
 }: Props) => {
+    const { setLocation } = useLocation();
+    setLocation(location);
     return (
         <Layout location={location} title={title} isComponentPage>
             <h1 className="jkl-title-large">{title}</h1>

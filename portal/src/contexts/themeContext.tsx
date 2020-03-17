@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, createContext, useLayoutEffect } from "react";
+import React, { useState, ReactNode, createContext, useLayoutEffect, useContext } from "react";
 import { getCookie, setCookie } from "../utils";
 
 interface ThemeContext {
@@ -9,7 +9,10 @@ export const THEMES = {
     THEME_DARK: "dark",
     THEME_LIGHT: "light",
 };
-export const themeContext = createContext<ThemeContext>({ toggleTheme: () => null });
+const themeContext = createContext<ThemeContext>({ toggleTheme: () => null });
+export function useTheme() {
+    return useContext(themeContext);
+}
 
 interface Props {
     children: ReactNode;

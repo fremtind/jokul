@@ -1,8 +1,8 @@
-# [`@fremtind/field-group`](https://fremtind.github.io/jokul/field-group-react/documentation/FieldGroup/)
+# [`@fremtind/field-group`](https://fremtind.github.io/jokul/komponenter/fieldgroup)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/field-group-react/documentation/FieldGroup/).
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/fieldgroup).
 
 ## Kom i gang
 

@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-datepicker-react`](https://fremtind.github.io/jokul/datepicker-react/documentation/Datepicker/)
+# [`@fremtind/jkl-datepicker-react`](https://fremtind.github.io/jokul/komponenter/datepicker)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/datepicker-react/documentation/Datepicker/).
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/datepicker).
 
 ## Kom i gang
 

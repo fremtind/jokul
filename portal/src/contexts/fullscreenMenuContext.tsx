@@ -1,13 +1,17 @@
-import React, { createContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode, useContext } from "react";
 
 interface FSMenuContextProps {
     menuIsOpen: string;
     setMenuIsOpen: React.Dispatch<React.SetStateAction<string>>;
 }
-export const fullscreenMenuContext = createContext<FSMenuContextProps>({
+const fullscreenMenuContext = createContext<FSMenuContextProps>({
     menuIsOpen: "",
     setMenuIsOpen: () => null,
 });
+
+export function useFullscreenMenu() {
+    return useContext(fullscreenMenuContext);
+}
 
 interface Props {
     children: ReactNode;

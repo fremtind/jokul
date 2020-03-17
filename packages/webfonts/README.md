@@ -1,4 +1,4 @@
-# [`webfonts`](https://fremtind.github.io/jokul/typography-react/documentation/Typography/)
+# [`webfonts`](https://fremtind.github.io/jokul/komponenter/typography)
 
 Denne pakken inneholder skrifttypene våre til bruk i nettløsninger (disse kan ikke installeres lokalt på datamaskinen). Disse må gjøres tilgjengelige i løsningen ved at du legger fontfilene i en mappe som blir eksportert med app-en din, f.eks. `/build`, `/dist` eller lignende.
 
