@@ -14,13 +14,13 @@ Fargepaletten vår er delt inn i tre grupper: Primærfarger, grå- og vardevalø
 Hvit, svart og varde. Disse fargene bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk. Primærfargene våre er:
 
 ### Svart #000000 
-Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær bakgrunner med fargen varde.
+Svart bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær bakgrunner med fargen varde.
 
 ### Hvit #FFFFFF 
-Hvit er også en av Fremtinds profilbærende farger. Den bruker vi som bakgrunnsfarge, og som tekstfarge på mørke flater. I tillegg er den fokusfarge, for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel et felt i et skjema.
+Hvit bruker vi mest som bakgrunnsfarge, og som tekstfarge der vi har mørke flater. I tillegg er den fokusfarge, for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel et felt i et skjema.
 
 ### Varde #DED4C7 
-Varde er vår siste profilbærende farge. Den bruker vi som bakgrunnsfarge eller på elementer, for å fremheve innhold. Når vi velger å bruke den på en flate, unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
+Varde bruker vi som bakgrunnsfarge eller på elementer for å fremheve innhold. Når vi velger å bruke den på en flate, unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
 
 ## Grå- og vardevalører. 
 Vi har et sett av valører for grå og varde. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
