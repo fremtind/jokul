@@ -8,10 +8,13 @@ order: 3
 
 Farger er en viktig del av Fremtinds identitet. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. Profilen støttes av funksjonelle farger, som er inspirert av norsk natur. 
 
-Fargepaletten vår er delt inn i tre grupper: Primærfarger, grå- og vardevalører og meldingssfarger. 
+Fargepaletten vår er delt inn i tre grupper: Primærfarger, grå- og vardevalører og meldingsfarger. 
 
 ## Primærfargene
-Hvit, svart og varde. Disse fargene vi bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk. Primærfargene våre er:  Svart #000000  Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær bakgrunner med fargen varde.
+Hvit, svart og varde. Disse fargene bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk. Primærfargene våre er:
+
+### Svart #000000 
+Svart er en av Fremtinds profilbærende farger. Den bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær bakgrunner med fargen varde.
 
 ### Hvit #FFFFFF 
 Hvit er også en av Fremtinds profilbærende farger. Den bruker vi som bakgrunnsfarge, og som tekstfarge på mørke flater. I tillegg er den fokusfarge, for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel et felt i et skjema.
@@ -20,7 +23,7 @@ Hvit er også en av Fremtinds profilbærende farger. Den bruker vi som bakgrunns
 Varde er vår siste profilbærende farge. Den bruker vi som bakgrunnsfarge eller på elementer, for å fremheve innhold. Når vi velger å bruke den på en flate, unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
 
 ## Grå- og vardevalører. 
-Vi har et spenn av valører for grå og varde. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
+Vi har et sett av valører for grå og varde. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
 
 ### Gråvalører (Grå 10 - Grå 100)
 Disse kan brukes som bakgrunnsfarge på mindre flater og elementer for å bryte opp layout. Ikke bruk grå flater sammen med Varde, og vær obs på kontrast til innholdet når du bruker de ulike valørene. 
@@ -47,7 +50,7 @@ Denne blåfargen bruker vi til informasjonsmeldinger og fokustilstander.
 En rødfarge som vi bruker til feilmeldinger eller andre viktige varsler.
 
 ### Advarsel #FBB15B
-Denne gulfargen er til advarsler. Denne oppfyller ikke kontrastkravet mot hvit så kan være funksjonsbærende mot hvite flater uten andre virkemiddler (e.g. tekst).
+Denne gulfargen er til advarsler. Denne oppfyller ikke kontrastkravet mot hvit så kan ikke være funksjonsbærende mot hvite flater uten andre virkemiddler (e.g. tekst).
 
 _For mørke flater (husk å sjekke kontrast for din løsning):_
 
@@ -66,6 +69,6 @@ Denne gulfargen er til advarsler. Til å bruke mot mørke bakgrunner.
 ## Tilgjengelighet
 Tilgjengelighet er noe av det viktigste å tenke på når vi bruker farger i digitale løsninger. Vi skal alltid følge kravene til universell utforming. For farger betyr det AA-kravet for kontrast. Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin egen bakgrunn, når det har betydning for å forstå funksjonaliteten.
 
-I tillegg til å tenke på tekst mot knappebakgrunnen, må også tenke på knappebakgrunnen mot sidens bakgrunnsfarge dersom det er viktig for å forstå funksjonen til komponenten.
+I tillegg til å tenke på tekst mot knappebakgrunnen, må vi også tenke på knappebakgrunnen mot sidens bakgrunnsfarge dersom det er viktig for å forstå funksjonen til komponenten.
 
 Tekstfargene våre er helhvit eller svart. Se fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
