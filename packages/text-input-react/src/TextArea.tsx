@@ -30,6 +30,8 @@ export const TextArea = ({
     });
 
     const [textAreaFocused, setTextAreaFocused] = useState(false);
+    const [baseScrollHeight, setBaseScrollHeight] = useState(0);
+    const [rows2, setRows2] = useState(1);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const textAreaContentRows = (restProps.value || "").split("\n").length;
 
@@ -41,9 +43,35 @@ export const TextArea = ({
 
     useEffect(() => {
         const textAreaElement = textAreaRef.current;
+        if (autoExpand && textAreaElement) {
+            const savedValue = textAreaElement.value;
+            textAreaElement.value = "";
+            setBaseScrollHeight(textAreaElement.scrollHeight);
+            textAreaElement.value = savedValue;
+        }
+    }, []);
+
+    useEffect(() => {
+        const textAreaElement = textAreaRef.current;
+        if (textAreaElement) {
+            const savedRows = textAreaElement.rows;
+            textAreaElement.rows = 1;
+            let rows = Math.ceil((textAreaElement.scrollHeight - baseScrollHeight) / 32) + 1;
+            if (baseScrollHeight === 0) {
+                rows = rows2;
+            }
+            textAreaElement.rows = savedRows;
+            setRows2(rows);
+        }
+    }, [restProps.value]);
+
+    /*useEffect(() => {
+        const textAreaElement = textAreaRef.current;
         if (autoExpand && textAreaElement && !textAreaElement.style.height) {
+            setBaseScrollHeight(textAreaElement.scrollHeight);
+            console.log(textAreaElement.scrollHeight);
             textAreaElement.style.overflowY = "hidden";
-            calculateAndSetElementHeight(textAreaRows, textAreaElement);
+            calculateAndSetElementHeight(textAreaRows, textAreaElement, textAreaElement.scrollHeight);
         }
     }, []);
 
@@ -61,10 +89,9 @@ export const TextArea = ({
         }
 
         if (autoExpand && textAreaElement) {
-            calculateAndSetElementHeight(rowToCalculateHeightFrom, textAreaElement);
+            calculateAndSetElementHeight(rowToCalculateHeightFrom, textAreaElement, baseScrollHeight);
         }
-    }, [textAreaRows, textAreaFocused]);
-
+    }, [textAreaRows, textAreaFocused]);*/
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
@@ -77,7 +104,7 @@ export const TextArea = ({
                 aria-invalid={!!errorLabel}
                 className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
                 id={id}
-                rows={textAreaRows}
+                rows={rows2}
                 placeholder={placeholder}
                 {...restProps}
             />
@@ -96,8 +123,12 @@ export const TextArea = ({
     }
 };
 
-function calculateAndSetElementHeight(rows: number, textAreaElement: HTMLTextAreaElement) {
+function calculateAndSetElementHeight(rows: number, textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
     const lineHeightWithPx = window.getComputedStyle(textAreaElement).lineHeight;
     const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
+    rows = (textAreaElement.scrollHeight - baseScrollHeight) / lineHeight;
+    console.log("Lineheight ", lineHeight);
+    console.log("Scrollheight ", textAreaElement.scrollHeight);
+    console.log("BaseScrollHeight ", baseScrollHeight);
     textAreaElement.style.height = `${rows * lineHeight + 8}px`;
 }
