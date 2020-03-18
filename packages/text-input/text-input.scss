@@ -47,7 +47,7 @@ $text-input-line-height--compact: rem(28px);
 
         /* Color of text selection */
         &::selection {
-            background-color: transparentize($info, 0.85);
+            background-color: $varde-60;
         }
 
         /* Focus and hover states */
@@ -139,7 +139,7 @@ $text-input-line-height--compact: rem(28px);
             }
 
             &::selection {
-                background-color: transparentize($info--darkbg, 0.8);
+                background-color: $gra-60;
             }
 
             &:focus,
