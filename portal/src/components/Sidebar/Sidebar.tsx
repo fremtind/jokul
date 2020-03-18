@@ -1,9 +1,9 @@
-import React, { useState, ChangeEvent, useContext } from "react";
+import React, { useState, ChangeEvent } from "react";
 import classNames from "classnames";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { useLocation } from "../../contexts/locationContext";
-import { themeContext } from "../../contexts/themeContext";
+import { useTheme } from "../../contexts/themeContext";
 
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
@@ -48,7 +48,7 @@ export function Sidebar() {
 }
 
 function SidebarMenu({ links }: { links: DocumentationPageInfo[]; currentPath: string }) {
-    const { theme } = useContext(themeContext);
+    const { theme } = useTheme();
     const [filter, setFilter] = useState("");
     function filterLinks(e: ChangeEvent<HTMLInputElement>) {
         setFilter(e.target.value);
