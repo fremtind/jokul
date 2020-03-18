@@ -1,8 +1,10 @@
+<!-- 
 ---
 title: Vanlige mønstre
 path: /profil/monstre
 order: 12
 ---
+-->
 
 # Mønstre
 Mønstre er kombinasjoner av komponenter som vi kan bruke om igjen. I Jøkul utvikler vi mønstre for handlinger som gjentas ofte, slik at design og bruk blir konsekvent i alle løsninger vi lager for Fremtind. Her finner du eksempler på mønstre for vanlige funksjoner i våre løsninger.
