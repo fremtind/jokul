@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, MouseEventHandler, CSSProperties } from "react";
+import React, { useState, ChangeEventHandler, FocusEventHandler, MouseEventHandler, CSSProperties } from "react";
 import nanoid from "nanoid";
 import classNames from "classnames";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -11,24 +11,35 @@ export interface Action {
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-interface Props {
+export interface BaseProps {
+    id?: string;
     className?: string;
     label: string;
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
-    inline?: boolean;
     inverted?: boolean;
     forceCompact?: boolean;
-    action?: Action;
-    maxLength?: number;
     width?: string;
     value?: string;
-    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     placeholder?: string;
+    readOnly?: boolean;
+    autoComplete?: string;
+    required?: boolean;
+    type?: "text" | "number" | "tel" | "password" | "email" | "year";
+}
+
+interface Props extends BaseProps {
+    inline?: boolean;
+    action?: Action;
+    maxLength?: number;
 }
 
 export function TextInput({
+    id,
     className,
     label,
     helpLabel,
@@ -42,7 +53,7 @@ export function TextInput({
     width,
     ...inputProps
 }: Props) {
-    const [id] = useState(`jkl-text-input-${nanoid(8)}`);
+    const [uid] = useState(id || `jkl-text-input-${nanoid(8)}`);
     const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
     const describedBy = helpLabel || errorLabel ? supportId : undefined;
     const componentClassName = classNames(
@@ -56,13 +67,13 @@ export function TextInput({
         className,
     );
     return (
-        <div className={componentClassName}>
-            <Label forceCompact={forceCompact} standAlone srOnly={inline} htmlFor={id} variant={variant}>
+        <div data-testid="jkl-text-input" className={componentClassName}>
+            <Label forceCompact={forceCompact} standAlone srOnly={inline} htmlFor={uid} variant={variant}>
                 {label}
             </Label>
             <div className="jkl-text-input__input-wrapper">
                 <input
-                    id={id}
+                    id={uid}
                     aria-describedby={describedBy}
                     aria-invalid={!!errorLabel}
                     type="text"

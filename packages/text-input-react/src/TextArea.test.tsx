@@ -7,15 +7,15 @@ afterEach(cleanup);
 
 describe("TextArea", () => {
     it("renders with correct label", () => {
-        const { getByLabelText } = render(<TextArea label="Cool text field" />);
+        const { getByLabelText } = render(<TextArea label="Cool text area" />);
 
-        expect(getByLabelText("Cool text field")).toBeInTheDocument();
+        expect(getByLabelText("Cool text area")).toBeInTheDocument();
     });
 
     it("uses the passed class name", () => {
         const { getByTestId } = render(<TextArea label="testing" className="test-class" />);
 
-        const component = getByTestId("jkl-text-field");
+        const component = getByTestId("jkl-text-area");
         expect(component).toHaveClass("test-class");
     });
 });
@@ -57,7 +57,7 @@ describe("TextArea with autoExpand", () => {
             fireEvent.blur(textAreaElement);
         });
 
-        expect(textAreaElement.style.height).toBe("24px");
+        expect(textAreaElement.style.height).toBe("32px");
     });
 
     it("should calculate the height and set it as style for 3 rows", async () => {
@@ -73,7 +73,7 @@ describe("TextArea with autoExpand", () => {
             fireEvent.blur(textAreaElement);
         });
 
-        expect(textAreaElement.style.height).toBe("56px");
+        expect(textAreaElement.style.height).toBe("64px");
     });
 
     it("should keep the height 1 row higher than the actual row when textarea has focus", async () => {
@@ -88,7 +88,7 @@ describe("TextArea with autoExpand", () => {
             fireEvent.change(textAreaElement, { target: { value: "First row \nSecond row \n Third row" } });
         });
 
-        expect(textAreaElement.style.height).toBe("72px");
+        expect(textAreaElement.style.height).toBe("80px");
     });
 
     it("should keep the height equal to props.rows when there is input that has fewer rows than props.rows", async () => {
@@ -104,7 +104,7 @@ describe("TextArea with autoExpand", () => {
             fireEvent.blur(textAreaElement);
         });
 
-        expect(textAreaElement.style.height).toBe("88px");
+        expect(textAreaElement.style.height).toBe("96px");
     });
 
     it("should keep the height equal to props.rows when there is input that has fewer than props.rows", async () => {
@@ -120,7 +120,7 @@ describe("TextArea with autoExpand", () => {
             fireEvent.blur(textAreaElement);
         });
 
-        expect(textAreaElement.style.height).toBe("88px");
+        expect(textAreaElement.style.height).toBe("96px");
     });
 });
 

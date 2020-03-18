@@ -1,9 +1,10 @@
 import React, { FocusEvent, useEffect, useRef, useState } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { BaseInputProps } from "./BaseInputField";
+import { BaseProps } from "./TextInput";
 import classNames from "classnames";
+import nanoid from "nanoid";
 
-interface Props extends BaseInputProps {
+interface Props extends BaseProps {
     label: string;
     onBlur?: (value: FocusEvent<HTMLTextAreaElement>) => void;
     rows?: number;
@@ -25,9 +26,11 @@ export const TextArea = ({
     forceCompact,
     ...restProps
 }: Props) => {
-    const componentClassName = classNames("jkl-text-field jkl-text-area", className, {
-        "jkl-text-field--compact": forceCompact,
+    const componentClassName = classNames("jkl-text-input jkl-text-area", className, {
+        "jkl-text-input--compact": forceCompact,
     });
+    const [uid] = useState(id || `jkl-text-area-${nanoid(8)}`);
+    const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
 
     const [textAreaFocused, setTextAreaFocused] = useState(false);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -38,6 +41,13 @@ export const TextArea = ({
     if (textAreaFocused && rows > textAreaContentRows) {
         textAreaRows = rows;
     }
+
+    useEffect(() => {
+        if (textAreaRef.current && !autoExpand) {
+            // reset style attribute if no longer autoExpanding.
+            textAreaRef.current.setAttribute("style", "");
+        }
+    }, [autoExpand]);
 
     useEffect(() => {
         const textAreaElement = textAreaRef.current;
@@ -66,8 +76,8 @@ export const TextArea = ({
     }, [textAreaRows, textAreaFocused]);
 
     return (
-        <label data-testid="jkl-text-field" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+        <div data-testid="jkl-text-area" className={componentClassName}>
+            <Label standAlone htmlFor={uid} variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
             <textarea
@@ -75,14 +85,15 @@ export const TextArea = ({
                 onBlur={onBlur}
                 ref={textAreaRef}
                 aria-invalid={!!errorLabel}
-                className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
-                id={id}
+                className={`jkl-text-input__input jkl-text-input__input--${rows}-rows`}
+                id={uid}
                 rows={textAreaRows}
                 placeholder={placeholder}
+                aria-describedby={supportId}
                 {...restProps}
             />
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
-        </label>
+            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+        </div>
     );
 
     function onFocus(e: FocusEvent<HTMLTextAreaElement>) {
@@ -99,5 +110,6 @@ export const TextArea = ({
 function calculateAndSetElementHeight(rows: number, textAreaElement: HTMLTextAreaElement) {
     const lineHeightWithPx = window.getComputedStyle(textAreaElement).lineHeight;
     const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
-    textAreaElement.style.height = `${rows * lineHeight + 8}px`;
+    // 16px is sum of top and bottom padding
+    textAreaElement.style.height = `${rows * lineHeight + 16}px`;
 }
