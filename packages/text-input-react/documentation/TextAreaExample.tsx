@@ -18,6 +18,7 @@ export function TextAreaExample({ choiceValues, boolValues }: ExampleComponentPr
             variant={variant}
             inverted={inverted}
             forceCompact={compact}
+            placeholder="Placeholder"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             className="jkl-spacing--top-2"

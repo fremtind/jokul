@@ -12,9 +12,9 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
     const action =
         boolValues && boolValues["Med handling"]
             ? ({
-                  icon: "search",
-                  label: "Skriv til konsoll",
-                  onClick: console.log,
+                  icon: "clear",
+                  label: "Nullstill feltet",
+                  onClick: () => setValue(""),
               } as Action)
             : undefined;
     const inverted = boolValues && boolValues["Invertert"];
