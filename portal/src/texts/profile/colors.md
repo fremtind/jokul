@@ -26,7 +26,7 @@ Varde bruker vi som bakgrunnsfarge eller på elementer for å fremheve innhold. 
 Vi har et sett av valører for grå og varde. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
 
 ### Gråvalører (Grå 10 - Grå 100)
-Disse kan brukes som bakgrunnsfarge på mindre flater og elementer for å bryte opp layout. Ikke bruk grå flater sammen med Varde, og vær obs på kontrast til innholdet når du bruker de ulike valørene. 
+Disse kan brukes på elementer for å bryte opp layout og for å ha flere nyanser enn svart og hvit. For bruk til større flater og bakgrunner skal det bare brukes Grå-10, Grå-20, Grå-90 og Grå-100. Ikke bruk grå flater sammen med Varde, og vær obs på kontrast til innholdet når du bruker de ulike valørene.
 
 Grå 10 til Grå 50 kan brukes med svart tekst, mens Grå 60 til Grå 100 kan brukes med hvit tekst.
 
