@@ -16,6 +16,7 @@ interface Props extends BaseProps {
 export const TextArea = ({
     id,
     variant,
+    inverted,
     label,
     className,
     helpLabel,
@@ -28,6 +29,7 @@ export const TextArea = ({
 }: Props) => {
     const componentClassName = classNames("jkl-text-input jkl-text-area", className, {
         "jkl-text-input--compact": forceCompact,
+        "jkl-text-input--inverted": inverted,
     });
     const [uid] = useState(id || `jkl-text-area-${nanoid(8)}`);
     const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
