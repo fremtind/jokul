@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/browserslist-config-jkl@0.4.14...@fremtind/browserslist-config-jkl@0.5.0) (2020-03-16)
+
+
+### Features
+
+* **browserslist-config:** add explicit support for IE11 ([2d6e6b0](https://github.com/fremtind/jokul/commit/2d6e6b0b18722674f2a3c519c8c1caab73c6e37d))
+
+
+
+
+
 ## [0.4.14](https://github.com/fremtind/jokul/compare/@fremtind/browserslist-config-jkl@0.4.13...@fremtind/browserslist-config-jkl@0.4.14) (2020-01-16)
 
 **Note:** Version bump only for package @fremtind/browserslist-config-jkl

@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-radio-button-react`](hhttps://fremtind.github.io/jokul/radio-button-react/documentation/RadioButton/)
+# [`@fremtind/jkl-radio-button-react`](hhttps://fremtind.github.io/jokul/komponenter/radiobutton)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](hhttps://fremtind.github.io/jokul/radio-button-react/documentation/RadioButton/).
+Se portalen for [bruk og prinsipper](hhttps://fremtind.github.io/jokul/komponenter/radiobutton).
 
 ## Kom i gang
 
@@ -37,7 +37,10 @@ return (
     <RadioButtons
         name="coverage"
         legend="Hvilken dekning ønsker du?"
-        choices={[{ value: "del", label: "Delkasko" }, { value: "full", label: "Fullkasko" }]}
+        choices={[
+            { value: "del", label: "Delkasko" },
+            { value: "full", label: "Fullkasko" },
+        ]}
         selectedValue={selectedValue}
         onChange={setSelectedValue}
     />

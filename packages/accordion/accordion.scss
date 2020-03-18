@@ -1,6 +1,10 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
+.jkl-accordion {
+    width: 100%;
+}
+
 .jkl-accordion-item {
     @include reset-outline;
 

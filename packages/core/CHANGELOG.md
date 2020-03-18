@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.0.2...@fremtind/jkl-core@4.1.0) (2020-03-16)
+
+
+### Features
+
+* **core:** add support for prefers-reduced-motion ([ee9886b](https://github.com/fremtind/jokul/commit/ee9886bf1daf894c9b912ae02a92929b2e4fa8da))
+
+
+
+
+
 ## [4.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.0.1...@fremtind/jkl-core@4.0.2) (2020-03-06)
 
 **Note:** Version bump only for package @fremtind/jkl-core
