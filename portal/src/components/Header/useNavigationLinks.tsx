@@ -2,19 +2,12 @@ import { graphql, useStaticQuery } from "gatsby";
 
 interface RawDocumentationPage {
     node: {
-        frontmatter: {
-            path: string;
-            title: string;
-            order: string;
-        };
-    };
-}
-interface RawComponentPage {
-    node: {
         path: string;
         context: {
             frontmatter: {
                 title: string;
+                path?: string;
+                order?: string;
             };
         };
     };
@@ -26,11 +19,11 @@ export interface DocumentationPageInfo {
 }
 
 export function useNavigationLinks() {
-    const { allSitePage, allMarkdownRemark } = useStaticQuery(graphql`
+    const { allSitePage } = useStaticQuery(graphql`
         query getPages {
             allSitePage(
-                filter: { path: { regex: "/komponenter/" } }
                 sort: { order: ASC, fields: context___frontmatter___title }
+                filter: { context: { frontmatter: { title: { regex: "/.*/" } } } }
             ) {
                 edges {
                     node {
@@ -43,35 +36,16 @@ export function useNavigationLinks() {
                     }
                 }
             }
-            allMarkdownRemark(sort: { order: ASC, fields: frontmatter___order }) {
-                edges {
-                    node {
-                        frontmatter {
-                            path
-                            title
-                            order
-                        }
-                    }
-                }
-            }
         }
     `);
-
-    const documentationPages = allMarkdownRemark.edges
-        /* .sort(
-            (a: RawDocumentationPage, b: RawDocumentationPage) =>
-                parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order),
-        ) */
-        .map((edge: RawDocumentationPage) => ({
-            path: edge.node.frontmatter.path,
-            title: edge.node.frontmatter.title,
-        }))
-        .filter((page: DocumentationPageInfo) => page.path !== null && page.title !== "");
-
-    const componentPages = allSitePage.edges.map((edge: RawComponentPage) => ({
+    const pages = allSitePage.edges.map((edge: RawDocumentationPage) => ({
         path: edge.node.path,
         title: edge.node.context.frontmatter.title,
     }));
 
-    return { documentationPages, componentPages };
+    const profileDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("profil"));
+    const getStartedDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komigang"));
+    const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
+
+    return { profileDocPages, getStartedDocPages, componentDocPages };
 }

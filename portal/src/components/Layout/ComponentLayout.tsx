@@ -27,8 +27,12 @@ export const ComponentLayout = ({
     setLocation(location);
     return (
         <Layout location={location} title={title} isComponentPage>
-            <h1 className="jkl-title-large">{title}</h1>
-            <GitHubLinks react={react} scss={scss} />
+            {(scss || react) && (
+                <>
+                    <h1 className="jkl-title-large">{title}</h1>
+                    <GitHubLinks react={react} scss={scss} />
+                </>
+            )}
             {children}
         </Layout>
     );

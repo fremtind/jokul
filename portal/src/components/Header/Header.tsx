@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import classNames from "classnames";
 
 import { useFullscreenMenu } from "../../contexts/fullscreenMenuContext";
-import { useNavigationLinks, DocumentationPageInfo } from "./useNavigationLinks";
+import { useNavigationLinks } from "./useNavigationLinks";
 import { FullScreenMenu } from "./components/FullScreenMenu";
 import "./header.scss";
 
@@ -17,11 +17,7 @@ export const Header = () => {
                 setCollapsed(window.scrollY > 96);
             });
     }, []);
-    const { documentationPages, componentPages } = useNavigationLinks();
-    const profileDocPages = documentationPages.filter((page: DocumentationPageInfo) => page.path.includes("profil"));
-    const getStartedDocPages = documentationPages.filter((page: DocumentationPageInfo) =>
-        page.path.includes("komigang"),
-    );
+    const { profileDocPages, getStartedDocPages, componentDocPages } = useNavigationLinks();
     const componentClassName = classNames({
         "jkl-portal-header": true,
         "jkl-portal-header--collapsed": collapsed,
@@ -41,7 +37,7 @@ export const Header = () => {
                         <FullScreenMenu
                             filterable
                             title="Komponenter"
-                            items={componentPages}
+                            items={componentDocPages}
                             activePath="komponenter"
                         />
                     </li>
