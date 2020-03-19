@@ -39,7 +39,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
         const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
 
         const [textAreaFocused, setTextAreaFocused] = useState(false);
-        const textAreaRef = (ref as RefObject<HTMLTextAreaElement>) || useRef<HTMLTextAreaElement>(null);
+        const internalRef  = useRef<HTMLTextAreaElement>(null);
+        const textAreaRef = (ref as RefObject<HTMLTextAreaElement>) || internalRef;
         const textAreaContentRows = (restProps.value || "").split("\n").length;
 
         let textAreaRows: number = textAreaContentRows;
