@@ -1,4 +1,11 @@
-import React, { useState, ChangeEventHandler, FocusEventHandler, MouseEventHandler, CSSProperties } from "react";
+import React, {
+    forwardRef,
+    useState,
+    ChangeEventHandler,
+    FocusEventHandler,
+    MouseEventHandler,
+    CSSProperties,
+} from "react";
 import nanoid from "nanoid";
 import classNames from "classnames";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -38,56 +45,62 @@ interface Props extends BaseProps {
     maxLength?: number;
 }
 
-export function TextInput({
-    id,
-    className,
-    label,
-    helpLabel,
-    errorLabel,
-    variant = "medium",
-    inline,
-    inverted,
-    forceCompact,
-    action,
-    maxLength,
-    width,
-    ...inputProps
-}: Props) {
-    const [uid] = useState(id || `jkl-text-input-${nanoid(8)}`);
-    const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
-    const describedBy = helpLabel || errorLabel ? supportId : undefined;
-    const componentClassName = classNames(
+export const TextInput = forwardRef<HTMLInputElement, Props>(
+    (
         {
-            "jkl-text-input": true,
-            "jkl-text-input--inline": inline,
-            "jkl-text-input--inverted": inverted,
-            "jkl-text-input--compact": forceCompact,
-            "jkl-text-input--action": action,
+            id,
+            className,
+            label,
+            helpLabel,
+            errorLabel,
+            variant = "medium",
+            inline,
+            inverted,
+            forceCompact,
+            action,
+            maxLength,
+            width,
+            ...inputProps
         },
-        className,
-    );
-    return (
-        <div data-testid="jkl-text-input" className={componentClassName}>
-            <Label forceCompact={forceCompact} standAlone srOnly={inline} htmlFor={uid} variant={variant}>
-                {label}
-            </Label>
-            <div className="jkl-text-input__input-wrapper">
-                <input
-                    id={uid}
-                    aria-describedby={describedBy}
-                    aria-invalid={!!errorLabel}
-                    type="text"
-                    className="jkl-text-input__input"
-                    maxLength={maxLength}
-                    style={getWidthAsStyle(width, maxLength)}
-                    {...inputProps}
-                />
-                {action && <ActionButton {...action} />}
+        ref,
+    ) => {
+        const [uid] = useState(id || `jkl-text-input-${nanoid(8)}`);
+        const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
+        const describedBy = helpLabel || errorLabel ? supportId : undefined;
+        const componentClassName = classNames(
+            {
+                "jkl-text-input": true,
+                "jkl-text-input--inline": inline,
+                "jkl-text-input--inverted": inverted,
+                "jkl-text-input--compact": forceCompact,
+                "jkl-text-input--action": action,
+            },
+            className,
+        );
+        return (
+            <div data-testid="jkl-text-input" className={componentClassName}>
+                <Label forceCompact={forceCompact} standAlone srOnly={inline} htmlFor={uid} variant={variant}>
+                    {label}
+                </Label>
+                <div className="jkl-text-input__input-wrapper">
+                    <input
+                        ref={ref}
+                        id={uid}
+                        aria-describedby={describedBy}
+                        aria-invalid={!!errorLabel}
+                        type="text"
+                        className="jkl-text-input__input"
+                        maxLength={maxLength}
+                        style={getWidthAsStyle(width, maxLength)}
+                        {...inputProps}
+                    />
+                    {action && <ActionButton {...action} />}
+                </div>
+                <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} srOnly={inline} />
             </div>
-            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} srOnly={inline} />
-        </div>
-    );
-}
+        );
+    },
+);
 
 function ActionButton({ label, icon, onClick }: Action) {
     return (
