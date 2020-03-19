@@ -70,7 +70,6 @@ $text-input-line-height--compact: rem(28px);
     }
 
     &__action-button {
-        //@include reset-outline;
         display: inline-flex;
         box-sizing: border-box;
         align-items: center;
@@ -127,7 +126,6 @@ $text-input-line-height--compact: rem(28px);
     }
 
     /* Modifications for dark mode */
-    /* *[data-theme="dark"] &, */
     &--inverted {
         & .jkl-text-input__input {
             color: $hvit;
