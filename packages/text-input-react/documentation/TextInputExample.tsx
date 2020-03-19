@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useRef, useEffect } from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { TextInput } from "../src";

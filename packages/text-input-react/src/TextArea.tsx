@@ -1,15 +1,18 @@
 import React, { forwardRef, FocusEvent, useEffect, useRef, useState, RefObject } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { BaseProps } from "./TextInput";
+import { LabelVariant } from "@fremtind/jkl-core";
+import { BaseProps } from "./BaseInputField";
 import classNames from "classnames";
 import nanoid from "nanoid";
 
 interface Props extends BaseProps {
     label: string;
-    onBlur?: (value: FocusEvent<HTMLTextAreaElement>) => void;
-    rows?: number;
     helpLabel?: string;
     errorLabel?: string;
+    variant?: LabelVariant;
+    inverted?: boolean;
+    forceCompact?: boolean;
+    rows?: number;
     autoExpand?: boolean;
 }
 
@@ -119,6 +122,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
         }
     },
 );
+TextArea.displayName = "TextArea";
 
 function calculateAndSetElementHeight(rows: number, textAreaElement: HTMLTextAreaElement) {
     const lineHeightWithPx = window.getComputedStyle(textAreaElement).lineHeight;

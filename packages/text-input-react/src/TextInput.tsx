@@ -1,16 +1,10 @@
-import React, {
-    forwardRef,
-    useState,
-    ChangeEventHandler,
-    FocusEventHandler,
-    MouseEventHandler,
-    CSSProperties,
-} from "react";
+import React, { forwardRef, useState, MouseEventHandler } from "react";
 import nanoid from "nanoid";
 import classNames from "classnames";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { ActionIcon, IconVariant } from "./ActionIcon";
+import { BaseInputField, BaseProps } from "./BaseInputField";
 
 export interface Action {
     icon: IconVariant;
@@ -18,31 +12,15 @@ export interface Action {
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface BaseProps {
-    id?: string;
-    className?: string;
+interface Props extends BaseProps {
     label: string;
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
     inverted?: boolean;
     forceCompact?: boolean;
-    width?: string;
-    value?: string;
-    onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    placeholder?: string;
-    readOnly?: boolean;
-    autoComplete?: string;
-    required?: boolean;
-    type?: "text" | "number" | "tel" | "password" | "email" | "year";
-}
-
-interface Props extends BaseProps {
     inline?: boolean;
     action?: Action;
-    maxLength?: number;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, Props>(
@@ -58,8 +36,6 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             inverted,
             forceCompact,
             action,
-            maxLength,
-            width,
             ...inputProps
         },
         ref,
@@ -83,15 +59,12 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     {label}
                 </Label>
                 <div className="jkl-text-input__input-wrapper">
-                    <input
+                    <BaseInputField
                         ref={ref}
                         id={uid}
-                        aria-describedby={describedBy}
-                        aria-invalid={!!errorLabel}
-                        type="text"
+                        describedBy={describedBy}
+                        invalid={!!errorLabel}
                         className="jkl-text-input__input"
-                        maxLength={maxLength}
-                        style={getWidthAsStyle(width, maxLength)}
                         {...inputProps}
                     />
                     {action && <ActionButton {...action} />}
@@ -101,6 +74,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
         );
     },
 );
+TextInput.displayName = "TextInput";
 
 function ActionButton({ label, icon, onClick }: Action) {
     return (
@@ -114,18 +88,4 @@ function ActionButton({ label, icon, onClick }: Action) {
             <ActionIcon className="jkl-text-input__action-icon" action={icon} />
         </button>
     );
-}
-
-function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | undefined {
-    if (width) {
-        return { width }; // prioritize width prop
-    }
-
-    if (maxLength) {
-        // adapt to maxLength, but capped at 40ch
-        const length = Math.min(maxLength, 40);
-        return { width: `${length}ch` };
-    }
-
-    return undefined;
 }
