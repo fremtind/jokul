@@ -42,7 +42,8 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
     ) => {
         const [uid] = useState(id || `jkl-text-input-${nanoid(8)}`);
         const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
-        const describedBy = helpLabel || errorLabel ? supportId : undefined;
+        const hasSupportText = helpLabel || errorLabel;
+        const describedBy = hasSupportText ? supportId : undefined;
         const componentClassName = classNames(
             {
                 "jkl-text-input": true,
