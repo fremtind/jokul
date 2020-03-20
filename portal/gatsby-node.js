@@ -1,47 +1,21 @@
-const path = require(`path`); // eslint-disable-line @typescript-eslint/no-var-requires
-
-exports.createPages = ({ actions, graphql }) => {
-    const { createPage } = actions;
-
-    const markdownTemplate = path.resolve(`src/templates/docTemplate.js`);
-
-    return graphql(`
-        {
-            allMarkdownRemark {
-                edges {
-                    node {
-                        frontmatter {
-                            path
-                            title
-                        }
-                    }
-                }
-            }
-        }
-    `).then((result) => {
-        if (result.errors) {
-            return Promise.reject(result.errors);
-        }
-
-        return result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-            if (node.frontmatter.path) {
-                createPage({
-                    path: node.frontmatter.path,
-                    component: markdownTemplate,
-                    context: {},
-                });
-            }
-        });
-    });
-};
-
 exports.onCreatePage = async ({ page, actions }) => {
-    const { createPage } = actions;
-    const pageMatch = page.path.match(/\/.*react.*\/documentation\/(.*)\//);
+    const { createPage, deletePage } = actions;
+    const componentPageMatch = page.path.match(/\/.*react.*\/documentation\/(.*)\//);
+    const pageSpecifiedPath = page.context.frontmatter && page.context.frontmatter.path;
 
     // If page is a component doc page, create simpler path
-    if (pageMatch) {
-        page.path = `/komponenter/${pageMatch[1].toLowerCase()}`;
+    if (componentPageMatch) {
+        const oldPage = { ...page };
+        page.path = `/komponenter/${componentPageMatch[1].toLowerCase()}`;
         createPage(page);
+        deletePage(oldPage);
+    }
+
+    // If page has a specified path, use that
+    if (pageSpecifiedPath) {
+        const oldPage = { ...page };
+        page.path = pageSpecifiedPath;
+        createPage(page);
+        deletePage(oldPage);
     }
 };

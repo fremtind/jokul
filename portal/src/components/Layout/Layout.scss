@@ -15,15 +15,10 @@
 
     &__header {
         grid-area: header;
-        position: fixed;
-        width: 100%;
     }
 
     &__sidebar {
         grid-area: sidebar;
-        background-color: $varde;
-        position: fixed;
-        width: rem(400px);
     }
 
     &__main {
