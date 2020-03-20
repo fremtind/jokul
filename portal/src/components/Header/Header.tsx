@@ -7,7 +7,7 @@ import { useNavigationLinks } from "./useNavigationLinks";
 import { FullScreenMenu } from "./components/FullScreenMenu";
 import "./header.scss";
 
-export const Header = () => {
+export const Header = ({ className }: { className?: string }) => {
     const { setMenuIsOpen } = useFullscreenMenu();
     const [collapsed, setCollapsed] = useState(false);
     useLayoutEffect(() => {
@@ -17,11 +17,14 @@ export const Header = () => {
                 setCollapsed(window.scrollY > 96);
             });
     }, []);
-    const { profileDocPages, getStartedDocPages, componentDocPages } = useNavigationLinks();
-    const componentClassName = classNames({
-        "jkl-portal-header": true,
-        "jkl-portal-header--collapsed": collapsed,
-    });
+    const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
+    const componentClassName = classNames(
+        {
+            "jkl-portal-header": true,
+            "jkl-portal-header--collapsed": collapsed,
+        },
+        className,
+    );
 
     return (
         <header className={componentClassName}>
@@ -31,18 +34,23 @@ export const Header = () => {
             <nav className="jkl-portal-header__navigation">
                 <ul className="jkl-portal-header__navigation-list">
                     <li className="jkl-portal-header__navigation-item">
-                        <FullScreenMenu filterable title="Profilen vår" items={profileDocPages} activePath="profil" />
+                        <FullScreenMenu
+                            filterable
+                            title="Profilen vår"
+                            items={profileDocPages}
+                            activePath={PageType.PROFIL}
+                        />
                     </li>
                     <li className="jkl-portal-header__navigation-item">
                         <FullScreenMenu
                             filterable
                             title="Komponenter"
                             items={componentDocPages}
-                            activePath="komponenter"
+                            activePath={PageType.KOMPONENTER}
                         />
                     </li>
                     <li className="jkl-portal-header__navigation-item">
-                        <FullScreenMenu title="Kom i gang" items={getStartedDocPages} activePath="komigang" />
+                        <FullScreenMenu title="Kom i gang" items={getStartedDocPages} activePath={PageType.KOMIGANG} />
                     </li>
                 </ul>
             </nav>

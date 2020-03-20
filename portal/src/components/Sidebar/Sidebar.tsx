@@ -8,7 +8,7 @@ import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
 
 export function Sidebar() {
-    const { profileDocPages, getStartedDocPages, componentDocPages } = useNavigationLinks();
+    const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
 
     const { currentSection, previousSection } = useLocation();
     const pathHasChanged = previousSection && previousSection !== currentSection;
@@ -21,13 +21,13 @@ export function Sidebar() {
     }
     let links: DocumentationPageInfo[];
     switch (currentSection) {
-        case "profil":
+        case PageType.PROFIL:
             links = profileDocPages;
             break;
-        case "komigang":
+        case PageType.KOMIGANG:
             links = getStartedDocPages;
             break;
-        case "komponenter":
+        case PageType.KOMPONENTER:
             links = componentDocPages;
             break;
         default:

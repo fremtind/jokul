@@ -6,7 +6,6 @@ interface RawDocumentationPage {
         context: {
             frontmatter: {
                 title: string;
-                path?: string;
                 order?: string;
             };
         };
@@ -16,6 +15,7 @@ interface RawDocumentationPage {
 export interface DocumentationPageInfo {
     path: string;
     title: string;
+    order?: string;
 }
 
 export function useNavigationLinks() {
@@ -31,6 +31,7 @@ export function useNavigationLinks() {
                         context {
                             frontmatter {
                                 title
+                                order
                             }
                         }
                     }
@@ -41,11 +42,29 @@ export function useNavigationLinks() {
     const pages = allSitePage.edges.map((edge: RawDocumentationPage) => ({
         path: edge.node.path,
         title: edge.node.context.frontmatter.title,
+        order: edge.node.context.frontmatter.order,
     }));
 
-    const profileDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("profil"));
-    const getStartedDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komigang"));
+    const sortByOrder = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
+        if (a.order && b.order) {
+            return parseInt(a.order) - parseInt(b.order);
+        }
+        return 0;
+    };
+
+    enum PageType {
+        PROFIL = "profil",
+        KOMIGANG = "komigang",
+        KOMPONENTER = "komponenter",
+    }
+
+    const profileDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("profil"))
+        .sort(sortByOrder);
+    const getStartedDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("komigang"))
+        .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
 
-    return { profileDocPages, getStartedDocPages, componentDocPages };
+    return { profileDocPages, getStartedDocPages, componentDocPages, PageType };
 }
