@@ -26,7 +26,7 @@ ReactDOM.render(
             choiceProps: [
                 {
                     name: "Type",
-                    values: ["clear", "search"],
+                    values: ["clear", "search", "calendar"],
                     defaultValue: 1,
                 },
             ],
