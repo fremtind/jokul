@@ -27,7 +27,7 @@ ReactDOM.render(
                 {
                     name: "Variant",
                     values: ["clear", "search"],
-                    defaultValue: 1
+                    defaultValue: 1,
                 },
             ],
         }}

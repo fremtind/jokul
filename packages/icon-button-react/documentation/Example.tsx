@@ -5,8 +5,8 @@ import { IconButton } from "../src";
 export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
         <>
-            <IconButton iconType="clear"/>
-            <IconButton iconType="search"/>
+            <IconButton iconType="clear" />
+            <IconButton iconType="search" />
         </>
     );
 };
