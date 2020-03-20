@@ -4,7 +4,7 @@ import { IconClear } from "./Icons/IconClear";
 import { IconCalendar } from "./Icons/IconCalendar";
 
 interface Props {
-    iconType: IconVariant;
+    iconType?: IconVariant;
 }
 
 function getIcon(iconType: IconVariant) {
@@ -20,7 +20,7 @@ function getIcon(iconType: IconVariant) {
     }
 }
 
-export const IconButton = ({ iconType }: Props) => {
+export const IconButton = ({ iconType= "clear" }: Props) => {
     return (
         <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
             {getIcon(iconType)}
