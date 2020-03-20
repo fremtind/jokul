@@ -31,67 +31,50 @@ export const TextArea = ({
 
     const [textAreaFocused, setTextAreaFocused] = useState(false);
     const [baseScrollHeight, setBaseScrollHeight] = useState(0);
-    const [rows2, setRows2] = useState(1);
+    const [currentRows, setCurrentRows] = useState(1);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const textAreaContentRows = (restProps.value || "").split("\n").length;
-
-    let textAreaRows: number = textAreaContentRows;
-
-    if (textAreaFocused && rows > textAreaContentRows) {
-        textAreaRows = rows;
-    }
 
     useEffect(() => {
         const textAreaElement = textAreaRef.current;
         if (autoExpand && textAreaElement) {
             const savedValue = textAreaElement.value;
+            // BaseScrollHeight must be calculated from an empty textarea.
             textAreaElement.value = "";
             setBaseScrollHeight(textAreaElement.scrollHeight);
             textAreaElement.value = savedValue;
         }
-    }, []);
+    }, [autoExpand]);
 
     useEffect(() => {
         const textAreaElement = textAreaRef.current;
-        if (textAreaElement) {
-            const savedRows = textAreaElement.rows;
-            textAreaElement.rows = 1;
-            let rows = Math.ceil((textAreaElement.scrollHeight - baseScrollHeight) / 32) + 1;
-            if (baseScrollHeight === 0) {
-                rows = rows2;
+        const minimumRows = rows;
+
+        if (!textAreaElement) {
+            if (!textAreaFocused) {
+                setCurrentRows(1);
+            } else {
+                setCurrentRows(minimumRows);
             }
-            textAreaElement.rows = savedRows;
-            setRows2(rows);
+        } else if (!textAreaFocused) {
+            if (restProps.value) {
+                const calculatedRows = calculateRows(textAreaElement, baseScrollHeight);
+                if (minimumRows > calculatedRows) {
+                    setCurrentRows(minimumRows);
+                } else {
+                    setCurrentRows(calculatedRows);
+                }
+            } else {
+                setCurrentRows(1);
+            }
+        } else {
+            const calculatedRows = calculateRows(textAreaElement, baseScrollHeight);
+            if (minimumRows > calculatedRows) {
+                setCurrentRows(minimumRows);
+            } else {
+                setCurrentRows(calculatedRows);
+            }
         }
-    }, [restProps.value]);
-
-    /*useEffect(() => {
-        const textAreaElement = textAreaRef.current;
-        if (autoExpand && textAreaElement && !textAreaElement.style.height) {
-            setBaseScrollHeight(textAreaElement.scrollHeight);
-            console.log(textAreaElement.scrollHeight);
-            textAreaElement.style.overflowY = "hidden";
-            calculateAndSetElementHeight(textAreaRows, textAreaElement, textAreaElement.scrollHeight);
-        }
-    }, []);
-
-    useEffect(() => {
-        const textAreaElement = textAreaRef.current;
-        let rowToCalculateHeightFrom = textAreaRows;
-
-        if (textAreaFocused) {
-            // While the text-area has focus we keep the height 1 row higher than the actual row count.
-            // If we don't do this it creates a weird scrolling effect that while we are transitioning from
-            // one height to the next height.
-            rowToCalculateHeightFrom += 1;
-        } else if (restProps.value && rowToCalculateHeightFrom < rows) {
-            rowToCalculateHeightFrom = rows;
-        }
-
-        if (autoExpand && textAreaElement) {
-            calculateAndSetElementHeight(rowToCalculateHeightFrom, textAreaElement, baseScrollHeight);
-        }
-    }, [textAreaRows, textAreaFocused]);*/
+    }, [restProps.value, textAreaFocused, autoExpand, baseScrollHeight, rows]);
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
@@ -104,8 +87,9 @@ export const TextArea = ({
                 aria-invalid={!!errorLabel}
                 className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
                 id={id}
-                rows={rows2}
+                rows={currentRows}
                 placeholder={placeholder}
+                style={autoExpand ? { height: "auto" } : undefined}
                 {...restProps}
             />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
@@ -123,12 +107,15 @@ export const TextArea = ({
     }
 };
 
-function calculateAndSetElementHeight(rows: number, textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
+function calculateRows(textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
     const lineHeightWithPx = window.getComputedStyle(textAreaElement).lineHeight;
     const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
-    rows = (textAreaElement.scrollHeight - baseScrollHeight) / lineHeight;
-    console.log("Lineheight ", lineHeight);
-    console.log("Scrollheight ", textAreaElement.scrollHeight);
-    console.log("BaseScrollHeight ", baseScrollHeight);
-    textAreaElement.style.height = `${rows * lineHeight + 8}px`;
+    // Removes the scrollbar each time we calculate rows.
+    textAreaElement.style.overflowY = "hidden";
+    const savedRows = textAreaElement.rows;
+    // We need to set rows to 1 to shrink the textarea when removing characters.
+    textAreaElement.rows = 1;
+    const calculatedRows = Math.ceil((textAreaElement.scrollHeight - baseScrollHeight) / lineHeight) + 1;
+    textAreaElement.rows = savedRows;
+    return calculatedRows;
 }

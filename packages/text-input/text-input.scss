@@ -160,26 +160,24 @@ $icon-size--compact: $font-size-2;
     }
 }
 
-///* Utility classes for number of rows */
-//@for $num from 3 through 10 {
-//    .jkl-text-field__input--#{$num}-rows:focus,
-//    .jkl-text-field__input--#{$num}-rows:not(:placeholder-shown) {
-//        height: $input-line-height * $num + $bottom-padding;
-//        @include small-device {
-//            height: $input-line-height--small-device * $num + $bottom-padding;
-//        }
-//        .jkl-text-field--compact & {
-//            height: $input-line-height--small-device * $num + $bottom-padding;
-//        }
-//    }
-//}
+/* Utility classes for number of rows */
+@for $num from 3 through 10 {
+    .jkl-text-field__input--#{$num}-rows:focus,
+    .jkl-text-field__input--#{$num}-rows:not(:placeholder-shown) {
+        height: $input-line-height * $num + $bottom-padding;
+        @include small-device {
+            height: $input-line-height--small-device * $num + $bottom-padding;
+        }
+        .jkl-text-field--compact & {
+            height: $input-line-height--small-device * $num + $bottom-padding;
+        }
+    }
+}
 
 .jkl-text-area {
     height: auto;
     & .jkl-text-field__input {
         transition: height 175ms ease, box-shadow $transition-timing;
         font-weight: normal;
-        height: auto;
-        overflow: hidden;
     }
 }
