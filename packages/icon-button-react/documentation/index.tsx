@@ -25,7 +25,7 @@ ReactDOM.render(
         knobs={{
             choiceProps: [
                 {
-                    name: "Variant",
+                    name: "Type",
                     values: ["clear", "search"],
                     defaultValue: 1,
                 },
