@@ -4,16 +4,18 @@
 
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$button-height--normal: rem(56px);
-$button-height--compact: rem(40px);
-$button-min-width--normal: rem(128px);
-$button-min-width--compact: rem(104px);
+$button-height--normal: rem(48px);
+$button-height--compact: rem(36px);
+$button-min-width--normal: rem(104px);
+$button-min-width--compact: rem(80px);
 
 $button-bg-color: $hvit;
 $button-bg-color--primary: $svart;
 
 $button-text-color: $svart;
 $button-text-color--primary: $hvit;
+
+$button-text-size--compact: rem(14px);
 
 $button-border-color: $svart;
 $button-border-width: rem(1px);
@@ -29,7 +31,7 @@ $hover-elevation-distance: -0.25rem;
     @include reset-outline;
     display: inline-flex;
     justify-content: center;
-    @include jkl-text-style("desktop/body");
+    @include jkl-text-style("compact/body");
     font-weight: $bold-weight;
     height: $button-height--normal;
     min-width: $button-min-width--normal;
@@ -129,22 +131,10 @@ $hover-elevation-distance: -0.25rem;
         }
     }
 
-    @include small-device {
-        @include jkl-text-style("compact/body");
-        font-weight: $bold-weight;
-        height: $button-height--compact;
-        line-height: $button-height--compact;
-        min-width: $button-min-width--compact;
-        &.jkl-button--tertiary {
-            min-width: unset;
-        }
-    }
-
     @include compact-mode {
-        @include jkl-text-style("compact/body");
-        font-weight: $bold-weight;
-        height: $button-height--compact;
+        font-size: $button-text-size--compact;
         line-height: $button-height--compact;
+        height: $button-height--compact;
         min-width: $button-min-width--compact;
         &.jkl-button--tertiary {
             min-width: unset;

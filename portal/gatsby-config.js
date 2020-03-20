@@ -13,14 +13,6 @@ module.exports = {
             options: { implementation: require("sass") },
         },
         {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `markdown-pages`,
-                path: `${__dirname}/src/texts`,
-            },
-        },
-        `gatsby-transformer-remark`,
-        {
             resolve: "gatsby-plugin-page-creator",
             options: {
                 name: `components`,
@@ -29,10 +21,18 @@ module.exports = {
             },
         },
         {
+            resolve: "gatsby-plugin-page-creator",
+            options: {
+                name: `docs`,
+                path: `${__dirname}/src/texts`,
+                ignore: [`!**/*.mdx`],
+            },
+        },
+        {
             resolve: `gatsby-plugin-mdx`,
             options: {
                 defaultLayouts: {
-                    default: require.resolve("./src/components/Layout/ComponentLayout.tsx"),
+                    default: require.resolve("./src/components/Layout/DocPageLayout.tsx"),
                 },
             },
         },

@@ -1,4 +1,4 @@
-import React, { ReactNode, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import classNames from "classnames";
 
 import { FormatProvider } from "../Typography";
@@ -11,24 +11,20 @@ import "./Layout.scss";
 import Helmet from "react-helmet";
 
 interface Props {
-    children: ReactNode;
     title?: string;
-    header?: string;
-    isComponentPage?: boolean;
     isFrontpage?: boolean;
-    showFooter?: boolean;
     location: Location;
 }
 
-export const Layout = ({ children, title, isFrontpage, location }: Props) => {
+export const Layout: React.FC<Props> = ({ children, title, location, isFrontpage }) => {
     const { setLocation } = useLocation();
     setLocation(location);
-
-    const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
     const mainClassName = classNames({
         "jkl-portal__main": true,
         "jkl-portal__main--frontpage": isFrontpage,
     });
+
+    const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
     const { theme } = useTheme();
     const wrapperRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
@@ -41,7 +37,7 @@ export const Layout = ({ children, title, isFrontpage, location }: Props) => {
                 <title>{PageTitle}</title>
             </Helmet>
             <ThemeBG />
-            <Header />
+            <Header className="jkl-portal__header" />
             <Sidebar />
             <main className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>

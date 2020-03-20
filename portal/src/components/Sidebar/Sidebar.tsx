@@ -9,11 +9,7 @@ import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
 
 export function Sidebar() {
-    const { documentationPages, componentPages } = useNavigationLinks();
-    const profileDocPages = documentationPages.filter((page: DocumentationPageInfo) => page.path.includes("profil"));
-    const getStartedDocPages = documentationPages.filter((page: DocumentationPageInfo) =>
-        page.path.includes("komigang"),
-    );
+    const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
 
     const { currentSection, previousSection } = useLocation();
     const pathHasChanged = previousSection && previousSection !== currentSection;
@@ -26,14 +22,14 @@ export function Sidebar() {
     }
     let links: DocumentationPageInfo[];
     switch (currentSection) {
-        case "profil":
+        case PageType.PROFIL:
             links = profileDocPages;
             break;
-        case "komigang":
+        case PageType.KOMIGANG:
             links = getStartedDocPages;
             break;
-        case "komponenter":
-            links = componentPages;
+        case PageType.KOMPONENTER:
+            links = componentDocPages;
             break;
         default:
             links = [];
