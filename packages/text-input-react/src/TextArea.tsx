@@ -98,8 +98,6 @@ export const TextArea = ({
 function calculateRows(textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
     const lineHeightWithPx = window.getComputedStyle(textAreaElement).lineHeight;
     const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
-    // Removes the scrollbar each time we calculate rows.
-    textAreaElement.style.overflowY = "hidden";
     const savedRows = textAreaElement.rows;
     // We need to set rows to 1 to shrink the textarea when removing characters.
     textAreaElement.rows = 1;
