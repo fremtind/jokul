@@ -89,7 +89,8 @@ export const TextArea = ({
                 id={id}
                 rows={currentRows}
                 placeholder={placeholder}
-                style={autoExpand ? { height: "auto" } : undefined}
+                // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
+                style={autoExpand ? { height: "auto", overflowX: "hidden" } : undefined}
                 {...restProps}
             />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
