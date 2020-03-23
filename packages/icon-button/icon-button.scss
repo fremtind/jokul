@@ -1,7 +1,8 @@
 @import "~@fremtind/jkl-core/screen-reader.scss";
+@import "~@fremtind/jkl-core/mixins/_helpers.scss";
 
 .jkl-icon-button {
-    border: none;
+    @include reset-outline;
     background-color: transparent;
     cursor: pointer;
 
