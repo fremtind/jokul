@@ -5,6 +5,7 @@ import { IconCalendar } from "./Icons/IconCalendar";
 
 interface Props {
     iconType?: IconVariant;
+    buttonTitle: string;
 }
 
 function getIcon(iconType: IconVariant) {
@@ -20,11 +21,21 @@ function getIcon(iconType: IconVariant) {
     }
 }
 
-export const IconButton = ({ iconType= "clear" }: Props) => {
+export const IconButton = ({ iconType= "clear", buttonTitle }: Props) => {
     return (
-        <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
-            {getIcon(iconType)}
-        </span>
+        <button
+            type="button"
+            title={buttonTitle}
+            data-testid="jkl-icon-button"
+            className="jkl-icon-button"
+        >
+            <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
+                {getIcon(iconType)}
+            </span>
+            <span className="jkl-sr-only">
+                {buttonTitle}
+            </span>
+        </button>
     );
 };
 

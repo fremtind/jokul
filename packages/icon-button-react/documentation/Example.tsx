@@ -8,7 +8,7 @@ export const Example: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
 
     return (
         <>
-            <IconButton iconType={type} />
+            <IconButton iconType={type} buttonTitle="Vis knappen"/>
         </>
     );
 };

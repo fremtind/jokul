@@ -1,5 +1,10 @@
+@import "~@fremtind/jkl-core/screen-reader.scss";
 
 .jkl-icon-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
     &__icon {
         display: inline-block;
         width: 1.25rem;
