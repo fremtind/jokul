@@ -52,32 +52,16 @@ export const TextArea = ({
         const textAreaElement = textAreaRef.current;
         const minimumRows = rows;
 
-        if (!textAreaElement) {
-            if (!textAreaFocused) {
-                setCurrentRows(1);
-            } else {
-                setCurrentRows(minimumRows);
-            }
-        } else if (!textAreaFocused) {
-            if (restProps.value) {
-                const calculatedRows = calculateRows(textAreaElement, baseScrollHeight);
-                if (minimumRows > calculatedRows) {
-                    setCurrentRows(minimumRows);
-                } else {
-                    setCurrentRows(calculatedRows);
-                }
-            } else {
-                setCurrentRows(1);
-            }
-        } else {
+        if (textAreaElement) {
             const calculatedRows = calculateRows(textAreaElement, baseScrollHeight);
-            if (minimumRows > calculatedRows) {
-                setCurrentRows(minimumRows);
+            if (textAreaFocused || restProps.value) {
+                setCurrentRows(Math.max(minimumRows, calculatedRows));
             } else {
                 setCurrentRows(calculatedRows);
             }
         }
-    }, [restProps.value, textAreaFocused, autoExpand, baseScrollHeight, rows]);
+    }, [restProps.value, textAreaFocused, baseScrollHeight, rows]);
+
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
             <Label variant={variant} forceCompact={forceCompact}>
