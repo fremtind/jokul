@@ -74,7 +74,7 @@ export const TextArea = ({
                 aria-invalid={!!errorLabel}
                 className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
                 id={id}
-                rows={currentRows}
+                rows={autoExpand ? currentRows : undefined}
                 placeholder={placeholder}
                 // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
                 style={autoExpand ? { height: "auto", overflowX: "hidden" } : undefined}
