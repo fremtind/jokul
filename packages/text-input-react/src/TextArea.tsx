@@ -38,10 +38,13 @@ export const TextArea = ({
         const textAreaElement = textAreaRef.current;
         if (autoExpand && textAreaElement) {
             const savedValue = textAreaElement.value;
-            // BaseScrollHeight must be calculated from an empty textarea.
+            const savedPlaceholder = textAreaElement.placeholder;
+            // BaseScrollHeight must be calculated from an empty textarea and empty placeholder.
             textAreaElement.value = "";
+            textAreaElement.placeholder = "";
             setBaseScrollHeight(textAreaElement.scrollHeight);
             textAreaElement.value = savedValue;
+            textAreaElement.placeholder = savedPlaceholder;
         }
     }, [autoExpand]);
 
