@@ -12,10 +12,7 @@ export const Example: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
 
     return (
         <>
-            <IconButton
-                iconType={type}
-                onClick={onClick}
-                buttonTitle="Vis knappen"/>
+            <IconButton iconType={type} onClick={onClick} buttonTitle="Vis knappen" />
         </>
     );
 };

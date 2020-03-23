@@ -21,21 +21,13 @@ function getIcon(iconType: IconVariant) {
     }
 }
 
-export const IconButton = ({ iconType= "clear", buttonTitle, ...rest }: Props) => {
+export const IconButton = ({ iconType = "clear", buttonTitle, ...rest }: Props) => {
     return (
-        <button
-            type="button"
-            title={buttonTitle}
-            data-testid="jkl-icon-button"
-            className="jkl-icon-button"
-            {...rest}
-        >
+        <button type="button" title={buttonTitle} data-testid="jkl-icon-button" className="jkl-icon-button" {...rest}>
             <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
                 {getIcon(iconType)}
             </span>
-            <span className="jkl-sr-only">
-                {buttonTitle}
-            </span>
+            <span className="jkl-sr-only">{buttonTitle}</span>
         </button>
     );
 };
