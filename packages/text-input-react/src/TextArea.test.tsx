@@ -133,4 +133,5 @@ describe("a11y", () => {
     });
 });
 
+/* eslint-disable */
 type PropTypeFor<T extends (arg: any) => any> = T extends (arg: infer P) => any ? P : never;

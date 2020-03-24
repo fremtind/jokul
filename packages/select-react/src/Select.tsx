@@ -1,6 +1,6 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
@@ -61,10 +61,13 @@ export function Select({
     const [selectedValue, setSelectedValue] = useState(value);
     const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
 
-    function getLabelFromValue(value: string | undefined) {
-        const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
-        return matchingItem && matchingItem.label;
-    }
+    const getLabelFromValue = useCallback(
+        (value: string | undefined) => {
+            const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
+            return matchingItem && matchingItem.label;
+        },
+        [items],
+    );
     const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
 
     const [dropdownIsShown, setShown] = useState(false);
@@ -105,7 +108,7 @@ export function Select({
     useEffect(() => {
         setSelectedValue(value);
         setDisplayedValue(getLabelFromValue(value));
-    }, [value, items]);
+    }, [value, items, getLabelFromValue]);
 
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
 

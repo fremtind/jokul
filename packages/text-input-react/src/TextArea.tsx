@@ -45,7 +45,7 @@ export const TextArea = ({
             textAreaElement.style.overflowY = "hidden";
             calculateAndSetElementHeight(textAreaRows, textAreaElement);
         }
-    }, []);
+    }, [autoExpand, textAreaRows]);
 
     useEffect(() => {
         const textAreaElement = textAreaRef.current;
@@ -63,7 +63,7 @@ export const TextArea = ({
         if (autoExpand && textAreaElement) {
             calculateAndSetElementHeight(rowToCalculateHeightFrom, textAreaElement);
         }
-    }, [textAreaRows, textAreaFocused]);
+    }, [textAreaRows, textAreaFocused, autoExpand, restProps.value, rows]);
 
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
