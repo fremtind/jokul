@@ -41,7 +41,7 @@
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
-    "devDependencies": {
+    "dependencies": {
         "@fremtind/browserslist-config-jkl": "^0.5.0"
     },
     "repository": {
