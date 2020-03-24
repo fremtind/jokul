@@ -2,19 +2,11 @@ import { graphql, useStaticQuery } from "gatsby";
 
 interface RawDocumentationPage {
     node: {
-        frontmatter: {
-            path: string;
-            title: string;
-            order: string;
-        };
-    };
-}
-interface RawComponentPage {
-    node: {
         path: string;
         context: {
             frontmatter: {
                 title: string;
+                order?: string;
             };
         };
     };
@@ -23,14 +15,15 @@ interface RawComponentPage {
 export interface DocumentationPageInfo {
     path: string;
     title: string;
+    order?: string;
 }
 
 export function useNavigationLinks() {
-    const { allSitePage, allMarkdownRemark } = useStaticQuery(graphql`
+    const { allSitePage } = useStaticQuery(graphql`
         query getPages {
             allSitePage(
-                filter: { path: { regex: "/(-react|react-hooks)/documentation/" } }
                 sort: { order: ASC, fields: context___frontmatter___title }
+                filter: { context: { frontmatter: { title: { regex: "/.*/" } } } }
             ) {
                 edges {
                     node {
@@ -38,40 +31,40 @@ export function useNavigationLinks() {
                         context {
                             frontmatter {
                                 title
+                                order
                             }
-                        }
-                    }
-                }
-            }
-            allMarkdownRemark(sort: { order: ASC, fields: frontmatter___order }) {
-                edges {
-                    node {
-                        frontmatter {
-                            path
-                            title
-                            order
                         }
                     }
                 }
             }
         }
     `);
-
-    const documentationPages = allMarkdownRemark.edges
-        /* .sort(
-            (a: RawDocumentationPage, b: RawDocumentationPage) =>
-                parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order),
-        ) */
-        .map((edge: RawDocumentationPage) => ({
-            path: edge.node.frontmatter.path,
-            title: edge.node.frontmatter.title,
-        }))
-        .filter((page: DocumentationPageInfo) => page.path !== null && page.title !== "");
-
-    const componentPages = allSitePage.edges.map((edge: RawComponentPage) => ({
+    const pages = allSitePage.edges.map((edge: RawDocumentationPage) => ({
         path: edge.node.path,
         title: edge.node.context.frontmatter.title,
+        order: edge.node.context.frontmatter.order,
     }));
 
-    return { documentationPages, componentPages };
+    const sortByOrder = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
+        if (a.order && b.order) {
+            return parseInt(a.order) - parseInt(b.order);
+        }
+        return 0;
+    };
+
+    enum PageType {
+        PROFIL = "profil",
+        KOMIGANG = "komigang",
+        KOMPONENTER = "komponenter",
+    }
+
+    const profileDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("profil"))
+        .sort(sortByOrder);
+    const getStartedDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("komigang"))
+        .sort(sortByOrder);
+    const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
+
+    return { profileDocPages, getStartedDocPages, componentDocPages, PageType };
 }

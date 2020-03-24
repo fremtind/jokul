@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-list-react`](https://fremtind.github.io/jokul/list-react/documentation/List/)
+# [`@fremtind/jkl-list-react`](https://fremtind.github.io/jokul/komponenter/list)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/list-react/documentation/List/).
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/list).
 
 ## Kom i gang
 

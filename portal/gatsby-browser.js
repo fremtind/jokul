@@ -18,6 +18,7 @@ import "@fremtind/jkl-hamburger/hamburger.min.css";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-loader/loader.min.css";
 import "@fremtind/jkl-logo/logo.min.css";
+import "@fremtind/jkl-message-box/message-box.min.css";
 import "@fremtind/jkl-progress-bar/progress-bar.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-select/select.min.css";
@@ -29,13 +30,16 @@ import { initTabListener } from "@fremtind/jkl-core";
 import "./src/components/Typography/typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";
 import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
+import { LocationContextProvider } from "./src/contexts/locationContext";
 
 initTabListener();
 
 export const wrapRootElement = ({ element }) => {
     return (
-        <ThemeContextProvider>
-            <FSMenuContextProvider>{element}</FSMenuContextProvider>
-        </ThemeContextProvider>
+        <LocationContextProvider>
+            <ThemeContextProvider>
+                <FSMenuContextProvider>{element}</FSMenuContextProvider>
+            </ThemeContextProvider>
+        </LocationContextProvider>
     );
 };

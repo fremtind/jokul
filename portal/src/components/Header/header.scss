@@ -10,7 +10,6 @@ $header-padding: 0 $layout-spacing--medium;
 $header-padding--right: $layout-spacing--xl;
 
 .jkl-portal-header {
-    grid-area: header;
     display: flex;
     height: $header-height;
     padding: $header-padding;
