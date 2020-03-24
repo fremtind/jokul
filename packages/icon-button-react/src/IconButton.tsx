@@ -1,9 +1,9 @@
-import React from "react";
+import React, {HTMLAttributes} from "react";
 import { IconSearch } from "./Icons/IconSearch";
 import { IconClear } from "./Icons/IconClear";
 import { IconCalendar } from "./Icons/IconCalendar";
 
-interface Props {
+interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
     iconType?: IconVariant;
     buttonTitle: string;
 }
