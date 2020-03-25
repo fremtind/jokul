@@ -21,9 +21,11 @@ export function ThemeContextProvider({ children }: Props) {
     const [theme, setTheme] = useState(THEMES.THEME_LIGHT);
     useLayoutEffect(() => {
         if (document) {
-            setTheme(getCookie("theme") || theme);
+            const newTheme = getCookie("theme") || theme;
+            setTheme(newTheme);
+            document && setCookie("theme", newTheme, 60 * 60 * 24 * 365);
         }
-    }, []);
+    }, [theme]);
     const toggleTheme = () => {
         const newTheme = theme === THEMES.THEME_DARK ? THEMES.THEME_LIGHT : THEMES.THEME_DARK;
         setTheme(newTheme);

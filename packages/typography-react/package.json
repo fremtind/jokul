@@ -39,9 +39,6 @@
     "dependencies": {
         "@fremtind/jkl-core": "^4.1.0"
     },
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.5.0"
-    },
     "peerDependencies": {
         "@types/react": "^16.8.17",
         "@types/react-dom": "^16.8.4",
@@ -55,8 +52,5 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

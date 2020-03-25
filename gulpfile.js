@@ -16,8 +16,8 @@ function throwSassError(e) {
     throw new Error("sass compilation failed");
 }
 
-module.exports = function(gulp) {
-    gulp.task("build", function() {
+module.exports = function (gulp) {
+    gulp.task("build", function () {
         return gulp
             .src(scssFiles)
             .pipe(sass({ fiber, importer }).on("error", throwSassError))
@@ -27,7 +27,7 @@ module.exports = function(gulp) {
             .pipe(rename({ suffix: ".min" }))
             .pipe(gulp.dest("./"));
     });
-    gulp.task("build:watch", function() {
+    gulp.task("build:watch", function () {
         return gulp.watch(scssFiles, { ignoreInitial: false }, gulp.series("build"));
     });
     return gulp;
