@@ -17,4 +17,15 @@ describe("IconButton", () => {
 
         expect(clickHandler).toHaveBeenCalled();
     });
+
+    it("has search icon", () => {
+        const clickHandler = jest.fn();
+        const { getByTestId } = render(
+            <IconButton iconType="search" buttonTitle="I am groot!" onClick={clickHandler} />,
+        );
+
+        const svg = getByTestId("jkl-search-icon");
+
+        expect(svg).toBeInTheDocument();
+    });
 });
