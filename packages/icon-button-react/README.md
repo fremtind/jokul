@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-button-react`](https://fremtind.github.io/jokul/komponenter/buttons)
+# [`@fremtind/jkl-icon-button-react`](https://fremtind.github.io/jokul/komponenter/iconbutton)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/buttons).
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/iconbutton).
 
 ## Kom i gang
 
@@ -12,38 +12,27 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponente
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-button-react` eller `npm i @fremtind/jkl-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @fremtind/jkl-icon-button-react` eller `npm i @fremtind/jkl-icon-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-button/button.min.css";
+import { IconButton } from "@fremtind/jkl-icon-button-react";
+import "@fremtind/jkl-icon-button/icon-button.min.css";
 ```
 
 ### Bruk
 
 Komponentene tar følgende props:
 
--   `children`: **Påkrevd**. Innholdet i knappen. `ReactNode`
+-   `iconType`: Angir hvilken svg ikon skal vises (f.eks: search, calendar, clear). `string`
+-   `buttonTitle`: Serverer som hjelpetekst. `string`
 -   `onClick`: **Påkrevd**. Klikkhåndtering for knappen. Får en MouseEvent som første argument. `MouseEventHandler<HTMLButtonElement>`
--   `forceCompact`: Angir at knappen skal vises i liten versjon uavhengig av skjermstørrelse. `boolean`
--   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
+
 
 En enkel bruk av knapper kan se slik ut:
 
 ```jsx
-<SecondaryButton onClick={showDetails}>Vis detaljer</SecondaryButton>
+<IconButton iconType="calendar" onClick={onClick} buttonTitle="Vis kalendar" />
 ```
 
-Knapper kan ha annet innhold enn ren tekst, for eksempel for å vise aktivitet knyttet til knappens handling:
-
-```jsx
-<PrimaryButton onClick={uploadFiles}>
-  {
-    isUploading
-      ? <Loader inline negative textDescription="Laster opp filer">
-      : "Last opp"
-  }
-</PrimaryButton>
-```
