@@ -88,6 +88,9 @@
         "typescript": "^3.6.2",
         "vfile-message": "^2.0.2"
     },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
     "workspaces": [
         "packages/*",
         "portal"
