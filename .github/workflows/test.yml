@@ -33,9 +33,3 @@ jobs:
                   yarn install --frozen-lockfile
                   yarn build
                   yarn ci:test
-            - name: Lint and test (greenkeeper)
-              if: contains(github.ref, 'greenkeeper/')
-              run: |
-                  yarn install
-                  yarn build
-                  yarn ci:test
