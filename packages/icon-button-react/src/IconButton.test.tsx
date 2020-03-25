@@ -7,7 +7,9 @@ afterEach(cleanup);
 describe("IconButton", () => {
     it("calls the onClick handler when clicked", () => {
         const clickHandler = jest.fn();
-        const { getByTestId } = render(<IconButton iconType="clear" buttonTitle="I am groot!" onClick={clickHandler} />);
+        const { getByTestId } = render(
+            <IconButton iconType="clear" buttonTitle="I am groot!" onClick={clickHandler} />,
+        );
 
         const button = getByTestId("jkl-icon-button");
 

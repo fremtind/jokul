@@ -1,4 +1,4 @@
-import React, {HTMLAttributes} from "react";
+import React, { HTMLAttributes } from "react";
 import { IconSearch } from "./Icons/IconSearch";
 import { IconClear } from "./Icons/IconClear";
 import { IconCalendar } from "./Icons/IconCalendar";
