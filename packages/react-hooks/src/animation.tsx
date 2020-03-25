@@ -1,12 +1,12 @@
-import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState, RefObject } from "react";
+import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState, RefObject, useCallback } from "react";
 
 interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
 export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefObject<T>, () => void] {
-    let raf1: number;
-    let raf2: number;
+    const raf1 = useRef<number>();
+    const raf2 = useRef<number>();
     const elementRef = useRef<T>(null);
     const [isFirstRender, setIsFirstRender] = useState(true);
 
@@ -17,7 +17,7 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
         }
     }
 
-    function runAnimation() {
+    const runAnimation = useCallback(() => {
         const element = getElement(elementRef);
         if (element) {
             element.style.display = "block";
@@ -28,20 +28,20 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
             } else {
                 element.style.height = `${element.scrollHeight}px`;
 
-                raf1 = requestAnimationFrame(() => {
-                    raf2 = requestAnimationFrame(() => {
+                raf1.current = requestAnimationFrame(() => {
+                    raf2.current = requestAnimationFrame(() => {
                         element.style.height = `${0}px`;
                     });
                 });
             }
         }
-    }
+    }, [isOpen]);
 
     useLayoutEffect(() => {
         if (!isFirstRender) {
             runAnimation();
         }
-    }, [isOpen]);
+    }, [isOpen, isFirstRender, runAnimation]);
 
     useEffect(() => {
         const element = getElement(elementRef);
@@ -57,12 +57,14 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
     }, [isOpen]);
 
     useEffect(() => {
+        const r1 = raf1.current;
+        const r2 = raf2.current;
         setIsFirstRender(false);
         return () => {
-            cancelAnimationFrame(raf1);
-            cancelAnimationFrame(raf2);
+            r1 && cancelAnimationFrame(r1);
+            r2 && cancelAnimationFrame(r2);
         };
-    }, []);
+    }, [raf1, raf2]);
 
     return [elementRef, runAnimation];
 }
