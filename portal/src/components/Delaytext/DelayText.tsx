@@ -45,7 +45,7 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
         return splitText.filter((char, i) => {
             return i <= index;
         });
-    }, [index]);
+    }, [index, text]);
 
     const onEnd = () => {
         const elRef = (textRef.current as unknown) as {

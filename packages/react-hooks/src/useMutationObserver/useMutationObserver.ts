@@ -10,8 +10,9 @@ export const useMutationObserver = (
     const observerRef = useRef<MutationObserver>(null);
 
     useEffect(() => {
+        let observer = observerRef.current;
+
         if (hasWindowWithMutationObserver()) {
-            let observer = observerRef.current;
             const target = targetRef.current;
 
             if (observer) {
@@ -25,9 +26,9 @@ export const useMutationObserver = (
             }
         }
         return () => {
-            if (hasWindowWithMutationObserver() && observerRef && observerRef.current) {
-                observerRef.current.disconnect();
+            if (hasWindowWithMutationObserver() && observer) {
+                observer.disconnect();
             }
         };
-    }, [targetRef]);
+    }, [targetRef, onObservation, config]);
 };
