@@ -16,7 +16,7 @@ export const Header = ({ className }: { className?: string }) => {
             window.addEventListener("scroll", () => {
                 setCollapsed(window.scrollY > 96);
             });
-    }, []);
+    }, [setMenuIsOpen]);
     const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
     const componentClassName = classNames(
         {

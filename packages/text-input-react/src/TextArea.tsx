@@ -30,40 +30,37 @@ export const TextArea = ({
     });
 
     const [textAreaFocused, setTextAreaFocused] = useState(false);
+    const [baseScrollHeight, setBaseScrollHeight] = useState(0);
+    const [currentRows, setCurrentRows] = useState(1);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const textAreaContentRows = (restProps.value || "").split("\n").length;
-
-    let textAreaRows: number = textAreaContentRows;
-
-    if (textAreaFocused && rows > textAreaContentRows) {
-        textAreaRows = rows;
-    }
 
     useEffect(() => {
         const textAreaElement = textAreaRef.current;
-        if (autoExpand && textAreaElement && !textAreaElement.style.height) {
-            textAreaElement.style.overflowY = "hidden";
-            calculateAndSetElementHeight(textAreaRows, textAreaElement);
-        }
-    }, []);
-
-    useEffect(() => {
-        const textAreaElement = textAreaRef.current;
-        let rowToCalculateHeightFrom = textAreaRows;
-
-        if (textAreaFocused) {
-            // While the text-area has focus we keep the height 1 row higher than the actual row count.
-            // If we don't do this it creates a weird scrolling effect that while we are transitioning from
-            // one height to the next height.
-            rowToCalculateHeightFrom += 1;
-        } else if (restProps.value && rowToCalculateHeightFrom < rows) {
-            rowToCalculateHeightFrom = rows;
-        }
-
         if (autoExpand && textAreaElement) {
-            calculateAndSetElementHeight(rowToCalculateHeightFrom, textAreaElement);
+            const savedValue = textAreaElement.value;
+            const savedPlaceholder = textAreaElement.placeholder;
+            // BaseScrollHeight must be calculated from an empty textarea and empty placeholder.
+            textAreaElement.value = "";
+            textAreaElement.placeholder = "";
+            setBaseScrollHeight(textAreaElement.scrollHeight);
+            textAreaElement.value = savedValue;
+            textAreaElement.placeholder = savedPlaceholder;
         }
-    }, [textAreaRows, textAreaFocused]);
+    }, [autoExpand]);
+
+    useEffect(() => {
+        const textAreaElement = textAreaRef.current;
+        const minimumRows = rows;
+
+        if (textAreaElement) {
+            const calculatedRows = calculateRows(textAreaElement, baseScrollHeight);
+            if (textAreaFocused || restProps.value) {
+                setCurrentRows(Math.max(minimumRows, calculatedRows));
+            } else {
+                setCurrentRows(calculatedRows);
+            }
+        }
+    }, [restProps.value, textAreaFocused, baseScrollHeight, rows]);
 
     return (
         <label data-testid="jkl-text-field" className={componentClassName}>
@@ -77,8 +74,10 @@ export const TextArea = ({
                 aria-invalid={!!errorLabel}
                 className={`jkl-text-field__input jkl-text-field__input--${rows}-rows`}
                 id={id}
-                rows={textAreaRows}
+                rows={autoExpand ? currentRows : undefined}
                 placeholder={placeholder}
+                // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
+                style={autoExpand ? { height: "auto", overflowX: "hidden" } : undefined}
                 {...restProps}
             />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
@@ -96,8 +95,13 @@ export const TextArea = ({
     }
 };
 
-function calculateAndSetElementHeight(rows: number, textAreaElement: HTMLTextAreaElement) {
+function calculateRows(textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
     const lineHeightWithPx = window.getComputedStyle(textAreaElement).lineHeight;
     const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
-    textAreaElement.style.height = `${rows * lineHeight + 8}px`;
+    const savedRows = textAreaElement.rows;
+    // We need to set rows to 1 to shrink the textarea when removing characters.
+    textAreaElement.rows = 1;
+    const calculatedRows = Math.ceil((textAreaElement.scrollHeight - baseScrollHeight) / lineHeight) + 1;
+    textAreaElement.rows = savedRows;
+    return calculatedRows;
 }

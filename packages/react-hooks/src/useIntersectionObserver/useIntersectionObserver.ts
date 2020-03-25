@@ -12,8 +12,8 @@ export const useIntersectionObserver = (
     const observerRef = useRef<IntersectionObserver>(null);
 
     useEffect(() => {
+        let observer = observerRef.current;
         if (hasWindowWithIntersectionObserver()) {
-            let observer = observerRef.current;
             const target = targetRef.current;
 
             if (observer) {
@@ -29,9 +29,9 @@ export const useIntersectionObserver = (
             fallback();
         }
         return () => {
-            if (hasWindowWithIntersectionObserver() && observerRef && observerRef.current) {
-                observerRef.current.disconnect();
+            if (hasWindowWithIntersectionObserver() && observer) {
+                observer.disconnect();
             }
         };
-    }, [targetRef]);
+    }, [targetRef, onIntersect, fallback, options]);
 };
