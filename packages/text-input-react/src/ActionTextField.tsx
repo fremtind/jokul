@@ -1,7 +1,6 @@
 import React, { MouseEventHandler } from "react";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { IconVariant } from "@fremtind/jkl-icon-button-react/src/";
+import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { BaseInputField, BaseInputProps } from "./BaseInputField";
 import classNames from "classnames";
 
