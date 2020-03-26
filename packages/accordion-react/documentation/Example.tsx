@@ -1,4 +1,5 @@
 import React from "react";
+import "@fremtind/jkl-accordion/accordion.css";
 
 import { Accordion, AccordionItem } from "../src";
 

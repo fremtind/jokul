@@ -3,14 +3,21 @@ title: Accordion
 react: "accordion-react"
 scss: "accordion"
 ---
-
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import { Example } from "./Example";
+
+<Meta title="Accordion" />
 
 <Ingress>
     Med trekkspillister kan vi presentere mye innhold på liten plass. En trekkspilliste har én eller flere rader, som
     brukeren kan klikke på for å vise eller skjule informasjon.
 </Ingress>
-<ComponentExample component={Example} />
+
+<Preview>
+  <Story name="Eksempel fra dokumentasjonen">
+    <Example />
+  </Story>
+</Preview>
 
 ## Bruk
 
