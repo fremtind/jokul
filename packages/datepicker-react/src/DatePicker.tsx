@@ -2,12 +2,12 @@ import React, { ChangeEvent, useState, useEffect, useRef } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant } from "@fremtind/jkl-core";
-import { CalendarIcon } from "./CalendarIcon";
 // @ts-ignore
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
 import classNames from "classnames";
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 
 interface ChangeDate {
     date: Date;
@@ -178,17 +178,11 @@ export function DatePicker({
                     value={dateString}
                     onChange={onInputChange}
                 />
-                <button
-                    type="button"
-                    title={calendarButtonTitle}
-                    data-testid="jkl-datepicker__calendar-button"
+                <IconButton
                     className="jkl-datepicker__action-button"
-                >
-                    <CalendarIcon className="jkl-datepicker__action-icon" />
-                    <span data-testid="jkl-datepicker__calendar-button-text" className="jkl-sr-only">
-                        {calendarButtonTitle}
-                    </span>
-                </button>
+                    iconType="calendar"
+                    buttonTitle={calendarButtonTitle}
+                />
                 <CoreToggle
                     popup
                     hidden={datepickerHidden}
