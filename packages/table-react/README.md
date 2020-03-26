@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-table-react`](https://fremtind.github.io/jokul/table-react/documentation/Table/)
+# [`@fremtind/jkl-table-react`](https://fremtind.github.io/jokul/komponenter/table)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/table-react/documentation/Table/).
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/table).
 
 ## Kom i gang
 

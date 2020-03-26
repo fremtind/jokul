@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@2.1.2...@fremtind/jkl-toggle-switch-react@2.2.0) (2020-03-25)
+
+
+### Bug Fixes
+
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+
+
+### Features
+
+* update typescript, prettier and babel ([ec1d27b](https://github.com/fremtind/jokul/commit/ec1d27b09ef6ff27344ae181686b4e3d8be0b333))
+
+
+
+
+
+## [2.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@2.1.1...@fremtind/jkl-toggle-switch-react@2.1.2) (2020-03-16)
+
+**Note:** Version bump only for package @fremtind/jkl-toggle-switch-react
+
+
+
+
+
 ## [2.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@2.1.0...@fremtind/jkl-toggle-switch-react@2.1.1) (2020-03-06)
 
 **Note:** Version bump only for package @fremtind/jkl-toggle-switch-react

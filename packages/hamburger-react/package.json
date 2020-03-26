@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "1.2.1",
+    "version": "1.2.3",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
     "module": "./build/esm/index.js",
     "browser": "./build/browser/index.js",
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -33,12 +33,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-hamburger": "^1.1.3",
-        "@fremtind/jkl-react-hooks": "^1.1.1"
+        "@fremtind/jkl-hamburger": "^1.1.5",
+        "@fremtind/jkl-react-hooks": "^1.1.3"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14",
-        "@fremtind/jkl-portal-components": "^0.2.1"
+        "@fremtind/jkl-portal-components": "^0.2.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
@@ -53,8 +52,5 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

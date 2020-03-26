@@ -2,13 +2,13 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "2.0.1",
+    "version": "2.1.0",
     "devDependencies": {
         "@types/react-helmet": "^5.0.9",
         "@types/react-syntax-highlighter": "^11.0.3"
     },
     "dependencies": {
-        "@fremtind/jkl-portal-components": "^0.2.1",
+        "@fremtind/jkl-portal-components": "^0.2.3",
         "@mdx-js/mdx": "^1.5.1",
         "@mdx-js/react": "^1.5.1",
         "gatsby": "^2.11.7",
@@ -18,15 +18,12 @@
         "gatsby-plugin-react-helmet": "^3.1.6",
         "gatsby-plugin-sass": "^2.1.0",
         "gatsby-plugin-typescript": "^2.1.0",
-        "gatsby-source-filesystem": "^2.1.40",
         "gatsby-transformer-react-docgen": "^5.0.22",
-        "gatsby-transformer-remark": "^2.6.39",
         "raw-loader": "^3.0.0",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-helmet": "^5.2.1",
         "react-live": "^2.1.2",
-        "react-markdown": "^4.1.0",
         "react-syntax-highlighter": "^12.2.1",
         "sass": "^1.23.7"
     },
@@ -35,7 +32,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build:docs": "gatsby build --prefix-paths",
         "build:local": "gatsby build",
         "dev": "gatsby develop",

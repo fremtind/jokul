@@ -1,4 +1,4 @@
-# [`webfonts`](https://fremtind.github.io/jokul/typography-react/documentation/Typography/)
+# [`webfonts`](https://fremtind.github.io/jokul/komponenter/typography)
 
 Denne pakken inneholder skrifttypene våre til bruk i nettløsninger (disse kan ikke installeres lokalt på datamaskinen). Disse må gjøres tilgjengelige i løsningen ved at du legger fontfilene i en mappe som blir eksportert med app-en din, f.eks. `/build`, `/dist` eller lignende.
 
@@ -19,7 +19,7 @@ Variabelen `$webfonts-dir` angir hvor filene ligger. Hvis den ikke spesifiseres 
 
 ### Bruk av `.css`-versjon
 
-Om du ikke bruker Sass kan du benytte deg av den rene `.css`-versjonen. Denne må du kopiere fra `node_modules/@fremtind/jkl-webfonts/webfonts.css` og legge inn i prosjektet ditt. Du må deretter endre url-en i hver `@font-face`-definisjon manuelt så det stemmer med hvor fontfilene dine ligger:
+Om du ikke bruker Sass kan du benytte deg av den rene `.css`-versjonen. Denne versjonen ser kun etter fontfilene i mappen `/fonts`. Om du vil legge fontfilene et annet sted må du kopiere CSS-filen `node_modules/@fremtind/jkl-webfonts/webfonts.css` og legge den inn i prosjektet ditt. Deretter må du endre url-en i hver `@font-face`-definisjon manuelt så det stemmer med hvor fontfilene dine ligger:
 
 ```css
 @font-face {

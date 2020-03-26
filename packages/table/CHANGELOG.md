@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@1.2.1...@fremtind/jkl-table@1.2.2) (2020-03-25)
+
+
+### Bug Fixes
+
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+
+
+
+
+
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@1.2.0...@fremtind/jkl-table@1.2.1) (2020-03-16)
+
+
+### Bug Fixes
+
+* **table:** fix bug causing shadow not to be drawn in IE 11 ([f8ec243](https://github.com/fremtind/jokul/commit/f8ec2430c68f7bafcfcc713ebc2f60ed133da0ac))
+
+
+
+
+
 # [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@1.1.2...@fremtind/jkl-table@1.2.0) (2020-02-19)
 
 

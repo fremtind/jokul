@@ -16,12 +16,13 @@ export function useKeyListener(
     }
 
     useEffect(() => {
-        if (ref && ref.current) {
-            ref.current.addEventListener("keydown", handleKeyDown);
+        const element = ref && ref.current;
+        if (element) {
+            element.addEventListener("keydown", handleKeyDown);
         }
         return () => {
-            if (ref && ref.current) {
-                ref.current.removeEventListener("keydown", handleKeyDown);
+            if (element) {
+                element.removeEventListener("keydown", handleKeyDown);
             }
         };
     });

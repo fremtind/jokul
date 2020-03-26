@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "4.0.2",
+    "version": "4.1.1",
     "publishConfig": {
         "access": "public"
     },
@@ -31,7 +31,7 @@
         "*.scss"
     ],
     "scripts": {
-        "clean": "rimraf build/ dist/ .cache node_modules/ **/*.css",
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
@@ -41,9 +41,6 @@
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.4.14"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
@@ -51,8 +48,5 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

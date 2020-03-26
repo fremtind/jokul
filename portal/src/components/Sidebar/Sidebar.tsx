@@ -1,46 +1,34 @@
 import React, { useState, ChangeEvent } from "react";
 import classNames from "classnames";
-import { withPrefix } from "gatsby";
 import { ActionTextField } from "@fremtind/jkl-text-input-react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
+import { useLocation } from "../../contexts/locationContext";
 
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
 
-type GatsbyLocation = Location & { state?: Record<string, string> };
-interface Props {
-    location: GatsbyLocation;
-}
+export function Sidebar() {
+    const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
 
-export function Sidebar({ location }: Props) {
-    const { documentationPages, componentPages } = useNavigationLinks();
-    const profileDocPages = documentationPages.filter((page: DocumentationPageInfo) => page.path.includes("profil"));
-    const getStartedDocPages = documentationPages.filter((page: DocumentationPageInfo) =>
-        page.path.includes("komigang"),
-    );
-
-    const trimmedPath = location.pathname.substr(withPrefix("").length);
-    const relativePath = trimmedPath.split("/")[0];
-    const lastPath = location.state && location.state?.lastPath;
-    const pathHasChanged =
-        lastPath && lastPath !== relativePath && lastPath.includes("react") !== relativePath.includes("react");
+    const { currentSection, previousSection } = useLocation();
+    const pathHasChanged = previousSection && previousSection !== currentSection;
     const sidebarClassName = classNames({
         "jkl-portal-sidebar-menu": true,
         "jkl-portal-sidebar-menu--animated": pathHasChanged,
     });
-    if (relativePath === "") {
+    if (currentSection === "") {
         return null;
     }
     let links: DocumentationPageInfo[];
-    switch (true) {
-        case relativePath === "profil":
+    switch (currentSection) {
+        case PageType.PROFIL:
             links = profileDocPages;
             break;
-        case relativePath === "komigang":
+        case PageType.KOMIGANG:
             links = getStartedDocPages;
             break;
-        case relativePath.includes("react"):
-            links = componentPages;
+        case PageType.KOMPONENTER:
+            links = componentDocPages;
             break;
         default:
             links = [];
@@ -49,12 +37,12 @@ export function Sidebar({ location }: Props) {
 
     return (
         <nav className={sidebarClassName}>
-            <SidebarMenu currentPath={relativePath} links={links} />
+            <SidebarMenu currentPath={currentSection} links={links} />
         </nav>
     );
 }
 
-function SidebarMenu({ links, currentPath }: { links: DocumentationPageInfo[]; currentPath: string }) {
+function SidebarMenu({ links }: { links: DocumentationPageInfo[]; currentPath: string }) {
     const [filter, setFilter] = useState("");
     function filterLinks(e: ChangeEvent<HTMLInputElement>) {
         setFilter(e.target.value);
@@ -73,13 +61,7 @@ function SidebarMenu({ links, currentPath }: { links: DocumentationPageInfo[]; c
             />
             <ul className="jkl-portal-sidebar-menu__items">
                 {filteredLinks.map((item: DocumentationPageInfo, i: number) => (
-                    <SidebarMenuItem
-                        idx={i}
-                        key={item.title}
-                        currentPath={currentPath}
-                        path={item.path}
-                        title={item.title}
-                    />
+                    <SidebarMenuItem idx={i} key={item.title} path={item.path} title={item.title} />
                 ))}
             </ul>
         </>

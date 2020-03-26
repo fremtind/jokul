@@ -3,7 +3,7 @@ import { useAnimatedHeight } from "../src";
 import "./index.scss";
 
 const AnimationExample = () => {
-    const [isOpen, setIsOpen] = useState();
+    const [isOpen, setIsOpen] = useState(false);
     const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
     return (
         <section>

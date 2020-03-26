@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.4.4...@fremtind/jkl-button@1.4.5) (2020-03-25)
+
+
+### Bug Fixes
+
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+* **button:** correct height for normal size button ([73d0aa0](https://github.com/fremtind/jokul/commit/73d0aa07fca1fb7469303fd2a66b8a8a9abf338a))
+* **button:** use correct sizes for compact buttons ([c8f26bc](https://github.com/fremtind/jokul/commit/c8f26bcc937d4e9ace6b5fed3694b993709b8644))
+
+
+
+
+
+## [1.4.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.4.3...@fremtind/jkl-button@1.4.4) (2020-03-16)
+
+
+### Bug Fixes
+
+* **button:** unset min-width on compact tertiary button ([99e3b3c](https://github.com/fremtind/jokul/commit/99e3b3cc9e923066aad0177eda1d3a914a2a2bcb)), closes [#802](https://github.com/fremtind/jokul/issues/802)
+
+
+
+
+
 ## [1.4.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@1.4.2...@fremtind/jkl-button@1.4.3) (2020-03-06)
 
 **Note:** Version bump only for package @fremtind/jkl-button

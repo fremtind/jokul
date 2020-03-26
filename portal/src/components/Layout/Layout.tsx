@@ -1,31 +1,31 @@
-import React, { ReactNode, useContext, useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import classNames from "classnames";
 
 import { FormatProvider } from "../Typography";
 import { Header, Sidebar, Footer } from "..";
 import { ThemeBG } from "./components";
-import { themeContext } from "../../contexts/themeContext";
+import { useTheme } from "../../contexts/themeContext";
+import { useLocation } from "../../contexts/locationContext";
 
 import "./Layout.scss";
 import Helmet from "react-helmet";
 
 interface Props {
-    children: ReactNode;
     title?: string;
-    header?: string;
-    isComponentPage?: boolean;
     isFrontpage?: boolean;
-    showFooter?: boolean;
     location: Location;
 }
 
-export const Layout = ({ children, title, isFrontpage, location }: Props) => {
-    const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
+export const Layout: React.FC<Props> = ({ children, title, location, isFrontpage }) => {
+    const { setLocation } = useLocation();
+    setLocation(location);
     const mainClassName = classNames({
         "jkl-portal__main": true,
         "jkl-portal__main--frontpage": isFrontpage,
     });
-    const { theme } = useContext(themeContext);
+
+    const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
+    const { theme } = useTheme();
     const wrapperRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
         wrapperRef.current?.setAttribute("data-theme", theme || "");
@@ -37,8 +37,8 @@ export const Layout = ({ children, title, isFrontpage, location }: Props) => {
                 <title>{PageTitle}</title>
             </Helmet>
             <ThemeBG />
-            <Header />
-            <Sidebar location={location} />
+            <Header className="jkl-portal__header" />
+            <Sidebar />
             <main className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>
             </main>

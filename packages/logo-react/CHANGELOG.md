@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@3.0.0...@fremtind/jkl-logo-react@3.0.1) (2020-03-25)
+
+
+### Bug Fixes
+
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+
+
+
+
+
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@2.1.1...@fremtind/jkl-logo-react@3.0.0) (2020-03-16)
+
+
+### Features
+
+* **logo-react:** remove LogoStamp components ([41d18c2](https://github.com/fremtind/jokul/commit/41d18c22cf4e6fc3026dc65cc6558814ff5033c1))
+
+
+### BREAKING CHANGES
+
+* **logo-react:** LogoStamp components are no longer available for use
+
+
+
+
+
 ## [2.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@2.1.0...@fremtind/jkl-logo-react@2.1.1) (2020-03-06)
 
 **Note:** Version bump only for package @fremtind/jkl-logo-react

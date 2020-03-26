@@ -1,8 +1,8 @@
-# [`@fremtind/jkl-loader-react`](https://fremtind.github.io/jokul/loader-react/documentation/Loader/)
+# [`@fremtind/jkl-loader-react`](https://fremtind.github.io/jokul/komponenter/loader)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/loader-react/documentation/Loader/).
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/loader).
 
 ## Kom i gang
 
