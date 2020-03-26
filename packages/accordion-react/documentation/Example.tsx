@@ -15,5 +15,10 @@ export const Example = () => (
             aesthetics but they could be auto-sized. We want them to be evenly and nicely distributed on the horizontal
             axis so that when we resize the browser, everything is fine (without media queries!).
         </AccordionItem>
+        <AccordionItem title="Third item" startExpanded={true}>
+            Now let‘s use some more properties. Consider a list of 6 items, all with a fixed dimensions in a matter of
+            aesthetics but they could be auto-sized. We want them to be evenly and nicely distributed on the horizontal
+            axis so that when we resize the browser, everything is fine (without media queries!).
+        </AccordionItem>
     </Accordion>
 );
