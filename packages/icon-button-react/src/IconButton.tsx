@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from "react";
+import { IconVariant } from "./index";
 import { IconSearch } from "./Icons/IconSearch";
 import { IconClear } from "./Icons/IconClear";
 import { IconCalendar } from "./Icons/IconCalendar";
@@ -31,5 +32,3 @@ export const IconButton = ({ iconType = "clear", buttonTitle, ...rest }: Props) 
         </button>
     );
 };
-
-export type IconVariant = "clear" | "search" | "calendar";
