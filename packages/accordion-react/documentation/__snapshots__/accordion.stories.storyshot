@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Accordion Eksempel fra dokumentasjonen 1`] = `
+<div
+  className="jkl-accordion "
+  data-testid="jkl-accordion"
+>
+  <div
+    className="jkl-accordion-item"
+    data-testid="jkl-accordion-item"
+  >
+    <button
+      className="jkl-accordion-item__title"
+      type="button"
+    >
+      <span
+        className="jkl-accordion-item__title-text"
+      >
+        Accordion First item
+      </span>
+      <span
+        className="jkl-accordion-item__title-icon"
+      />
+    </button>
+    <CoreToggle
+      className="jkl-accordion-item__content-wrapper"
+      data-testid="jkl-accordion-item__content-wrapper"
+      hidden={true}
+      onToggle={[Function]}
+    >
+      <div
+        className="jkl-accordion-item__content"
+      >
+        Now let‘s use some more properties. Consider a list of 6 items, all with a fixed dimensions in a matter of aesthetics but they could be auto-sized. We want them to be evenly and nicely distributed on the horizontal axis so that when we resize the browser, everything is fine (without media queries!).
+      </div>
+    </CoreToggle>
+  </div>
+  <div
+    className="jkl-accordion-item"
+    data-testid="jkl-accordion-item"
+  >
+    <button
+      className="jkl-accordion-item__title"
+      type="button"
+    >
+      <span
+        className="jkl-accordion-item__title-text"
+      >
+        Second item
+      </span>
+      <span
+        className="jkl-accordion-item__title-icon"
+      />
+    </button>
+    <CoreToggle
+      className="jkl-accordion-item__content-wrapper"
+      data-testid="jkl-accordion-item__content-wrapper"
+      hidden={true}
+      onToggle={[Function]}
+    >
+      <div
+        className="jkl-accordion-item__content"
+      >
+        Now let‘s use some more properties. Consider a list of 6 items, all with a fixed dimensions in a matter of aesthetics but they could be auto-sized. We want them to be evenly and nicely distributed on the horizontal axis so that when we resize the browser, everything is fine (without media queries!).
+      </div>
+    </CoreToggle>
+  </div>
+</div>
+`;

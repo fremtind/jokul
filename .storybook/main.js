@@ -4,13 +4,7 @@ module.exports = {
         '@storybook/preset-scss',
         '@storybook/addon-actions',
         '@storybook/addon-links',
-        {
-            name: '@storybook/addon-docs/preset',
-            options: {
-                configureJSX: true,
-                sourceLoaderOptions: null,
-            }
-        },
+        '@storybook/addon-docs/preset',
     ],
-    stories: ['../packages/**/*-react/documentation/*.stories.mdx'],
+    stories: ['../packages/**/*-react/documentation/*.stories.*'],
 };
