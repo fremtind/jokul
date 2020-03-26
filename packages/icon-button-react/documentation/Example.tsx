@@ -1,7 +1,6 @@
 import React from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
-import { IconButton } from "../src";
-import { IconVariant } from "../src/IconButton";
+import { IconButton, IconVariant } from "../src";
 
 function onClick() {
     console.log("Button Clicked!");
