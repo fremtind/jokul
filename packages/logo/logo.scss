@@ -6,6 +6,9 @@ $jkl-logo-magic-origin--f: 30px 132px; /* Is connected to the viewbox of the log
 $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
 
 .jkl-logo {
+    width: 100%;
+    height: 100%;
+
     &__F {
         transform-origin: $jkl-logo-magic-origin--f;
         &-line {
