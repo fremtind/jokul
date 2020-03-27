@@ -1,13 +1,16 @@
 {
-    "name": "@fremtind/jkl-datepicker-react",
-    "version": "2.0.1",
+    "name": "@fremtind/jkl-icon-button-react",
+    "version": "0.1.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react datepicker component",
+    "description": "Jøkul react icon-button components",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "datepicker",
+        "button",
+        "icon button",
+        "clear button",
+        "search button",
         "jøkul",
         "fremtind"
     ],
@@ -28,22 +31,17 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-icon-button yarn build:watch",
         "dev:js": "parcel documentation/index.html",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-datepicker yarn build:watch",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-datepicker": "^1.4.5",
-        "@fremtind/jkl-icon-button-react": "^0.1.0",
-        "@fremtind/jkl-react-hooks": "^1.1.3",
-        "@fremtind/jkl-typography-react": "^2.1.3",
-        "@nrk/core-datepicker": "^3.0.7",
-        "@nrk/core-toggle": "^3.0.7"
+        "@fremtind/jkl-icon-button": "0.1.0"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^3.0.0",
-        "@fremtind/jkl-portal-components": "^0.2.3",
-        "@mdx-js/parcel-plugin-mdx": "^1.5.7"
+        "@fremtind/browserslist-config-jkl": "^0.5.0",
+        "@fremtind/jkl-portal-components": "^0.2.2",
+        "@fremtind/jkl-toggle-switch-react": "^2.1.2"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",
@@ -58,5 +56,8 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

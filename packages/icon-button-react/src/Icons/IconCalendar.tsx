@@ -1,11 +1,7 @@
 import React from "react";
 
-interface Props {
-    className?: string;
-}
-
-export const CalendarIcon = ({ className }: Props) => (
-    <svg className={className ? className : ""} viewBox="0 0 24 24" fill="none">
+export const IconCalendar = () => (
+    <svg viewBox="0 0 24 24" fill="none">
         <path stroke="currentColor" d="M.5 3.5h23v20H.5zM6.5 0v7M17.5 0v7" />
         <path
             fill="currentColor"

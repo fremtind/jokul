@@ -11,27 +11,26 @@ import { DevExample } from "@fremtind/jkl-portal-components";
 import "@fremtind/jkl-portal-components/dev-example.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
-import "@fremtind/jkl-icon-button/icon-button.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
 import { Example } from "./Example";
-import "@fremtind/jkl-datepicker/datepicker.css";
+import "@fremtind/jkl-icon-button/icon-button.css";
 
 initTabListener();
 
+const mountNode = document.getElementById("app");
 ReactDOM.render(
     <DevExample
         component={Example}
         knobs={{
-            boolProps: ["Utvidet velger", "Kompakt", "Med feil", "Med hjelpetekst"],
             choiceProps: [
                 {
-                    name: "Variant",
-                    values: ["small", "medium", "large"],
+                    name: "Type",
+                    values: ["clear", "search", "calendar"],
                     defaultValue: 1,
                 },
             ],
         }}
     />,
-    document.getElementById("app"),
+    mountNode,
 );

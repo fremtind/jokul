@@ -1,0 +1,13 @@
+@import "~@fremtind/jkl-core/mixins/_helpers.scss";
+
+.jkl-icon-button {
+    @include reset-outline;
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit;
+
+    &__icon {
+        display: inline-block;
+        width: 1.25rem;
+    }
+}

@@ -1,0 +1,23 @@
+---
+title: Icon Buttons
+scss: icon-button
+react: icon-button-react
+---
+
+import Example from "./Example";
+
+<Ingress>
+    En rekke av komponenter bruker ulike ikon knapper. IconButton er en klikkbar komponent som støtter Jøkuls UI elementer.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+      choiceProps: [
+          {
+              name: "Type",
+              values: ["clear", "search", "calendar"],
+              defaultValue: 1,
+          },
+      ],
+    }}
+/>
