@@ -4,6 +4,7 @@
     @include reset-outline;
     background-color: transparent;
     cursor: pointer;
+    color: inherit;
 
     &__icon {
         display: inline-block;
