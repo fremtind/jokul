@@ -1,7 +1,6 @@
 import React from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { LabelVariant } from "@fremtind/jkl-core";
-import "@fremtind/jkl-icon-button/icon-button.min.css";
 import { DatePicker } from "../src";
 
 export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
