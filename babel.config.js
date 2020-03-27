@@ -1,6 +1,6 @@
 const browserList = require("./packages/browserslist-config-jkl");
 
-module.exports = function(api) {
+module.exports = function (api) {
     // https://babeljs.io/docs/en/config-files#apicache
     // Cache the execution of this function.
     const environment = api.env(); // Will be production, test or development (process.env.NODE_ENV)
@@ -18,6 +18,10 @@ module.exports = function(api) {
 
     return {
         plugins,
-        presets: ["@babel/preset-typescript", "@babel/preset-react", ["@babel/preset-env", { targets, modules }]],
+        presets: [
+            "@babel/preset-typescript",
+            "@babel/preset-react",
+            ["@babel/preset-env", { bugfixes: true, targets, modules }],
+        ],
     };
 };

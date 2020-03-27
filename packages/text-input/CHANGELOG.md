@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.3.4...@fremtind/jkl-text-input@1.3.5) (2020-03-25)
+
+
+### Bug Fixes
+
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+
+
+
+
+
 ## [1.3.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.3.3...@fremtind/jkl-text-input@1.3.4) (2020-03-16)
 
 

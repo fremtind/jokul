@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.1.0...@fremtind/jkl-core@4.1.1) (2020-03-25)
+
+
+### Bug Fixes
+
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+
+
+
+
+
 # [4.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.0.2...@fremtind/jkl-core@4.1.0) (2020-03-16)
 
 

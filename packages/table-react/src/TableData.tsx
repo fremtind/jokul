@@ -26,9 +26,7 @@ export function TableData({ data, row, isFirstCell }: Props) {
                 >
                     {row.hrefLabel}
                 </a>
-            ) : (
-                undefined
-            )}
+            ) : undefined}
             {data}
         </td>
     );

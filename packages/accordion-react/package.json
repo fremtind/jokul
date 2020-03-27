@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "publishConfig": {
         "access": "public"
     },
@@ -33,13 +33,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^1.1.4",
-        "@fremtind/jkl-react-hooks": "^1.1.2",
+        "@fremtind/jkl-accordion": "^1.1.5",
+        "@fremtind/jkl-react-hooks": "^1.1.3",
         "@nrk/core-toggle": "^3.0.4"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.5.0",
-        "@fremtind/jkl-portal-components": "^0.2.2"
+        "@fremtind/jkl-portal-components": "^0.2.3"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",
@@ -54,8 +53,5 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

@@ -26,17 +26,18 @@
     },
     "dependencies": {
         "classnames": "^2.2.6",
+        "eslint-plugin-react-hooks": "^2.5.1",
         "framer-motion": "^1.8.4",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
     },
     "devDependencies": {
-        "@babel/cli": "^7.5.0",
-        "@babel/core": "^7.5.4",
-        "@babel/plugin-proposal-optional-chaining": "^7.8.3",
-        "@babel/preset-env": "^7.5.4",
-        "@babel/preset-react": "^7.0.0",
-        "@babel/preset-typescript": "^7.3.3",
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.0",
+        "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+        "@babel/preset-env": "^7.9.0",
+        "@babel/preset-react": "^7.9.0",
+        "@babel/preset-typescript": "^7.9.0",
         "@commitlint/cli": "^8.0.0",
         "@commitlint/config-conventional": "^8.0.0",
         "@testing-library/dom": "^6.0.0",
@@ -45,13 +46,13 @@
         "@types/classnames": "^2.2.9",
         "@types/jest": "^25.1.1",
         "@types/jest-axe": "^3.2.1",
-        "@types/node": "^13.7.0",
+        "@types/node": "^13.9.3",
         "@types/react": "^16.9.4",
         "@types/react-dom": "^16.9.0",
         "@types/sass": "^1.16.0",
         "@types/vfile-message": "^2.0.0",
-        "@typescript-eslint/eslint-plugin": "^2.16.0",
-        "@typescript-eslint/parser": "^2.16.0",
+        "@typescript-eslint/eslint-plugin": "^2.25.0",
+        "@typescript-eslint/parser": "^2.25.0",
         "autoprefixer": "^9.6.1",
         "commitizen": "^4.0.1",
         "cssnano": "^4.1.10",
@@ -78,16 +79,19 @@
         "node-sass-tilde-importer": "^1.0.2",
         "npm-run-all": "^4.1.5",
         "parcel-bundler": "^1.12.3",
-        "prettier": "^1.17.1",
+        "prettier": "^2.0.2",
         "rimraf": "^3.0.0",
         "rollup": "^2.0.4",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-terser": "^5.1.1",
-        "typescript": "^3.6.2",
+        "typescript": "^3.8.3",
         "vfile-message": "^2.0.2"
     },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
     "workspaces": [
         "packages/*",
         "portal"
@@ -97,7 +101,7 @@
             "path": "./node_modules/cz-lerna-changelog"
         }
     },
-    "version": "0.0.0",
+    "version": "1.0.0",
     "husky": {
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",

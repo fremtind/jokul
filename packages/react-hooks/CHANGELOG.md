@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.1.2...@fremtind/jkl-react-hooks@1.1.3) (2020-03-25)
+
+
+### Bug Fixes
+
+* add missing dependencies/dependency lists to hooks ([1edc8da](https://github.com/fremtind/jokul/commit/1edc8dabe612ca35a5fab7a6b57ec250dda01771))
+* improve types in hooks example ([57cf5e0](https://github.com/fremtind/jokul/commit/57cf5e0305d1f9b8ff42afd61fdfabd5de0e2e0a))
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+
+
+
+
+
 ## [1.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.1.1...@fremtind/jkl-react-hooks@1.1.2) (2020-03-16)
 
 
