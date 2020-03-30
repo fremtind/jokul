@@ -29,8 +29,20 @@ export const Logo = ({ className, centered = true, isSymbol, animated, title = "
                 viewBox={!animated && isSymbol && !centered ? "31 60 150 83" : "32 27 581 120"}
             >
                 <title id={uniqueId}>{title}</title>
-                <g fill="none" className="jkl-logo__F" strokeWidth="8">
-                    <line x1="34.3" x2="104.846844" y1="32.563024" y2="32.563024" className="jkl-logo__F-line" />
+                <g
+                    fill="none"
+                    className="jkl-logo__F"
+                    strokeWidth="8"
+                    transform={`${isSymbol ? "rotate(45) translate(90, -70)" : ""}`}
+                >
+                    <line
+                        x1="34.3"
+                        x2="104.846844"
+                        y1="32.563024"
+                        y2="32.563024"
+                        className="jkl-logo__F-line"
+                        transform={isSymbol ? "scale(1.45, 1) translate(-10, 6)" : ""}
+                    />
                     <line x1="35.12226" x2="91.504088" y1="80.105318" y2="80.105318" />
                     <line
                         x1="-10.820058"
