@@ -55,11 +55,11 @@ describe("InlineTextField", () => {
     });
 
     it("renders with correct label", () => {
-        const { getByLabelText } = render(
+        const { getByText } = render(
             <ActionTextField label="The best label" action={{ icon: "clear", label: "testing", onClick: () => {} }} />,
         );
 
-        const component = getByLabelText("The best label");
+        const component = getByText("The best label");
         expect(component).toBeInTheDocument();
     });
 

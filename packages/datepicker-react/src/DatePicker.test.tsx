@@ -45,21 +45,6 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "a random string");
         expect(changeHandler).toHaveBeenCalledTimes(0);
     });
-
-    it("uses the supplied title for the calendar button", () => {
-        const { getByTestId } = render(<DatePicker calendarButtonTitle="hallo" />);
-        const button = getByTestId("jkl-datepicker__calendar-button");
-
-        expect(button).toHaveAttribute("title", "hallo");
-    });
-
-    it("renders the supplied button title as sr-only text", () => {
-        const { getByTestId } = render(<DatePicker calendarButtonTitle="hallo" />);
-        const button = getByTestId("jkl-datepicker__calendar-button-text");
-
-        expect(button).toHaveClass("jkl-sr-only");
-        expect(button.textContent).toBe("hallo");
-    });
 });
 
 describe("formatDate", () => {
