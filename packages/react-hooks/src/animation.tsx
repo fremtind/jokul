@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState, RefObject, useCallback } from "react";
+import { MutableRefObject, useEffect, useRef, RefObject, useCallback, useLayoutEffect } from "react";
 
 interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
@@ -8,9 +8,9 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
     const raf1 = useRef<number>();
     const raf2 = useRef<number>();
     const elementRef = useRef<T>(null);
-    const [isFirstRender, setIsFirstRender] = useState(true);
+    const firstRender = useRef<boolean>(true);
 
-    function heightTransitioned() {
+    function handleTransitionEnd() {
         const element = getElement(elementRef);
         if (element) {
             element.removeAttribute("style");
@@ -18,6 +18,9 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
     }
 
     const runAnimation = useCallback(() => {
+        if (firstRender.current) {
+            return; // Do not play animation on first render
+        }
         const element = getElement(elementRef);
         if (element) {
             element.style.display = "block";
@@ -38,20 +41,18 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
     }, [isOpen]);
 
     useLayoutEffect(() => {
-        if (!isFirstRender) {
-            runAnimation();
-        }
-    }, [isOpen, isFirstRender, runAnimation]);
+        runAnimation();
+    }, [isOpen, runAnimation]);
 
     useEffect(() => {
         const element = getElement(elementRef);
         if (element) {
-            element.addEventListener("transitionend", heightTransitioned);
+            element.addEventListener("transitionend", handleTransitionEnd);
         }
 
         return () => {
             if (element) {
-                element.removeEventListener("transitionend", heightTransitioned);
+                element.removeEventListener("transitionend", handleTransitionEnd);
             }
         };
     }, [isOpen]);
@@ -59,7 +60,7 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
     useEffect(() => {
         const r1 = raf1.current;
         const r2 = raf2.current;
-        setIsFirstRender(false);
+        firstRender.current = false;
         return () => {
             r1 && cancelAnimationFrame(r1);
             r2 && cancelAnimationFrame(r2);
