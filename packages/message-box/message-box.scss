@@ -9,9 +9,11 @@ $message-width: rem(560px);
     max-width: $message-width;
     min-height: $layout-spacing--xl;
     padding: $component-spacing--xl;
+    padding-left: rem(56px);
     background-color: $gra-10;
     box-sizing: border-box;
 
+    /*
     &:before {
         content: "";
         position: absolute;
@@ -19,6 +21,12 @@ $message-width: rem(560px);
         left: 0;
         height: 100%;
         width: $colored-line-width;
+    }
+    */
+
+    &__icon {
+        position: absolute;
+        left: rem(16px);
     }
 
     &__title {
@@ -34,20 +42,40 @@ $message-width: rem(560px);
         max-width: 100%;
     }
 
-    &--info:before {
-        background-color: $info;
+    &--info {
+        border: 1px solid $info;
+        background-color: change-color($info, $lightness: 97%);
+        &--dark {
+            border: 1px solid $info--darkbg;
+            background-color: change-color($info--darkbg, $lightness: 5%);
+        }
     }
 
-    &--warning:before {
-        background-color: $advarsel;
+    &--warning {
+        border: 1px solid $advarsel;
+        background-color: change-color($advarsel, $lightness: 97%);
+        &--dark {
+            border: 1px solid $advarsel--darkbg;
+            background-color: change-color($advarsel--darkbg, $lightness: 5%);
+        }
     }
 
-    &--error:before {
-        background-color: $feil;
+    &--error {
+        border: 1px solid $feil;
+        background-color: change-color($feil, $lightness: 97%);
+        &--dark {
+            border: 1px solid $feil--darkbg;
+            background-color: change-color($feil--darkbg, $lightness: 5%);
+        }
     }
 
-    &--success:before {
-        background-color: $suksess;
+    &--success {
+        border: 1px solid $suksess;
+        background-color: change-color($suksess, $lightness: 97%);
+        &--dark {
+            border: 1px solid $suksess--darkbg;
+            background-color: change-color($suksess--darkbg, $lightness: 5%);
+        }
     }
 
     @include small-device {
