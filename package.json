@@ -2,13 +2,14 @@
     "name": "@fremtind/jkl",
     "private": true,
     "scripts": {
-        "clean": "yarn clean:packages && yarn clean:root",
-        "clean:root": "rimraf node_modules/",
+        "clean": "run-s clean:packages clean:root",
+        "clean:root": "npx -p rimraf rimraf node_modules/",
         "clean:packages": "lerna run --parallel clean",
         "build": "lerna run --ignore @fremtind/browserslist-config-jkl build",
         "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/jkl-react-hooks build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
+        "install:boot": "yarn install",
         "predeploy:docs": "yarn run build:docs",
         "deploy:docs": "gh-pages -d portal/public",
         "typecheck": "tsc --noEmit",
@@ -21,8 +22,8 @@
         "release": "lerna publish",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
         "start": "yarn run dev",
-        "boot": "yarn install && yarn build",
-        "reboot": "yarn clean && yarn boot"
+        "boot": "npx -p npm-run-all run-s install:boot build",
+        "reboot": "npx -p npm-run-all run-s clean boot"
     },
     "dependencies": {
         "classnames": "^2.2.6",
