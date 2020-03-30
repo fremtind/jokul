@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@1.2.2...@fremtind/jkl-table@1.2.3) (2020-03-30)
+
+**Note:** Version bump only for package @fremtind/jkl-table
+
+
+
+
+
 ## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@1.2.1...@fremtind/jkl-table@1.2.2) (2020-03-25)
 
 

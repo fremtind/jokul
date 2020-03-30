@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.1.3...@fremtind/jkl-react-hooks@1.1.4) (2020-03-30)
+
+
+### Bug Fixes
+
+* **animation:** ensure correct behavior on first load ([066578b](https://github.com/fremtind/jokul/commit/066578bae76aaf8d4cfe769e5231d0f5388e6c21)), closes [#868](https://github.com/fremtind/jokul/issues/868)
+
+
+
+
+
 ## [1.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.1.2...@fremtind/jkl-react-hooks@1.1.3) (2020-03-25)
 
 
