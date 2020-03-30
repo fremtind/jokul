@@ -7,7 +7,6 @@
         "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/jkl-react-hooks build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
-        "install:boot": "yarn install --force",
         "predeploy:docs": "yarn run build:docs",
         "deploy:docs": "gh-pages -d portal/public",
         "typecheck": "tsc --noEmit",
@@ -20,8 +19,8 @@
         "release": "lerna publish",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
         "start": "yarn run dev",
-        "boot": "npx -p npm-run-all run-s install:boot build",
-        "reboot": "npx -p npm-run-all run-s clean boot"
+        "boot": "yarn install --force && yarn build",
+        "reboot": "yarn clean && yarn boot"
     },
     "dependencies": {
         "classnames": "^2.2.6",
