@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@2.0.1...@fremtind/jkl-datepicker-react@3.0.0) (2020-03-30)
+
+
+### Bug Fixes
+
+* **datepicker-react:** edit css reference ([24aa7e6](https://github.com/fremtind/jokul/commit/24aa7e63988ff5a05d0257f9aa0ff4eebe2adfad))
+
+
+### Documentation
+
+* update README.md ([54a30c8](https://github.com/fremtind/jokul/commit/54a30c8770107bf4aded0b8bc73ec8ab88767000))
+
+
+### BREAKING CHANGES
+
+* you must import icon-button styles
+
+
+
+
+
 ## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@2.0.0...@fremtind/jkl-datepicker-react@2.0.1) (2020-03-25)
 
 

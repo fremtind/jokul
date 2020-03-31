@@ -190,7 +190,7 @@ export function DatePicker({
                     onToggleSelect={handleCalendarClick}
                 >
                     <CoreDatepicker
-                        timestamp={date ? date.getTime() : undefined}
+                        timestamp={date ? date.getTime() : new Date()}
                         months={months}
                         days={days}
                         onDatepickerClickDay={onClickCalendarDay}
