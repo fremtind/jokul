@@ -13,17 +13,6 @@ $message-width: rem(560px);
     background-color: $gra-10;
     box-sizing: border-box;
 
-    /*
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: $colored-line-width;
-    }
-    */
-
     &__icon {
         position: absolute;
         left: rem(16px);
