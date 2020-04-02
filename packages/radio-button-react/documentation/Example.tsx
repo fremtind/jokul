@@ -18,7 +18,7 @@ const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
             forceCompact={boolValues && boolValues["Kompakt"]}
             selectedValue={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
-            helpLabel="Who dosent like radio buttons?"
+            helpLabel="Who doesn't like radio buttons?"
             errorLabel={errorLabel}
             variant={variant}
             inverted={boolValues && boolValues["Invertert"]}
