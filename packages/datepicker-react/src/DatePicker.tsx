@@ -109,6 +109,11 @@ export function DatePicker({
         }
     }, [disableBeforeDate, disableAfterDate]);
 
+    useEffect(() => {
+        setDateString(initialDate ? formatDate(initialDate) : "");
+        setDate(initialDate);
+    }, [initialDate]);
+
     const toggleDatepicker = () => setDatepickerHidden(!datepickerHidden);
     const handleCalendarClick = (e: CoreToggleSelectEvent) => {
         if (!e.detail.classList.contains("jkl-datepicker__month-button")) {
@@ -190,7 +195,7 @@ export function DatePicker({
                     onToggleSelect={handleCalendarClick}
                 >
                     <CoreDatepicker
-                        timestamp={date ? date.getTime() : undefined}
+                        timestamp={date ? date.getTime() : new Date()}
                         months={months}
                         days={days}
                         onDatepickerClickDay={onClickCalendarDay}
