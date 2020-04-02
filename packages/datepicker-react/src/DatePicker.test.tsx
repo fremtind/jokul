@@ -45,6 +45,17 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "a random string");
         expect(changeHandler).toHaveBeenCalledTimes(0);
     });
+
+    it("should change date on new props", () => {
+        // New date takes MM.DD.YYYY values
+        const { container, getByTestId } = render(<DatePicker initialDate={new Date("02.02.2019")} />);
+        render(<DatePicker initialDate={new Date("09.12.2019")} />, { container });
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        // Check for date formatted as DD.MM.YYYY
+        expect(input).toHaveProperty("value", "12.09.2019");
+    });
 });
 
 describe("formatDate", () => {
