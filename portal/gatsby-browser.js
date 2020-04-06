@@ -28,6 +28,8 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 import { initTabListener } from "@fremtind/jkl-core";
 
+import "@fremtind/jkl-portal-components/component-example.scss";
+
 import "./src/components/Typography/typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";
 import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
