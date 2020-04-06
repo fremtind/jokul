@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { FocusEvent, useState, ChangeEvent } from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -13,12 +13,19 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
         { value: "secondvalue", label: "Value 2" },
     ];
     const [value, setValue] = useState<string>();
-    const universalSetValue = (input: string | ChangeEvent<HTMLSelectElement>) => {
+    const universalSetValue = (input: string | ChangeEvent<HTMLSelectElement> | undefined) => {
         if (typeof input === "string") {
             setValue(input);
-        } else {
+        } else if (input) {
             setValue(input.target.value);
         }
+    };
+
+    const onFocus = (input: string | FocusEvent<HTMLSelectElement> | undefined) => {
+        console.log("Focus: ", input);
+    };
+    const onBlur = (input: string | FocusEvent<HTMLSelectElement> | undefined) => {
+        console.log("Blur: ", input);
     };
 
     const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
@@ -35,6 +42,8 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             onChange={universalSetValue}
+            onBlur={onBlur}
+            onFocus={onFocus}
         />
     );
 };
