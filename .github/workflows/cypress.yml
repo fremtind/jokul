@@ -1,0 +1,46 @@
+name: Visual regression tests
+
+on:
+    push:
+        branches:
+            - "**"
+            - "!master"
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-16.04
+    steps:              
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run with env
+        uses: cypress-io/github-action@v1
+        if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
+        with:
+          build: yarn run build
+          start: yarn start
+          wait-on: 'http://localhost:8000'
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      
+      - name: Upload video
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Update snapshots
+        if: success() && !contains(github.event.head_commit.message, '[ci skip cypress]')
+        run: |
+            git config user.email "fremtind.designsystem@fremtind.no"
+            git config user.name "fremtind-bot"
+            git add --force packages/**/__image_snapshots__/ || echo "No updated snapshots, nothing to add!"
+            git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
+            git push
+

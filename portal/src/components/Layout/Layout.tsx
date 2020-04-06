@@ -30,6 +30,7 @@ export const Layout: React.FC<Props> = ({ children, title, location, isFrontpage
     useLayoutEffect(() => {
         wrapperRef.current?.setAttribute("data-theme", theme || "");
     }, [theme, wrapperRef]);
+
     return (
         <div className="jkl-portal" data-theme={theme} ref={wrapperRef}>
             <Helmet>

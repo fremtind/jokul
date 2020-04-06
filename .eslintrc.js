@@ -42,5 +42,6 @@ module.exports = {
                 "@typescript-eslint/no-empty-function": "off",
             },
         },
+        { files: ["**/*.spec.*"], extends: ["plugin:cypress/recommended"] },
     ],
 };

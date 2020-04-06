@@ -5,8 +5,9 @@
         "noEmit": false,
         "emitDeclarationOnly": true,
         "isolatedModules": false,
-        "declaration": true
+        "declaration": true,
+        "skipLibCheck": true
     },
     "--EXCLUDE-COMMENT--": "Ignore all test- and storybook files. We don't want to emit type definitions for those in our packages",
-    "exclude": ["**/*.test.tsx", "**/*.test.ts", "**/*.spec.tsx", "**/*.spec.ts"]
+    "exclude": ["**/*.test.tsx", "**/*.test.ts", "**/*.spec.tsx", "**/*.spec.ts", "**/*.spec.js"]
 }
