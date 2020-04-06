@@ -1,6 +1,6 @@
 /* eslint "jsx-a11y/no-onchange": 0 */
 
-import React from "react";
+import React, { FocusEventHandler, ChangeEventHandler } from "react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import classNames from "classnames";
@@ -8,22 +8,23 @@ import classNames from "classnames";
 interface Props {
     label: string;
     items: Array<string | ValuePair>;
-    inline?: boolean;
     className?: string;
-    onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    inline?: boolean;
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
     placeholder?: string;
     value?: string;
     forceCompact?: boolean;
+    onChange?: ChangeEventHandler<HTMLSelectElement>;
+    onFocus?: FocusEventHandler<HTMLSelectElement>;
+    onBlur?: FocusEventHandler<HTMLSelectElement>;
 }
 
 export function NativeSelect({
     label,
     items,
     className = "",
-    onChange,
     inline = false,
     helpLabel,
     errorLabel,
@@ -31,6 +32,9 @@ export function NativeSelect({
     placeholder,
     value,
     forceCompact,
+    onChange,
+    onBlur,
+    onFocus,
 }: Props) {
     // If no value is given, set it to first item, or to empty string if there is a placeholder
     if (!value) {
@@ -56,8 +60,9 @@ export function NativeSelect({
                 value={value}
                 defaultValue={defaultValue}
                 className="jkl-select__value"
-                onBlur={onChange}
                 onChange={onChange}
+                onBlur={onBlur || onChange}
+                onFocus={onFocus}
             >
                 {placeholder && !value && (
                     <option disabled value="">
