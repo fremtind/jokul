@@ -56,7 +56,7 @@ export const CodeBlock: React.FC = ({ children, ...rest }) => {
         // if there is more than one child, or it is text return a normal pre
         return <pre {...rest}>{children}</pre>;
     }
-    const language = child.props.className.replace("language-", "");
+    const language = child.props.className?.replace("language-", "");
     const style = {
         ...prism,
         'pre[class*="language-"]': {
