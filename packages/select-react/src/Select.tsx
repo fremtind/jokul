@@ -8,6 +8,8 @@ import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import classNames from "classnames";
 
+type SelectEventHandler = (value?: string) => void;
+
 interface Props {
     label: string;
     items: Array<string | ValuePair>;
@@ -16,11 +18,13 @@ interface Props {
     className?: string;
     value?: string;
     initialInputValue?: string; // Deprecated!
-    onChange?: (value: string) => void;
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
+    onChange?: SelectEventHandler;
+    onBlur?: SelectEventHandler;
+    onFocus?: SelectEventHandler;
 }
 
 interface CoreToggleSelectEvent {
@@ -49,6 +53,8 @@ export function Select({
     value,
     label,
     onChange,
+    onBlur,
+    onFocus,
     className,
     helpLabel,
     errorLabel,
@@ -59,6 +65,7 @@ export function Select({
     initialInputValue,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
+    const [internalFocus, setInternalFocus] = useState(false);
     const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
 
     const getLabelFromValue = useCallback(
@@ -88,21 +95,36 @@ export function Select({
     }
 
     function onToggle() {
-        const listElement = listRef.current;
-        if (listElement && !dropdownIsShown) {
-            focusSelected(listElement, listId, selectedValue);
-        }
+        const opening = !dropdownIsShown;
         setShown(!dropdownIsShown);
+        if (opening) {
+            const listElement = listRef.current;
+            listElement && focusSelected(listElement, listId, selectedValue);
+        }
     }
 
     function onToggleSelect(e: CoreToggleSelectEvent) {
-        e.target.hidden = true;
-        e.target.button.focus();
         e.target.value = e.detail;
         const nextValue = e.detail.value;
         setDisplayedValue(e.detail.textContent);
         setSelectedValue(nextValue);
         onChange && onChange(nextValue);
+        e.target.hidden = true;
+        setInternalFocus(true);
+        e.target.button.focus();
+    }
+
+    function handleBlur() {
+        if (!dropdownIsShown && onBlur) {
+            onBlur(value);
+        }
+    }
+
+    function handleFocus() {
+        if (onFocus && !internalFocus) {
+            onFocus(value);
+        }
+        setInternalFocus(false);
     }
 
     useEffect(() => {
@@ -123,6 +145,8 @@ export function Select({
                     className="jkl-select__value"
                     data-testid="jkl-select__value"
                     aria-haspopup="listbox"
+                    onBlur={handleBlur}
+                    onFocus={handleFocus}
                 >
                     {hasSelectedValue ? displayedValue : defaultPrompt}
                 </button>
