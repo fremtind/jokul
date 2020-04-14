@@ -54,10 +54,8 @@
 .jkl-portal-inline-code {
     display: inline-block;
     background-color: $gra-20;
-    font-size: rem(16px);
+    font-size: 0.8em;
     padding: 0 $component-spacing--small;
-    margin: 0 $component-spacing--xxs;
-    transform: translateY(rem(-2px));
     border-radius: rem(2px);
 
     *[data-theme="dark"] & {
@@ -68,8 +66,9 @@
 .jkl-portal-code-block {
     position: relative;
     background-color: $gra-20;
-    padding: $component-spacing--xl $component-spacing--large;
     border-radius: rem(2px);
+    width: 100%;
+    max-width: rem(768px);
 
     &:before {
         position: absolute;
@@ -81,6 +80,12 @@
         @include jkl-text-style("desktop/micro");
         text-transform: uppercase;
         content: attr(data-language);
+    }
+
+    &__code {
+        display: block;
+        padding: $component-spacing--xl $component-spacing--large;
+        overflow-x: scroll;
     }
 
     *[data-theme="dark"] & {

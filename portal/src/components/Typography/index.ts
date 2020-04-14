@@ -1,2 +1,12 @@
-export { Paragraph, HeadingLarge, HeadingMedium, HeadingSmall, HeadingXS, ArticleLead, PageTitle } from "./Typography";
+export {
+    Paragraph,
+    HeadingLarge,
+    HeadingMedium,
+    HeadingSmall,
+    HeadingXS,
+    ArticleLead,
+    PageTitle,
+    InlineCode,
+    CodeBlock,
+} from "./Typography";
 export { FormatProvider } from "./FormatProvider";
