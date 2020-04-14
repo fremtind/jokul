@@ -14,7 +14,7 @@ const Example = () => {
     const [hasError, setHasError] = useState(false);
     const [isCompact, setIsCompact] = useState(false);
     const [variant, setVariant] = useState<LabelVariant | undefined>("medium");
-    const typecheckAndSetVariant = (val: string) => {
+    const typecheckAndSetVariant = (val?: string) => {
         if (val === "large" || val === "medium" || val === "small") {
             setVariant(val);
         } else {
