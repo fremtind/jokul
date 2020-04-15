@@ -70,7 +70,13 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     />
                     {action && <ActionButton {...action} />}
                 </div>
-                <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} srOnly={inline} />
+                <SupportLabel
+                    inverted={inverted}
+                    id={supportId}
+                    helpLabel={helpLabel}
+                    errorLabel={errorLabel}
+                    srOnly={inline}
+                />
             </div>
         );
     },

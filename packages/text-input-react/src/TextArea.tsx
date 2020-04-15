@@ -76,6 +76,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
                     {...restProps}
                 />
                 <SupportLabel
+                    inverted={inverted}
                     id={supportId}
                     helpLabel={helpLabel}
                     errorLabel={errorLabel}
