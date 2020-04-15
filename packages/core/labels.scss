@@ -14,6 +14,12 @@
     &--sr-only {
         @include screenreader-only;
     }
+
+    &--inverted {
+        &.jkl-form-support-label--error {
+            color: $feil--darkbg;
+        }
+    }
 }
 
 .jkl-label {
