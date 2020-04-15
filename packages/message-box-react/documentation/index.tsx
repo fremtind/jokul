@@ -22,7 +22,7 @@ ReactDOM.render(
     <DevExample
         component={Example}
         knobs={{
-            boolProps: ["Full bredde"],
+            boolProps: ["Full bredde", "Invertert"],
             choiceProps: [
                 {
                     name: "Type",
