@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from "react";
-import { ActionIcon, IconVariant } from "./ActionIcon";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { BaseInputField, BaseInputProps } from "./BaseInputField";
 import classNames from "classnames";
 
@@ -37,15 +37,12 @@ export const ActionTextField = ({
             </Label>
             <div className="jkl-text-field__input-wrapper">
                 <BaseInputField invalid={!!errorLabel} {...baseInputProps} />
-                <button
-                    type="button"
+                <IconButton
                     className="jkl-text-field__action-button"
+                    iconType={action.icon}
+                    buttonTitle={action.label}
                     onClick={action.onClick}
-                    aria-label={action.label}
-                    title={action.label}
-                >
-                    <ActionIcon className="jkl-text-field__action-icon" action={action.icon} />
-                </button>
+                />
             </div>
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </label>

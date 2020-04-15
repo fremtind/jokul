@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.2.3...@fremtind/jkl-portal-components@0.2.4) (2020-03-30)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
 ## [0.2.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.2.2...@fremtind/jkl-portal-components@0.2.3) (2020-03-25)
 
 

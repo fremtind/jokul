@@ -19,6 +19,7 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponente
 ```js
 import { DatePicker } from "@fremtind/jkl-datepicker-react";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
+import "@fremtind/jkl-icon-button/icon-button.min.css";
 ```
 
 ### Bruk
