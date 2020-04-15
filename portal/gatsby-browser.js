@@ -15,6 +15,7 @@ import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-divider-line/divider-line.min.css";
 import "@fremtind/jkl-field-group/field-group.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";
+import "@fremtind/jkl-icon-button/icon-button.min.css";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-loader/loader.min.css";
 import "@fremtind/jkl-logo/logo.min.css";
@@ -26,6 +27,8 @@ import "@fremtind/jkl-table/table.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 import { initTabListener } from "@fremtind/jkl-core";
+
+import "@fremtind/jkl-portal-components/component-example.scss";
 
 import "./src/components/Typography/typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";

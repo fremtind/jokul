@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@3.0.1...@fremtind/jkl-logo-react@3.0.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* **logo:** add transforms for logo symbol support ([fb73270](https://github.com/fremtind/jokul/commit/fb7327055ee15c298f8e4a02b0e2149163dfae78))
+* **logo-react:** use .logo-example on LogoExample ([e067d18](https://github.com/fremtind/jokul/commit/e067d18f385724ad34ab71f7f94cdeafbfb527a9))
+
+
+
+
+
 ## [3.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@3.0.0...@fremtind/jkl-logo-react@3.0.1) (2020-03-25)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.1.0...@fremtind/portal@2.2.0) (2020-03-30)
+
+
+### Features
+
+* **portal:** add icon-button css to gatsby-browser ([836b33a](https://github.com/fremtind/jokul/commit/836b33ad0895cceff5ceefdd3a4b8b521ba8a035))
+
+
+
+
+
 # [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.2...@fremtind/portal@2.1.0) (2020-03-25)
 
 

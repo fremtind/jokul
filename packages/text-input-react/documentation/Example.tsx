@@ -5,6 +5,7 @@ import { Select } from "@fremtind/jkl-select-react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
+import "@fremtind/jkl-icon-button/icon-button.min.css";
 import "./index.scss";
 
 const Example = () => {
@@ -13,7 +14,7 @@ const Example = () => {
     const [hasError, setHasError] = useState(false);
     const [isCompact, setIsCompact] = useState(false);
     const [variant, setVariant] = useState<LabelVariant | undefined>("medium");
-    const typecheckAndSetVariant = (val: string) => {
+    const typecheckAndSetVariant = (val?: string) => {
         if (val === "large" || val === "medium" || val === "small") {
             setVariant(val);
         } else {

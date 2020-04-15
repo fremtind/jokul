@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.3.3...@fremtind/jkl-text-input-react@2.0.0) (2020-03-30)
+
+
+### Documentation
+
+* update README.md ([54a30c8](https://github.com/fremtind/jokul/commit/54a30c8770107bf4aded0b8bc73ec8ab88767000))
+
+
+### BREAKING CHANGES
+
+* you must import icon-button styles
+
+
+
+
+
 ## [1.3.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.3.2...@fremtind/jkl-text-input-react@1.3.3) (2020-03-25)
 
 
