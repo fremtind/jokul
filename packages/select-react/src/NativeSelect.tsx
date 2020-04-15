@@ -1,11 +1,13 @@
 /* eslint "jsx-a11y/no-onchange": 0 */
 
-import React, { FocusEventHandler, ChangeEventHandler } from "react";
+import React, { FocusEventHandler, ChangeEventHandler, useState } from "react";
+import nanoid from "nanoid";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import classNames from "classnames";
 
 interface Props {
+    id?: string;
     label: string;
     items: Array<string | ValuePair>;
     className?: string;
@@ -22,6 +24,7 @@ interface Props {
 }
 
 export function NativeSelect({
+    id,
     label,
     items,
     className = "",
@@ -51,12 +54,15 @@ export function NativeSelect({
 
     const defaultValue = value ? undefined : "";
 
+    const [uid] = useState(id || `jkl-select-${nanoid(8)}`);
+
     return (
-        <label data-testid="jkl-select" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+        <div data-testid="jkl-select" className={componentClassName}>
+            <Label standAlone htmlFor={uid} variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
             <select
+                id={uid}
                 value={value}
                 defaultValue={defaultValue}
                 className="jkl-select__value"
@@ -77,6 +83,6 @@ export function NativeSelect({
             </select>
             <span className="jkl-select__chevron" />
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
-        </label>
+        </div>
     );
 }

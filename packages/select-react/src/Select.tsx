@@ -11,6 +11,7 @@ import classNames from "classnames";
 type SelectEventHandler = (value?: string) => void;
 
 interface Props {
+    id?: string;
     label: string;
     items: Array<string | ValuePair>;
     inline?: boolean;
@@ -49,6 +50,7 @@ function focusSelected(listEl: HTMLElement, listId: string, selected: string | u
 }
 
 export function Select({
+    id,
     items,
     value,
     label,
@@ -78,7 +80,7 @@ export function Select({
     const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
 
     const [dropdownIsShown, setShown] = useState(false);
-    const [listId] = useState(`dropdown${nanoid(16)}`);
+    const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
     const listRef = useListNavigation();
     const componentClassName = classNames("jkl-select", className, {
         "jkl-select--inline": inline,
