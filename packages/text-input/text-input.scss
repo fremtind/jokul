@@ -2,6 +2,7 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
+$text-input-border-color: $svart;
 $text-input-height: rem(48px);
 $text-input-height--compact: rem(40px);
 $text-input-button-width: rem(48px);
@@ -21,39 +22,37 @@ $text-input-line-height--compact: rem(28px);
     }
 
     &__input {
-        border: none;
+        border: rem(1px) solid $text-input-border-color;
         outline: none;
-        border-radius: 0;
+        border-radius: rem(3px);
         -webkit-appearance: none;
 
         box-sizing: border-box;
         height: $text-input-height;
         padding: $text-input-padding;
         @include jkl-text-style("desktop/body");
-        font-weight: $bold-weight;
         color: $svart;
 
-        background-color: $varde-20;
-        box-shadow: inset 0 rem(-1px) 0 0 $svart;
+        background-color: $hvit;
 
         @include motion("standard");
-        transition-property: color, background-color, box-shadow;
+        transition-property: color, background-color, border-color, box-shadow;
 
         /* Placeholder text style */
         &::placeholder {
             color: $gra-60;
-            font-weight: $normal-weight;
         }
 
         /* Color of text selection */
         &::selection {
-            background-color: $varde-60;
+            background-color: transparentize($color: $info, $amount: 0.8);
         }
 
         /* Focus and hover states */
         &:hover,
         &:focus {
-            box-shadow: inset 0 rem(-2px) 0 0 $info;
+            box-shadow: 0 0 0 rem(1px) $info;
+            border-color: $info;
         }
 
         /*  Invalid states */
@@ -61,10 +60,15 @@ $text-input-line-height--compact: rem(28px);
         &:invalid {
             color: $feil;
             background-color: transparentize($feil, 0.92);
-            box-shadow: inset 0 rem(-2px) 0 0 $feil;
+            border-color: $feil;
 
             &::selection {
                 background-color: transparentize($feil, 0.8);
+            }
+
+            &:hover,
+            &:focus {
+                box-shadow: 0 0 0 rem(1px) $feil;
             }
         }
     }
@@ -114,7 +118,6 @@ $text-input-line-height--compact: rem(28px);
     &--inline {
         .jkl-text-input__input {
             @include jkl-text-style("compact/body");
-            font-weight: $bold-weight;
             height: $text-input-height--compact;
         }
         .jkl-text-input__action-button {
@@ -130,7 +133,7 @@ $text-input-line-height--compact: rem(28px);
         & .jkl-text-input__input {
             color: $hvit;
             background-color: $gra-90;
-            box-shadow: inset 0 rem(-1px) 0 0 $gra-50;
+            border-color: $gra-50;
 
             &::placeholder {
                 color: $gra-30;
@@ -142,17 +145,23 @@ $text-input-line-height--compact: rem(28px);
 
             &:focus,
             &:hover {
-                box-shadow: inset 0 rem(-2px) 0 0 $info--darkbg;
+                box-shadow: 0 0 0 rem(1px) $info--darkbg;
+                border-color: $info--darkbg;
             }
 
             &[aria-invalid="true"],
             &:invalid {
                 color: $feil--darkbg;
                 background-color: transparentize($feil--darkbg, 0.84);
-                box-shadow: inset 0 rem(-2px) 0 0 $feil--darkbg;
+                border-color: $feil--darkbg;
 
                 &::selection {
                     background-color: transparentize($feil--darkbg, 0.75);
+                }
+
+                &:focus,
+                &:hover {
+                    box-shadow: 0 0 0 rem(1px) $feil--darkbg;
                 }
             }
         }
