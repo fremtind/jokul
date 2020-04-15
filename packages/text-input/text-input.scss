@@ -36,10 +36,11 @@ $text-input-line-height--compact: rem(28px);
         background-color: $hvit;
 
         @include motion("standard");
-        transition-property: color, background-color, border-color, box-shadow;
+        transition-property: color, border-color, box-shadow;
 
         /* Placeholder text style */
         &::placeholder {
+            opacity: 1;
             color: $gra-60;
         }
 
@@ -58,8 +59,6 @@ $text-input-line-height--compact: rem(28px);
         /*  Invalid states */
         &[aria-invalid="true"],
         &:invalid {
-            color: $feil;
-            background-color: transparentize($feil, 0.92);
             border-color: $feil;
 
             &::selection {
@@ -132,15 +131,15 @@ $text-input-line-height--compact: rem(28px);
     &--inverted {
         & .jkl-text-input__input {
             color: $hvit;
-            background-color: $gra-90;
-            border-color: $gra-50;
+            background-color: transparent;
+            border-color: $gra-30;
 
             &::placeholder {
-                color: $gra-30;
+                color: $gra-50;
             }
 
             &::selection {
-                background-color: $gra-60;
+                background-color: transparentize($color: $info--darkbg, $amount: 0.75);
             }
 
             &:focus,
@@ -151,8 +150,6 @@ $text-input-line-height--compact: rem(28px);
 
             &[aria-invalid="true"],
             &:invalid {
-                color: $feil--darkbg;
-                background-color: transparentize($feil--darkbg, 0.84);
                 border-color: $feil--darkbg;
 
                 &::selection {
