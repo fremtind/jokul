@@ -31,8 +31,7 @@ $link-side-padding: 0.075em; // relative value to work with all paragraph styles
     /* Show arrow after external links, or links opening
     in a new window or tab: */
     &[target="_blank"],
-    &[href^="http://"],
-    &[href^="https://"] {
+    &--external {
         &:after {
             content: "\2197"; // unicode north east arrow (up/right)
         }
