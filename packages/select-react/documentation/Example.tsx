@@ -11,6 +11,8 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     const values = [
         { value: "firstvalue", label: "Value 1" },
         { value: "secondvalue", label: "Value 2" },
+        { value: "thirdvalue", label: "Value 3" },
+        { value: "fourthvalue", label: "Value 4" },
     ];
     const [value, setValue] = useState<string>();
     const universalSetValue = (input: string | ChangeEvent<HTMLSelectElement> | undefined) => {
