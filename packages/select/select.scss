@@ -21,21 +21,6 @@ $chevron-size--compact: rem(16px);
 $chevron-weight: rem(1px);
 $chevron-side-padding: (2 * $component-spacing--small);
 
-@keyframes slide-up {
-    0% {
-        opacity: 0;
-        transform: translateX(-60px);
-    }
-    75% {
-        opacity: 0.75;
-        transform: translateX(4px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @mixin nojump-bold {
     // Make font bolder without increasing line length
     font-weight: $bold-weight;
@@ -130,19 +115,6 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
         list-style-type: none;
         -webkit-overflow-scrolling: touch;
-
-        // Create stacked animation for first 10 element
-        @for $i from 1 through 10 {
-            & > li:nth-child(#{$i}) {
-                animation-duration: #{0.2 + $i * 0.1}s;
-            }
-        }
-
-        // Let all elements after the frist 10 animate in as block
-        & > li {
-            animation: slide-up ease;
-            animation-duration: 1.2s;
-        }
     }
 
     &__option {
