@@ -18,6 +18,13 @@ const Example = () => (
         <SupportLabel errorLabel="Feilmelding" />
         <h2 className="jkl-heading-small jkl-spacing--bottom-1 jkl-spacing--top-3">Link</h2>
         <p className="jkl-body" style={{ padding: "1.5rem" }}>
+            Lorem ipsum dolor sin amet{" "}
+            <Link href="#" external>
+                External Link
+            </Link>{" "}
+            consectetur adipiscing elit
+        </p>
+        <p className="jkl-body" style={{ padding: "1.5rem" }}>
             Lorem ipsum dolor sin amet <Link href="#">Link</Link> consectetur adipiscing elit
         </p>
         <p className="jkl-body" style={{ backgroundColor: "#181818", color: "#FFF", padding: "1.5rem" }}>
