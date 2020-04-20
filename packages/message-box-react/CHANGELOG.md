@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@1.2.4...@fremtind/jkl-message-box-react@1.3.0) (2020-04-20)
+
+
+### Features
+
+* new layout, with icons and darkmode ([2253fe8](https://github.com/fremtind/jokul/commit/2253fe873975028d74c615661a9edd4d8e0bd47b))
+
+
+
+
+
 ## [1.2.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@1.2.3...@fremtind/jkl-message-box-react@1.2.4) (2020-03-30)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box-react

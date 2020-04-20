@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.3.6...@fremtind/jkl-text-input@1.3.7) (2020-04-20)
+
+
+### Bug Fixes
+
+* use correct height for compact text inputs ([4c76b52](https://github.com/fremtind/jokul/commit/4c76b527ff5317bf601ec7186793140cf022eac1)), closes [#877](https://github.com/fremtind/jokul/issues/877)
+
+
+
+
+
 ## [1.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.3.5...@fremtind/jkl-text-input@1.3.6) (2020-03-30)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input

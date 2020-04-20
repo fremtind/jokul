@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@3.0.0...@fremtind/jkl-datepicker-react@3.1.0) (2020-04-20)
+
+
+### Bug Fixes
+
+* **datepicker-react:** use effect for initialDate ([fe743d5](https://github.com/fremtind/jokul/commit/fe743d5884e87a125576e1735aec6c28d9e90fe5))
+* **datepicker-react:** use new Date instead of undefined ([ec973b0](https://github.com/fremtind/jokul/commit/ec973b02b35e7f77efc0e010136583b41a80d7bf))
+
+
+### Features
+
+* add handling of blur and focus events ([16a84c5](https://github.com/fremtind/jokul/commit/16a84c53a3a229907ecaec19e27968804937344d))
+
+
+
+
+
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@2.0.1...@fremtind/jkl-datepicker-react@3.0.0) (2020-03-30)
 
 

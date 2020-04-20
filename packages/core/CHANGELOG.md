@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.1.1...@fremtind/jkl-core@4.2.0) (2020-04-20)
+
+
+### Features
+
+* **links:** add external prop and style to links ([f1a47f0](https://github.com/fremtind/jokul/commit/f1a47f09cc7ed5c8a1c5ac19de8b9b8ed78ffac9)), closes [#905](https://github.com/fremtind/jokul/issues/905)
+
+
+
+
+
 ## [4.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.1.0...@fremtind/jkl-core@4.1.1) (2020-03-25)
 
 

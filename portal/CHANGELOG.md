@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.2.0...@fremtind/portal@2.3.0) (2020-04-20)
+
+
+### Bug Fixes
+
+* **codeblock:** account for code blocks without language ([13d4714](https://github.com/fremtind/jokul/commit/13d4714df02fd95b06750d0046a737f596463542))
+
+
+### Features
+
+* **formatting:** add code highlighting to mdx parser ([8c366d4](https://github.com/fremtind/jokul/commit/8c366d4323356a878fef75c6c1649596b4579275))
+* **portal:** add favicon through Gatsby manifest ([b78cdf3](https://github.com/fremtind/jokul/commit/b78cdf3cd7f745c450dee2a0a428181aa59b8351)), closes [#747](https://github.com/fremtind/jokul/issues/747)
+
+
+
+
+
 # [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.1.0...@fremtind/portal@2.2.0) (2020-03-30)
 
 

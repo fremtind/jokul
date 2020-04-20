@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.3.4...@fremtind/jkl-select-react@1.4.0) (2020-04-20)
+
+
+### Features
+
+* **eventhandling:** add handling of blur and focus events ([748749f](https://github.com/fremtind/jokul/commit/748749ff705ffbde66a146e2fe989e6f8122b4eb))
+
+
+
+
+
 ## [1.3.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.3.3...@fremtind/jkl-select-react@1.3.4) (2020-03-30)
 
 **Note:** Version bump only for package @fremtind/jkl-select-react

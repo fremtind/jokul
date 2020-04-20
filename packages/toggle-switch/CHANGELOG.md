@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@2.1.6...@fremtind/jkl-toggle-switch@2.1.7) (2020-04-20)
+
+**Note:** Version bump only for package @fremtind/jkl-toggle-switch
+
+
+
+
+
 ## [2.1.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@2.1.5...@fremtind/jkl-toggle-switch@2.1.6) (2020-03-30)
 
 **Note:** Version bump only for package @fremtind/jkl-toggle-switch
