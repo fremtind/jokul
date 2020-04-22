@@ -22,7 +22,7 @@ interface Props {
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
-    onChange?: SelectEventHandler;
+    onChange?: (value: string) => void;
     onBlur?: SelectEventHandler;
     onFocus?: SelectEventHandler;
 }
