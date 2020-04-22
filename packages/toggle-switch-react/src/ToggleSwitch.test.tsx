@@ -26,7 +26,7 @@ describe("Toggle switch", () => {
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
 
-    it("should be pressed if pressed is true", function() {
+    it("should be pressed if pressed is true", function () {
         const { getByText } = render(
             <ToggleSwitch pressed={true} onClick={() => ""}>
                 I am groot!
@@ -38,7 +38,7 @@ describe("Toggle switch", () => {
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
 
-    it("should be unchecked if pressed is true and input is clicked", function() {
+    it("should be unchecked if pressed is true and input is clicked", function () {
         const TestToggleSwitch = () => {
             const [pressed, toggle] = React.useState(true);
             return (

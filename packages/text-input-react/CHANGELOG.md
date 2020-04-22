@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@2.0.0...@fremtind/jkl-text-input-react@2.0.1) (2020-04-20)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input-react
+
+
+
+
+
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.3.3...@fremtind/jkl-text-input-react@2.0.0) (2020-03-30)
+
+
+### Documentation
+
+* update README.md ([54a30c8](https://github.com/fremtind/jokul/commit/54a30c8770107bf4aded0b8bc73ec8ab88767000))
+
+
+### BREAKING CHANGES
+
+* you must import icon-button styles
+
+
+
+
+
+## [1.3.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.3.2...@fremtind/jkl-text-input-react@1.3.3) (2020-03-25)
+
+
+### Bug Fixes
+
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+* **removed tests:** removed test for autoexpand ([9019667](https://github.com/fremtind/jokul/commit/9019667e73c80d11e86aaa20fe681de176808d16)), closes [#851](https://github.com/fremtind/jokul/issues/851)
+* **suppoert for autoexpand:** support for autoexpand ([8720e08](https://github.com/fremtind/jokul/commit/8720e08b108204546c2e538df7c0ed59898046e9))
+* **support for autoexpand:** added support for autoexpand ([0732d67](https://github.com/fremtind/jokul/commit/0732d671b125e7419045f8b7237a64a0677f0e5e)), closes [#851](https://github.com/fremtind/jokul/issues/851)
+* **text-input-react:** fix correct height with long placeholder ([10acacb](https://github.com/fremtind/jokul/commit/10acacb14c5abe77b737b16d51185dd00f8d587e))
+* **text-input-react:** fix wrong firefox height ([d32498a](https://github.com/fremtind/jokul/commit/d32498a3baecbcc7a92864a2e6b6bf82d7b14fd9))
+* **text-input-react:** only set rows when auto expanding ([400d836](https://github.com/fremtind/jokul/commit/400d8369e8afc8a4cbb37ccceef51282203e10de))
+* **text-input-react:** remove unnecessary overflowY hidden ([00d0046](https://github.com/fremtind/jokul/commit/00d0046430bb8d3699ea0ed8fcaff286b752e64e))
+
+
+
+
+
 ## [1.3.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@1.3.1...@fremtind/jkl-text-input-react@1.3.2) (2020-03-16)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

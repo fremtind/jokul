@@ -11,7 +11,8 @@ interface Props {
 export const VisibleDetector: React.FC<Props> = forwardRef<HTMLElement, Props>(
     ({ onEnter, onLeave, render, threshold = [0.7] }, ref) => {
         const [isInViewport, setIsInViewport] = useState(false);
-        const targetRef = (ref as React.RefObject<HTMLElement>) || useRef<HTMLElement>(null);
+        const internalRef = useRef<HTMLElement>(null);
+        const targetRef = (ref as React.RefObject<HTMLElement>) || internalRef;
 
         const onIntersect = (entries: IntersectionObserverEntry[]) => {
             // check if element is intersecting

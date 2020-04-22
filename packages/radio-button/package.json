@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button",
-    "version": "1.2.4",
+    "version": "1.2.7",
     "publishConfig": {
         "access": "public"
     },
@@ -27,10 +27,7 @@
         "dev": "parcel example/index.html --open"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.1.0"
-    },
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.5.0"
+        "@fremtind/jkl-core": "^4.2.0"
     },
     "repository": {
         "type": "git",
@@ -39,8 +36,5 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

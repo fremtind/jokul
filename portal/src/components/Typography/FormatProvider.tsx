@@ -3,10 +3,8 @@ import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-typography-react";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { ComponentExample } from "@fremtind/jkl-portal-components";
-import "@fremtind/jkl-portal-components/component-example.scss";
-import { DoDontExample } from "../DoDontExample";
-import "./typography.scss";
 
+import { DoDontExample } from "../DoDontExample";
 import {
     PageTitle,
     HeadingLarge,
@@ -14,6 +12,8 @@ import {
     HeadingSmall,
     HeadingXS,
     Paragraph,
+    InlineCode,
+    CodeBlock,
     ArticleLead as Ingress,
 } from "../Typography";
 
@@ -28,6 +28,8 @@ const components = {
     ol: OrderedList,
     li: ListItem,
     a: Link,
+    pre: CodeBlock,
+    inlineCode: InlineCode,
     Ingress,
     ComponentExample,
     DoDontExample,

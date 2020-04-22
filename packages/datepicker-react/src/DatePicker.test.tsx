@@ -46,19 +46,15 @@ describe("Datepicker", () => {
         expect(changeHandler).toHaveBeenCalledTimes(0);
     });
 
-    it("uses the supplied title for the calendar button", () => {
-        const { getByTestId } = render(<DatePicker calendarButtonTitle="hallo" />);
-        const button = getByTestId("jkl-datepicker__calendar-button");
+    it("should change date on new props", () => {
+        // New date takes MM.DD.YYYY values
+        const { container, getByTestId } = render(<DatePicker initialDate={new Date("02.02.2019")} />);
+        render(<DatePicker initialDate={new Date("09.12.2019")} />, { container });
 
-        expect(button).toHaveAttribute("title", "hallo");
-    });
+        const input = getByTestId("jkl-datepicker__input");
 
-    it("renders the supplied button title as sr-only text", () => {
-        const { getByTestId } = render(<DatePicker calendarButtonTitle="hallo" />);
-        const button = getByTestId("jkl-datepicker__calendar-button-text");
-
-        expect(button).toHaveClass("jkl-sr-only");
-        expect(button.textContent).toBe("hallo");
+        // Check for date formatted as DD.MM.YYYY
+        expect(input).toHaveProperty("value", "12.09.2019");
     });
 });
 

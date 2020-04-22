@@ -19,6 +19,7 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponente
 ```js
 import { TextField, TextArea, ActionTextField, InlineTextField, BaseInputField } from "@fremtind/jkl-text-input-react";
 import "@fremtind/jkl-text-input/text-input.min.css";
+import "@fremtind/jkl-icon-button/icon-button.min.css";
 ```
 
 ### Generell Bruk

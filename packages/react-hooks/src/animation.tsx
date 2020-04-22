@@ -1,23 +1,26 @@
-import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState, RefObject } from "react";
+import { MutableRefObject, useEffect, useRef, RefObject, useCallback, useLayoutEffect } from "react";
 
 interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
 export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefObject<T>, () => void] {
-    let raf1: number;
-    let raf2: number;
+    const raf1 = useRef<number>();
+    const raf2 = useRef<number>();
     const elementRef = useRef<T>(null);
-    const [isFirstRender, setIsFirstRender] = useState(true);
+    const firstRender = useRef<boolean>(true);
 
-    function heightTransitioned() {
+    function handleTransitionEnd() {
         const element = getElement(elementRef);
         if (element) {
             element.removeAttribute("style");
         }
     }
 
-    function runAnimation() {
+    const runAnimation = useCallback(() => {
+        if (firstRender.current) {
+            return; // Do not play animation on first render
+        }
         const element = getElement(elementRef);
         if (element) {
             element.style.display = "block";
@@ -28,41 +31,41 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
             } else {
                 element.style.height = `${element.scrollHeight}px`;
 
-                raf1 = requestAnimationFrame(() => {
-                    raf2 = requestAnimationFrame(() => {
+                raf1.current = requestAnimationFrame(() => {
+                    raf2.current = requestAnimationFrame(() => {
                         element.style.height = `${0}px`;
                     });
                 });
             }
         }
-    }
+    }, [isOpen]);
 
     useLayoutEffect(() => {
-        if (!isFirstRender) {
-            runAnimation();
-        }
-    }, [isOpen]);
+        runAnimation();
+    }, [isOpen, runAnimation]);
 
     useEffect(() => {
         const element = getElement(elementRef);
         if (element) {
-            element.addEventListener("transitionend", heightTransitioned);
+            element.addEventListener("transitionend", handleTransitionEnd);
         }
 
         return () => {
             if (element) {
-                element.removeEventListener("transitionend", heightTransitioned);
+                element.removeEventListener("transitionend", handleTransitionEnd);
             }
         };
     }, [isOpen]);
 
     useEffect(() => {
-        setIsFirstRender(false);
+        const r1 = raf1.current;
+        const r2 = raf2.current;
+        firstRender.current = false;
         return () => {
-            cancelAnimationFrame(raf1);
-            cancelAnimationFrame(raf2);
+            r1 && cancelAnimationFrame(r1);
+            r2 && cancelAnimationFrame(r2);
         };
-    }, []);
+    }, [raf1, raf2]);
 
     return [elementRef, runAnimation];
 }

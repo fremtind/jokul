@@ -16,6 +16,7 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 import { TextInputExample } from "./TextInputExample";
 import { TextAreaExample } from "./TextAreaExample";
 import "@fremtind/jkl-text-input/text-input.scss";
+import "@fremtind/jkl-icon-button/icon-button.scss";
 
 initTabListener();
 

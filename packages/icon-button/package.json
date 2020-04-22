@@ -1,0 +1,47 @@
+{
+    "name": "@fremtind/jkl-icon-button",
+    "version": "0.2.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for buttons",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "button",
+        "icon button",
+        "search button",
+        "clear button",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "!example",
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^4.2.0"
+    },
+    "devDependencies": {
+        "@fremtind/browserslist-config-jkl": "^0.5.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "browserslist": [
+        "extends @fremtind/browserslist-config-jkl"
+    ],
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+}

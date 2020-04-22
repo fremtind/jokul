@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useMutationObserver } from "../src";
 
 const MutationObserverExample = () => {
-    const [isOpen, setIsOpen] = useState();
+    const [isOpen, setIsOpen] = useState(false);
     const [listOfMutations, appendToMutationList] = useState<string[]>([]);
     const mutationTargetRef = useRef(null);
     const listRef = useRef<string[]>();

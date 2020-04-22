@@ -13,7 +13,7 @@ module.exports = {
         },
     },
     parser: "@typescript-eslint/parser",
-    plugins: ["prettier", "jsx-a11y"],
+    plugins: ["prettier", "jsx-a11y", "react-hooks"],
     extends: [
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
@@ -31,6 +31,9 @@ module.exports = {
         "@typescript-eslint/ban-ts-ignore": 0, // We use ts-ignore for modules that don't have type definition files
         "react/prop-types": 0,
         "prettier/prettier": "error",
+        // check for correct use of react hooks:
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
     },
     overrides: [
         {

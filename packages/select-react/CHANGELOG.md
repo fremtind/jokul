@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.4.0...@fremtind/jkl-select-react@1.4.1) (2020-04-22)
+
+
+### Bug Fixes
+
+* **changehandlers:** revert undocumented breaking change ([d6d0f55](https://github.com/fremtind/jokul/commit/d6d0f556709021e8f5509339dd452677a2363d40))
+
+
+
+
+
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.3.4...@fremtind/jkl-select-react@1.4.0) (2020-04-20)
+
+
+### Features
+
+* **eventhandling:** add handling of blur and focus events ([748749f](https://github.com/fremtind/jokul/commit/748749ff705ffbde66a146e2fe989e6f8122b4eb))
+
+
+
+
+
+## [1.3.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.3.3...@fremtind/jkl-select-react@1.3.4) (2020-03-30)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## [1.3.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.3.2...@fremtind/jkl-select-react@1.3.3) (2020-03-25)
+
+
+### Bug Fixes
+
+* add missing dependencies/dependency lists to hooks ([1edc8da](https://github.com/fremtind/jokul/commit/1edc8dabe612ca35a5fab7a6b57ec250dda01771))
+* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+
+
+
+
+
 ## [1.3.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.3.1...@fremtind/jkl-select-react@1.3.2) (2020-03-16)
 
 **Note:** Version bump only for package @fremtind/jkl-select-react

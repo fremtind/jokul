@@ -93,11 +93,6 @@ $text-input-line-height--compact: rem(28px);
         }
     }
 
-    &__action-icon {
-        display: inline-block;
-        width: rem(20px);
-    }
-
     /* Modifications for inline version */
     &--inline {
         display: inline-block;
@@ -161,6 +156,11 @@ $text-input-line-height--compact: rem(28px);
                     box-shadow: 0 0 0 rem(1px) $feil--darkbg;
                 }
             }
+        }
+
+        & .jkl-text-input__action-button:hover,
+        & .jkl-text-input__action-button:focus {
+            color: $info--darkbg;
         }
     }
 }

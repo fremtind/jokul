@@ -3,7 +3,7 @@ import nanoid from "nanoid";
 import classNames from "classnames";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { ActionIcon, IconVariant } from "./ActionIcon";
+import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
 export interface Action {
@@ -68,7 +68,14 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                         className="jkl-text-input__input"
                         {...inputProps}
                     />
-                    {action && <ActionButton {...action} />}
+                    {action && (
+                        <IconButton
+                            className="jkl-text-input__action-button"
+                            iconType={action.icon}
+                            buttonTitle={action.label}
+                            onClick={action.onClick}
+                        />
+                    )}
                 </div>
                 <SupportLabel
                     inverted={inverted}
@@ -82,17 +89,3 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
     },
 );
 TextInput.displayName = "TextInput";
-
-function ActionButton({ label, icon, onClick }: Action) {
-    return (
-        <button
-            type="button"
-            className="jkl-text-input__action-button"
-            onClick={onClick}
-            aria-label={label}
-            title={label}
-        >
-            <ActionIcon className="jkl-text-input__action-icon" action={icon} />
-        </button>
-    );
-}

@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.2.0...@fremtind/portal@2.3.0) (2020-04-20)
+
+
+### Bug Fixes
+
+* **codeblock:** account for code blocks without language ([13d4714](https://github.com/fremtind/jokul/commit/13d4714df02fd95b06750d0046a737f596463542))
+
+
+### Features
+
+* **formatting:** add code highlighting to mdx parser ([8c366d4](https://github.com/fremtind/jokul/commit/8c366d4323356a878fef75c6c1649596b4579275))
+* **portal:** add favicon through Gatsby manifest ([b78cdf3](https://github.com/fremtind/jokul/commit/b78cdf3cd7f745c450dee2a0a428181aa59b8351)), closes [#747](https://github.com/fremtind/jokul/issues/747)
+
+
+
+
+
+# [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.1.0...@fremtind/portal@2.2.0) (2020-03-30)
+
+
+### Features
+
+* **portal:** add icon-button css to gatsby-browser ([836b33a](https://github.com/fremtind/jokul/commit/836b33ad0895cceff5ceefdd3a4b8b521ba8a035))
+
+
+
+
+
+# [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.2...@fremtind/portal@2.1.0) (2020-03-25)
+
+
+### Bug Fixes
+
+* add missing dependencies/dependency lists to hooks ([1edc8da](https://github.com/fremtind/jokul/commit/1edc8dabe612ca35a5fab7a6b57ec250dda01771))
+* **portal:** correct path comparison for determining menu active state ([74abad8](https://github.com/fremtind/jokul/commit/74abad8ebaf83bfa423088a3fbaf83a1f3ceaa6a))
+* **portal:** remove conditional hook call on front page ([d41a732](https://github.com/fremtind/jokul/commit/d41a732d78ac18efe7f9bb2aae6720820821edfb))
+
+
+### Features
+
+* **portal:** add location context to avoid Location component ([852353e](https://github.com/fremtind/jokul/commit/852353e7898615c820419df77ba315f0059adc18))
+* **portal:** create all portal pages using MDX ([d109af9](https://github.com/fremtind/jokul/commit/d109af940cdb7c772a44f2116fb9de896b143a4c))
+* **portal:** create pretty paths for component pages ([68ac75e](https://github.com/fremtind/jokul/commit/68ac75efdcc0fc8b2d02a290e31b737c63c2950e))
+
+
+
+
+
 ## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.1...@fremtind/portal@2.0.2) (2020-03-16)
 
 **Note:** Version bump only for package @fremtind/portal

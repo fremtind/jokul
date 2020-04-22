@@ -1,12 +1,14 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import nanoid from "nanoid";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import classNames from "classnames";
+
+type SelectEventHandler = (value?: string) => void;
 
 interface Props {
     label: string;
@@ -16,11 +18,13 @@ interface Props {
     className?: string;
     value?: string;
     initialInputValue?: string; // Deprecated!
-    onChange?: (value: string) => void;
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
+    onChange?: (value: string) => void;
+    onBlur?: SelectEventHandler;
+    onFocus?: SelectEventHandler;
 }
 
 interface CoreToggleSelectEvent {
@@ -49,6 +53,8 @@ export function Select({
     value,
     label,
     onChange,
+    onBlur,
+    onFocus,
     className,
     helpLabel,
     errorLabel,
@@ -59,12 +65,16 @@ export function Select({
     initialInputValue,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
+    const [internalFocus, setInternalFocus] = useState(false);
     const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
 
-    function getLabelFromValue(value: string | undefined) {
-        const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
-        return matchingItem && matchingItem.label;
-    }
+    const getLabelFromValue = useCallback(
+        (value: string | undefined) => {
+            const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
+            return matchingItem && matchingItem.label;
+        },
+        [items],
+    );
     const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
 
     const [dropdownIsShown, setShown] = useState(false);
@@ -85,27 +95,42 @@ export function Select({
     }
 
     function onToggle() {
-        const listElement = listRef.current;
-        if (listElement && !dropdownIsShown) {
-            focusSelected(listElement, listId, selectedValue);
-        }
+        const opening = !dropdownIsShown;
         setShown(!dropdownIsShown);
+        if (opening) {
+            const listElement = listRef.current;
+            listElement && focusSelected(listElement, listId, selectedValue);
+        }
     }
 
     function onToggleSelect(e: CoreToggleSelectEvent) {
-        e.target.hidden = true;
-        e.target.button.focus();
         e.target.value = e.detail;
         const nextValue = e.detail.value;
         setDisplayedValue(e.detail.textContent);
         setSelectedValue(nextValue);
         onChange && onChange(nextValue);
+        e.target.hidden = true;
+        setInternalFocus(true);
+        e.target.button.focus();
+    }
+
+    function handleBlur() {
+        if (!dropdownIsShown && onBlur) {
+            onBlur(value);
+        }
+    }
+
+    function handleFocus() {
+        if (onFocus && !internalFocus) {
+            onFocus(value);
+        }
+        setInternalFocus(false);
     }
 
     useEffect(() => {
         setSelectedValue(value);
         setDisplayedValue(getLabelFromValue(value));
-    }, [value, items]);
+    }, [value, items, getLabelFromValue]);
 
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
 
@@ -120,6 +145,8 @@ export function Select({
                     className="jkl-select__value"
                     data-testid="jkl-select__value"
                     aria-haspopup="listbox"
+                    onBlur={handleBlur}
+                    onFocus={handleFocus}
                 >
                     {hasSelectedValue ? displayedValue : defaultPrompt}
                 </button>

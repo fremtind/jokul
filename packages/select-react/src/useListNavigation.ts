@@ -39,7 +39,7 @@ export function useListNavigation(typeAheadIsEnabled = true): RefObject<HTMLULis
                 );
             }
         };
-    }, []);
+    }, [search, searchResetTimer]);
 
     return listRef;
 }
