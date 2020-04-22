@@ -12,6 +12,8 @@ Jøkul er et designsystem, et bibliotek med komponenter. Det gir litt andre utfo
 -   Test runner: Jest
 -   Test rammeverk:
 -   CSS-preprosessor: Scss
+-   CSS-metodikk: BEM
+
 
 ### Slik har vi organisert pakkene
 
