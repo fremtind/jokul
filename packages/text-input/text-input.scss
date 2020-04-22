@@ -134,7 +134,7 @@ $text-input-line-height--compact: rem(28px);
             }
 
             &::selection {
-                background-color: transparentize($color: $info--darkbg, $amount: 0.75);
+                background-color: transparentize($info--darkbg, 0.75);
             }
 
             &:focus,
