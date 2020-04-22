@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.4.0...@fremtind/jkl-select-react@1.4.1) (2020-04-22)
+
+
+### Bug Fixes
+
+* **changehandlers:** revert undocumented breaking change ([d6d0f55](https://github.com/fremtind/jokul/commit/d6d0f556709021e8f5509339dd452677a2363d40))
+
+
+
+
+
 # [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.3.4...@fremtind/jkl-select-react@1.4.0) (2020-04-20)
 
 
