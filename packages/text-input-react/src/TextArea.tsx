@@ -86,7 +86,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
         }
 
         function calculateRows(textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
-            const lineHeightWithPx = window.getComputedStyle(textAreaElement).lineHeight;
+            const lineHeightWithPx = window?.getComputedStyle(textAreaElement).lineHeight || "16px"; // Default to 16px
             const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
             const savedRows = textAreaElement.rows;
             // We need to set rows to 1 to shrink the textarea when removing characters.
