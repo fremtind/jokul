@@ -1,5 +1,4 @@
 import React, { useLayoutEffect, useState } from "react";
-import { Link } from "gatsby";
 import classNames from "classnames";
 
 import { useFullscreenMenu } from "../../contexts/fullscreenMenuContext";
@@ -25,12 +24,15 @@ export const Header = ({ className }: { className?: string }) => {
         },
         className,
     );
+    const goToHome = () => {
+        window.location.href = "/";
+    };
 
     return (
         <header className={componentClassName}>
-            <Link onClick={() => setMenuIsOpen("")} to="/" className="jkl-portal-header__title">
+            <button onClick={() => goToHome()} className="jkl-portal-header__title">
                 Jøkul
-            </Link>
+            </button>
             <nav className="jkl-portal-header__navigation">
                 <ul className="jkl-portal-header__navigation-list">
                     <li className="jkl-portal-header__navigation-item">
