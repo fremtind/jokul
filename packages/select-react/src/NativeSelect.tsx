@@ -6,6 +6,8 @@ import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import classNames from "classnames";
 
+import { ExpandArrow } from "./ExpandArrow";
+
 interface Props {
     id?: string;
     label: string;
@@ -18,6 +20,7 @@ interface Props {
     placeholder?: string;
     value?: string;
     forceCompact?: boolean;
+    inverted?: boolean;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
     onBlur?: FocusEventHandler<HTMLSelectElement>;
@@ -35,6 +38,7 @@ export function NativeSelect({
     placeholder,
     value,
     forceCompact,
+    inverted,
     onChange,
     onBlur,
     onFocus,
@@ -49,6 +53,7 @@ export function NativeSelect({
     const componentClassName = classNames("jkl-select", className, {
         "jkl-select--inline": inline,
         "jkl-select--compact": forceCompact,
+        "jkl-select--inverted": inverted,
         "jkl-select--invalid": !!errorLabel,
     });
 
@@ -61,27 +66,34 @@ export function NativeSelect({
             <Label standAlone htmlFor={uid} variant={variant} forceCompact={forceCompact}>
                 {label}
             </Label>
-            <select
-                id={uid}
-                value={value}
-                defaultValue={defaultValue}
-                className="jkl-select__value"
-                onChange={onChange}
-                onBlur={onBlur || onChange}
-                onFocus={onFocus}
-            >
-                {placeholder && !value && (
-                    <option disabled value="">
-                        {placeholder}
-                    </option>
-                )}
-                {items.map(getValuePair).map((item) => (
-                    <option data-testid="jkl-select__option" key={item.value} value={item.value}>
-                        {item.label}
-                    </option>
-                ))}
-            </select>
-            <span className="jkl-select__chevron" />
+            <div className="jkl-select__outer-wrapper">
+                <select
+                    id={uid}
+                    value={value}
+                    defaultValue={defaultValue}
+                    className="jkl-select__button"
+                    onChange={onChange}
+                    onBlur={onBlur || onChange}
+                    onFocus={onFocus}
+                >
+                    {placeholder && !value && (
+                        <option disabled value="">
+                            {placeholder}
+                        </option>
+                    )}
+                    {items.map(getValuePair).map((item) => (
+                        <option
+                            data-testid="jkl-select__option"
+                            className="jkl-select__option"
+                            key={item.value}
+                            value={item.value}
+                        >
+                            {item.label}
+                        </option>
+                    ))}
+                </select>
+                <ExpandArrow className="jkl-select__arrow" />
+            </div>
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </div>
     );

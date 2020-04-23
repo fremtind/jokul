@@ -8,6 +8,8 @@ import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import classNames from "classnames";
 
+import { ExpandArrow } from "./ExpandArrow";
+
 type SelectEventHandler = (value?: string) => void;
 
 interface Props {
@@ -18,12 +20,12 @@ interface Props {
     defaultPrompt?: string;
     className?: string;
     value?: string;
-    initialInputValue?: string; // Deprecated!
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
-    onChange?: (value: string) => void;
+    inverted?: boolean;
+    onChange?: SelectEventHandler;
     onBlur?: SelectEventHandler;
     onFocus?: SelectEventHandler;
 }
@@ -64,7 +66,7 @@ export function Select({
     defaultPrompt = "Velg",
     variant,
     forceCompact,
-    initialInputValue,
+    inverted,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
     const [internalFocus, setInternalFocus] = useState(false);
@@ -78,6 +80,7 @@ export function Select({
         [items],
     );
     const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
+    const [previousValue, setPreviousValue] = useState(hasSelectedValue ? defaultPrompt : " ");
 
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
@@ -85,16 +88,11 @@ export function Select({
     const componentClassName = classNames("jkl-select", className, {
         "jkl-select--inline": inline,
         "jkl-select--compact": forceCompact,
+        "jkl-select--inverted": inverted,
         "jkl-select--open": dropdownIsShown,
         "jkl-select--no-value": !hasSelectedValue,
         "jkl-select--invalid": !!errorLabel,
     });
-
-    if (initialInputValue && process.env.NODE_ENV !== "production") {
-        console.warn(
-            "Warning!: The 'initialInputValue' prop on the Select component is deprecated and does nothing. Use the 'value' prop instead.",
-        );
-    }
 
     function onToggle() {
         const opening = !dropdownIsShown;
@@ -144,8 +142,8 @@ export function Select({
             <div className="jkl-select__outer-wrapper">
                 <button
                     type="button"
-                    className="jkl-select__value"
-                    data-testid="jkl-select__value"
+                    className="jkl-select__button"
+                    data-testid="jkl-select__button"
                     aria-haspopup="listbox"
                     onBlur={handleBlur}
                     onFocus={handleFocus}
@@ -156,7 +154,7 @@ export function Select({
                     id={listId}
                     ref={elementRef}
                     role="listbox"
-                    className="jkl-select__toggler"
+                    className="jkl-select__options-menu"
                     popup={label}
                     hidden={!dropdownIsShown}
                     onToggle={onToggle}
@@ -186,7 +184,7 @@ export function Select({
                         ))}
                     </ul>
                 </CoreToggle>
-                <span className="jkl-select__chevron" />
+                <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
             </div>
             <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </div>

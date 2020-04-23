@@ -3,12 +3,11 @@
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
-$select-width: 20rem;
 $bg-color: inherit;
 $bg-color--options: $hvit;
 
 $border-color: $svart;
-$border-color--focus: $focus-color;
+$border-color--focus: $info;
 
 $value-height: $line-height-4;
 $value-font-size: $font-size-6;
@@ -16,33 +15,22 @@ $value-font-size: $font-size-6;
 $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
 
-$chevron-size: rem(20px);
-$chevron-size--compact: rem(16px);
-$chevron-weight: rem(1px);
-$chevron-side-padding: (2 * $component-spacing--small);
-
-@mixin nojump-bold {
-    // Make font bolder without increasing line length
-    font-weight: $bold-weight;
-    letter-spacing: -0.009em;
-}
+$arrow-height: rem(16px);
+$arrow-width: rem(13px);
 
 .jkl-select {
     @include reset-outline;
     background-color: $bg-color;
     display: block;
-    width: $select-width;
     position: relative;
+    min-width: 15rem;
 
+    /* Resets for native styling, especially in Firefox/IE */
     & *:focus {
-        // Remove default focus outline for all elements within
         outline: none;
     }
-
     & select {
-        /* reset default appearance */
         appearance: none;
-        border-radius: 0;
         &::ms-expand {
             display: none;
         }
@@ -50,47 +38,66 @@ $chevron-side-padding: (2 * $component-spacing--small);
             color: transparent;
             text-shadow: 0 0 0 $border-color;
         }
-
         & option {
             font-weight: normal;
             font-family: sans-serif;
             color: black;
         }
     }
-
-    &__value {
-        @include jkl-text-style("desktop/body");
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        background-color: transparent;
-        color: inherit;
-
-        border: 0;
-        font-weight: $bold-weight;
-        padding: 0 $side-padding $bottom-padding 0;
-        padding-right: $chevron-size + $chevron-side-padding;
-        text-align: left;
-        transition: box-shadow $transition-timing, padding $transition-timing;
-        width: 100%;
-        opacity: 1;
-        position: relative;
-        @include underline-color(currentColor, $border-color--focus);
-
-        &::-ms-expand {
-            display: none; // remove dropdown arrow in IE11
-        }
-
-        &:active {
-            color: currentColor; // Safari text will blink on click without this
-        }
-    }
+    /* End of resets */
 
     &__outer-wrapper {
         position: relative;
     }
 
-    &__toggler {
+    &__button {
+        @include jkl-text-style("desktop/body");
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: $hvit;
+        color: $svart;
+
+        height: rem(48px);
+        border: rem(1px) solid $svart;
+        border-radius: rem(3px);
+        box-shadow: 0 0 0 0 $svart;
+
+        padding: $component-spacing--small $component-spacing--large;
+        padding-right: $arrow-width + 2 * $component-spacing--large;
+        text-align: left;
+        width: 100%;
+
+        @include motion("standard");
+        transition-property: color, border-color, box-shadow;
+
+        &:hover,
+        &:focus {
+            border-color: $info;
+            color: $info;
+            box-shadow: 0 0 0 rem(1px) $info;
+
+            & ~ .jkl-select__arrow {
+                color: $info;
+            }
+        }
+
+        &:hover {
+            & ~ .jkl-select__arrow {
+                transform: translateY(calc(-50% + #{rem(3px)}));
+            }
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        right: $component-spacing--large;
+        top: 50%;
+        transform: translateY(-50%);
+        color: inherit;
+    }
+
+    &__options-menu {
         @include motion("standard");
         transition-property: height;
         position: absolute;
@@ -100,12 +107,12 @@ $chevron-side-padding: (2 * $component-spacing--small);
         z-index: $z-index--dropdown;
 
         background-color: $bg-color--options;
-        border: rem(1px) solid $svart;
+        border: rem(1px) solid $info;
         border-top: none;
-        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.16);
+        border-radius: 0 0 rem(3px) rem(3px);
+        box-sizing: border-box;
 
         overflow-y: auto;
-        overflow-x: hidden;
         max-height: 60vh;
     }
 
@@ -119,31 +126,21 @@ $chevron-side-padding: (2 * $component-spacing--small);
 
     &__option {
         @include jkl-text-style("desktop/body");
+        color: unset;
         border: 0; // removes native styling
         width: 100%;
         background-color: inherit;
         min-height: rem(48px);
-        padding: $component-spacing--small $component-spacing--medium;
+        padding: $component-spacing--small $component-spacing--large;
         text-align: left;
+        @include motion("standard");
+        transition-property: color, background-color;
 
         &:focus,
         &:hover {
-            background-color: $svart;
-            color: $bg-color--options;
+            background-color: $info;
+            color: $hvit;
         }
-
-        html:not([data-mousenavigation]) &:focus {
-            background-color: $bg-color--options;
-            color: $svart;
-            box-shadow: inset 0 0 0 2px white, inset 0 0 0 4px $border-color--focus;
-        }
-    }
-
-    &__chevron {
-        @include chevron($chevron-size, currentcolor, $weight: $chevron-weight);
-        position: absolute;
-        right: 0;
-        pointer-events: none;
     }
 
     &--inline {
@@ -151,41 +148,126 @@ $chevron-side-padding: (2 * $component-spacing--small);
         vertical-align: top;
     }
 
-    &--no-value {
-        .jkl-select__value {
-            color: currentColor;
-            font-weight: normal;
-        }
-    }
-
     &--open {
-        .jkl-select__arrow {
-            transform: rotate(180deg);
-        }
+        .jkl-select__button {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: $info;
 
-        .jkl-select__chevron {
-            transform: rotate((-45 + 180) * 1deg); // default orientation is pointing down
+            &:hover ~ .jkl-select__arrow {
+                transform: translateY(calc(-50% + #{rem(-3px)}));
+            }
         }
     }
 
     &--invalid {
-        .jkl-select__value {
-            @include underline-color($error-color, $error-color);
+        .jkl-select__button,
+        .jkl-select__options-menu {
+            border-color: $feil;
+        }
+
+        .jkl-select__button:hover,
+        .jkl-select__button:focus {
+            box-shadow: 0 0 0 rem(1px) $feil;
+            color: $svart;
+        }
+    }
+
+    &--inverted {
+        .jkl-select__button {
+            background-color: transparent;
+            border-color: $gra-50;
+            color: $hvit;
+        }
+        .jkl-select__button:hover,
+        .jkl-select__button:focus {
+            box-shadow: 0 0 0 rem(1px) $info--darkbg;
+            border-color: $info--darkbg;
+            color: $info--darkbg;
+
+            & ~ .jkl-select__arrow {
+                color: $info--darkbg;
+            }
+        }
+        .jkl-select__option:hover,
+        .jkl-select__option:focus {
+            background-color: $info--darkbg;
+            color: $svart;
+        }
+
+        &.jkl-select--open {
+            .jkl-select__button,
+            .jkl-select__options-menu {
+                border-color: $info--darkbg;
+                background-color: $gra-80;
+            }
+        }
+
+        &.jkl-select--invalid {
+            .jkl-select__button,
+            .jkl-select__options-menu {
+                border-color: $feil--darkbg;
+            }
+
+            .jkl-select__button {
+                &:hover,
+                &:focus {
+                    box-shadow: 0 0 0 rem(1px) $feil--darkbg;
+                    color: $hvit;
+                }
+            }
         }
     }
 
     @include compact-mode {
-        & .jkl-select__value {
+        & .jkl-select__button {
             @include jkl-text-style("compact/body");
-            padding-right: $chevron-size--compact + $chevron-side-padding;
-            font-weight: $bold-weight;
+            height: rem(40px);
         }
         & .jkl-select__option {
             @include jkl-text-style("compact/body");
             min-height: rem(40px);
         }
-        & .jkl-select__chevron {
-            @include chevron($chevron-size--compact, currentcolor, $weight: $chevron-weight);
+    }
+}
+
+.jkl-expand-arrow {
+    height: $arrow-height;
+    width: $arrow-width;
+    clip: rect(auto, auto, auto, auto);
+    clip-path: inset(0 0 0 0);
+
+    pointer-events: none;
+
+    @include motion("standard");
+    transition-property: transform, color;
+
+    &__up,
+    &__down {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        height: $arrow-height;
+        width: $arrow-width;
+        @include motion("standard");
+        transition-property: transform;
+    }
+
+    &__up {
+        top: 100%;
+    }
+
+    &__down {
+        top: 0;
+    }
+
+    &--expanded {
+        .jkl-expand-arrow__up,
+        .jkl-expand-arrow__down {
+            @include motion("standard", "expressive");
+            transform: translate(0, -100%);
         }
     }
 }
