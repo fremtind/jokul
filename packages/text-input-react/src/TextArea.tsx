@@ -52,12 +52,15 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
             if (autoExpand && textAreaElement) {
                 const savedValue = textAreaElement.value;
                 const savedPlaceholder = textAreaElement.placeholder;
+                const savedRows = textAreaElement.rows;
                 // BaseScrollHeight must be calculated from an empty textarea and empty placeholder.
                 textAreaElement.value = "";
                 textAreaElement.placeholder = "";
+                textAreaElement.rows = 1;
                 setBaseScrollHeight(textAreaElement.scrollHeight);
                 textAreaElement.value = savedValue;
                 textAreaElement.placeholder = savedPlaceholder;
+                textAreaElement.rows = savedRows;
             }
         }, [textAreaRef, autoExpand]);
 
@@ -86,7 +89,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
         }
 
         function calculateRows(textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
-            const lineHeightWithPx = window?.getComputedStyle(textAreaElement).lineHeight || "16px"; // Default to 16px
+            const lineHeightWithPx = window ? window.getComputedStyle(textAreaElement).lineHeight : "16px"; // Default to 16px
             const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
             const savedRows = textAreaElement.rows;
             // We need to set rows to 1 to shrink the textarea when removing characters.
