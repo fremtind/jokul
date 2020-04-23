@@ -62,7 +62,7 @@ describe("NativeSelect", () => {
 describe("a11y", () => {
     test("native select should be a11y compliant", async () => {
         const { container } = render(
-            <NativeSelect label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+            <NativeSelect label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" onChange={dummyFunc} />,
         );
         const results = await axe(container);
 
@@ -71,7 +71,14 @@ describe("a11y", () => {
 
     test("compact native select should be a11y compliant", async () => {
         const { container } = render(
-            <NativeSelect forceCompact label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+            <NativeSelect
+                forceCompact
+                label="Select"
+                items={["1", "2"]}
+                value="1"
+                helpLabel="Velg en av to"
+                onChange={dummyFunc}
+            />,
         );
         const results = await axe(container);
 
