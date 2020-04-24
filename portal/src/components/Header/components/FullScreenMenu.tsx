@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 import classNames from "classnames";
 //@ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import { ActionTextField } from "@fremtind/jkl-text-input-react";
+import { TextInput } from "@fremtind/jkl-text-input-react";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { FullScreenMenuItem, FullScreenMenuItemProps } from "./FullScreenMenuItem";
@@ -86,7 +86,7 @@ export function FullScreenMenu({ title, items, filterable, activePath }: FullScr
                         ))}
                     </ul>
                     {filterable && (
-                        <ActionTextField
+                        <TextInput
                             className="jkl-portal-full-screen-menu__filter"
                             variant="small"
                             label="Filtrér"

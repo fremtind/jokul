@@ -1,27 +1,25 @@
-import React, { FocusEventHandler, ChangeEventHandler, CSSProperties } from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import React, { ChangeEventHandler, FocusEventHandler, CSSProperties, forwardRef } from "react";
 
-export interface BaseInputProps {
+export interface BaseProps {
+    id?: string;
+    className?: string;
+    maxLength?: number;
+    width?: string;
+    value?: string;
     onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-    value?: string;
-    className?: string;
-    id?: string;
-    required?: boolean;
     placeholder?: string;
-    variant?: LabelVariant;
-    forceCompact?: boolean;
     readOnly?: boolean;
-    maxLength?: number;
-    width?: string;
     autoComplete?: string;
+    required?: boolean;
+    type?: "text" | "number" | "tel" | "password" | "email" | "year";
 }
 
-interface Props extends BaseInputProps {
-    type?: "text" | "number" | "tel" | "password" | "email" | "year";
+interface Props extends BaseProps {
+    describedBy?: string;
+    style?: CSSProperties;
     invalid?: boolean;
-    ariaDescribedby?: string;
 }
 
 function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | undefined {
@@ -29,25 +27,28 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
         return { width }; // prioritize width prop
     }
 
-    if (maxLength && maxLength < 15) {
-        return { width: `${maxLength + 3}ch` }; // else use maxLength if not large
+    if (maxLength) {
+        // adapt to maxLength, but capped at 40ch
+        const length = Math.min(maxLength, 40);
+        return { width: `${length}ch` };
     }
 
     return undefined;
 }
 
-export const BaseInputField = ({ maxLength, width, invalid, ariaDescribedby, ...rest }: Props) => {
-    const style = getWidthAsStyle(width, maxLength);
-
-    return (
+export const BaseInputField = forwardRef<HTMLInputElement, Props>(
+    ({ id, describedBy, invalid, maxLength, width, type = "text", ...rest }, ref) => (
         <input
-            data-testid="jkl-text-field__input"
-            className="jkl-text-field__input"
-            maxLength={maxLength}
-            style={style}
-            aria-describedby={ariaDescribedby}
+            ref={ref}
+            id={id}
+            className="jkl-text-input__input"
+            style={getWidthAsStyle(width, maxLength)}
+            aria-describedby={describedBy}
             aria-invalid={invalid}
+            maxLength={maxLength}
+            type={type}
             {...rest}
         />
-    );
-};
+    ),
+);
+BaseInputField.displayName = "BaseInputField";

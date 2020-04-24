@@ -1,8 +1,9 @@
 import React, { useState, ChangeEvent } from "react";
 import classNames from "classnames";
-import { ActionTextField } from "@fremtind/jkl-text-input-react";
+import { TextInput } from "@fremtind/jkl-text-input-react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { useLocation } from "../../contexts/locationContext";
+import { useTheme } from "../../contexts/themeContext";
 
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
@@ -43,6 +44,7 @@ export function Sidebar() {
 }
 
 function SidebarMenu({ links }: { links: DocumentationPageInfo[]; currentPath: string }) {
+    const { theme } = useTheme();
     const [filter, setFilter] = useState("");
     function filterLinks(e: ChangeEvent<HTMLInputElement>) {
         setFilter(e.target.value);
@@ -50,11 +52,12 @@ function SidebarMenu({ links }: { links: DocumentationPageInfo[]; currentPath: s
     const filteredLinks = links.filter((link) => link.title.toLowerCase().includes(filter.toLowerCase()));
     return (
         <>
-            <ActionTextField
+            <TextInput
                 variant="small"
                 forceCompact
                 label="Filtrér"
                 value={filter}
+                inverted={theme === "dark"}
                 onChange={filterLinks}
                 action={{ icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") }}
                 className="jkl-portal-sidebar-menu__filter"

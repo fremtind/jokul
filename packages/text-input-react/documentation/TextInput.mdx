@@ -1,14 +1,31 @@
 ---
-title: Text inputs
+title: Text input
 react: text-input-react
 scss: text-input
 ---
 
-import Example from "./Example";
+import { TextInputExample } from "./TextInputExample";
+import { TextAreaExample } from "./TextAreaExample";
 
-<Example />
+<Ingress>
+    Vi bruker tekstfelt når vi vil at brukerne skal legge inn informasjon. Ledeteksten skal fortelle hva brukeren skal
+    oppgi i feltet.
+</Ingress>
+<ComponentExample
+    component={TextInputExample}
+    knobs={{
+        boolProps: ["Inline", "Kompakt", "Invertert", "Med handling", "Med hjelpetekst", "Med feilmelding"],
+        choiceProps: [
+            {
+                name: "Variant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+/>
 
-Vi bruker tekstfelt når vi vil at brukerne skal legge inn informasjon. Ledeteksten skal fortelle hva brukeren skal oppgi i feltet. Tekstfelt godtar data med fast format eller fritekst. Fast format bruker du for eksempel når du vil at brukeren skal angi fødselsnummer eller et postnummer, mens fritekst passer til felt der brukerne skal fortelle noe med egne ord.
+Tekstfelt godtar data med fast format eller fritekst. Fast format bruker du for eksempel når du vil at brukeren skal angi fødselsnummer eller et postnummer, mens fritekst passer til felt der brukerne skal fortelle noe med egne ord.
 
 Velg størrelse på tekstefelt etter typen data brukerne skal legge inn.
 
@@ -17,11 +34,25 @@ Velg størrelse på tekstefelt etter typen data brukerne skal legge inn.
 **Vanlige tekstfelt:**
 For innhold som ikke overskrider lengden på feltet.
 
+**Inline tekstfelt:**
+Til spesialtilfeller, hvis vi for eksempel trenger å plassere et tekstfelt i en setning.
+
 **Lange tekstfelt:**
 Når innholdet blir lengre enn en setning. Høyden på feltet kan justeres.
 
-**Inline tekstfelt:**
-Til spesialtilfeller, hvis vi for eksempel trenger å plassere et tekstfelt i en setning.
+<ComponentExample
+    component={TextAreaExample}
+    knobs={{
+        boolProps: ["Kompakt", "Invertert", "Ekspanderende", "Med hjelpetekst", "Med feilmelding"],
+        choiceProps: [
+            {
+                name: "Variant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+/>
 
 ## Tekst og validering
 
