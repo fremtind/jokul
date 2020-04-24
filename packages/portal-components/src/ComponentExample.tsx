@@ -1,5 +1,6 @@
 import React, { createElement, useState, useLayoutEffect } from "react";
 import classNames from "classnames";
+import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { Dictionary, ExampleComponentProps, ChoiceProp } from "../src";
@@ -12,6 +13,7 @@ export interface Props {
     };
 }
 export function ComponentExample({ component, knobs }: Props) {
+    const [uid] = useState(`example${nanoid(8)}`);
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
     const [choices, setChoices] = useState<Dictionary<string[]>>({});
     const [choiceValues, setChoiceValues] = useState<Dictionary<string>>({});
@@ -65,7 +67,7 @@ export function ComponentExample({ component, knobs }: Props) {
                         {Object.entries(boolValues).map(([key, value]) => (
                             <Checkbox
                                 key={key}
-                                name={key}
+                                name={`${uid}-${key}`}
                                 value={key}
                                 checked={value}
                                 onChange={(e) => setBoolValue(key, e.target.checked)}
@@ -79,7 +81,7 @@ export function ComponentExample({ component, knobs }: Props) {
                                     className="jkl-portal-component-example__choice-option"
                                     variant="small"
                                     key={key}
-                                    name={key}
+                                    name={`${uid}-${key}`}
                                     legend={key}
                                     choices={[...choices[key]]}
                                     selectedValue={value}
