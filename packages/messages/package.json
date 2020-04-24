@@ -1,0 +1,37 @@
+{
+    "name": "@fremtind/jkl-messages",
+    "version": "1.0.0",
+    "publshConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul styling for messages",
+    "keywords": [
+        "Jøkul",
+        "Fremtind",
+        "Message"
+    ],
+    "homepage": "https://github.com/fremtind/jokul#readme",
+    "files": [
+        "!example",
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^4.2.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}
