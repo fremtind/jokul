@@ -1,5 +1,3 @@
-export { TextField } from "./TextField";
 export { TextArea } from "./TextArea";
-export { ActionTextField } from "./ActionTextField";
-export { InlineTextField } from "./InlineTextField";
+export { TextInput } from "./TextInput";
 export { BaseInputField } from "./BaseInputField";
