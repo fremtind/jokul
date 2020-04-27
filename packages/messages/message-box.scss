@@ -31,5 +31,82 @@ $message-width: rem(560px);
         max-width: 100%;
     }
 
-    @include generate-message-colors("message-box");
+    &--info {
+        border: rem(1px) solid $info;
+        background-color: $info-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $info;
+        }
+    }
+
+    &--warning {
+        border: rem(1px) solid $advarsel;
+        background-color: $advarsel-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $advarsel;
+
+            .jkl-icon-exclamation {
+                color: $svart;
+            }
+        }
+    }
+
+    &--error {
+        border: rem(1px) solid $feil;
+        background-color: $feil-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $feil;
+        }
+    }
+
+    &--success {
+        border: rem(1px) solid $suksess;
+        background-color: $suksess-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $suksess;
+        }
+    }
+
+    &--dark {
+        &.jkl-message-box--info {
+            border: rem(1px) solid $info--darkbg;
+            background-color: $info-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $info--darkbg;
+            }
+        }
+        &.jkl-message-box--warning {
+            border: rem(1px) solid $advarsel--darkbg;
+            background-color: $advarsel-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $advarsel--darkbg;
+
+                .jkl-icon-exclamation {
+                    color: $hvit;
+                }
+            }
+        }
+        &.jkl-message-box--error {
+            border: rem(1px) solid $feil--darkbg;
+            background-color: $feil-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $feil--darkbg;
+            }
+        }
+        &.jkl-message-box--success {
+            border: rem(1px) solid $suksess--darkbg;
+            background-color: $suksess-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $suksess--darkbg;
+            }
+        }
+    }
 }
