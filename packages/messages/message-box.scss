@@ -109,8 +109,4 @@ $message-width: rem(560px);
             }
         }
     }
-
-    @include small-device {
-        width: 100%;
-    }
 }
