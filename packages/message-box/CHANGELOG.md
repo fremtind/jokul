@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.3.0...@fremtind/jkl-message-box@1.4.0) (2020-04-27)
+
+
+### Features
+
+* **minor ui changes:** more redable icon and more compact heading text ([181f21d](https://github.com/fremtind/jokul/commit/181f21d1ddc1e81ad381aa9f428bf6c08f165696)), closes [#904](https://github.com/fremtind/jokul/issues/904)
+
+
+
+
+
 # [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.2.6...@fremtind/jkl-message-box@1.3.0) (2020-04-20)
 
 

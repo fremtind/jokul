@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.3.7...@fremtind/jkl-text-input@2.0.0) (2020-04-27)
+
+
+### Bug Fixes
+
+* **text-input:** correct behaviour of width prop ([d752601](https://github.com/fremtind/jokul/commit/d752601b8e11100600026c5683f10e211680c155))
+* **text-input:** use more neutral selection color ([920219b](https://github.com/fremtind/jokul/commit/920219bb07acb226a4e2c9ee67e635c863083c28))
+
+
+### Features
+
+* **design:** updated to boxed design ([8b8ab7c](https://github.com/fremtind/jokul/commit/8b8ab7c6ba74657a70e0142deaaeb41dc473e377))
+* **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
+* **text-input:** start implementing new text inputs ([b2bcfab](https://github.com/fremtind/jokul/commit/b2bcfab37a4c1da542ebd49ad5fdba249e17b63a))
+* minor color tweaks ([3071c7e](https://github.com/fremtind/jokul/commit/3071c7e4d21859f81844d6b152322de1fbb2f323))
+
+
+### BREAKING CHANGES
+
+* **text-input:** * TextField is now called TextInput|* The following variants have all been integrated into
+TextInput: ActionTextField, InlineTextField, BaseInputField
+
+
+
+
+
 ## [1.3.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@1.3.6...@fremtind/jkl-text-input@1.3.7) (2020-04-20)
 
 

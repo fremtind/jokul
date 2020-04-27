@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-portal-components",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "private": true,
     "description": "Components for showing examples in the Jøkul portal",
     "keywords": [
@@ -35,7 +35,7 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/jkl-checkbox-react": "^1.3.2",
+        "@fremtind/jkl-checkbox-react": "^1.3.3",
         "@fremtind/jkl-core": "^3.0.0",
         "@fremtind/jkl-radio-button-react": "^1.2.1",
         "@mdx-js/parcel-plugin-mdx": "^1.5.7",
@@ -56,7 +56,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@fremtind/jkl-radio-button-react": "^1.3.5"
+        "@fremtind/jkl-radio-button-react": "^1.3.6"
     },
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.3.0...@fremtind/portal@3.0.0) (2020-04-27)
+
+
+### Bug Fixes
+
+* **portal:** use correct hook for theme in sidebar ([b41ed3c](https://github.com/fremtind/jokul/commit/b41ed3cc18f0383d889b905f575eee2209dae423))
+* **portal:** use new TextInput in sidebar and fullscreen menu ([a874480](https://github.com/fremtind/jokul/commit/a874480c98ef8e24f930430d382b138cd7e31fe7))
+
+
+### Features
+
+* **added documenation:** added documenation for css methodology ([0a2ebd1](https://github.com/fremtind/jokul/commit/0a2ebd1adcf20fdf8e8416c91438e0f6f1939aa5)), closes [#468](https://github.com/fremtind/jokul/issues/468)
+* **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
+
+
+### BREAKING CHANGES
+
+* **text-input:** * TextField is now called TextInput|* The following variants have all been integrated into
+TextInput: ActionTextField, InlineTextField, BaseInputField
+
+
+
+
+
 # [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.2.0...@fremtind/portal@2.3.0) (2020-04-20)
 
 
