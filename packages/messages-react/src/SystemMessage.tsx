@@ -9,6 +9,7 @@ interface Props {
     inverted?: boolean;
     maxWidth?: string;
     paddingLeft?: string;
+    role?: string;
 }
 
 export const SystemMessage: React.FC<Props> = ({
@@ -18,6 +19,7 @@ export const SystemMessage: React.FC<Props> = ({
     inverted,
     maxWidth,
     paddingLeft,
+    role = "status",
 }) => {
     const componentClassName = classNames("jkl-system-message", "jkl-system-message--" + messageType, className, {
         "jkl-system-message--dark": inverted,
@@ -35,7 +37,7 @@ export const SystemMessage: React.FC<Props> = ({
     }, {});
 
     return (
-        <div className={componentClassName} role="status">
+        <div className={componentClassName} role={role}>
             <div className="jkl-system-message__content" style={{ ...styles }}>
                 <div className="jkl-system-message__icon">
                     <MessageIcon messageType={messageType} />
