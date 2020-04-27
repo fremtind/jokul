@@ -6,6 +6,7 @@ scss: messages
 
 import MessageBoxExample from "./MessageBoxExample";
 import SystemMessageExample from "./SystemMessageExample";
+import MessageCollectionExample from "./MessageCollectionExample";
 
 <Ingress>
     En melding er en beskjed til brukeren. Det kan være et varsel om at noe er feil, informasjon om at noe mangler i et
@@ -25,7 +26,7 @@ import SystemMessageExample from "./SystemMessageExample";
     }}
 />
 
-## Meldingstyper
+## Alvorlighetsgrad
 
 Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn.
 
@@ -37,15 +38,22 @@ Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn.
 
 **Grønn:** forteller at en handling var vellykket.
 
-### Tilgjengelighet
+## Typer meldinger
 
-Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende overskrift, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.
+**Meldingsboks:** gir brukeren informasjon som kan være en tilbakemelding på en handling eller lokal kontekst.
+
+**System melding:** gir brukeren informasjon om noe globalt, gjennom en statisk melding. For eksempel en hel tjeneste som for tiden ikke fungerer.
 
 <ComponentExample
-    component={SystemMessageExample}
+    component={MessageCollectionExample}
     knobs={{
         boolProps: ["Invertert"],
         choiceProps: [
+            {
+                name: "Melding type",
+                values: ["Meldingsboks", "System melding"],
+                defaultValue: 0,
+            },
             {
                 name: "Type",
                 values: ["Infomelding", "Suksessmelding", "Advarselsmelding", "Feilmelding"],
@@ -54,3 +62,7 @@ Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrive
         ],
     }}
 />
+
+### Tilgjengelighet
+
+Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende overskrift, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.
