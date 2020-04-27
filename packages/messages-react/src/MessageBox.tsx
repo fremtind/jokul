@@ -5,7 +5,7 @@ import { MessageIcon } from "./common/MessageIcon";
 
 interface Props {
     messageType: messageTypes;
-    title: string;
+    title?: string;
     fullWidth?: boolean;
     className?: string;
     inverted?: boolean;
@@ -22,7 +22,7 @@ export const MessageBox: React.FC<Props> = ({ messageType, title, fullWidth, cla
             <div className="jkl-message-box__icon">
                 <MessageIcon messageType={messageType} />
             </div>
-            <div className="jkl-message-box__title jkl-heading-small">{title}</div>
+            {title !== undefined && <div className="jkl-message-box__title jkl-heading-small">{title}</div>}
             <p className="jkl-message-box__message jkl-body">{children}</p>
         </div>
     );
