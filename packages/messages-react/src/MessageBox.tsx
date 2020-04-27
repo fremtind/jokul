@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import classNames from "classnames";
 import { messageTypes } from "./common/types.d";
 import { MessageIcon } from "./common/MessageIcon";
@@ -6,7 +6,6 @@ import { MessageIcon } from "./common/MessageIcon";
 interface Props {
     messageType: messageTypes;
     title: string;
-    children: ReactNode;
     fullWidth?: boolean;
     className?: string;
     inverted?: boolean;
