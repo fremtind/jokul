@@ -1,0 +1,47 @@
+$types: info $info $info--darkbg, warning $advarsel $advarsel--darkbg, error $feil $feil--darkbg,
+    success $suksess $suksess--darkbg;
+
+@mixin generate-message-colors($component) {
+    @each $type in $types {
+        // generer lys beskjed
+        &--#{nth($type, 1)} {
+            border: rem(1px) solid nth($type, 2);
+            background-color: change-color(nth($type, 2), $lightness: 97%);
+
+            .jkl-#{$component}__icon {
+                color: nth($type, 2);
+            }
+        }
+
+        // generer mørk beskjed
+        &--dark {
+            &.jkl-#{$component}--#{nth($type, 1)} {
+                border: rem(1px) solid nth($type, 3);
+                background: change-color(nth($type, 3), $lightness: 5%);
+
+                .jkl-#{$component}__icon {
+                    color: nth($type, 3);
+                }
+            }
+        }
+    }
+
+    // legg til ikon styling for warning
+    &--warning {
+        .jkl-#{$component}__icon {
+            .jkl-icon-exclamation {
+                color: $svart;
+            }
+        }
+    }
+
+    &--dark {
+        &.jkl-#{$component}--warning {
+            .jkl-#{$component}__icon {
+                .jkl-icon-exclamation {
+                    color: $hvit;
+                }
+            }
+        }
+    }
+}

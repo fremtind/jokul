@@ -1,4 +1,5 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "./common";
 
 .jkl-system-message {
     width: 100%;
@@ -24,82 +25,5 @@
         margin-bottom: 0;
     }
 
-    &--info {
-        border: rem(1px) solid $info;
-        background-color: change-color($info, $lightness: 97%);
-
-        .jkl-system-message__icon {
-            color: $info;
-        }
-    }
-
-    &--warning {
-        border: rem(1px) solid $advarsel;
-        background-color: change-color($advarsel, $lightness: 97%);
-
-        .jkl-system-message__icon {
-            color: $advarsel;
-
-            .jkl-icon-exclamation {
-                color: $svart;
-            }
-        }
-    }
-
-    &--error {
-        border: rem(1px) solid $feil;
-        background-color: change-color($feil, $lightness: 97%);
-
-        .jkl-system-message__icon {
-            color: $feil;
-        }
-    }
-
-    &--success {
-        border: rem(1px) solid $suksess;
-        background-color: change-color($suksess, $lightness: 97%);
-
-        .jkl-system-message__icon {
-            color: $suksess;
-        }
-    }
-
-    &--dark {
-        &.jkl-system-message--info {
-            border: rem(1px) solid $info--darkbg;
-            background-color: change-color($info--darkbg, $lightness: 5%);
-
-            .jkl-system-message__icon {
-                color: $info--darkbg;
-            }
-        }
-        &.jkl-system-message--warning {
-            border: rem(1px) solid $advarsel--darkbg;
-            background-color: change-color($advarsel--darkbg, $lightness: 5%);
-
-            .jkl-system-message__icon {
-                color: $advarsel--darkbg;
-
-                .jkl-icon-exclamation {
-                    color: $hvit;
-                }
-            }
-        }
-        &.jkl-system-message--error {
-            border: rem(1px) solid $feil--darkbg;
-            background-color: change-color($feil--darkbg, $lightness: 5%);
-
-            .jkl-system-message__icon {
-                color: $feil--darkbg;
-            }
-        }
-        &.jkl-system-message--success {
-            border: rem(1px) solid $suksess--darkbg;
-            background-color: change-color($suksess--darkbg, $lightness: 5%);
-
-            .jkl-system-message__icon {
-                color: $suksess--darkbg;
-            }
-        }
-    }
+    @include generate-message-colors("system-message");
 }
