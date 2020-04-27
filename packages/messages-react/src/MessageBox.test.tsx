@@ -2,15 +2,16 @@ import React from "react";
 import { cleanup, render } from "@testing-library/react";
 import { MessageBox } from ".";
 import { axe } from "jest-axe";
+import { messageTypes } from "./common/types.d";
 
 afterEach(cleanup);
 
 describe("Message boxes", () => {
     [true, false].map((fullWidth) => {
-        ["info", "error", "success", "warning"].map((type) => {
+        ["info", "error", "success", "warning", "foo"].map((type) => {
             it("should render message title and content", () => {
                 const { getByText } = render(
-                    <MessageBox messageType={type} fullWidth={fullWidth} title="test">
+                    <MessageBox messageType={type as messageTypes} fullWidth={fullWidth} title="test">
                         content
                     </MessageBox>,
                 );

@@ -1,14 +1,23 @@
 import React from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { SystemMessage } from "../src";
+import { messageTypes } from "../src/common/types.d";
+
+interface Types {
+    [key: string]: messageTypes;
+}
+
+const types: Types = {
+    Infomelding: "info",
+    Suksessmelding: "success",
+    Advarselsmelding: "warning",
+    Feilmelding: "error",
+};
 
 export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const types = {
-        Infomelding: "info",
-        Suksessmelding: "success",
-        Advarselsmelding: "warning",
-        Feilmelding: "error",
-    };
+    if (!choiceValues) {
+        return null;
+    }
 
     return (
         <>
