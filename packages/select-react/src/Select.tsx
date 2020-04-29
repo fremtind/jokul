@@ -80,7 +80,6 @@ export function Select({
         [items],
     );
     const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
-    const [previousValue, setPreviousValue] = useState(hasSelectedValue ? defaultPrompt : " ");
 
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
@@ -186,7 +185,12 @@ export function Select({
                 </CoreToggle>
                 <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
             </div>
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+            <SupportLabel
+                inverted={inverted}
+                helpLabel={helpLabel}
+                errorLabel={errorLabel}
+                forceCompact={forceCompact}
+            />
         </div>
     );
 }
