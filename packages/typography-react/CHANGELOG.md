@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@2.2.0...@fremtind/jkl-typography-react@2.3.0) (2020-04-27)
+
+
+### Features
+
+* **support-label:** add support for id and sr-only to SupportLabel ([419a301](https://github.com/fremtind/jokul/commit/419a301fa0f7e691331c8058bc6abf7205f7634c))
+* add inverted mode to error label ([d44985f](https://github.com/fremtind/jokul/commit/d44985ffadcc1149a98c83579c6c4812dd4f8dad))
+
+
+
+
+
 # [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@2.1.3...@fremtind/jkl-typography-react@2.2.0) (2020-04-20)
 
 

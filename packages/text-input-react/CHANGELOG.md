@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@2.0.1...@fremtind/jkl-text-input-react@3.0.0) (2020-04-27)
+
+
+### Bug Fixes
+
+* **text-input-react:** ensure consistent hook calls ([db29140](https://github.com/fremtind/jokul/commit/db2914018817d3b16d6acaadf4fdd626cfef9fd2))
+* **textarea:** ensure correct initial height for autoexpand ([3aac406](https://github.com/fremtind/jokul/commit/3aac40669722043fd4688041883480cd2fedb07e))
+
+
+### Features
+
+* **text-area:** add support for inverted mode ([152dd5e](https://github.com/fremtind/jokul/commit/152dd5eede1d915f390f21308b4fe6efcf6326ca))
+* **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
+* **text-input:** start implementing new text inputs ([b2bcfab](https://github.com/fremtind/jokul/commit/b2bcfab37a4c1da542ebd49ad5fdba249e17b63a))
+* **text-input-react:** add support for ref forwarding ([8b2a517](https://github.com/fremtind/jokul/commit/8b2a5172c6e66f880957aa7f576eb6eb9ca4fb17))
+* **text-input-react:** expose base input component ([15b0409](https://github.com/fremtind/jokul/commit/15b04091b1f5771e850a30edc31d2ff14cd52d96))
+* add support for inverted error labels ([a55f35b](https://github.com/fremtind/jokul/commit/a55f35b91d98e1ddd82da3b138ff3edd8de5b5a5))
+
+
+### BREAKING CHANGES
+
+* **text-input-react:** Behaviour of refs on TextArea and TextInput may change
+* **text-input:** * TextField is now called TextInput|* The following variants have all been integrated into
+TextInput: ActionTextField, InlineTextField, BaseInputField
+
+
+
+
+
 ## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@2.0.0...@fremtind/jkl-text-input-react@2.0.1) (2020-04-20)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react
