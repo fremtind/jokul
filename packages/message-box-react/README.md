@@ -25,8 +25,8 @@ import "@fremtind/jkl-message-box/message-box.min.css";
 
 Komponentene tar følgende props:
 
--   `title`: **Påkrevd**. Overskriften til meldingsboksen. `string`
 -   `children`: **Påkrevd**. Innholdet i meldingsboksen. `ReactNode`
+-   `title`: Overskriften til meldingsboksen. `string`
 -   `fullWidth`: Angir om meldingsboksen skal ta opp hele bredden av beholderen den er inne i. `boolean`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
 

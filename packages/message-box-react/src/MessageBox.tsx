@@ -2,8 +2,8 @@ import React, { ReactNode } from "react";
 import classNames from "classnames";
 
 interface Props {
-    title: string;
     children: ReactNode;
+    title?: string;
     fullWidth?: boolean;
     className?: string;
     inverted?: boolean;
@@ -70,7 +70,7 @@ function messageFactory(messageType: messageTypes) {
         return (
             <div className={componentClassName} role="alert">
                 <div className="jkl-message-box__icon">{getIcon(messageType)}</div>
-                <div className="jkl-message-box__title jkl-heading-small">{title}</div>
+                {title !== undefined && <div className="jkl-message-box__title jkl-heading-small">{title}</div>}
                 <p className="jkl-message-box__message jkl-body">{children}</p>
             </div>
         );
