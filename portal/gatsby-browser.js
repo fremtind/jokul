@@ -6,11 +6,12 @@
 import React from "react";
 import "document-register-element";
 
-import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-accordion/accordion.min.css";
+import "@fremtind/jkl-alert-message/alert-message.min.css";
 import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-card/card.min.css";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
+import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-divider-line/divider-line.min.css";
 import "@fremtind/jkl-field-group/field-group.min.css";
@@ -20,8 +21,6 @@ import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-loader/loader.min.css";
 import "@fremtind/jkl-logo/logo.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
-import "@fremtind/jkl-messages/message-box.min.css";
-import "@fremtind/jkl-messages/system-message.min.css";
 import "@fremtind/jkl-progress-bar/progress-bar.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-select/select.min.css";

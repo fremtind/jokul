@@ -1,17 +1,16 @@
 {
-    "name": "@fremtind/jkl-messages-react",
+    "name": "@fremtind/jkl-alert-message-react",
     "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Collection of Jøkul React message components",
+    "description": "Jøkul alert message components",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
         "jøkul",
         "fremtind",
-        "message",
-        "message box",
-        "system message"
+        "alert",
+        "message"
     ],
     "license": "MIT",
     "types": "./build/index.d.ts",
@@ -30,12 +29,12 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-messages yarn build:watch",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-alert-message yarn build:watch",
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-messages": "^1.0.0"
+        "@fremtind/jkl-alert-message": "^1.0.0"
     },
     "devDependencies": {
         "@fremtind/jkl-core": "^4.2.0",

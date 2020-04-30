@@ -11,10 +11,6 @@ interface Props {
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
-console.warn(
-    "Deprecation warning: package @fremtind/jkl-messagebox-react is deprecated and will be replaced with MessageBox package @fremtind/jkl-messages-react",
-);
-
 function messageFactory(messageType: messageTypes) {
     return function messageBox({ title, fullWidth, className = "", children, inverted }: Props) {
         const componentClassName = classNames("jkl-message-box", "jkl-message-box--" + messageType, className, {

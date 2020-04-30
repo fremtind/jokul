@@ -1,0 +1,41 @@
+---
+title: Alert Message
+react: alert-message-react
+scss: alert-message
+---
+
+import AlertMessageExample from "./AlertMessageExample";
+
+<Ingress>
+    En varsel melding er en beskjed til brukeren. Det kan være et varsel om at noe er feil, global informasjon eller
+    lignende. En melding består av en beskrivende tekst.
+</Ingress>
+<ComponentExample
+    component={AlertMessageExample}
+    knobs={{
+        boolProps: ["Invertert"],
+        choiceProps: [
+            {
+                name: "Type",
+                values: ["Infomelding", "Suksessmelding", "Advarselmelding", "Feilmelding"],
+                defaultValue: 0,
+            },
+        ],
+    }}
+/>
+
+## Alvorlighetsgrad
+
+Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn.
+
+**Blå:** gir informasjon til brukeren.
+
+**Gul:** gir brukeren en advarsel, for eksempel at en funksjonalitet er i beta og derfor er ustabil.
+
+**Rød:** gir brukeren en feilmelding, for eksempel hvis det oppstår en systemfeil eller brukeren avbryter en handling.
+
+**Grønn:** forteller at en handling var vellykket.
+
+### Tilgjengelighet
+
+Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende overskrift, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.

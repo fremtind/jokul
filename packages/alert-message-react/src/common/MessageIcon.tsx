@@ -1,11 +1,8 @@
 import React from "react";
-import { messageTypes } from "./types.d";
 
-interface Props {
-    messageType: messageTypes;
-}
+type messageTypes = "info" | "error" | "success" | "warning";
 
-export function MessageIcon({ messageType }: Props) {
+export function MessageIcon({ messageType }: { messageType: messageTypes }) {
     switch (messageType) {
         case "error":
             return (
