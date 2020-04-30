@@ -7,8 +7,8 @@ $radio-button-size--compact: rem(18px);
 $radio-button-dot-padding: rem(4px);
 $radio-button-dot-padding--compact: rem(3px);
 
-$radio-button-vertical-spacing: $component-spacing--large;
-$radio-button-vertical-spacing--compact: $component-spacing--medium;
+$radio-button-height: rem(48px);
+$radio-button-height--compact: rem(40px);
 
 $radio-button-background-color: $gra-10;
 $radio-button-background-color--hover: $gra-10;
@@ -46,10 +46,7 @@ $radio-button-color: $svart;
     cursor: pointer;
     display: flex;
     align-items: center;
-
-    & + & {
-        margin-top: $radio-button-vertical-spacing;
-    }
+    height: $radio-button-height;
 
     &__input {
         /* hide default radio button */
@@ -161,6 +158,8 @@ $radio-button-color: $svart;
     }
 
     @include compact-mode {
+        height: $radio-button-height--compact;
+
         .jkl-radio-button__label {
             @include jkl-text-style("compact/body");
         }
@@ -173,14 +172,12 @@ $radio-button-color: $svart;
             top: $radio-button-dot-padding--compact;
             height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
             width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-        }
-
-        &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
-            margin-top: $radio-button-vertical-spacing--compact;
         }
     }
 
     @include small-device {
+        height: $radio-button-height--compact;
+
         .jkl-radio-button__label {
             @include jkl-text-style("compact/body");
         }
@@ -193,10 +190,6 @@ $radio-button-color: $svart;
             top: $radio-button-dot-padding--compact;
             height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
             width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-        }
-
-        &:not(.jkl-radio-button--inline) + &:not(.jkl-radio-button--inline) {
-            margin-top: $radio-button-vertical-spacing--compact;
         }
     }
 }
