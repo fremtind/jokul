@@ -1,6 +1,24 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
-$colored-line-width: $component-spacing--xs;
+@function message-bg-light($color) {
+    @return change-color($color, $lightness: 97%);
+}
+@function message-bg-dark($color) {
+    @return change-color($color, $lightness: 5%);
+}
+
+$info-bakgrunn: message-bg-light($info);
+$info-bakgrunn--darkbg: message-bg-dark($info);
+
+$advarsel-bakgrunn: message-bg-light($advarsel);
+$advarsel-bakgrunn--darkbg: message-bg-dark($advarsel);
+
+$feil-bakgrunn: message-bg-light($feil);
+$feil-bakgrunn--darkbg: message-bg-dark($feil);
+
+$suksess-bakgrunn: message-bg-light($suksess);
+$suksess-bakgrunn--darkbg: message-bg-dark($suksess);
+
 $message-width: rem(560px);
 
 .jkl-message-box {
@@ -33,40 +51,80 @@ $message-width: rem(560px);
 
     &--info {
         border: rem(1px) solid $info;
-        background-color: change-color($info, $lightness: 97%);
+        background-color: $info-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $info;
+        }
     }
 
     &--warning {
         border: rem(1px) solid $advarsel;
-        background-color: change-color($advarsel, $lightness: 97%);
+        background-color: $advarsel-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $advarsel;
+
+            .jkl-icon-exclamation {
+                color: $svart;
+            }
+        }
     }
 
     &--error {
         border: rem(1px) solid $feil;
-        background-color: change-color($feil, $lightness: 97%);
+        background-color: $feil-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $feil;
+        }
     }
 
     &--success {
         border: rem(1px) solid $suksess;
-        background-color: change-color($suksess, $lightness: 97%);
+        background-color: $suksess-bakgrunn;
+
+        .jkl-message-box__icon {
+            color: $suksess;
+        }
     }
 
     &--dark {
         &.jkl-message-box--info {
             border: rem(1px) solid $info--darkbg;
-            background-color: change-color($info--darkbg, $lightness: 5%);
+            background-color: $info-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $info--darkbg;
+            }
         }
         &.jkl-message-box--warning {
             border: rem(1px) solid $advarsel--darkbg;
-            background-color: change-color($advarsel--darkbg, $lightness: 5%);
+            background-color: $advarsel-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $advarsel--darkbg;
+
+                .jkl-icon-exclamation {
+                    color: $hvit;
+                }
+            }
         }
         &.jkl-message-box--error {
             border: rem(1px) solid $feil--darkbg;
-            background-color: change-color($feil--darkbg, $lightness: 5%);
+            background-color: $feil-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $feil--darkbg;
+            }
         }
         &.jkl-message-box--success {
             border: rem(1px) solid $suksess--darkbg;
-            background-color: change-color($suksess--darkbg, $lightness: 5%);
+            background-color: $suksess-bakgrunn--darkbg;
+
+            .jkl-message-box__icon {
+                color: $suksess--darkbg;
+            }
         }
     }
 
