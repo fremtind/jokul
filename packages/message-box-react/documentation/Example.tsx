@@ -18,7 +18,7 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
             title={choiceValues && choiceValues["Type"]}
             inverted={boolValues && boolValues["Invertert"]}
         >
-            Cupidatat Lorem incididunt incididunt in non mollit cillum Lorem eiusmod sunt magna.
+            Hei, jeg er en melding av typen {choiceValues ? choiceValues["Type"] : "ʕ•ᴥ•ʔ"}
         </C>
     );
 };
