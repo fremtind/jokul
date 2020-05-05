@@ -26,6 +26,7 @@ export function TextAreaExample({ choiceValues, boolValues }: ExampleComponentPr
             autoExpand={autoExpand}
             value={value}
             onChange={handleChange}
+            onKeyDown={() => console.log("onKeyDown event")}
         />
     );
 }

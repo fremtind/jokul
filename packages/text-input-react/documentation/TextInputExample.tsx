@@ -36,6 +36,7 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
             maxLength={35}
             value={value}
             onChange={handleChange}
+            onKeyDown={() => console.log("onKeyDown event")}
         />
     );
 }
