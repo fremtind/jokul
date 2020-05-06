@@ -28,7 +28,7 @@ describe("Select", () => {
             <Select onChange={onChange} items={["drop", "it", "like", "its", "hot"]} label="Snoop" value={value} />,
         );
 
-        const button = getByTestId("jkl-select__value");
+        const button = getByTestId("jkl-select__button");
 
         expect(onChange).toHaveBeenCalledTimes(0);
         expect(button).toHaveTextContent(value);
@@ -37,7 +37,7 @@ describe("Select", () => {
     it("should have default text value in button when no option selected", () => {
         const { getByTestId } = render(<Select items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
-        const button = getByTestId("jkl-select__value");
+        const button = getByTestId("jkl-select__button");
 
         expect(button).toHaveTextContent("Velg");
     });
@@ -55,7 +55,7 @@ describe("Select", () => {
             <Select label="test" items={valuePairs} value={"datagreier"} onChange={() => {}} />,
         );
 
-        expect(getByTestId("jkl-select__value").innerHTML).toBe("Fin lesbar tekst");
+        expect(getByTestId("jkl-select__button").innerHTML).toBe("Fin lesbar tekst");
     });
 });
 

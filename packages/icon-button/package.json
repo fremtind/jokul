@@ -30,9 +30,6 @@
     "dependencies": {
         "@fremtind/jkl-core": "^4.3.0"
     },
-    "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.5.0"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
@@ -40,8 +37,5 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
-    ],
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
 }
