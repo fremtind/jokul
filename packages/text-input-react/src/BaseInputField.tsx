@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FocusEventHandler, CSSProperties, forwardRef } from "react";
+import React, { ChangeEventHandler, FocusEventHandler, CSSProperties, forwardRef, KeyboardEventHandler } from "react";
 
 export interface BaseProps {
     id?: string;
@@ -9,6 +9,9 @@ export interface BaseProps {
     onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onBlur?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     onFocus?: FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onKeyDown?: KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onKeyUp?: KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+    onKeyPress?: KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     placeholder?: string;
     readOnly?: boolean;
     autoComplete?: string;
