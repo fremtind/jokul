@@ -22,7 +22,7 @@ ReactDOM.render(
     <DevExample
         component={Example}
         knobs={{
-            boolProps: ["Kompakt", "Med feil"],
+            boolProps: ["Kompakt", "Med feil", "invertert"],
         }}
     />,
     document.getElementById("app"),
