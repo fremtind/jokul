@@ -22,22 +22,31 @@
     }
 }
 
+$label-spacing-large: $component-spacing--large;
+$label-spacing-medium: $component-spacing--small;
+$label-spacing-small: $component-spacing--xs;
+$label-spacing-large--compact: $component-spacing--medium;
+$label-spacing-medium--compact: $component-spacing--small;
+$label-spacing-small--compact: $component-spacing--xs;
+
 .jkl-label {
-    @include jkl-text-style("desktop/lead");
     display: block;
-    margin-bottom: $component-spacing--large;
     margin-left: initial;
 
     &--large {
         @include jkl-text-style("desktop/title-small");
-        margin-bottom: $component-spacing--xl;
+        margin-bottom: $label-spacing-large;
         margin-left: rem(-1px); // adjust visual alignment
+    }
+
+    &--medium {
+        @include jkl-text-style("desktop/lead");
+        margin-bottom: $label-spacing-medium;
     }
 
     &--small {
         @include jkl-text-style("desktop/small");
-        margin-bottom: 0;
-        margin-left: initial;
+        margin-bottom: $label-spacing-small;
     }
 
     &--sr-only {
@@ -45,24 +54,32 @@
     }
 
     @include small-device {
+        &.jkl-label--small {
+            @include jkl-text-style("compact/small");
+            margin-bottom: $label-spacing-small--compact;
+        }
         &.jkl-label--medium {
             @include jkl-text-style("compact/lead");
-            margin-bottom: $component-spacing--small;
+            margin-bottom: $label-spacing-medium--compact;
         }
         &.jkl-label--large {
             @include jkl-text-style("compact/title-small");
-            margin-bottom: $component-spacing--large;
+            margin-bottom: $label-spacing-large--compact;
         }
     }
 
     @include compact-mode {
+        &.jkl-label--small {
+            @include jkl-text-style("compact/small");
+            margin-bottom: $label-spacing-small--compact;
+        }
         &.jkl-label--medium {
             @include jkl-text-style("compact/lead");
-            margin-bottom: $component-spacing--small;
+            margin-bottom: $label-spacing-medium--compact;
         }
         &.jkl-label--large {
             @include jkl-text-style("compact/title-small");
-            margin-bottom: $component-spacing--large;
+            margin-bottom: $label-spacing-large--compact;
         }
     }
 }
