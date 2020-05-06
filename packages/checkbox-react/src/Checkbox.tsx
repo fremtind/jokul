@@ -12,6 +12,7 @@ interface Props {
     className?: string;
     forceCompact?: boolean;
     invalid?: boolean;
+    inverted?: boolean;
 }
 
 export function Checkbox({
@@ -24,11 +25,13 @@ export function Checkbox({
     className,
     inline = false,
     forceCompact,
+    inverted,
 }: Props) {
     const componentClassNames = classNames("jkl-checkbox", className, {
         "jkl-checkbox--compact": forceCompact,
         "jkl-checkbox--inline": inline,
         "jkl-checkbox--error": invalid,
+        "jkl-checkbox--inverted": inverted,
     });
     const [id] = useState(`jkl-checkbox-${nanoid(8)}`);
 
