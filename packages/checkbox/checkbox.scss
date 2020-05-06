@@ -2,8 +2,11 @@
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$checkbox-size: rem(24px);
-$checkbox-size--compact: rem(18px);
+$checkbox-box-size: rem(24px);
+$checkbox-box-size--compact: rem(18px);
+
+$checkbox-height: rem(48px);
+$checkbox-height--compact: rem(40px);
 
 $checkbox-background-color--checked: $svart;
 $checkbox-background-color--unchecked: $hvit;
@@ -31,10 +34,9 @@ $checkbox-background-color--error: $feil;
 
 .jkl-checkbox {
     @include jkl-text-style("desktop/body");
-
-    &:not(:first-of-type) {
-        margin-top: $component-spacing--large;
-    }
+    display: flex;
+    align-items: center;
+    height: $checkbox-height;
 
     &:hover > .jkl-checkbox__check-mark {
         transform: scale(1.1);
@@ -50,10 +52,10 @@ $checkbox-background-color--error: $feil;
     &__check-mark {
         box-sizing: border-box;
         position: relative;
-        height: $checkbox-size;
-        width: $checkbox-size;
+        height: $checkbox-box-size;
+        width: $checkbox-box-size;
 
-        margin-right: $component-spacing--medium;
+        margin-right: $component-spacing--small;
         vertical-align: middle;
         flex-shrink: 0; // Don't allow the check-mark to shrink in case of really long text
 
@@ -134,8 +136,8 @@ $checkbox-background-color--error: $feil;
 
     &--inline {
         display: inline-flex;
+
         &:not(:first-of-type) {
-            margin-top: unset;
             margin-left: $component-spacing--xl;
         }
     }
@@ -192,17 +194,21 @@ $checkbox-background-color--error: $feil;
 
     @include compact-mode {
         @include jkl-text-style("compact/body");
+        height: $checkbox-height--compact;
+
         .jkl-checkbox__check-mark {
-            height: $checkbox-size--compact;
-            width: $checkbox-size--compact;
+            height: $checkbox-box-size--compact;
+            width: $checkbox-box-size--compact;
         }
     }
 
     @include small-device {
         @include jkl-text-style("compact/body");
+        height: $checkbox-height--compact;
+
         .jkl-checkbox__check-mark {
-            height: $checkbox-size--compact;
-            width: $checkbox-size--compact;
+            height: $checkbox-box-size--compact;
+            width: $checkbox-box-size--compact;
         }
     }
 }
