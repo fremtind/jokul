@@ -10,6 +10,7 @@ export const Example = ({ boolValues }: ExampleComponentProps) => {
             value="checkbox"
             checked={checked}
             invalid={boolValues && boolValues["Med feil"]}
+            inverted={boolValues && boolValues["Invertert"]}
             forceCompact={boolValues && boolValues["Kompakt"]}
             onChange={() => setChecked(!checked)}
         >

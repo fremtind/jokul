@@ -9,10 +9,10 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
-        { value: "firstvalue", label: "Value 1" },
-        { value: "secondvalue", label: "Value 2" },
-        { value: "thirdvalue", label: "Value 3" },
-        { value: "fourthvalue", label: "Value 4" },
+        { value: "apple", label: "Apple" },
+        { value: "samsung", label: "Samsung" },
+        { value: "huawei", label: "Huawei" },
+        { value: "LG", label: "LG" },
     ];
     const [value, setValue] = useState<string>();
     const universalSetValue = (input: string | ChangeEvent<HTMLSelectElement> | undefined) => {
@@ -37,8 +37,9 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     return (
         <C
             forceCompact={boolValues && boolValues["Kompakt"]}
+            inverted={boolValues && boolValues["Invertert"]}
             variant={variant}
-            label="Select"
+            label="Hvilket merke er telefonen?"
             items={values}
             value={value}
             helpLabel={helpLabel}
