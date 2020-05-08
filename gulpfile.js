@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const sass = require("gulp-sass");
 const postcss = require("gulp-postcss");
+const postcssCustomProperties = require("postcss-custom-properties");
 const cssnano = require("cssnano");
 const autoprefixer = require("autoprefixer");
 const rename = require("gulp-rename");
@@ -21,7 +22,7 @@ module.exports = function (gulp) {
         return gulp
             .src(scssFiles)
             .pipe(sass({ fiber, importer }).on("error", throwSassError))
-            .pipe(postcss([autoprefixer()]))
+            .pipe(postcss([autoprefixer(), postcssCustomProperties()]))
             .pipe(gulp.dest("./"))
             .pipe(postcss([cssnano()]))
             .pipe(rename({ suffix: ".min" }))
