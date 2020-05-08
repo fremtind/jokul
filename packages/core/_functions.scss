@@ -1,6 +1,9 @@
-/**
- * Function for converting a px size to rem;
- */
+///
+/// Function for converting a px size to rem;
+/// @param $pxSize - Pixel value to convert to rem
+///
+/// @return Value converted to rem
+///
 @function rem($pxSize) {
     $remSize: $pxSize / 16px;
     //Default font size on html element is 100%, equivalent to 16px;
