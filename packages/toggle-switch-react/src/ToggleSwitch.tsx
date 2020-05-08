@@ -26,12 +26,12 @@ export const ToggleSwitch = ({ children, pressed, onClick, className, disabled, 
                 className={componentClassName}
                 onClick={onClick}
             >
-                <span className="jkl-toggle-switch__slider">
-                    <span className="jkl-toggle-switch__expanding-pill"></span>
+                <span className="jkl-toggle-switch__label">{children}</span>
+                <span className="jkl-toggle-switch__pill">
+                    <span className="jkl-toggle-switch__dot" />
                 </span>
-                {children}
             </button>
-            {helpLabel && <SupportLabel className="jkl-toggle-switch__help-label" helpLabel={helpLabel} />}
+            <SupportLabel inverted={inverted} className="jkl-toggle-switch__help-label" helpLabel={helpLabel} />
         </>
     );
 };
