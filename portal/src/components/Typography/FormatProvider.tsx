@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { Link } from "@fremtind/jkl-typography-react";
+import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { ComponentExample } from "@fremtind/jkl-portal-components";
 

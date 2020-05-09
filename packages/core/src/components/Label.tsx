@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "../index";
 import classNames from "classnames";
 
 interface Props {

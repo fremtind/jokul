@@ -39,6 +39,7 @@
         "@fremtind/jkl-select-react": "^2.0.0",
         "@fremtind/jkl-text-input-react": "^3.0.0",
         "@fremtind/jkl-typography-react": "^2.3.1",
+        "@fremtind/jkl-core": "^4.3.0",
         "@nrk/core-datepicker": "^3.0.7",
         "@nrk/core-toggle": "^3.0.7"
     },

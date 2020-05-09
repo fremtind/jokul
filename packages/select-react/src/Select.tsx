@@ -2,8 +2,7 @@
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState, useEffect, useCallback } from "react";
 import nanoid from "nanoid";
-import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import classNames from "classnames";

@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
-import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import classNames from "classnames";
 
 interface Props {
