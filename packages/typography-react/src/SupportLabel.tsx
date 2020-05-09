@@ -20,6 +20,12 @@ export const SupportLabel = ({ id, helpLabel, errorLabel, forceCompact, classNam
         "jkl-form-support-label--inverted": inverted,
     });
 
+    if (process.env.NODE_ENV !== "production") {
+        console.warn(
+            "WARNING: This version of the SupportLabel component is deprecated! Please use the SupportLabel component found in @fremtind/jkl-core instead",
+        );
+    }
+
     if (errorLabel || helpLabel) {
         return (
             <span id={id} className={componentClassName}>

@@ -29,6 +29,12 @@ export function Label({ variant = "medium", forceCompact, srOnly, children, stan
         }
     }
 
+    if (process.env.NODE_ENV !== "production") {
+        console.warn(
+            "WARNING: This version of the Label component is deprecated! Please use the Label component found in @fremtind/jkl-core instead",
+        );
+    }
+
     return (
         <C className={className} htmlFor={htmlFor}>
             {children}
