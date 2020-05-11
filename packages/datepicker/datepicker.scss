@@ -1,64 +1,163 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-select/select.scss";
 
-$transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
+$datepicker-focus-color: $info;
+$datepicker-focus-color--inverted: $info--darkbg;
 
-$input-bg-color: inherit;
-$border-color: $svart;
-$border-color--focus: $focus-color;
+:root,
+[data-theme="light"] {
+    --datepicker-focus-color: #{$datepicker-focus-color};
+}
+[data-theme="dark"] {
+    --datepicker-focus-color: #{$datepicker-focus-color--inverted};
+}
 
-$bottom-padding: $component-spacing--small;
-$input-line-height: $line-height-4;
-$input-height: $input-line-height + $bottom-padding;
-$input-line-height--small-device: $line-height-3;
-$input-height--small-device: $input-line-height--small-device + $bottom-padding;
+.jkl-datepicker {
+    @include reset-outline;
+    position: relative;
+
+    &__input-wrapper {
+        position: relative;
+    }
+
+    & &__input {
+        // adjust input padding for visual balance with numbers
+        padding-top: rem(10px);
+    }
+
+    &__calendar-wrapper {
+        position: absolute;
+        top: calc(100% + #{rem(14px)});
+        left: 0;
+        right: 0;
+    }
+
+    &--open {
+        .jkl-datepicker__input {
+            box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color),
+                0 0 0 0 var(--datepicker-focus-color, $datepicker-focus-color);
+            &:hover,
+            &:focus {
+                box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color),
+                    0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color);
+            }
+        }
+    }
+
+    /// Legacy code for IE11 support
+    &--inverted.jkl-datepicker--open {
+        .jkl-datepicker__input {
+            box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color--inverted),
+                0 0 0 0 var(--datepicker-focus-color, $datepicker-focus-color--inverted);
+            &:hover,
+            &:focus {
+                box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color--inverted),
+                    0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color--inverted);
+            }
+        }
+    }
+    // end legacy code
+}
+
+/// CALENDAR STYLES
 
 $date-width: $line-height-5;
 $date-spacing: rem(4px);
 $calendar-padding: $component-spacing--xl;
 $calendar-padding--compact: $component-spacing--small;
-$calendar-width: ($date-width * 7) + ($date-spacing * 6);
-$background-color: $hvit;
-$bottom-margin: $component-spacing--large;
+$calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 2);
 
-$icon-size: rem(20px);
-$icon-size--compact: $font-size-2;
+// Theme colors:
+$calendar-text-color: $svart;
+$calendar-background-color: $hvit;
+$calendar-border-color: $info;
+$calendar-adjacent-month-color: $gra-60;
+$calendar-disabled-day-color: $gra-40;
+$calendar-active-day-color: $hvit;
+$calendar-focus-color: $info;
 
-.jkl-datepicker {
-    display: block;
-    box-sizing: border-box;
-    font-family: inherit;
-    background-color: $input-bg-color;
+$calendar-text-color--inverted: $hvit;
+$calendar-background-color--inverted: $gra-80;
+$calendar-border-color--inverted: $info--darkbg;
+$calendar-adjacent-month-color--inverted: $gra-30;
+$calendar-disabled-day-color--inverted: $gra-50;
+$calendar-active-day-color--inverted: $svart;
+$calendar-focus-color--inverted: $info--darkbg;
 
-    &__action-button {
-        @include reset-outline;
-        position: absolute;
-        right: 0;
-        display: flex;
-        align-items: center;
-        top: 0;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        padding: 0;
-        padding-bottom: $component-spacing--small;
-        height: $input-height;
-        color: $svart;
+:root,
+[data-theme="light"] {
+    --calendar-text-color: #{$calendar-text-color};
+    --calendar-background-color: #{$calendar-background-color};
+    --calendar-border-color: #{$calendar-border-color};
+    --calendar-adjacent-month-color: #{$calendar-adjacent-month-color};
+    --calendar-disabled-day-color: #{$calendar-disabled-day-color};
+    --calendar-active-day-color: #{$calendar-active-day-color};
+    --calendar-focus-color: #{$calendar-focus-color};
+}
 
-        *:not([data-mousenavigation]) &:focus {
-            color: $focus-color;
+[data-theme="dark"] {
+    --calendar-text-color: #{$calendar-text-color--inverted};
+    --calendar-background-color: #{$calendar-background-color--inverted};
+    --calendar-border-color: #{$calendar-border-color--inverted};
+    --calendar-adjacent-month-color: #{$calendar-adjacent-month-color--inverted};
+    --calendar-disabled-day-color: #{$calendar-disabled-day-color--inverted};
+    --calendar-active-day-color: #{$calendar-active-day-color--inverted};
+    --calendar-focus-color: #{$calendar-focus-color--inverted};
+}
+
+.jkl-calendar {
+    justify-content: center;
+    flex-direction: column;
+    width: $calendar-width;
+    background-color: var(--calendar-background-color, $calendar-background-color);
+    color: var(--calendar-text-color, $calendar-text-color);
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 rem(1px) var(--calendar-border-color, $calendar-border-color),
+        0 0 0 rem(1px) var(--calendar-border-color, $calendar-border-color),
+        rem(2px) rem(4px) rem(16px) rgba(0, 0, 0, 0.24);
+
+    @include motion("standard");
+    transition-property: height;
+
+    &--hidden {
+        display: none;
+    }
+
+    &--extended {
+        caption {
+            // Hide table caption (month name) in extended mode
+            // since month is shown in select above
+            @include screenreader-only;
         }
     }
 
-    &__action-icon {
-        display: inline-block;
-        width: $icon-size;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 5.75rem;
+        width: rem(12px);
+        height: rem(12px);
+        transform: translate(-50%, -50%) rotate(-45deg);
+        background-color: var(--calendar-background-color, $calendar-background-color);
+        border-top: rem(2px) solid var(--calendar-border-color, $calendar-border-color);
+        border-right: rem(2px) solid var(--calendar-border-color, $calendar-border-color);
     }
 
-    /* Navigation in normal (compact) mode
-       =================================== */
+    &__padding {
+        padding: $calendar-padding;
+        box-sizing: border-box;
+    }
+
+    @include small-device {
+        &__padding {
+            padding: $calendar-padding $calendar-padding--compact;
+        }
+    }
+
+    /// Navigation in normal (compact) mode
+    /// ===================================
 
     &__month-navigation {
         border: 0;
@@ -68,12 +167,12 @@ $icon-size--compact: $font-size-2;
         box-sizing: border-box;
         position: relative;
         top: 0;
-        width: $calendar-width;
+        width: 100%;
         justify-content: space-between;
-        color: $svart;
     }
 
     &__month-button {
+        @include reset-outline;
         position: absolute;
         display: inline-flex;
         cursor: pointer;
@@ -82,256 +181,211 @@ $icon-size--compact: $font-size-2;
         justify-content: center;
         align-items: center;
         background-color: transparent;
+        color: var(--calendar-text-color, $calendar-text-color);
         border: none;
-        height: $line-height-4;
         width: $line-height-4;
         border-radius: 50%;
+        @include jkl-text-style("desktop/body");
 
         &--right {
             right: 0;
         }
 
-        &:hover {
-            background-color: transparent;
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            bottom: -4px;
+            left: -4px;
+            border-radius: 50%;
         }
 
-        html:not([data-mousenavigation]) &:focus .jkl-datepicker__month-arrow {
-            border-color: $focus-color;
+        &:hover,
+        &:focus {
+            color: var(--calendar-focus-color, $calendar-focus-color);
+        }
+
+        html:not([data-mousenavigation]) &:focus {
+            border-color: var(--calendar-focus-color, $calendar-focus-color);
             border-width: rem(4px);
+
+            &::before {
+                box-shadow: inset 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color);
+            }
         }
 
         &:disabled {
-            & > .jkl-datepicker__month-arrow {
-                @include chevron(rem(20px), $gra-40, rem(1px));
-                transform-origin: center;
-                transition: none;
-
-                &--left {
-                    transform: rotate(45deg);
-                }
-                &--right {
-                    transform: rotate(-135deg);
-                }
-            }
+            color: var(--calendar-disabled-day-color, $calendar-disabled-day-color);
         }
     }
 
-    &__month-arrow {
-        @include chevron(rem(20px), $svart, rem(1px));
-        transform-origin: center;
-        transition: none;
+    /// Navigation in extended mode
+    /// ===========================
 
-        &--left {
-            transform: rotate(45deg);
-        }
-
-        &--right {
-            transform: rotate(-135deg);
-        }
-    }
-
-    /* Navigation in extended mode
-       =========================== */
-
-    &__calendar-navigation {
+    &__navigation {
         display: flex;
         justify-content: center;
         align-content: center;
         margin-bottom: $component-spacing--xl;
-        color: $svart;
     }
 
     &__year-selector {
         max-width: 30%;
         margin-right: $component-spacing--xxl;
-
-        // must be nested to override default right-alignment
-        & > .jkl-datepicker__year-value {
-            text-align: left;
-        }
     }
 
     &__month-selector {
         position: relative;
         flex-grow: 2;
+        min-width: unset !important;
     }
     &__month-value {
         text-transform: capitalize;
     }
 
-    /* Calendar display
-       ================ */
+    /// Calendar table caption (month and year)
+    /// =======================================
 
-    &__calendar {
-        @include position(absolute, $top: calc(100% - 4px), $left: 0, $right: 0);
-        z-index: $z-index--dropdown;
+    caption {
+        @include jkl-text-style("desktop/body");
+        margin-bottom: $component-spacing--xl;
+        text-transform: capitalize;
+    }
+
+    /// Calendar table heading (weekday names)
+    /// ======================================
+
+    th {
+        @include jkl-text-style("desktop/small");
+        padding-bottom: $component-spacing--small;
+    }
+
+    /// Calendar table styles
+    /// =====================
+
+    td {
+        text-align: center;
+    }
+    td + td,
+    th + th {
+        padding-left: rem(4px); // space between columns
+    }
+    tr + tr > td {
+        padding-top: rem(4px); // space between rows
+    }
+    td button {
+        @include reset-outline;
+        appearance: none;
+        border: 0;
+        outline: none;
+        position: relative;
+
+        box-sizing: border-box;
+        display: inline-flex;
         justify-content: center;
-        flex-direction: column;
-        width: $calendar-width;
-        padding: $calendar-padding;
-        background-color: $background-color;
-        box-shadow: $drop-shadow--small;
-        color: $svart;
-        border-top: 4px solid $svart;
+        align-items: center;
+        height: $date-width;
+        width: $date-width;
+        border-radius: 50%;
+        background-color: transparent;
+        color: var(--calendar-text-color, $calendar-text-color);
 
-        caption {
-            font-size: $font-size-6;
-            line-height: $line-height-4;
-            margin-bottom: $component-spacing--xl;
-            text-transform: capitalize;
+        font-size: $font-size-6;
+        line-height: $line-height-5;
+        padding: 0;
+        padding-top: $component-spacing--xxs; // adjust visual alignment of text
+        @include motion("entrance", "energetic");
+        transition-property: color, background-color, box-shadow;
 
-            .jkl-datepicker--extended & {
-                @include screenreader-only();
-            }
-        }
-        // Weekday names above calendar:
-        th {
-            @include jkl-text-style("desktop/small");
-            padding-bottom: $component-spacing--small;
-        }
-        td {
-            text-align: center;
-        }
-        td + td,
-        th + th {
-            padding-left: rem(4px); // space between columns
-        }
-        tr + tr > td {
-            padding-top: rem(4px); // space between rows
-        }
-        td button {
-            appearance: none;
-            border: 0;
-            outline: none;
-
-            box-sizing: border-box;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            height: $date-width;
-            width: $date-width;
-            border-radius: 50%;
+        &::before {
+            content: "";
+            position: absolute;
+            top: rem(-2px);
+            right: rem(-2px);
+            bottom: rem(-2px);
+            left: rem(-2px);
+            border-radius: 999px;
             background-color: transparent;
+        }
 
-            font-size: $font-size-6;
-            line-height: $line-height-5;
-            padding: 0;
-            padding-top: $component-spacing--xxs; // adjust visual alignment of text
-            @include motion("entrance", "energetic");
-            transition-property: color, background-color, box-shadow;
-            &[data-adjacent="true"] {
-                padding: 0; // reset vertical alignment of text
-                font-size: $font-size-2;
-                color: $gra-60;
+        &[data-adjacent="true"] {
+            padding: 0; // reset vertical alignment of text
+            font-size: $font-size-2;
+            color: var(--calendar-adjacent-month-color, $calendar-adjacent-month-color);
+        }
+        &[aria-current="date"] {
+            font-weight: $bold-weight;
+        }
+        &:hover:not(:disabled),
+        &[autofocus] {
+            background-color: var(--calendar-focus-color, $calendar-focus-color);
+            color: var(--calendar-active-day-color, $calendar-active-day-color);
+            cursor: pointer;
+        }
+
+        &:disabled {
+            color: var(--calendar-disabled-day-color, $calendar-disabled-day-color);
+        }
+
+        &:focus::before {
+            box-shadow: 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color);
+        }
+    }
+
+    /// Legacy code for IE11 support
+    &--inverted {
+        background-color: var(--calendar-background-color, $calendar-background-color--inverted);
+        color: var(--calendar-text-color, $calendar-text-color--inverted);
+
+        &::before {
+            background-color: var(--calendar-background-color, $calendar-background-color--inverted);
+            border-top: rem(2px) solid var(--calendar-border-color, $calendar-border-color--inverted);
+            border-right: rem(2px) solid var(--calendar-border-color, $calendar-border-color--inverted);
+        }
+
+        .jkl-calendar__month-button {
+            color: var(--calendar-text-color, $calendar-text-color--inverted);
+
+            &:hover,
+            &:focus {
+                color: var(--calendar-focus-color, $calendar-focus-color--inverted);
             }
-            &[aria-current="date"] {
-                background-color: $varde;
-            }
-            &:hover:not(:disabled) {
-                background-color: $gra-60;
-                color: $gra-10;
-            }
-            &[autofocus] {
-                background-color: $svart;
-                color: $gra-10;
-                font-weight: bold;
+
+            html:not([data-mousenavigation]) &:focus {
+                border-color: var(--calendar-focus-color, $calendar-focus-color--inverted);
+
+                &::before {
+                    box-shadow: inset 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color--inverted);
+                }
             }
 
             &:disabled {
-                color: $gra-40;
-            }
-
-            &:focus {
-                box-shadow: 0 0 0 rem(1px) $gra-10, 0 0 0 rem(3px) $focus-color;
+                color: var(--calendar-disabled-day-color, $calendar-disabled-day-color--inverted);
             }
         }
-    }
 
-    @include small-device {
-        &__calendar {
-            padding: $calendar-padding $calendar-padding--compact;
-        }
-    }
+        td button {
+            color: var(--calendar-text-color, $calendar-text-color--inverted);
 
-    @include compact-mode {
-        & .jkl-datepicker-text-input,
-        & .jkl-datepicker-text-input::placeholder {
-            @include jkl-text-style("compact/body");
-        }
-        & .jkl-datepicker-text-input {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-button {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-icon {
-            width: $icon-size--compact;
-        }
-    }
+            &[data-adjacent="true"] {
+                color: var(--calendar-adjacent-month-color, $calendar-adjacent-month-color--inverted);
+            }
+            &:hover:not(:disabled),
+            &[autofocus] {
+                background-color: var(--calendar-focus-color, $calendar-focus-color--inverted);
+                color: var(--calendar-active-day-color, $calendar-active-day-color--inverted);
+            }
 
-    @include small-device {
-        .jkl-datepicker-text-input,
-        .jkl-datepicker-text-input::placeholder {
-            @include jkl-text-style("compact/body");
-        }
-        & .jkl-datepicker-text-input {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-button {
-            height: $input-height--small-device;
-        }
-        & .jkl-datepicker__action-icon {
-            width: $icon-size--compact;
-        }
-    }
-}
+            &:disabled {
+                color: var(--calendar-disabled-day-color, $calendar-disabled-day-color--inverted);
+            }
 
-.jkl-datepicker-text-input {
-    position: relative;
-    display: block;
-    width: calc(12ch + #{$component-spacing--medium} + #{$icon-size});
-
-    &__input {
-        @include jkl-text-style("desktop/body");
-        border: none;
-        outline: none;
-        border-radius: 0;
-        color: inherit;
-
-        box-sizing: border-box;
-        width: 100%;
-        height: $input-height;
-        padding: 0 0 $bottom-padding;
-
-        font-weight: $bold-weight;
-        background-color: transparent;
-        transition: box-shadow $transition-timing;
-        @include underline-color(currentColor, $border-color--focus);
-        /* show border in mobile Safari */
-        -webkit-appearance: none;
-        resize: none; // Disable textarea resize
-
-        &::placeholder {
-            @include jkl-text-style("desktop/body");
-            font-weight: normal;
-            opacity: 1;
-            color: $gra-60;
-        }
-
-        &:hover,
-        &:focus {
-            box-shadow: inset 0 rem(-4px) 0 0 currentColor;
-        }
-
-        &[aria-invalid="true"],
-        &:invalid {
-            box-shadow: inset 0 rem(-2px) 0 0 $error-color;
-
-            &:focus,
-            &:hover,
-            html:not([data-mousenavigation]) &:focus {
-                box-shadow: inset 0 rem(-4px) 0 0 $error-color;
+            &:focus::before {
+                box-shadow: 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color--inverted);
             }
         }
     }
+    // end legacy support
 }

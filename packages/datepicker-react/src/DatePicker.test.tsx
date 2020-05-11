@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import { DatePicker } from ".";
-import { formatDate, isSameDay } from "./DatePicker";
 import { axe } from "jest-axe";
 
 beforeEach(cleanup);
@@ -55,29 +54,6 @@ describe("Datepicker", () => {
 
         // Check for date formatted as DD.MM.YYYY
         expect(input).toHaveProperty("value", "12.09.2019");
-    });
-});
-
-describe("formatDate", () => {
-    it("renders the given date correctly", () => {
-        const date = new Date("1986-10-14");
-        const formattedDate = formatDate(date);
-
-        expect(formattedDate).toEqual("14.10.1986");
-    });
-});
-
-describe("isSameDay", () => {
-    it("returns true for equal dates", () => {
-        const date = new Date("1986-10-14");
-
-        expect(isSameDay(date, date)).toBeTruthy();
-    });
-    it("returns false for different dates", () => {
-        const date1 = new Date("1986-10-14");
-        const date2 = new Date("2001-10-14");
-
-        expect(isSameDay(date1, date2)).toBeFalsy();
     });
 });
 

@@ -16,6 +16,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             label="Velg startdato for forsikringen"
             extended={boolValues && boolValues["Utvidet velger"]}
             forceCompact={boolValues && boolValues["Kompakt"]}
+            inverted={boolValues && boolValues["Invertert"]}
             variant={variant}
             errorLabel={errorLabel}
             helpLabel={helpLabel}
