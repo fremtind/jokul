@@ -71,6 +71,25 @@ return (
 );
 ```
 
+Komponenten kan også brukes uten forhåndsvalg. Da lar du `selectedValue` stå tom.
+
+```tsx
+const [selectedValue, setSelectedValue] = useState("");
+
+return (
+    <RadioButtons
+        name="coverage"
+        legend="Hvilken dekning ønsker du?"
+        choices={[
+            { value: "del", label: "Delkasko" },
+            { value: "full", label: "Fullkasko" },
+        ]}
+        selectedValue={selectedValue}
+        onChange={setSelectedValue}
+    />
+);
+```
+
 ### Props
 
 komponenten tar i bruk følgende props:
