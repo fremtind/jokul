@@ -1,10 +1,6 @@
 import React, { ChangeEvent, useState, useEffect, useRef, FocusEvent, useCallback } from "react";
 import nanoid from "nanoid";
 import classNames from "classnames";
-// @ts-ignore
-import CoreDatepicker from "@nrk/core-datepicker/jsx";
-// @ts-ignore
-import CoreToggle from "@nrk/core-toggle/jsx";
 
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
