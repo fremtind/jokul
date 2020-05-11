@@ -1,13 +1,12 @@
-import React, { AnchorHTMLAttributes, ReactNode } from "react";
+import React, { AnchorHTMLAttributes } from "react";
 import classnames from "classnames";
 
-interface Props extends Pick<AnchorHTMLAttributes<HTMLAnchorElement>, "rel" | "target" | "className" | "href"> {
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     negative?: boolean;
     external?: boolean;
-    children: ReactNode;
 }
 
-export const Link = ({ negative = false, external = false, children, className = "", ...rest }: Props) => (
+export const Link: React.FC<Props> = ({ negative = false, external = false, className = "", children, ...rest }) => (
     <a
         className={classnames("jkl-link", className, {
             "jkl-link--negative": negative,
