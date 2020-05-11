@@ -7,7 +7,7 @@ interface Props {
     name: string;
     legend: string;
     choices: Array<string | ValuePair>;
-    selectedValue: string;
+    selectedValue?: string;
     inline?: boolean;
     onChange: ChangeEventHandler<HTMLInputElement>;
     helpLabel?: string;
