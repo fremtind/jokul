@@ -227,6 +227,7 @@ export function DatePicker({
                         disableDate={disableDate}
                         hidden={calendarHidden}
                         inverted={inverted}
+                        forceCompact={forceCompact}
                         ref={calendarRef}
                         {...calendarProps}
                     />
