@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.0.0...@fremtind/jkl-text-input-react@3.1.0) (2020-05-11)
+
+
+### Features
+
+* **text-input-react:** add functionality to pass onKey events ([3abc52f](https://github.com/fremtind/jokul/commit/3abc52fa6b0afabb890f4a18a27f3f24bb1a6d44))
+
+
+
+
+
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@2.0.1...@fremtind/jkl-text-input-react@3.0.0) (2020-04-27)
 
 

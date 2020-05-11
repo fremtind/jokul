@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.4.2...@fremtind/jkl-select-react@2.0.0) (2020-05-11)
+
+
+### Features
+
+* add expandArrow component ([50e0e8a](https://github.com/fremtind/jokul/commit/50e0e8a59c647be75d64beedb184e831b1910f7e))
+* add support for custom id ([fde58f0](https://github.com/fremtind/jokul/commit/fde58f0761283b6985fb9d3e797ef441460fef0f))
+* implement new, boxed design ([7b1796a](https://github.com/fremtind/jokul/commit/7b1796ac078edb2c6640b64bd20919a8d3bd79d1))
+* **native select:** add support for refs ([00d2c0f](https://github.com/fremtind/jokul/commit/00d2c0f46b390688ddb0198d1e894cf82a147168))
+* **select:** add support for inverted error label ([f88b9c6](https://github.com/fremtind/jokul/commit/f88b9c6c446e4a5f0c4ad690ae2fb415d4df19c9))
+
+
+### BREAKING CHANGES
+
+* drop support for the initialInputValue prop
+
+
+
+
+
 ## [1.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.4.1...@fremtind/jkl-select-react@1.4.2) (2020-04-27)
 
 **Note:** Version bump only for package @fremtind/jkl-select-react

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.2.6...@fremtind/jkl-portal-components@0.2.7) (2020-05-11)
+
+
+### Bug Fixes
+
+* **example-knobs:** use unique field names on knobs ([529b31b](https://github.com/fremtind/jokul/commit/529b31b0515a41690fd7fd16190cd7e7d8bfd23f)), closes [#920](https://github.com/fremtind/jokul/issues/920)
+
+
+
+
+
 ## [0.2.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.2.5...@fremtind/jkl-portal-components@0.2.6) (2020-04-27)
 
 **Note:** Version bump only for package @fremtind/jkl-portal-components

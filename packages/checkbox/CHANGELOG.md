@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.1.8...@fremtind/jkl-checkbox@1.2.0) (2020-05-11)
+
+
+### Bug Fixes
+
+* **checkbox:** adjust spacings for new labels ([32273a2](https://github.com/fremtind/jokul/commit/32273a2116fa56b9a3cf3eedc51ad3c777b98667))
+
+
+### Features
+
+* add support for dark/inverted mode ([eaf1a1f](https://github.com/fremtind/jokul/commit/eaf1a1f001fec39d207abac67062179efa7a7cc9))
+
+
+
+
+
 ## [1.1.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.1.7...@fremtind/jkl-checkbox@1.1.8) (2020-04-27)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox

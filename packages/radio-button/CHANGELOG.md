@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@1.2.8...@fremtind/jkl-radio-button@1.2.9) (2020-05-11)
+
+
+### Bug Fixes
+
+* **radio buttons:** adjust size spacing for new labels ([4508c06](https://github.com/fremtind/jokul/commit/4508c06e2619c8e2f30518c0ebfd9748c021c6c7))
+
+
+
+
+
 ## [1.2.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@1.2.7...@fremtind/jkl-radio-button@1.2.8) (2020-04-27)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button

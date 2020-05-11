@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@0.2.2...@fremtind/jkl-icon-button@0.2.3) (2020-05-11)
+
+
+### Bug Fixes
+
+* **icon-button:** specify height of icon to correct alignment ([e95e0e9](https://github.com/fremtind/jokul/commit/e95e0e9f3e9d9708b8b36788463aa52e3ef853fc))
+
+
+
+
+
 ## [0.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@0.2.1...@fremtind/jkl-icon-button@0.2.2) (2020-04-27)
 
 **Note:** Version bump only for package @fremtind/jkl-icon-button

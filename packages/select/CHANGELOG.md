@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@1.3.8...@fremtind/jkl-select@2.0.0) (2020-05-11)
+
+
+### Features
+
+* implement new, boxed design ([7b1796a](https://github.com/fremtind/jokul/commit/7b1796ac078edb2c6640b64bd20919a8d3bd79d1))
+* **select:** improve dark mode and focus states ([ac80eea](https://github.com/fremtind/jokul/commit/ac80eea7b474e85b19461b53820a5fd7cc09d4a1))
+
+
+### BREAKING CHANGES
+
+* drop support for the initialInputValue prop
+
+
+
+
+
 ## [1.3.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@1.3.7...@fremtind/jkl-select@1.3.8) (2020-04-27)
 
 **Note:** Version bump only for package @fremtind/jkl-select

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.0...@fremtind/portal@3.0.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([41ec150](https://github.com/fremtind/jokul/commit/41ec150077bdc9df642be678a0381c878b030c92))
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([0f3be56](https://github.com/fremtind/jokul/commit/0f3be56108a1fa6e07b4a193fe5f258ecc02a05f))
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([cd25fa4](https://github.com/fremtind/jokul/commit/cd25fa41ca7dc36ae5ea09102986f74b7851e5a9))
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([837946b](https://github.com/fremtind/jokul/commit/837946b92fc7ca1a26af99088cf541cca97a93af))
+
+
+
+
+
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.3.0...@fremtind/portal@3.0.0) (2020-04-27)
 
 

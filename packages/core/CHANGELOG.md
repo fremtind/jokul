@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.3.0...@fremtind/jkl-core@4.3.1) (2020-05-11)
+
+
+### Bug Fixes
+
+* **labels:** adjust label spacings ([5e4f74a](https://github.com/fremtind/jokul/commit/5e4f74a7392d7cc924baf612ac8b8fe135602918)), closes [#900](https://github.com/fremtind/jokul/issues/900)
+
+
+
+
+
 # [4.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.2.0...@fremtind/jkl-core@4.3.0) (2020-04-27)
 
 
