@@ -1,8 +1,7 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { InfoAlertMessage, ErrorAlertMessage, WarningAlertMessage, SuccessAlertMessage } from ".";
 import { axe } from "jest-axe";
-
 
 describe("Alert messages", () => {
     [
