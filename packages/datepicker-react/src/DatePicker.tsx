@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useEffect, useRef, FocusEvent } from "react";
+import React, { ChangeEvent, useState, useEffect, useRef, FocusEvent, useCallback } from "react";
 import nanoid from "nanoid";
 import classNames from "classnames";
 
@@ -25,6 +25,8 @@ interface Props {
     months?: string[];
     days?: string[];
     calendarButtonTitle?: string;
+    showCalendarLabel?: string;
+    hideCalendarLabel?: string;
     initialDate?: Date;
     extended?: boolean;
     initialShow?: boolean;
@@ -44,7 +46,9 @@ interface Props {
 export function DatePicker({
     label = "Velg dato",
     placeholder = "dd.mm.åååå",
-    calendarButtonTitle = "Vis kalender",
+    calendarButtonTitle,
+    showCalendarLabel = calendarButtonTitle || "Åpne kalender",
+    hideCalendarLabel = calendarButtonTitle || "Lukk kalender",
     initialDate,
     onChange,
     onBlur,
@@ -60,6 +64,12 @@ export function DatePicker({
     errorLabel,
     ...calendarProps
 }: Props) {
+    if (calendarButtonTitle && process.env.NODE_ENV !== "production") {
+        console.warn(
+            "WARNING: For better usability, please supply separate button titles for showing/hiding the calendar, using the showCalendarLabel and hideCalendarLabel props respectively. The calendarButtonTitle prop is deprecated and will be removed in a future update.",
+        );
+    }
+
     const [inputId] = useState(`jkl-datepicker-${nanoid(8)}`);
     const [supportLabelId] = useState(`jkl-support-label-${nanoid(8)}`);
     const [date, setDate] = useState(initialDate);
@@ -106,7 +116,7 @@ export function DatePicker({
         setDate(initialDate);
     }, [initialDate]);
 
-    const toggleDatepicker = () => {
+    const toggleCalendar = () => {
         const wasHidden = calendarHidden;
         setCalendarHidden(!calendarHidden);
 
@@ -116,15 +126,15 @@ export function DatePicker({
             button && setTimeout(() => button.focus(), 100);
         }
     };
-    const toggleDatepickerWithoutFocus = () => setCalendarHidden(!calendarHidden);
+    const toggleCalendarWithoutFocus = useCallback(() => setCalendarHidden(!calendarHidden), [calendarHidden]);
 
     useEffect(() => {
         const inputEl = inputRef.current;
-        inputEl && inputEl.addEventListener("click", toggleDatepickerWithoutFocus);
+        inputEl && inputEl.addEventListener("click", toggleCalendarWithoutFocus);
         return () => {
-            inputEl && inputEl.removeEventListener("click", toggleDatepickerWithoutFocus);
+            inputEl && inputEl.removeEventListener("click", toggleCalendarWithoutFocus);
         };
-    });
+    }, [toggleCalendarWithoutFocus]);
 
     const handleBlur = (e: FocusEvent) => {
         const nextFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
@@ -205,8 +215,8 @@ export function DatePicker({
                 <IconButton
                     className="jkl-text-input__action-button"
                     iconType="calendar"
-                    buttonTitle={calendarHidden ? "Åpne kalender" : "Lukk kalender"}
-                    onClick={toggleDatepicker}
+                    buttonTitle={calendarHidden ? showCalendarLabel : hideCalendarLabel}
+                    onClick={toggleCalendar}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                 />
