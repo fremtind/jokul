@@ -15,9 +15,9 @@ describe("Toggle switch", () => {
                 </ToggleSwitch>
             );
         };
-        const { getByText } = render(<TestToggleSwitch />);
+        const { getByTestId } = render(<TestToggleSwitch />);
 
-        const input = getByText("GPS");
+        const input = getByTestId("jkl-toggle-switch");
 
         expect(input).toHaveAttribute("aria-pressed", "false");
 
@@ -27,13 +27,13 @@ describe("Toggle switch", () => {
     });
 
     it("should be pressed if pressed is true", function () {
-        const { getByText } = render(
+        const { getByTestId } = render(
             <ToggleSwitch pressed={true} onClick={() => ""}>
                 I am groot!
             </ToggleSwitch>,
         );
 
-        const input = getByText("I am groot!");
+        const input = getByTestId("jkl-toggle-switch");
 
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
@@ -47,9 +47,9 @@ describe("Toggle switch", () => {
                 </ToggleSwitch>
             );
         };
-        const { getByText } = render(<TestToggleSwitch />);
+        const { getByTestId } = render(<TestToggleSwitch />);
 
-        const input = getByText("I am groot!");
+        const input = getByTestId("jkl-toggle-switch");
 
         expect(input).toHaveAttribute("aria-pressed", "true");
     });

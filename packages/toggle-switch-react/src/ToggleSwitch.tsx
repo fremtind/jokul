@@ -25,6 +25,7 @@ export const ToggleSwitch = ({ children, pressed, onClick, className, disabled, 
                 disabled={disabled}
                 className={componentClassName}
                 onClick={onClick}
+                data-testid="jkl-toggle-switch"
             >
                 <span className="jkl-toggle-switch__label">{children}</span>
                 <span className="jkl-toggle-switch__pill">
