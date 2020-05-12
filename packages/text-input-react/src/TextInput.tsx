@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, MouseEventHandler } from "react";
+import React, { forwardRef, useState, HTMLAttributes, MouseEventHandler } from "react";
 import nanoid from "nanoid";
 import classNames from "classnames";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -6,7 +6,7 @@ import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
-export interface Action {
+export interface Action extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
     icon: IconVariant;
     label: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
@@ -74,6 +74,8 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                             iconType={action.icon}
                             buttonTitle={action.label}
                             onClick={action.onClick}
+                            onFocus={action.onFocus}
+                            onBlur={action.onBlur}
                         />
                     )}
                 </div>
