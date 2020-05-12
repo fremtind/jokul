@@ -1,6 +1,6 @@
 import React from "react";
 import { WarningMessage } from "@fremtind/jkl-message-box-react";
-import { Link } from "@fremtind/jkl-typography-react";
+import { Link } from "@fremtind/jkl-core";
 import "./style.scss";
 
 const WebComponentInfo = () => (

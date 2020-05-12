@@ -53,7 +53,7 @@ Husk å sette `label` til en fornuftig beskrivelse av handlingen (f.eks. "nullst
 #### BaseInputField
 
 Denne er kun eksponert for å dekke spesielle behov og anbefales ikke å brukes.
-Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremtind/jkl-typography-react`](https://fremtind.github.io/jokul/komponenter/Typography) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
+Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremtind/jkl-core`](https://fremtind.github.io/jokul/komponenter/Typography) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
 
 ```tsx
 <Label standAlone htmlFor="complicatedquestion">

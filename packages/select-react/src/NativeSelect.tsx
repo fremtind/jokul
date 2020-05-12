@@ -2,8 +2,7 @@
 
 import React, { FocusEventHandler, ChangeEventHandler, useState, forwardRef } from "react";
 import nanoid from "nanoid";
-import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
-import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import classNames from "classnames";
 
 import { ExpandArrow } from "./ExpandArrow";

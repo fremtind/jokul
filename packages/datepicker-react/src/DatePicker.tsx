@@ -2,10 +2,9 @@ import React, { ChangeEvent, useState, useEffect, useRef, FocusEvent, useCallbac
 import nanoid from "nanoid";
 import classNames from "classnames";
 
-import { LabelVariant } from "@fremtind/jkl-core";
+import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import { useAnimatedHeight, useKeyListener, useClickOutside } from "@fremtind/jkl-react-hooks";
-import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 
 import { Calendar } from "./Calendar";

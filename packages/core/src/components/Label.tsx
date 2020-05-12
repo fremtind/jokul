@@ -1,17 +1,16 @@
-import React, { ReactNode } from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import React from "react";
+import { LabelVariant } from "../index";
 import classNames from "classnames";
 
 interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     srOnly?: boolean;
-    children: ReactNode;
     standAlone?: boolean;
     htmlFor?: string;
 }
 
-export function Label({ variant = "medium", forceCompact, srOnly, children, standAlone, htmlFor }: Props) {
+export const Label: React.FC<Props> = ({ variant = "medium", forceCompact, srOnly, children, standAlone, htmlFor }) => {
     const className = classNames("jkl-label", {
         [`jkl-label--${variant}`]: variant,
         "jkl-label--compact": forceCompact,
@@ -29,15 +28,9 @@ export function Label({ variant = "medium", forceCompact, srOnly, children, stan
         }
     }
 
-    if (process.env.NODE_ENV !== "production") {
-        console.warn(
-            "WARNING: This version of the Label component is deprecated! Please use the Label component found in @fremtind/jkl-core instead",
-        );
-    }
-
     return (
         <C className={className} htmlFor={htmlFor}>
             {children}
         </C>
     );
-}
+};
