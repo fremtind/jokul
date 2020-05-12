@@ -44,7 +44,7 @@ export const BaseInputField = forwardRef<HTMLInputElement, Props>(
         <input
             ref={ref}
             id={id}
-            className={`jkl-text-input__input ${className}`}
+            className={`jkl-text-input__input ${className ? className : ""}`}
             style={getWidthAsStyle(width, maxLength)}
             aria-describedby={describedBy}
             aria-invalid={invalid}
