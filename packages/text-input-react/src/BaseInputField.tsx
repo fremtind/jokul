@@ -40,7 +40,7 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
 }
 
 export const BaseInputField = forwardRef<HTMLInputElement, Props>(
-    ({ id, describedBy, invalid, maxLength, width, type = "text", className, ...rest }, ref) => (
+    ({ id, describedBy, invalid, maxLength, width, type = "text", className = "", ...rest }, ref) => (
         <input
             ref={ref}
             id={id}
