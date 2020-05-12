@@ -129,7 +129,7 @@ $text-input-line-height--compact: rem(28px);
         & .jkl-text-input__input {
             color: $hvit;
             background-color: transparent;
-            box-shadow: inset 0 0 0 rem(1px) $gra-30, 0 0 0 0 $gra-30;
+            box-shadow: inset 0 0 0 rem(1px) $hvit, 0 0 0 0 $hvit;
 
             &::placeholder {
                 color: $gra-50;
