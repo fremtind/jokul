@@ -1,8 +1,7 @@
 import React, { forwardRef, useState, HTMLAttributes, MouseEventHandler } from "react";
 import nanoid from "nanoid";
 import classNames from "classnames";
-import { LabelVariant } from "@fremtind/jkl-core";
-import { Label, SupportLabel } from "@fremtind/jkl-typography-react";
+import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 

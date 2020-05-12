@@ -11,7 +11,15 @@ interface Props {
     inverted?: boolean;
 }
 
-export const SupportLabel = ({ id, helpLabel, errorLabel, forceCompact, className, srOnly, inverted }: Props) => {
+export const SupportLabel: React.FC<Props> = ({
+    id,
+    helpLabel,
+    errorLabel,
+    forceCompact,
+    className,
+    srOnly,
+    inverted,
+}) => {
     const componentClassName = classNames("jkl-form-support-label", className, {
         "jkl-form-support-label--compact": forceCompact,
         "jkl-form-support-label--error": errorLabel,
@@ -19,12 +27,6 @@ export const SupportLabel = ({ id, helpLabel, errorLabel, forceCompact, classNam
         "jkl-form-support-label--sr-only": srOnly,
         "jkl-form-support-label--inverted": inverted,
     });
-
-    if (process.env.NODE_ENV !== "production") {
-        console.warn(
-            "WARNING: This version of the SupportLabel component is deprecated! Please use the SupportLabel component found in @fremtind/jkl-core instead",
-        );
-    }
 
     if (errorLabel || helpLabel) {
         return (
