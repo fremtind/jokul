@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.1.0...@fremtind/jkl-text-input-react@3.2.0) (2020-05-13)
+
+
+### Bug Fixes
+
+* import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
+* **BaseInputField:** fix proper passing of className prop ([#950](https://github.com/fremtind/jokul/issues/950)) ([d76736a](https://github.com/fremtind/jokul/commit/d76736ad67dae896b573b7267e1719e694ab1778))
+
+
+### Features
+
+* **text-input:** expose more properties on action button ([cea9e75](https://github.com/fremtind/jokul/commit/cea9e758a768fa5b3e66bbaf3943e23e5b617929))
+
+
+
+
+
 # [3.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.0.0...@fremtind/jkl-text-input-react@3.1.0) (2020-05-11)
 
 

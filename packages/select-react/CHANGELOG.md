@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@2.0.0...@fremtind/jkl-select-react@2.0.1) (2020-05-13)
+
+
+### Bug Fixes
+
+* import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
+
+
+
+
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@1.4.2...@fremtind/jkl-select-react@2.0.0) (2020-05-11)
 
 

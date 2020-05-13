@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@2.0.0...@fremtind/jkl-select@2.0.1) (2020-05-13)
+
+
+### Bug Fixes
+
+* **select:** use correct border color in dark mode ([4d4d0c7](https://github.com/fremtind/jokul/commit/4d4d0c7782638475dd5674ff68ff8f9d5b3a6a56))
+
+
+
+
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@1.3.8...@fremtind/jkl-select@2.0.0) (2020-05-11)
 
 

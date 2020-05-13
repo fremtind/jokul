@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.3.1...@fremtind/jkl-core@4.4.0) (2020-05-13)
+
+
+### Bug Fixes
+
+* import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
+
+
+### Features
+
+* **core:** add typographic components ([1bd28a5](https://github.com/fremtind/jokul/commit/1bd28a54ecadd6626666dec0362d9ec8e38d5a90))
+
+
+
+
+
 ## [4.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.3.0...@fremtind/jkl-core@4.3.1) (2020-05-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.4.9...@fremtind/jkl-datepicker@1.5.0) (2020-05-13)
+
+
+### Features
+
+* **datepicker:** implement new design and add dark mode ([2f3de1e](https://github.com/fremtind/jokul/commit/2f3de1e60b53b78b5c433ba9dcfe8d9c45e2fc28))
+
+
+
+
+
 ## [1.4.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.4.8...@fremtind/jkl-datepicker@1.4.9) (2020-05-11)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker

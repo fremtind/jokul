@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@2.0.1...@fremtind/jkl-text-input@2.0.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* **text-input:** use correct border color in dark mode ([a8f5f64](https://github.com/fremtind/jokul/commit/a8f5f64ddbd89c4b4c936dd75c85c4f5949b8867))
+
+
+
+
+
 ## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@2.0.0...@fremtind/jkl-text-input@2.0.1) (2020-05-11)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input

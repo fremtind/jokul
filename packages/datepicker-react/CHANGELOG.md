@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@3.1.2...@fremtind/jkl-datepicker-react@3.2.0) (2020-05-13)
+
+
+### Bug Fixes
+
+* import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
+
+
+### Features
+
+* add props for calendar button states ([cf545bc](https://github.com/fremtind/jokul/commit/cf545bc3fb21cbd6781aa9efa56627ba469c5c4b))
+* **datepicker:** add better handling of compact mdoe ([40c5872](https://github.com/fremtind/jokul/commit/40c587243dd40bf5627b4fcb7fcfd9264e248e69))
+* **datepicker:** implement new design and add dark mode ([2f3de1e](https://github.com/fremtind/jokul/commit/2f3de1e60b53b78b5c433ba9dcfe8d9c45e2fc28))
+
+
+
+
+
 ## [3.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@3.1.1...@fremtind/jkl-datepicker-react@3.1.2) (2020-05-11)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker-react

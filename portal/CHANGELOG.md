@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.1...@fremtind/portal@3.0.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
+
+
+
+
+
 ## [3.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.0...@fremtind/portal@3.0.1) (2020-05-11)
 
 
