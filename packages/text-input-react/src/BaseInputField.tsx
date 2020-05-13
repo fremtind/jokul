@@ -40,11 +40,11 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
 }
 
 export const BaseInputField = forwardRef<HTMLInputElement, Props>(
-    ({ id, describedBy, invalid, maxLength, width, type = "text", ...rest }, ref) => (
+    ({ id, describedBy, invalid, maxLength, width, type = "text", className = "", ...rest }, ref) => (
         <input
             ref={ref}
             id={id}
-            className="jkl-text-input__input"
+            className={`jkl-text-input__input ${className}`}
             style={getWidthAsStyle(width, maxLength)}
             aria-describedby={describedBy}
             aria-invalid={invalid}
