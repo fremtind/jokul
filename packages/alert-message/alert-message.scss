@@ -19,25 +19,23 @@ $feil-bakgrunn--darkbg: message-bg-dark($feil);
 $suksess-bakgrunn: message-bg-light($suksess);
 $suksess-bakgrunn--darkbg: message-bg-dark($suksess);
 
-$message-width: rem(560px);
-
-.jkl-message-box {
-    position: relative;
+.jkl-alert-message {
     width: 100%;
-    max-width: $message-width;
-    min-height: $layout-spacing--xl;
-    padding: $component-spacing--xl;
-    padding-left: rem(56px);
     background-color: $gra-10;
-    box-sizing: border-box;
 
     &__icon {
-        position: absolute;
-        left: $spacing-5;
+        padding-right: $component-spacing--large;
+        align-self: flex-start;
+        padding-top: $component-spacing--xxs;
     }
 
-    &__title {
-        margin-bottom: $component-spacing--small;
+    &__content {
+        box-sizing: border-box;
+        padding: $component-spacing--large $component-spacing--xl;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     &__message,
@@ -45,15 +43,11 @@ $message-width: rem(560px);
         margin-bottom: 0;
     }
 
-    &--full {
-        max-width: 100%;
-    }
-
     &--info {
         border: rem(1px) solid $info;
         background-color: $info-bakgrunn;
 
-        .jkl-message-box__icon {
+        .jkl-alert-message__icon {
             color: $info;
         }
     }
@@ -62,7 +56,7 @@ $message-width: rem(560px);
         border: rem(1px) solid $advarsel;
         background-color: $advarsel-bakgrunn;
 
-        .jkl-message-box__icon {
+        .jkl-alert-message__icon {
             color: $advarsel;
 
             .jkl-icon-exclamation {
@@ -75,7 +69,7 @@ $message-width: rem(560px);
         border: rem(1px) solid $feil;
         background-color: $feil-bakgrunn;
 
-        .jkl-message-box__icon {
+        .jkl-alert-message__icon {
             color: $feil;
         }
     }
@@ -84,25 +78,25 @@ $message-width: rem(560px);
         border: rem(1px) solid $suksess;
         background-color: $suksess-bakgrunn;
 
-        .jkl-message-box__icon {
+        .jkl-alert-message__icon {
             color: $suksess;
         }
     }
 
     &--dark {
-        &.jkl-message-box--info {
+        &.jkl-alert-message--info {
             border: rem(1px) solid $info--darkbg;
             background-color: $info-bakgrunn--darkbg;
 
-            .jkl-message-box__icon {
+            .jkl-alert-message__icon {
                 color: $info--darkbg;
             }
         }
-        &.jkl-message-box--warning {
+        &.jkl-alert-message--warning {
             border: rem(1px) solid $advarsel--darkbg;
             background-color: $advarsel-bakgrunn--darkbg;
 
-            .jkl-message-box__icon {
+            .jkl-alert-message__icon {
                 color: $advarsel--darkbg;
 
                 .jkl-icon-exclamation {
@@ -110,25 +104,21 @@ $message-width: rem(560px);
                 }
             }
         }
-        &.jkl-message-box--error {
+        &.jkl-alert-message--error {
             border: rem(1px) solid $feil--darkbg;
             background-color: $feil-bakgrunn--darkbg;
 
-            .jkl-message-box__icon {
+            .jkl-alert-message__icon {
                 color: $feil--darkbg;
             }
         }
-        &.jkl-message-box--success {
+        &.jkl-alert-message--success {
             border: rem(1px) solid $suksess--darkbg;
             background-color: $suksess-bakgrunn--darkbg;
 
-            .jkl-message-box__icon {
+            .jkl-alert-message__icon {
                 color: $suksess--darkbg;
             }
         }
-    }
-
-    @include small-device {
-        width: 100%;
     }
 }

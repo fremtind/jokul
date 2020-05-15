@@ -11,6 +11,11 @@
         margin-right: $layout-spacing--medium;
     }
 
+    &--fullwidth {
+        width: calc(100% - 10.5rem);
+        max-width: 50vw;
+    }
+
     &__image {
         width: 100%;
         margin-bottom: $component-spacing--large;

@@ -25,8 +25,8 @@ import "@fremtind/jkl-message-box/message-box.min.css";
 
 Komponentene tar følgende props:
 
--   `title`: **Påkrevd**. Overskriften til meldingsboksen. `string`
 -   `children`: **Påkrevd**. Innholdet i meldingsboksen. `ReactNode`
+-   `title`: Overskriften til meldingsboksen. `string`
 -   `fullWidth`: Angir om meldingsboksen skal ta opp hele bredden av beholderen den er inne i. `boolean`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
 
@@ -49,3 +49,7 @@ Du kan sende mer enn bare ren tekst som innhold. Innholdet blir rendret inne i e
     <Body>Rett opp feilene og send deretter inn skjemaet på nytt</Body>
 </ErrorMessage>
 ```
+
+### Tilgjengelighet
+
+Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende overskrift, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.

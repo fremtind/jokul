@@ -8,6 +8,7 @@ import "document-register-element";
 
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-accordion/accordion.min.css";
+import "@fremtind/jkl-alert-message/alert-message.min.css";
 import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-card/card.min.css";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
