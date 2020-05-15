@@ -7,19 +7,19 @@ describe("Alert messages", () => {
     [
         {
             inverted: true,
-            maxWidth: "1234px",
+            maxContentWidth: "1234px",
             paddingLeft: "1rem",
         },
         {
             inverted: false,
-            maxWidth: undefined,
+            maxContentWidth: undefined,
             paddingLeft: undefined,
         },
-    ].forEach(({ inverted, maxWidth, paddingLeft }) => {
+    ].forEach(({ inverted, maxContentWidth, paddingLeft }) => {
         [InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage].map((E) => {
             it("should render message content", () => {
                 const { getByText } = render(
-                    <E inverted={inverted} maxWidth={maxWidth} paddingLeft={paddingLeft}>
+                    <E inverted={inverted} maxContentWidth={maxContentWidth} paddingLeft={paddingLeft}>
                         content
                     </E>,
                 );

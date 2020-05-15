@@ -8,7 +8,7 @@ interface Props {
     children: React.ReactNode;
     className?: string;
     inverted?: boolean;
-    maxWidth?: string;
+    maxContentWidth?: string;
     paddingLeft?: string;
     role?: string;
 }
@@ -17,7 +17,7 @@ function alertFactory(messageType: messageTypes) {
     return function alertMessage({
         className = "",
         inverted,
-        maxWidth,
+        maxContentWidth,
         paddingLeft,
         role = "status",
         children,
@@ -27,7 +27,7 @@ function alertFactory(messageType: messageTypes) {
         });
 
         const styles = Object.entries({
-            maxWidth,
+            maxContentWidth,
             paddingLeft,
         }).reduce((styleObject: { [key: string]: string }, [style, value]) => {
             if (!!value) {

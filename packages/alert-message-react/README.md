@@ -32,7 +32,7 @@ Komponenten tar følgende props:
 
 -   `messageType`: **Påkrevd**. Meldingsboks type. `string`
 -   `children`: **Påkrevd**. Innholdet i meldingsboksen. `ReactNode`
--   `maxWidth`: Setter maks bredde på innholdet. Innholdet vil søke mot senter av siden `string`
+-   `maxContentWidth`: Setter maks bredde på innholdet. Innholdet vil søke mot senter av siden `string`
 -   `paddingLeft`: Setter padding på venstre side av innholdet. `string`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
 
@@ -45,7 +45,7 @@ En enkel bruk av meldingsboksen kan se slik ut:
 For å aligne innholdet i meldingen med teksten på resten av siden:
 
 ```jsx
-<SystemMessage messageType="error" maxWidth="1532px" paddingLeft="1rem">
+<SystemMessage messageType="error" maxContentWidth="1532px" paddingLeft="1rem">
     Feilopplastingtjenesten opplever for tiden problemer
 </SystemMessage>
 ```
