@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.2...@fremtind/portal@3.1.0) (2020-05-15)
+
+
+### Features
+
+* **alert-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
+* **messages:** add messages package ([6193027](https://github.com/fremtind/jokul/commit/619302746062ecc789252fea6201c359fe88995f))
+* **portal:** lagt til do's and dont's ([122474c](https://github.com/fremtind/jokul/commit/122474c618ffaafde8e1117df2e985df09166cda))
+
+
+
+
+
 ## [3.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.1...@fremtind/portal@3.0.2) (2020-05-13)
 
 

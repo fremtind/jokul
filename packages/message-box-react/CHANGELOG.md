@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@1.4.2...@fremtind/jkl-message-box-react@1.5.0) (2020-05-15)
+
+
+### Bug Fixes
+
+* **portal:** add back tilgjenglighet section ([8906d5b](https://github.com/fremtind/jokul/commit/8906d5bfaaaf2835f371ca0d6bc7d19d1b02f292))
+
+
+### Features
+
+* **alert-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
+* **message-box:** make title optional in message-box ([540b463](https://github.com/fremtind/jokul/commit/540b463f0c94a6267a27c8723762559e54a12943))
+* **message-box:** refactor icon styling in message-box ([36c81b5](https://github.com/fremtind/jokul/commit/36c81b5935095984ec79a6059693909411d076b5))
+* **messages:** add messages package ([6193027](https://github.com/fremtind/jokul/commit/619302746062ecc789252fea6201c359fe88995f))
+
+
+
+
+
 ## [1.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@1.4.1...@fremtind/jkl-message-box-react@1.4.2) (2020-05-13)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box-react

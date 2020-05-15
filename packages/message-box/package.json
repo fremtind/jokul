@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box",
-    "version": "1.4.2",
+    "version": "1.5.0",
     "publishConfig": {
         "access": "public"
     },
@@ -33,5 +33,5 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    "gitHead": "25529f650eabe8ab4e21b4d08aeb2caae97feecf"
 }

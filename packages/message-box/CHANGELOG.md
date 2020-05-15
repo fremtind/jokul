@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.4.2...@fremtind/jkl-message-box@1.5.0) (2020-05-15)
+
+
+### Features
+
+* **message-box:** refactor icon styling in message-box ([36c81b5](https://github.com/fremtind/jokul/commit/36c81b5935095984ec79a6059693909411d076b5))
+
+
+
+
+
 ## [1.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.4.1...@fremtind/jkl-message-box@1.4.2) (2020-05-13)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box
