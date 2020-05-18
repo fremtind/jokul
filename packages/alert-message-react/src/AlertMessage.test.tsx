@@ -22,39 +22,31 @@ const types = [
 ];
 
 describe("Alert messages", () => {
-    [messageWithStyles, messageWitoutStyles].forEach(({ inverted, maxContentWidth, paddingLeft }) => {
+    [messageWithStyles, messageWitoutStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
             it(name + " should render message content", () => {
-                const { getByText } = render(
-                    <E inverted={inverted} maxContentWidth={maxContentWidth} paddingLeft={paddingLeft}>
-                        content
-                    </E>,
-                );
+                const { getByText } = render(<E {...messageStyleProps}>content</E>);
                 getByText("content");
             });
         });
     });
-    [messageWithStyles].forEach(({ inverted, maxContentWidth, paddingLeft }) => {
+    [messageWithStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
             it(name + " should take css properties", () => {
-                render(
-                    <E inverted={inverted} maxContentWidth={maxContentWidth} paddingLeft={paddingLeft}>
-                        content
-                    </E>,
+                render(<E {...messageStyleProps}>content</E>);
+                expect(screen.getByTestId("alert-message-content")).toHaveStyle(
+                    `padding-left: ${messageStyleProps.paddingLeft}`,
                 );
-                expect(screen.getByTestId("alert-message-content")).toHaveStyle(`padding-left: ${paddingLeft}`);
-                expect(screen.getByTestId("alert-message-content")).toHaveStyle(`max-width: ${maxContentWidth}`);
+                expect(screen.getByTestId("alert-message-content")).toHaveStyle(
+                    `max-width: ${messageStyleProps.maxContentWidth}`,
+                );
             });
         });
     });
-    [messageWitoutStyles].forEach(({ inverted, maxContentWidth, paddingLeft }) => {
+    [messageWitoutStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
             it(name + " should not add style attribute if styles are undefined", () => {
-                render(
-                    <E inverted={inverted} maxContentWidth={maxContentWidth} paddingLeft={paddingLeft}>
-                        content
-                    </E>,
-                );
+                render(<E {...messageStyleProps}>content</E>);
                 expect(screen.getByTestId("alert-message-content")).not.toHaveAttribute("style");
             });
         });
