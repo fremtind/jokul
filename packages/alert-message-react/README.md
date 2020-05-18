@@ -30,7 +30,6 @@ import "@fremtind/jkl-alert-message/alert-message.min.css";
 
 Komponenten tar følgende props:
 
--   `messageType`: **Påkrevd**. Meldingsboks type. `string`
 -   `children`: **Påkrevd**. Innholdet i meldingsboksen. `ReactNode`
 -   `maxContentWidth`: Setter maks bredde på innholdet. Innholdet vil søke mot senter av siden `string`
 -   `paddingLeft`: Setter padding på venstre side av innholdet. `string`
@@ -39,13 +38,13 @@ Komponenten tar følgende props:
 En enkel bruk av meldingsboksen kan se slik ut:
 
 ```jsx
-<SystemMessage messageType="info">Filopplasting er for tiden slått av</SystemMessage>
+<InfoAlertMessage>Filopplasting er for tiden slått av</InfoAlertMessage>
 ```
 
 For å aligne innholdet i meldingen med teksten på resten av siden:
 
 ```jsx
-<SystemMessage messageType="error" maxContentWidth="1532px" paddingLeft="1rem">
+<ErrorAlertMessage maxContentWidth="1532px" paddingLeft="1rem">
     Feilopplastingtjenesten opplever for tiden problemer
-</SystemMessage>
+</ErrorAlertMessage>
 ```

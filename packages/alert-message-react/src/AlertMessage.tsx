@@ -13,6 +13,16 @@ interface Props {
     role?: string;
 }
 
+interface StyleMap {
+    [key: string]: string;
+}
+
+// map css properties to more descriptive names
+const styleMap: StyleMap = {
+    maxContentWidth: "maxWidth",
+    paddingLeft: "paddingLeft",
+};
+
 function alertFactory(messageType: messageTypes) {
     return function alertMessage({
         className = "",
@@ -31,7 +41,7 @@ function alertFactory(messageType: messageTypes) {
             paddingLeft,
         }).reduce((styleObject: { [key: string]: string }, [style, value]) => {
             if (!!value) {
-                styleObject[style] = value;
+                styleObject[styleMap[style] || style] = value;
             }
 
             return styleObject;
@@ -39,7 +49,7 @@ function alertFactory(messageType: messageTypes) {
 
         return (
             <div className={componentClassName} role={role}>
-                <div className="jkl-alert-message__content" style={{ ...styles }}>
+                <div className="jkl-alert-message__content" data-testid="alert-message-content" style={{ ...styles }}>
                     <div className="jkl-alert-message__icon">
                         <MessageIcon messageType={messageType} />
                     </div>
