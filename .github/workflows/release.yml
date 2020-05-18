@@ -1,0 +1,40 @@
+name: publish-packages
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build-and-publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Initial checkout
+              uses: actions/checkout@v2
+              with:
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Configure CI Git User
+              run: |
+                  git config --global user.name '@fremtind-bot'
+                  git config --global user.email 'fremtind-bot@users.noreply.github.com'
+                  git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
+
+            - name: Install Packages
+              run: yarn install --frozen-lockfile
+
+            - name: Authenticate with Registry
+              run: |
+                  yarn logout
+                  echo "registry=http://registry.npmjs.org/" >> .npmrc
+                  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+                  npm whoami
+              env:
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            - name: Publish packages
+              run: yarn release --yes
+              env:
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
