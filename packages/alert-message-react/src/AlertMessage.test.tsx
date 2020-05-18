@@ -1,29 +1,53 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { InfoAlertMessage, ErrorAlertMessage, WarningAlertMessage, SuccessAlertMessage } from ".";
 import { axe } from "jest-axe";
 
+const messageWithStyles = {
+    inverted: true,
+    maxContentWidth: "1234px",
+    paddingLeft: "1rem",
+};
+const messageWitoutStyles = {
+    inverted: true,
+    maxContentWidth: undefined,
+    paddingLeft: undefined,
+};
+
+const types = [
+    ["InfoAlertMessage", InfoAlertMessage],
+    ["WarningAlertMessage", WarningAlertMessage],
+    ["ErrorAlertMessage", ErrorAlertMessage],
+    ["SuccessAlertMessage", SuccessAlertMessage],
+];
+
 describe("Alert messages", () => {
-    [
-        {
-            inverted: true,
-            maxContentWidth: "1234px",
-            paddingLeft: "1rem",
-        },
-        {
-            inverted: false,
-            maxContentWidth: undefined,
-            paddingLeft: undefined,
-        },
-    ].forEach(({ inverted, maxContentWidth, paddingLeft }) => {
-        [InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage].map((E) => {
-            it("should render message content", () => {
-                const { getByText } = render(
-                    <E inverted={inverted} maxContentWidth={maxContentWidth} paddingLeft={paddingLeft}>
-                        content
-                    </E>,
-                );
+    [messageWithStyles, messageWitoutStyles].forEach((messageStyleProps) => {
+        types.map(([name, E]) => {
+            it(name + " should render message content", () => {
+                const { getByText } = render(<E {...messageStyleProps}>content</E>);
                 getByText("content");
+            });
+        });
+    });
+    [messageWithStyles].forEach((messageStyleProps) => {
+        types.map(([name, E]) => {
+            it(name + " should take css properties", () => {
+                render(<E {...messageStyleProps}>content</E>);
+                expect(screen.getByTestId("alert-message-content")).toHaveStyle(
+                    `padding-left: ${messageStyleProps.paddingLeft}`,
+                );
+                expect(screen.getByTestId("alert-message-content")).toHaveStyle(
+                    `max-width: ${messageStyleProps.maxContentWidth}`,
+                );
+            });
+        });
+    });
+    [messageWitoutStyles].forEach((messageStyleProps) => {
+        types.map(([name, E]) => {
+            it(name + " should not add style attribute if styles are undefined", () => {
+                render(<E {...messageStyleProps}>content</E>);
+                expect(screen.getByTestId("alert-message-content")).not.toHaveAttribute("style");
             });
         });
     });

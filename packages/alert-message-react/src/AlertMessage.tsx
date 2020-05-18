@@ -26,20 +26,14 @@ function alertFactory(messageType: messageTypes) {
             "jkl-alert-message--dark": inverted,
         });
 
-        const styles = Object.entries({
-            maxContentWidth,
+        const styles = {
+            maxWidth: maxContentWidth,
             paddingLeft,
-        }).reduce((styleObject: { [key: string]: string }, [style, value]) => {
-            if (!!value) {
-                styleObject[style] = value;
-            }
-
-            return styleObject;
-        }, {});
+        };
 
         return (
             <div className={componentClassName} role={role}>
-                <div className="jkl-alert-message__content" style={{ ...styles }}>
+                <div className="jkl-alert-message__content" data-testid="alert-message-content" style={{ ...styles }}>
                     <div className="jkl-alert-message__icon">
                         <MessageIcon messageType={messageType} />
                     </div>
