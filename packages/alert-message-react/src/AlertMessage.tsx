@@ -13,16 +13,6 @@ interface Props {
     role?: string;
 }
 
-interface StyleMap {
-    [key: string]: string;
-}
-
-// map css properties to more descriptive names
-const styleMap: StyleMap = {
-    maxContentWidth: "maxWidth",
-    paddingLeft: "paddingLeft",
-};
-
 function alertFactory(messageType: messageTypes) {
     return function alertMessage({
         className = "",
@@ -36,16 +26,10 @@ function alertFactory(messageType: messageTypes) {
             "jkl-alert-message--dark": inverted,
         });
 
-        const styles = Object.entries({
-            maxContentWidth,
+        const styles = {
+            maxWidth: maxContentWidth,
             paddingLeft,
-        }).reduce((styleObject: { [key: string]: string }, [style, value]) => {
-            if (!!value) {
-                styleObject[styleMap[style] || style] = value;
-            }
-
-            return styleObject;
-        }, {});
+        };
 
         return (
             <div className={componentClassName} role={role}>
