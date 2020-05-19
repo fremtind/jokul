@@ -39,7 +39,7 @@
         "@fremtind/jkl-react-hooks": "^1.1.10",
         "@fremtind/jkl-select": "^2.0.3",
         "@fremtind/jkl-typography-react": "^2.3.4",
-        "@nrk/core-toggle": "^3.0.4",
+        "@nrk/core-toggle": "3.0.7",
         "nanoid": "^2.1.6"
     },
     "devDependencies": {
