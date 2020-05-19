@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.5.3...@fremtind/jkl-datepicker@1.5.4) (2020-05-19)
+
+
+### Bug Fixes
+
+* **datepicker:** add z-index to datepicker wrapper ([5ea8621](https://github.com/fremtind/jokul/commit/5ea8621535be6b440f6cea39dc0bd58a4630a34d))
+
+
+
+
+
 ## 1.5.3 (2020-05-19)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker
