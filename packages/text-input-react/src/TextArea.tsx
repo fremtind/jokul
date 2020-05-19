@@ -4,7 +4,7 @@ import nanoid from "nanoid";
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { BaseProps } from "./BaseInputField";
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
     label: string;
     helpLabel?: string;
     errorLabel?: string;

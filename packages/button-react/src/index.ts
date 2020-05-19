@@ -1,1 +1,1 @@
-export { PrimaryButton, SecondaryButton, TertiaryButton } from "./Button";
+export { PrimaryButton, SecondaryButton, TertiaryButton, Props as ButtonPropsInterface } from "./Button";

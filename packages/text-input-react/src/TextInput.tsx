@@ -11,7 +11,7 @@ export interface Action extends Exclude<HTMLAttributes<HTMLButtonElement>, "disa
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
     label: string;
     helpLabel?: string;
     errorLabel?: string;

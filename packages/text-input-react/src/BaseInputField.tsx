@@ -19,7 +19,7 @@ export interface BaseProps {
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
 }
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
     describedBy?: string;
     style?: CSSProperties;
     invalid?: boolean;
