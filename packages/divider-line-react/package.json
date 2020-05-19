@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-divider-line-react",
-    "version": "1.2.10",
+    "version": "1.2.11",
     "publishConfig": {
         "access": "public"
     },
@@ -35,12 +35,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-divider-line": "^1.1.12",
-        "@fremtind/jkl-react-hooks": "^1.1.10",
+        "@fremtind/jkl-divider-line": "^1.1.13",
+        "@fremtind/jkl-react-hooks": "^1.1.11",
         "nanoid": "^2.1.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.2.10",
+        "@fremtind/jkl-portal-components": "^0.2.11",
         "@types/nanoid": "^2.0.0"
     },
     "peerDependencies": {
