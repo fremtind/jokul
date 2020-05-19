@@ -16,6 +16,7 @@
         "test": "run-p test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "test:watch": "jest -c './jest/jest.unit.js' --watch",
+        "version:check": "lerna changed -l -a",
         "prerelease": "yarn build",
         "release": "lerna publish",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
