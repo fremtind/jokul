@@ -26,9 +26,17 @@ export const Header = ({ className }: { className?: string }) => {
         className,
     );
 
+    function hideOpenMenus() {
+        const openMenus = document && document.querySelectorAll(".jkl-portal-full-screen-menu--open");
+        openMenus.forEach((menu) => {
+            menu.setAttribute("hidden", "true"); // hide all open full screen menus
+        });
+        setMenuIsOpen(""); // reset open menu in context to remove active marker
+    }
+
     return (
         <header className={componentClassName}>
-            <Link onClick={() => setMenuIsOpen("")} to="/" className="jkl-portal-header__title">
+            <Link to="/" onClick={hideOpenMenus} className="jkl-portal-header__title">
                 Jøkul
             </Link>
             <nav className="jkl-portal-header__navigation">
