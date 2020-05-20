@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.3.12...@fremtind/jkl-button-react@1.4.0) (2020-05-20)
+
+
+### Bug Fixes
+
+* export interface in an actual functioning manner ([928222b](https://github.com/fremtind/jokul/commit/928222b619e5964c45d9fc33a4c980ba8d68750c))
+
+
+### Features
+
+* expose prop interface for textinput and button ([5be19a4](https://github.com/fremtind/jokul/commit/5be19a4d7af4ae80fcda180faf0473960de868ff))
+
+
+
+
+
 ## 1.3.12 (2020-05-20)
 
 **Note:** Version bump only for package @fremtind/jkl-button-react
