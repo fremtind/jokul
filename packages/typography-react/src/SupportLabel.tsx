@@ -11,6 +11,8 @@ interface Props {
     inverted?: boolean;
 }
 
+let warningHasBeenShown = false;
+
 export const SupportLabel = ({ id, helpLabel, errorLabel, forceCompact, className, srOnly, inverted }: Props) => {
     const componentClassName = classNames("jkl-form-support-label", className, {
         "jkl-form-support-label--compact": forceCompact,
@@ -20,10 +22,11 @@ export const SupportLabel = ({ id, helpLabel, errorLabel, forceCompact, classNam
         "jkl-form-support-label--inverted": inverted,
     });
 
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV !== "production" && !warningHasBeenShown) {
         console.warn(
             "WARNING: This version of the SupportLabel component is deprecated! Please use the SupportLabel component found in @fremtind/jkl-core instead",
         );
+        warningHasBeenShown = true;
     }
 
     if (errorLabel || helpLabel) {
