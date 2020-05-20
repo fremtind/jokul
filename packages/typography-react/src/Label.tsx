@@ -11,6 +11,8 @@ interface Props {
     htmlFor?: string;
 }
 
+let warningHasBeenShown = false;
+
 export function Label({ variant = "medium", forceCompact, srOnly, children, standAlone, htmlFor }: Props) {
     const className = classNames("jkl-label", {
         [`jkl-label--${variant}`]: variant,
@@ -29,10 +31,11 @@ export function Label({ variant = "medium", forceCompact, srOnly, children, stan
         }
     }
 
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV !== "production" && !warningHasBeenShown) {
         console.warn(
             "WARNING: This version of the Label component is deprecated! Please use the Label component found in @fremtind/jkl-core instead",
         );
+        warningHasBeenShown = true;
     }
 
     return (
