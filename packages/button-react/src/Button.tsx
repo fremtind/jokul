@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from "react";
 import classNames from "classnames";
 
-interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
+export interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
     forceCompact?: boolean;
     inverted?: boolean;
 }
