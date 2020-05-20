@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.6 (2020-05-20)
+
+
+### Bug Fixes
+
+* **typography-react:** make deprecation warnings less intrusive ([ff89328](https://github.com/fremtind/jokul/commit/ff89328e87750339e1c3edfe555e38ecd44ab06d))
+
+
+
+
+
 ## 2.3.5 (2020-05-19)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react
