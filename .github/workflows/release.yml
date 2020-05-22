@@ -10,12 +10,14 @@ jobs:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[ci skip release]')"
         steps:
-            - name: Initial checkout
+            - name: Checkout branch
               uses: actions/checkout@v2
               with:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   fetch-depth: "0" # fetch entire git history
-            - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/* # fetch version tags
+
+            - name: Fetch version tags
+              run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
             - name: Configure CI Git User
               run: |
@@ -35,7 +37,11 @@ jobs:
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+            - name: Verify release is needed
+              run: yarn version:check # will fail (exit with code 1) if there are no changes to release
+
             - name: Publish packages
+              if: ${{ success() }} # only run if there are changes to publish
               run: yarn release --yes
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
