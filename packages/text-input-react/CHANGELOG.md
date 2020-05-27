@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.3.1 (2020-05-27)
+
+
+### Bug Fixes
+
+* **text-input-react:** add missing nanoid dependency ([9f17ad1](https://github.com/fremtind/jokul/commit/9f17ad15ee7e45555b95da375231da0e37c2276e))
+
+
+
+
+
 # [3.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.2.4...@fremtind/jkl-text-input-react@3.3.0) (2020-05-20)
 
 
