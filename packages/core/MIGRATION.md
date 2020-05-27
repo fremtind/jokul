@@ -100,7 +100,7 @@ Disse hjelpeklassene heter det samme som tekststilen, men uten `compact`/`deskto
 | `@include h3-heading`               | Se under                                            |
 | `@include h3-heading--desktop`      | `@include jkl-text-style("desktop/heading-large")`  |
 | `@include h3-heading--mobile`       | `@include jkl-text-style("compact/heading-large")`  |
-| `.jkl-h3`                           | `.jkl-heading-small`                                |
+| `.jkl-h3`                           | `.jkl-heading-large`                                |
 | `@include h4-heading`               | Se under                                            |
 | `@include h4-heading--desktop`      | `@include jkl-text-style("desktop/heading-medium")` |
 | `@include h4-heading--mobile`       | `@include jkl-text-style("compact/heading-medium")` |
