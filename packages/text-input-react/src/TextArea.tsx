@@ -1,6 +1,6 @@
 import React, { forwardRef, FocusEvent, useRef, useState, useEffect, RefObject } from "react";
 import classNames from "classnames";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { BaseProps } from "./BaseInputField";
 
