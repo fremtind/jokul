@@ -7,6 +7,14 @@ assignees: ''
 
 ---
 
+Hvilken [prosessfase](https://fremtind.github.io/jokul/komigang/prosessen) er i issuet i?
+- [ ] Undersøke
+- [ ] Rapportere
+- [ ] Avklare
+- [ ] Spesifisere krav
+- [ ] Utvikle
+- [ ] Ferdig!
+
 **Er ønsket tilknyttet et problem? Fortell oss mer!**
 Gi oss en klar og konsis beskrivelse av problemet. F.eks "Det er dumt at jeg alltid må [...]".
 
