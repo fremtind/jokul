@@ -10,6 +10,7 @@ import KeyListenerExample from "./KeyListenerExample";
 import MutationObserverExample from "./MutationObserverExample";
 import IntersectionObserverExample from "./IntersectionObserverExample";
 import ScreenExample from "./ScreenExample";
+import ScrollIntoViewExample from "./ScrollIntoViewExample";
 
 <p>
     <span class="jkl-lead">Denne pakken innholder støttefunksjoner i form av React hooks.</span>
@@ -56,3 +57,9 @@ IntersectionObserver lar deg lytte på om et element er synlig eller ikke. Det g
 `useScreen` lar deg få tilgang til de samme breakpoints som cssen bruker til media queries. Av og til er kan det være nødvendig å endre strukturen på innholdet bassert på hvor stor skjerm innholdet skal presenteres på. Anbefalt implementasjon er å legge `useScreen` så høyt oppe i applikasjonen din som du mener er nødvendig i en `context`, for å benytte den contexten når du trenger å plukke ut verdiene i en komponent. Dette er for å unngå å sette opp flere eventlyttere enn nødvendig. Om du bruker server side rendering bør denne brukes med forsiktighet, da serveren ikke vil vite hvilken size den skal rendre for.
 
 <ScreenExample />
+
+## useScrollIntoView
+
+`useScrollIntoView` lar deg automatisk scrolle et element til det blir synlig. Hooken returner scrollfunksjonen om du vil trigge den manuelt, og det er mulig å skru av automatisk scrolling om du vil ha full manuell kontroll. Du har også tilgang på alle options tilgjengelig for scrollIntoView
+
+<ScrollIntoViewExample />
