@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2020-05-28)
+
+
+### Features
+
+* add hook to wrap scrollintoview ([dcde26a](https://github.com/fremtind/jokul/commit/dcde26a888833ecf1ba6646ea9c7e6086d13e57c)), closes [#967](https://github.com/fremtind/jokul/issues/967)
+
+
+
+
+
 ## 0.2.12 (2020-05-20)
 
 **Note:** Version bump only for package @fremtind/jkl-portal-components
