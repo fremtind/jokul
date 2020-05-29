@@ -108,6 +108,9 @@ $calendar-focus-color--inverted: $info--darkbg;
 }
 
 .jkl-calendar {
+    // hard code for CSP blocking inline styling
+    display: block;
+
     justify-content: center;
     flex-direction: column;
     width: $calendar-width;
