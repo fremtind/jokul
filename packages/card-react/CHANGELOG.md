@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.15 (2020-05-28)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## [1.2.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.2.13...@fremtind/jkl-card-react@1.2.14) (2020-05-27)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
 ## [1.2.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.2.12...@fremtind/jkl-card-react@1.2.13) (2020-05-20)
 
 **Note:** Version bump only for package @fremtind/jkl-card-react

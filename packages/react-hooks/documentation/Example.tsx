@@ -9,6 +9,7 @@ import FocusOutsideExample from "./FocusOutsideExample";
 import KeyListenerExample from "./KeyListenerExample";
 import IntersectionObserverExample from "./IntersectionObserverExample";
 import ScreenExample from "./ScreenExample";
+import ScrollIntoViewExample from "./ScrollIntoViewExample";
 
 const Example = () => (
     <>
@@ -19,6 +20,7 @@ const Example = () => (
         <KeyListenerExample />
         <IntersectionObserverExample />
         <ScreenExample />
+        <ScrollIntoViewExample />
     </>
 );
 

@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, HTMLAttributes, MouseEventHandler } from "react";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import classNames from "classnames";
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";

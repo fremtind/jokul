@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.1 (2020-05-28)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+# 3.2.0 (2020-05-27)
+
+
+### Features
+
+* **cypress:** initial cypress setup ([3004668](https://github.com/fremtind/jokul/commit/300466834e2f79acc8ed501bb2b66f574328f80d))
+
+
+
+
+
 ## 3.1.4 (2020-05-20)
 
 **Note:** Version bump only for package @fremtind/portal

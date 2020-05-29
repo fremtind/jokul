@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.1 (2020-05-28)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
+# [1.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.4.0...@fremtind/jkl-button-react@1.5.0) (2020-05-27)
+
+
+### Features
+
+* **cypress:** initial cypress setup ([3004668](https://github.com/fremtind/jokul/commit/300466834e2f79acc8ed501bb2b66f574328f80d))
+
+
+
+
+
 # [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.3.12...@fremtind/jkl-button-react@1.4.0) (2020-05-20)
 
 
