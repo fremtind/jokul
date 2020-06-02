@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.2 (2020-06-02)
+
+
+### Bug Fixes
+
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([aa99c43](https://github.com/fremtind/jokul/commit/aa99c437e4454fe94903cc568ad76483988b09e3))
+
+
+
+
+
 ## 3.2.1 (2020-05-28)
 
 **Note:** Version bump only for package @fremtind/portal
