@@ -1,12 +1,13 @@
 exports.onCreatePage = async ({ page, actions }) => {
     const { createPage, deletePage } = actions;
-    const componentPageMatch = page.path.match(/\/.*react.*\/documentation\/(.*)\//);
+    const componentPageMatch = page.path.match(/\/(.*(react|util).*)\/documentation\/(.*)\//);
+
     const pageSpecifiedPath = page.context.frontmatter && page.context.frontmatter.path;
 
     // If page is a component doc page, create simpler path
     if (componentPageMatch) {
         const oldPage = { ...page };
-        page.path = `/komponenter/${componentPageMatch[1].toLowerCase()}`;
+        page.path = `/komponenter/${componentPageMatch[3].toLowerCase()}`;
         createPage(page);
         deletePage(oldPage);
     }
