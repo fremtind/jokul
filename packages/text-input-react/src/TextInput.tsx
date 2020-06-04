@@ -64,7 +64,6 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                         id={uid}
                         describedBy={describedBy}
                         invalid={!!errorLabel}
-                        className="jkl-text-input__input"
                         {...inputProps}
                     />
                     {action && (
