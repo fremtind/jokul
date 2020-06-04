@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.5 (2020-05-29)
+
+
+### Bug Fixes
+
+* fiks en bug hvor CSP vil blokkere inline CSS ([a07e7fb](https://github.com/fremtind/jokul/commit/a07e7fb568ce6289667bcd53f3213a5f459abb00))
+
+
+
+
+
 ## [1.5.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.5.3...@fremtind/jkl-datepicker@1.5.4) (2020-05-19)
 
 
