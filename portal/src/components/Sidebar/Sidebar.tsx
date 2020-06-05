@@ -9,7 +9,7 @@ import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
 
 export function Sidebar() {
-    const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
+    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
 
     const { currentSection, previousSection } = useLocation();
     const pathHasChanged = previousSection && previousSection !== currentSection;
@@ -30,6 +30,9 @@ export function Sidebar() {
             break;
         case PageType.KOMPONENTER:
             links = componentDocPages;
+            break;
+        case PageType.BLOG:
+            links = blogPages;
             break;
         default:
             links = [];
@@ -61,10 +64,11 @@ function SidebarMenu({ links }: { links: DocumentationPageInfo[]; currentPath: s
                 onChange={filterLinks}
                 action={{ icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") }}
                 className="jkl-portal-sidebar-menu__filter"
+                data-testid="sidebar-filter"
             />
             <ul className="jkl-portal-sidebar-menu__items">
                 {filteredLinks.map((item: DocumentationPageInfo, i: number) => (
-                    <SidebarMenuItem idx={i} key={item.title} path={item.path} title={item.title} />
+                    <SidebarMenuItem idx={i} key={item.title} {...item} />
                 ))}
             </ul>
         </>
