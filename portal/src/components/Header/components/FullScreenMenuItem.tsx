@@ -1,37 +1,32 @@
 import React from "react";
-import { navigate } from "gatsby";
 
-import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
-import { useLocation } from "../../../contexts/locationContext";
+import { MenuItem, isLeafItem, CustomNavigation, defaultNavigationFunction, RootItem } from "./MainMenu";
 import "./FullScreenMenuItem.scss";
 
-export interface FullScreenMenuItemProps {
-    idx: number;
-    path: string;
-    title: string;
+interface Props extends CustomNavigation {
+    item: MenuItem;
+    forwardFunction: (item: RootItem, evt?: React.MouseEvent) => void;
 }
-export function FullScreenMenuItem({ idx, path, title }: FullScreenMenuItemProps) {
-    const { setMenuIsOpen } = useFullscreenMenu();
-    const { currentSection } = useLocation();
-    const handleClick = () => {
-        // wait for closing animation before navigating
-        setTimeout(() => {
-            navigate(path, { state: { lastPath: currentSection } });
-            setMenuIsOpen(path.split("/")[1]);
-        }, 300);
-    };
-    const staggerAnimation = { animationDelay: `${idx * 20}ms` };
 
+export const FullScreenMenuItem: React.FC<Props> = ({
+    item,
+    navigationFunction = defaultNavigationFunction,
+    forwardFunction,
+}) => {
+    const isLeaf = isLeafItem(item);
+    const handleClick = (evt: React.MouseEvent) =>
+        isLeafItem(item) ? navigationFunction(item.content) : forwardFunction(item, evt);
     return (
-        <li style={staggerAnimation} className="jkl-portal-full-screen-menu-item">
+        <li className="jkl-portal-full-screen-menu-item">
             <button
-                style={staggerAnimation}
-                className="jkl-portal-full-screen-menu-item__link"
-                type="button"
+                aria-expanded={isLeaf ? undefined : "false"}
                 onClick={handleClick}
+                type="button"
+                role={isLeaf ? "link" : undefined}
+                className="jkl-portal-full-screen-menu-item__link"
             >
-                {title}
+                {item.linkText}
             </button>
         </li>
     );
-}
+};

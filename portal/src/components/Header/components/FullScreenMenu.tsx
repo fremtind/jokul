@@ -1,14 +1,12 @@
-import React, { useState, ChangeEvent } from "react";
-import classNames from "classnames";
+import React, { useState, useEffect } from "react";
 //@ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import { TextInput } from "@fremtind/jkl-text-input-react";
-import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import classNames from "classnames";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import { FullScreenMenuItem, FullScreenMenuItemProps } from "./FullScreenMenuItem";
-import { useTheme } from "../../../contexts/themeContext";
+
+import { RootItem, CustomNavigation } from "./MainMenu";
+import { FullScreenMenuItem } from "./FullScreenMenuItem";
 import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
-import { useLocation } from "../../../contexts/locationContext";
 
 import "./FullScreenMenu.scss";
 
@@ -17,101 +15,106 @@ interface CoreToggleSelectEvent {
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
-interface FullScreenMenuProps {
-    title: string;
-    items: FullScreenMenuItemProps[];
-    filterable?: boolean;
-    activePath?: string;
+interface FullScreenMenuProps extends CustomNavigation {
+    className?: string;
+    activeClassName?: string;
+    baseItem: RootItem;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    customButton?: React.FC<any>;
+    isActiveFunction?: (path: string) => boolean;
 }
-export function FullScreenMenu({ title, items, filterable, activePath }: FullScreenMenuProps) {
-    const { theme, toggleTheme } = useTheme();
-    const { menuIsOpen, setMenuIsOpen } = useFullscreenMenu();
 
+export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
+    className,
+    activeClassName,
+    baseItem,
+    customButton,
+    isActiveFunction,
+    navigationFunction,
+}) => {
+    const CustomButton = customButton; // Need capital letter to please the linter
     const [isOpen, setIsOpen] = useState(false);
-    const { currentSection } = useLocation();
-    const pathIsActive = activePath && currentSection.includes(activePath);
-    const isActive =
-        isOpen || // this menu is open, OR
-        (activePath && menuIsOpen.includes(activePath)) || // open menu is the current menu, OR
-        (pathIsActive && // the page is a subpage of this menu, AND
-            ((activePath && menuIsOpen.includes(activePath)) || menuIsOpen == "")); // open menu is either this menu or no menu
+    const [menuRef] = useAnimatedHeight(isOpen);
+    const { setMenuIsOpen, menuIsOpen } = useFullscreenMenu();
 
-    const [filter, setFilter] = useState("");
-    const handleFilter = (e: ChangeEvent<HTMLInputElement>) => {
-        setFilter(e.target.value);
+    const [currentItem, setCurrentItem] = useState(baseItem);
+    const [previousItem, setPreviousItem] = useState<RootItem>();
+    const [history, setHistory] = useState<RootItem[]>([]);
+
+    const onNavigateForward = (newItem: RootItem, evt?: React.MouseEvent) => {
+        evt && evt.preventDefault(); // prevent CoreToggle from closing menu
+        setHistory([...history, currentItem]);
+        setCurrentItem(newItem);
     };
-    const filteredItems = items.filter((item) => item.title.toLowerCase().includes(filter.toLowerCase()));
+    const onNavigateBackward = (evt: React.MouseEvent) => {
+        evt.preventDefault(); // prevent CoreToggle from closing menu
+        previousItem && setCurrentItem(previousItem);
+        setHistory((history) => history.filter((item) => item !== previousItem));
+    };
+    useEffect(() => {
+        // set previousItem to last item in history whenever history is updated
+        setPreviousItem(history.slice(-1)[0]);
+    }, [history]);
 
-    const [elementRef] = useAnimatedHeight(isOpen);
+    const isActive = isOpen || (isActiveFunction && isActiveFunction(baseItem.basePath || ""));
+
+    const buttonClassName = classNames(className, {
+        [`${activeClassName}`]: isActive,
+    });
+    const menuClassName = classNames({
+        "jkl-portal-full-screen-menu": true,
+        "jkl-portal-full-screen-menu--open": isOpen,
+    });
+
+    const basePath = baseItem.basePath || "";
     const onToggle = () => {
-        if (isOpen && currentSection === activePath) {
-            setMenuIsOpen("");
-        } else if (!isOpen) {
-            setMenuIsOpen(activePath || "");
+        if (isOpen) {
+            if (menuIsOpen === basePath) {
+                setMenuIsOpen("");
+            }
+        } else {
+            setMenuIsOpen(basePath);
         }
         setIsOpen(!isOpen);
     };
     const onToggleSelect = (e: CoreToggleSelectEvent) => {
-        setFilter("");
-        if (e.detail.className.includes("full-screen-menu__close")) {
-            setMenuIsOpen("");
-        }
-        if (e.detail.className.includes("-menu-item__link") || e.detail.className.includes("full-screen-menu__close")) {
-            e.target.hidden = true;
-        }
+        e.target.hidden = true;
     };
-
-    const componentClassName = classNames("jkl-portal-full-screen-menu", {
-        "jkl-portal-full-screen-menu--open": isOpen,
-    });
-    const toggleClassName = classNames("jkl-portal-full-screen-menu-toggle", {
-        "jkl-portal-full-screen-menu-toggle--active": isActive,
-    });
 
     return (
         <>
-            <button className={toggleClassName}>{title}</button>
+            {CustomButton ? <CustomButton /> : <button className={buttonClassName}>{baseItem.linkText}</button>}
             <CoreToggle
-                popup
-                className={componentClassName}
-                ref={elementRef}
-                hidden={!isOpen}
                 onToggle={onToggle}
                 onToggleSelect={onToggleSelect}
+                forwardRef={menuRef}
+                className={menuClassName}
+                popup
+                hidden
             >
                 <div className="jkl-portal-full-screen-menu__wrapper">
+                    {previousItem && (
+                        <button
+                            data-text={previousItem.linkText}
+                            aria-label={`Tilbake til ${previousItem.linkText}`}
+                            className="jkl-portal-full-screen-menu__back-button"
+                            onClick={onNavigateBackward}
+                        >
+                            ←
+                        </button>
+                    )}
                     <ul className="jkl-portal-full-screen-menu__items">
-                        {filteredItems.map((item, i) => (
-                            <FullScreenMenuItem idx={i} key={item.title} path={item.path} title={item.title} />
+                        {currentItem.content.map((item) => (
+                            <FullScreenMenuItem
+                                forwardFunction={onNavigateForward}
+                                navigationFunction={navigationFunction}
+                                item={item}
+                                key={item.linkText}
+                            />
                         ))}
                     </ul>
-                    {filterable && (
-                        <TextInput
-                            className="jkl-portal-full-screen-menu__filter"
-                            variant="small"
-                            label="Filtrér"
-                            value={filter}
-                            onChange={handleFilter}
-                            action={{
-                                icon: "clear",
-                                label: "Nullstill filtrering",
-                                onClick: () => setFilter(""),
-                            }}
-                        />
-                    )}
-                    <ToggleSwitch
-                        className="jkl-portal-full-screen-menu__darkmode-switch"
-                        inverted={theme === "dark"}
-                        pressed={theme === "dark"}
-                        onClick={toggleTheme}
-                    >
-                        Dark mode
-                    </ToggleSwitch>
-                    <button type="button" className="jkl-portal-full-screen-menu__close">
-                        Lukk meny
-                    </button>
                 </div>
             </CoreToggle>
         </>
     );
-}
+};
