@@ -1,7 +1,5 @@
 import React, { ReactNode } from "react";
-import { Layout } from ".";
 import { GitHubLinks } from "./components";
-import { useLocation } from "../../contexts/locationContext";
 import "../Layout/Layout.scss";
 
 interface Frontmatter {
@@ -18,14 +16,12 @@ interface Props {
     };
 }
 
-export const DocPageLayout = ({ location, children, pageContext: { frontmatter } }: Props) => {
-    const { setLocation } = useLocation();
-    setLocation(location);
+export const DocPageLayout = ({ children, pageContext: { frontmatter } }: Props) => {
     return (
-        <Layout location={location} title={frontmatter.title}>
+        <>
             <ComponentDocPageTitle {...frontmatter} />
             {children}
-        </Layout>
+        </>
     );
 };
 

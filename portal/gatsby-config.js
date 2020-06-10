@@ -40,7 +40,13 @@ module.exports = {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 icon: `static/assets/icon.png`,
-            }
+            },
+        },
+        {
+            resolve: `gatsby-plugin-layout`,
+            options: {
+                component: require.resolve(`./src/components/Layout/Layout.tsx`),
+            },
         },
     ],
 };
