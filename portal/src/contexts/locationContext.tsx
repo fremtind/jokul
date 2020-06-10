@@ -43,7 +43,7 @@ const reducer = (state: LocationState, action: LocationAction): LocationState =>
             return {
                 currentPath: newPath,
                 currentSection: newSection,
-                isFrontPage: newPath === "",
+                isFrontPage: newPath === withPrefix(""),
                 sectionHasChanged: newSection !== state.currentSection,
             };
         default:
