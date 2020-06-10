@@ -92,3 +92,21 @@
 
     @return $value * map-get($units, $unit);
 }
+
+///
+/// Calculate a responsive size value relative to a given screen size
+/// Will return a CSS rule that corresponds to the given pixel size at
+/// the given screen size and scales with changes in screen size
+///
+/// @param {Number} $pxSize - Size to calculate from, in px without unit
+/// @param {Number} $screenWidth - Screen width to calculate from, in px without unit, default 1400
+/// @param {Number} $screenHeight - Screen height to calculate from, in px without unit, default 900
+///
+/// @return `$pxSize` expressed as a responsive value
+///
+@function relativeSize($pxSize, $screenWidth: 1400, $screenHeight: 900) {
+    $horSize: $pxSize / $screenWidth * 100 * 1vw;
+    $verSize: $pxSize / $screenHeight * 100 * 1vh;
+
+    @return min(#{$horSize}, #{$verSize});
+}
