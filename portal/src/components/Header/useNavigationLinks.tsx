@@ -39,7 +39,7 @@ export function useNavigationLinks() {
             }
         }
     `);
-    const pages = allSitePage.edges.map((edge: RawDocumentationPage) => ({
+    const pages: DocumentationPageInfo[] = allSitePage.edges.map((edge: RawDocumentationPage) => ({
         path: edge.node.path,
         title: edge.node.context.frontmatter.title,
         order: edge.node.context.frontmatter.order,
