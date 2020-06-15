@@ -4,17 +4,17 @@
 .jkl-portal-theme-bg {
     z-index: $z-index--hidden;
     width: 100vw;
-    height: 100vh;
+    height: 0vh;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: $hvit;
+    background-color: $svart;
 
     @include motion("standard", "lazy");
-    transition-property: height, background-color;
+    transition-property: height;
 
     *[data-theme="dark"] & {
-        background-color: $svart;
+        height: 100vh;
     }
 }
