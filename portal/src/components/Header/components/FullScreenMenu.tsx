@@ -70,7 +70,9 @@ export function FullScreenMenu({ title, items, filterable, activePath }: FullScr
 
     return (
         <>
-            <button className={toggleClassName}>{title}</button>
+            <button className={toggleClassName} data-testid={`header-${title}`}>
+                {title}
+            </button>
             <CoreToggle
                 popup
                 className={componentClassName}
