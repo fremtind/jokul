@@ -1,7 +1,7 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_screens.scss";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
-
+@import "~@fremtind/jkl-core/mixins/_motion.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $button-height--normal: rem(48px);
@@ -42,9 +42,11 @@ $hover-elevation-distance: -0.25rem;
     -webkit-font-smoothing: auto;
     border: none;
     outline: none;
-    transform-origin: 50% 90%;
-    transition: transform $animation-timing, background-color 100ms ease-out;
     position: relative;
+
+    @include motion("standard", "productive");
+    transform-origin: 50% 90%;
+    transition-property: transform, background-color;
 
     html:not([data-mousenavigation]) &:focus,
     &:hover {
