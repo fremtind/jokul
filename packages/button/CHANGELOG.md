@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.5.0 (2020-06-17)
+
+
+### Features
+
+* **button:** this will add blue color on hover for all button variants ([d61f5f5](https://github.com/fremtind/jokul/commit/d61f5f5d20e111157aac7b6c78687541b9cf9279)), closes [#936](https://github.com/fremtind/jokul/issues/936)
+* **button:** this will use core motion mixin to define transitioning ([86d2d0a](https://github.com/fremtind/jokul/commit/86d2d0a40ade88f91d6034f3ff6f5a8f3d98761c)), closes [#936](https://github.com/fremtind/jokul/issues/936)
+
+
+
+
+
 ## 1.4.13 (2020-05-19)
 
 **Note:** Version bump only for package @fremtind/jkl-button
