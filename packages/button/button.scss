@@ -1,7 +1,7 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_screens.scss";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
-
+@import "~@fremtind/jkl-core/mixins/_motion.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $button-height--normal: rem(48px);
@@ -42,9 +42,11 @@ $hover-elevation-distance: -0.25rem;
     -webkit-font-smoothing: auto;
     border: none;
     outline: none;
-    transform-origin: 50% 90%;
-    transition: transform $animation-timing;
     position: relative;
+
+    @include motion("standard", "productive");
+    transform-origin: 50% 90%;
+    transition-property: transform, background-color;
 
     html:not([data-mousenavigation]) &:focus,
     &:hover {
@@ -61,11 +63,23 @@ $hover-elevation-distance: -0.25rem;
     &--primary {
         background-color: $button-bg-color--primary;
         color: $button-text-color--primary;
+
+        &:hover,
+        html:not([data-mousenavigation]) &:focus {
+            background-color: $focus-color;
+            border-color: $focus-color;
+        }
     }
 
     &--secondary {
         background-color: $button-bg-color;
         color: $button-text-color;
+
+        &:hover,
+        html:not([data-mousenavigation]) &:focus {
+            border-color: $focus-color;
+            color: $focus-color;
+        }
     }
 
     &--primary,
@@ -103,31 +117,53 @@ $hover-elevation-distance: -0.25rem;
         transition: transform $animation-timing, border $animation-timing;
         min-width: unset;
 
-        &:focus,
-        &:hover {
-            border-bottom-width: rem(2px);
-        }
-
+        &:hover,
         html:not([data-mousenavigation]) &:focus {
             border-bottom-color: $focus-color;
+            border-bottom-width: rem(2px);
+            color: $focus-color;
         }
     }
 
     &--inverted {
         &.jkl-button--primary {
             background-color: $button-bg-color;
-            color: $button-text-color;
             border-color: $button-bg-color;
+            color: $button-text-color;
+
+            &:hover,
+            html:not([data-mousenavigation]) &:focus {
+                background-color: $focus-color--darkbg;
+                border-color: $focus-color--darkbg;
+            }
         }
 
         &.jkl-button--secondary {
             background-color: $button-bg-color--primary;
             color: $button-text-color--primary;
             border-color: $button-text-color--primary;
+
+            &:hover,
+            html:not([data-mousenavigation]) &:focus {
+                color: $focus-color--darkbg;
+                border-color: $focus-color--darkbg;
+            }
         }
 
         &.jkl-button--tertiary {
             color: $button-text-color--primary;
+
+            &:hover,
+            html:not([data-mousenavigation]) &:focus {
+                color: $focus-color--darkbg;
+                border-bottom-color: $focus-color--darkbg;
+            }
+        }
+
+        html:not([data-mousenavigation]) &:focus {
+            &:after {
+                box-shadow: 0 0 0 $focus-ring-width $focus-color--darkbg;
+            }
         }
     }
 
