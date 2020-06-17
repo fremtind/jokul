@@ -1,11 +1,10 @@
 import React, { CSSProperties } from "react";
 import { Link } from "gatsby";
 import { useLocation } from "../../contexts/locationContext";
+import { DocumentationPageInfo } from "../Header/useNavigationLinks";
 
-interface SidebarMenuItemProps {
+interface SidebarMenuItemProps extends DocumentationPageInfo {
     idx: number;
-    path: string;
-    title: string;
 }
 export function SidebarMenuItem({ idx, path, title }: SidebarMenuItemProps) {
     const { currentSection } = useLocation();
@@ -20,6 +19,7 @@ export function SidebarMenuItem({ idx, path, title }: SidebarMenuItemProps) {
                 style={delayAnimation}
                 to={path}
                 state={{ lastPath: currentSection }}
+                data-testid={`sidebar-link-${title.replace(/ /g, "-")}`}
             >
                 {title}
             </Link>

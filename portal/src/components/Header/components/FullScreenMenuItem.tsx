@@ -29,6 +29,7 @@ export function FullScreenMenuItem({ idx, path, title }: FullScreenMenuItemProps
                 className="jkl-portal-full-screen-menu-item__link"
                 type="button"
                 onClick={handleClick}
+                data-testid={`fullscreen-menu-${title.replace(/ /g, "-")}`}
             >
                 {title}
             </button>

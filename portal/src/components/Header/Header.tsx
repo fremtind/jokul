@@ -17,7 +17,7 @@ export const Header = ({ className }: { className?: string }) => {
                 setCollapsed(window.scrollY > 96);
             });
     }, [setMenuIsOpen]);
-    const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
+    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
     const componentClassName = classNames(
         {
             "jkl-portal-header": true,
@@ -51,6 +51,9 @@ export const Header = ({ className }: { className?: string }) => {
                     </li>
                     <li className="jkl-portal-header__navigation-item">
                         <FullScreenMenu title="Kom i gang" items={getStartedDocPages} activePath={PageType.KOMIGANG} />
+                    </li>
+                    <li className="jkl-portal-header__navigation-item">
+                        <FullScreenMenu filterable title="Blogg" items={blogPages} activePath={PageType.BLOG} />
                     </li>
                 </ul>
             </nav>
