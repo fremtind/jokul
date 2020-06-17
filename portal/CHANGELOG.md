@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.5 (2020-06-17)
+
+
+### Bug Fixes
+
+* fix darkmode ([d38bb81](https://github.com/fremtind/jokul/commit/d38bb81b771d74fc00e89fd413fce0fc0b8c9de2))
+
+
+
+
+
 ## [3.2.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.3...@fremtind/portal@3.2.4) (2020-06-15)
 
 
