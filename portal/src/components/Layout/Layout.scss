@@ -1,12 +1,23 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
+:root,
+[data-theme="light"] {
+    --portal-bg: #{$hvit};
+    --portal-text-color: #{$svart};
+}
+
+[data-theme="dark"] {
+    --portal-bg: #{$svart};
+    --portal-text-color: #{$hvit};
+}
+
 .jkl-portal {
     @include motion("standard");
     transition-property: color;
     transition-delay: 150ms;
-    color: $svart;
-    background-color: $hvit;
+    color: var(--portal-text-color);
+    background-color: var(--portal-bg);
     display: grid;
     grid-template:
         "header header header" 96px
