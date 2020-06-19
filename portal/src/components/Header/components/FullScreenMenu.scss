@@ -40,10 +40,6 @@
         @include motion("standard");
         transition-property: transform;
 
-        position: fixed;
-        left: $layout-spacing--small;
-        top: 15vh;
-
         &:after {
             @include motion("standard");
             transition-property: transform;
@@ -57,6 +53,12 @@
             &:after {
                 transform: translateX(1ch);
             }
+        }
+
+        @include small-device {
+            position: sticky;
+            top: 15vh;
+            margin-left: -1.5em;
         }
 
         @include from-medium-device {
@@ -88,15 +90,18 @@
     }
 
     &__items {
-        height: 100%;
+        min-height: 100%;
         padding: 0;
+        padding-bottom: 5vh;
         margin: 0;
         list-style-type: none;
         display: flex;
         flex-direction: column;
 
         @include from-medium-device {
+            height: 100%;
             flex-wrap: wrap;
+            padding: 0;
         }
     }
 
