@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState, useCallback } from "react";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import classNames from "classnames";
 
 import { Link as JokulLink } from "@fremtind/jkl-core";
@@ -91,9 +91,9 @@ export const Header = ({ className }: { className?: string }) => {
             >
                 Hopp til innhold
             </JokulLink>
-            <Link to="/" className="jkl-portal-header__title">
+            <button role="link" className="jkl-portal-header__title" onClick={() => navigate("/")}>
                 Jøkul
-            </Link>
+            </button>
             <MainMenu
                 className="jkl-portal-header__menu"
                 navigationFunction={navigate}

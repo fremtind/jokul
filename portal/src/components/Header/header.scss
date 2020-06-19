@@ -37,6 +37,8 @@ $header-padding--mobile: 0 $layout-spacing--small;
 
     &__title {
         @include reset-outline;
+        background-color: transparent;
+        cursor: pointer;
         @include jkl-text-style("desktop/heading-small");
         color: inherit;
         text-decoration: none;
