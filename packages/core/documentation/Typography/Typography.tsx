@@ -5,9 +5,9 @@ import "./Typography.scss";
 export const DesktopExample = () => (
     <table className="jkl-typography-example-table">
         <tr>
-            <th className="jkl-typography-example-header">Stilnavn</th>
-            <th className="jkl-typography-example-header">Mixin</th>
-            <th className="jkl-typography-example-header">Utility-klasse</th>
+            <th className="jkl-typography-example-table__header">Stilnavn</th>
+            <th className="jkl-typography-example-table__header">Mixin</th>
+            <th className="jkl-typography-example-table__header">Utility-klasse</th>
         </tr>
         <ExampleRow text="Title large" style="title-large" type="desktop" />
         <ExampleRow text="Title small" style="title-small" type="desktop" />
@@ -24,9 +24,9 @@ export const DesktopExample = () => (
 export const CompactExample = () => (
     <table className="jkl-typography-example-table" data-compactlayout>
         <tr>
-            <th className="jkl-typography-example-header">Stilnavn</th>
-            <th className="jkl-typography-example-header">Mixin</th>
-            <th className="jkl-typography-example-header">Utility-klasse</th>
+            <th className="jkl-typography-example-table__header">Stilnavn</th>
+            <th className="jkl-typography-example-table__header">Mixin</th>
+            <th className="jkl-typography-example-table__header">Utility-klasse</th>
         </tr>
         <ExampleRow text="Title large" style="title-large" type="compact" />
         <ExampleRow text="Title small" style="title-small" type="compact" />

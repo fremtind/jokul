@@ -1,0 +1,19 @@
+---
+title: Link
+scss: core
+react: core
+---
+
+import { LinkExample } from "./Link/LinkExample";
+
+<Ingress>
+    Vi bruker lenker for å lede brukeren til andre nettsider, eller til andre steder på samme nettside. Lenker til
+    eksterne nettsider markeres med en pil opp og til høyre etter lenketeksten.
+</Ingress>
+
+<ComponentExample
+    component={LinkExample}
+    knobs={{
+        boolProps: ["Ekstern", "Invertert"],
+    }}
+/>
