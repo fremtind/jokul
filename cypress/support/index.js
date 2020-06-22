@@ -1,4 +1,6 @@
 import "cypress-plugin-snapshots/commands";
+import "cypress-axe";
+import "./checkPortalPage";
 
 Cypress.Commands.add("getByTestid", (field) => {
     cy.get(`[data-testid=${field}]`);
