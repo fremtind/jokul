@@ -1,0 +1,28 @@
+@import "../../variables/all";
+
+.jkl-typography-example-table {
+    border: 0;
+    width: 100%;
+
+    &__data,
+    &__header {
+        padding: $component-spacing--small;
+        @include jkl-text-style("desktop/body");
+        text-align: left;
+        vertical-align: top;
+        border-bottom: rem(1px) solid;
+        box-sizing: border-box;
+    }
+
+    &__header {
+        font-weight: $bold-weight;
+        border-bottom-color: $svart;
+        min-height: rem(48px);
+    }
+
+    &__data {
+        border-bottom-color: $gra-50;
+        padding-bottom: $component-spacing--large;
+        min-height: rem(64px);
+    }
+}
