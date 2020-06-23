@@ -23,9 +23,19 @@
         @content;
     }
 }
+@mixin from-medium-device {
+    @media (min-width: #{$breakpoint--small}) {
+        @content;
+    }
+}
 
 @mixin large-device {
     @media (min-width: #{$breakpoint--medium}) and (max-width: #{$breakpoint--large - 1px}) {
+        @content;
+    }
+}
+@mixin from-large-device {
+    @media (min-width: #{$breakpoint--medium}) {
         @content;
     }
 }

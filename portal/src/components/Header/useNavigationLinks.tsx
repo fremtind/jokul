@@ -45,7 +45,7 @@ export function useNavigationLinks() {
             }
         }
     `);
-    const pages = allSitePage.edges.map((edge: RawDocumentationPage) => ({
+    const pages: DocumentationPageInfo[] = allSitePage.edges.map((edge: RawDocumentationPage) => ({
         path: edge.node.path,
         ...edge.node.context.frontmatter,
     }));
@@ -53,6 +53,12 @@ export function useNavigationLinks() {
     const sortByOrder = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
         if (a.order && b.order) {
             return parseInt(a.order) - parseInt(b.order);
+        }
+        return 0;
+    };
+    const sortByDate = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
+        if (a.publishDate && b.publishDate) {
+            return parseInt(a.publishDate.replace(".", "")) - parseInt(b.publishDate.replace(".", ""));
         }
         return 0;
     };
@@ -72,14 +78,7 @@ export function useNavigationLinks() {
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
 
-    const blogPages = pages
-        .filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG))
-        .sort((a: DocumentationPageInfo, b: DocumentationPageInfo) => {
-            if (a.publishDate && b.publishDate) {
-                return parseInt(a.publishDate.replace(".", "")) < parseInt(b.publishDate.replace(".", ""));
-            }
-            return 0;
-        });
+    const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG)).sort(sortByDate);
 
     return { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType };
 }

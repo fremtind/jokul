@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.14 (2020-06-23)
+
+**Note:** Version bump only for package @fremtind/jkl-hamburger
+
+
+
+
+
 ## 1.1.13 (2020-05-19)
 
 **Note:** Version bump only for package @fremtind/jkl-hamburger

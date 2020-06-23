@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.7...@fremtind/portal@3.3.0) (2020-06-23)
+
+
+### Bug Fixes
+
+* **portal:** add type to pages returned from useNavigationLinks ([9cb3ad1](https://github.com/fremtind/jokul/commit/9cb3ad1df9876fc6bcdac922d83f64a691fe8869))
+* **portal:** display blog posts correctly ([9f78030](https://github.com/fremtind/jokul/commit/9f78030d3d348d998ec6bb48a1792cc3b18d78e5))
+* **portal:** make home link close fullscreen menus ([817aa65](https://github.com/fremtind/jokul/commit/817aa65fcf73ed51ab85ea5a3f0fcf96d5292311)), closes [#917](https://github.com/fremtind/jokul/issues/917)
+
+
+### Features
+
+* **portal:** add basic responsivity to layout ([10e0b2f](https://github.com/fremtind/jokul/commit/10e0b2f21fe9dbfa0f82211bc02895cdaa9c35ba))
+* **portal:** add layout plugin to avoid reendering static items ([cf6ef66](https://github.com/fremtind/jokul/commit/cf6ef6664294a32dd3eb6f0b136e79f5502a1872))
+* **portal:** add responsivity to main menu ([ca22441](https://github.com/fremtind/jokul/commit/ca22441aa9585e3c77bcd970b85094355e1312f9))
+* **portal:** add section/frontpage info to location context ([12030af](https://github.com/fremtind/jokul/commit/12030afdfbce0a6e1b160aea673a9e699449f732))
+
+
+
+
+
 ## [3.2.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.6...@fremtind/portal@3.2.7) (2020-06-19)
 
 
