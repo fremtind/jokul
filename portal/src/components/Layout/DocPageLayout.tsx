@@ -1,11 +1,6 @@
 import React, { ReactNode } from "react";
-import { Layout } from ".";
-import { useLocation } from "../../contexts/locationContext";
 import { Frontmatter } from "../Header/useNavigationLinks";
-import { ComponentPageHeader } from "./components/ComponentPageHeader";
-import { BlogPageHeader } from "./components/BlogPageHeader";
-
-import "../Layout/Layout.scss";
+import { BlogPageHeader, ComponentPageHeader } from "./components";
 
 interface Props {
     location: Location;
@@ -15,15 +10,13 @@ interface Props {
     };
 }
 
-export const DocPageLayout = ({ location, children, pageContext: { frontmatter } }: Props) => {
-    const { setLocation } = useLocation();
-    setLocation(location);
+export const DocPageLayout = ({ children, pageContext: { frontmatter } }: Props) => {
     return (
-        <Layout location={location} title={frontmatter.title}>
+        <>
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />
             {children}
-        </Layout>
+        </>
     );
 };
 

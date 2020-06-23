@@ -1,11 +1,12 @@
-import React, { createContext, useState, useContext, ReactNode } from "react";
+import React, { createContext, useState, useContext, ReactNode, useEffect, useReducer } from "react";
 import { withPrefix } from "gatsby";
 
 type GatsbyLocation = Location & { state?: Record<string, string> };
 interface LocationContext {
     currentPath: string;
     currentSection: string;
-    previousSection?: string;
+    sectionHasChanged?: boolean;
+    isFrontPage?: boolean;
     setLocation: (location: GatsbyLocation) => void;
 }
 
@@ -19,18 +20,54 @@ export function useLocation() {
     return useContext(locationContext);
 }
 
+interface LocationState {
+    currentPath: string;
+    currentSection: string;
+    isFrontPage: boolean;
+    sectionHasChanged: boolean;
+}
+
+interface LocationAction {
+    type: "update";
+    payload: {
+        newLocation: GatsbyLocation;
+    };
+}
+
+const reducer = (state: LocationState, action: LocationAction): LocationState => {
+    const { type, payload } = action;
+    switch (type) {
+        case "update":
+            const newPath = payload.newLocation.pathname;
+            const newSection = payload.newLocation.pathname.substr(withPrefix("").length).split("/")[0];
+            return {
+                currentPath: newPath,
+                currentSection: newSection,
+                isFrontPage: newPath === withPrefix(""),
+                sectionHasChanged: newSection !== state.currentSection,
+            };
+        default:
+            return state;
+    }
+};
+
 interface Props {
     children: ReactNode;
 }
+
 export function LocationContextProvider({ children }: Props) {
     const [gatsbyLocation, setLocation] = useState<GatsbyLocation>(window ? window.location : new Location());
-    const currentPath = gatsbyLocation.pathname;
-    const currentSection = gatsbyLocation.pathname.substr(withPrefix("").length).split("/")[0];
-    const previousSection = gatsbyLocation.state && gatsbyLocation.state?.lastPath;
+    const initialState: LocationState = {
+        currentPath: gatsbyLocation.pathname,
+        currentSection: "",
+        isFrontPage: gatsbyLocation.pathname === "/",
+        sectionHasChanged: true,
+    };
+    const [locationState, dispatch] = useReducer(reducer, initialState);
 
-    return (
-        <locationContext.Provider value={{ currentPath, currentSection, previousSection, setLocation }}>
-            {children}
-        </locationContext.Provider>
-    );
+    useEffect(() => {
+        dispatch({ type: "update", payload: { newLocation: gatsbyLocation } });
+    }, [gatsbyLocation]);
+
+    return <locationContext.Provider value={{ ...locationState, setLocation }}>{children}</locationContext.Provider>;
 }
