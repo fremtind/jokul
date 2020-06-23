@@ -22,13 +22,16 @@
         position: relative;
         padding: $layout-spacing--large $component-spacing--large;
 
-        &:before {
-            content: "Komponent";
+        &::before {
             color: $svart;
             @include jkl-text-style("desktop/micro");
             position: absolute;
             top: $component-spacing--medium;
             left: $component-spacing--large;
+        }
+
+        &:before {
+            content: attr(data-example-text);
         }
 
         &--dark {

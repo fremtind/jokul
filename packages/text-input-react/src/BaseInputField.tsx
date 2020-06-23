@@ -17,6 +17,7 @@ export interface BaseProps {
     autoComplete?: string;
     required?: boolean;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
+    name?: string;
 }
 
 export interface Props extends BaseProps {
