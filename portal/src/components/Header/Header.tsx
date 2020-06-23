@@ -52,26 +52,12 @@ export const Header = ({ className }: { className?: string }) => {
         },
         {
             linkText: "Kom i gang",
-            content: [
-                ...getStartedDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.KOMIGANG,
-                })),
-                {
-                    linkText: "Et nytt nivå",
-                    content: [
-                        { linkText: "Et valg", content: "/" },
-                        { linkText: "Nok et valg", content: "/" },
-                    ],
-                },
-            ],
+            content: getStartedDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.KOMIGANG,
+            })),
             basePath: PageType.KOMIGANG,
-        },
-        {
-            linkText: "Blogg",
-            content: "/",
-            basePath: "",
         },
     ];
     const { currentSection } = useLocation();
