@@ -22,7 +22,7 @@ export const Header = ({ className }: { className?: string }) => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
-    const { profileDocPages, getStartedDocPages, componentDocPages, PageType } = useNavigationLinks();
+    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
     const componentClassName = classNames(
         {
             "jkl-portal-header": true,
@@ -53,6 +53,15 @@ export const Header = ({ className }: { className?: string }) => {
         {
             linkText: "Kom i gang",
             content: getStartedDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.KOMIGANG,
+            })),
+            basePath: PageType.KOMIGANG,
+        },
+        {
+            linkText: "Blogg",
+            content: blogPages.map((page) => ({
                 linkText: page.title,
                 content: page.path,
                 basePath: PageType.KOMIGANG,

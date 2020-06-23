@@ -1,6 +1,17 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
+:root,
+[data-theme="light"] {
+    --portal-bg: #{$hvit};
+    --portal-text-color: #{$svart};
+}
+
+[data-theme="dark"] {
+    --portal-bg: #{$svart};
+    --portal-text-color: #{$hvit};
+}
+
 .jkl-portal {
     @include motion("standard");
     transition-property: color;

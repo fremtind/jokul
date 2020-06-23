@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button-react",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^1.4.13"
+        "@fremtind/jkl-button": "^1.5.0"
     },
     "devDependencies": {
         "@fremtind/jkl-portal-components": "^0.3.0",

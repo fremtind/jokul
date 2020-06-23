@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.3.2...@fremtind/jkl-text-input-react@3.3.3) (2020-06-04)
+
+
+### Bug Fixes
+
+* **text-input:** account for padding when setting width ([819a138](https://github.com/fremtind/jokul/commit/819a1380ed7418feacd4a6366fe589e722c3737a)), closes [#965](https://github.com/fremtind/jokul/issues/965)
+* **text-input:** remove extraneous class from input field ([5cc474e](https://github.com/fremtind/jokul/commit/5cc474e91de771439108ee6cbc826ff6d3de06be)), closes [#969](https://github.com/fremtind/jokul/issues/969)
+
+
+
+
+
 ## [3.3.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.3.1...@fremtind/jkl-text-input-react@3.3.2) (2020-05-28)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

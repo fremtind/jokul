@@ -1,21 +1,25 @@
 import { graphql, useStaticQuery } from "gatsby";
 
+export interface Frontmatter {
+    title: string;
+    react?: string;
+    scss?: string;
+    order?: string;
+    author?: string;
+    publishDate?: string;
+}
+
 interface RawDocumentationPage {
     node: {
         path: string;
         context: {
-            frontmatter: {
-                title: string;
-                order?: string;
-            };
+            frontmatter: Frontmatter;
         };
     };
 }
 
-export interface DocumentationPageInfo {
+export interface DocumentationPageInfo extends Frontmatter {
     path: string;
-    title: string;
-    order?: string;
 }
 
 export function useNavigationLinks() {
@@ -32,6 +36,8 @@ export function useNavigationLinks() {
                             frontmatter {
                                 title
                                 order
+                                author
+                                publishDate
                             }
                         }
                     }
@@ -41,8 +47,7 @@ export function useNavigationLinks() {
     `);
     const pages: DocumentationPageInfo[] = allSitePage.edges.map((edge: RawDocumentationPage) => ({
         path: edge.node.path,
-        title: edge.node.context.frontmatter.title,
-        order: edge.node.context.frontmatter.order,
+        ...edge.node.context.frontmatter,
     }));
 
     const sortByOrder = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
@@ -56,6 +61,7 @@ export function useNavigationLinks() {
         PROFIL = "profil",
         KOMIGANG = "komigang",
         KOMPONENTER = "komponenter",
+        BLOG = "blog",
     }
 
     const profileDocPages = pages
@@ -66,5 +72,14 @@ export function useNavigationLinks() {
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
 
-    return { profileDocPages, getStartedDocPages, componentDocPages, PageType };
+    const blogPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG))
+        .sort((a: DocumentationPageInfo, b: DocumentationPageInfo) => {
+            if (a.publishDate && b.publishDate) {
+                return parseInt(a.publishDate.replace(".", "")) < parseInt(b.publishDate.replace(".", ""));
+            }
+            return 0;
+        });
+
+    return { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType };
 }

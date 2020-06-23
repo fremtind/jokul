@@ -249,6 +249,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "CamillaDahlstroem",
+      "name": "CamillaDahlstroem",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11536996?v=4",
+      "profile": "https://github.com/CamillaDahlstroem",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,

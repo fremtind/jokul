@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.6...@fremtind/portal@3.2.7) (2020-06-19)
+
+
+### Bug Fixes
+
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([22b5b24](https://github.com/fremtind/jokul/commit/22b5b24a3803e29f45d006cde2e1703a1540527f))
+
+
+
+
+
+## [3.2.6](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.5...@fremtind/portal@3.2.6) (2020-06-18)
+
+
+### Bug Fixes
+
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([4a22bb7](https://github.com/fremtind/jokul/commit/4a22bb7ef02c99bfbb247dd233e56743dc566798))
+
+
+
+
+
+## 3.2.5 (2020-06-17)
+
+
+### Bug Fixes
+
+* fix darkmode ([d38bb81](https://github.com/fremtind/jokul/commit/d38bb81b771d74fc00e89fd413fce0fc0b8c9de2))
+
+
+
+
+
+## [3.2.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.3...@fremtind/portal@3.2.4) (2020-06-15)
+
+
+### Bug Fixes
+
+* fix bg ([8bf05e7](https://github.com/fremtind/jokul/commit/8bf05e7656ffd71d28c8d3b60826b413a5c3959d))
+* **portal:** explicitly set background color ([316230a](https://github.com/fremtind/jokul/commit/316230a90033cae02bbd36c293ebff2d24dc289a))
+
+
+
+
+
+## 3.2.3 (2020-06-15)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+## 3.2.2 (2020-06-02)
+
+
+### Bug Fixes
+
+* portal/package.json & portal/.snyk to reduce vulnerabilities ([aa99c43](https://github.com/fremtind/jokul/commit/aa99c437e4454fe94903cc568ad76483988b09e3))
+
+
+
+
+
 ## 3.2.1 (2020-05-28)
 
 **Note:** Version bump only for package @fremtind/portal

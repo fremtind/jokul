@@ -1,12 +1,6 @@
 import React, { ReactNode } from "react";
+import { Frontmatter } from "../Header/useNavigationLinks";
 import { GitHubLinks } from "./components";
-import "../Layout/Layout.scss";
-
-interface Frontmatter {
-    title: string;
-    react?: string;
-    scss?: string;
-}
 
 interface Props {
     location: Location;
