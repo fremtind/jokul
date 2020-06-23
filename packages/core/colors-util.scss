@@ -1,0 +1,54 @@
+@import "~@fremtind/jkl-core/variables/_colors.scss";
+
+$color-map: (
+    svart: $svart,
+    varde: $varde,
+    hvit: $hvit,
+    gra10: $gra-10,
+    gra20: $gra-20,
+    gra30: $gra-30,
+    gra40: $gra-40,
+    gra50: $gra-50,
+    gra60: $gra-60,
+    gra70: $gra-70,
+    gra80: $gra-80,
+    gra90: $gra-90,
+    gra100: $gra-100,
+    varde10: $varde-10,
+    varde20: $varde-20,
+    varde30: $varde-30,
+    varde40: $varde-40,
+    varde50: $varde-50,
+    varde60: $varde-60,
+    varde70: $varde-70,
+    varde80: $varde-80,
+    varde90: $varde-90,
+    varde100: $varde-100,
+    suksess: $suksess,
+    info: $info,
+    advarsel: $advarsel,
+    feil: $feil,
+    suksessDarkbg: $suksess--darkbg,
+    infoDarkbg: $info--darkbg,
+    advarselDarkbg: $advarsel--darkbg,
+    feilDarkbg: $feil--darkbg,
+    errorColor: $feil,
+    focusColor: $info,
+    errorColorDarkbg: $feil--darkbg,
+    focusColorDarkbg: $info--darkbg,
+);
+
+@each $property, $value in $color-map {
+    .jkl-color {
+        &__text {
+            &--#{$property} {
+                color: $value;
+            }
+        }
+        &__bg {
+            &---#{$property} {
+                background-color: $value;
+            }
+        }
+    }
+}
