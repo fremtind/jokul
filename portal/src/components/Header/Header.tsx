@@ -64,9 +64,9 @@ export const Header = ({ className }: { className?: string }) => {
             content: blogPages.map((page) => ({
                 linkText: page.title,
                 content: page.path,
-                basePath: PageType.KOMIGANG,
+                basePath: PageType.BLOG,
             })),
-            basePath: PageType.KOMIGANG,
+            basePath: PageType.BLOG,
         },
     ];
     const { currentSection } = useLocation();

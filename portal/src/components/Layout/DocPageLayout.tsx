@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { Frontmatter } from "../Header/useNavigationLinks";
-import { GitHubLinks } from "./components";
+import { BlogPageHeader, ComponentPageHeader } from "./components";
 
 interface Props {
     location: Location;
@@ -13,24 +13,11 @@ interface Props {
 export const DocPageLayout = ({ children, pageContext: { frontmatter } }: Props) => {
     return (
         <>
-            <ComponentDocPageTitle {...frontmatter} />
+            <ComponentPageHeader {...frontmatter} />
+            <BlogPageHeader {...frontmatter} />
             {children}
         </>
     );
 };
-
-function ComponentDocPageTitle({ title, scss, react }: Frontmatter) {
-    if (!(react || scss)) {
-        // Other doc pages have the title in markup
-        // Return null to avoid duplicate title
-        return null;
-    }
-    return (
-        <>
-            <h1 className="jkl-title-large">{title}</h1>
-            <GitHubLinks react={react} scss={scss} />
-        </>
-    );
-}
 
 export default DocPageLayout;

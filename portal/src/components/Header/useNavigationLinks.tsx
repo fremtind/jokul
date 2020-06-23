@@ -56,6 +56,12 @@ export function useNavigationLinks() {
         }
         return 0;
     };
+    const sortByDate = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
+        if (a.publishDate && b.publishDate) {
+            return parseInt(a.publishDate.replace(".", "")) - parseInt(b.publishDate.replace(".", ""));
+        }
+        return 0;
+    };
 
     enum PageType {
         PROFIL = "profil",
@@ -72,14 +78,7 @@ export function useNavigationLinks() {
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
 
-    const blogPages = pages
-        .filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG))
-        .sort((a: DocumentationPageInfo, b: DocumentationPageInfo) => {
-            if (a.publishDate && b.publishDate) {
-                return parseInt(a.publishDate.replace(".", "")) < parseInt(b.publishDate.replace(".", ""));
-            }
-            return 0;
-        });
+    const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG)).sort(sortByDate);
 
     return { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType };
 }
