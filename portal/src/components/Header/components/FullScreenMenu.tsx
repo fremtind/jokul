@@ -83,7 +83,13 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
 
     return (
         <>
-            {CustomButton ? <CustomButton /> : <button className={buttonClassName}>{baseItem.linkText}</button>}
+            {CustomButton ? (
+                <CustomButton />
+            ) : (
+                <button data-testid={`full-screen-menu--${baseItem.linkText}`} className={buttonClassName}>
+                    {baseItem.linkText}
+                </button>
+            )}
             <CoreToggle
                 onToggle={onToggle}
                 onToggleSelect={onToggleSelect}

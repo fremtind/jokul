@@ -19,6 +19,7 @@ export const FullScreenMenuItem: React.FC<Props> = ({
     return (
         <li className="jkl-portal-full-screen-menu-item">
             <button
+                data-testid={`full-screen-menu-item--${item.linkText.replace(/ /g, "-")}`}
                 aria-expanded={isLeaf ? undefined : "false"}
                 onClick={handleClick}
                 type="button"
