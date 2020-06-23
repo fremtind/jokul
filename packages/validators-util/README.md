@@ -17,9 +17,9 @@
 2. Importer React-pakken:
 
 ```js
-import { isEmail } from "@fremtind/jkl-validators-util";
+import { isValidEpost } from "@fremtind/jkl-validators-util";
 
-const isValidEmail = isEmail('foo@bar.com'); //true
-const isNotValidEmail = isEmail('foo@bar'); //false
+const isValidEmail = isValidEpost('foo@bar.com'); //true
+const isNotValidEmail = isValidEpost('foo@bar'); //false
 
 ```
