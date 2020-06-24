@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.3...@fremtind/portal@3.4.4) (2020-06-24)
+
+
+### Bug Fixes
+
+* **portal:** adjust margins and font sizes on mobile ([f78acd5](https://github.com/fremtind/jokul/commit/f78acd5edcefffbb227ff6150b618d2754635e0d))
+
+
+
+
+
 ## [3.4.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.2...@fremtind/portal@3.4.3) (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/portal
