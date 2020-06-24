@@ -39,7 +39,7 @@
         "@babel/preset-env": "^7.9.0",
         "@babel/preset-react": "^7.9.0",
         "@babel/preset-typescript": "^7.9.0",
-        "@commitlint/cli": "^8.0.0",
+        "@commitlint/cli": "^9.0.1",
         "@commitlint/config-conventional": "^8.0.0",
         "@cypress/browserify-preprocessor": "^2.2.1",
         "@testing-library/dom": "^6.0.0",
