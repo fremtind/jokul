@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo-react",
-    "version": "3.0.13",
+    "version": "3.0.14",
     "publishConfig": {
         "access": "public"
     },
@@ -33,11 +33,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-logo": "^2.1.14",
+        "@fremtind/jkl-logo": "^2.1.15",
         "nanoid": "^2.1.11"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.3.2"
+        "@fremtind/jkl-portal-components": "^0.3.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

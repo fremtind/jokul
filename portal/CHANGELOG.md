@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.3.1...@fremtind/portal@3.4.0) (2020-06-24)
+
+
+### Features
+
+* **portal:** add support for docs from core package ([24e6b24](https://github.com/fremtind/jokul/commit/24e6b24d0148bcc78cc575e0954639278696de2e))
+
+
+
+
+
 ## [3.3.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.3.0...@fremtind/portal@3.3.1) (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/portal
