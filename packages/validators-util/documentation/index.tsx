@@ -17,20 +17,20 @@ import "@fremtind/jkl-card/card.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
-import IsEmailExample from "./IsEmailExample";
-import IsPhoneNumberExample from "./IsPhoneNumberExample";
-import IsRegistreringsNumberExample from "./IsRegistrationNumberExample";
-import IsChassisNumberExample from "./IsChassisNumberExample";
+import isValidEpostExample from "./isValidEpostExample";
+import isValidTelefonnummerExample from "./isValidTelefonnummerExample";
+import IsRegistreringsNumberExample from "./isValidRegistreringsnummerExample";
+import isValidChassisnummerExample from "./isValidChassisnummerExample";
 
 initTabListener();
 
 const mountNode = document.getElementById("app");
 ReactDOM.render(
     <>
-        <DevExample component={IsEmailExample} />
-        <DevExample component={IsPhoneNumberExample} />
+        <DevExample component={isValidEpostExample} />
+        <DevExample component={isValidTelefonnummerExample} />
         <DevExample component={IsRegistreringsNumberExample} />
-        <DevExample component={IsChassisNumberExample} />
+        <DevExample component={isValidChassisnummerExample} />
     </>,
     mountNode,
 );
