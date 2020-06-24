@@ -3366,9 +3366,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^16.9.4":
-  version "16.9.35"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.35.tgz#a0830d172e8aadd9bd41709ba2281a3124bbd368"
-  integrity sha512-q0n0SsWcGc8nDqH2GJfWQWUOmZSJhXV64CjVN5SvcNti3TdEaA3AH0D8DwNmMdzjMAC/78tB8nAZIlV8yTz+zQ==
+  version "16.9.40"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.40.tgz#10d53b61bb364af0f04eecfa9da31e9962844ee9"
+  integrity sha512-OCkF5au6H5tn7JCMq7fuutYeawzFezrpHaRvI+Zq+n386lkU0fGrQMAB5YP/WzBiQa8tAe1IXA61+lYCqLfMZg==
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
