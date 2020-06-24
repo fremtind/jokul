@@ -53,7 +53,7 @@ const IndexPage = () => {
         <DelayText ref={ref} text="Jøkul Designsystem" delay={100}>
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
-                    <h2 className="jkl-title-small">
+                    <h2 className="jkl-title-small" data-testid="front-page__tagline">
                         Velkommen til Jøkul — designsystemet til Fremtind. Her har vi samlet alt du trenger for å lage
                         løsninger i vår profil.
                     </h2>
@@ -108,7 +108,9 @@ const IndexPage = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title-large">Elevasjon</h1>
+                                        <h1 className="jkl-title-large" data-testid="title-elevasjon">
+                                            Elevasjon
+                                        </h1>
                                         <p className="jkl-lead">
                                             Vi løfter det som er viktig og skaper et naturlig informasjonshierarki.
                                         </p>
@@ -123,7 +125,9 @@ const IndexPage = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title-large">Bevegelse</h1>
+                                        <h1 className="jkl-title-large" data-testid="title-bevegelse">
+                                            Bevegelse
+                                        </h1>
                                         <p className="jkl-lead">
                                             Vi skal utforske, se fremover og være tilpasningsdyktige.
                                         </p>
@@ -138,7 +142,9 @@ const IndexPage = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title-large">Klarhet</h1>
+                                        <h1 className="jkl-title-large" data-testid="title-klarhet">
+                                            Klarhet
+                                        </h1>
                                         <p className="jkl-lead">
                                             Vi skal fremstå som ærlig og klar, med en tydelig og varm stemme
                                         </p>

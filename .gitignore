@@ -11,4 +11,3 @@ dist/
 .iml
 .DS_Store
 cypress/videos
-__image_snapshots__/
