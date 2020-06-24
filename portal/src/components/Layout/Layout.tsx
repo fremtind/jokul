@@ -1,6 +1,8 @@
 import React, { useLayoutEffect, useRef } from "react";
 import classNames from "classnames";
 
+import { useScreen } from "@fremtind/jkl-react-hooks";
+
 import { FormatProvider } from "../Typography";
 import { Header, Sidebar, Footer } from "..";
 import { ThemeBG } from "./components";
@@ -12,17 +14,19 @@ import Helmet from "react-helmet";
 
 interface Props {
     title?: string;
-    isFrontpage?: boolean;
     location: Location;
 }
 
-export const Layout: React.FC<Props> = ({ children, title, location, isFrontpage }) => {
-    const { setLocation } = useLocation();
+export const Layout: React.FC<Props> = ({ children, title, location }) => {
+    const { setLocation, isFrontPage } = useLocation();
     setLocation(location);
     const mainClassName = classNames({
         "jkl-portal__main": true,
-        "jkl-portal__main--frontpage": isFrontpage,
+        "jkl-portal__main--frontpage": isFrontPage,
     });
+
+    const screen = useScreen();
+    const shouldShowSidebar = !(screen.isSmallDevice || screen.isMediumDevice);
 
     const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
     const { theme } = useTheme();
@@ -39,11 +43,13 @@ export const Layout: React.FC<Props> = ({ children, title, location, isFrontpage
             </Helmet>
             <ThemeBG />
             <Header className="jkl-portal__header" />
-            <Sidebar />
-            <main className={mainClassName}>
+            {shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}
+            <main id="innhold" className={mainClassName}>
                 <FormatProvider>{children}</FormatProvider>
             </main>
             <Footer className="jkl-portal__footer" />
         </div>
     );
 };
+
+export default Layout;

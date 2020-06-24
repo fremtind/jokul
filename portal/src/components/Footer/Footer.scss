@@ -2,6 +2,7 @@
 
 .jkl-portal-footer {
     display: flex;
+    flex-direction: column;
     border-top: solid rem(1px) $gra-30;
     padding-top: $layout-spacing--medium;
     margin: $layout-spacing--large $layout-spacing--medium;
@@ -16,5 +17,9 @@
         &:last-of-type {
             padding-right: 0;
         }
+    }
+
+    @include from-medium-device {
+        flex-direction: row;
     }
 }
