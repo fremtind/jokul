@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.5.4 (2020-06-25)
+
+
+### Bug Fixes
+
+* **label:** add classname prop ([370d410](https://github.com/fremtind/jokul/commit/370d410e3af47d292f5c9ce60eaa2d512a4b5fff))
+
+
+
+
+
 ## 4.5.3 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-core
