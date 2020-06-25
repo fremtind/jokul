@@ -1,7 +1,7 @@
 /* eslint "jsx-a11y/no-onchange": 0 */
 
 import React, { FocusEventHandler, ChangeEventHandler, useState, forwardRef } from "react";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import classNames from "classnames";
 

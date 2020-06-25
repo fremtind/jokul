@@ -1,6 +1,6 @@
 import React, { ReactNode, ChangeEvent, useState } from "react";
 import classNames from "classnames";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 
 interface Props {
     children: ReactNode;
