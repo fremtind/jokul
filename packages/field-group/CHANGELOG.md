@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.17 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group
+
+
+
+
+
 ## [1.1.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group@1.1.15...@fremtind/jkl-field-group@1.1.16) (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-field-group

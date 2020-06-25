@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-typography-react",
-    "version": "2.3.9",
+    "version": "2.3.10",
     "publishConfig": {
         "access": "public"
     },
@@ -37,7 +37,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.5.2"
+        "@fremtind/jkl-core": "^4.5.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

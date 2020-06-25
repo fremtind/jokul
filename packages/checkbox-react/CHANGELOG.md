@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.8 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
 ## [1.4.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.4.6...@fremtind/jkl-checkbox-react@1.4.7) (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox-react
