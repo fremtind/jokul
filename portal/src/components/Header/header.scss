@@ -9,7 +9,7 @@ $header-height--collapsed: rem(64px);
 $header-height--mobile: rem(64px);
 $header-padding: 0 $layout-spacing--medium;
 $header-padding--right: $layout-spacing--xl;
-$header-padding--mobile: 0 $layout-spacing--small;
+$header-padding--mobile: 0 $component-spacing--large;
 
 .jkl-portal-header {
     display: flex;
@@ -37,6 +37,7 @@ $header-padding--mobile: 0 $layout-spacing--small;
 
     &__title {
         @include reset-outline;
+        padding: 0;
         background-color: transparent;
         cursor: pointer;
         @include jkl-text-style("desktop/heading-small");
