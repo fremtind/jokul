@@ -23,6 +23,7 @@ export const Layout: React.FC<Props> = ({ children, title, location }) => {
     const mainClassName = classNames({
         "jkl-portal__main": true,
         "jkl-portal__main--frontpage": isFrontPage,
+        "jkl-portal__main--no-margin": location.pathname === "/profil/bildebruk",
     });
 
     const screen = useScreen();

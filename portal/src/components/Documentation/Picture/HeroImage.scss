@@ -1,0 +1,65 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+:root,
+[data-theme="light"] {
+    --hero-bg: #{$hvit};
+    --hero-text-color: #{$svart};
+    --hero-hover-color: #{$info};
+}
+
+[data-theme="dark"] {
+    --hero-bg: #{$svart};
+    --hero-text-color: #{$hvit};
+    --hero-hover-color: #{$info--darkbg};
+}
+
+.jkl-portal-fullView {
+    height: 100vh;
+}
+
+.jkl-portal-hero {
+    position: relative;
+    max-height: 90vh;
+    overflow: hidden;
+    @include small-device {
+        height: 90vh;
+        &__card {
+            max-width: 100%;
+        }
+    }
+
+    &__card {
+        @include reset-outline();
+        cursor: pointer;
+        background-color: transparent;
+        text-align: left;
+        position: absolute;
+        bottom: $component-spacing--xxl;
+        left: $component-spacing--large;
+        background-color: var(--hero-bg);
+        color: var(--hero-text-color);
+        max-width: 900px;
+        margin-right: $component-spacing--xxl;
+        padding: $component-spacing--xxl;
+
+        @include motion("standard", "expressive");
+        transition-property: box-shadow;
+
+        @include small-device {
+        }
+
+        &__arrow {
+            @include motion("standard", "expressive");
+            transition-property: color, transform;
+        }
+
+        &:hover {
+            box-shadow: $drop-shadow--large;
+            .jkl-portal-hero__card__arrow {
+                color: var(--hero-hover-color);
+                transform: translateY(10px);
+            }
+        }
+    }
+}
