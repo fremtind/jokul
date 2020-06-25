@@ -27,7 +27,7 @@
     },
     "dependencies": {
         "classnames": "^2.2.6",
-        "eslint-plugin-react-hooks": "^2.5.1",
+        "eslint-plugin-react-hooks": "^4.0.4",
         "framer-motion": "^1.8.4",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
@@ -39,7 +39,7 @@
         "@babel/preset-env": "^7.9.0",
         "@babel/preset-react": "^7.9.0",
         "@babel/preset-typescript": "^7.9.0",
-        "@commitlint/cli": "^8.0.0",
+        "@commitlint/cli": "^9.0.1",
         "@commitlint/config-conventional": "^8.0.0",
         "@cypress/browserify-preprocessor": "^2.2.1",
         "@testing-library/dom": "^6.0.0",
