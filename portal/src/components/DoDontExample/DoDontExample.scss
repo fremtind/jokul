@@ -6,17 +6,22 @@
     padding: $component-spacing--medium;
     padding-bottom: $component-spacing--large;
     margin-bottom: $layout-spacing--large;
+    width: 100%;
 
     &:not(:last-of-type) {
         margin-right: $layout-spacing--medium;
     }
 
     &--fullwidth {
-        width: calc(100% - 10.5rem);
-        max-width: 50vw;
+        width: 100%;
+        max-width: rem(894px);
+    }
+    &--halfwidth {
+        max-width: rem(420px);
     }
 
-    &__image {
+    &__image,
+    & img {
         width: 100%;
         margin-bottom: $component-spacing--large;
     }

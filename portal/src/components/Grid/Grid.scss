@@ -1,0 +1,21 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-grid {
+    display: flex;
+    justify-content: space-between;
+
+    &--medium {
+        max-width: rem(894px);
+    }
+
+    &--col {
+        margin: rem(20px);
+        flex: 1;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

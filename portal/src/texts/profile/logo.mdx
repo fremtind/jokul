@@ -4,48 +4,65 @@ path: /profil/logo
 order: 4
 ---
 
+import { DoDontExample } from "../../components/DoDontExample";
+import { Grid } from "../../components/Grid";
+import LogoDefault from "../../../public/assets/documentation/logo/logo-default.svg";
+import LogoSymbol from "../../../public/assets/documentation/logo/logo-symbol.svg";
+import LogoDescribed from "../../../public/assets/documentation/logo/logo-described.svg";
+import LogoWrong from "../../../public/assets/documentation/logo/logo-wrong-use.svg";
+import LogoCorrect from "../../../public/assets/documentation/logo/logo-correct-use.svg";
+import LogoCorrectColor from "../../../public/assets/documentation/logo/logo-correct-color.svg";
+import LogoWrongColor from "../../../public/assets/documentation/logo/logo-wrong-color.svg";
+import LogoWrongShadow from "../../../public/assets/documentation/logo/logo-wrong-shadow.svg";
+
 # Logo
 Logoen er navnetrekket vårt. Vi skal i utgangspunktet bruke logoen alene, slik at den får fokus.
 
 I tillegg til logoen har vi et logosymbol, som er utledet fra «F-en» i logoen. F-en tipper mot høyre og former en tinde. Logosymbolet passer god til små flater, for å skape et tydeligere visuelt uttrykk. Det gir oss også større fleksibilitet i logobruk.
+
+<Grid>
+    <DoDontExample content={<img src={LogoDefault}/>} type="do" description="Logo"/>
+    <DoDontExample content={<img src={LogoSymbol}/>} type="do" description="Logosymbol"/>
+</Grid>
 
 ## Slik bruker du logoen
 
 ### Avstand rundt
 Avstanden rundt logoen og logosymbolet bør være minst halvparten av Fremtind-F-ens høyde. Under logoene bør avstanden være minst 3/4 (0,75 %) av F-ens høyde. Ikke sett logo eller logosymbol i en ramme, de skal stå mest mulig fritt på flaten.
 
-_Eksempel_
+<DoDontExample fullWidth content={<img src={LogoDescribed}/>} type="do" description="Logo og logosymbol skal enten være sorte eller hvite med god kontrast til bakgrunnen."/>
+
 
 ### Avstand mellom logo og logosymbol
-Logoen og logosymbolet skal aldri stå så nær hverandre at de oppfattes som ett symbol. Hvis vi skal bruke dem sammen, skal de stå tydelig atskilt. Logosymbolet skal alltid stå i toppen og logoen i bunnen, dersom de brukes på samme flate.
+Avstanden rundt logoen og Logoen og logosymbolet skal aldri stå så nær hverandre at de oppfattes som ett symbol. Hvis vi skal bruke dem sammen, skal de stå tydelig atskilt. 
+Logosymbolet skal alltid stå i toppen og logoen i bunnen, dersom de brukes på samme flate.logosymbolet bør være minst halvparten av Fremtind-F-ens høyde. Under logoene bør avstanden være minst 3/4 (75 %) av F-ens høyde. Ikke sett logo eller logosymbol i en ramme, de skal stå mest mulig fritt på flaten.
 
-_Eksempel_
+<Grid>
+    <DoDontExample content={<img src={LogoCorrect}/>} type="do" description="Logosymbolet skal stå i toppen og logoen i bunnen, hvis de brukes på samme flate"/>
+    <DoDontExample content={<img src={LogoWrong}/>} type="dont" description="Ikke sett logo og logosymbol sammen. Benytt en alene."/>
+</Grid>
 
 ### Farger
 Logo og logosymbol skal brukes i svart eller hvitt - ikke andre farger. Pass på at logoen alltid har god kontrast mot bakgrunnsfargen med tanke på kravene til universell utforming.
 
-_Eksempel_
-
+<Grid>
+    <DoDontExample content={<img src={LogoCorrectColor}/>} type="do" description="Logo og logosymbol skal enten være sorte eller hvite med god kontrast til bakgrunnen."/>
+    <DoDontExample content={<img src={LogoWrongColor}/>} type="dont" description="Logo eller logosymbol i annen farge enn svart eller hvit"/>
+</Grid>
 
 ### Proporsjoner
-Logoen skal alltid beholde sine opprinnelige proporsjoner - ikke strekk den.
-Tips: Hold **Shift** inne når du skal skalere logo og bilder, så blir proporsjonene riktige.
+Logoen skal alltid beholde sine opprinnelige proporsjoner - ikke strekk den. Tips: Hold Shift inne når du skal skalere logo og bilder, så blir proporsjonene riktige.
 
 ### Skygge og relieff
 Vi skal aldri legge skygge eller relieffeffekter på eller under logoen.
 
-_Eksempler_
+<Grid>
+    <DoDontExample fullWidth={false} content={<img src={LogoWrongShadow}/>} type="dont" description="Ikke bruk skygge eller relieffeffekter på logo og logosymbol" type="small"/>
+</Grid>
 
 ### Plassering i skjema, på nettsider og på kort
-_Eksempel på logosymbolet i toppteksten og og logoen i bunnteksten (nettside og skjema)_
-_Eksempel når de står i en modul, på et kort eller midt på siden_
+Eksempel på logosymbolet i toppteksten og og logoen i bunnteksten (nettside og skjema) Eksempel når de står i en modul, på et kort eller midt på siden
 
-## Eksempler i Figma
 
-https://www.figma.com/file/TkbB9ANfejDSjB2u4u1OEuqM/J%C3%B8kul-komponenter-byggesone?node-id=5909%3A0
 
-## Her finner du logooriginalene
 
-_Lenke_
-
-### Vektor- og pikselversjoner
