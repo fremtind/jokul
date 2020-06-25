@@ -8,10 +8,19 @@ interface Props {
     srOnly?: boolean;
     standAlone?: boolean;
     htmlFor?: string;
+    className?: string;
 }
 
-export const Label: React.FC<Props> = ({ variant = "medium", forceCompact, srOnly, children, standAlone, htmlFor }) => {
-    const className = classNames("jkl-label", {
+export const Label: React.FC<Props> = ({
+    variant = "medium",
+    forceCompact,
+    srOnly,
+    children,
+    standAlone,
+    htmlFor,
+    className = "",
+}) => {
+    const labelClassNames = classNames("jkl-label", className, {
         [`jkl-label--${variant}`]: variant,
         "jkl-label--compact": forceCompact,
         "jkl-label--sr-only": srOnly,
@@ -29,7 +38,7 @@ export const Label: React.FC<Props> = ({ variant = "medium", forceCompact, srOnl
     }
 
     return (
-        <C className={className} htmlFor={htmlFor}>
+        <C className={labelClassNames} htmlFor={htmlFor}>
             {children}
         </C>
     );
