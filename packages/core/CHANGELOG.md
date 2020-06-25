@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.5.3 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+## [4.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.5.1...@fremtind/jkl-core@4.5.2) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+## [4.5.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.5.0...@fremtind/jkl-core@4.5.1) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
 # 4.5.0 (2020-06-23)
 
 

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.5 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion-react
+
+
+
+
+
+## [1.4.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.3...@fremtind/jkl-accordion-react@1.4.4) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion-react
+
+
+
+
+
+## [1.4.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.2...@fremtind/jkl-accordion-react@1.4.3) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion-react
+
+
+
+
+
 ## 1.4.2 (2020-06-23)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion-react

@@ -1,0 +1,157 @@
+@import "../../variables/_all.scss";
+@import "../../mixins/helpers";
+
+.jkl-colors__section {
+    padding: $component-spacing--large;
+    margin: $layout-spacing--large 0;
+    background-color: $hvit;
+
+    *[data-theme="dark"] & {
+        background-color: $svart;
+    }
+}
+
+.jkl-color-box {
+    width: 0;
+    height: 0;
+    border: solid 20px;
+    border-color: transparent;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 250ms ease-in-out;
+
+    &__text {
+        display: block;
+        margin: $component-spacing--medium $component-spacing--xxl;
+        width: 180px;
+    }
+
+    &--left {
+        transform: rotate(-90deg);
+        .jkl-color-box__text {
+            transform: rotate(90deg);
+        }
+    }
+
+    &--right {
+        transform: rotate(90deg);
+        .jkl-color-box__text {
+            transform: rotate(-90deg);
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        @include reset-outline();
+        background-color: transparent;
+
+        &:hover {
+            color: $info;
+            *[data-theme="dark"] & {
+                color: $info--darkbg;
+            }
+        }
+    }
+
+    &--svart {
+        border-bottom-color: $svart;
+    }
+    &--hvit {
+        border-bottom-color: $hvit;
+    }
+    &--gra-10 {
+        border-bottom-color: $gra-10;
+    }
+    &--gra-20 {
+        border-bottom-color: $gra-20;
+    }
+    &--gra-30 {
+        border-bottom-color: $gra-30;
+    }
+    &--gra-40 {
+        border-bottom-color: $gra-40;
+    }
+    &--gra-50 {
+        border-bottom-color: $gra-50;
+    }
+    &--gra-60 {
+        border-bottom-color: $gra-60;
+    }
+    &--gra-70 {
+        border-bottom-color: $gra-70;
+    }
+    &--gra-80 {
+        border-bottom-color: $gra-80;
+    }
+    &--gra-90 {
+        border-bottom-color: $gra-90;
+    }
+    &--gra-100 {
+        border-bottom-color: $gra-100;
+    }
+    &--varde-10 {
+        border-bottom-color: $varde-10;
+    }
+    &--varde-20 {
+        border-bottom-color: $varde-20;
+    }
+    &--varde-30 {
+        border-bottom-color: $varde-30;
+    }
+    &--varde-40 {
+        border-bottom-color: $varde-40;
+    }
+    &--varde-50 {
+        border-bottom-color: $varde-50;
+    }
+    &--varde {
+        border-bottom-color: $varde;
+    }
+    &--varde-60 {
+        border-bottom-color: $varde-60;
+    }
+    &--varde-70 {
+        border-bottom-color: $varde-70;
+    }
+    &--varde-80 {
+        border-bottom-color: $varde-80;
+    }
+    &--varde-90 {
+        border-bottom-color: $varde-90;
+    }
+    &--varde-100 {
+        border-bottom-color: $varde-100;
+    }
+    &--suksess {
+        border-bottom-color: $suksess;
+    }
+    &--info {
+        border-bottom-color: $info;
+    }
+    &--advarsel {
+        border-bottom-color: $advarsel;
+    }
+    &--feil {
+        border-bottom-color: $feil;
+    }
+    &--suksess--darkbg {
+        border-bottom-color: $suksess--darkbg;
+    }
+    &--info--darkbg {
+        border-bottom-color: $info--darkbg;
+    }
+    &--advarsel--darkbg {
+        border-bottom-color: $advarsel--darkbg;
+    }
+    &--feil--darkbg {
+        border-bottom-color: $feil--darkbg;
+    }
+}
+
+.jkl-color__copy {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
