@@ -69,6 +69,18 @@
         }
     }
 
+    &__main--no-margin {
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        @include small-device {
+            padding-left: 0;
+        }
+        @include medium-device {
+            padding-left: 0;
+        }
+    }
+
     &[data-theme="dark"] {
         color: $gra-10;
     }
