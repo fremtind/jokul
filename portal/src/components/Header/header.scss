@@ -6,14 +6,15 @@ $header-bg-color: $hvit;
 $header-bg-color--inverted: $svart;
 $header-height: rem(96px);
 $header-height--collapsed: rem(64px);
+$header-height--mobile: rem(64px);
 $header-padding: 0 $layout-spacing--medium;
 $header-padding--right: $layout-spacing--xl;
+$header-padding--mobile: 0 $component-spacing--large;
 
 .jkl-portal-header {
     display: flex;
-    height: $header-height;
-    padding: $header-padding;
-    padding-right: $header-padding--right;
+    height: $header-height--mobile;
+    padding: $header-padding--mobile;
     align-items: center;
     justify-content: space-between;
     z-index: $z-index--header;
@@ -25,8 +26,20 @@ $header-padding--right: $layout-spacing--xl;
     @include motion("standard", "lazy");
     transition-property: height;
 
+    &__skip-to-content {
+        z-index: $z-index--floating;
+        padding: $component-spacing--medium;
+        background-color: $hvit;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
     &__title {
         @include reset-outline;
+        padding: 0;
+        background-color: transparent;
+        cursor: pointer;
         @include jkl-text-style("desktop/heading-small");
         color: inherit;
         text-decoration: none;
@@ -40,30 +53,9 @@ $header-padding--right: $layout-spacing--xl;
             font-weight: $bold-weight;
         }
     }
-    &__navigation {
+
+    &__menu {
         height: 100%;
-
-        &-list {
-            list-style-type: none;
-            display: block;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-
-        &-item {
-            @include jkl-text-style("desktop/body");
-            display: inline-block;
-            height: 100%;
-            color: inherit;
-            &:not(:last-child) {
-                margin-right: $component-spacing--xxl;
-            }
-        }
-    }
-
-    &--collapsed {
-        height: $header-height--collapsed;
     }
 
     *[data-theme="dark"] & {
@@ -72,6 +64,16 @@ $header-padding--right: $layout-spacing--xl;
 
         &__title {
             color: $hvit;
+        }
+    }
+
+    @include from-medium-device {
+        padding: $header-padding;
+        padding-right: $header-padding--right;
+        height: $header-height;
+
+        &--collapsed {
+            height: $header-height--collapsed;
         }
     }
 }

@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.8 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox
+
+
+
+
+
+## [1.2.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.2.6...@fremtind/jkl-checkbox@1.2.7) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox
+
+
+
+
+
+## [1.2.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.2.5...@fremtind/jkl-checkbox@1.2.6) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox
+
+
+
+
+
+## 1.2.5 (2020-06-23)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox
+
+
+
+
+
 ## 1.2.4 (2020-05-19)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox

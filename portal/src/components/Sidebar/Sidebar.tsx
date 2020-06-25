@@ -8,15 +8,17 @@ import { useTheme } from "../../contexts/themeContext";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
 
-export function Sidebar() {
+export function Sidebar({ className }: { className?: string }) {
     const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
 
-    const { currentSection, previousSection } = useLocation();
-    const pathHasChanged = previousSection && previousSection !== currentSection;
-    const sidebarClassName = classNames({
-        "jkl-portal-sidebar-menu": true,
-        "jkl-portal-sidebar-menu--animated": pathHasChanged,
-    });
+    const { currentSection, sectionHasChanged } = useLocation();
+    const sidebarClassName = classNames(
+        {
+            "jkl-portal-sidebar-menu": true,
+            "jkl-portal-sidebar-menu--animated": sectionHasChanged,
+        },
+        className,
+    );
     if (currentSection === "") {
         return null;
     }
@@ -40,7 +42,7 @@ export function Sidebar() {
     }
 
     return (
-        <nav className={sidebarClassName}>
+        <nav className={sidebarClassName} aria-label="Sidemeny">
             <SidebarMenu currentPath={currentSection} links={links} />
         </nav>
     );

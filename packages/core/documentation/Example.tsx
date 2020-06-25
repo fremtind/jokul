@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../core.scss";
 import "./style.scss";
+import Colors from "./Colors/Colors";
 
 interface BoxProps {
     type: "color" | "component" | "layout";
@@ -49,6 +50,7 @@ const Example = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <Typo />
         <Spacing />
+        <Colors />
     </section>
 );
 

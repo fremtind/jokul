@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "1.5.5",
+    "version": "1.5.9",
     "publishConfig": {
         "access": "public"
     },
@@ -34,11 +34,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-message-box": "^1.5.3"
+        "@fremtind/jkl-message-box": "^1.5.7"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^4.4.3",
-        "@fremtind/jkl-portal-components": "^0.3.0"
+        "@fremtind/jkl-core": "^4.5.3",
+        "@fremtind/jkl-portal-components": "^0.3.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

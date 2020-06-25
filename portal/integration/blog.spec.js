@@ -4,8 +4,8 @@ context("Blog", () => {
     });
 
     it("Blog should work", () => {
-        cy.getByTestid("header-Blogg").click();
-        cy.getByTestid("fullscreen-menu-Framer-motion-i-Jøkul")
+        cy.getByTestid("full-screen-menu--Blogg").click();
+        cy.getByTestid("full-screen-menu-item--Framer-motion-i-Jøkul")
             .click()
             .get("h1")
             .should("contain", "Framer motion i Jøkul");

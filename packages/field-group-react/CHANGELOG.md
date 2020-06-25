@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.16 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## [1.3.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.3.14...@fremtind/jkl-field-group-react@1.3.15) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## [1.3.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.3.13...@fremtind/jkl-field-group-react@1.3.14) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## 1.3.13 (2020-06-23)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
 ## 1.3.12 (2020-05-20)
 
 **Note:** Version bump only for package @fremtind/jkl-field-group-react
