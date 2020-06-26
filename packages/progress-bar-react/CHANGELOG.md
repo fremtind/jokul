@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.21 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-progress-bar-react
+
+
+
+
+
+## 1.3.20 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-progress-bar-react
+
+
+
+
+
 ## [1.3.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-progress-bar-react@1.3.18...@fremtind/jkl-progress-bar-react@1.3.19) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-progress-bar-react

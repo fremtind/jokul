@@ -2,6 +2,7 @@ exports.onCreatePage = async ({ page, actions }) => {
     const { createPage, deletePage } = actions;
     const componentPageMatch = page.path.match(/\/.*react.*\/documentation\/(.*)\//);
     const corePageMatch = page.path.match(/\/core\/documentation\/(.*)\//);
+    const utilPageMatch = page.path.match(/\/.*util.*\/documentation\/(.*)\//);
     const pageSpecifiedPath = page.context.frontmatter && page.context.frontmatter.path;
 
     const makePage = (path) => {
@@ -16,6 +17,9 @@ exports.onCreatePage = async ({ page, actions }) => {
     }
     if (corePageMatch) {
         makePage(`/komponenter/${corePageMatch[1].toLowerCase()}`);
+    }
+    if (utilPageMatch) {
+        makePage(`/komponenter/${utilPageMatch[1].toLowerCase()}`);
     }
 
     // If page has a specified path, use that

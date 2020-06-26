@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.21 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-loader-react
+
+
+
+
+
+## 1.2.20 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-loader-react
+
+
+
+
+
 ## [1.2.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@1.2.18...@fremtind/jkl-loader-react@1.2.19) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-loader-react

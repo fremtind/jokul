@@ -12,6 +12,7 @@ export interface Props {
         choiceProps?: Array<ChoiceProp>;
     };
 }
+
 export function ComponentExample({ component, knobs }: Props) {
     const [uid] = useState(`example${nanoid(8)}`);
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
@@ -58,7 +59,7 @@ export function ComponentExample({ component, knobs }: Props) {
     return (
         <>
             <section className="jkl-portal-component-example">
-                <div data-theme={theme} className={wrapperClassName}>
+                <div data-theme={theme} className={wrapperClassName} data-example-text="Komponent">
                     {createElement(component, { boolValues, choiceValues })}
                 </div>
                 {(knobs?.boolProps || knobs?.choiceProps) && (
