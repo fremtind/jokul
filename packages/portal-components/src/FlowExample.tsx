@@ -12,7 +12,7 @@ export const FlowExample: React.FC = ({ children }) => {
     const toggleTheme = () => (theme === "light" ? setTheme("dark") : setTheme("light"));
     const toggleIsCompact = () => setIsCompact(!isCompact);
 
-    const registerKnobs = useCallback(setKnobs, []);
+    const registerKnobs = useCallback(setKnobs, [setKnobs]);
 
     const wrapperClassName = classNames({
         "jkl-portal-component-example__example-wrapper": true,
