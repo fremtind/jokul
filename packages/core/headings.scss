@@ -1,9 +1,13 @@
 @import "./variables/font-size";
+@import "./mixins/screens";
 
 .jkl-title-large {
     @include jkl-text-style("desktop/title-large");
 
     @include small-device {
+        @include jkl-text-style("compact/title-large");
+    }
+    *[data-compactlayout] & {
         @include jkl-text-style("compact/title-large");
     }
 }
@@ -13,11 +17,17 @@
     @include small-device {
         @include jkl-text-style("compact/title-small");
     }
+    *[data-compactlayout] & {
+        @include jkl-text-style("compact/title-small");
+    }
 }
 .jkl-heading-large {
     @include jkl-text-style("desktop/heading-large");
 
     @include small-device {
+        @include jkl-text-style("compact/heading-large");
+    }
+    *[data-compactlayout] & {
         @include jkl-text-style("compact/heading-large");
     }
 }
@@ -27,11 +37,17 @@
     @include small-device {
         @include jkl-text-style("compact/heading-medium");
     }
+    *[data-compactlayout] & {
+        @include jkl-text-style("compact/heading-medium");
+    }
 }
 .jkl-heading-small {
     @include jkl-text-style("desktop/heading-small");
 
     @include small-device {
+        @include jkl-text-style("compact/heading-small");
+    }
+    *[data-compactlayout] & {
         @include jkl-text-style("compact/heading-small");
     }
 }

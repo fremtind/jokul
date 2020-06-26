@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState, useEffect, useRef, FocusEvent, useCallback } from "react";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import classNames from "classnames";
 
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
