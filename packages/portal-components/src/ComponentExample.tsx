@@ -53,7 +53,6 @@ export function ComponentExample({ component, knobs }: Props) {
     };
     const wrapperClassName = classNames({
         "jkl-portal-component-example__example-wrapper": true,
-        "jkl-portal-component-example__example-wrapper--component": true,
         "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
     });
 
