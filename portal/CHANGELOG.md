@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.5.4...@fremtind/portal@3.6.0) (2020-06-26)
+
+
+### Features
+
+* add util package for validation ([417ac14](https://github.com/fremtind/jokul/commit/417ac145a3c021f3b5f9e5fc2824ce4021e55e21))
+
+
+
+
+
 ## [3.5.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.5.3...@fremtind/portal@3.5.4) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/portal
