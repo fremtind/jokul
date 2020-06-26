@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.5.4...@fremtind/jkl-core@4.5.5) (2020-06-26)
+
+
+### Bug Fixes
+
+* **core:** make text style util classes respect compact mode ([1c04b73](https://github.com/fremtind/jokul/commit/1c04b73f94de60ead9d423966c0a250a1da2dd86))
+
+
+
+
+
 ## 4.5.4 (2020-06-25)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line-react@1.2.18...@fremtind/jkl-divider-line-react@1.2.19) (2020-06-26)
+
+
+### Bug Fixes
+
+* align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+
+
+
+
+
 ## 1.2.18 (2020-06-25)
 
 **Note:** Version bump only for package @fremtind/jkl-divider-line-react

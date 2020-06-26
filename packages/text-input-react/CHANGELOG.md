@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.3.8...@fremtind/jkl-text-input-react@3.3.9) (2020-06-26)
+
+
+### Bug Fixes
+
+* align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+
+
+
+
+
 ## 3.3.8 (2020-06-25)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react
