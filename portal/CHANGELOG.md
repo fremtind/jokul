@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.6...@fremtind/portal@3.5.0) (2020-06-26)
+
+
+### Features
+
+* **portal:** add ids to level 2 headings for linking ([4dfd1d3](https://github.com/fremtind/jokul/commit/4dfd1d33042a9148c9bc794572018f2445e60d50))
+
+
+
+
+
 ## [3.4.6](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.5...@fremtind/portal@3.4.6) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/portal
