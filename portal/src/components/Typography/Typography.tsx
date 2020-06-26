@@ -8,11 +8,14 @@ export const PageTitle: React.FC = ({ children, ...rest }) => (
     </h1>
 );
 
-export const HeadingLarge: React.FC = ({ children, ...rest }) => (
-    <h2 className="jkl-heading-large jkl-portal-heading-large" {...rest}>
-        {children}
-    </h2>
-);
+export const HeadingLarge: React.FC = ({ children, ...rest }) => {
+    const id = typeof children === "string" ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-") : undefined;
+    return (
+        <h2 className="jkl-heading-large jkl-portal-heading-large" id={id} {...rest}>
+            {children}
+        </h2>
+    );
+};
 
 export const HeadingMedium: React.FC = ({ children, ...rest }) => (
     <h3 className="jkl-heading-medium jkl-portal-heading-medium" {...rest}>
