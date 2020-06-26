@@ -1,0 +1,133 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+.jkl-portal-color-info {
+    display: inline-flex;
+
+    &__swatch {
+        width: rem(104px);
+        height: rem(104px);
+        flex-shrink: 0;
+        margin-right: $layout-spacing--small;
+    }
+
+    &--vertical {
+        flex-direction: column;
+
+        .jkl-portal-color-info__swatch {
+            margin-bottom: $layout-spacing--medium;
+        }
+    }
+}
+
+.jkl-portal-color-swatch {
+    min-height: rem(20px);
+    min-width: rem(20px);
+    position: relative;
+
+    &__diamond {
+        fill: currentColor;
+        stroke-width: 0.1;
+        stroke: currentColor;
+    }
+
+    &--hvit {
+        color: $hvit;
+        .jkl-portal-color-swatch__diamond {
+            stroke: $svart;
+        }
+    }
+    &--varde {
+        color: $varde;
+    }
+    &--svart {
+        color: $svart;
+    }
+    &--suksess {
+        color: $suksess;
+    }
+    &--advarsel {
+        color: $advarsel;
+    }
+    &--feil {
+        color: $feil;
+    }
+    &--info {
+        color: $info;
+    }
+    &--suksess--darkbg {
+        color: $suksess--darkbg;
+    }
+    &--advarsel--darkbg {
+        color: $advarsel--darkbg;
+    }
+    &--feil--darkbg {
+        color: $feil--darkbg;
+    }
+    &--info--darkbg {
+        color: $info--darkbg;
+    }
+
+    &--varde-10 {
+        color: $varde-10;
+    }
+    &--varde-20 {
+        color: $varde-20;
+    }
+    &--varde-30 {
+        color: $varde-30;
+    }
+    &--varde-40 {
+        color: $varde-40;
+    }
+    &--varde-50 {
+        color: $varde-50;
+    }
+    &--varde-60 {
+        color: $varde-60;
+    }
+    &--varde-70 {
+        color: $varde-70;
+    }
+    &--varde-80 {
+        color: $varde-80;
+    }
+    &--varde-90 {
+        color: $varde-90;
+    }
+    &--varde-100 {
+        color: $varde-100;
+    }
+
+    &--gra-10 {
+        color: $gra-10;
+    }
+    &--gra-20 {
+        color: $gra-20;
+    }
+    &--gra-30 {
+        color: $gra-30;
+    }
+    &--gra-40 {
+        color: $gra-40;
+    }
+    &--gra-50 {
+        color: $gra-50;
+    }
+    &--gra-60 {
+        color: $gra-60;
+    }
+    &--gra-70 {
+        color: $gra-70;
+    }
+    &--gra-80 {
+        color: $gra-80;
+    }
+    &--gra-90 {
+        color: $gra-90;
+    }
+    &--gra-100 {
+        color: $gra-100;
+    }
+}
