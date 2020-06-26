@@ -1,0 +1,40 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-downloadasset {
+    display: inline-block;
+    padding: rem(16px);
+
+    &--dark-bg {
+        background-color: black;
+    }
+    &--image {
+        width: rem(300px);
+        height: auto;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &--name {
+        padding: rem(16px);
+        display: block;
+        &-dark {
+            color: white;
+        }
+    }
+    &--button {
+        background: none;
+        box-shadow: 0px 0px 0px transparent;
+        border: 0px solid transparent;
+        text-shadow: 0px 0px 0px transparent;
+        &:hover {
+            cursor: pointer;
+            background: none;
+            box-shadow: 0px 0px 0px transparent;
+            border: 0px solid transparent;
+            text-shadow: 0px 0px 0px transparent;
+        }
+        &:focus {
+            outline: 0;
+        }
+    }
+}
