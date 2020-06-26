@@ -1,7 +1,7 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState, useEffect, useCallback } from "react";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
