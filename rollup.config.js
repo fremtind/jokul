@@ -15,7 +15,7 @@ const defaultPlugins = [
     babel({
         rootMode: "upward",
         extensions,
-        exclude: ["node_modules/**"], // only transpile our source code
+        exclude: [/node_modules\/(?!nanoid)/], // only transpile our source code
     }),
     commonjs({
         namedExports: {

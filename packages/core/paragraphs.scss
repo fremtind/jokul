@@ -1,9 +1,13 @@
 @import "./variables/font-size";
+@import "./mixins/screens";
 
 .jkl-lead {
     @include jkl-text-style("desktop/lead");
 
     @include small-device {
+        @include jkl-text-style("compact/lead");
+    }
+    *[data-compactlayout] & {
         @include jkl-text-style("compact/lead");
     }
 }
@@ -14,6 +18,9 @@
     @include small-device {
         @include jkl-text-style("compact/body");
     }
+    *[data-compactlayout] & {
+        @include jkl-text-style("compact/body");
+    }
 }
 
 .jkl-small {
@@ -22,12 +29,18 @@
     @include small-device {
         @include jkl-text-style("compact/small");
     }
+    *[data-compactlayout] & {
+        @include jkl-text-style("compact/small");
+    }
 }
 
 .jkl-micro {
     @include jkl-text-style("desktop/micro");
 
     @include small-device {
+        @include jkl-text-style("compact/micro");
+    }
+    *[data-compactlayout] & {
         @include jkl-text-style("compact/micro");
     }
 }
