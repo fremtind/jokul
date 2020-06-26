@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.17 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
 ## 0.2.16 (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-icon-button-react
