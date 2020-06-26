@@ -1,5 +1,6 @@
 ---
 title: Framer motion i Jøkul
+description: Hvordan lage virkningsfulle bevelgelser på en enkel måte med Jøkul og Framer motion
 author: Leiv Fredrik Berge
 publishDate: "2020.06.06"
 ---
@@ -14,10 +15,7 @@ import Example from "./Example";
 <Example />
 
 ```tsx
-<motion.div
-    whileHover={{ scale: 1.15 }}
-    whileTap={{ rotate: 45, scale: 0.95 }}
-/>
+<motion.div whileHover={{ scale: 1.15 }} whileTap={{ rotate: 45, scale: 0.95 }} />
 ```
 
 APIet til Framer Motion er relativt enkelt å sette seg inn i, og gir mange mulighter til å lage interaktive animasjoner. I eksemplet over er det enkle bevelgelser på hover og tap.
@@ -72,5 +70,5 @@ Så når `currentSection` endrer seg, så sparker vi igang en async funksjon som
 Vi kobler den til riktig motion element med å sende inn objektet i animate propen. Det gjør at man kan ganske enkelt orkistrere kompliserte animasjoner.
 
 Så langt jeg holdt på med Framer Motion virker det til å være en lovende løsning for å få på plass bevegelsen som Fremtind profilen trenger. Det er fortsatt mye igjen å sette seg inn i,
-for å se om dette kan være en god løsning for flere av applikasjonene våre, og om vi skal kunne tilby standardiserte varianter igjenom Jøkul feks. God dokumentasjon, god utvikleropplevelse 
+for å se om dette kan være en god løsning for flere av applikasjonene våre, og om vi skal kunne tilby standardiserte varianter igjenom Jøkul feks. God dokumentasjon, god utvikleropplevelse
 og bra resultat, gjør at jeg syns det er verdt å jobbe videre med Framer Motion.
