@@ -16,14 +16,15 @@
     @include motion("standard");
     transition-property: color;
     transition-delay: 150ms;
-    color: $svart;
+    color: var(--portal-text-color);
+    background-color: var(--portal-bg);
 
     &__sidebar {
         display: none;
     }
 
     &__main {
-        padding: $layout-spacing--small;
+        padding: $component-spacing--large;
         padding-top: $layout-spacing--large;
     }
 
@@ -65,6 +66,18 @@
 
         &__footer {
             grid-area: footer;
+        }
+    }
+
+    &__main--no-margin {
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        @include small-device {
+            padding-left: 0;
+        }
+        @include medium-device {
+            padding-left: 0;
         }
     }
 

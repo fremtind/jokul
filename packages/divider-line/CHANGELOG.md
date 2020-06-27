@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@1.1.18...@fremtind/jkl-divider-line@1.1.19) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-divider-line
+
+
+
+
+
+## 1.1.18 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-divider-line
+
+
+
+
+
+## 1.1.17 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-divider-line
+
+
+
+
+
+## [1.1.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@1.1.15...@fremtind/jkl-divider-line@1.1.16) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-divider-line
+
+
+
+
+
+## [1.1.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-divider-line@1.1.14...@fremtind/jkl-divider-line@1.1.15) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-divider-line
+
+
+
+
+
 ## 1.1.14 (2020-06-23)
 
 **Note:** Version bump only for package @fremtind/jkl-divider-line

@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.18 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
+
+
+
+
+## 1.3.17 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
+
+
+
+
+## [1.3.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@1.3.15...@fremtind/jkl-table-react@1.3.16) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
+
+
+
+
+## 1.3.15 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
+
+
+
+
+## 1.3.14 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
+
+
+
+
+## [1.3.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@1.3.12...@fremtind/jkl-table-react@1.3.13) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
+
+
+
+
+## [1.3.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@1.3.11...@fremtind/jkl-table-react@1.3.12) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
+
+
+
+
 ## 1.3.11 (2020-06-23)
 
 **Note:** Version bump only for package @fremtind/jkl-table-react

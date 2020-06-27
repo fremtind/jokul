@@ -1,0 +1,58 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-typography-table {
+    border: 0;
+    width: 100%;
+    max-width: rem(768px);
+
+    &__data,
+    &__header {
+        padding: $component-spacing--small;
+        @include jkl-text-style("desktop/body");
+        text-align: left;
+        vertical-align: top;
+        border-bottom: rem(1px) solid;
+        box-sizing: border-box;
+    }
+
+    &__header {
+        font-weight: $bold-weight;
+        border-bottom-color: $svart;
+        min-height: rem(48px);
+    }
+
+    &__data {
+        border-bottom-color: $gra-50;
+        padding-bottom: $component-spacing--large;
+        min-height: rem(64px);
+    }
+
+    @include small-device {
+        width: initial;
+
+        &__header {
+            display: none;
+        }
+        &__data {
+            display: flex;
+            border: none;
+            position: relative;
+            margin-left: rem(25px);
+            padding-left: rem(125px);
+            &:first-child {
+                padding-left: rem(20px);
+                margin-left: 0;
+            }
+            &::before {
+                @include jkl-text-style("desktop/micro");
+                content: attr(data-rowtitle);
+                position: absolute;
+                top: 13px;
+                left: 0;
+            }
+        }
+        &__row {
+            border-bottom: 1px solid $gra-50;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "1.1.6",
+    "version": "1.1.13",
     "publishConfig": {
         "access": "public"
     },
@@ -34,11 +34,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-alert-message": "^1.1.4"
+        "@fremtind/jkl-alert-message": "^1.1.9"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^4.5.0",
-        "@fremtind/jkl-portal-components": "^0.3.1"
+        "@fremtind/jkl-core": "^4.5.5",
+        "@fremtind/jkl-portal-components": "^0.3.8"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

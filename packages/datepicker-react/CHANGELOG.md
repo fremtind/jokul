@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.2.18 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+## 3.2.17 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+## [3.2.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@3.2.15...@fremtind/jkl-datepicker-react@3.2.16) (2020-06-26)
+
+
+### Bug Fixes
+
+* align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+
+
+
+
+
+## 3.2.15 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+## 3.2.14 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+## [3.2.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@3.2.12...@fremtind/jkl-datepicker-react@3.2.13) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
+## [3.2.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@3.2.11...@fremtind/jkl-datepicker-react@3.2.12) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
+
+
+
+
 ## [3.2.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@3.2.9...@fremtind/jkl-datepicker-react@3.2.11) (2020-06-23)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker-react

@@ -1,0 +1,95 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+.jkl-portal-color-description {
+    width: 100%;
+    max-width: rem(768px);
+    margin-top: $layout-spacing--xl;
+
+    @include small-device {
+        &__title,
+        &__swatch {
+            margin-bottom: $layout-spacing--medium;
+        }
+    }
+
+    @include from-medium-device {
+        display: grid;
+        grid-template-columns: rem(340px) 1fr;
+
+        &__title {
+            grid-column: 2 / 3;
+        }
+    }
+}
+
+.jkl-portal-two-tone-description {
+    width: 100%;
+    max-width: rem(768px);
+
+    &__title {
+        margin-top: $layout-spacing--large;
+        margin-bottom: $component-spacing--medium;
+    }
+
+    &__info {
+        margin-bottom: $layout-spacing--medium;
+    }
+
+    &__light-color,
+    &__dark-color {
+        position: relative;
+        padding: $layout-spacing--large 0;
+    }
+
+    &__light-color:before,
+    &__dark-color:before {
+        @include jkl-text-style("compact/micro");
+        position: absolute;
+        top: $component-spacing--medium;
+    }
+
+    &__light-color:before {
+        content: "Lys bakgrunn";
+    }
+
+    &__dark-color {
+        color: $hvit;
+        background-color: $svart;
+
+        &:before {
+            content: "Mørk bakgrunn";
+        }
+    }
+
+    @include small-device {
+        &__dark-color {
+            margin: 0 -#{$component-spacing--large};
+            padding-left: $component-spacing--large;
+            padding-right: $component-spacing--large;
+
+            &:before {
+                left: $component-spacing--large;
+            }
+        }
+    }
+
+    @include from-medium-device {
+        display: grid;
+        grid-template-columns: rem(390px) 1fr 1fr;
+
+        &__info-wrapper {
+            padding-right: $layout-spacing--medium;
+        }
+
+        &__light-color,
+        &__dark-color {
+            padding: $layout-spacing--large $component-spacing--large;
+        }
+
+        &:nth-of-type(1) {
+            margin-top: $layout-spacing--large;
+        }
+    }
+}

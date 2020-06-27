@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.19 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
+## 3.0.18 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
+## [3.0.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@3.0.16...@fremtind/jkl-logo-react@3.0.17) (2020-06-26)
+
+
+### Bug Fixes
+
+* align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+
+
+
+
+
+## 3.0.16 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
+## 3.0.15 (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
+## [3.0.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@3.0.13...@fremtind/jkl-logo-react@3.0.14) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
+## [3.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo-react@3.0.12...@fremtind/jkl-logo-react@3.0.13) (2020-06-24)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
 ## 3.0.12 (2020-06-23)
 
 **Note:** Version bump only for package @fremtind/jkl-logo-react
