@@ -9,7 +9,7 @@
     }
 
     &--col {
-        margin: rem(20px);
+        margin: $layout-spacing--small;
         flex: 1;
         &:first-child {
             margin-left: 0;

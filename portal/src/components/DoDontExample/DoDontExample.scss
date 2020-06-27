@@ -20,8 +20,7 @@
         max-width: rem(420px);
     }
 
-    &__image,
-    & img {
+    &__image {
         width: 100%;
         margin-bottom: $component-spacing--large;
     }
