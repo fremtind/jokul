@@ -9,7 +9,7 @@ export const ExampleRow: React.FC<Props> = ({ icon, text }) => {
     return (
         <tr className={"jkl-icon-table__row"}>
             <td className="jkl-icon-table__data">
-                <img src={icon} alt={`Icon ${text}`} />
+                <img src={icon} alt={`Ikon ${text}`} />
             </td>
             <TableCell>{text}</TableCell>
         </tr>
