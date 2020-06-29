@@ -3,11 +3,12 @@
 .jkl-typography-example-table {
     border: 0;
     width: 100%;
+    max-width: rem(768px);
 
     &__data,
     &__header {
         padding: $component-spacing--small;
-        @include jkl-text-style("desktop/body");
+        @include jkl-text-style("compact/body");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -17,12 +18,42 @@
     &__header {
         font-weight: $bold-weight;
         border-bottom-color: $svart;
-        min-height: rem(48px);
+        min-height: rem(40px);
     }
 
     &__data {
         border-bottom-color: $gra-50;
         padding-bottom: $component-spacing--large;
-        min-height: rem(64px);
+        min-height: rem(48px);
+    }
+
+    @include small-device {
+        &__header {
+            display: none;
+        }
+
+        &__data {
+            display: flex;
+            align-items: center;
+            text-align: end;
+            justify-content: space-between;
+
+            &::before {
+                content: attr(data-header);
+                margin-right: $layout-spacing--medium;
+            }
+
+            &:first-of-type::before {
+                font-weight: $bold-weight;
+            }
+        }
+
+        &__row {
+            display: block;
+
+            &:not(:last-of-type) {
+                margin-bottom: $layout-spacing--medium;
+            }
+        }
     }
 }

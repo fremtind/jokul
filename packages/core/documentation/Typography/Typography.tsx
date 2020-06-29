@@ -46,18 +46,18 @@ interface ExampleRowProps {
     type: "desktop" | "compact";
 }
 const ExampleRow = ({ text, style, type }: ExampleRowProps) => (
-    <tr>
+    <tr className="jkl-typography-example-table__row">
         <td className="jkl-typography-example-table__data">
             <p className={`jkl-${style}`}>{text}</p>
         </td>
-        <td className="jkl-typography-example-table__data">
+        <td data-header="Mixin:" className="jkl-typography-example-table__data">
             <p className="jkl-small">
                 <code className="jkl-portal-inline-code">{`@include jkl-text-style("${type}/${style}")`}</code>
             </p>
         </td>
-        <td className="jkl-typography-example-table__data">
+        <td data-header="Klasse:" className="jkl-typography-example-table__data">
             <p className="jkl-small">
-                <code className="jkl-portal-inline-code">.jkl-title-large</code>
+                <code className="jkl-portal-inline-code">.jkl-{style}</code>
             </p>
         </td>
     </tr>
