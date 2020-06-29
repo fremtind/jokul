@@ -7,7 +7,7 @@ import "./index.scss";
 import { CardList, Card } from "../components/Card";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
-import { withPrefix } from "gatsby";
+import { withPrefix, graphql, useStaticQuery } from "gatsby";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
@@ -18,8 +18,6 @@ const IndexPage = () => {
     const onPrincipleStateChange = (state: number) => {
         setPrincipleState(state);
     };
-
-    const ref = React.useRef(null);
 
     const onLeave = (state: number) => {
         if (state === principleState) {
@@ -49,8 +47,33 @@ const IndexPage = () => {
         }
     }, [principleState]);
 
+    const data = useStaticQuery(graphql`
+        {
+            allSitePage(
+                sort: { order: ASC, fields: context___frontmatter___title }
+                filter: { path: { regex: "/^/blog/" } }
+                limit: 1
+            ) {
+                edges {
+                    node {
+                        path
+                        context {
+                            frontmatter {
+                                title
+                                description
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    const latestBlogPost = data?.allSitePage?.edges[0]?.node?.context?.frontmatter;
+    const latestBlogPostPath = data?.allSitePage?.edges[0]?.node?.path;
+
     return (
-        <DelayText ref={ref} text="Jøkul Designsystem" delay={100}>
+        <DelayText text="Jøkul Designsystem" delay={100}>
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
                     <h2 className="jkl-title-small" data-testid="front-page__tagline">
@@ -75,6 +98,9 @@ const IndexPage = () => {
                             </Card>
                             <Card heading="Prosessen" link="/komigang/prosessen">
                                 Hvordan du kan jobbe med designsystemet.
+                            </Card>
+                            <Card heading={`Blogg: ${latestBlogPost.title}`} link={latestBlogPostPath}>
+                                {latestBlogPost.description}
                             </Card>
                         </CardList>
                     </div>
