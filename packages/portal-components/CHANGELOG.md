@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.8 (2020-06-26)
+
+
+### Bug Fixes
+
+* **flow-example:** add missing dependency to callback ([10dcfd5](https://github.com/fremtind/jokul/commit/10dcfd560d05fc01832c21fdf3fc109753089b5c))
+
+
+
+
+
+## 0.3.7 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
 ## [0.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.3.5...@fremtind/jkl-portal-components@0.3.6) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-portal-components

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.13 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-alert-message-react
+
+
+
+
+
+## 1.1.12 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-alert-message-react
+
+
+
+
+
 ## [1.1.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@1.1.10...@fremtind/jkl-alert-message-react@1.1.11) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-alert-message-react
