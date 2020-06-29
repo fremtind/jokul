@@ -1,0 +1,42 @@
+---
+title: Spacing
+scss: core
+react: core
+---
+
+import { ComponentSpacingTable, LayoutSpacingTable } from "./Spacing/Spacing";
+
+<Ingress>Vi tilbyr Sass-variabler og utility-klasser for verdiene i spacing-skalaene til Jøkul.</Ingress>
+
+## Bruk
+
+Det er to spacing-skalaer i Jøkul; en til bruk innad i komponenter og en til bruk i layout og flyt. Du kan bruke skalaene ved hjelp av Sass-variabler du kan sette inn i ditt eget stilark, eller bruke hjelpeklassene direkte på elementer i koden.
+
+Variablene importerer du fra `@fremtind/jkl-core/variables/_spacing.scss`. Husk å bruke riktig importsyntaks for byggverktøyet ditt når du importerer. De kan da brukes slik:
+
+```scss
+@import "~@fremtind/jkl-core/variables/_spacing.scss";
+
+.jkl-your-component {
+    padding-left: $component-spacing--medium;
+}
+```
+
+Utility-klassene setter en verdi fra spacingskalaene som margin på elementet som har klassen. Det finnes varianter for å sette margin på `top`, `right`, `bottom` og `left`, samt for `all`e sider. Klassene kan brukes slik:
+
+```html
+<div class="jkl-layout-spacing--xl-all">
+    <span class="jkl-layout-spacing--small-right">Hallo</span>
+    verden
+</div>
+```
+
+<div class="jkl-layout-spacing--xl-top" />
+
+### Komponentskala
+
+<ComponentSpacingTable />
+
+### Layoutskala
+
+<LayoutSpacingTable />
