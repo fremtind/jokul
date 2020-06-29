@@ -99,7 +99,7 @@ const IndexPage = () => {
                             <Card heading="Prosessen" link="/komigang/prosessen">
                                 Hvordan du kan jobbe med designsystemet.
                             </Card>
-                            <Card heading={`Blog: ${latestBlogPost.title}`} link={latestBlogPostPath}>
+                            <Card heading={`Blogg: ${latestBlogPost.title}`} link={latestBlogPostPath}>
                                 {latestBlogPost.description}
                             </Card>
                         </CardList>
