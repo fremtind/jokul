@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.10 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-alert-message
+
+
+
+
+
 ## [1.1.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message@1.1.8...@fremtind/jkl-alert-message@1.1.9) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-alert-message
