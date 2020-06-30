@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.6.3",
+    "version": "3.6.4",
     "devDependencies": {
         "@types/react-helmet": "^5.0.9",
         "@types/react-syntax-highlighter": "^11.0.3"
@@ -33,7 +33,7 @@
         "react-live": "^2.1.2",
         "react-syntax-highlighter": "^12.2.1",
         "sass": "^1.23.7",
-        "snyk": "^1.342.2"
+        "snyk": "^1.349.0"
     },
     "keywords": [
         "portal"
