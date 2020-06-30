@@ -37,7 +37,7 @@ export function DownloadAsset({ asset = "", name, type, darkbg = false }: Props)
     };
     return (
         <div className={componentClassName}>
-            <button className="jkl-portal-downloadasset--button" onClick={(e: React.MouseEvent) => clickDownload(e)}>
+            <button className="jkl-portal-downloadasset__button" onClick={clickDownload}>
                 <img className="jkl-portal-downloadasset--image" src={asset} alt={"Fil " + name} />
                 <span className={textClassName}>{name}</span>
             </button>
