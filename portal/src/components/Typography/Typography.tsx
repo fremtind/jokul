@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { prism } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+import { CodeBlock as FTCodeBlock } from "../CodeBlock";
 
 export const PageTitle: React.FC = ({ children, ...rest }) => (
     <h1 className="jkl-title-large jkl-portal-page-title" {...rest}>
@@ -60,25 +60,5 @@ export const CodeBlock: React.FC = ({ children, ...rest }) => {
         return <pre {...rest}>{children}</pre>;
     }
     const language = child.props.className?.replace("language-", "");
-    const style = {
-        ...prism,
-        'pre[class*="language-"]': {
-            lineHeight: "1.4",
-        },
-        operator: {
-            ...prism.operator,
-            background: "transparent",
-        },
-    };
-    return (
-        <SyntaxHighlighter
-            className="jkl-portal-code-block"
-            style={style}
-            codeTagProps={{ style: {}, className: "jkl-portal-code-block__code" }}
-            language={language}
-            data-language={language}
-        >
-            {child.props.children}
-        </SyntaxHighlighter>
-    );
+    return <FTCodeBlock language={language}>{child.props.children}</FTCodeBlock>;
 };
