@@ -1,5 +1,5 @@
 import React from "react";
-import * as downloadjs from "downloadjs";
+import downloadjs from "downloadjs";
 import classNames from "classnames";
 
 import "./DownloadAsset.scss";
