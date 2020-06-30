@@ -17,8 +17,8 @@ export function DownloadAsset({ asset = "", name, type, darkbg = false }: Props)
         "jkl-portal-downloadasset--dark-bg": darkbg,
     });
     const textClassName = classNames({
-        "jkl-portal-downloadasset--name": true,
-        "jkl-portal-downloadasset--name-dark": darkbg,
+        "jkl-portal-downloadasset__name": true,
+        "jkl-portal-downloadasset__name--dark": darkbg,
     });
     const clickDownload = (event: React.MouseEvent) => {
         event.preventDefault();
