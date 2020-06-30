@@ -20,7 +20,7 @@ export const Grid: React.SFC<Props> = ({ className, children, size = "medium" }:
     return (
         <div className={componentClassName}>
             {React.Children.map<React.ReactNode, React.ReactNode>(children, (child) => {
-                return <div className="jkl-portal-grid--col">{child}</div>;
+                return <div className="jkl-portal-grid__col">{child}</div>;
             })}
         </div>
     );
