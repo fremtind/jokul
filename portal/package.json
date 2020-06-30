@@ -33,7 +33,7 @@
         "react-live": "^2.1.2",
         "react-syntax-highlighter": "^12.2.1",
         "sass": "^1.23.7",
-        "snyk": "^1.342.2"
+        "snyk": "^1.349.0"
     },
     "keywords": [
         "portal"
