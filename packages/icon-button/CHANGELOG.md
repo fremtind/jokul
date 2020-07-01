@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.15 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button
+
+
+
+
+
 ## 0.2.14 (2020-06-29)
 
 **Note:** Version bump only for package @fremtind/jkl-icon-button
