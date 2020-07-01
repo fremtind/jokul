@@ -28,33 +28,11 @@
     }
 
     @include small-device {
-        width: initial;
-
-        &__header {
-            padding-left: rem(125px);
-            &:first-child {
-                padding-left: rem(20px);
-                margin-left: 0;
-            }
-        }
+        &__header,
         &__data {
-            border: none;
-            position: relative;
-            margin-left: rem(25px);
-            padding-left: rem(125px);
             &:first-child {
-                padding-left: rem(20px);
-                margin-left: 0;
+                width: 40%; // kan også være en fast verdi om det er bedre 
             }
-            &::before {
-                @include jkl-text-style("desktop/micro");
-                position: absolute;
-                top: 13px;
-                left: 0;
-            }
-        }
-        &__row {
-            border-bottom: 1px solid $gra-50;
         }
     }
 }
