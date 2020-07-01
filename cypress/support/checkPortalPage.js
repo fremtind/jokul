@@ -7,6 +7,6 @@ Cypress.Commands.add("checkPortalPage", (sidebar, link, title) => {
         .should("include", link)
         .wait(500)
         .get("h1")
-        .contains(title);
-    //.checkA11y();
+        .contains(title)
+        .checkA11y();
 });
