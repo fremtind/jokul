@@ -21,6 +21,7 @@ export const DocPageLayout = ({ children, location, pageContext: { frontmatter }
             className={`jkl-portal__main ${
                 location.pathname === "/profil/bildebruk" ? "jkl-portal__main--no-margin" : ""
             }`}
+            id="innhold"
         >
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />

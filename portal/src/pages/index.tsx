@@ -81,11 +81,12 @@ const IndexPage = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
             className="jkl-portal__main jkl-portal__main--frontpage"
+            id="innhold"
         >
             <DelayText text="Jøkul Designsystem" delay={100}>
                 <div className="jkl-portal-frontpage">
                     <section className="jkl-portal-frontpage__section-intro">
-                        <h2 className="jkl-title-small">
+                        <h2 className="jkl-title-small" data-testid="front-page__tagline">
                             Velkommen til Jøkul — designsystemet til Fremtind. Her har vi samlet alt du trenger for å
                             lage løsninger i vår profil.
                         </h2>

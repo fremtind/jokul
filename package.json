@@ -20,6 +20,7 @@
         "test:watch": "jest -c './jest/jest.unit.js' --watch",
         "version:check": "lerna changed -l -a",
         "cypress:open": "cypress open --project .",
+        "cypress:dev": "cypress open --project . --config baseUrl=http://localhost:8000",
         "prerelease": "yarn build",
         "release": "lerna publish",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
