@@ -13,7 +13,8 @@ context("Front page", () => {
         cy.getByTestid("title-elevasjon").contains("Elevasjon");
         cy.getByTestid("title-bevegelse").contains("Bevegelse");
 
-        cy.checkA11y();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(500).checkA11y();
 
         cy.get(".jkl-portal-card")
             .contains("For utviklere")

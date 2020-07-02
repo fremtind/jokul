@@ -7,7 +7,8 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    cy.visit(`/komponenter/${component}`);
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.visit(`/komponenter/${component}`).wait(500);
 });
 
 Cypress.Commands.add("getComponent", () => {
