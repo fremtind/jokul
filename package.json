@@ -3,9 +3,11 @@
     "private": true,
     "scripts": {
         "clean": "lerna run --parallel clean",
+        "clean:portal": "lerna run clean:portal --stream",
         "build": "lerna run --ignore @fremtind/browserslist-config-jkl build",
         "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/jkl-react-hooks build",
         "build:docs": "lerna run build:docs",
+        "build:docs:local": "lerna run build:local --stream",
         "commit": "git-cz",
         "predeploy:docs": "yarn run build:docs",
         "deploy:docs": "gh-pages -d portal/public",
@@ -22,6 +24,8 @@
         "release": "lerna publish",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
         "start": "yarn run dev",
+        "serve:portal": "lerna run serve --stream",
+        "serve": "run-s clean:portal build:docs:local serve:portal",
         "boot": "yarn install --force && yarn build",
         "reboot": "yarn clean && yarn boot"
     },

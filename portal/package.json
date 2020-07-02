@@ -41,6 +41,7 @@
     "license": "MIT",
     "scripts": {
         "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean:portal": "gatsby clean",
         "build:docs": "gatsby build --prefix-paths",
         "build:local": "gatsby build",
         "dev": "gatsby develop",
