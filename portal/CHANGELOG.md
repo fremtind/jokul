@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.7.1...@fremtind/portal@3.8.0) (2020-07-02)
+
+
+### Features
+
+* **portal:** add animation to portal ([fa38aae](https://github.com/fremtind/jokul/commit/fa38aae91d6a85ec017a80df54a987de893fd3d8))
+
+
+
+
+
 ## [3.7.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.7.0...@fremtind/portal@3.7.1) (2020-07-02)
 
 **Note:** Version bump only for package @fremtind/portal
