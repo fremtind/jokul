@@ -136,7 +136,7 @@ export function Select({
 
     function getWidthAsStyle(width?: string): CSSProperties | undefined {
         if (width) {
-            return { width }; // prioritize width prop
+            return { width };
         }
         return undefined;
     }
