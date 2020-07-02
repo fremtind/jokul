@@ -11,7 +11,7 @@ interface Props {
     };
 }
 
-export const DocPageLayout = ({ children, pageContext: { frontmatter } }: Props) => {
+export const DocPageLayout = ({ children, location, pageContext: { frontmatter } }: Props) => {
     return (
         <motion.main
             initial={{ y: 10, opacity: 0 }}
