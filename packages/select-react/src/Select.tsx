@@ -1,6 +1,6 @@
 // @ts-ignore
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, CSSProperties } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -24,6 +24,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     inverted?: boolean;
+    width?: string;
     onChange?: SelectEventHandler;
     onBlur?: SelectEventHandler;
     onFocus?: SelectEventHandler;
@@ -66,6 +67,7 @@ export function Select({
     variant,
     forceCompact,
     inverted,
+    width = "15rem",
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
     const [internalFocus, setInternalFocus] = useState(false);
@@ -132,9 +134,16 @@ export function Select({
 
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
 
+    function getWidthAsStyle(width?: string): CSSProperties | undefined {
+        if (width) {
+            return { width }; // prioritize width prop
+        }
+        return undefined;
+    }
+
     return (
-        <div data-testid="jkl-select" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+        <div data-testid="jkl-select" className={componentClassName} style={getWidthAsStyle(width)}>
+            <Label variant={variant} forceCompact={forceCompact} srOnly={inline}>
                 {label}
             </Label>
             <div className="jkl-select__outer-wrapper">

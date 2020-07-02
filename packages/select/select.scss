@@ -23,7 +23,6 @@ $arrow-width: rem(13px);
     background-color: $bg-color;
     display: block;
     position: relative;
-    min-width: 15rem;
 
     /* Resets for native styling, especially in Firefox/IE */
     & *:focus {
