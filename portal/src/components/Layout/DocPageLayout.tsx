@@ -18,7 +18,9 @@ export const DocPageLayout = ({ children, pageContext: { frontmatter } }: Props)
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="jkl-portal__main"
+            className={`jkl-portal__main ${
+                location.pathname === "/profil/bildebruk" ? "jkl-portal__main--no-margin" : ""
+            }`}
         >
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />

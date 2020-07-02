@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.11 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-message-box
+
+
+
+
+
+## 1.5.10 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-message-box
+
+
+
+
+
 ## [1.5.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@1.5.8...@fremtind/jkl-message-box@1.5.9) (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-message-box

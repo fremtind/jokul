@@ -20,6 +20,21 @@ $component-spacing--xl: $spacing-6;
 $component-spacing--xxl: $spacing-7;
 $component-spacing--giant: $spacing-8;
 
+$component-spacing: $component-spacing--xxs, $component-spacing--xs, $component-spacing--small,
+    $component-spacing--medium, $component-spacing--large, $component-spacing--xl, $component-spacing--xxl,
+    $component-spacing--giant;
+
+$component-spacing-new: (
+    "xxs": $component-spacing--xxs,
+    "xs": $component-spacing--xs,
+    "small": $component-spacing--small,
+    "medium": $component-spacing--medium,
+    "large": $component-spacing--large,
+    "xl": $component-spacing--xl,
+    "xxl": $component-spacing--xxl,
+    "giant": $component-spacing--giant,
+);
+
 // Layout scale
 $layout-spacing--small: $spacing-6;
 $layout-spacing--medium: $spacing-7;
@@ -29,3 +44,11 @@ $layout-spacing--xxl: $spacing-10;
 
 $layout-spacing: $layout-spacing--small, $layout-spacing--medium, $layout-spacing--large, $layout-spacing--xl,
     $layout-spacing--xxl;
+
+$layout-spacing-new: (
+    "small": $layout-spacing--small,
+    "medium": $layout-spacing--medium,
+    "large": $layout-spacing--large,
+    "xl": $layout-spacing--xl,
+    "xxl": $layout-spacing--xxl,
+);

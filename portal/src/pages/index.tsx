@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { withPrefix } from "gatsby";
+import { withPrefix, graphql, useStaticQuery } from "gatsby";
 import { motion } from "framer-motion";
 
 import { DelayText } from "../components/Delaytext";
@@ -20,8 +20,6 @@ const IndexPage = () => {
     const onPrincipleStateChange = (state: number) => {
         setPrincipleState(state);
     };
-
-    const ref = React.useRef(null);
 
     const onLeave = (state: number) => {
         if (state === principleState) {
@@ -51,6 +49,31 @@ const IndexPage = () => {
         }
     }, [principleState]);
 
+    const data = useStaticQuery(graphql`
+        {
+            allSitePage(
+                sort: { order: ASC, fields: context___frontmatter___title }
+                filter: { path: { regex: "/^/blog/" } }
+                limit: 1
+            ) {
+                edges {
+                    node {
+                        path
+                        context {
+                            frontmatter {
+                                title
+                                description
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    const latestBlogPost = data?.allSitePage?.edges[0]?.node?.context?.frontmatter;
+    const latestBlogPostPath = data?.allSitePage?.edges[0]?.node?.path;
+
     return (
         <motion.main
             initial={{ opacity: 0 }}
@@ -59,7 +82,7 @@ const IndexPage = () => {
             transition={{ duration: 0.35 }}
             className="jkl-portal__main jkl-portal__main--frontpage"
         >
-            <DelayText ref={ref} text="Jøkul Designsystem" delay={100}>
+            <DelayText text="Jøkul Designsystem" delay={100}>
                 <div className="jkl-portal-frontpage">
                     <section className="jkl-portal-frontpage__section-intro">
                         <h2 className="jkl-title-small">
@@ -85,19 +108,11 @@ const IndexPage = () => {
                                 <Card heading="Prosessen" link="/komigang/prosessen">
                                     Hvordan du kan jobbe med designsystemet.
                                 </Card>
+                                <Card heading={`Blogg: ${latestBlogPost.title}`} link={latestBlogPostPath}>
+                                    {latestBlogPost.description}
+                                </Card>
                             </CardList>
                         </div>
-                        <CardList vertical>
-                            <Card heading="For utviklere" link="/komigang/utvikling">
-                                Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
-                            </Card>
-                            <Card heading="For designere" link="/komigang/design">
-                                Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
-                            </Card>
-                            <Card heading="Prosessen" link="/komigang/prosessen">
-                                Hvordan du kan jobbe med designsystemet.
-                            </Card>
-                        </CardList>
                     </section>
 
                     <section className="jkl-portal-frontpage__section-principles">

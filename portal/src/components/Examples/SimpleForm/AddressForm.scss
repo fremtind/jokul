@@ -1,0 +1,14 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-simple-form__postal-group {
+    display: flex;
+    align-items: center;
+
+    &__area {
+        padding-top: $layout-spacing--large;
+    }
+
+    &__house-number {
+        max-width: 15rem;
+    }
+}

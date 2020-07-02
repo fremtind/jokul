@@ -1,0 +1,67 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+:root,
+[data-theme="light"] {
+    --media-bg: #{$hvit};
+    --media-text-color: #{$svart};
+}
+
+[data-theme="dark"] {
+    --media-bg: #{$svart};
+    --media-text-color: #{$hvit};
+}
+
+.jkl-portal-media-box {
+    max-width: 900px;
+    position: relative;
+    margin-bottom: $layout-spacing--xxl;
+
+    &__video {
+        width: 100%;
+        border: none;
+    }
+
+    &__media {
+        margin-left: 30%;
+        @include motion("standard", "lazy");
+        transition-property: opacity, transform;
+        opacity: 0;
+        transform: scale(0.95);
+
+        &--in-view {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    &__caption {
+        margin-top: $component-spacing--small;
+    }
+
+    &__card {
+        position: absolute;
+        bottom: $layout-spacing--xl;
+        left: $component-spacing--large;
+        background-color: var(--media-bg);
+        color: var(--media-text-color);
+        max-width: 500px;
+        padding: $component-spacing--xxl;
+        z-index: 1;
+
+        &--long-text {
+            bottom: -$layout-spacing--xl;
+        }
+    }
+
+    &--right {
+        .jkl-portal-media-box__media {
+            margin-left: 0;
+            margin-right: 30%;
+        }
+        .jkl-portal-media-box__card {
+            right: $component-spacing--large;
+            left: initial;
+        }
+    }
+}
