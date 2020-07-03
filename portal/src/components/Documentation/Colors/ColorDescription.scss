@@ -50,8 +50,13 @@
         top: $component-spacing--medium;
     }
 
-    &__light-color:before {
-        content: "Lys bakgrunn";
+    &__light-color {
+        color: $svart;
+        background-color: $hvit;
+
+        &:before {
+            content: "Lys bakgrunn";
+        }
     }
 
     &__dark-color {
