@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { Card } from ".";
 import { axe } from "jest-axe";
 
@@ -7,18 +7,18 @@ describe("Card", () => {
     afterAll(cleanup);
 
     it("renders without exploding", () => {
-        const { getByText } = render(
+        render(
             <Card title="Hello">
                 <p>Hello world</p>
             </Card>,
         );
 
-        expect(getByText("Hello world")).toBeInTheDocument();
+        expect(screen.getByText("Hello world")).toBeInTheDocument();
     });
 
     it("renders the given title", () => {
-        const { getByText } = render(<Card title="Fremtind" />);
-        expect(getByText("Fremtind")).toBeInTheDocument();
+        render(<Card title="Fremtind" />);
+        expect(screen.getByText("Fremtind")).toBeInTheDocument();
     });
 
     it("renders without title", () => {
@@ -27,56 +27,50 @@ describe("Card", () => {
     });
 
     it("has an image", () => {
-        const { getByRole } = render(<Card title="Test" media={{ src: "image.jpg", alt: "Image" }} />);
+        render(<Card title="Test" media={{ src: "image.jpg", alt: "Image" }} />);
 
-        const component = getByRole("img");
+        const component = screen.getByRole("img");
         expect(component).toBeInTheDocument();
     });
 
     it("renders image with label", () => {
-        const { getByAltText } = render(<Card title="Test" media={{ src: "image.jpg", alt: "Man with dog" }} />);
-        expect(getByAltText("Man with dog")).toBeInTheDocument();
+        render(<Card title="Test" media={{ src: "image.jpg", alt: "Man with dog" }} />);
+        expect(screen.getByAltText("Man with dog")).toBeInTheDocument();
     });
 
     it("renders with darkmode", () => {
-        const { getByTestId } = render(<Card title="Test" dark />);
+        render(<Card title="Test" dark />);
 
-        const component = getByTestId("jkl-card");
+        const component = screen.getByTestId("jkl-card");
         expect(component).toHaveClass("jkl-card--dark");
     });
 
     it("uses the passed class name", () => {
-        const { getByTestId } = render(<Card title="Test" className="test-class" />);
+        render(<Card title="Test" className="test-class" />);
 
-        const component = getByTestId("jkl-card");
+        const component = screen.getByTestId("jkl-card");
         expect(component).toHaveClass("test-class");
     });
 
     it("has a button", () => {
-        const { getByRole } = render(
-            <Card title="Test" action={{ type: "secondary", name: "Test", onClick: () => {} }} />,
-        );
+        render(<Card title="Test" action={{ type: "secondary", name: "Test", onClick: () => {} }} />);
 
-        const component = getByRole("button");
+        const component = screen.getByRole("button");
         expect(component).toBeInTheDocument();
     });
 
     it("renders the given button", () => {
-        const { getByRole } = render(
-            <Card title="Test" action={{ type: "tertiary", name: "Click me", onClick: () => {} }}></Card>,
-        );
+        render(<Card title="Test" action={{ type: "tertiary", name: "Click me", onClick: () => {} }}></Card>);
 
-        const component = getByRole("button");
+        const component = screen.getByRole("button");
         expect(component).toHaveClass("jkl-button--tertiary");
     });
 
     it("executes the onclick function on button", () => {
         const clickHandler = jest.fn();
-        const { getByText } = render(
-            <Card title="Test" action={{ type: "primary", name: "Click me", onClick: clickHandler }} />,
-        );
+        render(<Card title="Test" action={{ type: "primary", name: "Click me", onClick: clickHandler }} />);
 
-        const button = getByText("Click me");
+        const button = screen.getByText("Click me");
 
         button.click();
 

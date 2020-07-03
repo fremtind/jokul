@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { NativeSelect } from ".";
 import { axe } from "jest-axe";
 
@@ -9,9 +9,9 @@ afterEach(cleanup);
 
 describe("NativeSelect", () => {
     it("should render the correct label", () => {
-        const { getByText } = render(<NativeSelect label="testing" items={["test"]} onChange={dummyFunc} />);
+        render(<NativeSelect label="testing" items={["test"]} onChange={dummyFunc} />);
 
-        expect(getByText("testing")).toBeInTheDocument();
+        expect(screen.getByText("testing")).toBeInTheDocument();
     });
 
     it("should render the correct number of options", () => {
@@ -43,19 +43,15 @@ describe("NativeSelect", () => {
 
     it("should render placeholder when given and field has no value", () => {
         const items = ["item 1", "item 2", "item 3"];
-        const { getByText } = render(
-            <NativeSelect label="testing" items={items} placeholder="Please choose" onChange={dummyFunc} />,
-        );
+        render(<NativeSelect label="testing" items={items} placeholder="Please choose" onChange={dummyFunc} />);
 
-        expect(getByText("Please choose")).toBeInTheDocument();
+        expect(screen.getByText("Please choose")).toBeInTheDocument();
     });
 
     it("can be forced into compact mode", () => {
-        const { getByTestId } = render(
-            <NativeSelect items={["1", "2"]} label="test" onChange={dummyFunc} forceCompact />,
-        );
+        render(<NativeSelect items={["1", "2"]} label="test" onChange={dummyFunc} forceCompact />);
 
-        expect(getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
+        expect(screen.getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
     });
 });
 

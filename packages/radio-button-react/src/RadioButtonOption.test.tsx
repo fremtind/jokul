@@ -1,12 +1,12 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { RadioButtonOption } from "./index";
 
 describe("RadioButtonOption", () => {
     afterEach(cleanup);
 
     it("renders with correct label", () => {
-        const { getByText } = render(
+        render(
             <RadioButtonOption
                 value="choice"
                 label="The only choice"
@@ -17,12 +17,12 @@ describe("RadioButtonOption", () => {
             />,
         );
 
-        expect(getByText("The only choice")).toBeInTheDocument();
+        expect(screen.getByText("The only choice")).toBeInTheDocument();
     });
 
     it("executes handleChange when clicked", () => {
         const handleChange = jest.fn();
-        const { getByLabelText } = render(
+        render(
             <RadioButtonOption
                 value="choice"
                 label="The only choice"
@@ -33,7 +33,7 @@ describe("RadioButtonOption", () => {
             />,
         );
 
-        const button = getByLabelText("The only choice");
+        const button = screen.getByLabelText("The only choice");
         button.click();
 
         expect(handleChange).toHaveBeenCalled();
@@ -41,7 +41,7 @@ describe("RadioButtonOption", () => {
 
     it("executes handleChange when label is clicked", () => {
         const handleChange = jest.fn();
-        const { getByTestId } = render(
+        render(
             <RadioButtonOption
                 value="choice"
                 label="The only choice"
@@ -52,7 +52,7 @@ describe("RadioButtonOption", () => {
             />,
         );
 
-        const button = getByTestId("jkl-radio-button__label-tag");
+        const button = screen.getByTestId("jkl-radio-button__label-tag");
         button.click();
 
         expect(handleChange).toHaveBeenCalled();

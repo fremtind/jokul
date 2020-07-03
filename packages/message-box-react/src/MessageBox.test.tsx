@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { InfoMessage, ErrorMessage, SuccessMessage, WarningMessage } from ".";
 import { axe } from "jest-axe";
 
@@ -9,13 +9,13 @@ describe("Message boxes", () => {
     [true, false].map((fullWidth) => {
         [InfoMessage, ErrorMessage, SuccessMessage, WarningMessage].map((E) => {
             it("should render message title and content", () => {
-                const { getByText } = render(
+                render(
                     <E fullWidth={fullWidth} title="test">
                         content
                     </E>,
                 );
-                getByText("content");
-                getByText("test");
+                screen.getByText("content");
+                screen.getByText("test");
             });
         });
     });

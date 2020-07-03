@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { ProgressBar } from ".";
 import { calculatePercentage } from "./ProgressBar";
@@ -15,17 +15,17 @@ const defaultProps = {
 
 describe("ProgressBar", () => {
     test("should render to document", () => {
-        const { getByTestId } = render(<ProgressBar {...defaultProps} />);
+        render(<ProgressBar {...defaultProps} />);
 
-        expect(getByTestId("jkl-progress-bar")).toBeInTheDocument();
-        expect(getByTestId("jkl-progress-bar__tracker")).toBeInTheDocument();
+        expect(screen.getByTestId("jkl-progress-bar")).toBeInTheDocument();
+        expect(screen.getByTestId("jkl-progress-bar__tracker")).toBeInTheDocument();
     });
 
     [0, 10, 50, 90, 100].map((current) => {
         test(`should render progress bar at ${current}%`, () => {
-            const { getByTestId } = render(<ProgressBar progress={{ current, total: 100 }} />);
+            render(<ProgressBar progress={{ current, total: 100 }} />);
 
-            const progress = getByTestId("jkl-progress-bar__tracker");
+            const progress = screen.getByTestId("jkl-progress-bar__tracker");
 
             const style = progress.getAttribute("style");
             expect(style).toBe(`width: ${current}%;`);
@@ -34,9 +34,9 @@ describe("ProgressBar", () => {
 
     [0, 1, 5, 9, 10].map((current) => {
         test(`should render progress bar at ${current * 10}% with ${current} of total 10`, () => {
-            const { getByTestId } = render(<ProgressBar progress={{ current, total: 10 }} />);
+            render(<ProgressBar progress={{ current, total: 10 }} />);
 
-            const progress = getByTestId("jkl-progress-bar__tracker");
+            const progress = screen.getByTestId("jkl-progress-bar__tracker");
 
             const style = progress.getAttribute("style");
             expect(style).toBe(`width: ${current * 10}%;`);
@@ -44,21 +44,21 @@ describe("ProgressBar", () => {
     });
 
     test("should show custom className", () => {
-        const { getByTestId } = render(<ProgressBar {...defaultProps} className="customClass" />);
+        render(<ProgressBar {...defaultProps} className="customClass" />);
 
-        expect(getByTestId("jkl-progress-bar")).toHaveClass("customClass");
+        expect(screen.getByTestId("jkl-progress-bar")).toHaveClass("customClass");
     });
 
     test("should have progressbar as role", () => {
-        const { getByRole } = render(<ProgressBar {...defaultProps} />);
+        render(<ProgressBar {...defaultProps} />);
 
-        expect(getByRole("progressbar")).toBeInTheDocument();
+        expect(screen.getByRole("progressbar")).toBeInTheDocument();
     });
 
     test("should have correct aria values", () => {
-        const { getByTestId } = render(<ProgressBar {...defaultProps} />);
+        render(<ProgressBar {...defaultProps} />);
 
-        const progressBar = getByTestId("jkl-progress-bar");
+        const progressBar = screen.getByTestId("jkl-progress-bar");
 
         expect(progressBar).toHaveAttribute("aria-valuenow", "50");
         expect(progressBar).toHaveAttribute("aria-valuemin", "0");
@@ -67,11 +67,9 @@ describe("ProgressBar", () => {
     });
 
     test("should have correct aria values and value text", () => {
-        const { getByTestId } = render(
-            <ProgressBar progress={{ current: 1, total: 2 }} progressTextValue="Almost there" />,
-        );
+        render(<ProgressBar progress={{ current: 1, total: 2 }} progressTextValue="Almost there" />);
 
-        const progressBar = getByTestId("jkl-progress-bar");
+        const progressBar = screen.getByTestId("jkl-progress-bar");
 
         expect(progressBar).toHaveAttribute("aria-valuenow", "1");
         expect(progressBar).toHaveAttribute("aria-valuemin", "0");

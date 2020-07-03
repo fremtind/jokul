@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import { IconButton } from ".";
 
 afterEach(cleanup);
@@ -7,11 +7,9 @@ afterEach(cleanup);
 describe("IconButton", () => {
     it("calls the onClick handler when clicked", () => {
         const clickHandler = jest.fn();
-        const { getByTestId } = render(
-            <IconButton iconType="clear" buttonTitle="I am groot!" onClick={clickHandler} />,
-        );
+        render(<IconButton iconType="clear" buttonTitle="I am groot!" onClick={clickHandler} />);
 
-        const button = getByTestId("jkl-icon-button");
+        const button = screen.getByTestId("jkl-icon-button");
 
         button.click();
 
@@ -20,11 +18,9 @@ describe("IconButton", () => {
 
     it("has search icon", () => {
         const clickHandler = jest.fn();
-        const { getByTestId } = render(
-            <IconButton iconType="search" buttonTitle="I am groot!" onClick={clickHandler} />,
-        );
+        render(<IconButton iconType="search" buttonTitle="I am groot!" onClick={clickHandler} />);
 
-        const svg = getByTestId("jkl-search-icon");
+        const svg = screen.getByTestId("jkl-search-icon");
 
         expect(svg).toBeInTheDocument();
     });
