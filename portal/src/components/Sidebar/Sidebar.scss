@@ -58,32 +58,4 @@ $animation-timing: 300ms ease-out both;
             }
         }
     }
-
-    .jkl-portal-sidebar-menu--animated & {
-        animation: $animation-timing;
-        animation-name: appear;
-
-        &__link {
-            animation: $animation-timing;
-            animation-name: blinds;
-        }
-    }
-}
-
-@keyframes blinds {
-    0% {
-        clip-path: inset(0 -6ch 100% 0);
-    }
-    100% {
-        clip-path: inset(0 -6ch 0 0);
-    }
-}
-
-@keyframes appear {
-    0% {
-        transform: translateY(100%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
 }

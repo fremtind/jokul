@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { motion } from "framer-motion";
 import { Frontmatter } from "../Header/useNavigationLinks";
 import { BlogPageHeader, ComponentPageHeader } from "./components";
 
@@ -10,13 +11,22 @@ interface Props {
     };
 }
 
-export const DocPageLayout = ({ children, pageContext: { frontmatter } }: Props) => {
+export const DocPageLayout = ({ children, location, pageContext: { frontmatter } }: Props) => {
     return (
-        <>
+        <motion.main
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className={`jkl-portal__main ${
+                location.pathname === "/profil/bildebruk" ? "jkl-portal__main--no-margin" : ""
+            }`}
+            id="innhold"
+        >
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />
             {children}
-        </>
+        </motion.main>
     );
 };
 

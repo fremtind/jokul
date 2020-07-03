@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
-import classNames from "classnames";
-
+import { AnimatePresence } from "framer-motion";
+import Helmet from "react-helmet";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 
 import { FormatProvider } from "../Typography";
@@ -10,7 +10,6 @@ import { useTheme } from "../../contexts/themeContext";
 import { useLocation } from "../../contexts/locationContext";
 
 import "./Layout.scss";
-import Helmet from "react-helmet";
 
 interface Props {
     title?: string;
@@ -20,14 +19,9 @@ interface Props {
 export const Layout: React.FC<Props> = ({ children, title, location }) => {
     const { setLocation, isFrontPage } = useLocation();
     setLocation(location);
-    const mainClassName = classNames({
-        "jkl-portal__main": true,
-        "jkl-portal__main--frontpage": isFrontPage,
-        "jkl-portal__main--no-margin": location.pathname === "/profil/bildebruk",
-    });
 
     const screen = useScreen();
-    const shouldShowSidebar = !(screen.isSmallDevice || screen.isMediumDevice);
+    const shouldShowSidebar = !isFrontPage || !(screen.isSmallDevice || screen.isMediumDevice);
 
     const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
     const { theme } = useTheme();
@@ -44,10 +38,10 @@ export const Layout: React.FC<Props> = ({ children, title, location }) => {
             </Helmet>
             <ThemeBG />
             <Header className="jkl-portal__header" />
-            {shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}
-            <main id="innhold" className={mainClassName}>
-                <FormatProvider>{children}</FormatProvider>
-            </main>
+            <AnimatePresence>{shouldShowSidebar && <Sidebar />}</AnimatePresence>
+            <FormatProvider>
+                <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
+            </FormatProvider>
             <Footer className="jkl-portal__footer" />
         </div>
     );

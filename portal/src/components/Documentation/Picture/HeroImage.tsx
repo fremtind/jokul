@@ -13,8 +13,8 @@ const HeroImage: React.FC<Props> = ({ title, children }) => {
         query {
             file(relativePath: { eq: "Picture/Assets/mountain.jpg" }) {
                 childImageSharp {
-                    fluid(maxWidth: 4096, quality: 90) {
-                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    fluid(maxWidth: 2048, quality: 80) {
+                        ...GatsbyImageSharpFluid_withWebp
                     }
                 }
             }

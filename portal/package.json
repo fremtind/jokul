@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.7.0",
+    "version": "3.8.0",
     "devDependencies": {
         "@types/react-helmet": "^5.0.9",
         "@types/react-syntax-highlighter": "^11.0.3"
@@ -41,6 +41,7 @@
     "license": "MIT",
     "scripts": {
         "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean:portal": "gatsby clean",
         "build:docs": "gatsby build --prefix-paths",
         "build:local": "gatsby build",
         "dev": "gatsby develop",
