@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Hamburger } from ".";
 import { axe } from "jest-axe";
 
@@ -12,7 +12,7 @@ describe("Hamburger", () => {
         render(<Hamburger />);
 
         const burger = screen.getByTestId("jkl-hamburger");
-        burger.click();
+        fireEvent.click(burger);
 
         expect(burger).toHaveClass("jkl-hamburger--is-active");
     });
@@ -35,7 +35,7 @@ describe("Hamburger", () => {
         const fn = jest.fn();
         render(<Hamburger onClick={fn} />);
         const burger = screen.getByTestId("jkl-hamburger");
-        burger.click();
+        fireEvent.click(burger);
 
         expect(fn).toHaveBeenCalledTimes(1);
 

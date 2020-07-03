@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { IconButton } from ".";
 
 describe("IconButton", () => {
@@ -9,7 +9,7 @@ describe("IconButton", () => {
 
         const button = screen.getByTestId("jkl-icon-button");
 
-        button.click();
+        fireEvent.click(button);
 
         expect(clickHandler).toHaveBeenCalled();
     });

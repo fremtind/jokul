@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Checkbox } from ".";
 import { axe } from "jest-axe";
 
@@ -16,7 +16,7 @@ describe("checkbox", () => {
 
         expect(input).toHaveProperty("checked", false);
 
-        label.click();
+        fireEvent.click(label);
 
         expect(input).toHaveProperty("checked", true);
     });
@@ -32,7 +32,7 @@ describe("checkbox", () => {
 
         expect(input).toHaveProperty("checked", false);
 
-        input.click();
+        fireEvent.click(input);
 
         expect(input).toHaveProperty("checked", true);
     });
@@ -65,7 +65,7 @@ describe("checkbox", () => {
 
         expect(input).toHaveProperty("checked", true);
 
-        input.click();
+        fireEvent.click(input);
 
         expect(input).toHaveProperty("checked", false);
     });
@@ -79,7 +79,7 @@ describe("checkbox", () => {
         );
 
         const input = screen.getByLabelText("Switch me!");
-        input.click();
+        fireEvent.click(input);
 
         expect(onChange).toHaveBeenCalled();
     });

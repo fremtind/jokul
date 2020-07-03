@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { ToggleSwitch } from ".";
 import { axe } from "jest-axe";
 
@@ -19,7 +19,7 @@ describe("Toggle switch", () => {
 
         expect(input).toHaveAttribute("aria-pressed", "false");
 
-        input.click();
+        fireEvent.click(input);
 
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
@@ -57,7 +57,7 @@ describe("Toggle switch", () => {
         render(<ToggleSwitch onClick={onClick}>Switch me!</ToggleSwitch>);
 
         const input = screen.getByText("Switch me!");
-        input.click();
+        fireEvent.click(input);
 
         expect(onClick).toHaveBeenCalled();
     });

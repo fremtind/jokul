@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Card } from ".";
 import { axe } from "jest-axe";
 
@@ -70,7 +70,7 @@ describe("Card", () => {
 
         const button = screen.getByText("Click me");
 
-        button.click();
+        fireEvent.click(button);
 
         expect(clickHandler).toHaveBeenCalled();
     });

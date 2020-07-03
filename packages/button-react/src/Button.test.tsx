@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 import { axe } from "jest-axe";
 
@@ -24,7 +24,7 @@ describe("Button", () => {
 
         const button = screen.getByText("I am groot!");
 
-        button.click();
+        fireEvent.click(button);
 
         expect(clickHandler).toHaveBeenCalled();
     });

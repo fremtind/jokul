@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { RadioButtonOption } from "./index";
 
 describe("RadioButtonOption", () => {
@@ -32,7 +32,7 @@ describe("RadioButtonOption", () => {
         );
 
         const button = screen.getByLabelText("The only choice");
-        button.click();
+        fireEvent.click(button);
 
         expect(handleChange).toHaveBeenCalled();
     });
@@ -51,7 +51,7 @@ describe("RadioButtonOption", () => {
         );
 
         const button = screen.getByTestId("jkl-radio-button__label-tag");
-        button.click();
+        fireEvent.click(button);
 
         expect(handleChange).toHaveBeenCalled();
     });
