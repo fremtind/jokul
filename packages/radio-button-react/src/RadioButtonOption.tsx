@@ -40,7 +40,6 @@ export const RadioButtonOption = ({
             value={value}
             onChange={onChange}
             checked={checked}
-            aria-invalid={invalid}
         />
         <span className="jkl-radio-button__dot" />
         <span className="jkl-radio-button__label">{label}</span>

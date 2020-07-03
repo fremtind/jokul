@@ -3,62 +3,52 @@ import React from "react";
 import "./IconTable.scss";
 import { TableHeader } from "./TableHeader";
 import { ExampleRow } from "./ExampleRow";
-
-import IconCheckmark from "../../../../../static/assets/documentation/icon/ikon-checkmark.svg";
-import IconEksternPil from "../../../../../static/assets/documentation/icon/ikon-ekstern-pil.svg";
-import IconHamburger from "../../../../../static/assets/documentation/icon/ikon-hamburger.svg";
-import IconKalender from "../../../../../static/assets/documentation/icon/ikon-kalender.svg";
-import IconPilHoyre from "../../../../../static/assets/documentation/icon/ikon-pil-hoyre.svg";
-import IconPilVenstre from "../../../../../static/assets/documentation/icon/ikon-pil-venstre.svg";
-import IconPluss from "../../../../../static/assets/documentation/icon/ikon-pluss.svg";
-import IconSok from "../../../../../static/assets/documentation/icon/ikon-sok.svg";
-import IconX from "../../../../../static/assets/documentation/icon/ikon-X.svg";
-import IconPilOpp from "../../../../../static/assets/documentation/icon/ikon-pil-opp.svg";
-import IconPilNed from "../../../../../static/assets/documentation/icon/ikon-pil-ned.svg";
+import { icon } from "../Icon";
 
 const icons = [
     {
-        icon: IconCheckmark,
-        text: "Checkmark",
+        name: "checkmark",
+        icon: icon("checkmark"),
+        text: "Hake",
     },
     {
-        icon: IconX,
+        icon: icon("x"),
         text: "Lukk",
     },
     {
-        icon: IconPluss,
+        icon: icon("pluss"),
         text: "Legg til",
     },
     {
-        icon: IconSok,
+        icon: icon("sok"),
         text: "Søk",
     },
     {
-        icon: IconHamburger,
-        text: "Hamburgermeny",
+        icon: icon("hamburger"),
+        text: "Hamburger meny",
     },
     {
-        icon: IconKalender,
+        icon: icon("kalender"),
         text: "Kalender",
     },
     {
-        icon: IconEksternPil,
-        text: "Ekstern pil",
+        icon: icon("eksternPil"),
+        text: "Pil opp mot høyre",
     },
     {
-        icon: IconPilHoyre,
+        icon: icon("pilHoyre"),
         text: "Pil høyre",
     },
     {
-        icon: IconPilVenstre,
+        icon: icon("pilVenstre"),
         text: "Pil venstre",
     },
     {
-        icon: IconPilOpp,
+        icon: icon("pilOpp"),
         text: "Pil opp",
     },
     {
-        icon: IconPilNed,
+        icon: icon("pilNed"),
         text: "Pil ned",
     },
 ];
@@ -69,9 +59,9 @@ export const Example = () => {
             <table className={`jkl-icon-table jkl-spacing--top-2`}>
                 <TableHeader />
                 <tbody>
-                    {icons.map((icon, key) => (
-                        <ExampleRow key={key} icon={icon.icon} text={icon.text} />
-                    ))}
+                    {icons.map((ico, key) => {
+                        return <ExampleRow key={key} icon={ico.icon} text={ico.text} />;
+                    })}
                 </tbody>
             </table>
         </>
