@@ -1,9 +1,8 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { H1, H2, H3, H4, H5, Lead, Body, Small, Micro } from ".";
 
 describe("typography", () => {
-    afterEach(cleanup);
     const text = "Hello Mr Universe";
 
     const headings = [
@@ -24,8 +23,8 @@ describe("typography", () => {
     [...headings, ...paragraphs].forEach((element) => {
         test(`should render ${element.type} with correct text`, () => {
             const C = element.component;
-            const { getByText } = render(<C>{text}</C>);
-            const res = getByText(text);
+            render(<C>{text}</C>);
+            const res = screen.getByText(text);
             expect(res.tagName).toBe(element.expectedElement);
         });
     });

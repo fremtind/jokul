@@ -1,52 +1,50 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Checkbox } from ".";
 import { axe } from "jest-axe";
 
-afterEach(cleanup);
-
 describe("checkbox", () => {
     it("should be checked after clicking the label", () => {
-        const { getByText, getByTestId } = render(
+        render(
             <Checkbox value="iamgroot" name="iamgroot">
                 I am groot!
             </Checkbox>,
         );
 
-        const label = getByText("I am groot!");
-        const input = getByTestId("jkl-checkbox-input");
+        const label = screen.getByText("I am groot!");
+        const input = screen.getByTestId("jkl-checkbox-input");
 
         expect(input).toHaveProperty("checked", false);
 
-        label.click();
+        fireEvent.click(label);
 
         expect(input).toHaveProperty("checked", true);
     });
 
     it("should be checked after clicking the input ", function () {
-        const { getByTestId } = render(
+        render(
             <Checkbox value="iamgroot" name="iamgroot">
                 I am groot!
             </Checkbox>,
         );
 
-        const input = getByTestId("jkl-checkbox-input");
+        const input = screen.getByTestId("jkl-checkbox-input");
 
         expect(input).toHaveProperty("checked", false);
 
-        input.click();
+        fireEvent.click(input);
 
         expect(input).toHaveProperty("checked", true);
     });
 
     it("should be checked if checked is true", function () {
-        const { getByTestId } = render(
+        render(
             <Checkbox value="iamgroot" name="iamgroot" checked={true} onChange={() => {}}>
                 I am groot!
             </Checkbox>,
         );
 
-        const input = getByTestId("jkl-checkbox-input");
+        const input = screen.getByTestId("jkl-checkbox-input");
 
         expect(input).toHaveProperty("checked", true);
     });
@@ -61,27 +59,27 @@ describe("checkbox", () => {
             );
         };
 
-        const { getByTestId } = render(<TestCheckbox />);
+        render(<TestCheckbox />);
 
-        const input = getByTestId("jkl-checkbox-input");
+        const input = screen.getByTestId("jkl-checkbox-input");
 
         expect(input).toHaveProperty("checked", true);
 
-        input.click();
+        fireEvent.click(input);
 
         expect(input).toHaveProperty("checked", false);
     });
 
     it("should call the passed onChange method when clicked", () => {
         const onChange = jest.fn();
-        const { getByLabelText } = render(
+        render(
             <Checkbox value="switchme" name="switchme" onChange={onChange}>
                 Switch me!
             </Checkbox>,
         );
 
-        const input = getByLabelText("Switch me!");
-        input.click();
+        const input = screen.getByLabelText("Switch me!");
+        fireEvent.click(input);
 
         expect(onChange).toHaveBeenCalled();
     });

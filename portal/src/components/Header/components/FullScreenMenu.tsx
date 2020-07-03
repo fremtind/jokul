@@ -7,6 +7,7 @@ import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { RootItem, CustomNavigation } from "./MainMenu";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
 import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
+import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
 
 import "./FullScreenMenu.scss";
 
@@ -40,6 +41,8 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
     const [currentItem, setCurrentItem] = useState(baseItem);
     const [previousItem, setPreviousItem] = useState<RootItem>();
     const [history, setHistory] = useState<RootItem[]>([]);
+
+    const [controls] = useFullScreenMenuAnimaiton({ isOpen });
 
     const onNavigateForward = (newItem: RootItem, evt?: React.MouseEvent) => {
         evt && evt.preventDefault(); // prevent CoreToggle from closing menu
@@ -110,12 +113,14 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
                         </button>
                     )}
                     <ul className="jkl-portal-full-screen-menu__items">
-                        {currentItem.content.map((item) => (
+                        {currentItem.content.map((item, idx) => (
                             <FullScreenMenuItem
                                 forwardFunction={onNavigateForward}
                                 navigationFunction={navigationFunction}
                                 item={item}
                                 key={item.linkText}
+                                controls={controls}
+                                idx={idx}
                             />
                         ))}
                     </ul>

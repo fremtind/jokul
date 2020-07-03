@@ -24,6 +24,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     inverted?: boolean;
+    width?: string;
     onChange?: SelectEventHandler;
     onBlur?: SelectEventHandler;
     onFocus?: SelectEventHandler;
@@ -66,6 +67,7 @@ export function Select({
     variant,
     forceCompact,
     inverted,
+    width,
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
     const [internalFocus, setInternalFocus] = useState(false);
@@ -133,8 +135,8 @@ export function Select({
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
 
     return (
-        <div data-testid="jkl-select" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+        <div data-testid="jkl-select" className={componentClassName} style={{ width }}>
+            <Label variant={variant} forceCompact={forceCompact} srOnly={inline}>
                 {label}
             </Label>
             <div className="jkl-select__outer-wrapper">

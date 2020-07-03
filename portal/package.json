@@ -2,13 +2,13 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.6.1",
+    "version": "3.8.0",
     "devDependencies": {
         "@types/react-helmet": "^5.0.9",
         "@types/react-syntax-highlighter": "^11.0.3"
     },
     "dependencies": {
-        "@fremtind/jkl-portal-components": "^0.3.8",
+        "@fremtind/jkl-portal-components": "^0.3.10",
         "@mdx-js/mdx": "^1.5.1",
         "@mdx-js/react": "^1.5.1",
         "framer-motion": "^2.0.0-beta.76",
@@ -33,7 +33,7 @@
         "react-live": "^2.1.2",
         "react-syntax-highlighter": "^12.2.1",
         "sass": "^1.23.7",
-        "snyk": "^1.342.2"
+        "snyk": "^1.349.0"
     },
     "keywords": [
         "portal"
@@ -41,6 +41,7 @@
     "license": "MIT",
     "scripts": {
         "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean:portal": "gatsby clean",
         "build:docs": "gatsby build --prefix-paths",
         "build:local": "gatsby build",
         "dev": "gatsby develop",

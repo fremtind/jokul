@@ -1,10 +1,8 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { Table, TableRowType } from "./index";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Table", () => {
     it("renders to the DOM", () => {
@@ -21,20 +19,20 @@ describe("Table", () => {
         const cols = ["Dato", "Saksnummer"];
         const rows = [["24.02.2020", "20-1234567"]];
 
-        const { getByText } = render(<Table columns={cols} rows={rows} />);
+        render(<Table columns={cols} rows={rows} />);
 
-        expect(getByText("Dato")).toBeInTheDocument;
-        expect(getByText("Saksnummer")).toBeInTheDocument;
+        expect(screen.getByText("Dato")).toBeInTheDocument;
+        expect(screen.getByText("Saksnummer")).toBeInTheDocument;
     });
 
     it("renders all row content", () => {
         const cols = ["Dato", "Saksnummer"];
         const rows = [["24.02.2020", "20-1234567"]];
 
-        const { getByText } = render(<Table columns={cols} rows={rows} />);
+        render(<Table columns={cols} rows={rows} />);
 
-        expect(getByText("24.02.2020")).toBeInTheDocument;
-        expect(getByText("20-1234567")).toBeInTheDocument;
+        expect(screen.getByText("24.02.2020")).toBeInTheDocument;
+        expect(screen.getByText("20-1234567")).toBeInTheDocument;
     });
 
     it("renders a link element with correct href in anchor rows", () => {
@@ -48,9 +46,9 @@ describe("Table", () => {
             },
         ];
 
-        const { getByTestId } = render(<Table columns={cols} rows={rows} />);
+        render(<Table columns={cols} rows={rows} />);
 
-        expect(getByTestId("jkl-table__screenreader-link")).toHaveAttribute("href", "/relative/path");
+        expect(screen.getByTestId("jkl-table__screenreader-link")).toHaveAttribute("href", "/relative/path");
     });
 
     it("calls the provided onRowClick function on row click", () => {
@@ -66,8 +64,8 @@ describe("Table", () => {
             },
         ];
 
-        const { getByText } = render(<Table columns={cols} rows={rows} />);
-        getByText("20-1234567").click();
+        render(<Table columns={cols} rows={rows} />);
+        screen.getByText("20-1234567").click();
 
         expect(handleClick).toHaveBeenCalled();
     });

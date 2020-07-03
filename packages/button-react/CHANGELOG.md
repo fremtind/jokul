@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@1.5.8...@fremtind/jkl-button-react@1.5.13) (2020-07-02)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
+## 1.5.12 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
+## 1.5.11 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-button-react
+
+
+
+
+
 ## 1.5.10 (2020-06-26)
 
 **Note:** Version bump only for package @fremtind/jkl-button-react

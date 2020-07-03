@@ -29,7 +29,6 @@ interface Props {
     text: string;
     delay: number;
     hidden?: boolean;
-    ref: React.MutableRefObject<HTMLDivElement | null>;
 }
 
 export const DelayText: React.FunctionComponent<Props> = ({ text, delay, children }) => {

@@ -1,21 +1,19 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { TextArea } from ".";
 import { axe } from "jest-axe";
 
-afterEach(cleanup);
-
 describe("TextArea", () => {
     it("renders with correct label", () => {
-        const { getByLabelText } = render(<TextArea label="Cool text area" />);
+        render(<TextArea label="Cool text area" />);
 
-        expect(getByLabelText("Cool text area")).toBeInTheDocument();
+        expect(screen.getByLabelText("Cool text area")).toBeInTheDocument();
     });
 
     it("uses the passed class name", () => {
-        const { getByTestId } = render(<TextArea label="testing" className="test-class" />);
+        render(<TextArea label="testing" className="test-class" />);
 
-        const component = getByTestId("jkl-text-area");
+        const component = screen.getByTestId("jkl-text-area");
         expect(component).toHaveClass("test-class");
     });
 });

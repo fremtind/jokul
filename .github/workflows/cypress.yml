@@ -13,13 +13,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache yarn directory
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+            path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            restore-keys: |
+                ${{ runner.os }}-yarn-
+
       - name: Cypress run with env
         uses: cypress-io/github-action@v1
         if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
         with:
           build: yarn run build
-          start: yarn start
-          wait-on: 'http://localhost:8000'
+          start: yarn serve
+          wait-on: 'http://localhost:9000'
+          wait-on-timeout: 120
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v2.0.1
