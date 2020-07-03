@@ -1,10 +1,8 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { Table, TableRowType } from "./index";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Table", () => {
     it("renders to the DOM", () => {

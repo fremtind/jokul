@@ -1,9 +1,7 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ToggleSwitch } from ".";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Toggle switch", () => {
     it("should be pressed after clicking the button", () => {

@@ -1,8 +1,6 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { IconButton } from ".";
-
-afterEach(cleanup);
 
 describe("IconButton", () => {
     it("calls the onClick handler when clicked", () => {

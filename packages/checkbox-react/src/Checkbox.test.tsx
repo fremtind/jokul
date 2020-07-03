@@ -1,9 +1,7 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Checkbox } from ".";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("checkbox", () => {
     it("should be checked after clicking the label", () => {

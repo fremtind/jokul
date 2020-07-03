@@ -1,9 +1,7 @@
 import React from "react";
-import { render, cleanup, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import { DatePicker } from ".";
 import { axe } from "jest-axe";
-
-beforeEach(cleanup);
 
 describe("Datepicker", () => {
     it("renders with the correct format", () => {

@@ -1,11 +1,9 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Card } from ".";
 import { axe } from "jest-axe";
 
 describe("Card", () => {
-    afterAll(cleanup);
-
     it("renders without exploding", () => {
         render(
             <Card title="Hello">

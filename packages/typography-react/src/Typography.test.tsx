@@ -1,9 +1,8 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { H1, H2, H3, H4, H5, Lead, Body, Small, Micro } from ".";
 
 describe("typography", () => {
-    afterEach(cleanup);
     const text = "Hello Mr Universe";
 
     const headings = [

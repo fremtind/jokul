@@ -1,10 +1,8 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { ProgressBar } from ".";
 import { calculatePercentage } from "./ProgressBar";
-
-afterEach(cleanup);
 
 const defaultProps = {
     progress: {

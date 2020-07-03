@@ -1,10 +1,8 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { RadioButtonOption } from "./index";
 
 describe("RadioButtonOption", () => {
-    afterEach(cleanup);
-
     it("renders with correct label", () => {
         render(
             <RadioButtonOption

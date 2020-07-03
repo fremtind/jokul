@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useFocusOutside } from "./useFocusOutside";
-import { render, cleanup, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 
 interface Props {
     fn: () => void;
@@ -18,8 +18,6 @@ function Test({ fn }: Props) {
         </div>
     );
 }
-
-afterEach(cleanup);
 
 describe("useFocusOutside", () => {
     it("should not fire function when focusing an element inside the ref", () => {

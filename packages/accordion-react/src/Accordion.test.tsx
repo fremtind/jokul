@@ -1,8 +1,6 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Accordion } from ".";
-
-afterEach(cleanup);
 
 describe("Accordion", () => {
     it("should render without exploding", () => {

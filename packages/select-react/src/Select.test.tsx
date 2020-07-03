@@ -1,9 +1,7 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Select } from ".";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Select", () => {
     it("should render correct amount of options", () => {

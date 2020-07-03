@@ -1,8 +1,6 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Loader } from ".";
-
-afterEach(cleanup);
 
 describe("Loader", () => {
     it("should render to document", () => {

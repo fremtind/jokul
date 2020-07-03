@@ -1,11 +1,9 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { NativeSelect } from ".";
 import { axe } from "jest-axe";
 
 const dummyFunc = () => {};
-
-afterEach(cleanup);
 
 describe("NativeSelect", () => {
     it("should render the correct label", () => {

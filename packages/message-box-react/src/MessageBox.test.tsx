@@ -1,9 +1,7 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { InfoMessage, ErrorMessage, SuccessMessage, WarningMessage } from ".";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Message boxes", () => {
     [true, false].map((fullWidth) => {

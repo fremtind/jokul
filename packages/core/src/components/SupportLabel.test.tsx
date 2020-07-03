@@ -1,10 +1,8 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { SupportLabel } from "./SupportLabel";
 
 describe("SupportLabel", () => {
-    afterEach(cleanup);
-
     const helpLabel = "helpfull text";
     const errorLabel = "error error error, read in a computer voice";
 

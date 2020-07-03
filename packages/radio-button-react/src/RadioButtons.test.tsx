@@ -1,10 +1,8 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { RadioButtons } from "./index";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("RadioButtons", () => {
     it("renders a legend with the correct value", () => {

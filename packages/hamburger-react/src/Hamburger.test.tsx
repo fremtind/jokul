@@ -1,9 +1,7 @@
 import React from "react";
-import { cleanup, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Hamburger } from ".";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Hamburger", () => {
     it("should render to document", () => {
