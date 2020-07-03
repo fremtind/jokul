@@ -59,6 +59,7 @@ describe("a11y", () => {
         const results = await axe(container, {
             rules: {
                 "aria-input-field-name": { enabled: false },
+                "aria-required-parent": { enabled: false },
             },
         });
 
@@ -72,6 +73,7 @@ describe("a11y", () => {
         const results = await axe(container, {
             rules: {
                 "aria-input-field-name": { enabled: false },
+                "aria-required-parent": { enabled: false },
             },
         });
 

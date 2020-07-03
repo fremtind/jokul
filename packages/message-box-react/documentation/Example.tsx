@@ -2,16 +2,23 @@ import React from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "../src";
 
-export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const types = {
-        Infomelding: InfoMessage,
-        Suksessmelding: SuccessMessage,
-        Advarselsmelding: WarningMessage,
-        Feilmelding: ErrorMessage,
-    };
+const getTypeOfBox = (typeofBox?: string) => {
+    switch (typeofBox) {
+        case "Infomelding":
+            return InfoMessage;
+        case "Suksessmelding":
+            return SuccessMessage;
+        case "Advarselsmelding":
+            return WarningMessage;
+        case "Feilmelding":
+            return ErrorMessage;
+        default:
+            return InfoMessage;
+    }
+};
 
-    //@ts-ignore
-    const C = types[choiceValues["Type"]] || InfoMessage;
+export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+    const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
     return (
         <C
             fullWidth={boolValues && boolValues["Full bredde"]}
