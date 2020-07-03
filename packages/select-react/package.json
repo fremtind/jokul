@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "2.0.16",
+    "version": "2.1.0",
     "publishConfig": {
         "access": "public"
     },
@@ -37,7 +37,7 @@
     "dependencies": {
         "@fremtind/jkl-core": "^4.6.0",
         "@fremtind/jkl-react-hooks": "^1.2.10",
-        "@fremtind/jkl-select": "^2.0.12",
+        "@fremtind/jkl-select": "^2.1.0",
         "@fremtind/jkl-typography-react": "^2.3.14",
         "@nrk/core-toggle": "3.0.7",
         "nanoid": "^3.1.10"
