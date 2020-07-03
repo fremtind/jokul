@@ -1,9 +1,7 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Button", () => {
     // Test all button variants:
@@ -14,41 +12,41 @@ describe("Button", () => {
     ].map((buttonVariant) => {
         it(`renders the ${buttonVariant.name} button correctly`, () => {
             const { name, component: Button } = buttonVariant;
-            const { getByText } = render(<Button onClick={() => {}}>{name}</Button>);
+            render(<Button onClick={() => {}}>{name}</Button>);
 
-            expect(getByText(name)).toHaveClass(`jkl-button--${name}`);
+            expect(screen.getByText(name)).toHaveClass(`jkl-button--${name}`);
         });
     });
 
     it("calls the onClick handler when clicked", () => {
         const clickHandler = jest.fn();
-        const { getByText } = render(<PrimaryButton onClick={clickHandler}>I am groot!</PrimaryButton>);
+        render(<PrimaryButton onClick={clickHandler}>I am groot!</PrimaryButton>);
 
-        const button = getByText("I am groot!");
+        const button = screen.getByText("I am groot!");
 
-        button.click();
+        fireEvent.click(button);
 
         expect(clickHandler).toHaveBeenCalled();
     });
 
     it("applies passed classNames", () => {
-        const { getByText } = render(
+        render(
             <PrimaryButton className="test-class" onClick={() => {}}>
                 test
             </PrimaryButton>,
         );
 
-        expect(getByText("test")).toHaveClass("test-class");
+        expect(screen.getByText("test")).toHaveClass("test-class");
     });
 
     it("applies compact mode when forced to", () => {
-        const { getByText } = render(
+        render(
             <PrimaryButton forceCompact onClick={() => {}}>
                 test
             </PrimaryButton>,
         );
 
-        expect(getByText("test")).toHaveClass("jkl-button--compact");
+        expect(screen.getByText("test")).toHaveClass("jkl-button--compact");
     });
 });
 
