@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@2.3.15...@fremtind/jkl-typography-react@2.3.16) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
 ## 2.3.15 (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react

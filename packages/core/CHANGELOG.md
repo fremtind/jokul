@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.6.1...@fremtind/jkl-core@4.7.0) (2020-07-03)
+
+
+### Features
+
+* **core:** add utility classes for colors ([f052e72](https://github.com/fremtind/jokul/commit/f052e721bf8a462670028d1f50797178bee2b6ef)), closes [#1065](https://github.com/fremtind/jokul/issues/1065)
+
+
+
+
+
 ## 4.6.1 (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/jkl-core
