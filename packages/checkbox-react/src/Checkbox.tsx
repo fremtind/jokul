@@ -50,7 +50,7 @@ export function Checkbox({
             />
             <label htmlFor={id} className="jkl-checkbox__label">
                 <span className="jkl-checkbox__check-mark" />
-                {children}
+                <span className="jkl-checkbox__check-text">{children}</span>
             </label>
         </div>
     );

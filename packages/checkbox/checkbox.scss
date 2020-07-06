@@ -8,6 +8,9 @@ $checkbox-box-size--compact: rem(18px);
 $checkbox-height: rem(48px);
 $checkbox-height--compact: rem(40px);
 
+$checkbox-line-height: rem(32px);
+$checkbox-line-height--compact: rem(24px);
+
 $checkbox-background-color--checked: $svart;
 $checkbox-background-color--unchecked: $hvit;
 $checkbox-check-mark-color: $hvit;
@@ -35,8 +38,8 @@ $checkbox-background-color--error: $feil;
 .jkl-checkbox {
     @include jkl-text-style("desktop/body");
     display: flex;
-    align-items: center;
-    height: $checkbox-height;
+    flex-wrap: wrap;
+    min-height: $checkbox-height;
 
     &:hover > .jkl-checkbox__check-mark {
         transform: scale(1.1);
@@ -55,6 +58,7 @@ $checkbox-background-color--error: $feil;
         height: $checkbox-box-size;
         width: $checkbox-box-size;
 
+        margin: (($checkbox-height - $checkbox-box-size) / 2) 0;
         margin-right: $component-spacing--small;
         vertical-align: middle;
         flex-shrink: 0; // Don't allow the check-mark to shrink in case of really long text
@@ -100,9 +104,15 @@ $checkbox-background-color--error: $feil;
         }
     }
 
+    // The label text
+    &__check-text {
+        margin: (($checkbox-height - $checkbox-line-height) / 2) 0;
+    }
+
     &__label {
         display: flex;
-        align-items: center;
+        min-width: 0;
+        max-width: 100%;
         cursor: pointer;
         flex-shrink: 0;
     }
@@ -137,8 +147,8 @@ $checkbox-background-color--error: $feil;
     &--inline {
         display: inline-flex;
 
-        &:not(:first-of-type) {
-            margin-left: $component-spacing--xl;
+        &:not(:last-of-type) {
+            margin-right: $component-spacing--xl;
         }
     }
 
@@ -194,21 +204,31 @@ $checkbox-background-color--error: $feil;
 
     @include compact-mode {
         @include jkl-text-style("compact/body");
-        height: $checkbox-height--compact;
+        min-height: $checkbox-height--compact;
 
         .jkl-checkbox__check-mark {
             height: $checkbox-box-size--compact;
             width: $checkbox-box-size--compact;
+            margin: (($checkbox-height--compact - $checkbox-box-size--compact) / 2) 0;
+            margin-right: $component-spacing--small;
+        }
+        .jkl-checkbox__check-text {
+            margin: (($checkbox-height--compact - $checkbox-line-height--compact) / 2) 0;
         }
     }
 
     @include small-device {
         @include jkl-text-style("compact/body");
-        height: $checkbox-height--compact;
+        min-height: $checkbox-height--compact;
 
         .jkl-checkbox__check-mark {
             height: $checkbox-box-size--compact;
             width: $checkbox-box-size--compact;
+            margin: (($checkbox-height--compact - $checkbox-box-size--compact) / 2) 0;
+            margin-right: $component-spacing--small;
+        }
+        .jkl-checkbox__check-text {
+            margin: (($checkbox-height--compact - $checkbox-line-height--compact) / 2) 0;
         }
     }
 }
