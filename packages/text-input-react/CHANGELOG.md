@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.3.16 (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/jkl-text-input-react
+
+
+
+
+
 ## [3.3.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@3.3.14...@fremtind/jkl-text-input-react@3.3.15) (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/jkl-text-input-react

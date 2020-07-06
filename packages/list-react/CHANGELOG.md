@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.26 (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/jkl-list-react
+
+
+
+
+
 ## [1.2.25](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list-react@1.2.24...@fremtind/jkl-list-react@1.2.25) (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/jkl-list-react

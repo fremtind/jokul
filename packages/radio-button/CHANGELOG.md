@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2020-07-06)
+
+
+### Features
+
+* **radio-buttons:** make labels responsive ([85317fb](https://github.com/fremtind/jokul/commit/85317fbba3bd647452833ecb7de6d8ad23a697ac)), closes [#986](https://github.com/fremtind/jokul/issues/986)
+
+
+
+
+
 ## [1.2.23](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@1.2.22...@fremtind/jkl-radio-button@1.2.23) (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/jkl-radio-button

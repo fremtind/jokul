@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2020-07-06)
+
+
+### Features
+
+* **checkbox:** make labels responsive ([116afcd](https://github.com/fremtind/jokul/commit/116afcd3a611ba30bf8400e4001d2716a8662b21)), closes [#985](https://github.com/fremtind/jokul/issues/985)
+
+
+
+
+
 ## [1.2.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@1.2.13...@fremtind/jkl-checkbox@1.2.14) (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox
