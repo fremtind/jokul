@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.2...@fremtind/portal@3.8.3) (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
 ## [3.8.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.1...@fremtind/portal@3.8.2) (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/portal
