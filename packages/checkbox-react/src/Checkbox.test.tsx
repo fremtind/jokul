@@ -12,13 +12,13 @@ describe("checkbox", () => {
         );
 
         const label = screen.getByText("I am groot!");
-        const input = screen.getByTestId("jkl-checkbox-input");
+        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
 
-        expect(input).toHaveProperty("checked", false);
+        expect(input.checked).toBe(false);
 
         fireEvent.click(label);
 
-        expect(input).toHaveProperty("checked", true);
+        expect(input.checked).toBe(false);
     });
 
     it("should be checked after clicking the input ", function () {
@@ -28,13 +28,13 @@ describe("checkbox", () => {
             </Checkbox>,
         );
 
-        const input = screen.getByTestId("jkl-checkbox-input");
+        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
 
-        expect(input).toHaveProperty("checked", false);
+        expect(input.checked).toBe(false);
 
         fireEvent.click(input);
 
-        expect(input).toHaveProperty("checked", true);
+        expect(input.checked).toBe(true);
     });
 
     it("should be checked if checked is true", function () {
@@ -44,9 +44,10 @@ describe("checkbox", () => {
             </Checkbox>,
         );
 
-        const input = screen.getByTestId("jkl-checkbox-input");
+        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
 
         expect(input).toHaveProperty("checked", true);
+        expect(input.checked).toBe(true);
     });
 
     it("should be unchecked if checked is true and input is clicked", function () {
@@ -61,13 +62,13 @@ describe("checkbox", () => {
 
         render(<TestCheckbox />);
 
-        const input = screen.getByTestId("jkl-checkbox-input");
+        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
 
-        expect(input).toHaveProperty("checked", true);
+        expect(input.checked).toBe(true);
 
         fireEvent.click(input);
 
-        expect(input).toHaveProperty("checked", false);
+        expect(input.checked).toBe(false);
     });
 
     it("should call the passed onChange method when clicked", () => {

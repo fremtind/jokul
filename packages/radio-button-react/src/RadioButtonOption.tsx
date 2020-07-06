@@ -1,5 +1,6 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler, useState } from "react";
 import classNames from "classnames";
+import { nanoid } from "nanoid";
 
 interface Props {
     value: string;
@@ -23,26 +24,30 @@ export const RadioButtonOption = ({
     invalid = false,
     forceCompact,
     inverted,
-}: Props) => (
-    <label
-        data-testid="jkl-radio-button__label-tag"
-        className={classNames("jkl-radio-button", {
-            "jkl-radio-button--compact": forceCompact,
-            "jkl-radio-button--inline": inline,
-            "jkl-radio-button--error": invalid,
-            "jkl-radio-button--inverted": inverted,
-        })}
-    >
-        <input
-            className="jkl-radio-button__input"
-            type="radio"
-            name={name}
-            value={value}
-            onChange={onChange}
-            checked={checked}
-            aria-invalid={invalid}
-        />
-        <span className="jkl-radio-button__dot" />
-        <span className="jkl-radio-button__label">{label}</span>
-    </label>
-);
+}: Props) => {
+    const [inputId] = useState(`jkl-radio-button-${nanoid(8)}`);
+    const componentClassName = classNames("jkl-radio-button", {
+        "jkl-radio-button--compact": forceCompact,
+        "jkl-radio-button--inline": inline,
+        "jkl-radio-button--error": invalid,
+        "jkl-radio-button--inverted": inverted,
+    });
+
+    return (
+        <div className={componentClassName}>
+            <input
+                id={inputId}
+                className="jkl-radio-button__input"
+                type="radio"
+                name={name}
+                value={value}
+                onChange={onChange}
+                checked={checked}
+            />
+            <label data-testid="jkl-radio-button__label-tag" htmlFor={inputId} className="jkl-radio-button__label">
+                <span aria-hidden className="jkl-radio-button__dot" />
+                <span className="jkl-radio-button__text">{label}</span>
+            </label>
+        </div>
+    );
+};

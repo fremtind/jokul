@@ -66,8 +66,8 @@ describe("RadioButtons", () => {
             />,
         );
 
-        const twoButton = screen.getByLabelText("two");
-        fireEvent.click(twoButton);
+        const buttons = screen.getAllByTestId("jkl-radio-button__label-tag");
+        fireEvent.click(buttons[1]); // Click second button
 
         expect(handleChange).toHaveBeenCalled();
     });
@@ -78,11 +78,7 @@ describe("a11y", () => {
         const { container } = render(
             <RadioButtons legend="Test" choices={["one", "two"]} name="test" onChange={() => {}} selectedValue="one" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -98,11 +94,7 @@ describe("a11y", () => {
                 selectedValue="one"
             />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -118,11 +110,7 @@ describe("a11y", () => {
                 selectedValue="one"
             />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -138,11 +126,7 @@ describe("a11y", () => {
                 selectedValue="one"
             />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
