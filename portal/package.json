@@ -29,7 +29,7 @@
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-helmet": "^5.2.1",
-        "react-hook-form": "^5.7.2",
+        "react-hook-form": "^6.0.1",
         "react-live": "^2.1.2",
         "react-syntax-highlighter": "^12.2.1",
         "sass": "^1.23.7",
