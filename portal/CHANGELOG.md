@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.1...@fremtind/portal@3.9.2) (2020-07-07)
+
+
+### Bug Fixes
+
+* **portal:** fix small accessibility issues ([045f70a](https://github.com/fremtind/jokul/commit/045f70a6aee6c22b57ac422bf8228f61b5c5943c))
+
+
+
+
+
 ## [3.9.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.0...@fremtind/portal@3.9.1) (2020-07-07)
 
 **Note:** Version bump only for package @fremtind/portal
