@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Helmet from "react-helmet";
 import { useScreen } from "@fremtind/jkl-react-hooks";
@@ -18,10 +18,10 @@ interface Props {
 
 export const Layout: React.FC<Props> = ({ children, title, location }) => {
     const { setLocation, isFrontPage } = useLocation();
-    setLocation(location);
+    useEffect(() => setLocation(location), [location, setLocation]);
 
     const screen = useScreen();
-    const shouldShowSidebar = !isFrontPage || !(screen.isSmallDevice || screen.isMediumDevice);
+    const shouldShowSidebar = !isFrontPage && !(screen.isSmallDevice || screen.isMediumDevice);
 
     const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
     const { theme } = useTheme();

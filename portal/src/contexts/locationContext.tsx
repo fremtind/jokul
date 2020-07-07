@@ -39,11 +39,11 @@ const reducer = (state: LocationState, action: LocationAction): LocationState =>
     switch (type) {
         case "update":
             const newPath = payload.newLocation.pathname;
-            const newSection = payload.newLocation.pathname.substr(withPrefix("").length).split("/")[0];
+            const newSection = payload.newLocation.pathname.substr(withPrefix("/").length).split("/")[0];
             return {
                 currentPath: newPath,
                 currentSection: newSection,
-                isFrontPage: newPath === withPrefix(""),
+                isFrontPage: newPath === withPrefix("/"),
                 sectionHasChanged: newSection !== state.currentSection,
             };
         default:
