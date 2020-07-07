@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.4...@fremtind/portal@3.9.0) (2020-07-07)
+
+
+### Features
+
+* **portal:** improve logo documentation ([#1050](https://github.com/fremtind/jokul/issues/1050)) ([68e15c5](https://github.com/fremtind/jokul/commit/68e15c571be03216c2b66928d1ce9f6c7a672aaf)), closes [#1027](https://github.com/fremtind/jokul/issues/1027)
+
+
+
+
+
 ## [3.8.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.3...@fremtind/portal@3.8.4) (2020-07-06)
 
 **Note:** Version bump only for package @fremtind/portal
