@@ -26,8 +26,16 @@
         overflow-x: scroll;
     }
 
+    html:not([data-mousenavigation]) &:focus-within {
+        box-shadow: 0 0 0 rem(2px) $info;
+    }
+
     *[data-theme="dark"] & {
         background-color: $gra-90;
+
+        html:not([data-mousenavigation]) &:focus-within {
+            box-shadow: 0 0 0 rem(2px) $info--darkbg;
+        }
 
         &:before {
             background-color: $gra-50;

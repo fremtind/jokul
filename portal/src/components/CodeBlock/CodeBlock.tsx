@@ -14,7 +14,7 @@ export const CodeBlock: React.FC<{ language: string }> = ({ language, children }
         <SyntaxHighlighter
             className="jkl-portal-code-block"
             style={style}
-            codeTagProps={{ style: {}, className: "jkl-portal-code-block__code" }}
+            codeTagProps={{ style: {}, className: "jkl-portal-code-block__code", tabIndex: 0 }}
             language={language}
             data-language={language}
         >
