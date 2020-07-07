@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2020-07-07)
+
+
+### Features
+
+* **checkbox:** add support for refs to checkbox ([14f3880](https://github.com/fremtind/jokul/commit/14f388053bc635484a6e37b048712f57194ef62a))
+
+
+
+
+
 # 1.5.0 (2020-07-06)
 
 

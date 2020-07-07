@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.25 (2020-07-07)
+
+**Note:** Version bump only for package @fremtind/jkl-logo-react
+
+
+
+
+
 ## 3.0.24 (2020-07-06)
 
 **Note:** Version bump only for package @fremtind/jkl-logo-react

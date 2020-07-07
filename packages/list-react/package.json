@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list-react",
-    "version": "1.2.26",
+    "version": "1.2.27",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
         "@fremtind/jkl-list": "^1.2.23"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.3.13"
+        "@fremtind/jkl-portal-components": "^0.3.14"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
