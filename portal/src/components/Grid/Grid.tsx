@@ -9,7 +9,7 @@ interface Props {
     size?: "medium" | "responsive";
 }
 
-export const Grid: React.SFC<Props> = ({ className, children, size = "medium" }: Props) => {
+export const Grid: React.FC<Props> = ({ className, children, size = "medium" }) => {
     const componentClassName = classNames(
         {
             "jkl-portal-grid": true,
@@ -19,9 +19,9 @@ export const Grid: React.SFC<Props> = ({ className, children, size = "medium" }:
     );
     return (
         <div className={componentClassName}>
-            {React.Children.map<React.ReactNode, React.ReactNode>(children, (child) => {
-                return <div className="jkl-portal-grid__col">{child}</div>;
-            })}
+            {React.Children.map(children, (child) => (
+                <div className="jkl-portal-grid__col">{child}</div>
+            ))}
         </div>
     );
 };

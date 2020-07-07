@@ -22,19 +22,19 @@
 
     &__image {
         width: 100%;
-        margin-bottom: $component-spacing--large;
     }
 
     &__heading {
         @include jkl-text-style("desktop/heading-small");
+        margin-top: $component-spacing--large;
         margin-bottom: $component-spacing--xs;
 
         &--do {
-            color: #005f47;
+            color: $suksess;
         }
 
         &--dont {
-            color: #aa1f23;
+            color: $feil;
         }
     }
 
@@ -46,11 +46,11 @@
         background-color: $gra-100;
 
         &__heading--do {
-            color: #5effa0;
+            color: $suksess--darkbg;
         }
 
         &__heading--dont {
-            color: #ff8b79;
+            color: $feil--darkbg;
         }
     }
 }
