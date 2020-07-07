@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 
 import "./Spacing.scss";
 
@@ -28,16 +28,15 @@ const layoutSpacings = stringLiteralArray([
 type spacingClass = typeof componentSpacings[number] | typeof layoutSpacings[number];
 
 const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const getComputed = (cssProperty: string) => {
-        if (ref.current) {
-            return window?.getComputedStyle(ref.current)?.getPropertyValue(cssProperty);
-        }
-        return "N/A";
+    const getComputedProperty = (node: HTMLElement | null, cssProperty: string) => {
+        return (node && window?.getComputedStyle(node)?.getPropertyValue(cssProperty)) || "N/A";
+    };
+    const [pxValue, setPxValue] = useState<string>("N/A");
+    const ref = (node: HTMLDivElement | null) => {
+        setPxValue(getComputedProperty(node, "margin-top"));
     };
     const baseFontSize = 16; // 1rem = 16px
-    const pxValue = parseInt(getComputed("margin-top"));
-    const remValue = pxValue ? pxValue / baseFontSize : pxValue;
+    const remValue = pxValue !== "N/A" ? parseInt(pxValue) / baseFontSize : pxValue;
     return (
         <tr className="jkl-portal-spacing-example-table__row">
             <td data-header="Spacing:" className="jkl-portal-spacing-example-table__data">
