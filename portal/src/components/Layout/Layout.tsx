@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 
 import { FormatProvider } from "../Typography";
