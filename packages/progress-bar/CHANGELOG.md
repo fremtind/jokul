@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.24 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-progress-bar
+
+
+
+
+
 ## [1.2.23](https://github.com/fremtind/jokul/compare/@fremtind/jkl-progress-bar@1.2.22...@fremtind/jkl-progress-bar@1.2.23) (2020-07-03)
 
 **Note:** Version bump only for package @fremtind/jkl-progress-bar
