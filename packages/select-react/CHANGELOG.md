@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2020-07-08)
+
+
+### Features
+
+* legg til data-testautoid type og props på Select ([b30dbf0](https://github.com/fremtind/jokul/commit/b30dbf0fb193433862973f406fb7163c8d16c1d8))
+
+
+
+
+
 ## 2.1.5 (2020-07-08)
 
 **Note:** Version bump only for package @fremtind/jkl-select-react

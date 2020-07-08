@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "1.2.28",
+    "version": "1.2.29",
     "publishConfig": {
         "access": "public"
     },
@@ -33,11 +33,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-hamburger": "^1.1.24",
-        "@fremtind/jkl-react-hooks": "^1.2.15"
+        "@fremtind/jkl-hamburger": "^1.1.25",
+        "@fremtind/jkl-react-hooks": "^1.2.16"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.3.15"
+        "@fremtind/jkl-portal-components": "^0.3.16"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
