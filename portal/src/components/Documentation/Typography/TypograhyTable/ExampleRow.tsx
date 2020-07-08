@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { TableCell } from "./TableCell";
 
 export type TypographyLevels =
@@ -16,13 +16,16 @@ interface Props {
     level: TypographyLevels;
 }
 export const ExampleRow: React.FC<Props> = ({ level }) => {
-    const ref = useRef<HTMLParagraphElement>(null);
-
-    const getComputed = (cssProperty: string) => {
-        if (ref.current) {
-            return window?.getComputedStyle(ref.current)?.getPropertyValue(cssProperty);
-        }
-        return "N/A";
+    const getComputedProperty = (node: HTMLElement | null, cssProperty: string) => {
+        return (node && window?.getComputedStyle(node)?.getPropertyValue(cssProperty)) || "N/A";
+    };
+    const [fontWeight, setFontWeight] = useState("N/A");
+    const [fontSize, setFontSize] = useState("N/A");
+    const [lineHeight, setLineHeight] = useState("N/A");
+    const ref = (node: HTMLParagraphElement | null) => {
+        setFontWeight(getComputedProperty(node, "font-weight"));
+        setFontSize(getComputedProperty(node, "font-size"));
+        setLineHeight(getComputedProperty(node, "line-height"));
     };
     return (
         <tr className={"jkl-typography-table__row"}>
@@ -31,9 +34,9 @@ export const ExampleRow: React.FC<Props> = ({ level }) => {
                     {level}
                 </p>
             </td>
-            <TableCell title="Vekt">{getComputed("font-weight")}</TableCell>
-            <TableCell title="Størrelse">{getComputed("font-size")}</TableCell>
-            <TableCell title="Linjeavstand">{getComputed("line-height")}</TableCell>
+            <TableCell title="Vekt">{fontWeight}</TableCell>
+            <TableCell title="Størrelse">{fontSize}</TableCell>
+            <TableCell title="Linjeavstand">{lineHeight}</TableCell>
         </tr>
     );
 };
