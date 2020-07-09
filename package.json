@@ -46,7 +46,7 @@
         "@babel/preset-typescript": "^7.9.0",
         "@commitlint/cli": "^9.0.1",
         "@commitlint/config-conventional": "^8.0.0",
-        "@cypress/browserify-preprocessor": "^2.2.1",
+        "@cypress/browserify-preprocessor": "^3.0.0",
         "@testing-library/dom": "^6.0.0",
         "@testing-library/jest-dom": "^5.1.1",
         "@testing-library/react": "^10.4.3",
