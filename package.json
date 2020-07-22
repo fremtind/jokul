@@ -47,7 +47,7 @@
         "@commitlint/cli": "^9.0.1",
         "@commitlint/config-conventional": "^8.0.0",
         "@cypress/browserify-preprocessor": "^2.2.1",
-        "@testing-library/dom": "^6.0.0",
+        "@testing-library/dom": "^7.21.4",
         "@testing-library/jest-dom": "^5.1.1",
         "@testing-library/react": "^10.4.3",
         "@testing-library/react-hooks": "^3.2.1",
