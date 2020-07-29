@@ -16,12 +16,7 @@ const defaultPlugins = [
         rootMode: "upward",
         extensions,
     }),
-    commonjs({
-        namedExports: {
-            classnames: ["named"],
-        },
-        include: [/node_modules\/classnames/],
-    }),
+    commonjs(),
 ];
 
 const uglifiedPlugins = [...defaultPlugins, terser({ ecma: "es5" })];
@@ -32,7 +27,7 @@ function config(plugins) {
 
         plugins: plugins,
         // Fremtind packages are marked as internal so that packages that depend on each other don't get inlined in each other
-        external: ["react", "nanoid", /nrk\/core/, ...allFremtindPackagesNames],
+        external: ["react", "nanoid", /nrk\/core/, "classnames", ...allFremtindPackagesNames],
     };
 }
 
