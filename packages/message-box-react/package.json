@@ -34,7 +34,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-message-box": "^1.5.15"
+        "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-message-box": "^1.5.15",
+        "classnames": "^2.2.6"
     },
     "devDependencies": {
         "@fremtind/jkl-core": "^4.8.0",

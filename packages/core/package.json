@@ -48,5 +48,9 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb",
+    "dependencies": {
+        "@babel/runtime": "^7.9.0",
+        "classnames": "^2.2.6"
+    }
 }
