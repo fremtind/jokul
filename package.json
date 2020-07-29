@@ -4,7 +4,7 @@
     "scripts": {
         "clean": "lerna run --parallel clean",
         "clean:portal": "lerna run clean:portal --stream",
-        "build": "lerna run --ignore @fremtind/browserslist-config-jkl build",
+        "build": "lerna run --ignore @fremtind/browserslist-config-jkl build --stream",
         "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/jkl-react-hooks build",
         "build:docs": "lerna run build:docs",
         "build:docs:local": "lerna run build:local --stream",
