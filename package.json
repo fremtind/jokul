@@ -33,7 +33,6 @@
     },
     "dependencies": {
         "classnames": "^2.2.6",
-        "eslint-plugin-react-hooks": "^4.0.5",
         "react": "^16.13.1",
         "react-dom": "^16.13.1"
     },
@@ -55,7 +54,7 @@
         "@types/jest": "^26.0.3",
         "@types/jest-axe": "^3.2.2",
         "@types/node": "^14.0.14",
-        "@types/react": "^16.9.41",
+        "@types/react": "^16.9.43",
         "@types/react-dom": "^16.9.8",
         "@types/sass": "^1.16.0",
         "@types/vfile-message": "^2.0.0",
@@ -76,6 +75,7 @@
         "eslint-plugin-jsx-a11y": "^6.3.1",
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.20.3",
+        "eslint-plugin-react-hooks": "^4.0.5",
         "fibers": "^5.0.0",
         "gh-pages": "^3.1.0",
         "glob": "^7.1.6",
