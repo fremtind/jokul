@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, useContext } from "react";
 import classNames from "classnames";
 import "./delay-text.scss";
 import { VisibleDetector } from "../VisibleDetector";
+import { a11yContext } from "../../contexts/a11yContext";
 
 const useInterval = (callback: () => void, delay: number | null) => {
     const savedCallback = useRef<() => void>();
@@ -32,8 +33,9 @@ interface Props {
 }
 
 export const DelayText: React.FunctionComponent<Props> = ({ text, delay, children }) => {
+    const { prefersReducedMotion } = useContext(a11yContext);
     const [index, setIndex] = useState(-1);
-    const [isRunning, setIsRunning] = useState(true);
+    const [isRunning, setIsRunning] = useState(!prefersReducedMotion);
     const [charactersAnimated, setCharactersAnimated] = useState(0);
     const [hidden] = useState(false);
     const noiseMap = Array.from(new Array(text.length)).map(() => Math.random() * 500 + 250);
@@ -123,29 +125,35 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
 
     return (
         <>
-            <VisibleDetector
-                onLeave={() => onLeft()}
-                threshold={[0]}
-                //@ts-ignore
-                ref={textRef}
-                //@ts-ignore
-                render={(ref) => (
-                    <div ref={ref} className={delayTextClassName}>
-                        <div className={textWrapper}>
-                            {filteredText.map((c, i) => (
-                                <span
-                                    key={c + i}
-                                    className={textClassName}
-                                    style={{ transitionDelay: noiseMap[i] + "ms" }}
-                                    onTransitionEnd={() => setCharactersAnimated(charactersAnimated + 1)}
-                                >
-                                    {c}
-                                </span>
-                            ))}
+            {prefersReducedMotion ? (
+                <div className={delayTextClassName}>
+                    <div className={textWrapper}>{text}</div>
+                </div>
+            ) : (
+                <VisibleDetector
+                    onLeave={() => onLeft()}
+                    threshold={[0]}
+                    //@ts-ignore
+                    ref={textRef}
+                    //@ts-ignore
+                    render={(ref) => (
+                        <div ref={ref} className={delayTextClassName}>
+                            <div className={textWrapper}>
+                                {filteredText.map((c, i) => (
+                                    <span
+                                        key={c + i}
+                                        className={textClassName}
+                                        style={{ transitionDelay: noiseMap[i] + "ms" }}
+                                        onTransitionEnd={() => setCharactersAnimated(charactersAnimated + 1)}
+                                    >
+                                        {c}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                )}
-            />
+                    )}
+                />
+            )}
             <div className={childrenClassName}>{children}</div>
         </>
     );

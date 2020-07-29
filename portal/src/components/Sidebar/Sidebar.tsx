@@ -1,15 +1,16 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useContext } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { useLocation } from "../../contexts/locationContext";
 import { useTheme } from "../../contexts/themeContext";
+import { Link } from "@fremtind/jkl-core";
+import { a11yContext } from "../../contexts/a11yContext";
 
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
-import { Link } from "@fremtind/jkl-core";
 
-export function Sidebar({ className }: { className?: string }) {
+export function Sidebar() {
     const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
 
     const { currentSection } = useLocation();
@@ -44,6 +45,8 @@ export function Sidebar({ className }: { className?: string }) {
 }
 
 function SidebarMenu({ links, currentSection }: { links: DocumentationPageInfo[]; currentSection: string }) {
+    const { prefersReducedMotion } = useContext(a11yContext);
+
     const { theme } = useTheme();
     const [filter, setFilter] = useState("");
 
@@ -51,9 +54,9 @@ function SidebarMenu({ links, currentSection }: { links: DocumentationPageInfo[]
 
     React.useEffect(() => {
         (async () => {
-            await controls.start({ x: 0, opacity: 0, transition: { duration: 0 } });
-            await controls.start({ x: -10, opacity: 0, transition: { duration: 0.2 } });
-            await controls.start({ x: 0, opacity: 1, transition: { duration: 0.2 } });
+            await controls.start({ x: prefersReducedMotion ? 0 : 0, opacity: 0, transition: { duration: 0 } });
+            await controls.start({ x: prefersReducedMotion ? 0 : -10, opacity: 0, transition: { duration: 0.2 } });
+            await controls.start({ x: prefersReducedMotion ? 0 : 0, opacity: 1, transition: { duration: 0.2 } });
         })();
     }, [currentSection, controls]);
 
@@ -64,8 +67,8 @@ function SidebarMenu({ links, currentSection }: { links: DocumentationPageInfo[]
 
     return (
         <motion.div
-            initial={{ y: -400, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={{ y: prefersReducedMotion ? 0 : -400, opacity: 0 }}
+            animate={{ y: prefersReducedMotion ? 0 : 0, opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             key="sidebar-menu"
@@ -85,9 +88,13 @@ function SidebarMenu({ links, currentSection }: { links: DocumentationPageInfo[]
                 <AnimatePresence>
                     {filteredLinks.length === 0 ? (
                         <motion.li
-                            initial={{ y: 40, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1, transition: { duration: 0.2, delay: 0.3 } }}
-                            exit={{ y: -40, opacity: 0, transition: { duration: 0.2 } }}
+                            initial={{ y: prefersReducedMotion ? 0 : 40, opacity: 0 }}
+                            animate={{
+                                y: prefersReducedMotion ? 0 : 0,
+                                opacity: 1,
+                                transition: { duration: 0.2, delay: 0.3 },
+                            }}
+                            exit={{ y: prefersReducedMotion ? 0 : -40, opacity: 0, transition: { duration: 0.2 } }}
                             className="jkl-portal-sidebar-menu-item"
                             key={`li-none`}
                         >
@@ -110,9 +117,9 @@ function SidebarMenu({ links, currentSection }: { links: DocumentationPageInfo[]
                     ) : (
                         filteredLinks.map((item: DocumentationPageInfo) => (
                             <motion.li
-                                initial={{ x: -5, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1, transition: { duration: 0.2 } }}
-                                exit={{ x: 5, opacity: 0, transition: { duration: 0.2 } }}
+                                initial={{ x: prefersReducedMotion ? 0 : -5, opacity: 0 }}
+                                animate={{ x: prefersReducedMotion ? 0 : 0, opacity: 1, transition: { duration: 0.2 } }}
+                                exit={{ x: prefersReducedMotion ? 0 : 5, opacity: 0, transition: { duration: 0.2 } }}
                                 className="jkl-portal-sidebar-menu-item"
                                 key={`li-${item.title}`}
                             >

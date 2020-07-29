@@ -1,5 +1,6 @@
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useContext } from "react";
 import { useAnimation } from "framer-motion";
+import { a11yContext } from "../../../contexts/a11yContext";
 
 interface Props {
     isOpen: boolean;
@@ -7,23 +8,24 @@ interface Props {
 
 export const useFullScreenMenuAnimaiton = ({ isOpen }: Props) => {
     const controls = useAnimation();
+    const { prefersReducedMotion } = useContext(a11yContext);
 
     const exit = {
         opacity: 0,
-        clipPath: "inset(0 -3ch 100% 0)",
+        clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
         transition: { duration: 0 },
     };
 
     const initial = {
         opacity: 1,
-        clipPath: "inset(0 -3ch 100% 0)",
+        clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
         transition: { duration: 0.25, delay: 0.1 },
     };
 
     const animate = useCallback(
         (idx: number) => ({
-            clipPath: "inset(0 -3ch 0% 0)",
-            transition: { duration: 0.35, delay: 0.03 * idx },
+            clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 0% 0)",
+            transition: { duration: 0.35, delay: prefersReducedMotion ? 0 : 0.03 * idx },
         }),
         [],
     );
