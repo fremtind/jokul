@@ -35,6 +35,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@babel/runtime": "^7.9.0",
         "@fremtind/jkl-toggle-switch": "^2.1.25",
         "@fremtind/jkl-typography-react": "^2.3.18",
         "classnames": "^2.2.6"

@@ -1,6 +1,6 @@
-import nodeResolve from "rollup-plugin-node-resolve";
-import babel from "rollup-plugin-babel";
-import commonjs from "rollup-plugin-commonjs";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import { babel } from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 import fs from "fs";
 import path from "path";
@@ -13,6 +13,7 @@ const allFremtindPackagesNames = getFremtindPackageNames();
 const defaultPlugins = [
     nodeResolve({ extensions }),
     babel({
+        babelHelpers: "runtime",
         rootMode: "upward",
         extensions,
     }),
@@ -27,7 +28,7 @@ function config(plugins) {
 
         plugins: plugins,
         // Fremtind packages are marked as internal so that packages that depend on each other don't get inlined in each other
-        external: ["react", "nanoid", /nrk\/core/, "classnames", ...allFremtindPackagesNames],
+        external: ["react", "nanoid", /nrk\/core/, "classnames", /@babel\/runtime/, ...allFremtindPackagesNames],
     };
 }
 
