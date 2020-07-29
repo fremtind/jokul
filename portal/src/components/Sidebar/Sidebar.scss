@@ -11,6 +11,13 @@ $animation-timing: 300ms ease-out both;
         margin-bottom: $layout-spacing--medium;
     }
 
+    &__meta {
+        text-transform: capitalize;
+        margin: $component-spacing--large 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
     &__items {
         list-style-type: none;
         margin: 0;

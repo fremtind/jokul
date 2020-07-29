@@ -10,15 +10,21 @@ export const THEMES = {
     THEME_LIGHT: "light",
 };
 const themeContext = createContext<ThemeContext>({ toggleTheme: () => null });
+
 export function useTheme() {
     return useContext(themeContext);
 }
+
+export const useDarkMode = () => {
+    const { theme } = useTheme();
+    return theme === THEMES.THEME_DARK;
+};
 
 interface Props {
     children: ReactNode;
 }
 export function ThemeContextProvider({ children }: Props) {
-    const [theme, setTheme] = useState(THEMES.THEME_LIGHT);
+    const [theme, setTheme] = useState(THEMES.THEME_DARK);
     useLayoutEffect(() => {
         if (document) {
             const newTheme = getCookie("theme") || theme;
