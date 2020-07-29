@@ -15,7 +15,6 @@ const defaultPlugins = [
     babel({
         rootMode: "upward",
         extensions,
-        exclude: [/node_modules\/(?!nanoid)/], // only transpile our source code
     }),
     commonjs({
         namedExports: {
@@ -33,7 +32,7 @@ function config(plugins) {
 
         plugins: plugins,
         // Fremtind packages are marked as internal so that packages that depend on each other don't get inlined in each other
-        external: ["react", ...allFremtindPackagesNames],
+        external: ["react", "nanoid", ...allFremtindPackagesNames],
     };
 }
 
