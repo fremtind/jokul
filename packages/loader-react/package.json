@@ -33,7 +33,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-loader": "^1.1.25"
+        "@fremtind/jkl-loader": "^1.1.25",
+        "classnames": "^2.2.6"
     },
     "devDependencies": {
         "@fremtind/jkl-portal-components": "^0.3.16"

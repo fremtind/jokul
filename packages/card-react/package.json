@@ -32,7 +32,8 @@
     },
     "dependencies": {
         "@fremtind/jkl-button-react": "^1.5.19",
-        "@fremtind/jkl-card": "^1.2.25"
+        "@fremtind/jkl-card": "^1.2.25",
+        "classnames": "^2.2.6"
     },
     "devDependencies": {
         "@fremtind/jkl-portal-components": "^0.3.16"

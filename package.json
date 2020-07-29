@@ -31,7 +31,6 @@
         "reboot": "yarn clean && yarn boot"
     },
     "dependencies": {
-        "classnames": "^2.2.6",
         "eslint-plugin-react-hooks": "^4.0.4",
         "framer-motion": "^1.8.4",
         "react": "^16.9.0",
