@@ -42,7 +42,6 @@
         "@nrk/core-datepicker": "3.0.8"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^4.3.1",
         "@fremtind/jkl-portal-components": "^0.3.16",
         "@mdx-js/parcel-plugin-mdx": "^1.5.7"
     },
