@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//@ts-ignore
+// @ts-ignore: wait for nrk to supply types
 import CoreToggle from "@nrk/core-toggle/jsx";
 import classNames from "classnames";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";

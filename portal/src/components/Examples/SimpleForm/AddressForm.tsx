@@ -70,9 +70,9 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                     type="tel"
                     onChange={handleChange}
                     ref={(e) => {
-                        // @ts-ignore
+                        // @ts-ignore:: should be improved, temporarily escaped
                         register(e, { required: true, maxLength: 4, minLength: 4, pattern: /^[0-9]*$/ });
-                        // @ts-ignore
+                        // @ts-ignore:: should be improved, temporarily escaped
                         postnummerRef.current = e;
                     }}
                 />
@@ -105,9 +105,9 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                             type="text"
                             onChange={handleChange}
                             ref={(e) => {
-                                // @ts-ignore
+                                // @ts-ignore: should be improved, temporarily escaped
                                 register(e, { required: true });
-                                // @ts-ignore
+                                // @ts-ignore: should be improved, temporarily escaped
                                 streetNameRef.current = e;
                             }}
                         />
