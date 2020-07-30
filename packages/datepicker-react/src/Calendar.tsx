@@ -1,6 +1,6 @@
 import React, { ChangeEvent, forwardRef } from "react";
 import classNames from "classnames";
-//@ts-ignore
+// @ts-ignore: wait for nrk to supply types
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";

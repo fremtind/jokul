@@ -2,9 +2,14 @@ import React, { useRef, useState, forwardRef } from "react";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 
 interface Props {
-    render: Function;
-    onEnter?: Function;
-    onLeave?: Function;
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    // @ts-ignore: Todo: improve visibleDetector type safety
+    render: any;
+    // @ts-ignore: Todo: improve visibleDetector type safety
+    onEnter?: any;
+    // @ts-ignore: Todo: improve visibleDetector type safety
+    onLeave?: any;
+    /* eslint-enable @typescript-eslint/no-explicit-any */
     threshold?: Array<number>;
 }
 

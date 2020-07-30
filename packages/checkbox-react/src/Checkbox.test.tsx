@@ -18,7 +18,7 @@ describe("checkbox", () => {
 
         fireEvent.click(label);
 
-        expect(input.checked).toBe(false);
+        expect(input.checked).toBe(true);
     });
 
     it("should be checked after clicking the input ", function () {

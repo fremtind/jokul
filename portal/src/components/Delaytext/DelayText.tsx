@@ -10,7 +10,7 @@ const useInterval = (callback: () => void, delay: number | null) => {
         savedCallback.current = callback;
     });
 
-    //@ts-ignore
+    // @ts-ignore: should be improved, temporarily escaped
     useEffect(() => {
         const tick = () => {
             if (savedCallback && savedCallback.current) {
@@ -60,13 +60,13 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
         const parentEl = elRef.parentElement;
 
         let elHeight = elRef.offsetHeight;
-        //@ts-ignore
+        // @ts-ignore: should be improved, temporarily escaped
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-top"));
-        //@ts-ignore
+        // @ts-ignore: should be improved, temporarily escaped
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-bottom"));
-        //@ts-ignore
+        // @ts-ignore: should be improved, temporarily escaped
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("padding-top"));
-        //@ts-ignore
+        // @ts-ignore: should be improved, temporarily escaped
         elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-bottom"));
         elHeight += parseInt(window.getComputedStyle(parentEl).getPropertyValue("padding-top"));
 
@@ -126,9 +126,9 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
             <VisibleDetector
                 onLeave={() => onLeft()}
                 threshold={[0]}
-                //@ts-ignore
+                // @ts-ignore: should be improved, temporarily escaped
                 ref={textRef}
-                //@ts-ignore
+                // @ts-ignore: should be improved, temporarily escaped
                 render={(ref) => (
                     <div ref={ref} className={delayTextClassName}>
                         <div className={textWrapper}>
