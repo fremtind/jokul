@@ -1,6 +1,6 @@
 /* There are no types for core-toggle, so we have to use ts-ignore
 Hopefully someone (us?) will write types for it sometime soon */
-// @ts-ignore
+// @ts-ignore: wait for nrk to supply types
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { ReactNode, useState } from "react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
