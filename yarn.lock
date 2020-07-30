@@ -10018,9 +10018,9 @@ gatsby-telemetry@^1.3.18:
     uuid "3.4.0"
 
 gatsby-transformer-react-docgen@^5.0.22:
-  version "5.2.10"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-react-docgen/-/gatsby-transformer-react-docgen-5.2.10.tgz#43657e0e506d24abf0a4edea814945ce517c937c"
-  integrity sha512-fCDbaGbjGkRvM2P3bJ2QNNJhXQp1hH1Pj7Cmh0uVRhnqiTkXzNUUCNOwAoNOwgfs+X8Fn1Nz3NK4LyaHgndyHw==
+  version "5.2.11"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-react-docgen/-/gatsby-transformer-react-docgen-5.2.11.tgz#55f39c413a323d3f0aabd2f4df82252806b6f3e4"
+  integrity sha512-Yud+yBTQsFuLw4EkNT3N+GzTTUjocHkrIpWBui/SkSiUCWMWjZf4s72Qsgi3bxU/bnMJAWABpSKDKuPXnVlvwQ==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@babel/runtime" "^7.10.3"
