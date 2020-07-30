@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState, useEffect, useCallback } from "react";
 import { nanoid } from "nanoid";

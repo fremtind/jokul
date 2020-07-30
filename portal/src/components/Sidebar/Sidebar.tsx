@@ -9,7 +9,7 @@ import { SidebarMenuItem } from "./SidebarMenuItem";
 import "./Sidebar.scss";
 import { Link } from "@fremtind/jkl-core";
 
-export function Sidebar({ className }: { className?: string }) {
+export function Sidebar() {
     const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
 
     const { currentSection } = useLocation();
