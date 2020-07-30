@@ -12,7 +12,7 @@ interface Props {
     fullWidth?: boolean;
 }
 
-export function DoDontExample({ type, content, image = "", description, fullWidth }: Props) {
+export const DoDontExample: React.FC<Props> = ({ type, content, image = "", description, fullWidth }) => {
     const heading = type === "do" ? "Riktig" : "Feil";
     const altText = description ? `${heading}: ${description}` : `${heading} bruk`;
     const headingClass = classNames({
@@ -26,7 +26,7 @@ export function DoDontExample({ type, content, image = "", description, fullWidt
     });
 
     return (
-        <aside className={containerClass}>
+        <section className={containerClass}>
             {content ? (
                 <div>{content}</div>
             ) : (
@@ -34,6 +34,6 @@ export function DoDontExample({ type, content, image = "", description, fullWidt
             )}
             <p className={headingClass}>{heading}</p>
             <p className="jkl-portal-do-dont-example__description">{description}</p>
-        </aside>
+        </section>
     );
-}
+};
