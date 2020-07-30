@@ -14,7 +14,7 @@ module.exports = function (api) {
     // Tests run in a node environment
     const targets = isTest ? { node: "current" } : browserList;
 
-    const plugins = ["@babel/plugin-proposal-optional-chaining"];
+    const plugins = ["@babel/plugin-proposal-optional-chaining", "@babel/plugin-transform-runtime"];
 
     return {
         plugins,

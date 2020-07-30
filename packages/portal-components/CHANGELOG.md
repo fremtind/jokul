@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.3.16...@fremtind/jkl-portal-components@0.4.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
 ## 0.3.16 (2020-07-08)
 
 **Note:** Version bump only for package @fremtind/jkl-portal-components
