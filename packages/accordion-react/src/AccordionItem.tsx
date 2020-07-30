@@ -5,6 +5,7 @@ import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { ReactNode, useState } from "react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import classNames from "classnames";
+import { ExpandArrow } from "./ExpandArrow";
 
 interface Props {
     title: string;
@@ -26,7 +27,7 @@ export function AccordionItem({ children, title, className, startExpanded = fals
         <div data-testid="jkl-accordion-item" className={componentClassName}>
             <button className="jkl-accordion-item__title" type="button">
                 <span className="jkl-accordion-item__title-text">{title}</span>
-                <span className="jkl-accordion-item__title-icon" />
+                <ExpandArrow className="jkl-accordion-item__title__arrow" expanded={isOpen} />
             </button>
             <CoreToggle
                 ref={elementRef}

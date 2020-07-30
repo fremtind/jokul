@@ -1,14 +1,17 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 interface Props {
-    children: ReactNode;
+    inverted?: boolean;
     className?: string;
 }
 
-export function Accordion({ children, className = "" }: Props) {
+export const Accordion: React.FC<Props> = ({ children, inverted, className = "" }) => {
     return (
-        <div data-testid="jkl-accordion" className={`jkl-accordion ${className}`}>
+        <div
+            data-testid="jkl-accordion"
+            className={`jkl-accordion ${inverted ? "jkl-accordion--inverted" : ""} ${className}`}
+        >
             {children}
         </div>
     );
-}
+};
