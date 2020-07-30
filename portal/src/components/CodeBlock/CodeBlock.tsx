@@ -1,5 +1,10 @@
 import React from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
+import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";
+
+SyntaxHighlighter.registerLanguage("tsx", tsx);
+SyntaxHighlighter.registerLanguage("scss", scss);
 
 import { useTheme } from "../../contexts/themeContext";
 import fremtindTheme from "./fremtindTheme";
