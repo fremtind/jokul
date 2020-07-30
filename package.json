@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "eslint-plugin-react-hooks": "^4.0.4",
-        "framer-motion": "^1.8.4",
+        "framer-motion": "^2.3.0",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
     },
