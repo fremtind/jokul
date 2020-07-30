@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@fremtind/jkl-react-hooks";
 
 interface ThemeContext {
     prefersReducedMotion: boolean;
