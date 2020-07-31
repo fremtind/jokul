@@ -6,31 +6,35 @@
     padding: $component-spacing--medium;
     padding-bottom: $component-spacing--large;
     margin-bottom: $layout-spacing--large;
+    width: 100%;
 
     &:not(:last-of-type) {
         margin-right: $layout-spacing--medium;
     }
 
     &--fullwidth {
-        width: calc(100% - 10.5rem);
-        max-width: 50vw;
+        width: 100%;
+        max-width: rem(894px);
+    }
+    &--halfwidth {
+        max-width: rem(420px);
     }
 
     &__image {
         width: 100%;
-        margin-bottom: $component-spacing--large;
     }
 
     &__heading {
         @include jkl-text-style("desktop/heading-small");
+        margin-top: $component-spacing--large;
         margin-bottom: $component-spacing--xs;
 
         &--do {
-            color: #005f47;
+            color: $suksess;
         }
 
         &--dont {
-            color: #aa1f23;
+            color: $feil;
         }
     }
 
@@ -42,11 +46,11 @@
         background-color: $gra-100;
 
         &__heading--do {
-            color: #5effa0;
+            color: $suksess--darkbg;
         }
 
         &__heading--dont {
-            color: #ff8b79;
+            color: $feil--darkbg;
         }
     }
 }

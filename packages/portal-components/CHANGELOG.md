@@ -3,6 +3,124 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.4.0...@fremtind/jkl-portal-components@0.4.1) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+# [0.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.3.16...@fremtind/jkl-portal-components@0.4.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+## 0.3.16 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.15 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.14 (2020-07-07)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.13 (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## [0.3.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.3.11...@fremtind/jkl-portal-components@0.3.12) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.11 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.10 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.9 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.8 (2020-06-26)
+
+
+### Bug Fixes
+
+* **flow-example:** add missing dependency to callback ([10dcfd5](https://github.com/fremtind/jokul/commit/10dcfd560d05fc01832c21fdf3fc109753089b5c))
+
+
+
+
+
+## 0.3.7 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## [0.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-portal-components@0.3.5...@fremtind/jkl-portal-components@0.3.6) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
+## 0.3.5 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-portal-components
+
+
+
+
+
 ## 0.3.4 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-portal-components

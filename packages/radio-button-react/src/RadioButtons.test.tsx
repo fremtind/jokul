@@ -1,15 +1,13 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { RadioButtons } from "./index";
 import { axe } from "jest-axe";
 
-afterEach(cleanup);
-
 describe("RadioButtons", () => {
     it("renders a legend with the correct value", () => {
         const choices = ["yes", "no"];
-        const { getByText } = render(
+        render(
             <RadioButtons
                 choices={choices}
                 legend="Does this work?"
@@ -19,12 +17,12 @@ describe("RadioButtons", () => {
             />,
         );
 
-        expect(getByText("Does this work?")).toBeInTheDocument();
+        expect(screen.getByText("Does this work?")).toBeInTheDocument();
     });
 
     it("renders radio buttons for each choice", () => {
         const choices = ["yes", "no"];
-        const { getByText } = render(
+        render(
             <RadioButtons
                 choices={choices}
                 legend="Does this work?"
@@ -34,35 +32,31 @@ describe("RadioButtons", () => {
             />,
         );
 
-        expect(getByText("yes")).toBeInTheDocument();
-        expect(getByText("no")).toBeInTheDocument();
+        expect(screen.getByText("yes")).toBeInTheDocument();
+        expect(screen.getByText("no")).toBeInTheDocument();
     });
 
     it("selects the correct value from given props", () => {
         const choices = ["one", "two"];
-        const { getByLabelText } = render(
-            <RadioButtons choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="two" />,
-        );
+        render(<RadioButtons choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="two" />);
 
-        const secondButton = getByLabelText("two");
+        const secondButton = screen.getByLabelText("two");
         expect(secondButton).toHaveAttribute("checked");
     });
 
     it("does not preselect a value if empty", () => {
         const choices = ["one", "two"];
-        const { getByLabelText } = render(
-            <RadioButtons choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="" />,
-        );
+        render(<RadioButtons choices={choices} legend="Test" name="test" onChange={(f) => f} selectedValue="" />);
 
-        const firstButton = getByLabelText("one");
-        const secondButton = getByLabelText("two");
+        const firstButton = screen.getByLabelText("one");
+        const secondButton = screen.getByLabelText("two");
         expect(firstButton).not.toHaveAttribute("checked");
         expect(secondButton).not.toHaveAttribute("checked");
     });
 
     it("executes handleChange function correctly", () => {
         const handleChange = jest.fn();
-        const { getByLabelText } = render(
+        render(
             <RadioButtons
                 legend="Test"
                 choices={["one", "two"]}
@@ -72,8 +66,8 @@ describe("RadioButtons", () => {
             />,
         );
 
-        const twoButton = getByLabelText("two");
-        twoButton.click();
+        const buttons = screen.getAllByTestId("jkl-radio-button__label-tag");
+        fireEvent.click(buttons[1]); // Click second button
 
         expect(handleChange).toHaveBeenCalled();
     });
@@ -84,11 +78,7 @@ describe("a11y", () => {
         const { container } = render(
             <RadioButtons legend="Test" choices={["one", "two"]} name="test" onChange={() => {}} selectedValue="one" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -104,11 +94,7 @@ describe("a11y", () => {
                 selectedValue="one"
             />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -124,11 +110,7 @@ describe("a11y", () => {
                 selectedValue="one"
             />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -144,11 +126,7 @@ describe("a11y", () => {
                 selectedValue="one"
             />,
         );
-        const results = await axe(container, {
-            rules: {
-                "form-field-multiple-labels": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });

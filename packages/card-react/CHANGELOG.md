@@ -3,6 +3,129 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.3.0...@fremtind/jkl-card-react@1.3.1) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.2.33...@fremtind/jkl-card-react@1.3.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+## 1.2.33 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.32 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.31 (2020-07-07)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.30 (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## [1.2.29](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.2.28...@fremtind/jkl-card-react@1.2.29) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.28 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## [1.2.27](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.2.22...@fremtind/jkl-card-react@1.2.27) (2020-07-02)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.26 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.25 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.24 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.23 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## [1.2.22](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@1.2.21...@fremtind/jkl-card-react@1.2.22) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
+## 1.2.21 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
+
+
+
+
 ## 1.2.20 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-card-react

@@ -3,6 +3,138 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@2.3.0...@fremtind/jkl-select-react@2.3.1) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+# [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@2.2.0...@fremtind/jkl-select-react@2.3.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+# 2.2.0 (2020-07-08)
+
+
+### Features
+
+* legg til data-testautoid type og props på Select ([b30dbf0](https://github.com/fremtind/jokul/commit/b30dbf0fb193433862973f406fb7163c8d16c1d8))
+
+
+
+
+
+## 2.1.5 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## 2.1.4 (2020-07-07)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## 2.1.3 (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## [2.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@2.1.1...@fremtind/jkl-select-react@2.1.2) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## [2.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@2.1.0...@fremtind/jkl-select-react@2.1.1) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+# [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@2.0.12...@fremtind/jkl-select-react@2.1.0) (2020-07-03)
+
+
+### Features
+
+* screen reader only label for select + width prop ([#1085](https://github.com/fremtind/jokul/issues/1085)) ([0b87de1](https://github.com/fremtind/jokul/commit/0b87de178b0d685ca09967ce3670f74305a1238a))
+
+
+
+
+
+## 2.0.16 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## 2.0.15 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## 2.0.14 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## 2.0.13 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
+## [2.0.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@2.0.11...@fremtind/jkl-select-react@2.0.12) (2020-06-26)
+
+
+### Bug Fixes
+
+* align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+
+
+
+
+
+## 2.0.11 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
+
+
+
+
 ## 2.0.10 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-select-react

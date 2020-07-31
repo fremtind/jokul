@@ -3,6 +3,114 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.7.0...@fremtind/jkl-checkbox-react@1.7.1) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+# [1.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.6.2...@fremtind/jkl-checkbox-react@1.7.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+## 1.6.2 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+## 1.6.1 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+# 1.6.0 (2020-07-07)
+
+
+### Features
+
+* **checkbox:** add support for refs to checkbox ([14f3880](https://github.com/fremtind/jokul/commit/14f388053bc635484a6e37b048712f57194ef62a))
+
+
+
+
+
+# 1.5.0 (2020-07-06)
+
+
+### Features
+
+* **checkbox:** make labels responsive ([116afcd](https://github.com/fremtind/jokul/commit/116afcd3a611ba30bf8400e4001d2716a8662b21)), closes [#985](https://github.com/fremtind/jokul/issues/985)
+
+
+
+
+
+## [1.4.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.4.13...@fremtind/jkl-checkbox-react@1.4.14) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+## 1.4.13 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+## 1.4.12 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+## 1.4.11 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
+## [1.4.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@1.4.9...@fremtind/jkl-checkbox-react@1.4.10) (2020-06-26)
+
+
+### Bug Fixes
+
+* align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+
+
+
+
+
+## 1.4.9 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-checkbox-react
+
+
+
+
+
 ## 1.4.8 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-checkbox-react

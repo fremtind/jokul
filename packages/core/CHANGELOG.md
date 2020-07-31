@@ -3,6 +3,96 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.8.0...@fremtind/jkl-core@4.9.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+# 4.8.0 (2020-07-08)
+
+
+### Features
+
+* legg til data-testautoid type og props på Select ([b30dbf0](https://github.com/fremtind/jokul/commit/b30dbf0fb193433862973f406fb7163c8d16c1d8))
+
+
+
+
+
+## 4.7.1 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+# [4.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.6.1...@fremtind/jkl-core@4.7.0) (2020-07-03)
+
+
+### Features
+
+* **core:** add utility classes for colors ([f052e72](https://github.com/fremtind/jokul/commit/f052e721bf8a462670028d1f50797178bee2b6ef)), closes [#1065](https://github.com/fremtind/jokul/issues/1065)
+
+
+
+
+
+## 4.6.1 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+# 4.6.0 (2020-07-01)
+
+
+### Features
+
+* **core:** add utility classes for all spacings ([6edbb8e](https://github.com/fremtind/jokul/commit/6edbb8e5b0f440c6b8ad1582d8af70e29326a560))
+
+
+
+
+
+## 4.5.6 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-core
+
+
+
+
+
+## [4.5.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@4.5.4...@fremtind/jkl-core@4.5.5) (2020-06-26)
+
+
+### Bug Fixes
+
+* **core:** make text style util classes respect compact mode ([1c04b73](https://github.com/fremtind/jokul/commit/1c04b73f94de60ead9d423966c0a250a1da2dd86))
+
+
+
+
+
+## 4.5.4 (2020-06-25)
+
+
+### Bug Fixes
+
+* **label:** add classname prop ([370d410](https://github.com/fremtind/jokul/commit/370d410e3af47d292f5c9ce60eaa2d512a4b5fff))
+
+
+
+
+
 ## 4.5.3 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-core

@@ -1,8 +1,8 @@
-// @ts-ignore
+// @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { useState, useEffect, useCallback } from "react";
-import nanoid from "nanoid";
-import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { nanoid } from "nanoid";
+import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import classNames from "classnames";
@@ -11,7 +11,7 @@ import { ExpandArrow } from "./ExpandArrow";
 
 type SelectEventHandler = (value?: string) => void;
 
-interface Props {
+interface Props extends DataTestAutoId {
     id?: string;
     label: string;
     items: Array<string | ValuePair>;
@@ -24,6 +24,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     inverted?: boolean;
+    width?: string;
     onChange?: SelectEventHandler;
     onBlur?: SelectEventHandler;
     onFocus?: SelectEventHandler;
@@ -66,6 +67,8 @@ export function Select({
     variant,
     forceCompact,
     inverted,
+    width,
+    ...selectProps
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
     const [internalFocus, setInternalFocus] = useState(false);
@@ -133,8 +136,8 @@ export function Select({
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
 
     return (
-        <div data-testid="jkl-select" className={componentClassName}>
-            <Label variant={variant} forceCompact={forceCompact}>
+        <div data-testid="jkl-select" className={componentClassName} style={{ width }} {...selectProps}>
+            <Label variant={variant} forceCompact={forceCompact} srOnly={inline}>
                 {label}
             </Label>
             <div className="jkl-select__outer-wrapper">
@@ -165,7 +168,7 @@ export function Select({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map(getValuePair).map((item) => (
+                        {items.map(getValuePair).map((item, i) => (
                             <li key={item.value}>
                                 <button
                                     type="button"
@@ -175,6 +178,7 @@ export function Select({
                                     aria-selected={item.value === selectedValue}
                                     role="option"
                                     value={item.value}
+                                    data-testautoid={`jkl-select__option-${i}`}
                                 >
                                     {item.label}
                                 </button>

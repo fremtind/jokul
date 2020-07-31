@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.3.24...@fremtind/jkl-field-group-react@1.4.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+## 1.3.24 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## 1.3.23 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## [1.3.22](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.3.21...@fremtind/jkl-field-group-react@1.3.22) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## 1.3.21 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## 1.3.20 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## 1.3.19 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## [1.3.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@1.3.17...@fremtind/jkl-field-group-react@1.3.18) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
+## 1.3.17 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-field-group-react
+
+
+
+
+
 ## 1.3.16 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-field-group-react

@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/* /// <reference types="cypress" />
 
 context("Accordion", () => {
     beforeEach(() => {
@@ -11,3 +11,4 @@ context("Accordion", () => {
         cy.getByTestid("jkl-accordion").toMatchImageSnapshot();
     });
 });
+ */

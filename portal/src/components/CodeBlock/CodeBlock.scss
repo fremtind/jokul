@@ -1,0 +1,45 @@
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-portal-code-block {
+    position: relative;
+    background-color: $gra-20;
+    border-radius: rem(2px);
+    width: 100%;
+    max-width: rem(768px);
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: $component-spacing--small;
+        background-color: $svart;
+        color: $gra-10;
+        @include jkl-text-style("desktop/micro");
+        text-transform: uppercase;
+        content: attr(data-language);
+    }
+
+    &__code {
+        display: block;
+        padding: $component-spacing--xl $component-spacing--large;
+        overflow-x: scroll;
+    }
+
+    html:not([data-mousenavigation]) &:focus-within {
+        box-shadow: 0 0 0 rem(2px) $info;
+    }
+
+    *[data-theme="dark"] & {
+        background-color: $gra-90;
+
+        html:not([data-mousenavigation]) &:focus-within {
+            box-shadow: 0 0 0 rem(2px) $info--darkbg;
+        }
+
+        &:before {
+            background-color: $gra-50;
+            color: $svart;
+        }
+    }
+}

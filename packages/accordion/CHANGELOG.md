@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.26](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.1.25...@fremtind/jkl-accordion@1.1.26) (2020-07-29)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## 1.1.25 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## 1.1.24 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## [1.1.23](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.1.22...@fremtind/jkl-accordion@1.1.23) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## 1.1.22 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## 1.1.21 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## 1.1.20 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## [1.1.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@1.1.18...@fremtind/jkl-accordion@1.1.19) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
+## 1.1.18 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-accordion
+
+
+
+
+
 ## 1.1.17 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-accordion

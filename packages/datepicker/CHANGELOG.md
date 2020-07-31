@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.5.18...@fremtind/jkl-datepicker@1.5.19) (2020-07-29)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## 1.5.18 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## 1.5.17 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## [1.5.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.5.15...@fremtind/jkl-datepicker@1.5.16) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## [1.5.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.5.14...@fremtind/jkl-datepicker@1.5.15) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## [1.5.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.5.11...@fremtind/jkl-datepicker@1.5.14) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## 1.5.13 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## 1.5.12 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## [1.5.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@1.5.10...@fremtind/jkl-datepicker@1.5.11) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
+## 1.5.10 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker
+
+
+
+
+
 ## 1.5.9 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-datepicker

@@ -4,71 +4,148 @@ path: /profil/farger
 order: 3
 ---
 
+import { ColorDescription, TwoToneColorDescription } from "../../components/Documentation/Colors/ColorDescription";
+import { GraTable, VardeTable } from "../../components/Documentation/Colors/ColorTable";
+
 # Farger
 
-Farger er en viktig del av Fremtinds identitet. Det etterlatte inntrykket av våre løsninger skal være hvitt, med svart og varde som profilbærende farger. Profilen støttes av funksjonelle farger, som er inspirert av norsk natur. 
-
-Fargepaletten vår er delt inn i tre grupper: Primærfarger, grå- og vardevalører og meldingsfarger. 
+<Ingress>
+    Farger er en viktig del av Fremtinds identitet. Det etterlatte inntrykket av våre løsninger skal være hvitt, med
+    svart og varde som profilbærende farger. Profilen støttes av funksjonelle farger, som er inspirert av norsk natur.
+</Ingress>
 
 ## Primærfargene
-Hvit, svart og varde. Disse fargene bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk. Primærfargene våre er:
 
-### Svart #000000 
-Svart bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær bakgrunner med fargen varde.
+Disse fargene bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk. Primærfargene våre er:
 
-### Hvit #FFFFFF 
-Hvit bruker vi mest som bakgrunnsfarge, og som tekstfarge der vi har mørke flater. I tillegg er den fokusfarge, for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel et felt i et skjema.
+<ColorDescription title="Hvit" colorVariable="hvit" rgbValue={{ r: 255, g: 255, b: 255 }} cmyk="0 0 0 0">
+    Hvit bruker vi mest som bakgrunnsfarge, og som tekstfarge der vi har mørke flater. I tillegg er den fokusfarge, for
+    eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel
+    et felt i et skjema.
+</ColorDescription>
 
-### Varde #DED4C7 
-Varde bruker vi som bakgrunnsfarge eller på elementer for å fremheve innhold. Når vi velger å bruke den på en flate, unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
+<ColorDescription
+    title="Svart"
+    colorVariable="svart"
+    rgbValue={{ r: 0, g: 0, b: 0 }}
+    cmyk="15 15 15 100"
+    pantone="Pantone Black U"
+>
+    Svart bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke
+    store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær
+    bakgrunner med fargen varde.
+</ColorDescription>
 
-## Grå- og vardevalører. 
+<ColorDescription
+    title="Varde"
+    colorVariable="varde"
+    rgbValue={{ r: 222, g: 212, b: 199 }}
+    cmyk="12 13 19 0"
+    pantone="Pantone 2310 U"
+>
+    Varde bruker vi som bakgrunnsfarge eller på elementer for å fremheve innhold. Når vi velger å bruke den på en flate,
+    unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke
+    bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
+</ColorDescription>
+
+## Grå- og vardevalørene
+
 Vi har et sett av valører for grå og varde. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
 
 ### Gråvalører (Grå 10 - Grå 100)
+
+<GraTable />
+
 Disse kan brukes på elementer for å bryte opp layout og for å ha flere nyanser enn svart og hvit. For bruk til større flater og bakgrunner skal det bare brukes Grå-10, Grå-20, Grå-90 og Grå-100. Ikke bruk grå flater sammen med Varde, og vær obs på kontrast til innholdet når du bruker de ulike valørene.
 
 Grå 10 til Grå 50 kan brukes med svart tekst, mens Grå 60 til Grå 100 kan brukes med hvit tekst.
 
 ### Vardevalører (Varde 10 - Varde 100)
+
+<VardeTable />
+
 De lysere vardevalørene (Varde 50 og lavere) kan brukes som bakgrunnsflater eller på elementer for å bryte opp layout. Bruk de mørkere vardevalørene (Varde 60 og opp) med omhu. Ikke benytt de aller mørkeste som bakgrunnsfarge eller farge på større flater.
 
 For Varde 10 til Varde 90 skal man bruke svart tekst.
 
 ## Meldingsfargene
-Meldingsfargene bruker vi på digitale flater, for eksempel når vi trenger å gi informasjon fra systemet. Feil, advarsler, informasjonsmeldinger, grafer og fokusringer ved tastaturnavigasjon er eksempler på hva vi bruker meldingsfargene til.  Meldingsfargene skal bare brukes funksjonelt, det vil si ikke som rene dekorelementer.
 
-_For lyse flater (husk å sjekke kontrast for din løsning):_
+Meldingsfargene bruker vi på digitale flater, for eksempel når vi trenger å gi informasjon fra systemet. Feil, advarsler, informasjonsmeldinger, grafer og fokusringer ved tastaturnavigasjon er eksempler på hva vi bruker meldingsfargene til. Meldingsfargene skal bare brukes funksjonelt, det vil si ikke som rene dekorelementer.
 
-### Suksess #005F47
-En grønnfarge som vi bruker til å vise at en handling er vellykket, for eksempel at brukeren er ferdig med noe.
+Meldingsfargene finnes for mørk og lys bakgrunn.
 
-### Info #000AFA
-Denne blåfargen bruker vi til informasjonsmeldinger og fokustilstander.
+<TwoToneColorDescription
+    className="jkl-spacing--top-3"
+    title="Suksessfarge"
+    color={{
+        colorVariable: "suksess",
+        rgbValue: { r: 0, g: 95, b: 71 },
+    }}
+    darkColor={{
+        colorVariable: "suksess--darkbg",
+        rgbValue: { r: 95, g: 255, b: 160 },
+    }}
+>
+    En grønnfarge som vi bruker til å vise at en handling er vellykket, for eksempel at brukeren er ferdig med noe.
+</TwoToneColorDescription>
 
-### Feil #AA1F23
-En rødfarge som vi bruker til feilmeldinger eller andre viktige varsler.
+<TwoToneColorDescription
+    title="Infofarge"
+    color={{
+        colorVariable: "info",
+        rgbValue: { r: 0, g: 10, b: 250 },
+    }}
+    darkColor={{
+        colorVariable: "info--darkbg",
+        rgbValue: { r: 0, g: 250, b: 255 },
+    }}
+>
+    Blåfargen bruker vi til informasjonsmeldinger og fokustilstander.
+</TwoToneColorDescription>
 
-### Advarsel #FBB15B
-Denne gulfargen er til advarsler. Denne oppfyller ikke kontrastkravet mot hvit så kan ikke være funksjonsbærende mot hvite flater uten andre virkemiddler (e.g. tekst).
+<TwoToneColorDescription
+    title="Advarselsfarge"
+    color={{
+        colorVariable: "advarsel",
+        rgbValue: { r: 251, g: 177, b: 91 },
+    }}
+    darkColor={{
+        colorVariable: "advarsel--darkbg",
+        rgbValue: { r: 251, g: 177, b: 91 },
+    }}
+>
+    Denne gulfargen er til advarsler. Denne oppfyller ikke kontrastkravet mot hvit så den kan ikke være funksjonsbærende
+    mot hvite flater uten andre virkemiddler (e.g. tekst).
+</TwoToneColorDescription>
 
-_For mørke flater (husk å sjekke kontrast for din løsning):_
-
-### Suksess #5EFFA0
-En grønnfarge som vi bruker til å vise at en handling er vellykket, for eksempel at brukeren er ferdig med noe. Til å bruke mot mørke bakgrunner.
-
-### Info #00FAFF
-Denne blåfargen bruker vi til informasjonsmeldinger og fokustilstander. Til å bruke mot mørke bakgrunner.
-
-### Feil #FF8B79
-En rødfarge som vi bruker til feilmeldinger eller andre viktige varsler. Til å bruke mot mørke bakgrunner.
-
-### Advarsel #FEC97B
-Denne gulfargen er til advarsler. Til å bruke mot mørke bakgrunner.
+<TwoToneColorDescription
+    title="Feilfarge"
+    color={{
+        colorVariable: "feil",
+        rgbValue: { r: 0, g: 95, b: 71 },
+    }}
+    darkColor={{
+        colorVariable: "feil--darkbg",
+        rgbValue: { r: 255, g: 139, b: 121 },
+    }}
+>
+    En rødfarge som vi bruker til feilmeldinger eller andre viktige varsler.
+</TwoToneColorDescription>
 
 ## Tilgjengelighet
+
 Tilgjengelighet er noe av det viktigste å tenke på når vi bruker farger i digitale løsninger. Vi skal alltid følge kravene til universell utforming. For farger betyr det AA-kravet for kontrast. Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin egen bakgrunn, når det har betydning for å forstå funksjonaliteten.
 
 I tillegg til å tenke på tekst mot knappebakgrunnen, må vi også tenke på knappebakgrunnen mot sidens bakgrunnsfarge dersom det er viktig for å forstå funksjonen til komponenten.
 
 Tekstfargene våre er helhvit eller svart. Se fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
+
+### Plugins til Figma
+
+-   [A11y - Color Contrast Checker](https://www.figma.com/community/plugin/733159460536249875/A11y---Color-Contrast-Checker)
+-   Se også [denne listen](https://www.figma.com/blog/design-for-everyone-with-these-accessibility-focused-plugins/) over nyttige plugins.
+
+### Andre verktøy
+
+-   [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+-   [Colour Contrast Analyzer](https://developer.paciellogroup.com/resources/contrastanalyser/)

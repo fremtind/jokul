@@ -1,25 +1,23 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { FieldGroup } from "./FieldGroup";
 import { axe } from "jest-axe";
 
-afterEach(cleanup);
-
 describe("FieldGroup", () => {
     it("should render the correct legend", () => {
-        const { getByText } = render(<FieldGroup legend="Hello"></FieldGroup>);
+        render(<FieldGroup legend="Hello"></FieldGroup>);
 
-        expect(getByText("Hello")).toBeInTheDocument;
+        expect(screen.getByText("Hello")).toBeInTheDocument;
     });
     it("should render the correct help text", () => {
-        const { getByText } = render(<FieldGroup legend="Hello" helpLabel="Helpful text"></FieldGroup>);
+        render(<FieldGroup legend="Hello" helpLabel="Helpful text"></FieldGroup>);
 
-        expect(getByText("Helpful text")).toBeInTheDocument;
+        expect(screen.getByText("Helpful text")).toBeInTheDocument;
     });
     it("should render the correct error text", () => {
-        const { getByText } = render(<FieldGroup legend="Hello" errorLabel="Helpful suggestion"></FieldGroup>);
+        render(<FieldGroup legend="Hello" errorLabel="Helpful suggestion"></FieldGroup>);
 
-        expect(getByText("Helpful suggestion")).toBeInTheDocument;
+        expect(screen.getByText("Helpful suggestion")).toBeInTheDocument;
     });
     it("should not render help text when there is an error text", () => {
         const { queryByText } = render(

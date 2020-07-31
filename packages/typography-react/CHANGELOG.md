@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@2.3.18...@fremtind/jkl-typography-react@2.4.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+## 2.3.18 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+## 2.3.17 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+## [2.3.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@2.3.15...@fremtind/jkl-typography-react@2.3.16) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+## 2.3.15 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+## 2.3.14 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+## 2.3.13 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+## [2.3.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-typography-react@2.3.11...@fremtind/jkl-typography-react@2.3.12) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
+## 2.3.11 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-typography-react
+
+
+
+
+
 ## 2.3.10 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-typography-react

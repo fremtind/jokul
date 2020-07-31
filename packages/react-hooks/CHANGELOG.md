@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.3.0...@fremtind/jkl-react-hooks@1.3.1) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.2.16...@fremtind/jkl-react-hooks@1.3.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+## 1.2.16 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.15 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.14 (2020-07-07)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.13 (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## [1.2.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.2.11...@fremtind/jkl-react-hooks@1.2.12) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.11 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.10 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.9 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.8 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.7 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## [1.2.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@1.2.5...@fremtind/jkl-react-hooks@1.2.6) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
+## 1.2.5 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-react-hooks
+
+
+
+
+
 ## 1.2.4 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-react-hooks

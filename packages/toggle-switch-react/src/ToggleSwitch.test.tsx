@@ -1,9 +1,7 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { ToggleSwitch } from ".";
 import { axe } from "jest-axe";
-
-afterEach(cleanup);
 
 describe("Toggle switch", () => {
     it("should be pressed after clicking the button", () => {
@@ -15,25 +13,25 @@ describe("Toggle switch", () => {
                 </ToggleSwitch>
             );
         };
-        const { getByText } = render(<TestToggleSwitch />);
+        render(<TestToggleSwitch />);
 
-        const input = getByText("GPS");
+        const input = screen.getByText("GPS");
 
         expect(input).toHaveAttribute("aria-pressed", "false");
 
-        input.click();
+        fireEvent.click(input);
 
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
 
     it("should be pressed if pressed is true", function () {
-        const { getByText } = render(
+        render(
             <ToggleSwitch pressed={true} onClick={() => ""}>
                 I am groot!
             </ToggleSwitch>,
         );
 
-        const input = getByText("I am groot!");
+        const input = screen.getByText("I am groot!");
 
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
@@ -47,19 +45,19 @@ describe("Toggle switch", () => {
                 </ToggleSwitch>
             );
         };
-        const { getByText } = render(<TestToggleSwitch />);
+        render(<TestToggleSwitch />);
 
-        const input = getByText("I am groot!");
+        const input = screen.getByText("I am groot!");
 
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
 
     it("should call the passed onClick method when clicked", () => {
         const onClick = jest.fn();
-        const { getByText } = render(<ToggleSwitch onClick={onClick}>Switch me!</ToggleSwitch>);
+        render(<ToggleSwitch onClick={onClick}>Switch me!</ToggleSwitch>);
 
-        const input = getByText("Switch me!");
-        input.click();
+        const input = screen.getByText("Switch me!");
+        fireEvent.click(input);
 
         expect(onClick).toHaveBeenCalled();
     });

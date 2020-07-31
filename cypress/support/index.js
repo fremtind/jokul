@@ -1,4 +1,5 @@
-import "cypress-plugin-snapshots/commands";
+// TODO: renable when #1104 is fixed
+//import "cypress-plugin-snapshots/commands";
 import "cypress-axe";
 import "./checkPortalPage";
 
@@ -7,7 +8,8 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    cy.visit(`/komponenter/${component}`);
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.visit(`/komponenter/${component}`).wait(500);
 });
 
 Cypress.Commands.add("getComponent", () => {

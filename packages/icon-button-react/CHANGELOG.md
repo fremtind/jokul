@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@0.3.0...@fremtind/jkl-icon-button-react@0.3.1) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+# [0.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@0.2.25...@fremtind/jkl-icon-button-react@0.3.0) (2020-07-29)
+
+
+### Features
+
+* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+
+
+
+
+
+## 0.2.25 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.24 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.23 (2020-07-07)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.22 (2020-07-06)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## [0.2.21](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@0.2.20...@fremtind/jkl-icon-button-react@0.2.21) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.20 (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.19 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.18 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.17 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.16 (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## [0.2.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@0.2.14...@fremtind/jkl-icon-button-react@0.2.15) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
+## 0.2.14 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-icon-button-react
+
+
+
+
+
 ## 0.2.13 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-icon-button-react

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo-react",
-    "version": "3.0.15",
+    "version": "3.1.1",
     "publishConfig": {
         "access": "public"
     },
@@ -33,11 +33,13 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-logo": "^2.1.16",
-        "nanoid": "^2.1.11"
+        "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-logo": "^2.1.25",
+        "classnames": "^2.2.6",
+        "nanoid": "^3.1.10"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.3.4"
+        "@fremtind/jkl-portal-components": "^0.4.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

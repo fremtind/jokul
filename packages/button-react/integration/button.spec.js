@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-context("Buttons", () => {
+/* context("Buttons", () => {
     beforeEach(() => {
         cy.testComponent("buttons");
     });
@@ -11,4 +11,4 @@ context("Buttons", () => {
         cy.setInvertert().getComponent().toMatchImageSnapshot();
         cy.resetKompakt().getComponent().toMatchImageSnapshot();
     });
-});
+}); */

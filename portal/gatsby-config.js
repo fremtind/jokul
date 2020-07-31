@@ -8,6 +8,9 @@ module.exports = {
     },
     plugins: [
         "gatsby-plugin-typescript",
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
+        { resolve: `gatsby-source-filesystem`, options: { path: `./src/components/Documentation/` } },
         {
             resolve: "gatsby-plugin-sass",
             options: { implementation: require("sass") },
@@ -48,5 +51,11 @@ module.exports = {
                 component: require.resolve(`./src/components/Layout/Layout.tsx`),
             },
         },
+        {
+            resolve: `gatsby-plugin-layout`,
+            options: {
+              component: require.resolve(`./src/components/Layout/Layout.tsx`),
+            },
+          },
     ],
 };

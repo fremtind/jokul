@@ -25,8 +25,8 @@ describe("Alert messages", () => {
     [messageWithStyles, messageWitoutStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
             it(name + " should render message content", () => {
-                const { getByText } = render(<E {...messageStyleProps}>content</E>);
-                getByText("content");
+                render(<E {...messageStyleProps}>content</E>);
+                screen.getByText("content");
             });
         });
     });

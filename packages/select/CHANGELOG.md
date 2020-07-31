@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@2.1.4...@fremtind/jkl-select@2.1.5) (2020-07-29)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+## 2.1.4 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+## 2.1.3 (2020-07-08)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+## [2.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@2.1.1...@fremtind/jkl-select@2.1.2) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+## [2.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@2.1.0...@fremtind/jkl-select@2.1.1) (2020-07-03)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+# [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@2.0.10...@fremtind/jkl-select@2.1.0) (2020-07-03)
+
+
+### Features
+
+* screen reader only label for select + width prop ([#1085](https://github.com/fremtind/jokul/issues/1085)) ([0b87de1](https://github.com/fremtind/jokul/commit/0b87de178b0d685ca09967ce3670f74305a1238a))
+
+
+
+
+
+## 2.0.12 (2020-07-01)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+## 2.0.11 (2020-06-29)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+## [2.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@2.0.9...@fremtind/jkl-select@2.0.10) (2020-06-26)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
+## 2.0.9 (2020-06-25)
+
+**Note:** Version bump only for package @fremtind/jkl-select
+
+
+
+
+
 ## 2.0.8 (2020-06-24)
 
 **Note:** Version bump only for package @fremtind/jkl-select
