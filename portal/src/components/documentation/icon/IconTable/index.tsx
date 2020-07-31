@@ -59,9 +59,13 @@ export const Example = () => {
             <table className={`jkl-icon-table jkl-spacing--top-2`}>
                 <TableHeader />
                 <tbody>
-                    {icons.map((ico, key) => {
-                        return <ExampleRow key={key} icon={ico.icon} text={ico.text} />;
-                    })}
+                    {icons.map((ico) => (
+                        <ExampleRow
+                            key={`ICON-${ico.text.replace(/\s/g, "").toUpperCase()}`}
+                            icon={ico.icon}
+                            text={ico.text}
+                        />
+                    ))}
                 </tbody>
             </table>
         </>
