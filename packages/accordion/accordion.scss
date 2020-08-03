@@ -117,8 +117,6 @@ $arrow-width: rem(13px);
         background-color: var(--accordion-bg);
         .jkl-accordion-item {
             &__title {
-                color: $info;
-                color: var(--accordion-accent);
                 &:hover {
                     .jkl-accordion-item__title__arrow {
                         transform: translateY(calc(-50% + #{rem(-3px)}));
