@@ -12,5 +12,6 @@ context("Profile page", () => {
         cy.checkPortalPage("Tester", "komigang/tester", "Kom i gang med tester");
         cy.checkPortalPage("Pull-requests", "komigang/pullrequests", "Bidra til Jøkul på GitHub");
         cy.checkPortalPage("Portalen", "komigang/portalen", "Dokumentasjon til portalen");
+        cy.checkPortalPage("Mobil", "komigang/mobil", "Mobil, Nett og Responsivitet");
     });
 });
