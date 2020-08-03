@@ -14,7 +14,7 @@ const ReducedMotionExample = () => {
 
     return (
         <section className="hooks-example key-listener-example jkl-spacing--bottom-3">
-            <h2 className="jkl-h2 jkl-spacing--bottom-2">{`Din dings har en redusert bevelgelse ${
+            <h2 className="jkl-h2 jkl-spacing--bottom-2">{`Din dings har en redusert bevegelse ${
                 prefersReducedMotion ? "på" : "av"
             }`}</h2>
         </section>
