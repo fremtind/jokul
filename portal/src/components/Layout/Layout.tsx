@@ -9,6 +9,8 @@ import { ThemeBG } from "./components";
 import { useTheme } from "../../contexts/themeContext";
 import { useLocation } from "../../contexts/locationContext";
 
+import { HeaderProvider } from "../Header/HeaderContext";
+
 import "./Layout.scss";
 
 interface Props {
@@ -37,8 +39,10 @@ export const Layout: React.FC<Props> = ({ children, title, location }) => {
                 <title>{PageTitle}</title>
             </Helmet>
             <ThemeBG />
-            <Header className="jkl-portal__header" />
-            <AnimatePresence>{shouldShowSidebar && <Sidebar />}</AnimatePresence>
+            <HeaderProvider>
+                <Header className="jkl-portal__header" />
+                <AnimatePresence>{shouldShowSidebar && <Sidebar />}</AnimatePresence>
+            </HeaderProvider>
             <FormatProvider>
                 <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
             </FormatProvider>

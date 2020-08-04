@@ -9,6 +9,9 @@ import { FullScreenMenuItem } from "./FullScreenMenuItem";
 import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
 
+import { HeaderContext } from "../HeaderContext";
+import { Types } from "../HeaderReducers";
+
 import "./FullScreenMenu.scss";
 
 interface CoreToggleSelectEvent {
@@ -84,10 +87,18 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
         e.target.hidden = true;
     };
 
+    const { state, dispatch } = React.useContext(HeaderContext);
     return (
         <>
             {CustomButton ? (
-                <CustomButton />
+                <CustomButton
+                    initialIsActive={state.isOpenBurger}
+                    onClick={() => {
+                        dispatch({
+                            type: Types.ToggleBurger,
+                        });
+                    }}
+                />
             ) : (
                 <button data-testid={`full-screen-menu--${baseItem.linkText}`} className={buttonClassName}>
                     {baseItem.linkText}

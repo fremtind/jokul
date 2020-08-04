@@ -8,6 +8,10 @@ import { useLocation } from "../../contexts/locationContext";
 import { useFullscreenMenu } from "../../contexts/fullscreenMenuContext";
 import { useNavigationLinks } from "./useNavigationLinks";
 import { MainMenu, MenuItemList } from "./components/MainMenu";
+
+import { HeaderContext } from "./HeaderContext";
+import { Types } from "./HeaderReducers";
+
 import "./header.scss";
 
 export const Header = ({ className }: { className?: string }) => {
@@ -78,6 +82,8 @@ export const Header = ({ className }: { className?: string }) => {
         return thisMenuIsOpen || (itemPathMatches && (thisMenuIsOpen || menuIsOpen == ""));
     };
 
+    const { dispatch } = React.useContext(HeaderContext);
+
     return (
         <header className={componentClassName}>
             <JokulLink
@@ -91,7 +97,12 @@ export const Header = ({ className }: { className?: string }) => {
             </button>
             <MainMenu
                 className="jkl-portal-header__menu"
-                navigationFunction={navigate}
+                navigationFunction={(path) => {
+                    dispatch({
+                        type: Types.ToggleBurger,
+                    });
+                    navigate(path);
+                }}
                 isActiveFunction={isActiveFunction}
                 showTopLevel
                 items={menuItems}

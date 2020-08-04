@@ -1,4 +1,4 @@
-import React, { RefObject, useRef, useState } from "react";
+import React, { RefObject, useRef, useState, useEffect } from "react";
 import { useClickOutside } from "@fremtind/jkl-react-hooks";
 
 interface Props {
@@ -23,6 +23,11 @@ export const Hamburger = ({
     insideRef,
 }: Props) => {
     const [isActive, toggleIsActive] = useState(initialIsActive);
+
+    useEffect(() => {
+        toggleIsActive(initialIsActive);
+    }, [initialIsActive]);
+
     const wrapperRef = useRef(null);
 
     const toggleActive = (fn: ((isActive: boolean) => void) | undefined) => {
