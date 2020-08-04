@@ -16,23 +16,29 @@ context("Front page", () => {
         // Cypress misunderstand the animation for lack of contrast
         cy.checkA11y({ exclude: [[".jkl-portal-frontpage__section-contribute"]] });
 
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
             .contains("For utviklere")
             .click()
+            .wait(200)
             .url()
             .should("include", "komigang/utvikling")
             .go("back");
 
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
             .contains("For designere")
             .click()
+            .wait(200)
             .url()
             .should("include", "komigang/design")
             .go("back");
 
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
             .contains("Prosessen")
             .click()
+            .wait(200)
             .url()
             .should("include", "komigang/prosessen")
             .go("back");
