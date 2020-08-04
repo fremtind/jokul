@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "/jokul/(.*)",
+            "destination": "/$1"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}
