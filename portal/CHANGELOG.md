@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.10.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.10.0...@fremtind/portal@3.10.1) (2020-08-05)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+# [3.10.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.14...@fremtind/portal@3.10.0) (2020-08-05)
+
+
+### Bug Fixes
+
+* ta i bruk @fremtind/browserslist-config-jkl ([b75a518](https://github.com/fremtind/jokul/commit/b75a5185bb27ae548e8f2b144cad14e66cbf4e32))
+
+
+### Features
+
+* lag bloggpost om IE 11 ([a521211](https://github.com/fremtind/jokul/commit/a52121133644f7695381042d69667f2264436c30))
+
+
+
+
+
+## [3.9.14](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.13...@fremtind/portal@3.9.14) (2020-08-05)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+## [3.9.13](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.12...@fremtind/portal@3.9.13) (2020-08-03)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+## [3.9.12](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.11...@fremtind/portal@3.9.12) (2020-08-03)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+## [3.9.11](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.10...@fremtind/portal@3.9.11) (2020-07-31)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+## [3.9.10](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.9...@fremtind/portal@3.9.10) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
+## [3.9.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.8...@fremtind/portal@3.9.9) (2020-07-30)
+
+**Note:** Version bump only for package @fremtind/portal
+
+
+
+
+
 ## [3.9.8](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.7...@fremtind/portal@3.9.8) (2020-07-30)
 
 **Note:** Version bump only for package @fremtind/portal

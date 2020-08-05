@@ -1,0 +1,69 @@
+---
+title: Mobil
+path: /komigang/mobil
+order: 8
+---
+
+# Mobil, Nett og Responsivitet
+
+Når du utvikler løsninger som skal fungere i forskjellige enheter, for eksempel mobil, desktop og pad, er det noen ting som er viktig å vite og forholde seg til.
+
+## Nett først eller mobil først?
+
+Vanligvis designer du vanligvis for Web først når det gjelder profesjonelle løsninger som først og fremst brukes til administrasjon. I så fall vil kanskje mobil være en "god nok" løsning.
+
+Hvis målgruppen er sluttbrukere som bruker løsningen ganske mye via mobil, bør du sannsynligvis vurdere Mobile design først.
+
+Uansett kan det være greit å se tidlig i designfasen, både på nett og mobil, for å unngå mulige fremtidige problemer som kan oppstå hvis du ikke har tenkt på det ordentlig. Ellers er det fare for at du kan opprette en teknisk gjeld, som vil koste noen å rette opp i etterkant.
+
+## Det er godt å kjenne bruken
+
+Overordnet statistikk over nett- / mobilbruk globalt: [https://gs.statcounter.com/screen-resolution-stats/](https://gs.statcounter.com/screen-resolution-stats/)
+
+Kontakt Design System-teamet hvis du har spørsmål om generell statistikk over våre brukere for Fremtinds løsninger, hvis du ikke allerede har tilgang til statistikk for din løsning.
+
+## Breakpoints vi bruker i Jøkul
+
+-   liten: 768
+-   medium: 992
+-   stor: 1200
+-   xl: 1600
+
+Med liten mener vi mobile enheter.
+Medium er ment for nettbrett.
+Stor er for mindre stasjonære skjermer som bærbare datamaskiner.
+XL er beregnet på eksterne store skjermer.
+
+## Viktig å huske
+
+### Størrelse er viktig
+Det er viktig å ha skikkelig plass på objektet som er "touch" som knapper, Apple anbefaler minimum 44x44px
+
+### Responsive tabeller
+Tabeller er blant de vanskeligste å ha på mobilstørrelser. Det er flere måter å løse dette problemet på, inkludert å la tabellen falle ned til en liste i mobilvisning, spesielt hvis du har store kompliserte langbord med mye data.
+
+### Retina (høy oppløsning)
+Skjermbilder med høy oppløsning som Retina-skjermer kan trenge bilder med bedre oppløsning enn 72 dpi for å være bra på disse skjermene, det er forskjellige måter å løse dette på, men det er viktig å huske på at et bilde med høy oppløsning kan være betydelig større og gir en dårlig opplevelse på mobil som kan ha en begrenset båndbredde. Generelt sett skal alt som kan være vektorgrafikk være i SVG-format og ikke som et bilde.
+
+
+## Les mer
+
+Responsiv design
+
+[ Responsivt design ](https://blog.prototypr.io/a-pragmatic-guide-to-designing-and-building-responsive-web-applications-ff625dd2f206)
+
+Responsiv design
+
+https://www.browserstack.com/guide/responsive-design-trends
+
+Størrelser og touch
+
+https://medium.com/@zacdicko/size-matters-accessibility-and-touch-targets-56e942adc0cc
+
+Responsive datatabeller
+
+https://medium.com/appnroll-publication/5-practical-solutions-to-make-responsive-data-tables-ff031c48b122
+
+Retina
+
+https://www.dbswebsite.com/blog/retina-displays-good-for-web-design/

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-divider-line-react",
-    "version": "1.3.0",
+    "version": "1.3.1",
     "publishConfig": {
         "access": "public"
     },
@@ -37,11 +37,11 @@
     "dependencies": {
         "@babel/runtime": "^7.9.0",
         "@fremtind/jkl-divider-line": "^1.1.26",
-        "@fremtind/jkl-react-hooks": "^1.3.0",
+        "@fremtind/jkl-react-hooks": "^1.3.1",
         "nanoid": "^3.1.10"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.4.0"
+        "@fremtind/jkl-portal-components": "^0.4.1"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",
