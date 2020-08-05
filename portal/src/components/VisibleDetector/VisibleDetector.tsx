@@ -1,23 +1,22 @@
-import React, { useRef, useState, forwardRef } from "react";
+import { useRef, useState, forwardRef, RefObject, MutableRefObject, ReactElement } from "react";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 
+type RenderFunction<T extends HTMLElement> = (
+    ref: ((instance: T | null) => void) | MutableRefObject<T | null> | null,
+) => ReactElement | null;
+
 interface Props {
-    /* eslint-disable @typescript-eslint/no-explicit-any */
-    // @ts-ignore: Todo: improve visibleDetector type safety
-    render: any;
-    // @ts-ignore: Todo: improve visibleDetector type safety
-    onEnter?: any;
-    // @ts-ignore: Todo: improve visibleDetector type safety
-    onLeave?: any;
-    /* eslint-enable @typescript-eslint/no-explicit-any */
+    render: RenderFunction<HTMLDivElement>;
+    onEnter?: (entries: IntersectionObserverEntry[]) => void;
+    onLeave?: (entries: IntersectionObserverEntry[]) => void;
     threshold?: Array<number>;
 }
 
-export const VisibleDetector: React.FC<Props> = forwardRef<HTMLElement, Props>(
+export const VisibleDetector = forwardRef<HTMLDivElement, Props>(
     ({ onEnter, onLeave, render, threshold = [0.7] }, ref) => {
         const [isInViewport, setIsInViewport] = useState(false);
-        const internalRef = useRef<HTMLElement>(null);
-        const targetRef = (ref as React.RefObject<HTMLElement>) || internalRef;
+        const internalRef = useRef<HTMLDivElement>(null);
+        const targetRef = ref || internalRef;
 
         const onIntersect = (entries: IntersectionObserverEntry[]) => {
             // check if element is intersecting
@@ -39,7 +38,7 @@ export const VisibleDetector: React.FC<Props> = forwardRef<HTMLElement, Props>(
         const fallback = () => console.log("IntersectionObserver not supported");
         const options = { rootMargin: "0px", threshold };
 
-        useIntersectionObserver(targetRef, onIntersect, fallback, options);
+        useIntersectionObserver(targetRef as RefObject<HTMLElement>, onIntersect, fallback, options);
 
         return render(targetRef);
     },
