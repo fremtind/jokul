@@ -58,7 +58,7 @@ export function useNavigationLinks() {
     };
     const sortByDate = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
         if (a.publishDate && b.publishDate) {
-            return parseInt(a.publishDate.replace(".", "")) - parseInt(b.publishDate.replace(".", ""));
+            return parseInt(b.publishDate.replace(".", "")) - parseInt(a.publishDate.replace(".", ""));
         }
         return 0;
     };
