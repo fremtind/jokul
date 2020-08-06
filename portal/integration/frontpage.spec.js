@@ -13,8 +13,7 @@ context("Front page", () => {
         cy.getByTestid("title-elevasjon").contains("Elevasjon");
         cy.getByTestid("title-bevegelse").contains("Bevegelse");
 
-        // Cypress misunderstand the animation for lack of contrast
-        cy.checkA11y({ exclude: [[".jkl-portal-frontpage__section-contribute"]] });
+        cy.verifyA11y();
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
