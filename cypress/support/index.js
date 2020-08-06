@@ -16,6 +16,14 @@ Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example");
 });
 
+Cypress.Commands.add("verifyA11y", () => {
+    // Cypress misunderstand the animation for lack of contrast
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.wait(300).checkA11y({
+        exclude: [[".jkl-portal-frontpage__section-contribute", ".jkl-portal-code-block__code"]],
+    });
+});
+
 const setMode = (action, reset) => () =>
     cy.get(`input[value="${action}"]`).then(($input) => {
         if (reset ? $input[0].checked : !$input[0].checked) {
