@@ -3,463 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.5.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.5.0...@fremtind/jkl-accordion-react@1.5.1) (2020-07-30)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-# [1.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.18...@fremtind/jkl-accordion-react@1.5.0) (2020-07-29)
-
+## 1.5.0 (2020-07-29)
 
 ### Features
 
-* **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+- **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
 
-
-
-
-
-## 1.4.18 (2020-07-08)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.17 (2020-07-08)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.16 (2020-07-07)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.15 (2020-07-06)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.4.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.13...@fremtind/jkl-accordion-react@1.4.14) (2020-07-03)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.13 (2020-07-03)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.4.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.7...@fremtind/jkl-accordion-react@1.4.12) (2020-07-02)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.11 (2020-07-01)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.10 (2020-06-29)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.9 (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.8 (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.4.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.6...@fremtind/jkl-accordion-react@1.4.7) (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.6 (2020-06-25)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.5 (2020-06-24)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.4.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.3...@fremtind/jkl-accordion-react@1.4.4) (2020-06-24)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.4.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.4.2...@fremtind/jkl-accordion-react@1.4.3) (2020-06-24)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.2 (2020-06-23)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.4.1 (2020-05-28)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-# 1.4.0 (2020-05-27)
-
+## 1.4.0 (2020-05-27)
 
 ### Features
 
-* **cypress:** initial cypress setup ([3004668](https://github.com/fremtind/jokul/commit/300466834e2f79acc8ed501bb2b66f574328f80d))
+- **cypress:** initial cypress setup ([3004668](https://github.com/fremtind/jokul/commit/300466834e2f79acc8ed501bb2b66f574328f80d))
 
-
-
-
-
-## 1.3.12 (2020-05-20)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.3.11 (2020-05-19)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.3.10 (2020-05-19)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.3.9 (2020-05-18)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.3.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.7...@fremtind/jkl-accordion-react@1.3.8) (2020-05-13)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.3.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.6...@fremtind/jkl-accordion-react@1.3.7) (2020-05-11)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.5...@fremtind/jkl-accordion-react@1.3.6) (2020-04-27)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.3.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.4...@fremtind/jkl-accordion-react@1.3.5) (2020-04-20)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.3.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.3...@fremtind/jkl-accordion-react@1.3.4) (2020-03-30)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.3.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.2...@fremtind/jkl-accordion-react@1.3.3) (2020-03-25)
-
+## 1.3.3 (2020-03-25)
 
 ### Bug Fixes
 
-* move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
-
-
-
-
-## [1.3.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.1...@fremtind/jkl-accordion-react@1.3.2) (2020-03-16)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.3.0...@fremtind/jkl-accordion-react@1.3.1) (2020-03-06)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-# [1.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.2.4...@fremtind/jkl-accordion-react@1.3.0) (2020-03-06)
-
+## 1.3.0 (2020-03-06)
 
 ### Features
 
-* **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
 
-
-
-
-
-## [1.2.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.2.3...@fremtind/jkl-accordion-react@1.2.4) (2020-03-05)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.2.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.2.2...@fremtind/jkl-accordion-react@1.2.3) (2020-02-19)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.2.1...@fremtind/jkl-accordion-react@1.2.2) (2020-02-18)
-
+## 1.2.2 (2020-02-18)
 
 ### Bug Fixes
 
-* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
 
-
-
-
-
-## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.2.0...@fremtind/jkl-accordion-react@1.2.1) (2020-01-16)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.1.4...@fremtind/jkl-accordion-react@1.2.0) (2020-01-16)
-
+## 1.2.0 (2020-01-16)
 
 ### Bug Fixes
 
-* **portal:** refactor examples, show menu for large screens ([ae59e7a](https://github.com/fremtind/jokul/commit/ae59e7aef89098e09ad138bf7cf8574a0d56de7f))
-* fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
-
+- **portal:** refactor examples, show menu for large screens ([ae59e7a](https://github.com/fremtind/jokul/commit/ae59e7aef89098e09ad138bf7cf8574a0d56de7f))
+- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-* **portal:** autogenerate component docs from example ([40249b5](https://github.com/fremtind/jokul/commit/40249b5189b69af74d1c2b8f38bad118a65b03c0))
-* **portal:** show typedef, refactor ([248a88e](https://github.com/fremtind/jokul/commit/248a88ee776ff4f16f1fa96de76bb047bbdb9e2a))
-* **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
-
-
-
-
-
-## 1.1.13 (2020-01-10)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.12 (2020-01-10)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.11 (2020-01-08)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.10 (2020-01-07)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.9 (2020-01-07)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.8 (2020-01-07)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.7 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.6 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.5 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.4 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-
-
-
-
-## 1.1.3 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-## 1.1.2 (2019-12-19)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.1.0...@fremtind/jkl-accordion-react@1.1.1) (2019-12-17)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@1.0.0...@fremtind/jkl-accordion-react@1.1.0) (2019-12-10)
+- **portal:** autogenerate component docs from example ([40249b5](https://github.com/fremtind/jokul/commit/40249b5189b69af74d1c2b8f38bad118a65b03c0))
+- **portal:** show typedef, refactor ([248a88e](https://github.com/fremtind/jokul/commit/248a88ee776ff4f16f1fa96de76bb047bbdb9e2a))
+- **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+
+## 1.1.0 (2019-12-10)
 
 ### Features
 
 -   **accordion-react:** add support for custom className on AccordionItem ([ae612ef](https://github.com/fremtind/jokul/commit/ae612ef1b95c80989b81b650dda926d749a0f0c9))
 
-# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.4...@fremtind/jkl-accordion-react@1.0.0) (2019-12-03)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-## [0.9.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.3...@fremtind/jkl-accordion-react@0.9.4) (2019-10-09)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-## [0.9.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.2...@fremtind/jkl-accordion-react@0.9.3) (2019-09-26)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-## [0.9.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.1...@fremtind/jkl-accordion-react@0.9.2) (2019-09-26)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-## [0.9.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.9.0...@fremtind/jkl-accordion-react@0.9.1) (2019-09-23)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.8.0...@fremtind/jkl-accordion-react@0.9.0) (2019-08-30)
+## 0.9.0 (2019-08-30)
 
 ### Bug Fixes
 
@@ -473,17 +66,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   **accordion:** initial version of animated accordion ([2112b5a](https://github.com/fremtind/jokul/commit/2112b5a)), closes [#270](https://github.com/fremtind/jokul/issues/270)
 -   **react-hooks:** extract animation hook into separate package ([706ad61](https://github.com/fremtind/jokul/commit/706ad61))
 
-# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.7.1...@fremtind/jkl-accordion-react@0.8.0) (2019-08-02)
+## 0.8.0 (2019-08-02)
 
 ### Features
 
 -   **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
 
-## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.7.0...@fremtind/jkl-accordion-react@0.7.1) (2019-07-31)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.6.1...@fremtind/jkl-accordion-react@0.7.0) (2019-07-30)
+## 0.7.0 (2019-07-30)
 
 ### Bug Fixes
 
@@ -493,11 +82,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   **portal:** add components, refactor portal ([7e7d038](https://github.com/fremtind/jokul/commit/7e7d038))
 
-## [0.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.6.0...@fremtind/jkl-accordion-react@0.6.1) (2019-07-18)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.5.0...@fremtind/jkl-accordion-react@0.6.0) (2019-07-18)
+## 0.6.0 (2019-07-18)
 
 ### Bug Fixes
 
@@ -507,15 +92,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   **portal:** add getting started guide ([76d742b](https://github.com/fremtind/jokul/commit/76d742b))
 
-# [0.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.2.1...@fremtind/jkl-accordion-react@0.5.0) (2019-07-15)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-## [0.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.2.0...@fremtind/jkl-accordion-react@0.2.1) (2019-07-15)
-
-**Note:** Version bump only for package @fremtind/jkl-accordion-react
-
-# [0.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@0.1.0...@fremtind/jkl-accordion-react@0.2.0) (2019-07-15)
+## 0.2.0 (2019-07-15)
 
 ### Bug Fixes
 
@@ -525,7 +102,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   **build:** add browserlist pkg and browserlist to evry pkg ([3dcc9ca](https://github.com/fremtind/jokul/commit/3dcc9ca))
 
-# 0.1.0 (2019-07-15)
+## 0.1.0 (2019-07-15)
 
 ### Bug Fixes
 
