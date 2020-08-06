@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+    install:
+        runtime-versions:
+            nodejs: 12.x
+    pre_build:
+        commands:
+            - yarn install --frozen-lockfile
+    build:
+        commands:
+            - yarn build
+            - yarn build:docs
+            - sh ./deploy.sh
+cache:
+    paths:
+        - "./node_modules/**/*"
