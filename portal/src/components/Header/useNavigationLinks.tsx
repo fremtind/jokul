@@ -7,6 +7,7 @@ export interface Frontmatter {
     order?: string;
     author?: string;
     publishDate?: string;
+    group?: string;
 }
 
 interface RawDocumentationPage {
@@ -38,10 +39,12 @@ export function useNavigationLinks() {
                                 order
                                 author
                                 publishDate
+                                group
                             }
                         }
                     }
                 }
+                distinct(field: context___frontmatter___group)
             }
         }
     `);
@@ -77,8 +80,9 @@ export function useNavigationLinks() {
         .filter((page: DocumentationPageInfo) => page.path.includes("komigang"))
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
+    const componentGroup = allSitePage.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG)).sort(sortByDate);
 
-    return { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType };
+    return { profileDocPages, getStartedDocPages, componentDocPages, componentGroup, blogPages, PageType };
 }
