@@ -21,7 +21,7 @@ export const useFullScreenMenuAnimaiton = ({ isOpen }: Props) => {
         opacity: 1,
         clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
         transition: { duration: 0.25, delay: 0.1 },
-        y: "100%",
+        y: prefersReducedMotion ? 0 : "100%",
     };
 
     const animate = useCallback(
