@@ -51,11 +51,7 @@ const IndexPage = () => {
 
     const data = useStaticQuery(graphql`
         {
-            allSitePage(
-                sort: { order: ASC, fields: context___frontmatter___title }
-                filter: { path: { regex: "/^/blog/" } }
-                limit: 1
-            ) {
+            allSitePage(sort: { order: DESC, fields: id }, filter: { path: { regex: "/^/blog/" } }, limit: 1) {
                 edges {
                     node {
                         path
@@ -140,7 +136,6 @@ const IndexPage = () => {
                             <VisibleDetector
                                 onEnter={() => onPrincipleStateChange(1)}
                                 onLeave={() => onLeave(1)}
-                                // @ts-ignore: TODO: improve type safety of visible detector
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
@@ -157,7 +152,6 @@ const IndexPage = () => {
                             <VisibleDetector
                                 onEnter={() => onPrincipleStateChange(2)}
                                 onLeave={() => onLeave(2)}
-                                // @ts-ignore: TODO: improve type safety of visible detector
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
@@ -174,7 +168,6 @@ const IndexPage = () => {
                             <VisibleDetector
                                 onEnter={() => onPrincipleStateChange(3)}
                                 onLeave={() => onLeave(3)}
-                                // @ts-ignore: TODO: improve type safety of visible detector
                                 render={(ref) => (
                                     <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                         <div className="jkl-portal-frontpage__section-principles__principle--container">
