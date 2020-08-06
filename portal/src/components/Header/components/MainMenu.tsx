@@ -1,9 +1,10 @@
 import React from "react";
-import classNames from "classnames";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
 
+import { mainMenuContext, NavigationFunction, defaultNavigationFunction } from "./mainMenuContext";
 import { FullScreenMenu } from "./FullScreenMenu";
+import { MainMenuLink } from "./MainMenuLink";
 
 import "./MainMenu.scss";
 
@@ -25,18 +26,12 @@ export interface RootItem {
 }
 export const isRootItem = (item: MenuItem): item is RootItem => typeof item.content !== "string";
 
-export interface CustomNavigation {
-    navigationFunction?: (path: string) => void;
-}
-export const defaultNavigationFunction = (path: string) => {
-    window && window.location.assign(path);
-};
-
-interface MainMenuProps extends CustomNavigation {
+interface MainMenuProps {
     className?: string;
     items: MenuItemList;
     ariaLabel?: string;
     showTopLevel?: boolean;
+    navigationFunction?: NavigationFunction;
     isActiveFunction?: (path: string) => boolean;
 }
 
@@ -45,8 +40,8 @@ export const MainMenu: React.FC<MainMenuProps> = ({
     items,
     ariaLabel = "Hovedmeny",
     showTopLevel,
-    navigationFunction,
-    isActiveFunction,
+    navigationFunction = defaultNavigationFunction,
+    isActiveFunction = () => false,
     children,
 }) => {
     const screen = useScreen();
@@ -57,57 +52,25 @@ export const MainMenu: React.FC<MainMenuProps> = ({
     };
 
     return (
-        <nav className={"jkl-portal-main-menu " + className} aria-label={ariaLabel}>
-            {shouldShowTopLevel ? (
-                <ul className="jkl-portal-main-menu__list">
-                    {items.map((item) => (
-                        <li className="jkl-portal-main-menu__item" key={`main-menu-${item.linkText}`}>
-                            <MainMenuLink
-                                isActiveFunction={isActiveFunction}
-                                navigationFunction={navigationFunction}
-                                item={item}
-                            />
-                        </li>
-                    ))}
-                </ul>
-            ) : (
-                <FullScreenMenu
-                    className="jkl-portal-main-menu__link"
-                    customButton={Hamburger}
-                    baseItem={baseItem}
-                    navigationFunction={navigationFunction}
-                />
-            )}
-            {children}
-        </nav>
-    );
-};
-
-interface LinkProps extends CustomNavigation {
-    item: MenuItem;
-    isActiveFunction?: (path: string) => boolean;
-}
-const MainMenuLink: React.FC<LinkProps> = ({
-    item,
-    navigationFunction = defaultNavigationFunction,
-    isActiveFunction = () => false,
-}) => {
-    const path = item.basePath || "";
-    const className = classNames({
-        "jkl-portal-main-menu__link": true,
-        "jkl-portal-main-menu__link--active": isActiveFunction(path),
-    });
-    return isRootItem(item) ? (
-        <FullScreenMenu
-            isActiveFunction={isActiveFunction}
-            className="jkl-portal-main-menu__link"
-            activeClassName="jkl-portal-main-menu__link--active"
-            baseItem={item}
-            navigationFunction={navigationFunction}
-        />
-    ) : (
-        <button role="link" onClick={() => navigationFunction(item.content)} className={className}>
-            {item.linkText}
-        </button>
+        <mainMenuContext.Provider value={{ navigationFunction, isActiveFunction }}>
+            <nav className={"jkl-portal-main-menu " + className} aria-label={ariaLabel}>
+                {shouldShowTopLevel ? (
+                    <ul className="jkl-portal-main-menu__list">
+                        {items.map((item) => (
+                            <li className="jkl-portal-main-menu__item" key={`main-menu-${item.linkText}`}>
+                                <MainMenuLink item={item} />
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <FullScreenMenu
+                        className="jkl-portal-main-menu__link"
+                        customButton={Hamburger}
+                        baseItem={baseItem}
+                    />
+                )}
+                {children}
+            </nav>
+        </mainMenuContext.Provider>
     );
 };
