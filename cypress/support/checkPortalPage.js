@@ -8,5 +8,5 @@ Cypress.Commands.add("checkPortalPage", (sidebar, link, title) => {
         .wait(500)
         .get("h1")
         .contains(title)
-        .checkA11y({ exclude: [[".jkl-portal-code-block__code"]] });
+        .verifyA11y();
 });

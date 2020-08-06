@@ -4,7 +4,7 @@ import CoreToggle from "@nrk/core-toggle/jsx";
 import classNames from "classnames";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 
-import { RootItem, CustomNavigation } from "./MainMenu";
+import { RootItem } from "./MainMenu";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
 import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
@@ -16,7 +16,7 @@ interface CoreToggleSelectEvent {
     target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
 }
 
-interface FullScreenMenuProps extends CustomNavigation {
+interface FullScreenMenuProps {
     className?: string;
     activeClassName?: string;
     baseItem: RootItem;
@@ -31,7 +31,6 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
     baseItem,
     customButton,
     isActiveFunction,
-    navigationFunction,
 }) => {
     const CustomButton = customButton; // Need capital letter to please the linter
     const [isOpen, setIsOpen] = useState(false);
@@ -116,7 +115,6 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
                         {currentItem.content.map((item, idx) => (
                             <FullScreenMenuItem
                                 forwardFunction={onNavigateForward}
-                                navigationFunction={navigationFunction}
                                 item={item}
                                 key={item.linkText}
                                 controls={controls}
