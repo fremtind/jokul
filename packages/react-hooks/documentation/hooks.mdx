@@ -12,6 +12,7 @@ import MutationObserverExample from "./MutationObserverExample";
 import IntersectionObserverExample from "./IntersectionObserverExample";
 import ScreenExample from "./ScreenExample";
 import ScrollIntoViewExample from "./ScrollIntoViewExample";
+import ReducedMotionExample from "./ReducedMotionExample";
 
 <p>
     <span class="jkl-lead">Denne pakken innholder støttefunksjoner i form av React hooks.</span>
@@ -64,3 +65,9 @@ IntersectionObserver lar deg lytte på om et element er synlig eller ikke. Det g
 `useScrollIntoView` lar deg automatisk scrolle et element til det blir synlig. Hooken returner scrollfunksjonen om du vil trigge den manuelt, og det er mulig å skru av automatisk scrolling om du vil ha full manuell kontroll. Du har også tilgang på alle options tilgjengelig for scrollIntoView
 
 <ScrollIntoViewExample />
+
+## useReducedMotion
+
+`useReducedMotion` gjør at man kan sjekke om brukeren har satt preferedReducedMotion, dermed kan vi unngå å gjøre js-animasjoner, ikke bare css-animasjoner. Denne baserer seg på en event-listner, så som de ander hooks med eventlyttere bør denne implementeres så høyt opp i applikasjonen din som nødvendig som en kontekst isteden for å strø flere av denne komponenter rundt der man gjør JS-animasjoner. [Les om reduced motion på mdn](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion). Husk at reduced motion ikke betyr at all bevegelse må bort, men det skal være enkle, forklarende bevelgelser. Unngå store og kompliserte bevelgelser. Unngå også bevelgelser som ikke er initsiert av brukeren. Paralax effekter skal også skrus av. Ta en titt på [forsiden](/) og [bildesiden](/profil/bildebruk)
+
+<ReducedMotionExample />

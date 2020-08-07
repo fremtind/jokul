@@ -24,6 +24,7 @@ import IntersectionObserverExample from "./IntersectionObserverExample";
 import KeyListenerExample from "./KeyListenerExample";
 import MutationObserverExample from "./MutationObserverExample";
 import ScrollIntoViewExample from "./ScrollIntoViewExample";
+import ReducedMotionExample from "./ReducedMotionExample";
 import "@fremtind/jkl-datepicker/datepicker.css";
 
 initTabListener();
@@ -38,6 +39,7 @@ ReactDOM.render(
         <DevExample component={MutationObserverExample} />
         <DevExample component={IntersectionObserverExample} />
         <DevExample component={ScrollIntoViewExample} />
+        <DevExample component={ReducedMotionExample} />
     </>,
     mountNode,
 );

@@ -35,15 +35,18 @@ import "./src/components/Typography/typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";
 import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
 import { LocationContextProvider } from "./src/contexts/locationContext";
+import { A11yContextProvider } from "./src/contexts/a11yContext";
 
 initTabListener();
 
 export const wrapRootElement = ({ element }) => {
     return (
-        <LocationContextProvider>
-            <ThemeContextProvider>
-                <FSMenuContextProvider>{element}</FSMenuContextProvider>
-            </ThemeContextProvider>
-        </LocationContextProvider>
+        <A11yContextProvider>
+            <LocationContextProvider>
+                <ThemeContextProvider>
+                    <FSMenuContextProvider>{element}</FSMenuContextProvider>
+                </ThemeContextProvider>
+            </LocationContextProvider>
+        </A11yContextProvider>
     );
 };
