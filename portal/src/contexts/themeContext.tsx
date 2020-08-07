@@ -24,7 +24,7 @@ interface Props {
     children: ReactNode;
 }
 export function ThemeContextProvider({ children }: Props) {
-    const [theme, setTheme] = useState(THEMES.THEME_DARK);
+    const [theme, setTheme] = useState(THEMES.THEME_LIGHT);
     useLayoutEffect(() => {
         if (document) {
             const newTheme = getCookie("theme") || theme;
