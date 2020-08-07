@@ -39,11 +39,26 @@ export const Header = ({ className }: { className?: string }) => {
         },
         {
             linkText: "Komponenter",
-            content: componentDocPages.map((page) => ({
-                linkText: page.title,
-                content: page.path,
-                basePath: PageType.KOMPONENTER,
-            })),
+            content: [
+                ...componentDocPages
+                    .filter((page) => page.group !== "hooks")
+                    .map((page) => ({
+                        linkText: page.title,
+                        content: page.path,
+                        basePath: PageType.KOMPONENTER,
+                    })),
+                {
+                    linkText: "React Hooks",
+                    content: componentDocPages
+                        .filter((page) => page.group === "hooks")
+                        .map((page) => ({
+                            linkText: page.title,
+                            content: page.path,
+                            basePath: PageType.KOMPONENTER,
+                        })),
+                    basePath: PageType.KOMPONENTER,
+                },
+            ],
             basePath: PageType.KOMPONENTER,
         },
         {
