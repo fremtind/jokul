@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useContext, useState, ChangeEvent } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { useDarkMode } from "../../contexts/themeContext";
@@ -6,6 +6,7 @@ import { SidebarMenuItem } from "./SidebarMenuItem";
 import { Link } from "@fremtind/jkl-core";
 import { DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { a11yContext } from "../../contexts/a11yContext";
 
 interface Props {
     links: DocumentationPageInfo[];
@@ -14,25 +15,27 @@ interface Props {
     showGroups: boolean;
 }
 
-const listItemInitial = { x: -5, opacity: 0 };
-const listItemAnimate = { x: 0, opacity: 1, transition: { duration: 0.2 } };
-const listItemExit = { x: 5, opacity: 0, transition: { duration: 0.2 } };
 const allComponents = "alle";
 
 export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, showGroups }) => {
     const isDarkMode = useDarkMode();
+    const { prefersReducedMotion } = useContext(a11yContext);
     const [filter, setFilter] = useState("");
     const [selectedGroup, setSelectedGroup] = useState(allComponents);
 
     const controls = useAnimation();
 
+    const listItemInitial = { x: prefersReducedMotion ? 0 : -5, opacity: 0 };
+    const listItemAnimate = { x: prefersReducedMotion ? 0 : 0, opacity: 1, transition: { duration: 0.2 } };
+    const listItemExit = { x: prefersReducedMotion ? 0 : 5, opacity: 0, transition: { duration: 0.2 } };
+
     React.useEffect(() => {
         (async () => {
-            await controls.start({ x: 0, opacity: 0, transition: { duration: 0 } });
-            await controls.start({ x: -10, opacity: 0, transition: { duration: 0.2 } });
-            await controls.start({ x: 0, opacity: 1, transition: { duration: 0.2 } });
+            await controls.start({ x: prefersReducedMotion ? 0 : 0, opacity: 0, transition: { duration: 0 } });
+            await controls.start({ x: prefersReducedMotion ? 0 : -10, opacity: 0, transition: { duration: 0.2 } });
+            await controls.start({ x: prefersReducedMotion ? 0 : 0, opacity: 1, transition: { duration: 0.2 } });
         })();
-    }, [currentSection, controls]);
+    }, [currentSection, controls, prefersReducedMotion]);
 
     function filterLinks(e: ChangeEvent<HTMLInputElement>) {
         setFilter(e.target.value);
@@ -41,8 +44,8 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
 
     return (
         <motion.div
-            initial={{ y: -400, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            initial={{ y: prefersReducedMotion ? 0 : -400, opacity: 0 }}
+            animate={{ y: prefersReducedMotion ? 0 : 0, opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             key="sidebar-menu"
@@ -75,9 +78,13 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
             <motion.ul animate={controls} className="jkl-portal-sidebar-menu__items">
                 {filteredLinks.length === 0 ? (
                     <motion.li
-                        initial={{ y: 40, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1, transition: { duration: 0.2, delay: 0.3 } }}
-                        exit={{ y: -40, opacity: 0, transition: { duration: 0.2 } }}
+                        initial={{ y: prefersReducedMotion ? 0 : 40, opacity: 0 }}
+                        animate={{
+                            y: prefersReducedMotion ? 0 : 0,
+                            opacity: 1,
+                            transition: { duration: 0.2, delay: 0.3 },
+                        }}
+                        exit={{ y: prefersReducedMotion ? 0 : -40, opacity: 0, transition: { duration: 0.2 } }}
                         className="jkl-portal-sidebar-menu-item"
                         key={`li-none`}
                     >
