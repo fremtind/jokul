@@ -1,0 +1,55 @@
+{
+    "name": "@fremtind/jkl-icons-react",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Icons in Jøkul style",
+    "keywords": [
+        "icons",
+        "react",
+        "jkl",
+        "jkl-icons"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-icons yarn build:watch",
+        "dev:js": "parcel documentation/index.html",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-icons": "^1.0.0"
+    },
+    "devDependencies": {
+        "@fremtind/jkl-portal-components": "^0.4.1"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

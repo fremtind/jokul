@@ -3,53 +3,84 @@ import React from "react";
 import "./IconTable.scss";
 import { TableHeader } from "./TableHeader";
 import { ExampleRow } from "./ExampleRow";
-import { icon } from "../Icon";
+import {
+    Close,
+    CheckMark,
+    Plus,
+    Search,
+    Hamburger,
+    Calendar,
+    ArrowUpRight,
+    ArrowUp,
+    ArrowDown,
+    ArrowRight,
+    ArrowLeft,
+    Error,
+    Warning,
+    Success,
+    Info,
+} from "@fremtind/jkl-icons-react";
 
 const icons = [
     {
-        name: "checkmark",
-        icon: icon("checkmark"),
+        icon: <CheckMark />,
         text: "Hake",
     },
     {
-        icon: icon("x"),
+        icon: <Close />,
         text: "Lukk",
     },
     {
-        icon: icon("pluss"),
+        icon: <Plus />,
         text: "Legg til",
     },
     {
-        icon: icon("sok"),
+        icon: <Search />,
         text: "Søk",
     },
     {
-        icon: icon("hamburger"),
+        icon: <Hamburger />,
         text: "Hamburger meny",
     },
     {
-        icon: icon("kalender"),
+        icon: <Calendar />,
         text: "Kalender",
     },
     {
-        icon: icon("eksternPil"),
+        icon: <ArrowUpRight />,
         text: "Pil opp mot høyre",
     },
     {
-        icon: icon("pilHoyre"),
+        icon: <ArrowRight />,
         text: "Pil høyre",
     },
     {
-        icon: icon("pilVenstre"),
+        icon: <ArrowLeft />,
         text: "Pil venstre",
     },
     {
-        icon: icon("pilOpp"),
+        icon: <ArrowUp />,
         text: "Pil opp",
     },
     {
-        icon: icon("pilNed"),
+        icon: <ArrowDown />,
         text: "Pil ned",
+    },
+    {
+        icon: <Error />,
+        text: "Feil",
+    },
+    {
+        icon: <Warning />,
+        text: "Advarsel",
+    },
+    {
+        icon: <Success />,
+        text: "Suksess",
+    },
+    {
+        icon: <Info />,
+        text: "Info",
     },
 ];
 

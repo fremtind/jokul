@@ -1,0 +1,89 @@
+@import "~@fremtind/jkl-core/mixins/_motion.scss";
+
+.jkl-icon--small,
+.jkl-icon--medium,
+.jkl-icon--large {
+    --jkl-animated-icon-width: var(--jkl-icon-width);
+    --jkl-animated-arrow-height: calc(1.0667 * var(--jkl-animated-icon-width));
+    --jkl-arrow-padding: calc(var(--jkl-animated-icon-width) / 10);
+    --jkl-arrow-down-y: calc(var(--jkl-animated-arrow-height) + calc(var(--jkl-arrow-padding) / 2));
+}
+
+.jkl-arrow-container {
+    transition: calc(#{map-get($jkl--timings, "expressive")} * (1 / 2)) ease opacity;
+}
+
+.jkl-animated-horizontal-arrows,
+.jkl-animated-vertical-arrows {
+    width: var(--jkl-animated-icon-width);
+    height: var(--jkl-animated-arrow-height);
+    overflow: hidden;
+    position: relative;
+}
+
+.jkl-animated-horizontal-arrows__slider,
+.jkl-animated-vertical-arrows__slider {
+    position: absolute;
+    @include motion("easeInBounceOut", "expressive");
+    transition-delay: calc(#{map-get($jkl--timings, "expressive")} * (1 / 3));
+    padding: var(--jkl-arrow-padding) 0;
+    display: flex;
+}
+
+.jkl-animated-vertical-arrows__slider {
+    transition-property: top;
+    flex-direction: column;
+    &--up {
+        top: calc(var(--jkl-arrow-down-y) * -1);
+    }
+
+    &--down {
+        top: calc(var(--jkl-arrow-padding) / -2);
+    }
+}
+
+.jkl-animated-horizontal-arrows__slider {
+    width: calc(var(--jkl-animated-icon-width) * 2);
+    transition-property: left;
+    flex-direction: row;
+
+    &--right {
+        left: calc(var(--jkl-animated-icon-width) * -1);
+    }
+
+    &--left {
+        left: 0;
+    }
+}
+
+.jkl-icons-animated__plus {
+    width: var(--jkl-animated-icon-width);
+    @include motion("easeInBounceOut", "expressive");
+    transition-property: transform;
+
+    &--plus {
+        transform: rotate(0);
+    }
+
+    &--close {
+        transform: rotate(45deg);
+    }
+}
+
+.jkl-icons-animated__burger {
+    position: relative;
+    height: var(--jkl-animated-icon-width);
+
+    &__icons {
+        position: absolute;
+        transition: map-get($jkl--timings, "expressive") ease opacity;
+        &--show {
+            transition-delay: map-get($jkl--timings, "expressive");
+            opacity: 1;
+        }
+        &--hide {
+            transition-delay: 0;
+            opacity: 0;
+        }
+    }
+}
