@@ -3,6 +3,7 @@ import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { ComponentExample, FlowExample } from "@fremtind/jkl-portal-components";
+import { PortalImg } from "../PortalImg/PortalImg";
 
 import { DoDontExample } from "../DoDontExample";
 import {
@@ -34,6 +35,7 @@ const components = {
     ComponentExample,
     FlowExample,
     DoDontExample,
+    img: PortalImg,
 };
 
 interface Props {

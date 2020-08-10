@@ -51,7 +51,11 @@ const IndexPage = () => {
 
     const data = useStaticQuery(graphql`
         {
-            allSitePage(sort: { order: DESC, fields: id }, filter: { path: { regex: "/^/blog/" } }, limit: 1) {
+            allSitePage(
+                sort: { order: DESC, fields: context___frontmatter___publishDate }
+                filter: { path: { regex: "/^/blog/" } }
+                limit: 1
+            ) {
                 edges {
                     node {
                         path
