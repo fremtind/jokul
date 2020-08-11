@@ -5,9 +5,10 @@
     @include reset-outline;
     background-color: transparent;
     text-align: left;
-    z-index: 1;
+    z-index: $z-index--modal;
     cursor: pointer;
     margin-top: $layout-spacing--medium;
+    display: block;
 
     &__img {
         max-width: 100%;
@@ -36,6 +37,6 @@
     right: 0;
     padding: $layout-spacing--large;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    z-index: $z-index--modal;
     display: block;
 }

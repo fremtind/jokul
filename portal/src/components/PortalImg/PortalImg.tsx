@@ -1,10 +1,13 @@
-import React, { ImgHTMLAttributes, useState } from "react";
+import React, { ImgHTMLAttributes, useState, useRef } from "react";
 import { withPrefix } from "gatsby";
 import { motion, AnimatePresence } from "framer-motion";
 import "./style.scss";
+import { useKeyListener } from "@fremtind/jkl-react-hooks";
 
 export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }) => {
     const [isFullscreen, setFullscreen] = useState(false);
+    const ref = useRef<HTMLButtonElement>(null);
+    useKeyListener(ref, "Escape", () => setFullscreen(false));
 
     const toggleFullscreen = () => setFullscreen(!isFullscreen);
 
@@ -17,6 +20,7 @@ export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }
         <>
             <BlurredBackground blur={isFullscreen} />
             <motion.button
+                ref={ref}
                 layout
                 onClick={toggleFullscreen}
                 className={`jkl-portal-image ${isFullscreen ? "jkl-portal-image--fullscreen" : "jkl-portal-paragraph"}`}

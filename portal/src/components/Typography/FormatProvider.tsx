@@ -28,6 +28,7 @@ const components = {
     ul: UnorderedList,
     ol: OrderedList,
     li: ListItem,
+    img: PortalImg,
     a: Link,
     pre: CodeBlock,
     inlineCode: InlineCode,
@@ -35,7 +36,6 @@ const components = {
     ComponentExample,
     FlowExample,
     DoDontExample,
-    img: PortalImg,
 };
 
 interface Props {
