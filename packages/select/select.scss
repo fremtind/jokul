@@ -163,9 +163,14 @@ $arrow-width: rem(13px);
 
         &[aria-selected="true"]:not(:focus) {
             &::after {
+                $mask-image-url: url('data:image/svg+xml; utf8, <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.52632L4.6 12L16 1" stroke="black"/></svg>');
                 background-color: $info;
                 content: "";
-                mask-image: url('data:image/svg+xml; utf8, <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.52632L4.6 12L16 1" stroke="black"/></svg>');
+                /* autoprefixer with Browserlist="Chrome >= 70" will not generate 
+                 * a prefix for this even if Chrome 70 doesn't support mask-image
+                 */
+                -webkit-mask-image: $mask-image-url;
+                mask-image: $mask-image-url;
                 display: inline-block;
                 margin-left: $component-spacing--xs;
                 width: 17px;
