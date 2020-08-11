@@ -22,7 +22,8 @@ context("Front page", () => {
             .wait(200)
             .url()
             .should("include", "komigang/utvikling")
-            .go("back");
+            .go("back")
+            .wait(200);
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
@@ -31,7 +32,8 @@ context("Front page", () => {
             .wait(200)
             .url()
             .should("include", "komigang/design")
-            .go("back");
+            .go("back")
+            .wait(200);
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")

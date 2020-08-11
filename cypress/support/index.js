@@ -18,8 +18,9 @@ Cypress.Commands.add("getComponent", () => {
 
 Cypress.Commands.add("verifyA11y", () => {
     // Cypress misunderstand the animation for lack of contrast
+    // Must wait a bit long to make sure all animations are done, else color contrast is off
     // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(300).checkA11y({
+    cy.wait(1000).checkA11y({
         exclude: [[".jkl-portal-frontpage__section-contribute", ".jkl-portal-code-block__code"]],
     });
 });
