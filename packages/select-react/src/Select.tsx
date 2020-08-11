@@ -1,6 +1,6 @@
 // @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { FocusEvent, useCallback, useEffect, useRef, useState } from "react";
+import React, { FocusEvent, useRef, useState } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -72,24 +72,16 @@ export function Select({
     width,
     ...selectProps
 }: Props) {
-    const [selectedValue, setSelectedValue] = useState(value);
-    const [searchValue, setSearchValue] = useState(selectedValue || "");
-    const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+    const [searchValue, setSearchValue] = useState("");
+    const hasSelectedValue = typeof value !== "undefined" && value !== "";
 
     const itemsWithVisibility = items.map(getValuePair).map((item) => {
         const visible =
             !searchAble || searchValue === "" || item.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
-        return { ...item, visible: visible };
+        return { ...item, visible };
     });
+    const selectedValueLabel = itemsWithVisibility.find((item) => item.value == value)?.label || defaultPrompt;
 
-    const getLabelFromValue = useCallback(
-        (value: string | undefined) => {
-            const matchingItem = itemsWithVisibility.filter((item) => item.value === value)[0];
-            return matchingItem && matchingItem.label;
-        },
-        [itemsWithVisibility],
-    );
-    const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
     const searchRef = useRef<HTMLInputElement>(null);
     const componentRootElementRef = useRef<HTMLDivElement>(null);
     const focusInsideRef = useRef(false);
@@ -110,7 +102,7 @@ export function Select({
         setShown(!dropdownIsShown);
         if (opening && !searchAble) {
             const listElement = listRef.current;
-            listElement && focusSelected(listElement, listId, selectedValue);
+            listElement && focusSelected(listElement, listId, value);
         } else if (opening) {
             if (searchRef.current) {
                 searchRef.current.focus();
@@ -122,8 +114,6 @@ export function Select({
         e.target.value = e.detail;
         const nextValue = e.detail.value;
         setSearchValue("");
-        setDisplayedValue(e.detail.textContent);
-        setSelectedValue(nextValue);
         onChange && onChange(nextValue);
         e.target.hidden = true;
         e.target.button.focus();
@@ -148,11 +138,6 @@ export function Select({
             focusInsideRef.current = true;
         }
     }
-
-    useEffect(() => {
-        setSelectedValue(value);
-        setDisplayedValue(getLabelFromValue(value));
-    }, [value, itemsWithVisibility, getLabelFromValue]);
 
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
     const showSearchInputField = searchAble && dropdownIsShown;
@@ -198,7 +183,7 @@ export function Select({
                     onBlur={handleBlur}
                     onFocus={handleFocus}
                 >
-                    {hasSelectedValue ? displayedValue : defaultPrompt}
+                    {selectedValueLabel}
                 </button>
                 <CoreToggle
                     id={listId}
@@ -209,7 +194,7 @@ export function Select({
                     hidden={!dropdownIsShown}
                     onToggle={onToggle}
                     onToggleSelect={onToggleSelect}
-                    aria-activedescendant={hasSelectedValue && `${listId}__${toLower(selectedValue)}`}
+                    aria-activedescendant={hasSelectedValue && `${listId}__${toLower(value)}`}
                 >
                     <ul
                         className="jkl-select__option-wrapper"
@@ -224,7 +209,7 @@ export function Select({
                                     id={`${listId}__${toLower(item.value)}`}
                                     className="jkl-select__option"
                                     data-testid="jkl-select__option"
-                                    aria-selected={item.value === selectedValue}
+                                    aria-selected={item.value === value}
                                     role="option"
                                     value={item.value}
                                     data-testautoid={`jkl-select__option-${i}`}
