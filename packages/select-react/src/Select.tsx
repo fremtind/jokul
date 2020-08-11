@@ -1,6 +1,6 @@
 // @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { FocusEvent, useCallback, useEffect, useRef, useState } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -73,7 +73,6 @@ export function Select({
     ...selectProps
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
-    const [internalFocus, setInternalFocus] = useState(false);
     const [searchValue, setSearchValue] = useState(selectedValue || "");
     const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
 
@@ -92,6 +91,8 @@ export function Select({
     );
     const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
     const searchRef = useRef<HTMLInputElement>(null);
+    const componentRootElementRef = useRef<HTMLDivElement>(null);
+    const focusInsideRef = useRef(false);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
     const listRef = useListNavigation();
@@ -125,21 +126,27 @@ export function Select({
         setSelectedValue(nextValue);
         onChange && onChange(nextValue);
         e.target.hidden = true;
-        setInternalFocus(true);
         e.target.button.focus();
     }
 
-    function handleBlur() {
-        if (!dropdownIsShown && onBlur) {
+    function handleBlur(e: FocusEvent<HTMLButtonElement | HTMLInputElement>) {
+        const componentRootElement = componentRootElementRef.current;
+        // There are known issues in Firefox when using "relatedTarget" in onBlur events:
+        // https://github.com/facebook/react/issues/2011
+        // This might be fixed in react 17. Se issue above.
+        const nextFocusIsInsideComponent =
+            componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
+        if (!nextFocusIsInsideComponent && onBlur) {
             onBlur(value);
+            focusInsideRef.current = false;
         }
     }
 
     function handleFocus() {
-        if (onFocus && !internalFocus) {
+        if (onFocus && !focusInsideRef.current) {
             onFocus(value);
+            focusInsideRef.current = true;
         }
-        setInternalFocus(false);
     }
 
     useEffect(() => {
@@ -151,7 +158,13 @@ export function Select({
     const showSearchInputField = searchAble && dropdownIsShown;
     const searchInputId = `${listId}_search-input`;
     return (
-        <div data-testid="jkl-select" className={componentClassName} style={{ width }} {...selectProps}>
+        <div
+            data-testid="jkl-select"
+            className={componentClassName}
+            style={{ width }}
+            ref={componentRootElementRef}
+            {...selectProps}
+        >
             <Label
                 standAlone={searchAble} // Use <label> as the element when searchAble=true for accessibility
                 htmlFor={searchAble ? searchInputId : undefined}
@@ -172,6 +185,8 @@ export function Select({
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                         className="jkl-select__search-input"
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
                     />
                 )}
                 <button
@@ -213,6 +228,8 @@ export function Select({
                                     role="option"
                                     value={item.value}
                                     data-testautoid={`jkl-select__option-${i}`}
+                                    onBlur={handleBlur}
+                                    onFocus={handleFocus}
                                 >
                                     {item.label}
                                 </button>
