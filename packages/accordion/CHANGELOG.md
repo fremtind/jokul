@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.27 (2020-08-11)
+
+### Bug Fixes
+
+- remove expanded blue color accordion ([2b3d62f](https://github.com/fremtind/jokul/commit/2b3d62fdfdcd9b9f527ab50cc1362c9c3177d7ee))
+
 ## 1.1.5 (2020-03-25)
 
 ### Bug Fixes
