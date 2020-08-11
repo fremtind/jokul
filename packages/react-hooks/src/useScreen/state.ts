@@ -1,6 +1,6 @@
 import { breakpoints } from "@fremtind/jkl-core";
 
-interface State {
+export interface State {
     isSmallDevice: boolean;
     isMediumDevice: boolean;
     isLargeDevice: boolean;
