@@ -1,6 +1,6 @@
 // @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -22,6 +22,7 @@ interface Props extends DataTestAutoId {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    searchAble?: boolean;
     forceCompact?: boolean;
     inverted?: boolean;
     width?: string;
@@ -62,6 +63,7 @@ export function Select({
     className,
     helpLabel,
     errorLabel,
+    searchAble = false,
     inline = false,
     defaultPrompt = "Velg",
     variant,
@@ -72,17 +74,24 @@ export function Select({
 }: Props) {
     const [selectedValue, setSelectedValue] = useState(value);
     const [internalFocus, setInternalFocus] = useState(false);
+    const [searchValue, setSearchValue] = useState(selectedValue || "");
     const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+
+    const itemsWithVisibility = items.map(getValuePair).map((item) => {
+        const visible =
+            !searchAble || searchValue === "" || item.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
+        return { ...item, visible: visible };
+    });
 
     const getLabelFromValue = useCallback(
         (value: string | undefined) => {
-            const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
+            const matchingItem = itemsWithVisibility.filter((item) => item.value === value)[0];
             return matchingItem && matchingItem.label;
         },
-        [items],
+        [itemsWithVisibility],
     );
     const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
-
+    const searchRef = useRef<HTMLInputElement>(null);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
     const listRef = useListNavigation();
@@ -98,15 +107,20 @@ export function Select({
     function onToggle() {
         const opening = !dropdownIsShown;
         setShown(!dropdownIsShown);
-        if (opening) {
+        if (opening && !searchAble) {
             const listElement = listRef.current;
             listElement && focusSelected(listElement, listId, selectedValue);
+        } else if (opening) {
+            if (searchRef.current) {
+                searchRef.current.focus();
+            }
         }
     }
 
     function onToggleSelect(e: CoreToggleSelectEvent) {
         e.target.value = e.detail;
         const nextValue = e.detail.value;
+        setSearchValue("");
         setDisplayedValue(e.detail.textContent);
         setSelectedValue(nextValue);
         onChange && onChange(nextValue);
@@ -131,17 +145,37 @@ export function Select({
     useEffect(() => {
         setSelectedValue(value);
         setDisplayedValue(getLabelFromValue(value));
-    }, [value, items, getLabelFromValue]);
+    }, [value, itemsWithVisibility, getLabelFromValue]);
 
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
-
+    const showSearchInputField = searchAble && dropdownIsShown;
+    const searchInputId = `${listId}_search-input`;
     return (
         <div data-testid="jkl-select" className={componentClassName} style={{ width }} {...selectProps}>
-            <Label variant={variant} forceCompact={forceCompact} srOnly={inline}>
+            <Label
+                standAlone={searchAble} // Use <label> as the element when searchAble=true for accessibility
+                htmlFor={searchAble ? searchInputId : undefined}
+                variant={variant}
+                forceCompact={forceCompact}
+                srOnly={inline}
+            >
                 {label}
             </Label>
             <div className="jkl-select__outer-wrapper">
+                {searchAble && (
+                    <input
+                        id={searchInputId}
+                        hidden={!showSearchInputField}
+                        aria-autocomplete="list"
+                        ref={searchRef}
+                        placeholder={"Søk"}
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        className="jkl-select__search-input"
+                    />
+                )}
                 <button
+                    hidden={showSearchInputField}
                     type="button"
                     className="jkl-select__button"
                     data-testid="jkl-select__button"
@@ -168,8 +202,8 @@ export function Select({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map(getValuePair).map((item, i) => (
-                            <li key={item.value}>
+                        {itemsWithVisibility.map((item, i) => (
+                            <li key={item.value} hidden={!item.visible}>
                                 <button
                                     type="button"
                                     id={`${listId}__${toLower(item.value)}`}

@@ -22,7 +22,7 @@ ReactDOM.render(
     <DevExample
         component={Example}
         knobs={{
-            boolProps: ["Native", "Kompakt", "Invertert", "Med hjelpetekst", "Med feil"],
+            boolProps: ["Native", "Kompakt", "Invertert", "Med hjelpetekst", "Med feil", "Med søk"],
             choiceProps: [
                 {
                     name: "Etikettvariant",
