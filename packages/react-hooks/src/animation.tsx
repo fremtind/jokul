@@ -34,6 +34,14 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
                 element.style.height = "0";
                 element.style.height = `${element.scrollHeight}px`;
             } else {
+                // If the scrollHeight is 0 it means that we are transitioning from height 0 -> 0.
+                // This causes the "transitionend"-event to never fire and the element gets stuck with
+                // style: height: 0; display: block; overflow:hidden
+                if (element.scrollHeight === 0) {
+                    element.removeAttribute("style");
+                    return;
+                }
+
                 element.style.height = `${element.scrollHeight}px`;
 
                 raf1.current = requestAnimationFrame(() => {
