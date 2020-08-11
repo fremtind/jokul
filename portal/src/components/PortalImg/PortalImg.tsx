@@ -26,21 +26,17 @@ export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }
                 className={`jkl-portal-image ${isFullscreen ? "jkl-portal-image--fullscreen" : "jkl-portal-paragraph"}`}
             >
                 <Image imgSrc={imgSrc} />
-                {!isFullscreen && <ClickText />}
+                <div className="jkl-small">Klikk for å se større</div>
             </motion.button>
             {isFullscreen && (
                 <button aria-hidden className="jkl-portal-image jkl-portal-paragraph">
                     <Image imgSrc={imgSrc} />
-                    <ClickText />
+                    <div className="jkl-small">&nbsp;</div>
                 </button>
             )}
         </>
     );
 };
-
-function ClickText() {
-    return <div className="jkl-small">Klikk for å se større</div>;
-}
 
 function Image({ imgSrc }: { imgSrc?: string }) {
     return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt="illustrasjon" />;

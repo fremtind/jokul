@@ -5,7 +5,6 @@
     @include reset-outline;
     background-color: transparent;
     text-align: left;
-    z-index: $z-index--modal;
     cursor: pointer;
     margin-top: $layout-spacing--medium;
     display: block;
@@ -26,6 +25,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: $z-index--modal;
     }
 }
 
