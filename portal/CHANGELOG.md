@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.13.0 (2020-08-12)
+
+### Bug Fixes
+
+- portal/package.json to reduce vulnerabilities ([7243f37](https://github.com/fremtind/jokul/commit/7243f37798fa0500171891b362f54841a8948d47))
+- **portal:** add prefix to dowload logo ([ad4cdd7](https://github.com/fremtind/jokul/commit/ad4cdd729559369b55ee04b51ca8588bb374ab57)), closes [#1190](https://github.com/fremtind/jokul/issues/1190)
+- handle reduced motion in animation ([86b5509](https://github.com/fremtind/jokul/commit/86b55093413c5a1c5afcbe81a4d43e31f194a7ca)), closes [#1121](https://github.com/fremtind/jokul/issues/1121)
+
+### Features
+
+- add escape to close image ([37e8d9e](https://github.com/fremtind/jokul/commit/37e8d9ee76a14fcf3d55ae2815cb9c0d5cec6b1f))
+- **hook:** add prefer reduced motion hook ([aec7494](https://github.com/fremtind/jokul/commit/aec7494ea94363bc4941212b4d37fe8e1ac66b7a)), closes [#1067](https://github.com/fremtind/jokul/issues/1067)
+
 ## 3.12.0 (2020-08-11)
 
 ### Bug Fixes
