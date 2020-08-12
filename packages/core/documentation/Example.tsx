@@ -1,8 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { DevExample } from "@fremtind/jkl-portal-components";
+import "@fremtind/jkl-portal-components/dev-example.css";
+import "@fremtind/jkl-radio-button/radio-button.min.css";
+import "@fremtind/jkl-checkbox/checkbox.min.css";
+
 import "../core.scss";
 import "./style.scss";
 import Colors from "./Colors/Colors";
+import { LinkExample } from "./Link/LinkExample";
+import { ComponentSpacingTable, LayoutSpacingTable } from "./Spacing/Spacing";
+import { DesktopExample, CompactExample } from "./Typography/Typography";
 
 interface BoxProps {
     type: "color" | "component" | "layout";
@@ -48,9 +56,12 @@ export const Spacing = () => (
 
 const Example = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
-        <Typo />
-        <Spacing />
+        <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
         <Colors />
+        <ComponentSpacingTable />
+        <LayoutSpacingTable />
+        <CompactExample />
+        <DesktopExample />
     </section>
 );
 
