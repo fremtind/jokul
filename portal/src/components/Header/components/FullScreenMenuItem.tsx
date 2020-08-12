@@ -1,24 +1,20 @@
 import React from "react";
-
-import { MenuItem, isLeafItem, CustomNavigation, defaultNavigationFunction, RootItem } from "./MainMenu";
-import "./FullScreenMenuItem.scss";
 import { motion, AnimationControls } from "framer-motion";
 
-interface Props extends CustomNavigation {
+import { MenuItem, isLeafItem, RootItem } from "./MainMenu";
+import { useMainMenu } from "./mainMenuContext";
+import "./FullScreenMenuItem.scss";
+
+interface Props {
     item: MenuItem;
     forwardFunction: (item: RootItem, evt?: React.MouseEvent) => void;
     idx: number;
     controls: AnimationControls;
 }
 
-export const FullScreenMenuItem: React.FC<Props> = ({
-    item,
-    navigationFunction = defaultNavigationFunction,
-    forwardFunction,
-    idx,
-    controls,
-}) => {
+export const FullScreenMenuItem: React.FC<Props> = ({ item, forwardFunction, idx, controls }) => {
     const isLeaf = isLeafItem(item);
+    const { navigationFunction } = useMainMenu();
     const handleClick = (evt: React.MouseEvent) =>
         isLeafItem(item) ? navigationFunction(item.content) : forwardFunction(item, evt);
     return (

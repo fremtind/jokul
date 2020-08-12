@@ -1,6 +1,7 @@
-import React, { useState, useRef, useLayoutEffect, ReactNode } from "react";
+import React, { useState, useRef, useLayoutEffect, ReactNode, useContext } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { a11yContext } from "../../../contexts/a11yContext";
 
 import "./MediaBox.scss";
 
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => {
+    const { prefersReducedMotion } = useContext(a11yContext);
     const [elementTop, setElementTop] = useState(0);
     const [isInViewport, setIsInViewport] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
@@ -49,7 +51,7 @@ const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => 
                 {caption && <figcaption className="jkl-micro jkl-portal-media-box__caption">{caption}</figcaption>}
             </motion.figure>
             <motion.div
-                style={{ y }}
+                style={{ y: prefersReducedMotion ? 0 : y }}
                 className={`jkl-portal-media-box__card ${isLongText ? "jkl-portal-media-box__card--long-text" : ""}`}
             >
                 <p className={isLongText ? "jkl-body" : "jkl-lead"}>{children}</p>

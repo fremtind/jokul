@@ -2,14 +2,14 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.9.11",
+    "version": "3.13.0",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.0.0",
         "@types/react-syntax-highlighter": "^11.0.3"
     },
     "dependencies": {
-        "@fremtind/jkl-portal-components": "^0.4.1",
+        "@fremtind/jkl-portal-components": "^0.4.2",
         "@mdx-js/mdx": "^1.5.1",
         "@mdx-js/react": "^1.5.1",
         "classnames": "^2.2.6",
@@ -28,13 +28,13 @@
         "gatsby-source-filesystem": "^2.3.14",
         "gatsby-transformer-react-docgen": "^5.0.22",
         "gatsby-transformer-sharp": "^2.5.7",
-        "raw-loader": "^3.0.0",
+        "raw-loader": "^4.0.1",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-helmet": "^6.0.0",
         "react-hook-form": "^6.0.1",
         "react-live": "^2.1.2",
-        "react-syntax-highlighter": "^12.2.1",
+        "react-syntax-highlighter": "^13.0.0",
         "sass": "^1.23.7",
         "snyk": "^1.349.0"
     },
