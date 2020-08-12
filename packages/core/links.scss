@@ -1,31 +1,48 @@
 @import "./variables/all";
+@import "./mixins/all";
 @import "./functions";
 
-@mixin background-color($color) {
+@mixin underline-gradient($color) {
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
+
 $link-underline-thickness: rem(1px);
-$link-side-padding: 0.075em; // relative value to work with all paragraph styles
+$link-underline-thickness--hover: rem(2px);
+$link-active-color: $info;
+$link-active-color--inverted: $info--darkbg;
+
+:root,
+[data-theme="light"] {
+    --link-active-color: #{$link-active-color};
+}
+[data-theme="dark"] {
+    --link-active-color: #{$link-active-color--inverted};
+}
 
 .jkl-link {
-    @include background-color($svart);
-    background-position: 0 100%;
+    @include underline-gradient(currentColor);
+    background-position: 0 calc(100% - (#{$link-underline-thickness--hover} - #{$link-underline-thickness}));
+    background-size: $link-underline-thickness $link-underline-thickness;
     background-repeat: repeat-x;
-    transition: background-size 250ms ease, color 100ms ease;
+    @include motion("standard", "energetic");
+    transition-property: background-size, background-position, color;
     outline: none;
     text-decoration: none;
     color: currentColor;
-    background-size: $link-underline-thickness $link-underline-thickness;
-    padding: 0 $link-side-padding; // Add slight padding to sides to keep hover effect from "clipping" letters
 
-    html:not([data-mousenavigation]) &:focus,
+    &:focus,
     &:hover {
-        color: $gra-10;
-        background-size: 100% 100%;
+        color: $link-active-color;
+        color: var(--link-active-color);
+        @include underline-gradient($link-active-color);
+        @include underline-gradient(var(--link-active-color));
+        background-position: 0 100%;
+        background-size: $link-underline-thickness--hover $link-underline-thickness--hover;
     }
 
-    html:not([data-mousenavigation]) &:focus {
-        @include background-color($focus-color);
+    &:active {
+        background-position: 0 calc(100% - (#{$link-underline-thickness--hover} - #{$link-underline-thickness}));
+        background-size: $link-underline-thickness $link-underline-thickness;
     }
 
     /* Show arrow after external links, or links opening
@@ -37,12 +54,13 @@ $link-side-padding: 0.075em; // relative value to work with all paragraph styles
         }
     }
 
-    &--negative,
-    *[data-theme="dark"] & {
-        @include background-color($gra-10);
-
+    &--negative {
+        &:focus,
         &:hover {
-            color: $svart;
+            color: $link-active-color--inverted;
+            color: var(--link-active-color);
+            @include underline-gradient($link-active-color--inverted);
+            @include underline-gradient(var(--link-active-color));
         }
     }
 }
