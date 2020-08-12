@@ -1,8 +1,57 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
+$arrow-height: rem(16px);
+$arrow-width: rem(13px);
+
+:root,
+[data-theme="light"] {
+    --accordion-bg: #{$hvit};
+    --accordion-border: #{$svart};
+    --accordion-accent: #{$info};
+    --accordion-focus: #{$focus-color};
+}
+
+[data-theme="dark"] {
+    --accordion-bg: #{$svart};
+    --accordion-border: #{$hvit};
+    --accordion-accent: #{$info--darkbg};
+    --accordion-focus: #{$focus-color--darkbg};
+}
+
 .jkl-accordion {
     width: 100%;
+
+    &--inverted {
+        .jkl-accordion-item {
+            border-bottom: rem(1px) solid $hvit;
+            border-top: rem(1px) solid var(--accordion-border);
+            &:last-child {
+                border-bottom: rem(1px) solid $hvit;
+                border-bottom: rem(1px) solid var(--accordion-border);
+            }
+        }
+        &__title {
+            background-color: $svart;
+            background-color: var(--accordion-bg);
+            &:hover {
+                color: $info--darkbg;
+                color: var(--accordion-accent);
+            }
+            html:not([data-mousenavigation]) &:focus {
+                box-shadow: inset 0 0 0 2px $focus-color--darkbg;
+                box-shadow: inset 0 0 0 2px var(--accordion-focus);
+            }
+        }
+        &--expanded {
+            background-color: $svart;
+            background-color: var(--accordion-bg);
+            &__title {
+                color: $info--darkbg;
+                color: var(--accordion-accent);
+            }
+        }
+    }
 }
 
 .jkl-accordion-item {
@@ -10,28 +59,18 @@
 
     $title-padding: $component-spacing--large;
 
-    margin-bottom: $component-spacing--small;
+    border-top: rem(1px) solid $svart;
+    border-top: rem(1px) solid var(--accordion-border);
 
     &:last-child {
-        margin-bottom: 0;
-    }
-
-    &--expanded {
-        background-color: $hvit;
-        box-shadow: $drop-shadow--small;
-        .jkl-accordion-item {
-            &__title-icon {
-                transform: rotate(135deg);
-            }
-            &__title {
-                background-color: transparent;
-            }
-        }
+        border-bottom: rem(1px) solid $svart;
+        border-bottom: rem(1px) solid var(--accordion-border);
     }
 
     &__title {
         position: relative;
         padding: $title-padding;
+        margin-left: $component-spacing--medium;
         text-align: left;
         width: 100%;
 
@@ -40,22 +79,46 @@
 
         /* Remove button styles */
         outline: none;
-        background-color: $varde;
+        background-color: $hvit;
+        background-color: var(--accordion-bg);
         color: inherit; // stops Safari from changing color on :active
         border: none;
 
-        &:active {
-            transform: scale(0.99);
+        /* The dropdown arrow */
+        &__arrow {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: inherit;
         }
 
         &:hover {
             cursor: pointer;
-            color: $hvit;
-            background-color: $svart;
+            color: $info;
+            color: var(--accordion-accent);
+            .jkl-accordion-item__title__arrow {
+                transform: translateY(calc(-50% + #{rem(3px)}));
+            }
         }
 
         html:not([data-mousenavigation]) &:focus {
             box-shadow: inset 0 0 0 2px $focus-color;
+            box-shadow: inset 0 0 0 2px var(--accordion-focus);
+        }
+    }
+
+    &--expanded {
+        background-color: $hvit;
+        background-color: var(--accordion-bg);
+        .jkl-accordion-item {
+            &__title {
+                &:hover {
+                    .jkl-accordion-item__title__arrow {
+                        transform: translateY(calc(-50% + #{rem(-3px)}));
+                    }
+                }
+            }
         }
     }
 
@@ -63,14 +126,7 @@
         @include jkl-text-style("desktop/body");
         display: block;
         padding-right: 2rem;
-    }
-
-    &__title-icon {
-        @include chevron(rem(20px), currentcolor, $weight: rem(1px));
-        position: absolute;
-        display: block;
-        top: $title-padding; // magic number to align chevron with base line
-        right: $title-padding;
+        margin-left: $component-spacing--medium;
     }
 
     &__content-wrapper {
@@ -79,9 +135,50 @@
     }
 
     &__content {
-        @include jkl-text-style("desktop/lead");
+        @include jkl-text-style("desktop/body");
         height: auto;
-        padding: $layout-spacing--xl $component-spacing--large;
+        padding: $component-spacing--large $component-spacing--xs $component-spacing--xxl $component-spacing--xl;
         color: inherit; // Make content same color as rest of page text
+    }
+}
+
+.jkl-expand-arrow {
+    height: $arrow-height;
+    width: $arrow-width;
+    clip: rect(auto, auto, auto, auto);
+    clip-path: inset(0 0 0 0);
+
+    pointer-events: none;
+
+    @include motion("standard");
+    transition-property: transform;
+
+    &__up,
+    &__down {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        height: $arrow-height;
+        width: $arrow-width;
+        @include motion("standard");
+        transition-property: transform;
+    }
+
+    &__up {
+        top: 100%;
+    }
+
+    &__down {
+        top: 0;
+    }
+
+    &--expanded {
+        .jkl-expand-arrow__up,
+        .jkl-expand-arrow__down {
+            @include motion("standard", "expressive");
+            transform: translate(0, -100%);
+        }
     }
 }

@@ -18,7 +18,13 @@ import "@fremtind/jkl-accordion/accordion.css";
 
 initTabListener();
 
-initTabListener();
-
 const mountNode = document.getElementById("app");
-ReactDOM.render(<DevExample component={Example} />, mountNode);
+ReactDOM.render(
+    <DevExample
+        component={Example}
+        knobs={{
+            boolProps: ["invertert"],
+        }}
+    />,
+    mountNode,
+);
