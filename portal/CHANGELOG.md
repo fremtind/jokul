@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.14.0 (2020-08-12)
+
+### Features
+
+- **dividerline:** remove divider line package ([29bba94](https://github.com/fremtind/jokul/commit/29bba9448ecd0b6daa80c78dbf4a434abfe673b2))
+
 ## 3.13.0 (2020-08-12)
 
 ### Bug Fixes
