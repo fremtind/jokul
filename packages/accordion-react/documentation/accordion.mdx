@@ -11,7 +11,12 @@ import { Example } from "./Example";
     Med trekkspillister kan vi presentere mye innhold på liten plass. En trekkspilliste har én eller flere rader, som
     brukeren kan klikke på for å vise eller skjule informasjon.
 </Ingress>
-<ComponentExample component={Example} />
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Invertert"],
+    }}
+/>
 
 ## Bruk
 
