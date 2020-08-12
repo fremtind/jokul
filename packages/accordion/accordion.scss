@@ -93,10 +93,6 @@ $arrow-width: rem(13px);
             color: inherit;
         }
 
-        &:active {
-            transform: scale(0.99);
-        }
-
         &:hover {
             cursor: pointer;
             color: $info;
@@ -155,7 +151,7 @@ $arrow-width: rem(13px);
     pointer-events: none;
 
     @include motion("standard");
-    transition-property: transform, color;
+    transition-property: transform;
 
     &__up,
     &__down {
