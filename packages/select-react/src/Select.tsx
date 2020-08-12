@@ -80,7 +80,7 @@ export function Select({
             !searchAble || searchValue === "" || item.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
         return { ...item, visible };
     });
-    const selectedValueLabel = itemsWithVisibility.find((item) => item.value == value)?.label || defaultPrompt;
+    const selectedValueLabel = itemsWithVisibility.find((item) => item.value === value)?.label || defaultPrompt;
 
     const searchRef = useRef<HTMLInputElement>(null);
     const componentRootElementRef = useRef<HTMLDivElement>(null);
