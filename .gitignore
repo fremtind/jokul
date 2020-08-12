@@ -4,6 +4,7 @@ npm-debug.log
 yarn-error.log
 .vscode
 .cache
+.npmrc
 build/
 *.css
 dist/

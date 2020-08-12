@@ -10,9 +10,15 @@ export const THEMES = {
     THEME_LIGHT: "light",
 };
 const themeContext = createContext<ThemeContext>({ toggleTheme: () => null });
+
 export function useTheme() {
     return useContext(themeContext);
 }
+
+export const useDarkMode = () => {
+    const { theme } = useTheme();
+    return theme === THEMES.THEME_DARK;
+};
 
 interface Props {
     children: ReactNode;

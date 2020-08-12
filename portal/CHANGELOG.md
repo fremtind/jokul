@@ -3,817 +3,346 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.9.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.8...@fremtind/portal@3.9.9) (2020-07-30)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.9.8](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.7...@fremtind/portal@3.9.8) (2020-07-30)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.9.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.6...@fremtind/portal@3.9.7) (2020-07-29)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.9.6](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.5...@fremtind/portal@3.9.6) (2020-07-08)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.9.5](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.4...@fremtind/portal@3.9.5) (2020-07-08)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.9.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.3...@fremtind/portal@3.9.4) (2020-07-08)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.9.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.2...@fremtind/portal@3.9.3) (2020-07-08)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.9.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.1...@fremtind/portal@3.9.2) (2020-07-07)
-
+## 3.13.0 (2020-08-12)
 
 ### Bug Fixes
 
-* **portal:** fix small accessibility issues ([045f70a](https://github.com/fremtind/jokul/commit/045f70a6aee6c22b57ac422bf8228f61b5c5943c))
-
-
-
-
-
-## [3.9.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.9.0...@fremtind/portal@3.9.1) (2020-07-07)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.9.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.4...@fremtind/portal@3.9.0) (2020-07-07)
-
+- portal/package.json to reduce vulnerabilities ([7243f37](https://github.com/fremtind/jokul/commit/7243f37798fa0500171891b362f54841a8948d47))
+- **portal:** add prefix to dowload logo ([ad4cdd7](https://github.com/fremtind/jokul/commit/ad4cdd729559369b55ee04b51ca8588bb374ab57)), closes [#1190](https://github.com/fremtind/jokul/issues/1190)
+- handle reduced motion in animation ([86b5509](https://github.com/fremtind/jokul/commit/86b55093413c5a1c5afcbe81a4d43e31f194a7ca)), closes [#1121](https://github.com/fremtind/jokul/issues/1121)
 
 ### Features
 
-* **portal:** improve logo documentation ([#1050](https://github.com/fremtind/jokul/issues/1050)) ([68e15c5](https://github.com/fremtind/jokul/commit/68e15c571be03216c2b66928d1ce9f6c7a672aaf)), closes [#1027](https://github.com/fremtind/jokul/issues/1027)
+- add escape to close image ([37e8d9e](https://github.com/fremtind/jokul/commit/37e8d9ee76a14fcf3d55ae2815cb9c0d5cec6b1f))
+- **hook:** add prefer reduced motion hook ([aec7494](https://github.com/fremtind/jokul/commit/aec7494ea94363bc4941212b4d37fe8e1ac66b7a)), closes [#1067](https://github.com/fremtind/jokul/issues/1067)
 
-
-
-
-
-## [3.8.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.3...@fremtind/portal@3.8.4) (2020-07-06)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.8.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.2...@fremtind/portal@3.8.3) (2020-07-06)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.8.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.8.1...@fremtind/portal@3.8.2) (2020-07-03)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 3.8.1 (2020-07-03)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.8.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.7.1...@fremtind/portal@3.8.0) (2020-07-02)
-
-
-### Features
-
-* **portal:** add animation to portal ([fa38aae](https://github.com/fremtind/jokul/commit/fa38aae91d6a85ec017a80df54a987de893fd3d8))
-
-
-
-
-
-## [3.7.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.7.0...@fremtind/portal@3.7.1) (2020-07-02)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.7.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.6.5...@fremtind/portal@3.7.0) (2020-07-01)
-
-
-### Features
-
-* **portal:** add support for dark mode to code blocks ([68437f0](https://github.com/fremtind/jokul/commit/68437f05cefd2de8f30950154d776eacedf20da7))
-
-
-
-
-
-## [3.6.5](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.6.4...@fremtind/portal@3.6.5) (2020-07-01)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.6.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.6.3...@fremtind/portal@3.6.4) (2020-06-30)
-
+## 3.12.0 (2020-08-11)
 
 ### Bug Fixes
 
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([#1060](https://github.com/fremtind/jokul/issues/1060)) ([5b35981](https://github.com/fremtind/jokul/commit/5b35981577282ac7984f26c4e0f0f7814066e739))
-
-
-
-
-
-## [3.6.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.6.2...@fremtind/portal@3.6.3) (2020-06-29)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.6.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.6.1...@fremtind/portal@3.6.2) (2020-06-29)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.6.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.6.0...@fremtind/portal@3.6.1) (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.6.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.5.4...@fremtind/portal@3.6.0) (2020-06-26)
-
+- handle reduced motion in animation ([86b5509](https://github.com/fremtind/jokul/commit/86b55093413c5a1c5afcbe81a4d43e31f194a7ca)), closes [#1121](https://github.com/fremtind/jokul/issues/1121)
 
 ### Features
 
-* add util package for validation ([417ac14](https://github.com/fremtind/jokul/commit/417ac145a3c021f3b5f9e5fc2824ce4021e55e21))
+- add escape to close image ([37e8d9e](https://github.com/fremtind/jokul/commit/37e8d9ee76a14fcf3d55ae2815cb9c0d5cec6b1f))
+- **hook:** add prefer reduced motion hook ([aec7494](https://github.com/fremtind/jokul/commit/aec7494ea94363bc4941212b4d37fe8e1ac66b7a)), closes [#1067](https://github.com/fremtind/jokul/issues/1067)
 
+## 3.11.0 (2020-08-11)
 
+### Bug Fixes
 
-
-
-## [3.5.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.5.3...@fremtind/portal@3.5.4) (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.5.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.5.2...@fremtind/portal@3.5.3) (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.5.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.5.1...@fremtind/portal@3.5.2) (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.5.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.5.0...@fremtind/portal@3.5.1) (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.5.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.6...@fremtind/portal@3.5.0) (2020-06-26)
-
+- handle reduced motion in animation ([86b5509](https://github.com/fremtind/jokul/commit/86b55093413c5a1c5afcbe81a4d43e31f194a7ca)), closes [#1121](https://github.com/fremtind/jokul/issues/1121)
 
 ### Features
 
-* **portal:** add ids to level 2 headings for linking ([4dfd1d3](https://github.com/fremtind/jokul/commit/4dfd1d33042a9148c9bc794572018f2445e60d50))
+- **hook:** add prefer reduced motion hook ([aec7494](https://github.com/fremtind/jokul/commit/aec7494ea94363bc4941212b4d37fe8e1ac66b7a)), closes [#1067](https://github.com/fremtind/jokul/issues/1067)
 
-
-
-
-
-## [3.4.6](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.5...@fremtind/portal@3.4.6) (2020-06-26)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.4.5](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.4...@fremtind/portal@3.4.5) (2020-06-25)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.4.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.3...@fremtind/portal@3.4.4) (2020-06-24)
-
+## 3.10.3 (2020-08-06)
 
 ### Bug Fixes
 
-* **portal:** adjust margins and font sizes on mobile ([f78acd5](https://github.com/fremtind/jokul/commit/f78acd5edcefffbb227ff6150b618d2754635e0d))
+- **full-screen-menu:** adjust menu item animation ([3ff6529](https://github.com/fremtind/jokul/commit/3ff652988a50bcd426ea65418664779d27a22e8d))
+- **portal-header:** remove state for collapsing menu to prevent rerenders ([6560179](https://github.com/fremtind/jokul/commit/65601792a252556f620dcb08f00195f540a5a590)), closes [#1174](https://github.com/fremtind/jokul/issues/1174)
 
+## 3.10.0 (2020-08-05)
 
+### Bug Fixes
 
-
-
-## [3.4.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.2...@fremtind/portal@3.4.3) (2020-06-24)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.4.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.1...@fremtind/portal@3.4.2) (2020-06-24)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [3.4.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.4.0...@fremtind/portal@3.4.1) (2020-06-24)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.3.1...@fremtind/portal@3.4.0) (2020-06-24)
-
+- ta i bruk @fremtind/browserslist-config-jkl ([b75a518](https://github.com/fremtind/jokul/commit/b75a5185bb27ae548e8f2b144cad14e66cbf4e32))
 
 ### Features
 
-* **portal:** add support for docs from core package ([24e6b24](https://github.com/fremtind/jokul/commit/24e6b24d0148bcc78cc575e0954639278696de2e))
+- lag bloggpost om IE 11 ([a521211](https://github.com/fremtind/jokul/commit/a52121133644f7695381042d69667f2264436c30))
 
-
-
-
-
-## [3.3.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.3.0...@fremtind/portal@3.3.1) (2020-06-24)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.7...@fremtind/portal@3.3.0) (2020-06-23)
-
+## 3.9.2 (2020-07-07)
 
 ### Bug Fixes
 
-* **portal:** add type to pages returned from useNavigationLinks ([9cb3ad1](https://github.com/fremtind/jokul/commit/9cb3ad1df9876fc6bcdac922d83f64a691fe8869))
-* **portal:** display blog posts correctly ([9f78030](https://github.com/fremtind/jokul/commit/9f78030d3d348d998ec6bb48a1792cc3b18d78e5))
-* **portal:** make home link close fullscreen menus ([817aa65](https://github.com/fremtind/jokul/commit/817aa65fcf73ed51ab85ea5a3f0fcf96d5292311)), closes [#917](https://github.com/fremtind/jokul/issues/917)
+- **portal:** fix small accessibility issues ([045f70a](https://github.com/fremtind/jokul/commit/045f70a6aee6c22b57ac422bf8228f61b5c5943c))
 
+## 3.9.0 (2020-07-07)
 
 ### Features
 
-* **portal:** add basic responsivity to layout ([10e0b2f](https://github.com/fremtind/jokul/commit/10e0b2f21fe9dbfa0f82211bc02895cdaa9c35ba))
-* **portal:** add layout plugin to avoid reendering static items ([cf6ef66](https://github.com/fremtind/jokul/commit/cf6ef6664294a32dd3eb6f0b136e79f5502a1872))
-* **portal:** add responsivity to main menu ([ca22441](https://github.com/fremtind/jokul/commit/ca22441aa9585e3c77bcd970b85094355e1312f9))
-* **portal:** add section/frontpage info to location context ([12030af](https://github.com/fremtind/jokul/commit/12030afdfbce0a6e1b160aea673a9e699449f732))
+- **portal:** improve logo documentation ([#1050](https://github.com/fremtind/jokul/issues/1050)) ([68e15c5](https://github.com/fremtind/jokul/commit/68e15c571be03216c2b66928d1ce9f6c7a672aaf)), closes [#1027](https://github.com/fremtind/jokul/issues/1027)
 
+## 3.8.0 (2020-07-02)
 
+### Features
 
+- **portal:** add animation to portal ([fa38aae](https://github.com/fremtind/jokul/commit/fa38aae91d6a85ec017a80df54a987de893fd3d8))
 
+## 3.7.0 (2020-07-01)
 
-## [3.2.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.6...@fremtind/portal@3.2.7) (2020-06-19)
+### Features
 
+- **portal:** add support for dark mode to code blocks ([68437f0](https://github.com/fremtind/jokul/commit/68437f05cefd2de8f30950154d776eacedf20da7))
 
-### Bug Fixes
-
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([22b5b24](https://github.com/fremtind/jokul/commit/22b5b24a3803e29f45d006cde2e1703a1540527f))
-
-
-
-
-
-## [3.2.6](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.5...@fremtind/portal@3.2.6) (2020-06-18)
-
+## 3.6.4 (2020-06-30)
 
 ### Bug Fixes
 
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([4a22bb7](https://github.com/fremtind/jokul/commit/4a22bb7ef02c99bfbb247dd233e56743dc566798))
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([#1060](https://github.com/fremtind/jokul/issues/1060)) ([5b35981](https://github.com/fremtind/jokul/commit/5b35981577282ac7984f26c4e0f0f7814066e739))
 
+## 3.6.0 (2020-06-26)
 
+### Features
 
+- add util package for validation ([417ac14](https://github.com/fremtind/jokul/commit/417ac145a3c021f3b5f9e5fc2824ce4021e55e21))
 
+## 3.5.0 (2020-06-26)
+
+### Features
+
+- **portal:** add ids to level 2 headings for linking ([4dfd1d3](https://github.com/fremtind/jokul/commit/4dfd1d33042a9148c9bc794572018f2445e60d50))
+
+## 3.4.4 (2020-06-24)
+
+### Bug Fixes
+
+- **portal:** adjust margins and font sizes on mobile ([f78acd5](https://github.com/fremtind/jokul/commit/f78acd5edcefffbb227ff6150b618d2754635e0d))
+
+## 3.4.0 (2020-06-24)
+
+### Features
+
+- **portal:** add support for docs from core package ([24e6b24](https://github.com/fremtind/jokul/commit/24e6b24d0148bcc78cc575e0954639278696de2e))
+
+## 3.3.0 (2020-06-23)
+
+### Bug Fixes
+
+- **portal:** add type to pages returned from useNavigationLinks ([9cb3ad1](https://github.com/fremtind/jokul/commit/9cb3ad1df9876fc6bcdac922d83f64a691fe8869))
+- **portal:** display blog posts correctly ([9f78030](https://github.com/fremtind/jokul/commit/9f78030d3d348d998ec6bb48a1792cc3b18d78e5))
+- **portal:** make home link close fullscreen menus ([817aa65](https://github.com/fremtind/jokul/commit/817aa65fcf73ed51ab85ea5a3f0fcf96d5292311)), closes [#917](https://github.com/fremtind/jokul/issues/917)
+
+### Features
+
+- **portal:** add basic responsivity to layout ([10e0b2f](https://github.com/fremtind/jokul/commit/10e0b2f21fe9dbfa0f82211bc02895cdaa9c35ba))
+- **portal:** add layout plugin to avoid reendering static items ([cf6ef66](https://github.com/fremtind/jokul/commit/cf6ef6664294a32dd3eb6f0b136e79f5502a1872))
+- **portal:** add responsivity to main menu ([ca22441](https://github.com/fremtind/jokul/commit/ca22441aa9585e3c77bcd970b85094355e1312f9))
+- **portal:** add section/frontpage info to location context ([12030af](https://github.com/fremtind/jokul/commit/12030afdfbce0a6e1b160aea673a9e699449f732))
+
+## 3.2.7 (2020-06-19)
+
+### Bug Fixes
+
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([22b5b24](https://github.com/fremtind/jokul/commit/22b5b24a3803e29f45d006cde2e1703a1540527f))
+
+## 3.2.6 (2020-06-18)
+
+### Bug Fixes
+
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([4a22bb7](https://github.com/fremtind/jokul/commit/4a22bb7ef02c99bfbb247dd233e56743dc566798))
 
 ## 3.2.5 (2020-06-17)
 
+### Bug Fixes
+
+- fix darkmode ([d38bb81](https://github.com/fremtind/jokul/commit/d38bb81b771d74fc00e89fd413fce0fc0b8c9de2))
+
+## 3.2.4 (2020-06-15)
 
 ### Bug Fixes
 
-* fix darkmode ([d38bb81](https://github.com/fremtind/jokul/commit/d38bb81b771d74fc00e89fd413fce0fc0b8c9de2))
-
-
-
-
-
-## [3.2.4](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.2.3...@fremtind/portal@3.2.4) (2020-06-15)
-
-
-### Bug Fixes
-
-* fix bg ([8bf05e7](https://github.com/fremtind/jokul/commit/8bf05e7656ffd71d28c8d3b60826b413a5c3959d))
-* **portal:** explicitly set background color ([316230a](https://github.com/fremtind/jokul/commit/316230a90033cae02bbd36c293ebff2d24dc289a))
-
-
-
-
-
-## 3.2.3 (2020-06-15)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
+- fix bg ([8bf05e7](https://github.com/fremtind/jokul/commit/8bf05e7656ffd71d28c8d3b60826b413a5c3959d))
+- **portal:** explicitly set background color ([316230a](https://github.com/fremtind/jokul/commit/316230a90033cae02bbd36c293ebff2d24dc289a))
 
 ## 3.2.2 (2020-06-02)
 
-
 ### Bug Fixes
 
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([aa99c43](https://github.com/fremtind/jokul/commit/aa99c437e4454fe94903cc568ad76483988b09e3))
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([aa99c43](https://github.com/fremtind/jokul/commit/aa99c437e4454fe94903cc568ad76483988b09e3))
 
-
-
-
-
-## 3.2.1 (2020-05-28)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# 3.2.0 (2020-05-27)
-
+## 3.2.0 (2020-05-27)
 
 ### Features
 
-* **cypress:** initial cypress setup ([3004668](https://github.com/fremtind/jokul/commit/300466834e2f79acc8ed501bb2b66f574328f80d))
+- **cypress:** initial cypress setup ([3004668](https://github.com/fremtind/jokul/commit/300466834e2f79acc8ed501bb2b66f574328f80d))
 
-
-
-
-
-## 3.1.4 (2020-05-20)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 3.1.3 (2020-05-19)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 3.1.2 (2020-05-19)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 3.1.1 (2020-05-18)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [3.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.2...@fremtind/portal@3.1.0) (2020-05-15)
-
+## 3.1.0 (2020-05-15)
 
 ### Features
 
-* **alert-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
-* **messages:** add messages package ([6193027](https://github.com/fremtind/jokul/commit/619302746062ecc789252fea6201c359fe88995f))
-* **portal:** lagt til do's and dont's ([122474c](https://github.com/fremtind/jokul/commit/122474c618ffaafde8e1117df2e985df09166cda))
+- **alert-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
+- **messages:** add messages package ([6193027](https://github.com/fremtind/jokul/commit/619302746062ecc789252fea6201c359fe88995f))
+- **portal:** lagt til do's and dont's ([122474c](https://github.com/fremtind/jokul/commit/122474c618ffaafde8e1117df2e985df09166cda))
 
-
-
-
-
-## [3.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.1...@fremtind/portal@3.0.2) (2020-05-13)
-
+## 3.0.2 (2020-05-13)
 
 ### Bug Fixes
 
-* import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
+- import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
 
-
-
-
-
-## [3.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@3.0.0...@fremtind/portal@3.0.1) (2020-05-11)
-
+## 3.0.1 (2020-05-11)
 
 ### Bug Fixes
 
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([41ec150](https://github.com/fremtind/jokul/commit/41ec150077bdc9df642be678a0381c878b030c92))
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([0f3be56](https://github.com/fremtind/jokul/commit/0f3be56108a1fa6e07b4a193fe5f258ecc02a05f))
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([cd25fa4](https://github.com/fremtind/jokul/commit/cd25fa41ca7dc36ae5ea09102986f74b7851e5a9))
-* portal/package.json & portal/.snyk to reduce vulnerabilities ([837946b](https://github.com/fremtind/jokul/commit/837946b92fc7ca1a26af99088cf541cca97a93af))
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([41ec150](https://github.com/fremtind/jokul/commit/41ec150077bdc9df642be678a0381c878b030c92))
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([0f3be56](https://github.com/fremtind/jokul/commit/0f3be56108a1fa6e07b4a193fe5f258ecc02a05f))
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([cd25fa4](https://github.com/fremtind/jokul/commit/cd25fa41ca7dc36ae5ea09102986f74b7851e5a9))
+- portal/package.json & portal/.snyk to reduce vulnerabilities ([837946b](https://github.com/fremtind/jokul/commit/837946b92fc7ca1a26af99088cf541cca97a93af))
 
-
-
-
-
-# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.3.0...@fremtind/portal@3.0.0) (2020-04-27)
-
+## 3.0.0 (2020-04-27)
 
 ### Bug Fixes
 
-* **portal:** use correct hook for theme in sidebar ([b41ed3c](https://github.com/fremtind/jokul/commit/b41ed3cc18f0383d889b905f575eee2209dae423))
-* **portal:** use new TextInput in sidebar and fullscreen menu ([a874480](https://github.com/fremtind/jokul/commit/a874480c98ef8e24f930430d382b138cd7e31fe7))
-
+- **portal:** use correct hook for theme in sidebar ([b41ed3c](https://github.com/fremtind/jokul/commit/b41ed3cc18f0383d889b905f575eee2209dae423))
+- **portal:** use new TextInput in sidebar and fullscreen menu ([a874480](https://github.com/fremtind/jokul/commit/a874480c98ef8e24f930430d382b138cd7e31fe7))
 
 ### Features
 
-* **added documenation:** added documenation for css methodology ([0a2ebd1](https://github.com/fremtind/jokul/commit/0a2ebd1adcf20fdf8e8416c91438e0f6f1939aa5)), closes [#468](https://github.com/fremtind/jokul/issues/468)
-* **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
-
+- **added documenation:** added documenation for css methodology ([0a2ebd1](https://github.com/fremtind/jokul/commit/0a2ebd1adcf20fdf8e8416c91438e0f6f1939aa5)), closes [#468](https://github.com/fremtind/jokul/issues/468)
+- **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
 
 ### BREAKING CHANGES
 
-* **text-input:** * TextField is now called TextInput|* The following variants have all been integrated into
+- **text-input:** * TextField is now called TextInput|* The following variants have all been integrated into
 TextInput: ActionTextField, InlineTextField, BaseInputField
 
-
-
-
-
-# [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.2.0...@fremtind/portal@2.3.0) (2020-04-20)
-
+## 2.3.0 (2020-04-20)
 
 ### Bug Fixes
 
-* **codeblock:** account for code blocks without language ([13d4714](https://github.com/fremtind/jokul/commit/13d4714df02fd95b06750d0046a737f596463542))
-
-
-### Features
-
-* **formatting:** add code highlighting to mdx parser ([8c366d4](https://github.com/fremtind/jokul/commit/8c366d4323356a878fef75c6c1649596b4579275))
-* **portal:** add favicon through Gatsby manifest ([b78cdf3](https://github.com/fremtind/jokul/commit/b78cdf3cd7f745c450dee2a0a428181aa59b8351)), closes [#747](https://github.com/fremtind/jokul/issues/747)
-
-
-
-
-
-# [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.1.0...@fremtind/portal@2.2.0) (2020-03-30)
-
+- **codeblock:** account for code blocks without language ([13d4714](https://github.com/fremtind/jokul/commit/13d4714df02fd95b06750d0046a737f596463542))
 
 ### Features
 
-* **portal:** add icon-button css to gatsby-browser ([836b33a](https://github.com/fremtind/jokul/commit/836b33ad0895cceff5ceefdd3a4b8b521ba8a035))
+- **formatting:** add code highlighting to mdx parser ([8c366d4](https://github.com/fremtind/jokul/commit/8c366d4323356a878fef75c6c1649596b4579275))
+- **portal:** add favicon through Gatsby manifest ([b78cdf3](https://github.com/fremtind/jokul/commit/b78cdf3cd7f745c450dee2a0a428181aa59b8351)), closes [#747](https://github.com/fremtind/jokul/issues/747)
 
+## 2.2.0 (2020-03-30)
 
+### Features
 
+- **portal:** add icon-button css to gatsby-browser ([836b33a](https://github.com/fremtind/jokul/commit/836b33ad0895cceff5ceefdd3a4b8b521ba8a035))
 
-
-# [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.2...@fremtind/portal@2.1.0) (2020-03-25)
-
+## 2.1.0 (2020-03-25)
 
 ### Bug Fixes
 
-* add missing dependencies/dependency lists to hooks ([1edc8da](https://github.com/fremtind/jokul/commit/1edc8dabe612ca35a5fab7a6b57ec250dda01771))
-* **portal:** correct path comparison for determining menu active state ([74abad8](https://github.com/fremtind/jokul/commit/74abad8ebaf83bfa423088a3fbaf83a1f3ceaa6a))
-* **portal:** remove conditional hook call on front page ([d41a732](https://github.com/fremtind/jokul/commit/d41a732d78ac18efe7f9bb2aae6720820821edfb))
-
+- add missing dependencies/dependency lists to hooks ([1edc8da](https://github.com/fremtind/jokul/commit/1edc8dabe612ca35a5fab7a6b57ec250dda01771))
+- **portal:** correct path comparison for determining menu active state ([74abad8](https://github.com/fremtind/jokul/commit/74abad8ebaf83bfa423088a3fbaf83a1f3ceaa6a))
+- **portal:** remove conditional hook call on front page ([d41a732](https://github.com/fremtind/jokul/commit/d41a732d78ac18efe7f9bb2aae6720820821edfb))
 
 ### Features
 
-* **portal:** add location context to avoid Location component ([852353e](https://github.com/fremtind/jokul/commit/852353e7898615c820419df77ba315f0059adc18))
-* **portal:** create all portal pages using MDX ([d109af9](https://github.com/fremtind/jokul/commit/d109af940cdb7c772a44f2116fb9de896b143a4c))
-* **portal:** create pretty paths for component pages ([68ac75e](https://github.com/fremtind/jokul/commit/68ac75efdcc0fc8b2d02a290e31b737c63c2950e))
+- **portal:** add location context to avoid Location component ([852353e](https://github.com/fremtind/jokul/commit/852353e7898615c820419df77ba315f0059adc18))
+- **portal:** create all portal pages using MDX ([d109af9](https://github.com/fremtind/jokul/commit/d109af940cdb7c772a44f2116fb9de896b143a4c))
+- **portal:** create pretty paths for component pages ([68ac75e](https://github.com/fremtind/jokul/commit/68ac75efdcc0fc8b2d02a290e31b737c63c2950e))
 
-
-
-
-
-## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.1...@fremtind/portal@2.0.2) (2020-03-16)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## [2.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@2.0.0...@fremtind/portal@2.0.1) (2020-03-06)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.2.1...@fremtind/portal@2.0.0) (2020-03-06)
-
+## 2.0.0 (2020-03-06)
 
 ### Bug Fixes
 
-* **portal:** syntax changes in worded sentence ([8ce791a](https://github.com/fremtind/jokul/commit/8ce791a2513f984c2bf73b1471ec9dfdb95ef3cc))
-* implement className, and remove unused import ([224de84](https://github.com/fremtind/jokul/commit/224de843ca40b678e4fab7bfcb8368376c6983f0))
-* **portal:** convert layout to use css grid ([612dc5d](https://github.com/fremtind/jokul/commit/612dc5d15d75a111c411c3f725a7738e5df8618a))
-* **portal:** fix color name from deprecated snøhvit ([dbb4186](https://github.com/fremtind/jokul/commit/dbb418689b2ac28e1cab2c030308e4d44c77b38c))
-* **portal:** fix focus state of title ([3bd0c2e](https://github.com/fremtind/jokul/commit/3bd0c2e723577cb84eabfcf61faf270e61c5b2ef))
-* **portal:** fix header export ([6c22852](https://github.com/fremtind/jokul/commit/6c228529b13f5abae7891fe42394480b8b3b5962))
-* **portal:** fix more type issues ([5b4bfbf](https://github.com/fremtind/jokul/commit/5b4bfbf16454f85ede7ca7f5d4aa6f4270c355ca))
-* **portal:** fix types in frontpage components ([6a9bba2](https://github.com/fremtind/jokul/commit/6a9bba294f44f88d4ecb6f96078816c2fc7369c8))
-* **portal:** fix wrong case in import ([60df779](https://github.com/fremtind/jokul/commit/60df7796621094be89556d3223ce7a4a14d3991d))
-* **portal:** fix wrong use of hook ([f0bf89e](https://github.com/fremtind/jokul/commit/f0bf89ed56b80ba81e68ebb3b808acedca9bf7a9))
-* **portal:** fixes path/location based issues in prod build ([7c75f1c](https://github.com/fremtind/jokul/commit/7c75f1c55cb7955bf4748366daff866bbf3c963c))
-* **portal:** front page fixup ([b38085c](https://github.com/fremtind/jokul/commit/b38085cfb7972e2d8b95eb06157cb55330ec50c9))
-* **portal:** move Header component ([4ccdba5](https://github.com/fremtind/jokul/commit/4ccdba50c06ae3a990093b1c983b09d2747d0e29))
-* **portal:** refactor component structure ([abd749e](https://github.com/fremtind/jokul/commit/abd749ed3eaa9057325d3e27890f9d32ba091441))
-* **portal:** remove "Forsikring" from the Fremtind name ([d09b641](https://github.com/fremtind/jokul/commit/d09b6410cc2403297735f002ff25aa0b4bdf106c))
-* **portal:** remove unsued header code ([6abb412](https://github.com/fremtind/jokul/commit/6abb4123a877bccd5046c02ba33b078f82fcf7a8))
-* menu styling changes ([adc6be9](https://github.com/fremtind/jokul/commit/adc6be94a4b89dcbfcac717541ef7910485f93c5))
-
+- **portal:** syntax changes in worded sentence ([8ce791a](https://github.com/fremtind/jokul/commit/8ce791a2513f984c2bf73b1471ec9dfdb95ef3cc))
+- implement className, and remove unused import ([224de84](https://github.com/fremtind/jokul/commit/224de843ca40b678e4fab7bfcb8368376c6983f0))
+- **portal:** convert layout to use css grid ([612dc5d](https://github.com/fremtind/jokul/commit/612dc5d15d75a111c411c3f725a7738e5df8618a))
+- **portal:** fix color name from deprecated snøhvit ([dbb4186](https://github.com/fremtind/jokul/commit/dbb418689b2ac28e1cab2c030308e4d44c77b38c))
+- **portal:** fix focus state of title ([3bd0c2e](https://github.com/fremtind/jokul/commit/3bd0c2e723577cb84eabfcf61faf270e61c5b2ef))
+- **portal:** fix header export ([6c22852](https://github.com/fremtind/jokul/commit/6c228529b13f5abae7891fe42394480b8b3b5962))
+- **portal:** fix more type issues ([5b4bfbf](https://github.com/fremtind/jokul/commit/5b4bfbf16454f85ede7ca7f5d4aa6f4270c355ca))
+- **portal:** fix types in frontpage components ([6a9bba2](https://github.com/fremtind/jokul/commit/6a9bba294f44f88d4ecb6f96078816c2fc7369c8))
+- **portal:** fix wrong case in import ([60df779](https://github.com/fremtind/jokul/commit/60df7796621094be89556d3223ce7a4a14d3991d))
+- **portal:** fix wrong use of hook ([f0bf89e](https://github.com/fremtind/jokul/commit/f0bf89ed56b80ba81e68ebb3b808acedca9bf7a9))
+- **portal:** fixes path/location based issues in prod build ([7c75f1c](https://github.com/fremtind/jokul/commit/7c75f1c55cb7955bf4748366daff866bbf3c963c))
+- **portal:** front page fixup ([b38085c](https://github.com/fremtind/jokul/commit/b38085cfb7972e2d8b95eb06157cb55330ec50c9))
+- **portal:** move Header component ([4ccdba5](https://github.com/fremtind/jokul/commit/4ccdba50c06ae3a990093b1c983b09d2747d0e29))
+- **portal:** refactor component structure ([abd749e](https://github.com/fremtind/jokul/commit/abd749ed3eaa9057325d3e27890f9d32ba091441))
+- **portal:** remove "Forsikring" from the Fremtind name ([d09b641](https://github.com/fremtind/jokul/commit/d09b6410cc2403297735f002ff25aa0b4bdf106c))
+- **portal:** remove unsued header code ([6abb412](https://github.com/fremtind/jokul/commit/6abb4123a877bccd5046c02ba33b078f82fcf7a8))
+- menu styling changes ([adc6be9](https://github.com/fremtind/jokul/commit/adc6be94a4b89dcbfcac717541ef7910485f93c5))
 
 ### Code Refactoring
 
-* **portal:** refactoring the portal ([f1f1d7e](https://github.com/fremtind/jokul/commit/f1f1d7e379e3d0c097f3d5b7b3eda5e5ecd377c1))
-
+- **portal:** refactoring the portal ([f1f1d7e](https://github.com/fremtind/jokul/commit/f1f1d7e379e3d0c097f3d5b7b3eda5e5ecd377c1))
 
 ### Features
 
-* **portal:** add back github links ([3765cff](https://github.com/fremtind/jokul/commit/3765cff7335631531b4921af1d1bea701024dd14))
-* **portal:** add basic landing page content ([4a8dc2b](https://github.com/fremtind/jokul/commit/4a8dc2b72152f5ba7a1d52b8b184467a9fa5f820))
-* **portal:** add do-dont example component ([7c880c6](https://github.com/fremtind/jokul/commit/7c880c6abefc3ca01a0df79d363242c7288a879a))
-* **portal:** add fullscreen menus and dark mode ([3b7da49](https://github.com/fremtind/jokul/commit/3b7da4986352c22c081d8aaa3533083bbc106e15))
-* **portal:** add PoC for delayed text strings ([756a160](https://github.com/fremtind/jokul/commit/756a1604230818d093da8e0d2a02ad88a339a035))
-* **portal:** add PoC for fading out delayed text ([7ed33cd](https://github.com/fremtind/jokul/commit/7ed33cd57411d654dae03c94f171db89c25dd304))
-* **portal:** additions and fixes to portal landing and content ([31853bd](https://github.com/fremtind/jokul/commit/31853bdc9a49e7a2fafe28899c5eccb9a9860d91))
-* **portal:** animate menu items ([bf410ae](https://github.com/fremtind/jokul/commit/bf410aed23ee38432297feabf5aa9977d338902d))
-* **portal:** feat: made stuff in the portal ([1b75e62](https://github.com/fremtind/jokul/commit/1b75e6219ef2f2d18c6614897e0fd843f9db3224))
-* **portal:** finish implementing comp.examples ([8765859](https://github.com/fremtind/jokul/commit/8765859d88f88ab567c4ca1daad96e6d667992f1))
-* **portal:** front page fixes ([eff7576](https://github.com/fremtind/jokul/commit/eff7576d8e08df86c0dac7ee536e0cde32768a3e))
-* **portal:** frontpage changes ([cd28aa0](https://github.com/fremtind/jokul/commit/cd28aa0b0847e2627a0bcc067eb14a53e10546b8))
-* **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
-* **portal:** more work on portal principles ([754cee0](https://github.com/fremtind/jokul/commit/754cee0b72bde7a90e8f566c841c951800342419))
-* **portal:** move footer to own component ([8865168](https://github.com/fremtind/jokul/commit/8865168e4efabcb8da94bff890bea77fe6d79bd5))
-* **portal:** new frontpage content ([9a63066](https://github.com/fremtind/jokul/commit/9a6306654abc3bf82646542182047595e1a0c67c))
-* **portal:** portal component examples and meu fixes ([2ffe8fe](https://github.com/fremtind/jokul/commit/2ffe8fe39ff826983f027dad1ea7ffa97a013ccf))
-* **portal:** proper theme handling in component example ([051580b](https://github.com/fremtind/jokul/commit/051580b2d56ec5101387cff97552ac611016bb4d))
-* **portal:** remember dark mode setting ([303999c](https://github.com/fremtind/jokul/commit/303999c1fb1bee2292850e425064d5fee3de850f))
-* **portal:** remove unused code, and add link support to card ([c1014f6](https://github.com/fremtind/jokul/commit/c1014f66d76d0db3f9d684d242326bf96cd1c4c6))
-* **portal:** updating the layout for the portal, work in progress ([80d3626](https://github.com/fremtind/jokul/commit/80d36266130a9e37cf2677d82340bdbf2e98a496))
-* implement component example ([9c34865](https://github.com/fremtind/jokul/commit/9c3486570b6dd74bc843431ffc9ddadd63b9d647))
-
+- **portal:** add back github links ([3765cff](https://github.com/fremtind/jokul/commit/3765cff7335631531b4921af1d1bea701024dd14))
+- **portal:** add basic landing page content ([4a8dc2b](https://github.com/fremtind/jokul/commit/4a8dc2b72152f5ba7a1d52b8b184467a9fa5f820))
+- **portal:** add do-dont example component ([7c880c6](https://github.com/fremtind/jokul/commit/7c880c6abefc3ca01a0df79d363242c7288a879a))
+- **portal:** add fullscreen menus and dark mode ([3b7da49](https://github.com/fremtind/jokul/commit/3b7da4986352c22c081d8aaa3533083bbc106e15))
+- **portal:** add PoC for delayed text strings ([756a160](https://github.com/fremtind/jokul/commit/756a1604230818d093da8e0d2a02ad88a339a035))
+- **portal:** add PoC for fading out delayed text ([7ed33cd](https://github.com/fremtind/jokul/commit/7ed33cd57411d654dae03c94f171db89c25dd304))
+- **portal:** additions and fixes to portal landing and content ([31853bd](https://github.com/fremtind/jokul/commit/31853bdc9a49e7a2fafe28899c5eccb9a9860d91))
+- **portal:** animate menu items ([bf410ae](https://github.com/fremtind/jokul/commit/bf410aed23ee38432297feabf5aa9977d338902d))
+- **portal:** feat: made stuff in the portal ([1b75e62](https://github.com/fremtind/jokul/commit/1b75e6219ef2f2d18c6614897e0fd843f9db3224))
+- **portal:** finish implementing comp.examples ([8765859](https://github.com/fremtind/jokul/commit/8765859d88f88ab567c4ca1daad96e6d667992f1))
+- **portal:** front page fixes ([eff7576](https://github.com/fremtind/jokul/commit/eff7576d8e08df86c0dac7ee536e0cde32768a3e))
+- **portal:** frontpage changes ([cd28aa0](https://github.com/fremtind/jokul/commit/cd28aa0b0847e2627a0bcc067eb14a53e10546b8))
+- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+- **portal:** more work on portal principles ([754cee0](https://github.com/fremtind/jokul/commit/754cee0b72bde7a90e8f566c841c951800342419))
+- **portal:** move footer to own component ([8865168](https://github.com/fremtind/jokul/commit/8865168e4efabcb8da94bff890bea77fe6d79bd5))
+- **portal:** new frontpage content ([9a63066](https://github.com/fremtind/jokul/commit/9a6306654abc3bf82646542182047595e1a0c67c))
+- **portal:** portal component examples and meu fixes ([2ffe8fe](https://github.com/fremtind/jokul/commit/2ffe8fe39ff826983f027dad1ea7ffa97a013ccf))
+- **portal:** proper theme handling in component example ([051580b](https://github.com/fremtind/jokul/commit/051580b2d56ec5101387cff97552ac611016bb4d))
+- **portal:** remember dark mode setting ([303999c](https://github.com/fremtind/jokul/commit/303999c1fb1bee2292850e425064d5fee3de850f))
+- **portal:** remove unused code, and add link support to card ([c1014f6](https://github.com/fremtind/jokul/commit/c1014f66d76d0db3f9d684d242326bf96cd1c4c6))
+- **portal:** updating the layout for the portal, work in progress ([80d3626](https://github.com/fremtind/jokul/commit/80d36266130a9e37cf2677d82340bdbf2e98a496))
+- implement component example ([9c34865](https://github.com/fremtind/jokul/commit/9c3486570b6dd74bc843431ffc9ddadd63b9d647))
 
 ### BREAKING CHANGES
 
-* **portal:** none
+- **portal:** none
 
-
-
-
-
-## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.2.0...@fremtind/portal@1.2.1) (2020-02-19)
-
+## 1.2.1 (2020-02-19)
 
 ### Bug Fixes
 
-* **portal:** use correct text style for site title ([5922949](https://github.com/fremtind/jokul/commit/59229491a2d3cafcf6c5e45baf28679b740aaefc))
+- **portal:** use correct text style for site title ([5922949](https://github.com/fremtind/jokul/commit/59229491a2d3cafcf6c5e45baf28679b740aaefc))
 
-
-
-
-
-# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.1.1...@fremtind/portal@1.2.0) (2020-02-18)
-
+## 1.2.0 (2020-02-18)
 
 ### Bug Fixes
 
-* make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
-* use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
-* **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
-* **portal:** stop using deprecated typography components from core ([c1c56e3](https://github.com/fremtind/jokul/commit/c1c56e390578ee31fd9c16d1cdd676be1609f5b6))
-
+- make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+- use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+- **portal:** stop using deprecated typography components from core ([c1c56e3](https://github.com/fremtind/jokul/commit/c1c56e390578ee31fd9c16d1cdd676be1609f5b6))
 
 ### Features
 
-* **portal:** add styles for typographic components ([081e345](https://github.com/fremtind/jokul/commit/081e345edd7c4a654ea097e92e33660c2b3416c1))
-* **portal:** add typographic React components ([fb40367](https://github.com/fremtind/jokul/commit/fb40367b3149e38f3920e1b836c82e6203a5ded6))
+- **portal:** add styles for typographic components ([081e345](https://github.com/fremtind/jokul/commit/081e345edd7c4a654ea097e92e33660c2b3416c1))
+- **portal:** add typographic React components ([fb40367](https://github.com/fremtind/jokul/commit/fb40367b3149e38f3920e1b836c82e6203a5ded6))
 
-
-
-
-
-## [1.1.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.1.0...@fremtind/portal@1.1.1) (2020-01-16)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@1.0.3...@fremtind/portal@1.1.0) (2020-01-16)
-
+## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-* **portal:** add focus state to menu links ([e27e320](https://github.com/fremtind/jokul/commit/e27e320502b2316d2af18a6b3e15baae7d5a2dc5))
-* **portal:** document button, fix security issue with node-sass ([70ff97c](https://github.com/fremtind/jokul/commit/70ff97ce1072302d82f092c92513f7e96fe1d6c5))
-* **portal:** fix overlap with menu on portal hero page ([db3366c](https://github.com/fremtind/jokul/commit/db3366c5c589f691d2d197506636b82e3c186a56))
-* **portal:** fix portal home page header in dark mode ([fca741d](https://github.com/fremtind/jokul/commit/fca741d3887dec6de4010167e6c375baf3f7b0c8))
-* **portal:** refactor examples, show menu for large screens ([ae59e7a](https://github.com/fremtind/jokul/commit/ae59e7aef89098e09ad138bf7cf8574a0d56de7f))
-* **portal:** remove export of deleted Changelog component ([f0a3a17](https://github.com/fremtind/jokul/commit/f0a3a17fdf4f7d435c25a887ea2d8f8fe5073945))
-* fix lint issues after eslint update ([259db8b](https://github.com/fremtind/jokul/commit/259db8bf27f6751ec86c413129162728c3c903d6))
-* remove stretching of portal background image ([e3deea9](https://github.com/fremtind/jokul/commit/e3deea9ab2c13297f2c552a0dc40c7249b4d3bf8))
-* **portal:** stop menu from hiding on large screens ([7b49c62](https://github.com/fremtind/jokul/commit/7b49c62325e0d33705372e772013960080baa7a3))
-* **portal:** use inverted version of toggle for dark mode switch ([9b5a323](https://github.com/fremtind/jokul/commit/9b5a3231e306c0528852a48d5a3b9715e5f7508b))
-* **portal:** use jokul components, update doc and footer ([2bfe5cd](https://github.com/fremtind/jokul/commit/2bfe5cd5486d97ec66e92567a0169ed2ae6027d9))
-* **portal:** use new font api ([da9e4db](https://github.com/fremtind/jokul/commit/da9e4dbd3d9c97b47a48f251fb7f9b596d7f9660))
-
+- **portal:** add focus state to menu links ([e27e320](https://github.com/fremtind/jokul/commit/e27e320502b2316d2af18a6b3e15baae7d5a2dc5))
+- **portal:** document button, fix security issue with node-sass ([70ff97c](https://github.com/fremtind/jokul/commit/70ff97ce1072302d82f092c92513f7e96fe1d6c5))
+- **portal:** fix overlap with menu on portal hero page ([db3366c](https://github.com/fremtind/jokul/commit/db3366c5c589f691d2d197506636b82e3c186a56))
+- **portal:** fix portal home page header in dark mode ([fca741d](https://github.com/fremtind/jokul/commit/fca741d3887dec6de4010167e6c375baf3f7b0c8))
+- **portal:** refactor examples, show menu for large screens ([ae59e7a](https://github.com/fremtind/jokul/commit/ae59e7aef89098e09ad138bf7cf8574a0d56de7f))
+- **portal:** remove export of deleted Changelog component ([f0a3a17](https://github.com/fremtind/jokul/commit/f0a3a17fdf4f7d435c25a887ea2d8f8fe5073945))
+- fix lint issues after eslint update ([259db8b](https://github.com/fremtind/jokul/commit/259db8bf27f6751ec86c413129162728c3c903d6))
+- remove stretching of portal background image ([e3deea9](https://github.com/fremtind/jokul/commit/e3deea9ab2c13297f2c552a0dc40c7249b4d3bf8))
+- **portal:** stop menu from hiding on large screens ([7b49c62](https://github.com/fremtind/jokul/commit/7b49c62325e0d33705372e772013960080baa7a3))
+- **portal:** use inverted version of toggle for dark mode switch ([9b5a323](https://github.com/fremtind/jokul/commit/9b5a3231e306c0528852a48d5a3b9715e5f7508b))
+- **portal:** use jokul components, update doc and footer ([2bfe5cd](https://github.com/fremtind/jokul/commit/2bfe5cd5486d97ec66e92567a0169ed2ae6027d9))
+- **portal:** use new font api ([da9e4db](https://github.com/fremtind/jokul/commit/da9e4dbd3d9c97b47a48f251fb7f9b596d7f9660))
 
 ### Features
 
-* **portal:** add back filter to components menu ([18f593e](https://github.com/fremtind/jokul/commit/18f593eea9a34ab42c0f7daf6df9cff811e860ed))
-* **portal:** add filtering of components to menu ([1c47601](https://github.com/fremtind/jokul/commit/1c47601efbd1ce45b9cea8eda2d39acc458e57f0))
-* **portal:** add indicator for current page in menu ([a54b67e](https://github.com/fremtind/jokul/commit/a54b67e3193d180d1db095057dc91cc06ea45969))
-* **portal:** autogenerate component docs from example ([40249b5](https://github.com/fremtind/jokul/commit/40249b5189b69af74d1c2b8f38bad118a65b03c0))
-* **portal:** generate general docs from markdown ([8963311](https://github.com/fremtind/jokul/commit/8963311fbfc6f7ca0366ea64d28e6f0c83714e20))
-* **portal:** move all documentation into markdown files ([bdbc63a](https://github.com/fremtind/jokul/commit/bdbc63a0d30fa53192be7062fcb5259355ddac87))
-* **portal:** show typedef, refactor ([248a88e](https://github.com/fremtind/jokul/commit/248a88ee776ff4f16f1fa96de76bb047bbdb9e2a))
-* update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
-* update to new typography-react paragraph naming ([412a7a2](https://github.com/fremtind/jokul/commit/412a7a2db96f77e962b5b1ffbee66a3f58e73e46))
-* **portal:** use jøkul components to render markdown docs ([4314211](https://github.com/fremtind/jokul/commit/43142111c73640317872ad2bfc4a65bb0c428c6d))
-* **react-hooks:** improve react hooks documentation, add to portal ([bb0ff2e](https://github.com/fremtind/jokul/commit/bb0ff2ea005343dd1ea2e5fda121b9aef478359d))
-
+- **portal:** add back filter to components menu ([18f593e](https://github.com/fremtind/jokul/commit/18f593eea9a34ab42c0f7daf6df9cff811e860ed))
+- **portal:** add filtering of components to menu ([1c47601](https://github.com/fremtind/jokul/commit/1c47601efbd1ce45b9cea8eda2d39acc458e57f0))
+- **portal:** add indicator for current page in menu ([a54b67e](https://github.com/fremtind/jokul/commit/a54b67e3193d180d1db095057dc91cc06ea45969))
+- **portal:** autogenerate component docs from example ([40249b5](https://github.com/fremtind/jokul/commit/40249b5189b69af74d1c2b8f38bad118a65b03c0))
+- **portal:** generate general docs from markdown ([8963311](https://github.com/fremtind/jokul/commit/8963311fbfc6f7ca0366ea64d28e6f0c83714e20))
+- **portal:** move all documentation into markdown files ([bdbc63a](https://github.com/fremtind/jokul/commit/bdbc63a0d30fa53192be7062fcb5259355ddac87))
+- **portal:** show typedef, refactor ([248a88e](https://github.com/fremtind/jokul/commit/248a88ee776ff4f16f1fa96de76bb047bbdb9e2a))
+- update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+- update to new typography-react paragraph naming ([412a7a2](https://github.com/fremtind/jokul/commit/412a7a2db96f77e962b5b1ffbee66a3f58e73e46))
+- **portal:** use jøkul components to render markdown docs ([4314211](https://github.com/fremtind/jokul/commit/43142111c73640317872ad2bfc4a65bb0c428c6d))
+- **react-hooks:** improve react hooks documentation, add to portal ([bb0ff2e](https://github.com/fremtind/jokul/commit/bb0ff2ea005343dd1ea2e5fda121b9aef478359d))
 
 ### Performance Improvements
 
-* **portal:** remove unused Changelog component ([7ec7f39](https://github.com/fremtind/jokul/commit/7ec7f39ce0cd5ca2a14f1105a5b0be4d25c3c3bb))
-* **portal:** use dart-sass as scss compiler in the portal ([4046fac](https://github.com/fremtind/jokul/commit/4046fac8141db0a9fe40d7eb531965cad755de21))
+- **portal:** remove unused Changelog component ([7ec7f39](https://github.com/fremtind/jokul/commit/7ec7f39ce0cd5ca2a14f1105a5b0be4d25c3c3bb))
+- **portal:** use dart-sass as scss compiler in the portal ([4046fac](https://github.com/fremtind/jokul/commit/4046fac8141db0a9fe40d7eb531965cad755de21))
 
-
-
-
-
-## 1.0.12 (2020-01-10)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.11 (2020-01-10)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.10 (2020-01-08)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.9 (2020-01-07)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.8 (2020-01-07)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.7 (2020-01-07)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.6 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.5 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.4 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.3 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/portal
-
-
-
-
-
-## 1.0.2 (2019-12-20)
-
-**Note:** Version bump only for package @fremtind/portal
-
-## 1.0.1 (2019-12-19)
-
-**Note:** Version bump only for package @fremtind/portal
-
-# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.11.0...@fremtind/portal@1.0.0) (2019-12-03)
+## 1.0.0 (2019-12-03)
 
 ### Bug Fixes
 
@@ -829,7 +358,7 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 -   **radio-button-react:** rename radio button components ([d09fe6f](https://github.com/fremtind/jokul/commit/d09fe6fd321f2242a94d7d60deb5ae7997da0ccf))
 -   use new font in core and portal ([f07f959](https://github.com/fremtind/jokul/commit/f07f9599aa1ec402a332563cf1178aeef7fcc17c))
 
-# [0.11.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.10.1...@fremtind/portal@0.11.0) (2019-10-09)
+## 0.11.0 (2019-10-09)
 
 ### Bug Fixes
 
@@ -843,11 +372,7 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 -   change name of label variants ([554749c](https://github.com/fremtind/jokul/commit/554749c))
 -   implement Field pattern in text input ([f3877e4](https://github.com/fremtind/jokul/commit/f3877e4))
 
-## [0.10.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.10.0...@fremtind/portal@0.10.1) (2019-09-26)
-
-**Note:** Version bump only for package @fremtind/portal
-
-# [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.9.0...@fremtind/portal@0.10.0) (2019-09-23)
+## 0.10.0 (2019-09-23)
 
 ### Features
 
@@ -855,7 +380,7 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 -   **portal:** add page title and fix accessibility issues ([e210b78](https://github.com/fremtind/jokul/commit/e210b78))
 -   **portal:** add table to documentation ([d0d362e](https://github.com/fremtind/jokul/commit/d0d362e))
 
-# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.8.0...@fremtind/portal@0.9.0) (2019-08-30)
+## 0.9.0 (2019-08-30)
 
 ### Bug Fixes
 
@@ -875,7 +400,7 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 -   **portal:** add examples ([84d9c3c](https://github.com/fremtind/jokul/commit/84d9c3c))
 -   **radiobutton:** add error state to radio button ([a2052a7](https://github.com/fremtind/jokul/commit/a2052a7))
 
-# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.7.1...@fremtind/portal@0.8.0) (2019-08-02)
+## 0.8.0 (2019-08-02)
 
 ### Bug Fixes
 
@@ -903,11 +428,7 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 -   **test:** add visual regression testing ([1553b28](https://github.com/fremtind/jokul/commit/1553b28))
 -   **text-field:** add help and error text to field and area ([e18f117](https://github.com/fremtind/jokul/commit/e18f117)), closes [#41](https://github.com/fremtind/jokul/issues/41)
 
-## [0.7.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.7.0...@fremtind/portal@0.7.1) (2019-07-31)
-
-**Note:** Version bump only for package @fremtind/portal
-
-# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.6.0...@fremtind/portal@0.7.0) (2019-07-30)
+## 0.7.0 (2019-07-30)
 
 ### Bug Fixes
 
@@ -934,7 +455,7 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 -   **portal:** update design, layout and front page ([6c4d018](https://github.com/fremtind/jokul/commit/6c4d018))
 -   **typography:** add style and component for links ([9aeac8d](https://github.com/fremtind/jokul/commit/9aeac8d))
 
-# [0.6.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@0.5.0...@fremtind/portal@0.6.0) (2019-07-18)
+## 0.6.0 (2019-07-18)
 
 ### Bug Fixes
 
@@ -956,19 +477,19 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 -   **portal:** add getting started guide ([76d742b](https://github.com/fremtind/jokul/commit/76d742b))
 -   **portal:** implement live code editing with react-live ([6dc96a2](https://github.com/fremtind/jokul/commit/6dc96a2))
 
-# [0.5.0](https://github.com/gatsbyjs/gatsby-starter-default/compare/@fremtind/portal@0.1.1...@fremtind/portal@0.5.0) (2019-07-15)
+## 0.5.0 (2019-07-15)
 
 ### Bug Fixes
 
 -   use correct syntax for importing sass index files ([46fa8f6](https://github.com/gatsbyjs/gatsby-starter-default/commit/46fa8f6))
 
-## [0.1.1](https://github.com/gatsbyjs/gatsby-starter-default/compare/@fremtind/portal@0.1.0...@fremtind/portal@0.1.1) (2019-07-15)
+## 0.1.1 (2019-07-15)
 
 ### Bug Fixes
 
 -   **portal:** import specific files on a-la-carte page ([a557fb5](https://github.com/gatsbyjs/gatsby-starter-default/commit/a557fb5))
 
-# 0.1.0 (2019-07-15)
+## 0.1.0 (2019-07-15)
 
 ### Bug Fixes
 

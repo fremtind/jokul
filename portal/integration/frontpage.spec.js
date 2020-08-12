@@ -13,26 +13,33 @@ context("Front page", () => {
         cy.getByTestid("title-elevasjon").contains("Elevasjon");
         cy.getByTestid("title-bevegelse").contains("Bevegelse");
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(500).checkA11y();
+        cy.verifyA11y();
 
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
             .contains("For utviklere")
             .click()
+            .wait(200)
             .url()
             .should("include", "komigang/utvikling")
-            .go("back");
+            .go("back")
+            .wait(200);
 
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
             .contains("For designere")
             .click()
+            .wait(200)
             .url()
             .should("include", "komigang/design")
-            .go("back");
+            .go("back")
+            .wait(200);
 
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get(".jkl-portal-card")
             .contains("Prosessen")
             .click()
+            .wait(200)
             .url()
             .should("include", "komigang/prosessen")
             .go("back");

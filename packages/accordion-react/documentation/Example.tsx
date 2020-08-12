@@ -1,18 +1,31 @@
 import React from "react";
+import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 
 import { Accordion, AccordionItem } from "../src";
+import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import "@fremtind/jkl-list/list.min.css";
 
-export const Example = () => (
-    <Accordion>
-        <AccordionItem title="Accordion First item">
-            Now let‘s use some more properties. Consider a list of 6 items, all with a fixed dimensions in a matter of
-            aesthetics but they could be auto-sized. We want them to be evenly and nicely distributed on the horizontal
-            axis so that when we resize the browser, everything is fine (without media queries!).
+export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => (
+    <Accordion inverted={boolValues && boolValues["Invertert"]}>
+        <AccordionItem title="Hvem kan kjøpe livsforsikring?">
+            <UnorderedList>
+                <ListItem>Personer med et norsk fødselsnummer.</ListItem>
+                <ListItem>Personer som har vært bosatt i Norge i minst de fem siste årene før avtalen inngås.</ListItem>
+                <ListItem>Livsforsikring kan kjøpes på nett av personer mellom 18 og 79 år.</ListItem>
+            </UnorderedList>
+            Ønsker du en forsikringssum på mer enn 3 millioner trenger vi ekstra økonomiske opplysninger. Da må du ta
+            kontakt med banken din.
         </AccordionItem>
-        <AccordionItem title="Second item">
-            Now let‘s use some more properties. Consider a list of 6 items, all with a fixed dimensions in a matter of
-            aesthetics but they could be auto-sized. We want them to be evenly and nicely distributed on the horizontal
-            axis so that when we resize the browser, everything is fine (without media queries!).
+        <AccordionItem title="Hvem kan kjøpe kritisk sykdom?">
+            Personer med et norsk fødselsnummer. Personer som har vært bosatt i Norge i minst de fem siste årene før
+            avtalen inngås. Kritisk sykdom kan kjøpes på nett av personer mellom 18 og 58 år. Ønsker du en
+            forsikringssum på mer enn 1,1 millioner trenger vi ekstra økonomiske opplysninger. Da må du ta kontakt med
+            banken din.
+        </AccordionItem>
+        <AccordionItem title="Hvem kan kjøpe uførepensjon?">
+            Personer med et norsk fødselsnummer. Personer som har vært bosatt i Norge i minst de fem siste årene før
+            avtalen inngås. Uførepensjon kan kjøpes på nett av personer mellom 18 og 60 år. Ønsker du en forsikringssum
+            på mer enn 96 000 trenger vi ekstra økonomiske opplysninger. Da må du ta kontakt med banken din.
         </AccordionItem>
     </Accordion>
 );

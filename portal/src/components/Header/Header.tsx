@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useCallback } from "react";
+import React, { useLayoutEffect, useCallback, useRef } from "react";
 import { navigate } from "gatsby";
 import classNames from "classnames";
 
@@ -11,25 +11,21 @@ import { MainMenu, MenuItemList } from "./components/MainMenu";
 import "./header.scss";
 
 export const Header = ({ className }: { className?: string }) => {
-    const [collapsed, setCollapsed] = useState(false);
+    const headerRef = useRef<HTMLElement>(null);
     const collapseMenu = useCallback(() => {
         const shouldCollapse = window.scrollY > 96;
-        if (collapsed !== shouldCollapse) {
-            setCollapsed(shouldCollapse);
+        if (shouldCollapse) {
+            headerRef.current?.classList.add("jkl-portal-header--collapsed");
+        } else {
+            headerRef.current?.classList.remove("jkl-portal-header--collapsed");
         }
-    }, [collapsed, setCollapsed]);
+    }, []);
     useLayoutEffect(() => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
     const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
-    const componentClassName = classNames(
-        {
-            "jkl-portal-header": true,
-            "jkl-portal-header--collapsed": collapsed,
-        },
-        className,
-    );
+    const componentClassName = classNames("jkl-portal-header", className);
 
     const menuItems: MenuItemList = [
         {
@@ -43,11 +39,26 @@ export const Header = ({ className }: { className?: string }) => {
         },
         {
             linkText: "Komponenter",
-            content: componentDocPages.map((page) => ({
-                linkText: page.title,
-                content: page.path,
-                basePath: PageType.KOMPONENTER,
-            })),
+            content: [
+                ...componentDocPages
+                    .filter((page) => page.group !== "hooks")
+                    .map((page) => ({
+                        linkText: page.title,
+                        content: page.path,
+                        basePath: PageType.KOMPONENTER,
+                    })),
+                {
+                    linkText: "React Hooks",
+                    content: componentDocPages
+                        .filter((page) => page.group === "hooks")
+                        .map((page) => ({
+                            linkText: page.title,
+                            content: page.path,
+                            basePath: PageType.KOMPONENTER,
+                        })),
+                    basePath: PageType.KOMPONENTER,
+                },
+            ],
             basePath: PageType.KOMPONENTER,
         },
         {
@@ -79,7 +90,7 @@ export const Header = ({ className }: { className?: string }) => {
     };
 
     return (
-        <header className={componentClassName}>
+        <header ref={headerRef} className={componentClassName}>
             <JokulLink
                 className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal-header__skip-to-content"
                 href="#innhold"

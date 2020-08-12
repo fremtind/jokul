@@ -1,4 +1,5 @@
-import "cypress-plugin-snapshots/commands";
+// TODO: renable when #1104 is fixed
+//import "cypress-plugin-snapshots/commands";
 import "cypress-axe";
 import "./checkPortalPage";
 
@@ -13,6 +14,15 @@ Cypress.Commands.add("testComponent", (component) => {
 
 Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example");
+});
+
+Cypress.Commands.add("verifyA11y", () => {
+    // Cypress misunderstand the animation for lack of contrast
+    // Must wait a bit long to make sure all animations are done, else color contrast is off
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.wait(1000).checkA11y({
+        exclude: [[".jkl-portal-frontpage__section-contribute", ".jkl-portal-code-block__code"]],
+    });
 });
 
 const setMode = (action, reset) => () =>
