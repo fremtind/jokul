@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.0 (2020-08-13)
+
+### Bug Fixes
+
+- **select:** add missing prefix for mask-image in chrome >= 70 ([30c5e19](https://github.com/fremtind/jokul/commit/30c5e1914c9051315693ce7bf543a7b42d800307))
+
+### Features
+
+- **select:** add searchable functionality for Select ([1fe2a18](https://github.com/fremtind/jokul/commit/1fe2a18abd04b6b0f2088925bca110af62f755e4))
+
 ## 2.1.0 (2020-07-03)
 
 ### Features

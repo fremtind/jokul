@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.0 (2020-08-13)
+
+### Bug Fixes
+
+- **use-anitmated-height:** fix bug when transitioning element with height 0 ([4231345](https://github.com/fremtind/jokul/commit/42313457a9eee18f4aa06a3096506dd8b15e3f56))
+- handle reduced motion in animation ([86b5509](https://github.com/fremtind/jokul/commit/86b55093413c5a1c5afcbe81a4d43e31f194a7ca)), closes [#1121](https://github.com/fremtind/jokul/issues/1121)
+
+### Features
+
+- **hook:** add prefer reduced motion hook ([aec7494](https://github.com/fremtind/jokul/commit/aec7494ea94363bc4941212b4d37fe8e1ac66b7a)), closes [#1067](https://github.com/fremtind/jokul/issues/1067)
+
 ## 1.5.0 (2020-08-11)
 
 ### Bug Fixes

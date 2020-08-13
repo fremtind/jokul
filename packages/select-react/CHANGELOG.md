@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.4.0 (2020-08-13)
+
+### Bug Fixes
+
+- **select:** onBlur and onFocus called correctly when focus enters/leaves component ([10228e3](https://github.com/fremtind/jokul/commit/10228e3c42d996203cba6d08e6776b0bb60d1804))
+
+### Features
+
+- **select:** add searchable functionality for Select ([1fe2a18](https://github.com/fremtind/jokul/commit/1fe2a18abd04b6b0f2088925bca110af62f755e4))
+
 ## 2.3.0 (2020-07-29)
 
 ### Features
