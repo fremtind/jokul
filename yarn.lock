@@ -3241,10 +3241,10 @@
   resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-3.0.8.tgz#7e3905d9b9b9c0d6709bd6fae49c7e94c365d160"
   integrity sha512-3j8O/RyonYBuTymPrphA+G9CnwOJnb4+HHNRyFHNgx3AHYXhwm5sbl+A+QJwPk4nkTXhmFtfnyODsm3vqHQM7Q==
 
-"@nrk/core-toggle@3.0.7":
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/@nrk/core-toggle/-/core-toggle-3.0.7.tgz#0f00c88b5ab3860c4e330c9a088a8ef8a9f41dae"
-  integrity sha512-HTJ3hYoOXXwHYjQ8PnLIQgq1bDkJrKReb437MztKDGUJw9L1d4Tr2hV4BQVswJoZNIbipaxi69Xhvba35r1GRQ==
+"@nrk/core-toggle@3.0.8":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@nrk/core-toggle/-/core-toggle-3.0.8.tgz#1f79b0fe1b99bc128b15d4dca5c684c27a8e5829"
+  integrity sha512-N2GG3zl8xTbqOP3tLBt1TUCqMAXVB47dDdLS/L+oep9X6UqfRlJzyLSRvXUwZNFUAn+TXo2zEaq6G5fHaEza0w==
 
 "@octokit/auth-token@^2.4.0":
   version "2.4.2"

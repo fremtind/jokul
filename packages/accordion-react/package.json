@@ -36,7 +36,7 @@
         "@babel/runtime": "^7.9.0",
         "@fremtind/jkl-accordion": "^1.1.31",
         "@fremtind/jkl-react-hooks": "^1.6.1",
-        "@nrk/core-toggle": "3.0.7",
+        "@nrk/core-toggle": "3.0.8",
         "classnames": "^2.2.6"
     },
     "devDependencies": {

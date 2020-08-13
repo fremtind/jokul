@@ -1,8 +1,8 @@
 diff --git a/node_modules/@nrk/core-toggle/jsx.js b/node_modules/@nrk/core-toggle/jsx.js
-index eed0ad7..dfaee8e 100644
+index b9e52a9..76abb6f 100644
 --- a/node_modules/@nrk/core-toggle/jsx.js
 +++ b/node_modules/@nrk/core-toggle/jsx.js
-@@ -312,7 +312,7 @@ function (_HTMLElement) {
+@@ -308,7 +308,7 @@ var CoreToggle = /*#__PURE__*/function (_HTMLElement) {
      get: function get() {
        if (this._button && this._button.getAttribute('for') === this.id) return this._button; // Speed up
  
@@ -11,7 +11,7 @@ index eed0ad7..dfaee8e 100644
      } // aria-haspopup triggers forms mode in JAWS, therefore store as custom attr
  
    }, {
-@@ -388,16 +388,24 @@ var closest$1 = function () {
+@@ -386,16 +386,24 @@ var closest$1 = function () {
    };
  }();
  /**
@@ -38,7 +38,7 @@ index eed0ad7..dfaee8e 100644
  
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -518,6 +526,7 @@ function customElementToReact(elementClass, options) {
+@@ -514,6 +522,7 @@ function customElementToReact(elementClass, options) {
  }
  
  var coreToggle = customElementToReact(CoreToggle, {
