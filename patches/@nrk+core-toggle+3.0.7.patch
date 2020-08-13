@@ -1,0 +1,48 @@
+diff --git a/node_modules/@nrk/core-toggle/jsx.js b/node_modules/@nrk/core-toggle/jsx.js
+index eed0ad7..dfaee8e 100644
+--- a/node_modules/@nrk/core-toggle/jsx.js
++++ b/node_modules/@nrk/core-toggle/jsx.js
+@@ -312,7 +312,7 @@ function (_HTMLElement) {
+     get: function get() {
+       if (this._button && this._button.getAttribute('for') === this.id) return this._button; // Speed up
+ 
+-      return (this._button = this.id && document.querySelector("[for=\"".concat(this.id, "\"]"))) || this.previousElementSibling;
++      return (this._button = this.id && document.querySelector("[for=\"".concat(this.id, "\"]").concat(", [data-for=\"".concat(this.id, "\"]")))) || this.previousElementSibling;
+     } // aria-haspopup triggers forms mode in JAWS, therefore store as custom attr
+ 
+   }, {
+@@ -388,16 +388,24 @@ var closest$1 = function () {
+   };
+ }();
+ /**
++* getUUID
++* @return {String} A generated unique ID
++*/
++
++function getUUID() {
++  return Date.now().toString(36) + Math.random().toString(36).slice(2, 5)
++}
++/**
+ * customElementToReact
+ * @param {Class|Function} elementClass A custom element definition.
+ * @param {Array} options Props and custom events
+ * @return {Object} A React component
+ */
+ 
+-
+ function customElementToReact(elementClass, options) {
+   if (options === void 0) options = {};
+-  var name = elementClass.name || String(elementClass).match(/function ([^(]+)/)[1]; // String match for IE11
++  var suppliedName = options.name || elementClass.name || String(elementClass).match(/function ([^(]+)/)[1] // String match for IE11
++  var name = suppliedName + "-" + getUUID();
+ 
+   var dashCase = name.replace(/.[A-Z]/g, function (ref) {
+     var a = ref[0];
+@@ -518,6 +526,7 @@ function customElementToReact(elementClass, options) {
+ }
+ 
+ var coreToggle = customElementToReact(CoreToggle, {
++  name: "CoreToggle",
+   customEvents: ['toggle', 'toggle.select'],
+   suffix: version
+ });
