@@ -23,7 +23,7 @@ ReactDOM.render(
     <DevExample
         component={Example}
         knobs={{
-            boolProps: ["invertert"],
+            boolProps: ["Invertert"],
         }}
     />,
     mountNode,
