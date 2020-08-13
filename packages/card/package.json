@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card",
-    "version": "1.2.27",
+    "version": "1.2.28",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.9.1"
+        "@fremtind/jkl-core": "^4.10.0"
     },
     "repository": {
         "type": "git",

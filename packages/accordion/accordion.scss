@@ -24,7 +24,7 @@ $arrow-width: rem(13px);
 
     &--inverted {
         .jkl-accordion-item {
-            border-bottom: rem(1px) solid $hvit;
+            border-top: rem(1px) solid $hvit;
             border-top: rem(1px) solid var(--accordion-border);
             &:last-child {
                 border-bottom: rem(1px) solid $hvit;
@@ -70,7 +70,6 @@ $arrow-width: rem(13px);
     &__title {
         position: relative;
         padding: $title-padding;
-        margin-left: $component-spacing--medium;
         text-align: left;
         width: 100%;
 
@@ -87,7 +86,7 @@ $arrow-width: rem(13px);
         /* The dropdown arrow */
         &__arrow {
             position: absolute;
-            left: 0;
+            left: $component-spacing--large;
             top: 50%;
             transform: translateY(-50%);
             color: inherit;
@@ -126,7 +125,7 @@ $arrow-width: rem(13px);
         @include jkl-text-style("desktop/body");
         display: block;
         padding-right: 2rem;
-        margin-left: $component-spacing--medium;
+        margin-left: $component-spacing--xl;
     }
 
     &__content-wrapper {
