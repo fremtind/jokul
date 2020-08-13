@@ -9,6 +9,7 @@ import "../core.scss";
 import "./style.scss";
 import Colors from "./Colors/Colors";
 import { LinkExample } from "./Link/LinkExample";
+import { NavLinkExample } from "./Link/NavLinkExample";
 import { ComponentSpacingTable, LayoutSpacingTable } from "./Spacing/Spacing";
 import { DesktopExample, CompactExample } from "./Typography/Typography";
 
@@ -57,6 +58,7 @@ export const Spacing = () => (
 const Example = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
+        <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv"] }} />
         <Colors />
         <ComponentSpacingTable />
         <LayoutSpacingTable />
