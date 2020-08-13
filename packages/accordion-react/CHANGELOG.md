@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.5 (2020-08-13)
+
+### Bug Fixes
+
+- **accordion:** fix accordion spacing issue ([a35771b](https://github.com/fremtind/jokul/commit/a35771bc0a06760592f2d2fcf07ee2f92f98b6a8))
+
 ## 1.5.0 (2020-07-29)
 
 ### Features
