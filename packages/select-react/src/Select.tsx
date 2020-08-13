@@ -1,6 +1,6 @@
 // @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { FocusEvent, useRef, useState } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -22,6 +22,7 @@ interface Props extends DataTestAutoId {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    searchable?: boolean;
     forceCompact?: boolean;
     inverted?: boolean;
     width?: string;
@@ -62,6 +63,7 @@ export function Select({
     className,
     helpLabel,
     errorLabel,
+    searchable = false,
     inline = false,
     defaultPrompt = "Velg",
     variant,
@@ -70,19 +72,19 @@ export function Select({
     width,
     ...selectProps
 }: Props) {
-    const [selectedValue, setSelectedValue] = useState(value);
-    const [internalFocus, setInternalFocus] = useState(false);
-    const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+    const [searchValue, setSearchValue] = useState("");
+    const hasSelectedValue = typeof value !== "undefined" && value !== "";
 
-    const getLabelFromValue = useCallback(
-        (value: string | undefined) => {
-            const matchingItem = items.map(getValuePair).filter((item) => item.value === value)[0];
-            return matchingItem && matchingItem.label;
-        },
-        [items],
-    );
-    const [displayedValue, setDisplayedValue] = useState(getLabelFromValue(value));
+    const visibleItems = items.map(getValuePair).map((item) => {
+        const visible =
+            !searchable || searchValue === "" || item.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
+        return { ...item, visible };
+    });
+    const selectedValueLabel = visibleItems.find((item) => item.value === value)?.label || defaultPrompt;
 
+    const searchRef = useRef<HTMLInputElement>(null);
+    const componentRootElementRef = useRef<HTMLDivElement>(null);
+    const focusInsideRef = useRef(false);
     const [dropdownIsShown, setShown] = useState(false);
     const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
     const listRef = useListNavigation();
@@ -98,50 +100,81 @@ export function Select({
     function onToggle() {
         const opening = !dropdownIsShown;
         setShown(!dropdownIsShown);
-        if (opening) {
+        if (opening && !searchable) {
             const listElement = listRef.current;
-            listElement && focusSelected(listElement, listId, selectedValue);
+            listElement && focusSelected(listElement, listId, value);
+        } else if (opening) {
+            if (searchRef.current) {
+                searchRef.current.focus();
+            }
         }
     }
 
     function onToggleSelect(e: CoreToggleSelectEvent) {
         e.target.value = e.detail;
         const nextValue = e.detail.value;
-        setDisplayedValue(e.detail.textContent);
-        setSelectedValue(nextValue);
+        setSearchValue("");
         onChange && onChange(nextValue);
         e.target.hidden = true;
-        setInternalFocus(true);
         e.target.button.focus();
     }
 
-    function handleBlur() {
-        if (!dropdownIsShown && onBlur) {
+    function handleBlur(e: FocusEvent<HTMLButtonElement | HTMLInputElement>) {
+        const componentRootElement = componentRootElementRef.current;
+        // There are known issues in Firefox when using "relatedTarget" in onBlur events:
+        // https://github.com/facebook/react/issues/2011
+        // This might be fixed in react 17. Se issue above.
+        const nextFocusIsInsideComponent =
+            componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
+        if (!nextFocusIsInsideComponent && onBlur) {
             onBlur(value);
+            focusInsideRef.current = false;
         }
     }
 
     function handleFocus() {
-        if (onFocus && !internalFocus) {
+        if (onFocus && !focusInsideRef.current) {
             onFocus(value);
+            focusInsideRef.current = true;
         }
-        setInternalFocus(false);
     }
 
-    useEffect(() => {
-        setSelectedValue(value);
-        setDisplayedValue(getLabelFromValue(value));
-    }, [value, items, getLabelFromValue]);
-
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
-
+    const showSearchInputField = searchable && dropdownIsShown;
+    const searchInputId = `${listId}_search-input`;
     return (
-        <div data-testid="jkl-select" className={componentClassName} style={{ width }} {...selectProps}>
-            <Label variant={variant} forceCompact={forceCompact} srOnly={inline}>
+        <div
+            data-testid="jkl-select"
+            className={componentClassName}
+            style={{ width }}
+            ref={componentRootElementRef}
+            {...selectProps}
+        >
+            <Label
+                standAlone={searchable} // Use <label> as the element when searchAble=true for accessibility
+                htmlFor={searchable ? searchInputId : undefined}
+                variant={variant}
+                forceCompact={forceCompact}
+                srOnly={inline}
+            >
                 {label}
             </Label>
             <div className="jkl-select__outer-wrapper">
+                {searchable && (
+                    <input
+                        id={searchInputId}
+                        hidden={!showSearchInputField}
+                        ref={searchRef}
+                        placeholder="Søk"
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        className="jkl-select__search-input"
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
+                    />
+                )}
                 <button
+                    hidden={showSearchInputField}
                     type="button"
                     className="jkl-select__button"
                     data-testid="jkl-select__button"
@@ -149,7 +182,7 @@ export function Select({
                     onBlur={handleBlur}
                     onFocus={handleFocus}
                 >
-                    {hasSelectedValue ? displayedValue : defaultPrompt}
+                    {selectedValueLabel}
                 </button>
                 <CoreToggle
                     id={listId}
@@ -160,7 +193,7 @@ export function Select({
                     hidden={!dropdownIsShown}
                     onToggle={onToggle}
                     onToggleSelect={onToggleSelect}
-                    aria-activedescendant={hasSelectedValue && `${listId}__${toLower(selectedValue)}`}
+                    aria-activedescendant={hasSelectedValue && `${listId}__${toLower(value)}`}
                 >
                     <ul
                         className="jkl-select__option-wrapper"
@@ -168,17 +201,19 @@ export function Select({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {items.map(getValuePair).map((item, i) => (
-                            <li key={item.value}>
+                        {visibleItems.map((item, i) => (
+                            <li key={item.value} hidden={!item.visible}>
                                 <button
                                     type="button"
                                     id={`${listId}__${toLower(item.value)}`}
                                     className="jkl-select__option"
                                     data-testid="jkl-select__option"
-                                    aria-selected={item.value === selectedValue}
+                                    aria-selected={item.value === value}
                                     role="option"
                                     value={item.value}
                                     data-testautoid={`jkl-select__option-${i}`}
+                                    onBlur={handleBlur}
+                                    onFocus={handleFocus}
                                 >
                                     {item.label}
                                 </button>

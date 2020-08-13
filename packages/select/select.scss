@@ -51,7 +51,17 @@ $arrow-width: rem(13px);
         position: relative;
     }
 
+    &__search-input {
+        box-sizing: border-box;
+        color: $svart !important;
+
+        .jkl-select--inverted & {
+            color: $hvit !important;
+        }
+    }
+
     /* The main select element showing the current value */
+    &__search-input,
     &__button {
         @include jkl-text-style("desktop/body");
         overflow: hidden;
@@ -163,9 +173,14 @@ $arrow-width: rem(13px);
 
         &[aria-selected="true"]:not(:focus) {
             &::after {
+                $mask-image-url: url('data:image/svg+xml; utf8, <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.52632L4.6 12L16 1" stroke="black"/></svg>');
                 background-color: $info;
                 content: "";
-                mask-image: url('data:image/svg+xml; utf8, <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.52632L4.6 12L16 1" stroke="black"/></svg>');
+                /* autoprefixer with Browserlist="Chrome >= 70" will not generate 
+                 * a prefix for this even if Chrome 70 doesn't support mask-image
+                 */
+                -webkit-mask-image: $mask-image-url;
+                mask-image: $mask-image-url;
                 display: inline-block;
                 margin-left: $component-spacing--xs;
                 width: 17px;
@@ -184,6 +199,7 @@ $arrow-width: rem(13px);
     }
 
     &--open {
+        .jkl-select__search-input,
         .jkl-select__button {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
@@ -197,10 +213,12 @@ $arrow-width: rem(13px);
     }
 
     &--invalid {
+        .jkl-select__search-input,
         .jkl-select__button {
             border-color: $feil;
         }
-
+        .jkl-select__search-input:hover,
+        .jkl-select__search-input:focus,
         .jkl-select__button:hover,
         .jkl-select__button:focus {
             box-shadow: 0 0 0 rem(1px) $feil;
@@ -212,12 +230,12 @@ $arrow-width: rem(13px);
         }
 
         &.jkl-select--open {
+            .jkl-select__search-input,
             .jkl-select__button {
                 border-color: $info;
                 box-shadow: 0 0 0 rem(1px) $info;
                 &:hover,
                 &:focus {
-                    color: $info;
                     & ~ .jkl-select__arrow {
                         color: $info;
                     }
@@ -227,17 +245,20 @@ $arrow-width: rem(13px);
     }
 
     &--inverted {
+        .jkl-select__search-input,
         .jkl-select__button {
             background-color: transparent;
             border-color: $hvit;
             color: $hvit;
         }
+        .jkl-select__search-input:hover,
+        .jkl-select__search-input:focus,
         .jkl-select__button:hover,
         .jkl-select__button:focus,
+        &.jkl-select--open .jkl-select__search-input,
         &.jkl-select--open .jkl-select__button {
             box-shadow: 0 0 0 rem(1px) $info--darkbg;
             border-color: $info--darkbg;
-            color: $info--darkbg;
 
             & ~ .jkl-select__arrow {
                 color: $info--darkbg;
@@ -263,12 +284,14 @@ $arrow-width: rem(13px);
         }
 
         .jkl-select__options-menu,
+        &.jkl-select--open .jkl-select__search-input,
         &.jkl-select--open .jkl-select__button {
             border-color: $info--darkbg;
             background-color: $gra-80;
         }
 
         &.jkl-select--invalid {
+            .jkl-select__search-input,
             .jkl-select__button {
                 border-color: $feil--darkbg;
 
@@ -283,6 +306,7 @@ $arrow-width: rem(13px);
             }
 
             &.jkl-select--open {
+                .jkl-select__search-input,
                 .jkl-select__button {
                     border-color: $info--darkbg;
                     box-shadow: 0 0 0 rem(1px) $info--darkbg;
@@ -299,6 +323,7 @@ $arrow-width: rem(13px);
     }
 
     @include compact-mode {
+        & .jkl-select__search-input,
         & .jkl-select__button {
             @include jkl-text-style("compact/body");
             height: rem(40px);

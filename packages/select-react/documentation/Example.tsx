@@ -2,8 +2,6 @@ import React, { FocusEvent, useState, ChangeEvent } from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
-import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-select/select.min.css";
 
 export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
@@ -33,7 +31,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
     const variant = choiceValues && (choiceValues["Etikettvariant"] as LabelVariant);
-
+    const searchAble = boolValues && boolValues["Med søk"];
     return (
         <C
             forceCompact={boolValues && boolValues["Kompakt"]}
@@ -45,6 +43,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             onChange={universalSetValue}
+            searchable={searchAble}
             onBlur={onBlur}
             onFocus={onFocus}
         />
