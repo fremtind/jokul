@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.11.0 (2020-08-13)
+
+### Features
+
+- **link:** update link styles ([880eb48](https://github.com/fremtind/jokul/commit/880eb48aadf1772b1e18675a310263ca8270927d)), closes [#1167](https://github.com/fremtind/jokul/issues/1167)
+
 ## 4.10.0 (2020-08-13)
 
 ### Features
