@@ -174,7 +174,7 @@ describe("Searchable select", () => {
                 { label: "Item 3", value: "3" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -192,7 +192,7 @@ describe("Searchable select", () => {
                 { label: "Item 3", value: "3" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -219,7 +219,7 @@ describe("Searchable select", () => {
                 { label: "Item 3", value: "3" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -249,7 +249,7 @@ describe("Searchable select", () => {
                 { label: "Item 6", value: "6" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -283,7 +283,7 @@ describe("Searchable select", () => {
                 { label: "Item 26", value: "F" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -328,7 +328,7 @@ describe("Searchable select", () => {
                 { label: "Item 26", value: "F" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -374,7 +374,7 @@ describe("Searchable select", () => {
                 { label: "Item 6", value: "6" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -421,7 +421,7 @@ describe("Searchable select", () => {
                 { label: "Item 3", value: "3" },
             ];
             return (
-                <Select searchAble label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
+                <Select searchable label="List of items" items={items} value={state} onChange={(e) => setState(e)} />
             );
         }
         render(<WrappedSelect />);
@@ -447,7 +447,7 @@ describe("Searchable select", () => {
             ];
             return (
                 <Select
-                    searchAble
+                    searchable
                     label="List of items"
                     items={items}
                     value={state}
@@ -479,7 +479,7 @@ describe("Searchable select", () => {
             ];
             return (
                 <Select
-                    searchAble
+                    searchable
                     label="List of items"
                     items={items}
                     value={state}
@@ -513,7 +513,7 @@ describe("Searchable select", () => {
                 <>
                     <button>OUTSIDE BUTTON</button>
                     <Select
-                        searchAble
+                        searchable
                         label="List of items"
                         items={items}
                         value={state}
@@ -555,7 +555,7 @@ describe("Searchable select", () => {
                 <>
                     <button>OUTSIDE BUTTON</button>
                     <Select
-                        searchAble
+                        searchable
                         label="List of items"
                         items={items}
                         value={state}
@@ -601,7 +601,7 @@ describe("Searchable select", () => {
 describe("a11y", () => {
     test("searchable select should be a11y compliant", async () => {
         const { container } = render(
-            <Select searchAble label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+            <Select searchable label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
         const results = await axe(container, {
             rules: {

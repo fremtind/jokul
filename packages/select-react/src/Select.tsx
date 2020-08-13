@@ -22,7 +22,7 @@ interface Props extends DataTestAutoId {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
-    searchAble?: boolean;
+    searchable?: boolean;
     forceCompact?: boolean;
     inverted?: boolean;
     width?: string;
@@ -63,7 +63,7 @@ export function Select({
     className,
     helpLabel,
     errorLabel,
-    searchAble = false,
+    searchable = false,
     inline = false,
     defaultPrompt = "Velg",
     variant,
@@ -75,12 +75,12 @@ export function Select({
     const [searchValue, setSearchValue] = useState("");
     const hasSelectedValue = typeof value !== "undefined" && value !== "";
 
-    const itemsWithVisibility = items.map(getValuePair).map((item) => {
+    const visibleItems = items.map(getValuePair).map((item) => {
         const visible =
-            !searchAble || searchValue === "" || item.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
+            !searchable || searchValue === "" || item.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
         return { ...item, visible };
     });
-    const selectedValueLabel = itemsWithVisibility.find((item) => item.value === value)?.label || defaultPrompt;
+    const selectedValueLabel = visibleItems.find((item) => item.value === value)?.label || defaultPrompt;
 
     const searchRef = useRef<HTMLInputElement>(null);
     const componentRootElementRef = useRef<HTMLDivElement>(null);
@@ -100,7 +100,7 @@ export function Select({
     function onToggle() {
         const opening = !dropdownIsShown;
         setShown(!dropdownIsShown);
-        if (opening && !searchAble) {
+        if (opening && !searchable) {
             const listElement = listRef.current;
             listElement && focusSelected(listElement, listId, value);
         } else if (opening) {
@@ -140,7 +140,7 @@ export function Select({
     }
 
     const [elementRef] = useAnimatedHeight(dropdownIsShown);
-    const showSearchInputField = searchAble && dropdownIsShown;
+    const showSearchInputField = searchable && dropdownIsShown;
     const searchInputId = `${listId}_search-input`;
     return (
         <div
@@ -151,8 +151,8 @@ export function Select({
             {...selectProps}
         >
             <Label
-                standAlone={searchAble} // Use <label> as the element when searchAble=true for accessibility
-                htmlFor={searchAble ? searchInputId : undefined}
+                standAlone={searchable} // Use <label> as the element when searchAble=true for accessibility
+                htmlFor={searchable ? searchInputId : undefined}
                 variant={variant}
                 forceCompact={forceCompact}
                 srOnly={inline}
@@ -160,13 +160,12 @@ export function Select({
                 {label}
             </Label>
             <div className="jkl-select__outer-wrapper">
-                {searchAble && (
+                {searchable && (
                     <input
                         id={searchInputId}
                         hidden={!showSearchInputField}
-                        aria-autocomplete="list"
                         ref={searchRef}
-                        placeholder={"Søk"}
+                        placeholder="Søk"
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                         className="jkl-select__search-input"
@@ -202,7 +201,7 @@ export function Select({
                         tabIndex={-1}
                         ref={listRef}
                     >
-                        {itemsWithVisibility.map((item, i) => (
+                        {visibleItems.map((item, i) => (
                             <li key={item.value} hidden={!item.visible}>
                                 <button
                                     type="button"

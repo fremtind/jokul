@@ -43,7 +43,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             onChange={universalSetValue}
-            searchAble={searchAble}
+            searchable={searchAble}
             onBlur={onBlur}
             onFocus={onFocus}
         />
