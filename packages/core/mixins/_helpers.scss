@@ -1,3 +1,5 @@
+@import "../variables/font-size";
+
 @mixin flex($align-items: center, $justify-content: center) {
     display: flex;
     align-items: $align-items;
@@ -10,6 +12,15 @@
     left: $left;
     right: $right;
     bottom: $bottom;
+}
+
+///
+/// Makes text bold without changing the space it takes up on screen.
+/// Not perfect for all lengths of text, but close enough!
+///
+@mixin no-grow-bold {
+    font-weight: $bold-weight;
+    letter-spacing: -0.014em;
 }
 
 @mixin compact-mode {

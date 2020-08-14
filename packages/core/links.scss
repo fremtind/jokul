@@ -6,6 +6,9 @@
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
+$right-arrow: "\2192"; // unicode right arrow
+$north-east-arrow: "\2197"; // unicode north east arrow (up/right)
+
 $link-underline-thickness: rem(1px);
 $link-underline-thickness--hover: rem(2px);
 $link-active-color: $info;
@@ -50,7 +53,7 @@ $link-active-color--inverted: $info--darkbg;
     &[target="_blank"],
     &--external {
         &:after {
-            content: "\2197"; // unicode north east arrow (up/right)
+            content: $north-east-arrow;
         }
     }
 
@@ -76,7 +79,7 @@ $link-active-color--inverted: $info--darkbg;
 
     &:after {
         position: absolute;
-        content: "\2192";
+        content: $right-arrow;
         padding-left: rem(2px);
         transform: translateX(0);
         @include motion("standard");
@@ -94,8 +97,7 @@ $link-active-color--inverted: $info--darkbg;
     }
 
     &--active {
-        font-weight: $bold-weight;
-        letter-spacing: -0.014em;
+        @include no-grow-bold;
     }
 
     &--inverted {
