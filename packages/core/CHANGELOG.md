@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.12.0 (2020-08-14)
+
+### Features
+
+- **links:** add nav link component ([28f0da9](https://github.com/fremtind/jokul/commit/28f0da9290f1b40a430178c8ed0ce1206a87520d)), closes [#1185](https://github.com/fremtind/jokul/issues/1185)
+
 ## 4.11.0 (2020-08-13)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.0 (2020-08-14)
+
+### Features
+
+- **portal-examples:** add optional title to component examples ([175141f](https://github.com/fremtind/jokul/commit/175141fb18d66ab66970b71359429f62a930ef5e))
+
 ## 0.4.0 (2020-07-29)
 
 ### Features
