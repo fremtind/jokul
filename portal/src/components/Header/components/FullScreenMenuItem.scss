@@ -8,7 +8,6 @@
 
     &__link {
         position: relative;
-        @include reset-outline;
         @include jkl-text-style("desktop/title-small");
         // static font-sizes for old browsers:
         font-size: rem(30px);
@@ -16,37 +15,11 @@
         // 30px/40px on iPhone X:
         font-size: relativeSize(30, 375, 812);
         line-height: relativeSize(40, 375, 812);
-        text-decoration: none;
-        color: $svart;
+
+        // button resets:
         background-color: transparent;
         padding: 0;
-        padding-right: 3ch;
         cursor: pointer;
-
-        &:after {
-            position: absolute;
-            content: "\2192";
-            @include motion("standard");
-            transition-property: transform;
-            transform: translateX(0);
-        }
-
-        &:hover,
-        &:focus {
-            color: #000afa;
-            &:after {
-                transform: translateX(60%);
-            }
-        }
-
-        *[data-theme="dark"] & {
-            color: $hvit;
-
-            &:hover,
-            &:focus {
-                color: #00faff;
-            }
-        }
 
         @include medium-device {
             // static font-sizes for old browsers:

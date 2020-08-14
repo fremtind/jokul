@@ -11,8 +11,8 @@ export function SidebarMenuItem({ path, title }: SidebarMenuItemProps) {
 
     return (
         <Link
-            activeClassName="jkl-portal-sidebar-menu-item__link--active"
-            className="jkl-portal-sidebar-menu-item__link"
+            className="jkl-nav-link jkl-portal-sidebar-menu-item__link"
+            activeClassName="jkl-nav-link--active"
             to={path}
             state={{ lastPath: currentSection }}
             data-testid={`sidebar-link-${title.replace(/ /g, "-")}`}
