@@ -33,7 +33,7 @@ $link-active-color--inverted: $info--darkbg;
     text-decoration: none;
     color: currentColor;
 
-    &:focus,
+    html:not([data-mousenavigation]) &:focus,
     &:hover {
         color: $link-active-color;
         color: var(--link-active-color);
@@ -58,7 +58,7 @@ $link-active-color--inverted: $info--darkbg;
     }
 
     &--negative {
-        &:focus,
+        html:not([data-mousenavigation]) &:focus,
         &:hover {
             color: $link-active-color--inverted;
             color: var(--link-active-color);
@@ -87,7 +87,7 @@ $link-active-color--inverted: $info--darkbg;
     }
 
     &:hover,
-    &:focus {
+    html:not([data-mousenavigation]) &:focus {
         color: $link-active-color;
         color: var(--link-active-color);
 
@@ -102,7 +102,7 @@ $link-active-color--inverted: $info--darkbg;
 
     &--inverted {
         &:hover,
-        &:focus {
+        html:not([data-mousenavigation]) &:focus {
             color: $link-active-color--inverted;
             color: var(--link-active-color);
         }
