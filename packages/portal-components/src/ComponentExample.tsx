@@ -7,13 +7,14 @@ import { Dictionary, ExampleComponentProps, ChoiceProp } from "../src";
 
 export interface Props {
     component: React.FC<ExampleComponentProps>;
+    title?: string;
     knobs?: {
         boolProps?: Array<string>;
         choiceProps?: Array<ChoiceProp>;
     };
 }
 
-export function ComponentExample({ component, knobs }: Props) {
+export function ComponentExample({ component, knobs, title = "Komponent" }: Props) {
     const [uid] = useState(`example${nanoid(8)}`);
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
     const [choices, setChoices] = useState<Dictionary<string[]>>({});
@@ -59,7 +60,7 @@ export function ComponentExample({ component, knobs }: Props) {
     return (
         <>
             <section className="jkl-portal-component-example">
-                <div data-theme={theme} className={wrapperClassName} data-example-text="Komponent">
+                <div data-theme={theme} className={wrapperClassName} data-example-text={title}>
                     {createElement(component, { boolValues, choiceValues })}
                 </div>
                 {(knobs?.boolProps || knobs?.choiceProps) && (

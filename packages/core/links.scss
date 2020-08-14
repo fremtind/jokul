@@ -6,6 +6,9 @@
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
+$right-arrow: "\2192"; // unicode right arrow
+$north-east-arrow: "\2197"; // unicode north east arrow (up/right)
+
 $link-underline-thickness: rem(1px);
 $link-underline-thickness--hover: rem(2px);
 $link-active-color: $info;
@@ -50,7 +53,7 @@ $link-active-color--inverted: $info--darkbg;
     &[target="_blank"],
     &--external {
         &:after {
-            content: "\2197"; // unicode north east arrow (up/right)
+            content: $north-east-arrow;
         }
     }
 
@@ -61,6 +64,47 @@ $link-active-color--inverted: $info--darkbg;
             color: var(--link-active-color);
             @include underline-gradient($link-active-color--inverted);
             @include underline-gradient(var(--link-active-color));
+        }
+    }
+}
+
+.jkl-nav-link {
+    @include reset-outline;
+    box-sizing: border-box;
+    font-weight: $normal-weight;
+    color: currentColor;
+    text-decoration: none;
+    position: relative;
+    padding-right: 1.2em;
+
+    &:after {
+        position: absolute;
+        content: $right-arrow;
+        padding-left: rem(2px);
+        transform: translateX(0);
+        @include motion("standard");
+        transition-property: transform;
+    }
+
+    &:hover,
+    &:focus {
+        color: $link-active-color;
+        color: var(--link-active-color);
+
+        &:after {
+            transform: translateX(33%);
+        }
+    }
+
+    &--active {
+        @include no-grow-bold;
+    }
+
+    &--inverted {
+        &:hover,
+        &:focus {
+            color: $link-active-color--inverted;
+            color: var(--link-active-color);
         }
     }
 }

@@ -1,11 +1,12 @@
 ---
-title: Link
+title: Link og NavLink
 scss: core
 react: core
 group: knapper
 ---
 
 import { LinkExample } from "./Link/LinkExample";
+import { NavLinkExample } from "./Link/NavLinkExample";
 
 <Ingress>
     Vi bruker lenker for å lede brukeren til andre nettsider, eller til andre steder på samme nettside. Lenker til
@@ -14,7 +15,41 @@ import { LinkExample } from "./Link/LinkExample";
 
 <ComponentExample
     component={LinkExample}
+    title="Link"
     knobs={{
-        boolProps: ["Ekstern", "Invertert"],
+        boolProps: ["Invertert", "Ekstern"],
     }}
+/>
+
+<ComponentExample
+    component={NavLinkExample}
+    title="NavLink"
+    knobs={{
+        boolProps: ["Invertert", "Aktiv"],
+    }}
+/>
+
+## Bruk
+
+Vi har to typer lenker. I løpende tekst brukes vanlige lenker, mens navigasjons&shy;lenker brukes i menyer og der lenken står for seg selv.
+
+<DoDontExample
+    image="/assets/documentation/link/link-tekst.svg"
+    type="do"
+    description="Bruk vanlige lenker i løpende tekst, og marker eksterne lenker."
+/>
+<DoDontExample
+    image="/assets/documentation/link/navlink-tekst-feil.svg"
+    type="dont"
+    description="Ikke bruk navigasjonslenker i løpende tekst, heller ikke for eksterne lenker."
+/>
+<DoDontExample
+    image="/assets/documentation/link/navlink-meny.svg"
+    type="do"
+    description="Bruk navigasjonslenker når du skal lage en meny."
+/>
+<DoDontExample
+    image="/assets/documentation/link/navlink-alene.svg"
+    type="do"
+    description="Bruk en navigasjonslenke hvis lenken skal stå for seg selv."
 />

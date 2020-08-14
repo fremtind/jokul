@@ -1,5 +1,5 @@
 export { initTabListener, getValuePair, breakpoints } from "./utils";
-export { Label, Link, ScreenReaderOnly, SupportLabel } from "./components";
+export { Label, Link, NavLink, ScreenReaderOnly, SupportLabel } from "./components";
 
 export type LabelVariant = "small" | "medium" | "large";
 export type ValuePair = {
