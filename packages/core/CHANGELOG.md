@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.12.1 (2020-08-17)
+
+### Bug Fixes
+
+- **links:** update focus style on links and nav links ([0552e9c](https://github.com/fremtind/jokul/commit/0552e9c18c0430a40ef19d2aedeabbc211068710))
+
 ## 4.12.0 (2020-08-14)
 
 ### Features

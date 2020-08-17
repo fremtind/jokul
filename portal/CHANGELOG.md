@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.16.3 (2020-08-17)
+
+### Bug Fixes
+
+- **portal-main-menu:** change style to match new sketches ([819f626](https://github.com/fremtind/jokul/commit/819f6269bdb223bbe477695b42371c43b1e8cbd4))
+
 ## 3.16.0 (2020-08-13)
 
 ### Features

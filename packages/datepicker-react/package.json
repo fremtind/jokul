@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker-react",
-    "version": "3.3.8",
+    "version": "3.3.9",
     "publishConfig": {
         "access": "public"
     },
@@ -34,19 +34,19 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-core": "^4.12.0",
-        "@fremtind/jkl-datepicker": "^1.5.24",
-        "@fremtind/jkl-icon-button-react": "^0.3.5",
-        "@fremtind/jkl-react-hooks": "^1.6.2",
-        "@fremtind/jkl-select-react": "^2.4.3",
-        "@fremtind/jkl-text-input-react": "^3.4.5",
+        "@fremtind/jkl-core": "^4.12.1",
+        "@fremtind/jkl-datepicker": "^1.5.25",
+        "@fremtind/jkl-icon-button-react": "^0.3.6",
+        "@fremtind/jkl-react-hooks": "^1.6.3",
+        "@fremtind/jkl-select-react": "^2.4.4",
+        "@fremtind/jkl-text-input-react": "^3.4.6",
         "@nrk/core-datepicker": "3.0.8",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.10"
     },
     "devDependencies": {
         "@fremtind/jkl-core": "^4.3.1",
-        "@fremtind/jkl-portal-components": "^0.5.0",
+        "@fremtind/jkl-portal-components": "^0.5.1",
         "@mdx-js/parcel-plugin-mdx": "^1.5.7"
     },
     "peerDependencies": {
