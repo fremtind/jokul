@@ -1,5 +1,5 @@
 diff --git a/node_modules/@nrk/core-toggle/jsx.js b/node_modules/@nrk/core-toggle/jsx.js
-index b9e52a9..76abb6f 100644
+index b9e52a9..dacfa4a 100644
 --- a/node_modules/@nrk/core-toggle/jsx.js
 +++ b/node_modules/@nrk/core-toggle/jsx.js
 @@ -308,7 +308,7 @@ var CoreToggle = /*#__PURE__*/function (_HTMLElement) {
@@ -11,21 +11,7 @@ index b9e52a9..76abb6f 100644
      } // aria-haspopup triggers forms mode in JAWS, therefore store as custom attr
  
    }, {
-@@ -386,16 +386,24 @@ var closest$1 = function () {
-   };
- }();
- /**
-+* getUUID
-+* @return {String} A generated unique ID
-+*/
-+
-+function getUUID() {
-+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 5)
-+}
-+/**
- * customElementToReact
- * @param {Class|Function} elementClass A custom element definition.
- * @param {Array} options Props and custom events
+@@ -392,10 +392,10 @@ var closest$1 = function () {
  * @return {Object} A React component
  */
  
@@ -38,7 +24,7 @@ index b9e52a9..76abb6f 100644
  
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -514,6 +522,7 @@ function customElementToReact(elementClass, options) {
+@@ -514,6 +514,7 @@ function customElementToReact(elementClass, options) {
  }
  
  var coreToggle = customElementToReact(CoreToggle, {

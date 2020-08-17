@@ -40,14 +40,18 @@
         transition-property: box-shadow;
 
         &:hover,
+        html:not([data-mousenavigation]) &:focus {
+            color: #000afa;
+        }
+
+        &:hover,
         html:not([data-mousenavigation]) &:focus,
         &--active {
             box-shadow: inset 0 rem(-4px) 0 0 currentColor;
         }
 
         &--active {
-            font-weight: $bold-weight;
-            color: #000afa;
+            @include no-grow-bold;
         }
 
         *[data-theme="dark"] & {
