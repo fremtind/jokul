@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.16.3",
+    "version": "3.16.5",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.0.0",
@@ -45,8 +45,8 @@
     "scripts": {
         "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "clean:portal": "gatsby clean",
-        "build:docs": "gatsby build --prefix-paths",
-        "build:local": "gatsby build",
+        "build": "gatsby build",
+        "build:test": "gatsby build && gatsby serve",
         "dev": "gatsby develop",
         "start": "yarn dev",
         "serve": "gatsby serve",
