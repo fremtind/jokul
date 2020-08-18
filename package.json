@@ -26,6 +26,7 @@
         "release": "lerna publish",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
         "start": "yarn run dev",
+        "serve": "lerna run build:test --stream",
         "boot": "yarn install --force && yarn build",
         "reboot": "yarn clean && yarn boot"
     },
