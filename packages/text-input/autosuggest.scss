@@ -1,0 +1,79 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+@import "~@fremtind/jkl-icons/animated-icons.scss";
+
+$controller-button-padding: rem(5px);
+
+$item-height: $line-height-3;
+$item-font-size: $font-size-3;
+
+.jkl-autosuggest {
+    width: 100%;
+    font-family: inherit;
+
+    &__input_group {
+        position: relative;
+        & > input {
+            width: 100%;
+        }
+    }
+
+    &__no-hits-message {
+        text-align: center;
+        margin-bottom: $component-spacing--large;
+    }
+
+    &__controller-button {
+        @include reset-outline;
+        align-items: flex-start;
+        justify-content: center;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+        padding: 0 $controller-button-padding;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: $svart;
+
+        &--inverted {
+            color: $hvit;
+        }
+    }
+
+    &__menu {
+        background-color: $hvit;
+        box-shadow: rem(2px) rem(2px) rem(8px) rgba(0, 0, 0, 0.16);
+        box-sizing: border-box;
+        list-style-type: none;
+        position: absolute;
+        max-height: 60vh;
+        margin-top: rem(4px);
+        overflow-y: auto;
+        padding: 1rem 0.5rem 0;
+        width: 100%;
+        z-index: $z-index--dropdown;
+        -webkit-overflow-scrolling: touch;
+
+        &--inverted {
+            background-color: $svart;
+            color: $hvit;
+        }
+    }
+
+    &__item {
+        border-bottom: 1px solid transparent;
+        cursor: pointer;
+        display: block;
+        line-height: $item-height;
+        font-size: $item-font-size;
+        margin-bottom: $component-spacing--large;
+
+        &--active {
+            @include no-grow-bold();
+        }
+    }
+}

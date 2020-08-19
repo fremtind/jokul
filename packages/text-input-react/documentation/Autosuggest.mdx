@@ -1,0 +1,56 @@
+---
+title: 🧪 Autosuggest
+react: text-input-react
+scss: text-input
+group: skjema
+---
+
+import AutosuggestExample from "./AutosuggestExample";
+
+<Ingress>
+    Autosuggest er en del av{" "}
+    <a className="jkl-link" href="/komponenter/textinput">
+        text-input
+    </a>{" "}
+    pakken, og kan brukes til å gi brukerene forslag basert på det man legger inn. Spesielt nyttig når brukeren må/kan
+    velge fra en veldig lang liste med potensielle resultat. Kan også brukes async, hvor resultatene hentes etter at
+    brukeren har tastet inn x-tegn.
+</Ingress>
+
+<Experimental>
+    Denne bruker{" "}
+    <a className="jkl-link jkl-link--external" href="https://github.com/downshift-js/downshift">
+        downshift.js
+    </a>{" "}
+    isteden for{" "}
+    <a
+        className="jkl-link jkl-link--external"
+        href="https://static.nrk.no/core-components/latest/index.html?core-suggest/readme.md"
+    >
+        NRK Core-components
+    </a>
+    . Du må gjerne bruke denne, men forvent at Autosuggest kommer til å bli skrevet om. Det kommer til å være breaking changes.
+</Experimental>
+
+<ComponentExample
+    component={AutosuggestExample}
+    knobs={{
+        boolProps: [
+            "Invertert",
+            "Hjelpetekst",
+            "Feiltekst",
+            "Leadtekst",
+            "Ingen treff",
+            "Max antall treff",
+            "Placeholder",
+            "Vis kontroller",
+        ],
+        choiceProps: [
+            {
+                name: "Variant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+/>
