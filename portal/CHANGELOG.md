@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.17.0 (2020-08-20)
+
+### Bug Fixes
+
+- **portal:** fix image spacing ([44b4253](https://github.com/fremtind/jokul/commit/44b4253df6220446f9fc2d961b8e1326ae51d3b7))
+- **portal:** layout of dodont img in desktop ([36190e7](https://github.com/fremtind/jokul/commit/36190e725e849e83e77f74b44b382fdf4d992342))
+
+### Features
+
+- **portal:** fixes most mobile layout issues ([69e0424](https://github.com/fremtind/jokul/commit/69e04242de285cbe149cdb4c8d23cf6194b79861))
+
 ## 3.16.3 (2020-08-17)
 
 ### Bug Fixes

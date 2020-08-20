@@ -4,7 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./style.scss";
 import { useKeyListener } from "@fremtind/jkl-react-hooks";
 
-export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }) => {
+interface Props extends ImgHTMLAttributes<HTMLImageElement> {
+    noMargin?: boolean;
+}
+
+export const PortalImg: React.FC<Props> = ({ src, alt, noMargin }) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
@@ -23,23 +27,28 @@ export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }
                 ref={ref}
                 layout
                 onClick={toggleFullscreen}
-                className={`jkl-portal-image ${isFullscreen ? "jkl-portal-image--fullscreen" : "jkl-portal-paragraph"}`}
+                className={`jkl-portal-image ${noMargin ? "jkl-portal-image--no-margin" : ""} ${
+                    isFullscreen ? "jkl-portal-image--fullscreen" : "jkl-portal-paragraph"
+                }`}
             >
-                <Image imgSrc={imgSrc} />
-                <div className="jkl-small">Klikk for å se større</div>
+                <Image imgSrc={imgSrc} alt={alt} />
+                {!isFullscreen && !noMargin && <div className="jkl-micro">Klikk for å se større</div>}
             </motion.button>
             {isFullscreen && (
-                <button aria-hidden className="jkl-portal-image jkl-portal-paragraph">
+                <button
+                    aria-hidden
+                    className={`jkl-portal-image jkl-portal-paragraph ${noMargin ? "jkl-portal-image--no-margin" : ""}`}
+                >
                     <Image imgSrc={imgSrc} />
-                    <div className="jkl-small">&nbsp;</div>
+                    {!noMargin && <div className="jkl-micro">&nbsp;</div>}
                 </button>
             )}
         </>
     );
 };
 
-function Image({ imgSrc }: { imgSrc?: string }) {
-    return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt="illustrasjon" />;
+function Image({ imgSrc, alt }: { imgSrc?: string; alt?: string }) {
+    return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt={alt || "illustrasjon"} />;
 }
 
 function BlurredBackground({ blur }: { blur: boolean }) {

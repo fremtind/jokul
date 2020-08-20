@@ -36,6 +36,15 @@
         }
     }
 
+    @include small-device {
+        &__main {
+            > h1 {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
     @include from-large-device {
         display: grid;
         grid-template:

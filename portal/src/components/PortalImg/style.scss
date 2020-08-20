@@ -4,10 +4,19 @@
 .jkl-portal-image {
     @include reset-outline;
     background-color: transparent;
-    text-align: left;
     cursor: pointer;
-    margin-top: $layout-spacing--medium;
     display: block;
+    padding: 0;
+    margin-top: $layout-spacing--medium;
+    width: 100%;
+
+    > .jkl-micro {
+        text-align: left;
+    }
+
+    &--no-margin {
+        margin-top: 0;
+    }
 
     &__img {
         max-width: 100%;

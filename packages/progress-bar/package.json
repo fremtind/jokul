@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-progress-bar",
-    "version": "1.2.31",
+    "version": "1.2.32",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.12.1"
+        "@fremtind/jkl-core": "^4.13.0"
     },
     "repository": {
         "type": "git",
