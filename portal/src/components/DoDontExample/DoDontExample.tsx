@@ -31,7 +31,7 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", desc
                 <div>{content}</div>
             ) : (
                 <div className="jkl-portal-do-dont-example__image">
-                    <PortalImg src={image} alt={altText} />
+                    <PortalImg src={image} alt={altText} noMargin />
                 </div>
             )}
             <p className={headingClass}>{heading}</p>
