@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
-import { withPrefix } from "gatsby";
 import classNames from "classnames";
 
 import "./DoDontExample.scss";
+import { PortalImg } from "../PortalImg/PortalImg";
 
 interface Props {
     type: "do" | "dont";
@@ -30,7 +30,9 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", desc
             {content ? (
                 <div>{content}</div>
             ) : (
-                <img className="jkl-portal-do-dont-example__image" src={withPrefix(image)} alt={altText} />
+                <div className="jkl-portal-do-dont-example__image">
+                    <PortalImg src={image} alt={altText} />
+                </div>
             )}
             <p className={headingClass}>{heading}</p>
             <p className="jkl-portal-do-dont-example__description">{description}</p>

@@ -41,8 +41,10 @@ interface Props {
 
 const ColorBox: React.FC<Props> = ({ color, handleClick }) => (
     <button type="button" onClick={() => handleClick(color)} className="jkl-color-box__wrapper">
-        <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${color}`}></span>
-        <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${color}`}></span>
+        <span className="jkl-color-box__multi">
+            <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${color}`}></span>
+            <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${color}`}></span>
+        </span>
         <span className="jkl-color-box__text jkl-body">${color}</span>
     </button>
 );
@@ -54,8 +56,10 @@ interface MultiColorProps {
 
 const MultiColorBox: React.FC<MultiColorProps> = ({ colors, handleClick }) => (
     <button type="button" onClick={() => handleClick(`${colors[0]}, $${colors[1]}`)} className="jkl-color-box__wrapper">
-        <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${colors[0]}`}></span>
-        <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${colors[1]}`}></span>
+        <span className="jkl-color-box__multi">
+            <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${colors[0]}`}></span>
+            <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${colors[1]}`}></span>
+        </span>
         <span className="jkl-color-box__text jkl-body">${colors[0]}</span>
         <span className="jkl-color-box__text jkl-body">${colors[1]}</span>
     </button>

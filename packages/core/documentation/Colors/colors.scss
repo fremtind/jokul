@@ -26,6 +26,10 @@
         width: 180px;
     }
 
+    &__multi {
+        display: flex;
+    }
+
     &--left {
         transform: rotate(-90deg);
         .jkl-color-box__text {
@@ -45,6 +49,11 @@
         align-items: center;
         @include reset-outline();
         background-color: transparent;
+
+        @include small-device {
+            flex-direction: column;
+            padding-bottom: $layout-spacing--medium;
+        }
 
         &:hover {
             color: $info;

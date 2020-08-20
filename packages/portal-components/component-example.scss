@@ -59,6 +59,16 @@
         margin-top: $layout-spacing--small;
     }
 
+    @include small-device {
+        width: calc(100% - #{$layout-spacing--medium});
+        max-width: 100%;
+        min-width: initial;
+        flex-direction: column;
+        &__example-wrapper {
+            width: initial;
+        }
+    }
+
     *[data-theme="dark"] & {
         background-color: $gra-100;
     }

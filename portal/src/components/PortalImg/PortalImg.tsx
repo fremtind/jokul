@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./style.scss";
 import { useKeyListener } from "@fremtind/jkl-react-hooks";
 
-export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }) => {
+export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src, alt }) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
@@ -25,8 +25,8 @@ export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }
                 onClick={toggleFullscreen}
                 className={`jkl-portal-image ${isFullscreen ? "jkl-portal-image--fullscreen" : "jkl-portal-paragraph"}`}
             >
-                <Image imgSrc={imgSrc} />
-                <div className="jkl-small">Klikk for å se større</div>
+                <Image imgSrc={imgSrc} alt={alt} />
+                {!isFullscreen && <div className="jkl-small">Klikk for å se større</div>}
             </motion.button>
             {isFullscreen && (
                 <button aria-hidden className="jkl-portal-image jkl-portal-paragraph">
@@ -38,8 +38,8 @@ export const PortalImg: React.FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src }
     );
 };
 
-function Image({ imgSrc }: { imgSrc?: string }) {
-    return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt="illustrasjon" />;
+function Image({ imgSrc, alt }: { imgSrc?: string; alt?: string }) {
+    return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt={alt || "illustrasjon"} />;
 }
 
 function BlurredBackground({ blur }: { blur: boolean }) {
