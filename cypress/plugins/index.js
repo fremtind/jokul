@@ -1,8 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const browserify = require("@cypress/browserify-preprocessor");
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-// TODO: renable when #1104 is fixed
-//const { initPlugin } = require("cypress-plugin-snapshots/plugin");
+const { initPlugin } = require("cypress-plugin-snapshots/plugin");
 
 module.exports = (on, config) => {
     const options = browserify.defaultOptions;
@@ -11,7 +10,6 @@ module.exports = (on, config) => {
 
     on("file:preprocessor", browserify(options));
 
-    // TODO: renable when #1104 is fixed
-    //initPlugin(on, config);
+    initPlugin(on, config);
     return config;
 };
