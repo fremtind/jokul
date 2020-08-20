@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.6.0 (2020-08-20)
+
+### Features
+
+- **portal:** fixes most mobile layout issues ([69e0424](https://github.com/fremtind/jokul/commit/69e04242de285cbe149cdb4c8d23cf6194b79861))
+
 ## 0.5.0 (2020-08-14)
 
 ### Features

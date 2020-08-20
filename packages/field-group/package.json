@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group",
-    "version": "1.1.31",
+    "version": "1.1.32",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.12.1"
+        "@fremtind/jkl-core": "^4.13.0"
     },
     "repository": {
         "type": "git",
