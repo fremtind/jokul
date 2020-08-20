@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children, title, location }) => {
-    const { setLocation, isFrontPage } = useLocation();
+    const { setLocation, isFrontPage, isCypress } = useLocation();
     useEffect(() => setLocation(location), [location, setLocation]);
 
     const screen = useScreen();
@@ -29,6 +29,10 @@ export const Layout: React.FC<Props> = ({ children, title, location }) => {
     useLayoutEffect(() => {
         wrapperRef.current?.setAttribute("data-theme", theme || "");
     }, [theme, wrapperRef]);
+
+    if (isCypress) {
+        return <FormatProvider>{children}</FormatProvider>;
+    }
 
     return (
         <div className="jkl-portal" data-theme={theme} ref={wrapperRef}>
