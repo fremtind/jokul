@@ -8152,10 +8152,10 @@ cypress-axe@^0.8.1:
   resolved "https://registry.yarnpkg.com/cypress-axe/-/cypress-axe-0.8.1.tgz#ddb37dca6570c0642dda2388daf678e83b3e8d3f"
   integrity sha512-hX48+r5n7Ns7CHkn601Ag0JiCG1vby5+g7QhlP8X+mkiVYpTLpXAPiiaKFj9QTTCdZSI5+0UqwIxA+ShTsr5tA==
 
-cypress-plugin-snapshots@^1.4.3:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/cypress-plugin-snapshots/-/cypress-plugin-snapshots-1.4.3.tgz#0317d0320e6004badd565ee0153db451a0fc4474"
-  integrity sha512-mH2rD5eHPA9CviS6Sxp76lxFDjw1jRpzixVfv5xxQyCsjgQxHy5oUjqWWA/2pqqqEqSNThxtNKBNOBaB4qd8jg==
+cypress-plugin-snapshots@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/cypress-plugin-snapshots/-/cypress-plugin-snapshots-1.4.4.tgz#3a57f9763da1ab6df34950b8ad01803820885310"
+  integrity sha512-rijq3RTEZNtxQA4KCUwjXinmE1Ww+z6cQW0B14iodFM/HlX5LN16XT/2QS3X1nUXRKt0QdTrAC5MQfMUrjBkSQ==
   dependencies:
     diff2html "^2.7.0"
     fs-extra "^7.0.1"
