@@ -4,11 +4,15 @@
 .jkl-portal-image {
     @include reset-outline;
     background-color: transparent;
-    text-align: left;
     cursor: pointer;
     display: block;
     padding: 0;
     margin-top: $layout-spacing--medium;
+    width: 100%;
+
+    > .jkl-micro {
+        text-align: left;
+    }
 
     &--no-margin {
         margin-top: 0;

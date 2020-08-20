@@ -32,7 +32,7 @@ export const PortalImg: React.FC<Props> = ({ src, alt, noMargin }) => {
                 }`}
             >
                 <Image imgSrc={imgSrc} alt={alt} />
-                {!isFullscreen && <div className="jkl-micro">Klikk for å se større</div>}
+                {!isFullscreen && !noMargin && <div className="jkl-micro">Klikk for å se større</div>}
             </motion.button>
             {isFullscreen && (
                 <button
@@ -40,7 +40,7 @@ export const PortalImg: React.FC<Props> = ({ src, alt, noMargin }) => {
                     className={`jkl-portal-image jkl-portal-paragraph ${noMargin ? "jkl-portal-image--no-margin" : ""}`}
                 >
                     <Image imgSrc={imgSrc} />
-                    <div className="jkl-micro">&nbsp;</div>
+                    {!noMargin && <div className="jkl-micro">&nbsp;</div>}
                 </button>
             )}
         </>
