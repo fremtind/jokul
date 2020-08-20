@@ -44,6 +44,30 @@
                     }
                 }
             }
+
+            @include small-device {
+                &--image-container {
+                    position: absolute;
+                    height: 100vh;
+                    width: 100vw;
+                }
+                &--image {
+                    background-position: center;
+                }
+
+                &--content {
+                    position: relative;
+                    display: block;
+                    margin-left: -$component-spacing--large;
+
+                    .jkl-portal__card-list {
+                        position: relative;
+                        display: block;
+                        margin-left: $component-spacing--large;
+                        padding-top: $layout-spacing--xxl;
+                    }
+                }
+            }
         }
 
         &--wrapper {
