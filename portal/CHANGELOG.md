@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.17.2 (2020-08-21)
+
+### Bug Fixes
+
+- **portal:** prevent intro text from scrolljacking after page change ([e7e235a](https://github.com/fremtind/jokul/commit/e7e235a478e967438723bff885fba66197196819))
+
 ## 3.17.0 (2020-08-20)
 
 ### Bug Fixes
