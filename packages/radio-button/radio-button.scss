@@ -2,45 +2,48 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $radio-button-size: rem(24px);
-$radio-button-size--compact: rem(18px);
-
+$radio-button-height: rem(48px);
+$radio-button-line-height: rem(32px);
 $radio-button-dot-padding: rem(4px);
+
+$radio-button-size--compact: rem(18px);
+$radio-button-height--compact: rem(40px);
+$radio-button-line-height--compact: rem(24px);
 $radio-button-dot-padding--compact: rem(3px);
 
-$radio-button-height: rem(48px);
-$radio-button-height--compact: rem(40px);
-
-$radio-button-line-height: rem(32px);
-$radio-button-line-height--compact: rem(24px);
-
-$radio-button-background-color: $gra-10;
-$radio-button-background-color--hover: $gra-10;
 $radio-button-color: $svart;
+$radio-button-background-color: $hvit;
+$radio-button-focus-color: $info;
+$radio-button-error-color: $feil;
+$radio-button-disabled-color: $gra-60;
 
-@keyframes circleexpand {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.25);
-    }
-    100% {
-        transform: scale(1);
-    }
+$radio-button-color--inverted: $hvit;
+$radio-button-background-color--inverted: transparent;
+$radio-button-focus-color--inverted: $info--darkbg;
+$radio-button-error-color--inverted: $feil--darkbg;
+$radio-button-disabled-color--inverted: $gra-60;
+
+:root,
+[data-theme="light"] {
+    --radio-button-color: #{$radio-button-color};
+    --radio-button-background-color: #{$radio-button-background-color};
+    --radio-button-focus-color: #{$radio-button-focus-color};
+    --radio-button-error-color: #{$radio-button-error-color};
 }
 
-@keyframes dotexpand {
+[data-theme="dark"] {
+    --radio-button-color: #{$radio-button-color--inverted};
+    --radio-button-background-color: #{$radio-button-background-color--inverted};
+    --radio-button-focus-color: #{$radio-button-focus-color--inverted};
+    --radio-button-error-color: #{$radio-button-error-color--inverted};
+}
+
+@keyframes dot-in {
     0% {
-        transform: scale(0) rotate(-45deg);
-        border-radius: 0%;
-    }
-    50% {
-        transform: scale(1);
-        border-radius: 40%;
+        transform: scale(0.8);
     }
     100% {
-        transform: scale(1) rotate(15deg);
-        border-radius: 50%;
+        transform: scale(1);
     }
 }
 
@@ -48,34 +51,35 @@ $radio-button-color: $svart;
     @include reset-outline;
     display: flex;
     min-height: $radio-button-height;
+    color: $radio-button-color;
+    color: var(--radio-button-color);
 
     &__input {
-        /* hide default radio button */
+        // hide default radio button
         position: absolute;
         opacity: 0;
 
-        /* Checked state */
-        &:checked + .jkl-radio-button__label > .jkl-radio-button__dot {
-            &:after {
-                /* animate dot */
-                animation: dotexpand 0.3s cubic-bezier(0.17, 0.17, 0.76, 1);
-                /* final appearance */
-                transform: scale(1) rotate(15deg);
-                border-radius: 50%;
+        // Checked state
+        &:checked {
+            + .jkl-radio-button__label > .jkl-radio-button__dot:after {
+                animation: dot-in 150ms ease;
+                background-color: currentColor;
             }
-            &:before {
-                /* animate circle */
-                animation: circleexpand 0.2s cubic-bezier(0.28, 0.86, 0.65, 0.18) 0.15s;
+            + .jkl-radio-button__label > .jkl-radio-button__text {
+                @include no-grow-bold;
             }
-        }
-        &:checked + .jkl-radio-button__label > .jkl-radio-button__text {
-            font-weight: $bold-weight;
         }
 
-        /* Focused state */
-        html:not([data-mousenavigation]) &:focus + .jkl-radio-button__label > .jkl-radio-button__dot {
-            &:before {
-                box-shadow: 0 0 0 rem(2px) #fff, 0 0px 0 rem(4px) $focus-color;
+        // Focused state
+        html:not([data-mousenavigation]) &:focus {
+            + .jkl-radio-button__label {
+                color: $radio-button-focus-color;
+                color: var(--radio-button-focus-color);
+
+                & > .jkl-radio-button__dot:before {
+                    box-shadow: 0 0 0 rem(2px) $radio-button-focus-color;
+                    box-shadow: 0 0 0 rem(2px) var(--radio-button-focus-color);
+                }
             }
         }
     }
@@ -86,18 +90,35 @@ $radio-button-color: $svart;
         display: flex;
         align-items: flex-start;
 
-        /* Hovered state */
-        &:hover > .jkl-radio-button__dot {
-            transform: scale(1.1);
+        // Hovered state
+        &:hover {
+            color: $radio-button-focus-color;
+            color: var(--radio-button-focus-color);
+
+            & > .jkl-radio-button__dot {
+                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
+            }
         }
-        &:active > .jkl-radio-button__dot {
-            transform: scale(0.9);
+
+        // Active state
+        &:active {
+            color: $radio-button-color;
+            color: var(--radio-button-color);
+
+            & > .jkl-radio-button__dot {
+                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
+
+                &:after {
+                    transform: scale(0.9);
+                }
+            }
         }
     }
 
     &__dot {
-        position: relative;
         display: inline-block;
+        position: relative;
+        box-sizing: border-box;
         height: $radio-button-size;
         width: $radio-button-size;
         flex-shrink: 0;
@@ -105,20 +126,13 @@ $radio-button-color: $svart;
         margin: (($radio-button-height - $radio-button-size) / 2) 0;
         margin-right: $component-spacing--small;
 
-        /* Outer circle */
-        &:before {
-            content: "";
-            position: absolute;
-            box-sizing: border-box;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
+        background-color: $radio-button-background-color;
+        background-color: var(--radio-button-background-color);
 
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-
-            border: rem(1px) solid $radio-button-color;
-            background: $radio-button-background-color;
-            transition: transform 150ms ease-in;
-        }
+        @include motion("standard");
+        transition-property: box-shadow;
 
         /* Inner dot */
         &:after {
@@ -129,15 +143,37 @@ $radio-button-color: $svart;
             top: $radio-button-dot-padding;
             height: $radio-button-size - (2 * $radio-button-dot-padding);
             width: $radio-button-size - (2 * $radio-button-dot-padding);
-            transform: rotate(-45deg) scale(0);
+            background-color: transparent;
+            border-radius: 50%;
+            transform: scale(1);
 
-            background-color: $radio-button-color;
+            @include motion("standard");
+            transition-property: transform;
+        }
+
+        // Focus ring
+        &:before {
+            content: "";
+            position: absolute;
+            top: rem(-2px);
+            right: rem(-2px);
+            bottom: rem(-2px);
+            left: rem(-2px);
+            border-radius: 50%;
+
+            box-shadow: 0 0 0 0 transparent;
         }
     }
 
     &__text {
         display: inline-block;
         margin: (($radio-button-height - $radio-button-line-height) / 2) 0;
+        transform: translate3D(0, rem(1px), 0);
+    }
+
+    &--error {
+        color: $radio-button-error-color;
+        color: var(--radio-button-error-color);
     }
 
     &--inline {
@@ -146,35 +182,13 @@ $radio-button-color: $svart;
         margin-right: $component-spacing--xl;
     }
 
-    &--error {
-        .jkl-radio-button__dot {
-            &:before {
-                border-color: $error-color;
-            }
-            &:after {
-                background-color: $error-color;
-            }
-        }
-    }
-
-    &--inverted {
-        .jkl-radio-button__dot {
-            &:before {
-                border-color: $hvit;
-                background-color: transparent;
-            }
-            &:after {
-                background-color: $hvit;
-            }
-        }
-    }
-
     @include compact-mode {
         min-height: $radio-button-height--compact;
 
         .jkl-radio-button__text {
             @include jkl-text-style("compact/body");
             margin: (($radio-button-height--compact - $radio-button-line-height--compact) / 2) 0;
+            transform: translate3D(0, 0, 0);
         }
         .jkl-radio-button__dot {
             margin: (($radio-button-height--compact - $radio-button-size--compact) / 2) 0;
@@ -197,6 +211,7 @@ $radio-button-color: $svart;
         .jkl-radio-button__text {
             @include jkl-text-style("compact/body");
             margin: (($radio-button-height--compact - $radio-button-line-height--compact) / 2) 0;
+            transform: translate3D(0, 0, 0);
         }
         .jkl-radio-button__dot {
             margin: (($radio-button-height--compact - $radio-button-size--compact) / 2) 0;
@@ -212,4 +227,44 @@ $radio-button-color: $svart;
             }
         }
     }
+
+    // LEGACY IE11 STUFF
+    &--inverted {
+        color: $radio-button-color--inverted;
+
+        .jkl-radio-button__input {
+            html:not([data-mousenavigation]) &:focus {
+                + .jkl-radio-button__label {
+                    color: $radio-button-focus-color--inverted;
+
+                    & > .jkl-radio-button__dot:before {
+                        box-shadow: 0 0 0 rem(2px) $radio-button-focus-color--inverted;
+                    }
+                }
+            }
+        }
+
+        .jkl-radio-button__dot {
+            background-color: $radio-button-background-color--inverted;
+        }
+
+        .jkl-radio-button__label {
+            &:hover {
+                color: $radio-button-focus-color--inverted;
+            }
+
+            &:active {
+                color: $radio-button-color--inverted;
+
+                & > .jkl-radio-button__dot {
+                    color: $radio-button-color--inverted;
+                }
+            }
+        }
+
+        &.jkl-radio-button--error {
+            color: $radio-button-error-color--inverted;
+        }
+    }
+    // END LEGACY STUFF
 }
