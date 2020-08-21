@@ -15,6 +15,11 @@ Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example");
 });
 
+Cypress.Commands.add("waitForAnimation", (timeout = 300) => {
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.wait(timeout);
+});
+
 Cypress.Commands.add("verifyA11y", () => {
     // Cypress misunderstand the animation for lack of contrast
     // Must wait a bit long to make sure all animations are done, else color contrast is off
