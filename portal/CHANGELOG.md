@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.17.3 (2020-08-21)
+
+### Bug Fixes
+
+- **portal:** fix weird bug on front page ([01028b9](https://github.com/fremtind/jokul/commit/01028b9c67a32a9f0ce9ff98030e3e81a124c91e))
+
 ## 3.17.2 (2020-08-21)
 
 ### Bug Fixes
