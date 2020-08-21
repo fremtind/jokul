@@ -92,8 +92,8 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay }) => {
     });
 
     return (
-        <div ref={textRef} className="jkl-portal-delay-text">
+        <section ref={textRef} className="jkl-portal-delay-text">
             <div className={textWrapperClass}>{filteredText}</div>
-        </div>
+        </section>
     );
 };
