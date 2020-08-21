@@ -6,7 +6,7 @@ context("Front page", () => {
 
     it("Front page should work", () => {
         cy.getByTestid("front-page__tagline").contains(
-            "Velkommen til Jøkul — designsystemet til Fremtind. Her har vi samlet alt du trenger for å lage løsninger i vår profil.",
+            "Velkommen til Jøkul — design­systemet til Fremtind. Her har vi samlet alt du trenger for å lage løsninger i vår profil.",
         );
 
         cy.getByTestid("title-klarhet").contains("Klarhet");

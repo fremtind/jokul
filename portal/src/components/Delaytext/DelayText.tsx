@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useRef, useMemo, useContext } from "react";
 import classNames from "classnames";
 import "./delay-text.scss";
-import { VisibleDetector } from "../VisibleDetector";
 import { a11yContext } from "../../contexts/a11yContext";
 
 const useInterval = (callback: () => void, delay: number | null) => {
-    const savedCallback = useRef<() => void>();
+    const savedCallback = useRef<typeof callback>();
 
     useEffect(() => {
         savedCallback.current = callback;
-    });
+    }, [callback]);
 
     useEffect(() => {
         const tick = () => {
-            if (savedCallback && savedCallback.current) {
+            if (savedCallback.current) {
                 savedCallback.current();
             }
         };
@@ -29,16 +28,12 @@ const useInterval = (callback: () => void, delay: number | null) => {
 interface Props {
     text: string;
     delay: number;
-    hidden?: boolean;
 }
 
-export const DelayText: React.FunctionComponent<Props> = ({ text, delay, children }) => {
+export const DelayText: React.FunctionComponent<Props> = ({ text, delay }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
-    const [index, setIndex] = useState(-1);
+    const [index, setIndex] = useState(prefersReducedMotion ? text.length : -1);
     const [isRunning, setIsRunning] = useState(!prefersReducedMotion);
-    const [charactersAnimated, setCharactersAnimated] = useState(0);
-    const [hidden] = useState(false);
-    const noiseMap = Array.from(new Array(text.length)).map(() => Math.random() * 500 + 250);
     const textRef = useRef<HTMLDivElement>(null);
 
     const filteredText = useMemo(() => {
@@ -56,14 +51,8 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
         }
 
         const parentEl = elRef.parentElement;
-
-        let elHeight = elRef.offsetHeight;
-        elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-top"));
-        elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-bottom"));
-        elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("padding-top"));
-        elHeight += parseInt(window.getComputedStyle(elRef).getPropertyValue("margin-bottom"));
-
-        parentEl && (elHeight += parseInt(window.getComputedStyle(parentEl).getPropertyValue("padding-top")));
+        const parentHeight = parentEl ? parseInt(window.getComputedStyle(parentEl).getPropertyValue("padding-top")) : 0;
+        const elHeight = elRef.offsetHeight + parentHeight;
 
         const options: ScrollToOptions = {
             top: elHeight,
@@ -71,19 +60,19 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
             behavior: "smooth",
         };
 
-        window.setTimeout(() => {
-            if (window.scrollY > elHeight / 2) {
-                return;
-            }
-            window.scrollTo(options);
-        }, 500);
+        window.scrollTo(options);
     };
 
     useEffect(() => {
-        if (filteredText.length === text.length) {
-            onEnd();
+        if (isRunning || prefersReducedMotion) {
+            return;
         }
-    }, [filteredText, text]);
+
+        const ref = window && window.setTimeout(onEnd, 500);
+        return () => {
+            ref && window.clearTimeout(ref);
+        };
+    }, [isRunning, prefersReducedMotion]);
 
     const lolRandom = Math.random() * delay + delay / 2;
 
@@ -97,45 +86,14 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay, childre
         },
         isRunning ? (lolRandom < 50 ? delay : lolRandom) : null,
     );
-    const delayTextClassName = classNames("jkl-portal__delay-text", {
-        "jkl-portal__delay-text--hidden": hidden,
-    });
 
-    const textWrapper = classNames("jkl-portal__delay-text__content", "jkl-portal__delay-text__underscore", {
-        "jkl-portal__delay-text__underscore--hidden": !isRunning,
+    const textWrapperClass = classNames("jkl-portal-delay-text__content", {
+        "jkl-portal-delay-text__content--done": !isRunning,
     });
-
-    const childrenClassName = classNames("jkl-portal__delay-text__children");
 
     return (
-        <>
-            {prefersReducedMotion ? (
-                <div className={delayTextClassName}>
-                    <div className={textWrapper}>{text}</div>
-                </div>
-            ) : (
-                <VisibleDetector
-                    threshold={[0]}
-                    ref={textRef}
-                    render={(ref) => (
-                        <div ref={ref} className={delayTextClassName}>
-                            <div className={textWrapper}>
-                                {filteredText.map((c, i) => (
-                                    <span
-                                        key={c + i}
-                                        className="jkl-portal__delay-text__content-text"
-                                        style={{ transitionDelay: noiseMap[i] + "ms" }}
-                                        onTransitionEnd={() => setCharactersAnimated(charactersAnimated + 1)}
-                                    >
-                                        {c}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                />
-            )}
-            <div className={childrenClassName}>{children}</div>
-        </>
+        <section ref={textRef} className="jkl-portal-delay-text">
+            <div className={textWrapperClass}>{filteredText}</div>
+        </section>
     );
 };
