@@ -59,9 +59,16 @@ export function useNavigationLinks() {
         }
         return 0;
     };
+
+    const getDate = (publishDate: string) => {
+        const rawDate = publishDate.split(".").map((i) => parseInt(i, 10));
+        const date = new Date(rawDate[0], rawDate[1], rawDate[2]);
+        return date.getTime();
+    };
+
     const sortByDate = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
         if (a.publishDate && b.publishDate) {
-            return parseInt(b.publishDate.replace(".", "")) - parseInt(a.publishDate.replace(".", ""));
+            return getDate(b.publishDate) - getDate(a.publishDate);
         }
         return 0;
     };
