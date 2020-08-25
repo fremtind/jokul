@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.0 (2020-08-25)
+
+### Features
+
+- **checkbox:** update design to match sketches ([400904e](https://github.com/fremtind/jokul/commit/400904e40dbf88975352ba68f5e6b0d7395a94b1))
+
 ## 1.3.0 (2020-07-06)
 
 ### Features
