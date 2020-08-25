@@ -37,8 +37,8 @@ const setMode = (action, reset) => () =>
     });
 
 const setModeFactory = (knob) => {
-    Cypress.Commands.add(`set${knob.replace(" ", "-")}`, setMode(knob, false));
-    Cypress.Commands.add(`reset${knob.replace(" ", "-")}`, setMode(knob, true));
+    Cypress.Commands.add(`set${knob.replace(/\ ./, (match) => match.slice(-1).toUpperCase())}`, setMode(knob, false));
+    Cypress.Commands.add(`reset${knob.replace(/\ ./, (match) => match.slice(-1).toUpperCase())}`, setMode(knob, true));
 };
 
 ["Kompakt", "Invertert", "Med feil", "Utvidet velger", "Med hjelpetekst"].map((knob) => setModeFactory(knob));
