@@ -39,13 +39,17 @@
     "dependencies": {
         "@babel/runtime": "^7.9.0",
         "@fremtind/jkl-icon-button-react": "^0.3.8",
+        "@fremtind/jkl-icons-react": "^1.1.5",
         "@fremtind/jkl-text-input": "^2.0.24",
         "@fremtind/jkl-typography-react": "^2.4.6",
         "classnames": "^2.2.6",
+        "downshift": "^6.0.5",
+        "match-sorter": "^4.2.0",
         "nanoid": "^3.1.10"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.6.1"
+        "@fremtind/jkl-portal-components": "^0.6.1",
+        "@types/match-sorter": "^4.0.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

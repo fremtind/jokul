@@ -1,9 +1,10 @@
 import { TextArea, Props as TextAreaPropsInterface } from "./TextArea";
 import { TextInput, Props as TextInputPropsInterface } from "./TextInput";
 import { BaseInputField, Props as BaseInputPropsInterface } from "./BaseInputField";
+import { Autosuggest } from "./autosuggest";
 
 interface BaseInputProps extends BaseInputPropsInterface {}
 interface TextInputProps extends TextInputPropsInterface {}
 interface TextAreaProps extends TextAreaPropsInterface {}
 
-export { TextArea, TextAreaProps, TextInput, TextInputProps, BaseInputField, BaseInputProps };
+export { TextArea, TextAreaProps, TextInput, TextInputProps, BaseInputField, BaseInputProps, Autosuggest };

@@ -2,6 +2,8 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
+@import "./autosuggest.scss";
+
 $text-input-border-color: $svart;
 $text-input-height: rem(48px);
 $text-input-height--compact: rem(40px);
