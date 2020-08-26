@@ -98,7 +98,7 @@
         "parcel-bundler": "^1.12.4",
         "patch-package": "^6.2.2",
         "postinstall-postinstall": "^2.1.0",
-        "prettier": "2.0.5",
+        "prettier": "2.1.1",
         "react-test-renderer": "^16.13.1",
         "regenerator-runtime": "^0.13.5",
         "rimraf": "^3.0.2",
