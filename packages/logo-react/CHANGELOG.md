@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.9 (2020-08-27)
+
+### Bug Fixes
+
+- **logo:** fix sizing issues with logo ([a1c50a6](https://github.com/fremtind/jokul/commit/a1c50a6bd7d4d63336e8d2bccad10388c720097f))
+
 ## 3.1.0 (2020-07-29)
 
 ### Features
