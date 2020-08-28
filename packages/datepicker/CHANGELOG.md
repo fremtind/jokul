@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.5.28 (2020-08-28)
+
+### Bug Fixes
+
+- override css custom properties when inverted mode is set ([d5c3686](https://github.com/fremtind/jokul/commit/d5c368669e17942570c44bad4fd19989e260e7c8))
+
 ## 1.5.5 (2020-05-29)
 
 ### Bug Fixes

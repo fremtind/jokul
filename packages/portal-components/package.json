@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-portal-components",
-    "version": "0.6.1",
+    "version": "0.6.2",
     "private": true,
     "description": "Components for showing examples in the Jøkul portal",
     "keywords": [
@@ -35,7 +35,7 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/jkl-checkbox-react": "^1.8.0",
+        "@fremtind/jkl-checkbox-react": "^1.8.1",
         "@fremtind/jkl-core": "^3.0.0",
         "@fremtind/jkl-radio-button-react": "^1.5.6",
         "@mdx-js/parcel-plugin-mdx": "^1.5.7",
