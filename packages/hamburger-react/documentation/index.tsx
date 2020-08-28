@@ -17,4 +17,7 @@ import "@fremtind/jkl-hamburger/hamburger.css";
 
 initTabListener();
 
-ReactDOM.render(<DevExample component={Example} />, document.getElementById("app"));
+ReactDOM.render(
+    <DevExample knobs={{ boolProps: ["Invertert"] }} component={Example} />,
+    document.getElementById("app"),
+);

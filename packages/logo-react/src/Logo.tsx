@@ -8,14 +8,16 @@ interface Props {
     animated?: boolean;
     isSymbol?: boolean;
     title?: string;
+    inverted?: boolean;
 }
 
-export const Logo = ({ className, centered = true, isSymbol, animated, title = "Fremtind" }: Props) => {
+export const Logo = ({ className, centered = true, isSymbol, animated, title = "Fremtind", inverted }: Props) => {
     const [uniqueId] = useState(`jkl-logo-${nanoid(16)}`);
     const componentClassName = classNames("jkl-logo", className, {
         "jkl-logo--animated": animated,
         "jkl-logo--symbol-only": isSymbol,
         "jkl-logo--centered": centered && isSymbol,
+        "jkl-logo--inverted": inverted,
     });
 
     return (

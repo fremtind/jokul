@@ -28,20 +28,20 @@ $arrow-width: rem(13px);
             &:last-child {
                 border-bottom: rem(1px) solid $hvit;
             }
-        }
-        &__title {
-            background-color: $svart;
-            &:hover {
-                color: $info--darkbg;
-            }
-            html:not([data-mousenavigation]) &:focus {
-                box-shadow: inset 0 0 0 2px $focus-color--darkbg;
-            }
-        }
-        &--expanded {
-            background-color: $svart;
             &__title {
-                color: $info--darkbg;
+                background-color: $svart;
+                &:hover {
+                    color: $info--darkbg;
+                }
+                html:not([data-mousenavigation]) &:focus {
+                    box-shadow: inset 0 0 0 2px $focus-color--darkbg;
+                }
+            }
+            &--expanded {
+                background-color: $svart;
+                &__title {
+                    color: $info--darkbg;
+                }
             }
         }
     }
@@ -67,7 +67,7 @@ $arrow-width: rem(13px);
         width: 100%;
 
         @include motion("standard");
-        transition-property: transform, color, background-color;
+        transition-property: transform, color;
 
         /* Remove button styles */
         outline: none;

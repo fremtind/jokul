@@ -4,12 +4,27 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/variables/_font-size.scss";
 
-$button-focus-ring-color: $focus-color;
 $bounding-touch-size: rem(48px);
-
 $hamburger-line-width: rem(3px);
 $hamburger-icon-width: rem(35px);
 $hamburger-line-spacing: rem(-10px);
+
+$hamburger-color: $svart;
+$hamburger-focus-color: $focus-color;
+
+$hamburger-color--inverted: $hvit;
+$hamburger-focus-color--inverted: $focus-color--darkbg;
+
+:root,
+[data-theme="light"] {
+    --hamburger-color: #{$hamburger-color};
+    --hamburger-focus-color: #{$hamburger-focus-color};
+}
+
+[data-theme="dark"] {
+    --hamburger-color: #{$hamburger-color--inverted};
+    --hamburger-focus-color: #{$hamburger-focus-color--inverted};
+}
 
 .jkl-hamburger {
     @include reset-outline;
@@ -19,7 +34,6 @@ $hamburger-line-spacing: rem(-10px);
     cursor: pointer;
     transition-property: opacity, filter;
     @include motion(standard, productive);
-    color: inherit;
     background-color: transparent;
     height: $bounding-touch-size;
     width: $bounding-touch-size;
@@ -27,13 +41,17 @@ $hamburger-line-spacing: rem(-10px);
     justify-content: center;
     position: relative;
 
-    &:hover,
-    &--is-active:hover {
-        opacity: 0.7;
+    color: $hamburger-color;
+    color: var(--hamburger-color);
+
+    &:hover {
+        color: $hamburger-focus-color;
+        color: var(--hamburger-focus-color);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        box-shadow: 0 0 0 rem(2px) $button-focus-ring-color;
+        box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
+        box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
     }
 
     &__inner {
@@ -65,7 +83,7 @@ $hamburger-line-spacing: rem(-10px);
     &__inner::after {
         width: $hamburger-icon-width;
         height: $hamburger-line-width;
-        background-color: $svart;
+        background-color: currentColor;
         position: absolute;
         transition-property: transform;
         @include motion(standard, productive);
@@ -91,10 +109,14 @@ $hamburger-line-spacing: rem(-10px);
     }
 
     &--negative {
-        & .jkl-hamburger__inner,
-        & .jkl-hamburger__inner::before,
-        & .jkl-hamburger__inner::after {
-            background-color: $gra-10;
+        color: $hamburger-color--inverted;
+
+        &:hover {
+            color: $hamburger-focus-color--inverted;
+        }
+
+        html:not([data-mousenavigation]) &:focus {
+            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color--inverted;
         }
     }
 }
