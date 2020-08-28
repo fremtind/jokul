@@ -25,30 +25,23 @@ $arrow-width: rem(13px);
     &--inverted {
         .jkl-accordion-item {
             border-top: rem(1px) solid $hvit;
-            border-top: rem(1px) solid var(--accordion-border);
             &:last-child {
                 border-bottom: rem(1px) solid $hvit;
-                border-bottom: rem(1px) solid var(--accordion-border);
             }
         }
         &__title {
             background-color: $svart;
-            background-color: var(--accordion-bg);
             &:hover {
                 color: $info--darkbg;
-                color: var(--accordion-accent);
             }
             html:not([data-mousenavigation]) &:focus {
                 box-shadow: inset 0 0 0 2px $focus-color--darkbg;
-                box-shadow: inset 0 0 0 2px var(--accordion-focus);
             }
         }
         &--expanded {
             background-color: $svart;
-            background-color: var(--accordion-bg);
             &__title {
                 color: $info--darkbg;
-                color: var(--accordion-accent);
             }
         }
     }

@@ -36,12 +36,13 @@ $datepicker-focus-color--inverted: $info--darkbg;
 
     &--open {
         .jkl-datepicker__input {
-            box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color),
-                0 0 0 0 var(--datepicker-focus-color, $datepicker-focus-color);
+            box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color, 0 0 0 0 $datepicker-focus-color;
+            box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color), 0 0 0 0 var(--datepicker-focus-color);
             &:hover,
             &:focus {
-                box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color),
-                    0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color);
+                box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color, 0 0 0 rem(1px) $datepicker-focus-color;
+                box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color),
+                    0 0 0 rem(1px) var(--datepicker-focus-color);
             }
         }
     }
@@ -49,12 +50,12 @@ $datepicker-focus-color--inverted: $info--darkbg;
     /// Legacy code for IE11 support
     &--inverted.jkl-datepicker--open {
         .jkl-datepicker__input {
-            box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color--inverted),
-                0 0 0 0 var(--datepicker-focus-color, $datepicker-focus-color--inverted);
+            box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color--inverted,
+                0 0 0 0 $datepicker-focus-color--inverted;
             &:hover,
             &:focus {
-                box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color--inverted),
-                    0 0 0 rem(1px) var(--datepicker-focus-color, $datepicker-focus-color--inverted);
+                box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color--inverted,
+                    0 0 0 rem(1px) $datepicker-focus-color--inverted;
             }
         }
     }
@@ -114,11 +115,14 @@ $calendar-focus-color--inverted: $info--darkbg;
     justify-content: center;
     flex-direction: column;
     width: $calendar-width;
-    background-color: var(--calendar-background-color, $calendar-background-color);
-    color: var(--calendar-text-color, $calendar-text-color);
+    background-color: $calendar-background-color;
+    background-color: var(--calendar-background-color);
+    color: $calendar-text-color;
+    color: var(--calendar-text-color);
     border-radius: 3px;
-    box-shadow: inset 0 0 0 rem(1px) var(--calendar-border-color, $calendar-border-color),
-        0 0 0 rem(1px) var(--calendar-border-color, $calendar-border-color),
+    box-shadow: inset 0 0 0 rem(1px) $calendar-border-color, 0 0 0 rem(1px) $calendar-border-color,
+        rem(2px) rem(4px) rem(16px) rgba(0, 0, 0, 0.24);
+    box-shadow: inset 0 0 0 rem(1px) var(--calendar-border-color), 0 0 0 rem(1px) var(--calendar-border-color),
         rem(2px) rem(4px) rem(16px) rgba(0, 0, 0, 0.24);
 
     @include motion("standard");
@@ -144,9 +148,12 @@ $calendar-focus-color--inverted: $info--darkbg;
         width: rem(12px);
         height: rem(12px);
         transform: translate(-50%, -50%) rotate(-45deg);
-        background-color: var(--calendar-background-color, $calendar-background-color);
-        border-top: rem(2px) solid var(--calendar-border-color, $calendar-border-color);
-        border-right: rem(2px) solid var(--calendar-border-color, $calendar-border-color);
+        background-color: $calendar-background-color;
+        background-color: var(--calendar-background-color);
+        border-top: rem(2px) solid $calendar-border-color;
+        border-top: rem(2px) solid var(--calendar-border-color);
+        border-right: rem(2px) solid $calendar-border-color;
+        border-right: rem(2px) solid var(--calendar-border-color);
     }
 
     &__padding {
@@ -185,7 +192,8 @@ $calendar-focus-color--inverted: $info--darkbg;
         justify-content: center;
         align-items: center;
         background-color: transparent;
-        color: var(--calendar-text-color, $calendar-text-color);
+        color: $calendar-text-color;
+        color: var(--calendar-text-color);
         border: none;
         width: $line-height-4;
         border-radius: 50%;
@@ -208,20 +216,24 @@ $calendar-focus-color--inverted: $info--darkbg;
 
         &:hover,
         &:focus {
-            color: var(--calendar-focus-color, $calendar-focus-color);
+            color: $calendar-focus-color;
+            color: var(--calendar-focus-color);
         }
 
         html:not([data-mousenavigation]) &:focus {
-            border-color: var(--calendar-focus-color, $calendar-focus-color);
+            border-color: $calendar-focus-color;
+            border-color: var(--calendar-focus-color);
             border-width: rem(4px);
 
             &::before {
-                box-shadow: inset 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color);
+                box-shadow: inset 0 0 0 rem(2px) $calendar-focus-color;
+                box-shadow: inset 0 0 0 rem(2px) var(--calendar-focus-color);
             }
         }
 
         &:disabled {
-            color: var(--calendar-disabled-day-color, $calendar-disabled-day-color);
+            color: $calendar-disabled-day-color;
+            color: var(--calendar-disabled-day-color);
         }
     }
 
@@ -294,7 +306,8 @@ $calendar-focus-color--inverted: $info--darkbg;
         width: $date-width;
         border-radius: 50%;
         background-color: transparent;
-        color: var(--calendar-text-color, $calendar-text-color);
+        color: $calendar-text-color;
+        color: var(--calendar-text-color);
 
         font-size: $font-size-6;
         line-height: $line-height-5;
@@ -317,77 +330,82 @@ $calendar-focus-color--inverted: $info--darkbg;
         &[data-adjacent="true"] {
             padding: 0; // reset vertical alignment of text
             font-size: $font-size-2;
-            color: var(--calendar-adjacent-month-color, $calendar-adjacent-month-color);
+            color: $calendar-adjacent-month-color;
+            color: var(--calendar-adjacent-month-color);
         }
         &[aria-current="date"] {
             font-weight: $bold-weight;
         }
         &:hover:not(:disabled),
         &[autofocus] {
-            background-color: var(--calendar-focus-color, $calendar-focus-color);
-            color: var(--calendar-active-day-color, $calendar-active-day-color);
+            background-color: $calendar-focus-color;
+            background-color: var(--calendar-focus-color);
+            color: $calendar-active-day-color;
+            color: var(--calendar-active-day-color);
             cursor: pointer;
         }
 
         &:disabled {
-            color: var(--calendar-disabled-day-color, $calendar-disabled-day-color);
+            color: $calendar-disabled-day-color;
+            color: var(--calendar-disabled-day-color);
         }
 
         &:focus::before {
-            box-shadow: 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color);
+            box-shadow: 0 0 0 rem(2px) $calendar-focus-color;
+            box-shadow: 0 0 0 rem(2px) var(--calendar-focus-color);
         }
     }
 
     /// Legacy code for IE11 support
     &--inverted {
-        background-color: var(--calendar-background-color, $calendar-background-color--inverted);
-        color: var(--calendar-text-color, $calendar-text-color--inverted);
+        background-color: $calendar-background-color--inverted;
+        color: $calendar-text-color--inverted;
 
         &::before {
-            background-color: var(--calendar-background-color, $calendar-background-color--inverted);
-            border-top: rem(2px) solid var(--calendar-border-color, $calendar-border-color--inverted);
-            border-right: rem(2px) solid var(--calendar-border-color, $calendar-border-color--inverted);
+            background-color: $calendar-background-color--inverted;
+            border-top: rem(2px) solid $calendar-border-color--inverted;
+            border-right: rem(2px) solid $calendar-border-color--inverted;
         }
 
         .jkl-calendar__month-button {
-            color: var(--calendar-text-color, $calendar-text-color--inverted);
+            color: $calendar-text-color--inverted;
 
             &:hover,
             &:focus {
-                color: var(--calendar-focus-color, $calendar-focus-color--inverted);
+                color: $calendar-focus-color--inverted;
             }
 
             html:not([data-mousenavigation]) &:focus {
-                border-color: var(--calendar-focus-color, $calendar-focus-color--inverted);
+                border-color: $calendar-focus-color--inverted;
 
                 &::before {
-                    box-shadow: inset 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color--inverted);
+                    box-shadow: inset 0 0 0 rem(2px) $calendar-focus-color--inverted;
                 }
             }
 
             &:disabled {
-                color: var(--calendar-disabled-day-color, $calendar-disabled-day-color--inverted);
+                color: $calendar-disabled-day-color--inverted;
             }
         }
 
         td button {
-            color: var(--calendar-text-color, $calendar-text-color--inverted);
+            color: $calendar-text-color--inverted;
 
             &[data-adjacent="true"] {
-                color: var(--calendar-adjacent-month-color, $calendar-adjacent-month-color--inverted);
+                color: $calendar-adjacent-month-color--inverted;
             }
             &:hover:not(:disabled),
             &[autofocus] {
-                background-color: var(--calendar-focus-color, $calendar-focus-color--inverted);
-                color: var(--calendar-active-day-color, $calendar-active-day-color--inverted);
+                background-color: $calendar-focus-color--inverted;
+                color: $calendar-active-day-color--inverted;
             }
 
             &:disabled {
-                color: var(--calendar-disabled-day-color, $calendar-disabled-day-color--inverted);
+                color: $calendar-disabled-day-color--inverted;
             }
 
             &:focus::before {
-                box-shadow: 0 0 0 rem(2px) var(--calendar-focus-color, $calendar-focus-color--inverted);
+                box-shadow: 0 0 0 rem(2px) $calendar-focus-color--inverted;
             }
         }
     }
