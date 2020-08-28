@@ -207,42 +207,34 @@ $checkbox-disabled-color--inverted: $gra-50;
     // <<<< Legacy support for IE11 via "inverted" prop
     &--inverted {
         color: $checkbox-color--inverted;
-        color: var(--checkbox-color);
 
         .jkl-checkbox__input {
             // Focused state:
             html:not([data-mousenavigation]) &:focus + .jkl-checkbox__label {
                 color: $checkbox-focus-color--inverted;
-                color: var(--checkbox-focus-color);
 
                 & > .jkl-checkbox__check-mark:before {
                     box-shadow: 0 0px 0 rem(2px) $checkbox-focus-color--inverted;
-                    box-shadow: 0 0px 0 rem(2px) var(--checkbox-focus-color);
                 }
             }
             // Disabled state
             &:disabled + .jkl-checkbox__label {
                 color: $checkbox-disabled-color--inverted;
-                color: var(--checkbox-disabled-color);
             }
         }
         .jkl-checkbox__label {
             &:hover {
                 color: $checkbox-focus-color--inverted;
-                color: var(--checkbox-focus-color);
             }
             &:active {
                 color: $checkbox-color--inverted;
-                color: var(--checkbox-color);
             }
         }
         .jkl-checkbox__check-mark {
             background-color: $checkbox-background-color--inverted;
-            background-color: var(--checkbox-background-color);
         }
         &.jkl-checkbox--error {
             color: $checkbox-error-color--inverted;
-            color: var(--checkbox-error-color);
         }
     }
     // end of legacy support >>>>
