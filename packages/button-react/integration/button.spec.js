@@ -8,7 +8,7 @@ context("Buttons", () => {
     it("Buttons should work", () => {
         cy.getComponent().toMatchImageSnapshot();
         cy.setKompakt().getComponent().toMatchImageSnapshot();
-        cy.setInvertert().getComponent().toMatchImageSnapshot();
+        cy.setDarkMode().getComponent().toMatchImageSnapshot();
         cy.resetKompakt().getComponent().toMatchImageSnapshot();
     });
 });

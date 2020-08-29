@@ -6,27 +6,31 @@ context("Checkbox", () => {
     });
 
     it("renders correctly", () => {
-        cy.getByTestid("jkl-checkbox-input").first().check();
+        cy.get(".jkl-portal-component-example__example-wrapper").within(() => {
+            cy.getByTestid("jkl-checkbox-input").last().check();
+        });
         /* DESKTOP */
         cy.getComponent().toMatchImageSnapshot();
         cy.setMedFeil().getComponent().toMatchImageSnapshot();
-        cy.setInvertert().getComponent().toMatchImageSnapshot();
+        cy.setDarkMode().getComponent().toMatchImageSnapshot();
         cy.resetMedFeil().getComponent().toMatchImageSnapshot();
-        cy.resetInvertert();
+        cy.resetDarkMode();
         /* COMPACT */
         cy.setKompakt().getComponent().toMatchImageSnapshot();
         cy.setMedFeil().getComponent().toMatchImageSnapshot();
-        cy.setInvertert().getComponent().toMatchImageSnapshot();
+        cy.setDarkMode().getComponent().toMatchImageSnapshot();
         cy.resetMedFeil().getComponent().toMatchImageSnapshot();
     });
 
     it("has correct focus state", () => {
-        cy.getByTestid("jkl-checkbox-input").first().focus();
+        cy.get(".jkl-portal-component-example__example-wrapper").within(() => {
+            cy.getByTestid("jkl-checkbox-input").last().focus();
+        });
         /* DESKTOP */
         cy.getComponent().toMatchImageSnapshot();
-        cy.setInvertert().getComponent().toMatchImageSnapshot().resetInvertert();
+        cy.setDarkMode().getComponent().toMatchImageSnapshot().resetDarkMode();
         /* COMPACT */
         cy.setKompakt().getComponent().toMatchImageSnapshot();
-        cy.setInvertert().getComponent().toMatchImageSnapshot().resetInvertert();
+        cy.setDarkMode().getComponent().toMatchImageSnapshot().resetDarkMode();
     });
 });
