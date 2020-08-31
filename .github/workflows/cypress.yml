@@ -15,6 +15,7 @@ jobs:
               with:
                   persist-credentials: false
                   fetch-depth: 0
+                  github_token: ${{ secrets.FT_BOT_PAT }}
 
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
@@ -59,9 +60,4 @@ jobs:
                   git config user.name "fremtind-bot"
                   git add . || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
-
-            - name: Push new snapshots
-              if: success() && !contains(github.event.head_commit.message, '[ci skip cypress]')
-              uses: ad-m/github-push-action@master
-              with:
-                  github_token: ${{ secrets.FT_BOT_PAT }}
+                  git push
