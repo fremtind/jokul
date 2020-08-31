@@ -3077,7 +3077,7 @@
     npmlog "^4.1.2"
     write-file-atomic "^2.3.0"
 
-"@mdx-js/mdx@^1.5.1", "@mdx-js/mdx@^1.6.6":
+"@mdx-js/mdx@1.6.16", "@mdx-js/mdx@^1.5.1":
   version "1.6.16"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.16.tgz#f01af0140539c1ce043d246259d8becd2153b2bb"
   integrity sha512-jnYyJ0aCafCIehn3GjYcibIapaLBgs3YkoenNQBPcPFyyuUty7B3B07OE+pMllhJ6YkWeP/R5Ax19x0nqTzgJw==
@@ -3130,11 +3130,11 @@
     unist-util-visit "2.0.3"
 
 "@mdx-js/parcel-plugin-mdx@^1.5.7":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@mdx-js/parcel-plugin-mdx/-/parcel-plugin-mdx-1.6.6.tgz#397f76a374a47a3d01befbe74f334d9c6bdadb96"
-  integrity sha512-AkQJU5fIQdIRPCBO6GQAKZ/wZ0gTg20+pIILdxQGAgBlZQLHUlEkNHwTp/ZQzhPX7SwnGGi1DIM5+sHRR8ixdQ==
+  version "1.6.16"
+  resolved "https://registry.yarnpkg.com/@mdx-js/parcel-plugin-mdx/-/parcel-plugin-mdx-1.6.16.tgz#18764c09c8d89cc87e38a8f9abde32832bec8fb8"
+  integrity sha512-Of53WZadJRTXAY6+wOi1jp/AmWk8YlWQGCrMURWRb9UKEJqCHNr28hu+Hadxn5oPK/oX7HUkv3gE/A3CYwFk9A==
   dependencies:
-    "@mdx-js/mdx" "^1.6.6"
+    "@mdx-js/mdx" "1.6.16"
     parcel-bundler "^1.12.4"
 
 "@mdx-js/react@^1.5.1", "@mdx-js/react@^1.5.2", "@mdx-js/react@^1.5.7":
