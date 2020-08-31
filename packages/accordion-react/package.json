@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "1.5.17",
+    "version": "1.5.18",
     "publishConfig": {
         "access": "public"
     },
