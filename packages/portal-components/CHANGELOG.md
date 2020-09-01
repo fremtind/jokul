@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.7.0 (2020-09-01)
+
+### Features
+
+- **portal-examples:** add separate dark mode toggle ([8221cc2](https://github.com/fremtind/jokul/commit/8221cc2c2e87b7e7a2ca74697e2ddd8742d06763))
+
 ## 0.6.0 (2020-08-20)
 
 ### Features
