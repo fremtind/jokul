@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.14.1 (2020-09-01)
+
+### Bug Fixes
+
+- **labels:** fix typo in labels.scss ([881b59b](https://github.com/fremtind/jokul/commit/881b59b1b048177859530f2eeda3edff96be9c94))
+
 ## 4.14.0 (2020-09-01)
 
 ### Features
