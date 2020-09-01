@@ -7,21 +7,61 @@
     @return change-color($color, $lightness: 5%);
 }
 
-$info-bakgrunn: message-bg-light($info);
-$info-bakgrunn--darkbg: message-bg-dark($info);
+$background-color: $gra-10;
+$border-color: $svart;
+$info-background-color: message-bg-light($info);
+$info-border-color: $info;
+$warning-background-color: message-bg-light($advarsel);
+$warning-border-color: $advarsel;
+$error-background-color: message-bg-light($feil);
+$error-border-color: $feil;
+$success-background-color: message-bg-light($suksess);
+$success-border-color: $suksess;
 
-$advarsel-bakgrunn: message-bg-light($advarsel);
-$advarsel-bakgrunn--darkbg: message-bg-dark($advarsel);
+$background-color--inverted: $gra-100;
+$border-color--inverted: $hvit;
+$info-background-color--inverted: message-bg-dark($info--darkbg);
+$info-border-color--inverted: $info--darkbg;
+$warning-background-color--inverted: message-bg-dark($advarsel--darkbg);
+$warning-border-color--inverted: $advarsel--darkbg;
+$error-background-color--inverted: message-bg-dark($feil--darkbg);
+$error-border-color--inverted: $feil--darkbg;
+$success-background-color--inverted: message-bg-dark($suksess--darkbg);
+$success-border-color--inverted: $suksess--darkbg;
 
-$feil-bakgrunn: message-bg-light($feil);
-$feil-bakgrunn--darkbg: message-bg-dark($feil);
+:root,
+[data-theme="light"] {
+    --border-color: #{$border-color};
+    --background-color: #{$background-color};
+    --info-border-color: #{$info-border-color};
+    --info-background-color: #{$info-background-color};
+    --warning-border-color: #{$warning-border-color};
+    --warning-background-color: #{$warning-background-color};
+    --error-border-color: #{$error-border-color};
+    --error-background-color: #{$error-background-color};
+    --success-border-color: #{$success-border-color};
+    --success-background-color: #{$success-background-color};
+}
 
-$suksess-bakgrunn: message-bg-light($suksess);
-$suksess-bakgrunn--darkbg: message-bg-dark($suksess);
+[data-theme="dark"] {
+    --border-color: #{$border-color--inverted};
+    --background-color: #{$background-color--inverted};
+    --info-border-color: #{$info-border-color--inverted};
+    --info-background-color: #{$info-background-color--inverted};
+    --warning-border-color: #{$warning-border-color--inverted};
+    --warning-background-color: #{$warning-background-color--inverted};
+    --error-border-color: #{$error-border-color--inverted};
+    --error-background-color: #{$error-background-color--inverted};
+    --success-border-color: #{$success-border-color--inverted};
+    --success-background-color: #{$success-background-color--inverted};
+}
 
 .jkl-alert-message {
     width: 100%;
-    background-color: $gra-10;
+    background-color: $background-color;
+    background-color: var(--background-color);
+    border: rem(1px) solid $border-color;
+    border: rem(1px) solid var(--border-color);
 
     &__icon {
         padding-right: $component-spacing--large;
@@ -44,80 +84,93 @@ $suksess-bakgrunn--darkbg: message-bg-dark($suksess);
     }
 
     &--info {
-        border: rem(1px) solid $info;
-        background-color: $info-bakgrunn;
+        border-color: $info-border-color;
+        border-color: var(--info-border-color);
+        background-color: $info-background-color;
+        background-color: var(--info-background-color);
 
         .jkl-alert-message__icon {
             color: $info;
+            color: var(--info-border-color);
         }
     }
 
     &--warning {
-        border: rem(1px) solid $advarsel;
-        background-color: $advarsel-bakgrunn;
+        border-color: $warning-border-color;
+        border-color: var(--warning-border-color);
+        background-color: $warning-background-color;
+        background-color: var(--warning-background-color);
 
         .jkl-alert-message__icon {
-            color: $advarsel;
+            color: $warning-border-color;
+            color: var(--warning-border-color);
 
             .jkl-icon-exclamation {
-                color: $svart;
+                color: $border-color;
+                color: var(--border-color);
             }
         }
     }
 
     &--error {
-        border: rem(1px) solid $feil;
-        background-color: $feil-bakgrunn;
+        border-color: $error-border-color;
+        border-color: var(--error-border-color);
+        background-color: $error-background-color;
+        background-color: var(--error-background-color);
 
         .jkl-alert-message__icon {
-            color: $feil;
+            color: $error-border-color;
+            color: var(--error-border-color);
         }
     }
 
     &--success {
-        border: rem(1px) solid $suksess;
-        background-color: $suksess-bakgrunn;
+        border-color: $success-border-color;
+        border-color: var(--success-border-color);
+        background-color: $success-background-color;
+        background-color: var(--success-background-color);
 
         .jkl-alert-message__icon {
-            color: $suksess;
+            color: $success-border-color;
+            color: var(--success-border-color);
         }
     }
 
     &--dark {
         &.jkl-alert-message--info {
-            border: rem(1px) solid $info--darkbg;
-            background-color: $info-bakgrunn--darkbg;
+            border-color: $info-border-color--inverted;
+            background-color: $info-background-color--inverted;
 
             .jkl-alert-message__icon {
-                color: $info--darkbg;
+                color: $info-border-color--inverted;
             }
         }
         &.jkl-alert-message--warning {
-            border: rem(1px) solid $advarsel--darkbg;
-            background-color: $advarsel-bakgrunn--darkbg;
+            border-color: $warning-border-color--inverted;
+            background-color: $warning-background-color--inverted;
 
             .jkl-alert-message__icon {
-                color: $advarsel--darkbg;
+                color: $warning-border-color--inverted;
 
                 .jkl-icon-exclamation {
-                    color: $hvit;
+                    color: $border-color--inverted;
                 }
             }
         }
         &.jkl-alert-message--error {
-            border: rem(1px) solid $feil--darkbg;
-            background-color: $feil-bakgrunn--darkbg;
+            border-color: $error-border-color--inverted;
+            background-color: $error-background-color--inverted;
 
             .jkl-alert-message__icon {
-                color: $feil--darkbg;
+                color: $error-border-color--inverted;
             }
         }
         &.jkl-alert-message--success {
-            border: rem(1px) solid $suksess--darkbg;
-            background-color: $suksess-bakgrunn--darkbg;
+            border-color: $success-border-color--inverted;
+            background-color: $success-background-color--inverted;
 
             .jkl-alert-message__icon {
-                color: $suksess--darkbg;
+                color: $success-border-color--inverted;
             }
         }
     }

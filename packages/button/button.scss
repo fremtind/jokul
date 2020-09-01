@@ -9,15 +9,8 @@ $button-height--compact: rem(36px);
 $button-min-width--normal: rem(104px);
 $button-min-width--compact: rem(80px);
 
-$button-bg-color: $hvit;
-$button-bg-color--primary: $svart;
-
-$button-text-color: $svart;
-$button-text-color--primary: $hvit;
-
 $button-text-size--compact: rem(14px);
 
-$button-border-color: $svart;
 $button-border-width: rem(1px);
 $button-padding: $component-spacing--xl;
 
@@ -26,6 +19,39 @@ $focus-ring-width: rem(2px);
 
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
+
+$button-border-color: $svart;
+$button-text-color: $svart;
+$button-background-color: $hvit;
+$button-focus-color: $info;
+$button-primary-text-color: $hvit;
+$button-primary-background-color: $svart;
+
+$button-border-color--inverted: $hvit;
+$button-text-color--inverted: $hvit;
+$button-background-color--inverted: transparent;
+$button-focus-color--inverted: $info--darkbg;
+$button-primary-text-color--inverted: $svart;
+$button-primary-background-color--inverted: $hvit;
+
+:root,
+[data-theme="light"] {
+    --button-border-color: #{$button-border-color};
+    --button-text-color: #{$button-text-color};
+    --button-background-color: #{$button-background-color};
+    --button-focus-color: #{$button-focus-color};
+    --button-primary-text-color: #{$button-primary-text-color};
+    --button-primary-background-color: #{$button-primary-background-color};
+}
+
+[data-theme="dark"] {
+    --button-border-color: #{$button-border-color--inverted};
+    --button-text-color: #{$button-text-color--inverted};
+    --button-background-color: #{$button-background-color--inverted};
+    --button-focus-color: #{$button-focus-color--inverted};
+    --button-primary-text-color: #{$button-primary-text-color--inverted};
+    --button-primary-background-color: #{$button-primary-background-color--inverted};
+}
 
 .jkl-button {
     @include reset-outline;
@@ -60,31 +86,10 @@ $hover-elevation-distance: -0.25rem;
 
     // ********* VARIANTS *********
 
-    &--primary {
-        background-color: $button-bg-color--primary;
-        color: $button-text-color--primary;
-
-        &:hover,
-        html:not([data-mousenavigation]) &:focus {
-            background-color: $focus-color;
-            border-color: $focus-color;
-        }
-    }
-
-    &--secondary {
-        background-color: $button-bg-color;
-        color: $button-text-color;
-
-        &:hover,
-        html:not([data-mousenavigation]) &:focus {
-            border-color: $focus-color;
-            color: $focus-color;
-        }
-    }
-
     &--primary,
     &--secondary {
         border: solid $button-border-width $button-border-color;
+        border: solid $button-border-width var(--button-border-color);
         border-radius: 999px;
         padding: 0 $button-padding;
 
@@ -103,66 +108,101 @@ $hover-elevation-distance: -0.25rem;
 
         html:not([data-mousenavigation]) &:focus {
             &:after {
-                box-shadow: 0 0 0 $focus-ring-width $focus-color;
+                box-shadow: 0 0 0 $focus-ring-width $button-focus-color;
+                box-shadow: 0 0 0 $focus-ring-width var(--button-focus-color);
             }
         }
     }
 
+    &--primary {
+        background-color: $button-primary-background-color;
+        background-color: var(--button-primary-background-color);
+        color: $button-primary-text-color;
+        color: var(--button-primary-text-color);
+
+        &:hover,
+        html:not([data-mousenavigation]) &:focus {
+            background-color: $button-focus-color;
+            background-color: var(--button-focus-color);
+            border-color: $button-focus-color;
+            border-color: var(--button-focus-color);
+        }
+    }
+
+    &--secondary {
+        background-color: $button-background-color;
+        background-color: var(--button-background-color);
+        color: $button-text-color;
+        color: var(--button-text-color);
+
+        &:hover,
+        html:not([data-mousenavigation]) &:focus {
+            color: $button-focus-color;
+            color: var(--button-focus-color);
+            border-color: $button-focus-color;
+            border-color: var(--button-focus-color);
+        }
+    }
+
     &--tertiary {
-        border-bottom: solid $button-border-width currentColor;
+        border-bottom: solid $button-border-width $button-border-color;
+        border-bottom: solid $button-border-width var(--button-border-color);
         border-top: solid $button-border-width transparent;
         background-color: transparent;
         color: $button-text-color;
+        color: var(--button-text-color);
         padding: 0;
         transition: transform $animation-timing, border $animation-timing;
         min-width: unset;
 
         &:hover,
         html:not([data-mousenavigation]) &:focus {
-            border-bottom-color: $focus-color;
+            border-bottom-color: $button-focus-color;
+            border-bottom-color: var(--button-focus-color);
             border-bottom-width: rem(2px);
-            color: $focus-color;
+            color: $button-focus-color;
+            color: var(--button-focus-color);
         }
     }
 
     &--inverted {
         &.jkl-button--primary {
-            background-color: $button-bg-color;
-            border-color: $button-bg-color;
-            color: $button-text-color;
+            background-color: $button-primary-background-color--inverted;
+            border-color: $button-border-color--inverted;
+            color: $button-primary-text-color--inverted;
 
             &:hover,
             html:not([data-mousenavigation]) &:focus {
-                background-color: $focus-color--darkbg;
-                border-color: $focus-color--darkbg;
+                background-color: $button-focus-color--inverted;
+                border-color: $button-focus-color--inverted;
             }
         }
 
         &.jkl-button--secondary {
-            background-color: $button-bg-color--primary;
-            color: $button-text-color--primary;
-            border-color: $button-text-color--primary;
+            background-color: $button-background-color--inverted;
+            color: $button-text-color--inverted;
+            border-color: $button-text-color--inverted;
 
             &:hover,
             html:not([data-mousenavigation]) &:focus {
-                color: $focus-color--darkbg;
-                border-color: $focus-color--darkbg;
+                color: $button-focus-color--inverted;
+                border-color: $button-focus-color--inverted;
             }
         }
 
         &.jkl-button--tertiary {
-            color: $button-text-color--primary;
+            color: $button-text-color--inverted;
 
             &:hover,
             html:not([data-mousenavigation]) &:focus {
-                color: $focus-color--darkbg;
-                border-bottom-color: $focus-color--darkbg;
+                color: $button-focus-color--inverted;
+                border-bottom-color: $button-focus-color--inverted;
             }
         }
 
         html:not([data-mousenavigation]) &:focus {
             &:after {
-                box-shadow: 0 0 0 $focus-ring-width $focus-color--darkbg;
+                box-shadow: 0 0 0 $focus-ring-width $button-focus-color--inverted;
             }
         }
     }

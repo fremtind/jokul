@@ -3,11 +3,21 @@
 
 $loader-dot-size: rem(18px);
 $loader-dot-size--inline: rem(8px);
-$loader-color: $svart;
-$loader-color--negative: $gra-10;
 $loader-spacing: $component-spacing--xxl;
 $loader-spacing--inline: $component-spacing--xl;
 $loader-animation-properties: 2500ms linear infinite;
+
+$loader-color: $svart;
+$loader-color--negative: $hvit;
+
+:root,
+[data-theme="light"] {
+    --loader-color: #{$loader-color};
+}
+
+[data-theme="dark"] {
+    --loader-color: #{$loader-color--negative};
+}
 
 .jkl-loader {
     display: flex;
@@ -16,6 +26,7 @@ $loader-animation-properties: 2500ms linear infinite;
         display: block;
         transform-origin: center;
         background-color: $loader-color;
+        background-color: var(--loader-color);
         height: $loader-dot-size;
         width: $loader-dot-size;
         animation: $loader-animation-properties;
@@ -33,10 +44,6 @@ $loader-animation-properties: 2500ms linear infinite;
         }
     }
 
-    &--negative > .jkl-loader__dot {
-        background-color: $loader-color--negative;
-    }
-
     &--inline > .jkl-loader__dot {
         height: $loader-dot-size--inline;
         width: $loader-dot-size--inline;
@@ -47,6 +54,10 @@ $loader-animation-properties: 2500ms linear infinite;
         &--middle {
             margin-right: $loader-spacing--inline;
         }
+    }
+
+    &--negative > .jkl-loader__dot {
+        background-color: $loader-color--negative;
     }
 }
 

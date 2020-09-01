@@ -3,7 +3,7 @@
 
 @import "~@fremtind/jkl-icons/animated-icons.scss";
 
-$controller-button-padding: rem(5px);
+$controller-button-padding: $component-spacing--medium;
 
 $item-height: $line-height-3;
 $item-font-size: $font-size-3;
@@ -16,6 +16,7 @@ $item-font-size: $font-size-3;
         position: relative;
         & > input {
             width: 100%;
+            padding-right: $component-spacing--xxl; // to accomodate button
         }
     }
 

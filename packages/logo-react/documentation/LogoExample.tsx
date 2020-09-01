@@ -9,5 +9,6 @@ export const LogoExample = ({ boolValues }: ExampleComponentProps) => (
         animated={boolValues && boolValues["Animert"]}
         isSymbol={boolValues && boolValues["Kun symbol"]}
         centered={boolValues && boolValues["Sentrert"]}
+        inverted={boolValues && boolValues["Invertert"]}
     />
 );

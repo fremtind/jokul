@@ -8,7 +8,7 @@ const getTypeOfBox = (typeofBox?: string) => {
             return InfoAlertMessage;
         case "Suksessmelding":
             return SuccessAlertMessage;
-        case "Advarselsmelding":
+        case "Advarselmelding":
             return WarningAlertMessage;
         case "Feilmelding":
             return ErrorAlertMessage;

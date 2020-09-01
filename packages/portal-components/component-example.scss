@@ -57,6 +57,11 @@
 
     &__choice-option {
         margin-top: $layout-spacing--small;
+
+        & .jkl-label.jkl-label--small {
+            @include jkl-text-style("desktop/micro");
+            font-weight: $bold-weight;
+        }
     }
 
     @include small-device {

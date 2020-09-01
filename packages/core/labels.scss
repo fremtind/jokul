@@ -2,13 +2,23 @@
 @import "./mixins/all";
 @import "./functions";
 
+:root,
+[data-theme="light"] {
+    --label-error-color: #{$feil};
+}
+
+¨[data-theme="dark"] {
+    --label-error-color: #{$feil--darkbg};
+}
+
 .jkl-form-support-label {
     @include jkl-text-style("desktop/small");
     display: block;
     margin-top: $component-spacing--small;
 
     &--error {
-        color: $error-color;
+        color: $feil;
+        color: var(--label-error-color);
     }
 
     &--sr-only {

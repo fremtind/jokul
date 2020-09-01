@@ -1,11 +1,24 @@
 @import "~@fremtind/jkl-core/variables/_colors.scss";
 
-$jkl-logo-color: $svart;
-$jkl-logo-color--negative: $gra-10;
 $jkl-logo-magic-origin--f: 30px 132px; /* Is connected to the viewbox of the logo, change at your own risk */
 $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
 
+$logo-color: $svart;
+$logo-color--inverted: $hvit;
+
+:root,
+[data-theme="light"] {
+    --logo-color: #{$logo-color};
+}
+
+[data-theme="dark"] {
+    --logo-color: #{$logo-color--inverted};
+}
+
 .jkl-logo {
+    color: $logo-color;
+    color: var(--logo-color);
+
     &__F {
         transform-origin: $jkl-logo-magic-origin--f;
         &-line {
@@ -41,6 +54,10 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
         & .jkl-logo__remtind {
             transition: opacity 250ms 75ms ease-in, transform 250ms ease;
         }
+    }
+
+    &--inverted {
+        color: $logo-color--inverted;
     }
 }
 

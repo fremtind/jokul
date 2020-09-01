@@ -3,12 +3,6 @@
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
-$bg-color: inherit;
-$bg-color--options: $hvit;
-
-$border-color: $svart;
-$border-color--focus: $info;
-
 $value-height: $line-height-4;
 $value-font-size: $font-size-6;
 
@@ -18,9 +12,43 @@ $bottom-padding: $component-spacing--small;
 $arrow-height: rem(16px);
 $arrow-width: rem(13px);
 
+$select-border-color: $svart;
+$select-text-color: $svart;
+$select-background-color: $hvit;
+$select-open-background-color: $hvit;
+$select-focus-color: $info;
+$select-error-color: $feil;
+
+$select-border-color--inverted: $hvit;
+$select-text-color--inverted: $hvit;
+$select-background-color--inverted: transparent;
+$select-open-background-color--inverted: $gra-80;
+$select-focus-color--inverted: $info--darkbg;
+$select-error-color--inverted: $feil--darkbg;
+
+:root,
+[data-theme="light"] {
+    --select-border-color: #{$select-border-color};
+    --select-text-color: #{$select-text-color};
+    --select-background-color: #{$select-background-color};
+    --select-open-background-color: #{$select-open-background-color};
+    --select-focus-color: #{$select-focus-color};
+    --select-error-color: #{$select-error-color};
+}
+
+[data-theme="dark"] {
+    --select-border-color: #{$select-border-color--inverted};
+    --select-text-color: #{$select-text-color--inverted};
+    --select-background-color: #{$select-background-color--inverted};
+    --select-open-background-color: #{$select-open-background-color--inverted};
+    --select-focus-color: #{$select-focus-color--inverted};
+    --select-error-color: #{$select-error-color--inverted};
+}
+
 .jkl-select {
     @include reset-outline;
-    background-color: $bg-color;
+    background-color: $select-background-color;
+    background-color: var(--select-background-color);
     display: block;
     position: relative;
     width: 15rem;
@@ -37,12 +65,14 @@ $arrow-width: rem(13px);
         }
         &:-moz-focusring {
             color: transparent;
-            text-shadow: 0 0 0 $border-color;
+            text-shadow: 0 0 0 $select-text-color;
+            text-shadow: 0 0 0 var(--select-text-color);
         }
         & option {
             font-weight: normal;
             font-family: sans-serif;
-            color: black;
+            color: $select-text-color;
+            color: var(--select-text-color);
         }
     }
     /* End of resets */
@@ -53,11 +83,8 @@ $arrow-width: rem(13px);
 
     &__search-input {
         box-sizing: border-box;
-        color: $svart !important;
-
-        .jkl-select--inverted & {
-            color: $hvit !important;
-        }
+        color: $select-text-color !important;
+        color: var(--select-text-color) !important;
     }
 
     /* The main select element showing the current value */
@@ -67,13 +94,17 @@ $arrow-width: rem(13px);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        background-color: $hvit;
-        color: $svart;
+        background-color: $select-background-color;
+        background-color: var(--select-background-color);
+        color: $select-text-color;
+        color: var(--select-text-color);
 
         height: rem(48px);
-        border: rem(1px) solid $svart;
         border-radius: rem(3px);
-        box-shadow: 0 0 0 0 $svart;
+        border: rem(1px) solid $select-border-color;
+        border: rem(1px) solid var(--select-border-color);
+        box-shadow: 0 0 0 0 $select-border-color;
+        box-shadow: 0 0 0 0 var(--select-border-color);
 
         padding: $component-spacing--small $component-spacing--large;
         padding-right: $arrow-width + 2 * $component-spacing--large;
@@ -85,12 +116,16 @@ $arrow-width: rem(13px);
 
         &:hover,
         &:focus {
-            border-color: $info;
-            color: $info;
-            box-shadow: 0 0 0 rem(1px) $info;
+            border-color: $select-focus-color;
+            border-color: var(--select-focus-color);
+            color: $select-focus-color;
+            color: var(--select-focus-color);
+            box-shadow: 0 0 0 rem(1px) $select-focus-color;
+            box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
 
             & ~ .jkl-select__arrow {
-                color: $info;
+                color: $select-focus-color;
+                color: var(--select-focus-color);
             }
         }
 
@@ -120,8 +155,10 @@ $arrow-width: rem(13px);
         top: 100%;
         z-index: $z-index--dropdown;
 
-        background-color: $bg-color--options;
-        border: rem(2px) solid $info;
+        background-color: $select-open-background-color;
+        background-color: var(--select-open-background-color);
+        border: rem(2px) solid $select-focus-color;
+        border: rem(2px) solid var(--select-focus-color);
         border-top: none;
         border-radius: 0 0 rem(3px) rem(3px);
         box-sizing: border-box;
@@ -160,7 +197,8 @@ $arrow-width: rem(13px);
         }
 
         &:focus {
-            color: $info;
+            color: $select-focus-color;
+            color: var(--select-focus-color);
 
             &::before {
                 content: "→ ";
@@ -168,13 +206,15 @@ $arrow-width: rem(13px);
         }
 
         &:hover {
-            color: $info;
+            color: $select-focus-color;
+            color: var(--select-focus-color);
         }
 
         &[aria-selected="true"]:not(:focus) {
             &::after {
                 $mask-image-url: url('data:image/svg+xml; utf8, <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.52632L4.6 12L16 1" stroke="black"/></svg>');
-                background-color: $info;
+                background-color: $select-focus-color;
+                background-color: var(--select-focus-color);
                 content: "";
                 /* autoprefixer with Browserlist="Chrome >= 70" will not generate 
                  * a prefix for this even if Chrome 70 doesn't support mask-image
@@ -203,8 +243,12 @@ $arrow-width: rem(13px);
         .jkl-select__button {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-            border-color: $info;
-            box-shadow: 0 0 0 rem(1px) $info;
+            border-color: $select-focus-color;
+            border-color: var(--select-focus-color);
+            background-color: $select-open-background-color;
+            background-color: var(--select-open-background-color);
+            box-shadow: 0 0 0 rem(1px) $select-focus-color;
+            box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
 
             &:hover ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{rem(-3px)}));
@@ -215,29 +259,36 @@ $arrow-width: rem(13px);
     &--invalid {
         .jkl-select__search-input,
         .jkl-select__button {
-            border-color: $feil;
+            border-color: $select-error-color;
+            border-color: var(--select-error-color);
         }
         .jkl-select__search-input:hover,
         .jkl-select__search-input:focus,
         .jkl-select__button:hover,
         .jkl-select__button:focus {
-            box-shadow: 0 0 0 rem(1px) $feil;
-            color: $feil;
+            box-shadow: 0 0 0 rem(1px) $select-error-color;
+            box-shadow: 0 0 0 rem(1px) var(--select-error-color);
+            color: $select-error-color;
+            color: var(--select-error-color);
 
             & ~ .jkl-select__arrow {
-                color: $feil;
+                color: $select-error-color;
+                color: var(--select-error-color);
             }
         }
 
         &.jkl-select--open {
             .jkl-select__search-input,
             .jkl-select__button {
-                border-color: $info;
-                box-shadow: 0 0 0 rem(1px) $info;
+                border-color: $select-focus-color;
+                border-color: var(--select-focus-color);
+                box-shadow: 0 0 0 rem(1px) $select-focus-color;
+                box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
                 &:hover,
                 &:focus {
                     & ~ .jkl-select__arrow {
-                        color: $info;
+                        color: $select-focus-color;
+                        color: var(--select-focus-color);
                     }
                 }
             }
@@ -247,27 +298,32 @@ $arrow-width: rem(13px);
     &--inverted {
         .jkl-select__search-input,
         .jkl-select__button {
-            background-color: transparent;
-            border-color: $hvit;
-            color: $hvit;
+            background-color: $select-background-color--inverted;
+            border-color: $select-border-color--inverted;
+            color: $select-text-color--inverted;
         }
+
+        .jkl-select__search-input {
+            color: $select-text-color--inverted !important;
+        }
+
         .jkl-select__search-input:hover,
         .jkl-select__search-input:focus,
         .jkl-select__button:hover,
         .jkl-select__button:focus,
         &.jkl-select--open .jkl-select__search-input,
         &.jkl-select--open .jkl-select__button {
-            box-shadow: 0 0 0 rem(1px) $info--darkbg;
-            border-color: $info--darkbg;
+            box-shadow: 0 0 0 rem(1px) $select-focus-color--inverted;
+            border-color: $select-focus-color--inverted;
 
             & ~ .jkl-select__arrow {
-                color: $info--darkbg;
+                color: $select-focus-color--inverted;
             }
         }
 
         .jkl-select__option {
             &:focus {
-                color: $info--darkbg;
+                color: $select-focus-color--inverted;
 
                 &::before {
                     content: "→";
@@ -275,32 +331,32 @@ $arrow-width: rem(13px);
             }
 
             &[aria-selected="true"]:not(:focus)::after {
-                background-color: $info--darkbg;
+                background-color: $select-focus-color--inverted;
             }
 
             &:hover {
-                color: $info--darkbg;
+                color: $select-focus-color--inverted;
             }
         }
 
         .jkl-select__options-menu,
         &.jkl-select--open .jkl-select__search-input,
         &.jkl-select--open .jkl-select__button {
-            border-color: $info--darkbg;
-            background-color: $gra-80;
+            border-color: $select-focus-color--inverted;
+            background-color: $select-open-background-color--inverted;
         }
 
         &.jkl-select--invalid {
             .jkl-select__search-input,
             .jkl-select__button {
-                border-color: $feil--darkbg;
+                border-color: $select-error-color--inverted;
 
                 &:hover,
                 &:focus {
-                    box-shadow: 0 0 0 rem(1px) $feil--darkbg;
-                    color: $feil--darkbg;
+                    box-shadow: 0 0 0 rem(1px) $select-error-color--inverted;
+                    color: $select-error-color--inverted;
                     & ~ .jkl-select__arrow {
-                        color: $feil--darkbg;
+                        color: $select-error-color--inverted;
                     }
                 }
             }
@@ -308,13 +364,13 @@ $arrow-width: rem(13px);
             &.jkl-select--open {
                 .jkl-select__search-input,
                 .jkl-select__button {
-                    border-color: $info--darkbg;
-                    box-shadow: 0 0 0 rem(1px) $info--darkbg;
+                    border-color: $select-focus-color--inverted;
+                    box-shadow: 0 0 0 rem(1px) $select-focus-color--inverted;
                     &:hover,
                     &:focus {
-                        color: $info--darkbg;
+                        color: $select-focus-color--inverted;
                         & ~ .jkl-select__arrow {
-                            color: $info--darkbg;
+                            color: $select-focus-color--inverted;
                         }
                     }
                 }
