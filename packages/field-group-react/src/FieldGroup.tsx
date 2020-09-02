@@ -10,6 +10,7 @@ interface Props {
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
+    inverted?: boolean;
 }
 
 export const FieldGroup = ({
@@ -20,6 +21,7 @@ export const FieldGroup = ({
     errorLabel,
     variant = "medium",
     forceCompact,
+    inverted,
 }: Props) => {
     const componentClassName = classNames("jkl-field-group", className);
     return (
@@ -30,7 +32,9 @@ export const FieldGroup = ({
                 </Label>
             </legend>
             {children}
-            {(helpLabel || errorLabel) && <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} />}
+            {(helpLabel || errorLabel) && (
+                <SupportLabel inverted={inverted} helpLabel={helpLabel} errorLabel={errorLabel} />
+            )}
         </fieldset>
     );
 };

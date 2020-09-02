@@ -39,6 +39,7 @@ export const RadioButtons = ({
         variant={variant}
         forceCompact={forceCompact}
         className={className}
+        inverted={inverted}
     >
         {choices.map(getValuePair).map(({ label, value }) => (
             <RadioButtonOption
