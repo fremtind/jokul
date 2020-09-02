@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.0 (2020-09-02)
+
+### Features
+
+- **radio-buttons:** update style to follow sketches ([bbca2d0](https://github.com/fremtind/jokul/commit/bbca2d0ae58a2e9e2214d86f01e7646ad8186f8a))
+
 ## 1.3.0 (2020-07-06)
 
 ### Features

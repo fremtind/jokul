@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.0 (2020-09-02)
+
+### Features
+
+- **field-group:** implement inverted mode in field group ([11dc6bb](https://github.com/fremtind/jokul/commit/11dc6bbca1635383f67fef4bb82de80fe6628c20))
+
 ## 1.5.0 (2020-07-29)
 
 ### Features
