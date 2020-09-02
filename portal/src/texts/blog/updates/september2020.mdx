@@ -11,6 +11,7 @@ Ny måned, ny oppdateringspost. De fleste er tilbake fra ferie og maskineriet fy
 - **Nytt domene!!** [https://jokul.fremtind.no/](https://jokul.fremtind.no/) er det nye hjemmet til Jøkul. Vi er jo veldig glade i github, men vi hører jo hjemme hos oss selv. Det blir også lettere for de utenfor utvikling å følge med og ta ibruk Jøkul også.
 - Vi har ventet på en del fikser fra core-components, men selvom vi har lagd PRer og de har ligget der en stund, så har det ikke vært fremdrift. En midlertidig løsning på dette var å bruke [patch-package](https://github.com/fremtind/jokul/pull/1214) til å legge våre fikser inn, uten å måtte forke eller andre drastiske tiltak. Kjerneteamet kommer til å fortsette å følge opp core-components situasjonen.
 - Automatiske visuelle regresjonstester er på vei inn i de fleste pakker. Vi ønsker å øke tilliten til at endringer i Jøkul gjør det de skal, og ved å få på plass visuelle regresjonstester håper vi å gjøre akkurat det. Per nå er det Accordion, Button og Checkbox som har disse testene, det vil rulles ut på flere av komponenten og etterhvert settes som krav for å få lov til å merge. Vi har allerede sett en markant forbedring i stabiliteten til Cypress testene, så vi er nok ikke veldig langt unna å sette det som krav.
+- Det er nå støtte for universell dark mode i alle* komponentene. Det vil si at du slipper å bruke `inverted`-propen på komponentene for å få dark mode, med mindre du trenger å støtte IE11. Det fungerer slik at alle komponenter automatisk bytter over til dark mode dersom de er inne i et element med attributten `data-theme="dark"`. *`Card`, `ProgressBar` og `ToggleSwitch` har foreløpig ikke denne funksjonaliteten, i påvente av komplett redesign.
 
 ## 🌱 Releaser
 
@@ -33,4 +34,3 @@ Ny måned, ny oppdateringspost. De fleste er tilbake fra ferie og maskineriet fy
     - Nå som både utilityklasser, hooks og valideringsregler dokumenteres under komponentersiden, så begynner det bli vanskelig å holde oversikten.
 - 💅 [Mobil støtte](https://github.com/fremtind/jokul/pull/1241)
     - Vi har fått med oss alt folk av og til bruker telefonen sin til å gå på internet. Portalens primærfokus er power users på desktop, men vi bryr oss også om de som bruker telefonen sin. Med denne tar vi enda noen skritt mot en god brukeropplevelse på alle flater.
-
