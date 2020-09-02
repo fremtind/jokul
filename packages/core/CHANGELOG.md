@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.14.2 (2020-09-02)
+
+### Bug Fixes
+
+- **core:** add a font stack ([903043f](https://github.com/fremtind/jokul/commit/903043fabe465e6ea10bd1a90541ed8cd33e7010))
+
 ## 4.14.1 (2020-09-01)
 
 ### Bug Fixes
