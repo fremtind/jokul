@@ -20,3 +20,5 @@ export const Info: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Info.displayName = "Info";

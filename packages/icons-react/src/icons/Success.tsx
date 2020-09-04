@@ -17,3 +17,5 @@ export const Success: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Success.displayName = "Success";

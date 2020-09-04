@@ -18,3 +18,5 @@ export const Search: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Search.displayName = "Search";

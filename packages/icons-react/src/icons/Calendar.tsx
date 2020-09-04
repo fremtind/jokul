@@ -18,3 +18,5 @@ export const Calendar: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Calendar.displayName = "Calendar";

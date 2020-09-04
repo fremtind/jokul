@@ -24,3 +24,5 @@ export const ArrowVerticalAnimated: React.FC<Props> = ({ pointingDown, variant =
         </div>
     );
 };
+
+ArrowVerticalAnimated.displayName = "ArrowVerticalAnimated";

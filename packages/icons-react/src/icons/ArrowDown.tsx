@@ -17,3 +17,5 @@ export const ArrowDown: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+ArrowDown.displayName = "ArrowDown";
