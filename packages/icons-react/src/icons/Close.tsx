@@ -18,3 +18,5 @@ export const Close: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Close.displayName = "Close";

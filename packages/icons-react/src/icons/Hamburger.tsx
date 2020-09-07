@@ -18,3 +18,5 @@ export const Hamburger: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Hamburger.displayName = "Hamburger";

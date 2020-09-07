@@ -23,3 +23,5 @@ export const ArrowHorizontalAnimated: React.FC<Props> = ({ pointingRight, varian
         </div>
     );
 };
+
+ArrowHorizontalAnimated.displayName = "ArrowHorizontalAnimated";

@@ -18,3 +18,5 @@ export const Plus: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Plus.displayName = "Plus";

@@ -17,3 +17,5 @@ export const Error: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Error.displayName = "Error";
