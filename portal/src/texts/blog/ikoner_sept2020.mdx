@@ -5,11 +5,12 @@ description: Hvordan kan vi lage et robust system for ikoner som skalerer og er 
 publishDate: "2020.09.07"
 ---
 
-![](https://assets/blog/ikon_illustrasjon.png)
+![Illustrasjon av ikon justert i forhold til fonthøyde, linjehøyde og baseline](/assets/blog/ikon_illustrasjon.png)
 
 # Bakgrunn
 
-Ikonbiblioteket i Jøkul har frem til nå bestått av desktop- og kompaktversjoner av ikonene og hatt varierende størrelser på innrammingen. Dette kan gi utfordringer mht plassering hvis man ønsker å bytte ut en instance av et ikon i Figma eller i kode. 
+Ikonbiblioteket i Jøkul har frem til nå bestått av desktop- og kompaktversjoner av ikonene og hatt varierende størrelser på innrammingen. Dette kan gi utfordringer mht plassering hvis man ønsker å bytte ut en instance av et ikon i Figma eller i kode.
+
 # Løsning
 
 For å lage et enklere og mer fleksibelt prinsipp har vi valgt å basere ikonene på fontens em-size. Det betyr at alle ikonene er tegnet innenfor en ramme som matcher fontens høyde mens bredden tilpasses ikon- bredden. Slik følger vi samme prinsipp som for tegn med ulik bredde i et skriftsnitt. Ikonets baseline (grunnlinje) følger fontens baseline og ikonet kan i praksis skaleres opp relatert til fontens størrelse. På denne måten trenger vi ikke lenger én definert ikonstørrelse for desktop og en annen for kompakt fordi det samme ikonet følger fontstørrelsen.
@@ -33,4 +34,5 @@ Med tanke på optisk justering har bold versjonene kun fått en tykkere strek se
 Hvis et ikon skaleres opp for å matche en gitt fontstørrelse er det viktig at du tar utgangspunkt i fontsize og ikke lineheight. Ikonet skaleres proposjonalt i høyde/bredderetning slik at det ikke blir strukket (hold inne shift-tasten). Merk at ved skalering i Figma må du bruke scale-funksjonen (keyboard-K) slik at også strektykkelsen skaleres sammen med størrelsen.
 
 # Og så videre ...
+
 Prinsippene ovenfor er viktige å ta hensyn til ved design av nye ikoner slik at vi får et konsistent og funksjonelt ikonbibliotek: Design ikonet som en font med optiske justeringer i forhold til baseline og sett i forhold til fontens høyder på versaler og minuskler men bruk de definerte verdiene for strektykkelser.
