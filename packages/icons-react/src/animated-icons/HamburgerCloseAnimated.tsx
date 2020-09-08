@@ -32,3 +32,5 @@ export const HamburgerCloseAnimated: React.FC<Props> = ({ isBurger, variant = "s
         </div>
     );
 };
+
+HamburgerCloseAnimated.displayName = "HamburgerCloseAnimated";

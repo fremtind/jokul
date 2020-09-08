@@ -19,3 +19,5 @@ export const PlusRemoveAnimated: React.FC<Props> = ({ isPlus, variant = "small" 
         </div>
     );
 };
+
+PlusRemoveAnimated.displayName = "PlusRemoveAnimated";

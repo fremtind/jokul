@@ -20,3 +20,5 @@ export const Warning: React.FC<IconProps> = ({ className, variant }) => (
         }
     />
 );
+
+Warning.displayName = "Warning";

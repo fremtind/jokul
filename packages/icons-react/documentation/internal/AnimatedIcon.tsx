@@ -4,7 +4,7 @@ import "@fremtind/jkl-button/button.min.css";
 
 interface AnimatedIconProps {
     renderIcon: (arg0: boolean) => React.ReactNode;
-    iconName: string;
+    iconName?: string;
     inverted: boolean;
 }
 
@@ -15,7 +15,7 @@ export const AnimatedIcon: React.FC<AnimatedIconProps> = ({ renderIcon, iconName
             <div>
                 {renderIcon(state)}
                 <div className={`jkl-micro jkl-component-spacing--small-top jkl-color-${inverted ? "hvit" : "svart"}`}>
-                    {iconName}
+                    {iconName || renderIcon.name}
                 </div>
             </div>
             <SecondaryButton

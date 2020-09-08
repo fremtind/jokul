@@ -70,7 +70,7 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
                     <IconExample
                         key={Ico.name}
                         renderIcon={() => <Ico variant={variant} />}
-                        name={Ico.name}
+                        name={Ico.displayName}
                         inverted={inverted}
                     />
                 ))}
@@ -84,22 +84,22 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
             <Grid columns="two" color={color}>
                 <AnimatedIcon
                     renderIcon={(isDown) => <ArrowVerticalAnimated pointingDown={isDown} variant={variant} />}
-                    iconName={ArrowVerticalAnimated.name}
+                    iconName={ArrowVerticalAnimated.displayName}
                     inverted={inverted}
                 />
                 <AnimatedIcon
                     renderIcon={(isRight) => <ArrowHorizontalAnimated pointingRight={isRight} variant={variant} />}
-                    iconName={ArrowHorizontalAnimated.name}
+                    iconName={ArrowHorizontalAnimated.displayName}
                     inverted={inverted}
                 />
                 <AnimatedIcon
                     renderIcon={(isPlus) => <PlusRemoveAnimated isPlus={isPlus} variant={variant} />}
-                    iconName={PlusRemoveAnimated.name}
+                    iconName={PlusRemoveAnimated.displayName}
                     inverted={inverted}
                 />
                 <AnimatedIcon
                     renderIcon={(isBurger) => <HamburgerCloseAnimated isBurger={isBurger} variant={variant} />}
-                    iconName={HamburgerCloseAnimated.name}
+                    iconName={HamburgerCloseAnimated.displayName}
                     inverted={inverted}
                 />
             </Grid>
