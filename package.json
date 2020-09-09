@@ -89,7 +89,7 @@
         "gulp-sass": "^4.1.0",
         "husky": "^4.2.5",
         "jest": "^26.1.0",
-        "jest-axe": "^3.4.0",
+        "jest-axe": "^4.0.0",
         "lerna": "^3.22.1",
         "lerna-clean-changelogs-cli": "^1.2.64",
         "lint-staged": "^10.2.11",
