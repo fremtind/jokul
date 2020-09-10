@@ -1,6 +1,15 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 import "./GitHubLinks.scss";
+
+interface LinkProps {
+    href: string;
+}
+const ExternalLink: React.FC<LinkProps> = ({ href, children }) => (
+    <a className="jkl-link jkl-portal-github-links__link" href={href} target="_blank" rel="noopener noreferrer">
+        {children}
+    </a>
+);
 
 interface Props {
     react?: string;
@@ -20,13 +29,3 @@ export function GitHubLinks({ react, scss }: Props) {
         </p>
     );
 }
-
-interface LinkProps {
-    href: string;
-    children: ReactNode;
-}
-const ExternalLink: React.FC<LinkProps> = ({ href, children }) => (
-    <a className="jkl-link jkl-portal-github-links__link" href={href} target="_blank" rel="noopener noreferrer">
-        {children}
-    </a>
-);

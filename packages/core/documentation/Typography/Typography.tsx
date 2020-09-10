@@ -2,6 +2,29 @@ import React from "react";
 
 import "./Typography.scss";
 
+interface ExampleRowProps {
+    text: string;
+    style: string;
+    type: "desktop" | "compact";
+}
+const ExampleRow = ({ text, style, type }: ExampleRowProps) => (
+    <tr className="jkl-typography-example-table__row">
+        <td className="jkl-typography-example-table__data">
+            <p className={`jkl-${style}`}>{text}</p>
+        </td>
+        <td data-header="Mixin:" className="jkl-typography-example-table__data">
+            <p className="jkl-small">
+                <code className="jkl-portal-inline-code">{`@include jkl-text-style("${type}/${style}")`}</code>
+            </p>
+        </td>
+        <td data-header="Klasse:" className="jkl-typography-example-table__data">
+            <p className="jkl-small">
+                <code className="jkl-portal-inline-code">.jkl-{style}</code>
+            </p>
+        </td>
+    </tr>
+);
+
 export const DesktopExample = () => (
     <table className="jkl-typography-example-table">
         <tr>
@@ -38,27 +61,4 @@ export const CompactExample = () => (
         <ExampleRow text="Small" style="small" type="compact" />
         <ExampleRow text="Micro" style="micro" type="compact" />
     </table>
-);
-
-interface ExampleRowProps {
-    text: string;
-    style: string;
-    type: "desktop" | "compact";
-}
-const ExampleRow = ({ text, style, type }: ExampleRowProps) => (
-    <tr className="jkl-typography-example-table__row">
-        <td className="jkl-typography-example-table__data">
-            <p className={`jkl-${style}`}>{text}</p>
-        </td>
-        <td data-header="Mixin:" className="jkl-typography-example-table__data">
-            <p className="jkl-small">
-                <code className="jkl-portal-inline-code">{`@include jkl-text-style("${type}/${style}")`}</code>
-            </p>
-        </td>
-        <td data-header="Klasse:" className="jkl-typography-example-table__data">
-            <p className="jkl-small">
-                <code className="jkl-portal-inline-code">.jkl-{style}</code>
-            </p>
-        </td>
-    </tr>
 );
