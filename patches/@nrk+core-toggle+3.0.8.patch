@@ -1,5 +1,5 @@
 diff --git a/node_modules/@nrk/core-toggle/jsx.js b/node_modules/@nrk/core-toggle/jsx.js
-index b9e52a9..dacfa4a 100644
+index b9e52a9..191544f 100644
 --- a/node_modules/@nrk/core-toggle/jsx.js
 +++ b/node_modules/@nrk/core-toggle/jsx.js
 @@ -308,7 +308,7 @@ var CoreToggle = /*#__PURE__*/function (_HTMLElement) {
@@ -24,11 +24,15 @@ index b9e52a9..dacfa4a 100644
  
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -514,6 +514,7 @@ function customElementToReact(elementClass, options) {
+@@ -513,9 +513,8 @@ function customElementToReact(elementClass, options) {
+   );
  }
  
- var coreToggle = customElementToReact(CoreToggle, {
+-var coreToggle = customElementToReact(CoreToggle, {
++export default customElementToReact(CoreToggle, {
 +  name: "CoreToggle",
    customEvents: ['toggle', 'toggle.select'],
    suffix: version
  });
+-
+-module.exports = coreToggle;

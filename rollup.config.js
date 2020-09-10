@@ -5,7 +5,7 @@ import { terser } from "rollup-plugin-terser";
 import fs from "fs";
 import path from "path";
 
-const extensions = [".ts", ".tsx"];
+const extensions = [".js", ".ts", ".tsx"];
 const outputFolder = "build";
 
 const allFremtindPackagesNames = getFremtindPackageNames();
