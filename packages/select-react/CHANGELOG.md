@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.4.13 (2020-09-11)
+
+### Bug Fixes
+
+- actually bundle nrk core components ([d764dc1](https://github.com/fremtind/jokul/commit/d764dc11909b388325353f8ceccaed0a3c97416d))
+
 ## 2.4.0 (2020-08-13)
 
 ### Bug Fixes

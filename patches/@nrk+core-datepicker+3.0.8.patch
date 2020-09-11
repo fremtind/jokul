@@ -1,5 +1,5 @@
 diff --git a/node_modules/@nrk/core-datepicker/jsx.js b/node_modules/@nrk/core-datepicker/jsx.js
-index 00848d7..1bc38dc 100644
+index 00848d7..5096ed7 100644
 --- a/node_modules/@nrk/core-datepicker/jsx.js
 +++ b/node_modules/@nrk/core-datepicker/jsx.js
 @@ -328,6 +328,35 @@ var index_min = createCommonjsModule(function (module, exports) {
@@ -114,11 +114,16 @@ index 00848d7..1bc38dc 100644
  
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -747,6 +805,7 @@ function customElementToReact(elementClass, options) {
+@@ -746,10 +804,9 @@ function customElementToReact(elementClass, options) {
+   );
  }
  
- var coreDatepicker = customElementToReact(CoreDatepicker, {
+-var coreDatepicker = customElementToReact(CoreDatepicker, {
++export default customElementToReact(CoreDatepicker, {
 +  name: "CoreDatepicker",
    props: ['disabled'],
    customEvents: ['datepicker.change', 'datepicker.click.day'],
    suffix: version
+ });
+-
+-module.exports = coreDatepicker;
