@@ -1,22 +1,14 @@
 import React from "react";
-import { ArrowVerticalAnimated, Close } from "@fremtind/jkl-icons-react";
+import { Search, Close } from "@fremtind/jkl-icons-react";
 
 interface Props {
     clearSelection: () => void;
     hasSelectedItem: boolean;
-    isOpen: boolean;
     onClick: () => void;
     inverted?: boolean;
 }
 
-const ControllerButton: React.FC<Props> = ({
-    isOpen,
-    hasSelectedItem,
-    clearSelection,
-    onClick,
-    inverted = false,
-    ...rest
-}) => (
+const ControllerButton: React.FC<Props> = ({ hasSelectedItem, clearSelection, onClick, inverted = false, ...rest }) => (
     <button
         {...rest}
         className={`jkl-autosuggest__controller-button ${
@@ -26,7 +18,7 @@ const ControllerButton: React.FC<Props> = ({
         onClick={hasSelectedItem ? clearSelection : onClick}
         type="button"
     >
-        {!hasSelectedItem && <ArrowVerticalAnimated pointingDown={!isOpen} />}
+        {!hasSelectedItem && <Search variant="small" />}
         {hasSelectedItem && <Close variant="small" />}
     </button>
 );
