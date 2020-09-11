@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "2.4.12",
+    "version": "2.4.13",
     "publishConfig": {
         "access": "public"
     },
@@ -44,8 +44,8 @@
         "nanoid": "^3.1.10"
     },
     "devDependencies": {
-        "@nrk/core-toggle": "3.0.8",
-        "@fremtind/jkl-portal-components": "^0.7.4"
+        "@fremtind/jkl-portal-components": "^0.7.4",
+        "@nrk/core-toggle": "3.0.8"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",
