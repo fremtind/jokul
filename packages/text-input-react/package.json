@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "3.5.8",
+    "version": "3.5.9",
     "publishConfig": {
         "access": "public"
     },
@@ -40,7 +40,7 @@
         "@babel/runtime": "^7.9.0",
         "@fremtind/jkl-icon-button-react": "^0.3.14",
         "@fremtind/jkl-icons-react": "^1.1.12",
-        "@fremtind/jkl-text-input": "^2.2.3",
+        "@fremtind/jkl-text-input": "^2.2.4",
         "@fremtind/jkl-typography-react": "^2.4.10",
         "classnames": "^2.2.6",
         "downshift": "^6.0.5",
