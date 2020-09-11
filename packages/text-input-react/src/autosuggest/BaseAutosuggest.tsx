@@ -88,14 +88,12 @@ function BaseAutosuggest<T>({
                             {showDropdownControllerButton && (
                                 <ControllerButton
                                     {...getToggleButtonProps()}
-                                    isOpen={isOpen}
                                     hasSelectedItem={!!selectedItem}
                                     clearSelection={clearSelection}
                                     inverted={inverted}
                                 />
                             )}
                         </div>
-                        <SupportLabel inverted={inverted} errorLabel={errorLabel} helpLabel={helpLabel} />
                         {isOpen && (
                             <Menu
                                 downshiftProps={{
@@ -110,6 +108,7 @@ function BaseAutosuggest<T>({
                                 inverted={inverted}
                             />
                         )}
+                        <SupportLabel inverted={inverted} errorLabel={errorLabel} helpLabel={helpLabel} />
                     </div>
                 );
             }}
