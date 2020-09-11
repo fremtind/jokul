@@ -40,11 +40,11 @@
         "@fremtind/jkl-react-hooks": "^1.6.11",
         "@fremtind/jkl-select": "^2.3.3",
         "@fremtind/jkl-typography-react": "^2.4.10",
-        "@nrk/core-toggle": "3.0.8",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.10"
     },
     "devDependencies": {
+        "@nrk/core-toggle": "3.0.8",
         "@fremtind/jkl-portal-components": "^0.7.4"
     },
     "peerDependencies": {

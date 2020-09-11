@@ -36,10 +36,10 @@
         "@babel/runtime": "^7.9.0",
         "@fremtind/jkl-accordion": "^1.2.3",
         "@fremtind/jkl-react-hooks": "^1.6.11",
-        "@nrk/core-toggle": "3.0.8",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
+        "@nrk/core-toggle": "3.0.8",
         "@fremtind/jkl-portal-components": "^0.7.4"
     },
     "peerDependencies": {
