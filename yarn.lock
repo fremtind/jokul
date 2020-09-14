@@ -18834,9 +18834,9 @@ react-helmet@^6.0.0:
     react-side-effect "^2.1.0"
 
 react-hook-form@^6.0.1:
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.7.0.tgz#84702b6a56c6c81d7c43cbfbd343e4884dd1e6be"
-  integrity sha512-2ySZ/lyp8xinKUMv/yoSo3NcNknfrHGlJ1pIV2U80H0WlFSGaGZ0wvAHmgfl1L5ZhoQND6mawcv09wuM8OGVPw==
+  version "6.8.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.8.2.tgz#2a63b3d8578bd4f7965767ae4e205c2c24a1c5bc"
+  integrity sha512-9Xz1uz61fCMtQ0MTTnTIDqUpWWi+livCUsYcIOpUrlJXDHJ7QgDLF3wVKcmLIX727FFyGzesXkVCg8cQuRy8OQ==
 
 react-hot-loader@^4.12.21:
   version "4.12.21"
