@@ -3631,6 +3631,22 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-2.1.1.tgz#ceff6a28a5b4867c2dd4a1ba513de278ccbe8bb1"
   integrity sha512-/aPsuoj/1Dw/kzhkgz+ES6TxG0zfTMGLwuK2ZG00k/iJzYHTLCE8mVU8EPqEOp/lmxPoq1C1C9RYToRKb2KEfg==
 
+"@sindresorhus/slugify@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-1.1.0.tgz#2f195365d9b953384305b62664b44b4036c49430"
+  integrity sha512-ujZRbmmizX26yS/HnB3P9QNlNa4+UvHh+rIse3RbOXLp8yl6n1TxB4t7NHggtVgS8QmmOtzXo48kCxZGACpkPw==
+  dependencies:
+    "@sindresorhus/transliterate" "^0.1.1"
+    escape-string-regexp "^4.0.0"
+
+"@sindresorhus/transliterate@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/transliterate/-/transliterate-0.1.1.tgz#779b31244781d3c898f185b61d58c89e7c782674"
+  integrity sha512-QSdIQ5keUFAZ3KLbfbsntW39ox0Ym8183RqTwBq/ZEFoN3NQAtGV+qWaNdzKpIDHgj9J2CQ2iNDRVU11Zyr7MQ==
+  dependencies:
+    escape-string-regexp "^2.0.0"
+    lodash.deburr "^4.1.0"
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.1.tgz#e7df00f98a203324f6dc7cc606cad9d4a8ab2217"
@@ -9371,6 +9387,11 @@ escape-string-regexp@^2.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
   integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
+escape-string-regexp@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
+  integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
+
 escodegen@1.x.x, escodegen@^1.11.0, escodegen@^1.11.1, escodegen@^1.14.1:
   version "1.14.3"
   resolved "https://registry.yarnpkg.com/escodegen/-/escodegen-1.14.3.tgz#4e7b81fba61581dc97582ed78cab7f0e8d63f503"
@@ -10887,18 +10908,18 @@ gatsby-link@^2.4.13:
     "@types/reach__router" "^1.3.3"
     prop-types "^15.7.2"
 
-gatsby-page-utils@^0.2.23:
-  version "0.2.23"
-  resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-0.2.23.tgz#8216adb75a4f7143f6a945f2efff05c9458bf9a2"
-  integrity sha512-z0eiGNchTk0sWNubLVBNXOI9VLHCNHFFjNt5RweW211SLR/Bw7paQOaX9gY0Bdj1C2+NZ8JMyTHs1JF7yybaDg==
+gatsby-page-utils@^0.2.24:
+  version "0.2.24"
+  resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-0.2.24.tgz#d48f76fcecb47ee72800b34da371107be2ff3c32"
+  integrity sha512-EShJs772upZcJqAMbA05oxNocna38R1Z7U/eXA13NTT/MmuwSV01y2OLZXvqyKdYz1y0FL37gDlEcJmka8iMUg==
   dependencies:
     "@babel/runtime" "^7.10.3"
     bluebird "^3.7.2"
     chokidar "^3.4.2"
     fs-exists-cached "^1.0.0"
-    gatsby-core-utils "^1.3.18"
+    gatsby-core-utils "^1.3.19"
     glob "^7.1.6"
-    lodash "^4.17.15"
+    lodash "^4.17.20"
     micromatch "^3.1.10"
 
 gatsby-plugin-layout@^1.3.5:
@@ -10961,17 +10982,18 @@ gatsby-plugin-mdx@^1.0.59:
     unist-util-visit "^1.4.1"
 
 gatsby-plugin-page-creator@^2.1.33, gatsby-plugin-page-creator@^2.3.25:
-  version "2.3.25"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.3.25.tgz#74087a71e1c8ff5e072fbc5355e3cdb6ba669cd5"
-  integrity sha512-zpVFNKDNMpvTwe/hj6C27sc/POVxxGp0ZidoTDFd6so/f+Mc0OJQQDEIzs122oYBnuspPya+0+wWaph4QcadSQ==
+  version "2.3.27"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.3.27.tgz#b3211eb8975c7e943dcd560f500a88462af013e8"
+  integrity sha512-Yo/2uneVngKQ/tpzloMkbn0TIci8GAbdNjU5+Q8UChzAAXlgrROrB46zPJkLA8sbA9Y2xCfGBWMY+DLt6blxHQ==
   dependencies:
     "@babel/traverse" "^7.10.2"
+    "@sindresorhus/slugify" "^1.1.0"
+    chokidar "^3.4.2"
     fs-exists-cached "^1.0.0"
-    gatsby-page-utils "^0.2.23"
+    gatsby-page-utils "^0.2.24"
     globby "^11.0.1"
     graphql "^14.6.0"
-    lodash "^4.17.15"
-    slugify "^1.4.4"
+    lodash "^4.17.20"
 
 gatsby-plugin-react-helmet@^3.1.6:
   version "3.3.10"
@@ -14935,6 +14957,11 @@ lodash.constant@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/lodash.constant/-/lodash.constant-3.0.0.tgz#bfe05cce7e515b3128925d6362138420bd624910"
   integrity sha1-v+Bczn5RWzEokl1jYhOEIL1iSRA=
+
+lodash.deburr@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/lodash.deburr/-/lodash.deburr-4.1.0.tgz#ddb1bbb3ef07458c0177ba07de14422cb033ff9b"
+  integrity sha1-3bG7s+8HRYwBd7oH3hRCLLAz/5s=
 
 lodash.defaults@^4.0.1:
   version "4.2.0"
