@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.4 (2020-09-21)
+
+### Bug Fixes
+
+- fix a bug where alert-message would go outside screen bounds ([db41eba](https://github.com/fremtind/jokul/commit/db41ebae9406ada218feed0b57f8ce2d35cee990))
+
 ## 1.2.0 (2020-09-01)
 
 ### Features
