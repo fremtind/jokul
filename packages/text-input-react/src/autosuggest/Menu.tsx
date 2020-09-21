@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { PropGetters } from "downshift";
+import classnames from "classnames";
 
 interface MenuProps<T> {
     downshiftProps: Pick<PropGetters<T>, "getMenuProps" | "getItemProps">;
@@ -30,7 +31,7 @@ function Menu<T>({
         <div data-testid="autosuggest__menu" style={{ position: "relative" }}>
             <ul
                 {...getMenuProps({
-                    className: `jkl-autosuggest__menu ${inverted ? "jkl-autosuggest__menu--inverted" : ""}`,
+                    className: classnames("jkl-autosuggest__menu", { "jkl-autosuggest__menu--inverted": inverted }),
                 })}
             >
                 {visibleItems.length === 0 && <div className="jkl-autosuggest__no-hits-message">{noHitsMessage}</div>}
@@ -38,10 +39,9 @@ function Menu<T>({
                     <li
                         {...getItemProps({
                             item,
-                            className: `
-                                        jkl-autosuggest__item
-                                        ${index === highlightedIndex ? "jkl-autosuggest__item--active" : ""}
-                                        `,
+                            className: classnames("jkl-autosuggest__item", {
+                                "jkl-autosuggest__item--active": index === highlightedIndex,
+                            }),
                         })}
                         data-testid="autosuggest__item"
                         key={itemToString(item)}

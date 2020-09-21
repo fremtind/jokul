@@ -25,21 +25,10 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
         <div style={{ maxWidth: "400px", width: "100%" }}>
             <Autosuggest
                 label="Velg land"
-                onChange={(nextCountry) => setValue(nextCountry)}
+                onChange={setValue}
                 value={value}
                 onConfirm={() => console.log("onConfirm")}
-                allItems={[
-                    "Afghanistan",
-                    "Aland Islands",
-                    "Algeria",
-                    "Australia",
-                    "Austria",
-                    "Bahrain",
-                    "Bangladesh",
-                    "Benin",
-                    "Bermuda",
-                    "Bhutan",
-                ]}
+                allItems={allItems}
                 helpLabel={boolValues?.Hjelpetekst ? "Velg et land" : undefined}
                 errorLabel={boolValues?.Feiltekst ? "Du må velge et land" : undefined}
                 leadText={boolValues?.Leadtekst ? "Velg det beste landet" : undefined}
