@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.3.23 (2020-09-22)
+
+### Bug Fixes
+
+- **datepicker:** make next/prev month buttons work properly ([3d8a644](https://github.com/fremtind/jokul/commit/3d8a6442a56443203897236d314c34eab9083b3f))
+
 ## 3.3.21 (2020-09-11)
 
 ### Bug Fixes

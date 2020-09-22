@@ -3,6 +3,8 @@ import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { DatePicker } from "../src";
 
+const monthsIsh = (num: number) => 1000 * 60 * 60 * 24 * (num * 30 - 5);
+
 export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"] ? "Du vil være forsikret fra denne datoen" : undefined;
@@ -20,6 +22,8 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             variant={variant}
             errorLabel={errorLabel}
             helpLabel={helpLabel}
+            disableBeforeDate={new Date(Date.now() - monthsIsh(2))}
+            disableAfterDate={new Date(Date.now() + monthsIsh(5))}
             onFocus={logDate("hello from onFocus")}
             onBlur={logDate("hello from onBlur")}
             onChange={logDate("hello from onChange")}
