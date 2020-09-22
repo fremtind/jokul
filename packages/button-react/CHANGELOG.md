@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2020-09-22)
+
+### Features
+
+- **button-react:** enabling forwardRef on button components ([97858dc](https://github.com/fremtind/jokul/commit/97858dc72c556b2162743ce2d92ad764506df674)), closes [#1362](https://github.com/fremtind/jokul/issues/1362)
+
+### BREAKING CHANGES
+
+- **button-react:** Ref now points to button element
+
 ## 1.6.0 (2020-07-29)
 
 ### Features
