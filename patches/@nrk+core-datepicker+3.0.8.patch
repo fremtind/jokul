@@ -1,5 +1,5 @@
 diff --git a/node_modules/@nrk/core-datepicker/jsx.js b/node_modules/@nrk/core-datepicker/jsx.js
-index 00848d7..5096ed7 100644
+index 00848d7..102cf89 100644
 --- a/node_modules/@nrk/core-datepicker/jsx.js
 +++ b/node_modules/@nrk/core-datepicker/jsx.js
 @@ -328,6 +328,35 @@ var index_min = createCommonjsModule(function (module, exports) {
@@ -38,7 +38,7 @@ index 00848d7..5096ed7 100644
  var MASK = {
    year: '*-m-d',
    month: 'y-*-d',
-@@ -404,8 +433,12 @@ function (_HTMLElement) {
+@@ -404,13 +433,23 @@ function (_HTMLElement) {
      key: "handleEvent",
      value: function handleEvent(event) {
        if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.type === 'keydown' && !KEYS[event.keyCode]) return;
@@ -53,7 +53,30 @@ index 00848d7..5096ed7 100644
          var _button = closest(event.target, 'button[value]');
  
          var _table = closest(event.target, 'table');
-@@ -580,18 +613,34 @@ function table(self, table) {
+ 
+-        if (_button) this.date = _button.value;
++        if (_button) {
++          var date = MASK[_button.getAttribute('data-type')].replace('*', _button.value);
++          var match = _button.value.match(new RegExp(Object.keys(FILL).filter(key => key !== "null").join("\|")));
++          var fillMethod = match && match[0];
++          date = FILL[fillMethod](this, date);
++          this.date = date;
++      }
+         if (_button && _table) dispatchEvent(this, 'datepicker.click.day');
+       } else if (event.type === 'keydown' && closest(event.target, 'table')) {
+         this.date = KEYS[event.keyCode];
+@@ -529,7 +568,9 @@ function button(self, el) {
+ 
+   el.type = 'button'; // Ensure forms are not submitted by datepicker-buttons
+ 
+-  el.disabled = self.disabled(el.value);
++  var match = el.value.match(new RegExp(Object.keys(DISABLED).filter(key => key !== "null").join("\|")));
++  var disabledMethod = match && match[0];
++  el.disabled = DISABLED[disabledMethod](self, el.value);
+ }
+ 
+ function input(self, el) {
+@@ -580,18 +621,34 @@ function table(self, table) {
  function select(self, select) {
    if (!select.firstElementChild) {
      select._autofill = true;
@@ -89,7 +112,7 @@ index 00848d7..5096ed7 100644
  var version = "3.0.8";
  
  /**
-@@ -617,6 +666,14 @@ var closest$1 = function () {
+@@ -617,6 +674,14 @@ var closest$1 = function () {
    };
  }();
  /**
@@ -104,7 +127,7 @@ index 00848d7..5096ed7 100644
  * customElementToReact
  * @param {Class|Function} elementClass A custom element definition.
  * @param {Array} options Props and custom events
-@@ -626,7 +683,8 @@ var closest$1 = function () {
+@@ -626,7 +691,8 @@ var closest$1 = function () {
  
  function customElementToReact(elementClass, options) {
    if (options === void 0) options = {};
@@ -114,7 +137,7 @@ index 00848d7..5096ed7 100644
  
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -746,10 +804,9 @@ function customElementToReact(elementClass, options) {
+@@ -746,10 +812,9 @@ function customElementToReact(elementClass, options) {
    );
  }
  
