@@ -86,7 +86,7 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
     return (
         <>
             {CustomButton ? (
-                <CustomButton />
+                <CustomButton active={isActive} />
             ) : (
                 <button data-testid={`full-screen-menu--${baseItem.linkText}`} className={buttonClassName}>
                     {baseItem.linkText}

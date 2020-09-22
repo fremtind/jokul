@@ -1,20 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Hamburger } from ".";
 import { axe } from "jest-axe";
 
 describe("Hamburger", () => {
     it("should render to document", () => {
         render(<Hamburger />);
-    });
-
-    it("should get class jkl-hamburger--is-active on click", () => {
-        render(<Hamburger />);
-
-        const burger = screen.getByTestId("jkl-hamburger");
-        fireEvent.click(burger);
-
-        expect(burger).toHaveClass("jkl-hamburger--is-active");
     });
 
     it("should get class jkl-hamburger--negative when specified", () => {
@@ -25,21 +16,10 @@ describe("Hamburger", () => {
     });
 
     it("should have class jkl-hamburger--is-active if initialactive is true", () => {
-        render(<Hamburger initialIsActive />);
+        render(<Hamburger active />);
 
         const component = screen.getByTestId("jkl-hamburger");
         expect(component).toHaveClass("jkl-hamburger--is-active");
-    });
-
-    it("should render call onClick and set is active", () => {
-        const fn = jest.fn();
-        render(<Hamburger onClick={fn} />);
-        const burger = screen.getByTestId("jkl-hamburger");
-        fireEvent.click(burger);
-
-        expect(fn).toHaveBeenCalledTimes(1);
-
-        expect(burger).toHaveClass("jkl-hamburger--is-active");
     });
 
     it("should render have correct description", () => {
