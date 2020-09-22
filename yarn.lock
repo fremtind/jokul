@@ -10906,11 +10906,11 @@ gatsby-plugin-react-helmet@^3.1.6:
     "@babel/runtime" "^7.10.3"
 
 gatsby-plugin-sass@^2.1.0:
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.3.10.tgz#a6aec4a218318c613cf09de8defa42300283f6b9"
-  integrity sha512-ZF/+SNMogv6C+UksTLGCwQxeA5224fmp1ojJ/wOkmwMM83HClQ5wwcs0utQZmIOCAszEn+wi2wul1Tyiyh4YBg==
+  version "2.3.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.3.13.tgz#8cefc3b32a0b1dba54ab63f95a84ae5b73c8f802"
+  integrity sha512-lxxJjW0bNGidjS0NA1QedoJUwr889OTDQllDxGP65A2XK/CdR5AencijfXr3CD9aDGREGF5GkL+TS9oYKSqegQ==
   dependencies:
-    "@babel/runtime" "^7.10.3"
+    "@babel/runtime" "^7.11.2"
     sass-loader "^7.3.1"
 
 gatsby-plugin-sharp@^2.6.14:
