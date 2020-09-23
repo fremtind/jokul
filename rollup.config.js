@@ -34,6 +34,7 @@ function config(plugins) {
             "downshift",
             "match-sorter",
             "nanoid",
+            "framer-motion",
             /* /@nrk\/core/, */ "classnames",
             /@babel\/runtime/,
             ...allFremtindPackagesNames,

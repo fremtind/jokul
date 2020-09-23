@@ -1,0 +1,187 @@
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+$full-screen-menu-background-color: $varde;
+$full-screen-menu-background-color--inverted: $gra-90;
+$full-screen-menu-focus-color: $info;
+$full-screen-menu-focus-color--inverted: $info--darkbg;
+
+:root,
+[data-theme="light"] {
+    --full-screen-menu-focus-color: #{$full-screen-menu-focus-color};
+    --full-screen-menu-background-color: #{$full-screen-menu-background-color};
+}
+
+[data-theme="dark"] {
+    --full-screen-menu-focus-color: #{$full-screen-menu-focus-color--inverted};
+    --full-screen-menu-background-color: #{$full-screen-menu-background-color--inverted};
+}
+
+.jkl-full-screen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow-x: scroll;
+
+    background-color: $full-screen-menu-background-color;
+    background-color: var(--full-screen-menu-background-color);
+    @include motion("standard", "lazy");
+    transition-property: height;
+
+    &__wrapper {
+        box-sizing: border-box;
+        padding: 15vh $layout-spacing--small 0 $layout-spacing--large;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100vw;
+
+        @include from-medium-device {
+            padding: 25vh $layout-spacing--xl 15vh;
+        }
+    }
+
+    &__back-button {
+        @include reset-outline;
+        padding: 0;
+        cursor: pointer;
+        background-color: transparent;
+        // static font-sizes for IE11:
+        font-size: rem(30px);
+        line-height: rem(40px);
+        // 30px/40px on iPhone X:
+        font-size: relativeSize(30, 375, 812);
+        line-height: relativeSize(40, 375, 812);
+        @include motion("standard");
+        transition-property: transform;
+
+        animation: appear 350ms ease-out;
+        animation-fill-mode: both;
+
+        &:after {
+            @include motion("standard");
+            transition-property: transform;
+        }
+
+        &:hover,
+        &:focus {
+            color: $full-screen-menu-focus-color;
+            color: var(--full-screen-menu-focus-color);
+
+            transform: translateX(-1ch);
+            &:after {
+                transform: translateX(1ch);
+            }
+        }
+
+        @include small-device {
+            position: sticky;
+            top: 15vh;
+            margin-left: -1.5em;
+        }
+
+        @include from-medium-device {
+            // static font-sizes for IE11:
+            font-size: rem(40px);
+            line-height: rem(60px);
+            // 40px/60px on 1440x900 screen:
+            font-size: relativeSize(40);
+            line-height: relativeSize(60);
+
+            position: relative;
+            top: unset;
+            left: unset;
+
+            &::after {
+                content: attr(data-text);
+                display: inline-block;
+            }
+        }
+
+        [data-theme="dark"] & {
+            color: $hvit;
+        }
+    }
+
+    &__items {
+        min-height: 100%;
+        padding: 0;
+        padding-bottom: 5vh;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+
+        @include from-medium-device {
+            height: 100%;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+    }
+
+    &--open {
+        display: block;
+        height: auto;
+        @include motion("entrance", "lazy");
+
+        .jkl-full-screen-menu__close {
+            animation: close-button-appear 250ms ease-out;
+            animation-direction: normal;
+            animation-fill-mode: both;
+            animation-delay: 300ms;
+        }
+    }
+}
+
+.jkl-full-screen-menu-item {
+    display: inline-block;
+    position: relative;
+
+    animation: appear 350ms ease-out;
+    animation-fill-mode: both;
+
+    &__link {
+        position: relative;
+        @include jkl-text-style("desktop/title-small");
+        // static font-sizes for old browsers:
+        font-size: rem(30px);
+        line-height: rem(40px);
+        // 30px/40px on iPhone X:
+        font-size: relativeSize(30, 375, 812);
+        line-height: relativeSize(40, 375, 812);
+
+        // button resets:
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
+
+        @include medium-device {
+            // static font-sizes for old browsers:
+            font-size: rem(35px);
+            line-height: rem(40px);
+            // dynamic font sizes
+            font-size: relativeSize(35, 768, 1024);
+            line-height: relativeSize(50, 768, 1024);
+        }
+        @include from-large-device {
+            // static font-sizes for old browsers:
+            font-size: rem(40px);
+            line-height: rem(60px);
+            // dynamic font sizes
+            font-size: relativeSize(40);
+            line-height: relativeSize(60);
+        }
+    }
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(100%);
+        clip-path: inset(0 -3ch 100% 0);
+    }
+    100% {
+        transform: translateY(0%);
+        clip-path: inset(0 -3ch 0 0);
+    }
+}

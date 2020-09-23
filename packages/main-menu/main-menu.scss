@@ -1,0 +1,71 @@
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+$main-menu-focus-color: $info;
+$main-menu-focus-color--inverted: $info--darkbg;
+
+:root,
+[data-theme="light"] {
+    --main-menu-focus-color: #{$main-menu-focus-color};
+}
+
+[data-theme="dark"] {
+    --main-menu-focus-color: #{$main-menu-focus-color--inverted};
+}
+
+.jkl-main-menu {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+
+    &__list {
+        list-style-type: none;
+        display: block;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    &__item {
+        @include jkl-text-style("desktop/body");
+        display: inline-block;
+        height: 100%;
+        color: inherit;
+        &:not(:last-child) {
+            margin-right: $component-spacing--xxl;
+        }
+    }
+
+    &__link {
+        @include reset-outline;
+        background-color: transparent;
+        color: inherit;
+        cursor: pointer;
+        padding: 0;
+        height: 100%;
+        box-shadow: inset 0 0 0 0 transparent;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+
+        @include motion("standard");
+        transition-property: box-shadow;
+
+        &:hover,
+        html:not([data-mousenavigation]) &:focus {
+            color: $main-menu-focus-color;
+            color: var(--main-menu-focus-color);
+        }
+
+        &:hover,
+        html:not([data-mousenavigation]) &:focus,
+        &--active {
+            box-shadow: inset 0 rem(-4px) 0 0 currentColor;
+        }
+
+        &--active {
+            @include no-grow-bold;
+        }
+    }
+}
