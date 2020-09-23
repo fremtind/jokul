@@ -1,0 +1,35 @@
+---
+title: Main menu
+react: main-menu-react
+scss: main-menu
+group: layout
+---
+
+import { Example, ExtraElementsExample } from "./Examples";
+
+<Ingress>
+    Hovedmenyen fungerer som den øverste navigasjonen på en nettside eller i en applikasjon. Menyen er ment for
+    plassering i headere øverst på siden, og vil fylle hele høyden av elementet den er inne i. Menypunktene kan skjules
+    under en hamburgermeny, eller vises frem.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Vis toppnivå"],
+    }}
+/>
+
+Dersom det er få menypunkter i menyen anbefaler vi å vise dem frem. De vil automatisk kollapse til en hamburgermeny på små skjermer. Det går an å nøste menypunkter i hverandre, slik at hvert menypunkt på toppnivå blir en fullskjermmeny. Menyen her i portalen er et eksempel på slik bruk.
+
+Dersom du har mange menypunkter kan det være bedre å organisere dem i noen få hovedmenypunkter enn å skjule hele menyen i en hamburger. Husk å gjøre ofte brukte valg lett tilgjengelige.
+
+## Ekstra menyelementer
+
+Du kan legge inn ekstra elementer i menyen hvis du trenger f.eks. tilgangsstyring eller utlogging. Disse elementene legges nederst i hamburgermenyen, eller til høyre for elementene når du viser toppnivået.
+
+<ComponentExample
+    component={ExtraElementsExample}
+    knobs={{
+        boolProps: ["Vis toppnivå"],
+    }}
+/>

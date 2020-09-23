@@ -1,11 +1,7 @@
-# `@fremtind/jkl-main-menu`
+# [`@fremtind/jkl-main-menu`](https://jokul.fremtind.no/komponenter/mainmenu)
 
-> TODO: description
+# Hovedmeny
 
-## Usage
+Hovedmenykomponent som kan brukes til enkelt å legge til en meny i Fremtind-løsninger. Menyen er responsiv, og bryter ned til en hamburgermeny på mindre skjermer.
 
-```
-const jklMainMenu = require('@fremtind/jkl-main-menu');
-
-// TODO: DEMONSTRATE API
-```
+Se dokumentasjon i portalen for nørmer informasjon om bruk.
