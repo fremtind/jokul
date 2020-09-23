@@ -3,11 +3,10 @@ import { navigate } from "gatsby";
 import classNames from "classnames";
 
 import { Link as JokulLink } from "@fremtind/jkl-core";
+import { MainMenu, MenuItemList } from "@fremtind/jkl-main-menu-react";
 
 import { useLocation } from "../../contexts/locationContext";
-import { useFullscreenMenu } from "../../contexts/fullscreenMenuContext";
 import { useNavigationLinks } from "./useNavigationLinks";
-import { MainMenu, MenuItemList } from "./components/MainMenu";
 import "./header.scss";
 
 export const Header = ({ className }: { className?: string }) => {
@@ -81,12 +80,11 @@ export const Header = ({ className }: { className?: string }) => {
         },
     ];
     const { currentSection } = useLocation();
-    const { menuIsOpen } = useFullscreenMenu();
-    const isActiveFunction = (path: string) => {
+    const isActiveFunction = (path: string, currentOpenMenu: string) => {
         const itemPathMatches = currentSection !== "" && path.includes(currentSection);
-        const thisMenuIsOpen = path !== "" && menuIsOpen.includes(path);
+        const thisMenuIsOpen = path !== "" && currentOpenMenu.includes(path);
 
-        return thisMenuIsOpen || (itemPathMatches && (thisMenuIsOpen || menuIsOpen == ""));
+        return thisMenuIsOpen || (itemPathMatches && (thisMenuIsOpen || currentOpenMenu == ""));
     };
 
     return (

@@ -19,6 +19,8 @@ import "@fremtind/jkl-icon-button/icon-button.min.css";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-loader/loader.min.css";
 import "@fremtind/jkl-logo/logo.min.css";
+import "@fremtind/jkl-main-menu/main-menu.min.css";
+import "@fremtind/jkl-main-menu/full-screen-menu.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 import "@fremtind/jkl-progress-bar/progress-bar.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
@@ -35,7 +37,6 @@ import "@fremtind/jkl-portal-components/component-example.scss";
 
 import "./src/components/Typography/typography.scss";
 import { ThemeContextProvider } from "./src/contexts/themeContext";
-import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
 import { LocationContextProvider } from "./src/contexts/locationContext";
 import { A11yContextProvider } from "./src/contexts/a11yContext";
 
@@ -45,9 +46,7 @@ export const wrapRootElement = ({ element }) => {
     return (
         <A11yContextProvider>
             <LocationContextProvider>
-                <ThemeContextProvider>
-                    <FSMenuContextProvider>{element}</FSMenuContextProvider>
-                </ThemeContextProvider>
+                <ThemeContextProvider>{element}</ThemeContextProvider>
             </LocationContextProvider>
         </A11yContextProvider>
     );
