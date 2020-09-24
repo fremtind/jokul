@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.5 (2020-09-24)
+
+### Bug Fixes
+
+- **text-input:** changes alignment ([fd044a8](https://github.com/fremtind/jokul/commit/fd044a87e10eb0841d5205e50e544904f54f99c3))
+
 ## 2.2.4 (2020-09-11)
 
 ### Bug Fixes
