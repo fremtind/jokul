@@ -64,8 +64,8 @@ Du kan sette en forhåndsvalgt dato med `initialDate`. Dersom ingen dato er valg
 ```
 
 ## Event Handling
-DatePicker komponent mottar 3 event funksjoner (onFocus, onChange og onBlur). 
-Disse eventer returnerer en native event object og en Date object. Både parameterer er optional. 
+DatePicker-komponenten mottar tre event-funksjoner (onFocus, onChange og onBlur). 
+Disse eventene returnerer et native event-objekt og et Date-objekt. Begge parametrene er optional. 
 
 ```jsx
 <DatePicker 
