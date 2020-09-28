@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.4.0 (2020-09-28)
+
+### Features
+
+- **datepicker-react:** return event when onChange, onBlur, onFocus triggered ([27aeb14](https://github.com/fremtind/jokul/commit/27aeb145715fabb024139d582d200a18efb6c2de)), closes [#1386](https://github.com/fremtind/jokul/issues/1386)
+
 ## 3.3.23 (2020-09-22)
 
 ### Bug Fixes
