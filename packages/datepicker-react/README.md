@@ -62,3 +62,14 @@ Du kan sette en forhåndsvalgt dato med `initialDate`. Dersom ingen dato er valg
 ```jsx
 <DatePicker initialDate={new Date(new Date().setFullYear(new Date().getFullYear() + 1))} />
 ```
+
+## Event Handling
+DatePicker-komponenten mottar tre event-funksjoner (onFocus, onChange og onBlur). 
+Disse eventene returnerer et native event-objekt og et Date-objekt. Begge parametrene er optional. 
+
+```jsx
+<DatePicker 
+    onChange = {(date) => { handleChange(date); }} 
+    onBlur = {(date, e) => { updateValue(date, e); }} 
+/>;
+```

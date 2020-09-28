@@ -30,7 +30,7 @@ describe("Datepicker", () => {
         fireEvent.change(input, { target: { value: "some value to be cleared" } });
         fireEvent.change(input, { target: { value: "" } });
         expect(input).toHaveProperty("value", "");
-        expect(changeHandler).toHaveBeenCalledWith(undefined);
+        expect(changeHandler).toHaveBeenCalledTimes(1);
     });
 
     it("does not fire onChange on edit input with invalid date", () => {

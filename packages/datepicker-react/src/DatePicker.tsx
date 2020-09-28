@@ -14,7 +14,9 @@ export interface ChangeDate {
     date: Date;
 }
 
-type DateEventHandler = (date?: Date) => void;
+type onChangeEventHandler = (date?: Date, e?: ChangeEvent) => void;
+type onBlurEventHandler = (date?: Date, e?: FocusEvent) => void;
+type onFocusEventHandler = (date?: Date, e?: FocusEvent) => void;
 
 interface Props {
     label?: string;
@@ -37,9 +39,9 @@ interface Props {
     inverted?: boolean;
     disableBeforeDate?: Date;
     disableAfterDate?: Date;
-    onChange?: DateEventHandler;
-    onFocus?: DateEventHandler;
-    onBlur?: DateEventHandler;
+    onChange?: onChangeEventHandler;
+    onFocus?: onFocusEventHandler;
+    onBlur?: onBlurEventHandler;
 }
 
 export function DatePicker({
@@ -138,41 +140,41 @@ export function DatePicker({
     const handleBlur = (e: FocusEvent) => {
         const nextFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
         if (onBlur && !nextFocusIsInside) {
-            onBlur(date);
+            onBlur(date, e);
         }
     };
 
     const handleFocus = (e: FocusEvent) => {
         const prevFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
         if (onFocus && !prevFocusIsInside) {
-            onFocus(date);
+            onFocus(date, e);
         }
+    };
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const newDateString = e.target.value;
+        const newDate = parseDateString(newDateString);
+        // Only set the date if it is a valid date
+        if (newDate && dateHasChanged(date, newDate)) {
+            setDate(newDate);
+            if (onChange) {
+                onChange(newDate, e);
+            }
+        } else if (newDateString === "") {
+            setDate(undefined);
+            if (onChange) {
+                onChange(undefined, e);
+            }
+        }
+        setDateString(newDateString);
     };
 
     function dateHasChanged(date: Date | undefined, newDate: Date) {
         return !date || !isSameDay(date, newDate);
     }
 
-    function handleChange(event: ChangeEvent<HTMLInputElement>) {
-        const newDateString = event.target.value;
-        const newDate = parseDateString(newDateString);
-        // Only set the date if it is a valid date
-        if (newDate && dateHasChanged(date, newDate)) {
-            setDate(newDate);
-            if (onChange) {
-                onChange(newDate);
-            }
-        } else if (newDateString === "") {
-            setDate(undefined);
-            if (onChange) {
-                onChange(undefined);
-            }
-        }
-        setDateString(newDateString);
-    }
-
-    function onClickCalendarDay(event: ChangeEvent<ChangeDate>) {
-        const newDate = event.target.date;
+    function onClickCalendarDay(e: ChangeEvent<ChangeDate>) {
+        const newDate = e.target.date;
 
         if (dateHasChanged(date, newDate)) {
             setDateString(formatDate(newDate));
