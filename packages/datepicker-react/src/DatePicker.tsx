@@ -151,19 +151,19 @@ export function DatePicker({
         }
     };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const newDateString = event.target.value;
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const newDateString = e.target.value;
         const newDate = parseDateString(newDateString);
         // Only set the date if it is a valid date
         if (newDate && dateHasChanged(date, newDate)) {
             setDate(newDate);
             if (onChange) {
-                onChange(newDate, event);
+                onChange(newDate, e);
             }
         } else if (newDateString === "") {
             setDate(undefined);
             if (onChange) {
-                onChange(undefined, event);
+                onChange(undefined, e);
             }
         }
         setDateString(newDateString);
@@ -173,8 +173,8 @@ export function DatePicker({
         return !date || !isSameDay(date, newDate);
     }
 
-    function onClickCalendarDay(event: ChangeEvent<ChangeDate>) {
-        const newDate = event.target.date;
+    function onClickCalendarDay(e: ChangeEvent<ChangeDate>) {
+        const newDate = e.target.date;
 
         if (dateHasChanged(date, newDate)) {
             setDateString(formatDate(newDate));
