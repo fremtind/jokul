@@ -53,6 +53,13 @@ describe("Datepicker", () => {
         // Check for date formatted as DD.MM.YYYY
         expect(input).toHaveProperty("value", "12.09.2019");
     });
+
+    it("should reset initialDate if it's outside scope", () => {
+        render(<DatePicker initialDate={new Date("10.07.1992")} disableBeforeDate={new Date("09.12.2019")} />);
+
+        const input = screen.getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+    });
 });
 
 describe("a11y", () => {
