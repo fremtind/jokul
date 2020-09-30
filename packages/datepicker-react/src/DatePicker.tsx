@@ -112,10 +112,29 @@ export function DatePicker({
         }
     }, [disableBeforeDate, disableAfterDate]);
 
+    const disableDate = useCallback(
+        (date: Date) => {
+            return (disableAfterDate && date > disableAfterDate) || (disableBeforeDate && date < disableBeforeDate);
+        },
+        [disableAfterDate, disableBeforeDate],
+    );
+
     useEffect(() => {
         setDateString(initialDate ? formatDate(initialDate) : "");
         setDate(initialDate);
     }, [initialDate]);
+
+    useEffect(() => {
+        // if initialdate is outside scope, clear it out. this is to avoid a case in wizard forms
+        // where the initialdate may be based on an invalid value earlier in the form state.
+        if (initialDate && disableDate(initialDate)) {
+            setDateString("");
+            setDate(undefined);
+        }
+        // this check should only have effect at first render. this is to ensure a good user experience, where having
+        // it on every change would clear out the field while the user is typing.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const toggleCalendar = () => {
         const wasHidden = calendarHidden;
@@ -187,10 +206,6 @@ export function DatePicker({
 
         setCalendarHidden(true);
         inputRef.current && inputRef.current.focus();
-    }
-
-    function disableDate(date: Date) {
-        return (disableAfterDate && date > disableAfterDate) || (disableBeforeDate && date < disableBeforeDate);
     }
 
     return (
