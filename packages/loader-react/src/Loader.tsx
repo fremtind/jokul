@@ -17,6 +17,7 @@ export const Loader = ({ textDescription, negative = false, inline = false, clas
         <span
             className={componentClassName}
             data-testid="jkl-loader"
+            data-testautoid="jkl-loader"
             title={textDescription}
             aria-label={textDescription}
             role="alert"
