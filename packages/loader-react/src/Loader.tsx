@@ -6,8 +6,15 @@ interface Props {
     negative?: boolean;
     inline?: boolean;
     className?: string;
+    dataTestAutoId?: string;
 }
-export const Loader = ({ textDescription, negative = false, inline = false, className }: Props) => {
+export const Loader = ({
+    textDescription,
+    negative = false,
+    inline = false,
+    className,
+    dataTestAutoId = "jkl-loader",
+}: Props) => {
     const componentClassName = classNames("jkl-loader", className, {
         "jkl-loader--negative": negative,
         "jkl-loader--inline": inline,
@@ -17,7 +24,7 @@ export const Loader = ({ textDescription, negative = false, inline = false, clas
         <span
             className={componentClassName}
             data-testid="jkl-loader"
-            data-testautoid="jkl-loader"
+            data-testautoid={dataTestAutoId}
             title={textDescription}
             aria-label={textDescription}
             role="alert"
