@@ -3,7 +3,11 @@ import { Color, ColorSwatch, rgbToHex } from "./Colors";
 
 import "./ColorTable.scss";
 
-const ColorTableRow = ({ colorVariable, rgbValue }: Color) => (
+interface Props extends Color {
+    rgbValue: { r: number; g: number; b: number };
+}
+
+const ColorTableRow: React.FC<Props> = ({ colorVariable, rgbValue }) => (
     <tr className="jkl-portal-color-table__row">
         <td className="jkl-portal-color-table__data" data-header="Valør:">
             <ColorSwatch className="jkl-portal-color-table__swatch" colorVariable={colorVariable} />
@@ -12,7 +16,7 @@ const ColorTableRow = ({ colorVariable, rgbValue }: Color) => (
             {colorVariable}
         </td>
         <td className="jkl-portal-color-table__data" data-header="Hex:">
-            {rgbToHex(rgbValue)}
+            {rgbToHex([rgbValue.r, rgbValue.g, rgbValue.b])}
         </td>
         <td
             className="jkl-portal-color-table__data"
@@ -22,7 +26,7 @@ const ColorTableRow = ({ colorVariable, rgbValue }: Color) => (
 );
 
 interface ColorTableProps {
-    colors: Color[];
+    colors: Props[];
 }
 export const ColorTable: React.FC<ColorTableProps> = ({ colors }) => {
     return (
@@ -44,7 +48,7 @@ export const ColorTable: React.FC<ColorTableProps> = ({ colors }) => {
     );
 };
 
-const gratoner: Color[] = [
+const gratoner: Props[] = [
     {
         colorVariable: "gra-10",
         rgbValue: { r: 248, g: 248, b: 248 },
@@ -87,7 +91,7 @@ const gratoner: Color[] = [
     },
 ];
 
-const vardetoner: Color[] = [
+const vardetoner: Props[] = [
     {
         colorVariable: "varde-10",
         rgbValue: { r: 249, g: 246, b: 244 },
