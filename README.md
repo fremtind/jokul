@@ -116,6 +116,9 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="https://github.com/CamillaDahlstroem"><img src="https://avatars2.githubusercontent.com/u/11536996?v=4" width="100px;" alt=""/><br /><sub><b>CamillaDahlstroem</b></sub></a><br /><a href="#design-CamillaDahlstroem" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/Mikaila94"><img src="https://avatars1.githubusercontent.com/u/10635523?v=4" width="100px;" alt=""/><br /><sub><b>Mikail Arslan</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Mikaila94" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Fridaks"><img src="https://avatars1.githubusercontent.com/u/72193934?v=4" width="100px;" alt=""/><br /><sub><b>Fridaks</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Fridaks" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->

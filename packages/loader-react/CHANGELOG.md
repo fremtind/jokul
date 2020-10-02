@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.0 (2020-10-01)
+
+### Features
+
+- add data-testautoid for loader ([d793b23](https://github.com/fremtind/jokul/commit/d793b23d7534dd75ede3be40029e545d84f090c0))
+- expose dataTestAutoId as a prop ([098b32d](https://github.com/fremtind/jokul/commit/098b32ddc84dcc06451b559ef15c5cf697cc5642))
+
 ## 1.3.0 (2020-07-29)
 
 ### Features
