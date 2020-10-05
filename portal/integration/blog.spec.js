@@ -4,7 +4,8 @@ context("Blog", () => {
     });
 
     it("Blog should work", () => {
-        cy.getByTestid("full-screen-menu--Blogg").click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.getByTestid("full-screen-menu--Blogg").wait(200).click();
         cy.getByTestid("full-screen-menu-item--Framer-motion-i-Jøkul")
             .click()
             .get("h1")
