@@ -22,6 +22,7 @@ interface MainMenuProps {
     navigationFunction?: NavigationFunction;
     isActiveFunction?: IsActiveFunction;
     reduceMotion?: boolean;
+    getScreenInfo?: typeof useScreen;
 }
 
 export const MainMenu: React.FC<MainMenuProps> = ({
@@ -33,8 +34,9 @@ export const MainMenu: React.FC<MainMenuProps> = ({
     isActiveFunction = defaultIsActiveFunction,
     reduceMotion = false,
     children,
+    getScreenInfo = useScreen,
 }) => {
-    const screen = useScreen();
+    const screen = getScreenInfo();
     const shouldShowTopLevel = showTopLevel && !(screen.isSmallDevice || screen.isMediumDevice);
     const baseItem: RootItem = {
         linkText: ariaLabel || "Hovedmeny",
