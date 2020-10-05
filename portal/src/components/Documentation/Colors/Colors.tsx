@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import "./Colors.scss";
@@ -22,7 +22,7 @@ export const rgbToHex = (rgbValue: RgbValue) =>
 interface ColorSwatchProps {
     colorVariable: string;
     className?: string;
-    setColor?: (color: number[]) => void;
+    setColor?: (color: RgbValue) => void;
 }
 
 export const ColorSwatch = ({ colorVariable, className, setColor }: ColorSwatchProps) => {
@@ -35,12 +35,12 @@ export const ColorSwatch = ({ colorVariable, className, setColor }: ColorSwatchP
         className,
     );
     const ref = useRef<SVGSVGElement>(null);
-    React.useLayoutEffect(() => {
+    useLayoutEffect(() => {
         const rgb = getComputedProperty(ref.current, "color").split(",");
         if (typeof setColor === "function") {
             setColor(rgb.map((color) => parseInt(color.replace(/[^0-9]/g, ""), 10)));
         }
-    }, []);
+    }, [setColor]);
     return (
         <svg
             ref={ref}
