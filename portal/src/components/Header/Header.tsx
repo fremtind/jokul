@@ -6,6 +6,7 @@ import { Link as JokulLink } from "@fremtind/jkl-core";
 import { MainMenu, MenuItemList } from "@fremtind/jkl-main-menu-react";
 
 import { useLocation } from "../../contexts/locationContext";
+import { useScreenContext } from "../../contexts/screenContext";
 import { useNavigationLinks } from "./useNavigationLinks";
 import "./header.scss";
 
@@ -104,6 +105,7 @@ export const Header = ({ className }: { className?: string }) => {
                 isActiveFunction={isActiveFunction}
                 showTopLevel
                 items={menuItems}
+                getScreenInfo={useScreenContext}
             />
         </header>
     );
