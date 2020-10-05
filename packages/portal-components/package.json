@@ -1,7 +1,9 @@
 {
     "name": "@fremtind/jkl-portal-components",
     "version": "0.7.4",
-    "private": true,
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "Components for showing examples in the Jøkul portal",
     "keywords": [
         "Jøkul",
