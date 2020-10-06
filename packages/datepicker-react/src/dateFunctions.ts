@@ -45,3 +45,45 @@ export function parseDateString(dateString: string) {
 
     return new Date(year, month, day, 0, 0, 0);
 }
+
+/**
+ * Check if the date has changed from the previous date
+ *
+ * @param date First date to compare
+ * @param newDate Second date to compare
+ */
+export function dateHasChanged(date: Date | undefined, newDate: Date) {
+    return !date || !isSameDay(date, newDate);
+}
+
+/**
+ * Check if a given date is outside a given range
+ *
+ * @param date Input date
+ * @param rangeStart Dates before this date should be disabled
+ * @param rangeEnd Dates after this date should be disabled
+ */
+export function dateIsOutsideRange(date: Date, rangeStart: Date | undefined, rangeEnd: Date | undefined) {
+    return (rangeEnd && date > rangeEnd) || (rangeStart && date < rangeStart);
+}
+
+/**
+ * Get the correct initial date for initiating the datepicker reducer store
+ *
+ * @param value Value from props
+ * @param initialDate Initial date from porps
+ * @param disableDate Function for checking whether the date should be disabled
+ */
+export function getInitialDate(
+    value: Date | undefined,
+    initialDate: Date | undefined,
+    disableDate: (date: Date) => boolean | undefined,
+) {
+    if (!!value) {
+        return !disableDate(value) ? value : undefined;
+    }
+    if (!!initialDate) {
+        return !disableDate(initialDate) ? initialDate : undefined;
+    }
+    return undefined;
+}
