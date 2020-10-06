@@ -2,7 +2,7 @@ import React, { RefObject } from "react";
 
 export function useFocusOutside(ref: RefObject<HTMLElement> | null, fn: () => void) {
     function handleFocusOutside(event: FocusEvent) {
-        if (ref && ref.current && !ref.current.contains(event.target as Node)) {
+        if (ref?.current && !ref.current.contains(event.target as Node)) {
             fn();
         }
     }
