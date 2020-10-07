@@ -45,13 +45,42 @@ describe("Datepicker", () => {
 
     it("should change date on new props", () => {
         // New date takes MM.DD.YYYY values
-        const { container } = render(<DatePicker initialDate={new Date("02.02.2019")} />);
-        render(<DatePicker initialDate={new Date("09.12.2019")} />, { container });
+        const { container } = render(<DatePicker value={new Date("02.02.2019")} />);
+        render(<DatePicker value={new Date("09.12.2019")} />, { container });
 
         const input = screen.getByTestId("jkl-datepicker__input");
 
         // Check for date formatted as DD.MM.YYYY
         expect(input).toHaveProperty("value", "12.09.2019");
+    });
+
+    it("resets initialDate if it's outside scope", () => {
+        render(<DatePicker initialDate={new Date("07.10.1992")} disableBeforeDate={new Date("09.12.2019")} />);
+
+        const input = screen.getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+    });
+
+    it("resets value when opening calendar, if it is set outside scope from input field", () => {
+        render(<DatePicker initialDate={new Date("10.12.2020")} disableBeforeDate={new Date("09.12.2020")} />);
+        const input = screen.getByTestId("jkl-datepicker__input");
+
+        fireEvent.change(input, { target: { value: "08.12.2019" } });
+        fireEvent.click(input);
+
+        expect(input).toHaveProperty("value", "");
+    });
+
+    it("element IDs are defined from a root id with the same uniquie identifier", () => {
+        render(<DatePicker helpLabel="Help label" />);
+        const input = screen.getByTestId("jkl-datepicker__input");
+        const label = screen.getByText("Help label");
+
+        const inputId = input.getAttribute("id");
+
+        const idPattern = /jkl-datepicker-[A-Za-z0-9\-_]{8}/;
+        expect(inputId?.match(idPattern)).toHaveLength(1);
+        expect(label.getAttribute("id")).toEqual(inputId + "-label");
     });
 });
 

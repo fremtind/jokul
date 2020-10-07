@@ -1,5 +1,4 @@
-import React, { ChangeEvent, useState, useEffect, useRef, FocusEvent, useCallback } from "react";
-import { nanoid } from "nanoid";
+import React, { ChangeEvent, useRef, FocusEvent, useReducer } from "react";
 import classNames from "classnames";
 
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
@@ -8,7 +7,18 @@ import { useAnimatedHeight, useKeyListener, useClickOutside } from "@fremtind/jk
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 
 import { Calendar } from "./Calendar";
-import { isSameDay, formatDate, parseDateString } from "./dateFunctions";
+import { formatDate, parseDateString, dateHasChanged, getInitialDate } from "./dateFunctions";
+import {
+    reducer,
+    init,
+    useUpdateInternalStateOnValueChange,
+    useSetTimeToDateInRange,
+    useToggleCalendarWithoutFocus,
+    useHandleFocusToggle,
+    useDisableDate,
+    useToggleCalendar,
+    useCalendarId,
+} from "./internal";
 
 export interface ChangeDate {
     date: Date;
@@ -29,6 +39,7 @@ interface Props {
     showCalendarLabel?: string;
     hideCalendarLabel?: string;
     initialDate?: Date;
+    value?: Date;
     extended?: boolean;
     initialShow?: boolean;
     className?: string;
@@ -51,6 +62,7 @@ export function DatePicker({
     showCalendarLabel = calendarButtonTitle || "Åpne kalender",
     hideCalendarLabel = calendarButtonTitle || "Lukk kalender",
     initialDate,
+    value,
     onChange,
     onBlur,
     onFocus,
@@ -71,15 +83,19 @@ export function DatePicker({
         );
     }
 
-    const [inputId] = useState(`jkl-datepicker-${nanoid(8)}`);
-    const [supportLabelId] = useState(`jkl-support-label-${nanoid(8)}`);
-    const [date, setDate] = useState(initialDate);
-    const [calendarHidden, setCalendarHidden] = useState(!initialShow);
-    const [dateString, setDateString] = useState(initialDate ? formatDate(initialDate) : "");
+    const disableDate = useDisableDate(disableBeforeDate, disableAfterDate);
+    const [inputId, supportLabelId] = useCalendarId();
+
+    const [state, dispatch] = useReducer(
+        reducer,
+        { date: getInitialDate(value, initialDate, disableDate), calendarHidden: !initialShow },
+        init,
+    );
+
     const componentClassName = classNames(
         "jkl-datepicker",
         {
-            "jkl-datepicker--open": !calendarHidden,
+            "jkl-datepicker--open": !state.calendarHidden,
             "jkl-datepicker--inverted": inverted,
         },
         className,
@@ -90,36 +106,13 @@ export function DatePicker({
     });
     const componentRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
-    const [calendarRef] = useAnimatedHeight(!calendarHidden);
+    const [calendarRef] = useAnimatedHeight(!state.calendarHidden);
 
-    useClickOutside(calendarRef, () => {
-        !calendarHidden && setCalendarHidden(true);
-    });
-    useKeyListener(calendarRef, ["Escape"], () => {
-        !calendarHidden && setCalendarHidden(true);
-        inputRef.current && inputRef.current.focus();
-    });
-
-    useEffect(() => {
-        disableAfterDate && disableAfterDate.setHours(23, 59, 59, 999);
-        const now = new Date();
-
-        if (disableAfterDate && now > disableAfterDate) {
-            setDate(disableAfterDate);
-        }
-        if (disableBeforeDate && now < disableBeforeDate) {
-            setDate(disableBeforeDate);
-        }
-    }, [disableBeforeDate, disableAfterDate]);
-
-    useEffect(() => {
-        setDateString(initialDate ? formatDate(initialDate) : "");
-        setDate(initialDate);
-    }, [initialDate]);
+    const handleToggleCalendar = useToggleCalendar(dispatch, state, disableDate);
 
     const toggleCalendar = () => {
-        const wasHidden = calendarHidden;
-        setCalendarHidden(!calendarHidden);
+        const wasHidden = state.calendarHidden;
+        handleToggleCalendar(!state.calendarHidden);
 
         if (wasHidden) {
             const calendarEl = calendarRef.current;
@@ -127,71 +120,65 @@ export function DatePicker({
             button && setTimeout(() => button.focus(), 100);
         }
     };
-    const toggleCalendarWithoutFocus = useCallback(() => setCalendarHidden(!calendarHidden), [calendarHidden]);
-
-    useEffect(() => {
-        const inputEl = inputRef.current;
-        inputEl && inputEl.addEventListener("click", toggleCalendarWithoutFocus);
-        return () => {
-            inputEl && inputEl.removeEventListener("click", toggleCalendarWithoutFocus);
-        };
-    }, [toggleCalendarWithoutFocus]);
-
-    const handleBlur = (e: FocusEvent) => {
-        const nextFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
-        if (onBlur && !nextFocusIsInside) {
-            onBlur(date, e);
-        }
-    };
-
-    const handleFocus = (e: FocusEvent) => {
-        const prevFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
-        if (onFocus && !prevFocusIsInside) {
-            onFocus(date, e);
-        }
-    };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const newDateString = e.target.value;
         const newDate = parseDateString(newDateString);
+
         // Only set the date if it is a valid date
-        if (newDate && dateHasChanged(date, newDate)) {
-            setDate(newDate);
+        if (newDate && dateHasChanged(state.date, newDate)) {
+            dispatch({ type: "SET_DATE", payload: newDate });
             if (onChange) {
                 onChange(newDate, e);
             }
         } else if (newDateString === "") {
-            setDate(undefined);
+            dispatch({ type: "SET_DATE", payload: undefined });
             if (onChange) {
                 onChange(undefined, e);
             }
         }
-        setDateString(newDateString);
+
+        dispatch({ type: "SET_DATE_STRING", payload: newDateString });
     };
 
-    function dateHasChanged(date: Date | undefined, newDate: Date) {
-        return !date || !isSameDay(date, newDate);
-    }
-
-    function onClickCalendarDay(e: ChangeEvent<ChangeDate>) {
+    const onClickCalendarDay = (e: ChangeEvent<ChangeDate>) => {
         const newDate = e.target.date;
 
-        if (dateHasChanged(date, newDate)) {
-            setDateString(formatDate(newDate));
-            setDate(newDate);
+        if (dateHasChanged(state.date, newDate)) {
+            dispatch({ type: "SET_DATE_STRING", payload: formatDate(newDate) });
+            dispatch({ type: "SET_DATE", payload: newDate });
 
             if (onChange) {
                 onChange(newDate);
             }
         }
 
-        setCalendarHidden(true);
+        handleToggleCalendar(true);
         inputRef.current && inputRef.current.focus();
-    }
+    };
 
-    function disableDate(date: Date) {
-        return (disableAfterDate && date > disableAfterDate) || (disableBeforeDate && date < disableBeforeDate);
-    }
+    const handleFocusChange = (fn?: onFocusEventHandler) => (e: FocusEvent) => {
+        const nextFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
+        if (fn && !nextFocusIsInside) {
+            fn(state.date, e);
+        }
+    };
+
+    useClickOutside(calendarRef, () => {
+        !state.calendarHidden && handleToggleCalendar(true);
+    });
+
+    useKeyListener(calendarRef, ["Escape"], () => {
+        !state.calendarHidden && handleToggleCalendar(true);
+        inputRef.current && inputRef.current.focus();
+    });
+
+    useSetTimeToDateInRange(dispatch, disableAfterDate, disableBeforeDate);
+
+    useUpdateInternalStateOnValueChange(dispatch, value);
+
+    const toggleCalendarWithoutFocus = useToggleCalendarWithoutFocus(toggleCalendar, state.calendarHidden);
+    useHandleFocusToggle(inputRef, toggleCalendarWithoutFocus);
 
     return (
         <div className={componentClassName} ref={componentRef}>
@@ -206,27 +193,28 @@ export function DatePicker({
                     invalid={!!errorLabel}
                     className="jkl-datepicker__input jkl-text-input__input"
                     data-testid="jkl-datepicker__input"
-                    value={dateString}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
+                    value={state.dateString}
+                    onFocus={() => handleFocusChange(onFocus)}
+                    onBlur={() => handleFocusChange(onBlur)}
                     onChange={handleChange}
                     placeholder={placeholder}
                     width="11.5rem"
+                    type="text"
                 />
                 <IconButton
                     className="jkl-text-input__action-button"
                     iconType="calendar"
-                    buttonTitle={calendarHidden ? showCalendarLabel : hideCalendarLabel}
+                    buttonTitle={state.calendarHidden ? showCalendarLabel : hideCalendarLabel}
                     onClick={toggleCalendar}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
+                    onFocus={() => handleFocusChange(onFocus)}
+                    onBlur={() => handleFocusChange(onBlur)}
                 />
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar
-                        currentDate={date}
+                        currentDate={state.date}
                         onClickDate={onClickCalendarDay}
                         disableDate={disableDate}
-                        hidden={calendarHidden}
+                        hidden={state.calendarHidden}
                         inverted={inverted}
                         forceCompact={forceCompact}
                         ref={calendarRef}
