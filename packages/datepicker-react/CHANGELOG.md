@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.5.0 (2020-10-07)
+
+### Features
+
+- add value, refactor and bugfix DatePicker ([6eba4ce](https://github.com/fremtind/jokul/commit/6eba4ce3b1fb6165e0c4365aba1cf33bfd2fd794))
+
 ## 3.4.0 (2020-09-28)
 
 ### Features
