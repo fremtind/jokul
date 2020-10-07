@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "2.4.14",
+    "version": "2.4.15",
     "publishConfig": {
         "access": "public"
     },
@@ -37,7 +37,7 @@
     "dependencies": {
         "@babel/runtime": "^7.9.0",
         "@fremtind/jkl-core": "^4.14.3",
-        "@fremtind/jkl-react-hooks": "^1.7.0",
+        "@fremtind/jkl-react-hooks": "^1.8.0",
         "@fremtind/jkl-select": "^2.3.3",
         "@fremtind/jkl-typography-react": "^2.4.10",
         "classnames": "^2.2.6",

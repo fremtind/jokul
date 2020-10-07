@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.8.0 (2020-10-07)
+
+### Features
+
+- **useintersection:** allow observing svg elements ([8a8dbcb](https://github.com/fremtind/jokul/commit/8a8dbcb104027d0c716442d26301efb11a7f6798))
+
 ## 1.7.0 (2020-10-07)
 
 ### Features
