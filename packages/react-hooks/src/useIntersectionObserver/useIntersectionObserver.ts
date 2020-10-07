@@ -4,7 +4,7 @@ const hasWindowWithIntersectionObserver = () =>
     typeof window !== "undefined" && typeof IntersectionObserver !== "undefined";
 
 export const useIntersectionObserver = (
-    targetRef: RefObject<HTMLElement>,
+    targetRef: RefObject<HTMLElement | SVGElement>,
     onIntersect: IntersectionObserverCallback,
     fallback: VoidFunction,
     options?: Partial<IntersectionObserverInit>,
