@@ -27,6 +27,7 @@ import "@fremtind/jkl-table/table.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 import "@fremtind/jkl-icons/animated-icons.min.css";
+import "@fremtind/jkl-image/image.min.css";
 
 import { initTabListener } from "@fremtind/jkl-core";
 
