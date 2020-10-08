@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-text-field`](https://fremtind.github.io/jokul/komponenter/textinput)
+# [`@fremtind/jkl-text-input`](https://fremtind.github.io/jokul/komponenter/textinput)
 
 # Tekstfelt
 
