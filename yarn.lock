@@ -3795,9 +3795,9 @@
     defer-to-connect "^2.0.0"
 
 "@testing-library/dom@^7.21.6", "@testing-library/dom@^7.24.2":
-  version "7.24.3"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.24.3.tgz#dae3071463cf28dc7755b43d9cf2202e34cbb85d"
-  integrity sha512-6eW9fUhEbR423FZvoHRwbWm9RUUByLWGayYFNVvqTnQLYvsNpBS4uEuKH9aqr3trhxFwGVneJUonehL3B1sHJw==
+  version "7.24.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.24.5.tgz#862124eec8c37ad184716379f09742476b23815d"
+  integrity sha512-oyOp8R2rhmnkOjgrySb4iYc2q73dzvQUAGddpbmicGJdCf4jkLmf5U9zOyobLMLWXbIHHK4UUHHjDTH8tSPLsA==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/runtime" "^7.10.3"
@@ -10943,9 +10943,9 @@ gatsby-plugin-react-helmet@^3.1.6:
     "@babel/runtime" "^7.11.2"
 
 gatsby-plugin-sass@^2.1.0:
-  version "2.3.15"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.3.15.tgz#b981929c361d264ab76067bbaf7f687957fe83f3"
-  integrity sha512-VQXub6M8zjuuj2LMq6sNW1zLMPMKfSNIDhzTda+F1lX5X4IzBIksMwxu8BAcFw9uPavfGUHthrqZ9xq+cguscw==
+  version "2.3.16"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.3.16.tgz#aa9f375993b44d03c721e82363dec35fceeb1fce"
+  integrity sha512-gY2Ankprpn0TEIboDqco4bycjveZNYTrpiwJYLPtnFPCgmxoQzld44Uj/9bbZXxsV/tIqubulenr+TymCbe/hg==
   dependencies:
     "@babel/runtime" "^7.11.2"
     sass-loader "^7.3.1"
@@ -18354,17 +18354,7 @@ pretty-format@^25.2.1, pretty-format@^25.5.0:
     ansi-styles "^4.0.0"
     react-is "^16.12.0"
 
-pretty-format@^26.4.2:
-  version "26.4.2"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-26.4.2.tgz#d081d032b398e801e2012af2df1214ef75a81237"
-  integrity sha512-zK6Gd8zDsEiVydOCGLkoBoZuqv8VTiHyAbKznXe/gaph/DAeZOmit9yMfgIz5adIgAMMs5XfoYSwAX3jcCO1tA==
-  dependencies:
-    "@jest/types" "^26.3.0"
-    ansi-regex "^5.0.0"
-    ansi-styles "^4.0.0"
-    react-is "^16.12.0"
-
-pretty-format@^26.5.2:
+pretty-format@^26.4.2, pretty-format@^26.5.2:
   version "26.5.2"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-26.5.2.tgz#5d896acfdaa09210683d34b6dc0e6e21423cd3e1"
   integrity sha512-VizyV669eqESlkOikKJI8Ryxl/kPpbdLwNdPs2GrbQs18MpySB5S0Yo0N7zkg2xTRiFq4CFw8ct5Vg4a0xP0og==
@@ -18861,9 +18851,9 @@ react-helmet@^6.0.0:
     react-side-effect "^2.1.0"
 
 react-hook-form@^6.0.1:
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.9.0.tgz#e3fb510970cdf1fbab4e1095cc7e6e2a97935643"
-  integrity sha512-QLRUYI+vZfoFu4mF2CaKeq5tHgLvTe+H2ks3iVKaG07D9nnbV/pemWkg93ODb0l4kFsRb28Ti3s/1K1DHi8Z0g==
+  version "6.9.2"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.9.2.tgz#9512cd424e62235fda13c8fc1821f88c352e3d23"
+  integrity sha512-vCPEbHVCRvsoqrQARgQ7a3VrXzqbFOO53gHFRdQzLzHMT9kxum3wfcSi8A1b49KPRsomvsqexH4tBUJMneEu+Q==
 
 react-hot-loader@^4.12.21:
   version "4.12.21"
@@ -19864,9 +19854,9 @@ rollup-plugin-terser@^7.0.0:
     terser "^5.0.0"
 
 rollup@^2.18.2:
-  version "2.28.2"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.28.2.tgz#599ec4978144a82d8a8ec3d37670a8440cb04e4b"
-  integrity sha512-8txbsFBFLmm9Xdt4ByTOGa9Muonmc8MfNjnGAR8U8scJlF1ZW7AgNZa7aqBXaKtlvnYP/ab++fQIq9dB9NWUbg==
+  version "2.29.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.29.0.tgz#0c5c5968530b21ca0e32f8b94b7cd9346cfb0eec"
+  integrity sha512-gtU0sjxMpsVlpuAf4QXienPmUAhd6Kc7owQ4f5lypoxBW18fw2UNYZ4NssLGsri6WhUZkE/Ts3EMRebN+gNLiQ==
   optionalDependencies:
     fsevents "~2.1.2"
 
