@@ -12,18 +12,24 @@ import { useLocation } from "../../contexts/locationContext";
 import "./Layout.scss";
 
 interface Props {
-    title?: string;
     location: Location;
+    pathContext?: {
+        frontmatter?: {
+            title?: string;
+        };
+    };
 }
 
-export const Layout: React.FC<Props> = ({ children, title, location }) => {
+export const Layout: React.FC<Props> = ({ children, location, pathContext, ...rest }) => {
     const { setLocation, isFrontPage, isCypress } = useLocation();
     useEffect(() => setLocation(location), [location, setLocation]);
 
     const screen = useScreen();
     const shouldShowSidebar = !isFrontPage && !(screen.isSmallDevice || screen.isMediumDevice);
 
-    const PageTitle = `${title ? `${title} - ` : ""}Jøkul designsystem`;
+    const PageTitle = `${
+        pathContext?.frontmatter?.title ? `${pathContext.frontmatter.title} - ` : ""
+    }Jøkul designsystem`;
     const { theme } = useTheme();
     const wrapperRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
