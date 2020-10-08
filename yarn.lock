@@ -10880,9 +10880,9 @@ gatsby-plugin-manifest@^2.3.4:
     sharp "^0.25.4"
 
 gatsby-plugin-mdx@^1.0.59:
-  version "1.2.44"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.44.tgz#31bcb71ff3523378a18116d098b2ff6308d5f6c7"
-  integrity sha512-ITtx/Uv1cMeJv9qPZRWFbGcIK4s7gfX/cgBsLYBaGT2OF7PZJbM7WknEOtmnechE/EKBklYNcWNvxScPfnfVQQ==
+  version "1.2.45"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-mdx/-/gatsby-plugin-mdx-1.2.45.tgz#b4e20b73f7a267eccdeeebe31da107b910892b65"
+  integrity sha512-Lq020aoN2ghDQjfjwOVcFt0n8nk+kuRw4h/o/Hc28DjApHxSbdFpm5a5mNXaeCULdQ6WVEwGhANCGga6SJmORg==
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/generator" "^7.11.6"
