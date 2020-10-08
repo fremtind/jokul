@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.19.1 (2020-10-08)
+
+### Bug Fixes
+
+- **portal:** fix title ([30edc7c](https://github.com/fremtind/jokul/commit/30edc7c87e29cf8c3ac22a593815310800bc791e))
+
 ## 3.19.0 (2020-10-07)
 
 ### Features
