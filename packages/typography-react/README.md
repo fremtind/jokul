@@ -2,7 +2,7 @@
 
 Denne pakken inneholder komponenter for spesifikke typografiske komponenter, slik som `Label`, `SupportLabel` og `Link`, som brukes av flere av komponentene i Jøkul. Bruk av andre typografiske elementer, som overskrifter og avsnittstiler, se s[iden om typografi](https://fremtind.github.io/jokul/profil/typografi) i portalen.
 
-**NB!** React-komponentene for overskrifter og avsnittstiler i denne pakken er utgående. Se [migrasjonsguiden](https://github.com/fremtind/jokul/blob/master/packages/core/MIGRATION.md#typografielementer) for `jkl-core@3.0.0` for nærmere informasjon.
+**NB!** React-komponentene for overskrifter og avsnittstiler i denne pakken er utgående. Se [migrasjonsguiden](https://github.com/fremtind/jokul/blob/main/packages/core/MIGRATION.md#typografielementer) for `jkl-core@3.0.0` for nærmere informasjon.
 
 ## Beskrivelse
 

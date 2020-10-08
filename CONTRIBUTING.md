@@ -24,4 +24,4 @@ Vi bruker Yarn i stedet for npm, siden Yarn har bedre integrasjon mot monorepo-v
 
 ### Slik organiserer vi branchene
 
-Vi gjør vårt beste for å holde master ren og pen og sørger for at den alltid virker. Master er grunnlaget for pakkene som vi publiserer i npm-registeret. Vi sender normalt pull requester mot master.
+Vi gjør vårt beste for å holde main ren og pen og sørger for at den alltid virker. Master er grunnlaget for pakkene som vi publiserer i npm-registeret. Vi sender normalt pull requester mot main.

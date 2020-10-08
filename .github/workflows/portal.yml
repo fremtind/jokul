@@ -2,14 +2,14 @@ name: release-portal
 on:
     push:
         branches:
-            - master
+            - main
 jobs:
     build-and-deploy:
         name: Deploy portal
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@master
+              uses: actions/checkout@main
 
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
