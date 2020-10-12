@@ -22,7 +22,7 @@ $hover-elevation-distance: -0.25rem;
 
 $button-border-color: $svart;
 $button-text-color: $svart;
-$button-background-color: $hvit;
+$button-background-color: transparent;
 $button-focus-color: $info;
 $button-primary-text-color: $hvit;
 $button-primary-background-color: $svart;
@@ -63,9 +63,11 @@ $button-primary-background-color--inverted: $hvit;
     min-width: $button-min-width--normal;
     line-height: $button-height--normal;
     cursor: pointer;
+    user-select: none;
 
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
+
     border: none;
     outline: none;
     position: relative;
@@ -74,14 +76,20 @@ $button-primary-background-color--inverted: $hvit;
     transform-origin: 50% 90%;
     transition-property: transform, background-color;
 
-    html:not([data-mousenavigation]) &:focus,
-    &:hover {
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+    html:not([data-touchnavigation]) &:hover {
         transform: scale(1.05);
     }
 
     html:not([data-mousenavigation]) &:active,
+    html:not([data-touchnavigation]) &:active,
     &:active {
         transform: scale(1);
+    }
+
+    html[data-touchnavigation] &--pressed {
+        transform: scale(0.95);
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
     // ********* VARIANTS *********
@@ -106,11 +114,25 @@ $button-primary-background-color--inverted: $hvit;
             top: -($button-border-width + $focus-ring-distance);
         }
 
-        html:not([data-mousenavigation]) &:focus {
+        &:before {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
             &:after {
                 box-shadow: 0 0 0 $focus-ring-width $button-focus-color;
                 box-shadow: 0 0 0 $focus-ring-width var(--button-focus-color);
             }
+        }
+
+        html[data-touchnavigation] &.jkl-button--pressed:before {
+            animation: cubic-bezier(0, 0, 0.3, 1) 400ms flash;
         }
     }
 
@@ -121,7 +143,8 @@ $button-primary-background-color--inverted: $hvit;
         color: var(--button-primary-text-color);
 
         &:hover,
-        html:not([data-mousenavigation]) &:focus {
+        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+        html[data-touchnavigation] &.jkl-button--pressed {
             background-color: $button-focus-color;
             background-color: var(--button-focus-color);
             border-color: $button-focus-color;
@@ -136,7 +159,8 @@ $button-primary-background-color--inverted: $hvit;
         color: var(--button-text-color);
 
         &:hover,
-        html:not([data-mousenavigation]) &:focus {
+        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+        html[data-touchnavigation] &.jkl-button--pressed {
             color: $button-focus-color;
             color: var(--button-focus-color);
             border-color: $button-focus-color;
@@ -155,8 +179,28 @@ $button-primary-background-color--inverted: $hvit;
         transition: transform $animation-timing, border $animation-timing;
         min-width: unset;
 
+        // Base for touch-effekt
+        &:before {
+            content: "";
+            pointer-events: none;
+            display: block;
+            position: absolute;
+            left: var(--jkl-touch-xcoord, 50%);
+            top: var(--jkl-touch-ycoord, 50%);
+            transform: translate3d(-50%, -50%, 0);
+            border-radius: 100%;
+            width: rem(16px);
+            height: rem(16px);
+            background-color: transparent;
+        }
+
+        html[data-touchnavigation] &.jkl-button--pressed:before {
+            animation: cubic-bezier(0, 0, 0.3, 1) 400ms tertiaryflash;
+        }
+
         &:hover,
-        html:not([data-mousenavigation]) &:focus {
+        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+        html[data-touchnavigation] &.jkl-button--pressed {
             border-bottom-color: $button-focus-color;
             border-bottom-color: var(--button-focus-color);
             border-bottom-width: rem(2px);
@@ -166,13 +210,21 @@ $button-primary-background-color--inverted: $hvit;
     }
 
     &--inverted {
+        &.jkl-button--primary,
+        &.jkl-button--secondary {
+            html[data-touchnavigation] &.jkl-button--pressed:before {
+                animation: cubic-bezier(0, 0, 0.3, 1) 400ms invertedflash;
+            }
+        }
+
         &.jkl-button--primary {
             background-color: $button-primary-background-color--inverted;
             border-color: $button-border-color--inverted;
             color: $button-primary-text-color--inverted;
 
             &:hover,
-            html:not([data-mousenavigation]) &:focus {
+            html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+            html[data-touchnavigation] &.jkl-button--pressed {
                 background-color: $button-focus-color--inverted;
                 border-color: $button-focus-color--inverted;
             }
@@ -184,7 +236,8 @@ $button-primary-background-color--inverted: $hvit;
             border-color: $button-text-color--inverted;
 
             &:hover,
-            html:not([data-mousenavigation]) &:focus {
+            html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+            html[data-touchnavigation] &.jkl-button--pressed {
                 color: $button-focus-color--inverted;
                 border-color: $button-focus-color--inverted;
             }
@@ -194,9 +247,14 @@ $button-primary-background-color--inverted: $hvit;
             color: $button-text-color--inverted;
 
             &:hover,
-            html:not([data-mousenavigation]) &:focus {
+            html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+            html[data-touchnavigation] &.jkl-button--pressed {
                 color: $button-focus-color--inverted;
                 border-bottom-color: $button-focus-color--inverted;
+            }
+
+            html[data-touchnavigation] &.jkl-button--pressed:before {
+                animation: cubic-bezier(0, 0, 0.3, 1) 400ms invertedtertiaryflash;
             }
         }
 
@@ -215,5 +273,51 @@ $button-primary-background-color--inverted: $hvit;
         &.jkl-button--tertiary {
             min-width: unset;
         }
+    }
+}
+
+@keyframes flash {
+    0% {
+        box-shadow: 0 0 0 0 var(--button-focus-color);
+        opacity: 0.5;
+    }
+    100% {
+        box-shadow: 0 0 0 #{rem(16px)} var(--button-focus-color);
+        opacity: 0;
+    }
+}
+@keyframes invertedflash {
+    0% {
+        box-shadow: 0 0 0 0 #{$button-focus-color--inverted};
+        opacity: 0.5;
+    }
+    100% {
+        box-shadow: 0 0 0 #{rem(16px)} #{$button-focus-color--inverted};
+        opacity: 0;
+    }
+}
+
+@keyframes tertiaryflash {
+    0% {
+        box-shadow: 0 0 0 0 var(--button-focus-color);
+        background-color: var(--button-focus-color);
+        opacity: 0.5;
+    }
+    100% {
+        box-shadow: 0 0 0 #{rem(40px)} var(--button-focus-color);
+        background-color: var(--button-focus-color);
+        opacity: 0;
+    }
+}
+@keyframes invertedtertiaryflash {
+    0% {
+        box-shadow: 0 0 0 0 #{$button-focus-color--inverted};
+        background-color: #{$button-focus-color--inverted};
+        opacity: 0.5;
+    }
+    100% {
+        box-shadow: 0 0 0 #{rem(40px)} #{$button-focus-color--inverted};
+        background-color: #{$button-focus-color--inverted};
+        opacity: 0;
     }
 }
