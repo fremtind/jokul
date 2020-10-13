@@ -8757,11 +8757,9 @@ doctrine@^3.0.0:
     esutils "^2.0.2"
 
 document-register-element@^1.14.3:
-  version "1.14.6"
-  resolved "https://registry.yarnpkg.com/document-register-element/-/document-register-element-1.14.6.tgz#38665283d757b463bab5497a73624cf670deab2a"
-  integrity sha512-3ThfLHiWjFf3rYMyBrTycBRcBOUBnL7dLr9aCEtymtEZSTEx0f0rdM+SOZ1ILqLA0ArJVESLmccmQZQCMcCTpQ==
-  dependencies:
-    lightercollective "^0.3.0"
+  version "1.14.10"
+  resolved "https://registry.yarnpkg.com/document-register-element/-/document-register-element-1.14.10.tgz#a7bd025e6b73bd827fec2d8e90aba755e99387f5"
+  integrity sha512-w5UA37hEIrs+9pruo2yR5UD13c4UHDlkqqjt4qurnp7QsBI9b1IOi8WXUim+aCqKBsENX3Z/cso7XMOuwJH1Yw==
 
 dom-accessibility-api@^0.5.1:
   version "0.5.1"
@@ -14766,11 +14764,6 @@ liftoff@^3.1.0:
     object.map "^1.0.0"
     rechoir "^0.6.2"
     resolve "^1.1.7"
-
-lightercollective@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/lightercollective/-/lightercollective-0.3.0.tgz#1f07638642ec645d70bdb69ab2777676f35a28f0"
-  integrity sha512-RFOLSUVvwdK3xA0P8o6G7QGXLIyy1L2qv5caEI7zXN5ciaEjbAriRF182kbsoJ1S1TgvpyGcN485fMky6qxOPw==
 
 lines-and-columns@^1.1.6:
   version "1.1.6"
