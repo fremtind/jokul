@@ -43,7 +43,7 @@ export const Layout: React.FC<Props> = ({ children, location, pathContext, ...re
     return (
         <div className="jkl-portal" data-theme={theme} ref={wrapperRef}>
             <Helmet>
-                <html lang="no-nb" />
+                <html lang="no" />
                 <title>{PageTitle}</title>
             </Helmet>
             <ThemeBG />
