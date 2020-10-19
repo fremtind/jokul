@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.19.2 (2020-10-19)
+
+### Bug Fixes
+
+- update html lang attribute ([817deba](https://github.com/fremtind/jokul/commit/817deba783837272b0c64c0bd40e6c2cb08be999))
+
 ## 3.19.1 (2020-10-08)
 
 ### Bug Fixes
