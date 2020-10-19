@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "2.2.3",
+    "version": "2.2.4",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.14.3"
+        "@fremtind/jkl-core": "^4.14.4"
     },
     "repository": {
         "type": "git",
