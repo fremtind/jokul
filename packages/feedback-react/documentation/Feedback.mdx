@@ -1,0 +1,34 @@
+---
+title: Feedback
+scss: feedback
+react: feedback-react
+---
+
+import Example from "./Example";
+import { Feedback } from "../src";
+
+<Ingress>
+    Feedback fra brukere er viktig for å kunne gjøre justering på tjenestene våre der det oppleves vanskelig eller kunne gi oss pekepinn på ønsker om nye tjenester feks.
+    Feedback kommer i to varianter, Simplified og vanlig. Funksjonelt er de like, men simplified bruker enkle radioknapper, mens vanlig bruker smilefjes. Du kan bestemme antallet ved å endre på FeedbackOptions propertien.
+
+</Ingress>
+<ComponentExample
+    knobs={{
+            boolProps: ["Uten smilefjes", "Uten tekst"],
+        }}
+    component={Example}
+/>
+
+-   1 - Surt fjes
+-   2 - Litt surt fjes
+-   3 - Nøytralt fjes
+-   4 - Smilefjes
+-   5 - Happy smilefjes
+
+Feedback komponenten tar ansvar for å holde på staten og sende inn svaret, du må bare sørge for å sende inn en funksjon som kalles ved innsenning eller lukking av browseren, med andre ord vi bevarer svaret på smilefjeset, selvom man ikke fyller inn tekstsvaret og sender inn selv. Funksjonen får inn et objekt med shapen
+
+```tsx
+{ feedbackValue: 1 | 2 | 3 | 4 | 5, message?: string }
+```
+
+, du må i klienten koble det opp mot ditt ønskede feedback endepunkt med eventuelle vasking og, eller transformering av data.
