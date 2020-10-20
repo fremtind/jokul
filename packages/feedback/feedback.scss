@@ -1,0 +1,102 @@
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+$feedback-icons: (
+    "feedback__icon1": #ff7059,
+    "feedback__icon2": #f2994a,
+    "feedback__icon3": #ffc880,
+    "feedback__icon4": #50e68c,
+    "feedback__icon5": #27ae60,
+);
+
+$icon-size: 55px;
+
+.feedback {
+    text-align: center;
+    margin: 0 auto;
+
+    &__fieldset {
+        & .jkl-heading-large {
+            font-weight: $bold-weight;
+        }
+        & legend {
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+    }
+
+    &__answer {
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 1rem;
+
+        &--smiley {
+            @include reset-outline;
+            height: 0;
+            opacity: 0;
+            width: 0;
+
+            html:not([data-mousenavigation]) &:focus + label {
+                box-shadow: 0 0 0 2px $gra-10, 0 0 0 4px $info;
+            }
+
+            &:checked + label {
+                @each $name, $color in $feedback-icons {
+                    [class*="#{$name}"] {
+                        fill: $color;
+                        transition-property: fill;
+                        @include motion(standard, expressive);
+                    }
+                }
+            }
+        }
+    }
+
+    & [class^="feedback__icon"] {
+        fill: white;
+        width: $icon-size;
+    }
+
+    &__label {
+        border-radius: 50%;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        line-height: 0;
+        transition: all 0.2s ease-in-out;
+    }
+
+    &__messagebox {
+        text-align: left;
+    }
+
+    &__text-input {
+        margin: 0 auto;
+        text-align: left;
+        width: 70%;
+
+        & .jkl-label--small {
+            font-weight: $bold-weight;
+        }
+    }
+
+    &__button {
+        margin-top: 2rem;
+    }
+
+    &__input-submit {
+        margin-top: 2rem;
+        max-height: 250px;
+        opacity: 1;
+        transition-property: max-height, opacity;
+        @include motion(standard, expressive);
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    & .jkl-radio-button--inline {
+        text-align: initial;
+    }
+}
