@@ -1,9 +1,22 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
-import { DatePicker } from ".";
+import { act, fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import React from "react";
+import { SinonFakeTimers, useFakeTimers } from "sinon";
+import { DatePicker } from ".";
 
 describe("Datepicker", () => {
+    let clock: SinonFakeTimers;
+
+    beforeAll(() => {
+        const now = new Date(2019, 9, 20);
+        clock = useFakeTimers(now);
+    });
+
+    afterAll(() => {
+        clock.restore();
+    });
+
     it("renders with the correct format", () => {
         const thePast = new Date(2019, 11, 24);
         render(<DatePicker initialDate={thePast} />);
@@ -81,6 +94,45 @@ describe("Datepicker", () => {
         const idPattern = /jkl-datepicker-[A-Za-z0-9\-_]{8}/;
         expect(inputId?.match(idPattern)).toHaveLength(1);
         expect(label.getAttribute("id")).toEqual(inputId + "-label");
+    });
+
+    it("should open the date picker when clicking on the input field", async () => {
+        jest.useFakeTimers();
+
+        render(<DatePicker label="Some datepicker" />);
+        const inputElement = screen.getByLabelText("Some datepicker");
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+
+        await act(async () => {
+            userEvent.click(inputElement);
+            jest.runAllTimers();
+        });
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+    });
+
+    it("should close the datepicker when clicking outside the date picker", async () => {
+        jest.useFakeTimers();
+
+        render(<DatePicker label="Some datepicker" />);
+        const inputElement = screen.getByLabelText("Some datepicker");
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+
+        await act(async () => {
+            userEvent.click(inputElement);
+            jest.runAllTimers();
+        });
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+
+        await act(async () => {
+            userEvent.click(document.body);
+            jest.runAllTimers();
+        });
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
     });
 });
 

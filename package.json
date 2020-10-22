@@ -63,6 +63,7 @@
         "@types/react": "^16.9.43",
         "@types/react-dom": "^16.9.8",
         "@types/sass": "^1.16.0",
+        "@types/sinon": "^9.0.8",
         "@types/vfile-message": "^2.0.0",
         "@typescript-eslint/eslint-plugin": "^4.1.0",
         "@typescript-eslint/parser": "^4.1.0",
@@ -107,6 +108,7 @@
         "rimraf": "^3.0.2",
         "rollup": "^2.18.2",
         "rollup-plugin-terser": "^7.0.0",
+        "sinon": "^9.2.0",
         "typescript": "^4.0.2",
         "vfile-message": "^2.0.4"
     },

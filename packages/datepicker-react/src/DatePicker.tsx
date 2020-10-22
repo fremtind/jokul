@@ -164,7 +164,7 @@ export function DatePicker({
         }
     };
 
-    useClickOutside(calendarRef, () => {
+    useClickOutside(componentRef, () => {
         !state.calendarHidden && handleToggleCalendar(true);
     });
 
