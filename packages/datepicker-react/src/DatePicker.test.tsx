@@ -134,6 +134,35 @@ describe("Datepicker", () => {
 
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
     });
+
+    it("should keep focus on input field when clicking on the input field", async () => {
+        jest.useFakeTimers();
+
+        render(<DatePicker label="Some datepicker" />);
+        const inputElement = screen.getByLabelText("Some datepicker");
+
+        await act(async () => {
+            userEvent.click(inputElement);
+            jest.runAllTimers();
+        });
+
+        expect(document.activeElement).toBe(inputElement);
+    });
+
+    it("should should move focus to calendar button when opening datepicker with button", async () => {
+        jest.useFakeTimers();
+
+        render(<DatePicker label="Some datepicker" />);
+        const openCalendarButtonElement = screen.getByText("Åpne kalender");
+
+        await act(async () => {
+            userEvent.click(openCalendarButtonElement);
+            jest.runAllTimers();
+        });
+
+        const todayButtonElement = screen.getByText("20");
+        expect(document.activeElement).toBe(todayButtonElement);
+    });
 });
 
 describe("a11y", () => {

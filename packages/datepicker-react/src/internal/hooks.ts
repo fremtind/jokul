@@ -35,26 +35,6 @@ export const useSetTimeToDateInRange = (
     }, [disableBeforeDate, disableAfterDate, dispatch]);
 };
 
-export const useToggleCalendarWithoutFocus = (
-    handleToggleCalendar: (hidden: boolean) => void,
-    calendarHidden: boolean,
-) => {
-    return useCallback(() => handleToggleCalendar(!calendarHidden), [calendarHidden, handleToggleCalendar]);
-};
-
-export const useHandleFocusToggle = (
-    inputRef: React.RefObject<HTMLInputElement>,
-    toggleCalendarWithoutFocus: () => void,
-) => {
-    useEffect(() => {
-        const inputEl = inputRef.current;
-        inputEl && inputEl.addEventListener("click", toggleCalendarWithoutFocus);
-        return () => {
-            inputEl && inputEl.removeEventListener("click", toggleCalendarWithoutFocus);
-        };
-    }, [toggleCalendarWithoutFocus, inputRef]);
-};
-
 export const useDisableDate = (disableBeforeDate: Date | undefined, disableAfterDate: Date | undefined) => {
     return useCallback((inputDate: Date) => dateIsOutsideRange(inputDate, disableBeforeDate, disableAfterDate), [
         disableBeforeDate,

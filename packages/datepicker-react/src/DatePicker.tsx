@@ -13,8 +13,6 @@ import {
     init,
     useUpdateInternalStateOnValueChange,
     useSetTimeToDateInRange,
-    useToggleCalendarWithoutFocus,
-    useHandleFocusToggle,
     useDisableDate,
     useToggleCalendar,
     useCalendarId,
@@ -111,14 +109,7 @@ export function DatePicker({
     const handleToggleCalendar = useToggleCalendar(dispatch, state, disableDate);
 
     const toggleCalendar = () => {
-        const wasHidden = state.calendarHidden;
         handleToggleCalendar(!state.calendarHidden);
-
-        if (wasHidden) {
-            const calendarEl = calendarRef.current;
-            const button = calendarEl && (calendarEl.querySelector("[autofocus]") as HTMLButtonElement);
-            button && setTimeout(() => button.focus(), 100);
-        }
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -177,9 +168,6 @@ export function DatePicker({
 
     useUpdateInternalStateOnValueChange(dispatch, value);
 
-    const toggleCalendarWithoutFocus = useToggleCalendarWithoutFocus(toggleCalendar, state.calendarHidden);
-    useHandleFocusToggle(inputRef, toggleCalendarWithoutFocus);
-
     return (
         <div className={componentClassName} ref={componentRef}>
             <Label standAlone htmlFor={inputId} variant={variant}>
@@ -196,6 +184,7 @@ export function DatePicker({
                     value={state.dateString}
                     onFocus={() => handleFocusChange(onFocus)}
                     onBlur={() => handleFocusChange(onBlur)}
+                    onClick={() => toggleCalendar()}
                     onChange={handleChange}
                     placeholder={placeholder}
                     width="11.5rem"
@@ -205,7 +194,15 @@ export function DatePicker({
                     className="jkl-text-input__action-button"
                     iconType="calendar"
                     buttonTitle={state.calendarHidden ? showCalendarLabel : hideCalendarLabel}
-                    onClick={toggleCalendar}
+                    onClick={() => {
+                        toggleCalendar();
+                        const wasHidden = state.calendarHidden;
+                        if (wasHidden) {
+                            const calendarEl = calendarRef.current;
+                            const button = calendarEl && (calendarEl.querySelector("[autofocus]") as HTMLButtonElement);
+                            button && setTimeout(() => button.focus(), 100);
+                        }
+                    }}
                     onFocus={() => handleFocusChange(onFocus)}
                     onBlur={() => handleFocusChange(onBlur)}
                 />
