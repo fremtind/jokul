@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef, HTMLAttributes, TouchEvent } from "react";
 import classNames from "classnames";
 
 export interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
@@ -10,7 +10,7 @@ type ValidButtons = "primary" | "secondary" | "tertiary";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const button = forwardRef<HTMLButtonElement, Props>(
-        ({ children, className, forceCompact, inverted, ...rest }, ref) => {
+        ({ children, className, forceCompact, inverted, onClick, onTouchStart, ...rest }, ref) => {
             const componentClassName = classNames(
                 "jkl-button",
                 "jkl-button--" + buttonType,
@@ -21,8 +21,22 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                 className,
             );
 
+            const handleTouch = (event: TouchEvent<HTMLButtonElement>) => {
+                onTouchStart && onTouchStart(event);
+
+                const target = event.target as HTMLButtonElement;
+                if (target && event.targetTouches.length) {
+                    const Xcoord = event.targetTouches[0].clientX - target.getBoundingClientRect().x;
+                    const Ycoord = event.targetTouches[0].clientY - target.getBoundingClientRect().y;
+                    target.style.setProperty("--jkl-touch-xcoord", Xcoord.toPrecision(4) + "px");
+                    target.style.setProperty("--jkl-touch-ycoord", Ycoord.toPrecision(4) + "px");
+                    target.classList.add("jkl-button--pressed");
+                    setTimeout(() => target.classList.remove("jkl-button--pressed"), 400);
+                }
+            };
+
             return (
-                <button className={componentClassName} {...rest} ref={ref}>
+                <button className={componentClassName} onClick={onClick} onTouchStart={handleTouch} {...rest} ref={ref}>
                     {children}
                 </button>
             );
