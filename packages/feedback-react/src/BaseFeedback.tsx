@@ -80,10 +80,10 @@ export const BaseFeedback: React.FC<BaseFeedbackProps> = ({
             value={{ options: feedbackOptions, setValue: setFeedbackValue, value: feedbackValue }}
         >
             <form className={`jkl-feedback ${className}`} onSubmit={(e) => e.preventDefault()}>
-                <header className="jkl-feedback__heading">
+                <div className="jkl-feedback__heading">
                     <H className="jkl-heading-large">{label}</H>
                     {description && <p className="jkl-lead">{description}</p>}
-                </header>
+                </div>
                 <fieldset className="jkl-feedback__fieldset">{children}</fieldset>
                 <section
                     className={cn("jkl-feedback__input-submit", {
