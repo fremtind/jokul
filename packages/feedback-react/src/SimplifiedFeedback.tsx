@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { BaseFeedback, BaseFeedbackProps, FeedbackContext } from "./BaseFeedback";
-import { FeedbackOptions } from "./types";
+import { FeedbackValue } from "./types";
 
 const FeedbackContent: React.FC<{ legend: string }> = ({ legend }) => {
     const { options, value, setValue } = useContext(FeedbackContext);
@@ -12,7 +12,7 @@ const FeedbackContent: React.FC<{ legend: string }> = ({ legend }) => {
             name="feedback"
             choices={options.map((_, idx) => (idx + 1).toString())}
             inline
-            onChange={(e) => setValue(parseInt(e.target.value, 10) as FeedbackOptions)}
+            onChange={(e) => setValue(parseInt(e.target.value, 10) as FeedbackValue)}
             selectedValue={value?.toString()}
         />
     );

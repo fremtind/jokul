@@ -2,7 +2,6 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$feedback-icons: (#ff7059, #f2994a, #ffc880, #50e68c, #27ae60);
 $icon-size: rem(45px);
 
 [data-theme="light"] {
@@ -95,6 +94,8 @@ $icon-size: rem(45px);
         stroke-width: rem(2px);
         stroke: $svart;
         stroke: var(--jkl-feedback-icon--outline);
+        transition-property: color;
+        @include motion(standard, expressive);
 
         &__eyes {
             fill: $svart;
@@ -106,6 +107,9 @@ $icon-size: rem(45px);
         opacity: 1;
         transition-property: opacity;
         @include motion(standard, expressive);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
 
         &--hidden {
             display: none;

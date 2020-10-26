@@ -3,13 +3,17 @@ import cn from "classnames";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
 import { SuccessMessage } from "@fremtind/jkl-message-box-react";
-import { FeedbackOptions, FeedbackType } from "./types";
+import { FeedbackValue } from "./types";
 
+type FeedbackPayload = {
+    feedbackValue: FeedbackValue;
+    message?: string;
+};
 export interface BaseFeedbackProps {
     label: string;
-    onSubmit: (data: FeedbackType) => void;
+    onSubmit: (data: FeedbackPayload) => void;
     description?: string;
-    feedbackOptions?: FeedbackOptions[];
+    feedbackOptions?: FeedbackValue[];
     successTitle?: string;
     successMessage?: string;
     className?: string;
@@ -17,12 +21,13 @@ export interface BaseFeedbackProps {
     showTextArea?: boolean;
     textAreaLabel?: string;
     textAreaHelpLabel?: string;
+    headingLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "p";
 }
 
 export const FeedbackContext = createContext<{
-    options: FeedbackOptions[];
-    value?: FeedbackOptions;
-    setValue: (next: FeedbackOptions) => void;
+    options: FeedbackValue[];
+    value?: FeedbackValue;
+    setValue: (next: FeedbackValue) => void;
 }>({ options: [], setValue: () => undefined });
 
 export const BaseFeedback: React.FC<BaseFeedbackProps> = ({
@@ -37,9 +42,10 @@ export const BaseFeedback: React.FC<BaseFeedbackProps> = ({
     textAreaHelpLabel = "",
     className = "",
     feedbackOptions = [1, 2, 3, 4, 5],
+    headingLevel = "h3",
     children,
 }) => {
-    const [feedbackValue, setFeedbackValue] = useState<FeedbackOptions>();
+    const [feedbackValue, setFeedbackValue] = useState<FeedbackValue>();
     const [message, setMessage] = useState("");
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
 
@@ -67,13 +73,15 @@ export const BaseFeedback: React.FC<BaseFeedbackProps> = ({
         return <SuccessMessage title={successTitle}>{successMessage}</SuccessMessage>;
     }
 
+    const H = headingLevel;
+
     return (
         <FeedbackContext.Provider
             value={{ options: feedbackOptions, setValue: setFeedbackValue, value: feedbackValue }}
         >
             <form className={`jkl-feedback ${className}`} onSubmit={(e) => e.preventDefault()}>
                 <header className="jkl-feedback__heading">
-                    <h2 className="jkl-heading-large">{label}</h2>
+                    <H className="jkl-heading-large">{label}</H>
                     {description && <p className="jkl-lead">{description}</p>}
                 </header>
                 <fieldset className="jkl-feedback__fieldset">{children}</fieldset>

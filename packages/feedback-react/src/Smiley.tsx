@@ -1,7 +1,7 @@
 import React from "react";
-import { FeedbackOptions } from "./types";
+import { FeedbackValue } from "./types";
 
-const getSmiley = (element: FeedbackOptions) => {
+const getSmiley = (element: FeedbackValue) => {
     switch (element) {
         case 1:
             return <path d="M40 42C40 36.4772 35.0751 32 29 32C22.9249 32 18 36.4772 18 42"></path>;
@@ -16,7 +16,7 @@ const getSmiley = (element: FeedbackOptions) => {
     }
 };
 
-export const Smiley: React.FC<{ element: FeedbackOptions }> = ({ element }) => (
+export const Smiley: React.FC<{ element: FeedbackValue }> = ({ element }) => (
     <svg
         aria-hidden
         className={`jkl-feedback__icon jkl-feedback__icon--${element}`}
