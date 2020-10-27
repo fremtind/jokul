@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.2 (2020-10-27)
+
+### Bug Fixes
+
+- export payload type ([0b56868](https://github.com/fremtind/jokul/commit/0b56868a8f60e1bc67ed4eb0477d341625dfd757))
+
 ## 1.1.0 (2020-10-27)
 
 ### Bug Fixes
