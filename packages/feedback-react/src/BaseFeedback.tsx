@@ -5,7 +5,7 @@ import { SecondaryButton } from "@fremtind/jkl-button-react";
 import { SuccessMessage } from "@fremtind/jkl-message-box-react";
 import { FeedbackValue } from "./types";
 
-type FeedbackPayload = {
+export type FeedbackPayload = {
     feedbackValue: FeedbackValue;
     message?: string;
 };
