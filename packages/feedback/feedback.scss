@@ -4,6 +4,7 @@
 
 $icon-size: rem(45px);
 
+:root,
 [data-theme="light"] {
     --jkl-feedback-icon--base: #{$hvit};
     --jkl-feedback-icon--outline: #{$svart};
