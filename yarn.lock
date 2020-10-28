@@ -4137,10 +4137,10 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.157.tgz#fdac1c52448861dfde1a2e1515dbc46e54926dc8"
   integrity sha512-Ft5BNFmv2pHDgxV5JDsndOWTRJ+56zte0ZpYLowp03tW+K+t8u8YMOzAnpuqPgzX6WO1XpDIUm7u04M8vdDiVQ==
 
-"@types/match-sorter@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/match-sorter/-/match-sorter-4.0.0.tgz#8a7286019d4e328c09422bb2af2403a94b7038fd"
-  integrity sha512-JK7HNHXZA7i/nEp6fbNAxoX/1j1ysZXmv2/nlkt2UpX1LiUWKLtyt/dMmDTlMPR6t6PkwMmIr2W2AAyu6oELNw==
+"@types/match-sorter@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/match-sorter/-/match-sorter-5.0.0.tgz#7a66f7f45d22621e79920b3919e5b3d3e746184d"
+  integrity sha512-25KmtRqBKBH5Uo5e6QAV+5zKuE+cksAJ9R8GMMYtt0+jV+HxQj1Yg8ciui/T4AaoCmq3D65m1tgNcabkOLHe1Q==
 
 "@types/mdast@^3.0.0":
   version "3.0.3"
