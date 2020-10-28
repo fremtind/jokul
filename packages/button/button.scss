@@ -40,8 +40,12 @@ $button-primary-background-color--inverted: $hvit;
     --button-text-color: #{$button-text-color};
     --button-background-color: #{$button-background-color};
     --button-focus-color: #{$button-focus-color};
+    --button-action-focus-color: #{$info--darkbg};
     --button-primary-text-color: #{$button-primary-text-color};
     --button-primary-background-color: #{$button-primary-background-color};
+    --button-action-background-color: #{$info};
+    --button-action-text-color: #{$hvit};
+    --button-action-focus-text-color: #{$svart};
 }
 
 [data-theme="dark"] {
@@ -49,8 +53,12 @@ $button-primary-background-color--inverted: $hvit;
     --button-text-color: #{$button-text-color--inverted};
     --button-background-color: #{$button-background-color--inverted};
     --button-focus-color: #{$button-focus-color--inverted};
+    --button-action-focus-color: #{$info--darkbg};
     --button-primary-text-color: #{$button-primary-text-color--inverted};
     --button-primary-background-color: #{$button-primary-background-color--inverted};
+    --button-action-background-color: #{$info--darkbg};
+    --button-action-text-color: #{$svart};
+    --button-action-focus-text-color: #{$svart};
 }
 
 .jkl-button {
@@ -95,7 +103,8 @@ $button-primary-background-color--inverted: $hvit;
     // ********* VARIANTS *********
 
     &--primary,
-    &--secondary {
+    &--secondary,
+    &--action {
         border: solid $button-border-width $button-border-color;
         border: solid $button-border-width var(--button-border-color);
         border-radius: 999px;
@@ -165,6 +174,24 @@ $button-primary-background-color--inverted: $hvit;
             color: var(--button-focus-color);
             border-color: $button-focus-color;
             border-color: var(--button-focus-color);
+        }
+    }
+
+    &--action {
+        background-color: $info;
+        background-color: var(--button-action-background-color);
+        color: $hvit;
+        color: var(--button-action-text-color);
+        border: none;
+
+        &:hover,
+        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+        html[data-touchnavigation] &.jkl-button--pressed {
+            background-color: $info--darkbg;
+            background-color: var(--button-action-focus-color);
+            border-color: $button-focus-color;
+            border-color: var(--button-focus-color);
+            color: var(--button-action-focus-text-color);
         }
     }
 
@@ -239,6 +266,19 @@ $button-primary-background-color--inverted: $hvit;
             html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
             html[data-touchnavigation] &.jkl-button--pressed {
                 color: $button-focus-color--inverted;
+                border-color: $button-focus-color--inverted;
+            }
+        }
+
+        &.jkl-button--action {
+            background-color: $info--darkbg;
+            border-color: $button-border-color--inverted;
+            color: $button-primary-text-color--inverted;
+
+            &:hover,
+            html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+            html[data-touchnavigation] &.jkl-button--pressed {
+                background-color: $button-focus-color--inverted;
                 border-color: $button-focus-color--inverted;
             }
         }
