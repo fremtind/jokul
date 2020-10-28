@@ -4,11 +4,29 @@
 $item-space-between: $component-spacing--small;
 $list-padding-left: $layout-spacing--small;
 
-$black-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px'%3E%3Cpath d='M4.01 0l4.002 4.002L4.01 8.004.008 4.002z'/%3E%3C/svg%3E");
-$white-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='%23000' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
+$black-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' fill='black' width='9px' height='9px'%3E%3Cpath d='M4.01 0l4.002 4.002L4.01 8.004.008 4.002z'/%3E%3C/svg%3E");
+$white-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='black' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
+$jkl-marker-cross: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.6897 12.2047L16.7976 5.77481L16.0836 5.07422L10.0003 11.4783L3.92319 5.07428L3.20958 5.77524L9.31054 12.2044L2.5 19.374L3.21395 20.0746L9.99992 12.9308L16.7857 20.0816L17.4993 19.3807L10.6897 12.2047Z' fill='black' %3E%3C/path%3E%3C/svg%3E");
+$jkl-marker-check: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 15.2168L5.24264 19.4594L19.3848 5.3173' stroke='black'%3E%3C/path%3E%3C/svg%3E");
+
+:root,
+[data-theme="light"] {
+    --jkl-list-marker--default: #{$black-diamond};
+    --jkl-list-marker--secondary: #{$white-diamond};
+    --jkl-list-marker--cross: #{$jkl-marker-cross};
+    --jkl-list-marker--check: #{$jkl-marker-check};
+}
+
+[data-theme="dark"] {
+    --jkl-list-marker--default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' fill='white' width='9px' height='9px'%3E%3Cpath d='M4.01 0l4.002 4.002L4.01 8.004.008 4.002z'/%3E%3C/svg%3E");
+    --jkl-list-marker--secondary: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='white' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
+    --jkl-list-marker--cross: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.6897 12.2047L16.7976 5.77481L16.0836 5.07422L10.0003 11.4783L3.92319 5.07428L3.20958 5.77524L9.31054 12.2044L2.5 19.374L3.21395 20.0746L9.99992 12.9308L16.7857 20.0816L17.4993 19.3807L10.6897 12.2047Z' fill='white'%3E%3C/path%3E%3C/svg%3E");
+    --jkl-list-marker--check: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 15.2168L5.24264 19.4594L19.3848 5.3173' stroke='white'%3E%3C/path%3E%3C/svg%3E");
+}
 
 .jkl-list {
     list-style: disc $black-diamond;
+    list-style: disc var(--jkl-list-marker--default);
     padding-left: $list-padding-left;
 
     &.jkl-body {
@@ -33,6 +51,7 @@ $white-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
     & & > .jkl-list__item {
         list-style: disc $white-diamond;
+        list-style: disc var(--jkl-list-marker--secondary);
         margin: 0;
 
         &:first-of-type {
@@ -50,6 +69,35 @@ $white-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg
 
         & & > .jkl-list__item {
             list-style: lower-alpha;
+        }
+    }
+
+    &__item {
+        &__iconed {
+            list-style: none;
+            position: relative;
+            &::before {
+                text-indent: -9999px;
+                position: absolute;
+                top: 0.25em;
+                left: rem(-23px);
+                background-size: contain;
+                display: inline-block;
+                width: 0.75em;
+                height: 0.75em;
+            }
+        }
+
+        &--check::before {
+            content: "\2713";
+            background-image: $jkl-marker-check;
+            background-image: var(--jkl-list-marker--check);
+        }
+
+        &--cross::before {
+            content: "\274C";
+            background-image: $jkl-marker-cross;
+            background-image: var(--jkl-list-marker--cross);
         }
     }
 }
