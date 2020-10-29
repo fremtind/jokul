@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.5.14 (2020-10-28)
+
+### Bug Fixes
+
+- update related to match sorter ([5e43a3c](https://github.com/fremtind/jokul/commit/5e43a3ca1fc3ad25bbb522deb763821f52462f88))
+
 ## 3.5.10 (2020-09-24)
 
 ### Bug Fixes
