@@ -1,0 +1,37 @@
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+.jkl-flipper {
+    height: 1.2em;
+    overflow: hidden;
+    display: block;
+
+    &--show-first {
+        transform: translateY(0);
+        & > span:last-child {
+            opacity: 0;
+        }
+    }
+
+    &--show-second {
+        transform: translateY(-50%);
+        & > span:first-child {
+            opacity: 0;
+        }
+    }
+
+    &__slider {
+        display: flex;
+        flex-direction: column;
+        transition-property: transform;
+        @include motion(standard, expressive);
+        @media (prefers-reduced-motion) {
+            transition-property: none;
+        }
+
+        & > span {
+            opacity: 1;
+            transition-property: opacity;
+            @include motion(standard, expressive);
+        }
+    }
+}

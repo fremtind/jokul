@@ -1,0 +1,57 @@
+{
+    "name": "@fremtind/jkl-flipper-react",
+    "version": "0.0.1",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul react flipper component",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "flipper",
+        "animation",
+        "jøkul",
+        "fremtind"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-flipper yarn build:watch",
+        "dev:js": "parcel documentation/index.html",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-flipper": "^0.0.1"
+    },
+    "devDependencies": {
+        "@fremtind/jkl-portal-components": "^0.7.7"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+}
