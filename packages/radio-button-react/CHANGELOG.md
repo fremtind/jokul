@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.7.0 (2020-10-29)
+
+### Features
+
+- add support for more attributes on RadioButtonOption ([65e4c5a](https://github.com/fremtind/jokul/commit/65e4c5a5b522520399e3fceba2a5d7549f72e317))
+
 ## 1.6.0 (2020-09-02)
 
 ### Features
