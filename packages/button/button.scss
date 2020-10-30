@@ -53,6 +53,38 @@ $button-primary-background-color--inverted: $hvit;
     --button-primary-background-color: #{$button-primary-background-color--inverted};
 }
 
+.jkl-button-wrapper {
+    height: $button-height--normal;
+    overflow: hidden;
+    @supports (clip-path: inset(-5% -5% -5% -5%)) {
+        overflow: initial;
+        clip-path: inset(-5% -5% -5% -5%);
+    }
+
+    &__slider {
+        @include motion("standard", "productive");
+        transition-property: transform;
+        &--show-loader {
+            transform: translateY(-50%);
+        }
+    }
+
+    &__loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: $button-height--normal;
+    }
+
+    &--compact {
+        height: $button-height--compact;
+
+        .jkl-button-wrapper__loader {
+            height: $button-height--compact;
+        }
+    }
+}
+
 .jkl-button {
     @include reset-outline;
     display: inline-flex;

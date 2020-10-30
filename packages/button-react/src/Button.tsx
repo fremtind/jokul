@@ -1,16 +1,21 @@
 import React, { forwardRef, HTMLAttributes, TouchEvent } from "react";
 import classNames from "classnames";
+import { Loader } from "@fremtind/jkl-loader-react";
 
 export interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
     forceCompact?: boolean;
     inverted?: boolean;
+    loader?: {
+        showLoader: boolean;
+        textDescription: string;
+    };
 }
 
 type ValidButtons = "primary" | "secondary" | "tertiary";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const button = forwardRef<HTMLButtonElement, Props>(
-        ({ children, className, forceCompact, inverted, onClick, onTouchStart, ...rest }, ref) => {
+        ({ children, className, forceCompact, inverted, onClick, onTouchStart, loader, ...rest }, ref) => {
             const componentClassName = classNames(
                 "jkl-button",
                 "jkl-button--" + buttonType,
@@ -35,10 +40,44 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                 }
             };
 
-            return (
-                <button className={componentClassName} onClick={onClick} onTouchStart={handleTouch} {...rest} ref={ref}>
+            const Button = () => (
+                <button
+                    className={componentClassName}
+                    onClick={onClick}
+                    onTouchStart={handleTouch}
+                    disabled={loader?.showLoader}
+                    {...rest}
+                    ref={ref}
+                >
                     {children}
                 </button>
+            );
+
+            if (!loader) {
+                return <Button />;
+            }
+
+            return (
+                <div
+                    className={classNames("jkl-button-wrapper", {
+                        "jkl-button-wrapper--compact": forceCompact,
+                    })}
+                >
+                    <div
+                        className={classNames("jkl-button-wrapper__slider", {
+                            "jkl-button-wrapper__slider--show-loader": !!loader.showLoader,
+                        })}
+                    >
+                        <Button />
+                        <Loader
+                            className="jkl-button-wrapper__loader jkl-layout-spacing--small-top"
+                            textDescription={loader.textDescription}
+                            negative={inverted}
+                            aria-hidden={!!loader.showLoader}
+                            inline={true}
+                        />
+                    </div>
+                </div>
             );
         },
     );
