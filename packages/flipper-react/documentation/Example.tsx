@@ -4,6 +4,6 @@ import { Flipper } from "../src";
 
 export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => (
     <div className="jkl-body">
-        <Flipper showFirst={!!boolValues?.["Flip"]} firstBorn="Hello" lastBorn="World" screenReaderText="Hello world" />
+        <Flipper showFirst={!!boolValues?.["Flip"]} firstBorn="Hello" lastBorn="World" />
     </div>
 );

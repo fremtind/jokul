@@ -1,25 +1,22 @@
 import React, { ReactNode } from "react";
 import cn from "classnames";
-import { ScreenReaderOnly } from "@fremtind/jkl-core";
 
 export const Flipper: React.FC<{
     showFirst: boolean;
     firstBorn: ReactNode;
     lastBorn: ReactNode;
-    screenReaderText: string;
     className?: string;
-}> = ({ showFirst, firstBorn, lastBorn, screenReaderText, className = "" }) => (
+}> = ({ showFirst, firstBorn, lastBorn, className = "" }) => (
     <>
-        <ScreenReaderOnly>{screenReaderText}</ScreenReaderOnly>
-        <span className={`jkl-flipper ${className}`} aria-hidden={true}>
+        <span className={`jkl-flipper ${className}`}>
             <span
                 className={cn("jkl-flipper__slider", {
-                    "jkl-flipper--show-first": !showFirst,
-                    "jkl-flipper--show-second": showFirst,
+                    "jkl-flipper--show-first": showFirst,
+                    "jkl-flipper--show-second": !showFirst,
                 })}
             >
-                <span>{firstBorn}</span>
-                <span>{lastBorn}</span>
+                <span aria-hidden={!showFirst}>{firstBorn}</span>
+                <span aria-hidden={showFirst}>{lastBorn}</span>
             </span>
         </span>
     </>

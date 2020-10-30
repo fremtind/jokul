@@ -4,18 +4,16 @@ import { Flipper } from "./Flipper";
 import { axe } from "jest-axe";
 
 test("should render to the DOM", () => {
-    render(<Flipper firstBorn="Hello" lastBorn="World" screenReaderText="Hello World" showFirst />);
+    render(<Flipper firstBorn="Hello" lastBorn="World" showFirst />);
 
-    expect(screen.getByText("Hello World")).toHaveClass("jkl-sr-only");
     expect(screen.getByText("Hello")).toBeInTheDocument();
     expect(screen.getByText("World")).toBeInTheDocument();
 });
 
 test("button should be a11y compliant", async () => {
-    const { container } = render(
-        <Flipper firstBorn="Hello" lastBorn="World" screenReaderText="Hello World" showFirst />,
-    );
+    const { container } = render(<Flipper firstBorn="Hello" lastBorn="World" showFirst />);
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
 });
+//TODO: test aria hidden

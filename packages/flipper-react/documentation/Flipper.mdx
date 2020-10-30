@@ -23,5 +23,7 @@ Flipper komponenten gjør sitt beste gjett på hvor store elementene inni er, s�
 
 ## Tilgjengelighet
 
--   Du må også sende inn hva du ønsker at en skjemleser skal se. Hvis du toggler mellom to states, så må du også toggle teksen du vil at skjermleseren skal si.
+Husk at du må skru av interaktive elementer når de ikke vises. Så om du en knapp er en av togglestatene, må du disable den når den ikke syntes, ellers vil det fortsatt være mulig å tabbe til den og trykke.
+
+-   Aria-hidden settes på komponenten som ikke vises
 -   Komponenten hånterer redusert bevegelse på egenhånd
