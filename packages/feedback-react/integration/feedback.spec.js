@@ -5,7 +5,6 @@ let hasBeenCalled = false;
 Cypress.on(`window:before:load`, (win) => {
     cy.stub(win.console, `info`, (msg) => {
         if (msg.feedbackValue) {
-            console.log("HERE", msg);
             hasBeenCalled = msg;
         }
     });
