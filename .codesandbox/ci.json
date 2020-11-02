@@ -2,5 +2,5 @@
     "installCommand": "ci:install",
     "buildCommand": "build:quiet",
     "packages": ["packages/**"],
-    "sandboxes": ["qhzrt"]
+    "sandboxes": ["r4emo"]
 }
