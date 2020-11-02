@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 (2020-11-02)
+
+### Features
+
+- **@fremtind/jkl-validators-util:** adds validator for dog-id to validator-utils ([3a81afd](https://github.com/fremtind/jokul/commit/3a81afdfa9f095fac59ca51f02ff3b2fcd8d2ded)), closes [#1508](https://github.com/fremtind/jokul/issues/1508)
+
 ## 1.2.19 (2020-11-02)
 
 ### Bug Fixes
