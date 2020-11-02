@@ -13,7 +13,7 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
 import { Example } from "./Example";
-import "@fremtind/jkl-flipper/flipper.css";
+import "@fremtind/jkl-content-toggle/content-toggle.css";
 
 initTabListener();
 

@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 
-context("flipper", () => {
+context("ContentToggle", () => {
     beforeEach(() => {
-        cy.testComponent("flipper");
+        cy.testComponent("contenttoggle");
     });
 
-    it("flipper should work", () => {
+    it("Content Toggler should work", () => {
         cy.getComponent().toMatchImageSnapshot();
         cy.setFlip().waitForAnimation(300).getComponent().toMatchImageSnapshot();
     });
