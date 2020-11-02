@@ -8,6 +8,7 @@ import IsValidEpostExample from "./IsValidEpostExample";
 import IsValidTelefonnummerExample from "./IsValidTelefonnummerExample";
 import IsValidRegistreringsnummerExample from "./IsValidRegistreringsnummerExample";
 import IsValidChassisnummerExample from "./IsValidChassisnummerExample";
+import IsValidDogIdExample from "./IsValidDogIdExample";
 
 <Ingress>Denne pakken innholder validering støttefunksjoner.</Ingress>
 
@@ -34,4 +35,10 @@ Validering av gyldig generisk norsk registreringsnummer
 Validering av gyldig generisk norsk chassisnummer (de 9 siste sifrene)
 
 <ComponentExample component={IsValidChassisnummerExample} />
+
+## isValidDogId
+
+Validering av ID-nummer for hund. Nummeret skal starte med 5780 og inneholde 15 siffer.
+
+<ComponentExample component={IsValidDogIdExample} />
 
