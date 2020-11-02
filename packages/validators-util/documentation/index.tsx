@@ -21,12 +21,14 @@ import IsValidEpostExample from "./IsValidEpostExample";
 import IsValidTelefonnummerExample from "./IsValidTelefonnummerExample";
 import IsRegistreringsNumberExample from "./IsValidRegistreringsnummerExample";
 import IsValidChassisnummerExample from "./IsValidChassisnummerExample";
+import IsValidDogIdExample from "./IsValidDogIdExample";
 
 initTabListener();
 
 const mountNode = document.getElementById("app");
 ReactDOM.render(
     <>
+        <DevExample component={IsValidDogIdExample} />
         <DevExample component={IsValidEpostExample} />
         <DevExample component={IsValidTelefonnummerExample} />
         <DevExample component={IsRegistreringsNumberExample} />
