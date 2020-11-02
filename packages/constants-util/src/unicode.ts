@@ -7,4 +7,7 @@ export const SOFT_HYPHEN = "\u00AD";
 export const shy = SOFT_HYPHEN;
 export const COPYRIGHT = "\u00A9";
 export const NORTH_EAST_ARROW = "\u2197";
+export const LEFTWARDS_ARROW = "\u2190";
+export const UPWARDS_ARROW = "\u2191";
 export const RIGHTWARDS_ARROW = "\u2192";
+export const DOWNWARDS_ARROW = "\u2193";
