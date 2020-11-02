@@ -6,7 +6,7 @@ export interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disab
     inverted?: boolean;
 }
 
-type ValidButtons = "primary" | "secondary" | "tertiary" | "action";
+type ValidButtons = "primary" | "secondary" | "tertiary";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const button = forwardRef<HTMLButtonElement, Props>(
@@ -48,4 +48,3 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
 export const PrimaryButton = makeButtonComponent("primary");
 export const SecondaryButton = makeButtonComponent("secondary");
 export const TertiaryButton = makeButtonComponent("tertiary");
-export const ActionButton = makeButtonComponent("action");

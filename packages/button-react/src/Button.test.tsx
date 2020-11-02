@@ -1,13 +1,12 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { PrimaryButton, SecondaryButton, TertiaryButton, ActionButton } from ".";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 import { axe } from "jest-axe";
 
 const buttonVariants = [
     { name: "primary", component: PrimaryButton },
     { name: "secondary", component: SecondaryButton },
     { name: "tertiary", component: TertiaryButton },
-    { name: "action", component: ActionButton },
 ];
 
 describe("Button", () => {
