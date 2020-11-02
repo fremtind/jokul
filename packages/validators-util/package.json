@@ -4,10 +4,10 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Simple validation functions to use for validating",
+    "description": "Simple validator-functions to use for validating",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "validation",
+        "validators",
         "utils",
         "jøkul"
     ],

@@ -1,12 +1,11 @@
-# [`@fremtind/jkl-validators-util`](https://fremtind.github.io/jokul/komponenter/utils)
+# [`@fremtind/jkl-validators-util`](https://fremtind.github.io/jokul/komponenter/validators)
 
 ## Beskrivelse
-
-[Bruk og prinsipper](https://fremtind.github.io/jokul/validators-util/documentation/validators/).
+[Bruk og prinsipper](https://fremtind.github.io/jokul/profil/skjemadesign)
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/komigang/utvikling)
 
 ## Bruk av React-pakken
 
