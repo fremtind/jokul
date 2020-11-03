@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.21.1 (2020-11-03)
+
+### Bug Fixes
+
+- **portal:** override type for list in portal ([846f531](https://github.com/fremtind/jokul/commit/846f531d3a202ab9fd03ba1a46ea9dbf052c5c21))
+
 ## 3.21.0 (2020-10-29)
 
 ### Features

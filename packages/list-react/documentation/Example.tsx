@@ -1,5 +1,5 @@
 import React from "react";
-import { UnorderedList, OrderedList, ListItem } from "../src";
+import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
 
 export const Ordered = () => (
     <OrderedList>
@@ -37,11 +37,21 @@ export const Indent = () => (
     </UnorderedList>
 );
 
+export const IconedList = () => (
+    <List>
+        <CheckListItem>Dekkes</CheckListItem>
+        <CheckListItem>Dekkes også</CheckListItem>
+        <CrossListItem>Dekkes ikke</CrossListItem>
+        <CrossListItem>Dekkes heller ikke</CrossListItem>
+    </List>
+);
+
 const Example = () => (
     <section>
         <Ordered />
         <Unordered />
         <Indent />
+        <IconedList />
     </section>
 );
 

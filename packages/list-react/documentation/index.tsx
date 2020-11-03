@@ -15,8 +15,9 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 // Import actual example and component stylesheet (specific for this component):
 import Example from "./Example";
 import "@fremtind/jkl-list/list.css";
+import { boolProps } from "./internal/props";
 
 initTabListener();
 
 const mountNode = document.getElementById("app");
-ReactDOM.render(<DevExample component={Example} />, mountNode);
+ReactDOM.render(<DevExample component={Example} knobs={{ boolProps }} />, mountNode);
