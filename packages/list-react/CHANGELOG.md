@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2020-11-03)
+
+### Features
+
+- **list:** add check and cross list items ([7c53131](https://github.com/fremtind/jokul/commit/7c53131d00712b1c41ec77dd341bb962e71c37fb)), closes [#1483](https://github.com/fremtind/jokul/issues/1483)
+
+### BREAKING CHANGES
+
+- **list:** BREAKING
+
 ## 1.3.0 (2020-07-29)
 
 ### Features
