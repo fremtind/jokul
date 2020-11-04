@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button-react",
-    "version": "2.1.1",
+    "version": "2.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -42,7 +42,7 @@
     },
     "devDependencies": {
         "@fremtind/jkl-portal-components": "^0.7.8",
-        "@fremtind/jkl-toggle-switch-react": "^2.3.18"
+        "@fremtind/jkl-toggle-switch-react": "^2.4.0"
     },
     "peerDependencies": {
         "@types/react": "^16.9.4",

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.0 (2020-11-04)
+
+### Features
+
+- **button:** add action button ([39dd441](https://github.com/fremtind/jokul/commit/39dd4419f8372ad698fbab897b0527c8fc3d5de7)), closes [#1485](https://github.com/fremtind/jokul/issues/1485)
+
+### Reverts
+
+- **button:** remove action button, keep other changes to button ([7f81c58](https://github.com/fremtind/jokul/commit/7f81c584b3ba6cf26595e590c1e2321e21a53282))
+
 ## 2.1.0 (2020-10-23)
 
 ### Features

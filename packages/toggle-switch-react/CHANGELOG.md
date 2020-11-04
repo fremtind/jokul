@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.4.0 (2020-11-04)
+
+### Features
+
+- **toggle:** add toggle slider ([a42fd6b](https://github.com/fremtind/jokul/commit/a42fd6be9b04bdafceb69153f9b25f56d71498a6)), closes [#1482](https://github.com/fremtind/jokul/issues/1482)
+
 ## 2.3.0 (2020-07-29)
 
 ### Features
