@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.22.0 (2020-11-04)
+
+### Features
+
+- **flipper:** add flipper component ([45e7a48](https://github.com/fremtind/jokul/commit/45e7a48028102beb9af860730c16ac70ec8493ea))
+
 ## 3.21.1 (2020-11-03)
 
 ### Bug Fixes
