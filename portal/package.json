@@ -6,7 +6,7 @@
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.0.0",
-        "@types/react-syntax-highlighter": "^11.0.3"
+        "@types/react-syntax-highlighter": "^13.5.0"
     },
     "dependencies": {
         "@fremtind/jkl-portal-components": "^0.7.8",
