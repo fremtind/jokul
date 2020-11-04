@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
-import { ToggleSwitch } from "../src";
+import { ToggleSlider, ToggleSwitch } from "../src";
 
-const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const Switch: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOn, setIsOn] = useState(false);
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"] ? "Du må være koblet til wifi for å velge dette" : undefined;
@@ -18,5 +18,27 @@ const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
         </ToggleSwitch>
     );
 };
+
+export const Slider: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+    return (
+        <ToggleSlider
+            defaultValue="måned"
+            labels={["måned", "år"]}
+            onToggle={console.log}
+            inverted={boolValues && boolValues["Invertert"]}
+        >
+            Pris per
+        </ToggleSlider>
+    );
+};
+
+const Example: React.FC<ExampleComponentProps> = (props) => (
+    <section>
+        <Switch {...props} />
+        <div className="jkl-layout-spacing--large-top">
+            <Slider {...props} />
+        </div>
+    </section>
+);
 
 export default Example;

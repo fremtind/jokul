@@ -45,6 +45,6 @@ const setModeFactory = (knob) => {
     Cypress.Commands.add(`reset${pascalCase(knob)}`, setMode(knob, true));
 };
 
-["Kompakt", "Inline", "Invertert", "Med feil", "Utvidet velger", "Med hjelpetekst", "Dark mode"].map((knob) =>
+["Kompakt", "Inline", "Invertert", "Med feil", "Utvidet velger", "Med hjelpetekst", "Dark mode", "Flip"].map((knob) =>
     setModeFactory(knob),
 );

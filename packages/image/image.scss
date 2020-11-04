@@ -3,11 +3,11 @@
 
 :root,
 [data-theme="light"] {
-    --loader-color: #{$gra-20};
+    --jkl-image-loader-color: #{$gra-20};
 }
 
 [data-theme="dark"] {
-    --loader-color: #{$gra-80};
+    --jkl-image-loader-color: #{$gra-80};
 }
 
 .jkl-image {
@@ -40,13 +40,13 @@
 
         &--no-thumbnail {
             background: $gra-20;
-            background: var(--loader-color);
+            background: var(--jkl-image-loader-color);
         }
     }
 
     &--empty {
         background-color: $gra-20;
-        background: var(--loader-color);
+        background: var(--jkl-image-loader-color);
         display: block;
 
         &:before {
@@ -58,7 +58,7 @@
         .jkl-image__blur-container--no-thumbnail,
         .jkl-image--empty {
             background-color: $gra-80;
-            background: var(--loader-color);
+            background: var(--jkl-image-loader-color);
         }
     }
 }

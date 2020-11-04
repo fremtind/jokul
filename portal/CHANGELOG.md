@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.22.0 (2020-11-04)
+
+### Features
+
+- **flipper:** add flipper component ([45e7a48](https://github.com/fremtind/jokul/commit/45e7a48028102beb9af860730c16ac70ec8493ea))
+
+## 3.21.1 (2020-11-03)
+
+### Bug Fixes
+
+- **portal:** override type for list in portal ([846f531](https://github.com/fremtind/jokul/commit/846f531d3a202ab9fd03ba1a46ea9dbf052c5c21))
+
+## 3.21.0 (2020-10-29)
+
+### Features
+
+- **constants:** add constants package ([6d7e508](https://github.com/fremtind/jokul/commit/6d7e50869f0061ad7d41329e709eac317dcb8a8b)), closes [#1499](https://github.com/fremtind/jokul/issues/1499)
+
+## 3.20.0 (2020-10-27)
+
+### Features
+
+- **feedback:** initial feedback component ([9757a73](https://github.com/fremtind/jokul/commit/9757a730b5686ba2a437f3163411835669443a64)), closes [#1490](https://github.com/fremtind/jokul/issues/1490)
+
 ## 3.19.3 (2020-10-19)
 
 ### Bug Fixes

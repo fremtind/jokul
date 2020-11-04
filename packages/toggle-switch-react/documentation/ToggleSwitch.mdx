@@ -1,18 +1,20 @@
 ---
-title: Toggle switch
+title: Toggle
 react: toggle-switch-react
 scss: toggle-switch
 group: knapper
 ---
 
-import Example from "./Example";
+import { Switch, Slider } from "./Example";
 
 <Ingress>
-    Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. Ledeteksten
-    forteller hva brukeren slår av og på.
+    Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. Ledeteksten forteller hva brukeren slår av og på. Vi har to varianter, en ren av/på knapp og en slider variant der man velger mellom to states.
 </Ingress>
+
+## ToggleSwitch
+
 <ComponentExample
-    component={Example}
+    component={Switch}
     knobs={{
         boolProps: ["Invertert", "Deaktivert", "Med hjelpetekst"],
     }}
@@ -21,6 +23,17 @@ import Example from "./Example";
 Veksleknapper passer til situasjoner der brukerne selv kan velge å ha en funksjon av eller på, for eksempel automatisk oppdatering eller automatisk lagring.
 
 Ikke bruk veksleknapp hvis brukeren må bekrefte valget sitt.
+
+## ToggleSlider
+
+<ComponentExample
+    component={Slider}
+    knobs={{
+        boolProps: [],
+    }}
+/>
+
+Brukes der brukeren kan velge mellom to valg.
 
 ## Eksempler på bruk
 

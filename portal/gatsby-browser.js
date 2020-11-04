@@ -13,6 +13,7 @@ import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-card/card.min.css";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
+import "@fremtind/jkl-feedback/feedback.min.css";
 import "@fremtind/jkl-field-group/field-group.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
@@ -28,6 +29,7 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 import "@fremtind/jkl-icons/animated-icons.min.css";
 import "@fremtind/jkl-image/image.min.css";
+import "@fremtind/jkl-content-toggle/content-toggle.min.css";
 
 import { initTabListener } from "@fremtind/jkl-core";
 
