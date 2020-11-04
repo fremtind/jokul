@@ -8,13 +8,14 @@ import { DatePicker } from ".";
 describe("Datepicker", () => {
     let clock: SinonFakeTimers;
 
-    beforeAll(() => {
+    beforeEach(() => {
         const now = new Date(2019, 9, 20);
         clock = useFakeTimers(now);
     });
 
-    afterAll(() => {
+    afterEach(() => {
         clock.restore();
+        jest.useRealTimers();
     });
 
     it("renders with the correct format", () => {
@@ -25,25 +26,37 @@ describe("Datepicker", () => {
         expect(date).toHaveProperty("value", "24.12.2019");
     });
 
-    it("fires onChange method on edit input with valid date", () => {
+    it("fires onChange method on edit input with valid date", async () => {
         const changeHandler = jest.fn();
         render(<DatePicker onChange={changeHandler} />);
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
-        fireEvent.change(input, { target: { value: "01.12.2019" } });
+        await act(async () => {
+            await userEvent.type(input, "");
+            await userEvent.type(input, "01.12.2019");
+        });
+
         expect(input).toHaveProperty("value", "01.12.2019");
-        expect(changeHandler).toHaveBeenCalledTimes(1);
+        expect(changeHandler).toHaveBeenCalledWith(new Date(2019, 11, 1));
     });
 
-    it("fires onChange method with undefined when text input is cleared", () => {
+    it("fires onChange method with undefined when text input is cleared", async () => {
         const changeHandler = jest.fn();
         render(<DatePicker onChange={changeHandler} />);
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
-        fireEvent.change(input, { target: { value: "some value to be cleared" } });
-        fireEvent.change(input, { target: { value: "" } });
+
+        await act(async () => {
+            await userEvent.type(input, "");
+            await userEvent.type(input, "01.12.2019");
+        });
+
+        act(() => {
+            userEvent.clear(input);
+        });
         expect(input).toHaveProperty("value", "");
-        expect(changeHandler).toHaveBeenCalledTimes(1);
+        expect(changeHandler).toHaveBeenCalledWith(new Date(2019, 11, 1));
+        expect(changeHandler).toHaveBeenCalledWith(undefined);
     });
 
     it("does not fire onChange on edit input with invalid date", () => {
@@ -162,6 +175,111 @@ describe("Datepicker", () => {
 
         const todayButtonElement = screen.getByText("20");
         expect(document.activeElement).toBe(todayButtonElement);
+    });
+
+    it("should reset date if day before 'disableBeforeDate' date is manually typed", async () => {
+        render(<DatePicker disableBeforeDate={new Date(2020, 8, 2)} label="Some datepicker" />);
+
+        const inputElement = screen.getByLabelText("Some datepicker");
+        const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
+
+        await act(async () => {
+            userEvent.click(inputElement);
+
+            await userEvent.type(inputElement, "");
+            await userEvent.type(inputElement, "01.09.2020");
+        });
+
+        expect(inputElement).toHaveValue("01.09.2020");
+
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement); // Close calendar
+            userEvent.click(toggleCalendarButtonElement); // Open calendar
+        });
+
+        expect(inputElement).toHaveValue("");
+    });
+
+    it("should not reset date if 'disableBeforeDate' date is manually typed", async () => {
+        render(<DatePicker disableBeforeDate={new Date(2020, 8, 1)} label="Some datepicker" />);
+
+        const inputElement = screen.getByLabelText("Some datepicker");
+        const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
+
+        await act(async () => {
+            userEvent.click(inputElement);
+
+            await userEvent.type(inputElement, "");
+            await userEvent.type(inputElement, "01.09.2020");
+        });
+
+        expect(inputElement).toHaveValue("01.09.2020");
+
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement); // Close calendar
+            userEvent.click(toggleCalendarButtonElement); // Open calendar
+        });
+
+        expect(inputElement).toHaveValue("01.09.2020");
+    });
+
+    it("should not reset date if 'disableAfterDate' date is manually typed", async () => {
+        render(<DatePicker disableAfterDate={new Date(2020, 8, 1)} label="Some datepicker" />);
+
+        const inputElement = screen.getByLabelText("Some datepicker");
+        const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
+        await act(async () => {
+            userEvent.click(inputElement);
+
+            await userEvent.type(inputElement, "");
+            await userEvent.type(inputElement, "01.09.2020");
+        });
+
+        expect(inputElement).toHaveValue("01.09.2020");
+
+        await act(async () => {
+            userEvent.click(toggleCalendarButtonElement); // Close calendar
+            userEvent.click(toggleCalendarButtonElement); // Open calendar
+        });
+
+        expect(inputElement).toHaveValue("01.09.2020");
+    });
+
+    it("should reset date if day after 'disableAfterDate' is manually typed", async () => {
+        render(<DatePicker disableAfterDate={new Date(2020, 8, 1)} label="Some datepicker" />);
+
+        const inputElement = screen.getByLabelText("Some datepicker");
+        const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
+        await act(async () => {
+            userEvent.click(inputElement);
+
+            await userEvent.type(inputElement, "");
+            await userEvent.type(inputElement, "02.09.2020");
+        });
+
+        expect(inputElement).toHaveValue("02.09.2020");
+
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement); // Close calendar
+            userEvent.click(toggleCalendarButtonElement); // Open calendar
+        });
+
+        expect(inputElement).toHaveValue("");
+    });
+
+    it("should call onChange once when selecting a date in the date picker", async () => {
+        const onChangeFn = jest.fn();
+        render(<DatePicker onChange={onChangeFn} />);
+
+        const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
+
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement);
+            userEvent.click(screen.getByText("31"));
+        });
+
+        expect(onChangeFn).toHaveBeenCalledWith(new Date(2019, 9, 31));
+        expect(onChangeFn).toHaveBeenCalledTimes(1);
     });
 });
 
