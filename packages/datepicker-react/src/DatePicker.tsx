@@ -154,8 +154,8 @@ export function DatePicker({
                     className="jkl-datepicker__input jkl-text-input__input"
                     data-testid="jkl-datepicker__input"
                     value={state.dateString}
-                    onFocus={() => handleFocusChange(onFocus)}
-                    onBlur={() => handleFocusChange(onBlur)}
+                    onFocus={handleFocusChange(onFocus)}
+                    onBlur={handleFocusChange(onBlur)}
                     onClick={() => dispatch({ type: "TOGGLE" })}
                     onChange={(e) => {
                         dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
@@ -177,8 +177,8 @@ export function DatePicker({
                             button && setTimeout(() => button.focus(), 100);
                         }
                     }}
-                    onFocus={() => handleFocusChange(onFocus)}
-                    onBlur={() => handleFocusChange(onBlur)}
+                    onFocus={handleFocusChange(onFocus)}
+                    onBlur={handleFocusChange(onBlur)}
                 />
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar

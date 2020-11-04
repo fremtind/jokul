@@ -281,6 +281,130 @@ describe("Datepicker", () => {
         expect(onChangeFn).toHaveBeenCalledWith(new Date(2019, 9, 31));
         expect(onChangeFn).toHaveBeenCalledTimes(1);
     });
+
+    it("should call onFocus when clicking input element", async () => {
+        const onFocus = jest.fn();
+        render(
+            <div>
+                <DatePicker onFocus={onFocus} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const inputElement = screen.getByLabelText("Velg dato");
+        act(() => {
+            userEvent.click(inputElement);
+        });
+
+        expect(onFocus).toHaveBeenCalledTimes(1);
+    });
+
+    it("should call onFocus when tabbing to input element", async () => {
+        const onFocus = jest.fn();
+        render(
+            <div>
+                <DatePicker onFocus={onFocus} />
+                <button>Click</button>
+            </div>,
+        );
+
+        act(() => {
+            userEvent.tab();
+        });
+
+        expect(onFocus).toHaveBeenCalledTimes(1);
+    });
+
+    it("should call onBlur when clicking input element then clicking outside", async () => {
+        const onBlur = jest.fn();
+        render(
+            <div>
+                <DatePicker onBlur={onBlur} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const inputElement = screen.getByLabelText("Velg dato");
+        act(() => {
+            userEvent.click(inputElement);
+            userEvent.click(screen.getByText("Click"));
+        });
+
+        expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+
+    it("should call onFocus when clicking toggle calendar element", async () => {
+        jest.useFakeTimers();
+        const onFocus = jest.fn();
+        render(
+            <div>
+                <DatePicker onFocus={onFocus} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement);
+        });
+
+        expect(onFocus).toHaveBeenCalledTimes(1);
+    });
+
+    it("should call onBlur when clicking toggle calendar element and then clicking outside", async () => {
+        const onBlur = jest.fn();
+        render(
+            <div>
+                <DatePicker onBlur={onBlur} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement);
+            userEvent.click(screen.getByText("Click"));
+        });
+
+        expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+
+    it("should not call onBlur when focus changes inside the component and be called once when focus leaves component", async () => {
+        const onBlur = jest.fn();
+        render(
+            <div>
+                <DatePicker onBlur={onBlur} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const inputElement = screen.getByLabelText("Velg dato");
+        const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
+        await act(async () => {
+            userEvent.click(inputElement);
+            await userEvent.type(inputElement, "");
+            await userEvent.type(inputElement, "01.02.2020");
+            userEvent.click(toggleCalendarButtonElement); // Close calendar
+        });
+
+        expect(onBlur).toHaveBeenCalledTimes(0);
+
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement); // Open calendar
+            userEvent.click(screen.getByText("31"));
+            userEvent.click(toggleCalendarButtonElement); // Close calendar
+        });
+
+        expect(onBlur).toHaveBeenCalledTimes(0);
+
+        act(() => {
+            //
+            userEvent.click(screen.getByText("Click")); // Click button outside component
+        });
+
+        expect(onBlur).toHaveBeenCalledWith(new Date(2020, 0, 31), expect.anything());
+        expect(onBlur).toHaveBeenCalledTimes(1);
+    });
 });
 
 describe("a11y", () => {
