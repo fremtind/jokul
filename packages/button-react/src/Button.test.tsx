@@ -3,13 +3,14 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 import { axe } from "jest-axe";
 
+const buttonVariants = [
+    { name: "primary", component: PrimaryButton },
+    { name: "secondary", component: SecondaryButton },
+    { name: "tertiary", component: TertiaryButton },
+];
+
 describe("Button", () => {
-    // Test all button variants:
-    [
-        { name: "primary", component: PrimaryButton },
-        { name: "secondary", component: SecondaryButton },
-        { name: "tertiary", component: TertiaryButton },
-    ].map((buttonVariant) => {
+    buttonVariants.map((buttonVariant) => {
         it(`renders the ${buttonVariant.name} button correctly`, () => {
             const { name, component: Button } = buttonVariant;
             render(<Button onClick={() => {}}>{name}</Button>);
@@ -51,43 +52,25 @@ describe("Button", () => {
 });
 
 describe("a11y", () => {
-    test("button should be a11y compliant", async () => {
-        const { container } = render(<PrimaryButton onClick={() => {}}>Primary</PrimaryButton>);
-        const results = await axe(container);
+    buttonVariants.map((buttonVariant) => {
+        it(`${buttonVariant.name} should be a11y compliant`, async () => {
+            const { name, component: Button } = buttonVariant;
+            const { container } = render(<Button onClick={() => {}}>{name}</Button>);
+            const results = await axe(container);
 
-        expect(results).toHaveNoViolations();
-    });
+            expect(results).toHaveNoViolations();
+        });
 
-    test("button should be a11y compliant", async () => {
-        const { container } = render(<SecondaryButton onClick={() => {}}>Secondary</SecondaryButton>);
-        const results = await axe(container);
+        it(`${buttonVariant.name} should be a11y compliant in compact mode`, async () => {
+            const { name, component: Button } = buttonVariant;
+            const { container } = render(
+                <Button forceCompact onClick={() => {}}>
+                    {name}
+                </Button>,
+            );
+            const results = await axe(container);
 
-        expect(results).toHaveNoViolations();
-    });
-
-    test("button should be a11y compliant", async () => {
-        const { container } = render(<TertiaryButton onClick={() => {}}>Tertiary</TertiaryButton>);
-        const results = await axe(container);
-
-        expect(results).toHaveNoViolations();
-    });
-
-    test("compact buttons should be a11y compliant", async () => {
-        const { container } = render(
-            <>
-                <PrimaryButton forceCompact onClick={() => {}}>
-                    Primary
-                </PrimaryButton>
-                <SecondaryButton forceCompact onClick={() => {}}>
-                    Secondary
-                </SecondaryButton>
-                <TertiaryButton forceCompact onClick={() => {}}>
-                    Tertiary
-                </TertiaryButton>
-            </>,
-        );
-        const results = await axe(container);
-
-        expect(results).toHaveNoViolations();
+            expect(results).toHaveNoViolations();
+        });
     });
 });

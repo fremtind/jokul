@@ -6,9 +6,17 @@ context("Buttons", () => {
     });
 
     it("Buttons should work", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setKompakt().getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot();
-        cy.resetKompakt().getComponent().toMatchImageSnapshot();
+        cy.getComponent().eq(0).toMatchImageSnapshot();
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.getComponent().eq(2).toMatchImageSnapshot();
+        cy.setKompakt().getComponent().eq(0).toMatchImageSnapshot();
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.getComponent().eq(2).toMatchImageSnapshot();
+        cy.setDarkMode().getComponent().eq(0).toMatchImageSnapshot();
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.getComponent().eq(2).toMatchImageSnapshot();
+        cy.resetKompakt().getComponent().eq(0).toMatchImageSnapshot();
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.getComponent().eq(2).toMatchImageSnapshot();
     });
 });
