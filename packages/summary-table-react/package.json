@@ -1,0 +1,53 @@
+{
+    "name": "@fremtind/jkl-summary-table-react",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "A simple table with two columns.",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "summary-table",
+        "jøkul",
+        "fremtind"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:js": "parcel documentation/index.html",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-summary-table yarn build:watch",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-core": "^4.14.4",
+        "classnames": "^2.2.6"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.9.4",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

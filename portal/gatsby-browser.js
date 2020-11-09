@@ -24,6 +24,7 @@ import "@fremtind/jkl-message-box/message-box.min.css";
 import "@fremtind/jkl-progress-bar/progress-bar.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-select/select.min.css";
+import "@fremtind/jkl-summary-table/summary-table.min.css";
 import "@fremtind/jkl-table/table.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
