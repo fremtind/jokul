@@ -36,6 +36,7 @@ jobs:
                   start: yarn serve
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 180
+                  command-prefix: 'percy exec -- npx'
 
             - name: Upload screenshots
               uses: actions/upload-artifact@v2.2.0
