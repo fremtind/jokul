@@ -29,7 +29,7 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: Cypress run with env
-              uses: cypress-io/github-action@v1
+              uses: cypress-io/github-action@v2
               if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
               with:
                   build: yarn run build
