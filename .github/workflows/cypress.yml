@@ -35,7 +35,7 @@ jobs:
                   build: yarn run build
                   start: yarn serve
                   wait-on: "http://localhost:9000"
-                  wait-on-timeout: 120
+                  wait-on-timeout: 180
 
             - name: Upload screenshots
               uses: actions/upload-artifact@v2.2.0
