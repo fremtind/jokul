@@ -53,6 +53,7 @@ export const Calendar = forwardRef<HTMLElement, Props>(
                 disabled={disableDate}
                 forwardRef={ref}
                 className={componentClassName}
+                data-testid="jkl-calendar__core-datepicker"
             >
                 <div className="jkl-calendar__padding">
                     {extended && (
