@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.5.7 (2020-11-12)
+
+### Bug Fixes
+
+- **datepicker:** fix bug when clicking input field didnt open datepicker ([07ec25e](https://github.com/fremtind/jokul/commit/07ec25eb21df1ae963ee04f1e257fbf871b884d5)), closes [#1510](https://github.com/fremtind/jokul/issues/1510)
+- **datepicker:** fix bug where onBlur/onFocus didn't get called ([6a582f7](https://github.com/fremtind/jokul/commit/6a582f7c64506140f75592ad756f6aef4e959b36)), closes [#1555](https://github.com/fremtind/jokul/issues/1555)
+- **datepicker:** keep focus on input field when clicking it ([8384fe5](https://github.com/fremtind/jokul/commit/8384fe50e9dd814d2d6cd0f3f661391e22975af3)), closes [#1501](https://github.com/fremtind/jokul/issues/1501)
+- **datepicker:** refactor internals to fix React 17 and off by 1 err ([d87570f](https://github.com/fremtind/jokul/commit/d87570f548fabdac379eb5315844fb5317072eac)), closes [#1510](https://github.com/fremtind/jokul/issues/1510) [#1512](https://github.com/fremtind/jokul/issues/1512)
+
 ## 3.5.0 (2020-10-07)
 
 ### Features

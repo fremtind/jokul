@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.6.0 (2020-11-12)
+
+### Features
+
+- **text-input-react:** add onClick prop to BaseInputField ([a45fd3d](https://github.com/fremtind/jokul/commit/a45fd3def73ec13ca8d57778cec3eec36482f701))
+
 ## 3.5.14 (2020-10-28)
 
 ### Bug Fixes
