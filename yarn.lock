@@ -11057,9 +11057,9 @@ gatsby-transformer-react-docgen@^5.0.22:
     react-docgen "^5.3.0"
 
 gatsby-transformer-sharp@^2.5.7:
-  version "2.5.18"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.5.18.tgz#abce2d63bdc34b336a970a205c9f558af649edf4"
-  integrity sha512-TwcSoO4XRYB8e9gvQyjQgwCYfGTsPuGKQdY+LUXDKpoAnwICmf7CCbOD2eBx8iFibfXSGlyEKpWd8EaWxM0QCw==
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-sharp/-/gatsby-transformer-sharp-2.6.0.tgz#441679c8d7e5d490329cb2378503c7278e37dfb1"
+  integrity sha512-60kPbVe8/o9xOiYAU1kgNpJPm39zpyO+hZRTsNjylTzqCKjXBMdo6am7paGJqkk9E7CUuYPFBQSSC7ICRewKNw==
   dependencies:
     "@babel/runtime" "^7.11.2"
     bluebird "^3.7.2"
