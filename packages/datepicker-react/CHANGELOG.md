@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.6.0 (2020-11-18)
+
+### Features
+
+- **datepicker-react:** add width prop ([54a722b](https://github.com/fremtind/jokul/commit/54a722ba39dd23d5b6b8715e82724c8f5c12c1ab)), closes [#1611](https://github.com/fremtind/jokul/issues/1611)
+
 ## 3.5.7 (2020-11-12)
 
 ### Bug Fixes

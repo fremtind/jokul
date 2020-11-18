@@ -39,6 +39,7 @@ interface Props {
     inverted?: boolean;
     disableBeforeDate?: Date;
     disableAfterDate?: Date;
+    width?: string;
     onChange?: onChangeEventHandler;
     onFocus?: onFocusEventHandler;
     onBlur?: onBlurEventHandler;
@@ -64,6 +65,7 @@ export function DatePicker({
     variant,
     helpLabel,
     errorLabel,
+    width = "11.5rem",
     ...calendarProps
 }: Props) {
     if (calendarButtonTitle && process.env.NODE_ENV !== "production") {
@@ -161,7 +163,7 @@ export function DatePicker({
                         dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
                     }}
                     placeholder={placeholder}
-                    width="11.5rem"
+                    width={width}
                     type="text"
                 />
                 <IconButton
