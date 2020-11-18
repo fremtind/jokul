@@ -5,8 +5,8 @@ react: button-react
 group: knapper
 ---
 
-import { Primary, Secondary, Tertiary } from "./Example";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
+import { Action, Primary, Secondary, Tertiary } from "./Example";
+import { ActionButton, PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 <Ingress>
     Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.
@@ -15,6 +15,10 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 **Primærknapp:** brukes til den viktigste handlingen på en side - hovedhandlingen. En side kan noen ganger ha mer enn en hovedhandling, men ikke mange.
 
 <ComponentExample component={Primary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }} />
+
+**Handlingsknapp:** brukes i stedet for primærknapp på en handling som er ekstra ønskelig, for eksempel kjøp. Det skal kun være én handligsknapp per side.
+
+<ComponentExample component={Action} knobs={{ boolProps: ["Kompakt", "Invertert"] }} />
 
 **Sekundærknapp:** brukes til handlinger som ikke er like viktige for oss eller brukeren.
 
@@ -30,7 +34,7 @@ Hvis du skal bruke lastemodus i knappen må du sørge for at `@fremtind/jkl-load
 
 ## Knappetyper
 
-Disse tre hovedknappetypene har et hierarki. Når brukeren har flere valg samtidig, skal vi kun ha én primærknapp.
+Disse fire hovedknappetypene har et hierarki. Når brukeren har flere valg samtidig, skal vi kun ha én primær- eller handlingsknapp.
 
 <DoDontExample type="do" description="Kun én primærknapp" image="/assets/do-donts/button-do-1.png" />
 <DoDontExample type="dont" description="Flere primærknapper" image="/assets/do-donts/button-dont-1.png" />
