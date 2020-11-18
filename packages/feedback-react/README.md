@@ -1,11 +1,31 @@
-# `@fremtind/jkl-feedback-react`
+# [`@fremtind/jkl-feedback-react`](https://fremtind.github.io/jokul/komponenter/feedback)
 
-> TODO: description
+## Beskrivelse
 
-## Usage
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/feedback).
 
+## Kom i gang
+
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/komigang/utvikling/)
+
+## Bruk av React-pakken
+
+### Installasjon
+
+1. Installér pakken med `yarn add @fremtind/jkl-feedback-react` eller `npm i @fremtind/jkl-feedback-react`. Stil-pakken blir automatisk installert som en avhengighet.
+
+2. Importer _både_ React-pakken og stil-pakken i prosjektet ditt:
+
+```js
+import { Feedback } from "@fremtind/jkl-feedback-react";
+import "@fremtind/jkl-feedback/feedback.min.css";
 ```
-const jklFeedbackReact = require('@fremtind/jkl-feedback-react');
 
-// TODO: DEMONSTRATE API
+Du må også importere stilarkene til komponentene som brukes i mønsteret, hvis du ikke allerede gjør det andre steder i løsningen din:
+
+```js
+import "@fremtind/jkl-radio-button/radio-button.min.css";
+import "@fremtind/jkl-text-input/text-input.min.css";
+import "@fremtind/jkl-button/button.min.css";
+import "@fremtind/jkl-message-box/message-box.min.css";
 ```
