@@ -38,6 +38,7 @@
         "@fremtind/jkl-core": "^4.14.4",
         "@fremtind/jkl-feedback": "^1.1.1",
         "@fremtind/jkl-message-box-react": "^1.6.18",
+        "@fremtind/jkl-radio-button-react": "^1.7.0",
         "@fremtind/jkl-text-input-react": "^3.6.0",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.10"
