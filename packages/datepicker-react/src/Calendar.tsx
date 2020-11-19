@@ -74,6 +74,7 @@ export const Calendar = forwardRef<HTMLElement, Props>(
                                 items={[]}
                                 variant="small"
                                 forceCompact={forceCompact}
+                                width="auto"
                             />
                         </div>
                     )}
