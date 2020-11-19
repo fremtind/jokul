@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.0 (2020-11-19)
+
+### Bug Fixes
+
+- **select-react:** move width to correct div ([1162d15](https://github.com/fremtind/jokul/commit/1162d1539f33092731f87fa8c53d6bf2fa3bae64))
+
+### Features
+
+- **select-react:** add width prop to nativeselect ([9f8f575](https://github.com/fremtind/jokul/commit/9f8f575536840eee7f76c6db547cd8515e012a6b))
+
 ## 2.4.13 (2020-09-11)
 
 ### Bug Fixes
