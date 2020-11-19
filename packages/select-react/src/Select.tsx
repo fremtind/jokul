@@ -143,13 +143,7 @@ export function Select({
     const showSearchInputField = searchable && dropdownIsShown;
     const searchInputId = `${listId}_search-input`;
     return (
-        <div
-            data-testid="jkl-select"
-            className={componentClassName}
-            style={{ width }}
-            ref={componentRootElementRef}
-            {...selectProps}
-        >
+        <div data-testid="jkl-select" className={componentClassName} ref={componentRootElementRef} {...selectProps}>
             <Label
                 standAlone={searchable} // Use <label> as the element when searchAble=true for accessibility
                 htmlFor={searchable ? searchInputId : undefined}
@@ -159,7 +153,7 @@ export function Select({
             >
                 {label}
             </Label>
-            <div className="jkl-select__outer-wrapper">
+            <div className="jkl-select__outer-wrapper" style={{ width }}>
                 {searchable && (
                     <input
                         id={searchInputId}
