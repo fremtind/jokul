@@ -1,0 +1,37 @@
+{
+    "name": "@fremtind/jkl-summary-table",
+    "version": "1.1.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "A simple table with two columns",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "summary-table",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "!example",
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^4.14.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}
