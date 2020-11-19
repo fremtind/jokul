@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.6.2 (2020-11-19)
+
+### Bug Fixes
+
+- **datepicker-react:** add width auto to nativeselect in calendar ([68977c9](https://github.com/fremtind/jokul/commit/68977c995bc502dee3b5068f5bda23ca25fc1c64))
+
 ## 3.6.0 (2020-11-18)
 
 ### Features
