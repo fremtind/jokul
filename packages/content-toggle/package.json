@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-content-toggle",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.15.0"
+        "@fremtind/jkl-core": "^4.16.0"
     },
     "repository": {
         "type": "git",

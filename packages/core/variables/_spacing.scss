@@ -36,6 +36,7 @@ $component-spacing-new: (
 );
 
 // Layout scale
+$layout-spacing--xs: $spacing-5;
 $layout-spacing--small: $spacing-6;
 $layout-spacing--medium: $spacing-7;
 $layout-spacing--large: $spacing-8;
@@ -46,6 +47,7 @@ $layout-spacing: $layout-spacing--small, $layout-spacing--medium, $layout-spacin
     $layout-spacing--xxl;
 
 $layout-spacing-new: (
+    "xs": $layout-spacing--xs,
     "small": $layout-spacing--small,
     "medium": $layout-spacing--medium,
     "large": $layout-spacing--large,
