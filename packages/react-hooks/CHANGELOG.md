@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.8.5 (2020-11-20)
+
+### Bug Fixes
+
+- **react-hooks:** fix small device check in useScreen ([aec1a22](https://github.com/fremtind/jokul/commit/aec1a22318047cbf7d0ebe4fdfef5e08a0fd2216))
+
 ## 1.8.0 (2020-10-07)
 
 ### Features
