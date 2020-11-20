@@ -28,6 +28,7 @@
         "gatsby-source-filesystem": "^2.6.0",
         "gatsby-transformer-react-docgen": "^5.4.0",
         "gatsby-transformer-sharp": "^2.7.0",
+        "prism-react-renderer": "1.1.1",
         "raw-loader": "^4.0.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
