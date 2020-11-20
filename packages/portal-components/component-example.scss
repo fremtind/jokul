@@ -1,6 +1,13 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
+.jkl-portal-responsive-example {
+    padding: $component-spacing--medium;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
 .jkl-portal-component-example {
     background-color: $gra-20;
     padding: $component-spacing--medium;
@@ -80,5 +87,69 @@
 
     *[data-theme="dark"] & {
         background-color: $gra-100;
+    }
+}
+
+.jkl-device {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: calc(100vw - 600px);
+    width: 100%;
+
+    &__device {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        color: $hvit;
+
+        *[data-theme="dark"] & {
+            color: $svart;
+        }
+    }
+
+    &-iphone {
+        position: relative;
+        height: 850px;
+
+        &__content {
+            position: absolute;
+            top: 18px;
+            bottom: 0;
+            left: 37px;
+            height: 812px;
+            width: 375px;
+            border-radius: 46px;
+            overflow: auto;
+
+            & > * {
+                padding-top: 32px;
+            }
+        }
+    }
+
+    &-ipad {
+        position: relative;
+        height: 950px;
+
+        &__content {
+            position: absolute;
+            top: 39px;
+            bottom: 0;
+            left: 35px;
+            border-radius: 15px;
+            height: 833px;
+            width: 1112px;
+            overflow: auto;
+        }
+    }
+
+    &-laptop {
+        &__content {
+            height: 1080px;
+            width: 1920px;
+            border: 1px solid $svart;
+            overflow: auto;
+        }
     }
 }
