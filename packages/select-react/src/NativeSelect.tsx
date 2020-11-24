@@ -20,6 +20,7 @@ interface Props {
     value?: string;
     forceCompact?: boolean;
     inverted?: boolean;
+    width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
     onBlur?: FocusEventHandler<HTMLSelectElement>;
@@ -40,6 +41,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
             value,
             forceCompact,
             inverted,
+            width,
             onChange,
             onBlur,
             onFocus,
@@ -69,7 +71,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
                 <Label standAlone htmlFor={uid} variant={variant} forceCompact={forceCompact}>
                     {label}
                 </Label>
-                <div className="jkl-select__outer-wrapper">
+                <div className="jkl-select__outer-wrapper" style={{ width }}>
                     <select
                         ref={ref}
                         id={uid}

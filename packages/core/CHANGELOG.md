@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.16.0 (2020-11-19)
+
+### Features
+
+- **core:** expand layout spacing scale with new value ([fdce942](https://github.com/fremtind/jokul/commit/fdce94252c2267d6ba9b40bbab0377c4df201c45)), closes [#1043](https://github.com/fremtind/jokul/issues/1043)
+
 ## 4.15.0 (2020-10-23)
 
 ### Features

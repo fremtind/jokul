@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.6 (2020-11-19)
+
+### Bug Fixes
+
+- move width from catch-all selector to child ([f13ba96](https://github.com/fremtind/jokul/commit/f13ba965cca8aba3ddb99088dbd00284ef0ce221)), closes [#1604](https://github.com/fremtind/jokul/issues/1604)
+
 ## 2.3.0 (2020-09-01)
 
 ### Features
