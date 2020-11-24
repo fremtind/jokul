@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input",
-    "version": "2.2.8",
+    "version": "2.2.9",
     "publishConfig": {
         "access": "public"
     },
@@ -29,7 +29,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.16.0"
+        "@fremtind/jkl-core": "^4.17.0"
     },
     "repository": {
         "type": "git",
