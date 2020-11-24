@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.17.0 (2020-11-24)
+
+### Features
+
+- **core:** update value of suksess color ([0f284aa](https://github.com/fremtind/jokul/commit/0f284aa5ae198e044e9213aed071c60a1951a90b))
+
 ## 4.16.0 (2020-11-19)
 
 ### Features

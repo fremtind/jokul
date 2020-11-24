@@ -99,22 +99,22 @@ export default {
         color: "#AA1F23",
     },
     selector: {
-        color: "#005F47",
+        color: "#287E68",
     },
     "attr-name": {
-        color: "#005F47",
+        color: "#287E68",
     },
     string: {
-        color: "#005F47",
+        color: "#287E68",
     },
     char: {
-        color: "#005F47",
+        color: "#287E68",
     },
     builtin: {
-        color: "#005F47",
+        color: "#287E68",
     },
     inserted: {
-        color: "#005F47",
+        color: "#287E68",
     },
     operator: {
         color: "#9a6e3a",
