@@ -242,7 +242,7 @@ export const UU = () => {
                             <h3 className="uu-article__header--heading" id={node.slug}>
                                 {node.frontmatter.title}
                             </h3>
-                            {/* <ul className="uu-article__header--tags" aria-label="Artikkel tags"> */}
+                            <span className="jkl-sr-only">Artikkel tags</span>
                             {node.frontmatter.tags.map((t) => (
                                 <span key={t} className="uu-article__header__tag">
                                     {tagMap[t]}
