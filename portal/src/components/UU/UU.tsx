@@ -235,7 +235,9 @@ export const UU = () => {
                 {filteredNodes.map((node) => (
                     <article key={node.id} className="uu-article">
                         <header className="uu-article__header">
-                            <h3 className="uu-article__header--heading">{node.frontmatter.title}</h3>
+                            <h3 className="uu-article__header--heading" id={node.slug}>
+                                {node.frontmatter.title}
+                            </h3>
                             <ul className="uu-article__header--tags" aria-label="Artikkel tags">
                                 {node.frontmatter.tags.map((t) => (
                                     <span key={t} className="uu-article__header__tag">
