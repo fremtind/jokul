@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
+import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
@@ -8,6 +8,7 @@ import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { FormatProvider } from "../Typography";
 import "./uu.scss";
+import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 
 type Role = "developer" | "designer";
 
@@ -48,8 +49,6 @@ interface MDXNode {
     body: string;
 }
 
-// TODO Scroll til søkeresultat ved klikk på "Kjør UU"
-// TODO Trykk i resultatlisten skal scrolle til den enkelte
 // TODO Animasjoner av innholdsendringer
 // TODO Link til WCAG
 // TODO Expandbar lenkeliste
@@ -88,6 +87,7 @@ export const UU = () => {
         return Array.from(new Set(tagsForFilter.flat()));
     }, [data]);
 
+    const resultWrapperRef = useRef<HTMLElement>(null);
     const [search, setSearch] = useState("");
     const [role, setRole] = useState<Role | "both">("both");
     const [tagFilter, setTagFilter] = useState(
@@ -98,7 +98,7 @@ export const UU = () => {
         }, {} as { [key in Tag]: { checked: boolean } }),
     );
 
-    console.log(availableTags);
+    const [scrollToResults] = useScrollIntoView({ ref: resultWrapperRef, autoScroll: false });
 
     const handleClear = () => setSearch("");
 
@@ -206,10 +206,10 @@ export const UU = () => {
                     ))}
                 </FieldGroup>
 
-                <PrimaryButton>Vis resultat</PrimaryButton>
+                <PrimaryButton onClick={scrollToResults}>Vis resultat</PrimaryButton>
             </section>
 
-            <section className="uu__section--search-results">
+            <section className="uu__section--search-results" ref={resultWrapperRef}>
                 <h2>{hasFilter ? "Resultat" : "Alle artikler"}</h2>
 
                 {hasFilter && (
@@ -248,7 +248,6 @@ export const UU = () => {
                                     {tagMap[t]}
                                 </span>
                             ))}
-                            {/* </ul> */}
                         </header>
                         <FormatProvider>
                             <MDXRenderer>{node.body}</MDXRenderer>
