@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
@@ -43,7 +43,7 @@ interface MDXNode {
         title: string;
         tags: Tag[];
         wcagRules: string[];
-        role: Role[];
+        role?: Role[];
     };
     body: string;
 }
@@ -91,6 +91,8 @@ export const UU = () => {
             return obj;
         }, {} as { [key in Tag]: { checked: boolean } }),
     );
+
+    console.log(availableTags);
 
     const handleClear = () => setSearch("");
 
@@ -144,61 +146,95 @@ export const UU = () => {
                 return true;
             }
 
+            if (!node.frontmatter.role) {
+                return true;
+            }
+
             return node.frontmatter.role.includes(role);
         },
         [role],
     );
+
+    // check if a filter is enabled
+    const hasFilter = useMemo(() => {
+        const hasSearchFilter = !!search;
+        const hasRoleFilter = role !== "both";
+        const hasTagsFilter = !!Object.entries(tagFilter).filter(([, { checked }]) => checked).length;
+
+        return hasSearchFilter || hasRoleFilter || hasTagsFilter;
+    }, [search, role, tagFilter]);
 
     const filteredNodes = useMemo(() => {
         if (!data) {
             return [];
         }
 
+        if (!hasFilter) {
+            return data.allMdx.nodes;
+        }
+
         return data.allMdx.nodes.filter(filterByTag).filter(filterBySearch).filter(filterByRole);
-    }, [data, filterBySearch, filterByRole, filterByTag]);
+    }, [data, hasFilter, filterBySearch, filterByRole, filterByTag]);
 
     return (
         <section className="jkl-portal__uu">
-            <RadioButtons
-                onChange={onRoleChange}
-                selectedValue={role}
-                legend="Velg rolle"
-                name="rolle"
-                choices={[
-                    { label: "Utvikler", value: "developer" },
-                    { label: "Designer", value: "designer" },
-                    { label: "Begge", value: "both" },
-                ]}
-            />
+            <section className="uu__section--search">
+                <RadioButtons
+                    onChange={onRoleChange}
+                    selectedValue={role}
+                    legend="Velg rolle"
+                    name="rolle"
+                    choices={[
+                        { label: "Utvikler", value: "developer" },
+                        { label: "Designer", value: "designer" },
+                        { label: "Begge", value: "both" },
+                    ]}
+                />
 
-            <FieldGroup legend="Hva inneholder løsningen din?">
-                {Object.entries(tagFilter).map(([tag, { checked }]) => (
-                    <Checkbox name="uu-area-tag" value={tag} key={tag} checked={checked} onChange={onTagChange}>
-                        {tagMap[tag as Tag]}
-                    </Checkbox>
+                <FieldGroup legend="Hva inneholder løsningen din?">
+                    {Object.entries(tagFilter).map(([tag, { checked }]) => (
+                        <Checkbox name="uu-area-tag" value={tag} key={tag} checked={checked} onChange={onTagChange}>
+                            {tagMap[tag as Tag]}
+                        </Checkbox>
+                    ))}
+                </FieldGroup>
+
+                <PrimaryButton>Kjør UU</PrimaryButton>
+            </section>
+
+            <section className="uu__section--search-results">
+                <h2>{hasFilter ? "Resultat" : "Alle artikler"}</h2>
+
+                {hasFilter && (
+                    <ul className="uu__filter-result-list">
+                        {filteredNodes.map((node) => (
+                            <li key={node.id} className="jkl-link">
+                                {node.frontmatter.title}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+
+                <TextInput
+                    variant="small"
+                    width="316px"
+                    label="Søk"
+                    placeholder="Søk"
+                    value={search}
+                    onChange={onSearchChange}
+                    className="uu__filter-search"
+                    action={{ icon: "clear", label: "Fjern søk", onClick: handleClear }}
+                />
+
+                {filteredNodes.map((node) => (
+                    <article key={node.id}>
+                        <h3>{node.frontmatter.title}</h3>
+                        <FormatProvider>
+                            <MDXRenderer>{node.body}</MDXRenderer>
+                        </FormatProvider>
+                    </article>
                 ))}
-            </FieldGroup>
-
-            <PrimaryButton>Kjør UU</PrimaryButton>
-
-            <h2>Alle artikler</h2>
-
-            <TextInput
-                label="Søk"
-                placeholder="Søk"
-                value={search}
-                onChange={onSearchChange}
-                action={{ icon: "clear", label: "Fjern søk", onClick: handleClear }}
-            />
-
-            {filteredNodes.map((node) => (
-                <article key={node.id}>
-                    <h2 id={node.frontmatter.title}>{node.frontmatter.title}</h2>
-                    <FormatProvider>
-                        <MDXRenderer>{node.body}</MDXRenderer>
-                    </FormatProvider>
-                </article>
-            ))}
+            </section>
         </section>
     );
 };

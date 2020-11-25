@@ -1,2 +1,60 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
 .jkl-portal__uu {
+    h2 {
+        @include jkl-text-style("desktop/title-small");
+        margin-top: $layout-spacing--xl;
+    }
+    h3 {
+        @include jkl-text-style("desktop/heading-large");
+        margin-bottom: $layout-spacing--small;
+    }
+
+    .uu__filter-result-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 18px;
+        row-gap: 21px;
+        padding-inline-start: 0;
+
+        @include jkl-text-style("desktop/body");
+    }
+
+    article {
+        margin-bottom: $layout-spacing--xl;
+    }
+
+    .uu__filter-search {
+        margin-bottom: $layout-spacing--xl;
+        margin-top: $layout-spacing--large;
+    }
+
+    .uu__section--search {
+        position: relative;
+        z-index: 0;
+        margin-top: $layout-spacing--large;
+        padding-top: $layout-spacing--medium;
+        padding-bottom: $layout-spacing--xl;
+
+        & > *:not(:first-child) {
+            margin-top: $layout-spacing--small;
+        }
+
+        &::before {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: -40px;
+            height: 100%;
+            width: 100vw;
+            background-color: $gra-10;
+
+            @include from-large-device {
+                left: -415px;
+            }
+        }
+    }
 }
