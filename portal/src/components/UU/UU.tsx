@@ -1,11 +1,37 @@
 import React, { useMemo } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { FormatProvider } from "../Typography";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
+import { FormatProvider } from "../Typography";
+
+type Tag =
+    | "skjema"
+    | "bilder"
+    | "tabell"
+    | "tekstinnhold"
+    | "media"
+    | "modal"
+    | "innlogging"
+    | "animasjon"
+    | "navigasjon";
+
+interface MDXNode {
+    id: string;
+    slug: string;
+    frontmatter: {
+        title: string;
+        tags: Tag[];
+        wcagRules: string[];
+    };
+    body: string;
+}
 
 export const UU = () => {
-    const data = useStaticQuery(graphql`
+    const data = useStaticQuery<{
+        allMdx: {
+            nodes: MDXNode[];
+        };
+    }>(graphql`
         {
             allMdx(filter: { fileAbsolutePath: { regex: "/.*/texts/uu/.*/" } }) {
                 nodes {
@@ -25,21 +51,24 @@ export const UU = () => {
         }
     `);
 
-    const tags: string[] = useMemo(() => {
+    const availableForTags: Tag[] = useMemo(() => {
         if (!data) {
             return [];
         }
 
-        return Array.from(new Set(data.allMdx.nodes.map((node) => node.frontmatter.tags).flat()));
+        const tagsForFilter = data.allMdx.nodes.map((node) => node.frontmatter.tags);
+
+        // create a unique array of tags
+        return Array.from(new Set(tagsForFilter.flat()));
     }, [data]);
 
-    console.log(tags);
+    console.log(availableForTags);
 
     return (
         <>
             <h2>Velg innhold</h2>
 
-            {tags.map((tag) => (
+            {availableForTags.map((tag) => (
                 <Checkbox name={tag} key={tag}>
                     {tag.toUpperCase()}
                 </Checkbox>
