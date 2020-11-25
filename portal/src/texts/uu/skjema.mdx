@@ -19,34 +19,40 @@ wcagRules:
     ]
 ---
 
-#### Inndata
+import { List, CheckListItem } from "@fremtind/jkl-list-react";
 
 Endring av verdien I et skjemalement skal ikke resultere I at det automatisk blir betydelige endringer på siden. Bruker må bli varslet om kontekstendringer på forhånd. Et eksempel på korrekt bruk er at bruker aktivt må trykke "Send inn", "Gå videre" eller lignende før man blir servert nytt innhold.
 
-✅ Bruk attributen autocomplete hvis mulig
+<List>
+    <CheckListItem>Bruk attributen autocomplete hvis mulig</CheckListItem>
+</List>
 
-✅ Obligatoriske felter må merkes
+_Inndata_
 
-✅ 3:1 kontrast på rammen på inndataelementer
+Endring av verdien I et skjemalement skal ikke resultere I at det automatisk blir betydelige endringer på siden. Bruker må bli varslet om kontekstendringer på forhånd. Et eksempel på korrekt bruk er at bruker aktivt må trykke "Send inn", "Gå videre" eller lignende før man blir servert nytt innhold.
+
+<List>
+    <CheckListItem>Bruk attributen autocomplete hvis mulig</CheckListItem>
+    <CheckListItem>Obligatoriske felter må merkes</CheckListItem>
+    <CheckListItem>3:1 kontrast på rammen på inndataelementer</CheckListItem>
+</List>
 
 #### Validering
 
 For feil som oppdages automatisk:
 
-✅ Vis en tekstbeskrivelse av feilen og marker hvor den oppsto
-
-✅ Vis forslag til hvordan feil kan rettes opp I
-
-✅ Farge er ikke eneste virkemiddel for å vise feil/suksess/advarsel
+<List>
+    <CheckListItem>Vis en tekstbeskrivelse av feilen og marker hvor den oppsto</CheckListItem>
+    <CheckListItem>Vis forslag til hvordan feil kan rettes opp I</CheckListItem>
+    <CheckListItem>Farge er ikke eneste virkemiddel for å vise feil/suksess/advarsel</CheckListItem>
+</List>
 
 #### Forhindring av feil
 
 For sider med juridiske forpliktelser må det være mulig å kunne angre, kontrollere eller bekrefte dataene som sendes inn. Et av følgende punkter gjelder
 
 -   Mulighet for å angre eller reversere innsendingen. For eksempel ved at brukeren får beskjed om hvordan de angrer innsendingen.
-
 -   Inndata fra bruker skal valideres og brukeren gis mulighet til å rette opp eventuelle feil
-
 -   Det finnes en mekanisme for gjennomgang, bekreftelse og oppretting av informasjon før den sendes
 
 #### Ledetekster eller intruksjoner
@@ -59,9 +65,10 @@ Alle skjemaelementer må være mulig å bruke med kun tastaturnavigasjon. Det er
 
 #### Fokus
 
-✅ Alle skjemaelementer må ha synlig fokus
-
-✅ Fokushåndtering må foregå I en logisk rekkefølge
+<List>
+    <CheckListItem>Alle skjemaelementer må ha synlig fokus</CheckListItem>
+    <CheckListItem>Fokushåndtering må foregå I en logisk rekkefølge</CheckListItem>
+</List>
 
 En endring I fokus må aldri automatisk medføre en betydelig endring. Bruker må gjøres oppmerksom på slike handlinger på forhånd.
 
@@ -69,7 +76,9 @@ En endring I fokus må aldri automatisk medføre en betydelig endring. Bruker m�
 
 Formålet med en lenke skal kunne fastslås fra selve lenketeksten eller lenketeksten kombinert med programmeringsmessig bestemt lenkekonstekt.
 
-✅ Inkluder dokumenttypen I lenketeksten. "Eksempel (PDF)"
+<List>
+    <CheckListItem>Inkluder dokumenttypen I lenketeksten. "Eksempel (PDF)"</CheckListItem>
+</List>
 
 Se LENKER
 

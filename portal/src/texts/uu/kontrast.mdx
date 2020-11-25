@@ -5,13 +5,17 @@ wcagRules: ["1.4.1", "1.4.3"]
 role: ["developer", "designer"]
 ---
 
+import { List, CheckListItem } from "@fremtind/jkl-list-react";
+
 For å sikre god lesbarket skal all tekst ha tilstrekkelig kontrast mot bakgrunnen.
 
-✅ 4.5:1 for normal tekst
-
-✅ 3:1 for stor tekst (24 piksler høy i vanlig skrift eller minst 19 piksler høy i fet skrift)
-
-✅ 3:1 for grafiske elementer
+<List>
+    <CheckListItem>4.5:1 for normal tekst</CheckListItem>
+    <CheckListItem>
+        3:1 for stor tekst (24 piksler høy i vanlig skrift eller minst 19 piksler høy i fet skrift)
+    </CheckListItem>
+    <CheckListItem>3:1 for grafiske elementer</CheckListItem>
+</List>
 
 Våre [farger i Jøkul](https://jokul.fremtind.no/profil/farger) er bestemt med hensyn til kontrastnivået.
 

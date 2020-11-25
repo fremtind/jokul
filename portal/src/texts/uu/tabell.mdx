@@ -4,11 +4,18 @@ tags: ["tabell"]
 wcagRules: ["1.3.1"]
 ---
 
+import { List, CheckListItem } from "@fremtind/jkl-list-react";
+import { InlineCode } from "../../components/Typography";
+
 Tabeller skal utelukkende brukes til å presentere data, ikke for å styre layout/utseende.
 
 #### Overskrift
 
-✅ Bruk `<caption>` hvis tabellen har en tittel
+<List>
+    <CheckListItem>
+        Bruk <InlineCode>{`<caption>`}</InlineCode> hvis tabellen har en tittel
+    </CheckListItem>
+</List>
 
 I tillegg til overskrift for tabellen I sin helhet er det viktig at elementet `<th>` er tatt I bruk på celleoverskrifter (overskriften på rader/kolonner). Dette er nødvendig for at skjermlesere skal gi fullverdig informasjon I hver enkelt celle. Dersom det er overskrifter på både kolonner og rader må du spesifiere hvilken retning de peker med attributen scope="col" eller scope="row".
 

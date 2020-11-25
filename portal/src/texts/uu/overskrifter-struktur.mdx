@@ -4,12 +4,24 @@ tags: ["tekstinnhold", "skjema"]
 wcagRules: ["2.4.6"]
 ---
 
-#### Overskrifter
+import { List, CheckListItem } from "@fremtind/jkl-list-react";
+import { InlineCode } from "../../components/Typography";
 
 Overskrifter og korrekt bruk av overskriftsnivåer er en av de enkleste måtene å sikre oversiktlighet og korrekt flyt I tjenesten. Alle brukere benytter overskrifter og mellomtitler for å skumlese innhold uavhengig av om de bruker hjelpemidler.
 
-✅ Sidetittel skal være `<h1>`
+<List>
+    <CheckListItem>Sidetittel skal være <InlineCode>{`<h1>`}</InlineCode></CheckListItem>
+</List>
+**Overskrifter**
 
-✅ Rekkefølgen på nivåene skal gå ett steg om gangen
+Overskrifter og korrekt bruk av overskriftsnivåer er en av de enkleste måtene å sikre oversiktlighet og korrekt flyt I tjenesten. Alle brukere benytter overskrifter og mellomtitler for å skumlese innhold uavhengig av om de bruker hjelpemidler.
 
-✅ Brødtekst skal være `<p>`
+<List>
+    <CheckListItem>
+        Sidetittel skal være <InlineCode>{`<h1>`}</InlineCode>
+    </CheckListItem>
+    <CheckListItem>Rekkefølgen på nivåene skal gå ett steg om gangen</CheckListItem>
+    <CheckListItem>
+        Brødtekst skal være <InlineCode>{`<p>`}</InlineCode>
+    </CheckListItem>
+</List>

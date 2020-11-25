@@ -4,24 +4,31 @@ tags: ["tekstinnhold", "skjema", "tabell", "liste", "bilder", "modal", "innloggi
 wcagRules: ["1.4.8", "1.4.12"]
 ---
 
-#### Tekstblokker
+import { List, CheckListItem } from "@fremtind/jkl-list-react";
 
 Sørg for at tekstblokker enkelt kan leses av alle brukere.
 
-✅ Bredden er ikke mer enn 80 tegn
+<List>
+    <CheckListItem>Bredden er ikke mer enn 80 tegn</CheckListItem>
+	<CheckListItem>Teksten er ikke blokkjustert ('justified')</CheckListItem>
+</List
+**Tekstblokker**
 
-✅ Teksten er ikke blokkjustert ('justified')
+Sørg for at tekstblokker enkelt kan leses av alle brukere.
 
-✅ Linjeavstanden er minst 1,5 innenfor avsnitt
-
-✅ Avstanden mellom avsnitt er minst 1,5 ganger større enn linjeavstanden
+<List>
+    <CheckListItem>Bredden er ikke mer enn 80 tegn</CheckListItem>
+    <CheckListItem>Teksten er ikke blokkjustert ('justified')</CheckListItem>
+    <CheckListItem>Linjeavstanden er minst 1,5 innenfor avsnitt</CheckListItem>
+    <CheckListItem>Avstanden mellom avsnitt er minst 1,5 ganger større enn linjeavstanden</CheckListItem>
+</List>
 
 #### Tekst
 
-✅ Linjehøyden er minst 1,5 ganger større enn tekststørrelsen
-
-✅ Avstand mellom tegn er minst 0,12 ganger tekststørrelsen
-
-✅ Avstand mellom ord er minst 0,16 ganger tekststørrelsen
+<List>
+    <CheckListItem>Linjehøyden er minst 1,5 ganger større enn tekststørrelsen</CheckListItem>
+    <CheckListItem>Avstand mellom tegn er minst 0,12 ganger tekststørrelsen</CheckListItem>
+    <CheckListItem>Avstand mellom ord er minst 0,16 ganger tekststørrelsen</CheckListItem>
+</List>
 
 https://jokul.fremtind.no/profil/spacing
