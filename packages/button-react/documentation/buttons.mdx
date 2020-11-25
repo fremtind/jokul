@@ -14,15 +14,19 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 **Primærknapp:** brukes til den viktigste handlingen på en side - hovedhandlingen. En side kan noen ganger ha mer enn en hovedhandling, men ikke mange.
 
-<ComponentExample component={Primary} knobs={{ boolProps: ["Kompakt", "Invertert"] }} />
+<ComponentExample component={Primary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }} />
 
 **Sekundærknapp:** brukes til handlinger som ikke er like viktige for oss eller brukeren.
 
-<ComponentExample component={Secondary} knobs={{ boolProps: ["Kompakt", "Invertert"] }} />
+<ComponentExample component={Secondary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }} />
 
 **Tertiærknapp:** brukes til handlinger som er mindre viktige, eller som kan gi uønskede konsekvenser.
 
-<ComponentExample component={Tertiary} knobs={{ boolProps: ["Kompakt", "Invertert"] }} />
+<ComponentExample component={Tertiary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }} />
+
+## Lastemodus
+
+Hvis du skal bruke lastemodus i knappen må du sørge for at `@fremtind/jkl-loader.min.css` er lastet inn i klienten.
 
 ## Knappetyper
 

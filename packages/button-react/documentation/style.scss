@@ -1,0 +1,7 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-button-example {
+    display: flex;
+    flex-direction: column;
+    padding: $layout-spacing--large;
+}
