@@ -137,9 +137,10 @@ export const UU = () => {
     const filterBySearch = useCallback(
         (node: MDXNode) => {
             const bodyMatch = node.body.includes(search);
+            const titleMatch = node.frontmatter.title.includes(search);
             const wcagMatch = node.frontmatter.wcagRules.includes(search);
 
-            return bodyMatch || wcagMatch;
+            return bodyMatch || titleMatch || wcagMatch;
         },
         [search],
     );
@@ -203,7 +204,7 @@ export const UU = () => {
                     ))}
                 </FieldGroup>
 
-                <PrimaryButton>Kjør UU</PrimaryButton>
+                <PrimaryButton>Vis resultat</PrimaryButton>
             </section>
 
             <section className="uu__section--search-results">
@@ -223,11 +224,11 @@ export const UU = () => {
                     variant="small"
                     width="316px"
                     label="Søk"
-                    placeholder="Søk"
+                    placeholder="Søk i artikler"
                     value={search}
                     onChange={onSearchChange}
                     className="uu__filter-search"
-                    action={{ icon: "clear", label: "Fjern søk", onClick: handleClear }}
+                    action={hasFilter ? { icon: "clear", label: "Fjern søk", onClick: handleClear } : undefined}
                 />
 
                 {filteredNodes.map((node) => (
