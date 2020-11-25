@@ -229,13 +229,14 @@ export const UU = () => {
                     onChange={onSearchChange}
                     className="uu__filter-search"
                     action={hasFilter ? { icon: "clear", label: "Fjern søk", onClick: handleClear } : undefined}
+                    aria-label="Søk i artikler"
                 />
 
                 {filteredNodes.map((node) => (
                     <article key={node.id} className="uu-article">
                         <header className="uu-article__header">
                             <h3 className="uu-article__header--heading">{node.frontmatter.title}</h3>
-                            <ul className="uu-article__header--tags">
+                            <ul className="uu-article__header--tags" aria-label="Artikkel tags">
                                 {node.frontmatter.tags.map((t) => (
                                     <span key={t} className="uu-article__header__tag">
                                         {tagMap[t]}

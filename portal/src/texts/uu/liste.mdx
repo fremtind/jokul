@@ -16,20 +16,13 @@ Lister benyttes til å ramse opp informasjon. En liste skal være korrekt kodet,
     </CheckListItem>
 </List>
 
-#### Egentilpassede symboler I liste
+#### Egentilpassede symboler i liste
 
 Et konkret eksempel er en liste som definerer hva en forsikring dekker eller ikke. Der er gjerne kulepunktet byttet ut med et eget symbol. Det er viktig at kulepunktet ikke er eneste måte å skille innholdet på. Dette tilsvarer egentlig to lister hvor den ene har overskriften "Forsikringen dekker" og den andre har overskriften "forsikringen dekker ikke". Det er sterkt anbefalt å bruke slike overskrifter for å gjøre det veldig tydelig at det er en forskjell her. Hvis listen mangler slike overskrifter må det passes på at
 
-✅ Farge er ikke eneste virkemiddel for å formidle funksjonalitet eller viktighet
+<List>
+    <CheckListItem>Farge ikke er eneste virkemiddel for å formidle funksjonalitet eller viktighet</CheckListItem>
+    <CheckListItem>Kulepunktene er testet med skjermleser</CheckListItem>
+</List>
 
-✅ Kulepunktene er testet med skjermleser
-
-Kodeeksempel:
-
-```HTML
-<h3 id="list-header">Forskikringen dekker</h3>
-
-<ul aria-labelledby="list-header">
-    <li>Hund</li>
-</ul>
-```
+[Jøkuls lister med ikoner](http://localhost:8000/komponenter/list/#lister-med-ikon) har allerede tatt hensyn til dette slik at de kan brukes uten slike overskrifter.
