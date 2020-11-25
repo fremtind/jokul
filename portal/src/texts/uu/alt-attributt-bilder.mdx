@@ -1,0 +1,22 @@
+---
+title: Alt-attributt på ikke-tekstlig innhold
+tags: ["liste", "bilder"]
+wcagRules: ["1.1.1", "4.1.2"]
+---
+
+**Ikke-tekstlig innhold**
+
+Gi brukeren et tekstalternativ for innhold som ikke er tekst. Alle bilder I HTML skal ha alternativ bildetekst (alt-attributt).
+Ved dekorative bilder skal alt-attributt være blank: `alt=""`.
+
+**Bilder med lenke**
+
+Alt-teksten blir lenketeksten for brukere med skjermleser. Da skal lenkens mål beskrives, ikke motivet på bildet. Evt kan man inkludere begge deler, men lenkens mål skal beskrives først.
+
+**Bilde av tekst**
+
+Noen steder er det nødvendig med bilde av tekst. For eksempel hvis man viser et kakediagram med statistikk. Da skal alt-tekst beskrive formål og hovedinformasjon, samt at det skal være en tekstversjon som fordmidler samme innhold.
+
+**Unntak**
+
+Det finnes [unntak beskrevet hos difi](https://uu.difi.no/krav-og-regelverk/wcag-20-standarden/111-ikke-tekstlig-innhold-niva). Blant disse er det verdt å nevne at skjemaelementer som knapper og inndata-felter gir unntak for regelen, da det er andre kriterier som treffer disse. På slike elementer er det krav til beskrivende tekst og du finner en veiledning til bruk på hver enkelt [komponent I Jøkul](https://jokul.fremtind.no/komponenter/textinput).

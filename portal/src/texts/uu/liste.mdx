@@ -1,0 +1,25 @@
+---
+title: Lister
+tags: ["liste"]
+wcagRules: ["2.4.6"]
+---
+
+Lister benyttes til å ramse opp informasjon. En liste skal være korrekt kodet, enten det er unummerert, nummerert, definisjonliste eller lister over flere nivå så bruk riktig HTML-elementer.
+
+✅ Korrekt koding gir fast innrykk
+
+✅ Ingen mellomrom mellom `<li>` og tekst
+
+**Egentilpassede symboler I liste**
+
+Et konkret eksempel er en liste som definerer hva en forsikring dekker eller ikke. Der er gjerne kulepunktet byttet ut med et eget symbol. Det er viktig at kulepunktet ikke er eneste måte å skille innholdet på. Dette tilsvarer egentlig to lister hvor den ene har overskriften "Forsikringen dekker" og den andre har overskriften "forsikringen dekker ikke". Det er sterkt anbefalt å bruke slike overskrifter for å gjøre det veldig tydelig at det er en forskjell her.
+
+Kodeeksempel:
+
+```HTML
+<h3 id="list-header">Forskikringen dekker</h3>
+
+<ul aria-labelledby="list-header">
+    <li>Hund</li>
+</ul>
+```
