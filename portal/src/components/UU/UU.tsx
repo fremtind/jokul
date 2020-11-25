@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
@@ -215,8 +215,10 @@ export const UU = () => {
                 {hasFilter && (
                     <ul className="uu__filter-result-list">
                         {filteredNodes.map((node) => (
-                            <li key={node.id} className="jkl-link">
-                                {node.frontmatter.title}
+                            <li key={node.id}>
+                                <Link to={`#${node.slug}`} className="jkl-link">
+                                    {node.frontmatter.title}
+                                </Link>
                             </li>
                         ))}
                     </ul>
