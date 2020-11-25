@@ -17,6 +17,7 @@
         column-gap: 18px;
         row-gap: 21px;
         padding-inline-start: 0;
+        max-width: rem(750px);
 
         @include jkl-text-style("desktop/body");
     }
@@ -64,6 +65,7 @@
             column-gap: $component-spacing--large;
             row-gap: $component-spacing--small;
             margin-bottom: $layout-spacing--small;
+            max-width: rem(750px);
 
             &__tag {
                 @include jkl-text-style("desktop/micro");
