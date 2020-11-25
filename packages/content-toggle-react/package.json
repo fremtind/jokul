@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-content-toggle-react",
-    "version": "0.0.4",
+    "version": "0.1.0",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
         "@fremtind/jkl-content-toggle": "^0.0.4"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.7.10"
+        "@fremtind/jkl-portal-components": "^0.8.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

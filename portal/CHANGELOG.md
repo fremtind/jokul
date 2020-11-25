@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.25.0 (2020-11-25)
+
+### Bug Fixes
+
+- add missing dependency ([d671af2](https://github.com/fremtind/jokul/commit/d671af2c2ef497ce3244b63d5af50b582da4871d))
+
+### Features
+
+- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+
 ## 3.24.0 (2020-11-24)
 
 ### Features

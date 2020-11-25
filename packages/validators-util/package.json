@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-validators-util",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "publishConfig": {
         "access": "public"
     },
@@ -33,7 +33,7 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.7.10"
+        "@fremtind/jkl-portal-components": "^0.8.0"
     },
     "repository": {
         "type": "git",
