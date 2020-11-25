@@ -51,6 +51,8 @@ interface MDXNode {
 // TODO Scroll til søkeresultat ved klikk på "Kjør UU"
 // TODO Trykk i resultatlisten skal scrolle til den enkelte
 // TODO Animasjoner av innholdsendringer
+// TODO Link til WCAG
+// TODO Expandbar lenkeliste
 
 export const UU = () => {
     const data = useStaticQuery<{
@@ -238,13 +240,13 @@ export const UU = () => {
                             <h3 className="uu-article__header--heading" id={node.slug}>
                                 {node.frontmatter.title}
                             </h3>
-                            <ul className="uu-article__header--tags" aria-label="Artikkel tags">
-                                {node.frontmatter.tags.map((t) => (
-                                    <span key={t} className="uu-article__header__tag">
-                                        {tagMap[t]}
-                                    </span>
-                                ))}
-                            </ul>
+                            {/* <ul className="uu-article__header--tags" aria-label="Artikkel tags"> */}
+                            {node.frontmatter.tags.map((t) => (
+                                <span key={t} className="uu-article__header__tag">
+                                    {tagMap[t]}
+                                </span>
+                            ))}
+                            {/* </ul> */}
                         </header>
                         <FormatProvider>
                             <MDXRenderer>{node.body}</MDXRenderer>

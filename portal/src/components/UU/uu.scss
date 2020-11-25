@@ -8,7 +8,6 @@
     }
     h3 {
         @include jkl-text-style("desktop/heading-large");
-        margin-bottom: $layout-spacing--small;
     }
 
     .uu__filter-result-list {
@@ -60,26 +59,22 @@
 
     .uu-article {
         &__header {
-            &--heading {
-                display: flex;
-            }
-
-            &--tags {
-                flex-wrap: wrap;
-                list-style: none;
-                padding-inline-start: 0;
-                display: flex;
-                column-gap: 1rem;
-                row-gap: 1.5rem;
-            }
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: $component-spacing--large;
+            row-gap: $component-spacing--small;
+            margin-bottom: $layout-spacing--small;
 
             &__tag {
                 @include jkl-text-style("desktop/micro");
+                height: 24px;
                 display: flex;
+                align-self: center;
                 align-items: center;
                 justify-content: center;
                 border-radius: 100px;
-                padding: 4px 8px 2px 8px;
+                padding: $component-spacing--xs $component-spacing--small $component-spacing--xxs
+                    $component-spacing--small;
                 background-color: $gra-20;
                 color: $gra-70;
             }
