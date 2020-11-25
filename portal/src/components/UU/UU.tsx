@@ -231,8 +231,17 @@ export const UU = () => {
                 />
 
                 {filteredNodes.map((node) => (
-                    <article key={node.id}>
-                        <h3>{node.frontmatter.title}</h3>
+                    <article key={node.id} className="uu-article">
+                        <header className="uu-article__header">
+                            <h3 className="uu-article__header--heading">{node.frontmatter.title}</h3>
+                            <ul className="uu-article__header--tags">
+                                {node.frontmatter.tags.map((t) => (
+                                    <span key={t} className="uu-article__header__tag">
+                                        {tagMap[t]}
+                                    </span>
+                                ))}
+                            </ul>
+                        </header>
                         <FormatProvider>
                             <MDXRenderer>{node.body}</MDXRenderer>
                         </FormatProvider>

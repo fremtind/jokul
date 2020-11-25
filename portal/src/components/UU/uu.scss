@@ -57,4 +57,32 @@
             }
         }
     }
+
+    .uu-article {
+        &__header {
+            &--heading {
+                display: flex;
+            }
+
+            &--tags {
+                flex-wrap: wrap;
+                list-style: none;
+                padding-inline-start: 0;
+                display: flex;
+                column-gap: 1rem;
+                row-gap: 1.5rem;
+            }
+
+            &__tag {
+                @include jkl-text-style("desktop/micro");
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100px;
+                padding: 4px 8px 2px 8px;
+                background-color: $gra-20;
+                color: $gra-70;
+            }
+        }
+    }
 }
