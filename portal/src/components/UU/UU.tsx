@@ -1,14 +1,16 @@
-import React, { ChangeEvent, useCallback, useMemo, useRef, useState } from "react";
+import React, { ChangeEvent, useCallback, useContext, useMemo, useRef, useState } from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
+import { motion } from "framer-motion";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { a11yContext } from "../../contexts/a11yContext";
 import { FormatProvider } from "../Typography";
 import "./uu.scss";
-import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 
 type Role = "developer" | "designer";
 
@@ -87,6 +89,7 @@ export const UU = () => {
         return Array.from(new Set(tagsForFilter.flat()));
     }, [data]);
 
+    const { prefersReducedMotion } = useContext(a11yContext);
     const resultWrapperRef = useRef<HTMLElement>(null);
     const [search, setSearch] = useState("");
     const [role, setRole] = useState<Role | "both">("both");
@@ -139,7 +142,7 @@ export const UU = () => {
     const filterBySearch = useCallback(
         (node: MDXNode) => {
             const bodyMatch = node.body.includes(search);
-            const titleMatch = node.frontmatter.title.includes(search);
+            const titleMatch = node.frontmatter.title.toLowerCase().includes(search.toLowerCase());
             const wcagMatch = node.frontmatter.wcagRules.includes(search);
 
             return bodyMatch || titleMatch || wcagMatch;
@@ -212,17 +215,30 @@ export const UU = () => {
             <section className="uu__section--search-results" ref={resultWrapperRef}>
                 <h2>{hasFilter ? "Resultat" : "Alle artikler"}</h2>
 
-                {hasFilter && (
-                    <ul className="uu__filter-result-list">
-                        {filteredNodes.map((node) => (
-                            <li key={node.id}>
+                <ul className="uu__filter-result-list">
+                    {hasFilter &&
+                        filteredNodes.map((node) => (
+                            <motion.li
+                                key={node.id}
+                                initial={{ y: prefersReducedMotion ? 0 : 40, opacity: 0 }}
+                                animate={{
+                                    y: prefersReducedMotion ? 0 : 0,
+                                    opacity: 1,
+                                    transition: { duration: 0.3 },
+                                }}
+                                layout
+                                transition={{
+                                    type: "tween",
+                                    duration: 0.2,
+                                }}
+                                exit={{ y: prefersReducedMotion ? 0 : -40, opacity: 0, transition: { duration: 0.2 } }}
+                            >
                                 <Link to={`#${node.slug}`} className="jkl-link">
                                     {node.frontmatter.title}
                                 </Link>
-                            </li>
+                            </motion.li>
                         ))}
-                    </ul>
-                )}
+                </ul>
 
                 <TextInput
                     variant="small"
