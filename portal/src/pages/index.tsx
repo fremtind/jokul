@@ -102,6 +102,9 @@ const IndexPage: React.FC = () => {
                             />
                         </div>
                         <CardList vertical>
+                            <Card heading="Universell utforming" link="/komigang/uu">
+                                Få hjelp til å komme i gang med Universell utforming.
+                            </Card>
                             <Card heading="For utviklere" link="/komigang/utvikling">
                                 Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
                             </Card>
@@ -110,9 +113,6 @@ const IndexPage: React.FC = () => {
                             </Card>
                             <Card heading="Prosessen" link="/komigang/prosessen">
                                 Hvordan du kan jobbe med designsystemet.
-                            </Card>
-                            <Card heading={`Blogg: ${latestBlogPost.title}`} link={latestBlogPostPath}>
-                                {latestBlogPost.description}
                             </Card>
                         </CardList>
                     </div>
