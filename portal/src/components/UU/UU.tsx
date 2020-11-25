@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useCallback, useMemo, useState } from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
@@ -47,6 +47,10 @@ interface MDXNode {
     };
     body: string;
 }
+
+// TODO Scroll til søkeresultat ved klikk på "Kjør UU"
+// TODO Trykk i resultatlisten skal scrolle til den enkelte
+// TODO Animasjoner av innholdsendringer
 
 export const UU = () => {
     const data = useStaticQuery<{
