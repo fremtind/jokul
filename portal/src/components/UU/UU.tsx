@@ -226,11 +226,13 @@ export const UU = () => {
                                 {node.frontmatter.title}
                             </h3>
                             <span className="jkl-sr-only">Artikkel tags</span>
-                            {node.frontmatter.tags.map((t) => (
-                                <span key={t} className="uu-article__header__tag">
-                                    {tagMap[t]}
-                                </span>
-                            ))}
+                            <ul className="uu-article__header--tags" aria-label="Artikkel tags">
+                                {node.frontmatter.tags.map((t) => (
+                                    <li key={t} className="uu-article__header__tag">
+                                        {tagMap[t]}
+                                    </li>
+                                ))}
+                            </ul>
                         </header>
                         <FormatProvider>
                             <MDXRenderer>{node.body}</MDXRenderer>

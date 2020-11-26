@@ -68,12 +68,17 @@
         }
 
         &__header {
-            display: flex;
-            flex-wrap: wrap;
-            column-gap: $component-spacing--large;
-            row-gap: $component-spacing--small;
-            margin-bottom: $layout-spacing--small;
-            max-width: rem(750px);
+            &--tags {
+                flex-wrap: wrap;
+                list-style: none;
+                padding-inline-start: 0;
+                margin-block-start: $component-spacing--small;
+                display: flex;
+                column-gap: $component-spacing--large;
+                row-gap: $component-spacing--small;
+                margin-bottom: $layout-spacing--small;
+                max-width: rem(750px);
+            }
 
             &__tag {
                 @include jkl-text-style("desktop/micro");
