@@ -4,8 +4,18 @@ tags: ["tekstinnhold", "modal", "skjema"]
 wcagRules: ["1.3.1", "1.4.1", "2.4.4", "2.4.7"]
 ---
 
-Lenker kan brukes inline i tekst, eller selvstendig. Men formålet skal fremgå tydelig av lenketeksten. Lenker skal alltid ha en href attributt og utheves med visuelle virkemidler. Om farge brukes som et visuelt virkemiddel, må man bruke et virkemiddel til i tillegg: bold tekst, underline eller lignende.
+import { List, CheckListItem } from "@fremtind/jkl-list-react";
 
-Ved fokus skal det være en tydelig endring i tilstanden som viser at elementet har fokus.
+Lenker kan brukes inline i tekst eller selvstendig. Lenker skal alltid ha en `href` attributt og utheves med visuelle virkemidler.
+Om farge brukes som et visuelt virkemiddel, må man bruke et annet virkemiddel i tillegg: Understreking, ikon eller lignende.
 
-https://jokul.fremtind.no/komponenter/link
+<List>
+    <CheckListItem>En tydelig tilstandsendring skal vise at lenken har fått fokus</CheckListItem>
+    <CheckListItem>Formålet med lenken skal kunne forstås ved lenketeksten</CheckListItem>
+</List>
+
+I Jøkul skiller vi også mellom interne og eksterne lenker samt navigasjonslenker.
+
+#### Lenker
+
+[Lenkekomponenter i Jøkul](https://jokul.fremtind.no/komponenter/link)

@@ -4,9 +4,13 @@ tags: ["bilder"]
 wcagRules: ["1.1.1"]
 ---
 
-Dersom innholdet kun er dekorasjon skal det implementeres slik at kompenserende teknologi (skjermlesere m.m.) også ignorerer det.
+import { List, CheckListItem } from "@fremtind/jkl-list-react";
 
 Merk at alt-attributt alltid skal brukes på bilder, men på dekorativt innhold skal den være blank: `alt=""`.
+
+<List>
+    <CheckListItem>Rent dekorativt innhold skal ignoreres av kompenserende teknologi</CheckListItem>
+</List>
 
 Et bilde kan være dekorativt når bildet er
 
