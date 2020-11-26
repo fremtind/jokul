@@ -7,7 +7,6 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
-import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { a11yContext } from "../../contexts/a11yContext";
 import { FormatProvider } from "../Typography";
 import "./uu.scss";
@@ -92,7 +91,6 @@ export const UU = () => {
     const { prefersReducedMotion } = useContext(a11yContext);
     const resultWrapperRef = useRef<HTMLElement>(null);
     const [search, setSearch] = useState("");
-    const [role, setRole] = useState<Role | "both">("both");
     const [tagFilter, setTagFilter] = useState(
         // set up a checkbox state where key is the tag name
         availableTags.reduce((obj, t) => {
@@ -106,8 +104,6 @@ export const UU = () => {
     const handleClear = () => setSearch("");
 
     const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
-
-    const onRoleChange = (e: ChangeEvent<HTMLInputElement>) => setRole(e.target.value as Role);
 
     const onTagChange = (e: ChangeEvent<HTMLInputElement>) => {
         const _t = { ...tagFilter };
@@ -150,29 +146,13 @@ export const UU = () => {
         [search],
     );
 
-    const filterByRole = useCallback(
-        (node: MDXNode) => {
-            if (role === "both") {
-                return true;
-            }
-
-            if (!node.frontmatter.role) {
-                return true;
-            }
-
-            return node.frontmatter.role.includes(role);
-        },
-        [role],
-    );
-
     // check if a filter is enabled
     const hasFilter = useMemo(() => {
         const hasSearchFilter = !!search;
-        const hasRoleFilter = role !== "both";
         const hasTagsFilter = !!Object.entries(tagFilter).filter(([, { checked }]) => checked).length;
 
-        return hasSearchFilter || hasRoleFilter || hasTagsFilter;
-    }, [search, role, tagFilter]);
+        return hasSearchFilter || hasTagsFilter;
+    }, [search, tagFilter]);
 
     const filteredNodes = useMemo(() => {
         if (!data) {
@@ -183,24 +163,12 @@ export const UU = () => {
             return data.allMdx.nodes;
         }
 
-        return data.allMdx.nodes.filter(filterByTag).filter(filterBySearch).filter(filterByRole);
-    }, [data, hasFilter, filterBySearch, filterByRole, filterByTag]);
+        return data.allMdx.nodes.filter(filterByTag).filter(filterBySearch);
+    }, [data, hasFilter, filterBySearch, filterByTag]);
 
     return (
         <section className="jkl-portal__uu">
             <section className="uu__section--search">
-                <RadioButtons
-                    onChange={onRoleChange}
-                    selectedValue={role}
-                    legend="Velg rolle"
-                    name="rolle"
-                    choices={[
-                        { label: "Utvikler", value: "developer" },
-                        { label: "Designer", value: "designer" },
-                        { label: "Begge", value: "both" },
-                    ]}
-                />
-
                 <FieldGroup legend="Hva inneholder løsningen din?">
                     {Object.entries(tagFilter).map(([tag, { checked }]) => (
                         <Checkbox name="uu-area-tag" value={tag} key={tag} checked={checked} onChange={onTagChange}>
