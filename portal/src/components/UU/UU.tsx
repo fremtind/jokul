@@ -213,33 +213,6 @@ export const UU = () => {
             </section>
 
             <section className="uu__section--search-results" ref={resultWrapperRef}>
-                <h2>{hasFilter ? "Resultat" : "Alle artikler"}</h2>
-
-                <ul className="uu__filter-result-list">
-                    {hasFilter &&
-                        filteredNodes.map((node) => (
-                            <motion.li
-                                key={node.id}
-                                initial={{ y: prefersReducedMotion ? 0 : 40, opacity: 0 }}
-                                animate={{
-                                    y: prefersReducedMotion ? 0 : 0,
-                                    opacity: 1,
-                                    transition: { duration: 0.3 },
-                                }}
-                                layout
-                                transition={{
-                                    type: "tween",
-                                    duration: 0.2,
-                                }}
-                                exit={{ y: prefersReducedMotion ? 0 : -40, opacity: 0, transition: { duration: 0.2 } }}
-                            >
-                                <Link to={`#${node.slug}`} className="jkl-link">
-                                    {node.frontmatter.title}
-                                </Link>
-                            </motion.li>
-                        ))}
-                </ul>
-
                 <TextInput
                     variant="small"
                     width="316px"
@@ -251,6 +224,33 @@ export const UU = () => {
                     action={hasFilter ? { icon: "clear", label: "Fjern søk", onClick: handleClear } : undefined}
                     aria-label="Søk i artikler"
                 />
+
+                {hasFilter && <h2>Resultat</h2>}
+
+                <ul className="uu__filter-result-list">
+                    {hasFilter &&
+                        filteredNodes.map((node) => (
+                            <motion.li
+                                key={node.id}
+                                initial={{ y: prefersReducedMotion ? 0 : -40, opacity: 0 }}
+                                animate={{
+                                    y: prefersReducedMotion ? 0 : 0,
+                                    opacity: 1,
+                                    transition: { duration: 0.3 },
+                                }}
+                                layout
+                                transition={{
+                                    type: "tween",
+                                    duration: 0.3,
+                                }}
+                                exit={{ y: prefersReducedMotion ? 0 : 40, opacity: 0, transition: { duration: 0.2 } }}
+                            >
+                                <Link to={`#${node.slug}`} className="jkl-link">
+                                    {node.frontmatter.title}
+                                </Link>
+                            </motion.li>
+                        ))}
+                </ul>
 
                 {filteredNodes.map((node) => (
                     <article key={node.id} className="uu-article">
