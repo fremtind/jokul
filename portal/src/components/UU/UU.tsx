@@ -44,13 +44,12 @@ interface MDXNode {
     frontmatter: {
         title: string;
         tags: Tag[];
-        wcagRules: string[];
+        wcagRules?: string[];
         role?: Role[];
     };
     body: string;
 }
 
-// TODO Animasjoner av innholdsendringer
 // TODO Link til WCAG
 // TODO Expandbar lenkeliste
 
@@ -139,7 +138,7 @@ export const UU = () => {
         (node: MDXNode) => {
             const bodyMatch = node.body.includes(search);
             const titleMatch = node.frontmatter.title.toLowerCase().includes(search.toLowerCase());
-            const wcagMatch = node.frontmatter.wcagRules.includes(search);
+            const wcagMatch = node.frontmatter.wcagRules ? node.frontmatter.wcagRules.includes(search) : true;
 
             return bodyMatch || titleMatch || wcagMatch;
         },
