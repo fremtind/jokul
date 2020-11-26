@@ -8,6 +8,9 @@
     h3 {
         @include jkl-text-style("desktop/heading-large");
     }
+    h4 {
+        @include jkl-text-style("desktop/heading-medium");
+    }
 
     .uu__filter-result-list {
         list-style: none;
@@ -69,12 +72,12 @@
 
         &__header {
             &--tags {
+                display: flex;
                 flex-wrap: wrap;
                 list-style: none;
                 padding-inline-start: 0;
                 margin-block-start: $component-spacing--small;
-                display: flex;
-                column-gap: $component-spacing--large;
+                column-gap: $component-spacing--small;
                 row-gap: $component-spacing--small;
                 margin-bottom: $layout-spacing--small;
                 max-width: rem(750px);
@@ -92,6 +95,21 @@
                     $component-spacing--small;
                 background-color: $gra-20;
                 color: $gra-70;
+            }
+        }
+
+        &__links {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding-inline-start: 0;
+            column-gap: $component-spacing--large;
+            row-gap: $component-spacing--xl;
+            max-width: rem(750px);
+
+            &--wcag {
+                flex-direction: row;
+                flex-wrap: wrap;
             }
         }
     }
