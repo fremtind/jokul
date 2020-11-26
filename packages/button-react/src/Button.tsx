@@ -15,16 +15,11 @@ type ValidButtons = "primary" | "secondary" | "tertiary";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const button = forwardRef<HTMLButtonElement, Props>(
-        ({ children, className, forceCompact, inverted, onClick, onTouchStart, loader, ...rest }, ref) => {
-            const componentClassName = classNames(
-                "jkl-button",
-                "jkl-button--" + buttonType,
-                {
-                    "jkl-button--compact": forceCompact,
-                    "jkl-button--inverted": inverted,
-                },
-                className,
-            );
+        ({ children, className = "", forceCompact, inverted, onClick, onTouchStart, loader, ...rest }, ref) => {
+            const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, {
+                "jkl-button--compact": forceCompact,
+                "jkl-button--inverted": inverted,
+            });
 
             const handleTouch = (event: TouchEvent<HTMLButtonElement>) => {
                 onTouchStart && onTouchStart(event);
@@ -40,9 +35,9 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                 }
             };
 
-            const Button = () => (
+            const Button = ({ cn }: { cn?: string }) => (
                 <button
-                    className={componentClassName}
+                    className={cn}
                     onClick={onClick}
                     onTouchStart={handleTouch}
                     disabled={loader?.showLoader}
@@ -54,12 +49,12 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
             );
 
             if (!loader) {
-                return <Button />;
+                return <Button cn={classNames(componentClassName, className)} />;
             }
 
             return (
                 <div
-                    className={classNames("jkl-button-wrapper", {
+                    className={classNames("jkl-button-wrapper", className, {
                         "jkl-button-wrapper--compact": forceCompact,
                     })}
                 >
@@ -68,14 +63,15 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                             "jkl-button-wrapper__slider--show-loader": !!loader.showLoader,
                         })}
                     >
-                        <Button />
-                        <Loader
-                            className="jkl-button-wrapper__loader jkl-layout-spacing--small-top"
-                            textDescription={loader.textDescription}
-                            negative={inverted}
-                            aria-hidden={!!loader.showLoader}
-                            inline={true}
-                        />
+                        <Button cn={componentClassName} />
+                        <div className="jkl-button-wrapper__loader jkl-layout-spacing--small-top">
+                            <Loader
+                                textDescription={loader.textDescription}
+                                negative={inverted}
+                                aria-hidden={!!loader.showLoader}
+                                inline={true}
+                            />
+                        </div>
                     </div>
                 </div>
             );
