@@ -1,5 +1,3 @@
-const { createFilePath } = require("gatsby-source-filesystem");
-
 exports.onCreatePage = async ({ page, actions }) => {
     const { createPage, deletePage } = actions;
     const componentPageMatch = page.path.match(/\/.*react.*\/documentation\/(.*)\//);
