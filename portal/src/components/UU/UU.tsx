@@ -243,33 +243,37 @@ export const UU = () => {
                         <FormatProvider>
                             <MDXRenderer>{node.body}</MDXRenderer>
                         </FormatProvider>
-                        <h4>Lenker</h4>
-                        <ul className="uu-article__links uu-article__links--wcag">
-                            {node.frontmatter.wcagRules?.map((rule) => {
-                                const criteria = getCriteriaById(rule);
-                                return (
-                                    <li key={rule}>
-                                        <Link
-                                            title={`${criteria.title} på w3.org`}
-                                            href={`https://www.w3.org/TR/WCAG21/#${criteria.w3OrgId}`}
-                                            target="_blank"
-                                            external
-                                        >
-                                            WCAG {rule}
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                        <ul className="uu-article__links">
-                            {node.frontmatter.links?.map(([label, url]) => (
-                                <li key={url}>
-                                    <Link href={url} external={!url.startsWith("/") && !url.startsWith("#")}>
-                                        {label}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                        {(node.frontmatter.wcagRules?.length || node.frontmatter.links?.length) && (
+                            <>
+                                <h4>Lenker</h4>
+                                <ul className="uu-article__links uu-article__links--wcag">
+                                    {node.frontmatter.wcagRules?.map((rule) => {
+                                        const criteria = getCriteriaById(rule);
+                                        return (
+                                            <li key={rule}>
+                                                <Link
+                                                    title={`${criteria.title} på w3.org`}
+                                                    href={`https://www.w3.org/TR/WCAG21/#${criteria.w3OrgId}`}
+                                                    target="_blank"
+                                                    external
+                                                >
+                                                    WCAG {rule}
+                                                </Link>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                                <ul className="uu-article__links">
+                                    {node.frontmatter.links?.map(([label, url]) => (
+                                        <li key={url}>
+                                            <Link href={url} external={!url.startsWith("/") && !url.startsWith("#")}>
+                                                {label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </>
+                        )}
                     </article>
                 ))}
             </section>
