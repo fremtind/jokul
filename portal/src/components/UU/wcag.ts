@@ -9,7 +9,7 @@ type Robust = "4.1";
 
 type GuidelineIndex = Perceivable | Operable | Understandable | Robust;
 
-// guidelines
+// criteria
 // TODO Add AAA criteria
 type TextAlternatives = "1.1.1";
 type TimeBasedMedia = "1.2.1" | "1.2.2";
@@ -38,6 +38,10 @@ type CriteriaIndex =
     | InputAssistance
     | Compatible;
 
+type PartialRecord<K extends string, T> = {
+    [P in K]?: T;
+};
+
 interface Criteria {
     title: string;
     exception?: boolean;
@@ -47,12 +51,12 @@ interface Criteria {
 
 interface Guideline<T extends CriteriaIndex> {
     title: string;
-    criteria: Record<T, Criteria>;
+    criteria: PartialRecord<T, Criteria>;
 }
 
 interface Principle<T extends GuidelineIndex> {
     title: string;
-    guidelines: Record<T, Guideline<any>>;
+    guidelines: PartialRecord<T, Guideline<CriteriaIndex>>;
 }
 
 const textAlternatives: Guideline<TextAlternatives> = {
@@ -343,7 +347,7 @@ const robust: Principle<Robust> = {
 };
 
 export const wcag: {
-    [key in PrincipleIndex]: Principle<any>;
+    [key in PrincipleIndex]: Principle<GuidelineIndex>;
 } = {
     "1": perceivable,
     "2": operable,
@@ -357,8 +361,10 @@ export const getCriteriaById = (id: string): Criteria => {
     const principle = wcag[ids[0] as PrincipleIndex];
     const guideline = principle.guidelines[[ids[0], ids[1]].join(".") as GuidelineIndex];
 
-    if (!guideline.criteria[id]) {
+    const criteria = guideline?.criteria[id as CriteriaIndex];
+
+    if (!criteria) {
         throw "Missing criteria: " + id;
     }
-    return guideline.criteria[id];
+    return criteria;
 };
