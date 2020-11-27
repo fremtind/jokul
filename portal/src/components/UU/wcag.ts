@@ -24,6 +24,20 @@ type Predictable = "3.2.1" | "3.2.2" | "3.2.3" | "3.2.4";
 type InputAssistance = "3.3.1" | "3.3.2" | "3.3.3" | "3.3.4";
 type Compatible = "4.1.1" | "4.1.2";
 
+type CriteriaIndex =
+    | TextAlternatives
+    | TimeBasedMedia
+    | Adaptable
+    | Distinguishable
+    | Keyboard
+    | EnoughTime
+    | Seizures
+    | Navigable
+    | Readable
+    | Predictable
+    | InputAssistance
+    | Compatible;
+
 interface Criteria {
     title: string;
     exception?: boolean;
@@ -31,18 +45,14 @@ interface Criteria {
     w3OrgId: string;
 }
 
-interface Guideline<T> {
+interface Guideline<T extends CriteriaIndex> {
     title: string;
-    criteria: {
-        [key in T]: Criteria;
-    };
+    criteria: Record<T, Criteria>;
 }
 
-interface Principle<T> {
+interface Principle<T extends GuidelineIndex> {
     title: string;
-    guidelines: {
-        [key in T]: Guideline<unknown>;
-    };
+    guidelines: Record<T, Guideline<any>>;
 }
 
 const textAlternatives: Guideline<TextAlternatives> = {
@@ -333,7 +343,7 @@ const robust: Principle<Robust> = {
 };
 
 export const wcag: {
-    [key in PrincipleIndex]: Principle<unknown>;
+    [key in PrincipleIndex]: Principle<any>;
 } = {
     "1": perceivable,
     "2": operable,
