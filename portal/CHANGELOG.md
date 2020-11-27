@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.25.1 (2020-11-27)
+
+### Bug Fixes
+
+- **portal:** fix logo download links ([2260719](https://github.com/fremtind/jokul/commit/2260719b00eb50abbddbac911d2e2805ced6949a))
+
 ## 3.25.0 (2020-11-25)
 
 ### Bug Fixes
