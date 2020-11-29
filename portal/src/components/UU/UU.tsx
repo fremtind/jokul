@@ -55,9 +55,6 @@ interface MDXNode {
     body: string;
 }
 
-// TODO Link til WCAG
-// TODO Expandbar lenkeliste
-
 export const UU = () => {
     const data = useStaticQuery<{
         allMdx: {
