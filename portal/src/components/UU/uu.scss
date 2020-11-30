@@ -16,7 +16,7 @@
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        column-gap: 18px;
+        column-gap: rem(18px);
         row-gap: 21px;
         padding-inline-start: 0;
         max-width: rem(750px);
