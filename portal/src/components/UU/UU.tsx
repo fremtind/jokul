@@ -10,8 +10,8 @@ import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { a11yContext } from "../../contexts/a11yContext";
 import { FormatProvider } from "../Typography";
-import "./uu.scss";
 import { getCriteriaById } from "./wcag";
+import "./uu.scss";
 
 type Role = "developer" | "designer";
 
