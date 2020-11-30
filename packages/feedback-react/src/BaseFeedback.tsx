@@ -3,12 +3,8 @@ import cn from "classnames";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
 import { SuccessMessage } from "@fremtind/jkl-message-box-react";
-import { FeedbackValue } from "./types";
+import { FeedbackValue, FeedbackPayload } from "./types";
 
-export type FeedbackPayload = {
-    feedbackValue: FeedbackValue;
-    message?: string;
-};
 export interface BaseFeedbackProps {
     label: string;
     onSubmit: (data: FeedbackPayload) => void;
