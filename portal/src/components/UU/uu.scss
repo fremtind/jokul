@@ -48,13 +48,25 @@
             z-index: -1;
             position: absolute;
             top: 0;
-            left: -40px;
             height: 100%;
-            width: 100vw;
+            width: 100%;
             background-color: $gra-10;
+            padding-right: $component-spacing--large;
+            margin-left: -#{$component-spacing--large};
+            padding-left: $component-spacing--large;
+
+            @include medium-device {
+                padding-right: $layout-spacing--xl;
+                margin-left: -#{$layout-spacing--medium};
+                padding-left: $layout-spacing--medium;
+            }
 
             @include from-large-device {
-                left: -415px;
+                padding-right: $layout-spacing--xl;
+
+                // 415px is the width of the sidebar
+                margin-left: calc(-#{$layout-spacing--medium} - 415px);
+                padding-left: calc(#{$layout-spacing--medium} + 415px);
             }
         }
     }
