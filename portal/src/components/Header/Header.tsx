@@ -72,7 +72,7 @@ export const Header = ({ className }: { className?: string }) => {
                         basePath: PageType.KOMIGANG,
                     })),
                 {
-                    linkText: "Universell Utforming",
+                    linkText: "Universell utforming",
                     content: getStartedDocPages
                         .filter((page) => page.group === "uu")
                         .sort((pA, pB) => {
