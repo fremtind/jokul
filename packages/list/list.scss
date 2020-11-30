@@ -80,7 +80,7 @@ $jkl-marker-check: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='n
             &::before {
                 text-indent: -9999px;
                 position: absolute;
-                top: 15%;
+                top: 0.25em;
                 left: clamp(-1em, -1rem ,rem(-23px));
                 background-size: contain;
                 display: inline-block;

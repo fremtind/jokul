@@ -1196,11 +1196,12 @@
     "@babel/plugin-transform-react-pure-annotations" "^7.12.1"
 
 "@babel/preset-typescript@^7.10.4", "@babel/preset-typescript@^7.12.1":
-  version "7.12.1"
-  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.12.1.tgz#86480b483bb97f75036e8864fe404cc782cc311b"
-  integrity sha512-hNK/DhmoJPsksdHuI/RVrcEws7GN5eamhi28JkO52MqIxU8Z0QpmiSOQxZHWOHV7I3P4UjHV97ay4TcamMA6Kw==
+  version "7.12.7"
+  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.12.7.tgz#fc7df8199d6aae747896f1e6c61fc872056632a3"
+  integrity sha512-nOoIqIqBmHBSEgBXWR4Dv/XBehtIFcw9PqZw6rFYuKrzsZmOQm3PR5siLBnKZFEsDb03IegG8nSjU/iXXXYRmw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
+    "@babel/helper-validator-option" "^7.12.1"
     "@babel/plugin-transform-typescript" "^7.12.1"
 
 "@babel/runtime-corejs3@^7.10.2":
@@ -3966,9 +3967,9 @@
     "@types/responselike" "*"
 
 "@types/classnames@^2.2.10":
-  version "2.2.10"
-  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.10.tgz#cc658ca319b6355399efc1f5b9e818f1a24bf999"
-  integrity sha512-1UzDldn9GfYYEsWWnn/P4wkTlkZDH7lDb0wBMGbtIQc9zXEQq7FlKBdZUn6OBqD8sKZZ2RQO2mAjGpXiDGoRmQ==
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.11.tgz#2521cc86f69d15c5b90664e4829d84566052c1cf"
+  integrity sha512-2koNhpWm3DgWRp5tpkiJ8JGc1xTn2q0l+jUNUE7oMKXUf5NpI9AIdC4kbjGNFBdHtcxBD18LAksoudAVhFKCjw==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
@@ -4334,9 +4335,9 @@
   integrity sha512-41qEJgBH/TWgo5NFSvBCJ1qkoi3Q6ONSF2avrHq1LVEZfYpdHmj0y9SuTK+u9ZhG1sYQKBL1AWXKyLWP4RaUoQ==
 
 "@types/sinon@^9.0.8":
-  version "9.0.8"
-  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-9.0.8.tgz#1ed0038d356784f75b086104ef83bfd4130bb81b"
-  integrity sha512-IVnI820FZFMGI+u1R+2VdRaD/82YIQTdqLYC9DLPszZuynAJDtCvCtCs3bmyL66s7FqRM3+LPX7DhHnVTaagDw==
+  version "9.0.9"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-9.0.9.tgz#115843b491583f924080f684b6d0d7438344f73c"
+  integrity sha512-z/y8maYOQyYLyqaOB+dYQ6i0pxKLOsfwCmHmn4T7jS/SDHicIslr37oE3Dg8SCqKrKeBy6Lemu7do2yy+unLrw==
   dependencies:
     "@types/sinonjs__fake-timers" "*"
 
@@ -10809,9 +10810,9 @@ gatsby-plugin-sass@^2.6.0:
     sass-loader "^7.3.1"
 
 gatsby-plugin-sharp@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.9.0.tgz#3114b82fa01089fdd323f6e8c9ce9b83819e1ac6"
-  integrity sha512-jD/RbubKS0vrk82R5ebY8BovKgmCy8oLjaARtoJPm/yyCqvI0iFPmqop7S1omNQqL9728JxKgEEnC4kMMaxyyg==
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-2.9.1.tgz#74556f75858a5d7271cb83418a9b116f0a3f0289"
+  integrity sha512-Z96HoUk0gsP/6Ats5FF0na1YDECqUFSBUuFJBs0sZpSnNVmvozK4el+lBIB67eAQlHrSe55PqW/lqrq3zSXqMg==
   dependencies:
     "@babel/runtime" "^7.12.5"
     async "^3.2.0"
