@@ -204,7 +204,7 @@ export const UU = () => {
                                 key={node.id}
                                 initial={{ y: prefersReducedMotion ? 0 : -40, opacity: 0 }}
                                 animate={{
-                                    y: prefersReducedMotion ? 0 : 0,
+                                    y: 0,
                                     opacity: 1,
                                     transition: { duration: 0.3 },
                                 }}
