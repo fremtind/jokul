@@ -251,6 +251,7 @@ export const UU = () => {
                                                     title={`${criteria.title} på w3.org`}
                                                     href={`https://www.w3.org/TR/WCAG21/#${criteria.w3OrgId}`}
                                                     target="_blank"
+                                                    rel="noopener noreferrer"
                                                     external
                                                 >
                                                     WCAG {rule}
