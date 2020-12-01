@@ -4,7 +4,7 @@ import { SummaryTable } from "../src";
 import { mockProps } from "../mocks";
 import "./Example.scss";
 
-export const Example = ({}: ExampleComponentProps) => {
+export const Example: React.FC<ExampleComponentProps> = () => {
     return (
         <div className="summary-table-example">
             <SummaryTable {...mockProps} />

@@ -2,12 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { SummaryTable } from "./SummaryTable";
 import { axe } from "jest-axe";
-import { mockFooter, mockHeading, mockProps } from "../mocks";
-
-test("renders heading when heading is specified in props", () => {
-    render(<SummaryTable {...mockProps} />);
-    expect(screen.getByText(mockHeading)).toBeInTheDocument();
-});
+import { mockProps, mockFooter } from "../mocks";
 
 test("renders footer when footer is specified in props", () => {
     render(<SummaryTable {...mockProps} />);
