@@ -1,7 +1,5 @@
 const SOFT_HYPHEN = "\u00AD";
 
-export const mockHeading = `Opp${SOFT_HYPHEN}summering`;
-
 export const mockColumnDescriptions = ["Product", "Price"] as [string, string];
 
 export const mockItems = [
@@ -12,7 +10,6 @@ export const mockItems = [
 export const mockFooter = { label: "Total sum", value: "300 kr/mnd" };
 
 export const mockProps = {
-    heading: mockHeading,
     columnDescriptions: mockColumnDescriptions,
     items: mockItems,
     footer: mockFooter,
