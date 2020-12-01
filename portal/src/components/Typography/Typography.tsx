@@ -17,11 +17,14 @@ export const HeadingLarge: React.FC = ({ children, ...rest }) => {
     );
 };
 
-export const HeadingMedium: React.FC = ({ children, ...rest }) => (
-    <h3 className="jkl-heading-medium jkl-portal-heading-medium" {...rest}>
-        {children}
-    </h3>
-);
+export const HeadingMedium: React.FC = ({ children, ...rest }) => {
+    const id = typeof children === "string" ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-") : undefined;
+    return (
+        <h3 className="jkl-heading-medium jkl-portal-heading-medium" id={id} {...rest}>
+            {children}
+        </h3>
+    );
+};
 
 export const HeadingSmall: React.FC = ({ children, ...rest }) => (
     <h4 className="jkl-heading-small jkl-portal-heading-small" {...rest}>

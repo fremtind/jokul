@@ -5,7 +5,14 @@
 $webfonts-dir: "../../static/fonts";
 @import "~@fremtind/jkl-webfonts/webfonts.scss";
 
+$header-height: rem(96px);
+
 pre {
     max-width: 80vw;
     overflow: auto;
+}
+
+h2,
+h3 {
+    scroll-margin-top: $header-height;
 }
