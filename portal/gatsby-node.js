@@ -27,3 +27,14 @@ exports.onCreatePage = async ({ page, actions }) => {
         makePage(pageSpecifiedPath);
     }
 };
+
+// https://www.gatsbyjs.com/docs/mdx/programmatically-creating-pages/
+// Create indexable source for UU articles
+exports.onCreateNode = ({ node, actions }) => {
+    const { createNodeField } = actions;
+    if (node.internal.type === "Mdx") {
+        createNodeField({
+            node,
+        });
+    }
+};

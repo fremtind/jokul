@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.1 (2020-11-30)
+
+### Bug Fixes
+
+- list icon top placement ([fbb5a01](https://github.com/fremtind/jokul/commit/fbb5a01569ff9e978cd1dd2a538509ad7181b244))
+
+## 2.1.0 (2020-11-27)
+
+### Features
+
+- **list:** new checklist icons ([26260dc](https://github.com/fremtind/jokul/commit/26260dca4a0623fef86745f6f5616da7a4b33579))
+
 ## 2.0.0 (2020-11-03)
 
 ### Features

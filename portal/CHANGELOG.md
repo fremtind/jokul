@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.26.0 (2020-12-01)
+
+### Bug Fixes
+
+- clean up css for filter background width ([7bd22b5](https://github.com/fremtind/jokul/commit/7bd22b54876fbada3153cbf8a68cc0a4a36a3d8c))
+- fix headers to h4 ([3a77749](https://github.com/fremtind/jokul/commit/3a777497d34c520b0b0725bcecf2a794553520f2))
+- moar codes ([81b649b](https://github.com/fremtind/jokul/commit/81b649b752fcd0ab6398833a6f2bd92baf36fa1e))
+- remove unused variables ([cda22cb](https://github.com/fremtind/jokul/commit/cda22cb8ecf80158abb726f362b3bad5b0ef3418))
+- try to fix typings of wcag ([e46e09a](https://github.com/fremtind/jokul/commit/e46e09a49c40e6033f9a49824e2d41794aa5654a))
+
+### Features
+
+- add basic skeleton for universal design page ([d8a3a73](https://github.com/fremtind/jokul/commit/d8a3a735ec235a93300b2089fdbe8540498a8f1e))
+- add deep menu for UU ([beeb274](https://github.com/fremtind/jokul/commit/beeb2748769debb1c8ac901bcdfd7c667198b660))
+- add id to heading, add more articles ([7b1a771](https://github.com/fremtind/jokul/commit/7b1a771e9a103429b810507848e0c9f51d474cf5))
+- add label for screen reader ([2668922](https://github.com/fremtind/jokul/commit/2668922b07ce4d94c4db45153ac28cfcd5c43361))
+- add link support to uu page ([7ff25cc](https://github.com/fremtind/jokul/commit/7ff25cc515912e55b5d6e591a5be885b3155dfa3))
+- add link to articles ([b1d3b6c](https://github.com/fremtind/jokul/commit/b1d3b6c0d208f316a982548150c7f40c5608dc78))
+- add more articles, add label to search and pills ([c2ccd1f](https://github.com/fremtind/jokul/commit/c2ccd1fa44a65ac5e526eed61c4cd0af031557ad))
+- add more articles, fix main description ([cd598df](https://github.com/fremtind/jokul/commit/cd598dfa39db5c9780992c37ce6e363ee17aefc4))
+- add pills for visualizing tags ([d48d7bc](https://github.com/fremtind/jokul/commit/d48d7bc46d7f8e392062874b1fada3e1c91462f2))
+- add testguide ([726b7d1](https://github.com/fremtind/jokul/commit/726b7d1f15056ff467851df4dd5cceba05a840fe))
+- add UU essentials page ([5b28735](https://github.com/fremtind/jokul/commit/5b2873563cc6068e11451e72fb10a4765dd9f7f3))
+- articles may not match any wcag rules ([354b489](https://github.com/fremtind/jokul/commit/354b4899aa55e9dd21db10e12ff0e3b7933d53e5))
+- contain the width of article headers ([ec11ceb](https://github.com/fremtind/jokul/commit/ec11ceb4d77046a2dbdf5c2e15832118f6e04eed))
+- final touches to UU pages ([1807963](https://github.com/fremtind/jokul/commit/18079632fd04bfd90706c5fbba55811d866ec2f4))
+- fix pills for article tagging ([719e484](https://github.com/fremtind/jokul/commit/719e4840d7699ad6c0fdea6ddebfa3a6db54df82))
+- fix typo ([a667d1b](https://github.com/fremtind/jokul/commit/a667d1bdb86543253d88d5e9efd3dd4bfce50fff))
+- initial animation pass ([75bbbe7](https://github.com/fremtind/jokul/commit/75bbbe778c99e6ef9d3661f0119b084d9119ecb6))
+- minor changes to texts ([bfc7f8f](https://github.com/fremtind/jokul/commit/bfc7f8f7d808ba8181c651c08f2ca1c922c2749f))
+- moar types ([e99a642](https://github.com/fremtind/jokul/commit/e99a642192c9b7db448c80ddf8f776146ae890cc))
+- more essentials writings ([c66f51b](https://github.com/fremtind/jokul/commit/c66f51b3c26296f2fcbb75366892ca14cf535d78))
+- move tags under header ([5671a9f](https://github.com/fremtind/jokul/commit/5671a9f24786b259d891c9328941e6f2cbf6fd1d))
+- oCD ([96bcffd](https://github.com/fremtind/jokul/commit/96bcffddade7cf7f3d86369a7d871db6d6b4dd40))
+- only show links when links are present ([c87abd3](https://github.com/fremtind/jokul/commit/c87abd36d83febd0a733e892516530ab9448fe10))
+- remove role filter ([143502a](https://github.com/fremtind/jokul/commit/143502adea364b2c38634d0f5314f355bea6a906))
+- remove TODOs ([d91b6e4](https://github.com/fremtind/jokul/commit/d91b6e427ed374f1deeebfd24ae01258f4dd06db))
+- remove unnecessary sr-only label ([69d8a8e](https://github.com/fremtind/jokul/commit/69d8a8e2e396182c0758eb1dd675a8e4d92a5238))
+- restructure search and filter ([7f4f03b](https://github.com/fremtind/jokul/commit/7f4f03bcc79c66d5e6d63b48d59ff9179d562b50))
+- scroll to search results on button clickaroo ([33d5d54](https://github.com/fremtind/jokul/commit/33d5d547912d95e9e555ef0cc3cabf6a53870a07))
+- use jkl-list-react component for lists ([57df343](https://github.com/fremtind/jokul/commit/57df343f238001460f42929e113fd43064dc136c))
+- use rel="noopener noreferrer" when target is _blank ([2b5b6d7](https://github.com/fremtind/jokul/commit/2b5b6d702c29557716f91e648d7990efe74a4860))
+- **portal-uu:** add more articles (mdx) ([23e1c81](https://github.com/fremtind/jokul/commit/23e1c819b8972cf38a3e6b0708f46e6a3544ba12))
+
+## 3.25.1 (2020-11-27)
+
+### Bug Fixes
+
+- **portal:** fix logo download links ([2260719](https://github.com/fremtind/jokul/commit/2260719b00eb50abbddbac911d2e2805ced6949a))
+
 ## 3.25.0 (2020-11-25)
 
 ### Bug Fixes

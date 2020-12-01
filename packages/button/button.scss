@@ -65,19 +65,27 @@ $button-primary-background-color--inverted: $hvit;
         @include motion("standard", "productive");
         transition-property: transform;
         &--show-loader {
-            transform: translateY(-50%);
+            transform: translateY(-60%);
         }
     }
 
     &__loader {
         display: flex;
-        justify-content: center;
+        padding: 0 $button-padding;
         align-items: center;
         height: $button-height--normal;
+        min-width: $button-min-width--normal;
     }
 
     &--compact {
         height: $button-height--compact;
+        min-width: $button-min-width--compact;
+
+        .jkl-button-wrapper__slider {
+            &--show-loader {
+                transform: translateY(-63%);
+            }
+        }
 
         .jkl-button-wrapper__loader {
             height: $button-height--compact;

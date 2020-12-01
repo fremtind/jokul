@@ -1,0 +1,241 @@
+---
+title: UU test guide
+path: /komigang/uu/testguide
+order: 8
+group: uu
+---
+
+import { Table } from "@fremtind/jkl-table-react";
+import "@fremtind/jkl-table/table.min.css";
+
+# Testing av universell utforming
+
+Dette er en guide med tips og triks til hvordan man kan teste. Dokumenter alle funn underveis.
+
+Liste over seksjoner på denne siden:
+
+-   [Generell testing](#generell-testing)
+-   [Tastaturnavigasjon](#tastaturnavigasjon)
+-   [Skjermleser (VoiceOver)](#skjermleser)
+
+## Generell testing
+
+### Tekststørrelse
+
+Noen er avhengig av å endre tekststørrelsen på et nettsted for å kunne bruke tjenesten. Test ved å endre størrelse i nettleser.
+
+-   I chrome: Gå til `chrome://settings/` og under utseende kan du endre skriftstørrelse
+
+### Farger og kontrast
+
+For hvordan omfattende teste farge, kontrast, dark mode, inverted mode, high contrast mode og andre lignende moduser, se [a11yproject sin guide om temaet](https://www.a11yproject.com/posts/2020-01-23-operating-system-and-browser-accessibility-display-modes/).
+
+Kan du fortsatt se elementer som for eksempel lenker dersom alt er gråskala? Husk at farger aldri skal være eneste virkemiddel for å formidle informasjon.
+
+### Zoom i nettleser
+
+Forstørr nettsiden 200%. Sjekk at innhold fortsatt er lesbart og at innhold ikke overlapper.
+
+[Sugerørstesten (youtube)](https://www.youtube.com/watch?v=S1j6CYT3kWA&feature=youtu.be) er en test som kan brukes for å simulere hvordan det er å bruke tjenesten for en person som benytter seg av zoom større enn 200%.
+
+### Mobil/Touch
+
+Test om nettsiden kan bli rotert i alle retninger.
+
+Test at elementer som hamburgermenyer, knapper, lenker og andre touch-elementer er mulig å bruke med både små og store fingre samt pekepenn.
+
+Test at det er nok luft slik at man alltid har et område å ta tak i for å scrolle siden. Det er viktig at bruker ikke blir låst fast på en skjerm hvor man ikke kan scrolle videre.
+
+## Tastaturnavigasjon
+
+Bruk tastaturet til å navigere gjennom alle elementer på siden.
+
+-   Bruk Tab og Shift+Tab for å navigere deg mellom elementer både forover og bakover
+
+-   Bruk piltastene for å navigere deg inne i valgte elementer, for eksempel i en nedtrekksliste eller mellom radioknapper
+
+-   Bruk Space til å ta et valg
+
+-   Bruk Enter for å aktivere et element
+
+Hvis du blir stående fast grunnet at du havner i en tastaturfelle: Klikk deg ut av fellen med musen og fortsett tastaturtesting fra neste element.
+
+Hvis du kommer til en knapp som viser/skjuler innhold (for eksempel en hamburgermeny): Åpne elementet med tastaturet og naviger deg gjennom innholdet på samme måte. Når du åpner et slik element skal de neste elementene i fokusrekkefølgen være innholdet inne i hovedelementet. Lukk så elementet og sjekk at du fortsatt er på riktig plassering på siden. Godkjent avvik her er at man må trykke Tab/Shift+Tab eller en piltast én gang for å komme tilbake til elementet som åpnet menyen.
+
+### Tastaturfeller
+
+Bruk metoden beskrevet over for å navigere deg gjennom siden. Hvis du ikke kan fjerne fokus ved hjelp av piltaster eller Tab så er du i en tastaturfelle. En tastaturfelle et sted på siden, uansett hvor lite tilfelle, resulterer i feil på krav 2.1.2.
+
+### Fokushåndtering
+
+Bekreft at elementer som er i fokus har en synlig fokustilstand. Synlig fokustilstand kan være en ramme, understreking, endring i bakgrunnsfarge eller annen form for utheving. Merk at farge aldri skal være eneste virkemiddel for å formidle informasjon.
+
+Når man flytter fokus til et element skal det aldri resultere i overraskende oppførsel, for eksempel:
+
+-   Automatisk innsending av skjema
+
+-   Åpne et nytt vindu
+
+-   Flytte fokus uten at bruker har trykket noe
+
+### Fokusrekkefølge
+
+Fokusrekkefølgen skal ivareta betydning og betjening av siden. Dette er noe vagt, men kan tradisjonelt sees på som at elementer skal være fokuserbare fra venstre til høyre og fra topp til bunn.
+
+Et eksempel fra jøkul-portalen ser slik ut:
+
+![](/assets/uu/portal-taborder.png)
+
+Merk at et usynlig element har fokusrekkefølge 1. Mer om dette elementet i avsnittet under.
+
+### Hoppe over blokker
+
+Det skal være funksjonalitet som muliggjør å hoppe over store blokker av innhold. Spesielt viktig er det med en visuelt skjult knapp i header. Denne knappen skal være mulig å navigere til ved tastatur og skal kunne flytte fokus til hovedinnholdet på siden. Åpne siden i en ny fane for å være helt sikker på at fokus er nullstilt og naviger deg til denne "Hopp til innhold"-knappen. Den skal være blant de første tre Tab-stegene på siden.
+
+### Skjema
+
+Bruk metoden beskrevet under tastaturnavigasjon og test hele skjemaflyten. Alle elementer må testes enkeltvis. Er det mulig å ta et valg i datovelgeren kun ved hjelp av tastatur? Er det mulig å laste opp et vedlegg i filopplaster kun ved hjelp av tastatur? Fungerer knapper som de skal?
+
+### Lenker
+
+Lenker skal være en del av fokusrekkefølgen.
+
+Merk at her er det forskjeller på operativsystemer. Mac har som standardinnstilling at Tab ikke setter fokus på lenker. Dette resulterer i at Firefox og Safari oppfører seg annerledes enn forventet. Chrome ignorerer MacOS sin standardinnstilling og oppfører seg likt som på Windows.
+
+### Modal
+
+En modal er et element som legger seg i forgrunn og skal ta alt fokus, slik at elementer i bakgrunnen ikke skal være mulig å navigere til. Det skal heller ikke gå å klikke på disse elementene med musen. Test at verken mus eller tastaturnavigasjon gjør at du kan bruke elementer i bakgrunn av modalen.
+
+Test så videre at alle elementene i modalen er navigerbare med tastatur. Vær obs på om det kan være en tastaturfelle, det må være mulig å lukke modalen i alle tilfeller.
+
+### Dialog
+
+En dialog skiller seg fra en modal ved at innholdet i bakgrunnen ikke blir deaktivert, men det er like så viktig å sjekke at elementene i dialogen fungerer som de skal samt at det ikke skaper en tastaturfelle. Dialogen skal få fokus når den blir synlig.
+
+Helst skal dialogen lukkes hvis man flytter fokus utenfor, dersom dette ikke lar seg gjøre skal man i verste tilfelle kunne navigere seg på elementene utenfor dialogen også.
+
+### Testverktøy og nyttige lenker
+
+Det finnes verktøy som guider deg gjennom denne prosessen. For eksempel [Microsofts Accessibility Insights](https://accessibilityinsights.io/) eller [Axe Beta](https://www.deque.com/axe/beta/) (snart betalt tjeneste)
+
+[WebAIMs liste over interaksjonsstandarder for ulike elementer](https://webaim.org/techniques/keyboard/#testing)
+
+## Skjermleser
+
+Det er mange ulike skjermlesere hvor alle fungerer noe annerledes. Denne guiden er skrevet fra en Mac og vil derfor omfatte bruk av VoiceOver. Av samme årsak vil snarveiene være mac-spesifikke.
+
+Jøkul-portalen er alltid voksende og vi inviterer alle til å bidra. Har du erfaring med skjermlesere på andre platformer og mulighet til å lage en tilsvarende guide så settes det stor pris på.
+
+Eksempler på populære alternativer for andre operativsystemer/brukeragenter er NVDA, JAWS og TalkBack.
+
+### Skjermleser i bruk
+
+For VoiceOver på Mac gjelder følgende snarveier:
+
+_`VO` tilsvarer som standard `control + option`._
+
+#### Komme i gang
+
+export const voiceOverKeyColumns = ["Funksjon", "Taster"];
+export const getStartedRows = [
+    ["Start/stopp VoiceOver", "Command + F5"],
+    ["Global VoiceOver kombinasjon – Heretter kalt VO", "Control + Option"],
+    ["Åpne Rotor", "VO + U"],
+    ["Innstillinger (lydnivå, hastighet, stemme, etc.)", "VO + Command + Høyre/Venstre piltast"],
+];
+
+<Table columns={voiceOverKeyColumns} rows={getStartedRows} />
+
+#### Rotor
+
+En av de viktigste funksjonene til en skjermleser er å gi et raskt overblikk over sidens innhold slik at man kan hoppe til det relevante innholdet uten å måtte lese gjennom hele sidens innhold.
+
+Bruk `VO + U` for å åpne rotoren. Bruk deretter `Venstre/høyre piltast` for å bytte mellom type element du ser etter, så `Opp/ned piltast` for å velge et enkelt element etterfulgt av `Enter`. `Escape` lukker rotoren.
+
+#### Navigasjon
+
+export const navigationRows = [
+    ["Neste element", "VO + Høyre piltast"],
+    ["Forrige element", "VO + Venstre piltast"],
+    ["Navigere i en tabell", "VO + Piltaster"],
+    ["Neste fokuserbare element", "Tab / Shift + Tab"],
+    ["Neste lenke", "VO + L"],
+    ["Neste overskrift", "VO + H"],
+    ["Aktiver lenke eller skjemaelement", "VO + Space"],
+];
+
+<Table columns={voiceOverKeyColumns} rows={navigationRows} />
+
+#### Tabell
+
+export const tableNavigationRows = [
+    ["Lese kolonneoverskrift", "VO + C"],
+    ["Les hel rad", "VO + R"],
+    ["Les hel kolonne", "VO + R + C"],
+];
+
+<Table columns={voiceOverKeyColumns} rows={tableNavigationRows} />
+
+Hentet fra Deque university. For enda flere snarveier se deres guide om [VoiceOver keyboard shortcuts](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts).
+
+### Usynlige elementer
+
+Test at elementer som skal være skjulte også er skjult for skjermleser. Et eksempel kan være en modal som ligger gjemt. Ved å navigere seg gjennom hele tjenesten med skjermleser vil dette oppdages.
+
+### Alt-attributt på bilder
+
+Bruk navigasjonstastene beskrevet over. Marker gjerne tekst rett før bildet for å bruke det som en snarvei slik at du kun trenger å bruke VO + Høyre for å komme til neste element.
+
+### Dekorativt innhold
+
+Dekorativt innhold skal ikke leses opp av skjermleser.
+
+### Ikoner
+
+Ikoner skal hvis mulig ha en alt-attributt, men noen ikoner blir satt i CSS slik som kulepunktene i [Jøkuls liste med ikoner](https://jokul.fremtind.no/komponenter/list#lister-med-ikon). Test at ikonet gir mening med skjermleser uavhengig av om det har en alt-tekst.
+
+### Skjema
+
+Et skjema er satt sammen av mange elementer. Alle inndataelementer skal ha ledetekst. Test at det er en tydelig sammenheng mellom ledeteksten og skjemaelementet.
+
+Test at alle knapper leses opp riktig.
+
+### Skjemavalidering
+
+Ved validering i skjema skal bruker bli gjort oppmerksom på at feilmelding har dukket opp. Skjermleseren skal lese opp denne når den er synlig på skjermen. Test ved å fylle ut noe du vet gir feilmelding og trykk på "Send inn"-knappen eller en ekvivalens mens skjermleser er på.
+
+### Lenker
+
+Naviger deg mellom lenker med VO + Command + L (fremover) eller VO + Shift + Command + L (bakover).
+
+### Lister
+
+Naviger deg mellom lister med VO + Command + X (fremover) eller VO + Shift + Command + X (bakover). Bruk deretter VO + Venstre/høyre piltast for å velge forrige/neste element.
+
+### Tabell
+
+Naviger deg mellom tabeller med VO + Command + T (fremover) eller VO + Shift + Command + T (bakover). Bruk deretter VO + Piltaster for å bevege deg i tabellen.
+
+Ytterligere snarveier for tabellnavigering finner du i tabellen på toppen av denne siden.
+
+### Modal/Dialog
+
+Test at skjermleser får med seg at det dukker opp en modal/dialog. Bruker skal ikke måtte gjette seg frem til at noe har tatt over fokus på skjermen.
+
+Test at skjermleser leser opp elementene i modalen eller dialogen slik at det er tydelig hvordan man kommer seg ut.
+
+### Tidsbegrensning
+
+Hvis tjenesten har en tidsbegrensning, ofte som følge av at man blir automatisk logget ut etter x antall minutter så må det testes at skjermleser får med seg nedtellingen.
+
+### Overskrifter og struktur
+
+Åpne rotoren til VoiceOver ved å bruke VO + U. Naviger deg så mellom ulike typer elementer med piltastene og test at alle overskrifter og strukturelle elementer på siden blir lest opp.
+
+Med denne rotoren åpen er det en ypperlig anledning for å sjekke
+
+-   at overskriftsnivåer stemmer
+
+-   at landemerkene har et logisk oppsett
+
+-   at lenketekstene gir mening for seg selv

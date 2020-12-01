@@ -12,6 +12,13 @@ module.exports = {
         `gatsby-plugin-sharp`,
         { resolve: `gatsby-source-filesystem`, options: { path: `./src/components/Documentation/` } },
         {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "uu",
+                path: `${__dirname}/src/texts/uu`,
+            },
+        },
+        {
             resolve: "gatsby-plugin-sass",
             options: { implementation: require("sass") },
         },
@@ -54,8 +61,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-layout`,
             options: {
-              component: require.resolve(`./src/components/Layout/Layout.tsx`),
+                component: require.resolve(`./src/components/Layout/Layout.tsx`),
             },
-          },
+        },
     ],
 };

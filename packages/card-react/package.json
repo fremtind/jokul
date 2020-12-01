@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "publishConfig": {
         "access": "public"
     },
@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-button-react": "^2.4.0",
+        "@fremtind/jkl-button-react": "^2.4.1",
         "@fremtind/jkl-card": "^1.2.40",
         "classnames": "^2.2.6"
     },

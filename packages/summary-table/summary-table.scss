@@ -3,76 +3,54 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 .jkl-summary-table {
-    background-color: $gra-10;
-    padding-top: $layout-spacing--large;
-    padding-bottom: $layout-spacing--large;
+    display: flex;
+    flex-direction: column;
     word-break: break-word;
     width: 100%;
 
-    &--no-bg {
-        background-color: initial;
-        padding-bottom: 0;
-    }
-
-    &__heading {
-        padding-left: $component-spacing--large;
+    tr {
+        display: flex;
+        justify-content: space-between;
         padding-bottom: $component-spacing--large;
     }
 
-    & > table {
-        display: flex;
-        flex-direction: column;
+    th,
+    td {
+        padding-left: $component-spacing--large;
+        padding-right: $component-spacing--large;
 
-        tr {
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: $component-spacing--large;
+        &:first-child {
+            text-align: left;
         }
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+
+    & > tbody {
+        th {
+            font-weight: normal;
+            padding-right: $component-spacing--medium;
+        }
+    }
+
+    & > tfoot {
+        border-top: rem(1px) solid $gra-50;
+        border-bottom: rem(1px) solid $gra-50;
+        padding-top: $component-spacing--large;
 
         th,
         td {
-            padding-left: $component-spacing--large;
-            padding-right: $component-spacing--large;
-
-            &:first-child {
-                text-align: left;
-            }
-
-            &:last-child {
-                text-align: right;
-            }
-        }
-
-        & > tbody {
-            th {
-                font-weight: normal;
-                padding-right: $component-spacing--medium;
-            }
-        }
-
-        & > tfoot {
-            border-top: rem(1px) solid $gra-50;
-            border-bottom: rem(1px) solid $gra-50;
-            padding-top: $component-spacing--large;
-
-            th,
-            td {
-                font-weight: bold;
-            }
+            font-weight: bold;
         }
     }
 
     @include small-device {
-        &__heading {
+        th,
+        td {
             padding-left: 0;
-        }
-
-        & > table {
-            th,
-            td {
-                padding-left: 0;
-                padding-right: 0;
-            }
+            padding-right: 0;
         }
     }
 }

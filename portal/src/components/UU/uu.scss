@@ -1,0 +1,128 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+.jkl-portal__uu {
+    h2 {
+        @include jkl-text-style("desktop/title-small");
+    }
+    h3 {
+        @include jkl-text-style("desktop/heading-large");
+    }
+    h4 {
+        @include jkl-text-style("desktop/heading-medium");
+    }
+
+    .uu__filter-result-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: rem(18px);
+        row-gap: rem(21px);
+        padding-inline-start: 0;
+        max-width: rem(750px);
+
+        @include jkl-text-style("desktop/body");
+    }
+
+    article {
+        margin-bottom: $layout-spacing--xl;
+    }
+
+    .uu__filter-search {
+        margin-top: $layout-spacing--large;
+    }
+
+    .uu__section--search {
+        position: relative;
+        z-index: 0;
+        margin-top: $layout-spacing--large;
+        padding-top: $layout-spacing--medium;
+        padding-bottom: $layout-spacing--xl;
+
+        & > *:not(:first-child) {
+            margin-top: $layout-spacing--small;
+        }
+
+        &::before {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: $gra-10;
+            padding-right: $component-spacing--large;
+            margin-left: -#{$component-spacing--large};
+            padding-left: $component-spacing--large;
+
+            @include medium-device {
+                padding-right: $layout-spacing--xl;
+                margin-left: -#{$layout-spacing--medium};
+                padding-left: $layout-spacing--medium;
+            }
+
+            @include from-large-device {
+                padding-right: $layout-spacing--xl;
+
+                // 415px is the width of the sidebar
+                margin-left: calc(-#{$layout-spacing--medium} - 415px);
+                padding-left: calc(#{$layout-spacing--medium} + 415px);
+            }
+        }
+    }
+
+    .uu__section--search-results {
+        h2 {
+            margin-top: $layout-spacing--large;
+        }
+    }
+
+    .uu-article {
+        &:first-of-type {
+            margin-top: $layout-spacing--xl;
+        }
+
+        &__header {
+            &--tags {
+                display: flex;
+                flex-wrap: wrap;
+                list-style: none;
+                padding-inline-start: 0;
+                margin-block-start: $component-spacing--small;
+                column-gap: $component-spacing--small;
+                row-gap: $component-spacing--small;
+                margin-bottom: $layout-spacing--small;
+                max-width: rem(750px);
+            }
+
+            &__tag {
+                @include jkl-text-style("desktop/micro");
+                height: 24px;
+                display: flex;
+                align-self: center;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100px;
+                padding: $component-spacing--xs $component-spacing--small $component-spacing--xxs
+                    $component-spacing--small;
+                background-color: $gra-20;
+                color: $gra-70;
+            }
+        }
+
+        &__links {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding-inline-start: 0;
+            column-gap: $component-spacing--large;
+            row-gap: $component-spacing--xl;
+            max-width: rem(750px);
+
+            &--wcag {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

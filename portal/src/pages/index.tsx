@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { withPrefix, graphql, useStaticQuery } from "gatsby";
+import { withPrefix } from "gatsby";
 import { motion } from "framer-motion";
 
 import { useScreen } from "@fremtind/jkl-react-hooks";
@@ -50,30 +50,6 @@ const IndexPage: React.FC = () => {
         }
     }, [principleState]);
 
-    const data = useStaticQuery(graphql`
-        {
-            allSitePage(
-                sort: { order: DESC, fields: context___frontmatter___publishDate }
-                filter: { path: { regex: "/^/blog/" } }
-                limit: 1
-            ) {
-                edges {
-                    node {
-                        path
-                        context {
-                            frontmatter {
-                                title
-                                description
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `);
-
-    const latestBlogPost = data?.allSitePage?.edges[0]?.node?.context?.frontmatter;
-    const latestBlogPostPath = data?.allSitePage?.edges[0]?.node?.path;
     const { isSmallDevice } = useScreen();
 
     return (
@@ -102,6 +78,9 @@ const IndexPage: React.FC = () => {
                             />
                         </div>
                         <CardList vertical>
+                            <Card heading="Universell utforming" link="/komigang/uu">
+                                Få hjelp til å komme i gang med Universell utforming.
+                            </Card>
                             <Card heading="For utviklere" link="/komigang/utvikling">
                                 Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
                             </Card>
@@ -110,9 +89,6 @@ const IndexPage: React.FC = () => {
                             </Card>
                             <Card heading="Prosessen" link="/komigang/prosessen">
                                 Hvordan du kan jobbe med designsystemet.
-                            </Card>
-                            <Card heading={`Blogg: ${latestBlogPost.title}`} link={latestBlogPostPath}>
-                                {latestBlogPost.description}
                             </Card>
                         </CardList>
                     </div>
