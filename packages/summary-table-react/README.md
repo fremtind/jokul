@@ -25,24 +25,21 @@ import { SummaryTable } from "@fremtind/jkl-summary-table-react";
 
 Komponentene tar følgende props:
 
--   `className`: Om man ønsker å gjøre noen visuelle justeringer, kan man sende inn en className. Vær obs på å bruke denne da det er meninga at man skal bruke komponenten slik som den er.
--   `heading`: Angir overskrift for tabellen. Eksempel: `Oppsummering`.
--   `headingLevel`: Angir hvilket header-komponent som skal brukes f.eks `h1` eller `h2`.
 -   `columnDescriptions`: **Påkrevd** Brukes for skjermleser, disse beskriver henholdsvis hva de to kolonenne inneholder. Eksempel: `['Produkter', 'Pris']`
 -   `items`: **Påkrevd**. Et sett med elementer som har en `label` og `value` Eksempelvis `{label:'Vaskemaskin', value:'5000 NOK'}`
--   `footer`: Angir siste raden i tabellen og kan f.eks bruker til å angi summen av prisen for alle produkter i tabellen.  Eksempel: `{label: 'Total sum', value:'6000 NOK'}`
+-   `footer`: Angir siste raden i tabellen og kan f.eks brukes til å angi totalpris for alle produkter i tabellen. Eksempel: `{label: 'Total sum', value:'6000 NOK'}`
+-   `className`: Om man ønsker å gjøre noen visuelle justeringer, kan man sende inn en className. Vær obs på å bruke denne da det er meninga at man skal bruke komponenten slik som den er.
 
 En enkel bruk av denne tabellen kan se slik ut:
 
 ```jsx
-<SummaryTable 
-    className=".jkl-random-classname"
-    heading="Oppsummering" 
-    headingLevel="h1"
+<SummaryTable
     columnDescriptions={["Produkter","Pris"]}
     items={[
         {label:'Vaskemaskin', value;'5000 NOK'},
-        {label:'Playstation 2', value;'1000 NOK'}]}
+        {label:'Playstation 2', value;'1000 NOK'}
+    ]}
     footer={{label:'Total sum', value;'6000 NOK'}}
+    className="jkl-random-classname"
 />
 ```
