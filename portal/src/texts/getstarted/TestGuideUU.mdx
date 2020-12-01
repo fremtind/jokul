@@ -14,36 +14,9 @@ Dette er en guide med tips og triks til hvordan man kan teste. Dokumenter alle f
 
 Liste over seksjoner på denne siden:
 
--   [Dokumentasjon av funn](#dokumentasjon-av-funn)
 -   [Generell testing](#generell-testing)
 -   [Tastaturnavigasjon](#tastaturnavigasjon)
 -   [Skjermleser (VoiceOver)](#skjermleser)
-
-## Dokumentasjon av funn
-
-Et eksempel på hvordan et slikt dokument kan utføres er ved en slik tabell:
-
-export const documentErrorsColumns = ["Hvor", "Hva", "Screenshot", "Krever", "Viktighet", "Lenke til JIRA-sak"];
-export const documentErrorsRows = [
-    ["/komponenter/buttons", "Feil x", "-", "utvikling", "1", "JKL-1234"],
-    ["/komponenter/table", "Feil y", "-", "design", "2", "JKL-1235"],
-];
-
-<Table columns={documentErrorsColumns} rows={documentErrorsRows} />
-
--   **Hvor**: En beskrivelse av hvor man kan finne feilen, feks URL.
-
--   **Hva**: En beskrivelse av hva som er feil.
-
--   **Screenshot**: Hvis det lar seg gjøre, legg ved et beskrivende skjermbilde.
-
--   **Krever**: Hvilken rolle trengs for å fikse dette? Designer, utvikler?
-
--   **Viktighet**: En skala, gjerne fra 1 til 3 hvor 1 er liten feil og 3 er grov feil. Med grov feil menes en feil som er såpass seriøs at tjenesten blir ubrukelig for en bruker som er avhengig av kompenserende teknologi.
-
--   **Lenke til JIRA-sak**: Hvis det er opprettet en sak på feilen, lenk til denne her.
-
-La gjerne et dokument med oversikt over funn leve på teamets side slik at det er lett tilgjengelig for alle.
 
 ## Generell testing
 
