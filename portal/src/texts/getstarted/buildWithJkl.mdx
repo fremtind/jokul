@@ -44,9 +44,9 @@ const Component = () => (
 
 Om du skal ta i bruk Jøkul i et eksisternde prosjekt eller om du starter helt fra blanke ark er det noen ting du må tenke på for å få best mulig opplevelse av å bruke Jøkul.
 
-### Initsialisering
+### Initialisering
 
-Jøkul strekker seg så langt vi kan for å være tilgjengelig for så mange som mulig. For at komponentene skal virke riktig trenger de å vite om brukeren navigerer i løsningen med mus, tastatur eller touch. Det gjøres ved å sette opp `initTabListner` funksjonen, det trengs bare en gang, så tidlig i din runtime som det lar seg gjøre, normalt vil det være i entrypointet i applikasjonen din. Denne funksjonen lytter på brukerens oppførsel og setter dynamisk en data-attribut på body elementet som vi plukker opp i komponentene og bruker det til å vise enda tydeligere fokus states ved tastaturnavigasjon feks.
+Jøkul strekker seg så langt vi kan for å være tilgjengelig for så mange som mulig. For at komponentene skal virke riktig trenger de å vite om brukeren navigerer i løsningen med mus, tastatur eller touch. Det gjøres ved å sette opp `initTabListener` funksjonen. Det trengs bare en gang, så tidlig i din runtime som det lar seg gjøre. Normalt vil det være i entrypointet i applikasjonen din. Denne funksjonen lytter på brukerens oppførsel og setter dynamisk en data-attributt på body-elementet, som vi plukker opp i komponentene og bruker til blant annet å vise enda tydeligere fokus states ved tastaturnavigasjon.
 
 ```tsx
 import { initTabListener } from "@fremtind/jkl-core";
@@ -56,10 +56,10 @@ initTabListener();
 
 ### Polyfills
 
-Jøkul benytter seg av moderne javascript, det blir transpliert, men fortsatt vil det være funksjonalitet som er i bruk som ikke støttes i alle nettlesere. Per nå bruker vi bare funksjonalitet som kan transpileres eller polyfilles, men dette sannsynligvis til å forandre seg på sikt, da vil vi tydelig merke de komponentene som ikke vil kunne brukes i legacy systemer.
+Jøkul benytter seg av moderne javascript. Det blir transpilert til ES5, men det kan fortsatt være brukt funksjonalitet som ikke støttes i alle nettlesere. Per nå bruker vi bare funksjonalitet som kan transpileres eller polyfilles, men dette vil sannsynligvis forandre seg på sikt. Når det skjer vil vi tydelig merke de komponentene som ikke kan brukes i legacy-systemer.
 
 <InfoMessage>
-    Proxy er et eksempel på moderne javascript som ikke kan polyfilles eller transpileres. Det finnes en ponyfill, men den er ikke et full godt alternativ. Framer-motion og React-hook-forms er bibliotek som benytter seg av denne typen funksjonalitet, og vil dermed ikke virke i alle nettlesere. Om man søtte Internet Explorer 11, finnes det work-arounds for begge inntil videre.
+    Proxy er et eksempel på moderne javascript som ikke kan polyfilles eller transpileres. Det finnes en ponyfill, men den er ikke et fullgodt alternativ. Framer Motion og React Hook Form er bibliotek som benytter seg av denne typen funksjonalitet, og de vil dermed ikke virke i alle nettlesere. Om man må støtte Internet Explorer 11, finnes det work-arounds for begge inntil videre.
 </InfoMessage>
 
 #### [@webcomponents/webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
@@ -67,12 +67,12 @@ Jøkul benytter seg av moderne javascript, det blir transpliert, men fortsatt vi
 Denne trengs i litt ulike varianter basert på hva du bruker og hva du skal støtte. Moderne nettlesere som ny Chrome, Firefox, Edge og Safari har innebygd støtte, men du skal ikke mer enn tilbake til 2019 før støtten blir mer usikker. Denne må lastes inn så tidlig som overhode mulig i applikasjonen din, gjerne av webpack før ditt entrypoint. Hvis du kun støtter evergreen browsere kan du sløyfe denne.
 
 <InfoMessage>
-    Selvom ikke alle komponentene våre bruker webcomponents, så anbefaler vi fortsatt å sette opp disse polyfillene med en gang du tar i bruk en eller flere av våre React pakker.
+    Selv om ikke alle komponentene våre bruker webcomponents, så anbefaler vi fortsatt å sette opp disse polyfillene med en gang du tar i bruk en eller flere av våre React-pakker.
 </InfoMessage>
 
 #### @webcomponents/webcomponentsjs/custom-elements-es5-adapter
 
-Denne bør være med uansett hva du ønsker å støtte, denne er bare noen få kB. Denne gjør det mulig for de aller fleste nettlesere å forstå syntaxen som NRK Core components bygger på. Denne trengs også sannsynligvis i testoppsettet ditt for at jsdom skal skjønne koden.
+Denne bør være med uansett hva du ønsker å støtte, den er bare noen få kB. Den gjør det mulig for de aller fleste nettlesere å forstå syntaxen som NRK Core components bygger på, og trengs også sannsynligvis i testoppsettet ditt for at jsdom skal skjønne koden.
 
 webpack.config.js
 ```js
@@ -97,18 +97,18 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
 
 #### Babel runtime
 
-Vi trenger også runtime bibliotektet og de vanligste polyfillene der. Bruker du create-react-app har du allerde disse, og har du en eksisterende applikasjonen, så har du sannsynligvis disse også. [core-js](https://github.com/zloirock/core-js) og [regenerator-runtime](https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime).
+Vi trenger også runtime bibliotektet og de vanligste polyfillene der. Bruker du create-react-app har du allerede disse, og har du en eksisterende applikasjon har du dem sannsynligvis også. Du trenger både [core-js](https://github.com/zloirock/core-js) og [regenerator-runtime](https://github.com/facebook/regenerator/tree/master/packages/regenerator-runtime).
 
 ```js
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 ```
 
-Du trenger også [babel runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime) i ditt babeloppsett, bruker du et annet transpileringsystem må du sørge for at det er kompatibel med babel runtime og gjerne oppdatere denne dokumentasjonen.
+Du trenger også [babel runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime) i ditt babeloppsett. Bruker du et annet transpileringsystem må du sørge for at det er kompatibelt med babel runtime og gjerne oppdatere denne dokumentasjonen.
 
 #### Testing library 
 
-Det er en feil i @testing-library sin webcomponent håntering hvis en test feiler, det vil kunne vi en evig løkke som skriver ut stack trace til terminalen helt til terminalen tryner.
+Det er en feil i @testing-library sin webcomponent håndtering hvis en test feiler: Det vil kunne vi en evig løkke som skriver ut stack trace til terminalen helt til terminalen tryner.
 
 ```js
 import { configure } from '@testing-library/react';
