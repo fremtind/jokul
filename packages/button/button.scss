@@ -26,8 +26,8 @@ $button-background-color: transparent;
 $button-focus-color: $info;
 $button-primary-text-color: $hvit;
 $button-primary-background-color: $svart;
-$button-action-border-color: $suksess;
-$button-action-background-color: $suksess;
+$button-action-border-color: $info;
+$button-action-background-color: $info;
 
 $button-border-color--inverted: $hvit;
 $button-text-color--inverted: $hvit;
@@ -35,8 +35,8 @@ $button-background-color--inverted: transparent;
 $button-focus-color--inverted: $info--darkbg;
 $button-primary-text-color--inverted: $svart;
 $button-primary-background-color--inverted: $hvit;
-$button-action-border-color--inverted: $suksess--darkbg;
-$button-action-background-color--inverted: $suksess--darkbg;
+$button-action-border-color--inverted: $info--darkbg;
+$button-action-background-color--inverted: $info--darkbg;
 
 :root,
 [data-theme="light"] {
@@ -145,7 +145,6 @@ $button-action-background-color--inverted: $suksess--darkbg;
     &--action,
     &--primary,
     &--secondary {
-        border: solid $button-border-width;
         border: solid $button-border-width;
         border-radius: 999px;
         padding: 0 $button-padding;

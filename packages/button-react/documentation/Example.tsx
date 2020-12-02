@@ -11,6 +11,11 @@ export const Action: React.FC<ExampleComponentProps> = ({ boolValues }) => (
     <ActionButton
         inverted={boolValues && boolValues["Invertert"]}
         forceCompact={boolValues && boolValues["Kompakt"]}
+        loader={
+            !!boolValues?.["withLoader"]
+                ? { showLoader: !!boolValues?.["isLoading"], textDescription: "Laster innhold" }
+                : undefined
+        }
         onClick={onClick}
         className="jkl-spacing--right-1"
     >
