@@ -79,7 +79,7 @@ $button-action-background-color--inverted: $info--darkbg;
 
     &__loader {
         display: flex;
-        padding: 0 $button-padding;
+        justify-content: center;
         align-items: center;
         height: $button-height--normal;
         min-width: $button-min-width--normal;
