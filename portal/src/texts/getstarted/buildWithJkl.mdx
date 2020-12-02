@@ -106,6 +106,29 @@ import "regenerator-runtime/runtime";
 
 Du trenger også [babel runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime) i ditt babeloppsett. Bruker du et annet transpileringsystem må du sørge for at det er kompatibelt med babel runtime og gjerne oppdatere denne dokumentasjonen.
 
+#### Nanoid
+
+Flere av våre komponenter bruker nanoid for å generere automatiske ID-er på komponenter som har behov for det, feks radiobuttons. Nanoid er mye lettere enn feks UUID og gir mer enn unike nok ID-er for vårt behov. Men i version 3 droppet de support for IE 11, så for at komponentene som bruker dette skal virke ordentlig hos deg trenger du å transpilere Nanoid med samme settings som din øvrige kode, og du må tilgjengeliggjøre crypto for IE 11. Polyfill.js eller hvor du legger crypto overriden bør være så tidlig i din runtime som mulig. Hvis du ikke må støtte IE 11, kan du trygt sløyfe dette steget.
+
+webpack.js
+```
+ module: {
+        rules: [
+            {
+                exclude: /node_modules\/(?!nanoid)/,
+                test: /\.(js|ts)x?$/,
+                use: ['babel-loader'],
+            },
+        ...
+```
+
+polyfill.js
+```
+if (!window.crypto) {
+    window.crypto = window.msCrypto;
+}
+```
+
 #### Testing library 
 
 Det er en feil i @testing-library sin webcomponent håndtering hvis en test feiler: Det vil kunne vi en evig løkke som skriver ut stack trace til terminalen helt til terminalen tryner.
