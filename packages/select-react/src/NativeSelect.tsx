@@ -9,6 +9,7 @@ import { ExpandArrow } from "./ExpandArrow";
 
 interface Props {
     id?: string;
+    name?: string;
     label: string;
     items: Array<string | ValuePair>;
     className?: string;
@@ -30,6 +31,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
     (
         {
             id,
+            name,
             label,
             items,
             className = "",
@@ -75,6 +77,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
                     <select
                         ref={ref}
                         id={uid}
+                        name={name}
                         value={value}
                         defaultValue={defaultValue}
                         className="jkl-select__button"
