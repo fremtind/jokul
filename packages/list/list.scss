@@ -6,8 +6,9 @@ $list-padding-left: $layout-spacing--small;
 
 $black-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' fill='black' width='9px' height='9px'%3E%3Cpath d='M4.01 0l4.002 4.002L4.01 8.004.008 4.002z'/%3E%3C/svg%3E");
 $white-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='black' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
-$jkl-marker-cross: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.6897 12.2047L16.7976 5.77481L16.0836 5.07422L10.0003 11.4783L3.92319 5.07428L3.20958 5.77524L9.31054 12.2044L2.5 19.374L3.21395 20.0746L9.99992 12.9308L16.7857 20.0816L17.4993 19.3807L10.6897 12.2047Z' fill='black' %3E%3C/path%3E%3C/svg%3E");
-$jkl-marker-check: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 15.2168L5.24264 19.4594L19.3848 5.3173' stroke='black'%3E%3C/path%3E%3C/svg%3E");
+
+$jkl-marker-cross: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='8.75' stroke='%23AA1F23' stroke-width='1.5'/%3E%3Cpath fill='%23AA1F23' d='M5.54 12.68l7.14-7.1.84.85-7.13 7.09z'/%3E%3Cpath fill='%23AA1F23' d='M12.67 13.47l-7.13-7.1.85-.83 7.13 7.1z'/%3E%3C/svg%3E%0A");
+$jkl-marker-check: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='%232D826D'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E%0A");
 
 :root,
 [data-theme="light"] {
@@ -20,8 +21,8 @@ $jkl-marker-check: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inhe
 [data-theme="dark"] {
     --jkl-list-marker--default: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' fill='white' width='9px' height='9px'%3E%3Cpath d='M4.01 0l4.002 4.002L4.01 8.004.008 4.002z'/%3E%3C/svg%3E");
     --jkl-list-marker--secondary: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='white' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
-    --jkl-list-marker--cross: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.6897 12.2047L16.7976 5.77481L16.0836 5.07422L10.0003 11.4783L3.92319 5.07428L3.20958 5.77524L9.31054 12.2044L2.5 19.374L3.21395 20.0746L9.99992 12.9308L16.7857 20.0816L17.4993 19.3807L10.6897 12.2047Z' fill='white'%3E%3C/path%3E%3C/svg%3E");
-    --jkl-list-marker--check: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inherit' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 15.2168L5.24264 19.4594L19.3848 5.3173' stroke='white'%3E%3C/path%3E%3C/svg%3E");
+    --jkl-list-marker--cross: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='8.75' stroke='%23ff8b79' stroke-width='1.5'/%3E%3Cpath fill='%23ff8b79' d='M5.54 12.68l7.14-7.1.84.85-7.13 7.09z'/%3E%3Cpath fill='%23ff8b79' d='M12.67 13.47l-7.13-7.1.85-.83 7.13 7.1z'/%3E%3C/svg%3E%0A");
+    --jkl-list-marker--check: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='%235effa0'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E%0A");
 }
 
 .jkl-list {
@@ -29,10 +30,8 @@ $jkl-marker-check: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inhe
     list-style: disc var(--jkl-list-marker--default);
     padding-left: $list-padding-left;
 
-    &.jkl-body {
-        & > .jkl-list__item {
-            padding-left: rem(4px);
-        }
+    &__item {
+        padding-left: rem(4px);
     }
 
     & > .jkl-list__item {
@@ -76,15 +75,17 @@ $jkl-marker-check: url("data:image/svg+xml,%3Csvg class='jkl-icon jkl-icon--inhe
         &__iconed {
             list-style: none;
             position: relative;
+            padding-left: 1em;
+
             &::before {
                 text-indent: -9999px;
                 position: absolute;
                 top: 0.25em;
-                left: rem(-23px);
+                left: clamp(-1em, -1rem ,rem(-23px));
                 background-size: contain;
                 display: inline-block;
-                width: 0.75em;
-                height: 0.75em;
+                width: 1em;
+                height: 1em;
             }
         }
 

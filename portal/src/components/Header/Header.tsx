@@ -63,11 +63,33 @@ export const Header = ({ className }: { className?: string }) => {
         },
         {
             linkText: "Kom i gang",
-            content: getStartedDocPages.map((page) => ({
-                linkText: page.title,
-                content: page.path,
-                basePath: PageType.KOMIGANG,
-            })),
+            content: [
+                ...getStartedDocPages
+                    .filter((page) => page.group !== "uu")
+                    .map((page) => ({
+                        linkText: page.title,
+                        content: page.path,
+                        basePath: PageType.KOMIGANG,
+                    })),
+                {
+                    linkText: "Universell utforming",
+                    content: getStartedDocPages
+                        .filter((page) => page.group === "uu")
+                        .sort((pA, pB) => {
+                            if (pA.order && pB.order) {
+                                return Number(pA.order) - Number(pB.order);
+                            } else {
+                                return 0;
+                            }
+                        })
+                        .map((page) => ({
+                            linkText: page.title,
+                            content: page.path,
+                            basePath: PageType.KOMIGANG,
+                        })),
+                    basePath: PageType.KOMIGANG,
+                },
+            ],
             basePath: PageType.KOMIGANG,
         },
         {
@@ -77,6 +99,7 @@ export const Header = ({ className }: { className?: string }) => {
                 content: page.path,
                 basePath: PageType.BLOG,
             })),
+
             basePath: PageType.BLOG,
         },
     ];

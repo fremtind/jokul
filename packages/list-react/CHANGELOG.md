@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.0 (2020-11-27)
+
+### Features
+
+- **list:** new checklist icons ([26260dc](https://github.com/fremtind/jokul/commit/26260dca4a0623fef86745f6f5616da7a4b33579))
+
 ## 2.1.0 (2020-11-25)
 
 ### Features
