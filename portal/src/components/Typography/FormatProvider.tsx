@@ -6,6 +6,7 @@ import { ComponentExample, FlowExample, ResponsiveExample } from "@fremtind/jkl-
 import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { PortalImg } from "../PortalImg/PortalImg";
 import { Experimental } from "../Experimental/Experimental";
+import { CodeDemo } from "../CodeDemo/CodeDemo";
 
 import { DoDontExample } from "../DoDontExample";
 import {
@@ -41,6 +42,7 @@ const components = {
     Experimental,
     InfoMessage,
     ResponsiveExample,
+    CodeDemo,
 };
 
 interface Props {

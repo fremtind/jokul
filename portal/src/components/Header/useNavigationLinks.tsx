@@ -1,5 +1,23 @@
 import { graphql, useStaticQuery } from "gatsby";
 
+export interface FrontmatterTypeProp {
+    name?: string;
+    defaultValue?: { value?: unknown };
+    required?: boolean;
+    type?: { name?: string };
+}
+
+export interface FrontmatterTypePropsObj {
+    [key: string]: FrontmatterTypeProp;
+}
+
+export interface FrontmatterType {
+    displayName?: string;
+    description?: string;
+    methods?: Array<unknown>;
+    props: FrontmatterTypePropsObj;
+}
+
 export interface Frontmatter {
     title: string;
     react?: string;
@@ -8,6 +26,7 @@ export interface Frontmatter {
     author?: string;
     publishDate?: string;
     group?: string;
+    type?: FrontmatterType[];
 }
 
 interface RawDocumentationPage {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { ArrowUp } from "../icons/ArrowUp";
 import { ArrowDown } from "../icons/ArrowDown";
 import { variants } from "../icons/types";
@@ -8,7 +8,7 @@ interface Props {
     variant?: variants;
 }
 
-export const ArrowVerticalAnimated: React.FC<Props> = ({ pointingDown, variant = "small" }) => {
+export const ArrowVerticalAnimated: FC<Props> = ({ pointingDown, variant = "small" }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
 
     return (

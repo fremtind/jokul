@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps, ChoiceProp } from "../src";
 import { ExampleBase } from "./ExampleBase";
 
 export interface Props {
-    component: React.FC<ExampleComponentProps>;
+    component: FC<ExampleComponentProps>;
     title?: string;
     knobs?: {
         boolProps?: Array<string>;
@@ -11,7 +11,7 @@ export interface Props {
     };
 }
 
-export function ComponentExample({ component, knobs, title = "Komponent" }: Props) {
+export const ComponentExample: FC<Props> = ({ component, knobs, title = "Komponent", children }) => {
     const C = component;
 
     return (
@@ -20,6 +20,8 @@ export function ComponentExample({ component, knobs, title = "Komponent" }: Prop
             title={title}
             responsiveLayout={false}
             component={({ boolValues, choiceValues }) => <C boolValues={boolValues} choiceValues={choiceValues} />}
-        />
+        >
+            {children}
+        </ExampleBase>
     );
-}
+};

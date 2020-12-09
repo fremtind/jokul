@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import { ExampleComponentProps, ChoiceProp } from "../src";
 import { ExampleBase } from "./ExampleBase";
 import { devices } from "./internal/Devices";
 
 export interface Props {
-    component: React.FC<ExampleComponentProps>;
+    component: FC<ExampleComponentProps>;
     title?: string;
     knobs?: {
         boolProps?: Array<string>;

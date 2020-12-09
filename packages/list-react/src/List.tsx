@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
 
 type validLists = "unordered" | "ordered";
 
-function makeListComponent(listType: validLists): React.FC<Props> {
+function makeListComponent(listType: validLists): FC<Props> {
     return ({ children, className = "jkl-body" }) => {
         const componentClassName = classNames("jkl-list", className, {
             "jkl-list--ordered": listType === "ordered",

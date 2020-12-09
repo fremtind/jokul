@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Plus } from "../icons/Plus";
 import { variants } from "../icons/types";
 
@@ -7,7 +7,7 @@ interface Props {
     variant?: variants;
 }
 
-export const PlusRemoveAnimated: React.FC<Props> = ({ isPlus, variant = "small" }) => {
+export const PlusRemoveAnimated: FC<Props> = ({ isPlus, variant = "small" }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
     return (
         <div

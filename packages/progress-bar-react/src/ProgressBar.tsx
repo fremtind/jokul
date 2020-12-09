@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 interface Progress {
     current: number;
@@ -19,7 +19,7 @@ export const calculatePercentage = ({ current, total }: Progress) => (total === 
  * @param className
  * @param progressTextValue if set screen readers will read this string, if not the percentage is read
  */
-export const ProgressBar: React.FC<Props> = ({ progress, progressTextValue, className }) => {
+export const ProgressBar: FC<Props> = ({ progress, progressTextValue, className }) => {
     const width = `${calculatePercentage(progress)}%`;
 
     return (

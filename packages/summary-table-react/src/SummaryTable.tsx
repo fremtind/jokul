@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import cn from "classnames";
 
 export interface Item {
@@ -13,7 +13,7 @@ export interface Props {
     footer?: Item;
 }
 
-export const SummaryTable: React.FC<Props> = ({ columnDescriptions, items, className, footer }) => {
+export const SummaryTable: FC<Props> = ({ columnDescriptions, items, className, footer }) => {
     return (
         <table className={cn("jkl-summary-table", "jkl-body", className)}>
             <thead className="jkl-sr-only">

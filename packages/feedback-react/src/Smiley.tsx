@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { FeedbackValue } from "./types";
 
 const getSmiley = (element: FeedbackValue) => {
@@ -16,7 +16,7 @@ const getSmiley = (element: FeedbackValue) => {
     }
 };
 
-export const Smiley: React.FC<{ element: FeedbackValue }> = ({ element }) => (
+export const Smiley: FC<{ element: FeedbackValue }> = ({ element }) => (
     <svg
         aria-hidden
         className={`jkl-feedback__icon jkl-feedback__icon--${element}`}

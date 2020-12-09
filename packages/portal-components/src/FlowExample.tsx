@@ -1,11 +1,11 @@
-import React, { useState, ReactNode, useCallback } from "react";
+import React, { useState, ReactNode, useCallback, FC } from "react";
 import classNames from "classnames";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { ExampleContext } from "./ExampleContext";
 
 type darkMode = "light" | "dark";
 
-export const FlowExample: React.FC = ({ children }) => {
+export const FlowExample: FC = ({ children }) => {
     const [theme, setTheme] = useState<darkMode>("light");
     const [isCompact, setIsCompact] = useState(false);
     const [knobs, setKnobs] = useState<ReactNode[]>([]);

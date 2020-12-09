@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Calendar: React.FC<IconProps> = ({ className, variant }) => (
+export const Calendar: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
         title="Kalender"
         description="Ikon av en kalender"

@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, FC } from "react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { BaseFeedback, BaseFeedbackProps, FeedbackContext } from "./BaseFeedback";
 import { FeedbackValue } from "./types";
 
-const FeedbackContent: React.FC<{ legend: string }> = ({ legend }) => {
+const FeedbackContent: FC<{ legend: string }> = ({ legend }) => {
     const { options, value, setValue } = useContext(FeedbackContext);
 
     return (
@@ -18,11 +18,11 @@ const FeedbackContent: React.FC<{ legend: string }> = ({ legend }) => {
     );
 };
 
-interface SimplifiedFeedbackProps extends Omit<BaseFeedbackProps, "description"> {
+export interface SimplifiedFeedbackProps extends Omit<BaseFeedbackProps, "description"> {
     description: string;
 }
 
-export const SimplifiedFeedback: React.FC<SimplifiedFeedbackProps> = ({ description, ...rest }) => {
+export const SimplifiedFeedback = ({ description, ...rest }: SimplifiedFeedbackProps) => {
     return (
         <BaseFeedback {...rest}>
             <FeedbackContent legend={description} />

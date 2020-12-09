@@ -1,34 +1,30 @@
-import React from "react";
-import { Ipad } from "./Ipad";
-import { Iphone } from "./Iphone";
+import React, { FC } from "react";
 
-const DeviceContainer: React.FC = ({ children }) => <div className="jkl-device">{children}</div>;
+const DeviceContainer: FC = ({ children }) => <div className="jkl-device">{children}</div>;
 
-export const Phone: React.FC = ({ children }) => (
+export const Phone: FC = ({ children }) => (
     <DeviceContainer>
         <p className="jkl-lead jkl-layout-spacing--small-top jkl-layout-spacing--small-bottom">{Phone.displayName}</p>
         <div data-testid="jkl-portal__iphone-view" className="jkl-device-iphone">
-            <Iphone />
             <div className="jkl-device-iphone__content">{children}</div>
         </div>
     </DeviceContainer>
 );
-Phone.displayName = "iPhone X";
+Phone.displayName = "Phone";
 
-export const Tablet: React.FC = ({ children }) => (
+export const Tablet: FC = ({ children }) => (
     <DeviceContainer>
         <p className="jkl-lead jkl-layout-spacing--small-top jkl-layout-spacing--small-bottom">{Tablet.displayName}</p>
         <div className="jkl-device-ipad">
-            <Ipad />
             <div data-testid="jkl-portal__ipad-view" className="jkl-device-ipad__content">
                 {children}
             </div>
         </div>
     </DeviceContainer>
 );
-Tablet.displayName = "iPad Pro";
+Tablet.displayName = "Tablet";
 
-export const Laptop: React.FC = ({ children }) => (
+export const Laptop: FC = ({ children }) => (
     <DeviceContainer>
         <p className="jkl-lead jkl-layout-spacing--small-top jkl-layout-spacing--small-bottom">{Laptop.displayName}</p>
         <div className="jkl-device-laptop">

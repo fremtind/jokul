@@ -1,13 +1,14 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, FC } from "react";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { Dictionary, ChoiceProp, ExampleComponentProps } from "../src";
 import { hyphenate } from "./internal/hypenate";
 
 export interface Props {
-    component: React.FC<ExampleComponentProps>;
+    component: FC<ExampleComponentProps>;
     title?: string;
     knobs?: {
         boolProps?: Array<string>;
@@ -16,7 +17,7 @@ export interface Props {
     responsiveLayout: boolean;
 }
 
-export const ExampleBase: React.FC<Props> = ({ responsiveLayout, component, knobs, title = "Komponent" }) => {
+export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, title = "Komponent", children }) => {
     const [uid] = useState(`example-${nanoid(8)}`);
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
     const [choices, setChoices] = useState<Dictionary<string[]>>({});
@@ -44,14 +45,21 @@ export const ExampleBase: React.FC<Props> = ({ responsiveLayout, component, knob
 
     return (
         <section className={responsiveLayout ? "jkl-portal-responsive-example" : "jkl-portal-component-example"}>
-            <div
-                data-theme={theme}
-                data-example-text={title}
-                className={classNames("jkl-portal-component-example__example-wrapper", {
-                    "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
-                })}
-            >
-                <C boolValues={boolValues} choiceValues={choiceValues} />
+            <div className="jkl-portal-component-example__main">
+                <div
+                    data-theme={theme}
+                    data-example-text={title}
+                    className={classNames("jkl-portal-component-example__example-wrapper", {
+                        "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
+                    })}
+                >
+                    <C boolValues={boolValues} choiceValues={choiceValues} />
+                </div>
+                {children && (
+                    <Accordion>
+                        <AccordionItem title="Kode">{children}</AccordionItem>
+                    </Accordion>
+                )}
             </div>
             {(knobs?.boolProps || knobs?.choiceProps) && (
                 <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
