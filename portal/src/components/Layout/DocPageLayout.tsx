@@ -39,19 +39,21 @@ export const DocPageLayout = ({ children, location, pageContext: { frontmatter }
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />
             {children}
-            <Accordion className="jkl-layout-spacing--large-top">
-                {frontmatter.type &&
-                    frontmatter.type.map(({ displayName, props }) => {
-                        return (
-                            <AccordionItem title={`Typer: ${displayName}`} key={displayName}>
+            {frontmatter.type && (
+                <section className="jkl-layout-spacing--xl-bottom jkl-portal-paragraph">
+                    <h2 className="jkl-title-small jkl-layout-spacing--xl-top">PropTypes</h2>
+                    <Accordion className="jkl-layout-spacing--medium-top">
+                        {frontmatter.type.map(({ displayName, props }) => (
+                            <AccordionItem title={`${displayName}`} key={displayName}>
                                 <Table
                                     columns={["Prop", "DefaultValue", "Required", "Type"]}
                                     rows={getRows(Object.values(props))}
                                 />
                             </AccordionItem>
-                        );
-                    })}
-            </Accordion>
+                        ))}
+                    </Accordion>
+                </section>
+            )}
         </motion.main>
     );
 };

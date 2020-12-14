@@ -8,6 +8,24 @@
     overflow-x: hidden;
 }
 
+.jkl-portal-code-example {
+    background-color: $gra-10;
+    padding: 0 $component-spacing--medium;
+    width: calc(100% - #{$layout-spacing--xxl});
+    max-width: 50vw;
+    min-width: rem(600px);
+
+    @include small-device {
+        width: calc(100% - #{$layout-spacing--medium});
+        max-width: 100%;
+        min-width: initial;
+    }
+}
+.jkl-portal-code-example--open {
+    background-color: $hvit;
+}
+
+
 .jkl-portal-component-example {
     background-color: $gra-20;
     padding: $component-spacing--medium;
@@ -17,16 +35,8 @@
     max-width: 50vw;
     min-width: rem(600px);
     min-height: rem(208px);
-    margin-bottom: $layout-spacing--large;
 
-    &__main {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    
     &__example-wrapper {
-        box-sizing: border-box;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
