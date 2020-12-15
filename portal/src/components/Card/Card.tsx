@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { navigate } from "gatsby";
 import { unicode } from "@fremtind/jkl-constants-util";
 import "./card.scss";
@@ -8,7 +8,7 @@ interface Props {
     link: string;
 }
 
-export const Card: React.FunctionComponent<Props> = ({ heading, link, children }) => {
+export const Card: FC<Props> = ({ heading, link, children }) => {
     // right arrow for internal links, up/right for external links:
     const arrow = link.startsWith("http") ? unicode.NORTH_EAST_ARROW : unicode.RIGHTWARDS_ARROW;
     const handleClick = () => navigate(link);

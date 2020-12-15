@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 
 interface Props {
     inverted?: boolean;
     className?: string;
 }
 
-export const Accordion: React.FC<Props> = ({ children, inverted, className = "" }) => {
+export const Accordion: FC<Props> = ({ children, inverted, className = "" }) => {
     return (
         <div
             data-testid="jkl-accordion"

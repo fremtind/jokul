@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useState } from "react";
+import React, { createContext, useCallback, useEffect, useState, FC } from "react";
 import cn from "classnames";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
@@ -30,7 +30,7 @@ export const FeedbackContext = createContext<{
     setValue: (next: FeedbackValue) => void;
 }>({ options: [], setValue: () => undefined });
 
-export const BaseFeedback: React.FC<BaseFeedbackProps> = ({
+export const BaseFeedback: FC<BaseFeedbackProps> = ({
     label,
     onSubmit,
     description,

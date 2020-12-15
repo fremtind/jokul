@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import classNames from "classnames";
 import { MessageIcon } from "./common/MessageIcon";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
 interface Props {
-    children: React.ReactNode;
+    children: ReactNode;
     className?: string;
     inverted?: boolean;
     maxContentWidth?: string;

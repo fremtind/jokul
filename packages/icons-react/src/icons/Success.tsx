@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Success: React.FC<IconProps> = ({ className, variant }) => (
+export const Success: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
         viewBox="0 0 24 24"
         title="Success-icon"

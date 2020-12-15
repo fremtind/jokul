@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { ArrowLeft } from "../icons/ArrowLeft";
 import { ArrowRight } from "../icons/ArrowRight";
 import { variants } from "../icons/types";
@@ -8,7 +8,7 @@ interface Props {
     variant?: variants;
 }
 
-export const ArrowHorizontalAnimated: React.FC<Props> = ({ pointingRight, variant = "small" }) => {
+export const ArrowHorizontalAnimated: FC<Props> = ({ pointingRight, variant = "small" }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
     return (
         <div className={`jkl-icon--${iconSize} jkl-animated-horizontal-arrows`}>

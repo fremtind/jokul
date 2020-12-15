@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
 
 interface Props {
@@ -11,15 +11,7 @@ interface Props {
     inverted?: boolean;
 }
 
-export const SupportLabel: React.FC<Props> = ({
-    id,
-    helpLabel,
-    errorLabel,
-    forceCompact,
-    className,
-    srOnly,
-    inverted,
-}) => {
+export const SupportLabel: FC<Props> = ({ id, helpLabel, errorLabel, forceCompact, className, srOnly, inverted }) => {
     const componentClassName = classNames("jkl-form-support-label", className, {
         "jkl-form-support-label--compact": forceCompact,
         "jkl-form-support-label--error": errorLabel,

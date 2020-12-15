@@ -56,12 +56,17 @@ export const InlineCode: React.FC = ({ children, ...rest }) => (
     </code>
 );
 
-export const CodeBlock: React.FC = ({ children, ...rest }) => {
+interface CodeBlockProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement> {
+    language?: string;
+}
+
+export const CodeBlock: React.FC<CodeBlockProps> = ({ children, language, ...rest }) => {
     const child: ReactElement = React.Children.only(children) as ReactElement;
     if (!child.props) {
         // if there is more than one child, or it is text return a normal pre
         return <pre {...rest}>{children}</pre>;
     }
-    const language = child.props.className?.replace("language-", "");
-    return <FTCodeBlock language={language}>{child.props.children}</FTCodeBlock>;
+
+    const displayLanguage = child.props?.className?.replace("language-", "") || language;
+    return <FTCodeBlock language={displayLanguage}>{child.props.children}</FTCodeBlock>;
 };

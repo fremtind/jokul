@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Hamburger } from "../icons/Hamburger";
 import { Close } from "../icons/Close";
 import { variants } from "../icons/types";
@@ -12,13 +12,13 @@ interface ShowProps {
     when: boolean;
 }
 
-const Show: React.FC<ShowProps> = ({ when, children }) => (
+const Show: FC<ShowProps> = ({ when, children }) => (
     <div className={`jkl-icons-animated__burger__icons jkl-icons-animated__burger__icons--${when ? "show" : "hide"}`}>
         {children}
     </div>
 );
 
-export const HamburgerCloseAnimated: React.FC<Props> = ({ isBurger, variant = "small" }) => {
+export const HamburgerCloseAnimated: FC<Props> = ({ isBurger, variant = "small" }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
 
     return (

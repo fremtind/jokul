@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
 import { useProgressiveImg } from "@fremtind/jkl-react-hooks";
 
@@ -14,7 +14,7 @@ export interface Props {
     backgroundColor?: string;
 }
 
-export const Image: React.FC<Props> = ({
+export const Image: FC<Props> = ({
     thumbnail,
     defaultSize,
     objectPosition = "initial",

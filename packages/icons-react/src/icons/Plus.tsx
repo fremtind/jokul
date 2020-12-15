@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Plus: React.FC<IconProps> = ({ className, variant }) => (
+export const Plus: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
         title="Pluss"
         description="Ikon av plusstegn"

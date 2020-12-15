@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Close: React.FC<IconProps> = ({ className, variant }) => (
+export const Close: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
         title="Lukk"
         description="Ikon av en x"

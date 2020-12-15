@@ -1,8 +1,8 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler, useState, InputHTMLAttributes } from "react";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
     value: string;
     label: string;
     name: string;
