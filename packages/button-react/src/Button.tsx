@@ -1,8 +1,8 @@
-import React, { forwardRef, HTMLAttributes, TouchEvent } from "react";
+import React, { forwardRef, ButtonHTMLAttributes, TouchEvent } from "react";
 import classNames from "classnames";
 import { Loader } from "@fremtind/jkl-loader-react";
 
-export interface Props extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
+export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     forceCompact?: boolean;
     inverted?: boolean;
     loader?: {
