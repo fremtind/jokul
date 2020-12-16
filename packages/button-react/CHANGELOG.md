@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.1 (2020-12-16)
+
+### Bug Fixes
+
+- **button:** add missing types from button ([76d0259](https://github.com/fremtind/jokul/commit/76d0259e32ef1c394bca06a0927f313e708ff907))
+
 ## 2.5.0 (2020-12-15)
 
 ### Features
