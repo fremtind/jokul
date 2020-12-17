@@ -97,6 +97,7 @@ export function useNavigationLinks() {
         KOMIGANG = "komigang",
         KOMPONENTER = "komponenter",
         BLOG = "blog",
+        UU = "universell-utforming",
     }
 
     const profileDocPages = pages
@@ -105,10 +106,13 @@ export function useNavigationLinks() {
     const getStartedDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("komigang"))
         .sort(sortByOrder);
+    const uuDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("universell-utforming"))
+        .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
     const componentGroup = allSitePage.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG)).sort(sortByDate);
 
-    return { profileDocPages, getStartedDocPages, componentDocPages, componentGroup, blogPages, PageType };
+    return { profileDocPages, getStartedDocPages, componentDocPages, componentGroup, uuDocPages, blogPages, PageType };
 }

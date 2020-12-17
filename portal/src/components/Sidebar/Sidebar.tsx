@@ -10,6 +10,7 @@ export function Sidebar() {
         profileDocPages,
         getStartedDocPages,
         componentDocPages,
+        uuDocPages,
         blogPages,
         PageType,
         componentGroup,
@@ -31,6 +32,9 @@ export function Sidebar() {
             break;
         case PageType.KOMPONENTER:
             links = componentDocPages;
+            break;
+        case PageType.UU:
+            links = uuDocPages;
             break;
         case PageType.BLOG:
             links = blogPages;
