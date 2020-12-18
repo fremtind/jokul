@@ -24,7 +24,14 @@ export const Header = ({ className }: { className?: string }) => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
-    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
+    const {
+        profileDocPages,
+        getStartedDocPages,
+        componentDocPages,
+        blogPages,
+        uuDocPages,
+        PageType,
+    } = useNavigationLinks();
     const componentClassName = classNames("jkl-portal-header", className);
 
     const menuItems: MenuItemList = [
@@ -64,33 +71,24 @@ export const Header = ({ className }: { className?: string }) => {
         {
             linkText: "Kom i gang",
             content: [
-                ...getStartedDocPages
-                    .filter((page) => page.group !== "uu")
-                    .map((page) => ({
-                        linkText: page.title,
-                        content: page.path,
-                        basePath: PageType.KOMIGANG,
-                    })),
-                {
-                    linkText: "Universell utforming",
-                    content: getStartedDocPages
-                        .filter((page) => page.group === "uu")
-                        .sort((pA, pB) => {
-                            if (pA.order && pB.order) {
-                                return Number(pA.order) - Number(pB.order);
-                            } else {
-                                return 0;
-                            }
-                        })
-                        .map((page) => ({
-                            linkText: page.title,
-                            content: page.path,
-                            basePath: PageType.KOMIGANG,
-                        })),
+                ...getStartedDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
                     basePath: PageType.KOMIGANG,
-                },
+                })),
             ],
             basePath: PageType.KOMIGANG,
+        },
+        {
+            linkText: "Universell utforming",
+            content: [
+                ...uuDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.UU,
+                })),
+            ],
+            basePath: PageType.UU,
         },
         {
             linkText: "Blogg",

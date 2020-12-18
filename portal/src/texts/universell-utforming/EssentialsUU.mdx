@@ -1,11 +1,10 @@
 ---
-title: UU essentials
-path: /komigang/uu/essentials
-order: 7
-group: uu
+title: Universell utforming i Jøkul
+path: /universell-utforming
+order: 1
 ---
 
-# Kom i gang med universell utforming
+# Universell utforming i Jøkul
 
 <Ingress>
     Universell utforming handler om at vi skal lage løsninger med tanke på at brukere kan ha ulik funksjonsevne,
@@ -50,11 +49,11 @@ ARIA, også kjent som WAI-ARIA (Accessibility Initiative – Accessible Rich Int
 
 ARIA-attributter endrer ingenting på nettsiden. Derimot eksponerer de mer informasjon til hjelpemidler, spesielt skjermleser. Eksempelvis er ikke en knapp faktisk disabled ved bare å sette `aria-disabled="true"`, men man må også bruke `disabled` attributten på elementet.
 
-Det er viktig å være obs på bruk av ARIA: Det er ikke en offisielt vedtatt spesifikasjon, og støtten kan være forskjellig mellom både operativsystemer, nettlesere og hjelpemidler. En god huskeregel er å kun bruke ARIA når det er nødvendig. Så langt det er mulig skal man forholde seg til standard HTML funksjonalitet.
+Det er viktig å være obs på bruk av ARIA: Det er ikke en offisielt vedtatt spesifikasjon, og støtten kan være forskjellig mellom både operativsystemer, nettlesere og hjelpemidler. En god huskeregel er å kun bruke ARIA når det er nødvendig. Så langt det er mulig skal man forholde seg til standard HTML funksjonalitet. Man kan faktisk gjøre opplevelsen av nettsiden mye dårligere av å bruke ARIA feil. Tidligere har tilgjengelighet og ARIA blitt sett på som samme ting, det er feil. ARIA er viktig for mange, og dermed viktig for oss, men det er en relativt liten komponent i å lage gode opplevelser på nett for alle.
 
 Eksempler på mye brukte ARIA attributter er blant annet `role`, `tabindex` og `aria-labelledby`.
 
-(https://www.w3.org/TR/wai-aria-1.1/#state_prop_def)[Her kan du lese mer om de forskjellige attributtene og når de skal brukes.]
+[Her kan du lese mer om de forskjellige attributtene og når de skal brukes.](https://www.w3.org/TR/wai-aria-1.1/#state_prop_def)
 
 ## Semantikk
 
@@ -64,4 +63,4 @@ Semantiske HTML elementer hjelper skjermlesere med navigasjon. De gir landemerke
 
 ![Flytskjema for hvordan man kan bruke semantiske HTML elementer](http://html5doctor.com/downloads/h5d-sectioning-flowchart.png)
 
-På Mac kan man få en enkel oversikt over viktige semantiske elementer på siden ved å ta i bruk 'rotor' i VoiceOver. Se [guide til test av skjermleser](/komigang/uu/testguide#skjermleser).
+På Mac kan man få en enkel oversikt over viktige semantiske elementer på siden ved å ta i bruk 'rotor' i VoiceOver. Se [guide til test av skjermleser](/universell-utforming/skjermleser).
