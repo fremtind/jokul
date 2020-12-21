@@ -48,7 +48,7 @@
         "clean:portal": "gatsby clean",
         "build": "gatsby build",
         "build:test": "gatsby build && gatsby serve",
-        "dev": "GATSBY_HOT_LOADER=fast-refresh gatsby develop",
+        "dev": "gatsby develop",
         "start": "yarn dev",
         "serve": "gatsby serve",
         "snyk-protect": "snyk protect",

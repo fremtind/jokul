@@ -1,10 +1,14 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 .jkl-portal-github-links {
-    @include jkl-text-style("desktop/body");
     margin-bottom: $layout-spacing--large;
+    display: flex;
+    flex-direction: column;
 
     &__link {
+        @include jkl-text-style("desktop/body");
         &:after {
             content: "\2197";
         }
@@ -12,5 +16,53 @@
         &:not(:last-child) {
             margin-right: $layout-spacing--small;
         }
+    }
+
+    &__npm {
+        @include reset-outline;
+        @include motion("standard", "expressive");
+        transition-property: color;
+        background-color: transparent;
+        cursor: pointer;
+        margin-bottom: $layout-spacing--small;
+        text-align: left;
+
+        &:hover {
+            color: $info;
+        }
+
+        &:focus {
+            color: $info;
+        }
+    }
+}
+
+.jkl-portal__copy {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.jkl-portal-toast {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: rem(100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > span {
+        height: 100%;
+        width: 100%;
+        max-width: rem(280px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $suksess;
+        color: $hvit;
+        padding: 0 $component-spacing--large;
     }
 }
