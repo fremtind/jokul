@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FC } from "react";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 
@@ -10,14 +10,7 @@ interface Props {
     inverted?: boolean;
 }
 
-export const ToggleSlider: React.FC<Props> = ({
-    labels,
-    className = "",
-    inverted,
-    onToggle,
-    defaultValue,
-    children,
-}) => {
+export const ToggleSlider: FC<Props> = ({ labels, className = "", inverted, onToggle, defaultValue, children }) => {
     const [checked, setChecked] = useState(defaultValue !== labels[0]);
     const [id] = useState(nanoid(8));
 

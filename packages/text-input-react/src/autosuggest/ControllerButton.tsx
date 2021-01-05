@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Search, Close } from "@fremtind/jkl-icons-react";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
     inverted?: boolean;
 }
 
-const ControllerButton: React.FC<Props> = ({ hasSelectedItem, clearSelection, onClick, inverted = false, ...rest }) => (
+const ControllerButton: FC<Props> = ({ hasSelectedItem, clearSelection, onClick, inverted = false, ...rest }) => (
     <button
         {...rest}
         className={`jkl-autosuggest__controller-button ${

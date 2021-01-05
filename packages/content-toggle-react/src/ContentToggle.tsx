@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, FC } from "react";
 import cn from "classnames";
 
-export const ContentToggle: React.FC<{
+export const ContentToggle: FC<{
     showSecondary: boolean;
     secondary: ReactNode;
     className?: string;

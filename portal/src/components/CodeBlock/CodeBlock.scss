@@ -6,7 +6,16 @@
     background-color: $gra-10;
     border-radius: rem(2px);
     width: 100%;
-    max-width: rem(768px);
+    padding: $component-spacing--medium;
+    width: calc(100% - #{$layout-spacing--xxl});
+    max-width: 50vw;
+    min-width: rem(600px);
+
+    @include small-device {
+        width: calc(100% - #{$layout-spacing--medium});
+        max-width: 100%;
+        min-width: initial;
+    }
 
     &:before {
         position: absolute;

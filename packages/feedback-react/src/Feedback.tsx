@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext, useState, FC } from "react";
 import { ScreenReaderOnly } from "@fremtind/jkl-core";
 import { Smiley } from "./Smiley";
 import { BaseFeedback, BaseFeedbackProps, FeedbackContext } from "./BaseFeedback";
@@ -35,7 +35,7 @@ const FeedbackContent = () => {
     );
 };
 
-export const Feedback: React.FC<BaseFeedbackProps> = (props) => {
+export const Feedback: FC<BaseFeedbackProps> = (props) => {
     return (
         <BaseFeedback {...props}>
             <FeedbackContent />

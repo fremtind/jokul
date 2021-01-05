@@ -1,10 +1,17 @@
-import React from "react";
+import React, { FC } from "react";
 import { ComponentExample, Props as ComponentExampleProps } from "./ComponentExample";
+import { ResponsiveExample } from "./ResponsiveExample";
 
-export const DevExample: React.FC<ComponentExampleProps> = ({ knobs, component }) => {
+interface Props extends ComponentExampleProps {
+    responsiveLayout?: boolean;
+}
+
+export const DevExample: FC<Props> = ({ knobs, component, responsiveLayout = false }) => {
+    const C = responsiveLayout ? ResponsiveExample : ComponentExample;
+
     return (
         <div className="jkl-dev-example">
-            <ComponentExample knobs={knobs} component={component} />
+            <C knobs={knobs} component={component} />
         </div>
     );
 };

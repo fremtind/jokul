@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes } from "react";
+import React, { AnchorHTMLAttributes, FC } from "react";
 import classnames from "classnames";
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -6,7 +6,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
     active?: boolean;
 }
 
-export const NavLink: React.FC<Props> = ({ inverted = false, active = false, className = "", children, ...rest }) => (
+export const NavLink: FC<Props> = ({ inverted = false, active = false, className = "", children, ...rest }) => (
     <a
         className={classnames(
             "jkl-nav-link",

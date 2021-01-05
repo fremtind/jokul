@@ -2,6 +2,7 @@ export { ComponentExample } from "./ComponentExample";
 export { DevExample } from "./DevExample";
 export { FlowExample } from "./FlowExample";
 export { ExampleContext } from "./ExampleContext";
+export { ResponsiveExample } from "./ResponsiveExample";
 
 export interface Dictionary<T> {
     [key: string]: T;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import cn from "classnames";
 
 interface Props {
@@ -7,8 +7,8 @@ interface Props {
 
 type validListItems = "normal" | "check" | "cross";
 
-function makeListItem(listItemType: validListItems): React.FC<Props> {
-    const ListItem: React.FC<Props> = ({ className = "", children }) => {
+function makeListItem(listItemType: validListItems): FC<Props> {
+    const ListItem: FC<Props> = ({ className = "", children }) => {
         return (
             <li
                 className={cn("jkl-list__item", {

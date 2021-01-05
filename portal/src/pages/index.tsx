@@ -78,7 +78,7 @@ const IndexPage: React.FC = () => {
                             />
                         </div>
                         <CardList vertical>
-                            <Card heading="Universell utforming" link="/komigang/uu">
+                            <Card heading="Universell utforming" link="/universell-utforming/guide">
                                 Få hjelp til å komme i gang med Universell utforming.
                             </Card>
                             <Card heading="For utviklere" link="/komigang/utvikling">
