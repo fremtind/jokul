@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0 (2021-01-05)
+
+### Features
+
+- **native select:** add support for name attribute ([852e2df](https://github.com/fremtind/jokul/commit/852e2dfaf4996c5ec1b38f6cbeaed646bf68dc98))
+- **select:** add support for ref forwarding to the Select component ([886ea59](https://github.com/fremtind/jokul/commit/886ea59136e5b0d846883727f0e02cadec098e99))
+
+### BREAKING CHANGES
+
+- **select:** Added forwardRef, which may break behaviour
+
 ## 2.6.0 (2020-11-25)
 
 ### Features
