@@ -119,6 +119,19 @@ export function DatePicker({
         }
     };
 
+    const handleOnClick = () => {
+        dispatch({ type: "TOGGLE" });
+    };
+
+    const handleOnBlurChange = (fn?: onFocusEventHandler) => (e: FocusEvent<HTMLInputElement>) => {
+        dispatch({ type: "SET_VALUE_ON_BLUR", payload: e.target.value });
+        handleFocusChange(fn)(e);
+    };
+
+    const handleOnChange = (e: FocusEvent<HTMLInputElement>) => {
+        dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
+    };
+
     useClickOutside(componentRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
 
     useKeyListener(calendarRef, ["Escape"], () => {
@@ -157,11 +170,9 @@ export function DatePicker({
                     data-testid="jkl-datepicker__input"
                     value={state.dateString}
                     onFocus={handleFocusChange(onFocus)}
-                    onBlur={handleFocusChange(onBlur)}
-                    onClick={() => dispatch({ type: "TOGGLE" })}
-                    onChange={(e) => {
-                        dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
-                    }}
+                    onBlur={handleOnBlurChange(onBlur)}
+                    onClick={handleOnClick}
+                    onChange={handleOnChange}
                     placeholder={placeholder}
                     width={width}
                     type="text"
