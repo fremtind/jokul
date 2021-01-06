@@ -47,8 +47,6 @@ $select-error-color--inverted: $feil--darkbg;
 
 .jkl-select {
     @include reset-outline;
-    background-color: $select-background-color;
-    background-color: var(--select-background-color);
     display: block;
     position: relative;
 
