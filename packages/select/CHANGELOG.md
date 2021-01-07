@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.10 (2021-01-06)
+
+### Bug Fixes
+
+- **select:** remove background color from select wrapper div ([66a7946](https://github.com/fremtind/jokul/commit/66a79466be80da8235710547d4b1a9bcef2e7920))
+
 ## 2.3.6 (2020-11-19)
 
 ### Bug Fixes
