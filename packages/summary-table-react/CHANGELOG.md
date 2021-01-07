@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.1 (2021-01-07)
+
+### Bug Fixes
+
+- **summary-table-react:** add style pkg as dependency to ensure correct behaviour ([955bdab](https://github.com/fremtind/jokul/commit/955bdab07b373b9f3828a584f858eed25601800e))
+
 ## 1.3.0 (2020-12-15)
 
 ### Features
