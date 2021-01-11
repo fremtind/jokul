@@ -9,6 +9,7 @@ export const NavLinkExample = ({ boolValues }: ExampleComponentProps) => (
         href="#"
         active={boolValues && boolValues["Aktiv"]}
         inverted={boolValues && boolValues["Invertert"]}
+        back={boolValues && boolValues["Back"]}
     >
         Gå til forsiden
     </NavLink>
