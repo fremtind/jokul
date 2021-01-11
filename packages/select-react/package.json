@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -36,15 +36,15 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-core": "^4.18.0",
-        "@fremtind/jkl-react-hooks": "^1.10.0",
-        "@fremtind/jkl-select": "^2.3.10",
-        "@fremtind/jkl-typography-react": "^2.5.1",
+        "@fremtind/jkl-core": "^4.19.0",
+        "@fremtind/jkl-react-hooks": "^1.10.1",
+        "@fremtind/jkl-select": "^2.3.11",
+        "@fremtind/jkl-typography-react": "^2.5.2",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.10"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.0",
+        "@fremtind/jkl-portal-components": "^0.9.1",
         "@nrk/core-toggle": "3.0.8"
     },
     "peerDependencies": {
