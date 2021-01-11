@@ -58,7 +58,7 @@ export const Spacing = () => (
 const Example = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
-        <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv"] }} />
+        <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv", "Back"] }} />
         <Colors />
         <ComponentSpacingTable />
         <LayoutSpacingTable />
