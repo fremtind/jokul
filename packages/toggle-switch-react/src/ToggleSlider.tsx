@@ -24,6 +24,7 @@ export const ToggleSlider: FC<Props> = ({ labels, className = "", inverted, onTo
         <div className={`jkl-toggle-slider__wrapper ${className}`}>
             <label htmlFor={id} className="jkl-micro jkl-component-spacing--medium-right">
                 {children}
+                <span className="jkl-sr-only">{labels[checked ? 1 : 0]}</span>
             </label>
             <button
                 id={id}
