@@ -18,6 +18,7 @@ const componentSpacings = stringLiteralArray([
 ]);
 
 const layoutSpacings = stringLiteralArray([
+    "layout-spacing--xs",
     "layout-spacing--small",
     "layout-spacing--medium",
     "layout-spacing--large",
