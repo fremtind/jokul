@@ -15,7 +15,7 @@
         "@mdx-js/react": "^1.6.21",
         "classnames": "^2.2.6",
         "downloadjs": "^1.4.7",
-        "framer-motion": "^2.9.4",
+        "framer-motion": "^3.2.1",
         "gatsby": "^2.27.0",
         "gatsby-image": "^2.6.0",
         "gatsby-plugin-layout": "^1.5.0",
