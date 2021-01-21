@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.7.6 (2021-01-21)
+
+### Bug Fixes
+
+- **datepicker:** fix broken aria reference when no supportlabel ([bd35dfd](https://github.com/fremtind/jokul/commit/bd35dfd5309156098e5dbde1a485a0322fe778e1))
+
 ## 3.7.0 (2020-11-25)
 
 ### Features
