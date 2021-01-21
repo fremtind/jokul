@@ -68,7 +68,9 @@ $select-error-color--inverted: $feil--darkbg;
             font-weight: normal;
             font-family: sans-serif;
             color: $select-text-color;
-            color: var(--select-text-color);
+            &:disabled {
+                color: $gra-60;
+            }
         }
     }
     /* End of resets */
