@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.20.0 (2021-01-18)
+
+### Features
+
+- **core:** add back nav link ([687f03f](https://github.com/fremtind/jokul/commit/687f03f55018a9da013ff7f3ab18e54d05724a9e))
+
+## 4.19.0 (2021-01-11)
+
+### Features
+
+- **core:** add back nav link ([687f03f](https://github.com/fremtind/jokul/commit/687f03f55018a9da013ff7f3ab18e54d05724a9e))
+
 ## 4.18.0 (2020-12-15)
 
 ### Features

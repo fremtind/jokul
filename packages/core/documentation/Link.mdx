@@ -25,13 +25,13 @@ import { NavLinkExample } from "./Link/NavLinkExample";
     component={NavLinkExample}
     title="NavLink"
     knobs={{
-        boolProps: ["Invertert", "Aktiv"],
+        boolProps: ["Invertert", "Aktiv", "Back"],
     }}
 />
 
 ## Bruk
 
-Vi har to typer lenker. I løpende tekst brukes vanlige lenker, mens navigasjons&shy;lenker brukes i menyer og der lenken står for seg selv.
+Vi har to typer lenker. I løpende tekst brukes vanlige lenker, mens navigasjons&shy;lenker brukes i menyer og der lenken står for seg selv. Bruk egenskapen `Back` hvis det skal indikere en navigasjon som går mot hovedretningen. Feks en tilbake til "oversikt" i en kjøpsflyt.
 
 <DoDontExample
     image="/assets/documentation/link/link-tekst.svg"
