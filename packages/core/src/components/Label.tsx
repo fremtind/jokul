@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { LabelVariant } from "../index";
 import classNames from "classnames";
 
@@ -11,7 +11,7 @@ interface Props {
     className?: string;
 }
 
-export const Label: React.FC<Props> = ({
+export const Label: FC<Props> = ({
     variant = "medium",
     forceCompact,
     srOnly,

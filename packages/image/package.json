@@ -1,0 +1,34 @@
+{
+    "name": "@fremtind/jkl-image",
+    "version": "0.1.8",
+    "description": "Jøkul style for image",
+    "publishConfig": {
+        "access": "public"
+    },
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "image",
+        "images",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "!example",
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo 'noop'"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^4.20.0"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

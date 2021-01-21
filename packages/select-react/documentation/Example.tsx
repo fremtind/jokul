@@ -1,4 +1,4 @@
-import React, { FocusEvent, useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, FocusEvent, useRef, useEffect } from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -14,13 +14,33 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     ];
     const [value, setValue] = useState<string>();
     const universalSetValue = (input: string | ChangeEvent<HTMLSelectElement> | undefined) => {
+        let eventValue;
         if (typeof input === "string") {
-            setValue(input);
+            eventValue = input;
         } else if (input) {
-            setValue(input.target.value);
+            eventValue = input.target.value;
         }
+        setValue(eventValue);
+        console.log("Change: ", eventValue);
     };
 
+    const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
+    const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
+    const variant = choiceValues && (choiceValues["Etikettvariant"] as LabelVariant);
+    const searchAble = boolValues && boolValues["Med søk"];
+
+    const selectRef = useRef<HTMLSelectElement>(null);
+    useEffect(() => {
+        const select = selectRef.current;
+        select?.addEventListener("change", (e: unknown) =>
+            console.log("Verdi fra selectRef:", (e as ChangeEvent<HTMLSelectElement>).target.value),
+        );
+        return () => {
+            select?.removeEventListener("change", (e: unknown) =>
+                console.log("Verdi fra selectRef:", (e as ChangeEvent<HTMLSelectElement>).target.value),
+            );
+        };
+    }, [selectRef]);
     const onFocus = (input: string | FocusEvent<HTMLSelectElement> | undefined) => {
         console.log("Focus: ", input);
     };
@@ -28,12 +48,10 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
         console.log("Blur: ", input);
     };
 
-    const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
-    const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
-    const variant = choiceValues && (choiceValues["Etikettvariant"] as LabelVariant);
-    const searchAble = boolValues && boolValues["Med søk"];
     return (
         <C
+            ref={selectRef}
+            name="produsent"
             forceCompact={boolValues && boolValues["Kompakt"]}
             inverted={boolValues && boolValues["Invertert"]}
             variant={variant}
@@ -44,8 +62,8 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             errorLabel={errorLabel}
             onChange={universalSetValue}
             searchable={searchAble}
-            onBlur={onBlur}
             onFocus={onFocus}
+            onBlur={onBlur}
         />
     );
 };

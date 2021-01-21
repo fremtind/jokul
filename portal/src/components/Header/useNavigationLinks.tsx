@@ -1,5 +1,23 @@
 import { graphql, useStaticQuery } from "gatsby";
 
+export interface FrontmatterTypeProp {
+    name?: string;
+    defaultValue?: { value?: unknown };
+    required?: boolean;
+    type?: { name?: string };
+}
+
+export interface FrontmatterTypePropsObj {
+    [key: string]: FrontmatterTypeProp;
+}
+
+export interface FrontmatterType {
+    displayName?: string;
+    description?: string;
+    methods?: Array<unknown>;
+    props: FrontmatterTypePropsObj;
+}
+
 export interface Frontmatter {
     title: string;
     react?: string;
@@ -8,6 +26,7 @@ export interface Frontmatter {
     author?: string;
     publishDate?: string;
     group?: string;
+    type?: FrontmatterType[];
 }
 
 interface RawDocumentationPage {
@@ -78,6 +97,7 @@ export function useNavigationLinks() {
         KOMIGANG = "komigang",
         KOMPONENTER = "komponenter",
         BLOG = "blog",
+        UU = "universell-utforming",
     }
 
     const profileDocPages = pages
@@ -86,10 +106,13 @@ export function useNavigationLinks() {
     const getStartedDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("komigang"))
         .sort(sortByOrder);
+    const uuDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("universell-utforming"))
+        .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
     const componentGroup = allSitePage.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG)).sort(sortByDate);
 
-    return { profileDocPages, getStartedDocPages, componentDocPages, componentGroup, blogPages, PageType };
+    return { profileDocPages, getStartedDocPages, componentDocPages, componentGroup, uuDocPages, blogPages, PageType };
 }

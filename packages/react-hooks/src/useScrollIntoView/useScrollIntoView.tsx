@@ -11,7 +11,7 @@ interface Props {
 
 export const useScrollIntoView = ({ ref, timeout = 0, autoScroll = true, options = { behavior: "smooth" } }: Props) => {
     const scrollIntoView = () => {
-        if (ref && ref.current) {
+        if (ref?.current) {
             ref.current.scrollIntoView(options);
         }
     };

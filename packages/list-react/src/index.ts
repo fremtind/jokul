@@ -1,4 +1,4 @@
-import { UnorderedList, OrderedList } from "./List";
-import { ListItem } from "./ListItem";
+import { UnorderedList, OrderedList, List } from "./List";
+import { ListItem, CheckListItem, CrossListItem } from "./ListItem";
 
-export { ListItem, UnorderedList, OrderedList };
+export { ListItem, UnorderedList, OrderedList, List, CheckListItem, CrossListItem };

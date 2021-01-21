@@ -1,0 +1,56 @@
+@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/variables/_all.scss";
+
+.jkl-summary-table {
+    display: flex;
+    flex-direction: column;
+    word-break: break-word;
+    width: 100%;
+
+    tr {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: $component-spacing--large;
+    }
+
+    th,
+    td {
+        padding-left: $component-spacing--large;
+        padding-right: $component-spacing--large;
+
+        &:first-child {
+            text-align: left;
+        }
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+
+    & > tbody {
+        th {
+            font-weight: normal;
+            padding-right: $component-spacing--medium;
+        }
+    }
+
+    & > tfoot {
+        border-top: rem(1px) solid $gra-50;
+        border-bottom: rem(1px) solid $gra-50;
+        padding-top: $component-spacing--large;
+
+        th,
+        td {
+            font-weight: bold;
+        }
+    }
+
+    @include small-device {
+        th,
+        td {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

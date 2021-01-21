@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import classNames from "classnames";
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
     expanded?: boolean;
 }
 
-export const ExpandArrow: React.FC<Props> = ({ expanded = false, className }) => {
+export const ExpandArrow: FC<Props> = ({ expanded = false, className }) => {
     const componentClassName = classNames(
         {
             "jkl-expand-arrow": true,

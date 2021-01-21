@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import { TableRowData, isAnchorRowData } from "./types";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function TableData({ data, row, isFirstCell }: Props) {
-    function onAnchorClick(evt: React.MouseEvent<HTMLAnchorElement>) {
+    function onAnchorClick(evt: MouseEvent<HTMLAnchorElement>) {
         // Stop browser link navigation and let the clickHandler on TableRow do the job
         evt.preventDefault();
     }

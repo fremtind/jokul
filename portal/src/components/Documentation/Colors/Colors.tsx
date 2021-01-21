@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import "./Colors.scss";
+import { getComputedProperty } from "../../../utils/getComputedProperty";
 
-interface RgbValue {
-    r: number;
-    g: number;
-    b: number;
-}
+type RgbValue = number[];
 
 export interface Color {
     colorVariable: string;
-    rgbValue: RgbValue;
     cmyk?: string;
     pantone?: string;
 }
@@ -21,14 +17,15 @@ const componentToHex = (numValue: number) => {
     return hexVal.length === 1 ? `0${hexVal}` : hexVal;
 };
 export const rgbToHex = (rgbValue: RgbValue) =>
-    componentToHex(rgbValue.r) + componentToHex(rgbValue.g) + componentToHex(rgbValue.b);
+    componentToHex(rgbValue[0]) + componentToHex(rgbValue[1]) + componentToHex(rgbValue[2]);
 
 interface ColorSwatchProps {
     colorVariable: string;
     className?: string;
+    setColor?: (color: RgbValue) => void;
 }
 
-export const ColorSwatch = ({ colorVariable, className }: ColorSwatchProps) => {
+export const ColorSwatch = ({ colorVariable, className, setColor }: ColorSwatchProps) => {
     const swatchClasses = classNames(
         {
             "jkl-portal-color-swatch": true,
@@ -37,8 +34,16 @@ export const ColorSwatch = ({ colorVariable, className }: ColorSwatchProps) => {
         },
         className,
     );
+    const ref = useRef<SVGSVGElement>(null);
+    useLayoutEffect(() => {
+        const rgb = getComputedProperty(ref.current, "color").split(",");
+        if (typeof setColor === "function") {
+            setColor(rgb.map((color) => parseInt(color.replace(/[^0-9]/g, ""), 10)));
+        }
+    }, [setColor]);
     return (
         <svg
+            ref={ref}
             role="img"
             aria-label={`Fargeprøve av fargen ${colorVariable}`}
             className={`${swatchClasses} jkl-color-${colorVariable}`}
@@ -59,7 +64,7 @@ interface ColorInfoProps extends Color {
     className?: string;
 }
 
-export const ColorInfo = ({ colorVariable, rgbValue, cmyk, pantone, vertical, className }: ColorInfoProps) => {
+export const ColorInfo = ({ colorVariable, cmyk, pantone, vertical, className }: ColorInfoProps) => {
     const colorInfoClassName = classNames(
         {
             "jkl-portal-color-info": true,
@@ -67,13 +72,17 @@ export const ColorInfo = ({ colorVariable, rgbValue, cmyk, pantone, vertical, cl
         },
         className,
     );
+    const [color, setColor] = useState<number[]>();
     return (
         <article className={colorInfoClassName}>
-            <ColorSwatch className="jkl-portal-color-info__swatch" colorVariable={colorVariable} />
+            <ColorSwatch setColor={setColor} className="jkl-portal-color-info__swatch" colorVariable={colorVariable} />
             <p className="jkl-portal-color-info__values jkl-small">
-                {`RGB: ${rgbValue.r} ${rgbValue.g} ${rgbValue.b}`}
-                <br />
-                {`HEX: ${rgbToHex(rgbValue)}`}
+                {color && color.length === 3 && (
+                    <>
+                        {`RGB: ${color[0]} ${color[1]} ${color[2]}`} <br />
+                        {`HEX: ${rgbToHex(color)}`}
+                    </>
+                )}
                 {cmyk && <br />}
                 {cmyk && `CMYK: ${cmyk}`}
                 {pantone && <br />}

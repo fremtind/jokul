@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0 (2021-01-05)
+
+### Features
+
+- **native select:** add support for name attribute ([852e2df](https://github.com/fremtind/jokul/commit/852e2dfaf4996c5ec1b38f6cbeaed646bf68dc98))
+- **select:** add support for ref forwarding to the Select component ([886ea59](https://github.com/fremtind/jokul/commit/886ea59136e5b0d846883727f0e02cadec098e99))
+
+### BREAKING CHANGES
+
+- **select:** Added forwardRef, which may break behaviour
+
+## 2.6.0 (2020-11-25)
+
+### Features
+
+- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+
+## 2.5.0 (2020-11-19)
+
+### Bug Fixes
+
+- **select-react:** move width to correct div ([1162d15](https://github.com/fremtind/jokul/commit/1162d1539f33092731f87fa8c53d6bf2fa3bae64))
+
+### Features
+
+- **select-react:** add width prop to nativeselect ([9f8f575](https://github.com/fremtind/jokul/commit/9f8f575536840eee7f76c6db547cd8515e012a6b))
+
 ## 2.4.13 (2020-09-11)
 
 ### Bug Fixes

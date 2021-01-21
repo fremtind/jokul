@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TableCell } from "./TableCell";
+import { getComputedProperty } from "../../../../utils/getComputedProperty";
 
 export type TypographyLevels =
     | "Title large"
@@ -16,9 +17,6 @@ interface Props {
     level: TypographyLevels;
 }
 export const ExampleRow: React.FC<Props> = ({ level }) => {
-    const getComputedProperty = (node: HTMLElement | null, cssProperty: string) => {
-        return (node && window?.getComputedStyle(node)?.getPropertyValue(cssProperty)) || "N/A";
-    };
     const [fontWeight, setFontWeight] = useState("N/A");
     const [fontSize, setFontSize] = useState("N/A");
     const [lineHeight, setLineHeight] = useState("N/A");

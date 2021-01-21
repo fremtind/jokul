@@ -1,0 +1,60 @@
+{
+    "name": "@fremtind/jkl-image-react",
+    "version": "0.3.2",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Image container for Jokul",
+    "keywords": [
+        "image",
+        "picture",
+        "jkl",
+        "jokul",
+        "fremtind",
+        "react"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "homepage": "https://fremtind.github.io/jokul",
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-image yarn build:watch",
+        "dev:js": "parcel documentation/index.html",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-image": "^0.1.8",
+        "@fremtind/jkl-react-hooks": "^1.10.2",
+        "classnames": "^2.2.6"
+    },
+    "devDependencies": {
+        "@fremtind/jkl-portal-components": "^0.9.2"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.17",
+        "@types/react-dom": "^16.8.4",
+        "react": "^16.8.6 || ^17.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

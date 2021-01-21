@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const ArrowRight: React.FC<IconProps> = ({ className, variant }) => (
+export const ArrowRight: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
         viewBox="0 0 15 16"
         title="Pil-høyre"

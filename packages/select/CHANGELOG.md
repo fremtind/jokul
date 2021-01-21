@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.10 (2021-01-06)
+
+### Bug Fixes
+
+- **select:** remove background color from select wrapper div ([66a7946](https://github.com/fremtind/jokul/commit/66a79466be80da8235710547d4b1a9bcef2e7920))
+
+## 2.3.6 (2020-11-19)
+
+### Bug Fixes
+
+- move width from catch-all selector to child ([f13ba96](https://github.com/fremtind/jokul/commit/f13ba965cca8aba3ddb99088dbd00284ef0ce221)), closes [#1604](https://github.com/fremtind/jokul/issues/1604)
+
 ## 2.3.0 (2020-09-01)
 
 ### Features

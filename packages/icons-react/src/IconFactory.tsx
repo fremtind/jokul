@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, FC } from "react";
 import { variants } from "./icons/types";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
     className?: string;
 }
 
-export const IconFactory: React.FC<Props> = ({
+export const IconFactory: FC<Props> = ({
     viewBox = "0 0 20 21",
     variant = "inherit",
     className = "",

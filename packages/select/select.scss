@@ -47,12 +47,8 @@ $select-error-color--inverted: $feil--darkbg;
 
 .jkl-select {
     @include reset-outline;
-    background-color: $select-background-color;
-    background-color: var(--select-background-color);
     display: block;
     position: relative;
-    width: 15rem;
-    min-width: 7rem;
 
     /* Resets for native styling, especially in Firefox/IE */
     & *:focus {
@@ -79,6 +75,8 @@ $select-error-color--inverted: $feil--darkbg;
 
     &__outer-wrapper {
         position: relative;
+        width: 15rem;
+        min-width: 7rem;
     }
 
     &__search-input {

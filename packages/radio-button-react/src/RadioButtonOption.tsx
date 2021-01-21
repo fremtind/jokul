@@ -1,8 +1,8 @@
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler, useState, InputHTMLAttributes } from "react";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 
-interface Props {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
     value: string;
     label: string;
     name: string;
@@ -24,6 +24,7 @@ export const RadioButtonOption = ({
     invalid = false,
     forceCompact,
     inverted,
+    ...radioProps
 }: Props) => {
     const [inputId] = useState(`jkl-radio-button-${nanoid(8)}`);
     const componentClassName = classNames("jkl-radio-button", {
@@ -43,6 +44,7 @@ export const RadioButtonOption = ({
                 value={value}
                 onChange={onChange}
                 checked={checked}
+                {...radioProps}
             />
             <label data-testid="jkl-radio-button__label-tag" htmlFor={inputId} className="jkl-radio-button__label">
                 <span aria-hidden className="jkl-radio-button__dot" />

@@ -24,6 +24,18 @@ Cypress.Commands.add("waitForAnimation", (timeout = 300) => {
     cy.wait(timeout);
 });
 
+Cypress.Commands.add("getComponentInIphoneMode", () => {
+    cy.get("#jkl-portal-device-Iphone-X").click().waitForAnimation(100).getByTestid("jkl-portal__iphone-view");
+});
+
+Cypress.Commands.add("getComponentInIpadMode", () => {
+    cy.get("#jkl-portal-device-Ipad-Pro").click().waitForAnimation(100).getByTestid("jkl-portal__ipad-view");
+});
+
+Cypress.Commands.add("getComponentInLaptopMode", () => {
+    cy.get("#jkl-portal-device-Full-HD").click().waitForAnimation(100).getByTestid("jkl-portal__laptop-view");
+});
+
 Cypress.Commands.add("verifyA11y", () => {
     // Cypress misunderstand the animation for lack of contrast
     // Must wait a bit long to make sure all animations are done, else color contrast is off
@@ -45,6 +57,15 @@ const setModeFactory = (knob) => {
     Cypress.Commands.add(`reset${pascalCase(knob)}`, setMode(knob, true));
 };
 
-["Kompakt", "Inline", "Invertert", "Med feil", "Utvidet velger", "Med hjelpetekst", "Dark mode"].map((knob) =>
-    setModeFactory(knob),
-);
+[
+    "Kompakt",
+    "Inline",
+    "Invertert",
+    "Med feil",
+    "Utvidet velger",
+    "Med hjelpetekst",
+    "Dark mode",
+    "Flip",
+    "withLoader",
+    "isLoading",
+].map((knob) => setModeFactory(knob));

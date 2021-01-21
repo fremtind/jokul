@@ -5,31 +5,49 @@ react: button-react
 group: knapper
 ---
 
-import Example from "./Example";
+import { Primary, PrimaryCode } from "./Primary";
+import { Secondary, SecondaryCode } from "./Secondary";
+import { Tertiary, TertiaryCode } from "./Tertiary";
+
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 <Ingress>
     Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.
 </Ingress>
-<ComponentExample component={Example} knobs={{ boolProps: ["Kompakt", "Invertert"] }} />
-
-## Knappetyper
-
-Disse tre knappetypene har et hierarki. Når brukeren har flere valg samtidig, skal vi kun ha én primærknapp.
-
-<DoDontExample type="do" description="Kun én primærknapp" image="/assets/do-donts/button-do-1.png" />
-<DoDontExample type="dont" description="Flere primærknapper" image="/assets/do-donts/button-dont-1.png" />
 
 **Primærknapp:** brukes til den viktigste handlingen på en side - hovedhandlingen. En side kan noen ganger ha mer enn en hovedhandling, men ikke mange.
 
+<ComponentExample component={Primary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
+    <CodeDemo code={PrimaryCode} />
+</ComponentExample>
+
 **Sekundærknapp:** brukes til handlinger som ikke er like viktige for oss eller brukeren.
 
+<ComponentExample component={Secondary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
+    <CodeDemo code={SecondaryCode} />
+</ComponentExample>
+
 **Tertiærknapp:** brukes til handlinger som er mindre viktige, eller som kan gi uønskede konsekvenser.
+
+<ComponentExample component={Tertiary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
+    <CodeDemo code={TertiaryCode} />
+</ComponentExample>
+
+## Lastemodus
+
+Hvis du skal bruke lastemodus i knappen må du sørge for at `@fremtind/jkl-loader/loader.min.css` er lastet inn i klienten.
+
+## Knappetyper
+
+Disse tre hovedknappetypene har et hierarki. Når brukeren har flere valg samtidig, skal vi kun ha én primærknapp.
+
+<DoDontExample type="do" description="Kun én primærknapp" image="/assets/do-donts/button-do-1.png" />
+<DoDontExample type="dont" description="Flere primærknapper" image="/assets/do-donts/button-dont-1.png" />
 
 ## Tekst på knapper
 
 Knappetekster skal være så enkle og korte som mulig og skal oppfordre til handling. Bruk helst bare to ord:
 
-<PrimaryButton className="jkl-spacing--right-2">Send inn</PrimaryButton>
-<SecondaryButton className="jkl-spacing--right-2">Lagre</SecondaryButton>
-<TertiaryButton>Avbryt</TertiaryButton>
+<PrimaryButton className="jkl-layout-spacing--medium-right">Send inn</PrimaryButton>
+<SecondaryButton className="jkl-layout-spacing--medium-right">Lagre</SecondaryButton>
+<TertiaryButton className="jkl-layout-spacing--medium-right">Avbryt</TertiaryButton>

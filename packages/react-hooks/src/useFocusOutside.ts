@@ -1,13 +1,13 @@
-import React, { RefObject } from "react";
+import { RefObject, useEffect } from "react";
 
 export function useFocusOutside(ref: RefObject<HTMLElement> | null, fn: () => void) {
     function handleFocusOutside(event: FocusEvent) {
-        if (ref && ref.current && !ref.current.contains(event.target as Node)) {
+        if (ref?.current && !ref.current.contains(event.target as Node)) {
             fn();
         }
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (ref) {
             document && document.addEventListener("focusin", handleFocusOutside);
         }

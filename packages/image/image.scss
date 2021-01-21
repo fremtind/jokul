@@ -1,0 +1,64 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+:root,
+[data-theme="light"] {
+    --jkl-image-loader-color: #{$gra-20};
+}
+
+[data-theme="dark"] {
+    --jkl-image-loader-color: #{$gra-80};
+}
+
+.jkl-image {
+    &__container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        display: block;
+    }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 750ms ease-out opacity;
+
+    &__blur-container {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+
+        &--blur {
+            filter: blur(20px);
+            opacity: 1;
+        }
+
+        &--blur-out {
+            filter: blur(20px);
+            opacity: 0;
+        }
+
+        &--no-thumbnail {
+            background: $gra-20;
+            background: var(--jkl-image-loader-color);
+        }
+    }
+
+    &--empty {
+        background-color: $gra-20;
+        background: var(--jkl-image-loader-color);
+        display: block;
+
+        &:before {
+            display: none;
+        }
+    }
+
+    &--inverted {
+        .jkl-image__blur-container--no-thumbnail,
+        .jkl-image--empty {
+            background-color: $gra-80;
+            background: var(--jkl-image-loader-color);
+        }
+    }
+}

@@ -7,6 +7,7 @@
 }
 
 $right-arrow: "\2192"; // unicode right arrow
+$left-arrow: "\2190"; // unicode left arrow
 $north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 
 $link-underline-thickness: rem(1px);
@@ -116,6 +117,32 @@ $link-active-color--inverted: $info--darkbg;
         &:hover,
         html:not([data-mousenavigation]) &:focus {
             color: $link-active-color--inverted;
+        }
+    }
+}
+
+.jkl-nav-link--back {
+    padding-right: 0;
+    padding-left: 1em;
+    
+    &:after {
+        display: none;
+    }
+
+    &:before {
+        position: absolute;
+        left: 0;
+        top: rem(-2px);
+        content: $left-arrow;
+        transform: translateX(0);
+        @include motion("standard");
+        transition-property: transform;
+    }
+
+    &:hover,
+    html:not([data-mousenavigation]) &:focus {
+        &:before {
+            transform: translateX(-33%);
         }
     }
 }

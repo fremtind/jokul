@@ -2,9 +2,11 @@ import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import { ComponentExample, FlowExample } from "@fremtind/jkl-portal-components";
+import { ComponentExample, FlowExample, ResponsiveExample } from "@fremtind/jkl-portal-components";
+import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { PortalImg } from "../PortalImg/PortalImg";
 import { Experimental } from "../Experimental/Experimental";
+import { CodeDemo } from "../CodeDemo/CodeDemo";
 
 import { DoDontExample } from "../DoDontExample";
 import {
@@ -26,9 +28,9 @@ const components = {
     h4: HeadingSmall,
     h5: HeadingXS,
     p: Paragraph,
-    ul: UnorderedList,
-    ol: OrderedList,
-    li: ListItem,
+    ul: UnorderedList as React.FC,
+    ol: OrderedList as React.FC,
+    li: ListItem as React.FC,
     img: PortalImg,
     a: Link,
     pre: CodeBlock,
@@ -38,6 +40,9 @@ const components = {
     FlowExample,
     DoDontExample,
     Experimental,
+    InfoMessage,
+    ResponsiveExample,
+    CodeDemo,
 };
 
 interface Props {

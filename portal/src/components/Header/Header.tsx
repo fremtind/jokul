@@ -24,7 +24,14 @@ export const Header = ({ className }: { className?: string }) => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
-    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, PageType } = useNavigationLinks();
+    const {
+        profileDocPages,
+        getStartedDocPages,
+        componentDocPages,
+        blogPages,
+        uuDocPages,
+        PageType,
+    } = useNavigationLinks();
     const componentClassName = classNames("jkl-portal-header", className);
 
     const menuItems: MenuItemList = [
@@ -63,12 +70,25 @@ export const Header = ({ className }: { className?: string }) => {
         },
         {
             linkText: "Kom i gang",
-            content: getStartedDocPages.map((page) => ({
-                linkText: page.title,
-                content: page.path,
-                basePath: PageType.KOMIGANG,
-            })),
+            content: [
+                ...getStartedDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.KOMIGANG,
+                })),
+            ],
             basePath: PageType.KOMIGANG,
+        },
+        {
+            linkText: "Universell utforming",
+            content: [
+                ...uuDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.UU,
+                })),
+            ],
+            basePath: PageType.UU,
         },
         {
             linkText: "Blogg",
@@ -77,6 +97,7 @@ export const Header = ({ className }: { className?: string }) => {
                 content: page.path,
                 basePath: PageType.BLOG,
             })),
+
             basePath: PageType.BLOG,
         },
     ];

@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.20.0 (2021-01-18)
+
+### Features
+
+- **core:** add back nav link ([687f03f](https://github.com/fremtind/jokul/commit/687f03f55018a9da013ff7f3ab18e54d05724a9e))
+
+## 4.19.0 (2021-01-11)
+
+### Features
+
+- **core:** add back nav link ([687f03f](https://github.com/fremtind/jokul/commit/687f03f55018a9da013ff7f3ab18e54d05724a9e))
+
+## 4.18.0 (2020-12-15)
+
+### Features
+
+- display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
+
+## 4.17.0 (2020-11-24)
+
+### Features
+
+- **core:** update value of suksess color ([0f284aa](https://github.com/fremtind/jokul/commit/0f284aa5ae198e044e9213aed071c60a1951a90b))
+
+## 4.16.0 (2020-11-19)
+
+### Features
+
+- **core:** expand layout spacing scale with new value ([fdce942](https://github.com/fremtind/jokul/commit/fdce94252c2267d6ba9b40bbab0377c4df201c45)), closes [#1043](https://github.com/fremtind/jokul/issues/1043)
+
+## 4.15.0 (2020-10-23)
+
+### Features
+
+- **core:** update tablistener to handle touch events ([a8293e9](https://github.com/fremtind/jokul/commit/a8293e9b2a8d455d42ea99051e1eccccd6f2c647))
+
 ## 4.14.2 (2020-09-02)
 
 ### Bug Fixes

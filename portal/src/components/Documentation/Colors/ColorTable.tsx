@@ -1,30 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Color, ColorSwatch, rgbToHex } from "./Colors";
 
 import "./ColorTable.scss";
 
-const ColorTableRow = ({ colorVariable, rgbValue }: Color) => (
-    <tr className="jkl-portal-color-table__row">
-        <td className="jkl-portal-color-table__data" data-header="Valør:">
-            <ColorSwatch className="jkl-portal-color-table__swatch" colorVariable={colorVariable} />
-        </td>
-        <td className="jkl-portal-color-table__data" data-header="Variabelnavn:">
-            {colorVariable}
-        </td>
-        <td className="jkl-portal-color-table__data" data-header="Hex:">
-            {rgbToHex(rgbValue)}
-        </td>
-        <td
-            className="jkl-portal-color-table__data"
-            data-header="RGB:"
-        >{`${rgbValue.r}, ${rgbValue.g}, ${rgbValue.b}`}</td>
-    </tr>
-);
+const ColorTableRow: React.FC<Color> = ({ colorVariable }) => {
+    const [color, setColor] = useState<number[]>();
+    const [hexString, setHexString] = useState("N/A");
+    const [rgbString, setRgbString] = useState("N/A");
+    useEffect(() => {
+        if (!!color && color.length === 3) {
+            setHexString(rgbToHex(color));
+            setRgbString(`${color[0]}, ${color[1]}, ${color[2]}`);
+        }
+    }, [color]);
+    return (
+        <tr className="jkl-portal-color-table__row">
+            <td className="jkl-portal-color-table__data" data-header="Valør:">
+                <ColorSwatch
+                    setColor={setColor}
+                    className="jkl-portal-color-table__swatch"
+                    colorVariable={colorVariable}
+                />
+            </td>
+            <td className="jkl-portal-color-table__data" data-header="Variabelnavn:">
+                {colorVariable}
+            </td>
+            <td className="jkl-portal-color-table__data" data-header="Hex:">
+                {hexString}
+            </td>
+            <td className="jkl-portal-color-table__data" data-header="RGB:">
+                {rgbString}
+            </td>
+        </tr>
+    );
+};
 
 interface ColorTableProps {
-    colors: Color[];
+    colorVariables: string[];
 }
-export const ColorTable: React.FC<ColorTableProps> = ({ colors }) => {
+export const ColorTable: React.FC<ColorTableProps> = ({ colorVariables }) => {
     return (
         <table className="jkl-portal-color-table">
             <thead>
@@ -36,100 +50,40 @@ export const ColorTable: React.FC<ColorTableProps> = ({ colors }) => {
                 </tr>
             </thead>
             <tbody>
-                {colors.map((color) => (
-                    <ColorTableRow key={color.colorVariable} {...color} />
+                {colorVariables.map((colorVariable) => (
+                    <ColorTableRow key={colorVariable} colorVariable={colorVariable} />
                 ))}
             </tbody>
         </table>
     );
 };
 
-const gratoner: Color[] = [
-    {
-        colorVariable: "gra-10",
-        rgbValue: { r: 248, g: 248, b: 248 },
-    },
-    {
-        colorVariable: "gra-20",
-        rgbValue: { r: 235, g: 235, b: 235 },
-    },
-    {
-        colorVariable: "gra-30",
-        rgbValue: { r: 214, g: 214, b: 214 },
-    },
-    {
-        colorVariable: "gra-40",
-        rgbValue: { r: 184, g: 184, b: 184 },
-    },
-    {
-        colorVariable: "gra-50",
-        rgbValue: { r: 153, g: 153, b: 153 },
-    },
-    {
-        colorVariable: "gra-60",
-        rgbValue: { r: 111, g: 111, b: 111 },
-    },
-    {
-        colorVariable: "gra-70",
-        rgbValue: { r: 82, g: 82, b: 82 },
-    },
-    {
-        colorVariable: "gra-80",
-        rgbValue: { r: 61, g: 61, b: 61 },
-    },
-    {
-        colorVariable: "gra-90",
-        rgbValue: { r: 41, g: 41, b: 41 },
-    },
-    {
-        colorVariable: "gra-100",
-        rgbValue: { r: 23, g: 23, b: 23 },
-    },
+const gratoner: string[] = [
+    "gra-10",
+    "gra-20",
+    "gra-30",
+    "gra-40",
+    "gra-50",
+    "gra-60",
+    "gra-70",
+    "gra-80",
+    "gra-90",
+    "gra-100",
 ];
 
-const vardetoner: Color[] = [
-    {
-        colorVariable: "varde-10",
-        rgbValue: { r: 249, g: 246, b: 244 },
-    },
-    {
-        colorVariable: "varde-20",
-        rgbValue: { r: 244, g: 240, b: 236 },
-    },
-    {
-        colorVariable: "varde-30",
-        rgbValue: { r: 237, g: 231, b: 224 },
-    },
-    {
-        colorVariable: "varde-40",
-        rgbValue: { r: 229, g: 221, b: 211 },
-    },
-    {
-        colorVariable: "varde-50",
-        rgbValue: { r: 222, g: 212, b: 199 },
-    },
-    {
-        colorVariable: "varde-60",
-        rgbValue: { r: 207, g: 193, b: 174 },
-    },
-    {
-        colorVariable: "varde-70",
-        rgbValue: { r: 186, g: 165, b: 137 },
-    },
-    {
-        colorVariable: "varde-80",
-        rgbValue: { r: 171, g: 146, b: 113 },
-    },
-    {
-        colorVariable: "varde-90",
-        rgbValue: { r: 141, g: 116, b: 83 },
-    },
-    {
-        colorVariable: "varde-100",
-        rgbValue: { r: 104, g: 86, b: 62 },
-    },
+const vardetoner: string[] = [
+    "varde-10",
+    "varde-20",
+    "varde-30",
+    "varde-40",
+    "varde-50",
+    "varde-60",
+    "varde-70",
+    "varde-80",
+    "varde-90",
+    "varde-100",
 ];
 
-export const GraTable = () => <ColorTable colors={gratoner} />;
+export const GraTable = () => <ColorTable colorVariables={gratoner} />;
 
-export const VardeTable = () => <ColorTable colors={vardetoner} />;
+export const VardeTable = () => <ColorTable colorVariables={vardetoner} />;

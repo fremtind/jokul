@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Hamburger: React.FC<IconProps> = ({ className, variant }) => (
+export const Hamburger: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
         title="Hamburger"
         description="Ikon av hamburgermeny"

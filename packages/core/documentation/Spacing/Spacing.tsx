@@ -42,8 +42,9 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
             <td data-header="Spacing:" className="jkl-portal-spacing-example-table__data">
                 <div className={`jkl-${spacing}-top`} style={{ display: "none" }} ref={ref} />
                 <div
-                    aria-label={spacing}
+                    aria-label={`${spacing},  ${pxValue}`}
                     style={{ backgroundColor: "currentColor", width: `${remValue}rem`, height: `${remValue}rem` }}
+                    title={pxValue}
                 />
             </td>
             <td data-header="Variabel:" className="jkl-portal-spacing-example-table__data">

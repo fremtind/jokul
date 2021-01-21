@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { UnorderedList, OrderedList, ListItem } from "../src";
+import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
 import { axe } from "jest-axe";
 
 describe("List", () => {
@@ -76,24 +76,30 @@ describe("a11y", () => {
 
     test("ordered list should be a11y compliant", async () => {
         const { container } = render(
-            <OrderedList>
-                <ListItem>Steg 1</ListItem>
-                <ListItem>
-                    Steg 2
-                    <OrderedList>
-                        <ListItem>Steg 2a</ListItem>
-                        <ListItem>Steg 2b</ListItem>
-                    </OrderedList>
-                </ListItem>
-                <ListItem>Steg 3</ListItem>
-                <ListItem>Steg 4</ListItem>
-                <ListItem>Steg 5</ListItem>
-                <ListItem>Steg 6</ListItem>
-                <ListItem>Steg 7</ListItem>
-                <ListItem>Steg 8</ListItem>
-                <ListItem>Steg 9</ListItem>
-                <ListItem>Steg 10</ListItem>
-            </OrderedList>,
+            <>
+                <OrderedList>
+                    <ListItem>Steg 1</ListItem>
+                    <ListItem>
+                        Steg 2
+                        <OrderedList>
+                            <ListItem>Steg 2a</ListItem>
+                            <ListItem>Steg 2b</ListItem>
+                        </OrderedList>
+                    </ListItem>
+                    <ListItem>Steg 3</ListItem>
+                    <ListItem>Steg 4</ListItem>
+                    <ListItem>Steg 5</ListItem>
+                    <ListItem>Steg 6</ListItem>
+                    <ListItem>Steg 7</ListItem>
+                    <ListItem>Steg 8</ListItem>
+                    <ListItem>Steg 9</ListItem>
+                    <ListItem>Steg 10</ListItem>
+                </OrderedList>
+                <List>
+                    <CheckListItem>dekkes</CheckListItem>
+                    <CrossListItem>dekkes ikke</CrossListItem>
+                </List>
+            </>,
         );
         const results = await axe(container);
 

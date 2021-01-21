@@ -28,7 +28,7 @@ export const actionTypes = {
 };
 
 const setDeviceSize = (width: number, height: number) => ({
-    isSmallDevice: width < breakpoints.small,
+    isSmallDevice: width <= breakpoints.small,
     isMediumDevice: width > breakpoints.small && width < breakpoints.medium,
     isLargeDevice: width > breakpoints.medium && width < breakpoints.large,
     isXlDevice: width > breakpoints.large,

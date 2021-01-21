@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, forwardRef, ChangeEventHandler, FocusEventHandler } from "react";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
 
@@ -12,12 +12,12 @@ interface Props {
     forceCompact?: boolean;
     invalid?: boolean;
     inverted?: boolean;
-    onChange?: React.ChangeEventHandler<HTMLInputElement>;
-    onFocus?: React.FocusEventHandler<HTMLInputElement>;
-    onBlur?: React.FocusEventHandler<HTMLInputElement>;
+    onChange?: ChangeEventHandler<HTMLInputElement>;
+    onFocus?: FocusEventHandler<HTMLInputElement>;
+    onBlur?: FocusEventHandler<HTMLInputElement>;
 }
 
-export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
+export const Checkbox = forwardRef<HTMLInputElement, Props>(
     (
         {
             children,

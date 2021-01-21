@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.1 (2020-12-16)
+
+### Bug Fixes
+
+- **button:** add missing types from button ([76d0259](https://github.com/fremtind/jokul/commit/76d0259e32ef1c394bca06a0927f313e708ff907))
+
+## 2.5.0 (2020-12-15)
+
+### Features
+
+- display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
+
+## 2.4.1 (2020-11-26)
+
+### Bug Fixes
+
+- **button:** set classname on wrapper for with loader ([977e1b2](https://github.com/fremtind/jokul/commit/977e1b250a1ce87829625fb061be122e42be250a))
+
+## 2.4.0 (2020-11-25)
+
+### Features
+
+- **button:** add loading state to button ([e142122](https://github.com/fremtind/jokul/commit/e142122ccdad719e82f1b1a5263d55b52c5c435b)), closes [#1492](https://github.com/fremtind/jokul/issues/1492)
+
+## 2.3.0 (2020-11-25)
+
+### Features
+
+- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+
+## 2.2.0 (2020-11-04)
+
+### Features
+
+- **button:** add action button ([39dd441](https://github.com/fremtind/jokul/commit/39dd4419f8372ad698fbab897b0527c8fc3d5de7)), closes [#1485](https://github.com/fremtind/jokul/issues/1485)
+
+### Reverts
+
+- **button:** remove action button, keep other changes to button ([7f81c58](https://github.com/fremtind/jokul/commit/7f81c584b3ba6cf26595e590c1e2321e21a53282))
+
+## 2.1.0 (2020-10-23)
+
+### Features
+
+- **button:** add touch-specific animations ([b2a258d](https://github.com/fremtind/jokul/commit/b2a258d2805d12a49016e57e26883deaa044ad5b)), closes [#711](https://github.com/fremtind/jokul/issues/711)
+
 ## 2.0.0 (2020-09-22)
 
 ### Features

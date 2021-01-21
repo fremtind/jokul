@@ -1,0 +1,34 @@
+---
+title: Image 🧪
+react: image-react
+scss: image
+group: annet
+---
+
+import { Example } from "./Example";
+import { boolProps, choiceProps } from "./internal/props";
+
+<Experimental>
+    Bildekomponent er ikke 100% ferdigstilt, den kan brukes, men forvent at APIet kan forandre seg.
+</Experimental>
+
+<Ingress>
+    Bildekomponent med blur up. Den støtter to størrelser på bilder og thumbnail. Nyttig for å laste mindre bilder på
+    små dingser, og høyere oppløsning på større. Hvis man legger ved en thumbnail, så vil den vises blurret ut først, og
+    byttes ut med det ekte bilde når det er lastet. Hvis man ikke legger ved thumbnail, så blurrer vi opp fra grå 20
+    eller 80, i light og dark-mode respektivt. Hvis du ønsker kan du sette bakgrunnsfarge isteden for thumbnail. Feks
+    plukk ut en av de fremtredene fargene i bildet og bruk det som default staten.
+</Ingress>
+
+<ComponentExample component={Example} knobs={{ boolProps, choiceProps }} />
+
+-   Thumbnail
+    -   Ca 40px i bredde
+    -   Max 5 kB
+-   DefaultSize
+    -   Brukes for mobil
+    -   Max 800px i bredde
+    -   Under 500 kB
+-   LargeSize
+    -   Brukes for større skjermer
+    -   Bruk fornuft

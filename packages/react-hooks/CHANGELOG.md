@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.10.0 (2020-12-15)
+
+### Features
+
+- display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
+
+## 1.9.0 (2020-11-25)
+
+### Features
+
+- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+
+## 1.8.5 (2020-11-20)
+
+### Bug Fixes
+
+- **react-hooks:** fix small device check in useScreen ([aec1a22](https://github.com/fremtind/jokul/commit/aec1a22318047cbf7d0ebe4fdfef5e08a0fd2216))
+
+## 1.8.0 (2020-10-07)
+
+### Features
+
+- **useintersection:** allow observing svg elements ([8a8dbcb](https://github.com/fremtind/jokul/commit/8a8dbcb104027d0c716442d26301efb11a7f6798))
+
+## 1.7.0 (2020-10-07)
+
+### Features
+
+- **image:** add image component ([8e99f33](https://github.com/fremtind/jokul/commit/8e99f33a12f2e598aff8a15eabe230ea666f0cbd))
+
 ## 1.6.0 (2020-08-13)
 
 ### Bug Fixes
