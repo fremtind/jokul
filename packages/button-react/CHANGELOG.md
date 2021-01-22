@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.5 (2021-01-21)
+
+### Bug Fixes
+
+- **@fremtind/jkl-button:** fixes clipped focus-bug in button ([ad6d1aa](https://github.com/fremtind/jokul/commit/ad6d1aa685de2cb8f6081fef20df1aad12d9579b)), closes [#1704](https://github.com/fremtind/jokul/issues/1704)
+
 ## 2.5.1 (2020-12-16)
 
 ### Bug Fixes

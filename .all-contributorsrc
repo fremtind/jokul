@@ -276,6 +276,25 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "larsare",
+      "name": "Lars-Are Gudmundsen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2777720?v=4",
+      "profile": "https://github.com/larsare",
+      "contributions": [
+        "code"
+      ]
+     },
+     {
+      "login": "AudunBerdal",
+      "name": "Audun Berdal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57794116?v=4",
+      "profile": "http://audunberdal.no",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
