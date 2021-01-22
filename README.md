@@ -118,6 +118,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Fridaks"><img src="https://avatars1.githubusercontent.com/u/72193934?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Fridaks</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Fridaks" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/larsare"><img src="https://avatars.githubusercontent.com/u/2777720?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lars-Are Gudmundsen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=larsare" title="Code">💻</a></td>
     <td align="center"><a href="http://audunberdal.no"><img src="https://avatars.githubusercontent.com/u/57794116?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Audun Berdal</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=AudunBerdal" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/commits?author=AudunBerdal" title="Documentation">📖</a></td>
   </tr>
 </table>
