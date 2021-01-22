@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.0 (2021-01-22)
+
+### Features
+
+- **summarytable:** add bold th option ([ddedc30](https://github.com/fremtind/jokul/commit/ddedc301e734eac23e4aed9d3cd206b903fe2d9b))
+
 ## 1.3.1 (2021-01-07)
 
 ### Bug Fixes

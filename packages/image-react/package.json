@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image-react",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "publishConfig": {
         "access": "public"
     },
@@ -41,12 +41,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-image": "^0.1.8",
-        "@fremtind/jkl-react-hooks": "^1.10.2",
+        "@fremtind/jkl-image": "^0.1.9",
+        "@fremtind/jkl-react-hooks": "^1.10.3",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.2"
+        "@fremtind/jkl-portal-components": "^0.9.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",

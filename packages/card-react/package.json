@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "1.4.8",
+    "version": "1.4.9",
     "publishConfig": {
         "access": "public"
     },
@@ -32,12 +32,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-button-react": "^2.5.5",
-        "@fremtind/jkl-card": "^1.2.43",
+        "@fremtind/jkl-button-react": "^2.5.6",
+        "@fremtind/jkl-card": "^1.2.44",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.2"
+        "@fremtind/jkl-portal-components": "^0.9.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.17",
