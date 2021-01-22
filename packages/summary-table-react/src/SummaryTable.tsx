@@ -4,6 +4,7 @@ import cn from "classnames";
 export interface Item {
     label: string;
     value: string;
+    bold?: boolean;
 }
 
 export interface Props {
@@ -27,10 +28,12 @@ export const SummaryTable: FC<Props> = ({ columnDescriptions, items, className, 
             </thead>
 
             <tbody>
-                {items.map((item, index) => (
-                    <tr key={`${item.label}-${index}`}>
-                        <th scope="row">{item.label}</th>
-                        <td>{item.value}</td>
+                {items.map(({ label, value, bold = false }, index) => (
+                    <tr key={`${label}-${index}`}>
+                        <th scope="row">
+                            <span className={cn({ "jkl-summary-table__row--bold": bold })}>{label}</span>
+                        </th>
+                        <td>{value}</td>
                     </tr>
                 ))}
             </tbody>
