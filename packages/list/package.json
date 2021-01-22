@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "publishConfig": {
         "access": "public"
     },
@@ -28,7 +28,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.19.0"
+        "@fremtind/jkl-core": "^4.20.0"
     },
     "repository": {
         "type": "git",

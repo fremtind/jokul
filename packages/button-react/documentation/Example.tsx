@@ -3,6 +3,7 @@ import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Primary } from "./Primary";
 import { Secondary } from "./Secondary";
 import { Tertiary } from "./Tertiary";
+import "./style.scss";
 
 export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
