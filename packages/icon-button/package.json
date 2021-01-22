@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icon-button",
-    "version": "0.2.37",
+    "version": "0.2.38",
     "publishConfig": {
         "access": "public"
     },
@@ -28,7 +28,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.20.0"
+        "@fremtind/jkl-core": "^4.20.1"
     },
     "repository": {
         "type": "git",
