@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.27.5",
+    "version": "3.27.6",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.1.0",
@@ -10,7 +10,7 @@
         "react-docgen-typescript": "^1.20.5"
     },
     "dependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.2",
+        "@fremtind/jkl-portal-components": "^0.9.3",
         "@mdx-js/mdx": "^1.6.21",
         "@mdx-js/react": "^1.6.21",
         "classnames": "^2.2.6",
