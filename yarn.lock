@@ -3647,10 +3647,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sinonjs/samsam@^5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@sinonjs/samsam/-/samsam-5.3.0.tgz#1d2f0743dc54bf13fe9d508baefacdffa25d4329"
-  integrity sha512-hXpcfx3aq+ETVBwPlRFICld5EnrkexXuXDwqUNhDdr5L8VjvMeSRwyOa0qL7XFmR+jVWR4rUZtnxlG7RX72sBg==
+"@sinonjs/samsam@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@sinonjs/samsam/-/samsam-5.3.1.tgz#375a45fe6ed4e92fca2fb920e007c48232a6507f"
+  integrity sha512-1Hc0b1TtyfBu8ixF/tpfSHTVWKwCBLY4QJbkgnE7HcwyvT2xArDxb4K7dMgqRm3szI+LJbzmW/s4xxEhv6hwDg==
   dependencies:
     "@sinonjs/commons" "^1.6.0"
     lodash.get "^4.4.2"
@@ -3854,13 +3854,17 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react-hooks@^3.3.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-3.7.0.tgz#6d75c5255ef49bce39b6465bf6b49e2dac84919e"
-  integrity sha512-TwfbY6BWtWIHitjT05sbllyLIProcysC0dF0q1bbDa7OHLC6A6rJOYJwZ13hzfz3O4RtOuInmprBozJRyyo7/g==
+"@testing-library/react-hooks@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-5.0.0.tgz#994af047a94c7ed04b34920f70b3fd017e9976cd"
+  integrity sha512-c/wvcz/Set+KOvbi07EQO7tujsUIp5HnNAygJoSpMTVkIDcp7JtSemhjRDg1WL6Qsw076inWobTKCepK3mgi8A==
   dependencies:
     "@babel/runtime" "^7.12.5"
-    "@types/testing-library__react-hooks" "^3.4.0"
+    "@types/react" ">=16.9.0"
+    "@types/react-dom" ">=16.9.0"
+    "@types/react-test-renderer" ">=16.9.0"
+    filter-console "^0.1.1"
+    react-error-boundary "^3.1.0"
 
 "@testing-library/react@^11.0.2":
   version "11.2.2"
@@ -4239,12 +4243,12 @@
     "@types/history" "*"
     "@types/react" "*"
 
-"@types/react-dom@^16.9.8":
-  version "16.9.10"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.10.tgz#4485b0bec3d41f856181b717f45fd7831101156f"
-  integrity sha512-ItatOrnXDMAYpv6G8UCk2VhbYVTjZT9aorLtA/OzDN9XJ2GKcfam68jutoAcILdRjsRUO8qb7AmyObF77Q8QFw==
+"@types/react-dom@>=16.9.0", "@types/react-dom@^17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.0.tgz#b3b691eb956c4b3401777ee67b900cb28415d95a"
+  integrity sha512-lUqY7OlkF/RbNtD5nIq7ot8NquXrdFrjSOR6+w9a9RFQevGi1oZO1dcJbXMeONAPKtZ2UrZOEJ5UOCVsxbLk/g==
   dependencies:
-    "@types/react" "^16"
+    "@types/react" "*"
 
 "@types/react-helmet@^6.1.0":
   version "6.1.0"
@@ -4260,17 +4264,17 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-test-renderer@*":
-  version "16.9.2"
-  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.9.2.tgz#e1c408831e8183e5ad748fdece02214a7c2ab6c5"
-  integrity sha512-4eJr1JFLIAlWhzDkBCkhrOIWOvOxcCAfQh+jiKg7l/nNZcCIL2MHl2dZhogIFKyHzedVWHaVP1Yydq/Ruu4agw==
+"@types/react-test-renderer@>=16.9.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-17.0.0.tgz#9be47b375eeb906fced37049e67284a438d56620"
+  integrity sha512-nvw+F81OmyzpyIE1S0xWpLonLUZCMewslPuA8BtjSKc5XEbn8zEQBXS7KuOLHTNnSOEM2Pum50gHOoZ62tqTRg==
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16", "@types/react@^16.9.43":
-  version "16.14.2"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.14.2.tgz#85dcc0947d0645349923c04ccef6018a1ab7538c"
-  integrity sha512-BzzcAlyDxXl2nANlabtT4thtvbbnhee8hMmH/CcJrISDBVcJS1iOsP1f0OAgSdGE0MsY9tqcrb9YoZcOFv9dbQ==
+"@types/react@*", "@types/react@>=16.9.0", "@types/react@^17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.0.tgz#5af3eb7fad2807092f0046a1302b7823e27919b8"
+  integrity sha512-aj/L7RIMsRlWML3YB6KZiXB3fV2t41+5RBGYF8z+tAKU43Px8C3cYUZsDvf1/+Bm4FK21QWBrDutu8ZJ/70qOw==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
@@ -4340,13 +4344,6 @@
   integrity sha512-yYn5EKHO3MPEMSOrcAb1dLWY+68CG29LiXKsWmmpVHqoP5+ZRiAVLyUHvPNrO2dABDdUGZvavMsaGpWNjM6N2g==
   dependencies:
     "@types/jest" "*"
-
-"@types/testing-library__react-hooks@^3.4.0":
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/@types/testing-library__react-hooks/-/testing-library__react-hooks-3.4.1.tgz#b8d7311c6c1f7db3103e94095fe901f8fef6e433"
-  integrity sha512-G4JdzEcq61fUyV6wVW9ebHWEiLK2iQvaBuCHHn9eMSbZzVh4Z4wHnUGIvQOYCCYeu5DnUtFyNYuAAgbSaO/43Q==
-  dependencies:
-    "@types/react-test-renderer" "*"
 
 "@types/tmp@^0.0.33":
   version "0.0.33"
@@ -7191,12 +7188,12 @@ commander@~2.8.1:
     graceful-readlink ">= 1.0.0"
 
 commitizen@^4.0.3, commitizen@^4.1.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/commitizen/-/commitizen-4.2.2.tgz#1a93dd07208521ea1ebbf832593542dac714cc79"
-  integrity sha512-uz+E6lGsDBDI2mYA4QfOxFeqdWUYwR1ky11YmLgg2BnEEP3YbeejpT4lxzGjkYqumnXr062qTOGavR9NtX/iwQ==
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/commitizen/-/commitizen-4.2.3.tgz#088d0ef72500240d331b11e02e288223667c1475"
+  integrity sha512-pYlYEng7XMV2TW4xtjDKBGqeJ0Teq2zyRSx2S3Ml1XAplHSlJZK8vm1KdGclpMEZuGafbS5TeHXIVnHk8RWIzQ==
   dependencies:
     cachedir "2.2.0"
-    cz-conventional-changelog "3.3.0"
+    cz-conventional-changelog "3.2.0"
     dedent "0.7.0"
     detect-indent "6.0.0"
     find-node-modules "2.0.0"
@@ -8022,10 +8019,10 @@ cypress-plugin-snapshots@^1.4.4:
     source-map-support "^0.5.10"
     unidiff "1.0.2"
 
-cz-conventional-changelog@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/cz-conventional-changelog/-/cz-conventional-changelog-3.3.0.tgz#9246947c90404149b3fe2cf7ee91acad3b7d22d2"
-  integrity sha512-U466fIzU5U22eES5lTNiNbZ+d8dfcHcssH4o7QsdWaCcRs/feIPCxKYSWkYBNs5mny7MvEfwpTLWjvbm94hecw==
+cz-conventional-changelog@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/cz-conventional-changelog/-/cz-conventional-changelog-3.2.0.tgz#6aef1f892d64113343d7e455529089ac9f20e477"
+  integrity sha512-yAYxeGpVi27hqIilG1nh4A9Bnx4J3Ov+eXy4koL3drrR+IO9GaWPsKjik20ht608Asqi8TQPf0mczhEeyAtMzg==
   dependencies:
     chalk "^2.4.1"
     commitizen "^4.0.3"
@@ -10276,6 +10273,11 @@ fill-range@^7.0.1:
   integrity sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==
   dependencies:
     to-regex-range "^5.0.1"
+
+filter-console@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/filter-console/-/filter-console-0.1.1.tgz#6242be28982bba7415bcc6db74a79f4a294fa67c"
+  integrity sha512-zrXoV1Uaz52DqPs+qEwNJWJFAWZpYJ47UNmpN9q4j+/EYsz85uV0DC9k8tRND5kYmoVzL0W+Y75q4Rg8sRJCdg==
 
 finalhandler@~1.1.2:
   version "1.1.2"
@@ -18751,6 +18753,13 @@ react-dom@^17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.1"
 
+react-error-boundary@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-error-boundary/-/react-error-boundary-3.1.0.tgz#9487443df2f9ba1db90d8ab52351814907ea4af3"
+  integrity sha512-lmPrdi5SLRJR+AeJkqdkGlW/CRkAUvZnETahK58J4xb5wpbfDngasEGu+w0T1iXEhVrYBJZeW+c4V1hILCnMWQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
@@ -20281,13 +20290,13 @@ single-trailing-newline@^1.0.0:
     detect-newline "^1.0.3"
 
 sinon@^9.2.0:
-  version "9.2.3"
-  resolved "https://registry.yarnpkg.com/sinon/-/sinon-9.2.3.tgz#f68ce414e843e2fd638703043c97f260697caa52"
-  integrity sha512-m+DyAWvqVHZtjnjX/nuShasykFeiZ+nPuEfD4G3gpvKGkXRhkF/6NSt2qN2FjZhfrcHXFzUzI+NLnk+42fnLEw==
+  version "9.2.4"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-9.2.4.tgz#e55af4d3b174a4443a8762fa8421c2976683752b"
+  integrity sha512-zljcULZQsJxVra28qIAL6ow1Z9tpattkCTEJR4RBP3TGc00FcttsP5pK284Nas5WjMZU5Yzy3kAIp3B3KRf5Yg==
   dependencies:
     "@sinonjs/commons" "^1.8.1"
     "@sinonjs/fake-timers" "^6.0.1"
-    "@sinonjs/samsam" "^5.3.0"
+    "@sinonjs/samsam" "^5.3.1"
     diff "^4.0.2"
     nise "^4.0.4"
     supports-color "^7.1.0"
