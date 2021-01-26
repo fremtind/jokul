@@ -21,8 +21,14 @@ export const ToggleSlider: FC<Props> = ({ labels, className = "", inverted, onTo
     };
 
     return (
-        <div className={`jkl-toggle-slider__wrapper ${className}`}>
-            <label htmlFor={id} className="jkl-micro jkl-component-spacing--medium-right">
+        <div
+            className={classNames(
+                "jkl-toggle-slider__wrapper",
+                { "jkl-toggle-slider__wrapper--inverted": inverted },
+                className,
+            )}
+        >
+            <label htmlFor={id} className="jkl-toggle-slider__label jkl-component-spacing--medium-right">
                 {children}
             </label>
             <button
@@ -33,14 +39,13 @@ export const ToggleSlider: FC<Props> = ({ labels, className = "", inverted, onTo
                 aria-checked={checked}
                 onClick={handleChange}
                 className={classNames("jkl-toggle-slider", {
-                    "jkl-toggle-slider--inverted": inverted,
                     "jkl-toggle-slider--checked": checked,
                     "jkl-toggle-slider--not-checked": !checked,
                 })}
             >
                 <span className="jkl-toggle-slider__pill" aria-hidden />
-                <span className="jkl-micro jkl-toggle-slider--left">{labels[0]}</span>
-                <span className="jkl-micro jkl-toggle-slider--right">{labels[1]}</span>
+                <span className="jkl-toggle-slider--left">{labels[0]}</span>
+                <span className="jkl-toggle-slider--right">{labels[1]}</span>
             </button>
         </div>
     );
