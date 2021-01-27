@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.6.5 (2021-01-27)
+
+### Bug Fixes
+
+- **@fremtind/jkl-toggle-switch-react:** improves accesibility in Toggle Switch ([ae1b477](https://github.com/fremtind/jokul/commit/ae1b477e9af9b7e6dd2e48cee24e17fccc80f829)), closes [#1556](https://github.com/fremtind/jokul/issues/1556)
+
 ## 2.6.4 (2021-01-25)
 
 ### Bug Fixes
