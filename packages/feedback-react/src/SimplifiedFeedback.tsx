@@ -23,9 +23,5 @@ export interface SimplifiedFeedbackProps extends Omit<BaseFeedbackProps, "descri
 }
 
 export const SimplifiedFeedback = ({ description, ...rest }: SimplifiedFeedbackProps) => {
-    return (
-        <BaseFeedback {...rest}>
-            <FeedbackContent legend={description} />
-        </BaseFeedback>
-    );
+    return <BaseFeedback {...rest} content={<FeedbackContent legend={description} />} />;
 };
