@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.9 (2021-02-02)
+
+### Bug Fixes
+
+- **button:** fix rerender issue ([90828c4](https://github.com/fremtind/jokul/commit/90828c4e198edce46506865419ad2c8418d6f4c1)), closes [#1783](https://github.com/fremtind/jokul/issues/1783)
+
 ## 2.5.5 (2021-01-21)
 
 ### Bug Fixes
