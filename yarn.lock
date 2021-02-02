@@ -10833,9 +10833,9 @@ gatsby-page-utils@^0.8.0:
     micromatch "^4.0.2"
 
 gatsby-plugin-layout@^1.5.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.7.0.tgz#cff7c055b9abcd7c41a49dde3f3dbf7f28a28450"
-  integrity sha512-jqZGv8y0lvJnBhqW57Py3KXRhBD9ASqk8EiziyXxQIVNoD/KHhZ+EP043AWS7ICocOlxDEwIkQzhDJMLU3cwRQ==
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.9.0.tgz#c48ecf745cb1b936b0875609fff9955cac3b8cef"
+  integrity sha512-M2eRSDI5rrMlLhUFS3Z7wO7lMdxMgMX5GGff4+lOcXnmoPiQNM4W2paMQFeibCu7Hu9fYLPiJNbUenOLIIrDFw==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
