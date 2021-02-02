@@ -1,17 +1,8 @@
-import React, { forwardRef, ButtonHTMLAttributes, TouchEvent } from "react";
+import React, { forwardRef, TouchEvent } from "react";
 import classNames from "classnames";
 import { Loader } from "@fremtind/jkl-loader-react";
-
-export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
-    forceCompact?: boolean;
-    inverted?: boolean;
-    loader?: {
-        showLoader: boolean;
-        textDescription: string;
-    };
-}
-
-type ValidButtons = "primary" | "secondary" | "tertiary";
+import { Props, ValidButtons } from "./types";
+import { BaseButton } from "./BaseButton";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const button = forwardRef<HTMLButtonElement, Props>(
@@ -35,21 +26,18 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                 }
             };
 
-            const Button = ({ cn }: { cn?: string }) => (
-                <button
-                    className={cn}
-                    onClick={onClick}
-                    onTouchStart={handleTouch}
-                    disabled={loader?.showLoader}
-                    {...rest}
-                    ref={ref}
-                >
-                    {children}
-                </button>
-            );
-
             if (!loader) {
-                return <Button cn={classNames(componentClassName, className)} />;
+                return (
+                    <BaseButton
+                        className={classNames(componentClassName, className)}
+                        onClick={onClick}
+                        onTouchStart={handleTouch}
+                        {...rest}
+                        ref={ref}
+                    >
+                        {children}
+                    </BaseButton>
+                );
             }
 
             return (
@@ -63,7 +51,16 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                             "jkl-button-wrapper__slider--show-loader": !!loader.showLoader,
                         })}
                     >
-                        <Button cn={componentClassName} />
+                        <BaseButton
+                            className={componentClassName}
+                            onClick={onClick}
+                            onTouchStart={handleTouch}
+                            disabled={loader?.showLoader}
+                            {...rest}
+                            ref={ref}
+                        >
+                            {children}
+                        </BaseButton>
                         <div className="jkl-button-wrapper__loader jkl-layout-spacing--small-top">
                             <Loader
                                 textDescription={loader.textDescription}
