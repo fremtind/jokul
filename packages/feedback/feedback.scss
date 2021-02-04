@@ -19,6 +19,20 @@ $icon-size: rem(45px);
     --jkl-feedback-icon--selected: #{$suksess};
 }
 
+@keyframes show {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+}
+
+@keyframes hide {
+    to {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+}
+
 .jkl-feedback__icon {
     &--1 {
         --jkl-feedback-icon--selected: #ff7059;
@@ -41,6 +55,10 @@ $icon-size: rem(45px);
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &--hidden {
+        animation: hide 0.25s ease-in;
+    }
 
     &__heading {
         text-align: center;
@@ -105,8 +123,7 @@ $icon-size: rem(45px);
     }
 
     &__input-submit {
-        opacity: 1;
-        transition-property: opacity;
+        transition-property: height;
         @include motion(standard, expressive);
         display: flex;
         justify-content: center;
@@ -115,5 +132,9 @@ $icon-size: rem(45px);
         &--hidden {
             display: none;
         }
+    }
+
+    &__success {
+        animation: show 0.25s ease-out;
     }
 }

@@ -36,9 +36,5 @@ const FeedbackContent = () => {
 };
 
 export const Feedback: FC<BaseFeedbackProps> = (props) => {
-    return (
-        <BaseFeedback {...props}>
-            <FeedbackContent />
-        </BaseFeedback>
-    );
+    return <BaseFeedback {...props} content={<FeedbackContent />} />;
 };

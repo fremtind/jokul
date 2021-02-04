@@ -1,4 +1,5 @@
-import { PrimaryButton, SecondaryButton, TertiaryButton, Props as ButtonPropsInterface } from "./Button";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "./Button";
+import { Props as ButtonPropsInterface } from "./types";
 
 interface ButtonProps extends ButtonPropsInterface {}
 
