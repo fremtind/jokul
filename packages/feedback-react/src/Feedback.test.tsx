@@ -15,6 +15,7 @@ test("should call onSubmit function with feedback value", () => {
     render(<Feedback label="feedback" onSubmit={mockFn} />);
     userEvent.click(screen.getByTestId("feedback-1"));
     userEvent.click(screen.getByTestId("submit-button"));
+    screen.queryByTestId("feedback-success");
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 1, message: "" });
 });
@@ -24,6 +25,8 @@ test("should call onSubmit function with feedback value and message", () => {
     userEvent.click(screen.getByTestId("feedback-1"));
     userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
     userEvent.click(screen.getByTestId("submit-button"));
+    screen.queryByTestId("feedback-success");
+
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 1, message: "This is very nice" });
 });
@@ -34,22 +37,50 @@ test("should call onSubmit function with feedback value and message with changes
     userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
     userEvent.click(screen.getByTestId("feedback-2"));
     userEvent.click(screen.getByTestId("submit-button"));
+    screen.queryByTestId("feedback-success");
+
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 2, message: "This is very nice" });
 });
 
-test("simplifeid should call onSubmit function with feedback value and message with changes", () => {
+test("should show custom feedback message", () => {
+    render(
+        <Feedback
+            label="feedback"
+            onSubmit={mockFn}
+            renderCustomSuccess={(props) => (
+                <div data-testid="custom-feedback">
+                    <span>{props.value}</span>
+                    <span>{props.message}</span>
+                </div>
+            )}
+        />,
+    );
+    userEvent.click(screen.getByTestId("feedback-1"));
+    userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
+    userEvent.click(screen.getByTestId("submit-button"));
+    screen.queryByTestId("custom-feedback");
+    screen.getByText(1);
+    screen.getByText("This is very nice");
+
+    expect(mockFn).toBeCalledTimes(1);
+    expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 1, message: "This is very nice" });
+});
+
+test("simplified should call onSubmit function with feedback value and message with changes", () => {
     render(<SimplifiedFeedback description="feedback" label="feedback" onSubmit={mockFn} />);
     userEvent.click(screen.getByLabelText("3"));
     userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
     userEvent.click(screen.getByTestId("submit-button"));
+    screen.queryByTestId("feedback-success");
+
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 3, message: "This is very nice" });
 });
 
 test.each([Feedback, SimplifiedFeedback])("Feedback should be a11y compliant", async (Component) => {
     const { container } = render(<Component description="feedback" label="feedback" onSubmit={mockFn} />);
-    const results = await axe(container);
+    const inputMode = await axe(container);
 
-    expect(results).toHaveNoViolations();
+    expect(inputMode).toHaveNoViolations();
 });

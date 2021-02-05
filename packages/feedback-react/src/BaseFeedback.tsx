@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useState, FC, ReactNode } from "react";
+import React, { createContext, useCallback, useEffect, useState, FC, ReactNode, FormEvent, ChangeEvent } from "react";
 import cn from "classnames";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
@@ -12,12 +12,17 @@ export type FeedbackPayload = {
     message?: string;
 };
 
+interface CustomSuccessProps {
+    value?: FeedbackValue;
+    message: string;
+}
+
 export interface BaseFeedbackProps {
     label: string;
     onSubmit: (data: FeedbackPayload) => void;
     description?: string;
     feedbackOptions?: FeedbackValue[];
-    renderCustomSuccess?: (props: { value: FeedbackValue; message: string }) => ReactNode;
+    renderCustomSuccess?: (props: CustomSuccessProps) => ReactNode;
     successTitle?: string;
     successMessage?: string;
     className?: string;
@@ -66,11 +71,15 @@ export const BaseFeedback: FC<Props> = ({
         }
     }, [feedbackValue, feedbackSubmitted, message, onSubmit]);
 
-    const handleActiveSubmit = () => {
+    const handleActiveSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         handleSubmit();
         setFeedbackSubmittedAnimation(true);
         setTimeout(() => setFeedbackSubmitted(true), 250);
     };
+
+    const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
+        setMessage(e.currentTarget.value);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -84,56 +93,58 @@ export const BaseFeedback: FC<Props> = ({
     const H = headingLevel;
 
     return (
-        <FeedbackContext.Provider
-            value={{ options: feedbackOptions, setValue: setFeedbackValue, value: feedbackValue }}
-        >
-            {feedbackSubmitted && (
-                <section className="jkl-feedback__success">
-                    {renderCustomSuccess &&
-                        feedbackValue !== undefined &&
-                        renderCustomSuccess({ value: feedbackValue, message })}
-                    {!renderCustomSuccess && <SuccessMessage title={successTitle}>{successMessage}</SuccessMessage>}
-                </section>
-            )}
-            {!feedbackSubmitted && (
-                <form
-                    className={cn("jkl-feedback", { "jkl-feedback--hidden": feedbackSubmittedAnimation }, className)}
-                    onSubmit={(e) => e.preventDefault()}
-                >
-                    <div className="jkl-feedback__heading">
-                        <H className="jkl-heading-large">{label}</H>
-                        {description && <p className="jkl-lead">{description}</p>}
-                    </div>
-                    <fieldset className="jkl-feedback__fieldset">{content}</fieldset>
-                    <section
-                        ref={animationRef}
-                        className={cn("jkl-feedback__input-submit", {
-                            "jkl-feedback__input-submit--hidden jkl-layout-spacing--medium-top":
-                                feedbackValue === undefined,
-                        })}
-                    >
-                        {showTextArea && (
-                            <TextArea
-                                data-testid="feedback-text"
-                                name="feedback-text"
-                                label={textAreaLabel}
-                                variant="small"
-                                rows={3}
-                                helpLabel={textAreaHelpLabel}
-                                value={message}
-                                onChange={(e) => setMessage(e.currentTarget.value)}
-                            />
-                        )}
-                        <SecondaryButton
-                            data-testid="submit-button"
-                            className="jkl-layout-spacing--medium-top"
-                            onClick={handleActiveSubmit}
-                        >
-                            {callToActionText}
-                        </SecondaryButton>
+        <div className={cn("jkl-feedback", className)}>
+            <FeedbackContext.Provider
+                value={{ options: feedbackOptions, setValue: setFeedbackValue, value: feedbackValue }}
+            >
+                {feedbackSubmitted && (
+                    <section className="jkl-feedback__success" data-testid="feedback-success">
+                        {renderCustomSuccess && renderCustomSuccess({ value: feedbackValue, message })}
+                        {!renderCustomSuccess && <SuccessMessage title={successTitle}>{successMessage}</SuccessMessage>}
                     </section>
-                </form>
-            )}
-        </FeedbackContext.Provider>
+                )}
+                {!feedbackSubmitted && (
+                    <form
+                        className={cn({ "jkl-feedback--hidden": feedbackSubmittedAnimation })}
+                        onSubmit={handleActiveSubmit}
+                    >
+                        <div className="jkl-feedback__heading">
+                            <H className="jkl-heading-large">{label}</H>
+                            {description && <p className="jkl-lead">{description}</p>}
+                        </div>
+                        <fieldset className="jkl-feedback__fieldset">{content}</fieldset>
+                        <section
+                            ref={animationRef}
+                            className={cn("jkl-feedback__input-submit", {
+                                "jkl-feedback__input-submit--hidden jkl-layout-spacing--medium-top":
+                                    feedbackValue === undefined,
+                            })}
+                        >
+                            {showTextArea && (
+                                <TextArea
+                                    data-testid="feedback-text"
+                                    name="feedback-text"
+                                    label={textAreaLabel}
+                                    variant="small"
+                                    rows={3}
+                                    helpLabel={textAreaHelpLabel}
+                                    value={message}
+                                    onChange={handleMessageChange}
+                                />
+                            )}
+                            <div className="jkl-feedback__button-group">
+                                <SecondaryButton
+                                    data-testid="submit-button"
+                                    className="jkl-layout-spacing--medium-top"
+                                    type="submit"
+                                >
+                                    {callToActionText}
+                                </SecondaryButton>
+                            </div>
+                        </section>
+                    </form>
+                )}
+            </FeedbackContext.Provider>
+        </div>
     );
 };
