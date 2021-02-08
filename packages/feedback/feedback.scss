@@ -68,6 +68,11 @@ $icon-size: rem(45px);
         text-align: center;
     }
 
+    &__button-group {
+        display: flex;
+        justify-content: center;
+    }
+
     &__answer {
         cursor: pointer;
         box-sizing: border-box;
