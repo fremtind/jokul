@@ -1,0 +1,5 @@
+@mixin keyboard-navigation {
+    @at-root html:not([data-mousenavigation]):not([data-touchnavigation]) #{&} {
+        @content;
+    }
+}

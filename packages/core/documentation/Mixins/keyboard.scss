@@ -1,0 +1,15 @@
+@import "../../mixins/navigation";
+@import "../../mixins/helpers";
+@import "../../variables/colors";
+
+.keyboard-demo {
+    @include reset-outline;
+
+    padding: 24px 48px;
+
+    &:hover {
+        @include keyboard-navigation {
+            box-shadow: 0 0 0 2px $info;
+        }
+    }
+}
