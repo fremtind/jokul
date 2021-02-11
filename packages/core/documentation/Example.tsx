@@ -12,6 +12,7 @@ import { LinkExample } from "./Link/LinkExample";
 import { NavLinkExample } from "./Link/NavLinkExample";
 import { ComponentSpacingTable, LayoutSpacingTable } from "./Spacing/Spacing";
 import { DesktopExample, CompactExample } from "./Typography/Typography";
+import { Keyboard } from "./Mixins/Keyboard";
 
 interface BoxProps {
     type: "color" | "component" | "layout";
@@ -64,6 +65,7 @@ const Example = () => (
         <LayoutSpacingTable />
         <CompactExample />
         <DesktopExample />
+        <Keyboard />
     </section>
 );
 
