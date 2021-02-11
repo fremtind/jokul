@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.21.0 (2021-02-11)
+
+### Features
+
+- **core:** add keyboard mixin ([606078b](https://github.com/fremtind/jokul/commit/606078ba5f019897f00b88f5623bc5b52b519720))
+
 ## 4.20.0 (2021-01-18)
 
 ### Features
