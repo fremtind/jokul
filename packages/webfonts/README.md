@@ -10,6 +10,14 @@ I tillegg til å distribuere fontfilene sammen med løsningen din må du importe
 
 Om du bruker Sass-stilark i prosjektet ditt er dette den enkleste måten. I rot-`.scss`-filen din:
 
+Med use syntax:
+```scss
+@use '~@fremtind/jkl-webfonts/webfonts.scss' with (
+    $webfonts-dir: "/relative/path/to/font/files"
+);
+```
+
+Med import syntax:
 ```scss
 $webfonts-dir: "/relative/path/to/font/files";
 @import "~@fremtind/jkl-webfonts/webfonts.scss"; // NB! bruk riktig import for din sass-loader
