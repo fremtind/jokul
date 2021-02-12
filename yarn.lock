@@ -4185,10 +4185,12 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.157.tgz#fdac1c52448861dfde1a2e1515dbc46e54926dc8"
   integrity sha512-Ft5BNFmv2pHDgxV5JDsndOWTRJ+56zte0ZpYLowp03tW+K+t8u8YMOzAnpuqPgzX6WO1XpDIUm7u04M8vdDiVQ==
 
-"@types/match-sorter@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@types/match-sorter/-/match-sorter-5.0.0.tgz#7a66f7f45d22621e79920b3919e5b3d3e746184d"
-  integrity sha512-25KmtRqBKBH5Uo5e6QAV+5zKuE+cksAJ9R8GMMYtt0+jV+HxQj1Yg8ciui/T4AaoCmq3D65m1tgNcabkOLHe1Q==
+"@types/match-sorter@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@types/match-sorter/-/match-sorter-6.0.0.tgz#434355915f5fb5bfb5f7e1224cd9c4399879179c"
+  integrity sha512-/B8BLck7dy+vQQedYvrTw2f+U02KghNCMLocjRSWtHhCKE1OeoAmOWiLGAPs96qacT9bSJF4HmJNyijiy5bycA==
+  dependencies:
+    match-sorter "*"
 
 "@types/mdast@^3.0.0":
   version "3.0.3"
@@ -15396,6 +15398,14 @@ markdown-table@^2.0.0:
   integrity sha512-Ezda85ToJUBhM6WGaG6veasyym+Tbs3cMAw/ZhOPqXiYsr0jgocBV3j3nx+4lk47plLlIqjwuTm/ywVI+zjJ/A==
   dependencies:
     repeat-string "^1.0.0"
+
+match-sorter@*:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/match-sorter/-/match-sorter-6.2.0.tgz#e3f29d4733ef835a0baccc7b9d291c07264985e8"
+  integrity sha512-yhmUTR5q6JP/ssR1L1y083Wp+C+TdR8LhYTxWI4IRgEUr8IXJu2mE6L3SwryCgX95/5J7qZdEg0G091sOxr1FQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    remove-accents "0.4.2"
 
 match-sorter@^5.0.0:
   version "5.0.0"
