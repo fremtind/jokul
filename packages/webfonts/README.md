@@ -13,7 +13,7 @@ Om du bruker Sass-stilark i prosjektet ditt er dette den enkleste måten. I rot-
 Med use syntax:
 ```scss
 @use '~@fremtind/jkl-webfonts/webfonts.scss' with (
-    $webfonts-dir: "/privat/forsikring/open/fonts"
+    $webfonts-dir: "/relative/path/to/font/files"
 );
 ```
 
