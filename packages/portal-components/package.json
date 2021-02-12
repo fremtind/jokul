@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-portal-components",
-    "version": "0.9.4",
+    "version": "0.9.5",
     "publishConfig": {
         "access": "public"
     },
@@ -37,9 +37,9 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/jkl-checkbox-react": "^1.10.4",
+        "@fremtind/jkl-checkbox-react": "^1.10.5",
         "@fremtind/jkl-core": "^3.0.0",
-        "@fremtind/jkl-radio-button-react": "^1.9.4",
+        "@fremtind/jkl-radio-button-react": "^1.9.5",
         "@mdx-js/parcel-plugin-mdx": "^1.5.7",
         "@mdx-js/react": "^1.5.7",
         "@types/mdx-js__react": "^1.5.1"
