@@ -132,12 +132,10 @@
     },
     "lint-staged": {
         "*.{scss,css,html,json}": [
-            "prettier --write",
-            "git add"
+            "prettier --write"
         ],
         "*.{ts,tsx,js,jsx}": [
-            "eslint --fix",
-            "git add"
+            "eslint --fix"
         ]
     }
 }
