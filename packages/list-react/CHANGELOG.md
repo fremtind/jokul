@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.6 (2021-02-17)
+
+### Bug Fixes
+
+- **list:** fix display of icon list in IE ([7f6dfb4](https://github.com/fremtind/jokul/commit/7f6dfb4ad035753c1bf9c91ccb61a42f7cb44c54)), closes [#1827](https://github.com/fremtind/jokul/issues/1827)
+
 ## 2.3.5 (2021-02-12)
 
 ### Bug Fixes
