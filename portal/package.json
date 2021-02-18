@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.27.14",
+    "version": "3.27.15",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.1.0",
