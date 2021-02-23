@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
-import { OrderedList, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import { ComponentExample, FlowExample, ResponsiveExample } from "@fremtind/jkl-portal-components";
 import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { PortalImg } from "../PortalImg/PortalImg";
@@ -19,6 +19,7 @@ import {
     InlineCode,
     CodeBlock,
     ArticleLead as Ingress,
+    ListItem,
 } from "../Typography";
 
 const components = {

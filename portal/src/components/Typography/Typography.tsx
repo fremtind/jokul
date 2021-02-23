@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import { ListItem as JklListItem } from "@fremtind/jkl-list-react";
 
 import { CodeBlock as FTCodeBlock } from "../CodeBlock";
 
@@ -70,3 +71,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children, language, ...res
     const displayLanguage = child.props?.className?.replace("language-", "") || language;
     return <FTCodeBlock language={displayLanguage}>{child.props.children}</FTCodeBlock>;
 };
+
+export const ListItem: React.FC = ({ children }) => (
+    <JklListItem className="jkl-portal-list-item">{children}</JklListItem>
+);
