@@ -40,6 +40,15 @@ describe("List", () => {
         expect(screen.getByTestId("jkl-list")).toHaveClass("jkl-lead");
     });
 
+    test(`ListItem gets the passed className`, () => {
+        render(
+            <UnorderedList>
+                <ListItem className="jkl-lead">Kibogiedo</ListItem>
+            </UnorderedList>,
+        );
+        expect(screen.getByTestId("jkl-list-item")).toHaveClass("jkl-lead");
+    });
+
     test(`Nested lists should render all elements as expected`, () => {
         render(
             <UnorderedList>
