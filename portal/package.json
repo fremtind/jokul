@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.27.13",
+    "version": "3.27.16",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.1.0",
@@ -29,7 +29,7 @@
         "gatsby-source-filesystem": "^2.6.0",
         "gatsby-transformer-react-docgen": "^5.4.0",
         "gatsby-transformer-sharp": "^2.7.0",
-        "prism-react-renderer": "1.1.1",
+        "prism-react-renderer": "1.2.0",
         "raw-loader": "^4.0.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
