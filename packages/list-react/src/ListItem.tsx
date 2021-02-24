@@ -16,6 +16,7 @@ function makeListItem(listItemType: validListItems): FC<Props> {
                     "jkl-list__item--check": listItemType === "check",
                     "jkl-list__item--cross": listItemType === "cross",
                 })}
+                data-testid="jkl-list-item"
             >
                 {children}
             </li>
