@@ -14,17 +14,21 @@ order: 8
 Vi bruker animasjon for å:
 * Skape særpreg
 * Gi en bedre brukeropplevelse
-* Hjelpe og rettlede brukeren
+* Hjelpe og veilede brukeren
 * Skape fokus
 * Kamuflere nedlastingstid (underholde)
 
-Husk at animasjon alltid skal kunne slås av dersom en bruker ikke ønsker dette.
-Pass derfor på at navigasjon og interaksjon fungerer som det skal og er logisk uten animasjon
+Den visuelle profilen til Fremtind har et minimalistisk uttrykk, basert på enkle former og nøktern bruk av farger. 
+For å unngå å oppfattes som kalde og harde, bruker vi animasjon som et virkemiddel for å gjøre løsningene mer dynamiske og levende,
+i tillegg til å gi dem personlighet og stil.
+
+Viktig: Animasjon skal kunne slås av dersom en bruker ikke ønsker dette.
+Sørg for at løsningen fungerer som den skal og fortsatt er logisk uten animasjon.
 
 ## Grunnprinsipper
 ### Overganger
-Animasjon bedrer din brukeropplevelse på en subtil måte og samtidig fremhever dine relevante oppgaver. 
-Ved hjelp av easingkurver og målrettet bruk av parallakseffekter, skaper vi smidige overganger som understøtter en god brukerreise.
+Animasjon gir en bedre brukeropplevelse på en subtil måte og fremhever relevante oppgaver.
+Ved hjelp av easingkurver og målrettet bruk av parallakseffekter, skaper vi smidige overganger som understøtter en god brukeropplevelse.
 <DoDontExample
     type="do"
     description="Bruk easinger og ta hensyn til avstand."
@@ -37,14 +41,14 @@ Ved hjelp av easingkurver og målrettet bruk av parallakseffekter, skaper vi smi
 />
 
 ### Posisjon
-Ved interaksjon, flyttes komponenter til en definert posisjon eller fikseres i en posisjon. 
-Dette hjelper brukeren til å lettere navigere på siden. 
+Hvis elementer flyttes, må dette skje på en forventet måte som har sammenheng med brukerens handling.
+Dette gjør det lettere for brukeren å navigere på siden.
 For å skape konsistens, fokuserer vi på horisontale og vertikale animasjoner.
 
 ### Timing
-Varigheten av en animasjon avhenger av størrelsen på elementene, tilbakelagt avstand og forholdet til andre elementer. 
-Hvis det er flere elementer, bør timingen justeres slik at en klar sekvens opprettes i henhold til ønsket oppfatning. 
-Ved mange elementer, anbefales det kortere animasjoner.
+Varigheten av en animasjon avhenger av størrelse, avstand og forholdet til andre elementer.
+Hvis flere elementer animeres, må det være et tydelig samspill og god timing i bevegelsene. Dette gjør vi for å unngå at det skjer for mye på en gang.
+Ved mange elementer, anbefales det derfor kortere animasjoner.
 <DoDontExample
     type="do"
     description="Gjør bevegelser raskt nok til å unngå unødvendig lange ventetider."
@@ -52,7 +56,7 @@ Ved mange elementer, anbefales det kortere animasjoner.
 />
 <DoDontExample
     type="dont"
-    description="Ikke forsink bevegelsene så mye at du må vente unødvendig."
+    description="Unngå for langsomme bevegelser."
     content=<ExampleVideo videoUrl="https://player.vimeo.com/video/505647739" />
 />
 
@@ -64,10 +68,6 @@ Oppfatningen av et element endres over en kort eller lang avstand.
 ### Oppmerksomhet
 Animasjon tiltrekker oppmerksomhet. Husk at siste element som beveger seg er det som tiltrekker oppmerksomhet. 
 Bruk dette for sette fokus der du ønsker.
-
-Den visuelle profilen til Fremtind har et minimalistisk uttrykk, basert på enkle former og nøktern bruk av farger. 
-For å unngå å oppfattes som kalde og harde, bruker vi animasjon som et virkemiddel for å gjøre løsningene mer dynamisk og levende,
-i tilleg til å gi dem personlighet og stil. 
 
 ### Naturlig
 Bevegelsene bør være organiske og levende, som rennende vann i en bekk, fremfor mekaniske og stive. 
@@ -93,13 +93,13 @@ Sørg for kontinuitet og naturlige bevegelser og ha fokus på det som gjelder.
 Vi tenker skandinavisk enkelhet, minimalisme og effektivitet i vår tilnærming til animasjon.
 <DoDontExample
     type="do"
-    description="Ikke bruk lineære easinger og sørg for å ta hensyn til avstanden."
-    content=<ExampleVideo videoUrl="https://player.vimeo.com/video/505738316" />
+    description="Animasjon som bygger opp under gruppering av elementer."
+    content=<ExampleVideo videoUrl="https://player.vimeo.com/video/505738280" />
 />
 <DoDontExample
     type="dont"
-    description="Timingen inkluderer alltid avstanden fra A til B i beregningen."
-    content=<ExampleVideo videoUrl="https://player.vimeo.com/video/505738280" />
+    description="Ikke bruk lineære easinger og sørg for å ta hensyn til avstanden."
+    content=<ExampleVideo videoUrl="https://player.vimeo.com/video/505738316" />
 />
 
 ### Rytme og sekvensiell animasjon

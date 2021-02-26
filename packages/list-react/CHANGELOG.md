@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.7 (2021-02-23)
+
+### Bug Fixes
+
+- **list:** set className in correct position ([294830e](https://github.com/fremtind/jokul/commit/294830eb49c03b200fa2a980a476842cc310ae02))
+
 ## 2.3.6 (2021-02-17)
 
 ### Bug Fixes
