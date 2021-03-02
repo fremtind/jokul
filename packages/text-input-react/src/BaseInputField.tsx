@@ -26,6 +26,7 @@ export interface BaseProps {
     required?: boolean;
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     name?: string;
+    defaultValue?: string;
 }
 
 export interface Props extends BaseProps {

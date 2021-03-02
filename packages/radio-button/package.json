@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button",
-    "version": "1.4.7",
+    "version": "1.4.12",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
         "dev": "parcel example/index.html --open"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.18.0"
+        "@fremtind/jkl-core": "^4.21.1"
     },
     "repository": {
         "type": "git",

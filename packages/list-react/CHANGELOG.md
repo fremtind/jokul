@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.7 (2021-02-23)
+
+### Bug Fixes
+
+- **list:** set className in correct position ([294830e](https://github.com/fremtind/jokul/commit/294830eb49c03b200fa2a980a476842cc310ae02))
+
+## 2.3.6 (2021-02-17)
+
+### Bug Fixes
+
+- **list:** fix display of icon list in IE ([7f6dfb4](https://github.com/fremtind/jokul/commit/7f6dfb4ad035753c1bf9c91ccb61a42f7cb44c54)), closes [#1827](https://github.com/fremtind/jokul/issues/1827)
+
+## 2.3.5 (2021-02-12)
+
+### Bug Fixes
+
+- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+
 ## 2.3.0 (2020-12-15)
 
 ### Features

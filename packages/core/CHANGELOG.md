@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.21.1 (2021-02-12)
+
+### Bug Fixes
+
+- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+
+## 4.21.0 (2021-02-11)
+
+### Features
+
+- **core:** add keyboard mixin ([606078b](https://github.com/fremtind/jokul/commit/606078ba5f019897f00b88f5623bc5b52b519720))
+
+## 4.20.0 (2021-01-18)
+
+### Features
+
+- **core:** add back nav link ([687f03f](https://github.com/fremtind/jokul/commit/687f03f55018a9da013ff7f3ab18e54d05724a9e))
+
+## 4.19.0 (2021-01-11)
+
+### Features
+
+- **core:** add back nav link ([687f03f](https://github.com/fremtind/jokul/commit/687f03f55018a9da013ff7f3ab18e54d05724a9e))
+
 ## 4.18.0 (2020-12-15)
 
 ### Features

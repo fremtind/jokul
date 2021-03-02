@@ -1,7 +1,8 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import React, { useState } from "react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 import { axe } from "jest-axe";
+import userEvent from "@testing-library/user-event";
 
 const buttonVariants = [
     { name: "primary", component: PrimaryButton },
@@ -48,6 +49,51 @@ describe("Button", () => {
         );
 
         expect(screen.getByText("test")).toHaveClass("jkl-button--compact");
+    });
+
+    test("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
+        const x = jest.fn();
+
+        interface Props {
+            onClick: (x: number) => void;
+        }
+
+        function MyComp(props: Props) {
+            const [counter, setCount] = useState(0);
+
+            return (
+                <div>
+                    <p>{counter}</p>
+                    <button
+                        onClick={() => {
+                            setCount(counter + 1);
+                        }}
+                    >
+                        Increment
+                    </button>
+                    <PrimaryButton
+                        onClick={() => {
+                            props.onClick(counter);
+                        }}
+                    >
+                        Submit form
+                    </PrimaryButton>
+                </div>
+            );
+        }
+
+        render(<MyComp onClick={x} />);
+        const submitFormButtonElement = screen.getByText("Submit form"); // <- Get a reference to the dom element
+
+        act(() => {
+            userEvent.click(screen.getByText("Increment")); // <-- Triggering av state change will cause component to rerender. <PrimaryButton> should not be unmounted and remounted
+        });
+
+        await act(async () => {
+            await userEvent.click(submitFormButtonElement);
+        });
+
+        expect(x).toHaveBeenCalledWith(1);
     });
 });
 

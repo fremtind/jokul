@@ -12,6 +12,7 @@ import { LinkExample } from "./Link/LinkExample";
 import { NavLinkExample } from "./Link/NavLinkExample";
 import { ComponentSpacingTable, LayoutSpacingTable } from "./Spacing/Spacing";
 import { DesktopExample, CompactExample } from "./Typography/Typography";
+import { Keyboard } from "./Mixins/Keyboard";
 
 interface BoxProps {
     type: "color" | "component" | "layout";
@@ -58,12 +59,13 @@ export const Spacing = () => (
 const Example = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
-        <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv"] }} />
+        <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv", "Back"] }} />
         <Colors />
         <ComponentSpacingTable />
         <LayoutSpacingTable />
         <CompactExample />
         <DesktopExample />
+        <Keyboard />
     </section>
 );
 

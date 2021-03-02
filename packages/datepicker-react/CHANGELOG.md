@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.7.11 (2021-02-12)
+
+### Bug Fixes
+
+- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+
+## 3.7.6 (2021-01-21)
+
+### Bug Fixes
+
+- **datepicker:** fix broken aria reference when no supportlabel ([bd35dfd](https://github.com/fremtind/jokul/commit/bd35dfd5309156098e5dbde1a485a0322fe778e1))
+
 ## 3.7.0 (2020-11-25)
 
 ### Features

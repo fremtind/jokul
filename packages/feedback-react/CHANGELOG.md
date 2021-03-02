@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.2 (2021-02-12)
+
+### Bug Fixes
+
+- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+
+## 2.0.0 (2021-02-08)
+
+### Features
+
+- **feedback:** added wrapper, add test ([092e7b6](https://github.com/fremtind/jokul/commit/092e7b67b118b5da1a841857180d9d2d743d52ac))
+
+### BREAKING CHANGES
+
+- **feedback:** ADDED WRAPPER
+
+## 1.4.0 (2021-02-02)
+
+### Features
+
+- **feedback:** add custom result option ([11baba1](https://github.com/fremtind/jokul/commit/11baba177b00fc782568bec090842e541f26d375))
+
 ## 1.3.0 (2020-12-15)
 
 ### Features

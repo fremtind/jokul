@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.8.8 (2021-02-16)
+
+### Bug Fixes
+
+- **text-input:** expose default value prop ([11d7525](https://github.com/fremtind/jokul/commit/11d752585e2fa39b25b9386591ba224b087a2d2b))
+
+## 3.8.7 (2021-02-12)
+
+### Bug Fixes
+
+- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+
 ## 3.8.0 (2020-12-15)
 
 ### Features

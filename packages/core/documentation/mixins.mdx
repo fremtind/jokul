@@ -76,3 +76,20 @@ Dette er en snarvei til selektoren for kompakt modus når du skal skrive nye kom
     }
 }
 ```
+
+## Keyboard-navigasjon
+
+Når du setter opp initTabListner fra jkl-core, så settes det noen data-attributter på html-elementet som gjør at man kan sette opp en tydeligere focus state for tastaturbrukere eller egen stil for touchskjermer. Det er en mixin for å gjøre det enklere for klienter og knytte seg på denne funksjonaliteten.
+
+```scss
+@use '@fremtind/jkl-core/mixins/navigation';
+
+.my-component {
+    // pretty component
+    &:focus {
+        @include navigation.keyboard-navigation {
+            box-shadow: 0 0 0 2px $info;
+        }
+    }
+}
+```

@@ -164,7 +164,7 @@ export function DatePicker({
                 <BaseInputField
                     ref={inputRef}
                     id={inputId}
-                    describedBy={supportLabelId}
+                    describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
                     invalid={!!errorLabel}
                     className="jkl-datepicker__input jkl-text-input__input"
                     data-testid="jkl-datepicker__input"
