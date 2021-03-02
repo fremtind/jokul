@@ -3665,17 +3665,17 @@
     magic-string "^0.25.7"
     resolve "^1.17.0"
 
-"@rollup/plugin-node-resolve@^10.0.0":
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-10.0.0.tgz#44064a2b98df7530e66acf8941ff262fc9b4ead8"
-  integrity sha512-sNijGta8fqzwA1VwUEtTvWCx2E7qC70NMsDh4ZG13byAXYigBNZMxALhKUSycBks5gupJdq0lFrKumFrRZ8H3A==
+"@rollup/plugin-node-resolve@^11.2.0":
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-11.2.0.tgz#a5ab88c35bb7622d115f44984dee305112b6f714"
+  integrity sha512-qHjNIKYt5pCcn+5RUBQxK8krhRvf1HnyVgUCcFFcweDS7fhkOLZeYh0mhHK6Ery8/bb9tvN/ubPzmfF0qjDCTA==
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
     "@types/resolve" "1.17.1"
     builtin-modules "^3.1.0"
     deepmerge "^4.2.2"
     is-module "^1.0.0"
-    resolve "^1.17.0"
+    resolve "^1.19.0"
 
 "@rollup/pluginutils@^3.1.0":
   version "3.1.0"
@@ -10902,10 +10902,10 @@ gatsby-cli@^2.18.0:
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^1.10.0, gatsby-core-utils@^1.9.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.10.0.tgz#7df5bc7b7e810c71602d5ec18a925e8a7890fb45"
-  integrity sha512-uI5gJXmVHegn8E/vttoX0BaXRJPC73RzxuZDtl2U5WBEgeg+VVkKCmNVQE9Xk+Qstm2Wd6RU+QJ4LMx5ywYZhQ==
+gatsby-core-utils@^1.10.0, gatsby-core-utils@^1.10.1, gatsby-core-utils@^1.9.0:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.10.1.tgz#97bed40df3fa79800e7ce0c0491680f0aadd6ce7"
+  integrity sha512-4P3feGCJckg+DRWWl2beFk7N9c63zmCryEGPaU1OHCp+ZT2bO0ihCBuXywDWuuEp6SYP9PZ1fs0YJ/Rt6q6lag==
   dependencies:
     ci-info "2.0.0"
     configstore "^5.0.1"
@@ -11168,16 +11168,16 @@ gatsby-recipes@^0.8.0:
     yoga-layout-prebuilt "^1.9.6"
 
 gatsby-source-filesystem@^2.6.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.11.0.tgz#3fff5398796b17eb960e83d0eaa99e578b6e4ef1"
-  integrity sha512-SLKksyfRvdMHyF0kb3YCr4ME6RW4Pje9zo1RVAJ1sqaBFDch0YUZzTE51QO586JSkrN00UeE8lU++ODXlm425g==
+  version "2.11.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.11.1.tgz#c90f49c096c4bdafd8e68462966b3a6e21fd746b"
+  integrity sha512-Ao526Mmhm8KkF+0Tvf9Le5kKnqX7kgC1wecp82BW2KLQgdtG7UIgmHvG6PkjuFNiJ2ghXPC3vRK3J/vDPyLtkA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     better-queue "^3.8.10"
     chokidar "^3.4.3"
     file-type "^16.0.0"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^1.10.0"
+    gatsby-core-utils "^1.10.1"
     got "^9.6.0"
     md5-file "^5.0.0"
     mime "^2.4.6"
@@ -13254,10 +13254,10 @@ is-color-stop@^1.0.0:
     rgb-regex "^1.0.1"
     rgba-regex "^1.0.0"
 
-is-core-module@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.0.0.tgz#58531b70aed1db7c0e8d4eb1a0a2d1ddd64bd12d"
-  integrity sha512-jq1AH6C8MuteOoBPwkxHafmByhL9j5q4OaPGdbuD+ZtQJVzH+i6E3BJDQcBA09k57i2Hh2yQbEG8yObZ0jdlWw==
+is-core-module@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.2.0.tgz#97037ef3d52224d85163f5597b2b63d9afed981a"
+  integrity sha512-XRAfAdyyY5F5cOXn7hYQDqh2Xmii+DEfIcQGxK/uNwMHhIkPWO0g8msXcbzLe+MpGoR951MlqM/2iIlU4vKDdQ==
   dependencies:
     has "^1.0.3"
 
@@ -16206,9 +16206,9 @@ nan@^2.12.1, nan@^2.13.2:
   integrity sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
 
 nanoid@^3.1.10:
-  version "3.1.18"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.18.tgz#0680db22ab01c372e89209f5d18283d98de3e96d"
-  integrity sha512-rndlDjbbHbcV3xi+R2fpJ+PbGMdfBxz5v1fATIQFq0DP64FsicQdwnKLy47K4kZHdRpmQXtz24eGsxQqamzYTA==
+  version "3.1.20"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.20.tgz#badc263c6b1dcf14b71efaa85f6ab4c1d6cfc788"
+  integrity sha512-a1cQNyczgKbLX9jwbS/+d7W8fX/RfgYR7lVWwWOGIPNgK2m0MWvrGF6/m4kk6U3QcFMnZf3RIhL0v2Jgh/0Uxw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -19815,12 +19815,12 @@ resolve@1.1.7:
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
   integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
-resolve@^1.1.4, resolve@^1.1.5, resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.3.2, resolve@^1.4.0, resolve@^1.8.1:
-  version "1.18.1"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.18.1.tgz#018fcb2c5b207d2a6424aee361c5a266da8f4130"
-  integrity sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==
+resolve@^1.1.4, resolve@^1.1.5, resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.19.0, resolve@^1.3.2, resolve@^1.4.0, resolve@^1.8.1:
+  version "1.20.0"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.20.0.tgz#629a013fb3f70755d6f0b7935cc1c2c5378b1975"
+  integrity sha512-wENBPt4ySzg4ybFQW2TT1zMQucPK95HSh/nq2CFTZVOGut2+pQvSsgtda4d26YrYcr067wjbmzOG8byDPBX63A==
   dependencies:
-    is-core-module "^2.0.0"
+    is-core-module "^2.2.0"
     path-parse "^1.0.6"
 
 responselike@1.0.2, responselike@^1.0.2:
@@ -19936,9 +19936,9 @@ rollup-plugin-terser@^7.0.0:
     terser "^5.0.0"
 
 rollup@^2.18.2:
-  version "2.38.5"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.38.5.tgz#be41ad4fe0c103a8794377afceb5f22b8f603d6a"
-  integrity sha512-VoWt8DysFGDVRGWuHTqZzT02J0ASgjVq/hPs9QcBOGMd7B+jfTr/iqMVEyOi901rE3xq+Deq66GzIT1yt7sGwQ==
+  version "2.40.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.40.0.tgz#efc218eaede7ab590954df50f96195188999c304"
+  integrity sha512-WiOGAPbXoHu+TOz6hyYUxIksOwsY/21TRWoO593jgYt8mvYafYqQl+axaA8y1z2HFazNUUrsMSjahV2A6/2R9A==
   optionalDependencies:
     fsevents "~2.3.1"
 
