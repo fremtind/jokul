@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 (2021-03-02)
+
+### Features
+
+- add focus outline on keyboard nav for clickable card ([#1858](https://github.com/fremtind/jokul/issues/1858)) ([7e38cde](https://github.com/fremtind/jokul/commit/7e38cde02635e1cd842578c6f68e661ccf5ade5c)), closes [#1853](https://github.com/fremtind/jokul/issues/1853)
+
 ## 1.2.5 (2020-03-25)
 
 ### Bug Fixes
