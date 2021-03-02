@@ -45,8 +45,10 @@ $card-padding-normal: $component-spacing--xl;
         box-shadow: $drop-shadow--large;
         transform: translateY(-0.125rem);
     }
-    html:not([data-mousenavigation]) &--clickable:focus-within {
-        box-shadow: 0 0px 0 rem(2px) $focus-color;
+    &--clickable:focus-within {
+        @include keyboard-navigation {
+            box-shadow: 0 0px 0 rem(2px) $focus-color;
+        }
     }
     &--clickable:active {
         box-shadow: 0 0 0 0 transparent;
