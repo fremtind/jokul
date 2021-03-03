@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.7.13 (2021-03-02)
+
+### Bug Fixes
+
+- **datepicker-react:** allow multiple date formats for datepicker input ([116b44e](https://github.com/fremtind/jokul/commit/116b44ec48405e7fae2a942bdac26b3be186b71d)), closes [#1605](https://github.com/fremtind/jokul/issues/1605)
+
 ## 3.7.11 (2021-02-12)
 
 ### Bug Fixes

@@ -19,11 +19,17 @@ interface ValuePropChangedAction {
     payload: Date | undefined;
 }
 
+interface SetValueOnBlur {
+    type: "SET_VALUE_ON_BLUR";
+    payload: string;
+}
+
 export type Action =
     | InputChangeAction
     | ToggleCalendarVisibilityAction
     | SelectDateInCalendarAction
-    | ValuePropChangedAction;
+    | ValuePropChangedAction
+    | SetValueOnBlur;
 
 export interface State {
     date?: Date;
@@ -46,10 +52,13 @@ export function createReducer(
 
                 if (newDate && dateHasChanged(state.date, newDate)) {
                     return { ...state, date: newDate, dateString: action.payload };
-                } else if (action.payload === "") {
+                } else {
                     return { ...state, date: undefined, dateString: action.payload };
                 }
-                return { ...state, dateString: action.payload };
+
+            case "SET_VALUE_ON_BLUR":
+                const inputDate = parseDateString(action.payload);
+                return { ...state, date: inputDate, dateString: action.payload };
 
             case "TOGGLE":
                 if (state.calendarHidden && state.date) {

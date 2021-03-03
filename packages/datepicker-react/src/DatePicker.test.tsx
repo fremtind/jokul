@@ -1,4 +1,5 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, cleanup } from "@testing-library/react";
+
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -9,6 +10,7 @@ describe("Datepicker", () => {
     let clock: SinonFakeTimers;
 
     beforeEach(() => {
+        cleanup();
         const now = new Date(2019, 9, 20);
         clock = useFakeTimers(now);
     });
@@ -22,8 +24,8 @@ describe("Datepicker", () => {
         const thePast = new Date(2019, 11, 24);
         render(<DatePicker initialDate={thePast} />);
 
-        const date = screen.getByTestId("jkl-datepicker__input");
-        expect(date).toHaveProperty("value", "24.12.2019");
+        const input = screen.getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "24.12.2019");
     });
 
     it("fires onChange method on edit input with valid date", async () => {
@@ -392,18 +394,59 @@ describe("Datepicker", () => {
         act(() => {
             userEvent.click(toggleCalendarButtonElement); // Open calendar
             userEvent.click(screen.getByText("31"));
-            userEvent.click(toggleCalendarButtonElement); // Close calendar
         });
 
         expect(onBlur).toHaveBeenCalledTimes(0);
 
         act(() => {
-            //
             userEvent.click(screen.getByText("Click")); // Click button outside component
         });
 
         expect(onBlur).toHaveBeenCalledWith(new Date(2020, 0, 31), expect.anything());
         expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe("after user types string", () => {
+    it("should return undefined value for invalid string", () => {
+        const onBlur = jest.fn();
+        render(
+            <div>
+                <DatePicker onBlur={onBlur} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const inputElement = screen.getByLabelText("Velg dato");
+
+        act(() => {
+            userEvent.click(inputElement);
+            userEvent.type(inputElement, "1.januar");
+            userEvent.click(screen.getByText("Click")); // Click button outside component
+        });
+        expect(onBlur).toHaveBeenCalledTimes(1);
+        expect(onBlur.mock.calls[0][0]).toBe(undefined);
+    });
+
+    it("should return date value for valid string", async () => {
+        const onBlur = jest.fn();
+        render(
+            <div>
+                <DatePicker onBlur={onBlur} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const inputElement = screen.getByLabelText("Velg dato");
+
+        await act(async () => {
+            await userEvent.click(inputElement);
+            await userEvent.type(inputElement, "01.01.2021");
+            await userEvent.click(screen.getByText("Click")); // Click button outside component
+        });
+
+        expect(onBlur).toHaveBeenCalledTimes(1);
+        expect(onBlur.mock.calls[0][0]).toStrictEqual(new Date("01.01.2021"));
     });
 });
 

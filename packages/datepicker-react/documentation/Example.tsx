@@ -3,7 +3,10 @@ import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { DatePicker } from "../src";
 
-const monthsIsh = (num: number) => 1000 * 60 * 60 * 24 * (num * 30 - 5);
+const monthsIsh = (num: number) => {
+    const raw = 1000 * 60 * 60 * 24 * (num * 30 - 5);
+    return raw < 0 ? 12 + raw : raw;
+};
 
 export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const helpLabel =
