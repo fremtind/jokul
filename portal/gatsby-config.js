@@ -6,10 +6,18 @@ module.exports = {
         description: `Jøkul er designsystemet til Fremtind`,
         author: `Fremtind`,
     },
+    flags:{
+        PRESERVE_WEBPACK_CACHE: true,
+        FAST_DEV: true,
+        DEV_SSR: true,
+        PRESERVE_FILE_DOWNLOAD_CACHE: true,
+        PARALLEL_SOURCING: true,
+    },
     plugins: [
         "gatsby-plugin-typescript",
-        `gatsby-transformer-sharp`,
+        `gatsby-plugin-image`,
         `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
         { resolve: `gatsby-source-filesystem`, options: { path: `./src/components/Documentation/` } },
         {
             resolve: "gatsby-source-filesystem",
