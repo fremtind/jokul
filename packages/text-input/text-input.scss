@@ -141,10 +141,25 @@ $text-input-error-color--inverted: $feil--darkbg;
         margin-left: rem(-48px);
         color: inherit;
 
-        &:focus,
-        &:hover {
+        &:hover,
+        &:focus {
             color: $text-input-focus-color;
             color: var(--text-input-focus-color);
+
+            @include keyboard-navigation {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: rem(8px);
+                    right: rem(8px);
+                    bottom: rem(8px);
+                    left: rem(8px);
+                    box-shadow: inset 0 0 0 rem(2px) $text-input-focus-color;
+                    box-shadow: inset 0 0 0 rem(2px) var(--text-input-focus-color);
+                }
+            }
         }
     }
 
