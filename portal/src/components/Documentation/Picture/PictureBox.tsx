@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import MediaBox from "./MediaBox";
 
 interface Props {
@@ -23,8 +23,8 @@ const Picture: React.FC<Props> = ({ asset, alt, ...rest }) => {
                 nodes {
                     fluid {
                         originalName
-                        ...GatsbyImageSharpFluid_withWebp
                     }
+                    gatsbyImageData
                 }
             }
         }
@@ -32,7 +32,7 @@ const Picture: React.FC<Props> = ({ asset, alt, ...rest }) => {
 
     const image = data.allImageSharp.nodes.find((node: Node) => node.fluid.originalName === asset);
 
-    return image ? <MediaBox media={<Img fluid={image.fluid} alt={alt} />} {...rest} /> : null;
+    return image ? <MediaBox media={<GatsbyImage image={image.gatsbyImageData} alt={alt} />} {...rest} /> : null;
 };
 
 export default Picture;
