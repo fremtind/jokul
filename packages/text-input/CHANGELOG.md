@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.16 (2021-03-05)
+
+### Bug Fixes
+
+- **text-input:** add better keyboard focus to action ([08d9d35](https://github.com/fremtind/jokul/commit/08d9d35dc77d4a01d4e280ad922500cadebb57ee))
+
 ## 2.2.5 (2020-09-24)
 
 ### Bug Fixes
