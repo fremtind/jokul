@@ -23,7 +23,7 @@ ReactDOM.render(
         <DevExample
             component={AlertMessageExample}
             knobs={{
-                boolProps: ["Invertert"],
+                boolProps: ["Invertert", "Avvisbar"],
                 choiceProps: [
                     {
                         name: "Type",
