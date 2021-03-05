@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.28.0 (2021-03-05)
+
+### Features
+
+- **portal:** update to gatsby 3 ([c9cee01](https://github.com/fremtind/jokul/commit/c9cee01ccce7f33f2abbc02961bf1751440b9602))
+
 ## 3.27.16 (2021-02-23)
 
 ### Bug Fixes
