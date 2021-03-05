@@ -14,7 +14,7 @@ import AlertMessageExample from "./AlertMessageExample";
 <ComponentExample
     component={AlertMessageExample}
     knobs={{
-        boolProps: ["Invertert"],
+        boolProps: ["Invertert", "Avvisbar"],
         choiceProps: [
             {
                 name: "Type",
@@ -56,3 +56,7 @@ Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn.
 ### Tilgjengelighet
 
 Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende tekst, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.
+
+## Avvisbare meldinger
+
+Dersom meldingen ikke er koblet til en tilstand på siden (som f.eks. en feil i et skjema) kan man la brukeren lukke den. For global informasjon som driftsmeldinger bør man huske valget om å lukke meldingen, så brukeren slipper å se den på nytt.
