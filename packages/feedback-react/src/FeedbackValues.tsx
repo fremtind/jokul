@@ -1,5 +1,7 @@
-export const VERY_UNHAPPY = 1;
-export const UNHAPPY = 2;
-export const NEUTRAL = 3;
-export const HAPPY = 4;
-export const VERY_HAPPY = 5;
+import { FeedbackValue } from "./types";
+
+export const VERY_UNHAPPY: FeedbackValue = 1;
+export const UNHAPPY: FeedbackValue = 2;
+export const NEUTRAL: FeedbackValue = 3;
+export const HAPPY: FeedbackValue = 4;
+export const VERY_HAPPY: FeedbackValue = 5;

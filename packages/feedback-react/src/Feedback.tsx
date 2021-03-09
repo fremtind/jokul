@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useState, FC } from "react";
 import { ScreenReaderOnly } from "@fremtind/jkl-core";
 import { Smiley } from "./Smiley";
-import { BaseFeedback, BaseFeedbackProps, FeedbackContext } from "./BaseFeedback";
+import { BaseFeedback, BaseFeedbackProps, FeedbackContext, rawFeedbackValues } from "./BaseFeedback";
 import { nanoid } from "nanoid";
 
 const FeedbackContent = () => {
@@ -10,10 +10,10 @@ const FeedbackContent = () => {
 
     return (
         <>
-            {options?.map((feedbackOption) => (
+            {rawFeedbackValues(options)?.map((feedbackOption) => (
                 <Fragment key={feedbackOption}>
                     <input
-                        className="jkl-feedback__answer__input"
+                        className="jkl-feedback__answer-input"
                         type="radio"
                         name="feedback"
                         id={`${id}-feedback--${feedbackOption}`}
@@ -23,7 +23,7 @@ const FeedbackContent = () => {
                     />
                     <label
                         data-testid={`feedback-${feedbackOption}`}
-                        className="jkl-feedback__answer"
+                        className="jkl-feedback__answer-label"
                         htmlFor={`${id}-feedback--${feedbackOption}`}
                     >
                         <Smiley element={feedbackOption} />
