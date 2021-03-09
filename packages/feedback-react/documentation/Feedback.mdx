@@ -8,16 +8,18 @@ import Example from "./Example";
 import { Feedback } from "../src";
 
 <Ingress>
-    Feedback fra brukere er viktig for å kunne gjøre justering på tjenestene våre der det oppleves vanskelig eller kunne gi oss pekepinn på ønsker om nye tjenester feks.
-    Feedback kommer i to varianter, Simplified og vanlig. Funksjonelt er de like, men simplified bruker enkle radioknapper, mens vanlig bruker smilefjes. Du kan bestemme antallet ved å endre på FeedbackOptions propertien.
-
+    Feedback-komponenten lar oss få tilbakemelding fra brukerene våre. Det kan gi oss viktig innsikt om
+    brukeropplevelsen, og avdekke ønsker om funksjonalitet.
 </Ingress>
+
 <ComponentExample
     knobs={{
-            boolProps: ["Uten smilefjes", "Uten tekst"],
-        }}
+        boolProps: ["Uten smilefjes", "Uten tekst"],
+    }}
     component={Example}
 />
+
+Komponenten kommer i to grunnvarianter: Feedback har smilefjes basert på valgene brukeren kan ta, mens SimplifiedFeedback viser vanlige radioknapper. Du kan bestemme hvilke valg brukeren skal få ved å sende inn noen eller alle tall fra 1 til 5:
 
 -   1 - Surt fjes
 -   2 - Litt surt fjes
@@ -25,10 +27,16 @@ import { Feedback } from "../src";
 -   4 - Smilefjes
 -   5 - Happy smilefjes
 
-Feedback komponenten tar ansvar for å holde på staten og sende inn svaret, du må bare sørge for å sende inn en funksjon som kalles ved innsenning eller lukking av browseren, med andre ord vi bevarer svaret på smilefjeset, selvom man ikke fyller inn tekstsvaret og sender inn selv. Funksjonen får inn et objekt med shapen
+I tillegg til en score kan man la brukeren legge igjen en skriftlig tilbakemelding. Etiketten på tekstfeltet kan spesifiseres generelt og/eller defineres spesifikt basert på hvilken score brukeren har gitt.
+
+## Innsending av data
+
+Du må selv sende inn en funksjon for å håndtere innsending av data, men komponenten sørger selv for at den blir kalt på riktig tidspunkt; når brukeren trykker send inn, eller når de forlater siden etter å ha tatt et valg i skjemaet.
+
+Funksjonen du sender inn må ta imot et objekt på formen
 
 ```tsx
 { feedbackValue: 1 | 2 | 3 | 4 | 5, message?: string }
 ```
 
-, du må i klienten koble det opp mot ditt ønskede feedback endepunkt med eventuelle vasking og, eller transformering av data.
+og du må selv koble opp mot ditt ønskede feedback-endepunkt med eventuell vasking og/eller transformering av data.
