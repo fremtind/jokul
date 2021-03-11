@@ -1,4 +1,6 @@
+@import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 @function message-bg-light($color) {
     @return change-color($color, $lightness: 97%);
@@ -6,6 +8,8 @@
 @function message-bg-dark($color) {
     @return change-color($color, $lightness: 5%);
 }
+
+$dismiss-animation-duration: 500ms;
 
 $background-color: $gra-10;
 $border-color: $svart;
@@ -64,24 +68,70 @@ $success-border-color--inverted: $suksess--darkbg;
     border: rem(1px) solid var(--border-color);
     box-sizing: border-box;
 
+    &__content {
+        box-sizing: border-box;
+        padding: $component-spacing--large $component-spacing--xl;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
     &__icon {
         padding-right: $component-spacing--large;
         align-self: flex-start;
         padding-top: $component-spacing--xxs;
     }
 
-    &__content {
-        box-sizing: border-box;
-        padding: $component-spacing--large $component-spacing--xl;
-        display: flex;
-        align-items: center;
-        max-width: 100%;
-        margin: 0 auto;
+    &__message {
+        margin-right: $component-spacing--large;
+    }
+
+    &__dismiss-button {
+        @include reset-outline();
+        background-color: transparent;
+        padding: 0;
+        margin-left: auto;
+        margin-top: $component-spacing--xs;
+        color: inherit;
+        cursor: pointer;
+        width: rem(20px);
+        height: rem(20px);
+
+        align-self: flex-start;
+        flex-shrink: 0;
+
+        &:hover,
+        &:focus {
+            color: $info-border-color;
+            color: var(--info-border-color);
+
+            @include keyboard-navigation {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: rem(-2px);
+                    right: rem(-2px);
+                    bottom: rem(-2px);
+                    left: rem(-2px);
+                    box-shadow: 0 0 0 rem(2px) $info-border-color;
+                    box-shadow: 0 0 0 rem(2px) var(--info-border-color);
+                }
+            }
+        }
     }
 
     &__message,
     &__message:last-child {
         margin-bottom: 0;
+    }
+
+    &--dismissed {
+        animation: dismiss-animation $dismiss-animation-duration ease-in-out forwards;
+        transition: visibility 0ms $dismiss-animation-duration;
+        visibility: hidden;
     }
 
     &--info {
@@ -174,5 +224,16 @@ $success-border-color--inverted: $suksess--darkbg;
                 color: $success-border-color--inverted;
             }
         }
+    }
+}
+
+@keyframes dismiss-animation {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
     }
 }

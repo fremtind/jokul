@@ -5,6 +5,7 @@ yarn-error.log
 .vscode
 .cache
 .npmrc
+.yarn/
 build/
 *.css
 dist/
@@ -12,3 +13,4 @@ dist/
 .iml
 .DS_Store
 cypress/videos
+.yarnrc
