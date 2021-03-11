@@ -7,14 +7,14 @@ interface Props {
 }
 
 export const ExampleVideo: FC<Props> = ({ videoUrl }) => {
-    const urlWithParams = videoUrl + "?background=1&autoplay=0&loop=1";
+    const urlWithParams = `${videoUrl}?background=1&autoplay=0&loop=1`;
     const [playing, togglePlayState] = useState(false);
     const ref = useRef<HTMLIFrameElement>(null);
 
     const togglePlay = () => {
         if (ref.current) {
             const method = playing ? "pause" : "play";
-            const playerData = { method: method };
+            const playerData = { method };
             ref.current.contentWindow?.postMessage(JSON.stringify(playerData), "*");
             togglePlayState(!playing);
         }
@@ -27,7 +27,7 @@ export const ExampleVideo: FC<Props> = ({ videoUrl }) => {
 
     return (
         <div className="example-video">
-            <button className={buttonClass} onClick={togglePlay} />
+            <button aria-label={playing ? "Pause" : "Play"} className={buttonClass} onClick={togglePlay} />
             <iframe ref={ref} title="Eksempelvideo" src={urlWithParams} width="100%" height="250" frameBorder="0" />
         </div>
     );
