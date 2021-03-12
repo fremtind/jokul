@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0 (2021-03-12)
+
+### Features
+
+- **feedback:** allow customizable feedback prompt ([97562df](https://github.com/fremtind/jokul/commit/97562dffe631af093be15b58ac30e4cdcc17eca3))
+
+### BREAKING CHANGES
+
+- **feedback:** changed HTML structure
+
 ## 2.0.2 (2021-02-12)
 
 ### Bug Fixes
