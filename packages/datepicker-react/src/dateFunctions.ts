@@ -47,7 +47,9 @@ export function parseDateString(dateString: string) {
     const yearIn = parseInt(match[3], 10);
     const year = yearIn > 99 ? yearIn : parseTwoDigitYear(yearIn);
 
-    return new Date(year, month, day, 0, 0, 0);
+    const generatedDate = new Date(year, month, day, 0, 0, 0);
+    // Days can "overflow" to next month/year in Date(). Return undefined if it does:
+    return generatedDate.getMonth() === month && generatedDate.getFullYear() === year ? generatedDate : undefined;
 }
 
 /**
