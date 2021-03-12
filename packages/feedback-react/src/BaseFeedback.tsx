@@ -17,11 +17,24 @@ interface CustomSuccessProps {
     message: string;
 }
 
+interface FeedbackValueWithPrompt {
+    value: FeedbackValue;
+    prompt: string;
+}
+
+function hasPrompt(v: FeedbackValue | FeedbackValueWithPrompt): v is FeedbackValueWithPrompt {
+    return (v as FeedbackValueWithPrompt).prompt !== undefined;
+}
+
+export function rawFeedbackValues(input: Array<FeedbackValue | FeedbackValueWithPrompt>) {
+    return input.map((v) => (typeof v === "number" ? v : v.value));
+}
+
 export interface BaseFeedbackProps {
     label: string;
     onSubmit: (data: FeedbackPayload) => void;
     description?: string;
-    feedbackOptions?: FeedbackValue[];
+    feedbackOptions?: Array<FeedbackValue | FeedbackValueWithPrompt>;
     renderCustomSuccess?: (props: CustomSuccessProps) => ReactNode;
     successTitle?: string;
     successMessage?: string;
@@ -38,7 +51,7 @@ interface Props extends BaseFeedbackProps {
 }
 
 export const FeedbackContext = createContext<{
-    options: FeedbackValue[];
+    options: Array<FeedbackValue | FeedbackValueWithPrompt>;
     value?: FeedbackValue;
     setValue: (next: FeedbackValue) => void;
 }>({ options: [], setValue: () => undefined });
@@ -60,6 +73,7 @@ export const BaseFeedback: FC<Props> = ({
     content,
 }) => {
     const [feedbackValue, setFeedbackValue] = useState<FeedbackValue>();
+    const [feedbackPrompt, setFeedbackPrompt] = useState(textAreaLabel);
     const [message, setMessage] = useState("");
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
     const [feedbackSubmittedAnimation, setFeedbackSubmittedAnimation] = useState(false);
@@ -90,6 +104,11 @@ export const BaseFeedback: FC<Props> = ({
         };
     }, [handleSubmit]);
 
+    useEffect(() => {
+        const option = feedbackOptions.filter((v) => hasPrompt(v) && v.value === feedbackValue)[0];
+        setFeedbackPrompt(option && hasPrompt(option) ? option.prompt : textAreaLabel);
+    }, [feedbackOptions, feedbackValue, textAreaLabel]);
+
     const H = headingLevel;
 
     return (
@@ -105,7 +124,9 @@ export const BaseFeedback: FC<Props> = ({
                 )}
                 {!feedbackSubmitted && (
                     <form
-                        className={cn({ "jkl-feedback--hidden": feedbackSubmittedAnimation })}
+                        className={cn("jkl-feedback__form", {
+                            "jkl-feedback__form--hidden": feedbackSubmittedAnimation,
+                        })}
                         onSubmit={handleActiveSubmit}
                     >
                         <div className="jkl-feedback__heading">
@@ -115,24 +136,25 @@ export const BaseFeedback: FC<Props> = ({
                         <fieldset className="jkl-feedback__fieldset">{content}</fieldset>
                         <section
                             ref={animationRef}
-                            className={cn("jkl-feedback__input-submit", {
-                                "jkl-feedback__input-submit--hidden jkl-layout-spacing--medium-top":
+                            className={cn("jkl-feedback__submit-wrapper", {
+                                "jkl-feedback__submit-wrapper--hidden jkl-layout-spacing--medium-top":
                                     feedbackValue === undefined,
                             })}
                         >
-                            {showTextArea && (
-                                <TextArea
-                                    data-testid="feedback-text"
-                                    name="feedback-text"
-                                    label={textAreaLabel}
-                                    variant="small"
-                                    rows={3}
-                                    helpLabel={textAreaHelpLabel}
-                                    value={message}
-                                    onChange={handleMessageChange}
-                                />
-                            )}
-                            <div className="jkl-feedback__button-group">
+                            <div className="jkl-feedback__submit-content">
+                                {showTextArea && (
+                                    <TextArea
+                                        className="jkl-feedback__message-input"
+                                        data-testid="feedback-text"
+                                        name="feedback-text"
+                                        label={feedbackPrompt}
+                                        variant="small"
+                                        rows={3}
+                                        helpLabel={textAreaHelpLabel}
+                                        value={message}
+                                        onChange={handleMessageChange}
+                                    />
+                                )}
                                 <SecondaryButton
                                     data-testid="submit-button"
                                     className="jkl-layout-spacing--medium-top"
