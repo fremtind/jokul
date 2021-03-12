@@ -19,13 +19,13 @@ const getSmiley = (element: FeedbackValue) => {
 export const Smiley: FC<{ element: FeedbackValue }> = ({ element }) => (
     <svg
         aria-hidden
-        className={`jkl-feedback__icon jkl-feedback__icon--${element}`}
+        className={`jkl-feedback-icon jkl-feedback-icon--${element}`}
         fill="currentColor"
         viewBox="0 0 57 57"
     >
         <circle cx="28.5" cy="28.5" r="27.5"></circle>
-        <circle cx="19" cy="24" r="2" className="jkl-feedback__icon__eyes"></circle>
-        <circle cx="38" cy="24" r="2" className="jkl-feedback__icon__eyes"></circle>
+        <circle cx="19" cy="24" r="2" className="jkl-feedback-icon__eyes"></circle>
+        <circle cx="38" cy="24" r="2" className="jkl-feedback-icon__eyes"></circle>
         {getSmiley(element)}
     </svg>
 );
