@@ -32,6 +32,13 @@ describe("parseDateString", () => {
 
         expect(parsedDate).toBeUndefined();
     });
+
+    it("does not allow overflowing dates", () => {
+        const dateString = "33.02.2021";
+        const parsedDate = parseDateString(dateString);
+
+        expect(parsedDate).toBeUndefined();
+    });
 });
 
 describe("isSameDay", () => {
