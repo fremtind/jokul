@@ -9,6 +9,7 @@ import { Experimental } from "../Experimental/Experimental";
 import { CodeDemo } from "../CodeDemo/CodeDemo";
 
 import { DoDontExample } from "../DoDontExample";
+import { ExampleVideo } from "../ExampleVideo";
 import {
     PageTitle,
     HeadingLarge,
@@ -39,6 +40,7 @@ const components = {
     ComponentExample,
     FlowExample,
     DoDontExample,
+    ExampleVideo,
     Experimental,
     InfoMessage,
     ResponsiveExample,

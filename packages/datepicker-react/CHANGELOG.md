@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.7.15 (2021-03-12)
+
+### Bug Fixes
+
+- **datepicker:** better handling of invalid dates ([8caad94](https://github.com/fremtind/jokul/commit/8caad94839f88ecacb982f46071a9527964efd00)), closes [#1881](https://github.com/fremtind/jokul/issues/1881)
+
 ## 3.7.13 (2021-03-02)
 
 ### Bug Fixes

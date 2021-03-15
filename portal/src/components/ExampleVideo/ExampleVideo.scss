@@ -1,0 +1,31 @@
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/navigation";
+
+.example-video {
+    position: relative;
+
+    &__button {
+        position: absolute;
+        bottom: $layout-spacing--small;
+        left: $layout-spacing--xs;
+        width: 2rem;
+        height: 2.2rem;
+        border: none;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+            @include keyboard-navigation {
+                box-shadow: 0 0 0 2px $info;
+            }
+        }
+
+        &--play {
+            background: url("./F_Play_Knapp.svg") no-repeat center;
+        }
+
+        &--pause {
+            background: url("./F_Pause_Knapp.svg") no-repeat center;
+        }
+    }
+}
