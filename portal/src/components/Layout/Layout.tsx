@@ -20,7 +20,7 @@ interface Props {
     };
 }
 
-export const Layout: React.FC<Props> = ({ children, location, pathContext, ...rest }) => {
+export const Layout: React.FC<Props> = ({ children, location, pathContext }) => {
     const { setLocation, isFrontPage, isCypress } = useLocation();
     useEffect(() => setLocation(location), [location, setLocation]);
 

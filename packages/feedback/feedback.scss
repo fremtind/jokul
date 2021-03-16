@@ -3,6 +3,7 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $icon-size: rem(45px);
+$max-feedback-input-width: 30rem;
 
 :root,
 [data-theme="light"] {
@@ -33,7 +34,19 @@ $icon-size: rem(45px);
     }
 }
 
-.jkl-feedback__icon {
+.jkl-feedback-icon {
+    width: $icon-size;
+    stroke-width: rem(2px);
+    stroke: $svart;
+    stroke: var(--jkl-feedback-icon--outline);
+    transition-property: color;
+    @include motion(standard, expressive);
+
+    &__eyes {
+        fill: $svart;
+        fill: var(--jkl-feedback-icon--outline);
+    }
+
     &--1 {
         --jkl-feedback-icon--selected: #ff7059;
     }
@@ -55,25 +68,38 @@ $icon-size: rem(45px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 
-    &--hidden {
-        animation: hide 0.25s ease-in;
+    &__form {
+        &--hidden {
+            animation: hide 0.25s ease-in;
+        }
     }
 
-    &__heading {
-        text-align: center;
-    }
-
+    &__heading,
     &__fieldset {
         text-align: center;
     }
 
-    &__button-group {
-        display: flex;
-        justify-content: center;
+    &__answer-input {
+        @include reset-outline;
+        opacity: 0;
+        position: absolute;
+
+        html:not([data-mousenavigation]) &:focus {
+            + .jkl-feedback__answer-icon {
+                box-shadow: 0 0 0 rem(2px) $gra-10, 0 0 0 rem(4px) $info;
+            }
+        }
+        &:checked {
+            + .jkl-feedback__answer-label > .jkl-feedback-icon {
+                color: $suksess--darkbg;
+                color: var(--jkl-feedback-icon--selected);
+            }
+        }
     }
 
-    &__answer {
+    &__answer-label {
         cursor: pointer;
         box-sizing: border-box;
         display: inline-block;
@@ -89,54 +115,30 @@ $icon-size: rem(45px);
             margin-right: 0;
         }
 
-        &__input {
-            @include reset-outline;
-            opacity: 0;
-            position: absolute;
-
-            html:not([data-mousenavigation]) &:focus {
-                + .jkl-feedback__answer {
-                    box-shadow: 0 0 0 rem(2px) $gra-10, 0 0 0 rem(4px) $info;
-                }
-            }
-            &:checked {
-                + .jkl-feedback__answer > .jkl-feedback__icon {
-                    color: $suksess--darkbg;
-                    color: var(--jkl-feedback-icon--selected);
-                }
-            }
-        }
-
         &:hover {
             color: var(--jkl-feedback-icon--hover);
             transform: scale(1.05);
         }
     }
 
-    &__icon {
-        width: $icon-size;
-        stroke-width: rem(2px);
-        stroke: $svart;
-        stroke: var(--jkl-feedback-icon--outline);
-        transition-property: color;
-        @include motion(standard, expressive);
-
-        &__eyes {
-            fill: $svart;
-            fill: var(--jkl-feedback-icon--outline);
-        }
-    }
-
-    &__input-submit {
+    &__submit-wrapper {
+        width: 100%;
         transition-property: height;
         @include motion(standard, expressive);
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
 
         &--hidden {
             display: none;
         }
+    }
+
+    &__submit-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__message-input {
+        max-width: $max-feedback-input-width;
     }
 
     &__success {

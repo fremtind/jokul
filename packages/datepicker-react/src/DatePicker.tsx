@@ -143,7 +143,7 @@ export function DatePicker({
         if (!isFirstRenderRef.current && onChange) {
             onChange(state.date);
         }
-    }, [state.date]);
+    }, [state.date, onChange]);
 
     useEffect(() => {
         if (!isFirstRenderRef.current) {

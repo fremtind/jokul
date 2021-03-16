@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 (2021-03-05)
+
+### Features
+
+- add close button to alert messages ([71e6438](https://github.com/fremtind/jokul/commit/71e6438b3a4532eac238fc6f207bbf75f26cd467))
+
 ## 1.2.4 (2020-09-21)
 
 ### Bug Fixes
