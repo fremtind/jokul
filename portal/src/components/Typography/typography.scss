@@ -1,5 +1,9 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
+.jkl-portal-list-item {
+    max-width: rem(750px);
+}
+
 .jkl-portal-paragraph {
     max-width: rem(750px);
     &:not(:last-child) {
