@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useContext } from "react";
+import { useEffect, useCallback, useContext, useMemo } from "react";
 import { useAnimation } from "framer-motion";
 import { a11yContext } from "../../../contexts/a11yContext";
 
@@ -10,19 +10,25 @@ export const useFullScreenMenuAnimaiton = ({ isOpen }: Props) => {
     const controls = useAnimation();
     const { prefersReducedMotion } = useContext(a11yContext);
 
-    const exit = {
-        opacity: 0,
-        clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
-        y: "100%",
-        transition: { duration: 0 },
-    };
+    const exit = useMemo(
+        () => ({
+            opacity: 0,
+            clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
+            y: "100%",
+            transition: { duration: 0 },
+        }),
+        [prefersReducedMotion],
+    );
 
-    const initial = {
-        opacity: 1,
-        clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
-        transition: { duration: 0.25, delay: 0.1 },
-        y: prefersReducedMotion ? 0 : "100%",
-    };
+    const initial = useMemo(
+        () => ({
+            opacity: 1,
+            clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
+            transition: { duration: 0.25, delay: 0.1 },
+            y: prefersReducedMotion ? 0 : "100%",
+        }),
+        [prefersReducedMotion],
+    );
 
     const animate = useCallback(
         (idx: number) => ({
@@ -30,7 +36,7 @@ export const useFullScreenMenuAnimaiton = ({ isOpen }: Props) => {
             transition: { duration: 0.35, delay: prefersReducedMotion ? 0 : 0.03 * idx },
             y: 0,
         }),
-        [],
+        [prefersReducedMotion],
     );
 
     // Initial animation on menu open/close
