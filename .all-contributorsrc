@@ -285,14 +285,23 @@
       "contributions": [
         "code"
       ]
-     },
-     {
+    },
+    {
       "login": "AudunBerdal",
       "name": "Audun Berdal",
       "avatar_url": "https://avatars.githubusercontent.com/u/57794116?v=4",
       "profile": "http://audunberdal.no",
       "contributions": [
         "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "fremtind-tony",
+      "name": "fremtind-tony",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54317847?v=4",
+      "profile": "https://github.com/fremtind-tony",
+      "contributions": [
         "doc"
       ]
     }
