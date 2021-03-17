@@ -10626,9 +10626,9 @@ fragment-cache@^0.2.1:
     map-cache "^0.2.2"
 
 framer-motion@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-3.10.0.tgz#3840612b754aaab6b7857096d7473521b7e3436e"
-  integrity sha512-i+Pp3bwMGHFZw3OnsMJGWeAxlAg6ye6Hbek3xRuoCmGjpOQrGKG7Ra249YFAk32wMSwmAbGUzxTE1fgP3ZOmnQ==
+  version "3.10.5"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-3.10.5.tgz#5495a0b54ee63b8ec3e5ba9d84a347138d404687"
+  integrity sha512-LybyZEt+HsBhyalSAih5t8tOqjVb6BrkdfPF/XQDxzcMnrDooeghp2WiACZdhQ3RzlS/zyAqSR326oETPT1WxQ==
   dependencies:
     framesync "5.2.0"
     hey-listen "^1.0.8"
@@ -22613,12 +22613,7 @@ tslib@^1, tslib@^1.10.0, tslib@^1.11.2, tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
-tslib@^2.0.0, tslib@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.1.tgz#410eb0d113e5b6356490eec749603725b021b43e"
-  integrity sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==
-
-tslib@~2.0.1:
+tslib@^2.0.0, tslib@^2.0.1, tslib@~2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ==
