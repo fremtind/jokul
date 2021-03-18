@@ -2,11 +2,16 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Success: FC<IconProps> = ({ className, variant }) => (
+export const Success: FC<IconProps> = ({
+    className,
+    variant,
+    title = "Success-icon",
+    description = "Sirkel med hake i midten",
+}) => (
     <IconFactory
+        title={title}
+        description={description}
         viewBox="0 0 24 24"
-        title="Success-icon"
-        description="Sirkel med hake i midten"
         className={className}
         variant={variant}
         innerSvg={

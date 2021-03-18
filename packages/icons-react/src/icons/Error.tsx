@@ -2,11 +2,16 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Error: FC<IconProps> = ({ className, variant }) => (
+export const Error: FC<IconProps> = ({
+    className,
+    variant,
+    title = "Error-icon",
+    description = "Sirkel med strek over på tvers",
+}) => (
     <IconFactory
+        title={title}
+        description={description}
         viewBox="0 0 24 24"
-        title="Error-icon"
-        description="Sirkel med strek over på tvers"
         className={className}
         variant={variant}
         innerSvg={

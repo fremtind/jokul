@@ -2,10 +2,10 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Close: FC<IconProps> = ({ className, variant }) => (
+export const Close: FC<IconProps> = ({ className, variant, title = "Lukk", description = "Ikon av en x" }) => (
     <IconFactory
-        title="Lukk"
-        description="Ikon av en x"
+        title={title}
+        description={description}
         className={className}
         variant={variant}
         innerSvg={

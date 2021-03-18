@@ -2,11 +2,16 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const ArrowDown: FC<IconProps> = ({ className, variant }) => (
+export const ArrowDown: FC<IconProps> = ({
+    className,
+    variant,
+    title = "Pil-ned",
+    description = "Ikon av en pil mot ned",
+}) => (
     <IconFactory
+        title={title}
+        description={description}
         viewBox="0 0 15 16"
-        title="Pil-ned"
-        description="Ikon av en pil mot ned"
         className={className}
         variant={variant}
         innerSvg={

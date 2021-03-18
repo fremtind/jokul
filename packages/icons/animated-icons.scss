@@ -84,6 +84,7 @@
         &--hide {
             transition-delay: 0;
             opacity: 0;
+            z-index: -1;
         }
     }
 }
