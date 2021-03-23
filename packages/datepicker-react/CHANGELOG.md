@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-03-23)
+
+### Features
+
+- **datepicker:** add name as a prop ([b6c8006](https://github.com/fremtind/jokul/commit/b6c8006598eba999c9a3f4fc5300ebceaa1a252e)), closes [#1902](https://github.com/fremtind/jokul/issues/1902)
+- **datepicker:** use forwardRef on DatePicker ([872d88e](https://github.com/fremtind/jokul/commit/872d88e8354de165feb4def776f0224f2ab1e874))
+- **datepicker:** use textboxRef on BaseInputField ([e2faa63](https://github.com/fremtind/jokul/commit/e2faa6362c1ebae6853ad503a5b790db8e8f80b2)), closes [#1902](https://github.com/fremtind/jokul/issues/1902)
+
+### BREAKING CHANGES
+
+- **datepicker:** add forwardRef to datepicker
+
 ## 3.7.15 (2021-03-12)
 
 ### Bug Fixes
