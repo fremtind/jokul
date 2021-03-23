@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.10 (2021-03-22)
+
+### Bug Fixes
+
+- add deprecation warning dogid ([fae6b35](https://github.com/fremtind/jokul/commit/fae6b353ecd4859d446438ea0d4dbb09ef447e6c))
+
 ## 1.3.0 (2020-11-02)
 
 ### Features
