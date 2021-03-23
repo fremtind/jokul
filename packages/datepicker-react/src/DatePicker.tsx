@@ -18,6 +18,7 @@ type onBlurEventHandler = (date?: Date, e?: FocusEvent) => void;
 type onFocusEventHandler = (date?: Date, e?: FocusEvent) => void;
 
 interface Props {
+    name?: string;
     label?: string;
     monthLabel?: string;
     yearLabel?: string;
@@ -48,6 +49,7 @@ interface Props {
 export const DatePicker = forwardRef<HTMLElement, Props>(
     (
         {
+            name,
             label = "Velg dato",
             placeholder = "dd.mm.åååå",
             calendarButtonTitle,
@@ -168,6 +170,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                     <BaseInputField
                         id={inputId}
                         ref={textboxRef}
+                        name={name}
                         describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
                         invalid={!!errorLabel}
                         className="jkl-datepicker__input jkl-text-input__input"
