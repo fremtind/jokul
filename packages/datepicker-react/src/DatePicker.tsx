@@ -3,16 +3,7 @@ import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { useAnimatedHeight, useClickOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import classNames from "classnames";
-import React, {
-    ChangeEvent,
-    FocusEvent,
-    forwardRef,
-    KeyboardEventHandler,
-    useEffect,
-    useMemo,
-    useReducer,
-    useRef,
-} from "react";
+import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
 import { Calendar } from "./Calendar";
 import { formatDate, getInitialDate } from "./dateFunctions";
 import { useCalendarId, useDisableDate } from "./internal/hooks";
@@ -116,13 +107,13 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         });
         const componentRef = useRef<HTMLDivElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
+        const textboxRef = (ref as RefObject<HTMLInputElement>) || inputRef;
         const [calendarRef] = useAnimatedHeight(!state.calendarHidden);
         const isFirstRenderRef = useRef(true);
 
         const onClickCalendarDay = (e: ChangeEvent<ChangeDate>) => {
             dispatch({ type: "SELECT_DATE_IN_CALENDAR", payload: e.target.date });
-
-            inputRef.current && inputRef.current.focus();
+            textboxRef.current && textboxRef.current.focus();
         };
 
         const handleFocusChange = (fn?: onFocusEventHandler) => (e: FocusEvent) => {
@@ -149,7 +140,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
 
         useKeyListener(calendarRef, ["Escape"], () => {
             !state.calendarHidden && dispatch({ type: "TOGGLE" });
-            inputRef.current && inputRef.current.focus();
+            textboxRef.current && textboxRef.current.focus();
         });
 
         useEffect(() => {
@@ -175,8 +166,8 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                 </Label>
                 <div className={inputWrapperClassName}>
                     <BaseInputField
-                        ref={inputRef}
                         id={inputId}
+                        ref={textboxRef}
                         describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
                         invalid={!!errorLabel}
                         className="jkl-datepicker__input jkl-text-input__input"
