@@ -6,7 +6,8 @@ import { variants } from "../icons/types";
 interface Props {
     isBurger: boolean;
     variant?: variants;
-    title?: [string, string];
+    hamburgerTitle?: string;
+    closeTitle?: string;
 }
 
 interface ShowProps {
@@ -19,16 +20,21 @@ const Show: FC<ShowProps> = ({ when, children }) => (
     </div>
 );
 
-export const HamburgerCloseAnimated: FC<Props> = ({ isBurger, variant = "small", title = ["meny", "lukk"] }) => {
+export const HamburgerCloseAnimated: FC<Props> = ({
+    isBurger,
+    variant = "small",
+    hamburgerTitle = "meny",
+    closeTitle = "lukk",
+}) => {
     const iconSize = variant !== "inherit" ? variant : "small";
 
     return (
         <div className={`jkl-icon--${iconSize} jkl-icons-animated__burger`}>
             <Show when={isBurger}>
-                <Hamburger variant={iconSize} title={title[0]} />
+                <Hamburger variant={iconSize} title={hamburgerTitle} />
             </Show>
             <Show when={!isBurger}>
-                <Close variant={iconSize} title={title[1]} />
+                <Close variant={iconSize} title={closeTitle} />
             </Show>
         </div>
     );
