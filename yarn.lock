@@ -11037,9 +11037,9 @@ gatsby-plugin-react-helmet@^4.0.0:
     "@babel/runtime" "^7.12.5"
 
 gatsby-plugin-sass@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-4.0.0.tgz#be404536073b17139ea0122d35805abacce15ba7"
-  integrity sha512-q2FIQFFU7FMgX8jMGUCsBMUcmdNdVertE1HnViiriB1x5FagUJUUJe9Z6Irq14h0LfSL2Z1Lg8iQzgxSX30djw==
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-4.1.0.tgz#458df0b2b8bcc04bdd040febed106883e2825690"
+  integrity sha512-lVm+DGSkAIM2APosbaBqi9OlS5YP1bXVmA2MXJqGdIrb/x9FkrN3psFjiTIuBob2YesAgeQV2OJtJefGGAf4bQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     resolve-url-loader "^3.1.2"
