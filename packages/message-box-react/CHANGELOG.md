@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.7.7 (2021-03-25)
+
+### Bug Fixes
+
+- <div> cannot appear as a descendant of <p> ([044c257](https://github.com/fremtind/jokul/commit/044c2579b1ce16cb3812b32b24fd18ee835be7ee))
+
 ## 1.7.6 (2021-02-12)
 
 ### Bug Fixes
