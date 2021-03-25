@@ -2,11 +2,16 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Warning: FC<IconProps> = ({ className, variant }) => (
+export const Warning: FC<IconProps> = ({
+    className,
+    variant,
+    title = "Warning-icon",
+    description = "Sirkel med utropstegn i midten",
+}) => (
     <IconFactory
+        title={title}
+        description={description}
         viewBox="0 0 24 24"
-        title="Warning-icon"
-        description="Sirkel med utropstegn i midten"
         className={className}
         variant={variant}
         innerSvg={

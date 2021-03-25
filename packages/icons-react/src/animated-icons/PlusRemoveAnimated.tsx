@@ -5,9 +5,16 @@ import { variants } from "../icons/types";
 interface Props {
     isPlus: boolean;
     variant?: variants;
+    plusTitle?: string;
+    closeTitle?: string;
 }
 
-export const PlusRemoveAnimated: FC<Props> = ({ isPlus, variant = "small" }) => {
+export const PlusRemoveAnimated: FC<Props> = ({
+    isPlus,
+    variant = "small",
+    plusTitle = "pluss",
+    closeTitle = "lukk",
+}) => {
     const iconSize = variant !== "inherit" ? variant : "small";
     return (
         <div
@@ -15,7 +22,11 @@ export const PlusRemoveAnimated: FC<Props> = ({ isPlus, variant = "small" }) => 
                 isPlus ? "plus" : "close"
             }`}
         >
-            <Plus variant={iconSize} />
+            <Plus
+                variant={iconSize}
+                title={isPlus ? plusTitle : closeTitle}
+                description={`Ikon av ${isPlus ? plusTitle : closeTitle}tegn`}
+            />
         </div>
     );
 };
