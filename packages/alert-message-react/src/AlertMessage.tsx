@@ -46,7 +46,7 @@ function alertFactory(messageType: messageTypes) {
                     <div aria-hidden className="jkl-alert-message__icon">
                         <MessageIcon messageType={messageType} />
                     </div>
-                    <p className="jkl-alert-message__message jkl-body">{children}</p>
+                    <span className="jkl-alert-message__message jkl-body">{children}</span>
                     {dismissAction?.handleDismiss && (
                         <IconButton
                             className="jkl-alert-message__dismiss-button"
