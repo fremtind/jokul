@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.1 (2021-03-25)
+
+### Bug Fixes
+
+- <div> cannot appear as a descendant of <p> ([eda1926](https://github.com/fremtind/jokul/commit/eda192667077e06f1273fe0c32ea7414aa04acc4))
+
 ## 1.6.0 (2021-03-05)
 
 ### Features
