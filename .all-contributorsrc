@@ -304,6 +304,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jarledb",
+      "name": "Jarle Berentzen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/835878?v=4",
+      "profile": "https://github.com/jarledb",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
