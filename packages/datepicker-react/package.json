@@ -41,7 +41,7 @@
         "@fremtind/jkl-select-react": "^3.0.7",
         "@fremtind/jkl-text-input-react": "^3.8.10",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.10"
+        "nanoid": "^3.1.22"
     },
     "devDependencies": {
         "@fremtind/jkl-portal-components": "^0.9.5",

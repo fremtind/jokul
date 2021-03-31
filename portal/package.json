@@ -39,7 +39,7 @@
         "react-hook-form": "^6.15.4",
         "react-syntax-highlighter": "^15.4.3",
         "sass": "^1.32.8",
-        "snyk": "^1.467.0"
+        "snyk": "^1.518.0"
     },
     "keywords": [
         "portal"
