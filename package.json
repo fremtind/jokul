@@ -90,7 +90,7 @@
         "gulp-postcss": "^8.0.0",
         "gulp-rename": "^2.0.0",
         "gulp-sass": "^4.1.0",
-        "husky": "^4.2.5",
+        "husky": "^6.0.0",
         "jest": "^26.4.2",
         "jest-axe": "^4.0.0",
         "jest-watch-typeahead": "^0.6.1",
