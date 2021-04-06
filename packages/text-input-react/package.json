@@ -45,7 +45,7 @@
         "classnames": "^2.2.6",
         "downshift": "^6.0.5",
         "match-sorter": "^5.0.0",
-        "nanoid": "^3.1.10"
+        "nanoid": "^3.1.22"
     },
     "devDependencies": {
         "@fremtind/jkl-portal-components": "^0.9.5",
