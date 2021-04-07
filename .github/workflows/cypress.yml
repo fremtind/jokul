@@ -39,14 +39,14 @@ jobs:
                   command-prefix: 'percy exec -- npx'
 
             - name: Upload screenshots
-              uses: actions/upload-artifact@v2.2.2
+              uses: actions/upload-artifact@v2.2.3
               if: failure()
               with:
                   name: cypress-screenshots
                   path: cypress/screenshots
 
             - name: Upload video
-              uses: actions/upload-artifact@v2.2.2
+              uses: actions/upload-artifact@v2.2.3
               if: always()
               with:
                   name: cypress-videos
