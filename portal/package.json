@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.28.4",
+    "version": "3.28.6",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.1.0",
@@ -10,7 +10,7 @@
         "react-docgen-typescript": "^1.20.5"
     },
     "dependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.5",
+        "@fremtind/jkl-portal-components": "^0.9.7",
         "@mdx-js/mdx": "^1.6.22",
         "@mdx-js/react": "^1.6.22",
         "classnames": "^2.2.6",
@@ -39,7 +39,7 @@
         "react-hook-form": "^6.15.4",
         "react-syntax-highlighter": "^15.4.3",
         "sass": "^1.32.8",
-        "snyk": "^1.467.0"
+        "snyk": "^1.518.0"
     },
     "keywords": [
         "portal"
