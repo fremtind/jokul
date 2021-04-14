@@ -10,6 +10,12 @@
     margin-top: $layout-spacing--medium;
     width: 100%;
 
+    &:focus {
+        @include keyboard-navigation {
+            box-shadow: 0 0 0 2px $info;
+        }
+    }
+
     > .jkl-micro {
         text-align: left;
     }
@@ -24,6 +30,10 @@
         object-fit: contain;
     }
 
+    &__close {
+        display: none;
+    }
+
     &--fullscreen {
         position: fixed;
         top: 0;
@@ -34,7 +44,31 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         z-index: $z-index--modal;
+
+        & .jkl-portal-image__close {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $hvit;
+            background-color: $svart;
+            padding: $component-spacing--small;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+
+            & > svg {
+                margin-left: $component-spacing--large;
+                @include keyboard-navigation {
+                    box-shadow: 0 0 0 2px $info--darkbg;
+                }
+            }
+        }
+        &:focus {
+            @include keyboard-navigation {
+                box-shadow: none;
+            }
+        }
     }
 }
 
