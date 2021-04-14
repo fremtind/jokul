@@ -1,8 +1,10 @@
 import React, { ImgHTMLAttributes, useState, useRef } from "react";
+import FocusTrap from "focus-trap-react";
 import { withPrefix } from "gatsby";
 import { motion, AnimatePresence } from "framer-motion";
-import "./style.scss";
 import { useKeyListener } from "@fremtind/jkl-react-hooks";
+import { Close } from "@fremtind/jkl-icons-react";
+import "./style.scss";
 
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     noMargin?: boolean;
@@ -21,29 +23,38 @@ export const PortalImg: React.FC<Props> = ({ src, alt, noMargin }) => {
     }
 
     return (
-        <>
-            <BlurredBackground blur={isFullscreen} />
-            <motion.button
-                ref={ref}
-                layout
-                onClick={toggleFullscreen}
-                className={`jkl-portal-image ${noMargin ? "jkl-portal-image--no-margin" : ""} ${
-                    isFullscreen ? "jkl-portal-image--fullscreen" : "jkl-portal-paragraph"
-                }`}
-            >
-                <Image imgSrc={imgSrc} alt={alt} />
-                {!isFullscreen && !noMargin && <div className="jkl-micro">Klikk for å se større</div>}
-            </motion.button>
-            {isFullscreen && (
-                <button
-                    aria-hidden
-                    className={`jkl-portal-image jkl-portal-paragraph ${noMargin ? "jkl-portal-image--no-margin" : ""}`}
+        <FocusTrap active={isFullscreen}>
+            <div>
+                <BlurredBackground blur={isFullscreen} />
+                <motion.button
+                    ref={ref}
+                    layout
+                    onClick={toggleFullscreen}
+                    className={`jkl-portal-image ${noMargin ? "jkl-portal-image--no-margin" : ""} ${
+                        isFullscreen ? "jkl-portal-image--fullscreen" : "jkl-portal-paragraph"
+                    }`}
                 >
-                    <Image imgSrc={imgSrc} />
-                    {!noMargin && <div className="jkl-micro">&nbsp;</div>}
-                </button>
-            )}
-        </>
+                    <Image imgSrc={imgSrc} alt={alt} />
+                    {!isFullscreen && !noMargin && <div className="jkl-micro">Klikk for å se større</div>}
+                    {
+                        <span className="jkl-portal-image__close">
+                            Lukk
+                            <Close variant="medium" />
+                        </span>
+                    }
+                </motion.button>
+                {isFullscreen && (
+                    <div
+                        className={`jkl-portal-image jkl-portal-paragraph ${
+                            noMargin ? "jkl-portal-image--no-margin" : ""
+                        }`}
+                    >
+                        <Image imgSrc={imgSrc} />
+                        {!noMargin && <div className="jkl-micro">&nbsp;</div>}
+                    </div>
+                )}
+            </div>
+        </FocusTrap>
     );
 };
 

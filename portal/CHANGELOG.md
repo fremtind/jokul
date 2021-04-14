@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.28.7 (2021-04-14)
+
+### Bug Fixes
+
+- **portal:** add focus state and trap to portalimg ([7127a44](https://github.com/fremtind/jokul/commit/7127a4460dca895ce4bd28afbaa73eaacc58d6cf))
+
 ## 3.28.0 (2021-03-05)
 
 ### Features
