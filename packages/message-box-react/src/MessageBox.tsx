@@ -1,28 +1,52 @@
 import React, { ReactNode } from "react";
 import classNames from "classnames";
 
+import { IconButton } from "@fremtind/jkl-icon-button-react";
+
 interface Props {
     children: ReactNode;
     title?: string;
     fullWidth?: boolean;
     className?: string;
     inverted?: boolean;
+    dismissed?: boolean;
+    dismissAction?: {
+        handleDismiss: () => void;
+        buttonTitle?: string;
+    };
 }
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
 function messageFactory(messageType: messageTypes) {
-    return function messageBox({ title, fullWidth, className = "", children, inverted }: Props) {
+    return function messageBox({
+        title,
+        fullWidth,
+        className = "",
+        inverted,
+        dismissed,
+        dismissAction,
+        children,
+    }: Props) {
         const componentClassName = classNames("jkl-message-box", "jkl-message-box--" + messageType, className, {
             "jkl-message-box--full": fullWidth,
             "jkl-message-box--dark": inverted,
+            "jkl-message-box--dismissed": dismissed,
         });
 
         const getIcon = (messageType: messageTypes) => {
             switch (messageType) {
                 case "error":
                     return (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            aria-hidden
+                            className="jkl-message-box__icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
                             <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
                             <rect
                                 x="4"
@@ -36,7 +60,15 @@ function messageFactory(messageType: messageTypes) {
                     );
                 case "info":
                     return (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            aria-hidden
+                            className="jkl-message-box__icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
                             <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
                             <path
                                 d="M11.952 7.328C12.384 7.328 12.688 7.072 12.688 6.624C12.688 6.192 12.384 5.92 11.952 5.92C11.536 5.92 11.248 6.192 11.248 6.624C11.248 7.072 11.536 7.328 11.952 7.328ZM11.504 18H12.512V9.408H11.504V18Z"
@@ -46,14 +78,30 @@ function messageFactory(messageType: messageTypes) {
                     );
                 case "success":
                     return (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            aria-hidden
+                            className="jkl-message-box__icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
                             <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
                             <path d="M7 13.5L10 16.5L19.5 7" stroke="currentColor" />
                         </svg>
                     );
                 case "warning":
                     return (
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg
+                            aria-hidden
+                            className="jkl-message-box__icon"
+                            width="24"
+                            height="25"
+                            viewBox="0 0 24 25"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
                             <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
                             <path
                                 className="jkl-icon-exclamation"
@@ -69,9 +117,19 @@ function messageFactory(messageType: messageTypes) {
 
         return (
             <div className={componentClassName} role="alert">
-                <div className="jkl-message-box__icon">{getIcon(messageType)}</div>
-                {title !== undefined && <div className="jkl-message-box__title jkl-heading-small">{title}</div>}
-                <span className="jkl-message-box__message jkl-body">{children}</span>
+                {getIcon(messageType)}
+                <div className="jkl-message-box__content">
+                    {title !== undefined && <p className="jkl-heading-small">{title}</p>}
+                    <p className="jkl-body">{children}</p>
+                </div>
+                {dismissAction?.handleDismiss && (
+                    <IconButton
+                        className="jkl-message-box__dismiss-button"
+                        iconType="clear"
+                        buttonTitle={dismissAction.buttonTitle || "Lukk"}
+                        onClick={dismissAction.handleDismiss}
+                    />
+                )}
             </div>
         );
     };
