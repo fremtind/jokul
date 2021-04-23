@@ -30,7 +30,8 @@
         "start": "yarn run dev",
         "serve": "lerna run build:test --stream",
         "boot": "yarn install --force && yarn build",
-        "reboot": "yarn clean && yarn boot"
+        "reboot": "yarn clean && yarn boot",
+        "prepare": "husky install"
     },
     "dependencies": {
         "classnames": "^2.2.6",
@@ -122,12 +123,6 @@
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-lerna-changelog"
-        }
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-            "pre-commit": "lint-staged"
         }
     },
     "lint-staged": {
