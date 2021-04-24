@@ -60,7 +60,7 @@ test("should show custom feedback message", () => {
     userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
     userEvent.click(screen.getByTestId("submit-button"));
     screen.queryByTestId("custom-feedback");
-    screen.getByText(1);
+    screen.getByText("veldig trist smilefjes");
     screen.getByText("This is very nice");
 
     expect(mockFn).toBeCalledTimes(1);
