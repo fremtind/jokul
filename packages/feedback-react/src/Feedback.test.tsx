@@ -12,7 +12,7 @@ beforeEach(() => {
 });
 
 test("should call onSubmit function with feedback value", () => {
-    render(<Feedback label="feedback" onSubmit={mockFn} />);
+    render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
     userEvent.click(screen.getByTestId("feedback-1"));
     userEvent.click(screen.getByTestId("submit-button"));
     screen.queryByTestId("feedback-success");
@@ -21,7 +21,7 @@ test("should call onSubmit function with feedback value", () => {
 });
 
 test("should call onSubmit function with feedback value and message", () => {
-    render(<Feedback label="feedback" onSubmit={mockFn} />);
+    render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
     userEvent.click(screen.getByTestId("feedback-1"));
     userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
     userEvent.click(screen.getByTestId("submit-button"));
@@ -32,7 +32,7 @@ test("should call onSubmit function with feedback value and message", () => {
 });
 
 test("should call onSubmit function with feedback value and message with changes", () => {
-    render(<Feedback label="feedback" onSubmit={mockFn} />);
+    render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
     userEvent.click(screen.getByTestId("feedback-1"));
     userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
     userEvent.click(screen.getByTestId("feedback-2"));
@@ -48,6 +48,7 @@ test("should show custom feedback message", () => {
         <Feedback
             label="feedback"
             onSubmit={mockFn}
+            description="some description"
             renderCustomSuccess={(props) => (
                 <div data-testid="custom-feedback">
                     <span>{props.value}</span>
@@ -60,8 +61,9 @@ test("should show custom feedback message", () => {
     userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
     userEvent.click(screen.getByTestId("submit-button"));
     screen.queryByTestId("custom-feedback");
-    screen.getByText(1);
+    screen.getByText("veldig trist smilefjes");
     screen.getByText("This is very nice");
+    screen.getByText("some description");
 
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 1, message: "This is very nice" });

@@ -33,7 +33,7 @@ export function rawFeedbackValues(input: Array<FeedbackValue | FeedbackValueWith
 export interface BaseFeedbackProps {
     label: string;
     onSubmit: (data: FeedbackPayload) => void;
-    description?: string;
+    description: string;
     feedbackOptions?: Array<FeedbackValue | FeedbackValueWithPrompt>;
     renderCustomSuccess?: (props: CustomSuccessProps) => ReactNode;
     successTitle?: string;
@@ -51,10 +51,11 @@ interface Props extends BaseFeedbackProps {
 }
 
 export const FeedbackContext = createContext<{
+    description: string;
     options: Array<FeedbackValue | FeedbackValueWithPrompt>;
     value?: FeedbackValue;
     setValue: (next: FeedbackValue) => void;
-}>({ options: [], setValue: () => undefined });
+}>({ description: "", options: [], setValue: () => undefined });
 
 export const BaseFeedback: FC<Props> = ({
     label,
@@ -114,7 +115,12 @@ export const BaseFeedback: FC<Props> = ({
     return (
         <div className={cn("jkl-feedback", className)}>
             <FeedbackContext.Provider
-                value={{ options: feedbackOptions, setValue: setFeedbackValue, value: feedbackValue }}
+                value={{
+                    description,
+                    options: feedbackOptions,
+                    setValue: setFeedbackValue,
+                    value: feedbackValue,
+                }}
             >
                 {feedbackSubmitted && (
                     <section className="jkl-feedback__success" data-testid="feedback-success">
@@ -129,11 +135,8 @@ export const BaseFeedback: FC<Props> = ({
                         })}
                         onSubmit={handleActiveSubmit}
                     >
-                        <div className="jkl-feedback__heading">
-                            <H className="jkl-heading-large">{label}</H>
-                            {description && <p className="jkl-lead">{description}</p>}
-                        </div>
-                        <fieldset className="jkl-feedback__fieldset">{content}</fieldset>
+                        <H className="jkl-feedback__heading jkl-heading-large">{label}</H>
+                        {content}
                         <section
                             ref={animationRef}
                             className={cn("jkl-feedback__submit-wrapper", {
