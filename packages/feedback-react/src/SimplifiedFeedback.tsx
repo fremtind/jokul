@@ -1,16 +1,18 @@
-import React, { useContext, FC } from "react";
+import React, { FC, useContext } from "react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
-import { BaseFeedback, BaseFeedbackProps, FeedbackContext, rawFeedbackValues } from "./BaseFeedback";
+import { BaseFeedback, BaseFeedbackProps, FeedbackContext } from "./BaseFeedback";
 import { FeedbackValue } from "./types";
+import { getRawFeedbackValues } from "./utils";
 
-const FeedbackContent: FC<{ legend: string }> = ({ legend }) => {
-    const { options, value, setValue } = useContext(FeedbackContext);
+const FeedbackContent: FC = () => {
+    const { description, options, value, setValue } = useContext(FeedbackContext);
 
     return (
         <RadioButtons
-            legend={legend}
+            className="jkl-feedback__fieldset"
+            legend={description}
             name="feedback"
-            choices={rawFeedbackValues(options).map((_, idx) => (idx + 1).toString())}
+            choices={getRawFeedbackValues(options).map((_, idx) => (idx + 1).toString())}
             inline
             onChange={(e) => setValue(parseInt(e.target.value, 10) as FeedbackValue)}
             selectedValue={value?.toString()}
@@ -18,10 +20,6 @@ const FeedbackContent: FC<{ legend: string }> = ({ legend }) => {
     );
 };
 
-export interface SimplifiedFeedbackProps extends Omit<BaseFeedbackProps, "description"> {
-    description: string;
-}
-
-export const SimplifiedFeedback = ({ description, ...rest }: SimplifiedFeedbackProps) => {
-    return <BaseFeedback {...rest} content={<FeedbackContent legend={description} />} />;
+export const SimplifiedFeedback = (props: BaseFeedbackProps) => {
+    return <BaseFeedback {...props} content={<FeedbackContent />} />;
 };

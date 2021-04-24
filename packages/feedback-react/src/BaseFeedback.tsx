@@ -5,7 +5,8 @@ import { SecondaryButton } from "@fremtind/jkl-button-react";
 import { SuccessMessage } from "@fremtind/jkl-message-box-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { VERY_UNHAPPY, UNHAPPY, NEUTRAL, HAPPY, VERY_HAPPY } from "./FeedbackValues";
-import { FeedbackValue } from "./types";
+import { FeedbackOption, FeedbackValue } from "./types";
+import { hasPrompt } from "./utils";
 
 export type FeedbackPayload = {
     feedbackValue: FeedbackValue;
@@ -16,25 +17,11 @@ interface CustomSuccessProps {
     value?: FeedbackValue;
     message: string;
 }
-
-interface FeedbackValueWithPrompt {
-    value: FeedbackValue;
-    prompt: string;
-}
-
-function hasPrompt(v: FeedbackValue | FeedbackValueWithPrompt): v is FeedbackValueWithPrompt {
-    return (v as FeedbackValueWithPrompt).prompt !== undefined;
-}
-
-export function rawFeedbackValues(input: Array<FeedbackValue | FeedbackValueWithPrompt>) {
-    return input.map((v) => (typeof v === "number" ? v : v.value));
-}
-
 export interface BaseFeedbackProps {
     label: string;
     onSubmit: (data: FeedbackPayload) => void;
-    description?: string;
-    feedbackOptions?: Array<FeedbackValue | FeedbackValueWithPrompt>;
+    description: string;
+    feedbackOptions?: Array<FeedbackValue | FeedbackOption>;
     renderCustomSuccess?: (props: CustomSuccessProps) => ReactNode;
     successTitle?: string;
     successMessage?: string;
@@ -51,10 +38,11 @@ interface Props extends BaseFeedbackProps {
 }
 
 export const FeedbackContext = createContext<{
-    options: Array<FeedbackValue | FeedbackValueWithPrompt>;
+    description: string;
+    options: Array<FeedbackValue | FeedbackOption>;
     value?: FeedbackValue;
     setValue: (next: FeedbackValue) => void;
-}>({ options: [], setValue: () => undefined });
+}>({ description: "", options: [], setValue: () => undefined });
 
 export const BaseFeedback: FC<Props> = ({
     label,
@@ -105,8 +93,10 @@ export const BaseFeedback: FC<Props> = ({
     }, [handleSubmit]);
 
     useEffect(() => {
-        const option = feedbackOptions.filter((v) => hasPrompt(v) && v.value === feedbackValue)[0];
-        setFeedbackPrompt(option && hasPrompt(option) ? option.prompt : textAreaLabel);
+        const option = feedbackOptions.find((v) => hasPrompt(v) && v.value === feedbackValue) as
+            | FeedbackOption
+            | undefined;
+        setFeedbackPrompt(option?.prompt ?? textAreaLabel);
     }, [feedbackOptions, feedbackValue, textAreaLabel]);
 
     const H = headingLevel;
@@ -114,7 +104,12 @@ export const BaseFeedback: FC<Props> = ({
     return (
         <div className={cn("jkl-feedback", className)}>
             <FeedbackContext.Provider
-                value={{ options: feedbackOptions, setValue: setFeedbackValue, value: feedbackValue }}
+                value={{
+                    description,
+                    options: feedbackOptions,
+                    setValue: setFeedbackValue,
+                    value: feedbackValue,
+                }}
             >
                 {feedbackSubmitted && (
                     <section className="jkl-feedback__success" data-testid="feedback-success">
@@ -129,11 +124,8 @@ export const BaseFeedback: FC<Props> = ({
                         })}
                         onSubmit={handleActiveSubmit}
                     >
-                        <div className="jkl-feedback__heading">
-                            <H className="jkl-heading-large">{label}</H>
-                            {description && <p className="jkl-lead">{description}</p>}
-                        </div>
-                        <fieldset className="jkl-feedback__fieldset">{content}</fieldset>
+                        <H className="jkl-feedback__heading jkl-heading-large">{label}</H>
+                        {content}
                         <section
                             ref={animationRef}
                             className={cn("jkl-feedback__submit-wrapper", {
