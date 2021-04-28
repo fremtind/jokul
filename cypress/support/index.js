@@ -52,6 +52,10 @@ const setMode = (action, reset) => () =>
         }
     });
 
+Cypress.Commands.add("setChoice", (choice, value) =>
+    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).then(($input) => $input.click()),
+);
+
 const setModeFactory = (knob) => {
     Cypress.Commands.add(`set${pascalCase(knob)}`, setMode(knob, false));
     Cypress.Commands.add(`reset${pascalCase(knob)}`, setMode(knob, true));
@@ -68,4 +72,5 @@ const setModeFactory = (knob) => {
     "Flip",
     "withLoader",
     "isLoading",
+    "Avvisbar",
 ].map((knob) => setModeFactory(knob));
