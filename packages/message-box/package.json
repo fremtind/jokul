@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box",
-    "version": "1.6.13",
+    "version": "1.7.0",
     "publishConfig": {
         "access": "public"
     },

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.8.0 (2021-04-28)
+
+### Features
+
+- **message-box:** make MessageBox dismissable ([f6eb66f](https://github.com/fremtind/jokul/commit/f6eb66f6bf7ee04375d95cd3a48e63677924ea71))
+
 ## 1.7.7 (2021-03-25)
 
 ### Bug Fixes
