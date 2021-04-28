@@ -30,7 +30,8 @@
         "start": "yarn run dev",
         "serve": "lerna run build:test --stream",
         "boot": "yarn install --force && yarn build",
-        "reboot": "yarn clean && yarn boot"
+        "reboot": "yarn clean && yarn boot",
+        "prepare": "husky install"
     },
     "dependencies": {
         "classnames": "^2.2.6",
@@ -90,7 +91,7 @@
         "gulp-postcss": "^8.0.0",
         "gulp-rename": "^2.0.0",
         "gulp-sass": "^4.1.0",
-        "husky": "^4.2.5",
+        "husky": "^6.0.0",
         "jest": "^26.4.2",
         "jest-axe": "^4.0.0",
         "jest-watch-typeahead": "^0.6.1",
@@ -122,12 +123,6 @@
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-lerna-changelog"
-        }
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-            "pre-commit": "lint-staged"
         }
     },
     "lint-staged": {
