@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.17 (2021-04-28)
+
+### Bug Fixes
+
+- **datepicker:** use better clickoutside target for closing calendar ([4a19fcb](https://github.com/fremtind/jokul/commit/4a19fcb59787a50661d4e15ddeddb49c2c585dbd)), closes [#1889](https://github.com/fremtind/jokul/issues/1889)
+
 ## 2.2.16 (2021-03-05)
 
 ### Bug Fixes

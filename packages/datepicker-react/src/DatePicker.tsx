@@ -107,7 +107,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             "jkl-text-input--compact": forceCompact,
             "jkl-text-input--inverted": inverted,
         });
-        const componentRef = useRef<HTMLDivElement>(null);
+        const wrapperRef = useRef<HTMLDivElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
         const textboxRef = (ref as RefObject<HTMLInputElement>) || inputRef;
         const [calendarRef] = useAnimatedHeight(!state.calendarHidden);
@@ -119,7 +119,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         };
 
         const handleFocusChange = (fn?: onFocusEventHandler) => (e: FocusEvent) => {
-            const nextFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
+            const nextFocusIsInside = wrapperRef.current && wrapperRef.current.contains(e.relatedTarget as Node);
             if (fn && !nextFocusIsInside) {
                 fn(state.date, e);
             }
@@ -138,7 +138,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
         };
 
-        useClickOutside(componentRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
+        useClickOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
 
         useKeyListener(calendarRef, ["Escape"], () => {
             !state.calendarHidden && dispatch({ type: "TOGGLE" });
@@ -162,11 +162,11 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         }, []);
 
         return (
-            <div className={componentClassName} ref={componentRef}>
+            <div className={componentClassName}>
                 <Label standAlone htmlFor={inputId} variant={variant}>
                     {label}
                 </Label>
-                <div className={inputWrapperClassName}>
+                <div className={inputWrapperClassName} ref={wrapperRef}>
                     <BaseInputField
                         id={inputId}
                         ref={textboxRef}
