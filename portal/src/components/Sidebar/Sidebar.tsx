@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { useLocation } from "../../contexts/locationContext";
 import { SidebarMenu } from "./SidebarMenu";
+import { ContentLink } from "../ContentLink/ContentLink";
 
 import "./Sidebar.scss";
 
@@ -46,6 +47,7 @@ export function Sidebar() {
 
     return (
         <nav className="jkl-portal-sidebar-menu" aria-label="Sidemeny">
+            <ContentLink>Hopp over sidemeny til innhold</ContentLink>
             <SidebarMenu
                 links={links}
                 currentSection={currentSection}

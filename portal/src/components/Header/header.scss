@@ -26,15 +26,6 @@ $header-padding--mobile: 0 $component-spacing--large;
     @include motion("standard", "lazy");
     transition-property: height;
 
-    &__skip-to-content {
-        z-index: $z-index--floating;
-        padding: $component-spacing--medium;
-        background-color: $hvit;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
     &__title {
         @include reset-outline;
         padding: 0;
