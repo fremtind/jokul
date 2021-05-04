@@ -2,8 +2,7 @@ import React, { useLayoutEffect, useCallback, useRef } from "react";
 import { navigate } from "gatsby";
 import classNames from "classnames";
 
-import { Link as JokulLink } from "@fremtind/jkl-core";
-
+import { ContentLink } from "../ContentLink/ContentLink";
 import { useLocation } from "../../contexts/locationContext";
 import { useFullscreenMenu } from "../../contexts/fullscreenMenuContext";
 import { useNavigationLinks } from "./useNavigationLinks";
@@ -112,12 +111,7 @@ export const Header = ({ className }: { className?: string }) => {
 
     return (
         <header ref={headerRef} className={componentClassName}>
-            <JokulLink
-                className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal-header__skip-to-content"
-                href="#innhold"
-            >
-                Hopp til innhold
-            </JokulLink>
+            <ContentLink>Hopp til innhold</ContentLink>
             <button role="link" className="jkl-portal-header__title" onClick={() => navigate("/")}>
                 Jøkul
             </button>
