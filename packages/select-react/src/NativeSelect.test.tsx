@@ -51,6 +51,24 @@ describe("NativeSelect", () => {
 
         expect(screen.getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
     });
+
+    it("readonly mode enabled", () => {
+        const items = [
+            { value: "item1", label: "Item 1" },
+            { value: "item2", label: "Item 2" },
+        ];
+        const { getAllByTestId } = render(<NativeSelect label="testing" items={items} onChange={dummyFunc} readOnly />);
+        expect(getAllByTestId("jkl-select__option")[1].hasAttribute("disabled")).toBe(true);
+    });
+
+    it("readonly mode disabled", () => {
+        const items = [
+            { value: "item1", label: "Item 1" },
+            { value: "item2", label: "Item 2" },
+        ];
+        const { getAllByTestId } = render(<NativeSelect label="testing" items={items} onChange={dummyFunc} />);
+        expect(getAllByTestId("jkl-select__option")[1].hasAttribute("disabled")).toBe(false);
+    });
 });
 
 describe("a11y", () => {

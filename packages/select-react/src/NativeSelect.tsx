@@ -25,6 +25,7 @@ interface Props {
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
     onBlur?: FocusEventHandler<HTMLSelectElement>;
+    readOnly?: boolean;
 }
 
 export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
@@ -47,6 +48,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
             onChange,
             onBlur,
             onFocus,
+            readOnly = false,
         },
         ref,
     ) => {
@@ -92,6 +94,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
                         )}
                         {items.map(getValuePair).map((item) => (
                             <option
+                                disabled={readOnly}
                                 data-testid="jkl-select__option"
                                 className="jkl-select__option"
                                 key={item.value}
