@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 import { ExpandArrow } from "./ExpandArrow";
 
-interface Props {
+export interface Props {
     id?: string;
     name?: string;
     label: string;

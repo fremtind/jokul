@@ -11,7 +11,7 @@ import { ExpandArrow } from "./ExpandArrow";
 
 type SelectEventHandler = (value?: string) => void;
 
-interface Props extends DataTestAutoId {
+export interface Props extends DataTestAutoId {
     id?: string;
     name?: string;
     label: string;
