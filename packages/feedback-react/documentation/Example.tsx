@@ -16,15 +16,15 @@ export const Example = ({ boolValues }: ExampleComponentProps) => {
                 renderCustomSuccess={(props) => (
                     <div>
                         <SuccessMessage title="Tilbakemelding sendt!">
-                            {props.value === VERY_UNHAPPY && <>Det var trist!</>}
-                            {props.value === UNHAPPY && (
+                            {props.value === VERY_UNHAPPY.value && <>Det var trist!</>}
+                            {props.value === UNHAPPY.value && (
                                 <>Vi ser på alle tilbakemeldinger, håper vi kan gjøre deg mer fornøyd en annen gang!</>
                             )}
-                            {props.value === NEUTRAL && (
+                            {props.value === NEUTRAL.value && (
                                 <>Vi vil gjerne ha fornøyde kunder, så vi skal se på tilbakemeldingen din!</>
                             )}
-                            {props.value === HAPPY && <>Takk skal du ha!</>}
-                            {props.value === VERY_HAPPY && (
+                            {props.value === HAPPY.value && <>Takk skal du ha!</>}
+                            {props.value === VERY_HAPPY.value && (
                                 <>
                                     Det var stas du var fornøyd, vi prøver hele tiden å bli bedre! Takk for
                                     tilbakemeldingen!
@@ -46,7 +46,7 @@ export const Example = ({ boolValues }: ExampleComponentProps) => {
                 description="Hvor fornøyd er du med denne siden for å følge saken?"
                 onSubmit={console.info}
                 showTextArea={!boolValues?.["Uten tekst"]}
-                feedbackOptions={[1, 5]}
+                feedbackOptions={[UNHAPPY, HAPPY]}
                 className="jkl-layout-spacing--large-top"
             />
         </>
