@@ -1,0 +1,41 @@
+{
+    "name": "@fremtind/jkl-cookie-consent",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for cookie consent solutions",
+    "homepage": "https://fremtind.github.io/jokul",
+    "keywords": [
+        "cookie consent",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "!example",
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-button": "^1.8.8",
+        "@fremtind/jkl-core": "^4.21.1",
+        "@fremtind/jkl-react-hooks": "^1.10.7",
+        "@nrk/core-dialog": "^3.0.7"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+}
