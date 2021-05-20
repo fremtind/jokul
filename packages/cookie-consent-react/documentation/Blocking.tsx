@@ -20,7 +20,7 @@ export const Blocking = ({}: ExampleComponentProps) => {
     }
 
     return (
-        <CookieConsentProvider>
+        <CookieConsentProvider functional marketing statistics>
             <Content />
             <CookieConsent blocking />
         </CookieConsentProvider>

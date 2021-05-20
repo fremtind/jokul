@@ -1,6 +1,7 @@
 @import "~@fremtind/jkl-core/variables/all";
 @import "~@fremtind/jkl-core/mixins/all";
 @import "~@fremtind/jkl-button/button.scss";
+@import "~@fremtind/jkl-list/list.scss";
 
 $card-corner-radius: rem(2px);
 $container-width: rem(660px);
@@ -32,7 +33,7 @@ $container-width--compact: rem(320px);
     left: 0;
     right: 0;
     width: 100%;
-    padding: $layout-spacing--medium;
+    padding: $layout-spacing--medium $layout-spacing--medium rem(30px) $layout-spacing--medium;
     min-width: $container-width--compact;
     max-width: $container-width;
     background: $hvit;
@@ -42,6 +43,12 @@ $container-width--compact: rem(320px);
     flex-direction: column;
     justify-content: space-evenly;
 
+    &.jkl-cookie-consent-modal--settings {
+        ul.jkl-list {
+            margin-bottom: $component-spacing--large;
+        }
+    }
+
     @include jkl-text-style("desktop/body");
 
     &__header {
@@ -49,15 +56,26 @@ $container-width--compact: rem(320px);
         margin-bottom: $layout-spacing--small;
     }
 
-    &__info {
-        .jkl-list__item:not(:last-child) {
-            margin-bottom: $layout-spacing--small;
+    ul.jkl-list {
+        margin: 0;
+
+        .jkl-list__item {
+            margin-top: 0;
+
+            &:not(:last-child) {
+                margin-bottom: $component-spacing--large;
+            }
         }
     }
 
-    &__settings {
-        margin-top: $layout-spacing--small;
-        margin-bottom: $component-spacing--medium;
+    p,
+    fieldset {
+        @include jkl-text-style("desktop/small");
+    }
+
+    .jkl-checkbox {
+        margin-bottom: $component-spacing--small;
+        margin-top: $component-spacing--xl;
     }
 
     &__button-group {

@@ -27,6 +27,7 @@
     "dependencies": {
         "@fremtind/jkl-button": "^1.8.8",
         "@fremtind/jkl-core": "^4.21.1",
+        "@fremtind/jkl-list": "^2.1.8",
         "@fremtind/jkl-react-hooks": "^1.10.7",
         "@nrk/core-dialog": "^3.0.7"
     },
