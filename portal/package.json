@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "3.28.6",
+    "version": "3.28.8",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
         "@types/react-helmet": "^6.1.0",
@@ -15,6 +15,7 @@
         "@mdx-js/react": "^1.6.22",
         "classnames": "^2.2.6",
         "downloadjs": "^1.4.7",
+        "focus-trap-react": "^8.4.2",
         "framer-motion": "^4.1.2",
         "gatsby": "^3.0.1",
         "gatsby-image": "^3.0.0",
