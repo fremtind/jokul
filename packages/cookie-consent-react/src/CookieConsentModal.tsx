@@ -81,7 +81,12 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
                         </UnorderedList>
 
                         <div className="jkl-cookie-consent-modal__button-group">
-                            <PrimaryButton onClick={() => handleAccept("implicit")}>Godta</PrimaryButton>
+                            <PrimaryButton
+                                onClick={() => handleAccept("implicit")}
+                                data-testid="jkl-cookie-consent-godta"
+                            >
+                                Godta
+                            </PrimaryButton>
 
                             <TertiaryButton
                                 onClick={() => {
@@ -159,7 +164,7 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
                             )}
 
                             <div className="jkl-cookie-consent-modal__button-group">
-                                <PrimaryButton>Godta</PrimaryButton>
+                                <PrimaryButton data-testid="jkl-cookie-consent-godta">Godta</PrimaryButton>
                             </div>
                         </form>
                     </>

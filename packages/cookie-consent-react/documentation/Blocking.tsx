@@ -7,10 +7,18 @@ import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
 const Content = () => {
     const { openConsentModalWithSettings } = useCookieConsent();
 
-    return <TertiaryButton onClick={openConsentModalWithSettings}>Informasjonskapsler</TertiaryButton>;
+    return (
+        <TertiaryButton data-testId="trigger-cookie-consent" onClick={openConsentModalWithSettings}>
+            Informasjonskapsler
+        </TertiaryButton>
+    );
 };
 
 export const Blocking = ({}: ExampleComponentProps) => {
+    if (typeof window === "undefined") {
+        return null;
+    }
+
     return (
         <CookieConsentProvider>
             <Content />
