@@ -1,3 +1,14 @@
+// jkl-uken
+$granitt: #1b1917;
+$skifer: #313030;
+$fjellgra: #444141;
+$stein: #636060;
+$svaberg: #c8c5c3;
+$ny-varde: #e0dbd4;
+$dis: #ece9e5;
+$sand: #f4f2ef;
+$snohvit: #f9f9f9;
+
 // Hovedfarger
 $svart: #000;
 $varde: #ded4c7;
@@ -41,6 +52,6 @@ $feil--darkbg: #ff8b79;
 
 // Farger knyttet til bruksområde
 $error-color: $feil;
-$focus-color: $info;
+$focus-color: $granitt;
 $error-color--darkbg: $feil--darkbg;
-$focus-color--darkbg: $info--darkbg;
+$focus-color--darkbg: $snohvit;

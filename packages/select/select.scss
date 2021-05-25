@@ -12,19 +12,19 @@ $bottom-padding: $component-spacing--small;
 $arrow-height: rem(16px);
 $arrow-width: rem(13px);
 
-$select-border-color: $svart;
-$select-text-color: $svart;
+$select-border-color: $stein;
+$select-text-color: $granitt;
 $select-text-disabled-color: $gra-60;
-$select-background-color: $hvit;
+$select-background-color: transparent;
 $select-open-background-color: $hvit;
-$select-focus-color: $info;
+$select-focus-color: $granitt;
 $select-error-color: $feil;
 
-$select-border-color--inverted: $hvit;
-$select-text-color--inverted: $hvit;
+$select-border-color--inverted: $svaberg;
+$select-text-color--inverted: $snohvit;
 $select-background-color--inverted: transparent;
-$select-open-background-color--inverted: $gra-80;
-$select-focus-color--inverted: $info--darkbg;
+$select-open-background-color--inverted: $svart;
+$select-focus-color--inverted: $snohvit;
 $select-error-color--inverted: $feil--darkbg;
 
 :root,
