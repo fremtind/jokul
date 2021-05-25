@@ -9,11 +9,11 @@ $hamburger-line-width: rem(3px);
 $hamburger-icon-width: rem(35px);
 $hamburger-line-spacing: rem(-10px);
 
-$hamburger-color: $svart;
-$hamburger-focus-color: $focus-color;
+$hamburger-color: $granitt;
+$hamburger-focus-color: $stein;
 
-$hamburger-color--inverted: $hvit;
-$hamburger-focus-color--inverted: $focus-color--darkbg;
+$hamburger-color--inverted: $snohvit;
+$hamburger-focus-color--inverted: $svaberg;
 
 :root,
 [data-theme="light"] {
