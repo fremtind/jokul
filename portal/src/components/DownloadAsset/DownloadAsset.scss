@@ -5,7 +5,7 @@
     padding: rem(16px);
 
     &--dark-bg {
-        background-color: black;
+        background-color: $granitt;
     }
     &__image {
         width: rem(300px);
@@ -18,7 +18,7 @@
         padding: rem(16px);
         display: block;
         &--dark {
-            color: white;
+            color: $snohvit;
         }
     }
     &__button {

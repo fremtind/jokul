@@ -36,7 +36,7 @@ $button-primary-background-color--inverted: $snohvit;
 
 /* This padding ensures that there is enough space around the button so that it is fully visible during hover and focus inside the wrapper.
 Note that this padding is only necessary for browsers that does not support clip-path. */
-$button-wrapper-animation-safe-area: 7px;
+$button-wrapper-animation-safe-area: 10px;
 
 :root,
 [data-theme="light"] {
@@ -61,9 +61,9 @@ $button-wrapper-animation-safe-area: 7px;
     height: $button-height--normal;
     overflow: hidden;
     padding: $button-wrapper-animation-safe-area;
-    @supports (clip-path: inset(-12% -12% -12% -12%)) {
+    @supports (clip-path: inset(-18% -18% -18% -18%)) {
         overflow: initial;
-        clip-path: inset(-12% -12% -12% -12%);
+        clip-path: inset(-18% -18% -18% -18%);
         padding: 0;
     }
 

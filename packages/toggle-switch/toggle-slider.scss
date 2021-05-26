@@ -10,7 +10,7 @@ $jkl-slider-rounded: rem(100px);
 
 :root,
 [data-theme="light"] {
-    --jkl-slider-bg: #{$ny-varde};
+    --jkl-slider-bg: #{$varde};
     --jkl-slider-pill: #{$snohvit};
     --jkl-slider-pill-color: #{$granitt};
     --jkl-slider-pill-color--active: #{$granitt};
@@ -49,7 +49,7 @@ $jkl-slider-focus-ring-width: rem(2px);
         }
 
         cursor: pointer;
-        background-color: $ny-varde;
+        background-color: $varde;
         background-color: var(--jkl-slider-bg);
         padding: $component-spacing--small 0;
         position: relative;

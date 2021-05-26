@@ -51,8 +51,8 @@
     }
 
     &__light-color {
-        color: $svart;
-        background-color: $hvit;
+        color: $granitt;
+        background-color: $snohvit;
 
         &:before {
             content: "Lys bakgrunn";
@@ -60,8 +60,8 @@
     }
 
     &__dark-color {
-        color: $hvit;
-        background-color: $svart;
+        color: $snohvit;
+        background-color: $granitt;
 
         &:before {
             content: "Mørk bakgrunn";

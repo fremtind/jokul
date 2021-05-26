@@ -3,15 +3,15 @@
 
 :root,
 [data-theme="light"] {
-    --hero-bg: #{$hvit};
-    --hero-text-color: #{$svart};
-    --hero-hover-color: #{$info};
+    --hero-bg: #{$snohvit};
+    --hero-text-color: #{$granitt};
+    --hero-hover-color: #{$stein};
 }
 
 [data-theme="dark"] {
-    --hero-bg: #{$svart};
-    --hero-text-color: #{$hvit};
-    --hero-hover-color: #{$info--darkbg};
+    --hero-bg: #{$granitt};
+    --hero-text-color: #{$snohvit};
+    --hero-hover-color: #{$svaberg};
 }
 
 .jkl-portal-fullView {

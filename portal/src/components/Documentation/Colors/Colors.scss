@@ -34,12 +34,12 @@
 
     &--hvit {
         .jkl-portal-color-swatch__diamond {
-            stroke: $svart;
+            stroke: $granitt;
         }
     }
     [data-theme="dark"] &--svart {
         .jkl-portal-color-swatch__diamond {
-            stroke: $hvit;
+            stroke: $snohvit;
         }
     }
 }

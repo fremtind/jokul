@@ -16,7 +16,7 @@
         &:focus {
             outline: none;
             @include keyboard-navigation {
-                box-shadow: 0 0 0 2px $info;
+                box-shadow: 0 0 0 2px $granitt;
             }
         }
 

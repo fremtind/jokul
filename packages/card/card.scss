@@ -2,7 +2,7 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-button/button.scss";
 
-$card-bg-color: $gra-10;
+$card-bg-color: $snohvit;
 $card-corner-radius: rem(2px);
 $card-padding-normal: $component-spacing--xl;
 
@@ -37,8 +37,8 @@ $card-padding-normal: $component-spacing--xl;
         width: calc(100% + 2 * #{$card-padding-normal});
     }
     &--dark {
-        background-color: $svart;
-        color: $hvit;
+        background-color: $granitt;
+        color: $snohvit;
     }
     &--clickable:hover,
     &--clickable:focus {
