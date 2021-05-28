@@ -143,11 +143,12 @@ $text-input-error-color--inverted: $feil--darkbg;
         height: $text-input-button-width;
         width: $text-input-height;
         margin-left: rem(-48px);
-        color: inherit;
+        color: $text-input-border-color;
+        color: var(--text-input-border-color);
 
         &:hover {
-            color: $text-input-border-color;
-            color: var(--text-input-border-color);
+            color: $text-input-focus-color;
+            color: var(--text-input-focus-color);
         }
         &:focus {
             @include keyboard-navigation {
@@ -233,6 +234,10 @@ $text-input-error-color--inverted: $feil--darkbg;
                         0 0 0 rem(1px) $text-input-error-color--inverted;
                 }
             }
+        }
+
+        & .jkl-text-input_action-button {
+            color: $text-input-border-color--inverted;
         }
 
         & .jkl-text-input__action-button:hover,
