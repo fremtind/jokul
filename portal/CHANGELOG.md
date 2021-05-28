@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.28.9 (2021-05-27)
+
+### Bug Fixes
+
+- upgrade prism-react-renderer from 1.2.0 to 1.2.1 ([1049502](https://github.com/fremtind/jokul/commit/1049502552422bea35f22491e03ed714576c7163))
+
 ## 3.28.8 (2021-05-03)
 
 ### Bug Fixes

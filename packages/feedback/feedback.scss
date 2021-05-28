@@ -87,7 +87,7 @@ $max-feedback-input-width: 30rem;
         position: absolute;
 
         html:not([data-mousenavigation]) &:focus {
-            + .jkl-feedback__answer-icon {
+            + .jkl-feedback__answer-label > .jkl-feedback-icon {
                 box-shadow: 0 0 0 rem(2px) $gra-10, 0 0 0 rem(4px) $info;
             }
         }

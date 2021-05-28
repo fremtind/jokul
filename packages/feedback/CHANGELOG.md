@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2021-05-26)
+
+### Bug Fixes
+
+- restore keyboard focus indication ([c203d26](https://github.com/fremtind/jokul/commit/c203d268a60ff73ae1ccbf54bca9106d6bb1e659))
+
 ## 3.0.0 (2021-03-12)
 
 ### Features
