@@ -1,7 +1,7 @@
 import { Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { useAnimatedHeight, useClickOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
-import { BaseInputField } from "@fremtind/jkl-text-input-react";
+import { BaseInputField, TextInput } from "@fremtind/jkl-text-input-react";
 import classNames from "classnames";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
 import { Calendar } from "./Calendar";
@@ -38,6 +38,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     inverted?: boolean;
+    readOnly?: boolean;
     disableBeforeDate?: Date;
     disableAfterDate?: Date;
     width?: string;
@@ -64,6 +65,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             className = "",
             forceCompact,
             inverted,
+            readOnly,
             disableBeforeDate,
             disableAfterDate,
             variant,
@@ -160,6 +162,26 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         useEffect(() => {
             isFirstRenderRef.current = false;
         }, []);
+
+        if (readOnly) {
+            return (
+                <TextInput
+                    readOnly
+                    name={name}
+                    label={label}
+                    width={width}
+                    variant={variant}
+                    inverted={inverted}
+                    className={className}
+                    helpLabel={helpLabel}
+                    errorLabel={errorLabel}
+                    value={state.dateString}
+                    placeholder={placeholder}
+                    forceCompact={forceCompact}
+                    data-testid="jkl-datepicker__input-readonly"
+                />
+            );
+        }
 
         return (
             <div className={componentClassName}>
