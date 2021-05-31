@@ -17,7 +17,7 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponente
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import {  } from "@fremtind/jkl-cookie-consent-react";
+import { CookieConsentProvider, CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
 ```
 
@@ -25,25 +25,21 @@ import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
 
 Komponentene tar følgende props:
 
--   `children`: **Påkrevd**. Innholdet i knappen. `ReactNode`
--   `onClick`: **Påkrevd**. Klikkhåndtering for knappen. Får en MouseEvent som første argument. `MouseEventHandler<HTMLButtonElement>`
--   `forceCompact`: Angir at knappen skal vises i liten versjon uavhengig av skjermstørrelse. `boolean`
--   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
+`CookieConsentProvider`:
+- `marketing`: Krav om cookies for markedsføring
+- `functional`: Krav om funksjonelle cookies
+- `statistics`: Krav om cookies for statistikk
+- `cookieAdapter`: En funksjon som gjør oppslag mot cookies, for å lete etter andre cookies som kan bestemme et consent
 
-En enkel bruk av knapper kan se slik ut:
+`CookieConsent`:
+- `blocking`: Betegner en blokkerende modal, som krever en aktiv handling
+- `onAccept`: Callback når et consent er håndtert. Første argument er consentet.
+
+Enkel bruk kan se sånn ut:
 
 ```jsx
-<SecondaryButton onClick={showDetails}>Vis detaljer</SecondaryButton>
-```
-
-Knapper kan ha annet innhold enn ren tekst, for eksempel for å vise aktivitet knyttet til knappens handling:
-
-```jsx
-<PrimaryButton onClick={uploadFiles}>
-  {
-    isUploading
-      ? <Loader inline negative textDescription="Laster opp filer">
-      : "Last opp"
-  }
-</PrimaryButton>
+<CookieConsentProvider functional marketing statistics>
+    <Content />
+    <CookieConsent blocking />
+</CookieConsentProvider>
 ```
