@@ -73,4 +73,22 @@ $container-width--compact: rem(320px);
             margin-left: $layout-spacing--small;
         }
     }
+
+    @include small-device {
+        top: $layout-spacing--medium;
+        margin: $layout-spacing--small;
+        max-width: calc(100% - #{$layout-spacing--small} - #{$layout-spacing--small});
+        padding: $layout-spacing--small;
+
+        @include jkl-text-style("compact/body");
+
+        &__header {
+            @include jkl-text-style("compact/heading-medium");
+        }
+
+        p,
+        fieldset {
+            @include jkl-text-style("compact/small");
+        }
+    }
 }
