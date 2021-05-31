@@ -107,7 +107,12 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
                     <form onSubmit={handleSubmit(onFormSubmit)}>
                         {requirement.functional && (
                             <>
-                                <Checkbox name="functional" value="True" ref={register()}>
+                                <Checkbox
+                                    name="functional"
+                                    value="True"
+                                    ref={register()}
+                                    className="jkl-cookie-consent-modal__checkbox"
+                                >
                                     Tillat funksjonelle
                                 </Checkbox>
                                 <p>
@@ -119,7 +124,12 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
 
                         {requirement.statistics && (
                             <>
-                                <Checkbox name="statistics" value="True" ref={register()}>
+                                <Checkbox
+                                    name="statistics"
+                                    value="True"
+                                    ref={register()}
+                                    className="jkl-cookie-consent-modal__checkbox"
+                                >
                                     Tillat statistikk
                                 </Checkbox>
                                 <p>
@@ -131,7 +141,12 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
 
                         {requirement.marketing && (
                             <>
-                                <Checkbox name="marketing" value="True" ref={register()}>
+                                <Checkbox
+                                    name="marketing"
+                                    value="True"
+                                    ref={register()}
+                                    className="jkl-cookie-consent-modal__checkbox"
+                                >
                                     Tillat personlig markedsføring
                                 </Checkbox>
                                 <p>

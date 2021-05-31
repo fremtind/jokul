@@ -27,9 +27,12 @@ $container-width--compact: rem(320px);
 
 .jkl-cookie-consent-modal {
     z-index: $z-index--floating !important;
-    position: absolute;
+    position: fixed;
     margin: auto;
-    top: 15%;
+    top: 10%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-sizing: border-box;
     left: 0;
     right: 0;
     width: 100%;
@@ -39,9 +42,6 @@ $container-width--compact: rem(320px);
     background: $hvit;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
     transition: 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
 
     &.jkl-cookie-consent-modal--settings {
         ul.jkl-list {
@@ -56,24 +56,12 @@ $container-width--compact: rem(320px);
         margin-bottom: $layout-spacing--small;
     }
 
-    ul.jkl-list {
-        margin: 0;
-
-        .jkl-list__item {
-            margin-top: 0;
-
-            &:not(:last-child) {
-                margin-bottom: $component-spacing--large;
-            }
-        }
-    }
-
     p,
     fieldset {
         @include jkl-text-style("desktop/small");
     }
 
-    .jkl-checkbox {
+    &__checkbox {
         margin-bottom: $component-spacing--small;
         margin-top: $component-spacing--xl;
     }
@@ -81,7 +69,7 @@ $container-width--compact: rem(320px);
     &__button-group {
         margin-top: $layout-spacing--medium;
 
-        .jkl-button:not(:first-of-type) {
+        & > :not(:first-child) {
             margin-left: $layout-spacing--small;
         }
     }
