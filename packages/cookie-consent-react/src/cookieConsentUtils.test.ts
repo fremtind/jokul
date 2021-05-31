@@ -19,7 +19,7 @@ const generateConsent = (marketing: ConsentState, functional: ConsentState, stat
     statistics,
 });
 
--describe("cookieConsentUtils/getConsentCookie", () => {
+describe("cookieConsentUtils/getConsentCookie", () => {
     const setDocumentCookieState = (consents: [string, string][]) => {
         Object.defineProperty(document, "cookie", {
             get: jest

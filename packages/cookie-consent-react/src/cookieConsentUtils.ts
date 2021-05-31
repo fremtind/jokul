@@ -55,7 +55,7 @@ export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent
             return false;
         }
     } else {
-        // conver tto a map to ease accessing dynamic keys
+        // convert to a map to ease accessing dynamic keys
         const consentMap = new Map(Object.entries(consent));
 
         // pls spare the CPU of converting to an entries array 3 times
