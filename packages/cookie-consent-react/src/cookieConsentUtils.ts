@@ -47,13 +47,8 @@ export const setConsentCookie = (consent: Consent, maxAge = DEFAULT_MAX_AGE, nam
 
 export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent: Consent | undefined) => {
     if (!consent) {
-        if (Object.values(requirement).some((b) => b)) {
-            // if cookie doesn't exist and the requirement has truthy values, show consent
-            return true;
-        } else {
-            // if not, don't show consent
-            return false;
-        }
+        // check if requirement has truthy values. should show consent if it has
+        return Object.values(requirement).some((requirementValue) => requirementValue);
     } else {
         // convert to a map to ease accessing dynamic keys
         const consentMap = new Map(Object.entries(consent));
