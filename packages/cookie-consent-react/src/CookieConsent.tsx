@@ -38,12 +38,9 @@ export const CookieConsent = ({ blocking, onAccept }: Props) => {
 
     const handleAccept = (newConsent: Partial<Consent>) => {
         // Filter out null values from the new consent
-        const newConsentWithoutNullValues: Record<string, string> = {};
-        for (const [consentName, consentValue] of Object.entries(newConsent)) {
-            if (consentValue) {
-                newConsentWithoutNullValues[consentName] = consentValue;
-            }
-        }
+        const newConsentWithoutNullValues = Object.fromEntries(
+            Object.entries(newConsent).filter(([_, value]) => value != null),
+        );
 
         // Merge the existing consent with the new consent
         const updatedConsent: Consent = {
