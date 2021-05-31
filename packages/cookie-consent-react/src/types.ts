@@ -8,6 +8,8 @@ export interface Consent {
     statistics: ConsentState;
 }
 
+export type AcceptConsentCallback = (consent: Consent) => void;
+
 export interface ConsentComponentBaseProps {
-    onAccept: (consent: Consent) => void;
+    onAccept: AcceptConsentCallback;
 }

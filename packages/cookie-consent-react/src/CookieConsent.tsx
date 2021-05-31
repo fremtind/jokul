@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
-import { Consent } from "./types";
+import { AcceptConsentCallback, Consent } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";
 import { CookieConsentModal } from "./CookieConsentModal";
 import { setConsentCookie } from "./cookieConsentUtils";
 
 interface Props {
     blocking?: boolean;
-    onAccept?: (consent: Consent) => void;
+    onAccept?: AcceptConsentCallback;
 }
 
 export const CookieConsent = ({ blocking, onAccept }: Props) => {
