@@ -93,8 +93,7 @@ const CookieConsentProvider: React.FC<{ cookieAdapter?: () => Consent | undefine
     });
 
     useEffect(() => {
-        const s = shouldShowConsentDialog(requirement, consentCookie);
-        if (s) {
+        if (shouldShowConsentDialog(requirement, consentCookie)) {
             dispatch({ type: "SET_SHOW_CONSENT", payload: true });
         } else if (consentCookie) {
             dispatch({ type: "UPDATE_CONSENT", payload: consentCookie });
