@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-05-20)
+
+### Bug Fixes
+
+- **@fremtind/jkl-feedback-react:** fixes a11y-issues on the feedback module ([1f11a68](https://github.com/fremtind/jokul/commit/1f11a68f69dc9e66c84f67fd7e7b2dbc99710f20)), closes [#1749](https://github.com/fremtind/jokul/issues/1749)
+
+### BREAKING CHANGES
+
+- **@fremtind/jkl-feedback-react:** The prop "description" is now required | The prop feedbackOptions has a new interface
+
 ## 3.0.0 (2021-03-12)
 
 ### Features

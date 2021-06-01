@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "3.8.13",
+    "version": "3.8.14",
     "publishConfig": {
         "access": "public"
     },
@@ -44,7 +44,7 @@
         "@fremtind/jkl-typography-react": "^2.5.6",
         "classnames": "^2.2.6",
         "downshift": "^6.0.5",
-        "match-sorter": "^5.0.0",
+        "match-sorter": "^6.3.0",
         "nanoid": "^3.1.22"
     },
     "devDependencies": {
