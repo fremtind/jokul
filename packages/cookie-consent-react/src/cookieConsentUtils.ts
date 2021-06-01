@@ -84,6 +84,20 @@ export const convertConsentValueToFormValue = (consent: ConsentState) => {
     return true;
 };
 
+export const convertConsentObjectToBooleans = (consent: Partial<Record<keyof Consent, ConsentState>>) => {
+    const defaultConsent = {
+        functional: null,
+        marketing: null,
+        statistics: null,
+    };
+
+    const consentEntries = Object.entries({ ...defaultConsent, ...consent }).map(([consentName, value]) => [
+        consentName,
+        convertConsentValueToFormValue(value),
+    ]);
+    return Object.fromEntries(consentEntries);
+};
+
 export const convertBooleanToConsentValue = (formValue: boolean | undefined): ConsentState => {
     if (typeof formValue === "undefined") {
         return null;
@@ -94,4 +108,21 @@ export const convertBooleanToConsentValue = (formValue: boolean | undefined): Co
     }
 
     return "accepted";
+};
+
+export const convertBooleanConsentObjectToConsentObject = (
+    consent: Partial<Record<keyof Consent, boolean | undefined>>,
+): Consent => {
+    const defaultObject = {
+        functional: undefined,
+        marketing: undefined,
+        statistics: undefined,
+    };
+
+    const consentEntries = Object.entries({ ...defaultObject, ...consent }).map(([consentName, value]) => [
+        consentName,
+        convertBooleanToConsentValue(value),
+    ]);
+
+    return Object.fromEntries(consentEntries);
 };

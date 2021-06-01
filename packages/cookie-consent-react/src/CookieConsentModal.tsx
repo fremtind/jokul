@@ -7,7 +7,7 @@ import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { useForm } from "react-hook-form";
 import { Consent, ConsentComponentBaseProps } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";
-import { convertConsentValueToFormValue, convertBooleanToConsentValue } from "./cookieConsentUtils";
+import { convertBooleanConsentObjectToConsentObject, convertConsentObjectToBooleans } from "./cookieConsentUtils";
 
 interface FormValues {
     functional?: boolean;
@@ -18,31 +18,19 @@ interface FormValues {
 export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
     const { consent, dispatch, isOpen, requirement, showSettings } = useCookieConsentState();
     const { register, handleSubmit } = useForm<FormValues>({
-        defaultValues: {
-            functional: convertConsentValueToFormValue(consent.functional),
-            marketing: convertConsentValueToFormValue(consent.marketing),
-            statistics: convertConsentValueToFormValue(consent.statistics),
-        },
+        defaultValues: convertConsentObjectToBooleans(consent),
     });
 
     const handleAccept = (v: Consent | "implicit") => {
         if (v === "implicit") {
-            onAccept({
-                functional: convertBooleanToConsentValue(requirement.functional),
-                marketing: convertBooleanToConsentValue(requirement.marketing),
-                statistics: convertBooleanToConsentValue(requirement.statistics),
-            });
+            onAccept(convertBooleanConsentObjectToConsentObject(requirement));
         } else {
             onAccept(v);
         }
     };
 
     const onFormSubmit = (formValues: FormValues) => {
-        handleAccept({
-            functional: convertBooleanToConsentValue(formValues.functional),
-            marketing: convertBooleanToConsentValue(formValues.marketing),
-            statistics: convertBooleanToConsentValue(formValues.statistics),
-        });
+        handleAccept(convertBooleanConsentObjectToConsentObject(formValues));
     };
 
     return (
