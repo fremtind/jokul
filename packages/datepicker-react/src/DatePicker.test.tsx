@@ -28,6 +28,13 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "24.12.2019");
     });
 
+    it("is read-only when specified", async () => {
+        render(<DatePicker readOnly />);
+
+        const input = screen.getByTestId("jkl-datepicker__input-readonly");
+        expect(input).toHaveAttribute("readOnly");
+    });
+
     it("fires onChange method on edit input with valid date", async () => {
         const changeHandler = jest.fn();
         render(<DatePicker onChange={changeHandler} />);
