@@ -1,13 +1,16 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
+$loader-color: $sand;
+$loader-color--inverted: $fjellgra;
+
 :root,
 [data-theme="light"] {
-    --jkl-image-loader-color: #{$gra-20};
+    --jkl-image-loader-color: #{$loader-color};
 }
 
 [data-theme="dark"] {
-    --jkl-image-loader-color: #{$gra-80};
+    --jkl-image-loader-color: #{$loader-color--inverted};
 }
 
 .jkl-image {
@@ -39,13 +42,13 @@
         }
 
         &--no-thumbnail {
-            background: $gra-20;
+            background: $loader-color;
             background: var(--jkl-image-loader-color);
         }
     }
 
     &--empty {
-        background-color: $gra-20;
+        background-color: $loader-color;
         background: var(--jkl-image-loader-color);
         display: block;
 
@@ -57,7 +60,7 @@
     &--inverted {
         .jkl-image__blur-container--no-thumbnail,
         .jkl-image--empty {
-            background-color: $gra-80;
+            background-color: $fjellgra;
             background: var(--jkl-image-loader-color);
         }
     }

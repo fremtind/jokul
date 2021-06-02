@@ -2,8 +2,8 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$datepicker-focus-color: $info;
-$datepicker-focus-color--inverted: $info--darkbg;
+$datepicker-focus-color: $granitt;
+$datepicker-focus-color--inverted: $snohvit;
 
 :root,
 [data-theme="light"] {
@@ -71,21 +71,27 @@ $calendar-padding--compact: $component-spacing--small;
 $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 2);
 
 // Theme colors:
-$calendar-text-color: $svart;
+$calendar-text-color: $granitt;
 $calendar-background-color: $hvit;
-$calendar-border-color: $info;
-$calendar-adjacent-month-color: $gra-60;
-$calendar-disabled-day-color: $gra-40;
+$calendar-border-color: $granitt;
+$calendar-adjacent-month-color: $stein;
+$calendar-disabled-day-color: $svaberg;
 $calendar-active-day-color: $hvit;
-$calendar-focus-color: $info;
+$calendar-focus-color: $granitt;
+$calendar-navigation-arrow-focus-color: $stein;
+$calendar-hover-date-background-color: $varde;
+$calendar-selected-date-background-color: $granitt;
 
-$calendar-text-color--inverted: $hvit;
-$calendar-background-color--inverted: $gra-80;
-$calendar-border-color--inverted: $info--darkbg;
-$calendar-adjacent-month-color--inverted: $gra-30;
-$calendar-disabled-day-color--inverted: $gra-50;
+$calendar-text-color--inverted: $snohvit;
+$calendar-background-color--inverted: $svart;
+$calendar-border-color--inverted: $snohvit;
+$calendar-adjacent-month-color--inverted: $svaberg;
+$calendar-disabled-day-color--inverted: $stein;
 $calendar-active-day-color--inverted: $svart;
-$calendar-focus-color--inverted: $info--darkbg;
+$calendar-focus-color--inverted: $snohvit;
+$calendar-navigation-arrow-focus-color--inverted: $svaberg;
+$calendar-hover-date-background-color--inverted: $stein;
+$calendar-selected-date-background-color--inverted: $snohvit;
 
 :root,
 [data-theme="light"] {
@@ -96,6 +102,9 @@ $calendar-focus-color--inverted: $info--darkbg;
     --calendar-disabled-day-color: #{$calendar-disabled-day-color};
     --calendar-active-day-color: #{$calendar-active-day-color};
     --calendar-focus-color: #{$calendar-focus-color};
+    --calendar-navigation-arrow-focus-color: #{$calendar-navigation-arrow-focus-color};
+    --calendar-selected-date-background-color: #{$calendar-selected-date-background-color};
+    --calendar-hover-date-background-color: #{$calendar-hover-date-background-color};
 }
 
 [data-theme="dark"] {
@@ -106,6 +115,9 @@ $calendar-focus-color--inverted: $info--darkbg;
     --calendar-disabled-day-color: #{$calendar-disabled-day-color--inverted};
     --calendar-active-day-color: #{$calendar-active-day-color--inverted};
     --calendar-focus-color: #{$calendar-focus-color--inverted};
+    --calendar-navigation-arrow-focus-color: #{$calendar-navigation-arrow-focus-color--inverted};
+    --calendar-selected-date-background-color: #{$calendar-selected-date-background-color--inverted};
+    --calendar-hover-date-background-color: #{$calendar-hover-date-background-color--inverted};
 }
 
 .jkl-calendar {
@@ -216,8 +228,8 @@ $calendar-focus-color--inverted: $info--darkbg;
 
         &:hover,
         &:focus {
-            color: $calendar-focus-color;
-            color: var(--calendar-focus-color);
+            color: $calendar-navigation-arrow-focus-color;
+            color: var(--calendar-navigation-arrow-focus-color);
         }
 
         html:not([data-mousenavigation]) &:focus {
@@ -336,13 +348,26 @@ $calendar-focus-color--inverted: $info--darkbg;
         &[aria-current="date"] {
             font-weight: $bold-weight;
         }
-        &:hover:not(:disabled),
+
+        // Other dates
+        &:hover:not(:disabled) {
+            background-color: $calendar-hover-date-background-color;
+            background-color: var(--calendar-hover-date-background-color);
+            cursor: pointer;
+        }
+
+        // Selected date
         &[autofocus] {
-            background-color: $calendar-focus-color;
-            background-color: var(--calendar-focus-color);
+            background-color: $calendar-selected-date-background-color;
+            background-color: var(--calendar-selected-date-background-color);
             color: $calendar-active-day-color;
             color: var(--calendar-active-day-color);
             cursor: pointer;
+
+            &:hover {
+                color: $calendar-text-color;
+                color: var(--calendar-text-color);
+            }
         }
 
         &:disabled {
@@ -372,7 +397,7 @@ $calendar-focus-color--inverted: $info--darkbg;
 
             &:hover,
             &:focus {
-                color: $calendar-focus-color--inverted;
+                color: $calendar-navigation-arrow-focus-color--inverted;
             }
 
             html:not([data-mousenavigation]) &:focus {
@@ -394,10 +419,22 @@ $calendar-focus-color--inverted: $info--darkbg;
             &[data-adjacent="true"] {
                 color: $calendar-adjacent-month-color--inverted;
             }
-            &:hover:not(:disabled),
+
+            // Other dates
+            &:hover:not(:disabled) {
+                background-color: $calendar-hover-date-background-color--inverted;
+                cursor: pointer;
+            }
+
+            // Selected date
             &[autofocus] {
-                background-color: $calendar-focus-color--inverted;
+                background-color: $calendar-selected-date-background-color--inverted;
                 color: $calendar-active-day-color--inverted;
+                cursor: pointer;
+
+                &:hover {
+                    color: $calendar-text-color--inverted;
+                }
             }
 
             &:disabled {

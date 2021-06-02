@@ -4,10 +4,14 @@
 
 :root,
 [data-theme="light"] {
+    --label-color: #{$granitt};
+    --label-support-color: #{$stein};
     --label-error-color: #{$feil};
 }
 
 [data-theme="dark"] {
+    --label-color: #{$snohvit};
+    --label-support-color: #{$svaberg};
     --label-error-color: #{$feil--darkbg};
 }
 
@@ -15,6 +19,7 @@
     @include jkl-text-style("desktop/small");
     display: block;
     margin-top: $component-spacing--small;
+    color: var(--label-support-color);
 
     &--error {
         color: $feil;
@@ -26,6 +31,8 @@
     }
 
     &--inverted {
+        color: var(--label-support-color);
+
         &.jkl-form-support-label--error {
             color: $feil--darkbg;
         }
@@ -42,6 +49,7 @@ $label-spacing-small--compact: $component-spacing--xs;
 .jkl-label {
     display: block;
     margin-left: initial;
+    color: var(--label-color);
 
     &--large {
         @include jkl-text-style("desktop/title-small");

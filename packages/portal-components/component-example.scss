@@ -1,5 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "../../node_modules/@fremtind/jkl-core/variables/_all.scss";
+@import "../../node_modules/@fremtind/jkl-core/_functions.scss";
 
 .jkl-portal-responsive-example {
     padding: $component-spacing--medium;
@@ -9,7 +9,7 @@
 }
 
 .jkl-portal-code-example {
-    background-color: $gra-10;
+    background-color: $snohvit;
     padding: 0 $component-spacing--medium;
     width: calc(100% - #{$layout-spacing--xxl});
     max-width: 50vw;
@@ -22,12 +22,11 @@
     }
 }
 .jkl-portal-code-example--open {
-    background-color: $hvit;
+    background-color: $snohvit;
 }
 
-
 .jkl-portal-component-example {
-    background-color: $gra-20;
+    background-color: $sand;
     padding: $component-spacing--medium;
     display: flex;
     flex-direction: row;
@@ -41,13 +40,13 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        color: $svart;
-        background-color: $hvit;
+        color: $granitt;
+        background-color: $snohvit;
         position: relative;
         padding: $layout-spacing--large $component-spacing--large;
 
         &::before {
-            color: $svart;
+            color: $granitt;
             @include jkl-text-style("desktop/micro");
             position: absolute;
             top: $component-spacing--medium;
@@ -59,11 +58,11 @@
         }
 
         &--dark {
-            background-color: $svart;
-            color: $gra-10;
+            background-color: $granitt;
+            color: $snohvit;
 
             &:before {
-                color: $gra-10;
+                color: $snohvit;
             }
         }
     }
@@ -103,7 +102,7 @@
     }
 
     *[data-theme="dark"] & {
-        background-color: $gra-100;
+        background-color: $granitt;
     }
 }
 
@@ -118,10 +117,10 @@
         top: 0;
         left: 0;
         bottom: 0;
-        color: $hvit;
+        color: $snohvit;
 
         *[data-theme="dark"] & {
-            color: $svart;
+            color: $granitt;
         }
     }
 
@@ -129,7 +128,7 @@
         &__content {
             height: 812px;
             width: 375px;
-            border: 1px solid $svart;
+            border: 1px solid $granitt;
             overflow: auto;
         }
     }
@@ -138,7 +137,7 @@
         &__content {
             height: 833px;
             width: 1112px;
-            border: 1px solid $svart;
+            border: 1px solid $granitt;
             overflow: auto;
         }
     }
@@ -147,7 +146,7 @@
         &__content {
             height: 1080px;
             width: 1920px;
-            border: 1px solid $svart;
+            border: 1px solid $granitt;
             overflow: auto;
         }
     }

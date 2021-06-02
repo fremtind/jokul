@@ -7,16 +7,16 @@ $max-feedback-input-width: 30rem;
 
 :root,
 [data-theme="light"] {
-    --jkl-feedback-icon--base: #{$hvit};
-    --jkl-feedback-icon--outline: #{$svart};
-    --jkl-feedback-icon--hover: #{$gra-30};
+    --jkl-feedback-icon--base: #{$snohvit};
+    --jkl-feedback-icon--outline: #{$granitt};
+    --jkl-feedback-icon--hover: #{$svaberg};
     --jkl-feedback-icon--selected: #{$suksess--darkbg};
 }
 
 [data-theme="dark"] {
-    --jkl-feedback-icon--base: #{$svart};
-    --jkl-feedback-icon--outline: #{$hvit};
-    --jkl-feedback-icon--hover: #{$gra-70};
+    --jkl-feedback-icon--base: #{$granitt};
+    --jkl-feedback-icon--outline: #{$snohvit};
+    --jkl-feedback-icon--hover: #{$stein};
     --jkl-feedback-icon--selected: #{$suksess};
 }
 
@@ -37,13 +37,13 @@ $max-feedback-input-width: 30rem;
 .jkl-feedback-icon {
     width: $icon-size;
     stroke-width: rem(2px);
-    stroke: $svart;
+    stroke: $granitt;
     stroke: var(--jkl-feedback-icon--outline);
     transition-property: color;
     @include motion(standard, expressive);
 
     &__eyes {
-        fill: $svart;
+        fill: $granitt;
         fill: var(--jkl-feedback-icon--outline);
     }
 
@@ -88,7 +88,7 @@ $max-feedback-input-width: 30rem;
 
         html:not([data-mousenavigation]) &:focus {
             + .jkl-feedback__answer-icon {
-                box-shadow: 0 0 0 rem(2px) $gra-10, 0 0 0 rem(4px) $info;
+                box-shadow: 0 0 0 rem(2px) $snohvit, 0 0 0 rem(4px) $granitt;
             }
         }
         &:checked {
@@ -106,7 +106,7 @@ $max-feedback-input-width: 30rem;
         margin-top: $layout-spacing--small;
         margin-bottom: $layout-spacing--small;
         margin-right: $layout-spacing--small;
-        color: white;
+        color: $snohvit;
         color: var(--jkl-feedback-icon--base);
         transition-property: color, transform;
         @include motion(standard, expressive);
