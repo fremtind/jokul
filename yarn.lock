@@ -1319,6 +1319,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.14.0":
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
+  integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.12.6":
   version "7.12.6"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.12.6.tgz#fa59cf6f1cea940a790179f1375394ab31f025b9"
@@ -7079,7 +7086,7 @@ chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@4.1.0, chalk@^4.0.0, chalk@^4.1.0:
+chalk@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.0.tgz#4e14870a618d9e2edd97dd8345fd9d9dc315646a"
   integrity sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==
@@ -7102,6 +7109,14 @@ chalk@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
   integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^4.0.0, chalk@^4.1.0, chalk@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.1.tgz#c80b3fab28bf6371e6863325eee67e618b77e6ad"
+  integrity sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -11068,6 +11083,15 @@ fs-extra@9.0.1:
     jsonfile "^6.0.1"
     universalify "^1.0.0"
 
+fs-extra@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
+  integrity sha512-C5owb14u9eJwizKGdchcDUQeFtlSHHthBk8pbX9Vc1PFZrLombudjDnNns88aYslCyF6IY5SUw3Roz6xShcEIQ==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
 fs-extra@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-7.0.1.tgz#4f189c44aa123b895f722804f55ea23eadc348e9"
@@ -12166,10 +12190,10 @@ globby@^10.0.0, globby@^10.0.1:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-globby@^11.0.1, globby@^11.0.2:
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.2.tgz#1af538b766a3b540ebfb58a32b2e2d5897321d83"
-  integrity sha512-2ZThXDvvV8fYFRVIxnrMQBipZQDr7MxKAmQK1vujaj9/7eF0efG7BPUKJ7jP7G5SLF37xKDXvO4S/KKLj/Z0og==
+globby@^11.0.1, globby@^11.0.2, globby@^11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.3.tgz#9b1f0cb523e171dd1ad8c7b2a9fb4b644b9593cb"
+  integrity sha512-ffdmosjA807y7+lA1NM0jELARVmYul/715xiILEjo3hBLPTcirgQNnXECn5g3mtR8TOLCVbkfua1Hpen25/Xcg==
   dependencies:
     array-union "^2.1.0"
     dir-glob "^3.0.1"
@@ -15076,26 +15100,26 @@ lead@^1.0.0:
     flush-write-stream "^1.0.2"
 
 lerna-clean-changelogs-cli@^1.2.64:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/lerna-clean-changelogs-cli/-/lerna-clean-changelogs-cli-1.4.2.tgz#cc2e751bc3dbb24532e72ced5220efba2083b490"
-  integrity sha512-bIPq2FRPOkXky1iNhxDHK0uaXi3j10Yfid4ovdvAa4P4nTULqDP1/9Kar9LFhPcS2Ujvl1e5HTnrG9wq/3Riow==
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/lerna-clean-changelogs-cli/-/lerna-clean-changelogs-cli-1.5.0.tgz#a13ff6d092f8e2148e15f507a62d6138288712a7"
+  integrity sha512-MwCGgBeQwTZqLxgzvMGWK/WPp2er8irGge+ErD4oVeDSdM1OU/rMwajcVVp/MpiWj00cMk5SyFeauD96+fCJsg==
   dependencies:
-    chalk "^4.1.0"
-    fs-extra "^9.1.0"
-    globby "^11.0.2"
-    lerna-clean-changelogs "^2.0.2"
+    chalk "^4.1.1"
+    fs-extra "^10.0.0"
+    globby "^11.0.3"
+    lerna-clean-changelogs "^2.1.0"
     meow "^9.0.0"
     p-filter "^2.1.0"
     p-reduce "^2.1.0"
-    update-notifier "^5.0.1"
+    update-notifier "^5.1.0"
     write-file-atomic "^3.0.3"
 
-lerna-clean-changelogs@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/lerna-clean-changelogs/-/lerna-clean-changelogs-2.0.2.tgz#df99e11602efe2a1872641b896b6451258c02e93"
-  integrity sha512-mgtKJv1HiLXDu3DBfpOJ6zIF/H1A+Jz+F7HYjObjKjVCsaULXqiYqFQtDXl2XHBuzg108EfBI5/ID+dbgQgJng==
+lerna-clean-changelogs@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/lerna-clean-changelogs/-/lerna-clean-changelogs-2.1.0.tgz#c103799658212c27b463e7beb610b470971f5aff"
+  integrity sha512-ezvB2ljXrC6OEqR8qHeurrG5mkt+Ii7wq6ew/0eQvD9MaEkO58osfVkIvHYfJJnMH9VJnZRDQiZ2q4asg03kMg==
   dependencies:
-    "@babel/runtime" "^7.12.5"
+    "@babel/runtime" "^7.14.0"
 
 lerna@^3.22.1:
   version "3.22.1"
