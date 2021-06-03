@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.8.15 (2021-06-02)
+
+### Bug Fixes
+
+- **text-area:** remove describedby attr when field has no message ([dddc472](https://github.com/fremtind/jokul/commit/dddc472ff7b6ed47ac96f15128b9f00d24a9c4cf))
+
 ## 3.8.8 (2021-02-16)
 
 ### Bug Fixes
