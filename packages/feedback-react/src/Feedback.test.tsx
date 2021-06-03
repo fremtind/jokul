@@ -9,9 +9,8 @@ const mockFn = jest.fn();
 
 beforeEach(() => {
     jest.resetAllMocks();
+    cleanup();
 });
-
-afterEach(() => cleanup());
 
 test("should call onSubmit function with feedback value", async () => {
     render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
@@ -93,6 +92,15 @@ test("simplified should call onSubmit function with feedback value and message w
 
     expect(mockFn).toBeCalledTimes(1);
     expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 3, message: "This is very nice" });
+});
+
+test("should call onSubmit function if the component is unmounted", () => {
+    const { unmount } = render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
+
+    userEvent.click(screen.getByTestId("feedback-1"));
+    unmount();
+
+    expect(mockFn).toBeCalledTimes(1);
 });
 
 test.each([Feedback, SimplifiedFeedback])("Feedback should be a11y compliant", async (Component) => {
