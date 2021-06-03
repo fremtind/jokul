@@ -88,6 +88,7 @@ export const BaseFeedback: FC<Props> = ({
             window.addEventListener("beforeunload", handleSubmit);
         }
         return () => {
+            handleSubmit();
             window.removeEventListener("beforeunload", handleSubmit);
         };
     }, [handleSubmit]);
