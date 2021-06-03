@@ -29,8 +29,8 @@ export const ColorSwatch = ({ colorVariable, className, setColor }: ColorSwatchP
     const swatchClasses = classNames(
         {
             "jkl-portal-color-swatch": true,
-            "jkl-portal-color-swatch--hvit": colorVariable === "snohvit",
-            "jkl-portal-color-swatch--svart": colorVariable === "granitt",
+            "jkl-portal-color-swatch--snohvit": colorVariable === "snohvit",
+            "jkl-portal-color-swatch--granitt": colorVariable === "granitt",
         },
         className,
     );
