@@ -12,8 +12,8 @@ $jkl-slider-rounded: rem(100px);
 [data-theme="light"] {
     --jkl-slider-bg: #{$varde};
     --jkl-slider-pill: #{$snohvit};
-    --jkl-slider-pill-color: #{$granitt};
-    --jkl-slider-pill-color--active: #{$granitt};
+    --jkl-slider-pill-text: #{$granitt};
+    --jkl-slider-pill-text--active: #{$granitt};
     --jkl-slider-focus-color: #{$svart};
     --jkl-slider-hover-color: #{$stein};
 }
@@ -21,8 +21,8 @@ $jkl-slider-rounded: rem(100px);
 [data-theme="dark"] {
     --jkl-slider-bg: #{$fjellgra};
     --jkl-slider-pill: #{$granitt};
-    --jkl-slider-pill-color: #{$snohvit};
-    --jkl-slider-pill-color--active: #{$snohvit};
+    --jkl-slider-pill-text: #{$snohvit};
+    --jkl-slider-pill-text--active: #{$snohvit};
     --jkl-slider-focus-color: #{$svaberg};
     --jkl-slider-hover-color: #{$svaberg};
 }
@@ -83,7 +83,7 @@ $jkl-slider-focus-ring-width: rem(2px);
             width: 50%;
             text-align: center;
             color: $granitt;
-            color: var(--jkl-slider-pill-color);
+            color: var(--jkl-slider-pill-text);
             transition-property: color;
             @include motion(standard, expressive);
         }
@@ -114,7 +114,7 @@ $jkl-slider-focus-ring-width: rem(2px);
         &--checked {
             & > .jkl-toggle-slider--right {
                 color: $granitt;
-                color: var(--jkl-slider-pill-color--active);
+                color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
@@ -134,7 +134,7 @@ $jkl-slider-focus-ring-width: rem(2px);
 
             & > .jkl-toggle-slider--left {
                 color: $granitt;
-                color: var(--jkl-slider-pill-color--active);
+                color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
@@ -150,7 +150,7 @@ $jkl-slider-focus-ring-width: rem(2px);
 
     &--inverted {
         color: $snohvit;
-        --jkl-slider-pill-color--active: #{$snohvit};
+        --jkl-slider-pill-text--active: #{$snohvit};
         --jkl-slider-hover-color: #{$svaberg};
 
         .jkl-toggle-slider {

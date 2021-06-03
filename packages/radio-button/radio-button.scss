@@ -136,8 +136,7 @@ $radio-button-default-color--inverted: $svaberg;
         margin-right: $component-spacing--small;
 
         border-radius: 50%;
-        box-shadow: inset 0 0 0 rem(1px) $stein, 0 0 0 0 transparent;
-        box-shadow: inset 0 0 0 rem(1px) var(--radio-button-default-color), 0 0 0 0 transparent;
+        box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
 
         @include motion("standard");
         transition-property: box-shadow;

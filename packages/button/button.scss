@@ -23,7 +23,7 @@ $hover-elevation-distance: -0.25rem;
 $button-border-color: $granitt;
 $button-text-color: $granitt;
 $button-background-color: transparent;
-$button-focus-color: $focus-color;
+$button-focus-color: $granitt;
 $button-primary-text-color: $snohvit;
 $button-primary-background-color: $granitt;
 
@@ -207,12 +207,8 @@ $button-wrapper-animation-safe-area: 10px;
         &:hover,
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
         html[data-touchnavigation] &.jkl-button--pressed {
-            color: $button-focus-color;
-            color: var(--button-focus-color);
-            border-color: $button-focus-color;
-            border-color: var(--button-focus-color);
-            border: solid $focus-ring-width $button-border-color;
-            border: solid $focus-ring-width var(--button-border-color);
+            box-shadow: inset 0 0 0 1px $button-border-color, inset 0 0 0 1px $button-border-color;
+            box-shadow: inset 0 0 0 1px var(--button-border-color), inset 0 0 0 1px var(--button-border-color);
         }
     }
 

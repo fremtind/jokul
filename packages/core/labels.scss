@@ -2,27 +2,36 @@
 @import "./mixins/all";
 @import "./functions";
 
+$label-color: $granitt;
+$label-support-color: $stein;
+$label-error-color: $feil;
+
+$label-color--inverted: $snohvit;
+$label-support-color--inverted: $svaberg;
+$label-error-color--inverted: $feil--darkbg;
+
 :root,
 [data-theme="light"] {
-    --label-color: #{$granitt};
-    --label-support-color: #{$stein};
-    --label-error-color: #{$feil};
+    --label-color: #{$label-color};
+    --label-support-color: #{$label-support-color};
+    --label-error-color: #{$label-error-color};
 }
 
 [data-theme="dark"] {
-    --label-color: #{$snohvit};
-    --label-support-color: #{$svaberg};
-    --label-error-color: #{$feil--darkbg};
+    --label-color: #{$label-color--inverted};
+    --label-support-color: #{$label-support-color--inverted};
+    --label-error-color: #{$label-error-color--inverted};
 }
 
 .jkl-form-support-label {
     @include jkl-text-style("desktop/small");
     display: block;
     margin-top: $component-spacing--small;
+    color: $label-support-color;
     color: var(--label-support-color);
 
     &--error {
-        color: $feil;
+        color: $label-error-color;
         color: var(--label-error-color);
     }
 
@@ -49,6 +58,7 @@ $label-spacing-small--compact: $component-spacing--xs;
 .jkl-label {
     display: block;
     margin-left: initial;
+    color: $label-color;
     color: var(--label-color);
 
     &--large {

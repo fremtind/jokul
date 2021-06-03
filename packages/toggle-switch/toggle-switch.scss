@@ -12,10 +12,8 @@ $toggle-dot-white-line-inset: rem(5px);
 $main-slider-color: $granitt;
 $main-slider-background-color: $snohvit;
 $expanding-pill-background-color: $varde;
-$line-left-right-margin: rem(8px);
-
 $disabled-color: $stein;
-$inverted-disabled-color: #969696;
+$line-left-right-margin: rem(8px);
 
 $toggle-focus-outline-color--inverted: $snohvit;
 $main-slider-color--inverted: $snohvit;
@@ -145,15 +143,15 @@ $expanding-pill-background-color--inverted: $fjellgra;
 
         &[disabled] > .jkl-toggle-switch__slider {
             &:before {
-                background-color: $inverted-disabled-color;
+                background-color: $disabled-color;
             }
             &:after {
-                background-color: $inverted-disabled-color;
-                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $inverted-disabled-color,
+                background-color: $disabled-color;
+                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
                     inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) $granitt;
             }
             & .jkl-toggle-switch__expanding-pill {
-                border-color: $inverted-disabled-color;
+                border-color: $disabled-color;
             }
         }
     }

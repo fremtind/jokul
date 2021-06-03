@@ -162,8 +162,7 @@ $checkbox-box-default-color--inverted: $svaberg;
 
         outline: none;
         border-radius: 0; // fixes rounded corners in iOS Safari
-        box-shadow: inset 0 0 0 rem(1px) $stein, 0 0 0 0 transparent;
-        box-shadow: inset 0 0 0 rem(1px) var(--checkbox-box-default-color), 0 0 0 0 transparent;
+        box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
 
         @include motion("standard");
         transition-property: box-shadow;

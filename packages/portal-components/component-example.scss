@@ -1,5 +1,5 @@
-@import "../../node_modules/@fremtind/jkl-core/variables/_all.scss";
-@import "../../node_modules/@fremtind/jkl-core/_functions.scss";
+@import "../core/variables/_all.scss";
+@import "../core/_functions.scss";
 
 .jkl-portal-responsive-example {
     padding: $component-spacing--medium;
@@ -26,7 +26,7 @@
 }
 
 .jkl-portal-component-example {
-    background-color: $sand;
+    background-color: $dis;
     padding: $component-spacing--medium;
     display: flex;
     flex-direction: row;
