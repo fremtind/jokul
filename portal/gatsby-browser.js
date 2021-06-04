@@ -38,7 +38,6 @@ import { initTabListener } from "@fremtind/jkl-core";
 import "@fremtind/jkl-portal-components/component-example.scss";
 
 import "./src/components/Typography/typography.scss";
-import { ThemeContextProvider } from "./src/contexts/themeContext";
 import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
 import { LocationContextProvider } from "./src/contexts/locationContext";
 import { A11yContextProvider } from "./src/contexts/a11yContext";
@@ -49,9 +48,7 @@ export const wrapRootElement = ({ element }) => {
     return (
         <A11yContextProvider>
             <LocationContextProvider>
-                <ThemeContextProvider>
-                    <FSMenuContextProvider>{element}</FSMenuContextProvider>
-                </ThemeContextProvider>
+                <FSMenuContextProvider>{element}</FSMenuContextProvider>
             </LocationContextProvider>
         </A11yContextProvider>
     );

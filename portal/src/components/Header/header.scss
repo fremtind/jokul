@@ -21,7 +21,7 @@ $header-padding--mobile: 0 $component-spacing--large;
     position: sticky;
     top: 0;
     left: 0;
-    background-color: $header-bg-color;
+    background-color: inherit;
 
     @include motion("standard", "lazy");
     transition-property: height;

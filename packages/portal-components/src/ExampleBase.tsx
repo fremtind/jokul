@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { Dictionary, ChoiceProp, ExampleComponentProps } from "../src";
 import { hyphenate } from "./internal/hypenate";
 
@@ -56,35 +57,47 @@ export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, tit
                 >
                     <C boolValues={boolValues} choiceValues={choiceValues} />
                 </div>
-                {(knobs?.boolProps || knobs?.choiceProps) && (
-                    <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
-                        <p className="jkl-portal-component-example__example-options-header">Egenskaper</p>
-                        {Object.entries(boolValues).map(([key, value]) => (
-                            <Checkbox
-                                key={key}
-                                name={`${uid}-${hyphenate(key)}`}
-                                value={key}
-                                checked={value}
-                                onChange={(e) => setBoolValue(key, e.target.checked)}
-                            >
-                                {key}
-                            </Checkbox>
-                        ))}
-                        {Object.entries(choiceValues).map(([key, value]) => (
-                            <RadioButtons
-                                className="jkl-portal-component-example__choice-option"
-                                variant="small"
-                                key={key}
-                                name={`${uid}-${hyphenate(key)}`}
-                                legend={key}
-                                choices={[...choices[key]]}
-                                selectedValue={value}
-                                onChange={(e) => setChoiceValue(key, e.target.value)}
-                            />
-                        ))}
-                        <p className="jkl-portal-component-example__example-options-header jkl-layout-spacing--small-top">
-                            Visning
-                        </p>
+                <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
+                    {knobs?.boolProps && (
+                        <FieldGroup
+                            legend="Egenskaper"
+                            variant="small"
+                            className="jkl-portal-component-example__example-options-header"
+                        >
+                            {Object.entries(boolValues).map(([key, value]) => (
+                                <Checkbox
+                                    key={key}
+                                    name={`${uid}-${hyphenate(key)}`}
+                                    value={key}
+                                    checked={value}
+                                    onChange={(e) => setBoolValue(key, e.target.checked)}
+                                >
+                                    {key}
+                                </Checkbox>
+                            ))}
+                        </FieldGroup>
+                    )}
+                    {knobs?.choiceProps && (
+                        <>
+                            {Object.entries(choiceValues).map(([key, value]) => (
+                                <RadioButtons
+                                    className="jkl-portal-component-example__example-options-header"
+                                    variant="small"
+                                    key={key}
+                                    name={`${uid}-${hyphenate(key)}`}
+                                    legend={key}
+                                    choices={[...choices[key]]}
+                                    selectedValue={value}
+                                    onChange={(e) => setChoiceValue(key, e.target.value)}
+                                />
+                            ))}
+                        </>
+                    )}
+                    <FieldGroup
+                        legend="Visning"
+                        variant="small"
+                        className="jkl-portal-component-example__example-options-header"
+                    >
                         <Checkbox
                             name={`${uid}-dark-mode`}
                             value="Dark mode"
@@ -93,8 +106,8 @@ export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, tit
                         >
                             Dark mode
                         </Checkbox>
-                    </aside>
-                )}
+                    </FieldGroup>
+                </aside>
             </section>
             {children && (
                 <div
