@@ -28,13 +28,12 @@ $link-color--inverted: $snohvit;
 $link-hover-color--inverted: $svaberg;
 $link-active-color--inverted: $snohvit;
 
-:root,
-[data-theme="light"] {
+@include light-mode-variables {
     --link-color: #{$link-color};
     --link-hover-color: #{$link-hover-color};
     --link-active-color: #{$link-active-color};
 }
-[data-theme="dark"] {
+@include dark-mode-variables {
     --link-color: #{$link-color--inverted};
     --link-hover-color: #{$link-hover-color--inverted};
     --link-active-color: #{$link-active-color--inverted};
