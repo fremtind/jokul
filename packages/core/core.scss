@@ -1,3 +1,6 @@
+@use "variables" as vars;
+@use "mixins";
+
 @import "./normalize.scss";
 @import "./reset.scss";
 
@@ -10,10 +13,23 @@
 @import "./color-classes.scss";
 @import "./icons.scss";
 
-:root {
+@include mixins.helper-light-mode-variables {
+    --jkl-background-color: #{vars.$color-snohvit};
+    --jkl-color: #{vars.$color-granitt};
+}
+
+@include mixins.helper-dark-mode-variables {
+    --jkl-background-color: #{vars.$color-granitt};
+    --jkl-color: #{vars.$color-snohvit};
+}
+
+.jkl {
     font-family: "Fremtind Grotesk", Calibri, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    background-color: var(--jkl-background-color);
+    color: var(--jkl-color);
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
