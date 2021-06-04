@@ -37,8 +37,7 @@ $error-border-color--inverted: $feil--darkbg;
 $success-background-color--inverted: message-bg-dark($suksess--darkbg);
 $success-border-color--inverted: $suksess--darkbg;
 
-:root,
-[data-theme="light"] {
+@include helpers.light-mode-variables {
     --dismiss-hover-color: #{$dismiss-hover-color};
     --text-color: #{$text-color};
     --border-color: #{$border-color};
@@ -53,7 +52,7 @@ $success-border-color--inverted: $suksess--darkbg;
     --success-background-color: #{$success-background-color};
 }
 
-[data-theme="dark"] {
+@include helpers.dark-mode-variables {
     --dismiss-hover-color: #{$dismiss-hover-color--inverted};
     --text-color: #{$text-color--inverted};
     --border-color: #{$border-color--inverted};
