@@ -1,3 +1,5 @@
+@use "jkl";
+
 @import "./variables/all";
 @import "./mixins/all";
 @import "./functions";
@@ -10,14 +12,13 @@ $label-color--inverted: $snohvit;
 $label-support-color--inverted: $svaberg;
 $label-error-color--inverted: $feil--darkbg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --label-color: #{$label-color};
     --label-support-color: #{$label-support-color};
     --label-error-color: #{$label-error-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --label-color: #{$label-color--inverted};
     --label-support-color: #{$label-support-color--inverted};
     --label-error-color: #{$label-error-color--inverted};
