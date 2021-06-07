@@ -5,7 +5,7 @@ order: 3
 ---
 
 import { ColorDescription, TwoToneColorDescription } from "../../components/Documentation/Colors/ColorDescription";
-import { GraTable, VardeTable } from "../../components/Documentation/Colors/ColorTable";
+import { ColTable } from "../../components/Documentation/Colors/ColorTable";
 
 # Farger
 
@@ -18,20 +18,20 @@ import { GraTable, VardeTable } from "../../components/Documentation/Colors/Colo
 
 Disse fargene bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk. Primærfargene våre er:
 
-<ColorDescription title="Hvit" colorVariable="hvit" rgbValue={{ r: 255, g: 255, b: 255 }} cmyk="0 0 0 0">
-    Hvit bruker vi mest som bakgrunnsfarge, og som tekstfarge der vi har mørke flater. I tillegg er den fokusfarge, for
+<ColorDescription title="Snohvit" colorVariable="snohvit" cmyk="0 0 0 0">
+    Snohvit bruker vi mest som bakgrunnsfarge, og som tekstfarge der vi har mørke flater. I tillegg er den fokusfarge, for
     eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for eksempel
     et felt i et skjema.
 </ColorDescription>
 
 <ColorDescription
-    title="Svart"
-    colorVariable="svart"
+    title="Granitt"
+    colorVariable="granitt"
     cmyk="15 15 15 100"
     pantone="Pantone Black U"
 >
-    Svart bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er den svarte primærknappen. Vi kan bruke
-    store, svarte flater, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette svarte flater nær
+    Granitt bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er primærknappen. Vi kan bruke
+    store flater med granitt, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette granitt flater nær
     bakgrunner med fargen varde.
 </ColorDescription>
 
@@ -39,32 +39,22 @@ Disse fargene bruker vi både på trykk og i digitale flater. Disse bærer profi
     title="Varde"
     colorVariable="varde"
     cmyk="12 13 19 0"
-    pantone="Pantone 2310 U"
 >
     Varde bruker vi som bakgrunnsfarge eller på elementer for å fremheve innhold. Når vi velger å bruke den på en flate,
     unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke
     bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
 </ColorDescription>
 
-## Grå- og vardevalørene
+## Fargespektrumet vårt
 
-Vi har et sett av valører for grå og varde. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
+Vi har et sett av valører som fungerer godt med hverandre. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
 
-### Gråvalører (Grå 10 - Grå 100)
+For Varde og lavere skal man bruke granitt tekst, og for Fjellgra og høyere skal man bruke snohvit tekst. Bruk Svaberg og Stein med omhu.
 
-<GraTable />
+### Farger
 
-Disse kan brukes på elementer for å bryte opp layout og for å ha flere nyanser enn svart og hvit. For bruk til større flater og bakgrunner skal det bare brukes Grå-10, Grå-20, Grå-90 og Grå-100. Ikke bruk grå flater sammen med Varde, og vær obs på kontrast til innholdet når du bruker de ulike valørene.
+<ColTable />
 
-Grå 10 til Grå 50 kan brukes med svart tekst, mens Grå 60 til Grå 100 kan brukes med hvit tekst.
-
-### Vardevalører (Varde 10 - Varde 100)
-
-<VardeTable />
-
-De lysere vardevalørene (Varde 50 og lavere) kan brukes som bakgrunnsflater eller på elementer for å bryte opp layout. Bruk de mørkere vardevalørene (Varde 60 og opp) med omhu. Ikke benytt de aller mørkeste som bakgrunnsfarge eller farge på større flater.
-
-For Varde 10 til Varde 90 skal man bruke svart tekst.
 
 ## Meldingsfargene
 
@@ -128,7 +118,7 @@ Tilgjengelighet er noe av det viktigste å tenke på når vi bruker farger i dig
 
 I tillegg til å tenke på tekst mot knappebakgrunnen, må vi også tenke på knappebakgrunnen mot sidens bakgrunnsfarge dersom det er viktig for å forstå funksjonen til komponenten.
 
-Tekstfargene våre er helhvit eller svart. Se fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
+Tekstfargene våre er snohvit eller granitt. Se fargebeskrivelsene for å finne ut hvilken farge du skal bruke mot hvilken bakgrunn, for å overholde kontrastkravet.
 
 ### Plugins til Figma
 

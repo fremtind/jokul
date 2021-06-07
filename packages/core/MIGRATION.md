@@ -1,6 +1,59 @@
 # Migrasjonsguide
 
-Fra `jkl-core@2.x.x` til `jkl-core@3.0.0` eller `jkl-core@4.0.0`
+## Fra `jkl-core@4.0.0` til `jkl-core@5.0.0`
+
+Fargene har igjen fått en overhaling i `jkl-core@5.0.0`. **Hovedfargene** går i fra "Hvit", "Svart" og "Varde" til "Snohvit", "Granitt" og "Varde".
+Alle de gamle gråtonene og vardetonene er tatt bort, mens "Svart", "Hvit" og bruksfargene står som før. 
+
+
+
+### Prinsipper
+"Snohvit" skal fra nå av brukes som bakgrunnsfarge og "Granitt" skal brukes som farge på tekst.
+
+Hover og Fokus skal ikke lenger bruke "$info" (mørk blå). Dersom du har laget egne komponenter som tar i bruk "$info" på hover og fokus, så må du også bruke litt tid på å skrive dette om til å bruke en av de nye prinsippene.
+
+1. "Granitt" skal gå til "Stein" i light mode og "Snohvit" skal gå til "Svaberg" i dark mode. 
+2. Dersom du har elementer med rammer og ikke ønsker å gå lysere, ønsker vi at rammen går fra 1px til 2px. 
+
+Ta gjerne en titt på componentene i portalen eller ta kontakt i Support Designsystem på Teams dersom du er usikker. 
+
+### Hvordan bruke de nye fargestilene i CSS/Sass
+Vi har laget en ny eksport fil med `colors-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "~@fremtind/jkl-core/jkl;"` og skriver `jkl.$colors-snovhit` for å bruke den i din stil-fil. 
+Dette ble gjort slik at det skal bli likt når typografi endringen kommer (skal også få prefix);
+Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "~@fremtind/jkl-core/variables/_colors.scss";`.
+
+Dersom du har brukt de gamle valørene som bakgrunnsfarge eller lignende, kan du bruke denne tabellen som et cheat sheet når du tar i bruk `jkl-core@5.0.0`.
+
+| Gammel variabel  | Ny (eller nærmeste nye) variabel |
+| ---------------- | -------------------------------- |
+| `$hvit`          | `$hvit`                          |
+| `$svart`         | `$svart`                         |
+|                  | `$snohvit`  Ny standard hvit     |
+|                  | `$granitt`  Ny standard svart    |
+| `$gra-10`        | `$snohvit`                       |
+| `$gra-20`        | `$snohvit`                       |
+| `$gra-30`        | `$sand`                          |
+| `$gra-40`        | `$sand`                          |
+| `$gra-50`        | `$dis`                           |
+| `$gra-60`        | `$fjellgra`                      |
+| `$gra-70`        | `$fjellgra`                      |
+| `$gra-80`        | `$fjellgra`                      |
+| `$gra-90`        | `$skifer`                        |
+| `$gra-100`       | `$granitt`                       |
+| `$varde-10`      | `$sand`                          |
+| `$varde-20`      | `$dis`                           |
+| `$varde-30`      | `$dis`                           |
+| `$varde-40`      | `$varde`                         |
+| `$varde-50`      | `$varde`                         |
+| `$varde-60`      | `$fjellgra`                      |
+| `$varde-70`      | `$fjellgra`                      |
+| `$varde-80`      | `$fjellgra`                      |
+| `$varde-90`      | `$skifer`                        |
+| `$varde-100`     | `$granitt`                       |
+
+
+
+# Fra `jkl-core@2.x.x` til `jkl-core@3.0.0` eller `jkl-core@4.0.0`
 
 ## Farger
 

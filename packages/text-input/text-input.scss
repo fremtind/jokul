@@ -4,7 +4,6 @@
 
 @import "./autosuggest.scss";
 
-$text-input-border-color: $svart;
 $text-input-height: rem(48px);
 $text-input-height--compact: rem(40px);
 $text-input-button-width: rem(48px);
@@ -15,18 +14,18 @@ $text-input-padding: $component-spacing--small;
 $text-input-line-height: rem(32px);
 $text-input-line-height--compact: rem(28px);
 
-$text-input-border-color: $svart;
-$text-input-text-color: $svart;
-$text-input-placeholder-color: $gra-60;
+$text-input-border-color: $stein;
+$text-input-text-color: $granitt;
+$text-input-placeholder-color: $stein;
 $text-input-background-color: $hvit;
-$text-input-focus-color: $info;
+$text-input-focus-color: $granitt;
 $text-input-error-color: $feil;
 
-$text-input-border-color--inverted: $hvit;
-$text-input-text-color--inverted: $hvit;
-$text-input-placeholder-color--inverted: $gra-50;
-$text-input-background-color--inverted: transparent;
-$text-input-focus-color--inverted: $info--darkbg;
+$text-input-border-color--inverted: $svaberg;
+$text-input-text-color--inverted: $snohvit;
+$text-input-placeholder-color--inverted: $svaberg;
+$text-input-background-color--inverted: $svart;
+$text-input-focus-color--inverted: $snohvit;
 $text-input-error-color--inverted: $feil--darkbg;
 
 :root,
@@ -69,8 +68,7 @@ $text-input-error-color--inverted: $feil--darkbg;
 
         color: $text-input-text-color;
         color: var(--text-input-text-color);
-        background-color: $text-input-background-color;
-        background-color: var(--text-input-background-color);
+        background-color: transparent;
         box-shadow: inset 0 0 0 rem(1px) $text-input-border-color, 0 0 0 0 $text-input-border-color;
         box-shadow: inset 0 0 0 rem(1px) var(--text-input-border-color), 0 0 0 0 var(--text-input-border-color);
 
@@ -93,9 +91,16 @@ $text-input-error-color--inverted: $feil--darkbg;
             }
         }
 
-        /* Focus and hover states */
-        &:hover,
+        &:hover {
+            box-shadow: inset 0 0 0 rem(1px) $text-input-focus-color, 0 0 0 rem(1px) $text-input-focus-color;
+            box-shadow: inset 0 0 0 rem(1px) var(--text-input-focus-color), 0 0 0 rem(1px) var(--text-input-focus-color);
+            border-color: $text-input-focus-color;
+            border-color: var(--text-input-focus-color);
+        }
+
         &:focus {
+            background-color: $text-input-background-color;
+            background-color: var(--text-input-background-color);
             box-shadow: inset 0 0 0 rem(1px) $text-input-focus-color, 0 0 0 rem(1px) $text-input-focus-color;
             box-shadow: inset 0 0 0 rem(1px) var(--text-input-focus-color), 0 0 0 rem(1px) var(--text-input-focus-color);
             border-color: $text-input-focus-color;
@@ -138,13 +143,14 @@ $text-input-error-color--inverted: $feil--darkbg;
         height: $text-input-button-width;
         width: $text-input-height;
         margin-left: rem(-48px);
-        color: inherit;
+        color: $text-input-border-color;
+        color: var(--text-input-border-color);
 
-        &:hover,
-        &:focus {
+        &:hover {
             color: $text-input-focus-color;
             color: var(--text-input-focus-color);
-
+        }
+        &:focus {
             @include keyboard-navigation {
                 position: relative;
 
@@ -228,6 +234,10 @@ $text-input-error-color--inverted: $feil--darkbg;
                         0 0 0 rem(1px) $text-input-error-color--inverted;
                 }
             }
+        }
+
+        & .jkl-text-input_action-button {
+            color: $text-input-border-color--inverted;
         }
 
         & .jkl-text-input__action-button:hover,

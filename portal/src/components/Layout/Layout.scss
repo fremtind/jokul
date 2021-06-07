@@ -3,13 +3,13 @@
 
 :root,
 [data-theme="light"] {
-    --portal-bg: #{$hvit};
-    --portal-text-color: #{$svart};
+    --portal-bg: #{$snohvit};
+    --portal-text-color: #{$granitt};
 }
 
 [data-theme="dark"] {
-    --portal-bg: #{$svart};
-    --portal-text-color: #{$hvit};
+    --portal-bg: #{$granitt};
+    --portal-text-color: #{$snohvit};
 }
 
 .jkl-portal {
@@ -91,6 +91,6 @@
     }
 
     &[data-theme="dark"] {
-        color: $gra-10;
+        color: $snohvit;
     }
 }
