@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-06-07)
+
+### Bug Fixes
+
+- fixed contrast in codeblock ([6f19150](https://github.com/fremtind/jokul/commit/6f19150f9a93da8390d9707e5cec3e7aab45f2b2))
+
+### Features
+
+- new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+
+### BREAKING CHANGES
+
+- all color variables are changed
+
 ## 3.28.9 (2021-05-27)
 
 ### Bug Fixes
