@@ -2,6 +2,7 @@ import React, { AnchorHTMLAttributes, ReactNode } from "react";
 import classnames from "classnames";
 
 interface Props extends Pick<AnchorHTMLAttributes<HTMLAnchorElement>, "rel" | "target" | "className" | "href"> {
+    /** @deprecated */
     negative?: boolean;
     external?: boolean;
     children: ReactNode;
