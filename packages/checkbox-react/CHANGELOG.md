@@ -3,99 +3,109 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2021-06-07)
+
+### Features
+
+- upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+
+### BREAKING CHANGES
+
+- Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+
 ## 1.10.5 (2021-02-12)
 
 ### Bug Fixes
 
-- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+-   add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
 
 ## 1.10.0 (2020-12-15)
 
 ### Features
 
-- display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
+-   display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
 
 ## 1.9.0 (2020-11-25)
 
 ### Features
 
-- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+-   update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
 
 ## 1.8.0 (2020-08-25)
 
 ### Features
 
-- **checkbox:** update design to match sketches ([400904e](https://github.com/fremtind/jokul/commit/400904e40dbf88975352ba68f5e6b0d7395a94b1))
+-   **checkbox:** update design to match sketches ([400904e](https://github.com/fremtind/jokul/commit/400904e40dbf88975352ba68f5e6b0d7395a94b1))
 
 ## 1.7.0 (2020-07-29)
 
 ### Features
 
-- **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+-   **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
 
 ## 1.6.0 (2020-07-07)
 
 ### Features
 
-- **checkbox:** add support for refs to checkbox ([14f3880](https://github.com/fremtind/jokul/commit/14f388053bc635484a6e37b048712f57194ef62a))
+-   **checkbox:** add support for refs to checkbox ([14f3880](https://github.com/fremtind/jokul/commit/14f388053bc635484a6e37b048712f57194ef62a))
 
 ## 1.5.0 (2020-07-06)
 
 ### Features
 
-- **checkbox:** make labels responsive ([116afcd](https://github.com/fremtind/jokul/commit/116afcd3a611ba30bf8400e4001d2716a8662b21)), closes [#985](https://github.com/fremtind/jokul/issues/985)
+-   **checkbox:** make labels responsive ([116afcd](https://github.com/fremtind/jokul/commit/116afcd3a611ba30bf8400e4001d2716a8662b21)), closes [#985](https://github.com/fremtind/jokul/issues/985)
 
 ## 1.4.10 (2020-06-26)
 
 ### Bug Fixes
 
-- align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+-   align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
 
 ## 1.4.0 (2020-05-11)
 
 ### Features
 
-- add support for dark/inverted mode ([eaf1a1f](https://github.com/fremtind/jokul/commit/eaf1a1f001fec39d207abac67062179efa7a7cc9))
+-   add support for dark/inverted mode ([eaf1a1f](https://github.com/fremtind/jokul/commit/eaf1a1f001fec39d207abac67062179efa7a7cc9))
 
 ## 1.3.0 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ### Features
 
-- update typescript, prettier and babel ([ec1d27b](https://github.com/fremtind/jokul/commit/ec1d27b09ef6ff27344ae181686b4e3d8be0b333))
+-   update typescript, prettier and babel ([ec1d27b](https://github.com/fremtind/jokul/commit/ec1d27b09ef6ff27344ae181686b4e3d8be0b333))
 
 ## 1.2.2 (2020-03-16)
 
 ### Bug Fixes
 
-- **checkbox:** fix html structure to avoid onClick event bugs ([02b2343](https://github.com/fremtind/jokul/commit/02b2343f7323e6c3ab11ed8e58bb5bdafc9d54a8))
-- **checkbox:** make fake checkmark clickable again ([e9688d6](https://github.com/fremtind/jokul/commit/e9688d6253148207031fe2363751f91656897cf4))
-- **checkbox:** make text bold when checkbox is checked ([7126a44](https://github.com/fremtind/jokul/commit/7126a44c4e66b94ad9cd214a281fc1940840b04c))
+-   **checkbox:** fix html structure to avoid onClick event bugs ([02b2343](https://github.com/fremtind/jokul/commit/02b2343f7323e6c3ab11ed8e58bb5bdafc9d54a8))
+-   **checkbox:** make fake checkmark clickable again ([e9688d6](https://github.com/fremtind/jokul/commit/e9688d6253148207031fe2363751f91656897cf4))
+-   **checkbox:** make text bold when checkbox is checked ([7126a44](https://github.com/fremtind/jokul/commit/7126a44c4e66b94ad9cd214a281fc1940840b04c))
 
 ## 1.2.0 (2020-03-06)
 
 ### Features
 
-- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+-   **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
 
 ## 1.1.2 (2020-02-18)
 
 ### Bug Fixes
 
-- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+-   **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+-   **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
 
 ## 1.0.0 (2019-12-03)
 

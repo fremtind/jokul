@@ -4,10 +4,10 @@
 .jkl-colors__section {
     padding: $component-spacing--large;
     margin: $layout-spacing--large 0;
-    background-color: $hvit;
+    background-color: $snohvit;
 
     *[data-theme="dark"] & {
-        background-color: $svart;
+        background-color: $granitt;
     }
 }
 
@@ -56,81 +56,45 @@
         }
 
         &:hover {
-            color: $info;
+            color: $stein;
             *[data-theme="dark"] & {
-                color: $info--darkbg;
+                color: $svaberg;
             }
         }
     }
 
-    &--svart {
-        border-bottom-color: $svart;
-    }
     &--hvit {
         border-bottom-color: $hvit;
     }
-    &--gra-10 {
-        border-bottom-color: $gra-10;
+    &--snohvit {
+        border-bottom-color: $snohvit;
     }
-    &--gra-20 {
-        border-bottom-color: $gra-20;
+    &--sand {
+        border-bottom-color: $sand;
     }
-    &--gra-30 {
-        border-bottom-color: $gra-30;
-    }
-    &--gra-40 {
-        border-bottom-color: $gra-40;
-    }
-    &--gra-50 {
-        border-bottom-color: $gra-50;
-    }
-    &--gra-60 {
-        border-bottom-color: $gra-60;
-    }
-    &--gra-70 {
-        border-bottom-color: $gra-70;
-    }
-    &--gra-80 {
-        border-bottom-color: $gra-80;
-    }
-    &--gra-90 {
-        border-bottom-color: $gra-90;
-    }
-    &--gra-100 {
-        border-bottom-color: $gra-100;
-    }
-    &--varde-10 {
-        border-bottom-color: $varde-10;
-    }
-    &--varde-20 {
-        border-bottom-color: $varde-20;
-    }
-    &--varde-30 {
-        border-bottom-color: $varde-30;
-    }
-    &--varde-40 {
-        border-bottom-color: $varde-40;
-    }
-    &--varde-50 {
-        border-bottom-color: $varde-50;
+    &--dis {
+        border-bottom-color: $dis;
     }
     &--varde {
         border-bottom-color: $varde;
     }
-    &--varde-60 {
-        border-bottom-color: $varde-60;
+    &--svaberg {
+        border-bottom-color: $svaberg;
     }
-    &--varde-70 {
-        border-bottom-color: $varde-70;
+    &--stein {
+        border-bottom-color: $stein;
     }
-    &--varde-80 {
-        border-bottom-color: $varde-80;
+    &--fjellgra {
+        border-bottom-color: $fjellgra;
     }
-    &--varde-90 {
-        border-bottom-color: $varde-90;
+    &--skifer {
+        border-bottom-color: $skifer;
     }
-    &--varde-100 {
-        border-bottom-color: $varde-100;
+    &--granitt {
+        border-bottom-color: $granitt;
+    }
+    &--svart {
+        border-bottom-color: $svart;
     }
     &--suksess {
         border-bottom-color: $suksess;

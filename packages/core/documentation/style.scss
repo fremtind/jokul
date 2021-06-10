@@ -1,6 +1,6 @@
 @import "../variables/_all.scss";
 
-@mixin demo-box($size, $color: $gra-80) {
+@mixin demo-box($size, $color: $fjellgra) {
     width: $size;
     height: $size;
     background-color: $color;
