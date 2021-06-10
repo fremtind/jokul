@@ -1,0 +1,49 @@
+@use "~@fremtind/jkl-core/variables/_all.scss" as var;
+@use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
+
+.jkl-description-list {
+    display: flex;
+    flex-direction: column;
+
+    dt,
+    dd {
+        margin: 0;
+    }
+
+
+    dt {
+        @include var.jkl-text-style("desktop/heading-small");
+
+        &:not(:first-of-type) {
+            margin-top:1rem;
+        }
+    }
+
+    dd {
+        @include var.jkl-text-style("desktop/body");
+    }
+
+    @include mix.from-medium-device() {
+        display: grid;
+        grid-template-columns: max-content auto;
+
+        dt,
+        dd {
+            margin-left: 3rem;
+        }
+
+        dt ~ dt{
+
+
+
+        dt {
+            grid-column-start: 1;
+            ~ dt {
+            }
+        }
+
+        dd {
+            grid-column-start: 2;
+        }
+    }
+}

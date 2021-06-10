@@ -1,0 +1,41 @@
+{
+    "name": "@fremtind/jkl-description-list",
+    "version": "1.0.0",
+    "description": "The description list component is a container whose children is a key-value pair consisting of terms and details.",
+    "keywords": [
+        "description",
+        "list",
+        "term",
+        "details",
+        "jøkul",
+        "fremtind"
+    ],
+    "author": "Mikail Arslan <mikail.arslan@fremtind.no>",
+    "homepage": "https://fremtind.github.io/jokul",
+    "license": "MIT",
+    "main": "lib/description-list.js",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "files": [
+        "lib"
+    ],
+    "publishConfig": {
+        "registry": "https://nexus02.prod-int.sparebank1.no/repository/npmgroup/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}
