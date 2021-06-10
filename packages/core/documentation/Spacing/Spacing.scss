@@ -26,12 +26,12 @@
 
     &__header {
         font-weight: $bold-weight;
-        border-bottom-color: $svart;
+        border-bottom-color: $granitt;
         min-height: rem(40px);
     }
 
     &__data {
-        border-bottom-color: $gra-50;
+        border-bottom-color: $stein;
         padding-bottom: $component-spacing--large;
         min-height: rem(48px);
     }
@@ -77,7 +77,7 @@
 
     *[data-theme="dark"] & {
         &__header {
-            border-bottom-color: $hvit;
+            border-bottom-color: $snohvit;
         }
     }
 }

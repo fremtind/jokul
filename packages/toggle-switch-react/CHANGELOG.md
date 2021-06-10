@@ -3,87 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0 (2021-06-07)
+
+### Features
+
+- upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+
+### BREAKING CHANGES
+
+- Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+
 ## 2.6.7 (2021-02-12)
 
 ### Bug Fixes
 
-- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+-   add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
 
 ## 2.6.5 (2021-01-27)
 
 ### Bug Fixes
 
-- **@fremtind/jkl-toggle-switch-react:** improves accesibility in Toggle Switch ([ae1b477](https://github.com/fremtind/jokul/commit/ae1b477e9af9b7e6dd2e48cee24e17fccc80f829)), closes [#1556](https://github.com/fremtind/jokul/issues/1556)
+-   **@fremtind/jkl-toggle-switch-react:** improves accesibility in Toggle Switch ([ae1b477](https://github.com/fremtind/jokul/commit/ae1b477e9af9b7e6dd2e48cee24e17fccc80f829)), closes [#1556](https://github.com/fremtind/jokul/issues/1556)
 
 ## 2.6.4 (2021-01-25)
 
 ### Bug Fixes
 
-- **@fremtind/jkl-toggle-switch:** design adjustments on ToggleSlider ([d83426e](https://github.com/fremtind/jokul/commit/d83426eb23faf0c4dae0a49bf5689e7dc5fd0a64))
+-   **@fremtind/jkl-toggle-switch:** design adjustments on ToggleSlider ([d83426e](https://github.com/fremtind/jokul/commit/d83426eb23faf0c4dae0a49bf5689e7dc5fd0a64))
 
 ## 2.6.0 (2020-12-15)
 
 ### Features
 
-- display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
+-   display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
 
 ## 2.5.0 (2020-11-25)
 
 ### Features
 
-- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+-   update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
 
 ## 2.4.0 (2020-11-04)
 
 ### Features
 
-- **toggle:** add toggle slider ([a42fd6b](https://github.com/fremtind/jokul/commit/a42fd6be9b04bdafceb69153f9b25f56d71498a6)), closes [#1482](https://github.com/fremtind/jokul/issues/1482)
+-   **toggle:** add toggle slider ([a42fd6b](https://github.com/fremtind/jokul/commit/a42fd6be9b04bdafceb69153f9b25f56d71498a6)), closes [#1482](https://github.com/fremtind/jokul/issues/1482)
 
 ## 2.3.0 (2020-07-29)
 
 ### Features
 
-- **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+-   **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
 
 ## 2.2.0 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ### Features
 
-- update typescript, prettier and babel ([ec1d27b](https://github.com/fremtind/jokul/commit/ec1d27b09ef6ff27344ae181686b4e3d8be0b333))
+-   update typescript, prettier and babel ([ec1d27b](https://github.com/fremtind/jokul/commit/ec1d27b09ef6ff27344ae181686b4e3d8be0b333))
 
 ## 2.1.0 (2020-03-06)
 
 ### Features
 
-- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+-   **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
 
 ## 2.0.0 (2020-02-18)
 
 ### Bug Fixes
 
-- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+-   **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
 
 ### Features
 
-- **toggle-switch:** change toggle switch to button element (from input) ([2e9b340](https://github.com/fremtind/jokul/commit/2e9b3406f5bfbaa4233a3f63aa14bad017317efb))
+-   **toggle-switch:** change toggle switch to button element (from input) ([2e9b340](https://github.com/fremtind/jokul/commit/2e9b3406f5bfbaa4233a3f63aa14bad017317efb))
 
 ### BREAKING CHANGES
 
-- **toggle-switch:** checked prop is replaced by pressed, onChange prop is replaced by onClick
+-   **toggle-switch:** checked prop is replaced by pressed, onChange prop is replaced by onClick
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+-   **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
 
 ## 1.0.1 (2019-12-17)
 

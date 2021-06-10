@@ -39,6 +39,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
         });
         const [uid] = useState(id || `jkl-text-area-${nanoid(8)}`);
         const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
+        const hasSupportText = helpLabel || errorLabel;
+        const describedBy = hasSupportText ? supportId : undefined;
 
         const [textAreaFocused, setTextAreaFocused] = useState(false);
         const [baseScrollHeight, setBaseScrollHeight] = useState(0);
@@ -110,7 +112,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
                     onFocus={onFocus}
                     onBlur={onBlur}
                     aria-invalid={!!errorLabel}
-                    aria-describedby={supportId}
+                    aria-describedby={describedBy}
                     placeholder={placeholder}
                     rows={autoExpand ? currentRows : undefined}
                     // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700

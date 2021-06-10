@@ -10,33 +10,41 @@ $checkbox-height--compact: rem(40px);
 $checkbox-box-size--compact: rem(18px);
 $checkbox-line-height--compact: rem(24px);
 
-$checkbox-color: $svart;
-$checkbox-background-color: $hvit;
-$checkbox-focus-color: $info;
+$checkbox-color: $granitt;
+$checkbox-background-color: $snohvit;
+$checkbox-focus-color: $granitt;
+$checkbox-focus-background-color: $hvit;
 $checkbox-error-color: $feil;
-$checkbox-disabled-color: $gra-60;
+$checkbox-disabled-color: $stein;
+$checkbox-box-default-color: $stein;
 
-$checkbox-color--inverted: $hvit;
+$checkbox-color--inverted: $snohvit;
 $checkbox-background-color--inverted: transparent;
-$checkbox-focus-color--inverted: $info--darkbg;
+$checkbox-focus-color--inverted: $snohvit;
+$checkbox-focus-background-color--inverted: $svart;
 $checkbox-error-color--inverted: $feil--darkbg;
-$checkbox-disabled-color--inverted: $gra-50;
+$checkbox-disabled-color--inverted: $stein;
+$checkbox-box-default-color--inverted: $svaberg;
 
 :root,
 [data-theme="light"] {
     --checkbox-color: #{$checkbox-color};
     --checkbox-background-color: #{$checkbox-background-color};
     --checkbox-focus-color: #{$checkbox-focus-color};
+    --checkbox-focus-background-color: #{$checkbox-focus-background-color};
     --checkbox-error-color: #{$checkbox-error-color};
     --checkbox-disabled-color: #{$checkbox-disabled-color};
+    --checkbox-box-default-color: #{$checkbox-box-default-color};
 }
 
 [data-theme="dark"] {
     --checkbox-color: #{$checkbox-color--inverted};
     --checkbox-background-color: #{$checkbox-background-color--inverted};
     --checkbox-focus-color: #{$checkbox-focus-color--inverted};
+    --checkbox-focus-background-color: #{$checkbox-focus-background-color--inverted};
     --checkbox-error-color: #{$checkbox-error-color--inverted};
     --checkbox-disabled-color: #{$checkbox-disabled-color--inverted};
+    --checkbox-box-default-color: #{$checkbox-box-default-color--inverted};
 }
 
 @keyframes jkl-checkbox-checked-animation {
@@ -71,9 +79,6 @@ $checkbox-disabled-color--inverted: $gra-50;
 
         // Checked state:
         &:checked {
-            + .jkl-checkbox__label > .jkl-checkbox__check-text {
-                @include no-grow-bold;
-            }
             + .jkl-checkbox__label > .jkl-checkbox__check-mark:after {
                 animation: jkl-checkbox-checked-animation 150ms ease-in-out forwards;
                 opacity: 1;
@@ -88,6 +93,10 @@ $checkbox-disabled-color--inverted: $gra-50;
             & > .jkl-checkbox__check-mark:before {
                 box-shadow: 0 0px 0 rem(2px) $checkbox-focus-color;
                 box-shadow: 0 0px 0 rem(2px) var(--checkbox-focus-color);
+            }
+            & > .jkl-checkbox__check-mark {
+                background-color: $checkbox-focus-background-color;
+                background-color: var(--checkbox-focus-background-color);
             }
         }
 
@@ -115,6 +124,8 @@ $checkbox-disabled-color--inverted: $gra-50;
 
             .jkl-checkbox__check-mark {
                 box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
+                background-color: $checkbox-focus-background-color;
+                background-color: var(--checkbox-focus-background-color);
             }
         }
 
@@ -124,6 +135,8 @@ $checkbox-disabled-color--inverted: $gra-50;
 
             .jkl-checkbox__check-mark {
                 box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 currentColor;
+                background-color: $checkbox-focus-background-color;
+                background-color: var(--checkbox-focus-background-color);
             }
         }
     }
@@ -150,8 +163,6 @@ $checkbox-disabled-color--inverted: $gra-50;
         outline: none;
         border-radius: 0; // fixes rounded corners in iOS Safari
         box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
-        background-color: $checkbox-background-color;
-        background-color: var(--checkbox-background-color);
 
         @include motion("standard");
         transition-property: box-shadow;
@@ -161,15 +172,15 @@ $checkbox-disabled-color--inverted: $gra-50;
             content: "";
             position: absolute;
             transform-origin: bottom left;
-            bottom: 40%;
-            left: 20%;
+            bottom: 42%;
+            left: 18%;
 
             display: block;
             width: 18%;
             height: 58%;
             transform: rotate(45deg);
 
-            border: solid rem(1px);
+            border: solid rem(2px);
             border-color: currentColor;
             border-left-width: 0;
             border-top-width: 0;
@@ -231,6 +242,7 @@ $checkbox-disabled-color--inverted: $gra-50;
             }
         }
         .jkl-checkbox__check-mark {
+            box-shadow: inset 0 0 0 rem(1px) $checkbox-box-default-color--inverted, 0 0 0 0 transparent;
             background-color: $checkbox-background-color--inverted;
         }
         &.jkl-checkbox--error {

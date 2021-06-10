@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-feedback-react",
-    "version": "4.0.2",
+    "version": "5.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -34,13 +34,13 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-button-react": "^2.5.13",
-        "@fremtind/jkl-core": "^4.21.1",
-        "@fremtind/jkl-feedback": "^3.0.1",
-        "@fremtind/jkl-message-box-react": "^1.8.0",
-        "@fremtind/jkl-radio-button-react": "^1.9.7",
-        "@fremtind/jkl-react-hooks": "^1.10.7",
-        "@fremtind/jkl-text-input-react": "^3.8.14",
+        "@fremtind/jkl-button-react": "^3.0.0",
+        "@fremtind/jkl-core": "^5.0.0",
+        "@fremtind/jkl-feedback": "^4.0.0",
+        "@fremtind/jkl-message-box-react": "^2.0.0",
+        "@fremtind/jkl-radio-button-react": "^2.0.0",
+        "@fremtind/jkl-react-hooks": "^2.0.0",
+        "@fremtind/jkl-text-input-react": "^4.0.0",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.22"
     },
