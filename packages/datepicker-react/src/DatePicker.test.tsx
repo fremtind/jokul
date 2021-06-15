@@ -150,6 +150,38 @@ describe("Datepicker", () => {
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
     });
 
+    it("should close the datepicker when tab-navigating outside the date picker", async () => {
+        jest.useFakeTimers();
+
+        render(
+            <>
+                <DatePicker label="Some datepicker" />
+                <button>Test</button>
+            </>,
+        );
+        const inputElement = screen.getByLabelText("Some datepicker");
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+
+        await act(async () => {
+            userEvent.click(inputElement);
+            jest.runAllTimers();
+        });
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+
+        await act(async () => {
+            userEvent.tab();
+            userEvent.tab();
+            userEvent.tab();
+            userEvent.tab();
+            userEvent.tab();
+            jest.runAllTimers();
+        });
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+    });
+
     it("should keep focus on input field when clicking on the input field", async () => {
         jest.useFakeTimers();
 
