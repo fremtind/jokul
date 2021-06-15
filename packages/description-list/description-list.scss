@@ -1,0 +1,41 @@
+@use "~@fremtind/jkl-core/variables/_all.scss" as var;
+@use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
+
+.jkl-description-list {
+    display: flex;
+    flex-direction: column;
+    hyphens: auto;    
+    word-break: break-word;
+
+    &__group {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        margin-top: var.$layout-spacing--xs;
+
+        dt {
+            grid-column-start: 1;
+        }
+
+
+        &__values {
+            grid-column-start: 2;
+            display: flex;
+            flex-direction: column;
+
+            :not(:first-child){
+                margin-top: var.$component-spacing--xxs;
+            }
+        }
+    }
+
+    @include mix.small-device() {
+        &__group {
+            display: flex;
+            flex-direction: column;
+
+            dd {
+                margin-left: 0;
+            }
+        }
+    }
+}
