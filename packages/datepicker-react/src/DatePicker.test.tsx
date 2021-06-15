@@ -171,6 +171,7 @@ describe("Datepicker", () => {
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
 
         await act(async () => {
+            // Run userEvent.tab() 5 times to navigate out of datepicker. Progresses into the <button> element rendered above.
             userEvent.tab();
             userEvent.tab();
             userEvent.tab();
