@@ -2,8 +2,8 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$header-bg-color: $hvit;
-$header-bg-color--inverted: $svart;
+$header-bg-color: $snohvit;
+$header-bg-color--inverted: $granitt;
 $header-height: rem(96px);
 $header-height--collapsed: rem(64px);
 $header-height--mobile: rem(64px);
@@ -37,10 +37,10 @@ $header-padding--mobile: 0 $component-spacing--large;
         font-weight: $normal-weight;
 
         &:hover {
-            color: #000afa;
+            color: $stein;
         }
         html:not([data-mousenavigation]) &:focus {
-            color: #000afa;
+            color: $granitt;
             font-weight: $bold-weight;
         }
     }
@@ -51,10 +51,10 @@ $header-padding--mobile: 0 $component-spacing--large;
 
     *[data-theme="dark"] & {
         background-color: $header-bg-color--inverted;
-        color: $hvit;
+        color: $snohvit;
 
         &__title {
-            color: $hvit;
+            color: $snohvit;
         }
     }
 

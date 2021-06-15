@@ -3,13 +3,13 @@
 
 :root,
 [data-theme="light"] {
-    --media-bg: #{$hvit};
-    --media-text-color: #{$svart};
+    --media-bg: #{$snohvit};
+    --media-text-color: #{$granitt};
 }
 
 [data-theme="dark"] {
-    --media-bg: #{$svart};
-    --media-text-color: #{$hvit};
+    --media-bg: #{$granitt};
+    --media-text-color: #{$snohvit};
 }
 
 .jkl-portal-media-box {

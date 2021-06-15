@@ -39,9 +39,8 @@
         @include motion("standard");
         transition-property: box-shadow;
 
-        &:hover,
         html:not([data-mousenavigation]) &:focus {
-            color: #000afa;
+            @include no-grow-bold;
         }
 
         &:hover,
@@ -52,12 +51,6 @@
 
         &--active {
             @include no-grow-bold;
-        }
-
-        *[data-theme="dark"] & {
-            &--active {
-                color: #00faff;
-            }
         }
     }
 }

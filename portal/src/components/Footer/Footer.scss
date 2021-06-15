@@ -3,14 +3,14 @@
 .jkl-portal-footer {
     display: flex;
     flex-direction: column;
-    border-top: solid rem(1px) $gra-30;
+    border-top: solid rem(1px) $svaberg;
     padding-top: $layout-spacing--medium;
     margin: $layout-spacing--large $layout-spacing--medium;
     margin-bottom: $layout-spacing--medium;
 
     &__column {
         @include jkl-text-style("compact/small");
-        color: $gra-70;
+        color: $fjellgra;
         flex: 1 1 0px;
         padding-right: $layout-spacing--large;
 

@@ -12,19 +12,19 @@ $bottom-padding: $component-spacing--small;
 $arrow-height: rem(16px);
 $arrow-width: rem(13px);
 
-$select-border-color: $svart;
-$select-text-color: $svart;
-$select-text-disabled-color: $gra-60;
-$select-background-color: $hvit;
+$select-border-color: $stein;
+$select-text-color: $granitt;
+$select-text-disabled-color: $stein;
+$select-background-color: transparent;
 $select-open-background-color: $hvit;
-$select-focus-color: $info;
+$select-focus-color: $granitt;
 $select-error-color: $feil;
 
-$select-border-color--inverted: $hvit;
-$select-text-color--inverted: $hvit;
+$select-border-color--inverted: $svaberg;
+$select-text-color--inverted: $snohvit;
 $select-background-color--inverted: transparent;
-$select-open-background-color--inverted: $gra-80;
-$select-focus-color--inverted: $info--darkbg;
+$select-open-background-color--inverted: $svart;
+$select-focus-color--inverted: $snohvit;
 $select-error-color--inverted: $feil--darkbg;
 
 :root,
@@ -115,7 +115,6 @@ $select-error-color--inverted: $feil--darkbg;
         @include motion("standard");
         transition-property: color, border-color, box-shadow;
 
-        &:hover,
         &:focus {
             border-color: $select-focus-color;
             border-color: var(--select-focus-color);
@@ -123,6 +122,8 @@ $select-error-color--inverted: $feil--darkbg;
             color: var(--select-focus-color);
             box-shadow: 0 0 0 rem(1px) $select-focus-color;
             box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
+            background-color: $select-open-background-color;
+            background-color: var(--select-open-background-color);
 
             & ~ .jkl-select__arrow {
                 color: $select-focus-color;
@@ -131,6 +132,10 @@ $select-error-color--inverted: $feil--darkbg;
         }
 
         &:hover {
+            border-color: $select-focus-color;
+            border-color: var(--select-focus-color);
+            box-shadow: 0 0 0 rem(1px) $select-focus-color;
+            box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
             & ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{rem(3px)}));
             }

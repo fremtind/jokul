@@ -32,14 +32,14 @@
         stroke: currentColor;
     }
 
-    &--hvit {
+    &--snohvit {
         .jkl-portal-color-swatch__diamond {
-            stroke: $svart;
+            stroke: $granitt;
         }
     }
-    [data-theme="dark"] &--svart {
+    [data-theme="dark"] &--granitt {
         .jkl-portal-color-swatch__diamond {
-            stroke: $hvit;
+            stroke: $snohvit;
         }
     }
 }
