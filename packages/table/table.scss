@@ -1,7 +1,7 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 $bottom-border-size: rem(1px);
-$highlight-color: $hvit;
+$highlight-color: $snohvit;
 $cell-padding: $component-spacing--xl $component-spacing--small;
 $row-end-padding: $component-spacing--large;
 
@@ -10,7 +10,7 @@ $row-end-padding: $component-spacing--large;
     @include jkl-text-style("desktop/small");
 
     &__heading {
-        color: $gra-80;
+        color: $granitt;
         @include jkl-text-style("desktop/micro");
         padding: $component-spacing--small;
     }

@@ -25,12 +25,12 @@
     &__header {
         font-weight: $bold-weight;
         vertical-align: bottom;
-        box-shadow: inset 0 rem(-1px) 0 0 $svart;
+        box-shadow: inset 0 rem(-1px) 0 0 $granitt;
     }
 
     &__data {
         vertical-align: top;
-        box-shadow: inset 0 rem(-1px) 0 0 $gra-50;
+        box-shadow: inset 0 rem(-1px) 0 0 $stein;
     }
 
     &__swatch {

@@ -2,29 +2,17 @@ import React, { useRef } from "react";
 import "./colors.scss";
 
 type colors =
-    | "svart"
     | "hvit"
-    | "gra-10"
-    | "gra-20"
-    | "gra-30"
-    | "gra-40"
-    | "gra-50"
-    | "gra-60"
-    | "gra-70"
-    | "gra-80"
-    | "gra-90"
-    | "gra-100"
-    | "varde-10"
-    | "varde-20"
-    | "varde-30"
-    | "varde-40"
-    | "varde-50"
+    | "snohvit"
+    | "sand"
+    | "dis"
     | "varde"
-    | "varde-60"
-    | "varde-70"
-    | "varde-80"
-    | "varde-90"
-    | "varde-100"
+    | "svaberg"
+    | "stein"
+    | "fjellgra"
+    | "skifer"
+    | "granitt"
+    | "svart"
     | "suksess"
     | "info"
     | "advarsel"
@@ -90,32 +78,18 @@ const Colors = () => {
     return (
         <section style={{ display: "flex", flexWrap: "wrap" }}>
             <textarea ref={ref} className="jkl-color__copy" />
-            <ColorGroup title="Gråtoner">
+            <ColorGroup title="Farger">
                 <ColorBox handleClick={copyCodeToClipboard} color="hvit" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-10" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-20" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-30" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-40" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-50" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-60" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-70" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-80" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-90" />
-                <ColorBox handleClick={copyCodeToClipboard} color="gra-100" />
-                <ColorBox handleClick={copyCodeToClipboard} color="svart" />
-            </ColorGroup>
-            <ColorGroup title="Vardetoner">
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-10" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-20" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-30" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-40" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-50" />
+                <ColorBox handleClick={copyCodeToClipboard} color="snohvit" />
+                <ColorBox handleClick={copyCodeToClipboard} color="sand" />
+                <ColorBox handleClick={copyCodeToClipboard} color="dis" />
                 <ColorBox handleClick={copyCodeToClipboard} color="varde" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-60" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-70" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-80" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-90" />
-                <ColorBox handleClick={copyCodeToClipboard} color="varde-100" />
+                <ColorBox handleClick={copyCodeToClipboard} color="svaberg" />
+                <ColorBox handleClick={copyCodeToClipboard} color="stein" />
+                <ColorBox handleClick={copyCodeToClipboard} color="fjellgra" />
+                <ColorBox handleClick={copyCodeToClipboard} color="skifer" />
+                <ColorBox handleClick={copyCodeToClipboard} color="granitt" />
+                <ColorBox handleClick={copyCodeToClipboard} color="svart" />
             </ColorGroup>
             <ColorGroup title="Bruksfarger">
                 <MultiColorBox handleClick={copyCodeToClipboard} colors={["suksess", "suksess--darkbg"]} />

@@ -58,12 +58,12 @@
 
 .jkl-portal-inline-code {
     display: inline-block;
-    background-color: $gra-20;
+    background-color: $sand;
     font-size: 0.8em;
     padding: 0 $component-spacing--small;
     border-radius: rem(2px);
 
     *[data-theme="dark"] & {
-        background-color: $gra-80;
+        background-color: $fjellgra;
     }
 }
