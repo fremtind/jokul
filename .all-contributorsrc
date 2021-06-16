@@ -313,6 +313,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "stormoen",
+      "name": "stormoen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64519175?v=4",
+      "profile": "https://github.com/Stormoen",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "kennidenni",
+      "name": "Kenneth Apeland",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31621649?v=4",
+      "profile": "https://github.com/kennidenni",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
