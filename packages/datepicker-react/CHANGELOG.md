@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.0 (2021-06-16)
+
+### Features
+
+- **datepicker-react:** add useFocusOutside to datepicker to close if… ([#2025](https://github.com/fremtind/jokul/issues/2025)) ([04f8442](https://github.com/fremtind/jokul/commit/04f8442d8930b3dcf3c302d5644eba38a2e1dfbc)), closes [#1888](https://github.com/fremtind/jokul/issues/1888)
+
 ## 5.0.0 (2021-06-07)
 
 ### Features
