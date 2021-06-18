@@ -51,7 +51,7 @@ export function createReducer(
                 const newDate = parseDateString(action.payload);
 
                 if (newDate && dateHasChanged(state.date, newDate)) {
-                    return { ...state, date: newDate, dateString: action.payload };
+                    return { ...state, date: newDate, dateString: action.payload, calendarHidden: true };
                 } else {
                     return { ...state, date: undefined, dateString: action.payload };
                 }
