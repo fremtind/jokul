@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.0 (2021-06-17)
+
+### Features
+
+- **useAnimatedHeight:** add callbacks for animation start and end ([d0899b7](https://github.com/fremtind/jokul/commit/d0899b7bd336aad8ca26a849eb75d7d3505ef857))
+
 ## 2.0.0 (2021-06-07)
 
 ### Features
