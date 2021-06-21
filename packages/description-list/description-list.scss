@@ -1,0 +1,51 @@
+@use "~@fremtind/jkl-core/variables/_all.scss" as var;
+@use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
+
+@mixin _horizontal-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+
+    .jkl-description-list__term {
+        flex: 0 0 30%;
+        max-width: 30%;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        margin: 0;
+    }
+
+    /* Use padding rather than margin in bottom to avoid extra spacing overflowing to the top of the next column */
+
+    .jkl-description-list__detail {
+        flex: 70% 0 0;
+        padding-bottom: var.$component-spacing--xs;
+        max-width: 70%;
+    }
+
+    .jkl-description-list__detail + .jkl-description-list__detail {
+        margin: 0;
+        margin-left: 30%;
+    }
+}
+
+.jkl-description-list {
+    &__term {
+        margin-bottom: var.$component-spacing--small;
+        &:not(:first-child) {
+            margin-top: var.$component-spacing--xl;
+        }
+    }
+
+    &__detail {
+        margin-left: 0;
+    }
+
+    &__detail + &__detail {
+        margin-top: var.$component-spacing--xs;
+    }
+
+    @include mix.from-medium-device() {
+        @include _horizontal-list;
+    }
+}

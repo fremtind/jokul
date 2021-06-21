@@ -1,0 +1,22 @@
+---
+title: Description List
+scss: description-list
+react: description-list-react
+---
+
+import Example from "./Example";
+import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../src";
+
+<Ingress>
+    DescriptionList tilsvarer HTML-elementet 'dl' som representerer en beskrivelsesliste. 
+    Elementet inneholder en liste over grupper av termer (spesifisert ved hjelp av 'dt' -elementet) og beskrivelser (levert av 'dd' -elementer).
+    Vanlige bruksområder for dette elementet er å implementere en ordliste eller å vise metadata (en liste over nøkkelverdipar).
+    Det oppfordres å benytte henholdsvis DescriptionTerm og DescriptionDetail som dt og dl elementer når du bruker DescriptionList.
+    <br />
+    <br />
+    DescriptionList vil alltid vises i vertikal-modus for mindre skjermer, men horizontalt for større skjermer.
+</Ingress>
+
+<ComponentExample
+    component={Example}
+/>
