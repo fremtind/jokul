@@ -183,6 +183,30 @@ describe("Datepicker", () => {
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
     });
 
+    it("should close the calendar when a valid date is entered in the field", async () => {
+        jest.useFakeTimers();
+
+        render(<DatePicker label="Some datepicker" />);
+        const inputElement = screen.getByLabelText("Some datepicker");
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+
+        await act(async () => {
+            userEvent.click(inputElement);
+            jest.runAllTimers();
+        });
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+
+        await act(async () => {
+            // Enter a valid date into the field
+            userEvent.type(inputElement, "14.10.1986");
+            jest.runAllTimers();
+        });
+
+        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+    });
+
     it("should keep focus on input field when clicking on the input field", async () => {
         jest.useFakeTimers();
 
