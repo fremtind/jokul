@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.0 (2021-06-24)
+
+### Features
+
+- **datepicker:** close calendar when valid date entered ([ffb499d](https://github.com/fremtind/jokul/commit/ffb499d9e4bc8f21b38d1a02b87549584fe013ce)), closes [#2033](https://github.com/fremtind/jokul/issues/2033)
+
 ## 5.1.0 (2021-06-16)
 
 ### Features

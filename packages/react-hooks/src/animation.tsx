@@ -20,12 +20,14 @@ export function useAnimatedHeight<T extends HTMLElement>(
     const firstRender = useRef<boolean>(true);
     const prefersReducedMotion = useReducedMotion();
 
-    function handleTransitionEnd() {
+    function handleTransitionEnd(event: TransitionEvent) {
         const element = getElement(elementRef);
-        if (element) {
+
+        // Ignore bubbling transitions from within container
+        if (element && event.target === element) {
             element.removeAttribute("style");
+            options?.onTransitionEnd?.(isOpen);
         }
-        options?.onTransitionEnd?.(isOpen);
     }
 
     const runAnimation = useCallback(() => {

@@ -7,16 +7,10 @@
 
     &--show-first {
         transform: translateY(0);
-        & > span:last-child {
-            opacity: 0;
-        }
     }
 
     &--show-second {
         transform: translateY(-50%);
-        & > span:first-child {
-            opacity: 0;
-        }
     }
 
     &__slider {
@@ -26,12 +20,6 @@
         @include motion(standard, expressive);
         @media (prefers-reduced-motion) {
             transition-property: none;
-        }
-
-        & > span {
-            opacity: 1;
-            transition-property: opacity;
-            @include motion(standard, expressive);
         }
     }
 }
