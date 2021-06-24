@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.1 (2021-06-24)
+
+### Bug Fixes
+
+- **useAnimatedHeight:** ignore bubbling transitions ([3ac7f25](https://github.com/fremtind/jokul/commit/3ac7f25b52d80e7284a5758b3d499660b74bcedb))
+
 ## 2.1.0 (2021-06-17)
 
 ### Features
