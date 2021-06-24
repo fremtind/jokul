@@ -1,5 +1,5 @@
 import React, { ReactNode, MouseEventHandler } from "react";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import { SupportLabel } from "@fremtind/jkl-core";
 import classNames from "classnames";
 
 interface Props {
