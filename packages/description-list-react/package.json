@@ -1,0 +1,57 @@
+{
+    "name": "@fremtind/jkl-description-list-react",
+    "version": "1.0.0",
+    "description": "The description list component is a container whose children is a key-value pair consisting of terms and details.",
+    "keywords": [
+        "description",
+        "list",
+        "term",
+        "details",
+        "jøkul",
+        "fremtind"
+    ],
+    "homepage": "https://fremtind.github.io/jokul",
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:js": "parcel documentation/index.html",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-description-list yarn build:watch",
+        "dev": "run-p dev:*"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-core": "^5.0.0",
+        "@fremtind/jkl-description-list": "^1.0.0",
+        "classnames": "^2.2.6"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0",
+        "react": "^16.8.6 || ^17.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0"
+    }
+}
