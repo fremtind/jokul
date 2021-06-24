@@ -9,7 +9,7 @@ test("should initialize data-mousenavigation to null before clicks or tabs", () 
     const htmlElement = document.querySelector("html");
 
     if (!htmlElement) {
-        throw 'Something went wrong  - couldn\'t find body element';
+        throw "Something went wrong  - couldn't find body element";
     }
 
     expect(htmlElement.getAttribute(mouseNavigation)).toBe(null);
@@ -22,7 +22,7 @@ test("should add data-mousenavigation attribute to html when clicking a button",
     const htmlElement = document.querySelector("html");
 
     if (!bodyElement || !htmlElement) {
-        throw 'Something went wrong  - couldn\'t find body element';
+        throw "Something went wrong  - couldn't find body element";
     }
 
     const buttonElement = document.createElement("button");
@@ -40,7 +40,7 @@ test("should remove data-mousenavigation attribute on html when tabbing after a 
     const htmlElement = document.querySelector("html");
 
     if (!bodyElement || !htmlElement) {
-        throw 'Something went wrong  - couldn\'t find body element';
+        throw "Something went wrong  - couldn't find body element";
     }
 
     const buttonElement = document.createElement("button");

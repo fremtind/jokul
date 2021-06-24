@@ -83,10 +83,10 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         const disableDate = useDisableDate(disableBeforeDate, disableAfterDate);
         const [inputId, supportLabelId] = useCalendarId();
 
-        const reducer = useMemo(() => createReducer(disableBeforeDate, disableAfterDate), [
-            disableBeforeDate,
-            disableAfterDate,
-        ]);
+        const reducer = useMemo(
+            () => createReducer(disableBeforeDate, disableAfterDate),
+            [disableBeforeDate, disableAfterDate],
+        );
         const initialDateState = getInitialDate(value, initialDate, disableDate);
 
         const [state, dispatch] = useReducer(reducer, {
