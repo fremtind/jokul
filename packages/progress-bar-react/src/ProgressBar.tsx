@@ -7,6 +7,7 @@ interface Progress {
 
 interface Props {
     progress: Progress;
+    title?: string;
     className?: string;
     progressTextValue?: string;
 }
@@ -19,13 +20,14 @@ export const calculatePercentage = ({ current, total }: Progress) => (total === 
  * @param className
  * @param progressTextValue if set screen readers will read this string, if not the percentage is read
  */
-export const ProgressBar: FC<Props> = ({ progress, progressTextValue, className }) => {
+export const ProgressBar: FC<Props> = ({ progress, title = "Fremdrift", progressTextValue, className }) => {
     const width = `${calculatePercentage(progress)}%`;
 
     return (
         <div
-            className={`jkl-progress-bar ${className}`}
+            className={`jkl-progress-bar ${className ?? ""}`}
             role="progressbar"
+            title={title}
             aria-valuenow={progress.current}
             aria-valuemin={0}
             aria-valuetext={progressTextValue}
