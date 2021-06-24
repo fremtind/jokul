@@ -7,7 +7,7 @@ const rename = require("gulp-rename");
 const fiber = require("fibers");
 const importer = require("node-sass-tilde-importer");
 
-sass.compiler = require("dart-sass");
+sass.compiler = require("sass");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const scssFiles = ["**/*.scss", "!example/*.scss", "!documentation/*.scss"];

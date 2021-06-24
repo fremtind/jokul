@@ -75,7 +75,6 @@
         "cypress-axe": "^0.12.2",
         "cypress-plugin-snapshots": "^1.4.4",
         "cz-lerna-changelog": "^2.0.3",
-        "dart-sass": "^1.25.0",
         "document-register-element": "^1.14.3",
         "eslint": "^7.8.1",
         "eslint-config-prettier": "^8.1.0",
@@ -110,6 +109,7 @@
         "rimraf": "^3.0.2",
         "rollup": "^2.18.2",
         "rollup-plugin-terser": "^7.0.0",
+        "sass": "^1.35.1",
         "sinon": "^11.1.1",
         "typescript": "4.2.2",
         "vfile-message": "^3.0.1"

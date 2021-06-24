@@ -67,7 +67,7 @@ $expanding-pill-background-color--inverted: $fjellgra;
             background-color: $main-slider-color;
             background-color: var(--main-slider-color);
             height: 1px;
-            left: $line-left-right-margin/2;
+            left: $line-left-right-margin * 0.5;
             position: absolute;
             top: 50%;
             width: $toggle-width - $line-left-right-margin;
@@ -189,7 +189,7 @@ $expanding-pill-background-color--inverted: $fjellgra;
             height: $toggle-height;
         }
         &:after {
-            transform: translateX($toggle-width/2);
+            transform: translateX($toggle-width * 0.5);
         }
     }
 

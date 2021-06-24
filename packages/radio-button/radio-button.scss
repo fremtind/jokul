@@ -132,7 +132,7 @@ $radio-button-default-color--inverted: $svaberg;
         width: $radio-button-size;
         flex-shrink: 0;
 
-        margin: (($radio-button-height - $radio-button-size) / 2) 0;
+        margin: (($radio-button-height - $radio-button-size) * 0.5) 0;
         margin-right: $component-spacing--small;
 
         border-radius: 50%;
@@ -174,7 +174,7 @@ $radio-button-default-color--inverted: $svaberg;
 
     &__text {
         display: inline-block;
-        margin: (($radio-button-height - $radio-button-line-height) / 2) 0;
+        margin: (($radio-button-height - $radio-button-line-height) * 0.5) 0;
         transform: translate3D(0, rem(1px), 0);
     }
 
@@ -194,11 +194,11 @@ $radio-button-default-color--inverted: $svaberg;
 
         .jkl-radio-button__text {
             @include jkl-text-style("compact/body");
-            margin: (($radio-button-height--compact - $radio-button-line-height--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
             transform: translate3D(0, 0, 0);
         }
         .jkl-radio-button__dot {
-            margin: (($radio-button-height--compact - $radio-button-size--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
             margin-right: $component-spacing--small;
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;
@@ -217,11 +217,11 @@ $radio-button-default-color--inverted: $svaberg;
 
         .jkl-radio-button__text {
             @include jkl-text-style("compact/body");
-            margin: (($radio-button-height--compact - $radio-button-line-height--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
             transform: translate3D(0, 0, 0);
         }
         .jkl-radio-button__dot {
-            margin: (($radio-button-height--compact - $radio-button-size--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
             margin-right: $component-spacing--small;
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;
