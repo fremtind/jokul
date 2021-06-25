@@ -11,31 +11,39 @@ $radio-button-height--compact: rem(40px);
 $radio-button-line-height--compact: rem(24px);
 $radio-button-dot-padding--compact: rem(3px);
 
-$radio-button-color: $svart;
-$radio-button-background-color: $hvit;
-$radio-button-focus-color: $info;
+$radio-button-color: $granitt;
+$radio-button-background-color: $snohvit;
+$radio-button-focus-color: $granitt;
+$radio-button-focus-background-color: $hvit;
 $radio-button-error-color: $feil;
-$radio-button-disabled-color: $gra-60;
+$radio-button-disabled-color: $stein;
+$radio-button-default-color: $stein;
 
-$radio-button-color--inverted: $hvit;
+$radio-button-color--inverted: $snohvit;
 $radio-button-background-color--inverted: transparent;
-$radio-button-focus-color--inverted: $info--darkbg;
+$radio-button-focus-color--inverted: $snohvit;
+$radio-button-focus-background-color--inverted: $svart;
 $radio-button-error-color--inverted: $feil--darkbg;
-$radio-button-disabled-color--inverted: $gra-60;
+$radio-button-disabled-color--inverted: $stein;
+$radio-button-default-color--inverted: $svaberg;
 
 :root,
 [data-theme="light"] {
     --radio-button-color: #{$radio-button-color};
     --radio-button-background-color: #{$radio-button-background-color};
     --radio-button-focus-color: #{$radio-button-focus-color};
+    --radio-button-focus-background-color: #{$radio-button-focus-background-color};
     --radio-button-error-color: #{$radio-button-error-color};
+    --radio-button-default-color: #{$radio-button-default-color};
 }
 
 [data-theme="dark"] {
     --radio-button-color: #{$radio-button-color--inverted};
     --radio-button-background-color: #{$radio-button-background-color--inverted};
     --radio-button-focus-color: #{$radio-button-focus-color--inverted};
+    --radio-button-focus-background-color: #{$radio-button-focus-background-color--inverted};
     --radio-button-error-color: #{$radio-button-error-color--inverted};
+    --radio-button-default-color: #{$radio-button-default-color--inverted};
 }
 
 @keyframes dot-in {
@@ -65,9 +73,6 @@ $radio-button-disabled-color--inverted: $gra-60;
                 animation: dot-in 150ms ease;
                 background-color: currentColor;
             }
-            + .jkl-radio-button__label > .jkl-radio-button__text {
-                @include no-grow-bold;
-            }
         }
 
         // Focused state
@@ -79,6 +84,10 @@ $radio-button-disabled-color--inverted: $gra-60;
                 & > .jkl-radio-button__dot:before {
                     box-shadow: 0 0 0 rem(2px) $radio-button-focus-color;
                     box-shadow: 0 0 0 rem(2px) var(--radio-button-focus-color);
+                }
+                & > .jkl-radio-button__dot {
+                    background-color: $radio-button-focus-background-color;
+                    background-color: var(--radio-button-focus-background-color);
                 }
             }
         }
@@ -123,13 +132,11 @@ $radio-button-disabled-color--inverted: $gra-60;
         width: $radio-button-size;
         flex-shrink: 0;
 
-        margin: (($radio-button-height - $radio-button-size) / 2) 0;
+        margin: (($radio-button-height - $radio-button-size) * 0.5) 0;
         margin-right: $component-spacing--small;
 
         border-radius: 50%;
         box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
-        background-color: $radio-button-background-color;
-        background-color: var(--radio-button-background-color);
 
         @include motion("standard");
         transition-property: box-shadow;
@@ -167,7 +174,7 @@ $radio-button-disabled-color--inverted: $gra-60;
 
     &__text {
         display: inline-block;
-        margin: (($radio-button-height - $radio-button-line-height) / 2) 0;
+        margin: (($radio-button-height - $radio-button-line-height) * 0.5) 0;
         transform: translate3D(0, rem(1px), 0);
     }
 
@@ -187,11 +194,11 @@ $radio-button-disabled-color--inverted: $gra-60;
 
         .jkl-radio-button__text {
             @include jkl-text-style("compact/body");
-            margin: (($radio-button-height--compact - $radio-button-line-height--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
             transform: translate3D(0, 0, 0);
         }
         .jkl-radio-button__dot {
-            margin: (($radio-button-height--compact - $radio-button-size--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
             margin-right: $component-spacing--small;
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;
@@ -210,11 +217,11 @@ $radio-button-disabled-color--inverted: $gra-60;
 
         .jkl-radio-button__text {
             @include jkl-text-style("compact/body");
-            margin: (($radio-button-height--compact - $radio-button-line-height--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
             transform: translate3D(0, 0, 0);
         }
         .jkl-radio-button__dot {
-            margin: (($radio-button-height--compact - $radio-button-size--compact) / 2) 0;
+            margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
             margin-right: $component-spacing--small;
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;
@@ -245,6 +252,9 @@ $radio-button-disabled-color--inverted: $gra-60;
         }
 
         .jkl-radio-button__dot {
+            box-shadow: inset 0 0 0 rem(1px) $svaberg, 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 rem(1px) var(--radio-button-default-color--inverted), 0 0 0 0 transparent;
+
             background-color: $radio-button-background-color--inverted;
         }
 

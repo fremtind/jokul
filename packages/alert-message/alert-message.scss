@@ -10,9 +10,10 @@
 }
 
 $dismiss-animation-duration: 500ms;
-
-$background-color: $gra-10;
-$border-color: $svart;
+$dismiss-hover-color: $stein;
+$background-color: $snohvit;
+$text-color: $granitt;
+$border-color: $granitt;
 $info-background-color: message-bg-light($info);
 $info-border-color: $info;
 $warning-background-color: message-bg-light($advarsel);
@@ -22,8 +23,10 @@ $error-border-color: $feil;
 $success-background-color: message-bg-light($suksess);
 $success-border-color: $suksess;
 
-$background-color--inverted: $gra-100;
-$border-color--inverted: $hvit;
+$dismiss-hover-color--inverted: $svaberg;
+$background-color--inverted: $granitt;
+$text-color--inverted: $snohvit;
+$border-color--inverted: $snohvit;
 $info-background-color--inverted: message-bg-dark($info--darkbg);
 $info-border-color--inverted: $info--darkbg;
 $warning-background-color--inverted: message-bg-dark($advarsel--darkbg);
@@ -35,8 +38,10 @@ $success-border-color--inverted: $suksess--darkbg;
 
 :root,
 [data-theme="light"] {
+    --dismiss-hover-color: #{$dismiss-hover-color};
     --border-color: #{$border-color};
     --background-color: #{$background-color};
+    --text-color: #{$text-color};
     --info-border-color: #{$info-border-color};
     --info-background-color: #{$info-background-color};
     --warning-border-color: #{$warning-border-color};
@@ -48,8 +53,10 @@ $success-border-color--inverted: $suksess--darkbg;
 }
 
 [data-theme="dark"] {
+    --dismiss-hover-color: #{$dismiss-hover-color--inverted};
     --border-color: #{$border-color--inverted};
     --background-color: #{$background-color--inverted};
+    --text-color: #{$text-color--inverted};
     --info-border-color: #{$info-border-color--inverted};
     --info-background-color: #{$info-background-color--inverted};
     --warning-border-color: #{$warning-border-color--inverted};
@@ -101,11 +108,12 @@ $success-border-color--inverted: $suksess--darkbg;
         align-self: flex-start;
         flex-shrink: 0;
 
-        &:hover,
-        &:focus {
-            color: $info-border-color;
-            color: var(--info-border-color);
+        &:hover {
+            color: $dismiss-hover-color;
+            color: var(--dismiss-hover-color);
+        }
 
+        &:focus {
             @include keyboard-navigation {
                 position: relative;
 
@@ -116,8 +124,8 @@ $success-border-color--inverted: $suksess--darkbg;
                     right: rem(-2px);
                     bottom: rem(-2px);
                     left: rem(-2px);
-                    box-shadow: 0 0 0 rem(2px) $info-border-color;
-                    box-shadow: 0 0 0 rem(2px) var(--info-border-color);
+                    box-shadow: 0 0 0 rem(2px) $border-color;
+                    box-shadow: 0 0 0 rem(2px) var(--border-color);
                 }
             }
         }
@@ -188,6 +196,10 @@ $success-border-color--inverted: $suksess--darkbg;
     }
 
     &--dark {
+        // TODO fiks inverted dismiss button
+        .jkl-alert-message__message {
+            color: $text-color--inverted;
+        }
         &.jkl-alert-message--info {
             border-color: $info-border-color--inverted;
             background-color: $info-background-color--inverted;

@@ -1,6 +1,6 @@
 import { Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { useAnimatedHeight, useClickOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import classNames from "classnames";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
@@ -83,10 +83,10 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         const disableDate = useDisableDate(disableBeforeDate, disableAfterDate);
         const [inputId, supportLabelId] = useCalendarId();
 
-        const reducer = useMemo(() => createReducer(disableBeforeDate, disableAfterDate), [
-            disableBeforeDate,
-            disableAfterDate,
-        ]);
+        const reducer = useMemo(
+            () => createReducer(disableBeforeDate, disableAfterDate),
+            [disableBeforeDate, disableAfterDate],
+        );
         const initialDateState = getInitialDate(value, initialDate, disableDate);
 
         const [state, dispatch] = useReducer(reducer, {
@@ -139,6 +139,8 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         };
 
         useClickOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
+
+        useFocusOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
 
         useKeyListener(calendarRef, ["Escape"], () => {
             !state.calendarHidden && dispatch({ type: "TOGGLE" });

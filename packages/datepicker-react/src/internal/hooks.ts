@@ -3,10 +3,10 @@ import { useCallback, useState } from "react";
 import { dateIsOutsideRange } from "../dateFunctions";
 
 export const useDisableDate = (disableBeforeDate: Date | undefined, disableAfterDate: Date | undefined) => {
-    return useCallback((inputDate: Date) => dateIsOutsideRange(inputDate, disableBeforeDate, disableAfterDate), [
-        disableBeforeDate,
-        disableAfterDate,
-    ]);
+    return useCallback(
+        (inputDate: Date) => dateIsOutsideRange(inputDate, disableBeforeDate, disableAfterDate),
+        [disableBeforeDate, disableAfterDate],
+    );
 };
 
 export const useCalendarId = () => {

@@ -2,7 +2,7 @@
 
 .jkl-portal-do-dont-example {
     display: inline-block;
-    background-color: $gra-20;
+    background-color: $sand;
     padding: $component-spacing--medium;
     padding-bottom: $component-spacing--large;
     margin-bottom: $layout-spacing--large;
@@ -43,7 +43,7 @@
     }
 
     *[data-theme="dark"] & {
-        background-color: $gra-100;
+        background-color: $granitt;
 
         &__heading--do {
             color: $suksess--darkbg;

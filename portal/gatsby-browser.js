@@ -13,6 +13,7 @@ import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-card/card.min.css";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
+import "@fremtind/jkl-description-list/description-list.min.css";
 import "@fremtind/jkl-feedback/feedback.min.css";
 import "@fremtind/jkl-field-group/field-group.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";

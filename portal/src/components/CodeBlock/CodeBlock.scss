@@ -3,7 +3,7 @@
 
 .jkl-portal-code-block {
     position: relative;
-    background-color: $gra-10;
+    background-color: $hvit;
     border-radius: rem(2px);
     width: 100%;
     padding: $component-spacing--medium;
@@ -23,7 +23,7 @@
         right: 0;
         padding: $component-spacing--small;
         background-color: $svart;
-        color: $gra-10;
+        color: $snohvit;
         @include jkl-text-style("desktop/micro");
         text-transform: uppercase;
         content: attr(data-language);
@@ -36,19 +36,19 @@
     }
 
     html:not([data-mousenavigation]) &:focus-within {
-        box-shadow: 0 0 0 rem(2px) $info;
+        box-shadow: 0 0 0 rem(2px) $granitt;
     }
 
     *[data-theme="dark"] & {
-        background-color: $gra-90;
+        background-color: $skifer;
 
         html:not([data-mousenavigation]) &:focus-within {
-            box-shadow: 0 0 0 rem(2px) $info--darkbg;
+            box-shadow: 0 0 0 rem(2px) $snohvit;
         }
 
         &:before {
-            background-color: $gra-50;
-            color: $svart;
+            background-color: $stein;
+            color: $granitt;
         }
     }
 }

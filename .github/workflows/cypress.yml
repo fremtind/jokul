@@ -20,7 +20,7 @@ jobs:
               run: echo "::set-output name=dir::$(yarn cache dir)"
 
             - name: Cache yarn directory
-              uses: actions/cache@v2.1.5
+              uses: actions/cache@v2.1.6
               id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
                   path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -39,14 +39,14 @@ jobs:
                   command-prefix: 'percy exec -- npx'
 
             - name: Upload screenshots
-              uses: actions/upload-artifact@v2.2.3
+              uses: actions/upload-artifact@v2.2.4
               if: failure()
               with:
                   name: cypress-screenshots
                   path: cypress/screenshots
 
             - name: Upload video
-              uses: actions/upload-artifact@v2.2.3
+              uses: actions/upload-artifact@v2.2.4
               if: always()
               with:
                   name: cypress-videos

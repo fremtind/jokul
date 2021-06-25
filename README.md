@@ -2,7 +2,6 @@
 
 ![lint-test-typecheck](https://img.shields.io/github/workflow/status/fremtind/jokul/lint-test-typecheck)
 ![Visual regression tests](https://img.shields.io/github/workflow/status/fremtind/jokul/Visual%20regression%20tests?label=cypress)
-[![Known Vulnerabilities](https://snyk.io//test/github/fremtind/jokul/badge.svg?targetFile=package.json)](https://snyk.io//test/github/fremtind/jokul?targetFile=package.json)
 [![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
 [![All Contributors](https://img.shields.io/badge/all_contributors-18-green.svg?style=flat-rounded)](#contributors)
 
@@ -122,6 +121,8 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="http://audunberdal.no"><img src="https://avatars.githubusercontent.com/u/57794116?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Audun Berdal</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=AudunBerdal" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/commits?author=AudunBerdal" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/fremtind-tony"><img src="https://avatars.githubusercontent.com/u/54317847?v=4?s=100" width="100px;" alt=""/><br /><sub><b>fremtind-tony</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=fremtind-tony" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/jarledb"><img src="https://avatars.githubusercontent.com/u/835878?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jarle Berentzen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=jarledb" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Stormoen"><img src="https://avatars.githubusercontent.com/u/64519175?v=4?s=100" width="100px;" alt=""/><br /><sub><b>stormoen</b></sub></a><br /><a href="#design-stormoen" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/kennidenni"><img src="https://avatars.githubusercontent.com/u/31621649?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kenneth Apeland</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=kennidenni" title="Code">💻</a></td>
   </tr>
 </table>
 

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.10 (2021-06-25)
+
+### Bug Fixes
+
+- add accessible title to ProgressBar ([d7a80b0](https://github.com/fremtind/jokul/commit/d7a80b0871cd3b54bc896f47c972d9cb6b407582))
+
 ## 1.6.5 (2021-02-12)
 
 ### Bug Fixes

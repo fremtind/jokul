@@ -78,13 +78,11 @@ export const staticLinks = [
         linkText: "Kode på Github",
     },
     {
-        href:
-            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=🐝+bug&template=feilmelding.md&title=Feil%3A+",
+        href: "https://github.com/fremtind/jokul/issues/new?assignees=&labels=🐝+bug&template=feilmelding.md&title=Feil%3A+",
         linkText: "Rapporter feil",
     },
     {
-        href:
-            "https://github.com/fremtind/jokul/issues/new?assignees=&labels=✨+enhancement&template=funksjonalitets-nske.md&title=",
+        href: "https://github.com/fremtind/jokul/issues/new?assignees=&labels=✨+enhancement&template=funksjonalitets-nske.md&title=",
         linkText: "Foreslå ny funksjonalitet",
     },
     {
