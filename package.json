@@ -89,7 +89,7 @@
         "gulp": "^4.0.2",
         "gulp-postcss": "^8.0.0",
         "gulp-rename": "^2.0.0",
-        "gulp-sass": "^4.1.0",
+        "gulp-dart-sass": "^1.0.2",
         "husky": "^6.0.0",
         "jest": "^27.0.5",
         "jest-axe": "^5.0.1",
