@@ -142,7 +142,7 @@ $checkbox-box-default-color--inverted: $svaberg;
     }
 
     &__check-text {
-        margin: (($checkbox-height - $checkbox-line-height) / 2) 0;
+        margin: (($checkbox-height - $checkbox-line-height) * 0.5) 0;
         transform: translate3d(0, rem(1px), 0);
 
         @include motion("standard");
@@ -155,7 +155,7 @@ $checkbox-box-default-color--inverted: $svaberg;
         height: $checkbox-box-size;
         width: $checkbox-box-size;
 
-        margin: (($checkbox-height - $checkbox-box-size) / 2) 0;
+        margin: (($checkbox-height - $checkbox-box-size) * 0.5) 0;
         margin-right: $component-spacing--small;
         vertical-align: middle;
         flex-shrink: 0; // Don't allow the check-mark to shrink in case of really long text
@@ -258,11 +258,11 @@ $checkbox-box-default-color--inverted: $svaberg;
         .jkl-checkbox__check-mark {
             height: $checkbox-box-size--compact;
             width: $checkbox-box-size--compact;
-            margin: (($checkbox-height--compact - $checkbox-box-size--compact) / 2) 0;
+            margin: (($checkbox-height--compact - $checkbox-box-size--compact) * 0.5) 0;
             margin-right: $component-spacing--small;
         }
         .jkl-checkbox__check-text {
-            margin: (($checkbox-height--compact - $checkbox-line-height--compact) / 2) 0;
+            margin: (($checkbox-height--compact - $checkbox-line-height--compact) * 0.5) 0;
             transform: translate3d(0, 0, 0);
         }
     }
@@ -274,11 +274,11 @@ $checkbox-box-default-color--inverted: $svaberg;
         .jkl-checkbox__check-mark {
             height: $checkbox-box-size--compact;
             width: $checkbox-box-size--compact;
-            margin: (($checkbox-height--compact - $checkbox-box-size--compact) / 2) 0;
+            margin: (($checkbox-height--compact - $checkbox-box-size--compact) * 0.5) 0;
             margin-right: $component-spacing--small;
         }
         .jkl-checkbox__check-text {
-            margin: (($checkbox-height--compact - $checkbox-line-height--compact) / 2) 0;
+            margin: (($checkbox-height--compact - $checkbox-line-height--compact) * 0.5) 0;
             transform: translate3d(0, 0, 0);
         }
     }

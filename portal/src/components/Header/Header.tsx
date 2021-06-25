@@ -23,14 +23,8 @@ export const Header = ({ className }: { className?: string }) => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
-    const {
-        profileDocPages,
-        getStartedDocPages,
-        componentDocPages,
-        blogPages,
-        uuDocPages,
-        PageType,
-    } = useNavigationLinks();
+    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, uuDocPages, PageType } =
+        useNavigationLinks();
     const componentClassName = classNames("jkl-portal-header", className);
 
     const menuItems: MenuItemList = [

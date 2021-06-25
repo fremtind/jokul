@@ -7,15 +7,8 @@ import { ContentLink } from "../ContentLink/ContentLink";
 import "./Sidebar.scss";
 
 export function Sidebar() {
-    const {
-        profileDocPages,
-        getStartedDocPages,
-        componentDocPages,
-        uuDocPages,
-        blogPages,
-        PageType,
-        componentGroup,
-    } = useNavigationLinks();
+    const { profileDocPages, getStartedDocPages, componentDocPages, uuDocPages, blogPages, PageType, componentGroup } =
+        useNavigationLinks();
 
     const { currentSection } = useLocation();
 

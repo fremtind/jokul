@@ -15,6 +15,7 @@ module.exports = {
     notify: true,
     notifyMode: "always",
     roots: ["../packages", "../portal"],
+    testEnvironment: "jsdom",
 
     // Transpile patched NRK components
     // TODO: Remove when using unpatched versions again
