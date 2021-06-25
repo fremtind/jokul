@@ -82,10 +82,10 @@ const IndexPage: React.FC = () => {
                                 Få hjelp til å komme i gang med Universell utforming.
                             </Card>
                             <Card heading="For utviklere" link="/komigang/utvikling">
-                                Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
+                                Her får du vite det mest grunnleggende før du setter i gang å bruke Jøkul.
                             </Card>
                             <Card heading="For designere" link="/komigang/design">
-                                Her får du vite det mest grunnlegende før du setter i gang å bruke Jøkul.
+                                Her får du vite det mest grunnleggende før du setter i gang å bruke Jøkul.
                             </Card>
                             <Card heading="Prosessen" link="/komigang/prosessen">
                                 Hvordan du kan jobbe med designsystemet.
