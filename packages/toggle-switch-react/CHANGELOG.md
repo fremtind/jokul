@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2021-06-25)
+
+### Bug Fixes
+
+- **labels:** use SupportLabel from jkl-core, not deprecated version ([c6d5d62](https://github.com/fremtind/jokul/commit/c6d5d62dafe6c084acd336381e376930290b0530))
+
 ## 3.0.0 (2021-06-07)
 
 ### Features
