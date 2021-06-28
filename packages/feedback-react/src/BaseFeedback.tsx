@@ -51,6 +51,13 @@ export const FeedbackContext = createContext<{
     setValue: (next: FeedbackValue) => void;
 }>({ description: "", options: [], setValue: () => undefined });
 
+const CustomHeading: React.FC<
+    React.HTMLAttributes<HTMLHeadingElement> & { headingLevel?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" }
+> = ({ headingLevel = "h3", children, ...elProps }) => {
+    const el = React.createElement(headingLevel, { ...elProps }, children);
+    return el;
+};
+
 export class BaseFeedback extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
@@ -102,8 +109,6 @@ export class BaseFeedback extends React.Component<Props, State> {
     }
 
     render() {
-        const H = this.props.headingLevel;
-
         return (
             <div className={cn("jkl-feedback", this.props.className)}>
                 <FeedbackContext.Provider
@@ -135,7 +140,9 @@ export class BaseFeedback extends React.Component<Props, State> {
                             })}
                             onSubmit={this.handleActiveSubmit}
                         >
-                            <H className="jkl-feedback__heading jkl-heading-large">{this.props.label}</H>
+                            <CustomHeading className="jkl-feedback__heading jkl-heading-large">
+                                {this.props.label}
+                            </CustomHeading>
                             {this.props.content}
                             <section
                                 className={cn("jkl-feedback__submit-wrapper", {
