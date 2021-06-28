@@ -1,10 +1,9 @@
-import React, { createContext, useCallback, useEffect, useState, FC, ReactNode, FormEvent, ChangeEvent } from "react";
-import cn from "classnames";
-import { TextArea } from "@fremtind/jkl-text-input-react";
+import React, { ChangeEvent, createContext, FormEvent, ReactNode } from "react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
 import { SuccessMessage } from "@fremtind/jkl-message-box-react";
-import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import { VERY_UNHAPPY, UNHAPPY, NEUTRAL, HAPPY, VERY_HAPPY } from "./FeedbackValues";
+import { TextArea } from "@fremtind/jkl-text-input-react";
+import cn from "classnames";
+import { HAPPY, NEUTRAL, UNHAPPY, VERY_HAPPY, VERY_UNHAPPY } from "./FeedbackValues";
 import { FeedbackOption, FeedbackValue } from "./types";
 import { hasPrompt } from "./utils";
 
@@ -37,6 +36,14 @@ interface Props extends BaseFeedbackProps {
     content: ReactNode;
 }
 
+interface State {
+    feedbackValue: undefined | FeedbackValue;
+    feedbackPrompt: string | undefined;
+    message: string;
+    feedbackSubmitted: boolean;
+    feedbackSubmittedAnimation: boolean;
+}
+
 export const FeedbackContext = createContext<{
     description: string;
     options: Array<FeedbackValue | FeedbackOption>;
@@ -44,122 +51,137 @@ export const FeedbackContext = createContext<{
     setValue: (next: FeedbackValue) => void;
 }>({ description: "", options: [], setValue: () => undefined });
 
-export const BaseFeedback: FC<Props> = ({
-    label,
-    onSubmit,
-    description,
-    renderCustomSuccess,
-    successMessage = "Det hjelper oss i arbeidet med å forbedre våre løsninger",
-    successTitle = "Takk for tilbakemeldingen!",
-    callToActionText = "Send inn tilbakemelding",
-    showTextArea = true,
-    textAreaLabel = "Tips oss gjerne om hva vi kan forbedre",
-    textAreaHelpLabel = "",
-    className = "",
-    feedbackOptions = [VERY_UNHAPPY, UNHAPPY, NEUTRAL, HAPPY, VERY_HAPPY],
-    headingLevel = "h3",
-    content,
-}) => {
-    const [feedbackValue, setFeedbackValue] = useState<FeedbackValue>();
-    const [feedbackPrompt, setFeedbackPrompt] = useState(textAreaLabel);
-    const [message, setMessage] = useState("");
-    const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
-    const [feedbackSubmittedAnimation, setFeedbackSubmittedAnimation] = useState(false);
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(feedbackValue !== undefined);
-
-    const handleSubmit = useCallback(() => {
-        if (!feedbackSubmitted && feedbackValue) {
-            onSubmit({ feedbackValue, message });
+export class BaseFeedback extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            feedbackValue: undefined,
+            feedbackPrompt: props.textAreaLabel,
+            message: "",
+            feedbackSubmitted: false,
+            feedbackSubmittedAnimation: false,
+        };
+        if (typeof window !== "undefined") {
+            window.addEventListener("beforeunload", this.handleSubmit);
         }
-    }, [feedbackValue, feedbackSubmitted, message, onSubmit]);
+    }
 
-    const handleActiveSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        handleSubmit();
-        setFeedbackSubmittedAnimation(true);
-        setTimeout(() => setFeedbackSubmitted(true), 250);
+    handleSubmit = () => {
+        const { feedbackValue, message, feedbackSubmitted } = this.state;
+        if (!feedbackSubmitted && feedbackValue) {
+            this.props.onSubmit({ feedbackValue, message });
+        }
     };
 
-    const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
-        setMessage(e.currentTarget.value);
+    handleActiveSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        this.handleSubmit();
+        this.setState({
+            ...this.state,
+            feedbackSubmittedAnimation: true,
+        });
+        setTimeout(() => this.setState({ ...this.state, feedbackSubmitted: true }), 250);
+    };
 
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.addEventListener("beforeunload", handleSubmit);
+    handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
+        this.setState({ ...this.state, message: e.target.value });
+
+    componentDidUpdate(prevProps: Props, prevState: State) {
+        if (this.props.feedbackOptions && prevState.feedbackValue !== this.state.feedbackValue) {
+            const option = this.props.feedbackOptions.find(
+                (v) => hasPrompt(v) && v.value === this.state.feedbackValue,
+            ) as FeedbackOption | undefined;
+            this.setState({ ...this.state, feedbackPrompt: option?.prompt ?? this.props.textAreaLabel });
         }
-        return () => {
-            handleSubmit();
-            window.removeEventListener("beforeunload", handleSubmit);
-        };
-    }, [handleSubmit]);
+    }
 
-    useEffect(() => {
-        const option = feedbackOptions.find((v) => hasPrompt(v) && v.value === feedbackValue) as
-            | FeedbackOption
-            | undefined;
-        setFeedbackPrompt(option?.prompt ?? textAreaLabel);
-    }, [feedbackOptions, feedbackValue, textAreaLabel]);
+    componentWillUnmount() {
+        window.removeEventListener("beforeunload", this.handleSubmit);
 
-    const H = headingLevel;
+        this.handleSubmit();
+    }
 
-    return (
-        <div className={cn("jkl-feedback", className)}>
-            <FeedbackContext.Provider
-                value={{
-                    description,
-                    options: feedbackOptions,
-                    setValue: setFeedbackValue,
-                    value: feedbackValue,
-                }}
-            >
-                {feedbackSubmitted && (
-                    <section className="jkl-feedback__success" data-testid="feedback-success">
-                        {renderCustomSuccess && renderCustomSuccess({ value: feedbackValue, message })}
-                        {!renderCustomSuccess && <SuccessMessage title={successTitle}>{successMessage}</SuccessMessage>}
-                    </section>
-                )}
-                {!feedbackSubmitted && (
-                    <form
-                        className={cn("jkl-feedback__form", {
-                            "jkl-feedback__form--hidden": feedbackSubmittedAnimation,
-                        })}
-                        onSubmit={handleActiveSubmit}
-                    >
-                        <H className="jkl-feedback__heading jkl-heading-large">{label}</H>
-                        {content}
-                        <section
-                            ref={animationRef}
-                            className={cn("jkl-feedback__submit-wrapper", {
-                                "jkl-feedback__submit-wrapper--hidden jkl-layout-spacing--medium-top":
-                                    feedbackValue === undefined,
-                            })}
-                        >
-                            <div className="jkl-feedback__submit-content">
-                                {showTextArea && (
-                                    <TextArea
-                                        className="jkl-feedback__message-input"
-                                        data-testid="feedback-text"
-                                        name="feedback-text"
-                                        label={feedbackPrompt}
-                                        variant="small"
-                                        rows={3}
-                                        helpLabel={textAreaHelpLabel}
-                                        value={message}
-                                        onChange={handleMessageChange}
-                                    />
-                                )}
-                                <SecondaryButton
-                                    data-testid="submit-button"
-                                    className="jkl-layout-spacing--medium-top"
-                                    type="submit"
-                                >
-                                    {callToActionText}
-                                </SecondaryButton>
-                            </div>
+    render() {
+        const H = this.props.headingLevel;
+
+        return (
+            <div className={cn("jkl-feedback", this.props.className)}>
+                <FeedbackContext.Provider
+                    value={{
+                        description: this.props.description,
+                        options: this.props.feedbackOptions ?? BaseFeedback.defaultProps.feedbackOptions,
+                        setValue: (feedbackValue) => this.setState({ ...this.state, feedbackValue }),
+                        value: this.state.feedbackValue,
+                    }}
+                >
+                    {this.state.feedbackSubmitted && (
+                        <section className="jkl-feedback__success" data-testid="feedback-success">
+                            {this.props.renderCustomSuccess &&
+                                this.props.renderCustomSuccess({
+                                    value: this.state.feedbackValue,
+                                    message: this.state.message,
+                                })}
+                            {!this.props.renderCustomSuccess && (
+                                <SuccessMessage title={this.props.successTitle}>
+                                    {this.props.successMessage}
+                                </SuccessMessage>
+                            )}
                         </section>
-                    </form>
-                )}
-            </FeedbackContext.Provider>
-        </div>
-    );
-};
+                    )}
+                    {!this.state.feedbackSubmitted && (
+                        <form
+                            className={cn("jkl-feedback__form", {
+                                "jkl-feedback__form--hidden": this.state.feedbackSubmittedAnimation,
+                            })}
+                            onSubmit={this.handleActiveSubmit}
+                        >
+                            <H className="jkl-feedback__heading jkl-heading-large">{this.props.label}</H>
+                            {this.props.content}
+                            <section
+                                className={cn("jkl-feedback__submit-wrapper", {
+                                    "jkl-feedback__submit-wrapper--hidden jkl-layout-spacing--medium-top":
+                                        this.state.feedbackValue === undefined,
+                                })}
+                            >
+                                <div className="jkl-feedback__submit-content">
+                                    {this.props.showTextArea && (
+                                        <TextArea
+                                            className="jkl-feedback__message-input"
+                                            data-testid="feedback-text"
+                                            name="feedback-text"
+                                            label={this.state.feedbackPrompt ?? ""}
+                                            variant="small"
+                                            rows={3}
+                                            helpLabel={this.props.textAreaHelpLabel}
+                                            value={this.state.message}
+                                            onChange={this.handleMessageChange}
+                                        />
+                                    )}
+                                    <SecondaryButton
+                                        data-testid="submit-button"
+                                        className="jkl-layout-spacing--medium-top"
+                                        type="submit"
+                                    >
+                                        {this.props.callToActionText}
+                                    </SecondaryButton>
+                                </div>
+                            </section>
+                        </form>
+                    )}
+                </FeedbackContext.Provider>
+            </div>
+        );
+    }
+
+    static defaultProps = {
+        successMessage: "Det hjelper oss i arbeidet med å forbedre våre løsninger",
+        successTitle: "Takk for tilbakemeldingen!",
+        callToActionText: "Send inn tilbakemelding",
+        showTextArea: true,
+        textAreaLabel: "Tips oss gjerne om hva vi kan forbedre",
+        textAreaHelpLabel: "",
+        className: "",
+        feedbackOptions: [VERY_UNHAPPY, UNHAPPY, NEUTRAL, HAPPY, VERY_HAPPY],
+        headingLevel: "h3",
+    };
+}
