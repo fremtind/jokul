@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.0 (2021-06-29)
+
+### Features
+
+- **feedback-react:** add support for submit when unmounting the component ([2a85ee9](https://github.com/fremtind/jokul/commit/2a85ee9b5e1b1a8035a321007566d0026d562f1d))
+
 ## 5.0.0 (2021-06-07)
 
 ### Features
