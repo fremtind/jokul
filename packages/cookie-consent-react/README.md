@@ -1,0 +1,45 @@
+# [`@fremtind/jkl-cookie-consent-react`](https://fremtind.github.io/jokul/komponenter/cookie-consent)
+
+## Beskrivelse
+
+Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/cokie-consent).
+
+## Kom i gang
+
+[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+
+## Bruk av React-pakken
+
+### Installasjon
+
+1. Installér pakken med `yarn add @fremtind/jkl-cookie-consent-react` eller `npm i @fremtind/jkl-cookie-consent-react`. Stil-pakken blir automatisk installert som en avhengighet.
+
+2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
+
+```js
+import { CookieConsentProvider, CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
+import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
+```
+
+### Bruk
+
+Komponentene tar følgende props:
+
+`CookieConsentProvider`:
+- `marketing`: Krav om cookies for markedsføring
+- `functional`: Krav om funksjonelle cookies
+- `statistics`: Krav om cookies for statistikk
+- `cookieAdapter`: En funksjon som gjør oppslag mot cookies, for å lete etter andre cookies som kan bestemme et consent
+
+`CookieConsent`:
+- `blocking`: Betegner en blokkerende modal, som krever en aktiv handling
+- `onAccept`: Callback når et consent er håndtert. Første argument er consentet.
+
+Enkel bruk kan se sånn ut:
+
+```jsx
+<CookieConsentProvider functional marketing statistics>
+    <Content />
+    <CookieConsent blocking />
+</CookieConsentProvider>
+```

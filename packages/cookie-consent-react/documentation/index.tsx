@@ -14,19 +14,8 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
 import { Example } from "./Example";
-import "@fremtind/jkl-button/button.css";
-import "@fremtind/jkl-loader/loader.css";
 
 initTabListener();
 
 const mountNode = document.getElementById("app");
-
-ReactDOM.render(
-    <DevExample
-        component={Example}
-        knobs={{
-            boolProps: ["Kompakt", "Invertert", "isLoading", "withLoader"],
-        }}
-    />,
-    mountNode,
-);
+ReactDOM.render(<DevExample component={Example} />, mountNode);

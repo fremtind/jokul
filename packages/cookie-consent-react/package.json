@@ -1,14 +1,13 @@
 {
-    "name": "@fremtind/jkl-react-hooks",
-    "version": "2.1.2",
+    "name": "@fremtind/jkl-cookie-consent-react",
+    "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react button components",
+    "description": "Jøkul react cookie consent component",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
-        "hooks",
-        "react hooks",
+        "cookie consent",
         "jøkul",
         "fremtind"
     ],
@@ -29,18 +28,21 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-button yarn build:watch",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-cookie-consent yarn build:watch",
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
-    "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.10.1"
-    },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-core": "^5.0.1",
-        "@fremtind/jkl-react-hooks": "^1.10.7"
+        "@fremtind/jkl-button": "^1.8.8",
+        "@fremtind/jkl-button-react": "^3.0.1",
+        "@fremtind/jkl-cookie-consent": "^1.0.0",
+        "@fremtind/jkl-list-react": "^3.0.1",
+        "@fremtind/jkl-react-hooks": "^2.1.2",
+        "@nrk/core-dialog": "^3.0.7",
+        "classnames": "^2.2.6"
     },
+    "devDependencies": {},
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0",

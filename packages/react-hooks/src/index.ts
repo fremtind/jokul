@@ -9,3 +9,4 @@ export { useScrollIntoView } from "./useScrollIntoView/useScrollIntoView";
 export { initialState as initialScreenState } from "./useScreen/state";
 export { useReducedMotion } from "./useReducedMotion/useReducedMotion";
 export { useProgressiveImg } from "./useProgressiveImg/useProgressiveImg";
+export { usePreviousValue } from "./usePreviousValue/usePreviousValue";
