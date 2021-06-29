@@ -1493,6 +1493,13 @@
     "@babel/runtime" "^7.9.0"
     classnames "^2.2.6"
 
+"@fremtind/jkl-list@^2.1.8":
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/@fremtind/jkl-list/-/jkl-list-2.1.8.tgz#c939be4fd646de0a623785af0777238cebb29c79"
+  integrity sha512-fY3krijXZs7plNMS3XB7tnSs1F3utom8GImO1SFQBN5pI6OK9oux0MBwxDGcv8aErZh+6X5ma/dKt0nGCepueA==
+  dependencies:
+    "@fremtind/jkl-core" "^4.21.1"
+
 "@fremtind/jkl-react-hooks@^1.10.7":
   version "1.10.7"
   resolved "https://registry.yarnpkg.com/@fremtind/jkl-react-hooks/-/jkl-react-hooks-1.10.7.tgz#14126c75d8f9de3216e6d0033b5a4082634a9f70"

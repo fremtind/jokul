@@ -34,9 +34,10 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-button": "^1.8.8",
+        "@fremtind/jkl-button": "^2.0.1",
         "@fremtind/jkl-button-react": "^3.1.0",
         "@fremtind/jkl-cookie-consent": "^2.0.0",
+        "@fremtind/jkl-list": "^3.0.1",
         "@fremtind/jkl-list-react": "^3.0.1",
         "@fremtind/jkl-react-hooks": "^3.0.0",
         "@nrk/core-dialog": "^3.0.7",

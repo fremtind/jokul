@@ -42,6 +42,7 @@ export const setConsentCookie = (consent: Consent, maxAge = DEFAULT_MAX_AGE, nam
 
     cookie.push(`${name}=${JSON.stringify(consent)}`);
     cookie.push(`max-age=${maxAge}`);
+    cookie.push(`SameSite=Lax`);
     document.cookie = cookie.join(";");
 };
 
