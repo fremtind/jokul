@@ -1,0 +1,37 @@
+---
+title: Cookie consent
+scss: cookie-consent
+react: cookie-consent-react
+group: annet
+---
+
+import { Blocking } from "./Blocking";
+
+<Ingress>Et Cookie Consent informerer en bruker av et nettsted om bruken av informasjonskapsler.</Ingress>
+
+Vi anser det som at cookies kan deles opp i 3 formål, med hver sine hensikter og lovverk:
+
+-   Funksjonelle
+-   Markedsføring
+-   Statistikk
+
+Et kjernekonsept i Cookie Consent komponenten er at man **ikke skal spørre om mer enn man har behov for**. I praksis
+betyr dette at man eksplisitt setter hvilke formål man vil inhente et consent for, og man blir ikke spurt om andre
+formål enn disse.
+
+Ved aksept vil komponenten lagre en cookie med en utløpstid på 120 dager, hvor det defineres hvorvidt et consent
+er tatt stilling til:
+
+```JSON
+{
+    "marketing":null,         // ikke tatt stilling til
+    "functional":"accepted",  // godtatt
+    "statistics":"denied"     // avslått
+}
+```
+
+## Blocking
+
+Foreløpig støtter Cookie Consent kun en blokkerende modal, hvor brukeren må ta et aktivt valg for å komme videre.
+
+<ComponentExample component={Blocking} />

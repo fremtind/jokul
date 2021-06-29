@@ -20,6 +20,7 @@ import "@fremtind/jkl-loader/loader.css";
 initTabListener();
 
 const mountNode = document.getElementById("app");
+
 ReactDOM.render(
     <DevExample
         component={Example}

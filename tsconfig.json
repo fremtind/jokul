@@ -6,7 +6,8 @@
         "isolatedModules": false                  /* Even though we use babel for compilation, we turn this flag off to use declared modules in typechecking (see raw-loader.ts) */,
         "lib": [                                  /* Specify library files to be included in the compilation. */
             "dom",                                /* We have a browser environment */
-            "ESNext.Array"                        /* We like flat arrays */
+            "ESNext.Array",                        /* We like flat arrays */
+            "ES2019.Object"
         ],
         "module": "esnext"                        /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
         // "allowJs": true,                       /* Allow javascript files to be compiled. */
