@@ -65,13 +65,17 @@ describe("cookieConsentUtils/setConsentCookie", () => {
         setConsentCookie(generateConsent(null, null, null));
         expect(mockGet).toHaveBeenCalled();
         expect(mockGet).toHaveBeenCalledWith(
-            `fremtind-cookie-consent=${JSON.stringify(generateConsent(null, null, null))};max-age=10368000`,
+            `fremtind-cookie-consent=${JSON.stringify(
+                generateConsent(null, null, null),
+            )};max-age=10368000;SameSite=Lax`,
         );
 
         setConsentCookie(generateConsent(null, "accepted", "denied"));
         expect(mockGet).toHaveBeenCalled();
         expect(mockGet).toHaveBeenCalledWith(
-            `fremtind-cookie-consent=${JSON.stringify(generateConsent(null, "accepted", "denied"))};max-age=10368000`,
+            `fremtind-cookie-consent=${JSON.stringify(
+                generateConsent(null, "accepted", "denied"),
+            )};max-age=10368000;SameSite=Lax`,
         );
     });
 });
