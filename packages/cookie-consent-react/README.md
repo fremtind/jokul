@@ -19,6 +19,8 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponente
 ```js
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
+import "@fremtind/jkl-button/button.min.css";
+import "@fremtind/jkl-list/list.min.css";
 ```
 
 ### Bruk
