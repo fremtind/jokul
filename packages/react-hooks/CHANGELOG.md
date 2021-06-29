@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0 (2021-06-29)
+
+### Features
+
+- **cookie-consent:** legg til ny cookie consent komponent ([0b98c81](https://github.com/fremtind/jokul/commit/0b98c81b85fff720aba27428ec673e07cf938b8f))
+- **react-hooks:** add usePreviousValue hook to record previous value ([9f1d026](https://github.com/fremtind/jokul/commit/9f1d02669d11e6a35e151f8e5371970a04491962))
+
+### BREAKING CHANGES
+
+- **cookie-consent:** ny cookie-consent komponent
+- **react-hooks:** new usePreviousValue hook
+
 ## 2.1.1 (2021-06-24)
 
 ### Bug Fixes

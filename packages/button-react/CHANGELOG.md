@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.0 (2021-06-29)
+
+### Bug Fixes
+
+- rip snapshots ([557ee05](https://github.com/fremtind/jokul/commit/557ee053d7ac3f5af5de0b1ab9e951b61b506be8))
+
+### Features
+
+- **cookie-consent:** legg til integrasjonstest ([ff2bbca](https://github.com/fremtind/jokul/commit/ff2bbcad2ca1e054488221fbbbebec2d24b0d8ba))
+
 ## 3.0.0 (2021-06-07)
 
 ### Features

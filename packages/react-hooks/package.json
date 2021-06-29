@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-react-hooks",
-    "version": "2.1.2",
+    "version": "3.0.0",
     "publishConfig": {
         "access": "public"
     },
