@@ -1,4 +1,14 @@
-import React, { createContext, useCallback, useEffect, useState, FC, ReactNode, FormEvent, ChangeEvent } from "react";
+import React, {
+    createContext,
+    useCallback,
+    useEffect,
+    useState,
+    FC,
+    ReactNode,
+    FormEvent,
+    ChangeEvent,
+    useRef,
+} from "react";
 import cn from "classnames";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
@@ -67,11 +77,42 @@ export const BaseFeedback: FC<Props> = ({
     const [feedbackSubmittedAnimation, setFeedbackSubmittedAnimation] = useState(false);
     const [animationRef] = useAnimatedHeight<HTMLDivElement>(feedbackValue !== undefined);
 
+    const feedbackValuesRef = useRef({
+        onSubmit,
+        values: { feedbackValue, message },
+    });
+
     const handleSubmit = useCallback(() => {
-        if (!feedbackSubmitted && feedbackValue) {
-            onSubmit({ feedbackValue, message });
+        if (!feedbackSubmitted && feedbackValuesRef.current.values.feedbackValue !== undefined) {
+            feedbackValuesRef.current.onSubmit(feedbackValuesRef.current.values as FeedbackPayload);
         }
-    }, [feedbackValue, feedbackSubmitted, message, onSubmit]);
+    }, [feedbackSubmitted]);
+
+    useEffect(() => {
+        feedbackValuesRef.current = {
+            onSubmit,
+            values: { feedbackValue, message },
+        };
+    }, [feedbackValue, message, onSubmit]);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            window.addEventListener("beforeunload", handleSubmit);
+        }
+        return () => {
+            handleSubmit();
+            window.removeEventListener("beforeunload", handleSubmit);
+        };
+        // No need to depend on handleSubmit, since all values come from a ref
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        const option = feedbackOptions.find((v) => hasPrompt(v) && v.value === feedbackValue) as
+            | FeedbackOption
+            | undefined;
+        setFeedbackPrompt(option?.prompt ?? textAreaLabel);
+    }, [feedbackOptions, feedbackValue, textAreaLabel]);
 
     const handleActiveSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -82,22 +123,6 @@ export const BaseFeedback: FC<Props> = ({
 
     const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
         setMessage(e.currentTarget.value);
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.addEventListener("beforeunload", handleSubmit);
-        }
-        return () => {
-            window.removeEventListener("beforeunload", handleSubmit);
-        };
-    }, [handleSubmit]);
-
-    useEffect(() => {
-        const option = feedbackOptions.find((v) => hasPrompt(v) && v.value === feedbackValue) as
-            | FeedbackOption
-            | undefined;
-        setFeedbackPrompt(option?.prompt ?? textAreaLabel);
-    }, [feedbackOptions, feedbackValue, textAreaLabel]);
 
     const H = headingLevel;
 
