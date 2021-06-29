@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.1 (2021-06-29)
+
+### Bug Fixes
+
+- fix leaking styles from cookie consent ([7ff24c6](https://github.com/fremtind/jokul/commit/7ff24c6e54c3f41a6779fa450b8a84566eb58e60))
+- update tests with new cookie value ([173488e](https://github.com/fremtind/jokul/commit/173488ea4d25b5d2f37f1e6d227ee839b9e478f1))
+- use samesite=lax to fulfill new cookie requirements ([43f6048](https://github.com/fremtind/jokul/commit/43f6048d6d3e5f120a21b28c1670fc5d2864bf70))
+
 ## 2.0.0 (2021-06-29)
 
 ### Bug Fixes
