@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
         "@fremtind/jkl-core": "^5.0.1"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.10.1",
+        "@fremtind/jkl-portal-components": "^0.10.2",
         "npm-run-all": "^4.1.5"
     },
     "peerDependencies": {

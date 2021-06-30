@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "0.2.13",
+    "version": "0.2.14",
     "publishConfig": {
         "access": "public"
     },
@@ -28,7 +28,7 @@
         "dev": "run-p dev:*"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.10.1"
+        "@fremtind/jkl-portal-components": "^0.10.2"
     },
     "repository": {
         "type": "git",

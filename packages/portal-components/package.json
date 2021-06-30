@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-portal-components",
-    "version": "0.10.1",
+    "version": "0.10.2",
     "publishConfig": {
         "access": "public"
     },
