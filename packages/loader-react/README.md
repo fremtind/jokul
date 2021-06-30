@@ -29,7 +29,7 @@ Komponenten tar følgende props:
 -   `negative`: Angir om loaderen skal brukes på mørk bakgrunn. `boolean`
 -   `inline`: Angir om loaderen skal brukes inne i et annet element. `boolean`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
--   `politness`: Sett politeness setting på aria-live. `polite` eller `assertive`.
+-   `politeness`: Sett politeness setting på aria-live. `polite` (default) eller `assertive`.
 
 Den enkleste bruken av komponenten er altså:
 
