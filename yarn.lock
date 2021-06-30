@@ -1473,18 +1473,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fremtind/jkl-button@^1.8.8":
-  version "1.8.8"
-  resolved "https://registry.yarnpkg.com/@fremtind/jkl-button/-/jkl-button-1.8.8.tgz#a8d4b0ab9ac54fb06b248c138e31dd2553b572f1"
-  integrity sha512-+A0nY/Sm4ZXgwBAXMng5OalHvqHgES9pu29/xizTV02WiUb37JEB40+lX0WomVo1mRvIgJXfaZDRlDmn1BRtKQ==
-  dependencies:
-    "@fremtind/jkl-core" "^4.21.1"
-
-"@fremtind/jkl-core@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@fremtind/jkl-core/-/jkl-core-3.0.0.tgz#c4e600bb7fb45a91bf6b8827a3b141164b59cb9d"
-  integrity sha512-YSub+Bu8N3ZBPp09R1eS83J2RRgmws74SRnwXIEawnCozgkKfSD6/75WCOjwZgXHoTslu2MId4TBkiD3SvTojg==
-
 "@fremtind/jkl-core@^4.21.1":
   version "4.21.1"
   resolved "https://registry.yarnpkg.com/@fremtind/jkl-core/-/jkl-core-4.21.1.tgz#4b821752ed90300492202c5470814138721f1862"
@@ -1492,13 +1480,6 @@
   dependencies:
     "@babel/runtime" "^7.9.0"
     classnames "^2.2.6"
-
-"@fremtind/jkl-list@^2.1.8":
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/@fremtind/jkl-list/-/jkl-list-2.1.8.tgz#c939be4fd646de0a623785af0777238cebb29c79"
-  integrity sha512-fY3krijXZs7plNMS3XB7tnSs1F3utom8GImO1SFQBN5pI6OK9oux0MBwxDGcv8aErZh+6X5ma/dKt0nGCepueA==
-  dependencies:
-    "@fremtind/jkl-core" "^4.21.1"
 
 "@fremtind/jkl-react-hooks@^1.10.7":
   version "1.10.7"
