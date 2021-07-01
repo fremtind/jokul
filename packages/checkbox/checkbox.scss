@@ -124,8 +124,6 @@ $checkbox-box-default-color--inverted: $svaberg;
 
             .jkl-checkbox__check-mark {
                 box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
-                background-color: $checkbox-focus-background-color;
-                background-color: var(--checkbox-focus-background-color);
             }
         }
 
