@@ -80,16 +80,25 @@ export const BaseFeedback: FC<Props> = ({
     const feedbackValuesRef = useRef({
         onSubmit,
         values: { feedbackValue, message },
+        feedbackSubmitted,
     });
 
+    useEffect(() => {
+        feedbackValuesRef.current.feedbackSubmitted = feedbackSubmitted;
+    }, [feedbackSubmitted]);
+
     const handleSubmit = useCallback(() => {
-        if (!feedbackSubmitted && feedbackValuesRef.current.values.feedbackValue !== undefined) {
+        if (
+            !feedbackValuesRef.current.feedbackSubmitted &&
+            feedbackValuesRef.current.values.feedbackValue !== undefined
+        ) {
             feedbackValuesRef.current.onSubmit(feedbackValuesRef.current.values as FeedbackPayload);
         }
-    }, [feedbackSubmitted]);
+    }, []);
 
     useEffect(() => {
         feedbackValuesRef.current = {
+            ...feedbackValuesRef.current,
             onSubmit,
             values: { feedbackValue, message },
         };
