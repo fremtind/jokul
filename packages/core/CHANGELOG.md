@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.2 (2021-07-02)
+
+### Bug Fixes
+
+- changed focus state for NavLink ([178e972](https://github.com/fremtind/jokul/commit/178e9726fc57770ae793204fd65d2d83cfb9f05a))
+
 ## 5.0.1 (2021-06-25)
 
 ### Bug Fixes
