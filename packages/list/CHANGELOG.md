@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,61 +7,61 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+-   new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
 
 ### BREAKING CHANGES
 
-- all color variables are changed
+-   all color variables are changed
 
 ## 2.1.8 (2021-02-17)
 
 ### Bug Fixes
 
-- **list:** fix display of icon list in IE ([7f6dfb4](https://github.com/fremtind/jokul/commit/7f6dfb4ad035753c1bf9c91ccb61a42f7cb44c54)), closes [#1827](https://github.com/fremtind/jokul/issues/1827)
+-   **list:** fix display of icon list in IE ([7f6dfb4](https://github.com/fremtind/jokul/commit/7f6dfb4ad035753c1bf9c91ccb61a42f7cb44c54)), closes [#1827](https://github.com/fremtind/jokul/issues/1827)
 
 ## 2.1.1 (2020-11-30)
 
 ### Bug Fixes
 
-- list icon top placement ([fbb5a01](https://github.com/fremtind/jokul/commit/fbb5a01569ff9e978cd1dd2a538509ad7181b244))
+-   list icon top placement ([fbb5a01](https://github.com/fremtind/jokul/commit/fbb5a01569ff9e978cd1dd2a538509ad7181b244))
 
 ## 2.1.0 (2020-11-27)
 
 ### Features
 
-- **list:** new checklist icons ([26260dc](https://github.com/fremtind/jokul/commit/26260dca4a0623fef86745f6f5616da7a4b33579))
+-   **list:** new checklist icons ([26260dc](https://github.com/fremtind/jokul/commit/26260dca4a0623fef86745f6f5616da7a4b33579))
 
 ## 2.0.0 (2020-11-03)
 
 ### Features
 
-- **list:** add check and cross list items ([7c53131](https://github.com/fremtind/jokul/commit/7c53131d00712b1c41ec77dd341bb962e71c37fb)), closes [#1483](https://github.com/fremtind/jokul/issues/1483)
+-   **list:** add check and cross list items ([7c53131](https://github.com/fremtind/jokul/commit/7c53131d00712b1c41ec77dd341bb962e71c37fb)), closes [#1483](https://github.com/fremtind/jokul/issues/1483)
 
 ### BREAKING CHANGES
 
-- **list:** BREAKING
+-   **list:** BREAKING
 
 ## 1.2.5 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 1.2.0 (2020-02-19)
 
 ### Features
 
-- export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+-   export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+-   update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
 
 ## 0.7.0 (2019-07-30)
 
