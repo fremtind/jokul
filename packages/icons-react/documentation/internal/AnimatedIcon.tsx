@@ -1,6 +1,5 @@
 import React from "react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-button/button.min.css";
 
 interface AnimatedIconProps {
     renderIcon: (arg0: boolean) => React.ReactNode;
