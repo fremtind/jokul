@@ -103,6 +103,22 @@ test("should call onSubmit function if the component is unmounted", () => {
     expect(mockFn).toBeCalledTimes(1);
 });
 
+test("should not call onSubmit on unmount if feedback already is submitted", async () => {
+    const { unmount } = render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
+
+    userEvent.click(screen.getByTestId("feedback-1"));
+    userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
+    userEvent.click(screen.getByTestId("submit-button"));
+
+    await screen.findByTestId("feedback-success");
+
+    expect(mockFn).toBeCalledTimes(1);
+
+    unmount();
+
+    expect(mockFn).toBeCalledTimes(1);
+});
+
 test.each([Feedback, SimplifiedFeedback])("Feedback should be a11y compliant", async (Component) => {
     const { container } = render(<Component description="feedback" label="feedback" onSubmit={mockFn} />);
     const inputMode = await axe(container);
