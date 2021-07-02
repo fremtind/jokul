@@ -41,22 +41,19 @@ $container-width--compact: rem(320px);
     box-shadow: $drop-shadow--large;
     transition: 0.2s;
 
-    &.jkl-cookie-consent-modal--settings {
-        ul.jkl-list {
-            margin-bottom: $component-spacing--large;
-        }
+    &__checklist {
+        margin-bottom: $component-spacing--large;
     }
 
     @include jkl-text-style("desktop/body");
 
+    &__info-text {
+        @include jkl-text-style("desktop/small");
+    }
+
     &__header {
         @include jkl-text-style("desktop/heading-medium");
         margin-bottom: $layout-spacing--small;
-    }
-
-    p,
-    fieldset {
-        @include jkl-text-style("desktop/small");
     }
 
     &__checkbox {
@@ -80,13 +77,12 @@ $container-width--compact: rem(320px);
 
         @include jkl-text-style("compact/body");
 
-        &__header {
-            @include jkl-text-style("compact/heading-medium");
+        &__info-text {
+            @include jkl-text-style("compact/small");
         }
 
-        p,
-        fieldset {
-            @include jkl-text-style("compact/small");
+        &__header {
+            @include jkl-text-style("compact/heading-medium");
         }
     }
 }

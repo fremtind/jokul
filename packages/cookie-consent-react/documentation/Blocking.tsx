@@ -2,9 +2,6 @@ import React from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
-import "@fremtind/jkl-button/button.min.css";
-import "@fremtind/jkl-list/list.min.css";
 
 const Content = () => {
     const { openConsentModalWithSettings } = useCookieConsent();
@@ -22,7 +19,7 @@ export const Blocking = ({}: ExampleComponentProps) => {
     }
 
     return (
-        <CookieConsentProvider>
+        <CookieConsentProvider functional marketing>
             <Content />
             <CookieConsent blocking />
         </CookieConsentProvider>

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 // @ts-ignore: wait for nrk to supply types
 import CoreDialog from "@nrk/core-dialog/jsx";
 import { CheckListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-import { useForm } from "react-hook-form";
+import { useForm, useFormContext, FormProvider } from "react-hook-form";
 import { Consent, ConsentComponentBaseProps } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";
 import { convertBooleanConsentObjectToConsentObject, convertConsentObjectToBooleans } from "./cookieConsentUtils";
@@ -15,9 +15,28 @@ interface FormValues {
     statistics?: boolean;
 }
 
+interface RequirementCheckboxProps {
+    name: string;
+    label: string;
+    children: ReactNode;
+}
+
+const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps) => {
+    const { register } = useFormContext<FormValues>();
+
+    return (
+        <>
+            <Checkbox name={name} value="True" ref={register()} className="jkl-cookie-consent-modal__checkbox">
+                {label}
+            </Checkbox>
+            <p className="jkl-cookie-consent-modal__info-text">{children}</p>
+        </>
+    );
+};
+
 export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
     const { consent, dispatch, isOpen, requirement, showSettings } = useCookieConsentState();
-    const { register, handleSubmit } = useForm<FormValues>({
+    const formMethods = useForm<FormValues>({
         defaultValues: convertConsentObjectToBooleans(consent),
     });
 
@@ -39,14 +58,14 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
             strict
             hidden={!isOpen}
             aria-label="Informasjonskapsler"
-            className={`jkl-cookie-consent-modal jkl-cookie-consent-modal--${showSettings ? "settings" : "implicit"}`}
+            className="jkl-cookie-consent-modal"
             data-testautoid="jkl-cookie-consent-modal"
         >
             {!showSettings ? (
                 <>
                     <h1 className="jkl-cookie-consent-modal__header">Vi bruker informasjonskapsler slik at:</h1>
 
-                    <UnorderedList className="jkl-cookie-consent-modal__info">
+                    <UnorderedList className="jkl-cookie-consent-modal__checklist">
                         <CheckListItem>Nettsidene skal fungere teknisk</CheckListItem>
                         {requirement.functional && (
                             <CheckListItem>
@@ -82,73 +101,43 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
                     </div>
                 </>
             ) : (
-                <>
+                <FormProvider {...formMethods}>
                     <h1 className="jkl-cookie-consent-modal__header">Informasjonskapsler</h1>
 
-                    <UnorderedList>
+                    <UnorderedList className="jkl-cookie-consent-modal__checklist">
                         <CheckListItem>Nettsidene skal fungere teknisk</CheckListItem>
                     </UnorderedList>
-                    <p>
+                    <p className="jkl-cookie-consent-modal__info-text">
                         For at nettsidene skal fungere, må vi bruke tekniske informasjonskapsler. Denne kan derfor ikke
                         slås av.
                     </p>
-                    <form onSubmit={handleSubmit(onFormSubmit)}>
+                    <form onSubmit={formMethods.handleSubmit(onFormSubmit)}>
                         {requirement.functional && (
-                            <>
-                                <Checkbox
-                                    name="functional"
-                                    value="True"
-                                    ref={register()}
-                                    className="jkl-cookie-consent-modal__checkbox"
-                                >
-                                    Tillat funksjonelle
-                                </Checkbox>
-                                <p>
-                                    Funksjonelle informasjonskapsler lagrer opplysninger om din bruk av nettsidene og
-                                    hvilke innstillinger du har gjort, slik at du kan få funksjonalitet tilpasset deg.
-                                </p>
-                            </>
+                            <RequirementCheckbox name="functional" label="Tillat funksjonelle">
+                                Funksjonelle informasjonskapsler lagrer opplysninger om din bruk av nettsidene og hvilke
+                                innstillinger du har gjort, slik at du kan få funksjonalitet tilpasset deg.
+                            </RequirementCheckbox>
                         )}
 
                         {requirement.statistics && (
-                            <>
-                                <Checkbox
-                                    name="statistics"
-                                    value="True"
-                                    ref={register()}
-                                    className="jkl-cookie-consent-modal__checkbox"
-                                >
-                                    Tillat statistikk
-                                </Checkbox>
-                                <p>
-                                    Informasjonskapslene lagrer statitikk som hjelper oss med å forstå hvordan
-                                    nettsidene blir brukt, slik at vi kan gjøre de bedre og enklere å bruke.
-                                </p>
-                            </>
+                            <RequirementCheckbox name="statistics" label="Tillat statistikk">
+                                Informasjonskapslene lagrer statitikk som hjelper oss med å forstå hvordan nettsidene
+                                blir brukt, slik at vi kan gjøre de bedre og enklere å bruke.
+                            </RequirementCheckbox>
                         )}
 
                         {requirement.marketing && (
-                            <>
-                                <Checkbox
-                                    name="marketing"
-                                    value="True"
-                                    ref={register()}
-                                    className="jkl-cookie-consent-modal__checkbox"
-                                >
-                                    Tillat personlig markedsføring
-                                </Checkbox>
-                                <p>
-                                    Dette gjør at vi kan gi deg mer relevant og tilpasset markedsføring, også gjennom
-                                    våre samarbeidspartnere, på for eksempel nettsider, annonser og i sosiale medier.
-                                </p>
-                            </>
+                            <RequirementCheckbox name="marketing" label="Tillat personlig markedsføring">
+                                Dette gjør at vi kan gi deg mer relevant og tilpasset markedsføring, også gjennom våre
+                                samarbeidspartnere, på for eksempel nettsider, annonser og i sosiale medier.
+                            </RequirementCheckbox>
                         )}
 
                         <div className="jkl-cookie-consent-modal__button-group">
                             <PrimaryButton data-testid="jkl-cookie-consent-godta">Godta</PrimaryButton>
                         </div>
                     </form>
-                </>
+                </FormProvider>
             )}
         </CoreDialog>
     );
