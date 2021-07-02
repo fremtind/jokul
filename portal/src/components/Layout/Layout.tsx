@@ -32,7 +32,11 @@ export const Layout: React.FC<Props> = ({ children, location, pathContext }) => 
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     if (isCypress) {
-        return <FormatProvider>{children}</FormatProvider>;
+        return (
+            <div className="jkl">
+                <FormatProvider>{children}</FormatProvider>
+            </div>
+        );
     }
 
     return (
