@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -17,17 +17,11 @@ interface Props {
 const AddressForm: React.FC<Props> = ({ onSubmit }) => {
     const [showNext, setShowNext] = useState(true);
     const { darkMode, isCompact } = useContext(ExampleContext);
-    const { register, handleSubmit, errors, watch } = useForm();
+    const { register, handleSubmit, formState, watch } = useForm();
     const ref = useRef<HTMLFormElement>(null);
-    const postnummerRef = useRef<HTMLInputElement>(null);
-    const streetNameRef = useRef<HTMLInputElement>(null);
     const numberRef = useRef<HTMLDivElement>(null);
 
     useScrollIntoView({ ref });
-
-    useEffect(() => postnummerRef?.current?.focus(), []);
-    useEffect(() => streetNameRef?.current?.focus(), []);
-    useEffect(() => numberRef?.current?.focus(), []);
 
     const postnummer = watch("postnummer");
 
@@ -35,10 +29,14 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
         setShowNext(true);
         onSubmit(false);
     };
+
     const submit = () => {
         setShowNext(false);
         onSubmit(true);
     };
+
+    const postnummerInput = register("postnummer", { required: true, maxLength: 4, minLength: 4, pattern: /^[0-9]*$/ });
+    const streetnameInput = register("streetName", { required: true });
 
     return (
         <motion.form
@@ -60,20 +58,17 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                 <TextInput
                     variant="large"
                     label="Postnummer"
-                    name="postnummer"
                     className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
-                    errorLabel={errors.postnummer ? "Du må fylle inn postnummer" : ""}
+                    errorLabel={formState.errors.postnummer ? "Du må fylle inn postnummer" : ""}
                     inverted={darkMode}
                     forceCompact={isCompact}
                     maxLength={6}
                     placeholder="4 siffer"
                     type="tel"
-                    onChange={handleChange}
-                    ref={(e) => {
-                        // @ts-ignore:: should be improved, temporarily escaped
-                        register(e, { required: true, maxLength: 4, minLength: 4, pattern: /^[0-9]*$/ });
-                        // @ts-ignore:: should be improved, temporarily escaped
-                        postnummerRef.current = e;
+                    {...postnummerInput}
+                    onChange={(e) => {
+                        postnummerInput.onChange(e);
+                        handleChange();
                     }}
                 />
                 <AnimatePresence>
@@ -97,18 +92,15 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                         <TextInput
                             variant="medium"
                             label="Gatenavn"
-                            name="streetName"
                             className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
-                            errorLabel={errors.streetName ? "Du må fylle inn gateadresse" : ""}
+                            errorLabel={formState.errors.streetName ? "Du må fylle inn gateadresse" : ""}
                             inverted={darkMode}
                             forceCompact={isCompact}
                             type="text"
-                            onChange={handleChange}
-                            ref={(e) => {
-                                // @ts-ignore: should be improved, temporarily escaped
-                                register(e, { required: true });
-                                // @ts-ignore: should be improved, temporarily escaped
-                                streetNameRef.current = e;
+                            {...streetnameInput}
+                            onChange={(e) => {
+                                streetnameInput.onChange(e);
+                                handleChange();
                             }}
                         />
                     </motion.div>
@@ -122,7 +114,6 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                                 isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"
                             }`}
                             items={["1", "3", "5", "7", "9"]}
-                            onChange={handleChange}
                             label="Nummer"
                         />
                     </motion.div>

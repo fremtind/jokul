@@ -12,16 +12,26 @@ interface Props {
 const PersonalInfoForm: React.FC<Props> = ({ onSubmit }) => {
     const [showNext, setShowNext] = useState(true);
     const { darkMode, isCompact } = useContext(ExampleContext);
-    const { register, handleSubmit, errors } = useForm();
+    const { register, handleSubmit, formState } = useForm();
 
     const handleChange = () => {
         setShowNext(true);
         onSubmit(false);
     };
+
     const submit = () => {
         setShowNext(false);
         onSubmit(true);
     };
+
+    const fornavnInput = register("fornavn", { required: true });
+    const etternavnInput = register("etternavn", { required: true });
+    const personnummerInput = register("personnummer", {
+        required: true,
+        maxLength: 11,
+        minLength: 11,
+        pattern: /^[0-9]*$/,
+    });
 
     return (
         <form onSubmit={handleSubmit(submit)}>
@@ -29,40 +39,46 @@ const PersonalInfoForm: React.FC<Props> = ({ onSubmit }) => {
                 Første steg
             </Label>
             <TextInput
-                name="fornavn"
                 className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
                 label="Fornavn"
-                errorLabel={errors.fornavn ? "Du må fylle inn fornavn" : ""}
+                errorLabel={formState.errors.fornavn ? "Du må fylle inn fornavn" : ""}
                 inverted={darkMode}
                 forceCompact={isCompact}
-                ref={register({ required: true })}
-                onChange={handleChange}
+                {...fornavnInput}
+                onChange={(e) => {
+                    fornavnInput.onChange(e);
+                    handleChange();
+                }}
                 variant="small"
             />
             <TextInput
-                name="etternavn"
                 className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
                 label="Etternavn"
-                errorLabel={errors.etternavn ? "Du må fylle inn etternavn" : ""}
+                errorLabel={formState.errors.etternavn ? "Du må fylle inn etternavn" : ""}
                 inverted={darkMode}
                 forceCompact={isCompact}
-                ref={register({ required: true })}
-                onChange={handleChange}
+                {...etternavnInput}
+                onChange={(e) => {
+                    etternavnInput.onChange(e);
+                    handleChange();
+                }}
                 variant="small"
             />
             <TextInput
-                name="personnummer"
                 className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
                 label="Personnummer"
-                errorLabel={errors.personnummer ? "Du må fylle inn personnummer" : ""}
+                errorLabel={formState.errors.personnummer ? "Du må fylle inn personnummer" : ""}
                 helpLabel="Vi lagrer ikke ditt personnummer"
                 inverted={darkMode}
                 forceCompact={isCompact}
                 maxLength={11}
                 type="tel"
                 placeholder="11 siffer"
-                ref={register({ required: true, maxLength: 11, minLength: 11, pattern: /^[0-9]*$/ })}
-                onChange={handleChange}
+                {...personnummerInput}
+                onChange={(e) => {
+                    personnummerInput.onChange(e);
+                    handleChange();
+                }}
                 variant="small"
             />
             {showNext && (
