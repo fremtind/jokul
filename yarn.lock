@@ -4409,10 +4409,12 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.172.tgz#aad774c28e7bfd7a67de25408e03ee5a8c3d028a"
   integrity sha512-/BHF5HAx3em7/KkzVKm3LrsD6HZAXuXO1AJZQ3cRRBZj4oHZDviWPYu0aEplAqDFNHZPW6d3G7KN+ONcCCC7pw==
 
-"@types/match-sorter@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@types/match-sorter/-/match-sorter-5.0.0.tgz#7a66f7f45d22621e79920b3919e5b3d3e746184d"
-  integrity sha512-25KmtRqBKBH5Uo5e6QAV+5zKuE+cksAJ9R8GMMYtt0+jV+HxQj1Yg8ciui/T4AaoCmq3D65m1tgNcabkOLHe1Q==
+"@types/match-sorter@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@types/match-sorter/-/match-sorter-6.0.0.tgz#434355915f5fb5bfb5f7e1224cd9c4399879179c"
+  integrity sha512-/B8BLck7dy+vQQedYvrTw2f+U02KghNCMLocjRSWtHhCKE1OeoAmOWiLGAPs96qacT9bSJF4HmJNyijiy5bycA==
+  dependencies:
+    match-sorter "*"
 
 "@types/mdast@^3.0.0":
   version "3.0.7"
@@ -4470,6 +4472,11 @@
   version "15.14.7"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.14.7.tgz#29fea9a5b14e2b75c19028e1c7a32edd1e89fe92"
   integrity sha512-FA45p37/mLhpebgbPWWCKfOisTjxGK9lwcHlJ6XVLfu3NgfcazOJHdYUZCWPMK8QX4LhNZdmfo6iMz9FqpUbaw==
+
+"@types/node@^16.0.0":
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.0.0.tgz#067a6c49dc7a5c2412a505628e26902ae967bf6f"
+  integrity sha512-TmCW5HoZ2o2/z2EYi109jLqIaPIi9y/lc2LmDCWzuCi35bcaQ+OtUh6nwBiFK7SOu25FAU5+YKdqFZUwtqGSdg==
 
 "@types/node@^8.5.7":
   version "8.10.66"
@@ -15823,7 +15830,7 @@ markdown-table@^2.0.0:
   dependencies:
     repeat-string "^1.0.0"
 
-match-sorter@^6.3.0:
+match-sorter@*, match-sorter@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/match-sorter/-/match-sorter-6.3.0.tgz#454a1b31ed218cddbce6231a0ecb5fdc549fed01"
   integrity sha512-efYOf/wUpNb8FgNY+cOD2EIJI1S5I7YPKsw0LBp7wqPh5pmMS6i/wr3ZWwfwrAw1NvqTA2KUReVRWDX84lUcOQ==
