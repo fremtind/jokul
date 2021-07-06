@@ -4,7 +4,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul score styles",
+    "description": "Jøkul core styles",
     "homepage": "https://fremtind.github.io/jokul",
     "keywords": [
         "core",

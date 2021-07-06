@@ -1,4 +1,4 @@
-@import "../variables/font-size";
+@use "../variables/typography";
 
 @mixin light-mode-variables {
     @media screen and (prefers-color-scheme: light) {
@@ -54,7 +54,7 @@
 /// Not perfect for all lengths of text, but close enough!
 ///
 @mixin no-grow-bold {
-    font-weight: $bold-weight;
+    font-weight: typography.$weight-bold;
     letter-spacing: -0.014em;
 }
 

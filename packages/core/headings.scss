@@ -1,53 +1,44 @@
-@import "./variables/font-size";
-@import "./mixins/screens";
+@use "./variables/typography";
 
-.jkl-title-large {
-    @include jkl-text-style("desktop/title-large");
+.jkl-title {
+    @include typography.text-style("title");
 
-    @include small-device {
-        @include jkl-text-style("compact/title-large");
-    }
     *[data-compactlayout] & {
-        @include jkl-text-style("compact/title-large");
+        @include typography.text-style("title/small-screen");
     }
 }
-.jkl-title-small {
-    @include jkl-text-style("desktop/title-small");
+.jkl-heading-1 {
+    @include typography.text-style("heading-1");
 
-    @include small-device {
-        @include jkl-text-style("compact/title-small");
-    }
     *[data-compactlayout] & {
-        @include jkl-text-style("compact/title-small");
+        @include typography.text-style("heading-1/small-screen");
     }
 }
-.jkl-heading-large {
-    @include jkl-text-style("desktop/heading-large");
+.jkl-heading-2 {
+    @include typography.text-style("heading-2");
 
-    @include small-device {
-        @include jkl-text-style("compact/heading-large");
-    }
     *[data-compactlayout] & {
-        @include jkl-text-style("compact/heading-large");
+        @include typography.text-style("heading-2/small-screen");
     }
 }
-.jkl-heading-medium {
-    @include jkl-text-style("desktop/heading-medium");
+.jkl-heading-3 {
+    @include typography.text-style("heading-3");
 
-    @include small-device {
-        @include jkl-text-style("compact/heading-medium");
-    }
     *[data-compactlayout] & {
-        @include jkl-text-style("compact/heading-medium");
+        @include typography.text-style("heading-3/small-screen");
     }
 }
-.jkl-heading-small {
-    @include jkl-text-style("desktop/heading-small");
+.jkl-heading-4 {
+    @include typography.text-style("heading-4");
 
-    @include small-device {
-        @include jkl-text-style("compact/heading-small");
-    }
     *[data-compactlayout] & {
-        @include jkl-text-style("compact/heading-small");
+        @include typography.text-style("heading-4/small-screen");
+    }
+}
+.jkl-heading-5 {
+    @include typography.text-style("heading-5");
+
+    *[data-compactlayout] & {
+        @include typography.text-style("heading-5/small-screen");
     }
 }
