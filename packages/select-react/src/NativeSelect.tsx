@@ -20,6 +20,7 @@ interface Props {
     placeholder?: string;
     value?: string;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;

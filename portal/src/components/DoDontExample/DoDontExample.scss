@@ -1,8 +1,22 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
+
+@include jkl.helper-light-mode-variables {
+    --do-dont-example-bg: #{jkl.$color-dis};
+    --do-dont-example-do-color: #{jkl.$color-suksess};
+    --do-dont-example-dont-color: #{jkl.$color-feil};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --do-dont-example-bg: #{jkl.$color-skifer};
+    --do-dont-example-do-color: #{jkl.$color-suksess--darkbg};
+    --do-dont-example-dont-color: #{jkl.$color-feil--darkbg};
+}
 
 .jkl-portal-do-dont-example {
     display: inline-block;
-    background-color: $sand;
+    background-color: var(--do-dont-example-bg);
     padding: $component-spacing--medium;
     padding-bottom: $component-spacing--large;
     margin-bottom: $layout-spacing--large;
@@ -14,7 +28,7 @@
 
     &--fullwidth {
         width: 100%;
-        max-width: rem(894px);
+        max-width: rem(750px);
     }
     &--halfwidth {
         max-width: rem(420px);
@@ -30,28 +44,16 @@
         margin-bottom: $component-spacing--xs;
 
         &--do {
-            color: $suksess;
+            color: var(--do-dont-example-do-color);
         }
 
         &--dont {
-            color: $feil;
+            color: var(--do-dont-example-dont-color);
         }
     }
 
     &__description {
         @include jkl-text-style("desktop/body");
-    }
-
-    *[data-theme="dark"] & {
-        background-color: $granitt;
-
-        &__heading--do {
-            color: $suksess--darkbg;
-        }
-
-        &__heading--dont {
-            color: $feil--darkbg;
-        }
     }
 
     @include small-device {

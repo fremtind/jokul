@@ -2,6 +2,7 @@ import React, { AnchorHTMLAttributes, FC } from "react";
 import classnames from "classnames";
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+    /** @deprecated */
     inverted?: boolean;
     active?: boolean;
     back?: boolean;

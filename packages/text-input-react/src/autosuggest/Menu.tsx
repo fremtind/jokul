@@ -9,6 +9,7 @@ interface MenuProps<T> {
     itemToString: (item: T | null) => string;
     noHitsMessage?: ReactNode;
     maxNumberOfHits?: number;
+    /** @deprecated */
     inverted?: boolean;
 }
 

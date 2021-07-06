@@ -1,9 +1,25 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
+@include jkl.helper-light-mode-variables {
+    --code-block-bg-color: #{jkl.$color-hvit};
+    --code-block-focus-color: #{jkl.$color-granitt};
+    --language-tag-bg-color: #{jkl.$color-svart};
+    --language-tag-text-color: #{jkl.$color-snohvit};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --code-block-bg-color: #{jkl.$color-svart};
+    --code-block-focus-color: #{jkl.$color-snohvit};
+    --language-tag-bg-color: #{jkl.$color-stein};
+    --language-tag-text-color: #{jkl.$color-granitt};
+}
+
 .jkl-portal-code-block {
     position: relative;
-    background-color: $hvit;
+    background-color: var(--code-block-bg-color);
     border-radius: rem(2px);
     width: 100%;
     padding: $component-spacing--medium;
@@ -22,7 +38,7 @@
         top: 0;
         right: 0;
         padding: $component-spacing--small;
-        background-color: $svart;
+        background-color: var(--language-tag-bg-color);
         color: $snohvit;
         @include jkl-text-style("desktop/micro");
         text-transform: uppercase;
@@ -36,19 +52,6 @@
     }
 
     html:not([data-mousenavigation]) &:focus-within {
-        box-shadow: 0 0 0 rem(2px) $granitt;
-    }
-
-    *[data-theme="dark"] & {
-        background-color: $skifer;
-
-        html:not([data-mousenavigation]) &:focus-within {
-            box-shadow: 0 0 0 rem(2px) $snohvit;
-        }
-
-        &:before {
-            background-color: $stein;
-            color: $granitt;
-        }
+        box-shadow: 0 0 0 rem(2px) var(--code-block-focus-color);
     }
 }

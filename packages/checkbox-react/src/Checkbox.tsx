@@ -11,6 +11,7 @@ interface Props {
     className?: string;
     forceCompact?: boolean;
     invalid?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onFocus?: FocusEventHandler<HTMLInputElement>;

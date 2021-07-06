@@ -1,7 +1,5 @@
 import React from "react";
-import "@fremtind/jkl-button/button.css";
-import "@fremtind/jkl-card/card.css";
-import "@fremtind/jkl-core/core.min.css";
+
 import AnimationExample from "./AnimationExample";
 import MutationObserverExample from "./MutationObserverExample";
 import ClickOutsideExample from "./ClickOutsideExample";

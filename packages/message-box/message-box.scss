@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
@@ -37,8 +39,7 @@ $error-border-color--inverted: $feil--darkbg;
 $success-background-color--inverted: message-bg-dark($suksess--darkbg);
 $success-border-color--inverted: $suksess--darkbg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --dismiss-hover-color: #{$dismiss-hover-color};
     --text-color: #{$text-color};
     --border-color: #{$border-color};
@@ -53,7 +54,7 @@ $success-border-color--inverted: $suksess--darkbg;
     --success-background-color: #{$success-background-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --dismiss-hover-color: #{$dismiss-hover-color--inverted};
     --text-color: #{$text-color--inverted};
     --border-color: #{$border-color--inverted};

@@ -3,70 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### Features
+
+- **toggle:** add automatic dark mode ([250d96a](https://github.com/fremtind/jokul/commit/250d96aaf2afa9e073a02cfc186b0b9d2974fd74))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
+
 ## 3.0.1 (2021-06-25)
 
 ### Bug Fixes
 
-- **sass:** upgrade sass and stop using dep. syntax ([194d414](https://github.com/fremtind/jokul/commit/194d4145cbde712eb351ef6b41cefe6a47f40b5e))
+-   **sass:** upgrade sass and stop using dep. syntax ([194d414](https://github.com/fremtind/jokul/commit/194d4145cbde712eb351ef6b41cefe6a47f40b5e))
 
 ## 3.0.0 (2021-06-07)
 
 ### Features
 
-- new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+-   new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
 
 ### BREAKING CHANGES
 
-- all color variables are changed
+-   all color variables are changed
 
 ## 2.2.7 (2021-01-25)
 
 ### Bug Fixes
 
-- **@fremtind/jkl-toggle-switch:** design adjustments on ToggleSlider ([d83426e](https://github.com/fremtind/jokul/commit/d83426eb23faf0c4dae0a49bf5689e7dc5fd0a64))
+-   **@fremtind/jkl-toggle-switch:** design adjustments on ToggleSlider ([d83426e](https://github.com/fremtind/jokul/commit/d83426eb23faf0c4dae0a49bf5689e7dc5fd0a64))
 
 ## 2.2.0 (2020-11-04)
 
 ### Features
 
-- **toggle:** add toggle slider ([a42fd6b](https://github.com/fremtind/jokul/commit/a42fd6be9b04bdafceb69153f9b25f56d71498a6)), closes [#1482](https://github.com/fremtind/jokul/issues/1482)
+-   **toggle:** add toggle slider ([a42fd6b](https://github.com/fremtind/jokul/commit/a42fd6be9b04bdafceb69153f9b25f56d71498a6)), closes [#1482](https://github.com/fremtind/jokul/issues/1482)
 
 ## 2.1.5 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 2.1.0 (2020-02-19)
 
 ### Features
 
-- export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+-   export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
 
 ## 2.0.0 (2020-02-18)
 
 ### Bug Fixes
 
-- make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
-- make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
-- **toggle-switch:** ensure correct evt target when pressed ([76dd6f1](https://github.com/fremtind/jokul/commit/76dd6f1aa05251a062c39f61c1132b2b029e3040))
-- **toggle-switch:** use new color variable for white color ([17919b6](https://github.com/fremtind/jokul/commit/17919b6c614b576f3c9407becf92d61e148aae1e))
-- use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+-   make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+-   make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+-   **toggle-switch:** ensure correct evt target when pressed ([76dd6f1](https://github.com/fremtind/jokul/commit/76dd6f1aa05251a062c39f61c1132b2b029e3040))
+-   **toggle-switch:** use new color variable for white color ([17919b6](https://github.com/fremtind/jokul/commit/17919b6c614b576f3c9407becf92d61e148aae1e))
+-   use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
 
 ### Features
 
-- **toggle-switch:** change toggle switch to button element (from input) ([2e9b340](https://github.com/fremtind/jokul/commit/2e9b3406f5bfbaa4233a3f63aa14bad017317efb))
+-   **toggle-switch:** change toggle switch to button element (from input) ([2e9b340](https://github.com/fremtind/jokul/commit/2e9b3406f5bfbaa4233a3f63aa14bad017317efb))
 
 ### BREAKING CHANGES
 
-- **toggle-switch:** checked prop is replaced by pressed, onChange prop is replaced by onClick
+-   **toggle-switch:** checked prop is replaced by pressed, onChange prop is replaced by onClick
 
 ## 1.1.0 (2020-01-16)
 
 ### Features
 
-- update components to use the new notification colors ([8bd78ff](https://github.com/fremtind/jokul/commit/8bd78ff371cf382c1c7fabfe1deab5e199e5750a))
-- update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+-   update components to use the new notification colors ([8bd78ff](https://github.com/fremtind/jokul/commit/8bd78ff371cf382c1c7fabfe1deab5e199e5750a))
+-   update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
 
 ## 1.0.1 (2019-12-17)
 

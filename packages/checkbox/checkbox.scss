@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -26,8 +28,7 @@ $checkbox-error-color--inverted: $feil--darkbg;
 $checkbox-disabled-color--inverted: $stein;
 $checkbox-box-default-color--inverted: $svaberg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --checkbox-color: #{$checkbox-color};
     --checkbox-background-color: #{$checkbox-background-color};
     --checkbox-focus-color: #{$checkbox-focus-color};
@@ -37,7 +38,7 @@ $checkbox-box-default-color--inverted: $svaberg;
     --checkbox-box-default-color: #{$checkbox-box-default-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --checkbox-color: #{$checkbox-color--inverted};
     --checkbox-background-color: #{$checkbox-background-color--inverted};
     --checkbox-focus-color: #{$checkbox-focus-color--inverted};

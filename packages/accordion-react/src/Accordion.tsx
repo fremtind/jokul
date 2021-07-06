@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
 interface Props {
+    /** @deprecated */
     inverted?: boolean;
     className?: string;
 }

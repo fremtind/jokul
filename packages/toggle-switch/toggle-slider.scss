@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -8,8 +10,7 @@ $jkl-slider-offset__pill--left: calc(#{$jkl-slider-offset} + 1px);
 $jkl-slider-offset__pill--right: calc(calc(#{$jkl-slider-width}/ 2) - #{$jkl-slider-offset});
 $jkl-slider-rounded: rem(100px);
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --jkl-slider-bg: #{$varde};
     --jkl-slider-pill: #{$snohvit};
     --jkl-slider-pill-text: #{$granitt};
@@ -18,7 +19,7 @@ $jkl-slider-rounded: rem(100px);
     --jkl-slider-hover-color: #{$stein};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --jkl-slider-bg: #{$fjellgra};
     --jkl-slider-pill: #{$granitt};
     --jkl-slider-pill-text: #{$snohvit};

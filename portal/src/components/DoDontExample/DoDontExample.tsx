@@ -15,14 +15,15 @@ interface Props {
 export const DoDontExample: React.FC<Props> = ({ type, content, image = "", description, fullWidth }) => {
     const heading = type === "do" ? "Riktig" : "Feil";
     const altText = description ? `${heading}: ${description}` : `${heading} bruk`;
+    const containerClass = classNames({
+        "jkl-portal-do-dont-example": true,
+        "jkl-portal-do-dont-example--fullwidth": fullWidth,
+        "jkl-portal-do-dont-example--halfwidth": !fullWidth,
+    });
     const headingClass = classNames({
         "jkl-portal-do-dont-example__heading": true,
         "jkl-portal-do-dont-example__heading--do": type === "do",
         "jkl-portal-do-dont-example__heading--dont": type === "dont",
-    });
-    const containerClass = classNames("jkl-portal-do-dont-example", {
-        "jkl-portal-do-dont-example--fullwidth": fullWidth,
-        "jkl-portal-do-dont-example--halfwidth": !fullWidth,
     });
 
     return (
@@ -31,7 +32,7 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", desc
                 <div>{content}</div>
             ) : (
                 <div className="jkl-portal-do-dont-example__image">
-                    <PortalImg src={image} alt={altText} noMargin />
+                    <PortalImg src={image} alt={altText} noMargin fullWidth />
                 </div>
             )}
             <p className={headingClass}>{heading}</p>

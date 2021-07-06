@@ -15,6 +15,7 @@ interface Props {
     variant?: LabelVariant;
     forceCompact?: boolean;
     className?: string;
+    /** @deprecated */
     inverted?: boolean;
 }
 

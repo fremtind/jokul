@@ -16,7 +16,8 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 import { Example } from "./Example";
 import { choiceProps, boolProps } from "./internal/props";
 import "@fremtind/jkl-icons/animated-icons.css";
-import "@fremtind/jkl-text-input/text-input.min.css";
+import "@fremtind/jkl-text-input/text-input.css";
+import "@fremtind/jkl-button/button.css";
 
 initTabListener();
 

@@ -8,6 +8,7 @@ type messageTypes = "info" | "error" | "success" | "warning";
 interface Props {
     children: ReactNode;
     className?: string;
+    /** @deprecated */
     inverted?: boolean;
     maxContentWidth?: string;
     paddingLeft?: string;
