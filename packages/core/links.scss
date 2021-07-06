@@ -127,6 +127,7 @@ $link-active-color--inverted: $snohvit;
     html:not([data-mousenavigation]) &:focus {
         @include border-gradient($link-color);
         @include border-gradient(var(--link-color));
+        @include no-grow-bold;
 
         &:after {
             transform: translateX(33%);

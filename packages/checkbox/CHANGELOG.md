@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.2 (2021-07-02)
+
+### Bug Fixes
+
+- changed hoverstate for checkbox ([84b336f](https://github.com/fremtind/jokul/commit/84b336f976d1614583e91ea60c058ad3738c4ecf))
+
 ## 2.0.1 (2021-06-25)
 
 ### Bug Fixes

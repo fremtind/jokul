@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.4 (2021-07-02)
+
+### Bug Fixes
+
+- **feedback:** fix a bug causing submitted feedback to be submitted again ([e78bf30](https://github.com/fremtind/jokul/commit/e78bf3003c96d9efb268bdc282fbad784ce35cb2))
+
 ## 5.1.0 (2021-06-29)
 
 ### Features

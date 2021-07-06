@@ -29,6 +29,7 @@ Komponenten tar følgende props:
 -   `negative`: Angir om loaderen skal brukes på mørk bakgrunn. `boolean`
 -   `inline`: Angir om loaderen skal brukes inne i et annet element. `boolean`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
+-   `politeness`: Sett politeness setting på aria-live. `polite` (default) eller `assertive`.
 
 Den enkleste bruken av komponenten er altså:
 
@@ -36,16 +37,10 @@ Den enkleste bruken av komponenten er altså:
 <Loader textDescription="Laster inn" />
 ```
 
-Dersom du for eksempel vil bruke loaderen inne i en primærknapp kan det gjøres på denne måten:
-
-```tsx
-<PrimaryButton>
-    <Loader inline negative textDescription="Sender inn skjema" />
-</PrimaryButton>
-```
-
 Prop'en `className` er praktisk dersom du vil benytte spacing-skalaen vår gjennom hjelpeklassene fra `jkl-core`:
 
 ```tsx
 <Loader className="jkl-spacing--top-3" /> // Gir 4rem spacing over loaderen
 ```
+
+Dersom du vil bruke inline loader i knapp har funksjonalitet for det blitt eksponert via props i `jkl-button-react`.
