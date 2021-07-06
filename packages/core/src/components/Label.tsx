@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const Label: FC<Props> = ({
-    variant = "medium",
+    variant = "small",
     forceCompact,
     srOnly,
     children,
