@@ -121,8 +121,8 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
 
                         {requirement.statistics && (
                             <RequirementCheckbox name="statistics" label="Tillat statistikk">
-                                    Informasjonskapslene lagrer statistikk som hjelper oss med å forstå hvordan
-                                    nettsidene blir brukt, slik at vi kan gjøre dem bedre og enklere å bruke.
+                                Informasjonskapslene lagrer statistikk som hjelper oss med å forstå hvordan nettsidene
+                                blir brukt, slik at vi kan gjøre dem bedre og enklere å bruke.
                             </RequirementCheckbox>
                         )}
 
