@@ -122,7 +122,7 @@ export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
                                 </Checkbox>
                                 <p>
                                     Informasjonskapslene lagrer statistikk som hjelper oss med å forstå hvordan
-                                    nettsidene blir brukt, slik at vi kan gjøre de bedre og enklere å bruke.
+                                    nettsidene blir brukt, slik at vi kan gjøre dem bedre og enklere å bruke.
                                 </p>
                             </>
                         )}
