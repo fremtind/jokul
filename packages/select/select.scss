@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
@@ -27,8 +29,7 @@ $select-open-background-color--inverted: $svart;
 $select-focus-color--inverted: $snohvit;
 $select-error-color--inverted: $feil--darkbg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --select-border-color: #{$select-border-color};
     --select-text-color: #{$select-text-color};
     --select-background-color: #{$select-background-color};
@@ -37,7 +38,7 @@ $select-error-color--inverted: $feil--darkbg;
     --select-error-color: #{$select-error-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --select-border-color: #{$select-border-color--inverted};
     --select-text-color: #{$select-text-color--inverted};
     --select-background-color: #{$select-background-color--inverted};

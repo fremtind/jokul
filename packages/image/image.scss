@@ -1,15 +1,16 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$loader-color: $sand;
-$loader-color--inverted: $fjellgra;
+$loader-color: jkl.$color-sand;
+$loader-color--inverted: jkl.$color-fjellgra;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --jkl-image-loader-color: #{$loader-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --jkl-image-loader-color: #{$loader-color--inverted};
 }
 

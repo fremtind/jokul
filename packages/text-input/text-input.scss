@@ -28,8 +28,7 @@ $text-input-background-color--inverted: $svart;
 $text-input-focus-color--inverted: $snohvit;
 $text-input-error-color--inverted: $feil--darkbg;
 
-:root,
-[data-theme="light"] {
+@include light-mode-variables {
     --text-input-border-color: #{$text-input-border-color};
     --text-input-text-color: #{$text-input-text-color};
     --text-input-placeholder-color: #{$text-input-placeholder-color};
@@ -38,7 +37,7 @@ $text-input-error-color--inverted: $feil--darkbg;
     --text-input-error-color: #{$text-input-error-color};
 }
 
-[data-theme="dark"] {
+@include dark-mode-variables {
     --text-input-border-color: #{$text-input-border-color--inverted};
     --text-input-text-color: #{$text-input-text-color--inverted};
     --text-input-placeholder-color: #{$text-input-placeholder-color--inverted};

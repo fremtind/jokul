@@ -1,5 +1,40 @@
 @import "../variables/font-size";
 
+@mixin light-mode-variables {
+    @media screen and (prefers-color-scheme: light) {
+        :root {
+            @content;
+        }
+    }
+
+    [data-theme="light"] {
+        @content;
+    }
+}
+
+@mixin dark-mode-variables {
+    @media screen and (prefers-color-scheme: dark) {
+        :root {
+            @content;
+        }
+    }
+
+    [data-theme="dark"] {
+        @content;
+    }
+}
+
+@function urlencodecolor($color) {
+    @if type-of($color) == "color" and str-index(#{$color}, "#") == 1 {
+        $hex: str-slice(ie-hex-str($color), 4);
+        $converted-color: unquote("#{$hex}");
+
+        @return "%23" + $converted-color;
+    }
+
+    @return $color;
+}
+
 @mixin flex($align-items: center, $justify-content: center) {
     display: flex;
     align-items: $align-items;

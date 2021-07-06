@@ -8,6 +8,7 @@ interface Props {
     title?: string;
     fullWidth?: boolean;
     className?: string;
+    /** @deprecated */
     inverted?: boolean;
     dismissed?: boolean;
     dismissAction?: {

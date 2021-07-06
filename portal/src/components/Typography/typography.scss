@@ -1,4 +1,13 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/mixins/helpers";
+@import "~@fremtind/jkl-core/variables/all";
+
+@include helpers.light-mode-variables {
+    --inline-code-bg-color: #{jkl.$color-sand};
+}
+@include helpers.dark-mode-variables {
+    --inline-code-bg-color: #{jkl.$color-skifer};
+}
 
 .jkl-portal-list-item {
     max-width: rem(750px);
@@ -58,12 +67,8 @@
 
 .jkl-portal-inline-code {
     display: inline-block;
-    background-color: $sand;
+    background-color: var(--inline-code-bg-color);
     font-size: 0.8em;
     padding: 0 $component-spacing--small;
     border-radius: rem(2px);
-
-    *[data-theme="dark"] & {
-        background-color: $fjellgra;
-    }
 }

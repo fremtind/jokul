@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -7,16 +9,15 @@ $loader-spacing: $component-spacing--xxl;
 $loader-spacing--inline: $component-spacing--xl;
 $loader-animation-properties: 2500ms linear infinite;
 
-$loader-color: $granitt;
-$loader-color--negative: $snohvit;
+$loader-color: jkl.$color-granitt;
+$loader-color--inverted: jkl.$color-snohvit;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --loader-color: #{$loader-color};
 }
 
-[data-theme="dark"] {
-    --loader-color: #{$loader-color--negative};
+@include jkl.helper-dark-mode-variables {
+    --loader-color: #{$loader-color--inverted};
 }
 
 .jkl-loader {
@@ -57,7 +58,7 @@ $loader-color--negative: $snohvit;
     }
 
     &--negative > .jkl-loader__dot {
-        background-color: $loader-color--negative;
+        background-color: $loader-color--inverted;
     }
 }
 

@@ -1,6 +1,16 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
+
+@include jkl.helper-light-mode-variables {
+    --full-screen-menu-bg-color: #{jkl.$color-varde};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --full-screen-menu-bg-color: #{jkl.$color-skifer};
+}
 
 .jkl-portal-full-screen-menu {
     display: block;
@@ -10,7 +20,7 @@
     z-index: -1;
     overflow-x: scroll;
 
-    background-color: $varde;
+    background-color: var(--full-screen-menu-bg-color);
     @include motion("standard", "lazy");
     transition-property: height;
 
@@ -115,9 +125,5 @@
             animation-fill-mode: both;
             animation-delay: 300ms;
         }
-    }
-
-    *[data-theme="dark"] & {
-        background-color: $skifer;
     }
 }

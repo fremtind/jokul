@@ -3,27 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
+
 ## 5.2.0 (2021-06-24)
 
 ### Features
 
-- **datepicker:** close calendar when valid date entered ([ffb499d](https://github.com/fremtind/jokul/commit/ffb499d9e4bc8f21b38d1a02b87549584fe013ce)), closes [#2033](https://github.com/fremtind/jokul/issues/2033)
+-   **datepicker:** close calendar when valid date entered ([ffb499d](https://github.com/fremtind/jokul/commit/ffb499d9e4bc8f21b38d1a02b87549584fe013ce)), closes [#2033](https://github.com/fremtind/jokul/issues/2033)
 
 ## 5.1.0 (2021-06-16)
 
 ### Features
 
-- **datepicker-react:** add useFocusOutside to datepicker to close if… ([#2025](https://github.com/fremtind/jokul/issues/2025)) ([04f8442](https://github.com/fremtind/jokul/commit/04f8442d8930b3dcf3c302d5644eba38a2e1dfbc)), closes [#1888](https://github.com/fremtind/jokul/issues/1888)
+-   **datepicker-react:** add useFocusOutside to datepicker to close if… ([#2025](https://github.com/fremtind/jokul/issues/2025)) ([04f8442](https://github.com/fremtind/jokul/commit/04f8442d8930b3dcf3c302d5644eba38a2e1dfbc)), closes [#1888](https://github.com/fremtind/jokul/issues/1888)
 
 ## 5.0.0 (2021-06-07)
 
 ### Features
 
-- upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+-   upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
 
 ### BREAKING CHANGES
 
-- Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+-   Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
 
 ## 4.0.4 (2021-04-28)
 

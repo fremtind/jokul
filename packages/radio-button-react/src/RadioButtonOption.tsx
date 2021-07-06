@@ -11,6 +11,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
     checked?: boolean;
     invalid?: boolean;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Table } from "@fremtind/jkl-table-react";
 import { unicode } from "../src";
-import "@fremtind/jkl-table/table.min.css";
+
 import "./style.scss";
 
 const columns = ["Constant", "Verdi"];

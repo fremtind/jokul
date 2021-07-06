@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -5,15 +7,14 @@
 $icon-size: rem(45px);
 $max-feedback-input-width: 30rem;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --jkl-feedback-icon--base: #{$snohvit};
     --jkl-feedback-icon--outline: #{$granitt};
     --jkl-feedback-icon--hover: #{$svaberg};
     --jkl-feedback-icon--selected: #{$suksess--darkbg};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --jkl-feedback-icon--base: #{$granitt};
     --jkl-feedback-icon--outline: #{$snohvit};
     --jkl-feedback-icon--hover: #{$stein};

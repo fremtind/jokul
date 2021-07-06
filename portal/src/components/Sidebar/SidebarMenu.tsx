@@ -1,7 +1,6 @@
 import React, { useContext, useState, ChangeEvent } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { TextInput } from "@fremtind/jkl-text-input-react";
-import { useDarkMode } from "../../contexts/themeContext";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import { Link } from "@fremtind/jkl-core";
 import { DocumentationPageInfo } from "../Header/useNavigationLinks";
@@ -18,7 +17,6 @@ interface Props {
 const allComponents = "alle";
 
 export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, showGroups }) => {
-    const isDarkMode = useDarkMode();
     const { prefersReducedMotion } = useContext(a11yContext);
     const [filter, setFilter] = useState("");
     const [selectedGroup, setSelectedGroup] = useState(allComponents);
@@ -55,7 +53,6 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 forceCompact
                 label="Filtrér"
                 value={filter}
-                inverted={isDarkMode}
                 onChange={filterLinks}
                 action={{ icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") }}
                 className="jkl-portal-sidebar-menu__filter"
@@ -72,7 +69,6 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                     variant={"small"}
                     forceCompact
                     inline
-                    inverted={isDarkMode}
                 />
             )}
             <motion.ul animate={controls} className="jkl-portal-sidebar-menu__items">

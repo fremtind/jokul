@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 interface Props {
     textDescription: string;
+    /** @deprecated */
     negative?: boolean;
     inline?: boolean;
     className?: string;

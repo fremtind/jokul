@@ -1,4 +1,13 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
+
+@include jkl.helper-light-mode-variables {
+    --jkl-footer-text-color: jkl.$color-fjellgra;
+}
+@include jkl.helper-dark-mode-variables {
+    --jkl-footer-text-color: jkl.$color-stein;
+}
 
 .jkl-portal-footer {
     display: flex;
@@ -10,7 +19,7 @@
 
     &__column {
         @include jkl-text-style("compact/small");
-        color: $fjellgra;
+        color: var(--jkl-footer-text-color);
         flex: 1 1 0px;
         padding-right: $layout-spacing--large;
 

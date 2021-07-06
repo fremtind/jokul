@@ -8,6 +8,7 @@ interface Props {
     forceCompact?: boolean;
     className?: string;
     srOnly?: boolean;
+    /** @deprecated */
     inverted?: boolean;
 }
 

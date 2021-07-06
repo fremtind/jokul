@@ -8,6 +8,7 @@ interface Props {
     onToggle: (value: string) => void;
     defaultValue?: string;
     className?: string;
+    /** @deprecated */
     inverted?: boolean;
     screenReaderLabel?: string;
     screenReaderSelectedLabel?: string;

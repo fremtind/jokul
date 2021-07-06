@@ -5,6 +5,7 @@ interface Props {
     clearSelection: () => void;
     hasSelectedItem: boolean;
     onClick: () => void;
+    /** @deprecated */
     inverted?: boolean;
 }
 

@@ -11,10 +11,6 @@ import { DevExample } from "@fremtind/jkl-portal-components";
 import "@fremtind/jkl-portal-components/dev-example.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
-import "@fremtind/jkl-button/button.min.css";
-import "@fremtind/jkl-list/list.min.css";
-import "@fremtind/jkl-card/card.min.css";
-import "@fremtind/jkl-text-input/text-input.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
 import AnimationExample from "./AnimationExample";
@@ -25,7 +21,8 @@ import KeyListenerExample from "./KeyListenerExample";
 import MutationObserverExample from "./MutationObserverExample";
 import ScrollIntoViewExample from "./ScrollIntoViewExample";
 import ReducedMotionExample from "./ReducedMotionExample";
-import "@fremtind/jkl-datepicker/datepicker.css";
+import "@fremtind/jkl-button/button.css";
+import "@fremtind/jkl-card/card.css";
 
 initTabListener();
 

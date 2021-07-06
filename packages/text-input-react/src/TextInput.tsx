@@ -16,6 +16,7 @@ export interface Props extends BaseProps {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    /** @deprecated */
     inverted?: boolean;
     forceCompact?: boolean;
     inline?: boolean;

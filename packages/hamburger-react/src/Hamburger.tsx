@@ -7,6 +7,7 @@ interface Props {
     onClickOutside?: (isActive: boolean) => void;
     enableClickOutside?: boolean;
     initialIsActive?: boolean;
+    /** @deprecated */
     negative?: boolean;
     description?: string;
     insideRef?: RefObject<HTMLElement>;

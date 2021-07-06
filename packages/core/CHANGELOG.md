@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-07-06)
+
+### Features
+
+- **core:** add base class with automatic dark mode ([2183410](https://github.com/fremtind/jokul/commit/2183410328619848caea2e8a4e5efdddb4b65fba))
+- **labels:** add automatic dark mode ([e9f4a4d](https://github.com/fremtind/jokul/commit/e9f4a4d64762fc7cc6907c1088fe01f12472a9a3))
+- **links:** add automatic dark mode ([982ba1e](https://github.com/fremtind/jokul/commit/982ba1ee2682760c489e8ff783ad0dbaed3cd0fd))
+- **sass:** add helper for defining dark/light mode vars ([47de260](https://github.com/fremtind/jokul/commit/47de2606d2cf7156dc70238fcc65d7737a752af6))
+
+### BREAKING CHANGES
+
+- **core:** Base class .jkl must now be set to get Fremtind Grotesk font
+
 ## 5.0.2 (2021-07-02)
 
 ### Bug Fixes

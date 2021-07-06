@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -20,15 +22,14 @@ $main-slider-color--inverted: $snohvit;
 $main-slider-background-color--inverted: $granitt;
 $expanding-pill-background-color--inverted: $fjellgra;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --toggle-focus-outline-color: #{$toggle-focus-outline-color};
     --main-slider-color: #{$main-slider-color};
     --main-slider-background-color: #{$main-slider-background-color};
     --expanding-pill-background-color: #{$expanding-pill-background-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --toggle-focus-outline-color: #{$toggle-focus-outline-color--inverted};
     --main-slider-color: #{$main-slider-color--inverted};
     --main-slider-background-color: #{$main-slider-background-color--inverted};

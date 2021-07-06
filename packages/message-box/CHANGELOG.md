@@ -3,74 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### Features
+
+- **message-box:** add automatic dark mode ([140cfae](https://github.com/fremtind/jokul/commit/140cfae672939b49b86c5ed35d4e191121fe331d))
+- **message-box:** add automatic dark mode ([a8ce2d4](https://github.com/fremtind/jokul/commit/a8ce2d4e232b7ce5801eb593118681bb1e7e9863))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
+
 ## 2.0.0 (2021-06-07)
 
 ### Features
 
-- new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+-   new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
 
 ### BREAKING CHANGES
 
-- all color variables are changed
+-   all color variables are changed
 
 ## 1.7.0 (2021-04-28)
 
 ### Features
 
-- **message-box:** make MessageBox dismissable ([f6eb66f](https://github.com/fremtind/jokul/commit/f6eb66f6bf7ee04375d95cd3a48e63677924ea71))
+-   **message-box:** make MessageBox dismissable ([f6eb66f](https://github.com/fremtind/jokul/commit/f6eb66f6bf7ee04375d95cd3a48e63677924ea71))
 
 ## 1.6.0 (2020-09-01)
 
 ### Features
 
-- implement global dark mode ([47b8e2d](https://github.com/fremtind/jokul/commit/47b8e2dc0abcd366212fc67f306f8523a63d11c8))
+-   implement global dark mode ([47b8e2d](https://github.com/fremtind/jokul/commit/47b8e2dc0abcd366212fc67f306f8523a63d11c8))
 
 ## 1.5.0 (2020-05-15)
 
 ### Features
 
-- **message-box:** refactor icon styling in message-box ([36c81b5](https://github.com/fremtind/jokul/commit/36c81b5935095984ec79a6059693909411d076b5))
+-   **message-box:** refactor icon styling in message-box ([36c81b5](https://github.com/fremtind/jokul/commit/36c81b5935095984ec79a6059693909411d076b5))
 
 ## 1.4.0 (2020-04-27)
 
 ### Features
 
-- **minor ui changes:** more redable icon and more compact heading text ([181f21d](https://github.com/fremtind/jokul/commit/181f21d1ddc1e81ad381aa9f428bf6c08f165696)), closes [#904](https://github.com/fremtind/jokul/issues/904)
+-   **minor ui changes:** more redable icon and more compact heading text ([181f21d](https://github.com/fremtind/jokul/commit/181f21d1ddc1e81ad381aa9f428bf6c08f165696)), closes [#904](https://github.com/fremtind/jokul/issues/904)
 
 ## 1.3.0 (2020-04-20)
 
 ### Features
 
-- new layout, with icons and darkmode ([2253fe8](https://github.com/fremtind/jokul/commit/2253fe873975028d74c615661a9edd4d8e0bd47b))
+-   new layout, with icons and darkmode ([2253fe8](https://github.com/fremtind/jokul/commit/2253fe873975028d74c615661a9edd4d8e0bd47b))
 
 ## 1.2.5 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 1.2.0 (2020-02-19)
 
 ### Features
 
-- export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+-   export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
 
 ## 1.1.2 (2020-02-18)
 
 ### Bug Fixes
 
-- make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+-   make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- update components to use the new notification colors ([8bd78ff](https://github.com/fremtind/jokul/commit/8bd78ff371cf382c1c7fabfe1deab5e199e5750a))
-- update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+-   update components to use the new notification colors ([8bd78ff](https://github.com/fremtind/jokul/commit/8bd78ff371cf382c1c7fabfe1deab5e199e5750a))
+-   update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
 
 ## 1.0.0 (2019-12-03)
 

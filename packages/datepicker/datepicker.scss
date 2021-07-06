@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -5,11 +7,10 @@
 $datepicker-focus-color: $granitt;
 $datepicker-focus-color--inverted: $snohvit;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --datepicker-focus-color: #{$datepicker-focus-color};
 }
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --datepicker-focus-color: #{$datepicker-focus-color--inverted};
 }
 
@@ -93,8 +94,7 @@ $calendar-navigation-arrow-focus-color--inverted: $svaberg;
 $calendar-hover-date-background-color--inverted: $stein;
 $calendar-selected-date-background-color--inverted: $snohvit;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --calendar-text-color: #{$calendar-text-color};
     --calendar-background-color: #{$calendar-background-color};
     --calendar-border-color: #{$calendar-border-color};
@@ -107,7 +107,7 @@ $calendar-selected-date-background-color--inverted: $snohvit;
     --calendar-hover-date-background-color: #{$calendar-hover-date-background-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --calendar-text-color: #{$calendar-text-color--inverted};
     --calendar-background-color: #{$calendar-background-color--inverted};
     --calendar-border-color: #{$calendar-border-color--inverted};

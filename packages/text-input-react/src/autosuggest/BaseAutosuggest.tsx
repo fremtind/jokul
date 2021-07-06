@@ -9,6 +9,7 @@ import Menu from "./Menu";
 const KEY_ENTER = 13;
 
 type BaseAutosuggestProps<T> = CommonProps & {
+    /** @deprecated */
     inverted?: boolean;
     itemToString: (item: T | null) => string;
     items: T[];

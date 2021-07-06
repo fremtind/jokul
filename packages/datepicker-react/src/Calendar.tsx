@@ -11,6 +11,7 @@ interface Props {
     hidden?: boolean;
     extended?: boolean;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     onClickDate?: (e: ChangeEvent<ChangeDate>) => void;
     currentDate?: Date;

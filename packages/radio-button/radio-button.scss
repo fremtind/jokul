@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
@@ -27,8 +29,7 @@ $radio-button-error-color--inverted: $feil--darkbg;
 $radio-button-disabled-color--inverted: $stein;
 $radio-button-default-color--inverted: $svaberg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --radio-button-color: #{$radio-button-color};
     --radio-button-background-color: #{$radio-button-background-color};
     --radio-button-focus-color: #{$radio-button-focus-color};
@@ -37,7 +38,7 @@ $radio-button-default-color--inverted: $svaberg;
     --radio-button-default-color: #{$radio-button-default-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --radio-button-color: #{$radio-button-color--inverted};
     --radio-button-background-color: #{$radio-button-background-color--inverted};
     --radio-button-focus-color: #{$radio-button-focus-color--inverted};

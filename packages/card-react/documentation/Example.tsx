@@ -2,9 +2,6 @@ import React from "react";
 import { Card } from "../src";
 import car from "./img/car.jpg";
 import grass from "./img/grass.jpg";
-import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-card/card.min.css";
-import "@fremtind/jkl-button/button.min.css";
 
 function handleClick() {
     console.log("This is working");

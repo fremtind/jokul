@@ -3,21 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
+
 ## 3.0.1 (2021-06-25)
 
 ### Bug Fixes
 
-- **labels:** use SupportLabel from jkl-core, not deprecated version ([c6d5d62](https://github.com/fremtind/jokul/commit/c6d5d62dafe6c084acd336381e376930290b0530))
+-   **labels:** use SupportLabel from jkl-core, not deprecated version ([c6d5d62](https://github.com/fremtind/jokul/commit/c6d5d62dafe6c084acd336381e376930290b0530))
 
 ## 3.0.0 (2021-06-07)
 
 ### Features
 
-- upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+-   upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
 
 ### BREAKING CHANGES
 
-- Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+-   Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
 
 ## 2.6.7 (2021-02-12)
 

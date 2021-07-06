@@ -14,6 +14,9 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
 import { Example } from "./Example";
+import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
+import "@fremtind/jkl-button/button.min.css";
+import "@fremtind/jkl-list/list.min.css";
 
 initTabListener();
 

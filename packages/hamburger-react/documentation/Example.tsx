@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Hamburger } from "../src";
-import "@fremtind/jkl-hamburger/hamburger.css";
-import "@fremtind/jkl-core/core.min.css";
 
 const Example = ({ boolValues }: ExampleComponentProps) => {
     const [clickOutside, toggleClickOutside] = useState(false);
