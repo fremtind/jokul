@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,82 +7,82 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+-   add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
 
 ## 2.5.0 (2020-11-25)
 
 ### Features
 
-- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+-   update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
 
 ## 2.4.0 (2020-07-29)
 
 ### Features
 
-- **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+-   **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
 
 ## 2.3.6 (2020-05-20)
 
 ### Bug Fixes
 
-- **typography-react:** make deprecation warnings less intrusive ([ff89328](https://github.com/fremtind/jokul/commit/ff89328e87750339e1c3edfe555e38ecd44ab06d))
+-   **typography-react:** make deprecation warnings less intrusive ([ff89328](https://github.com/fremtind/jokul/commit/ff89328e87750339e1c3edfe555e38ecd44ab06d))
 
 ## 2.3.2 (2020-05-13)
 
 ### Bug Fixes
 
-- **typography-react:** add deprecation warnings ([a71dd1c](https://github.com/fremtind/jokul/commit/a71dd1c550eda2471c1d932d7e412d808b508b1f))
+-   **typography-react:** add deprecation warnings ([a71dd1c](https://github.com/fremtind/jokul/commit/a71dd1c550eda2471c1d932d7e412d808b508b1f))
 
 ## 2.3.0 (2020-04-27)
 
 ### Features
 
-- **support-label:** add support for id and sr-only to SupportLabel ([419a301](https://github.com/fremtind/jokul/commit/419a301fa0f7e691331c8058bc6abf7205f7634c))
-- add inverted mode to error label ([d44985f](https://github.com/fremtind/jokul/commit/d44985ffadcc1149a98c83579c6c4812dd4f8dad))
+-   **support-label:** add support for id and sr-only to SupportLabel ([419a301](https://github.com/fremtind/jokul/commit/419a301fa0f7e691331c8058bc6abf7205f7634c))
+-   add inverted mode to error label ([d44985f](https://github.com/fremtind/jokul/commit/d44985ffadcc1149a98c83579c6c4812dd4f8dad))
 
 ## 2.2.0 (2020-04-20)
 
 ### Features
 
-- **links:** add external prop and style to links ([f1a47f0](https://github.com/fremtind/jokul/commit/f1a47f09cc7ed5c8a1c5ac19de8b9b8ed78ffac9)), closes [#905](https://github.com/fremtind/jokul/issues/905)
+-   **links:** add external prop and style to links ([f1a47f0](https://github.com/fremtind/jokul/commit/f1a47f09cc7ed5c8a1c5ac19de8b9b8ed78ffac9)), closes [#905](https://github.com/fremtind/jokul/issues/905)
 
 ## 2.1.3 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 2.1.0 (2020-03-06)
 
 ### Features
 
-- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+-   **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
 
 ## 2.0.2 (2020-02-18)
 
 ### Bug Fixes
 
-- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
-- **typography react:** add deprecation warning to typography components ([29687ae](https://github.com/fremtind/jokul/commit/29687ae7635f2ca675763d32346d754f67115e1b))
-- **typography-react:** update components with new text styles ([971b607](https://github.com/fremtind/jokul/commit/971b6071c9a3af7a512a01f6401a9f77bd969282))
+-   **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+-   **typography react:** add deprecation warning to typography components ([29687ae](https://github.com/fremtind/jokul/commit/29687ae7635f2ca675763d32346d754f67115e1b))
+-   **typography-react:** update components with new text styles ([971b607](https://github.com/fremtind/jokul/commit/971b6071c9a3af7a512a01f6401a9f77bd969282))
 
 ## 2.0.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
-- fix parapgraphs rendering as wrong element ([91f70f6](https://github.com/fremtind/jokul/commit/91f70f6aed4f6491d827e80249d301c872d6bdd9))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix parapgraphs rendering as wrong element ([91f70f6](https://github.com/fremtind/jokul/commit/91f70f6aed4f6491d827e80249d301c872d6bdd9))
 
 ### Features
 
-- **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
-- shorten typography paragraph components ([77e3d76](https://github.com/fremtind/jokul/commit/77e3d7693c1ea420f267a52ec4ad816afdb49797))
-- unify naming spanning typography-react, mixins, classes ([f90174a](https://github.com/fremtind/jokul/commit/f90174a638ebe5438fab72770f8d089fecd7b986)), closes [#592](https://github.com/fremtind/jokul/issues/592)
+-   **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+-   shorten typography paragraph components ([77e3d76](https://github.com/fremtind/jokul/commit/77e3d7693c1ea420f267a52ec4ad816afdb49797))
+-   unify naming spanning typography-react, mixins, classes ([f90174a](https://github.com/fremtind/jokul/commit/f90174a638ebe5438fab72770f8d089fecd7b986)), closes [#592](https://github.com/fremtind/jokul/issues/592)
 
 ### BREAKING CHANGES
 
-- paragraphs in typography-react are simplified, removing the suffix "Paragraph"
-- changes to naming of certain components, paragraphs, headings and classes regarding typography
+-   paragraphs in typography-react are simplified, removing the suffix "Paragraph"
+-   changes to naming of certain components, paragraphs, headings and classes regarding typography
 
 ## 1.0.0 (2019-12-03)
 

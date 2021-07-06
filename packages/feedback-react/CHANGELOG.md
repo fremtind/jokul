@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -13,17 +13,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **feedback-react:** add support for submit when unmounting the component ([2a85ee9](https://github.com/fremtind/jokul/commit/2a85ee9b5e1b1a8035a321007566d0026d562f1d))
+-   **feedback-react:** add support for submit when unmounting the component ([2a85ee9](https://github.com/fremtind/jokul/commit/2a85ee9b5e1b1a8035a321007566d0026d562f1d))
 
 ## 5.0.0 (2021-06-07)
 
 ### Features
 
-- upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+-   upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
 
 ### BREAKING CHANGES
 
-- Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+-   Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
 
 ## 4.0.0 (2021-05-20)
 

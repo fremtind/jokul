@@ -16,8 +16,8 @@
     @include motion("standard");
     transition-property: color;
     transition-delay: 150ms;
-    color: var(--portal-text-color);
-    background-color: var(--portal-bg);
+    /* color: var(--portal-text-color);
+    background-color: var(--portal-bg); */
 
     &__sidebar {
         display: none;

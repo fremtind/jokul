@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -13,78 +13,78 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **sass:** upgrade sass and stop using dep. syntax ([194d414](https://github.com/fremtind/jokul/commit/194d4145cbde712eb351ef6b41cefe6a47f40b5e))
+-   **sass:** upgrade sass and stop using dep. syntax ([194d414](https://github.com/fremtind/jokul/commit/194d4145cbde712eb351ef6b41cefe6a47f40b5e))
 
 ## 2.0.0 (2021-06-07)
 
 ### Features
 
-- new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+-   new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
 
 ### BREAKING CHANGES
 
-- all color variables are changed
+-   all color variables are changed
 
 ## 1.4.1 (2020-08-28)
 
 ### Bug Fixes
 
-- override css custom properties when inverted mode is set ([d5c3686](https://github.com/fremtind/jokul/commit/d5c368669e17942570c44bad4fd19989e260e7c8))
+-   override css custom properties when inverted mode is set ([d5c3686](https://github.com/fremtind/jokul/commit/d5c368669e17942570c44bad4fd19989e260e7c8))
 
 ## 1.4.0 (2020-08-25)
 
 ### Features
 
-- **checkbox:** update design to match sketches ([400904e](https://github.com/fremtind/jokul/commit/400904e40dbf88975352ba68f5e6b0d7395a94b1))
+-   **checkbox:** update design to match sketches ([400904e](https://github.com/fremtind/jokul/commit/400904e40dbf88975352ba68f5e6b0d7395a94b1))
 
 ## 1.3.0 (2020-07-06)
 
 ### Features
 
-- **checkbox:** make labels responsive ([116afcd](https://github.com/fremtind/jokul/commit/116afcd3a611ba30bf8400e4001d2716a8662b21)), closes [#985](https://github.com/fremtind/jokul/issues/985)
+-   **checkbox:** make labels responsive ([116afcd](https://github.com/fremtind/jokul/commit/116afcd3a611ba30bf8400e4001d2716a8662b21)), closes [#985](https://github.com/fremtind/jokul/issues/985)
 
 ## 1.2.0 (2020-05-11)
 
 ### Bug Fixes
 
-- **checkbox:** adjust spacings for new labels ([32273a2](https://github.com/fremtind/jokul/commit/32273a2116fa56b9a3cf3eedc51ad3c777b98667))
+-   **checkbox:** adjust spacings for new labels ([32273a2](https://github.com/fremtind/jokul/commit/32273a2116fa56b9a3cf3eedc51ad3c777b98667))
 
 ### Features
 
-- add support for dark/inverted mode ([eaf1a1f](https://github.com/fremtind/jokul/commit/eaf1a1f001fec39d207abac67062179efa7a7cc9))
+-   add support for dark/inverted mode ([eaf1a1f](https://github.com/fremtind/jokul/commit/eaf1a1f001fec39d207abac67062179efa7a7cc9))
 
 ## 1.1.5 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 1.1.4 (2020-03-16)
 
 ### Bug Fixes
 
-- **checkbox:** fix html structure to avoid onClick event bugs ([02b2343](https://github.com/fremtind/jokul/commit/02b2343f7323e6c3ab11ed8e58bb5bdafc9d54a8))
-- **checkbox:** make fake checkmark clickable again ([e9688d6](https://github.com/fremtind/jokul/commit/e9688d6253148207031fe2363751f91656897cf4))
-- **checkbox:** make text bold when checkbox is checked ([7126a44](https://github.com/fremtind/jokul/commit/7126a44c4e66b94ad9cd214a281fc1940840b04c))
+-   **checkbox:** fix html structure to avoid onClick event bugs ([02b2343](https://github.com/fremtind/jokul/commit/02b2343f7323e6c3ab11ed8e58bb5bdafc9d54a8))
+-   **checkbox:** make fake checkmark clickable again ([e9688d6](https://github.com/fremtind/jokul/commit/e9688d6253148207031fe2363751f91656897cf4))
+-   **checkbox:** make text bold when checkbox is checked ([7126a44](https://github.com/fremtind/jokul/commit/7126a44c4e66b94ad9cd214a281fc1940840b04c))
 
 ## 1.1.0 (2020-02-19)
 
 ### Features
 
-- export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+-   export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
 
 ## 1.0.16 (2020-02-18)
 
 ### Bug Fixes
 
-- make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
-- use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+-   make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+-   use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
 
 ## 1.0.14 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ## 1.0.0 (2019-12-03)
 

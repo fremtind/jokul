@@ -27,6 +27,7 @@ export type CommonProps = (
     maxNumberOfHits?: number;
     showDropdownControllerButton?: boolean;
     onInputValueChange?: (inputValue: string) => void;
+    /** @deprecated */
     inverted?: boolean;
 };
 

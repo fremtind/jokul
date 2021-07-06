@@ -10,6 +10,7 @@ interface Props {
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
 }
 

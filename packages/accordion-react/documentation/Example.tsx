@@ -3,7 +3,6 @@ import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 
 import { Accordion, AccordionItem } from "../src";
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import "@fremtind/jkl-list/list.min.css";
 
 export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => (
     <Accordion inverted={boolValues && boolValues["Invertert"]}>

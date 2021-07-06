@@ -8,6 +8,7 @@ interface Props {
     className?: string;
     onClick?: MouseEventHandler<HTMLButtonElement>;
     disabled?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     helpLabel?: string;
 }

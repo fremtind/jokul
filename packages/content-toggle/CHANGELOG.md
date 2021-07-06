@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,4 +7,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **content-toggle:** remove opacity transitions ([737eb32](https://github.com/fremtind/jokul/commit/737eb32ded64223a203b1874a8092945e88218ea))
+-   **content-toggle:** remove opacity transitions ([737eb32](https://github.com/fremtind/jokul/commit/737eb32ded64223a203b1874a8092945e88218ea))

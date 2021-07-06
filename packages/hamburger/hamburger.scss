@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
 @import "~@fremtind/jkl-core/variables/_colors.scss";
@@ -15,13 +17,12 @@ $hamburger-focus-color: $stein;
 $hamburger-color--inverted: $snohvit;
 $hamburger-focus-color--inverted: $svaberg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --hamburger-color: #{$hamburger-color};
     --hamburger-focus-color: #{$hamburger-focus-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --hamburger-color: #{$hamburger-color--inverted};
     --hamburger-focus-color: #{$hamburger-focus-color--inverted};
 }

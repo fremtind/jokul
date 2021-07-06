@@ -1,18 +1,18 @@
+@use "~@fremtind/jkl-core/jkl";
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $arrow-height: rem(16px);
 $arrow-width: rem(13px);
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --accordion-border: #{$svaberg};
     --accordion-accent: #{$stein};
     --accordion-focus: #{$focus-color};
     --accordion-expanded-background: #{$hvit};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --accordion-border: #{$stein};
     --accordion-accent: #{$svaberg};
     --accordion-focus: #{$focus-color--darkbg};

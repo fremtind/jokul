@@ -8,6 +8,7 @@ interface Props {
     animated?: boolean;
     isSymbol?: boolean;
     title?: string;
+    /** @deprecated */
     inverted?: boolean;
 }
 

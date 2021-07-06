@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { DevExample } from "@fremtind/jkl-portal-components";
-import "@fremtind/jkl-portal-components/dev-example.css";
-import "@fremtind/jkl-radio-button/radio-button.min.css";
-import "@fremtind/jkl-checkbox/checkbox.min.css";
 
 import "../core.scss";
 import "./style.scss";

@@ -25,6 +25,7 @@ interface Props extends DataTestAutoId {
     variant?: LabelVariant;
     searchable?: boolean;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     width?: string;
     onChange?: SelectEventHandler;
