@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.1 (2021-07-06)
+
+### Bug Fixes
+
+- fix typo ([9895c82](https://github.com/fremtind/jokul/commit/9895c82e9383b3c2a24440727d920c9ab9408b96))
+- hurr durr sentence length ([fdd205d](https://github.com/fremtind/jokul/commit/fdd205d179a03765a37828a98b424ffff35f2742))
+
 ## 3.0.0 (2021-07-06)
 
 ### chore
