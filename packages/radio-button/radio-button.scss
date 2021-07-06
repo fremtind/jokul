@@ -2,6 +2,7 @@
 
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 $radio-button-size: rem(24px);
 $radio-button-height: rem(48px);
@@ -10,7 +11,7 @@ $radio-button-dot-padding: rem(4px);
 
 $radio-button-size--compact: rem(18px);
 $radio-button-height--compact: rem(40px);
-$radio-button-line-height--compact: rem(24px);
+$radio-button-line-height--compact: rem(28px);
 $radio-button-dot-padding--compact: rem(3px);
 
 $radio-button-color: $granitt;
@@ -95,7 +96,7 @@ $radio-button-default-color--inverted: $svaberg;
     }
 
     &__label {
-        @include jkl-text-style("desktop/body");
+        @include jkl.typography-text-style("body");
         cursor: pointer;
         display: flex;
         align-items: flex-start;
@@ -194,7 +195,7 @@ $radio-button-default-color--inverted: $svaberg;
         min-height: $radio-button-height--compact;
 
         .jkl-radio-button__text {
-            @include jkl-text-style("compact/body");
+            @include jkl.typography-text-style("body/small-screen");
             margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
             transform: translate3D(0, 0, 0);
         }
@@ -217,7 +218,6 @@ $radio-button-default-color--inverted: $svaberg;
         min-height: $radio-button-height--compact;
 
         .jkl-radio-button__text {
-            @include jkl-text-style("compact/body");
             margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
             transform: translate3D(0, 0, 0);
         }
