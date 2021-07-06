@@ -1,7 +1,22 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 3.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### Features
+
+- **message-box:** add automatic dark mode ([140cfae](https://github.com/fremtind/jokul/commit/140cfae672939b49b86c5ed35d4e191121fe331d))
+- **message-box:** add automatic dark mode ([a8ce2d4](https://github.com/fremtind/jokul/commit/a8ce2d4e232b7ce5801eb593118681bb1e7e9863))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

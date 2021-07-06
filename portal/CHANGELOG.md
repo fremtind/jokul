@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.0 (2021-07-06)
+
+### Bug Fixes
+
+- **examples:** let do-dont-images fill container width ([28bb085](https://github.com/fremtind/jokul/commit/28bb0852febe7dd0c47f2aad9ee93d17ffb1bd68))
+
+### Features
+
+- **portal:** implement automatic dark mode ([2215523](https://github.com/fremtind/jokul/commit/2215523d270ee1523bd5c2d4710f99c3de2c2c92))
+
 ## 4.1.0 (2021-06-24)
 
 ### Features

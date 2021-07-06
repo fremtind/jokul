@@ -1,7 +1,21 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 0.11.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### Features
+
+- **portal:** implement automatic dark mode ([2215523](https://github.com/fremtind/jokul/commit/2215523d270ee1523bd5c2d4710f99c3de2c2c92))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 0.10.0 (2021-06-07)
 

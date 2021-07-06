@@ -1,7 +1,21 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 3.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### Features
+
+- **radio-button:** add automatic dark mode ([2c5c492](https://github.com/fremtind/jokul/commit/2c5c492e1aca203136b149f07bde968376961847))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.1 (2021-06-25)
 
