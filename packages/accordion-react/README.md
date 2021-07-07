@@ -34,4 +34,4 @@ En enkel bruk av `Accordion` kan se slik ut:
 
 Merk at `AccordionItem` kan ha annet innhold enn ren tekst. Komponenten tar inn prop-en `children` som er av typen `ReactNode.`
 
-Dersom det er ønskelig at komponenten er utvidet når komponenten lastes inn kan prop-en `startExpanded` benyttes.
+Dersom det er ønskelig at et `AccordionItem` er utvidet når komponenten lastes inn, kan prop-en `startExpanded` benyttes.
