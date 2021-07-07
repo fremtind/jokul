@@ -1,7 +1,9 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 .jkl-portal-github-links {
-    @include jkl-text-style("desktop/body");
+    @include jkl.typography-text-style("body");
     margin-bottom: $layout-spacing--large;
 
     &__link {

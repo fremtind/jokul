@@ -1,5 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
 
 @include jkl.helper-light-mode-variables {
@@ -39,7 +40,7 @@
     }
 
     &__heading {
-        @include jkl-text-style("desktop/heading-small");
+        @include jkl.typography-text-style("heading-4");
         margin-top: $component-spacing--large;
         margin-bottom: $component-spacing--xs;
 
@@ -53,7 +54,7 @@
     }
 
     &__description {
-        @include jkl-text-style("desktop/body");
+        @include jkl.typography-text-style("body");
     }
 
     @include small-device {

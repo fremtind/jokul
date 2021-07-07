@@ -6,15 +6,14 @@ import { TableHeader } from "./TableHeader";
 import { ExampleRow, TypographyLevels } from "./ExampleRow";
 
 const levels: TypographyLevels[] = [
-    "Title large",
-    "Title small",
-    "Heading large",
-    "Heading medium",
-    "Heading small",
-    "Lead",
+    "Title",
+    "Heading 1",
+    "Heading 2",
+    "Heading 3",
+    "Heading 4",
+    "Heading 5",
     "Body",
     "Small",
-    "Micro",
 ];
 
 export const Example = () => {

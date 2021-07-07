@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -21,12 +23,12 @@
     }
 
     &__heading {
-        @include jkl-text-style("desktop/heading-medium");
+        @include jkl.typography-text-style("heading-3");
         margin-bottom: $component-spacing--medium;
     }
 
     &__content {
-        @include jkl-text-style("desktop/body");
+        @include jkl.typography-text-style("body");
     }
 
     &__arrow {

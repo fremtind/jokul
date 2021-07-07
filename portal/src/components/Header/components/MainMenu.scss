@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
@@ -15,7 +17,7 @@
     }
 
     &__item {
-        @include jkl-text-style("desktop/body");
+        @include jkl.typography-text-style("body");
         display: inline-block;
         height: 100%;
         color: inherit;
