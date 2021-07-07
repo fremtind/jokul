@@ -39,11 +39,13 @@ En enkel bruk av knapper kan se slik ut:
 Knapper kan ha annet innhold enn ren tekst, for eksempel for å vise aktivitet knyttet til knappens handling:
 
 ```jsx
-<PrimaryButton onClick={uploadFiles}>
-  {
-    isUploading
-      ? <Loader inline negative textDescription="Laster opp filer">
-      : "Last opp"
-  }
+<PrimaryButton
+    onClick={uploadFiles}
+    loader={{
+        showLoading: isUploading,
+        textDescription: "Laster opp filer",
+    }}
+>
+    Last opp
 </PrimaryButton>
 ```

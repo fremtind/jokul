@@ -22,19 +22,19 @@ $focus-ring-width: rem(2px);
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
-$button-border-color: $granitt;
-$button-text-color: $granitt;
+$button-border-color: jkl.$color-granitt;
+$button-text-color: jkl.$color-granitt;
 $button-background-color: transparent;
-$button-focus-color: $granitt;
-$button-primary-text-color: $snohvit;
-$button-primary-background-color: $granitt;
+$button-focus-color: jkl.$color-granitt;
+$button-primary-text-color: jkl.$color-snohvit;
+$button-primary-background-color: jkl.$color-granitt;
 
-$button-border-color--inverted: $snohvit;
-$button-text-color--inverted: $snohvit;
+$button-border-color--inverted: jkl.$color-snohvit;
+$button-text-color--inverted: jkl.$color-snohvit;
 $button-background-color--inverted: transparent;
-$button-focus-color--inverted: $snohvit;
-$button-primary-text-color--inverted: $granitt;
-$button-primary-background-color--inverted: $snohvit;
+$button-focus-color--inverted: jkl.$color-snohvit;
+$button-primary-text-color--inverted: jkl.$color-granitt;
+$button-primary-background-color--inverted: jkl.$color-snohvit;
 
 /* This padding ensures that there is enough space around the button so that it is fully visible during hover and focus inside the wrapper.
 Note that this padding is only necessary for browsers that does not support clip-path. */
@@ -104,8 +104,8 @@ $button-wrapper-animation-safe-area: 10px;
     @include reset-outline;
     display: inline-flex;
     justify-content: center;
-    @include jkl-text-style("compact/body");
-    font-weight: $bold-weight;
+    @include jkl.typography-text-style("body/small-screen");
+    font-weight: jkl.$typography-weight-bold;
     height: $button-height--normal;
     min-width: $button-min-width--normal;
     line-height: $button-height--normal;
