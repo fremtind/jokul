@@ -1,6 +1,7 @@
 @use "../core/jkl";
 
 @import "../core/variables/_all.scss";
+@import "../core/mixins/_all.scss";
 @import "../core/_functions.scss";
 
 @include jkl.helper-light-mode-variables {
@@ -52,8 +53,8 @@
         padding: $layout-spacing--large $component-spacing--large;
 
         &::before {
-            color: var(--jkl-color);
-            @include jkl-text-style("desktop/micro");
+            @include jkl.typography-text-style("small");
+            color: jkl.$color-fjellgra;
             position: absolute;
             top: $component-spacing--medium;
             left: $component-spacing--large;
@@ -74,10 +75,17 @@
         &:not(:first-child) {
             margin-top: $layout-spacing--small;
         }
+        @include jkl.typography-text-style("small");
+        color: jkl.$color-fjellgra;
+        margin-bottom: $component-spacing--medium;
+    }
+
+    &__choice-option {
+        margin-top: $layout-spacing--small;
 
         & .jkl-label.jkl-label--small {
-            @include jkl-text-style("desktop/micro");
-            font-weight: $bold-weight;
+            @include jkl.typography-text-style("small");
+            color: jkl.$color-fjellgra;
         }
     }
 
