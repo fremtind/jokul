@@ -26,7 +26,7 @@ const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps
 
     return (
         <>
-            <Checkbox value="True" ref={register(name)} className="jkl-cookie-consent-modal__checkbox">
+            <Checkbox value="True" {...register(name)} className="jkl-cookie-consent-modal__checkbox">
                 {label}
             </Checkbox>
             <p className="jkl-cookie-consent-modal__info-text">{children}</p>
