@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.2 (2021-07-07)
+
+### Bug Fixes
+
+- **hamburger:** fix dark mode in dev example ([ec19b1d](https://github.com/fremtind/jokul/commit/ec19b1d1cbe5ce4273bfb572e93b6836d6048045))
+
 ## 3.0.0 (2021-07-06)
 
 ### chore

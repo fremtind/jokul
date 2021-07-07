@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.0 (2021-07-07)
+
+### Features
+
+- **hamburger:** update animation for hamburger component ([b7a30fe](https://github.com/fremtind/jokul/commit/b7a30fe803ecf172c5d1df29fe00538b3bfa669b))
+
 ## 3.0.0 (2021-07-06)
 
 ### chore
