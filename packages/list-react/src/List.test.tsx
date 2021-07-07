@@ -32,21 +32,21 @@ describe("List", () => {
 
     test(`List gets the passed className`, () => {
         render(
-            <UnorderedList className="jkl-lead">
+            <UnorderedList className="jkl-body">
                 <ListItem>Kibogiedo</ListItem>
                 <ListItem>Ovoopisow</ListItem>
             </UnorderedList>,
         );
-        expect(screen.getByTestId("jkl-list")).toHaveClass("jkl-lead");
+        expect(screen.getByTestId("jkl-list")).toHaveClass("jkl-body");
     });
 
     test(`ListItem gets the passed className`, () => {
         render(
             <UnorderedList>
-                <ListItem className="jkl-lead">Kibogiedo</ListItem>
+                <ListItem className="jkl-body">Kibogiedo</ListItem>
             </UnorderedList>,
         );
-        expect(screen.getByTestId("jkl-list-item")).toHaveClass("jkl-lead");
+        expect(screen.getByTestId("jkl-list-item")).toHaveClass("jkl-body");
     });
 
     test(`Nested lists should render all elements as expected`, () => {
