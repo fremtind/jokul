@@ -2,6 +2,7 @@
 
 @import "~@fremtind/jkl-core/variables/all";
 @import "~@fremtind/jkl-core/mixins/all";
+@import "~@fremtind/jkl-core/functions";
 
 $card-corner-radius: rem(2px);
 $container-width: rem(660px);
@@ -48,14 +49,14 @@ $container-width--compact: rem(320px);
         margin-bottom: $component-spacing--large;
     }
 
-    @include jkl-text-style("desktop/body");
+    @include jkl.typography-text-style("body");
 
     &__info-text {
-        @include jkl-text-style("desktop/small");
+        @include jkl.typography-text-style("small");
     }
 
     &__header {
-        @include jkl-text-style("desktop/heading-medium");
+        @include jkl.typography-text-style("heading-3");
         margin-bottom: $layout-spacing--small;
     }
 
@@ -77,15 +78,5 @@ $container-width--compact: rem(320px);
         margin: $layout-spacing--small;
         max-width: calc(100% - #{$layout-spacing--small} - #{$layout-spacing--small});
         padding: $layout-spacing--small;
-
-        @include jkl-text-style("compact/body");
-
-        &__info-text {
-            @include jkl-text-style("compact/small");
-        }
-
-        &__header {
-            @include jkl-text-style("compact/heading-medium");
-        }
     }
 }
