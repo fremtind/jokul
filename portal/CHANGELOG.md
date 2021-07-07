@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.2 (2021-07-07)
+
+### Bug Fixes
+
+- upgrade form example using react-hook-form ([bc78b6e](https://github.com/fremtind/jokul/commit/bc78b6ee64248d44f0edf423552f3afa45927554))
+
 ## 4.2.1 (2021-07-07)
 
 ### Bug Fixes

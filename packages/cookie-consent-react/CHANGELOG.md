@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.3 (2021-07-07)
+
+### Bug Fixes
+
+- **cookie-consent:** upgrade react-hook-form syntax ([9dc4003](https://github.com/fremtind/jokul/commit/9dc40034c233af8024d6f5e1467cc88d5fb69428))
+- upgrade react-hook-form syntax in cookie-consent ([8c998fc](https://github.com/fremtind/jokul/commit/8c998fce89979fd4864b5b46b27b957adb4e0e2a))
+
 ## 3.0.1 (2021-07-06)
 
 ### Bug Fixes
