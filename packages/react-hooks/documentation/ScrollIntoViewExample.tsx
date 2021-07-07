@@ -9,39 +9,39 @@ const ScrollIntoViewExample: React.FC = () => {
     const [manualScroll] = useScrollIntoView({ ref, timeout, autoScroll });
 
     return (
-        <section className="hooks-example">
-            <section style={{ height: "100vh" }}>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div>
-                        <button
-                            className="jkl-button jkl-button--primary jkl-spacing--bottom-2"
-                            onClick={() => toggleAutoScroll(!autoScroll)}
-                        >
-                            {autoScroll ? "Skru av" : "Skru på"}
-                        </button>
-                        <button className="jkl-button jkl-button--secondary jkl-spacing--left-1" onClick={manualScroll}>
-                            Scroll
-                        </button>
-                    </div>
-                    <label htmlFor="autoscroll-input" className="jkl-label--medium">
-                        Sett ventetid før autoscroll
-                    </label>
-                    <input
-                        id="autoscroll-input"
-                        className="jkl-text-input__input"
-                        style={{ width: "10ch" }}
-                        value={timeout}
-                        type="number"
-                        onChange={(val) => {
-                            toggleAutoScroll(false);
-                            if (val.currentTarget.value !== "") {
-                                updateTimeout(parseInt(val.currentTarget.value, 10));
-                            }
-                        }}
-                    />
+        <section style={{ height: "100vh", position: "relative" }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+                <div>
+                    <button
+                        className="jkl-button jkl-button--primary jkl-spacing--bottom-2"
+                        onClick={() => toggleAutoScroll(!autoScroll)}
+                    >
+                        {autoScroll ? "Skru av" : "Skru på"}
+                    </button>
+                    <button className="jkl-button jkl-button--secondary jkl-spacing--left-1" onClick={manualScroll}>
+                        Scroll
+                    </button>
                 </div>
-            </section>
-            <div ref={ref}>AutoScroll here</div>
+                <label htmlFor="autoscroll-input" className="jkl-label--medium">
+                    Sett ventetid før autoscroll
+                </label>
+                <input
+                    id="autoscroll-input"
+                    className="jkl-text-input__input"
+                    style={{ width: "10ch" }}
+                    value={timeout}
+                    type="number"
+                    onChange={(val) => {
+                        toggleAutoScroll(false);
+                        if (val.currentTarget.value !== "") {
+                            updateTimeout(parseInt(val.currentTarget.value, 10));
+                        }
+                    }}
+                />
+            </div>
+            <div ref={ref} style={{ position: "absolute", bottom: 0 }}>
+                AutoScroll here
+            </div>
         </section>
     );
 };
