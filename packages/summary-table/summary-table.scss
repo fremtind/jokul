@@ -1,6 +1,15 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
+
+@include jkl.helper-light-mode-variables {
+    --jkl-summary-table-border-color: #{jkl.$color-stein};
+}
+@include jkl.helper-dark-mode-variables {
+    --jkl-summary-table-border-color: #{jkl.$color-svaberg};
+}
 
 .jkl-summary-table {
     display: flex;
@@ -30,19 +39,21 @@
 
     & > tbody {
         th {
-            font-weight: normal;
+            font-weight: jkl.$typography-weight-normal;
             padding-right: $component-spacing--medium;
         }
     }
 
     & > tfoot {
-        border-top: rem(1px) solid $stein;
-        border-bottom: rem(1px) solid $stein;
+        border-top: rem(1px) solid jkl.$color-stein;
+        border-top: rem(1px) solid var(--jkl-summary-table-border-color);
+        border-bottom: rem(1px) solid jkl.$color-stein;
+        border-bottom: rem(1px) solid var(--jkl-summary-table-border-color);
         padding-top: $component-spacing--large;
 
         th,
         td {
-            font-weight: bold;
+            font-weight: jkl.$typography-weight-bold;
         }
     }
 
@@ -55,6 +66,6 @@
     }
 
     &__row--bold {
-        font-weight: bold;
+        font-weight: jkl.$typography-weight-bold;
     }
 }
