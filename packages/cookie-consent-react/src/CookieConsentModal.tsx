@@ -16,7 +16,7 @@ interface FormValues {
 }
 
 interface RequirementCheckboxProps {
-    name: string;
+    name: "functional" | "marketing" | "statistics";
     label: string;
     children: ReactNode;
 }
@@ -26,7 +26,7 @@ const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps
 
     return (
         <>
-            <Checkbox name={name} value="True" ref={register()} className="jkl-cookie-consent-modal__checkbox">
+            <Checkbox value="True" {...register(name)} className="jkl-cookie-consent-modal__checkbox">
                 {label}
             </Checkbox>
             <p className="jkl-cookie-consent-modal__info-text">{children}</p>
