@@ -39,7 +39,6 @@
         "@fremtind/jkl-core": "^6.0.1",
         "@fremtind/jkl-react-hooks": "^4.0.1",
         "@fremtind/jkl-select": "^4.0.1",
-        "@fremtind/jkl-typography-react": "^3.0.1",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.22"
     },

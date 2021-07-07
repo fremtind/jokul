@@ -1480,15 +1480,6 @@
   dependencies:
     "@fremtind/jkl-core" "^6.0.1"
 
-"@fremtind/jkl-typography-react@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@fremtind/jkl-typography-react/-/jkl-typography-react-3.0.1.tgz#8a5be777ff94bec89f665886aa9b6c7673f1cc41"
-  integrity sha512-KBp/NvzHCKfjZqWkllhEuz2K9jSDTZVnNPe8tuAL3/d2xIHNu1aYE5SsQbz4CbgkvSN97tVGH/3A/9/2y7GxjA==
-  dependencies:
-    "@babel/runtime" "^7.9.0"
-    "@fremtind/jkl-core" "^6.0.1"
-    classnames "^2.2.6"
-
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.6.tgz#4e8225836959be247890b66f21a3198a0589e34d"
