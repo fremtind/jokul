@@ -2,6 +2,7 @@
 
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 @function message-bg-light($color) {
     @return change-color($color, $lightness: 97%);
@@ -98,6 +99,8 @@ $success-border-color--inverted: $suksess--darkbg;
 
     &__title {
         margin-bottom: $component-spacing--small;
+
+        @include jkl.typography-text-style("heading-4");
     }
 
     &__dismiss-button {
