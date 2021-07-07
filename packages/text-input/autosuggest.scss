@@ -1,10 +1,11 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 $controller-button-padding: $component-spacing--medium;
 
-$item-height: $line-height-3;
-$item-font-size: $font-size-3;
+$item-height: rem(28px);
+$item-font-size: rem(18px);
 
 .jkl-autosuggest {
     width: 100%;
