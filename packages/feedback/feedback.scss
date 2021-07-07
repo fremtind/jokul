@@ -82,6 +82,10 @@ $max-feedback-input-width: 30rem;
         text-align: center;
     }
 
+    &__heading {
+        @include jkl.typography-text-style("heading-4");
+    }
+
     &__answer-input {
         @include reset-outline;
         opacity: 0;
