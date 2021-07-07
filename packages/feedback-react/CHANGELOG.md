@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.1 (2021-07-06)
+
+### Bug Fixes
+
+- fix type(os) ([79be4e7](https://github.com/fremtind/jokul/commit/79be4e7b27541f3ae7ba1db72d69183dc42331c2))
+
 ## 6.0.0 (2021-07-06)
 
 ### chore

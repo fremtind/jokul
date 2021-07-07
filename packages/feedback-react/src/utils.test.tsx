@@ -98,11 +98,13 @@ describe("Feedback utils", () => {
         });
 
         it("should return false for undefined", () => {
-            expect(isFeedbackValue(undefined as any)).toBeFalsy();
+            // @ts-expect-error one does not simply true
+            expect(isFeedbackValue(undefined)).toBeFalsy();
         });
 
         it("should return false for null", () => {
-            expect(isFeedbackValue(null as any)).toBeFalsy();
+            // @ts-expect-error hurr durr?
+            expect(isFeedbackValue(null)).toBeFalsy();
         });
 
         it("should retun true for FeedbackValue", () => {

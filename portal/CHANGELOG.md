@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.1 (2021-07-07)
+
+### Bug Fixes
+
+- **uu-guide:** fix filter background in uu guide for dark mode ([3fbd329](https://github.com/fremtind/jokul/commit/3fbd3290da3c54af6cad040364b28af4dff7d8a0))
+
 ## 4.2.0 (2021-07-06)
 
 ### Bug Fixes

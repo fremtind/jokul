@@ -1,5 +1,14 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
+
+@include jkl.helper-light-mode-variables {
+    --search-background: #{jkl.$color-sand};
+}
+@include jkl.helper-dark-mode-variables {
+    --search-background: #{jkl.$color-skifer};
+}
 
 .jkl-portal__uu {
     h2 {
@@ -50,7 +59,7 @@
             top: 0;
             height: 100%;
             width: 100%;
-            background-color: $snohvit;
+            background-color: var(--search-background);
             padding-right: $component-spacing--large;
             margin-left: -#{$component-spacing--large};
             padding-left: $component-spacing--large;
