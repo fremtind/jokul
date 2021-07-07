@@ -1,3 +1,5 @@
+@use "../../jkl";
+
 @import "../../variables/all";
 
 .jkl-mixin-example-table {
@@ -8,7 +10,7 @@
     &__data,
     &__header {
         padding: $component-spacing--small;
-        @include jkl-text-style("desktop/body");
+        @include jkl.typography-text-style("body");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -16,13 +18,13 @@
     }
 
     &__header {
-        font-weight: $bold-weight;
-        border-bottom-color: $granitt;
+        font-weight: jkl.$typography-weight-bold;
+        border-bottom-color: jkl.$color-granitt;
         min-height: rem(48px);
     }
 
     &__data {
-        border-bottom-color: $stein;
+        border-bottom-color: jkl.$color-stein;
         padding-bottom: $component-spacing--large;
         min-height: rem(64px);
     }

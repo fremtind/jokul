@@ -1,4 +1,7 @@
+@use "../../jkl";
+
 @import "../../variables/all";
+@import "../../mixins/all";
 @import "../../functions";
 
 .jkl-portal-spacing-example-table {
@@ -9,7 +12,7 @@
     &__data,
     &__header {
         padding: $component-spacing--small;
-        @include jkl-text-style("desktop/small");
+        @include jkl.typography-text-style("small");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -25,13 +28,13 @@
     }
 
     &__header {
-        font-weight: $bold-weight;
-        border-bottom-color: $granitt;
+        font-weight: jkl.$typography-weight-bold;
+        border-bottom-color: jkl.$color-granitt;
         min-height: rem(40px);
     }
 
     &__data {
-        border-bottom-color: $stein;
+        border-bottom-color: jkl.$color-stein;
         padding-bottom: $component-spacing--large;
         min-height: rem(48px);
     }
@@ -62,7 +65,7 @@
             }
 
             &:first-of-type::before {
-                font-weight: $bold-weight;
+                font-weight: jkl.$typography-weight-bold;
             }
         }
 
@@ -77,7 +80,7 @@
 
     *[data-theme="dark"] & {
         &__header {
-            border-bottom-color: $snohvit;
+            border-bottom-color: jkl.$color-snohvit;
         }
     }
 }
