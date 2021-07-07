@@ -1,3 +1,5 @@
+@use "./jkl";
+
 @import "./variables/all";
 @import "./mixins/all";
 @import "./functions";
@@ -20,13 +22,13 @@ $north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 $link-underline-thickness: rem(1px);
 $link-underline-thickness--hover: rem(2px);
 
-$link-color: $granitt;
-$link-hover-color: $stein;
-$link-active-color: $granitt;
+$link-color: jkl.$color-granitt;
+$link-hover-color: jkl.$color-stein;
+$link-active-color: jkl.$color-granitt;
 
-$link-color--inverted: $snohvit;
-$link-hover-color--inverted: $svaberg;
-$link-active-color--inverted: $snohvit;
+$link-color--inverted: jkl.$color-snohvit;
+$link-hover-color--inverted: jkl.$color-svaberg;
+$link-active-color--inverted: jkl.$color-snohvit;
 
 @include light-mode-variables {
     --link-color: #{$link-color};
@@ -101,7 +103,7 @@ $link-active-color--inverted: $snohvit;
 
     @include reset-outline;
     box-sizing: border-box;
-    font-weight: $normal-weight;
+    font-weight: jkl.$typography-weight-normal;
     text-decoration: none;
     position: relative;
     padding-right: 1.2em;
