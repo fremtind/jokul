@@ -1,6 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/variables/all";
+@import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
     --inline-code-bg-color: #{jkl.$color-sand};

@@ -1,6 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/functions";
 
 $bottom-border-size: rem(1px);
 $highlight-color: $snohvit;
