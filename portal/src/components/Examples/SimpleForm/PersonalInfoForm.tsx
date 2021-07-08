@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
-import { ExampleContext } from "@fremtind/jkl-portal-components";
+import { ExampleContext } from "../../../../../doc-utils";
 import { Label } from "@fremtind/jkl-core";
 
 interface Props {

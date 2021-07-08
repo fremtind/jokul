@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
-import { ExampleContext } from "@fremtind/jkl-portal-components";
+import { ExampleContext } from "../../../../../doc-utils";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { ErrorMessage } from "@fremtind/jkl-message-box-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";

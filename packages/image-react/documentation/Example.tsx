@@ -1,4 +1,4 @@
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import React, { useState } from "react";
 import { Image } from "../src";

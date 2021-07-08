@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { Dictionary, ChoiceProp, ExampleComponentProps } from "../src";
+import { Dictionary, ChoiceProp, ExampleComponentProps } from "./";
 import { hyphenate } from "./internal/hypenate";
 
 export interface Props {

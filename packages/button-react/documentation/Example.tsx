@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { Primary } from "./Primary";
 import { Secondary } from "./Secondary";
 import { Tertiary } from "./Tertiary";

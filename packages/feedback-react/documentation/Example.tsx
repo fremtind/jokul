@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { SuccessMessage } from "@fremtind/jkl-message-box-react";
 import { Feedback, HAPPY, NEUTRAL, SimplifiedFeedback, UNHAPPY, VERY_HAPPY, VERY_UNHAPPY } from "../src";
 

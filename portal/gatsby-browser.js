@@ -36,8 +36,6 @@ import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
 
 import { initTabListener } from "@fremtind/jkl-core";
 
-import "@fremtind/jkl-portal-components/component-example.scss";
-
 import "./src/components/Typography/typography.scss";
 import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
 import { LocationContextProvider } from "./src/contexts/locationContext";
