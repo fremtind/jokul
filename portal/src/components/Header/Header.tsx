@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useCallback, useRef } from "react";
+import React, { useCallback, useRef, useEffect } from "react";
 import { navigate } from "gatsby";
 import classNames from "classnames";
 
@@ -19,7 +19,7 @@ export const Header = ({ className }: { className?: string }) => {
             headerRef.current?.classList.remove("jkl-portal-header--collapsed");
         }
     }, []);
-    useLayoutEffect(() => {
+    useEffect(() => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);

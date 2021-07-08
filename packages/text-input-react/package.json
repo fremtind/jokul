@@ -47,7 +47,6 @@
         "nanoid": "^3.1.22"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.12.1",
         "@types/match-sorter": "^5.0.0"
     },
     "peerDependencies": {

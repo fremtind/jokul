@@ -27,9 +27,6 @@
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
-    "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.12.1"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"

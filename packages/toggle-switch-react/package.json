@@ -41,8 +41,7 @@
         "nanoid": "^3.1.22"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^7.0.1",
-        "@fremtind/jkl-portal-components": "^0.12.1"
+        "@fremtind/jkl-core": "^7.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

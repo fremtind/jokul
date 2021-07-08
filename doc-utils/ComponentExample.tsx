@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ExampleComponentProps, ChoiceProp } from "../src";
+import { ExampleComponentProps, ChoiceProp } from "./";
 import { ExampleBase } from "./ExampleBase";
 
 export interface Props {

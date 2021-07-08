@@ -39,9 +39,6 @@
         "@fremtind/jkl-hamburger": "^5.2.1",
         "@fremtind/jkl-react-hooks": "^5.0.1"
     },
-    "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.12.1"
-    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0",
