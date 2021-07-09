@@ -25,8 +25,10 @@ import "@fremtind/jkl-hamburger/hamburger.min.css";
 Bruk på lys bakgrunn
 
 ```jsx
+const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 <div>
-    <Hamburger />
+    <Hamburger onClick={() => setIsMenuOpen(!isMenuOpen)} isOpen={isMenuOpen} />
 </div>
 ```
 
@@ -34,6 +36,6 @@ Ved bruk på mørk bakgrunn brukes prop-en `negative` for å invertere ikonene.
 
 ```jsx
 <div style={{ backgroundColor: "black" }}>
-    <Hamburger negative />
+    <Hamburger negative  onClick={() => setIsMenuOpen(!isMenuOpen)} isOpen={isMenuOpen} />
 </div>
 ```
