@@ -1,55 +1,32 @@
-import React, { RefObject, useRef, useState } from "react";
-import { useClickOutside } from "@fremtind/jkl-react-hooks";
+import React from "react";
+import classnames from "classnames";
 
 interface Props {
+    isOpen: boolean;
+    onClick: () => void;
     className?: string;
-    onClick?: (isActive: boolean) => void;
-    onClickOutside?: (isActive: boolean) => void;
-    enableClickOutside?: boolean;
-    initialIsActive?: boolean;
-    /** @deprecated */
-    negative?: boolean;
+    /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
+    inverted?: boolean;
     description?: string;
-    insideRef?: RefObject<HTMLElement>;
 }
 
-export const Hamburger = ({
-    className = "",
-    initialIsActive = false,
-    negative = false,
-    description = "Hovedmeny",
-    onClick,
-    onClickOutside,
-    enableClickOutside = false,
-    insideRef,
-}: Props) => {
-    const [isActive, toggleIsActive] = useState(initialIsActive);
-    const wrapperRef = useRef(null);
-
-    const toggleActive = (fn: ((isActive: boolean) => void) | undefined) => {
-        const nextActive = !isActive;
-        toggleIsActive(nextActive);
-        if (fn) {
-            fn(nextActive);
-        }
-    };
-
-    const onButtonClick = () => toggleActive(onClick);
-    const onOutsideClick = () => toggleActive(onClickOutside);
-    const getRef = () => insideRef || wrapperRef;
-
-    useClickOutside(enableClickOutside ? getRef() : null, onOutsideClick);
+export const Hamburger = ({ isOpen, onClick, inverted = false, description = "Hovedmeny", className = "" }: Props) => {
+    const componentClassname = classnames(
+        "jkl-hamburger",
+        {
+            "jkl-hamburger--is-open": isOpen,
+            "jkl-hamburger--inverted": inverted,
+        },
+        className,
+    );
 
     return (
         <button
             type="button"
             aria-label={description}
-            onClick={onButtonClick}
-            className={`jkl-hamburger ${isActive ? "jkl-hamburger--is-active" : ""} ${
-                negative ? "jkl-hamburger--negative" : ""
-            } ${className}`}
+            onClick={onClick}
+            className={componentClassname}
             data-testid="jkl-hamburger"
-            ref={wrapperRef}
         >
             <span className="jkl-hamburger__inner"></span>
         </button>
