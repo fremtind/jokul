@@ -41,7 +41,6 @@
         "@fremtind/jkl-icon-button-react": "^0.5.1",
         "@fremtind/jkl-icons-react": "^2.0.1",
         "@fremtind/jkl-text-input": "^4.0.1",
-        "@fremtind/jkl-typography-react": "^3.0.1",
         "classnames": "^2.2.6",
         "downshift": "^6.0.5",
         "match-sorter": "^6.3.0",

@@ -1,4 +1,7 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/functions";
 
 $bottom-border-size: rem(1px);
 $highlight-color: $snohvit;
@@ -7,11 +10,11 @@ $row-end-padding: $component-spacing--large;
 
 .jkl-table {
     border-collapse: collapse;
-    @include jkl-text-style("desktop/small");
+    @include jkl.text-style("body");
 
     &__heading {
-        color: $granitt;
-        @include jkl-text-style("desktop/micro");
+        color: $stein;
+        @include jkl.text-style("small");
         padding: $component-spacing--small;
     }
 

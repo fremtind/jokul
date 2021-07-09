@@ -24,8 +24,8 @@ const SimpleForm = () => {
 
     return (
         <section>
-            <h1 className="jkl-title-large jkl-spacing--top-3 jkl-spacing--bottom-2">Liksomskjema</h1>
-            <p className="jkl-lead jkl-spacing--bottom-2">
+            <h1 className="jkl-title jkl-spacing--top-3 jkl-spacing--bottom-2">Liksomskjema</h1>
+            <p className="jkl-heading-2 jkl-spacing--bottom-2">
                 Har du husforsikring får du erstatning slik at du kan reparere eller bygge nytt hvis noe skjer med
                 boligen din.
             </p>

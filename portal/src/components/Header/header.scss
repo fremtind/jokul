@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -31,17 +33,18 @@ $header-padding--mobile: 0 $component-spacing--large;
         padding: 0;
         background-color: transparent;
         cursor: pointer;
-        @include jkl-text-style("desktop/heading-small");
+        @include jkl.text-style("heading-4") {
+            font-weight: jkl.$typography-weight-normal;
+        }
         color: inherit;
         text-decoration: none;
-        font-weight: $normal-weight;
 
         &:hover {
             color: $stein;
         }
         html:not([data-mousenavigation]) &:focus {
             color: $granitt;
-            font-weight: $bold-weight;
+            font-weight: jkl.$typography-weight-bold;
         }
     }
 

@@ -158,7 +158,7 @@ export const BaseFeedback: FC<Props> = ({
                         })}
                         onSubmit={handleActiveSubmit}
                     >
-                        <H className="jkl-feedback__heading jkl-heading-large">{label}</H>
+                        <H className="jkl-feedback__heading">{label}</H>
                         {content}
                         <section
                             ref={animationRef}

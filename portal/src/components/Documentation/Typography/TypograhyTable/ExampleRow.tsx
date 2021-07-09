@@ -3,15 +3,14 @@ import { TableCell } from "./TableCell";
 import { getComputedProperty } from "../../../../utils/getComputedProperty";
 
 export type TypographyLevels =
-    | "Title large"
-    | "Title small"
-    | "Heading large"
-    | "Heading medium"
-    | "Heading small"
-    | "Lead"
+    | "Title"
+    | "Heading 1"
+    | "Heading 2"
+    | "Heading 3"
+    | "Heading 4"
+    | "Heading 5"
     | "Body"
-    | "Small"
-    | "Micro";
+    | "Small";
 
 interface Props {
     level: TypographyLevels;

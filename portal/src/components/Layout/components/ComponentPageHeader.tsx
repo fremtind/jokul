@@ -10,7 +10,7 @@ export function ComponentPageHeader({ title, scss, react }: Frontmatter) {
     }
     return (
         <>
-            <h1 className="jkl-title-large">{title}</h1>
+            <h1 className="jkl-title">{title}</h1>
             <GitHubLinks react={react} scss={scss} />
         </>
     );

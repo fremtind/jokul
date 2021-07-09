@@ -120,7 +120,7 @@ function messageFactory(messageType: messageTypes) {
             <div className={componentClassName} role="alert">
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
-                    {title !== undefined && <p className="jkl-heading-small">{title}</p>}
+                    {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
                     <p className="jkl-body">{children}</p>
                 </div>
                 {dismissAction?.handleDismiss && (

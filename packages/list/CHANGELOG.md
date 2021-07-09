@@ -1,4 +1,4 @@
-# Change Log
+# ChangeLog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,15 +7,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **list:** add automatic dark mode ([0c6c24c](https://github.com/fremtind/jokul/commit/0c6c24c3d362514b4fc5eb93051a2be60fb18312))
+-   **list:** add automatic dark mode ([0c6c24c](https://github.com/fremtind/jokul/commit/0c6c24c3d362514b4fc5eb93051a2be60fb18312))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 3.0.0 (2021-06-07)
 

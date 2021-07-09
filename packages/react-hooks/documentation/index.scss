@@ -1,6 +1,7 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_colors";
 @import "~@fremtind/jkl-core/variables/_spacing";
-@import "~@fremtind/jkl-core/variables/_font-size";
 @import "~@fremtind/jkl-core/_functions";
 
 .lorem-text-wrapper {
@@ -12,7 +13,7 @@
 }
 
 .lorem-text {
-    @include jkl-text-style("desktop/body");
+    @include jkl.text-style("body");
     margin-top: $layout-spacing--small;
     padding: 1rem;
     background-color: $varde;
@@ -31,51 +32,12 @@
     background-color: $varde;
 }
 
-.hooks-example {
-    position: relative;
-    background-color: #f8f8f8;
-    box-shadow: inset 0 0 0 rem(1px) #b8b8b8;
-    padding: $layout-spacing--small;
-    user-select: none;
-
-    &:before {
-        content: "Eksempel";
-        display: block;
-        position: absolute;
-        bottom: 100%;
-        left: 0;
-        @include jkl-text-style("desktop/heading-small");
-        margin-bottom: $component-spacing--large;
-    }
-    // Add padding equaling height of title + layout-spacing--medium
-    margin-top: $component-spacing--large + rem(28px) + $layout-spacing--medium;
-
-    & > &__text {
-        @include jkl-text-style("desktop/body");
-        &:not(:last-child) {
-            margin-bottom: $layout-spacing--small;
-        }
-    }
-    & > &__header {
-        @include jkl-text-style("desktop/heading-small");
-        margin-bottom: $component-spacing--large;
-    }
-    & > &__list {
-        @include jkl-text-style("desktop/body");
-        margin: 0;
-        margin-top: $layout-spacing--small;
-    }
-    & > &__spaced-item {
-        margin-top: $layout-spacing--small;
-    }
-}
-
 .focus-outside-example {
     & > &__card {
         box-sizing: border-box;
         width: 100%;
         background-color: $hvit;
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body");
 
         & > * + * {
             margin-top: $layout-spacing--small;

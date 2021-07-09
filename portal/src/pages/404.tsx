@@ -5,8 +5,8 @@ import { Link as InternalLink } from "gatsby";
 
 const NotFoundPage = () => (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
-        <h1 className="jkl-title-large jkl-spacing--bottom-3 jkl-spacing--top-3">Oj, dette ble feil</h1>
-        <p className="jkl-lead jkl-spacing--bottom-2">Minst en av oss har rota dette til.</p>
+        <h1 className="jkl-title jkl-spacing--bottom-3 jkl-spacing--top-3">Oj, dette ble feil</h1>
+        <p className="jkl-heading-2 jkl-spacing--bottom-2">Minst en av oss har rota dette til.</p>
         <p className="jkl-body">
             Kanskje du kan hjelpe oss å rette opp i dette? Rapporter en feil eller endringsønske på vår{" "}
             <Link external href="https://github.com/fremtind/jokul/">

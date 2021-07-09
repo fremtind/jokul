@@ -1,4 +1,4 @@
-# Change Log
+# ChangeLog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,17 +7,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.1.0 (2021-07-02)
 
 ### Features
 
-- **loader-react:** add aria-live and politeness prop ([#2059](https://github.com/fremtind/jokul/issues/2059)) ([4260554](https://github.com/fremtind/jokul/commit/42605542e8663583c0e2297c3f9f5b595ca32ec4)), closes [#2058](https://github.com/fremtind/jokul/issues/2058)
+-   **loader-react:** add aria-live and politeness prop ([#2059](https://github.com/fremtind/jokul/issues/2059)) ([4260554](https://github.com/fremtind/jokul/commit/42605542e8663583c0e2297c3f9f5b595ca32ec4)), closes [#2058](https://github.com/fremtind/jokul/issues/2058)
 
 ## 2.0.0 (2021-06-07)
 

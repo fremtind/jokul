@@ -1,4 +1,6 @@
 /* autoprefixer grid: autoplace */
+@use "~@fremtind/jkl-core/jkl";
+
 @use "~@fremtind/jkl-core/variables/_all.scss" as var;
 @use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
 
@@ -34,7 +36,7 @@
 
 .jkl-description-list {
     &__term {
-        font-weight: var.$bold-weight;
+        font-weight: jkl.$typography-weight-bold;
         margin-bottom: var.$component-spacing--small;
         &:not(:first-child) {
             margin-top: var.$component-spacing--xl;

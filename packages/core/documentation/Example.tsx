@@ -8,7 +8,7 @@ import Colors from "./Colors/Colors";
 import { LinkExample } from "./Link/LinkExample";
 import { NavLinkExample } from "./Link/NavLinkExample";
 import { ComponentSpacingTable, LayoutSpacingTable } from "./Spacing/Spacing";
-import { DesktopExample, CompactExample } from "./Typography/Typography";
+import { NormalExample, SmallExample, LargeExample } from "./Typography/Typography";
 import { Keyboard } from "./Mixins/Keyboard";
 
 interface BoxProps {
@@ -60,8 +60,9 @@ const Example = () => (
         <Colors />
         <ComponentSpacingTable />
         <LayoutSpacingTable />
-        <CompactExample />
-        <DesktopExample />
+        <NormalExample />
+        <SmallExample />
+        <LargeExample />
         <Keyboard />
     </section>
 );

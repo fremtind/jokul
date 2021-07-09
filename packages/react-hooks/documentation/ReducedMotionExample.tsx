@@ -13,11 +13,9 @@ const ReducedMotionExample = () => {
     const { prefersReducedMotion } = useContext(ScreenContext);
 
     return (
-        <section className="hooks-example key-listener-example jkl-spacing--bottom-3">
-            <h2 className="jkl-h2 jkl-spacing--bottom-2">{`Din dings har en redusert bevegelse ${
-                prefersReducedMotion ? "på" : "av"
-            }`}</h2>
-        </section>
+        <p className="jkl-heading-3 jkl-spacing--bottom-2">{`Din dings har redusert bevegelse ${
+            prefersReducedMotion ? "PÅ" : "AV"
+        }`}</p>
     );
 };
 

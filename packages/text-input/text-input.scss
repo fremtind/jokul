@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
@@ -63,7 +65,7 @@ $text-input-error-color--inverted: $feil--darkbg;
         box-sizing: border-box;
         height: $text-input-height;
         padding: $text-input-padding;
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body/large-screen");
 
         color: $text-input-text-color;
         color: var(--text-input-text-color);
@@ -185,7 +187,7 @@ $text-input-error-color--inverted: $feil--darkbg;
     &--compact,
     &--inline {
         .jkl-text-input__input {
-            @include jkl-text-style("compact/body");
+            @include jkl.text-style("body/small-screen");
             height: $text-input-height--compact;
         }
         .jkl-text-input__action-button {

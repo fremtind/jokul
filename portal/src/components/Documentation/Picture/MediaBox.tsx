@@ -54,7 +54,7 @@ const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => 
                 style={{ y: prefersReducedMotion ? 0 : y }}
                 className={`jkl-portal-media-box__card ${isLongText ? "jkl-portal-media-box__card--long-text" : ""}`}
             >
-                <p className={isLongText ? "jkl-body" : "jkl-lead"}>{children}</p>
+                <p className={isLongText ? "jkl-body" : "jkl-heading-2"}>{children}</p>
             </motion.div>
         </div>
     );

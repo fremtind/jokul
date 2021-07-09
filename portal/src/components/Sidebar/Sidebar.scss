@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
@@ -29,7 +31,7 @@ $animation-timing: 300ms ease-out both;
     position: relative;
 
     &__link {
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body");
         display: block;
     }
 }

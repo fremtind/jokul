@@ -99,16 +99,8 @@ $jkl-slider-focus-ring-width: rem(2px);
         &--left,
         &--right,
         &__label {
-            @include jkl-text-style("compact/small");
-            font-weight: $bold-weight;
-        }
-
-        @include from-large-device {
-            &--left,
-            &--right,
-            &__label {
-                @include jkl-text-style("desktop/small");
-                font-weight: $bold-weight;
+            @include jkl.text-style("small") {
+                font-weight: jkl.$typography-weight-bold;
             }
         }
 

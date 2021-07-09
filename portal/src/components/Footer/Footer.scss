@@ -1,6 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
     --jkl-footer-text-color: jkl.$color-fjellgra;
@@ -18,8 +20,8 @@
     margin-bottom: $layout-spacing--medium;
 
     &__column {
-        @include jkl-text-style("compact/small");
-        color: var(--jkl-footer-text-color);
+        @include jkl.text-style("small");
+        color: $fjellgra;
         flex: 1 1 0px;
         padding-right: $layout-spacing--large;
 

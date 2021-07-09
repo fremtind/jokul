@@ -1,11 +1,12 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/helpers";
-@import "~@fremtind/jkl-core/variables/all";
 
-@include helpers.light-mode-variables {
+@import "~@fremtind/jkl-core/variables/all";
+@import "~@fremtind/jkl-core/functions";
+
+@include jkl.helper-light-mode-variables {
     --inline-code-bg-color: #{jkl.$color-sand};
 }
-@include helpers.dark-mode-variables {
+@include jkl.helper-dark-mode-variables {
     --inline-code-bg-color: #{jkl.$color-skifer};
 }
 
@@ -15,6 +16,9 @@
 
 .jkl-portal-paragraph {
     max-width: rem(750px);
+
+    @include jkl.text-style("body");
+
     &:not(:last-child) {
         margin-bottom: $layout-spacing--small;
     }
@@ -22,6 +26,9 @@
 
 .jkl-portal-article-lead {
     max-width: rem(850px);
+
+    @include jkl.text-style("heading-2");
+
     &:not(:last-child) {
         margin-bottom: $layout-spacing--large;
     }
@@ -30,9 +37,13 @@
 .jkl-portal-page-title {
     max-width: rem(850px);
     margin-bottom: $layout-spacing--medium;
+
+    @include jkl.text-style("title");
 }
 
 .jkl-portal-heading-large {
+    @include jkl.text-style("heading-1");
+
     &:not(:first-child) {
         margin-top: $layout-spacing--large;
     }
@@ -41,6 +52,8 @@
     }
 }
 .jkl-portal-heading-medium {
+    @include jkl.text-style("heading-3");
+
     &:not(:first-child) {
         margin-top: $layout-spacing--medium;
     }
@@ -49,6 +62,8 @@
     }
 }
 .jkl-portal-heading-small {
+    @include jkl.text-style("heading-4");
+
     &:not(:first-child) {
         margin-top: $layout-spacing--medium;
     }
@@ -57,6 +72,8 @@
     }
 }
 .jkl-portal-heading-xs {
+    @include jkl.text-style("heading-5");
+
     &:not(:first-child) {
         margin-top: $layout-spacing--small;
     }

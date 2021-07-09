@@ -43,15 +43,13 @@ const ScreenExample = () => {
     };
 
     return (
-        <section className="hooks-example key-listener-example jkl-spacing--bottom-3">
-            <h2 className="jkl-h2 jkl-spacing--bottom-2">Din dings har en {getDeviceName()} skjerm</h2>
-            <h3 className="jkl-h3 jkl-spacing--bottom-2">{`Den er i ${isLandscape ? "landskaps" : ""}${
-                isPortrait ? "portrett" : ""
-            }modus`}</h3>
-            <p className="jkl-p jkl-spacing--bottom-2">
-                {width} x {height}
-            </p>
-        </section>
+        <>
+            <p className="jkl-heading-3 jkl-spacing--bottom-2">{`Din dings har en ${getDeviceName()} skjerm i ${
+                isLandscape ? "landskaps" : ""
+            }${isPortrait ? "portrett" : ""}modus`}</p>
+
+            <p className="jkl-body jkl-spacing--bottom-2">{`Oppløsningen på nettleservinduet er ${width} x ${height}`}</p>
+        </>
     );
 };
 

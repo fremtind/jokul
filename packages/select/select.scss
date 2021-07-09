@@ -2,11 +2,12 @@
 
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
-$value-height: $line-height-4;
-$value-font-size: $font-size-6;
+$value-height: rem(32px);
+$value-font-size: rem(22px);
 
 $side-padding: $component-spacing--small;
 $bottom-padding: $component-spacing--small;
@@ -92,7 +93,7 @@ $select-error-color--inverted: $feil--darkbg;
     /* The main select element showing the current value */
     &__search-input,
     &__button {
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body/large-screen");
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -185,7 +186,7 @@ $select-error-color--inverted: $feil--darkbg;
 
     /* The individual options in the dropdown list */
     &__option {
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body/large-screen");
         color: unset;
         border: 0; // removes native styling
         width: 100%;
@@ -388,11 +389,15 @@ $select-error-color--inverted: $feil--darkbg;
     @include compact-mode {
         & .jkl-select__search-input,
         & .jkl-select__button {
-            @include jkl-text-style("compact/body");
+            @include jkl.text-style("body/small-screen") {
+                line-height: rem(24px);
+            }
             height: rem(40px);
         }
         & .jkl-select__option {
-            @include jkl-text-style("compact/body");
+            @include jkl.text-style("body/small-screen") {
+                line-height: rem(24px);
+            }
             min-height: rem(40px);
         }
     }

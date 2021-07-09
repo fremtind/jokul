@@ -1,3 +1,5 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -45,7 +47,7 @@
 
     &__light-color:before,
     &__dark-color:before {
-        @include jkl-text-style("compact/micro");
+        @include jkl.text-style("small");
         position: absolute;
         top: $component-spacing--medium;
     }
@@ -56,6 +58,7 @@
 
         &:before {
             content: "Lys bakgrunn";
+            color: jkl.$color-stein;
         }
     }
 
@@ -65,6 +68,7 @@
 
         &:before {
             content: "Mørk bakgrunn";
+            color: jkl.$color-svaberg;
         }
     }
 

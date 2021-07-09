@@ -10,7 +10,7 @@ $checkbox-line-height: rem(32px);
 
 $checkbox-height--compact: rem(40px);
 $checkbox-box-size--compact: rem(18px);
-$checkbox-line-height--compact: rem(24px);
+$checkbox-line-height--compact: rem(28px);
 
 $checkbox-color: $granitt;
 $checkbox-background-color: $snohvit;
@@ -66,7 +66,7 @@ $checkbox-box-default-color--inverted: $svaberg;
 }
 
 .jkl-checkbox {
-    @include jkl-text-style("desktop/body");
+    @include jkl.text-style("body");
     display: flex;
     flex-wrap: wrap;
     min-height: $checkbox-height;
@@ -251,7 +251,7 @@ $checkbox-box-default-color--inverted: $svaberg;
     // end of legacy support >>>>
 
     @include compact-mode {
-        @include jkl-text-style("compact/body");
+        @include jkl.text-style("body/small-screen");
         min-height: $checkbox-height--compact;
 
         .jkl-checkbox__check-mark {
@@ -267,7 +267,6 @@ $checkbox-box-default-color--inverted: $svaberg;
     }
 
     @include small-device {
-        @include jkl-text-style("compact/body");
         min-height: $checkbox-height--compact;
 
         .jkl-checkbox__check-mark {

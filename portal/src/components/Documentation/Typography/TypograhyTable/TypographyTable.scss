@@ -1,4 +1,8 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/functions";
 
 .jkl-typography-table {
     border: 0;
@@ -8,7 +12,7 @@
     &__data,
     &__header {
         padding: $component-spacing--small;
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -16,7 +20,7 @@
     }
 
     &__header {
-        font-weight: $bold-weight;
+        font-weight: jkl.$typography-weight-bold;
         border-bottom-color: $granitt;
         min-height: rem(48px);
     }
@@ -44,7 +48,8 @@
                 margin-left: 0;
             }
             &::before {
-                @include jkl-text-style("desktop/micro");
+                @include jkl.text-style("small");
+                color: jkl.$color-stein;
                 content: attr(data-rowtitle);
                 position: absolute;
                 top: 13px;

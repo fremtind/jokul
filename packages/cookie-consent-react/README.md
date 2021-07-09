@@ -28,16 +28,18 @@ import "@fremtind/jkl-list/list.min.css";
 Komponentene tar følgende props:
 
 `CookieConsentProvider`:
-- `marketing`: Krav om cookies for markedsføring
-- `functional`: Krav om funksjonelle cookies
-- `statistics`: Krav om cookies for statistikk
-- `cookieAdapter`: En funksjon som gjør oppslag mot cookies, for å lete etter andre cookies som kan bestemme et consent
+
+-   `marketing`: Krav om cookies for markedsføring
+-   `functional`: Krav om funksjonelle cookies
+-   `statistics`: Krav om cookies for statistikk
+-   `cookieAdapter`: En funksjon som gjør oppslag mot cookies, for å lete etter andre cookies som kan bestemme et consent
 
 `CookieConsent`:
-- `blocking`: Betegner en blokkerende modal, som krever en aktiv handling
-- `onAccept`: Callback når et consent er håndtert. Første argument er consentet.
 
-Enkel bruk kan se sånn ut:
+-   `blocking`: Betegner en blokkerende modal, som krever en aktiv handling
+-   `onAccept`: Callback når et consent er håndtert. Første argument er consentet.
+
+Enkel bruk kan se slik ut:
 
 ```jsx
 <CookieConsentProvider functional marketing statistics>

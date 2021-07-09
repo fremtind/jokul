@@ -1,5 +1,6 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 :root,
 [data-theme="light"] {
@@ -16,8 +17,6 @@
     @include motion("standard");
     transition-property: color;
     transition-delay: 150ms;
-    /* color: var(--portal-text-color);
-    background-color: var(--portal-bg); */
 
     &__sidebar {
         display: none;
@@ -50,8 +49,7 @@
         grid-template:
             "header header header" 96px
             "sidebar main main" minmax(calc(100vh - 96px), auto)
-            "footer footer footer" auto
-            / rem(375px) 1fr;
+            "footer footer footer" auto / rem(375px) 1fr;
 
         &__header {
             grid-area: header;

@@ -50,16 +50,6 @@ Som standard stables avmerkingsboksene under hverandre. Om de skal stilles side 
 // [ ] Valg 1  [ ] Valg 2
 ```
 
-`Checkbox` brukes som en kontrollert komponent gjennom `checked`-prop'en og en `onChange`-handler som får en `ChangeEvent` som første argument:
-
-```jsx
-// const [isChecked, setChecked] = useState(false);
-
-<Checkbox onChange={setChecked(!isChecked)} checked={isChecked}>
-    Kontrollert
-</Checkbox>
-```
-
 ### Props
 
 komponenten tar i bruk følgende props:

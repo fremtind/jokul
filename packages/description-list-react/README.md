@@ -28,7 +28,7 @@ En enkel bruk av denne lista kan se slik ut:
 
 ```jsx
 <DescriptionList>
-    <DescriptionTerm>Forsikrifdfd fdfgdfgdfgdgddsdfsd</DescriptionTerm>
+    <DescriptionTerm>Forsikringer</DescriptionTerm>
     <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
     <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
     <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
