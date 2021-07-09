@@ -1,6 +1,5 @@
 import React from "react";
 import { useScreen } from "@fremtind/jkl-react-hooks";
-import { Hamburger } from "@fremtind/jkl-hamburger-react";
 
 import { mainMenuContext, NavigationFunction, defaultNavigationFunction } from "./mainMenuContext";
 import { FullScreenMenu } from "./FullScreenMenu";
@@ -63,11 +62,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({
                         ))}
                     </ul>
                 ) : (
-                    <FullScreenMenu
-                        className="jkl-portal-main-menu__link"
-                        customButton={Hamburger}
-                        baseItem={baseItem}
-                    />
+                    <FullScreenMenu className="jkl-portal-main-menu__link" showHamburger baseItem={baseItem} />
                 )}
                 {children}
             </nav>

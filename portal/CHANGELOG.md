@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.3 (2021-07-09)
+
+### Bug Fixes
+
+- update example and portal with new hamburger component ([94e1085](https://github.com/fremtind/jokul/commit/94e108567a16bc6dc867a7c2175672a0368424ce))
+
 ## 4.2.2 (2021-07-07)
 
 ### Bug Fixes

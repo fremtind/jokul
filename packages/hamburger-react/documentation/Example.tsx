@@ -3,20 +3,14 @@ import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Hamburger } from "../src";
 
 const Example = ({ boolValues }: ExampleComponentProps) => {
-    const [clickOutside, toggleClickOutside] = useState(false);
-    const toggleState = (enable: boolean) => toggleClickOutside(enable);
+    const [isOpen, setIsOpen] = useState(false);
 
-    const divRef = React.useRef(null);
     return (
-        <div style={{ padding: "20px" }} ref={divRef}>
-            <Hamburger
-                insideRef={divRef}
-                negative={boolValues && boolValues["Invertert"]}
-                onClick={toggleState}
-                enableClickOutside={clickOutside}
-                onClickOutside={toggleState}
-            />
-        </div>
+        <Hamburger
+            isOpen={isOpen}
+            inverted={boolValues && boolValues["Invertert"]}
+            onClick={() => setIsOpen(!isOpen)}
+        />
     );
 };
 
