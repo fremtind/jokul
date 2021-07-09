@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- update example and portal with new hamburger component ([94e1085](https://github.com/fremtind/jokul/commit/94e108567a16bc6dc867a7c2175672a0368424ce))
+
+### Features
+
+- **hamburger:** make hamburger controlled ([d9b8723](https://github.com/fremtind/jokul/commit/d9b8723a0268571c42270ba79ad2dfd0deac25df))
+
+### BREAKING CHANGES
+
+- **hamburger:** API is changed to be controlled
+
 ## 3.0.2 (2021-07-07)
 
 ### Bug Fixes

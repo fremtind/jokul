@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-07-09)
+
+### Features
+
+- **hamburger:** make hamburger controlled ([d9b8723](https://github.com/fremtind/jokul/commit/d9b8723a0268571c42270ba79ad2dfd0deac25df))
+
+### BREAKING CHANGES
+
+- **hamburger:** API is changed to be controlled
+
 ## 3.1.0 (2021-07-07)
 
 ### Features
