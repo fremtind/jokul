@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.2 (2021-07-09)
+
+### Bug Fixes
+
+- **dark mode:** use correct bg-color in dark mode ([fbfb0f5](https://github.com/fremtind/jokul/commit/fbfb0f5d6d30cbce781d76877984a736b05d549c))
+
 ## 3.0.0 (2021-07-06)
 
 ### chore
