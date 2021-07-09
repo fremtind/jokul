@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
 

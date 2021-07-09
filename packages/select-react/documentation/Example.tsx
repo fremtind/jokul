@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FocusEvent, useRef, useEffect } from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
 
