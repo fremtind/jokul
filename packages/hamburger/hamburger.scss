@@ -95,7 +95,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         @include motion(standard, expressive);
     }
 
-    &--is-active {
+    &--is-open {
         &:hover {
             .jkl-hamburger__inner::before {
                 top: 0;
@@ -122,7 +122,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         }
     }
 
-    &--negative {
+    &--inverted {
         color: $hamburger-color--inverted;
 
         html:not([data-mousenavigation]) &:focus {

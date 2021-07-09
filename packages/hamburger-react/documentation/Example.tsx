@@ -11,7 +11,7 @@ const Example = ({ boolValues }: ExampleComponentProps) => {
         <div style={{ padding: "20px" }} ref={divRef}>
             <Hamburger
                 insideRef={divRef}
-                negative={boolValues && boolValues["Invertert"]}
+                inverted={boolValues && boolValues["Invertert"]}
                 onClick={toggleState}
                 enableClickOutside={clickOutside}
                 onClickOutside={toggleState}
