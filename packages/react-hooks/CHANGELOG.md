@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.0 (2021-07-09)
+
+### Documentation
+
+- **examples:** update examples to use new typog. scale ([1d9abfd](https://github.com/fremtind/jokul/commit/1d9abfd6a6535b5047ae0765a328a8cc8d73f7ba))
+
+### BREAKING CHANGES
+
+- **examples:** Depends on jkl-core version with breaking changes
+
 ## 4.0.0 (2021-07-06)
 
 ### chore

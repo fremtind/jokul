@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.0 (2021-07-09)
+
+### Documentation
+
+- show small label as default in docs ([06d9629](https://github.com/fremtind/jokul/commit/06d9629b25b1e2b730cbe5d88dcea621fc213907))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
 ## 2.0.0 (2021-07-06)
 
 ### chore

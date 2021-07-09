@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+
+### Features
+
+- **jkl:** add new typog. scale and new text-style mixin ([69e1604](https://github.com/fremtind/jokul/commit/69e160458ade25b319efadc1e76ac58184c3faf9))
+- **labels:** use new typog. scale in field labels ([8b96f69](https://github.com/fremtind/jokul/commit/8b96f690fea59d6d5571c057f78c6736fee98e4a))
+- **links:** update import of typographic variables ([3d408e6](https://github.com/fremtind/jokul/commit/3d408e63598f51ce62d5366de6b195d03fbcb3af))
+
+### BREAKING CHANGES
+
+- **jkl:** Removes the old jkl-text-style mixin and old utility classes
+
 ## 6.0.0 (2021-07-06)
 
 ### Features

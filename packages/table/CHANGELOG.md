@@ -1,7 +1,21 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 3.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+
+### Features
+
+- use new typographic scale ([105dac2](https://github.com/fremtind/jokul/commit/105dac262f5cf98e9005eeaf86536a5c617ea27c))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core-version with breaking changes
 
 ## 2.0.0 (2021-06-07)
 

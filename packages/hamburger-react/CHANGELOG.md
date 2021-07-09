@@ -1,7 +1,17 @@
-# ChangeLog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 5.0.0 (2021-07-09)
+
+### chore
+
+- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core-version with breaking changes
 
 ## 4.0.0 (2021-07-09)
 

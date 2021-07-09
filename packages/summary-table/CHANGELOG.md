@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.0 (2021-07-09)
+
+### Features
+
+- use new typog. scale and fix dark mode ([1b814f7](https://github.com/fremtind/jokul/commit/1b814f7c76293d1e49c73d07af8c7b3e2cb7eb3a))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core-version with breaking changes
+
 ## 3.0.0 (2021-07-06)
 
 ### chore

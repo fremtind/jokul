@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- remove import of old font-size variables ([46284c3](https://github.com/fremtind/jokul/commit/46284c3a893c55664a3ef10a4a74806b046f6159))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
 ## 4.0.0 (2021-07-09)
 
 ### Features

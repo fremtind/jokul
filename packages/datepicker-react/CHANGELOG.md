@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-07-09)
+
+### Features
+
+- use new typographic scale ([50b8815](https://github.com/fremtind/jokul/commit/50b8815a325be0a92302a9c033f320c53cfa941c))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
 ## 6.0.0 (2021-07-06)
 
 ### chore

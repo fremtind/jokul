@@ -1,7 +1,21 @@
-# ChangeLog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 4.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+
+### chore
+
+- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.0 (2021-07-09)
+
+### Tests
+
+- update utility classes in tests ([43bdf46](https://github.com/fremtind/jokul/commit/43bdf46892af1ba00cf5c49636434e8642d10b42))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
 ## 4.0.0 (2021-07-06)
 
 ### chore

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+
+### Features
+
+- use new typog. scale in portal ([e67b446](https://github.com/fremtind/jokul/commit/e67b446e20f5fa26f092ead46d7a355d999f9869))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
 ## 4.2.3 (2021-07-09)
 
 ### Bug Fixes

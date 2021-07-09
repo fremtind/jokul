@@ -1,7 +1,13 @@
-# ChangeLog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.1.0 (2021-07-09)
+
+### Features
+
+- version bump to 1.0.0, upgrade jkl-core dependency ([4a4be9f](https://github.com/fremtind/jokul/commit/4a4be9fb06ab7ed5c2ed2c1f377d32586c8d42e1))
 
 ## 0.1.0 (2021-07-06)
 

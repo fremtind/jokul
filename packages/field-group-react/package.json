@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group-react",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -36,11 +36,11 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-field-group": "^2.0.1",
+        "@fremtind/jkl-field-group": "^3.0.0",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^6.0.1"
+        "@fremtind/jkl-core": "^7.0.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
