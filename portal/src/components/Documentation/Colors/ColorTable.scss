@@ -14,7 +14,7 @@
     &__header,
     &__data {
         padding: $component-spacing--small;
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         text-align: left;
         box-sizing: border-box;
         margin: 0;

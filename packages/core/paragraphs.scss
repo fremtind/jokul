@@ -1,17 +1,17 @@
-@use "./variables/typography";
+@use "mixins";
 
 .jkl-body {
-    @include typography.text-style("body");
+    @include mixins.text-style("body");
 
     *[data-compactlayout] & {
-        @include typography.text-style("body/small-screen");
+        @include mixins.text-style("body/small-screen");
     }
 }
 
 .jkl-small {
-    @include typography.text-style("small");
+    @include mixins.text-style("small");
 
     *[data-compactlayout] & {
-        @include typography.text-style("small/small-screen");
+        @include mixins.text-style("small/small-screen");
     }
 }

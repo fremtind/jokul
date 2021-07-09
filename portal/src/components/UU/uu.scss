@@ -13,13 +13,13 @@
 
 .jkl-portal__uu {
     h2 {
-        @include jkl.typography-text-style("heading-1");
+        @include jkl.text-style("heading-1");
     }
     h3 {
-        @include jkl.typography-text-style("heading-3");
+        @include jkl.text-style("heading-3");
     }
     h4 {
-        @include jkl.typography-text-style("heading-4");
+        @include jkl.text-style("heading-4");
     }
 
     .uu__filter-result-list {
@@ -31,7 +31,7 @@
         padding-inline-start: 0;
         max-width: rem(750px);
 
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
     }
 
     article {
@@ -106,7 +106,7 @@
             }
 
             &__tag {
-                @include jkl.typography-text-style("small");
+                @include jkl.text-style("small");
                 height: 24px;
                 display: flex;
                 align-self: center;

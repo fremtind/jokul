@@ -25,7 +25,7 @@ $label-error-color--inverted: jkl.$color-feil--darkbg;
 }
 
 .jkl-form-support-label {
-    @include jkl.typography-text-style("small");
+    @include jkl.text-style("small");
     display: block;
     margin-top: $component-spacing--small;
     color: $label-support-color;
@@ -63,18 +63,18 @@ $label-spacing-small--compact: $component-spacing--xs;
     color: var(--label-color);
 
     &--large {
-        @include jkl.typography-text-style("heading-2");
+        @include jkl.text-style("heading-2");
         margin-bottom: $label-spacing-large;
         margin-left: rem(-1px); // adjust visual alignment
     }
 
     &--medium {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         margin-bottom: $label-spacing-medium;
     }
 
     &--small {
-        @include jkl.typography-text-style("small");
+        @include jkl.text-style("small");
         margin-bottom: $label-spacing-small;
     }
 
@@ -84,15 +84,15 @@ $label-spacing-small--compact: $component-spacing--xs;
 
     @include compact-mode {
         &.jkl-label--small {
-            @include jkl.typography-text-style("small/small-screen");
+            @include jkl.text-style("small/small-screen");
             margin-bottom: $label-spacing-small--compact;
         }
         &.jkl-label--medium {
-            @include jkl.typography-text-style("body/small-screen");
+            @include jkl.text-style("body/small-screen");
             margin-bottom: $label-spacing-medium--compact;
         }
         &.jkl-label--large {
-            @include jkl.typography-text-style("heading-2/small-screen");
+            @include jkl.text-style("heading-2/small-screen");
             margin-bottom: $label-spacing-large--compact;
         }
     }

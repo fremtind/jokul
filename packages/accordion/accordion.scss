@@ -134,7 +134,7 @@ $arrow-width: rem(13px);
     }
 
     &__title-text {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         display: block;
         padding-right: 2rem;
         margin-left: $component-spacing--xl;
@@ -146,7 +146,7 @@ $arrow-width: rem(13px);
     }
 
     &__content {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         height: auto;
         padding: $component-spacing--large $component-spacing--xs $component-spacing--xxl $component-spacing--xl;
         color: inherit; // Make content same color as rest of page text

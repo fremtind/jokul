@@ -31,7 +31,7 @@ $animation-timing: 300ms ease-out both;
     position: relative;
 
     &__link {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         display: block;
     }
 }

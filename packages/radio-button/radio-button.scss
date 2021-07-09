@@ -96,7 +96,7 @@ $radio-button-default-color--inverted: $svaberg;
     }
 
     &__label {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         cursor: pointer;
         display: flex;
         align-items: flex-start;
@@ -195,7 +195,7 @@ $radio-button-default-color--inverted: $svaberg;
         min-height: $radio-button-height--compact;
 
         .jkl-radio-button__text {
-            @include jkl.typography-text-style("body/small-screen");
+            @include jkl.text-style("body/small-screen");
             margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
             transform: translate3D(0, 0, 0);
         }

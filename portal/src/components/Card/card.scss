@@ -23,12 +23,12 @@
     }
 
     &__heading {
-        @include jkl.typography-text-style("heading-3");
+        @include jkl.text-style("heading-3");
         margin-bottom: $component-spacing--medium;
     }
 
     &__content {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
     }
 
     &__arrow {

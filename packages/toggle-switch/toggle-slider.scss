@@ -99,7 +99,7 @@ $jkl-slider-focus-ring-width: rem(2px);
         &--left,
         &--right,
         &__label {
-            @include jkl.typography-text-style("small") {
+            @include jkl.text-style("small") {
                 font-weight: jkl.$typography-weight-bold;
             }
         }

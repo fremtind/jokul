@@ -53,7 +53,7 @@
         padding: $layout-spacing--large $component-spacing--large;
 
         &::before {
-            @include jkl.typography-text-style("small");
+            @include jkl.text-style("small");
             color: jkl.$color-fjellgra;
             position: absolute;
             top: $component-spacing--medium;
@@ -75,7 +75,7 @@
         &:not(:first-child) {
             margin-top: $layout-spacing--small;
         }
-        @include jkl.typography-text-style("small");
+        @include jkl.text-style("small");
         color: jkl.$color-fjellgra;
         margin-bottom: $component-spacing--medium;
     }
@@ -84,7 +84,7 @@
         margin-top: $layout-spacing--small;
 
         & .jkl-label.jkl-label--small {
-            @include jkl.typography-text-style("small");
+            @include jkl.text-style("small");
             color: jkl.$color-fjellgra;
         }
     }

@@ -33,7 +33,7 @@ $header-padding--mobile: 0 $component-spacing--large;
         padding: 0;
         background-color: transparent;
         cursor: pointer;
-        @include jkl.typography-text-style("heading-4") {
+        @include jkl.text-style("heading-4") {
             font-weight: jkl.$typography-weight-normal;
         }
         color: inherit;

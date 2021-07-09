@@ -12,7 +12,7 @@
     &__data,
     &__header {
         padding: $component-spacing--small;
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -65,28 +65,28 @@
 @each $variant in ("small-screen", "large-screen") {
     .force-#{$variant} {
         .jkl-title {
-            @include jkl.typography-text-style("title/#{$variant}");
+            @include jkl.text-style("title/#{$variant}");
         }
         .jkl-heading-1 {
-            @include jkl.typography-text-style("heading-1/#{$variant}");
+            @include jkl.text-style("heading-1/#{$variant}");
         }
         .jkl-heading-2 {
-            @include jkl.typography-text-style("heading-2/#{$variant}");
+            @include jkl.text-style("heading-2/#{$variant}");
         }
         .jkl-heading-3 {
-            @include jkl.typography-text-style("heading-3/#{$variant}");
+            @include jkl.text-style("heading-3/#{$variant}");
         }
         .jkl-heading-4 {
-            @include jkl.typography-text-style("heading-4/#{$variant}");
+            @include jkl.text-style("heading-4/#{$variant}");
         }
         .jkl-heading-5 {
-            @include jkl.typography-text-style("heading-5/#{$variant}");
+            @include jkl.text-style("heading-5/#{$variant}");
         }
         .jkl-body {
-            @include jkl.typography-text-style("body/#{$variant}");
+            @include jkl.text-style("body/#{$variant}");
         }
         .jkl-small {
-            @include jkl.typography-text-style("small/#{$variant}");
+            @include jkl.text-style("small/#{$variant}");
         }
     }
 }

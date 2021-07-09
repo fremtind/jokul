@@ -20,7 +20,7 @@
     margin-bottom: $layout-spacing--medium;
 
     &__column {
-        @include jkl.typography-text-style("small");
+        @include jkl.text-style("small");
         color: $fjellgra;
         flex: 1 1 0px;
         padding-right: $layout-spacing--large;

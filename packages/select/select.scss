@@ -93,7 +93,7 @@ $select-error-color--inverted: $feil--darkbg;
     /* The main select element showing the current value */
     &__search-input,
     &__button {
-        @include jkl.typography-text-style("body/large-screen");
+        @include jkl.text-style("body/large-screen");
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -186,7 +186,7 @@ $select-error-color--inverted: $feil--darkbg;
 
     /* The individual options in the dropdown list */
     &__option {
-        @include jkl.typography-text-style("body/large-screen");
+        @include jkl.text-style("body/large-screen");
         color: unset;
         border: 0; // removes native styling
         width: 100%;
@@ -389,13 +389,13 @@ $select-error-color--inverted: $feil--darkbg;
     @include compact-mode {
         & .jkl-select__search-input,
         & .jkl-select__button {
-            @include jkl.typography-text-style("body/small-screen") {
+            @include jkl.text-style("body/small-screen") {
                 line-height: rem(24px);
             }
             height: rem(40px);
         }
         & .jkl-select__option {
-            @include jkl.typography-text-style("body/small-screen") {
+            @include jkl.text-style("body/small-screen") {
                 line-height: rem(24px);
             }
             min-height: rem(40px);

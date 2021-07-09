@@ -17,7 +17,7 @@
     }
 
     &__item {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         display: inline-block;
         height: 100%;
         color: inherit;

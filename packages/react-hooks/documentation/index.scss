@@ -13,7 +13,7 @@
 }
 
 .lorem-text {
-    @include jkl.typography-text-style("body");
+    @include jkl.text-style("body");
     margin-top: $layout-spacing--small;
     padding: 1rem;
     background-color: $varde;
@@ -37,7 +37,7 @@
         box-sizing: border-box;
         width: 100%;
         background-color: $hvit;
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
 
         & > * + * {
             margin-top: $layout-spacing--small;

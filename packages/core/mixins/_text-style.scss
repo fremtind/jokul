@@ -1,0 +1,139 @@
+@use "sass:string";
+@use "sass:map";
+@use "../variables/typography";
+@use "screens";
+
+$_text-styles: (
+    "title": (
+        "small-screen": (
+            font-size: typography.$font-size-9,
+            line-height: typography.$line-height-5,
+            font-weight: typography.$weight-normal,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-10,
+            line-height: typography.$line-height-6,
+            font-weight: typography.$weight-normal,
+        ),
+    ),
+    "heading-1": (
+        "small-screen": (
+            font-size: typography.$font-size-7,
+            line-height: typography.$line-height-3,
+            font-weight: typography.$weight-normal,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-9,
+            line-height: typography.$line-height-5,
+            font-weight: typography.$weight-normal,
+        ),
+    ),
+    "heading-2": (
+        "small-screen": (
+            font-size: typography.$font-size-5,
+            line-height: typography.$line-height-3,
+            font-weight: typography.$weight-bold,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-8,
+            line-height: typography.$line-height-4,
+            font-weight: typography.$weight-normal,
+        ),
+    ),
+    "heading-3": (
+        "small-screen": (
+            font-size: typography.$font-size-4,
+            line-height: typography.$line-height-2,
+            font-weight: typography.$weight-bold,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-6,
+            line-height: typography.$line-height-3,
+            font-weight: typography.$weight-bold,
+        ),
+    ),
+    "heading-4": (
+        "small-screen": (
+            font-size: typography.$font-size-2,
+            line-height: typography.$line-height-1,
+            font-weight: typography.$weight-bold,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-4,
+            line-height: typography.$line-height-2,
+            font-weight: typography.$weight-bold,
+        ),
+    ),
+    "heading-5": (
+        "small-screen": (
+            font-size: typography.$font-size-1,
+            line-height: typography.$line-height-1,
+            font-weight: typography.$weight-bold,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-1,
+            line-height: typography.$line-height-1,
+            font-weight: typography.$weight-bold,
+        ),
+    ),
+    "body": (
+        "small-screen": (
+            font-size: typography.$font-size-2,
+            line-height: typography.$line-height-2,
+            font-weight: typography.$weight-normal,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-3,
+            line-height: typography.$line-height-3,
+            font-weight: typography.$weight-normal,
+        ),
+    ),
+    "small": (
+        "small-screen": (
+            font-size: typography.$font-size-1,
+            line-height: typography.$line-height-1,
+            font-weight: typography.$weight-normal,
+        ),
+        "large-screen": (
+            font-size: typography.$font-size-1,
+            line-height: typography.$line-height-1,
+            font-weight: typography.$weight-normal,
+        ),
+    ),
+);
+
+@mixin text-style($style-name) {
+    // Separate style/variant into style and variant variables:
+    $start-index: string.index($style-name, "/") or 0;
+    $end-index: string.index($style-name, "/") or 9999999;
+    $style: string.slice($style-name, 0, $start-index - 1);
+    $variant: string.slice($style-name, $end-index + 1);
+
+    @if map.has-key($_text-styles, $style) {
+        $variants: map.get($_text-styles, $style);
+
+        @if string.length($variant) == 0 {
+            @each $property, $value in map.get($variants, "small-screen") {
+                #{$property}: $value;
+            }
+            @content;
+            @include screens.from-medium-device {
+                @each $property, $value in map.get($variants, "large-screen") {
+                    #{$property}: $value;
+                }
+                @content;
+            }
+        } @else {
+            @if map.has-key($variants, $variant) {
+                @each $property, $value in map.get($variants, $variant) {
+                    #{$property}: $value;
+                }
+                @content;
+            } @else {
+                @error "The text style #{$style} has no variant called #{$variant}. Try one of these: #{map.keys(map.get($new-text-styles, $style))}";
+            }
+        }
+    } @else {
+        @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($new-text-styles)}";
+    }
+}

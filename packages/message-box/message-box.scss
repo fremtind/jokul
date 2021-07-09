@@ -100,7 +100,7 @@ $success-border-color--inverted: $suksess--darkbg;
     &__title {
         margin-bottom: $component-spacing--small;
 
-        @include jkl.typography-text-style("heading-4");
+        @include jkl.text-style("heading-4");
     }
 
     &__dismiss-button {

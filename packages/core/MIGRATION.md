@@ -45,12 +45,12 @@ Sass-mixinen har fått et nytt navn, og et litt annet API. Den importeres også 
 
 .min-komponent {
     // automatisk bytte for stor/liten skjerm:
-    @include jkl.typography-text-style("body");
+    @include jkl.text-style("body");
 }
 
 .min-faste-komponent {
     // bruker alltid skala for liten skjerm:
-    @include jkl.typography-text-style("body/small-screen");
+    @include jkl.text-style("body/small-screen");
     // for stor skjerm brukes f.eks. "body/large-screen"
 }
 ```
@@ -58,7 +58,7 @@ Sass-mixinen har fått et nytt navn, og et litt annet API. Den importeres også 
 Hvis du trenger å overstyre fontvekt eller linjehøyde på tekststilen kan du legge inn disse verdiene inne i mixinen:
 
 ```scss
-@include jkl.typography-text-style("small") {
+@include jkl.text-style("small") {
     font-weight: jkl.$typography-weight-bold;
 }
 ```
@@ -90,14 +90,14 @@ Sørg for at du importerer `jkl` i alle stilark der du bruker typografi fra Jøk
 @use "~@fremtind/jkl-core/jkl";
 ```
 
-| Der du før brukte...                              | ...bruk nå                                                  |
-| ------------------------------------------------- | ----------------------------------------------------------- |
-| `@include jkl-text-style("desktop/title-large");` | `@include jkl.typography-text-style("title/large-screen");` |
-| `@include jkl-text-style("compact/title-large");` | `@include jkl.typography-text-style("title/small-screen");` |
-| `@include jkl-text-style("desktop/body");`        | `@include jkl.typography-text-style("body/large-screen");`  |
-| `@include jkl-text-style("compact/body");`        | `@include jkl.typography-text-style("body/small-screen");`  |
-| `@include jkl-text-style("desktop/small");`       | `@include jkl.typography-text-style("small/large-screen");` |
-| `@include jkl-text-style("compact/small");`       | `@include jkl.typography-text-style("small/small-screen");` |
+| Der du før brukte...                              | ...bruk nå                                       |
+| ------------------------------------------------- | ------------------------------------------------ |
+| `@include jkl-text-style("desktop/title-large");` | `@include jkl.text-style("title/large-screen");` |
+| `@include jkl-text-style("compact/title-large");` | `@include jkl.text-style("title/small-screen");` |
+| `@include jkl-text-style("desktop/body");`        | `@include jkl.text-style("body/large-screen");`  |
+| `@include jkl-text-style("compact/body");`        | `@include jkl.text-style("body/small-screen");`  |
+| `@include jkl-text-style("desktop/small");`       | `@include jkl.text-style("small/large-screen");` |
+| `@include jkl-text-style("compact/small");`       | `@include jkl.text-style("small/small-screen");` |
 
 For andre tekststiler enn disse må du bytte ut med en av de nye teksttilene, med samme mønster som over.
 
@@ -106,14 +106,14 @@ For andre tekststiler enn disse må du bytte ut med en av de nye teksttilene, me
 ```scss
 .min-komponent {
     // Dette...
-    @include jkl.typography-text-style("body");
+    @include jkl.text-style("body");
 
     // ...tilsvarer dette:
     //
-    // @include jkl.typography-text-style("body/small-screen");
+    // @include jkl.text-style("body/small-screen");
     //
     // @include from-medium-device {
-    //     @include jkl.typography-text-style("body/large-screen");
+    //     @include jkl.text-style("body/large-screen");
     // }
 }
 ```

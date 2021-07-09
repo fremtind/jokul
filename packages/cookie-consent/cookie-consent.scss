@@ -49,14 +49,14 @@ $container-width--compact: rem(320px);
         margin-bottom: $component-spacing--large;
     }
 
-    @include jkl.typography-text-style("body");
+    @include jkl.text-style("body");
 
     &__info-text {
-        @include jkl.typography-text-style("small");
+        @include jkl.text-style("small");
     }
 
     &__header {
-        @include jkl.typography-text-style("heading-3");
+        @include jkl.text-style("heading-3");
         margin-bottom: $layout-spacing--small;
     }
 

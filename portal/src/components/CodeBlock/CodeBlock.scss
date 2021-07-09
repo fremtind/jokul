@@ -41,7 +41,7 @@
         padding: $component-spacing--small;
         background-color: var(--language-tag-bg-color);
         color: $snohvit;
-        @include jkl.typography-text-style("small");
+        @include jkl.text-style("small");
         text-transform: uppercase;
         content: attr(data-language);
     }

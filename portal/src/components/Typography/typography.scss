@@ -17,7 +17,7 @@
 .jkl-portal-paragraph {
     max-width: rem(750px);
 
-    @include jkl.typography-text-style("body");
+    @include jkl.text-style("body");
 
     &:not(:last-child) {
         margin-bottom: $layout-spacing--small;
@@ -27,7 +27,7 @@
 .jkl-portal-article-lead {
     max-width: rem(850px);
 
-    @include jkl.typography-text-style("heading-2");
+    @include jkl.text-style("heading-2");
 
     &:not(:last-child) {
         margin-bottom: $layout-spacing--large;
@@ -38,11 +38,11 @@
     max-width: rem(850px);
     margin-bottom: $layout-spacing--medium;
 
-    @include jkl.typography-text-style("title");
+    @include jkl.text-style("title");
 }
 
 .jkl-portal-heading-large {
-    @include jkl.typography-text-style("heading-1");
+    @include jkl.text-style("heading-1");
 
     &:not(:first-child) {
         margin-top: $layout-spacing--large;
@@ -52,7 +52,7 @@
     }
 }
 .jkl-portal-heading-medium {
-    @include jkl.typography-text-style("heading-3");
+    @include jkl.text-style("heading-3");
 
     &:not(:first-child) {
         margin-top: $layout-spacing--medium;
@@ -62,7 +62,7 @@
     }
 }
 .jkl-portal-heading-small {
-    @include jkl.typography-text-style("heading-4");
+    @include jkl.text-style("heading-4");
 
     &:not(:first-child) {
         margin-top: $layout-spacing--medium;
@@ -72,7 +72,7 @@
     }
 }
 .jkl-portal-heading-xs {
-    @include jkl.typography-text-style("heading-5");
+    @include jkl.text-style("heading-5");
 
     &:not(:first-child) {
         margin-top: $layout-spacing--small;

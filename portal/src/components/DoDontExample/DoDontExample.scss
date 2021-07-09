@@ -41,7 +41,7 @@
     }
 
     &__heading {
-        @include jkl.typography-text-style("heading-4");
+        @include jkl.text-style("heading-4");
         margin-top: $component-spacing--large;
         margin-bottom: $component-spacing--xs;
 
@@ -55,7 +55,7 @@
     }
 
     &__description {
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
     }
 
     @include small-device {

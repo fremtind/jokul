@@ -14,7 +14,7 @@ const ExampleRow = ({ text, style, type }: ExampleRowProps) => (
         </td>
         <td data-header="Mixin:" className="jkl-typography-example-table__data">
             <p className="jkl-small">
-                <code className="jkl-portal-inline-code">{`@include jkl.typography-text-style("${style}${
+                <code className="jkl-portal-inline-code">{`@include jkl.text-style("${style}${
                     type ? `/${type}` : ""
                 }")`}</code>
             </p>

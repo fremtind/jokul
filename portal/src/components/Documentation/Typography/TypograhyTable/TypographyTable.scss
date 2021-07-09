@@ -12,7 +12,7 @@
     &__data,
     &__header {
         padding: $component-spacing--small;
-        @include jkl.typography-text-style("body");
+        @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -48,7 +48,7 @@
                 margin-left: 0;
             }
             &::before {
-                @include jkl.typography-text-style("small");
+                @include jkl.text-style("small");
                 color: jkl.$color-stein;
                 content: attr(data-rowtitle);
                 position: absolute;

@@ -209,7 +209,7 @@ $calendar-selected-date-background-color--inverted: $snohvit;
         border: none;
         width: rem(32px);
         border-radius: 50%;
-        @include jkl.typography-text-style("body/large-screen");
+        @include jkl.text-style("body/large-screen");
 
         &--right {
             right: 0;
@@ -277,7 +277,7 @@ $calendar-selected-date-background-color--inverted: $snohvit;
     /// =======================================
 
     caption {
-        @include jkl.typography-text-style("body/large-screen");
+        @include jkl.text-style("body/large-screen");
         margin-bottom: $component-spacing--xl;
         text-transform: capitalize;
     }
@@ -286,7 +286,7 @@ $calendar-selected-date-background-color--inverted: $snohvit;
     /// ======================================
 
     th {
-        @include jkl.typography-text-style("small/large-screen");
+        @include jkl.text-style("small/large-screen");
         padding-bottom: $component-spacing--small;
     }
 
@@ -321,7 +321,7 @@ $calendar-selected-date-background-color--inverted: $snohvit;
         color: $calendar-text-color;
         color: var(--calendar-text-color);
 
-        @include jkl.typography-text-style("body/large-screen") {
+        @include jkl.text-style("body/large-screen") {
             line-height: rem(40px);
         }
         padding: 0;
@@ -342,7 +342,7 @@ $calendar-selected-date-background-color--inverted: $snohvit;
 
         &[data-adjacent="true"] {
             padding: 0; // reset vertical alignment of text
-            @include jkl.typography-text-style("small/large-screen") {
+            @include jkl.text-style("small/large-screen") {
                 line-height: rem(40px);
             }
             color: $calendar-adjacent-month-color;

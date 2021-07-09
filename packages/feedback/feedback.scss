@@ -83,7 +83,7 @@ $max-feedback-input-width: 30rem;
     }
 
     &__heading {
-        @include jkl.typography-text-style("heading-4");
+        @include jkl.text-style("heading-4");
     }
 
     &__answer-input {

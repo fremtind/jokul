@@ -65,7 +65,7 @@ $text-input-error-color--inverted: $feil--darkbg;
         box-sizing: border-box;
         height: $text-input-height;
         padding: $text-input-padding;
-        @include jkl.typography-text-style("body/large-screen");
+        @include jkl.text-style("body/large-screen");
 
         color: $text-input-text-color;
         color: var(--text-input-text-color);
@@ -187,7 +187,7 @@ $text-input-error-color--inverted: $feil--darkbg;
     &--compact,
     &--inline {
         .jkl-text-input__input {
-            @include jkl.typography-text-style("body/small-screen");
+            @include jkl.text-style("body/small-screen");
             height: $text-input-height--compact;
         }
         .jkl-text-input__action-button {

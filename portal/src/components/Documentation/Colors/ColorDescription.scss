@@ -47,7 +47,7 @@
 
     &__light-color:before,
     &__dark-color:before {
-        @include jkl.typography-text-style("small");
+        @include jkl.text-style("small");
         position: absolute;
         top: $component-spacing--medium;
     }
