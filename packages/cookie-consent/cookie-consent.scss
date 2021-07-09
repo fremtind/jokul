@@ -39,8 +39,8 @@ $container-width--compact: rem(320px);
     padding: $layout-spacing--medium $layout-spacing--medium rem(30px) $layout-spacing--medium;
     min-width: $container-width--compact;
     max-width: $container-width;
-    background-color: var(--jkl-background-color);
     background-color: jkl.$color-snohvit;
+    background-color: var(--jkl-background-color);
     box-shadow: $drop-shadow--large;
     transition: 0.2s;
 
