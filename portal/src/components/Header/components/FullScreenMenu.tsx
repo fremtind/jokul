@@ -10,6 +10,7 @@ import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
 
 import "./FullScreenMenu.scss";
+import { Hamburger } from "../../../../../packages/hamburger-react/src";
 
 interface CoreToggleSelectEvent {
     detail: HTMLButtonElement | HTMLAnchorElement;
@@ -20,19 +21,17 @@ interface FullScreenMenuProps {
     className?: string;
     activeClassName?: string;
     baseItem: RootItem;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    customButton?: React.FC<any>;
+    showHamburger?: boolean;
     isActiveFunction?: (path: string) => boolean;
 }
 
 export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
     className,
     activeClassName,
+    showHamburger,
     baseItem,
-    customButton,
     isActiveFunction,
 }) => {
-    const CustomButton = customButton; // Need capital letter to please the linter
     const [isOpen, setIsOpen] = useState(false);
     const [menuRef] = useAnimatedHeight(isOpen);
     const { setMenuIsOpen, menuIsOpen } = useFullscreenMenu();
@@ -85,8 +84,8 @@ export const FullScreenMenu: React.FC<FullScreenMenuProps> = ({
 
     return (
         <>
-            {CustomButton ? (
-                <CustomButton />
+            {showHamburger ? (
+                <Hamburger onClick={() => null} isOpen={isOpen} />
             ) : (
                 <button data-testid={`full-screen-menu--${baseItem.linkText}`} className={buttonClassName}>
                     {baseItem.linkText}
