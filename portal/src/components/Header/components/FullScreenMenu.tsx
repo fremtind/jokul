@@ -10,7 +10,7 @@ import { useFullscreenMenu } from "../../../contexts/fullscreenMenuContext";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
 
 import "./FullScreenMenu.scss";
-import { Hamburger } from "../../../../../packages/hamburger-react/src";
+import { Hamburger } from "@fremtind/jkl-hamburger-react";
 
 interface CoreToggleSelectEvent {
     detail: HTMLButtonElement | HTMLAnchorElement;
