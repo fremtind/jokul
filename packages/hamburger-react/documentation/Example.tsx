@@ -6,13 +6,11 @@ const Example = ({ boolValues }: ExampleComponentProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div style={{ padding: "20px" }}>
-            <Hamburger
-                isOpen={isOpen}
-                inverted={boolValues && boolValues["Invertert"]}
-                onClick={() => setIsOpen(!isOpen)}
-            />
-        </div>
+        <Hamburger
+            isOpen={isOpen}
+            inverted={boolValues && boolValues["Invertert"]}
+            onClick={() => setIsOpen(!isOpen)}
+        />
     );
 };
 
