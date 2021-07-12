@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
 
 interface Props {
@@ -8,8 +9,10 @@ interface Props {
     /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
     inverted?: boolean;
     description?: string;
-    openLabel?: string;
-    closeLabel?: string;
+    actionLabel?: {
+        open: string;
+        close: string;
+    };
 }
 
 export const Hamburger = ({
@@ -18,10 +21,8 @@ export const Hamburger = ({
     inverted = false,
     description = "Hovedmeny",
     className = "",
-    openLabel = "",
-    closeLabel = "",
+    actionLabel,
 }: Props) => {
-    const [canAnimate, setCanAnimate] = useState(false);
     const componentClassname = classnames(
         "jkl-hamburger",
         {
@@ -31,32 +32,24 @@ export const Hamburger = ({
         className,
     );
 
-    const handleClick = () => {
-        setCanAnimate(true);
-        onClick();
-    };
-
     return (
         <button
             type="button"
             aria-label={description}
-            onClick={handleClick}
+            onClick={onClick}
             className={componentClassname}
             data-testid="jkl-hamburger"
         >
             <span className="jkl-hamburger__inner"></span>
-            {openLabel && closeLabel && (
-                <span
-                    className={`jkl-hamburger__label jkl-hamburger__label--${canAnimate ? "animate" : "initial"}`}
-                    aria-live="polite"
+            {actionLabel && (
+                <ContentToggle
+                    className="jkl-hamburger__label"
+                    secondary={actionLabel.close}
+                    showSecondary={isOpen}
+                    variant="fade"
                 >
-                    <span className="jkl-hamburger__label--open" aria-hidden={isOpen}>
-                        {openLabel}
-                    </span>
-                    <span className="jkl-hamburger__label--close" aria-hidden={!isOpen}>
-                        {closeLabel}
-                    </span>
-                </span>
+                    {actionLabel.open}
+                </ContentToggle>
             )}
         </button>
     );

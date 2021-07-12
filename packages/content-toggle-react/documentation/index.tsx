@@ -17,4 +17,7 @@ import "@fremtind/jkl-content-toggle/content-toggle.css";
 
 initTabListener();
 
-ReactDOM.render(<DevExample knobs={{ boolProps: ["Flip"] }} component={Example} />, document.getElementById("app"));
+ReactDOM.render(
+    <DevExample knobs={{ boolProps: ["Flip", "Fade"] }} component={Example} />,
+    document.getElementById("app"),
+);

@@ -13,9 +13,6 @@ $hamburger-focus-color: jkl.$color-stein;
 $hamburger-color--inverted: jkl.$color-snohvit;
 $hamburger-focus-color--inverted: jkl.$color-svaberg;
 
-$animation-duration: 300ms;
-$half-animation-duration: calc(#{$animation-duration} / 2);
-
 @include jkl.helper-light-mode-variables {
     --hamburger-color: #{$hamburger-color};
     --hamburger-focus-color: #{$hamburger-focus-color};
@@ -24,28 +21,6 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
 @include jkl.helper-dark-mode-variables {
     --hamburger-color: #{$hamburger-color--inverted};
     --hamburger-focus-color: #{$hamburger-focus-color--inverted};
-}
-
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-        visibility: visible;
-    }
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-    }
-    100% {
-        opacity: 1;
-        visibility: visible;
-    }
 }
 
 .jkl-hamburger {
@@ -75,8 +50,9 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
             }
         }
 
-        .jkl-hamburger__label {
-            transform: translate(0, -50%) scale(1.2);
+        .jkl-hamburger__label .jkl-content-toggle__slider {
+            transform: scale(1.2);
+            top: 0.4rem;
         }
     }
 
@@ -88,45 +64,16 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
     }
 
     &__label {
-        position: relative;
-        left: $hamburger-icon-width;
-        top: 50%;
-        transition-property: transform;
-
-        @include jkl.text-style("body");
-        @include motion(standard, expressive);
-
-        &--open,
-        &--close {
-            animation-fill-mode: both;
+        .jkl-content-toggle__slider {
             position: absolute;
-            transform: translate(0, -50%) scale(1);
-        }
+            left: calc(#{$hamburger-icon-width} * 1.5);
+            top: 0.5rem;
+            transition-property: transform top;
+            transform-origin: center;
+            transform: scale(1);
 
-        &--initial {
-            animation-duration: 0ms;
-            .jkl-hamburger__label--open,
-            .jkl-hamburger__label--close {
-                animation-delay: 0ms !important;
-            }
-        }
-
-        &--animate {
-            animation-duration: $half-animation-duration;
-        }
-
-        &--open {
-            animation-name: fadeIn;
-            animation-delay: $half-animation-duration;
-            visibility: hidden;
-            animation-duration: inherit;
-        }
-
-        &--close {
-            animation-name: fadeOut;
-            animation-delay: 0ms;
-            visibility: visible;
-            animation-duration: inherit;
+            @include jkl.text-style("body");
+            @include motion(standard, expressive);
         }
     }
 
@@ -175,18 +122,6 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
             .jkl-hamburger__inner::after {
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);
-            }
-        }
-
-        & .jkl-hamburger__label {
-            &--open {
-                animation-delay: 0ms;
-                animation-name: fadeOut;
-            }
-
-            &--close {
-                animation-delay: $half-animation-duration;
-                animation-name: fadeIn;
             }
         }
 
