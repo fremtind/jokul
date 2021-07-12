@@ -1,6 +1,7 @@
-import React from "react";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
+import React, { useEffect, useState } from "react";
 import classnames from "classnames";
+import { TransitionEventHandler } from "react";
+import { MouseEventHandler } from "react";
 
 interface Props {
     isOpen: boolean;
@@ -12,6 +13,22 @@ interface Props {
     openLabel?: string;
     closeLabel?: string;
 }
+
+// state order definition
+const states = [
+    ["in-done", "out"],
+    ["out", "out-done"],
+    ["out-done", "in"],
+    ["in", "in-done"],
+];
+
+/**
+ * Initial
+ * isOpen: false, "Meny"
+ * *click* isOpen: true, "Meny" -> "Lukk"
+ * isOpen: true, "Lukk"
+ * *click* isOpen: false, "Lukk" -> "Meny"
+ */
 
 export const Hamburger = ({
     isOpen,
@@ -31,6 +48,44 @@ export const Hamburger = ({
         className,
     );
 
+    const [transitionState, setTransitionState] = useState({
+        isOpen,
+        state: states[0],
+    });
+
+    // useEffect(() => {
+    //     if (isOpen && transitionState.isOpen !== isOpen) {
+    //         setTransitionState({
+    //             isOpen: transitionState.isOpen,
+    //             state: states[1],
+    //         });
+    //     } else if (!isOpen && transitionState.isOpen !== isOpen) {
+    //         setTransitionState({
+    //             isOpen: transitionState.isOpen,
+    //             state: states[3],
+    //         });
+    //     }
+    // }, [setTransitionState, isOpen]);
+
+    // const handleTransitionEnd: TransitionEventHandler<HTMLSpanElement> = (e) => {
+    //     if (e.propertyName !== "opacity") {
+    //         return;
+    //     }
+
+    //     const nextState = states.find((s) => s[0] === transitionState.state[1]);
+    //     setTransitionState({
+    //         isOpen,
+    //         state: nextState!,
+    //     });
+    // };
+
+    // const handleClick = () => {
+    //     // only allow click if the state change is done
+    //     if (transitionState.state[0] === states[0][0] || transitionState.state[0] === states[2][0]) {
+    //         onClick();
+    //     }
+    // };
+
     return (
         <button
             type="button"
@@ -41,17 +96,18 @@ export const Hamburger = ({
         >
             <span className="jkl-hamburger__inner"></span>
             {openLabel && closeLabel && (
-                <SwitchTransition>
-                    <CSSTransition
-                        key={!isOpen ? openLabel : closeLabel}
-                        addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-                        classNames="jkl-hamburger__label"
-                    >
-                        <span className="jkl-hamburger__label" aria-live="polite">
-                            {!isOpen ? openLabel : closeLabel}
-                        </span>
-                    </CSSTransition>
-                </SwitchTransition>
+                <span
+                    className={`jkl-hamburger__label jkl-hamburger__label--${transitionState.state[0]}`}
+                    aria-live="polite"
+                    // onTransitionEnd={handleTransitionEnd}
+                >
+                    <span className="jkl-hamburger__label--open" aria-hidden={isOpen}>
+                        {openLabel}
+                    </span>
+                    <span className="jkl-hamburger__label--close" aria-hidden={!isOpen}>
+                        {closeLabel}
+                    </span>
+                </span>
             )}
         </button>
     );

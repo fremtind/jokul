@@ -13,6 +13,9 @@ $hamburger-focus-color: jkl.$color-stein;
 $hamburger-color--inverted: jkl.$color-snohvit;
 $hamburger-focus-color--inverted: jkl.$color-svaberg;
 
+$animation-duration: 1s;
+$half-animation-duration: calc(#{$animation-duration} / 2);
+
 @include jkl.helper-light-mode-variables {
     --hamburger-color: #{$hamburger-color};
     --hamburger-focus-color: #{$hamburger-focus-color};
@@ -21,6 +24,28 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
 @include jkl.helper-dark-mode-variables {
     --hamburger-color: #{$hamburger-color--inverted};
     --hamburger-focus-color: #{$hamburger-focus-color--inverted};
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 .jkl-hamburger {
@@ -67,23 +92,27 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         left: calc(#{$hamburger-icon-width} * 1.5);
         transform: translate(0, -50%) scale(1);
         top: 50%;
-        transition-property: opacity, transform;
+        transition-property: transform;
 
         @include jkl.text-style("body");
         @include motion(standard, expressive);
 
-        // react-transition-group transitions
-        &-enter {
-            opacity: 0;
+        &--open,
+        &--close {
+            animation-duration: $half-animation-duration;
+            animation-fill-mode: both;
         }
-        &-exit {
-            opacity: 1;
+
+        &--open {
+            animation-name: fadeIn;
+            animation-delay: $half-animation-duration;
+            visibility: visible;
         }
-        &-enter-active {
-            opacity: 1;
-        }
-        &-exit-active {
-            opacity: 0;
+
+        &--close {
+            animation-name: fadeOut;
+            animation-delay: 0ms;
+            visibility: hidden;
         }
     }
 
@@ -132,6 +161,18 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
             .jkl-hamburger__inner::after {
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);
+            }
+        }
+
+        & .jkl-hamburger__label {
+            &--open {
+                animation-delay: 0ms;
+                animation-name: fadeOut;
+            }
+
+            &--close {
+                animation-delay: $half-animation-duration;
+                animation-name: fadeIn;
             }
         }
 
