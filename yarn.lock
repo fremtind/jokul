@@ -1480,6 +1480,14 @@
   dependencies:
     "@fremtind/jkl-core" "^6.0.1"
 
+"@fremtind/jkl-core@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@fremtind/jkl-core/-/jkl-core-6.0.1.tgz#766a45d29f9db8e573687fa71611af1e7a42ab9c"
+  integrity sha512-eciTHGB2bfkywLpYdO0IdP14o7ooh2nFg/SO+GTAfg/PNtglIdFGFPjkh5PoHMMdBa+DBBgBA7VEaG0l4aGgdQ==
+  dependencies:
+    "@babel/runtime" "^7.9.0"
+    classnames "^2.2.6"
+
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.6.tgz#4e8225836959be247890b66f21a3198a0589e34d"
@@ -20510,9 +20518,9 @@ rollup-plugin-terser@^7.0.0:
     terser "^5.0.0"
 
 rollup@^2.18.2:
-  version "2.52.8"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.52.8.tgz#b6462f9c16ffe8995b9a2b313f2e4247fa75e4d9"
-  integrity sha512-IjAB0C6KK5/lvqzJWAzsvOik+jV5Bt907QdkQ/gDP4j+R9KYNI1tjqdxiPitGPVrWC21Mf/ucXgowUjN/VemaQ==
+  version "2.53.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.53.1.tgz#b60439efd1eb41bdb56630509bd99aae78b575d3"
+  integrity sha512-yiTCvcYXZEulNWNlEONOQVlhXA/hgxjelFSjNcrwAAIfYx/xqjSHwqg/cCaWOyFRKr+IQBaXwt723m8tCaIUiw==
   optionalDependencies:
     fsevents "~2.3.2"
 
