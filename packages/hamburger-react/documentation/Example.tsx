@@ -3,7 +3,7 @@ import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
 import { Hamburger } from "../src";
 
 const Example = ({ boolValues }: ExampleComponentProps) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <Hamburger

@@ -13,7 +13,7 @@ $hamburger-focus-color: jkl.$color-stein;
 $hamburger-color--inverted: jkl.$color-snohvit;
 $hamburger-focus-color--inverted: jkl.$color-svaberg;
 
-$animation-duration: 1s;
+$animation-duration: 300ms;
 $half-animation-duration: calc(#{$animation-duration} / 2);
 
 @include jkl.helper-light-mode-variables {
@@ -88,9 +88,8 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
     }
 
     &__label {
-        position: absolute;
-        left: calc(#{$hamburger-icon-width} * 1.5);
-        transform: translate(0, -50%) scale(1);
+        position: relative;
+        left: $hamburger-icon-width;
         top: 50%;
         transition-property: transform;
 
@@ -99,20 +98,35 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
 
         &--open,
         &--close {
-            animation-duration: $half-animation-duration;
             animation-fill-mode: both;
+            position: absolute;
+            transform: translate(0, -50%) scale(1);
+        }
+
+        &--initial {
+            animation-duration: 0ms;
+            .jkl-hamburger__label--open,
+            .jkl-hamburger__label--close {
+                animation-delay: 0ms !important;
+            }
+        }
+
+        &--animate {
+            animation-duration: $half-animation-duration;
         }
 
         &--open {
             animation-name: fadeIn;
             animation-delay: $half-animation-duration;
-            visibility: visible;
+            visibility: hidden;
+            animation-duration: inherit;
         }
 
         &--close {
             animation-name: fadeOut;
             animation-delay: 0ms;
-            visibility: hidden;
+            visibility: visible;
+            animation-duration: inherit;
         }
     }
 
