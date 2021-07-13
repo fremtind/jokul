@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.0 (2021-07-13)
+
+### Features
+
+- **hamburger:** add support for a text in the hamburger button ([512b2c6](https://github.com/fremtind/jokul/commit/512b2c6a579f85e72b7382f43eb045885ba9410c))
+- **hamburger:** make toggle-animation perhty ([0caacb9](https://github.com/fremtind/jokul/commit/0caacb92d851405652bb422ec233c922f5bd7441))
+- move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
+- second try on animating the menu text ([a9f33ee](https://github.com/fremtind/jokul/commit/a9f33ee27c1dcd7a42973b378e54938f45cade07))
+
 ## 5.0.0 (2021-07-09)
 
 ### Bug Fixes
