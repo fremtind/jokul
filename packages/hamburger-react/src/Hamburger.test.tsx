@@ -48,6 +48,16 @@ describe("Hamburger", () => {
 
         expect(burger).toHaveAttribute("aria-label", "max is better than micky d");
     });
+
+    it("should show open text when closed", () => {
+        render(<Hamburger isOpen={false} onClick={() => {}} actionLabel={{ open: "Open me", close: "Close me" }} />);
+        expect(screen.getByText("Open me")).toBeInTheDocument();
+    });
+
+    it("should show close text when the hamburger is open", () => {
+        render(<Hamburger isOpen onClick={() => {}} actionLabel={{ open: "Open me", close: "Close me" }} />);
+        expect(screen.getByText("Close me")).toBeInTheDocument();
+    });
 });
 
 describe("a11y", () => {

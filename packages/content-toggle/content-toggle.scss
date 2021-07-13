@@ -1,25 +1,108 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
+$animation-duration: 300ms;
+$half-animation-duration: calc(#{$animation-duration} / 2);
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 .jkl-content-toggle {
     height: 1.2em;
     overflow: hidden;
     display: block;
 
-    &--show-first {
-        transform: translateY(0);
+    &--flip {
+        .jkl-content-toggle {
+            &--show-first {
+                transform: translateY(0);
+            }
+
+            &--show-second {
+                transform: translateY(-50%);
+            }
+
+            &__slider {
+                display: flex;
+                flex-direction: column;
+                transition-property: transform;
+                @include motion(standard, expressive);
+                @media (prefers-reduced-motion) {
+                    transition-property: none;
+                }
+            }
+        }
     }
 
-    &--show-second {
-        transform: translateY(-50%);
-    }
+    &--fade {
+        .jkl-content-toggle {
+            &__first,
+            &__secondary {
+                animation-fill-mode: both;
+                position: absolute;
+                animation-duration: inherit;
+                transition-property: opacity;
+            }
 
-    &__slider {
-        display: flex;
-        flex-direction: column;
-        transition-property: transform;
-        @include motion(standard, expressive);
-        @media (prefers-reduced-motion) {
-            transition-property: none;
+            &__slider {
+                animation-duration: $half-animation-duration;
+
+                &--initial {
+                    animation-duration: 0ms;
+                    .jkl-content-toggle__first,
+                    .jkl-content-toggle__secondary {
+                        animation-delay: 0ms !important;
+                    }
+                }
+
+                &--animate {
+                    animation-duration: $half-animation-duration;
+                }
+            }
+
+            &--show-first {
+                .jkl-content-toggle__first {
+                    animation-name: fadeIn;
+                    animation-delay: $half-animation-duration;
+                    visibility: hidden;
+                }
+
+                .jkl-content-toggle__secondary {
+                    animation-name: fadeOut;
+                    animation-delay: 0ms;
+                    visibility: visible;
+                }
+            }
+
+            &--show-second {
+                .jkl-content-toggle__first {
+                    animation-delay: 0ms;
+                    animation-name: fadeOut;
+                }
+
+                .jkl-content-toggle__secondary {
+                    animation-delay: $half-animation-duration;
+                    animation-name: fadeIn;
+                }
+            }
         }
     }
 }

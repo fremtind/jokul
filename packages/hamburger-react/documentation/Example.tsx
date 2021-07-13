@@ -10,6 +10,10 @@ const Example = ({ boolValues }: ExampleComponentProps) => {
             isOpen={isOpen}
             inverted={boolValues && boolValues["Invertert"]}
             onClick={() => setIsOpen(!isOpen)}
+            actionLabel={{
+                close: "Lukk",
+                open: "Meny",
+            }}
         />
     );
 };

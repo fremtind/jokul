@@ -49,12 +49,31 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
                 bottom: calc(#{$hamburger-line-spacing} * 1.5);
             }
         }
+
+        .jkl-hamburger__label .jkl-content-toggle__slider {
+            transform: scale(1.2);
+            top: 0.4rem;
+        }
     }
 
     @include keyboard-navigation {
         &:focus {
             box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
             box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
+        }
+    }
+
+    &__label {
+        .jkl-content-toggle__slider {
+            position: absolute;
+            left: calc(#{$hamburger-icon-width} * 1.5);
+            top: 0.5rem;
+            transition-property: transform top;
+            transform-origin: center;
+            transform: scale(1);
+
+            @include jkl.text-style("body");
+            @include motion(standard, expressive);
         }
     }
 
@@ -103,6 +122,14 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
             .jkl-hamburger__inner::after {
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);
+            }
+        }
+
+        & .jkl-hamburger {
+            &__inner,
+            &__inner::before,
+            &__inner::after {
+                width: calc(#{$hamburger-icon-width} - 3px);
             }
         }
 

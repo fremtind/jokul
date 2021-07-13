@@ -34,6 +34,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
+        "@fremtind/jkl-content-toggle": "^1.1.0",
+        "@fremtind/jkl-content-toggle-react": "^1.1.0",
         "@fremtind/jkl-hamburger": "^5.0.0",
         "@fremtind/jkl-react-hooks": "^5.0.0"
     },

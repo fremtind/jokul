@@ -1,4 +1,5 @@
 import React from "react";
+import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
 
 interface Props {
@@ -8,9 +9,20 @@ interface Props {
     /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
     inverted?: boolean;
     description?: string;
+    actionLabel?: {
+        open: string;
+        close: string;
+    };
 }
 
-export const Hamburger = ({ isOpen, onClick, inverted = false, description = "Hovedmeny", className = "" }: Props) => {
+export const Hamburger = ({
+    isOpen,
+    onClick,
+    inverted = false,
+    description = "Hovedmeny",
+    className = "",
+    actionLabel,
+}: Props) => {
     const componentClassname = classnames(
         "jkl-hamburger",
         {
@@ -29,6 +41,16 @@ export const Hamburger = ({ isOpen, onClick, inverted = false, description = "Ho
             data-testid="jkl-hamburger"
         >
             <span className="jkl-hamburger__inner"></span>
+            {actionLabel && (
+                <ContentToggle
+                    className="jkl-hamburger__label"
+                    secondary={actionLabel.close}
+                    showSecondary={isOpen}
+                    variant="fade"
+                >
+                    {actionLabel.open}
+                </ContentToggle>
+            )}
         </button>
     );
 };

@@ -8,12 +8,12 @@ group: layout
 import { Example } from "./Example";
 
 <Ingress>
-    Content-toggle er en komponent for som representerer en av Jøkuls kjerneanimasjoner. Du ser denne bevelgesen på pilene i
-    select eller accordion, men det kan brukes til mye mer. Hver gang du har behov for to states som man toggler mellom,
-    så er content-toggle en måte å løse det på en elegant måte.
+    Content-toggle er en komponent for som representerer en av Jøkuls kjerneanimasjoner. Du ser denne bevelgesen på
+    pilene i select eller accordion, men det kan brukes til mye mer. Hver gang du har behov for to states som man
+    toggler mellom, så er content-toggle en måte å løse det på en elegant måte.
 </Ingress>
 
-<ComponentExample knobs={{ boolProps: ["Flip"] }} component={Example} />
+<ComponentExample knobs={{ boolProps: ["Flip", "Fade"] }} component={Example} />
 
 Content-toggle komponenten tar inn to ReactNoder, det kan være strenger eller sammensatte komponenter, men bør ikke være store element.
 

@@ -7,5 +7,13 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => (
         <ContentToggle showSecondary={!!boolValues?.["Flip"]} secondary="World">
             Hello
         </ContentToggle>
+        <ContentToggle
+            showSecondary={!!boolValues?.["Fade"]}
+            variant="fade"
+            secondary="out"
+            className="jkl-layout-spacing--medium-top"
+        >
+            Fade
+        </ContentToggle>
     </div>
 );
