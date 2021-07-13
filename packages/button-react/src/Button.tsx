@@ -61,14 +61,17 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                         >
                             {children}
                         </BaseButton>
-                        <div className="jkl-button-wrapper__loader jkl-layout-spacing--small-top">
-                            <Loader
-                                textDescription={loader.textDescription}
-                                negative={inverted}
-                                aria-hidden={!!loader.showLoader}
-                                inline={true}
-                            />
-                        </div>
+
+                        {loader?.showLoader && (
+                            <div className="jkl-button-wrapper__loader jkl-layout-spacing--small-top">
+                                <Loader
+                                    textDescription={loader.textDescription}
+                                    negative={inverted}
+                                    aria-hidden={!!loader.showLoader}
+                                    inline={true}
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             );
