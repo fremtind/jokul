@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.1 (2021-07-13)
+
+### Bug Fixes
+
+- changed when withLoader div shows in button ([8ea1aaa](https://github.com/fremtind/jokul/commit/8ea1aaa5793c79708062c58bdebb545d274e4f62))
+
 ## 5.0.0 (2021-07-09)
 
 ### Features
