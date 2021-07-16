@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import { Hamburger } from "../src";
 
 const Example = ({ boolValues }: ExampleComponentProps) => {
@@ -10,10 +11,20 @@ const Example = ({ boolValues }: ExampleComponentProps) => {
             isOpen={isOpen}
             inverted={boolValues && boolValues["Invertert"]}
             onClick={() => setIsOpen(!isOpen)}
-            actionLabel={{
-                close: "Lukk",
-                open: "Meny",
-            }}
+            addon={
+                boolValues &&
+                boolValues["Addon"] && (
+                    <ContentToggle
+                        secondary="Lukk"
+                        showSecondary={isOpen}
+                        variant="fade"
+                        className="jkl-hamburger-example__addon"
+                    >
+                        Meny
+                    </ContentToggle>
+                )
+            }
+            addonPosition="before"
         />
     );
 };

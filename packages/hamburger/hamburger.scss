@@ -36,6 +36,36 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
     justify-content: center;
     position: relative;
 
+    &--has-addon {
+        width: auto;
+
+        &.jkl-hamburger--addon-before {
+            flex-direction: row-reverse;
+
+            & .jkl-hamburger__addon {
+                justify-content: flex-end;
+                text-align: right;
+                transform-origin: right;
+            }
+        }
+    }
+
+    &__inner-wrapper {
+        width: $bounding-touch-size;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+    }
+
+    &__addon {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        transform: scale(1);
+        @include motion(standard, expressive);
+        transition-property: transform;
+    }
+
     color: $hamburger-color;
     color: var(--hamburger-color);
 
@@ -50,9 +80,8 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
             }
         }
 
-        .jkl-hamburger__label .jkl-content-toggle__slider {
+        .jkl-hamburger__addon {
             transform: scale(1.2);
-            top: 0.4rem;
         }
     }
 

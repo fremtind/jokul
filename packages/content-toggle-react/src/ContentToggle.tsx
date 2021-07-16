@@ -1,4 +1,4 @@
-import React, { ReactNode, FC, useState, useEffect } from "react";
+import React, { ReactNode, FC, useState, useEffect, useRef } from "react";
 import cn from "classnames";
 
 export const ContentToggle: FC<{
@@ -11,11 +11,30 @@ export const ContentToggle: FC<{
     // looking for actual change and then enable animating prevents initial blinking and premature animations
     const [initialShowSecondary] = useState(showSecondary);
     const [initial, setInitial] = useState(true);
+    const sliderRef = useRef<HTMLElement>(null);
+
     useEffect(() => {
         if (showSecondary !== initialShowSecondary) {
             setInitial(false);
         }
     }, [showSecondary, initialShowSecondary]);
+
+    useEffect(() => {
+        if (sliderRef.current) {
+            const sliderChildren = sliderRef.current.children;
+
+            let width = 0;
+
+            for (let i = 0; i < sliderChildren.length; i++) {
+                const child = sliderChildren[i];
+                if (child.clientWidth > width) {
+                    width = child.clientWidth;
+                }
+            }
+
+            sliderRef.current.style.width = `${width}px`;
+        }
+    }, [sliderRef]);
 
     return (
         <>
@@ -27,6 +46,7 @@ export const ContentToggle: FC<{
                         "jkl-content-toggle--show-first": !showSecondary,
                         "jkl-content-toggle--show-second": showSecondary,
                     })}
+                    ref={sliderRef}
                 >
                     <span className="jkl-content-toggle__first" aria-hidden={showSecondary}>
                         {children}

@@ -1,5 +1,4 @@
 import React from "react";
-import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
 
 interface Props {
@@ -9,10 +8,8 @@ interface Props {
     /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
     inverted?: boolean;
     description?: string;
-    actionLabel?: {
-        open: string;
-        close: string;
-    };
+    addon?: React.ReactNode;
+    addonPosition?: "before" | "after";
 }
 
 export const Hamburger = ({
@@ -21,13 +18,16 @@ export const Hamburger = ({
     inverted = false,
     description = "Hovedmeny",
     className = "",
-    actionLabel,
+    addon,
+    addonPosition = "after",
 }: Props) => {
     const componentClassname = classnames(
         "jkl-hamburger",
+        `jkl-hamburger--addon-${addonPosition}`,
         {
             "jkl-hamburger--is-open": isOpen,
             "jkl-hamburger--inverted": inverted,
+            "jkl-hamburger--has-addon": addon,
         },
         className,
     );
@@ -40,17 +40,10 @@ export const Hamburger = ({
             className={componentClassname}
             data-testid="jkl-hamburger"
         >
-            <span className="jkl-hamburger__inner"></span>
-            {actionLabel && (
-                <ContentToggle
-                    className="jkl-hamburger__label"
-                    secondary={actionLabel.close}
-                    showSecondary={isOpen}
-                    variant="fade"
-                >
-                    {actionLabel.open}
-                </ContentToggle>
-            )}
+            <span className="jkl-hamburger__inner-wrapper">
+                <span className="jkl-hamburger__inner"></span>
+            </span>
+            {addon && <span className="jkl-hamburger__addon">{addon}</span>}
         </button>
     );
 };
