@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
 
@@ -36,6 +36,19 @@ export const Hamburger = ({
         className,
     );
 
+    const longestLabelLength = useMemo(() => {
+        if (!actionLabel) {
+            return undefined;
+        }
+
+        let length = actionLabel.open.length;
+        if (actionLabel.close.length > length) {
+            length = actionLabel.close.length;
+        }
+
+        return length;
+    }, [actionLabel]);
+
     const labelClassname = classnames("jkl-hamburger__label", {
         "jkl-hamburger__label--animated": actionLabel?.animated,
     });
@@ -47,6 +60,14 @@ export const Hamburger = ({
             onClick={onClick}
             className={componentClassname}
             data-testid="jkl-hamburger"
+            style={
+                actionLabel
+                    ? {
+                          //  style calculated off touch size and label length with multiplier to account for uppercase letters
+                          width: `calc(3rem + ${(longestLabelLength ?? 0) * 1.75}ch`,
+                      }
+                    : undefined
+            }
         >
             <span className="jkl-hamburger__inner"></span>
             {actionLabel && (

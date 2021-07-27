@@ -27,7 +27,6 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
     @include reset-outline;
     border: none;
     outline: none;
-    display: flex;
     cursor: pointer;
     background-color: transparent;
     height: $bounding-touch-size;
@@ -38,6 +37,15 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
 
     color: $hamburger-color;
     color: var(--hamburger-color);
+
+    &--label-before {
+        transform: rotate(180deg);
+
+        .jkl-content-toggle__first,
+        .jkl-content-toggle__secondary {
+            transform: rotate(180deg);
+        }
+    }
 
     &:hover {
         .jkl-hamburger__inner {
@@ -81,14 +89,14 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         position: absolute;
         display: block;
         top: 50%;
-        transform: translateY(-50%);
-        transition-timing-function: ease;
+        transform: translateX(20%);
 
         &::before,
         &::after {
             content: "";
             display: block;
             transition-property: transform;
+            transition-timing-function: ease;
             transition-timing-function: ease;
         }
 
@@ -135,7 +143,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
 
         & .jkl-hamburger__inner {
             margin: auto;
-            transform: rotate(-180deg);
+            transform: rotate(-180deg) translateX(-25%);
             background-color: transparent;
         }
         & .jkl-hamburger__inner::before {
