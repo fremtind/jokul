@@ -19,6 +19,6 @@ import "@fremtind/jkl-hamburger/hamburger.css";
 initTabListener();
 
 ReactDOM.render(
-    <DevExample knobs={{ boolProps: ["Invertert", "Med tekst"] }} component={Example} />,
+    <DevExample knobs={{ boolProps: ["Invertert", "Med tekst", "Tekst før knapp"] }} component={Example} />,
     document.getElementById("app"),
 );

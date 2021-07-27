@@ -15,6 +15,7 @@ const Example = ({ boolValues }: ExampleComponentProps) => {
                     ? {
                           close: "Lukk",
                           open: "Meny",
+                          position: boolValues["Tekst før knapp"] ? "before" : "after",
                       }
                     : undefined
             }
