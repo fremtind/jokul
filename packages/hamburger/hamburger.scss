@@ -50,7 +50,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
             }
         }
 
-        .jkl-hamburger__label .jkl-content-toggle__slider {
+        .jkl-hamburger__label.jkl-hamburger__label--animated .jkl-content-toggle__slider {
             transform: scale(1.2);
             top: 0.4rem;
         }
@@ -66,7 +66,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
     &__label {
         .jkl-content-toggle__slider {
             position: absolute;
-            left: calc(#{$hamburger-icon-width} * 1.5);
+            left: calc(#{$hamburger-icon-width} * 0.9);
             top: 0.5rem;
             transition-property: transform top;
             transform-origin: center;
