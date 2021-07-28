@@ -157,7 +157,7 @@ Ta gjerne en titt på componentene i portalen eller ta kontakt i Support Designs
 
 ### Hvordan bruke de nye fargestilene i CSS/Sass
 
-Vi har laget en ny eksport fil med `colors-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "~@fremtind/jkl-core/jkl";` og skriver `jkl.$colors-snovhit` for å bruke den i din stil-fil.
+Vi har laget en ny eksport fil med `color-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "~@fremtind/jkl-core/jkl";` og skriver `jkl.$color-snovhit` for å bruke den i din stil-fil.
 Dette ble gjort slik at det skal bli likt når typografi endringen kommer (skal også få prefix);
 Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "~@fremtind/jkl-core/variables/_colors.scss";`.
 
