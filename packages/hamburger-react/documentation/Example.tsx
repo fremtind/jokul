@@ -16,6 +16,7 @@ const Example = ({ boolValues }: ExampleComponentProps) => {
                           close: "Lukk",
                           open: "Meny",
                           position: boolValues["Tekst før knapp"] ? "before" : "after",
+                          animated: boolValues["Skaler tekst ved hover"],
                       }
                     : undefined
             }
