@@ -18,6 +18,18 @@ import "@fremtind/jkl-content-toggle/content-toggle.css";
 initTabListener();
 
 ReactDOM.render(
-    <DevExample knobs={{ boolProps: ["Flip", "Fade"] }} component={Example} />,
+    <DevExample
+        knobs={{
+            boolProps: ["Bytt verdi"],
+            choiceProps: [
+                {
+                    name: "Variant",
+                    values: ["flip", "fade"],
+                    defaultValue: 0,
+                },
+            ],
+        }}
+        component={Example}
+    />,
     document.getElementById("app"),
 );
