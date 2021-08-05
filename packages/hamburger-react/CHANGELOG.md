@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.0 (2021-08-05)
+
+### Bug Fixes
+
+- **hamburger-react:** fix logic for label alignment class ([a274a39](https://github.com/fremtind/jokul/commit/a274a39f1dfa845726aeb779441054ebfaf24e10))
+
+### Features
+
+- add support for label placement ([bc396af](https://github.com/fremtind/jokul/commit/bc396af43385cfb6e5c08873188459184637828d))
+- **hamburger:** add control for animating label ([7369810](https://github.com/fremtind/jokul/commit/73698103d09829215b38b96b6ca36f149dab2add))
+
 ## 5.1.0 (2021-07-13)
 
 ### Features
