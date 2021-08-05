@@ -13,7 +13,19 @@ import { Example } from "./Example";
     toggler mellom, så er content-toggle en måte å løse det på en elegant måte.
 </Ingress>
 
-<ComponentExample knobs={{ boolProps: ["Flip", "Fade"] }} component={Example} />
+<ComponentExample
+    knobs={{
+        boolProps: ["Bytt verdi"],
+        choiceProps: [
+            {
+                name: "Variant",
+                values: ["flip", "fade"],
+                defaultValue: 0,
+            },
+        ],
+    }}
+    component={Example}
+/>
 
 Content-toggle komponenten tar inn to ReactNoder, det kan være strenger eller sammensatte komponenter, men bør ikke være store element.
 
