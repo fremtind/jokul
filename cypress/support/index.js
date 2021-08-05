@@ -1,6 +1,5 @@
 import "cypress-plugin-snapshots/commands";
 import "cypress-axe";
-import "./checkPortalPage";
 
 function pascalCase(phrase) {
     return phrase.replace(/\ ./, (match) => match.slice(-1).toUpperCase());
@@ -11,8 +10,8 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.visit(`/komponenter/${component}?cypress`).wait(1000);
+    cy.visit(`/komponenter/${component}?cypress`);
+    cy.getComponent().should("be.visible").as("componentIsVisible");
 });
 
 Cypress.Commands.add("getComponent", () => {
@@ -34,15 +33,6 @@ Cypress.Commands.add("getComponentInIpadMode", () => {
 
 Cypress.Commands.add("getComponentInLaptopMode", () => {
     cy.get("#jkl-portal-device-Full-HD").click().waitForAnimation(100).getByTestid("jkl-portal__laptop-view");
-});
-
-Cypress.Commands.add("verifyA11y", () => {
-    // Cypress misunderstand the animation for lack of contrast
-    // Must wait a bit long to make sure all animations are done, else color contrast is off
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(1000).checkA11y({
-        exclude: [[".jkl-portal-frontpage__section-contribute", ".jkl-portal-code-block__code"]],
-    });
 });
 
 const setMode = (action, reset) => () =>
@@ -69,7 +59,7 @@ const setModeFactory = (knob) => {
     "Utvidet velger",
     "Med hjelpetekst",
     "Dark mode",
-    "Flip",
+    "Bytt verdi",
     "withLoader",
     "isLoading",
     "Avvisbar",
