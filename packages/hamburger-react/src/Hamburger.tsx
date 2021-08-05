@@ -30,8 +30,8 @@ export const Hamburger = ({
         {
             "jkl-hamburger--is-open": isOpen,
             "jkl-hamburger--inverted": inverted,
-            "jkl-hamburger--label-before": actionLabel && actionLabel.position !== "after",
-            "jkl-hamburger--label-after": actionLabel?.position === "after",
+            "jkl-hamburger--label-before": actionLabel?.position === "before",
+            "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
         },
         className,
     );
