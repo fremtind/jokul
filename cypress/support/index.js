@@ -14,6 +14,14 @@ Cypress.Commands.add("testComponent", (component) => {
     cy.getComponent().should("be.visible").as("componentIsVisible");
 });
 
+Cypress.Commands.add("checkInput", (inputName) => {
+    cy.get(`input[name=${inputName}]`).first().check();
+});
+
+Cypress.Commands.add("focusInput", (inputName) => {
+    cy.get(`input[name=${inputName}]`).first().focus();
+});
+
 Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example");
 });
