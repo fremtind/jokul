@@ -1,19 +1,13 @@
 /// <reference types="cypress" />
 
-context("List", () => {
+describe("List", () => {
     beforeEach(() => {
         cy.testComponent("list");
     });
 
-    it("List should work", () => {
-        cy.getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getComponent().eq(2).toMatchImageSnapshot();
-        cy.getComponent().eq(3).toMatchImageSnapshot();
+    it("renders correctly", () => {
+        [0, 1, 2, 3].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
         cy.setDarkMode();
-        cy.getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getComponent().eq(2).toMatchImageSnapshot();
-        cy.getComponent().eq(3).toMatchImageSnapshot();
+        [0, 1, 2, 3].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
     });
 });

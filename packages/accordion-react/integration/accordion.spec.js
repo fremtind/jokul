@@ -1,15 +1,17 @@
 /// <reference types="cypress" />
 
-context("Accordion", () => {
+describe("Accordion", () => {
     beforeEach(() => {
         cy.testComponent("accordion");
     });
 
-    it("Accordion should work", () => {
+    it("renders correctly", () => {
         cy.getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot();
-        cy.getByTestid("jkl-accordion-item").first().click().waitForAnimation(300);
+        cy.getByTestid("jkl-accordion-item").first().click().waitForAnimation();
         cy.getComponent().toMatchImageSnapshot();
-        cy.resetDarkMode().getComponent().toMatchImageSnapshot();
+        cy.setDarkMode();
+        cy.getComponent().toMatchImageSnapshot();
+        cy.getByTestid("jkl-accordion-item").first().click().waitForAnimation();
+        cy.getComponent().toMatchImageSnapshot();
     });
 });
