@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -26,7 +26,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^7.0.0"
+        "@fremtind/jkl-core": "^7.0.1"
     },
     "repository": {
         "type": "git",
