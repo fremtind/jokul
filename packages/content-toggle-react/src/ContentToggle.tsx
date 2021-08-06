@@ -18,24 +18,19 @@ export const ContentToggle: FC<{
     }, [showSecondary, initialShowSecondary]);
 
     return (
-        <>
-            <span className={`jkl-content-toggle jkl-content-toggle--${variant} ${className}`}>
-                <span
-                    className={cn("jkl-content-toggle__slider", {
-                        "jkl-content-toggle__slider--initial": initial,
-                        "jkl-content-toggle__slider--animate": !initial,
-                        "jkl-content-toggle--show-first": !showSecondary,
-                        "jkl-content-toggle--show-second": showSecondary,
-                    })}
-                >
-                    <span className="jkl-content-toggle__first" aria-hidden={showSecondary}>
-                        {children}
-                    </span>
-                    <span className="jkl-content-toggle__secondary" aria-hidden={!showSecondary}>
-                        {secondary}
-                    </span>
+        <span className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
+            <span
+                className="jkl-content-toggle__slider"
+                data-show={showSecondary ? "second" : "first"}
+                data-initial={initial}
+            >
+                <span className="jkl-content-toggle__first" aria-hidden={showSecondary}>
+                    {children}
+                </span>
+                <span className="jkl-content-toggle__second" aria-hidden={!showSecondary}>
+                    {secondary}
                 </span>
             </span>
-        </>
+        </span>
     );
 };

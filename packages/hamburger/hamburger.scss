@@ -1,5 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 @import "~@fremtind/jkl-core/mixins/all.scss";
+@import "~@fremtind/jkl-core/variables/all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $bounding-touch-size: rem(48px);
@@ -27,69 +28,38 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
     @include reset-outline;
     border: none;
     outline: none;
-    display: flex;
     cursor: pointer;
     background-color: transparent;
     height: $bounding-touch-size;
-    width: $bounding-touch-size;
-    padding: 0;
+    min-width: $bounding-touch-size;
+    display: flex;
+    flex-direction: row;
+    padding: $component-spacing--small;
     justify-content: center;
+    align-items: center;
     position: relative;
 
     color: $hamburger-color;
     color: var(--hamburger-color);
 
-    &:hover {
-        .jkl-hamburger__inner {
-            &::before {
-                top: calc(#{$hamburger-line-spacing} * 1.5);
-            }
+    @include jkl.text-style("body");
 
-            &::after {
-                bottom: calc(#{$hamburger-line-spacing} * 1.5);
-            }
-        }
-
-        .jkl-hamburger__label .jkl-content-toggle__slider {
-            transform: scale(1.2);
-            top: 0.4rem;
-        }
+    &__label.jkl-content-toggle {
+        height: rem(32px);
+        @include motion(standard, expressive);
+        transform-origin: left;
     }
 
-    @include keyboard-navigation {
-        &:focus {
-            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
-            box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
-        }
-    }
-
-    &__label {
-        .jkl-content-toggle__slider {
-            position: absolute;
-            left: calc(#{$hamburger-icon-width} * 1.5);
-            top: 0.5rem;
-            transition-property: transform top;
-            transform-origin: center;
-            transform: scale(1);
-
-            @include jkl.text-style("body");
-            @include motion(standard, expressive);
-        }
-    }
-
-    &__inner {
-        position: absolute;
-        display: block;
-        top: 50%;
-        transform: translateY(-50%);
-        transition-timing-function: ease;
+    &__lines {
+        position: relative;
+        transform-origin: center;
 
         &::before,
         &::after {
             content: "";
             display: block;
-            transition-property: transform;
-            transition-timing-function: ease;
+            position: absolute;
+            transform-origin: center;
         }
 
         &::before {
@@ -100,49 +70,90 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         }
     }
 
-    &__inner,
-    &__inner::before,
-    &__inner::after {
+    &__lines,
+    &__lines::before,
+    &__lines::after {
         width: $hamburger-icon-width;
         height: $hamburger-line-height;
         background-color: currentColor;
-        position: absolute;
 
         transition-property: background-color, transform, top, bottom;
 
         @include motion(standard, expressive);
     }
 
+    &:hover {
+        .jkl-hamburger__lines {
+            &::before {
+                top: calc(#{$hamburger-line-spacing} * 1.5);
+            }
+
+            &::after {
+                bottom: calc(#{$hamburger-line-spacing} * 1.5);
+            }
+        }
+
+        .jkl-hamburger__label.jkl-hamburger__label--animated {
+            transform: scale(1.2);
+        }
+    }
+
+    @include keyboard-navigation {
+        &:focus {
+            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
+            box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
+        }
+    }
+
+    &--label-after {
+        text-align: left;
+
+        & .jkl-hamburger__lines {
+            margin-right: $component-spacing--small;
+        }
+    }
+
+    &--label-before {
+        flex-direction: row-reverse;
+        text-align: right;
+
+        & .jkl-hamburger__lines {
+            margin-left: $component-spacing--small;
+        }
+
+        & .jkl-hamburger__label {
+            transform-origin: right;
+        }
+    }
+
     &--is-open {
         &:hover {
-            .jkl-hamburger__inner::before {
+            .jkl-hamburger__lines::before {
                 top: 0;
                 transform: rotate(-45deg) scale3d(1.25, 1, 1);
             }
-            .jkl-hamburger__inner::after {
+            .jkl-hamburger__lines::after {
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);
             }
         }
 
-        & .jkl-hamburger {
-            &__inner,
-            &__inner::before,
-            &__inner::after {
-                width: calc(#{$hamburger-icon-width} - 3px);
-            }
+        &__lines::before,
+        &__lines::after {
+            width: calc(#{$hamburger-icon-width} - 3px);
         }
 
-        & .jkl-hamburger__inner {
-            margin: auto;
+        & .jkl-hamburger__lines {
             transform: rotate(-180deg);
             background-color: transparent;
         }
-        & .jkl-hamburger__inner::before {
+
+        & .jkl-hamburger__lines::before {
             top: 0;
             transform: rotate(-45deg);
         }
-        & .jkl-hamburger__inner::after {
+
+        & .jkl-hamburger__lines::after {
             bottom: 0;
             transform: rotate(45deg);
         }
