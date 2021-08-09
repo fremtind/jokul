@@ -18,7 +18,7 @@ All dokumentasjon på portalen en skrevet med språket [Markdown](https://daring
 
 Du markerer et nytt avsnitt ved å sette inn en tom linje. Dette må du også gjøre før og etter alle overskrifter. Hvis du ønsker å sette inn et linjeskift uten å starte et nytt avsnitt, må du legge inn to mellomrom på slutten av linjen, hvis ikke vil linjeskiftet bli ignorert.
 
-Utheving av tekst gjøres ved å sette stjerne eller understrek før og etter teksten som skal utheves: Både `_dette_` og `*dette*` vil vises som *dette*. Ønsker du kraftigere utheving kan du bruke to stjerner eller to understreker: Både `__dette__` og `**dette**` vil vises som **dette**.
+Utheving av tekst gjøres ved å sette stjerne eller understrek før og etter teksten som skal utheves: Både `_dette_` og `*dette*` vil vises som _dette_. Ønsker du kraftigere utheving kan du bruke to stjerner eller to understreker: Både `__dette__` og `**dette**` vil vises som **dette**.
 
 ### Overskrifter
 
@@ -77,7 +77,7 @@ Disse verdiene blir vist som valg i portalen med avkrysningsbokser eller radiokn
 
 ```tsx
 // typer for verdiene:
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "doc-utils";
 
 export function DittEksempel({ boolValues, choiceValues }: ExampleComponentProps) {
     boolValues["En verdi"] // boolsk verdi

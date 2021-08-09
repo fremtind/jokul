@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components/src";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { ContentToggle } from "../src";
 
 export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => (

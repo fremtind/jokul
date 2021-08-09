@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react";
-import { ExampleComponentProps, ChoiceProp } from "../src";
+import { ExampleComponentProps, ChoiceProp } from "./";
 import { ExampleBase } from "./ExampleBase";
 import { devices } from "./internal/Devices";
 

@@ -44,7 +44,6 @@
         "nanoid": "^3.1.22"
     },
     "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.12.1",
         "@nrk/core-datepicker": "3.0.8"
     },
     "peerDependencies": {

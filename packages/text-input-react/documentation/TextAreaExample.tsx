@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { TextArea } from "../src";
 
