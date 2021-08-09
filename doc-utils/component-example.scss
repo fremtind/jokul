@@ -1,8 +1,8 @@
-@use "../core/jkl";
+@use "../packages/core/jkl";
 
-@import "../core/variables/_all.scss";
-@import "../core/mixins/_all.scss";
-@import "../core/_functions.scss";
+@import "../packages/core/variables/_all.scss";
+@import "../packages/core/mixins/_all.scss";
+@import "../packages/core/_functions.scss";
 
 @include jkl.helper-light-mode-variables {
     --component-example-bg: #{jkl.$color-dis};

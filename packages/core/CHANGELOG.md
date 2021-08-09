@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.1 (2021-08-06)
+
+### Bug Fixes
+
+- **text-styles:** use correct weight for heading 2 on small screens ([7ca9516](https://github.com/fremtind/jokul/commit/7ca9516795ea72307166144007310bcd74c4f43e))
+
 ## 7.0.0 (2021-07-09)
 
 ### Bug Fixes

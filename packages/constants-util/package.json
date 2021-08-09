@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "0.2.18",
+    "version": "0.2.20",
     "publishConfig": {
         "access": "public"
     },
@@ -26,9 +26,6 @@
         "dev:style": "lerna exec --scope=@fremtind/jkl-button yarn build:watch",
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
-    },
-    "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.12.0"
     },
     "repository": {
         "type": "git",

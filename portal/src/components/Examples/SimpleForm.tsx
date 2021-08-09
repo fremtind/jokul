@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
-import { ExampleContext } from "@fremtind/jkl-portal-components";
+import { ExampleContext } from "../../../../doc-utils";
 
 import PersonalInfoForm from "./SimpleForm/PersonalInfoForm";
 import AddressForm from "./SimpleForm/AddressForm";
@@ -12,7 +12,7 @@ const SimpleForm = () => {
     const [showHouseDetails, setShowHouseDetails] = useState(false);
     const { registerKnobs } = useContext(ExampleContext);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (registerKnobs) {
             registerKnobs([
                 <TertiaryButton onClick={() => location.reload()} key="reset">
