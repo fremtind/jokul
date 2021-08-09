@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -25,9 +25,9 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^4.0.1",
-        "@fremtind/jkl-core": "^7.0.1",
-        "@fremtind/jkl-list": "^5.0.1",
+        "@fremtind/jkl-button": "^4.0.2",
+        "@fremtind/jkl-core": "^7.0.2",
+        "@fremtind/jkl-list": "^5.0.2",
         "@nrk/core-dialog": "^3.0.7"
     },
     "repository": {
