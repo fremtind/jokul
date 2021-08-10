@@ -72,7 +72,7 @@
         "autoprefixer": "^9.8.4",
         "commitizen": "^4.1.2",
         "cssnano": "^4.1.10",
-        "cypress-axe": "^0.12.2",
+        "cypress-axe": "^0.13.0",
         "cypress-plugin-snapshots": "^1.4.4",
         "cz-lerna-changelog": "^2.0.3",
         "document-register-element": "^1.14.3",
