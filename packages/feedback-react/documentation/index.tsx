@@ -15,7 +15,7 @@ renderExample(
     <DevExample
         component={Example}
         knobs={{
-            boolProps: ["Uten smilefjes", "Uten tekst"],
+            boolProps: ["Med oppfølgings-spørsmål"],
         }}
     />,
     document.getElementById("app"),
