@@ -5,6 +5,7 @@ react: feedback-react
 ---
 
 import Example from "./Example";
+import { exampleProps } from "./exampleProps";
 import { Feedback } from "../src";
 
 <Ingress>
@@ -12,31 +13,36 @@ import { Feedback } from "../src";
     brukeropplevelsen, og avdekke ønsker om funksjonalitet.
 </Ingress>
 
-<ComponentExample
-    knobs={{
-        boolProps: ["Uten smilefjes", "Uten tekst"],
-    }}
-    component={Example}
-/>
+<ComponentExample knobs={exampleProps} component={Example} />
 
-Komponenten kommer i to grunnvarianter: Feedback har smilefjes basert på valgene brukeren kan ta, mens SimplifiedFeedback viser vanlige radioknapper. Du kan bestemme hvilke valg brukeren skal få ved å sende inn noen eller alle tall fra 1 til 5:
+Bruk spørsmål med to til fem alternativer når du ber om tilbake&shy;melding. For hvert alternativ kan du spesifisere både teksten som vises og verdien som blir sendt inn, slik at det lett kan integreres med side&shy;statistikk. Vi tilbyr noen standard&shy;spørsmål med alternativer, som dekker de vanligste tilbake&shy;meldings&shy;behovene.
 
--   1 - Surt fjes
--   2 - Litt surt fjes
--   3 - Nøytralt fjes
--   4 - Smilefjes
--   5 - Happy smilefjes
+I tillegg til hovedspørsmålet kan man la brukeren legge igjen en skriftlig tilbakemelding. Du kan endre etiketten på tilbake&shy;meldings&shy;feltet på bakgrunn av alternativet brukeren valgte i hovedspørmålet, eller vise en generell etikett.
 
-I tillegg til en score kan man la brukeren legge igjen en skriftlig tilbakemelding. Etiketten på tekstfeltet kan spesifiseres generelt og/eller defineres spesifikt basert på hvilken score brukeren har gitt.
+## Oppfølgingsspørsmål
+
+Noen ganger kan det være nyttig med mer inngående tilbakemeldinger, for eksempel under utrulling av ny funksjonalitet. Det er derfor mulig å be brukeren svare på et eller flere oppfølgings&shy;spørsmål etter at den vanlige tilbakemeldingen er sendt inn. Brukeren blir først spurt om å delta, og tas deretter videre til første spørmål.
+
+Spørmålene kan være en blanding av flervalgsspørsmål med ett eller flere mulige valg, og åpne tekstspørsmål. De presenteres ett og ett, med knapp for å gå videre etter hvert spørmål. Dersom brukeren navigerer vekk fra siden for alle spørsmålene er besvart blir kun de besvarte spørsmålene sendt inn.
 
 ## Innsending av data
 
-Du må selv sende inn en funksjon for å håndtere innsending av data, men komponenten sørger selv for at den blir kalt på riktig tidspunkt; når brukeren trykker send inn, eller når de forlater siden etter å ha tatt et valg i skjemaet.
+Du må selv sende inn funksjoner for å håndtere innsending av data, men komponenten sørger selv for at de blir kalt på riktig tidspunkt; når brukeren trykker send inn, eller når de forlater siden etter å ha tatt valg i skjemaet.
 
-Funksjonen du sender inn må ta imot et objekt på formen
+Du må selv koble opp mot ditt ønskede feedback-endepunkt med eventuell vasking og/eller transformering av data.
 
-```tsx
-{ feedbackValue: 1 | 2 | 3 | 4 | 5, message?: string }
+### Hovedspørsmål
+
+Funksjonen for håndtering av hovedspørmålet får inn et objekt med verdien fra hovedspørsmålet, samt den eventuelle skriftlige tilbake&shy;meldingen:
+
+```ts
+{ value: string | number; message?: string }
 ```
 
-og du må selv koble opp mot ditt ønskede feedback-endepunkt med eventuell vasking og/eller transformering av data.
+### Oppfølgingsspørsmål
+
+Funksjonen for håndtering av oppfølgings&shy;spørmål får inn en liste med objekter etter hvor mange spørsmål som er besvart. Objektene inneholder informasjon om feltet, og verdien eller verdiene som er valgt:
+
+```ts
+[{ label: string: name: string; type: "single" | "multi" | "text"; value: string | string[] }]
+```
