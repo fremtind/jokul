@@ -1,127 +1,203 @@
 import React from "react";
 import { cleanup, render, screen } from "@testing-library/react";
-import { Feedback } from "./Feedback";
 import userEvent from "@testing-library/user-event";
-import { SimplifiedFeedback } from "./SimplifiedFeedback";
 import { axe } from "jest-axe";
 
+import { FantDuPreset } from "./presets";
+import { FeedbackQuestion } from "./types";
+import { Followup } from "./followup/Followup";
+import { MultipleChoiceQuestion, SingleChoiceQuestion } from "./questions";
+
 const mockFn = jest.fn();
+
+const followUpQuestions: FeedbackQuestion[] = [
+    {
+        type: "single",
+        label: "Hvordan opplevde du å bestille forsikring på nett?",
+        name: "opplevelse",
+        options: [
+            { label: "Enkelt og greit", value: "enkelt" },
+            { label: "Midt på treet", value: "ok" },
+            { label: "Tungvindt", value: "tungvindt" },
+        ],
+    },
+    {
+        type: "multiple",
+        label: "Hva er viktig for deg?",
+        name: "viktig",
+        options: [
+            { label: "At det går raskt å bestille", value: "hurtighet" },
+            { label: "God informasjon", value: "info" },
+            { label: "At det ser fint ut", value: "utseende" },
+            { label: "At forsikringen er billig", value: "pris" },
+        ],
+    },
+];
 
 beforeEach(() => {
     jest.resetAllMocks();
     cleanup();
 });
 
-test("should call onSubmit function with feedback value", async () => {
-    render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
+describe("Feedback", () => {
+    it("calls onSubmit function with feedback value", async () => {
+        render(<FantDuPreset onSubmit={mockFn} />);
 
-    userEvent.click(screen.getByTestId("feedback-1"));
-    userEvent.click(screen.getByTestId("submit-button"));
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.click(screen.getByText("Send"));
 
-    // use findBy to wait until element appears
-    // https://testing-library.com/docs/dom-testing-library/api-async#findby-queries
-    await screen.findByTestId("feedback-success");
+        // use findBy to wait until element appears
+        // https://testing-library.com/docs/dom-testing-library/api-async#findby-queries
+        await screen.findByRole("alert");
 
-    expect(mockFn).toBeCalledTimes(1);
-    expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 1, message: "" });
-});
+        expect(mockFn).toBeCalledTimes(1);
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: undefined });
+    });
 
-test("should call onSubmit function with feedback value and message", async () => {
-    render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
+    it("calls onSubmit function with feedback value and message", async () => {
+        render(<FantDuPreset onSubmit={mockFn} />);
 
-    userEvent.click(screen.getByTestId("feedback-1"));
-    userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
-    userEvent.click(screen.getByTestId("submit-button"));
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+        userEvent.click(screen.getByText("Send"));
 
-    await screen.findByTestId("feedback-success");
+        await screen.findByRole("alert");
 
-    expect(mockFn).toBeCalledTimes(1);
-    expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 1, message: "This is very nice" });
-});
+        expect(mockFn).toBeCalledTimes(1);
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: "This is very nice" });
+    });
 
-test("should call onSubmit function with feedback value and message with changes", async () => {
-    render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
+    it("calls onSubmit function with feedback value and message with changes", async () => {
+        render(<FantDuPreset onSubmit={mockFn} />);
 
-    userEvent.click(screen.getByTestId("feedback-1"));
-    userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
-    userEvent.click(screen.getByTestId("feedback-2"));
-    userEvent.click(screen.getByTestId("submit-button"));
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+        userEvent.click(screen.getByText("Nei"));
+        userEvent.click(screen.getByText("Send"));
 
-    await screen.findByTestId("feedback-success");
+        await screen.findByRole("alert");
 
-    expect(mockFn).toBeCalledTimes(1);
-    expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 2, message: "This is very nice" });
-});
+        expect(mockFn).toBeCalledTimes(1);
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "nei", message: "This is very nice" });
+    });
 
-test("should show custom feedback message", async () => {
-    render(
-        <Feedback
-            label="feedback"
-            onSubmit={mockFn}
-            description="some description"
-            renderCustomSuccess={(props) => (
-                <div data-testid="custom-feedback">
-                    <span>{props.value}</span>
-                    <span>{props.message}</span>
-                </div>
-            )}
-        />,
-    );
+    it("calls onSubmit function if the component is unmounted", () => {
+        const { unmount } = render(<FantDuPreset onSubmit={mockFn} />);
 
-    userEvent.click(screen.getByTestId("feedback-1"));
-    userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
-    userEvent.click(screen.getByTestId("submit-button"));
+        userEvent.click(screen.getByText("Ja"));
+        unmount();
 
-    await screen.findByTestId("custom-feedback");
+        expect(mockFn).toBeCalledTimes(1);
+    });
 
-    screen.getByText("1");
-    screen.getByText("This is very nice");
+    it("does not call onSubmit on unmount if feedback already is submitted", async () => {
+        const { unmount } = render(<FantDuPreset onSubmit={mockFn} />);
 
-    expect(mockFn).toBeCalledTimes(1);
-    expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 1, message: "This is very nice" });
-});
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+        userEvent.click(screen.getByText("Send"));
 
-test("simplified should call onSubmit function with feedback value and message with changes", async () => {
-    render(<SimplifiedFeedback description="feedback" label="feedback" onSubmit={mockFn} />);
+        await screen.findByRole("alert");
 
-    userEvent.click(screen.getByLabelText("3"));
-    userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
-    userEvent.click(screen.getByTestId("submit-button"));
+        expect(mockFn).toBeCalledTimes(1);
 
-    await screen.findByTestId("feedback-success");
+        unmount();
 
-    expect(mockFn).toBeCalledTimes(1);
-    expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: 3, message: "This is very nice" });
-});
+        expect(mockFn).toBeCalledTimes(1);
+    });
 
-test("should call onSubmit function if the component is unmounted", () => {
-    const { unmount } = render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
+    it("does not call followup onSubmit function on unload if no answers given", () => {
+        const { unmount } = render(
+            <FantDuPreset onSubmit={() => null}>
+                <Followup onSubmit={mockFn}>
+                    <SingleChoiceQuestion {...followUpQuestions[0]} />
+                    <MultipleChoiceQuestion {...followUpQuestions[1]} />
+                </Followup>
+            </FantDuPreset>,
+        );
 
-    userEvent.click(screen.getByTestId("feedback-1"));
-    unmount();
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.click(screen.getByText("Send"));
+        userEvent.click(screen.getByText("Jeg har tid!"));
 
-    expect(mockFn).toBeCalledTimes(1);
-});
+        unmount();
 
-test("should not call onSubmit on unmount if feedback already is submitted", async () => {
-    const { unmount } = render(<Feedback label="feedback" description="some description" onSubmit={mockFn} />);
+        expect(mockFn).toBeCalledTimes(0);
+    });
 
-    userEvent.click(screen.getByTestId("feedback-1"));
-    userEvent.type(screen.getByTestId("feedback-text"), "This is very nice");
-    userEvent.click(screen.getByTestId("submit-button"));
+    it("calls followup onSubmit function on unload with only answered questions", () => {
+        const { unmount } = render(
+            <FantDuPreset onSubmit={() => null}>
+                <Followup onSubmit={mockFn}>
+                    <SingleChoiceQuestion {...followUpQuestions[0]} />
+                    <MultipleChoiceQuestion {...followUpQuestions[1]} />
+                </Followup>
+            </FantDuPreset>,
+        );
 
-    await screen.findByTestId("feedback-success");
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.click(screen.getByText("Send"));
+        userEvent.click(screen.getByText("Jeg har tid!"));
+        userEvent.click(screen.getByText("Tungvindt"));
+        userEvent.click(screen.getByText("Neste"));
 
-    expect(mockFn).toBeCalledTimes(1);
+        unmount();
 
-    unmount();
+        expect(mockFn).toBeCalledTimes(1);
+        expect(mockFn.mock.calls[0][0][0].value).toEqual("tungvindt");
+    });
 
-    expect(mockFn).toBeCalledTimes(1);
-});
+    it("calls followup onSubmit function on submitting final question", () => {
+        render(
+            <FantDuPreset onSubmit={() => null}>
+                <Followup onSubmit={mockFn}>
+                    <SingleChoiceQuestion {...followUpQuestions[0]} />
+                    <MultipleChoiceQuestion {...followUpQuestions[1]} />
+                </Followup>
+            </FantDuPreset>,
+        );
 
-test.each([Feedback, SimplifiedFeedback])("Feedback should be a11y compliant", async (Component) => {
-    const { container } = render(<Component description="feedback" label="feedback" onSubmit={mockFn} />);
-    const inputMode = await axe(container);
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.click(screen.getByText("Send"));
+        userEvent.click(screen.getByText("Jeg har tid!"));
 
-    expect(inputMode).toHaveNoViolations();
+        userEvent.click(screen.getByText("Tungvindt"));
+        userEvent.click(screen.getByText("Neste"));
+
+        userEvent.click(screen.getByText("God informasjon"));
+        userEvent.click(screen.getByText("At det ser fint ut"));
+        userEvent.click(screen.getByText("Send inn"));
+
+        expect(mockFn).toBeCalledTimes(1);
+        expect(mockFn.mock.calls[0][0][0].value).toEqual("tungvindt");
+        expect(mockFn.mock.calls[0][0][1].value).toEqual(["info", "utseende"]);
+    });
+
+    it("does not call followup onSubmit function on unload if already submitted", () => {
+        const { unmount } = render(
+            <FantDuPreset onSubmit={() => null}>
+                <Followup onSubmit={mockFn}>
+                    <SingleChoiceQuestion {...followUpQuestions[0]} />
+                    <MultipleChoiceQuestion {...followUpQuestions[1]} />
+                </Followup>
+            </FantDuPreset>,
+        );
+
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.click(screen.getByText("Send"));
+        userEvent.click(screen.getByText("Jeg har tid!"));
+        userEvent.click(screen.getByText("Neste"));
+        userEvent.click(screen.getByText("Send inn"));
+
+        unmount();
+
+        expect(mockFn).toBeCalledTimes(1);
+    });
+
+    it("is a11y compliant", async () => {
+        const { container } = render(<FantDuPreset onSubmit={mockFn} />);
+        const inputMode = await axe(container);
+
+        expect(inputMode).toHaveNoViolations();
+    });
 });
