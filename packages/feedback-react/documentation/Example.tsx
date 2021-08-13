@@ -1,55 +1,69 @@
 import React from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { SuccessMessage } from "@fremtind/jkl-message-box-react";
-import { Feedback, HAPPY, NEUTRAL, SimplifiedFeedback, UNHAPPY, VERY_HAPPY, VERY_UNHAPPY } from "../src";
 
-export const Example = ({ boolValues }: ExampleComponentProps) => {
-    const Component = boolValues?.["Uten smilefjes"] ? SimplifiedFeedback : Feedback;
+import { Followup } from "../src";
+import { FantDuPreset, FikkDuGjortPreset, HvorFornoydPreset, PresetProps, PRESETS } from "../src/presets";
+import { ContactQuestion, MultipleChoiceQuestion, SingleChoiceQuestion, TextQuestion } from "../src/questions";
+import { FeedbackQuestion } from "../src/types";
+
+const PresetComponents: Record<keyof typeof PRESETS, React.ComponentType<PresetProps>> = {
+    "Fant du": FantDuPreset,
+    "Fikk du gjort": FikkDuGjortPreset,
+    "Hvor fornøyd 5": HvorFornoydPreset,
+};
+
+const followupQuestions: FeedbackQuestion[] = [
+    {
+        type: "single",
+        label: "Hvordan opplevde du å bestille forsikring på nett?",
+        name: "opplevelse",
+        options: [
+            { label: "Enkelt og greit", value: "enkelt" },
+            { label: "Midt på treet", value: "ok" },
+            { label: "Tungvindt", value: "tungvindt" },
+        ],
+    },
+    {
+        type: "multiple",
+        label: "Hva er viktig for deg?",
+        name: "viktig",
+        options: [
+            { label: "At det går raskt å bestille", value: "hurtighet" },
+            { label: "God informasjon", value: "info" },
+            { label: "At det ser fint ut", value: "utseende" },
+            { label: "At forsikringen er billig", value: "pris" },
+        ],
+    },
+    {
+        type: "text",
+        label: "Er det noe mer du vil legge til?",
+        name: "annet",
+    },
+];
+
+export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+    const followup = boolValues?.["Med oppfølgings-spørsmål"];
+    const contact = boolValues?.["Med kontakt-spørsmål"];
+    const ChosenPreset = choiceValues?.["Forhåndsvalg"]
+        ? PresetComponents[choiceValues["Forhåndsvalg"] as keyof typeof PRESETS]
+        : HvorFornoydPreset;
 
     return (
-        <>
-            <Component
-                label="Gi oss tilbakemelding!"
-                description="Hvor fornøyd er du med denne siden for å følge saken?"
-                onSubmit={console.info}
-                showTextArea={!boolValues?.["Uten tekst"]}
-                renderCustomSuccess={(props) => (
-                    <div>
-                        <SuccessMessage title="Tilbakemelding sendt!">
-                            {props.value === VERY_UNHAPPY.value && <>Det var trist!</>}
-                            {props.value === UNHAPPY.value && (
-                                <>Vi ser på alle tilbakemeldinger, håper vi kan gjøre deg mer fornøyd en annen gang!</>
-                            )}
-                            {props.value === NEUTRAL.value && (
-                                <>Vi vil gjerne ha fornøyde kunder, så vi skal se på tilbakemeldingen din!</>
-                            )}
-                            {props.value === HAPPY.value && <>Takk skal du ha!</>}
-                            {props.value === VERY_HAPPY.value && (
-                                <>
-                                    Det var stas du var fornøyd, vi prøver hele tiden å bli bedre! Takk for
-                                    tilbakemeldingen!
-                                </>
-                            )}
-                        </SuccessMessage>
-                        {props.message && (
-                            <div className="jkl-layout-spacing--small-top">
-                                <span>Kopi av din melding</span>
-                                <pre>{props.message}</pre>
-                            </div>
-                        )}
-                    </div>
-                )}
-            />
-
-            <Component
-                label="Bare to valg"
-                description="Hvor fornøyd er du med denne siden for å følge saken?"
-                onSubmit={console.info}
-                showTextArea={!boolValues?.["Uten tekst"]}
-                feedbackOptions={[UNHAPPY, HAPPY]}
-                className="jkl-layout-spacing--large-top"
-            />
-        </>
+        <ChosenPreset onSubmit={console.info}>
+            {followup && (
+                <Followup onSubmit={console.info}>
+                    <SingleChoiceQuestion {...followupQuestions[0]} />
+                    <MultipleChoiceQuestion {...followupQuestions[1]} />
+                    <TextQuestion {...followupQuestions[2]} />
+                </Followup>
+            )}
+            {contact && (
+                <ContactQuestion onSubmit={console.info}>
+                    Vi gjennomfører jevnlig tester og intervjuer for å forbedre løsningene våre (ca. 30 minutter). Som
+                    takk for hjelpen får du et gavekort. Legg igjen din e-postadresse hvis du er interessert.
+                </ContactQuestion>
+            )}
+        </ChosenPreset>
     );
 };
 
