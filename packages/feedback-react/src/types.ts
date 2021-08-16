@@ -56,4 +56,5 @@ export type FollowupState = {
     step: FollowUpStep;
     submitted: boolean;
     handleNext: (question: FeedbackQuestion, value: string | string[]) => void;
+    handleAbort: () => void;
 };

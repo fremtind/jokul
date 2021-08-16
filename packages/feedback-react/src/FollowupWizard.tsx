@@ -98,7 +98,7 @@ const getQuestionComponent = (q: FeedbackQuestion) => {
 };
 
 const FollowUpStep = () => {
-    const { step, handleNext } = useFollowUpContext();
+    const { step, handleNext, handleAbort } = useFollowUpContext();
     const QuestionComponent = getQuestionComponent(step.question);
     const Button = step.isLast ? PrimaryButton : SecondaryButton;
     const [currentStepValue, setCurrentStepValue] = useState<string | string[]>("");
@@ -113,7 +113,9 @@ const FollowUpStep = () => {
             <Button onClick={() => handleNext(step.question, currentStepValue)}>
                 {step.isLast ? "Send inn" : "Neste"}
             </Button>
-            <TertiaryButton className="jkl-layout-spacing--medium-left">Avbryt</TertiaryButton>
+            <TertiaryButton onClick={handleAbort} className="jkl-layout-spacing--medium-left">
+                Avbryt
+            </TertiaryButton>
         </div>
     );
 };

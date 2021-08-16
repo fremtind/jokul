@@ -62,6 +62,17 @@ export const useFollowup = (questions: FeedbackQuestion[], onSubmit: (a: Feedbac
         }
     }
 
+    // Let the user abort without submitting answers
+    function handleAbort() {
+        setValues(undefined);
+        setStep({
+            number: 0,
+            question: questions[0],
+            isLast: questions.length === 1,
+        });
+        setSubmitted(true);
+    }
+
     // Submit info after user submits last question
     useEffect(() => {
         if (shouldSubmit) {
@@ -81,5 +92,5 @@ export const useFollowup = (questions: FeedbackQuestion[], onSubmit: (a: Feedbac
         };
     }, [_handleSubmit]);
 
-    return { values, step, submitted, handleNext };
+    return { values, step, submitted, handleNext, handleAbort };
 };
