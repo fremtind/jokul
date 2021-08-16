@@ -42,7 +42,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
         : undefined;
     const preset = (choiceValues?.["Forhåndsvalg"] as keyof typeof PRESETS) || "Fant du";
 
-    return <Feedback {...PRESETS[preset]} onSubmit={(f) => console.log(f)} followUp={followup} />;
+    return <Feedback {...PRESETS[preset]} onSubmit={console.info} followUp={followup} />;
 };
 
 export default Example;
