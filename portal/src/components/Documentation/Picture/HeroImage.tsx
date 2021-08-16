@@ -1,6 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 
 import "./HeroImage.scss";
 
@@ -9,22 +8,10 @@ interface Props {
 }
 
 const HeroImage: React.FC<Props> = ({ title, children }) => {
-    const data = useStaticQuery(graphql`
-        {
-            file(relativePath: { eq: "Picture/Assets/mountain.jpg" }) {
-                childImageSharp {
-                    gatsbyImageData(quality: 80, layout: FULL_WIDTH)
-                }
-            }
-        }
-    `);
-
     return (
         <div className="jkl-portal-fullView">
             <div className="jkl-portal-hero">
-                {data && (
-                    <GatsbyImage image={data.file.childImageSharp.gatsbyImageData} className="" alt="Fjellandskap" />
-                )}
+                <StaticImage src="./Assets/mountain.jpg" placeholder="blurred" className="" alt="Fjellandskap" />
                 <button
                     onClick={() =>
                         window?.scrollBy({

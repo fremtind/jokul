@@ -10,20 +10,28 @@ Cypress.on(`window:before:load`, (win) => {
     });
 });
 
-context("Feedback", () => {
+describe("Feedback", () => {
     beforeEach(() => {
         cy.testComponent("feedback");
     });
 
-    it("Feedback should work", () => {
+    it("renders correctly", () => {
         cy.getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot();
+        cy.getByTestid("feedback-5").first().click();
+        cy.getComponent().toMatchImageSnapshot();
+    });
+
+    context("dark mode", () => {
+        it("renders correctly", () => {
+            cy.setDarkMode();
+            cy.getComponent().toMatchImageSnapshot();
+            cy.getByTestid("feedback-5").first().click();
+            cy.getComponent().toMatchImageSnapshot();
+        });
     });
 
     it("should send feedback if value is selected and user navigate away", () => {
         cy.getByTestid("feedback-1").first().click();
-        cy.visit("/");
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200).then(() => expect(hasBeenCalled).to.deep.equal({ feedbackValue: 1, message: "" }));
+        cy.visit("/").then(() => expect(hasBeenCalled).to.deep.equal({ feedbackValue: 1, message: "" }));
     });
 });
