@@ -10,27 +10,21 @@ interface Props {
     caption?: string;
 }
 
-type Node = {
-    fluid: {
-        originalName: string;
-    };
-};
-
 const Picture: React.FC<Props> = ({ asset, alt, ...rest }) => {
     const data = useStaticQuery(graphql`
         query {
             allImageSharp {
                 nodes {
-                    fluid {
-                        originalName
-                    }
                     gatsbyImageData
                 }
             }
         }
     `);
 
-    const image = data.allImageSharp.nodes.find((node: Node) => node.fluid.originalName === asset);
+    // @ts-ignore No available type for Sharp image data
+    const image = data.allImageSharp.nodes.find((node) =>
+        (node.gatsbyImageData.images.fallback.src as string).includes(asset),
+    );
 
     return image ? <MediaBox media={<GatsbyImage image={image.gatsbyImageData} alt={alt} />} {...rest} /> : null;
 };

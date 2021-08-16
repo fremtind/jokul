@@ -1,25 +1,28 @@
 /// <reference types="cypress" />
 
-context("Buttons", () => {
+describe("Buttons", () => {
     beforeEach(() => {
         cy.testComponent("buttons");
     });
 
-    it("Buttons should work", () => {
-        cy.getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getComponent().eq(2).toMatchImageSnapshot();
-        cy.setKompakt().getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getComponent().eq(2).toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getComponent().eq(2).toMatchImageSnapshot();
-        cy.resetKompakt().getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getComponent().eq(2).toMatchImageSnapshot();
-        cy.setwithLoader().getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getComponent().eq(2).toMatchImageSnapshot();
+    it("render correctly", () => {
+        [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+        cy.setKompakt();
+        [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+        cy.resetKompakt();
+        cy.setwithLoader().setisLoading();
+        [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+    });
+
+    context("dark mode", () => {
+        it("render correctly", () => {
+            cy.setDarkMode();
+            [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+            cy.setKompakt();
+            [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+            cy.resetKompakt();
+            cy.setwithLoader().setisLoading();
+            [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+        });
     });
 });

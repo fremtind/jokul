@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.3 (2021-08-16)
+
+### Performance Improvements
+
+- **portal:** slight performance enhancements/fixes ([edee432](https://github.com/fremtind/jokul/commit/edee432841265875bb8af98e5821ec00a55e27de))
+
 ## 5.0.0 (2021-07-09)
 
 ### Bug Fixes

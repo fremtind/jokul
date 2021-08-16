@@ -6,29 +6,31 @@ context("Radio button", () => {
     });
 
     it("renders correctly", () => {
-        cy.get("input[name=likesradiobuttons]").first().check();
-        /* DESKTOP */
+        cy.focusInput("likesradiobuttons");
         cy.getComponent().toMatchImageSnapshot();
+        cy.checkInput("likesradiobuttons");
+        cy.getComponent().toMatchImageSnapshot();
+        cy.checkInput("likesradiobuttons");
+        cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
+        cy.checkInput("likesradiobuttons");
         cy.setInline().getComponent().toMatchImageSnapshot().resetInline();
-        cy.setMedFeil().getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot();
-        cy.resetMedFeil().getComponent().toMatchImageSnapshot();
-        cy.resetDarkMode();
-        /* COMPACT */
-        cy.setKompakt().getComponent().toMatchImageSnapshot();
-        cy.setInline().getComponent().toMatchImageSnapshot().resetInline();
-        cy.setMedFeil().getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot();
-        cy.resetMedFeil().getComponent().toMatchImageSnapshot();
+        cy.checkInput("likesradiobuttons");
+        cy.setKompakt().getComponent().toMatchImageSnapshot().resetKompakt();
     });
 
-    it("has correct focus state", () => {
-        cy.get("input[name=likesradiobuttons]").first().focus();
-        /* DESKTOP */
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot().resetInvertert();
-        /* COMPACT */
-        cy.setKompakt().getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot().resetDarkMode();
+    context("dark mode", () => {
+        it("renders correctly", () => {
+            cy.setDarkMode();
+            cy.focusInput("likesradiobuttons");
+            cy.getComponent().toMatchImageSnapshot();
+            cy.checkInput("likesradiobuttons");
+            cy.getComponent().toMatchImageSnapshot();
+            cy.checkInput("likesradiobuttons");
+            cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
+            cy.checkInput("likesradiobuttons");
+            cy.setInline().getComponent().toMatchImageSnapshot().resetInline();
+            cy.checkInput("likesradiobuttons");
+            cy.setKompakt().getComponent().toMatchImageSnapshot().resetKompakt();
+        });
     });
 });

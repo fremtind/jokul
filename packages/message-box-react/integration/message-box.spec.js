@@ -10,17 +10,17 @@ context("MessageBox", () => {
         cy.setChoice("Type", "Suksessmelding").getComponent().toMatchImageSnapshot();
         cy.setChoice("Type", "Advarselsmelding").getComponent().toMatchImageSnapshot();
         cy.setChoice("Type", "Feilmelding").getComponent().toMatchImageSnapshot();
-
-        cy.setDarkMode();
-
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Advarselsmelding").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Suksessmelding").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Infomelding").getComponent().toMatchImageSnapshot();
+        cy.setAvvisbar().getComponent().toMatchImageSnapshot();
     });
 
-    it("is dismissable", () => {
-        cy.setAvvisbar().getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot();
+    context("dark mode", () => {
+        it("renders correctly", () => {
+            cy.setDarkMode();
+            cy.getComponent().toMatchImageSnapshot();
+            cy.setChoice("Type", "Suksessmelding").getComponent().toMatchImageSnapshot();
+            cy.setChoice("Type", "Advarselsmelding").getComponent().toMatchImageSnapshot();
+            cy.setChoice("Type", "Feilmelding").getComponent().toMatchImageSnapshot();
+            cy.setAvvisbar().getComponent().toMatchImageSnapshot();
+        });
     });
 });
