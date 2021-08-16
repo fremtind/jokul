@@ -15,7 +15,7 @@
         "@mdx-js/react": "^1.6.22",
         "classnames": "^2.2.6",
         "downloadjs": "^1.4.7",
-        "focus-trap-react": "^8.4.2",
+        "focus-trap-react": "^8.7.0",
         "framer-motion": "^4.1.2",
         "gatsby": "^3.0.1",
         "gatsby-image": "^3.0.0",
@@ -32,7 +32,7 @@
         "gatsby-transformer-react-docgen": "^6.0.0",
         "gatsby-transformer-sharp": "^3.0.0",
         "prism-react-renderer": "1.2.1",
-        "prismjs": "^1.23.0",
+        "prismjs": "^1.24.1",
         "raw-loader": "^4.0.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
@@ -40,7 +40,7 @@
         "react-hook-form": "^7.10.0",
         "react-syntax-highlighter": "^15.4.3",
         "sass": "^1.32.8",
-        "snyk": "^1.518.0"
+        "snyk": "^1.653.0"
     },
     "keywords": [
         "portal"
