@@ -21262,15 +21262,15 @@ snyk-php-plugin@1.9.2:
     "@snyk/composer-lockfile-parser" "^1.4.1"
     tslib "1.11.1"
 
-snyk-poetry-lockfile-parser@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/snyk-poetry-lockfile-parser/-/snyk-poetry-lockfile-parser-1.1.6.tgz#bab5a279c103cbcca8eb86ab87717b115592881e"
-  integrity sha512-MoekbWOZPj9umfukjk2bd2o3eRj0OyO+58sxq9crMtHmTlze4h0/Uj4+fb0JFPBOtBO3c2zwbA+dvFQmpKoOTA==
+snyk-poetry-lockfile-parser@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/snyk-poetry-lockfile-parser/-/snyk-poetry-lockfile-parser-1.1.7.tgz#c7e4af4c1aefe99d51a8a18e73b148906d655bc2"
+  integrity sha512-5waaslW7odDlox3WQMouSh/BjBrKq2rolMox3Ij/Vaju8r/3eWvs7anikzJUzNKwNcLm8AR5u4ftG/hxqDJJgA==
   dependencies:
+    "@iarna/toml" "^2.2.5"
     "@snyk/cli-interface" "^2.9.2"
     "@snyk/dep-graph" "^1.23.0"
     debug "^4.2.0"
-    toml "^3.0.0"
     tslib "^2.0.0"
 
 snyk-policy@1.22.0:
@@ -21288,13 +21288,13 @@ snyk-policy@1.22.0:
     snyk-resolve "^1.1.0"
     snyk-try-require "^2.0.0"
 
-snyk-python-plugin@1.19.11:
-  version "1.19.11"
-  resolved "https://registry.yarnpkg.com/snyk-python-plugin/-/snyk-python-plugin-1.19.11.tgz#4ccb213f218606c386ef943113d0872e69c34f09"
-  integrity sha512-zUKbSbw+wU1FCUDYt+IDjaES0pc1UKBECOqjHSJMxWm9VhstvPtI4KccetwOfne2oUcmaEJJvcEp4s9VTK04XQ==
+snyk-python-plugin@1.20.1:
+  version "1.20.1"
+  resolved "https://registry.yarnpkg.com/snyk-python-plugin/-/snyk-python-plugin-1.20.1.tgz#dcbc4fb4c67ec78d5161f4adb33799e5e24f1745"
+  integrity sha512-BW5e5o59ev9PzwjVYmWWCgQpVIsMwK3rkEh1BYPMNHFbRC9QXvKsZmr9UX+jSo1rOWNy3fUIjh8t9NAK536YPQ==
   dependencies:
     "@snyk/cli-interface" "^2.0.3"
-    snyk-poetry-lockfile-parser "^1.1.6"
+    snyk-poetry-lockfile-parser "^1.1.7"
     tmp "0.2.1"
 
 snyk-resolve-deps@4.7.2:
@@ -21364,9 +21364,9 @@ snyk-try-require@^2.0.0:
     lru-cache "^5.1.1"
 
 snyk@^1.653.0:
-  version "1.682.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.682.0.tgz#075dee958510280120f5eff7c48df86b3ec2b36d"
-  integrity sha512-tJqDDtHZaSONwURXcs0Itui+0PSFN9te31/+OSpGcyJl4DutDHPcoEyek50bwQcny4yy44s80KW1hFpeOozLZQ==
+  version "1.683.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.683.0.tgz#9cd1ce3742c6e4127f4addd5c2b2dff742619b66"
+  integrity sha512-cvdSuSuHyb7ijF68afG/Nbxm4wxnPQQCMjB0SYqTln+W7tMY8wLUr86QaQZIBN2Umb7zgY40gBRDq2R2nYVZGQ==
   dependencies:
     "@open-policy-agent/opa-wasm" "^1.2.0"
     "@snyk/cli-interface" "2.11.0"
@@ -21426,7 +21426,7 @@ snyk@^1.653.0:
     snyk-nuget-plugin "1.22.1"
     snyk-php-plugin "1.9.2"
     snyk-policy "1.22.0"
-    snyk-python-plugin "1.19.11"
+    snyk-python-plugin "1.20.1"
     snyk-resolve "1.1.0"
     snyk-resolve-deps "4.7.2"
     snyk-sbt-plugin "2.11.3"
