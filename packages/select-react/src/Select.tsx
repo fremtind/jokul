@@ -1,6 +1,6 @@
 // @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { FocusEvent, forwardRef, useEffect, useRef, useState } from "react";
+import React, { FocusEvent, forwardRef, useEffect, useRef, useState, KeyboardEvent } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -157,6 +157,13 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             }
         }
 
+        // add support for opening dropdown with arrowkey down as expected from native select
+        function handleArrowDown(e: KeyboardEvent<HTMLButtonElement>) {
+            if (e.key === "ArrowDown" && !dropdownIsShown) {
+                buttonRef.current?.click();
+            }
+        }
+
         // Handle focus and blur of hidden select element
         useEffect(() => {
             const select = selectRef.current;
@@ -228,6 +235,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         aria-haspopup="listbox"
                         onBlur={handleBlur}
                         onFocus={handleFocus}
+                        onKeyUp={handleArrowDown}
                     >
                         {selectedValueLabel}
                     </button>
@@ -262,7 +270,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                                         onBlur={handleBlur}
                                         onFocus={handleFocus}
                                     >
-                                        {item.label}
+                                        <span className="jkl-select__option-label">{item.label}</span>
                                     </button>
                                 </li>
                             ))}
