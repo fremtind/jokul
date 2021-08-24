@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.3 (2021-08-24)
+
+### Bug Fixes
+
+- add hover color and cursor for select ([e9855d3](https://github.com/fremtind/jokul/commit/e9855d3c5b9d01719c9ed9da82d71ac4a8ea7d5c))
+- remove pointer style ([0ccc6ed](https://github.com/fremtind/jokul/commit/0ccc6ed2ac04c19be7847191a641da0baff76347))
+
 ## 5.0.0 (2021-07-09)
 
 ### Features
