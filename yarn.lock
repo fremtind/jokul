@@ -373,10 +373,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.10.5", "@babel/parser@^7.12.7", "@babel/parser@^7.14.5", "@babel/parser@^7.14.7", "@babel/parser@^7.15.0", "@babel/parser@^7.4.4", "@babel/parser@^7.4.5", "@babel/parser@^7.7.2":
-  version "7.15.2"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.15.2.tgz#08d4ffcf90d211bf77e7cc7154c6f02d468d2b1d"
-  integrity sha512-bMJXql1Ss8lFnvr11TZDH4ArtwlAS5NG9qBmdiFW2UHHm6MVoR+GDc5XE2b9K938cyjc9O6/+vjjcffLDtfuDg==
+"@babel/parser@^7.1.0", "@babel/parser@^7.10.5", "@babel/parser@^7.12.7", "@babel/parser@^7.14.5", "@babel/parser@^7.14.7", "@babel/parser@^7.14.9", "@babel/parser@^7.15.0", "@babel/parser@^7.4.4", "@babel/parser@^7.4.5", "@babel/parser@^7.7.2":
+  version "7.15.3"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.15.3.tgz#3416d9bea748052cfcb63dbcc27368105b1ed862"
+  integrity sha512-O0L6v/HvqbdJawj0iBEfVQMc3/6WP+AeOsovsIgBFyJaG+W2w7eqvZB7puddATmWuARlm1SX7DwxJ/JJUnDpEA==
 
 "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@^7.14.5":
   version "7.14.5"
@@ -1249,7 +1249,7 @@
     "@babel/parser" "^7.14.5"
     "@babel/types" "^7.14.5"
 
-"@babel/traverse@^7.1.0", "@babel/traverse@^7.1.6", "@babel/traverse@^7.10.5", "@babel/traverse@^7.12.9", "@babel/traverse@^7.13.0", "@babel/traverse@^7.14.5", "@babel/traverse@^7.14.7", "@babel/traverse@^7.14.8", "@babel/traverse@^7.15.0", "@babel/traverse@^7.4.4", "@babel/traverse@^7.4.5", "@babel/traverse@^7.7.2":
+"@babel/traverse@^7.1.0", "@babel/traverse@^7.1.6", "@babel/traverse@^7.10.5", "@babel/traverse@^7.12.9", "@babel/traverse@^7.13.0", "@babel/traverse@^7.14.5", "@babel/traverse@^7.14.7", "@babel/traverse@^7.14.8", "@babel/traverse@^7.14.9", "@babel/traverse@^7.15.0", "@babel/traverse@^7.4.4", "@babel/traverse@^7.4.5", "@babel/traverse@^7.7.2":
   version "7.15.0"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.15.0.tgz#4cca838fd1b2a03283c1f38e141f639d60b3fc98"
   integrity sha512-392d8BN0C9eVxVWd8H6x9WfipgVH5IaIoLp23334Sc1vbKKWINnvwRpb4us0xtPaCumlwbTtIYNA0Dv/32sVFw==
@@ -5901,10 +5901,10 @@ babel-plugin-polyfill-regenerator@^0.2.2:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
 
-babel-plugin-remove-graphql-queries@^3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-3.11.0.tgz#b921e95f2d8fd49c57fe7fcac15546ab9b03f5b2"
-  integrity sha512-YVXU3hC4BWHtkKoAVi2lzGCfx9PBCXa2IMk2MnXcpoRoGPN4hKMIGqnSrdRrBTjow8FdFQ/y5SYYmhDcAiYkoQ==
+babel-plugin-remove-graphql-queries@^3.11.0, babel-plugin-remove-graphql-queries@^3.12.0:
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-3.12.0.tgz#b27b2536c893bd706534f2d58be8d9c598f60f04"
+  integrity sha512-0ZfLBZ3MWJpAOec3x0QqPFOOsHXsSRNtv8OIGE0/bKvG7ke2aUuMldg3REwdN6Aa4S+zYUW02IQfvICsZFryJQ==
 
 babel-plugin-transform-react-remove-prop-types@^0.4.24:
   version "0.4.24"
@@ -10537,7 +10537,7 @@ file-type@^12.0.0:
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-12.4.2.tgz#a344ea5664a1d01447ee7fb1b635f72feb6169d9"
   integrity sha512-UssQP5ZgIOKelfsaB5CuGAL+Y+q7EmONuiwF3N5HAH0t27rvrttgi6Ra9k/+DVaY9UF6+ybxu5pOXLUdA8N7Vg==
 
-file-type@^16.0.0, file-type@^16.2.0:
+file-type@^16.0.0, file-type@^16.5.3:
   version "16.5.3"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-16.5.3.tgz#474b7e88c74724046abb505e9b8ed4db30c4fc06"
   integrity sha512-uVsl7iFhHSOY4bEONLlTK47iAHtNsFHWP5YE4xJfZ4rnX7S1Q3wce09XgqSC7E/xh8Ncv/be1lNoyprlUH/x6A==
@@ -11109,17 +11109,17 @@ gatsby-cli@^3.11.0:
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-2.11.0.tgz#155aafe7962ba6ad9b3e72c784bba8a87f99ea6b"
-  integrity sha512-t5PL1/MvTPSG6IeJn+Yd3Fxp0L3HfLI1vvVsmxXvxEiwDp5MJjjtZbrSnWpST1oylMSKI/UECUEKQUax9UJW+A==
+gatsby-core-utils@^2.11.0, gatsby-core-utils@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-2.12.0.tgz#4fcf608aa8c2767e384ed795ef00e12c85528047"
+  integrity sha512-aN9fub3XX/uEqAstxG3mr8BH6hMGhTmAzANZH3HSV4tyG1Y4a4FKisZA0ggmy/dKOy5cyeuoMHmzAr8+qtHcAw==
   dependencies:
     ci-info "2.0.0"
     configstore "^5.0.1"
-    file-type "^16.2.0"
+    file-type "^16.5.3"
     fs-extra "^8.1.0"
-    node-object-hash "^2.0.0"
-    proper-lockfile "^4.1.1"
+    node-object-hash "^2.3.8"
+    proper-lockfile "^4.1.2"
     tmp "^0.2.1"
     xdg-basedir "^4.0.0"
 
@@ -11170,20 +11170,20 @@ gatsby-page-utils@^1.11.0:
     micromatch "^4.0.2"
 
 gatsby-plugin-image@^1.0.0:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.11.0.tgz#c7d2ffa79c6476e1fdf305a183bc02e99f31ec12"
-  integrity sha512-hlbGHpGTgHOp0QTWE9jF0IILRbzbbDPkjktCjXR43Pt24L7/Df4HqdFrJM7hB36O4d7j3vY1GSW1L5OUEPPkhw==
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.12.0.tgz#43b4eeab0673e4e52a359c0c45c040dc43710d9a"
+  integrity sha512-eypDaUsGbJ71XZ7j8eBA+rmErDEIR08+/A6ql0OY6xmX4ssjmIFQT4veOAzFxEbq/ee5DkNNkvgBVm8wKM1J4w==
   dependencies:
     "@babel/code-frame" "^7.14.0"
-    "@babel/parser" "^7.14.7"
-    "@babel/traverse" "^7.14.7"
+    "@babel/parser" "^7.14.9"
+    "@babel/traverse" "^7.14.9"
     babel-jsx-utils "^1.1.0"
-    babel-plugin-remove-graphql-queries "^3.11.0"
+    babel-plugin-remove-graphql-queries "^3.12.0"
     camelcase "^5.3.1"
     chokidar "^3.5.1"
     common-tags "^1.8.0"
     fs-extra "^8.1.0"
-    gatsby-core-utils "^2.11.0"
+    gatsby-core-utils "^2.12.0"
     objectFitPolyfill "^2.3.0"
     prop-types "^15.7.2"
 
@@ -16898,10 +16898,10 @@ node-notifier@^10.0.0:
     uuid "^8.3.2"
     which "^2.0.2"
 
-node-object-hash@^2.0.0:
-  version "2.3.8"
-  resolved "https://registry.yarnpkg.com/node-object-hash/-/node-object-hash-2.3.8.tgz#d19927ebbdb27019d2260de419cc62598a1721e7"
-  integrity sha512-hg/4TUqBOFdEhKjLF4jnn64utX3OWPVPWunVaDsaKxY+TVoViOFyW4lu34DES8yAqAqULSFm2jFL9SqVGes0Zg==
+node-object-hash@^2.3.8:
+  version "2.3.9"
+  resolved "https://registry.yarnpkg.com/node-object-hash/-/node-object-hash-2.3.9.tgz#d6bbea42201e7a7bf32a3064c44662c020653aaf"
+  integrity sha512-NQt1YURrMPeQGZzW4lRbshUEF2PqxJEZYY4XJ/L+q33dI8yPYvnb7QXmwUcl1EuXluzeY4TEV+H6H0EmtI6f5g==
 
 node-releases@^1.1.61, node-releases@^1.1.73:
   version "1.1.73"
@@ -19322,7 +19322,7 @@ prop-types@^15.6.1, prop-types@^15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-proper-lockfile@^4.1.1:
+proper-lockfile@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/proper-lockfile/-/proper-lockfile-4.1.2.tgz#c8b9de2af6b2f1601067f98e01ac66baa223141f"
   integrity sha512-TjNPblN4BwAWMXU8s9AEz4JmQxnD1NNL7bNOY/AKUzyamc379FWASUhc/K1pL2noVb+XmZKLL68cjzLsiOAMaA==
