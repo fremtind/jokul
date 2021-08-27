@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-profile-spacing-mdx","path":"/profil/spacing","result":{"pageContext":{"frontmatter":{"title":"Spacing","path":"/profil/spacing","order":8}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-profile-spacing-mdx",
+    "path": "/profil/spacing",
+    "result": {"pageContext":{"frontmatter":{"title":"Spacing","path":"/profil/spacing","order":8}}},
+    "staticQueryHashes": ["1260817848"]}

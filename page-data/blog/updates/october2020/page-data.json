@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-blog-updates-october-2020-mdx","path":"/blog/updates/october2020/","result":{"pageContext":{"frontmatter":{"title":"Oktober 2020","description":"Oppdateringer fra Jøkul","author":"Kjerneteamet","publishDate":"2020.10.01"}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-blog-updates-october-2020-mdx",
+    "path": "/blog/updates/october2020/",
+    "result": {"pageContext":{"frontmatter":{"title":"Oktober 2020","description":"Oppdateringer fra Jøkul","author":"Kjerneteamet","publishDate":"2020.10.01"}}},
+    "staticQueryHashes": ["1260817848"]}

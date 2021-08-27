@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-blog-scss-mdx","path":"/blog/scss/","result":{"pageContext":{"frontmatter":{"title":"Oppdateringer i Sass","author":"lfberge","description":"Hvordan bruke Jøkul med ny Sass syntax","publishDate":"2021.02.12"}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-blog-scss-mdx",
+    "path": "/blog/scss/",
+    "result": {"pageContext":{"frontmatter":{"title":"Oppdateringer i Sass","author":"lfberge","description":"Hvordan bruke Jøkul med ny Sass syntax","publishDate":"2021.02.12"}}},
+    "staticQueryHashes": ["1260817848"]}

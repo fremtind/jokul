@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-uu-farger-mdx","path":"/uu/farger/","result":{"pageContext":{"frontmatter":{"title":"Farger","tags":["tekstinnhold","skjema","tabell","liste","bilder","modal","innlogging","navigasjon","animasjon"],"wcagRules":["1.4.8","1.4.12"]}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-uu-farger-mdx",
+    "path": "/uu/farger/",
+    "result": {"pageContext":{"frontmatter":{"title":"Farger","tags":["tekstinnhold","skjema","tabell","liste","bilder","modal","innlogging","navigasjon","animasjon"],"wcagRules":["1.4.8","1.4.12"]}}},
+    "staticQueryHashes": ["1260817848"]}

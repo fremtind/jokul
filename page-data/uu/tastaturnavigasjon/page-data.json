@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-uu-tastaturnavigasjon-mdx","path":"/uu/tastaturnavigasjon/","result":{"pageContext":{"frontmatter":{"title":"Tastaturnavigasjon","tags":["navigasjon","tekstinnhold","modal","skjema","innlogging","media"],"wcagRules":["2.1.1","2.1.2","2.4.3"]}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-uu-tastaturnavigasjon-mdx",
+    "path": "/uu/tastaturnavigasjon/",
+    "result": {"pageContext":{"frontmatter":{"title":"Tastaturnavigasjon","tags":["navigasjon","tekstinnhold","modal","skjema","innlogging","media"],"wcagRules":["2.1.1","2.1.2","2.4.3"]}}},
+    "staticQueryHashes": ["1260817848"]}

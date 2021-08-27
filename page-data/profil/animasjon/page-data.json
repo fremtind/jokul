@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-profile-animation-mdx","path":"/profil/animasjon","result":{"pageContext":{"frontmatter":{"title":"Animasjon","path":"/profil/animasjon","order":8}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-profile-animation-mdx",
+    "path": "/profil/animasjon",
+    "result": {"pageContext":{"frontmatter":{"title":"Animasjon","path":"/profil/animasjon","order":8}}},
+    "staticQueryHashes": ["1260817848"]}

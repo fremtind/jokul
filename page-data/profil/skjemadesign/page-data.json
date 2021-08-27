@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-profile-formdesign-mdx","path":"/profil/skjemadesign","result":{"pageContext":{"frontmatter":{"title":"Skjemadesign","path":"/profil/skjemadesign","order":12}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-profile-formdesign-mdx",
+    "path": "/profil/skjemadesign",
+    "result": {"pageContext":{"frontmatter":{"title":"Skjemadesign","path":"/profil/skjemadesign","order":12}}},
+    "staticQueryHashes": ["1260817848"]}

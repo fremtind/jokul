@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-profile-icon-mdx","path":"/profil/ikoner","result":{"pageContext":{"frontmatter":{"title":"Ikoner","path":"/profil/ikoner","order":10}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-profile-icon-mdx",
+    "path": "/profil/ikoner",
+    "result": {"pageContext":{"frontmatter":{"title":"Ikoner","path":"/profil/ikoner","order":10}}},
+    "staticQueryHashes": ["1260817848"]}
