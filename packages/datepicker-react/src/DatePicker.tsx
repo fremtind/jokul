@@ -1,4 +1,4 @@
-import { Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
+import { DataTestAutoId, Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
@@ -17,7 +17,7 @@ type onChangeEventHandler = (date?: Date, e?: ChangeEvent) => void;
 type onBlurEventHandler = (date?: Date, e?: FocusEvent) => void;
 type onFocusEventHandler = (date?: Date, e?: FocusEvent) => void;
 
-interface Props {
+interface Props extends DataTestAutoId {
     name?: string;
     label?: string;
     monthLabel?: string;
@@ -71,6 +71,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             helpLabel,
             errorLabel,
             width = "11.5rem",
+            "data-testautoid": testAutoId,
             ...calendarProps
         },
         ref,
@@ -186,6 +187,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                         placeholder={placeholder}
                         width={width}
                         type="text"
+                        data-testautoid={testAutoId}
                     />
                     <IconButton
                         className="jkl-text-input__action-button"
