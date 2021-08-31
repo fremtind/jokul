@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.0 (2021-08-31)
+
+### Features
+
+- **sass:** forward functions to new jkl entrypoint ([451662a](https://github.com/fremtind/jokul/commit/451662ab03b23dac383eecf3c28a5c4ed7bff8e3))
+
 ## 7.0.1 (2021-08-06)
 
 ### Bug Fixes
