@@ -73,12 +73,13 @@ export const Slider: React.VFC<Props> = ({
                 {steps.map((step) => (
                     <span
                         key={step}
-                        data-value={step + from}
                         className={cn({
                             "jkl-slider__value": true,
                             "jkl-slider__value--current": value === step + from,
                         })}
-                    />
+                    >
+                        {step + from}
+                    </span>
                 ))}
             </div>
             <SupportLabel className="jkl-layout-spacing--xs-top" helpLabel={helpLabel} errorLabel={errorLabel} />
