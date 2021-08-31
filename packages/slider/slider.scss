@@ -106,16 +106,11 @@ $jkl-slider-thumb-height: rem(40px);
 
     &__value {
         padding: 0;
+        @include jkl.text-style("small");
+        color: jkl.$color-stein;
+        color: var(--jkl-slider-number-color);
 
-        &::after {
-            display: block;
-            content: attr(data-value);
-            @include jkl.text-style("small");
-            color: jkl.$color-stein;
-            color: var(--jkl-slider-number-color);
-        }
-
-        &--current::after {
+        &--current {
             color: jkl.$color-granitt;
             color: var(--jkl-slider-number-color--selected);
             @include jkl.text-style("small") {
