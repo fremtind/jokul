@@ -2,7 +2,8 @@ import React, { ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
-import { ComponentExample, FlowExample, ResponsiveExample } from "@fremtind/jkl-portal-components";
+import { Table } from "@fremtind/jkl-table-react";
+import { ComponentExample, FlowExample, ResponsiveExample } from "../../../../doc-utils";
 import { InfoMessage } from "@fremtind/jkl-message-box-react";
 import { PortalImg } from "../PortalImg/PortalImg";
 import { Experimental } from "../Experimental/Experimental";
@@ -46,6 +47,7 @@ const components = {
     InfoMessage,
     ResponsiveExample,
     CodeDemo,
+    Table,
 };
 
 interface Props {

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import "./Colors.scss";
@@ -35,7 +35,7 @@ export const ColorSwatch = ({ colorVariable, className, setColor }: ColorSwatchP
         className,
     );
     const ref = useRef<SVGSVGElement>(null);
-    useLayoutEffect(() => {
+    useEffect(() => {
         const rgb = getComputedProperty(ref.current, "color").split(",");
         if (typeof setColor === "function") {
             setColor(rgb.map((color) => parseInt(color.replace(/[^0-9]/g, ""), 10)));

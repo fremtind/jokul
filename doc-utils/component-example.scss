@@ -1,0 +1,151 @@
+@use "../packages/core/jkl";
+
+@import "../packages/core/variables/_all.scss";
+@import "../packages/core/mixins/_all.scss";
+@import "../packages/core/_functions.scss";
+
+@include jkl.helper-light-mode-variables {
+    --component-example-bg: #{jkl.$color-dis};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --component-example-bg: #{jkl.$color-skifer};
+}
+
+.jkl-portal-responsive-example {
+    padding: $component-spacing--medium;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.jkl-portal-code-example {
+    width: calc(100% - #{$layout-spacing--xxl});
+    max-width: 50vw;
+    min-width: rem(600px);
+
+    @include small-device {
+        width: calc(100% - #{$layout-spacing--medium});
+        max-width: 100%;
+        min-width: initial;
+    }
+}
+
+.jkl-portal-component-example {
+    box-sizing: border-box;
+    background-color: var(--component-example-bg);
+    padding: $component-spacing--medium;
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - #{$layout-spacing--xxl});
+    max-width: 50vw;
+    min-width: rem(600px);
+    min-height: rem(208px);
+
+    &__example-wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        color: var(--jkl-color);
+        background-color: var(--jkl-background-color);
+        position: relative;
+        padding: $layout-spacing--large $component-spacing--large;
+
+        &::before {
+            @include jkl.text-style("small");
+            color: jkl.$color-fjellgra;
+            position: absolute;
+            top: $component-spacing--medium;
+            left: $component-spacing--large;
+        }
+
+        &:before {
+            content: attr(data-example-text);
+        }
+    }
+
+    &__example-options {
+        display: block;
+        padding: $component-spacing--medium $component-spacing--xl;
+        min-width: rem(180px);
+    }
+
+    &__example-options-header {
+        &:not(:first-child) {
+            margin-top: $layout-spacing--small;
+        }
+        @include jkl.text-style("small");
+        color: jkl.$color-fjellgra;
+        margin-bottom: $component-spacing--medium;
+    }
+
+    &__choice-option {
+        margin-top: $layout-spacing--small;
+
+        & .jkl-label.jkl-label--small {
+            @include jkl.text-style("small");
+            color: jkl.$color-fjellgra;
+        }
+    }
+
+    @include small-device {
+        width: calc(100% - #{$layout-spacing--medium});
+        max-width: 100%;
+        min-width: initial;
+        flex-direction: column;
+        &__example-wrapper {
+            width: initial;
+        }
+        &__example-options {
+            padding: 0;
+            padding-top: $component-spacing--medium;
+        }
+    }
+}
+
+.jkl-device {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: calc(100vw - 600px);
+    width: 100%;
+
+    &__device {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        color: $snohvit;
+
+        *[data-theme="dark"] & {
+            color: $granitt;
+        }
+    }
+
+    &-iphone {
+        &__content {
+            height: 812px;
+            width: 375px;
+            border: 1px solid $granitt;
+            overflow: auto;
+        }
+    }
+
+    &-ipad {
+        &__content {
+            height: 833px;
+            width: 1112px;
+            border: 1px solid $granitt;
+            overflow: auto;
+        }
+    }
+
+    &-laptop {
+        &__content {
+            height: 1080px;
+            width: 1920px;
+            border: 1px solid $granitt;
+            overflow: auto;
+        }
+    }
+}

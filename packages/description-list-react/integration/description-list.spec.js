@@ -1,11 +1,13 @@
 /// <reference types="cypress" />
 
-context("description list", () => {
+describe("description list", () => {
     beforeEach(() => {
         cy.testComponent("descriptionlist");
     });
 
-    it("description list should work", () => {
+    it("renders correctly", () => {
+        cy.getComponent().toMatchImageSnapshot();
+        cy.setDarkMode();
         cy.getComponent().toMatchImageSnapshot();
     });
 });

@@ -22,6 +22,7 @@ $select-background-color: transparent;
 $select-open-background-color: $hvit;
 $select-focus-color: $granitt;
 $select-error-color: $feil;
+$select-hover-option-color: $stein;
 
 $select-border-color--inverted: $svaberg;
 $select-text-color--inverted: $snohvit;
@@ -29,6 +30,7 @@ $select-background-color--inverted: transparent;
 $select-open-background-color--inverted: $svart;
 $select-focus-color--inverted: $snohvit;
 $select-error-color--inverted: $feil--darkbg;
+$select-hover-option-color--inverted: $svaberg;
 
 @include jkl.helper-light-mode-variables {
     --select-border-color: #{$select-border-color};
@@ -37,6 +39,7 @@ $select-error-color--inverted: $feil--darkbg;
     --select-open-background-color: #{$select-open-background-color};
     --select-focus-color: #{$select-focus-color};
     --select-error-color: #{$select-error-color};
+    --select-hover-option-color: #{$select-hover-option-color};
 }
 
 @include jkl.helper-dark-mode-variables {
@@ -46,6 +49,7 @@ $select-error-color--inverted: $feil--darkbg;
     --select-open-background-color: #{$select-open-background-color--inverted};
     --select-focus-color: #{$select-focus-color--inverted};
     --select-error-color: #{$select-error-color--inverted};
+    --select-hover-option-color: #{$select-hover-option-color--inverted};
 }
 
 .jkl-select {
@@ -192,13 +196,14 @@ $select-error-color--inverted: $feil--darkbg;
         width: 100%;
         background-color: inherit;
         min-height: rem(48px);
-        padding: $component-spacing--small $component-spacing--large;
-        clip-path: inset($component-spacing--small $component-spacing--large);
-        clip: rect();
         text-align: left;
         @include motion("standard");
         transition-property: color, background-color;
         position: relative;
+
+        &-label {
+            padding: $component-spacing--small $component-spacing--large;
+        }
 
         &:before {
             content: "";
@@ -214,8 +219,8 @@ $select-error-color--inverted: $feil--darkbg;
         }
 
         &:hover {
-            color: $select-focus-color;
-            color: var(--select-focus-color);
+            color: $select-hover-option-color;
+            color: var(--select-hover-option-color);
         }
 
         &[aria-selected="true"]:not(:focus) {
@@ -224,7 +229,7 @@ $select-error-color--inverted: $feil--darkbg;
                 background-color: $select-focus-color;
                 background-color: var(--select-focus-color);
                 content: "";
-                /* autoprefixer with Browserlist="Chrome >= 70" will not generate 
+                /* autoprefixer with Browserlist="Chrome >= 70" will not generate
                  * a prefix for this even if Chrome 70 doesn't support mask-image
                  */
                 -webkit-mask-image: $mask-image-url;

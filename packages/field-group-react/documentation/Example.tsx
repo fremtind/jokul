@@ -1,6 +1,6 @@
 import React from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
 
 export function Example({ boolValues, choiceValues }: ExampleComponentProps) {

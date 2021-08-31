@@ -1,6 +1,6 @@
 import { useRef, useEffect, RefObject } from "react";
 
-type Timer = NodeJS.Timeout | undefined;
+type Timer = number | undefined;
 type KeyBuffer = { keys: string } | undefined;
 type Direction = "prev" | "next" | "first" | "last";
 interface MoveDetails {

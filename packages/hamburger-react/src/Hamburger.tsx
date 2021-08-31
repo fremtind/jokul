@@ -12,6 +12,8 @@ interface Props {
     actionLabel?: {
         open: string;
         close: string;
+        animated?: boolean;
+        position?: "before" | "after";
     };
 }
 
@@ -20,7 +22,7 @@ export const Hamburger = ({
     onClick,
     inverted = false,
     description = "Hovedmeny",
-    className = "",
+    className,
     actionLabel,
 }: Props) => {
     const componentClassname = classnames(
@@ -28,9 +30,15 @@ export const Hamburger = ({
         {
             "jkl-hamburger--is-open": isOpen,
             "jkl-hamburger--inverted": inverted,
+            "jkl-hamburger--label-before": actionLabel?.position === "before",
+            "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
         },
         className,
     );
+
+    const labelClassname = classnames("jkl-hamburger__label", {
+        "jkl-hamburger__label--animated": actionLabel?.animated,
+    });
 
     return (
         <button
@@ -40,10 +48,10 @@ export const Hamburger = ({
             className={componentClassname}
             data-testid="jkl-hamburger"
         >
-            <span className="jkl-hamburger__inner"></span>
+            <span className="jkl-hamburger__lines"></span>
             {actionLabel && (
                 <ContentToggle
-                    className="jkl-hamburger__label"
+                    className={labelClassname}
                     secondary={actionLabel.close}
                     showSecondary={isOpen}
                     variant="fade"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
 
 const getTypeOfBox = (typeofBox?: string) => {

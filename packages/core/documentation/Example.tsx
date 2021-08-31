@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { DevExample } from "@fremtind/jkl-portal-components";
+import { DevExample } from "../../../doc-utils";
 
 import "../core.scss";
 import "./style.scss";

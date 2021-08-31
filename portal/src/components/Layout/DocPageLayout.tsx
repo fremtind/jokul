@@ -5,6 +5,7 @@ import { Table } from "@fremtind/jkl-table-react";
 import { Frontmatter, FrontmatterTypeProp } from "../Header/useNavigationLinks";
 import { BlogPageHeader, ComponentPageHeader } from "./components";
 import { a11yContext } from "../../contexts/a11yContext";
+import { useLocation } from "../../contexts/locationContext";
 
 interface Props {
     location: Location;
@@ -24,13 +25,14 @@ const getRows = (data: FrontmatterTypeProp[]) =>
 
 export const DocPageLayout = ({ children, location, pageContext: { frontmatter } }: Props) => {
     const { prefersReducedMotion } = useContext(a11yContext);
+    const { isCypress } = useLocation();
 
     return (
         <motion.main
             initial={{ y: prefersReducedMotion ? 0 : 10, opacity: 0 }}
             animate={{ y: prefersReducedMotion ? 0 : 0, opacity: 1 }}
             exit={{ y: prefersReducedMotion ? 0 : -20, opacity: 0 }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: isCypress ? 0 : 0.35 }}
             className={`jkl-portal__main ${
                 location.pathname === "/profil/bildebruk" ? "jkl-portal__main--no-margin" : ""
             }`}

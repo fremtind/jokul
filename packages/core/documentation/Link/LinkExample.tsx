@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../../doc-utils";
 import { Link } from "../../src";
 
 export const LinkExample = ({ boolValues }: ExampleComponentProps) => (

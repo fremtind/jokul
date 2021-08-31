@@ -30,79 +30,69 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
     overflow: hidden;
     display: block;
 
-    &--flip {
-        .jkl-content-toggle {
-            &--show-first {
+    &__slider {
+        .jkl-content-toggle--flip > & {
+            display: flex;
+            flex-direction: column;
+            @include motion(standard, expressive);
+            transition-property: transform;
+
+            &[data-show="first"] {
                 transform: translateY(0);
             }
 
-            &--show-second {
+            &[data-show="second"] {
                 transform: translateY(-50%);
             }
+        }
 
-            &__slider {
-                display: flex;
-                flex-direction: column;
-                transition-property: transform;
-                @include motion(standard, expressive);
-                @media (prefers-reduced-motion) {
-                    transition-property: none;
+        .jkl-content-toggle--fade > & {
+            animation-duration: $half-animation-duration;
+
+            &[data-initial="true"] {
+                animation-duration: 0ms;
+                & > .jkl-content-toggle__first,
+                & > .jkl-content-toggle__second {
+                    animation-delay: 0ms !important;
                 }
             }
         }
     }
 
-    &--fade {
-        .jkl-content-toggle {
-            &__first,
-            &__secondary {
-                animation-fill-mode: both;
-                position: absolute;
-                animation-duration: inherit;
-                transition-property: opacity;
-            }
+    &__first,
+    &__second {
+        .jkl-content-toggle--fade & {
+            display: block;
+            animation-fill-mode: both;
+            animation-duration: inherit;
+            transition-property: opacity;
+        }
+    }
 
-            &__slider {
-                animation-duration: $half-animation-duration;
+    &__first {
+        .jkl-content-toggle--fade [data-show="first"] & {
+            animation-name: fadeIn;
+            animation-delay: $half-animation-duration;
+            visibility: hidden;
+        }
+        .jkl-content-toggle--fade [data-show="second"] & {
+            animation-name: fadeOut;
+            animation-delay: 0ms;
+        }
+    }
 
-                &--initial {
-                    animation-duration: 0ms;
-                    .jkl-content-toggle__first,
-                    .jkl-content-toggle__secondary {
-                        animation-delay: 0ms !important;
-                    }
-                }
-
-                &--animate {
-                    animation-duration: $half-animation-duration;
-                }
-            }
-
-            &--show-first {
-                .jkl-content-toggle__first {
-                    animation-name: fadeIn;
-                    animation-delay: $half-animation-duration;
-                    visibility: hidden;
-                }
-
-                .jkl-content-toggle__secondary {
-                    animation-name: fadeOut;
-                    animation-delay: 0ms;
-                    visibility: visible;
-                }
-            }
-
-            &--show-second {
-                .jkl-content-toggle__first {
-                    animation-delay: 0ms;
-                    animation-name: fadeOut;
-                }
-
-                .jkl-content-toggle__secondary {
-                    animation-delay: $half-animation-duration;
-                    animation-name: fadeIn;
-                }
-            }
+    &__second {
+        .jkl-content-toggle--fade & {
+            transform: translateY(-100%);
+        }
+        .jkl-content-toggle--fade [data-show="first"] & {
+            animation-name: fadeOut;
+            animation-delay: 0ms;
+            visibility: visible;
+        }
+        .jkl-content-toggle--fade [data-show="second"] & {
+            animation-name: fadeIn;
+            animation-delay: $half-animation-duration;
         }
     }
 }

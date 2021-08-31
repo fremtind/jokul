@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.6 (2021-08-30)
+
+### Bug Fixes
+
+- improve language ([99155b4](https://github.com/fremtind/jokul/commit/99155b46c3fdd89c5c22aa532f475ebfff4f0ef4))
+
 ## 7.0.0 (2021-07-09)
 
 ### Features

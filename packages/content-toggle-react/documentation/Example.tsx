@@ -1,19 +1,15 @@
 import React from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components/src";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { ContentToggle } from "../src";
 
-export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => (
+export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => (
     <div className="jkl-body">
-        <ContentToggle showSecondary={!!boolValues?.["Flip"]} secondary="World">
-            Hello
-        </ContentToggle>
         <ContentToggle
-            showSecondary={!!boolValues?.["Fade"]}
-            variant="fade"
-            secondary="out"
-            className="jkl-layout-spacing--medium-top"
+            variant={choiceValues?.["Variant"] as "flip" | "fade"}
+            showSecondary={!!boolValues?.["Bytt verdi"]}
+            secondary="World!"
         >
-            Fade
+            Hello
         </ContentToggle>
     </div>
 );

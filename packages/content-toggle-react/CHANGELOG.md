@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.4 (2021-08-11)
+
+### Bug Fixes
+
+- **@fremtind/jkl-content-toggle-react:** sets correct version for @fremtind/jkl-content-toggle in pa ([9563701](https://github.com/fremtind/jokul/commit/956370172c7cdbd4a508ace18da88b21174ec8b5))
+
 ## 1.2.0 (2021-07-13)
 
 ### Features
