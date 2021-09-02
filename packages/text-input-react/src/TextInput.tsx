@@ -25,19 +25,7 @@ export interface Props extends BaseProps {
 
 export const TextInput = forwardRef<HTMLInputElement, Props>(
     (
-        {
-            id,
-            className,
-            label,
-            helpLabel,
-            errorLabel,
-            variant = "medium",
-            inline,
-            inverted,
-            forceCompact,
-            action,
-            ...inputProps
-        },
+        { id, className, label, helpLabel, errorLabel, variant, inline, inverted, forceCompact, action, ...inputProps },
         ref,
     ) => {
         const [uid] = useState(id || `jkl-text-input-${nanoid(8)}`);

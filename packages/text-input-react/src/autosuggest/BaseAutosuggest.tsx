@@ -27,7 +27,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
-    variant = "medium",
+    variant = "small",
     noHitsMessage,
     maxNumberOfHits,
     placeholder,
