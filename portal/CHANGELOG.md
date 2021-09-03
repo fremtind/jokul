@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.7 (2021-09-02)
+
+### Bug Fixes
+
+- fixed font color in footer ([#2170](https://github.com/fremtind/jokul/issues/2170)) ([c70c6a7](https://github.com/fremtind/jokul/commit/c70c6a7894b7637e457e319420512ea88b1a060a))
+
+## 5.0.6 (2021-09-02)
+
+### Bug Fixes
+
+- fixed font color in footer ([1f88d67](https://github.com/fremtind/jokul/commit/1f88d6791af68deb8d6d3d24218489d18e860304))
+
 ## 5.0.3 (2021-08-16)
 
 ### Performance Improvements
