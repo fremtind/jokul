@@ -15,7 +15,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 
 1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
 2. Installer avhengigheter og bygg pakkene med `yarn boot`
-3. Start portalen lokalt med `yarn dev`
+3. Start portalen lokalt med `yarn dev` og åpne [localhost på port 8000](http://localhost:8000/)
 
 **NB!** Når du sjekker ut en ny branch bør du bygge på nytt for å hindre at gammel bygget kode blir med når du kjører opp eksempler eller portalen. Kommandoen `yarn reboot` sletter alle bygde filer, installerer avhengigheter, og bygger pakkene på nytt.
 
