@@ -20,6 +20,24 @@ describe("Select", () => {
         expect(dropdown).toHaveClass("jkl-select--inline");
     });
 
+    it("should open when clicked", () => {
+        render(<Select inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+
+        const button = screen.getByTestId("jkl-select__button");
+
+        userEvent.click(button);
+        expect(screen.getByText("drop")).toBeVisible();
+    });
+
+    it("should open when arrow down is pressed", () => {
+        render(<Select inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+
+        const button = screen.getByTestId("jkl-select__button");
+
+        userEvent.type(button, "{arrowdown}");
+        expect(screen.getByText("drop")).toBeVisible();
+    });
+
     it("should use the specified value", () => {
         const onChange = jest.fn();
         const value = "drop";

@@ -1,6 +1,5 @@
 /* autoprefixer grid: autoplace */
 @use "~@fremtind/jkl-core/jkl";
-
 @use "~@fremtind/jkl-core/variables/_all.scss" as var;
 @use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
 
@@ -14,7 +13,7 @@
         margin: 0;
         overflow-wrap: break-word;
         &:not(:first-of-type) {
-            margin-top: var.$component-spacing--xl;
+            margin-top: var.$component-spacing--small;
         }
     }
 
@@ -24,12 +23,12 @@
     }
 
     .jkl-description-list__detail + .jkl-description-list__detail {
-        margin-top: var.$component-spacing--xs;
+        margin-top: var.$component-spacing--small;
     }
 
     .jkl-description-list__term + .jkl-description-list__detail {
         &:not(:first-of-type) {
-            margin-top: var.$component-spacing--xl;
+            margin-top: var.$component-spacing--small;
         }
     }
 }
@@ -37,9 +36,9 @@
 .jkl-description-list {
     &__term {
         font-weight: jkl.$typography-weight-bold;
-        margin-bottom: var.$component-spacing--small;
+        margin-bottom: var.$component-spacing--xs;
         &:not(:first-child) {
-            margin-top: var.$component-spacing--xl;
+            margin-top: var.$component-spacing--medium;
         }
     }
 
