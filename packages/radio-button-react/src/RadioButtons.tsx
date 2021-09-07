@@ -1,9 +1,9 @@
 import React, { ChangeEventHandler } from "react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { LabelVariant, ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { LabelVariant, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { RadioButtonOption } from "./RadioButtonOption";
 
-interface Props {
+interface Props extends DataTestAutoId {
     name: string;
     legend: string;
     choices: Array<string | ValuePair>;
@@ -31,6 +31,7 @@ export const RadioButtons = ({
     variant,
     forceCompact,
     className,
+    "data-testautoid": testAutoId,
     inverted,
 }: Props) => (
     <FieldGroup
@@ -41,6 +42,7 @@ export const RadioButtons = ({
         forceCompact={forceCompact}
         className={className}
         inverted={inverted}
+        data-testautoid={testAutoId}
     >
         {choices.map(getValuePair).map(({ label, value }) => (
             <RadioButtonOption

@@ -16,6 +16,7 @@ export interface Props extends BaseProps {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    "data-testautoid"?: string;
     /** @deprecated */
     inverted?: boolean;
     forceCompact?: boolean;
@@ -25,7 +26,20 @@ export interface Props extends BaseProps {
 
 export const TextInput = forwardRef<HTMLInputElement, Props>(
     (
-        { id, className, label, helpLabel, errorLabel, variant, inline, inverted, forceCompact, action, ...inputProps },
+        {
+            id,
+            className,
+            label,
+            helpLabel,
+            errorLabel,
+            variant,
+            inline,
+            inverted,
+            forceCompact,
+            action,
+            "data-testautoid": testAutoId,
+            ...inputProps
+        },
         ref,
     ) => {
         const [uid] = useState(id || `jkl-text-input-${nanoid(8)}`);
@@ -53,6 +67,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                         id={uid}
                         describedBy={describedBy}
                         invalid={!!errorLabel}
+                        data-testautoid={testAutoId}
                         {...inputProps}
                     />
                     {action && (
