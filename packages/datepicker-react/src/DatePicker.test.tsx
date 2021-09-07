@@ -424,6 +424,15 @@ describe("Datepicker", () => {
 
         jest.useRealTimers();
     });
+
+    it("should have data-testautoid", () => {
+        const thePast = new Date(2019, 11, 24);
+        render(<DatePicker initialDate={thePast} data-testautoid="jkl-datepicker__testautoid" />);
+
+        const input = screen.getByTestId("jkl-datepicker__input");
+        const testAutoId = input.getAttribute("data-testautoid");
+        expect(testAutoId).toEqual("jkl-datepicker__testautoid");
+    });
 });
 
 describe("after user types string", () => {
