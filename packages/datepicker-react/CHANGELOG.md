@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.0 (2021-09-07)
+
+### Features
+
+- add data-testautoid ([22ae35d](https://github.com/fremtind/jokul/commit/22ae35d7da2f3d66f45881e71201bd2ec1f9331d))
+
 ## 7.0.0 (2021-07-09)
 
 ### Features
