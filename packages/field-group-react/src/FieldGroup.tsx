@@ -20,7 +20,7 @@ export const FieldGroup = ({
     children,
     helpLabel,
     errorLabel,
-    variant = "medium",
+    variant,
     forceCompact,
     "data-testautoid": testAutoId,
     inverted,

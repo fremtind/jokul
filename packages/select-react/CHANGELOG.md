@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.0 (2021-08-24)
+
+### Features
+
+- add support for arrow down on select button ([9b344b4](https://github.com/fremtind/jokul/commit/9b344b4c5d2a1fe1e050d66cd0b02c3a75c4ac22))
+
 ## 6.0.0 (2021-07-09)
 
 ### Features

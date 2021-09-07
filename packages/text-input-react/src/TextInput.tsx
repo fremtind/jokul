@@ -32,7 +32,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             label,
             helpLabel,
             errorLabel,
-            variant = "medium",
+            variant,
             inline,
             inverted,
             forceCompact,

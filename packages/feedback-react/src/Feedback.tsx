@@ -11,7 +11,7 @@ const FeedbackContent = () => {
     const [id] = useState(nanoid(8));
 
     return (
-        <FieldGroup legend={description} className="jkl-feedback__fieldset">
+        <FieldGroup legend={description} className="jkl-feedback__fieldset" variant="medium">
             {options?.map((option) => {
                 const { label, value: optionValue } = transformToValuePair(option);
                 const radioButtonId = `${id}-feedback--${optionValue}`;
