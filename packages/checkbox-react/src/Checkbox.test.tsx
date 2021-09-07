@@ -84,6 +84,18 @@ describe("checkbox", () => {
 
         expect(onChange).toHaveBeenCalled();
     });
+
+    it("should have data-testautoid", () => {
+        render(
+            <Checkbox value="iamgroot" name="iamgroot" data-testautoid="jkl-checkbox__testautoid">
+                I am groot!
+            </Checkbox>,
+        );
+
+        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
+        const testAutoId = input.getAttribute("data-testautoid");
+        expect(testAutoId).toEqual("jkl-checkbox__testautoid");
+    });
 });
 
 describe("a11y", () => {
