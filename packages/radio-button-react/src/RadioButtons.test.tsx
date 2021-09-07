@@ -71,6 +71,22 @@ describe("RadioButtons", () => {
 
         expect(handleChange).toHaveBeenCalled();
     });
+    it("should have data-testautoid", () => {
+        render(
+            <RadioButtons
+                choices={["yes", "no"]}
+                legend="Does this work?"
+                name="doeswork"
+                onChange={(f) => f}
+                selectedValue="yes"
+                data-testautoid="jkl-radiobuttons__testautoid"
+            />,
+        );
+
+        const component = document.getElementsByClassName("jkl-field-group")[0] as HTMLInputElement;
+        const testAutoId = component.getAttribute("data-testautoid");
+        expect(testAutoId).toEqual("jkl-radiobuttons__testautoid");
+    });
 });
 
 describe("a11y", () => {

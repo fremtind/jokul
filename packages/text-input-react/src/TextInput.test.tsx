@@ -80,6 +80,21 @@ describe("TextInput", () => {
         expect(component).toHaveAttribute("type", "password");
     });
 
+    it("should have data-testautoid", () => {
+        render(
+            <TextInput
+                label="testing"
+                type="password"
+                placeholder="test-ph"
+                data-testautoid="jkl-textinput__testautoid"
+            />,
+        );
+
+        const input = screen.getByLabelText("testing");
+        const testAutoId = input.getAttribute("data-testautoid");
+        expect(testAutoId).toEqual("jkl-textinput__testautoid");
+    });
+
     describe("with action", () => {
         it("renders the action-icon", () => {
             render(<TextInput label="testing" action={{ icon: "clear", label: "testing", onClick: () => {} }} />);
