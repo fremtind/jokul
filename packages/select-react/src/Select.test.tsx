@@ -655,4 +655,46 @@ describe("a11y", () => {
 
         expect(results).toHaveNoViolations();
     });
+
+    test("aria-label should update correctly on change", async () => {
+        const onChange = jest.fn();
+        function WrappedSelect() {
+            const [value, setValue] = useState<string>();
+
+            const items = [
+                { value: "apple", label: "Apple" },
+                { value: "samsung", label: "Samsung" },
+                { value: "huawei", label: "Huawei" },
+                { value: "LG", label: "LG" },
+            ];
+
+            return (
+                <Select
+                    label="Hvilket merke er telefonen?"
+                    items={items}
+                    value={value}
+                    onChange={(value: string | undefined) => {
+                        setValue(value);
+                        onChange();
+                    }}
+                />
+            );
+        }
+
+        const screen = render(<WrappedSelect />);
+
+        const dropdownButtonElement = screen.getByText("Velg");
+        const firstItemButton = screen.getByText("Apple");
+
+        act(() => {
+            userEvent.click(dropdownButtonElement);
+        });
+
+        act(() => {
+            userEvent.click(firstItemButton);
+        });
+
+        expect(onChange).toHaveBeenCalled();
+        expect(screen.getByTestId("jkl-select__button").getAttribute("aria-label")).toContain("Apple");
+    });
 });

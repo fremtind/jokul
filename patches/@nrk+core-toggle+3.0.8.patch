@@ -1,5 +1,35 @@
+diff --git a/node_modules/@nrk/core-toggle/core-toggle.js b/node_modules/@nrk/core-toggle/core-toggle.js
+index 54c2c73..c7b293d 100644
+--- a/node_modules/@nrk/core-toggle/core-toggle.js
++++ b/node_modules/@nrk/core-toggle/core-toggle.js
+@@ -77,7 +77,8 @@ export default class CoreToggle extends HTMLElement {
+     if (popup === this.popup) {
+       const target = button.querySelector('span') || button // Use span to preserve embedded HTML and SVG
+       button.value = data.value || label
+-      button.setAttribute('aria-label', `${button.textContent},${this.popup}`)
++
++      button.setAttribute('aria-label', `${label},${this.popup}`)
+       target[data.innerHTML ? 'innerHTML' : 'textContent'] = data.innerHTML || label
+     }
+   }
+diff --git a/node_modules/@nrk/core-toggle/core-toggle.jsx.js b/node_modules/@nrk/core-toggle/core-toggle.jsx.js
+index ebf0c09..5735ab1 100644
+--- a/node_modules/@nrk/core-toggle/core-toggle.jsx.js
++++ b/node_modules/@nrk/core-toggle/core-toggle.jsx.js
+@@ -347,9 +347,9 @@
+ 
+         if (popup === this.popup) {
+           var target = button.querySelector('span') || button; // Use span to preserve embedded HTML and SVG
+-
+           button.value = data.value || label;
+-          button.setAttribute('aria-label', "".concat(button.textContent, ",").concat(this.popup));
++
++          button.setAttribute('aria-label', "".concat(label, ",").concat(this.popup));
+           target[data.innerHTML ? 'innerHTML' : 'textContent'] = data.innerHTML || label;
+         }
+       }
 diff --git a/node_modules/@nrk/core-toggle/jsx.js b/node_modules/@nrk/core-toggle/jsx.js
-index b9e52a9..191544f 100644
+index b9e52a9..384b97c 100644
 --- a/node_modules/@nrk/core-toggle/jsx.js
 +++ b/node_modules/@nrk/core-toggle/jsx.js
 @@ -308,7 +308,7 @@ var CoreToggle = /*#__PURE__*/function (_HTMLElement) {
@@ -11,6 +41,15 @@ index b9e52a9..191544f 100644
      } // aria-haspopup triggers forms mode in JAWS, therefore store as custom attr
  
    }, {
+@@ -347,7 +347,7 @@ var CoreToggle = /*#__PURE__*/function (_HTMLElement) {
+         var target = button.querySelector('span') || button; // Use span to preserve embedded HTML and SVG
+ 
+         button.value = data.value || label;
+-        button.setAttribute('aria-label', "".concat(button.textContent, ",").concat(this.popup));
++        button.setAttribute('aria-label', "".concat(label, ",").concat(this.popup));
+         target[data.innerHTML ? 'innerHTML' : 'textContent'] = data.innerHTML || label;
+       }
+     }
 @@ -392,10 +392,10 @@ var closest$1 = function () {
  * @return {Object} A React component
  */
