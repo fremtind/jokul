@@ -127,10 +127,10 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         }
 
         function onToggleSelect(e: CoreToggleSelectEvent) {
-            e.target.value = e.detail;
             const nextValue = e.detail.value;
             setSearchValue("");
             onChange && onChange(nextValue);
+            e.target.value = e.detail;
             selectRef.current && selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
             e.target.hidden = true;
             e.target.button.focus();
