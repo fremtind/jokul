@@ -312,6 +312,7 @@ $button-wrapper-animation-safe-area: 10px;
 
         &.jkl-button--tertiary {
             color: $button-text-color--inverted;
+            border-bottom-color: $button-border-color--inverted;
 
             &:hover,
             html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
