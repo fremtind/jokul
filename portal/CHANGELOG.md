@@ -809,4 +809,4 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 
 ### Reverts
 
--   **dropdown:** rebase to master without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))
+-   **dropdown:** rebase to main without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))

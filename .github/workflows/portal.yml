@@ -2,7 +2,7 @@ name: release-portal
 on:
     push:
         branches:
-            - master
+            - main
 jobs:
     build-and-deploy:
         name: Deploy portal
