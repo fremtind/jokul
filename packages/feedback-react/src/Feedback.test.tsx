@@ -46,7 +46,7 @@ describe("Feedback", () => {
 
         // use findBy to wait until element appears
         // https://testing-library.com/docs/dom-testing-library/api-async#findby-queries
-        await screen.findByRole("alert");
+        await screen.findByRole("status");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: undefined });
@@ -59,7 +59,7 @@ describe("Feedback", () => {
         userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
         userEvent.click(screen.getByText("Send"));
 
-        await screen.findByRole("alert");
+        await screen.findByRole("status");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: "This is very nice" });
@@ -73,7 +73,7 @@ describe("Feedback", () => {
         userEvent.click(screen.getByText("Nei"));
         userEvent.click(screen.getByText("Send"));
 
-        await screen.findByRole("alert");
+        await screen.findByRole("status");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "nei", message: "This is very nice" });
@@ -95,7 +95,7 @@ describe("Feedback", () => {
         userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
         userEvent.click(screen.getByText("Send"));
 
-        await screen.findByRole("alert");
+        await screen.findByRole("status");
 
         expect(mockFn).toBeCalledTimes(1);
 

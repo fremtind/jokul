@@ -3,8 +3,8 @@
 let hasBeenCalled = false;
 
 Cypress.on(`window:load`, (win) => {
-    cy.stub(win.console, `info`, (msg) => {
-        console.info("Stubbed info:", msg);
+    cy.stub(win.console, `log`, (msg) => {
+        console.info("Stubbed log:", msg);
         if (msg.feedbackValue) {
             hasBeenCalled = msg;
         }
