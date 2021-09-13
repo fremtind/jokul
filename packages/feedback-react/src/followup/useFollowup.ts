@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import { FeedbackAnswer, FeedbackOption, FollowupQuestion } from "../types";
 
 export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: FeedbackAnswer[]) => void) => {
@@ -37,7 +37,9 @@ export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: Feedbac
     }, []);
 
     // Function for handling going to the next step in the form wizard
-    function handleNext() {
+    function handleNext(e?: FormEvent<HTMLFormElement>) {
+        e?.preventDefault();
+
         const value = Array.isArray(currentValue)
             ? currentValue.map((option) => option.value.toString())
             : currentValue?.value;

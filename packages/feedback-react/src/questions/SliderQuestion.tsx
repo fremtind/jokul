@@ -1,11 +1,11 @@
-import React, { ChangeEventHandler, useEffect, useState } from "react";
+import React, { ChangeEventHandler, useEffect, useRef, useState } from "react";
 import { Slider } from "@fremtind/jkl-slider-react";
 
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { QuestionProps } from "../types";
 
-export const SliderQuestion: React.VFC<QuestionProps> = ({ label, name, options }) => {
+export const SliderQuestion: React.VFC<QuestionProps> = ({ label, name, options, autoFocus = false }) => {
     const numbers = options?.map((option) => parseInt(option.value.toString()));
     const from = numbers?.reduce((number, lowest) => (number < lowest ? number : lowest));
     const to = numbers?.reduce((number, highest) => (number > highest ? number : highest));
@@ -20,6 +20,13 @@ export const SliderQuestion: React.VFC<QuestionProps> = ({ label, name, options 
     };
 
     const [value, setValue] = useState<number>();
+    const ref = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (autoFocus && ref.current) {
+            ref.current.focus();
+        }
+    }, [autoFocus, ref]);
 
     useEffect(() => {
         const option = Array.isArray(context?.currentValue) ? context?.currentValue[0] : context?.currentValue;
@@ -33,15 +40,18 @@ export const SliderQuestion: React.VFC<QuestionProps> = ({ label, name, options 
     }
 
     return (
-        <Slider
-            variant="large"
-            label={label}
-            name={name || label}
-            value={value}
-            from={from}
-            to={to}
-            onChange={handleChange}
-        />
+        <>
+            <input type="text" aria-hidden ref={ref} className="jkl-sr-only" />
+            <Slider
+                variant="large"
+                label={label}
+                name={name || label}
+                value={value}
+                from={from}
+                to={to}
+                onChange={handleChange}
+            />
+        </>
     );
 };
 

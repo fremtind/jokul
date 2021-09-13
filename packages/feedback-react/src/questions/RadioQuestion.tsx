@@ -1,13 +1,20 @@
-import React, { ChangeEventHandler, useMemo } from "react";
+import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { QuestionProps } from "../types";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 
-export const RadioQuestion: React.VFC<QuestionProps> = ({ label, name, options, helpLabel }) => {
+export const RadioQuestion: React.VFC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
+
+    const ref = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        if (autoFocus && ref.current) {
+            ref.current.focus();
+        }
+    }, [autoFocus, ref]);
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         const option = options?.find((option) => option.value.toString() === e.target.value);
@@ -28,14 +35,17 @@ export const RadioQuestion: React.VFC<QuestionProps> = ({ label, name, options, 
     }
 
     return (
-        <RadioButtons
-            variant="large"
-            legend={label}
-            name={name || label}
-            choices={options?.map(({ label, value }) => ({ label, value: value.toString() })) || []}
-            selectedValue={selectedValue}
-            onChange={handleChange}
-            helpLabel={helpLabel}
-        />
+        <>
+            <input type="text" aria-hidden ref={ref} className="jkl-sr-only" />
+            <RadioButtons
+                variant="large"
+                legend={label}
+                name={name || label}
+                choices={options?.map(({ label, value }) => ({ label, value: value.toString() })) || []}
+                selectedValue={selectedValue}
+                onChange={handleChange}
+                helpLabel={helpLabel}
+            />
+        </>
     );
 };

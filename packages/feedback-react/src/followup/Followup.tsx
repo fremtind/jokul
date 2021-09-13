@@ -1,53 +1,46 @@
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { FeedbackAnswer, FollowupQuestion } from "../types";
 import { useFollowup } from "./useFollowup";
 import { FollowUpProvider } from "./followupContext";
-import { getChildrenOfType, getTypeFromComponent } from "../utils";
-import { CheckboxQuestion, RadioQuestion, SliderQuestion, TextQuestion } from "../questions";
+import { getQuestionFromType } from "../utils";
 import { useFeedbackContext } from "../feedbackContext";
 import { FeedbackSuccess } from "../FeedbackSuccess";
 
-const getQuestionComponents = getChildrenOfType(SliderQuestion, CheckboxQuestion, RadioQuestion, TextQuestion);
-const getSuccessMessages = getChildrenOfType(FeedbackSuccess);
-
-const defaultSuccessMessage = (
-    <FeedbackSuccess title="Takk, igjen!">
-        Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre
-        for deg og alle andre som bruker den.
-    </FeedbackSuccess>
-);
+const defaultSuccessMessage = {
+    title: "Takk, igjen!",
+    children:
+        "Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker den.",
+};
 
 interface Props {
-    children: ReactNode;
+    questions: FollowupQuestion[];
+    successMessage?: {
+        title: string;
+        children: ReactNode;
+    };
     onSubmit: (values: FeedbackAnswer[]) => void;
 }
 
-export const Followup = ({ children, onSubmit }: Props) => {
-    const questionComponents = getQuestionComponents(children);
-    const successMessage = getSuccessMessages(children)?.[0] || defaultSuccessMessage;
+export const Followup = ({ questions, successMessage, onSubmit }: Props) => {
     const [noThanks, setNoThanks] = useState(false);
-
-    const questions =
-        questionComponents?.map((component) => ({
-            ...component.props,
-            options: component.props.options || [],
-            type: getTypeFromComponent(component),
-        })) || [];
-
-    const followupState = useFollowup(questions as FollowupQuestion[], onSubmit);
+    const focusRef = useRef<HTMLParagraphElement>(null);
+    const followupState = useFollowup(questions, onSubmit);
     const { handleAbort, handleNext, step, submitted } = followupState;
     const { followupStarted, setFollowupStarted, setFollowupSubmitted } = useFeedbackContext();
+
+    useEffect(() => {
+        if (step.number === 0) {
+            return;
+        }
+        focusRef.current && focusRef.current.focus();
+    }, [step]);
 
     useEffect(() => {
         setFollowupSubmitted(submitted);
     }, [submitted, setFollowupSubmitted]);
 
-    if (!questionComponents?.length) {
-        console.warn("Followup requires at least one Question as its children");
-        return null;
-    }
-
+    const QuestionComponent = getQuestionFromType(questions[step.number].type);
     const Button = step.isLast ? PrimaryButton : SecondaryButton;
 
     if (noThanks) {
@@ -74,20 +67,21 @@ export const Followup = ({ children, onSubmit }: Props) => {
                 </div>
             )}
             {!submitted && followupStarted && (
-                <div className="jkl-feedback__fade-in">
-                    <p className="jkl-feedback__step-counter">
+                <form onSubmit={handleNext} className="jkl-feedback__fade-in">
+                    <p className="jkl-feedback__step-counter" ref={focusRef}>
                         Steg {step.number + 1} av {questions.length}
                     </p>
-                    {questionComponents[step.number]}
-                    <div className="jkl-layout-spacing--medium-top">
-                        <Button onClick={() => handleNext()}>{step.isLast ? "Send inn" : "Neste"}</Button>
+                    {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
+                    <QuestionComponent {...questions[step.number]} autoFocus />
+                    <div className="jkl-layout-spacing--medium-top" aria-live="off">
+                        <Button type="submit">{step.isLast ? "Send inn" : "Neste"}</Button>
                         <TertiaryButton onClick={handleAbort} className="jkl-layout-spacing--medium-left">
                             Avbryt
                         </TertiaryButton>
                     </div>
-                </div>
+                </form>
             )}
-            {submitted && successMessage}
+            {submitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
         </FollowUpProvider>
     );
 };

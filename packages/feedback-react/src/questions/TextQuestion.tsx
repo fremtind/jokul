@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useMemo } from "react";
+import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 
 import { QuestionProps } from "../types";
@@ -10,10 +10,18 @@ export const TextQuestion: React.VFC<QuestionProps> = ({
     label,
     name,
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
+    autoFocus = false,
 }) => {
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
+    const ref = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => {
+        if (autoFocus && ref.current) {
+            ref.current.focus();
+        }
+    }, [autoFocus, ref]);
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         const value: FeedbackAnswer = {
@@ -40,6 +48,7 @@ export const TextQuestion: React.VFC<QuestionProps> = ({
 
     return (
         <TextArea
+            ref={ref}
             variant="large"
             label={label}
             name={name || label}

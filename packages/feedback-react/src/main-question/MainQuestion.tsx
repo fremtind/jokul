@@ -3,35 +3,37 @@ import cn from "classnames";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 
-import { FeedbackType } from "../types";
+import { FeedbackOption, FeedbackType } from "../types";
 import { useMainQuestion } from "./useMainQuestion";
-import { getChildrenOfType } from "../utils";
+import { getQuestionFromType } from "../utils";
 import { MainQuestionContextProvider } from "./mainQuestionContext";
-import { RadioQuestion, SliderQuestion, AddonQuestion } from "../questions";
+import { AddonQuestion } from "../questions";
 import { useFeedbackContext } from "../feedbackContext";
 import { FeedbackSuccess } from "../FeedbackSuccess";
 
-const getQuestionComponents = getChildrenOfType(SliderQuestion, RadioQuestion);
-const getAddonQuestions = getChildrenOfType(AddonQuestion);
-const getSuccessMessages = getChildrenOfType(FeedbackSuccess);
-
-const defaultSuccessMessage = (
-    <FeedbackSuccess title="Takk for tilbakemeldingen!">
-        Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre
-        for deg og alle andre som bruker dem.
-    </FeedbackSuccess>
-);
+const defaultSuccessMessage = {
+    title: "Takk for tilbakemeldingen!",
+    children:
+        "Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker dem.",
+};
 
 interface Props {
-    children: ReactNode;
+    type: "slider" | "radio";
+    label: string;
+    options: FeedbackOption[];
+    addOnQuestion?: {
+        label: string;
+        helpLabel?: string;
+    };
+    successMessage?: {
+        title: string;
+        children: ReactNode;
+    };
     onSubmit: (value: FeedbackType) => void;
 }
 
-export const MainQuestion = ({ onSubmit, children }: Props) => {
+export const MainQuestion = ({ label, options, type, addOnQuestion, successMessage, onSubmit }: Props) => {
     const mainQuestionState = useMainQuestion(onSubmit);
-    const questionComponents = getQuestionComponents(children);
-    const addonQuestions = getAddonQuestions(children);
-    const successMessageComponents = getSuccessMessages(children);
 
     const { setFeedbackSubmitted } = useFeedbackContext();
     const { handleSubmit, currentValue, setCurrentValue, submitted } = mainQuestionState;
@@ -41,18 +43,13 @@ export const MainQuestion = ({ onSubmit, children }: Props) => {
         setFeedbackSubmitted(submitted);
     }, [submitted, setFeedbackSubmitted]);
 
-    if (!questionComponents?.length) {
-        console.warn("MainQuestion requires at least one Question as its children");
-        return null;
-    }
-
-    const sucessMessage = successMessageComponents?.[0] || defaultSuccessMessage;
+    const MainQuestionComp = getQuestionFromType(type);
 
     return (
         <>
             {!submitted && (
                 <MainQuestionContextProvider state={mainQuestionState}>
-                    {questionComponents[0]}
+                    <MainQuestionComp label={label} options={options} />
                     <div
                         ref={submitWrapperRef}
                         className={cn({
@@ -60,7 +57,7 @@ export const MainQuestion = ({ onSubmit, children }: Props) => {
                             "jkl-feedback__submit-wrapper--hidden": currentValue === undefined,
                         })}
                     >
-                        {addonQuestions?.length && addonQuestions[0]}
+                        {addOnQuestion && <AddonQuestion {...addOnQuestion} />}
                         <div className="jkl-layout-spacing--medium-top">
                             <PrimaryButton onClick={handleSubmit} className="jkl-layout-spacing--medium-right">
                                 Send
@@ -70,7 +67,7 @@ export const MainQuestion = ({ onSubmit, children }: Props) => {
                     </div>
                 </MainQuestionContextProvider>
             )}
-            {submitted && sucessMessage}
+            {submitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
         </>
     );
 };

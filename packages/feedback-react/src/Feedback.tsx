@@ -1,11 +1,9 @@
 import React, { ReactNode, useState } from "react";
 import { Followup } from "./followup/Followup";
-import { getQuestionFromType } from "./utils";
 import { MainQuestion } from "./main-question/MainQuestion";
 import { FeedbackContextProvider } from "./feedbackContext";
-import { AddonQuestion, ContactQuestion } from "./questions";
+import { ContactQuestion } from "./questions";
 import { FeedbackAnswer, FeedbackOption, FeedbackType, FollowupQuestion } from "./types";
-import { FeedbackSuccess } from "./FeedbackSuccess";
 
 interface Props {
     // Props for hoved- og tilleggsspørsmål:
@@ -42,25 +40,14 @@ interface Props {
     };
 }
 
-export const Feedback: React.VFC<Props> = ({
-    type,
-    label,
-    options,
-    addOnQuestion,
-    successMessage,
-    onSubmit,
-    followup,
-    contactQuestion,
-}) => {
+export const Feedback: React.VFC<Props> = ({ followup, contactQuestion, ...mainQuestion }) => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
     const [followupStarted, setFollowupStarted] = useState(false);
     const [followupSubmitted, setFollowupSubmitted] = useState(false);
     const [contactSubmitted, setContactSubmitted] = useState(false);
 
-    const MainQuestionComp = getQuestionFromType(type);
-
     return (
-        <div className="jkl-feedback">
+        <div className="jkl-feedback" aria-live="polite">
             <FeedbackContextProvider
                 value={{
                     feedbackSubmitted,
@@ -73,22 +60,8 @@ export const Feedback: React.VFC<Props> = ({
                     setContactSubmitted,
                 }}
             >
-                {!followupStarted && (
-                    <MainQuestion onSubmit={onSubmit}>
-                        <MainQuestionComp label={label} options={options} />
-                        {addOnQuestion && <AddonQuestion {...addOnQuestion} />}
-                        {successMessage && <FeedbackSuccess {...successMessage} />}
-                    </MainQuestion>
-                )}
-                {feedbackSubmitted && !contactSubmitted && followup && (
-                    <Followup onSubmit={followup.onSubmit}>
-                        {followup.questions.map((question) => {
-                            const Comp = getQuestionFromType(question.type);
-                            return <Comp key={question.label} {...question} />;
-                        })}
-                        {followup.successMessage && <FeedbackSuccess {...followup.successMessage} />}
-                    </Followup>
-                )}
+                {!followupStarted && <MainQuestion {...mainQuestion} />}
+                {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
                 {/* Show contact question after followup, or after feedback if no followup */}
                 {((!followup && feedbackSubmitted) || followupSubmitted) && contactQuestion && (
                     <ContactQuestion {...contactQuestion} />

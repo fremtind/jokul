@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, FormEvent, SetStateAction } from "react";
 
 export type FeedbackOption<T = string | number> = {
     label: string;
@@ -35,28 +35,6 @@ interface TextQuestion extends BaseQuestion {
 
 export type MainQuestion = RadioQuestion | SliderQuestion;
 export type FollowupQuestion = MainQuestion | TextQuestion | CheckboxQuestion;
-
-/* interface BaseFollowupQuestion {
-    label: string;
-    name?: string;
-    type: QuestionType;
-}
-
-export interface ChoiceFollowupQuestion extends BaseFollowupQuestion {
-    type: "radio" | "checkbox";
-    options: FeedbackOption[];
-}
-
-export interface SliderFeedbackQuestion extends BaseFollowupQuestion {
-    type: "slider";
-    options: FeedbackOption<number>[];
-}
-
-export interface TextFollowupQuestion extends BaseFollowupQuestion {
-    type: "text";
-}
-
-export type FollowupQuestion = ChoiceFollowupQuestion | TextFollowupQuestion | SliderFeedbackQuestion; */
 
 interface BaseFeedbackAnswer {
     label: string;
@@ -102,7 +80,7 @@ export type FollowupState = {
     currentValue?: FeedbackOption | FeedbackOption[];
     step: FollowUpStep;
     submitted: boolean;
-    handleNext: (question: BaseQuestion, value: string | string[]) => void;
+    handleNext: (e?: FormEvent<HTMLFormElement>) => void;
     handleAbort: () => void;
     setCurrentValue: Dispatch<SetStateAction<FeedbackOption | FeedbackOption[] | undefined>>;
 };
@@ -113,4 +91,5 @@ export interface QuestionProps {
     name?: string;
     helpLabel?: string;
     options?: FeedbackOption[];
+    autoFocus?: boolean;
 }

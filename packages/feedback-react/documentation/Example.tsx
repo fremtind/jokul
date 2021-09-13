@@ -34,6 +34,7 @@ const followupQuestions: FollowupQuestion[] = [
 ];
 
 const contactQuestion = {
+    withPhone: true,
     label: "Vil du være med å teste sidene våre?",
     children:
         "Vi gjennomfører jevnlig tester og intervjuer for å forbedre løsningene våre (ca. 30 minutter). Som takk for hjelpen får du et gavekort. Legg igjen din e-postadresse hvis du er interessert.",
@@ -44,7 +45,7 @@ const contactQuestion = {
 export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const followup = boolValues?.["Med oppfølgings-spørsmål"]
         ? {
-              onSubmit: console.info,
+              onSubmit: console.log,
               questions: followupQuestions,
           }
         : undefined;
@@ -59,7 +60,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             options={preset.options}
             label={preset.label}
             addOnQuestion={preset.addOnQuestion}
-            onSubmit={console.info}
+            onSubmit={console.log}
             followup={followup}
             contactQuestion={contact}
         />

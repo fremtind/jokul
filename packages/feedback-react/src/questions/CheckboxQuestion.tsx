@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler, useEffect, useRef } from "react";
 
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
@@ -6,10 +6,17 @@ import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { FeedbackOption, QuestionProps } from "../types";
 
-export const CheckboxQuestion: React.VFC<QuestionProps> = ({ label, name, options, helpLabel }) => {
+export const CheckboxQuestion: React.VFC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
+    const ref = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (autoFocus && ref.current) {
+            ref.current.focus();
+        }
+    }, [autoFocus, ref]);
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         const { value } = event.target;
@@ -40,6 +47,8 @@ export const CheckboxQuestion: React.VFC<QuestionProps> = ({ label, name, option
 
     return (
         <FieldGroup variant="large" legend={label} helpLabel={helpLabel}>
+            {/* Hidden input to bring focus inside the question */}
+            <input type="text" aria-hidden ref={ref} className="jkl-sr-only" />
             {options?.map((option) => (
                 <Checkbox
                     key={`${label}-${option.value}`}
