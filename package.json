@@ -95,7 +95,7 @@
         "jest-axe": "^5.0.1",
         "jest-watch-typeahead": "^0.6.1",
         "lerna": "^4.0.0",
-        "lerna-clean-changelogs-cli": "^1.2.64",
+        "lerna-clean-changelogs-cli": "^2.0.0",
         "lint-staged": "^11.0.0",
         "node-notifier": "^10.0.0",
         "node-sass-tilde-importer": "^1.0.2",
