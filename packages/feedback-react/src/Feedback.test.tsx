@@ -188,10 +188,59 @@ describe("Feedback", () => {
         expect(mockFn).toBeCalledTimes(1);
     });
 
-    it("is a11y compliant", async () => {
-        const { container } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
-        const inputMode = await axe(container);
+    it("submits correct contact information", () => {
+        render(
+            <Feedback
+                {...PRESETS["Fant du"]}
+                onSubmit={() => null}
+                contactQuestion={{ onSubmit: mockFn, withPhone: true }}
+            />,
+        );
 
-        expect(inputMode).toHaveNoViolations();
+        const email = "test@test.com";
+        const phone = "48484848";
+
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.click(screen.getByText("Send"));
+        userEvent.type(screen.getByLabelText("E-post"), email);
+        userEvent.type(screen.getByLabelText("Telefonnummer"), phone);
+        userEvent.click(screen.getByText("Sett meg på lista!"));
+
+        expect(mockFn).toBeCalledWith({ email, phone });
+    });
+
+    it("is accessible", async () => {
+        const { container } = render(
+            <Feedback
+                {...PRESETS["Fant du"]}
+                followup={{ questions: followUpQuestions, onSubmit: mockFn }}
+                contactQuestion={{ onSubmit: () => null }}
+                onSubmit={mockFn}
+            />,
+        );
+
+        // test main feedback
+        let results = await axe(container);
+        expect(results).toHaveNoViolations();
+
+        // test followup invitation
+        userEvent.click(screen.getByText("Ja"));
+        userEvent.click(screen.getByText("Send"));
+
+        results = await axe(container);
+        expect(results).toHaveNoViolations();
+
+        // test followup question
+        userEvent.click(screen.getByText("Jeg har tid!"));
+
+        results = await axe(container);
+        expect(results).toHaveNoViolations();
+
+        // test contact question
+        userEvent.click(screen.getByText("Neste"));
+        userEvent.click(screen.getByText("Send inn"));
+
+        results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });
