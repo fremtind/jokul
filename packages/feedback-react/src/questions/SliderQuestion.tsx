@@ -5,10 +5,13 @@ import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { QuestionProps } from "../types";
 
+const findMinValue = (number: number, lowest: number) => (number < lowest ? number : lowest);
+const findMaxValue = (number: number, highest: number) => (number > highest ? number : highest);
+
 export const SliderQuestion: React.VFC<QuestionProps> = ({ label, name, options, autoFocus = false }) => {
     const numbers = options?.map((option) => parseInt(option.value.toString()));
-    const from = numbers?.reduce((number, lowest) => (number < lowest ? number : lowest));
-    const to = numbers?.reduce((number, highest) => (number > highest ? number : highest));
+    const from = numbers?.reduce(findMinValue);
+    const to = numbers?.reduce(findMaxValue);
 
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
