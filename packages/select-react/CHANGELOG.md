@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.2 (2021-09-10)
+
+### Bug Fixes
+
+- fiks feil aria-label i Select ([b36cbf9](https://github.com/fremtind/jokul/commit/b36cbf91ccf10145ecb2646b3b75ae8140f03a51)), closes [#2126](https://github.com/fremtind/jokul/issues/2126) [#1688](https://github.com/fremtind/jokul/issues/1688)
+
 ## 6.1.0 (2021-08-24)
 
 ### Features
