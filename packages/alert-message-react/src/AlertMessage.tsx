@@ -12,6 +12,7 @@ interface Props {
     inverted?: boolean;
     maxContentWidth?: string;
     paddingLeft?: string;
+    /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
     role?: string;
     dismissed?: boolean;
     dismissAction?: {

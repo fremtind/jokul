@@ -29,6 +29,7 @@ Komponentene tar følgende props:
 -   `title`: Overskriften til meldingsboksen. `string`
 -   `fullWidth`: Angir om meldingsboksen skal ta opp hele bredden av beholderen den er inne i. `boolean`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
+-   `role`: Overstyring av `role`-attributtet. For å "skru av" standardrollen kan du bruke verdien `none presentation` ([ARIA 1.1](https://www.w3.org/TR/wai-aria-1.1/#none)). `string`
 
 En enkel bruk av meldingsboksen kan se slik ut:
 
