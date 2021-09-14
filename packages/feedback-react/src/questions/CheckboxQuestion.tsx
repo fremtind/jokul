@@ -47,14 +47,13 @@ export const CheckboxQuestion: React.VFC<QuestionProps> = ({ label, name, option
 
     return (
         <FieldGroup variant="large" legend={label} helpLabel={helpLabel}>
-            {/* Hidden input to bring focus inside the question */}
-            <input type="text" aria-hidden ref={ref} className="jkl-sr-only" />
-            {options?.map((option) => (
+            {options?.map((option, i) => (
                 <Checkbox
                     key={`${label}-${option.value}`}
                     name={name || label}
                     value={option.value.toString()}
                     onChange={handleChange}
+                    ref={i === 0 ? ref : undefined}
                 >
                     {option.label}
                 </Checkbox>

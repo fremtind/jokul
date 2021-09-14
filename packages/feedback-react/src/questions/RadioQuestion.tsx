@@ -35,17 +35,15 @@ export const RadioQuestion: React.VFC<QuestionProps> = ({ label, name, options, 
     }
 
     return (
-        <>
-            <input type="text" aria-hidden ref={ref} className="jkl-sr-only" />
-            <RadioButtons
-                variant="large"
-                legend={label}
-                name={name || label}
-                choices={options?.map(({ label, value }) => ({ label, value: value.toString() })) || []}
-                selectedValue={selectedValue}
-                onChange={handleChange}
-                helpLabel={helpLabel}
-            />
-        </>
+        <RadioButtons
+            ref={ref}
+            variant="large"
+            legend={label}
+            name={name || label}
+            choices={options?.map(({ label, value }) => ({ label, value: value.toString() })) || []}
+            selectedValue={selectedValue}
+            onChange={handleChange}
+            helpLabel={helpLabel}
+        />
     );
 };

@@ -43,18 +43,16 @@ export const SliderQuestion: React.VFC<QuestionProps> = ({ label, name, options,
     }
 
     return (
-        <>
-            <input type="text" aria-hidden ref={ref} className="jkl-sr-only" />
-            <Slider
-                variant="large"
-                label={label}
-                name={name || label}
-                value={value}
-                from={from}
-                to={to}
-                onChange={handleChange}
-            />
-        </>
+        <Slider
+            variant="large"
+            label={label}
+            name={name || label}
+            value={value}
+            from={from}
+            to={to}
+            ref={ref}
+            onChange={handleChange}
+        />
     );
 };
 
