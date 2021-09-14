@@ -37,6 +37,10 @@ interface Props {
         withPhone?: boolean;
         children?: ReactNode;
         onSubmit: (values: { email: string; phone?: string }) => void;
+        successMessage?: {
+            title: string;
+            children: ReactNode;
+        };
     };
 }
 

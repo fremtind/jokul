@@ -35,7 +35,7 @@ interface Props {
 export const MainQuestion = ({ label, options, type, addOnQuestion, successMessage, onSubmit }: Props) => {
     const mainQuestionState = useMainQuestion(onSubmit);
 
-    const { setFeedbackSubmitted } = useFeedbackContext();
+    const { setFeedbackSubmitted, contactSubmitted } = useFeedbackContext();
     const { handleSubmit, currentValue, setCurrentValue, submitted } = mainQuestionState;
     const [submitWrapperRef] = useAnimatedHeight<HTMLDivElement>(currentValue !== undefined);
 
@@ -67,7 +67,7 @@ export const MainQuestion = ({ label, options, type, addOnQuestion, successMessa
                     </div>
                 </MainQuestionContextProvider>
             )}
-            {submitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
+            {submitted && !contactSubmitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
         </>
     );
 };

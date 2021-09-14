@@ -1,8 +1,9 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, ReactNode, useEffect, useRef, useState } from "react";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { isValidEpost, isValidTelefonnummer } from "@fremtind/jkl-validators-util";
 import { useFeedbackContext } from "../feedbackContext";
+import { FeedbackSuccess } from "../FeedbackSuccess";
 
 const validateEmail = (email?: string) => {
     if (!email || email === "") {
@@ -24,12 +25,22 @@ const validatePhone = (phone?: string) => {
     return;
 };
 
+const defaultSuccessMessage = {
+    title: "Takk for tiden din!",
+    children:
+        "Neste gang vi gjennomfører intervjuer og tester kan det hende vi tar kontakt med deg. Dine innspill hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker dem.",
+};
+
 interface Props {
     label?: string;
     sendButtonLabel?: string;
     withPhone?: boolean;
     children?: ReactNode;
     onSubmit: (values: { email: string; phone?: string }) => void;
+    successMessage?: {
+        title: string;
+        children: ReactNode;
+    };
 }
 
 export const ContactQuestion = ({
@@ -37,6 +48,7 @@ export const ContactQuestion = ({
     sendButtonLabel = "Sett meg på lista!",
     withPhone = false,
     onSubmit,
+    successMessage,
     children,
 }: Props) => {
     const [email, setEmail] = useState("");
@@ -68,6 +80,9 @@ export const ContactQuestion = ({
         }
     }, [email, phone, shouldValidate, withPhone]);
 
+    const handleChange = (consumer: (value: string) => void) => (e: ChangeEvent<HTMLInputElement>) =>
+        consumer(e.target.value);
+
     const handleSubmit: React.FormEventHandler = (e) => {
         e.preventDefault();
 
@@ -87,8 +102,12 @@ export const ContactQuestion = ({
         setContactSubmitted(true);
     };
 
-    if (noThanks || contactSubmitted) {
+    if (noThanks) {
         return null;
+    }
+
+    if (contactSubmitted) {
+        return <FeedbackSuccess {...(defaultSuccessMessage || successMessage)} />;
     }
 
     return (
@@ -104,7 +123,7 @@ export const ContactQuestion = ({
                 autoComplete="email"
                 name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange(setEmail)}
                 errorLabel={errors.email}
             />
             {withPhone && (
@@ -113,10 +132,10 @@ export const ContactQuestion = ({
                     className="jkl-layout-spacing--small-top"
                     variant="small"
                     label="Telefonnummer"
-                    autoComplete="phone"
+                    autoComplete="tel"
                     name="phone"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={handleChange(setPhone)}
                     errorLabel={errors.phone}
                 />
             )}

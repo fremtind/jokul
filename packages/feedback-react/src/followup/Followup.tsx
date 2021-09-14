@@ -10,7 +10,7 @@ import { FeedbackSuccess } from "../FeedbackSuccess";
 const defaultSuccessMessage = {
     title: "Takk, igjen!",
     children:
-        "Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker den.",
+        "Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker dem.",
 };
 
 interface Props {
@@ -27,7 +27,7 @@ export const Followup = ({ questions, successMessage, onSubmit }: Props) => {
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);
     const { handleAbort, handleNext, step, submitted } = followupState;
-    const { followupStarted, setFollowupStarted, setFollowupSubmitted } = useFeedbackContext();
+    const { followupStarted, setFollowupStarted, setFollowupSubmitted, contactSubmitted } = useFeedbackContext();
 
     useEffect(() => {
         if (step.number === 0) {
@@ -81,7 +81,7 @@ export const Followup = ({ questions, successMessage, onSubmit }: Props) => {
                     </div>
                 </form>
             )}
-            {submitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
+            {submitted && !contactSubmitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
         </FollowUpProvider>
     );
 };
