@@ -22,7 +22,7 @@ interface Props {
     onSubmit: (values: FeedbackAnswer[]) => void;
 }
 
-export const Followup = ({ questions, successMessage, onSubmit }: Props) => {
+export const Followup = ({ questions, successMessage = defaultSuccessMessage, onSubmit }: Props) => {
     const [noThanks, setNoThanks] = useState(false);
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);
@@ -81,7 +81,7 @@ export const Followup = ({ questions, successMessage, onSubmit }: Props) => {
                     </div>
                 </form>
             )}
-            {submitted && !contactSubmitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
+            {submitted && !contactSubmitted && <FeedbackSuccess {...successMessage} />}
         </FollowUpProvider>
     );
 };

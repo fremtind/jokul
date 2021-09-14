@@ -48,7 +48,7 @@ export const ContactQuestion = ({
     sendButtonLabel = "Sett meg på lista!",
     withPhone = false,
     onSubmit,
-    successMessage,
+    successMessage = defaultSuccessMessage,
     children,
 }: Props) => {
     const [email, setEmail] = useState("");
@@ -107,7 +107,7 @@ export const ContactQuestion = ({
     }
 
     if (contactSubmitted) {
-        return <FeedbackSuccess {...(defaultSuccessMessage || successMessage)} />;
+        return <FeedbackSuccess {...successMessage} />;
     }
 
     return (

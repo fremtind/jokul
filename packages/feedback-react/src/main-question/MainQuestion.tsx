@@ -32,7 +32,14 @@ interface Props {
     onSubmit: (value: FeedbackType) => void;
 }
 
-export const MainQuestion = ({ label, options, type, addOnQuestion, successMessage, onSubmit }: Props) => {
+export const MainQuestion = ({
+    label,
+    options,
+    type,
+    addOnQuestion,
+    successMessage = defaultSuccessMessage,
+    onSubmit,
+}: Props) => {
     const mainQuestionState = useMainQuestion(onSubmit);
 
     const { setFeedbackSubmitted, contactSubmitted } = useFeedbackContext();
@@ -67,7 +74,7 @@ export const MainQuestion = ({ label, options, type, addOnQuestion, successMessa
                     </div>
                 </MainQuestionContextProvider>
             )}
-            {submitted && !contactSubmitted && <FeedbackSuccess {...(successMessage || defaultSuccessMessage)} />}
+            {submitted && !contactSubmitted && <FeedbackSuccess {...successMessage} />}
         </>
     );
 };

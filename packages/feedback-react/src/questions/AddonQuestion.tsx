@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEventHandler, useEffect, useState } from "react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
@@ -28,6 +28,7 @@ export const AddonQuestion: React.VFC<Props> = ({
     }
 
     const { message, setMessage } = context;
+    const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => setMessage(e.target.value);
 
     return (
         <TextArea
@@ -40,7 +41,7 @@ export const AddonQuestion: React.VFC<Props> = ({
             placeholder={dynamicLabel}
             helpLabel={helpLabel}
             value={message || ""}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={handleChange}
         />
     );
 };

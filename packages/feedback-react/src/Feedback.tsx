@@ -3,10 +3,12 @@ import { Followup } from "./followup/Followup";
 import { MainQuestion } from "./main-question/MainQuestion";
 import { FeedbackContextProvider } from "./feedbackContext";
 import { ContactQuestion } from "./questions";
-import { FeedbackAnswer, FeedbackOption, FeedbackType, FollowupQuestion } from "./types";
+import { FeedbackOption, FeedbackType } from "./types";
+
+type FollowupProps = React.ComponentProps<typeof Followup>;
+type ContactQuestionProps = React.ComponentProps<typeof ContactQuestion>;
 
 interface Props {
-    // Props for hoved- og tilleggsspørsmål:
     type: "slider" | "radio";
     label: string;
     options: FeedbackOption[];
@@ -20,31 +22,11 @@ interface Props {
     };
     onSubmit: (value: FeedbackType) => void;
 
-    // Props for oppfølgingsspørsmål:
-    followup?: {
-        questions: FollowupQuestion[];
-        onSubmit: (values: FeedbackAnswer[]) => void;
-        successMessage?: {
-            title: string;
-            children: ReactNode;
-        };
-    };
-
-    // Props for kontaktinfo:
-    contactQuestion?: {
-        label?: string;
-        sendButtonLabel?: string;
-        withPhone?: boolean;
-        children?: ReactNode;
-        onSubmit: (values: { email: string; phone?: string }) => void;
-        successMessage?: {
-            title: string;
-            children: ReactNode;
-        };
-    };
+    followup?: FollowupProps;
+    contactQuestion?: ContactQuestionProps;
 }
 
-export const Feedback: React.VFC<Props> = ({ followup, contactQuestion, ...mainQuestion }) => {
+export const Feedback: React.VFC<Props> = ({ followup, contactQuestion, ...mainQuestionProps }) => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
     const [followupStarted, setFollowupStarted] = useState(false);
     const [followupSubmitted, setFollowupSubmitted] = useState(false);
@@ -64,7 +46,7 @@ export const Feedback: React.VFC<Props> = ({ followup, contactQuestion, ...mainQ
                     setContactSubmitted,
                 }}
             >
-                {!followupStarted && <MainQuestion {...mainQuestion} />}
+                {!followupStarted && <MainQuestion {...mainQuestionProps} />}
                 {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
                 {/* Show contact question after followup, or after feedback if no followup */}
                 {((!followup && feedbackSubmitted) || followupSubmitted) && contactQuestion && (
