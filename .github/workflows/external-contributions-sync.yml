@@ -1,0 +1,24 @@
+name: Main to External
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    Main-to-External:
+        name: Sync external-contributions with main
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2.3.4
+              with:
+                  fetch-depth: 0 # fetch the whole repo so we can checkout and sync between branches
+
+            - name: Switch
+              run: git switch external-contributions
+
+            - name: Rebase
+              run: git rebase main
+
+            - name: Push
+              run: git push
