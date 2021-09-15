@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.2 (2021-09-15)
+
+### Bug Fixes
+
+- add back className prop to Feedback ([bc24e54](https://github.com/fremtind/jokul/commit/bc24e5412caacdaefe5b35d99ceb36db63b78c93))
+
 ## 8.0.1 (2021-09-15)
 
 ### Bug Fixes
