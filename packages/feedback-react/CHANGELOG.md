@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.3 (2021-09-15)
+
+### Bug Fixes
+
+- add missing dependencies ([4f0b7ae](https://github.com/fremtind/jokul/commit/4f0b7ae6d0e33b19c74380aab7b4d27df229103a))
+
 ## 8.0.2 (2021-09-15)
 
 ### Bug Fixes
