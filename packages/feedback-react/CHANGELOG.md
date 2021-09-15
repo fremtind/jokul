@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.1 (2021-09-15)
+
+### Bug Fixes
+
+- **radio-question:** inline when less than three options ([4273c46](https://github.com/fremtind/jokul/commit/4273c46181f0ccedece3303e71a416beb8355d4c))
+
 ## 8.0.0 (2021-09-15)
 
 ### Features
