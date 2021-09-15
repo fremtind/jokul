@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.0 (2021-09-15)
+
+### Features
+
+- add forwardRef to radio buttons ([24856c3](https://github.com/fremtind/jokul/commit/24856c3474af68247831c3e7cd14bb55ada82222))
+
 ## 4.1.0 (2021-09-07)
 
 ### Features
