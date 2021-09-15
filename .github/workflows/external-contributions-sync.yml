@@ -18,7 +18,7 @@ jobs:
               run: git switch external-contributions
 
             - name: Rebase
-              run: git rebase main
+              run: git merge main
 
             - name: Push
               run: git push
