@@ -9,6 +9,8 @@ export const RadioQuestion: React.VFC<QuestionProps> = ({ label, name, options, 
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
 
+    const numOptions = options?.length || 0;
+
     const ref = useRef<HTMLInputElement>(null);
     useEffect(() => {
         if (autoFocus && ref.current) {
@@ -38,6 +40,7 @@ export const RadioQuestion: React.VFC<QuestionProps> = ({ label, name, options, 
         <RadioButtons
             ref={ref}
             variant="large"
+            inline={numOptions < 3}
             legend={label}
             name={name || label}
             choices={options?.map(({ label, value }) => ({ label, value: value.toString() })) || []}
