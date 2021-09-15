@@ -20,7 +20,7 @@ export function GitHubLinks({ react, scss }: Props) {
     if (!react && !scss) {
         return null;
     }
-    const pkgLink = (pkgName: string) => `https://github.com/fremtind/jokul/tree/master/packages/${pkgName}`;
+    const pkgLink = (pkgName: string) => `https://github.com/fremtind/jokul/tree/main/packages/${pkgName}`;
 
     return (
         <p className="jkl-portal-github-links">
