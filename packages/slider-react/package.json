@@ -1,13 +1,12 @@
 {
-    "name": "@fremtind/jkl-feedback-react",
-    "version": "7.0.11",
-    "publishConfig": {
-        "access": "public"
-    },
-    "description": "Jøkul react feedback component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "name": "@fremtind/jkl-slider-react",
+    "version": "1.0.0",
+    "description": "> TODO: description",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
-        "feedback",
+        "slider",
+        "range",
+        "form",
         "jøkul",
         "fremtind"
     ],
@@ -28,22 +27,15 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-slider yarn build:watch",
         "dev:js": "parcel documentation/index.html",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-feedback yarn build:watch",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-button-react": "^5.0.6",
-        "@fremtind/jkl-core": "^7.1.0",
-        "@fremtind/jkl-feedback": "^6.0.3",
-        "@fremtind/jkl-message-box-react": "^4.1.0",
-        "@fremtind/jkl-radio-button-react": "^4.1.0",
-        "@fremtind/jkl-react-hooks": "^5.0.3",
-        "@fremtind/jkl-slider-react": "^1.0.0",
-        "@fremtind/jkl-text-input-react": "^6.1.0",
-        "classnames": "^2.2.6",
-        "nanoid": "^3.1.22"
+        "@fremtind/jkl-core": "^7.0.2",
+        "@fremtind/jkl-slider": "^1.0.0",
+        "classnames": "^2.3.1",
+        "nanoid": "^3.1.25"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
@@ -51,12 +43,14 @@
         "react": "^16.8.6 || ^17.0.0",
         "react-dom": "^16.8.6 || ^17.0.0"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    }
 }

@@ -1,47 +1,58 @@
-import React, { FC, Fragment, useContext, useState } from "react";
-import { nanoid } from "nanoid";
-import { ScreenReaderOnly } from "@fremtind/jkl-core";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { BaseFeedback, BaseFeedbackProps, FeedbackContext } from "./BaseFeedback";
-import { Smiley } from "./Smiley";
-import { transformToValuePair } from "./utils";
+import React, { ReactNode, useState } from "react";
+import { Followup } from "./followup/Followup";
+import { MainQuestion } from "./main-question/MainQuestion";
+import { FeedbackContextProvider } from "./feedbackContext";
+import { ContactQuestion } from "./questions";
+import { FeedbackOption, FeedbackType } from "./types";
 
-const FeedbackContent = () => {
-    const { description, options, value, setValue } = useContext(FeedbackContext);
-    const [id] = useState(nanoid(8));
+type FollowupProps = React.ComponentProps<typeof Followup>;
+type ContactQuestionProps = React.ComponentProps<typeof ContactQuestion>;
+
+interface Props {
+    type: "slider" | "radio";
+    label: string;
+    options: FeedbackOption[];
+    addOnQuestion?: {
+        label: string;
+        helpLabel?: string;
+    };
+    successMessage?: {
+        title: string;
+        children: ReactNode;
+    };
+    onSubmit: (value: FeedbackType) => void;
+
+    followup?: FollowupProps;
+    contactQuestion?: ContactQuestionProps;
+}
+
+export const Feedback: React.VFC<Props> = ({ followup, contactQuestion, ...mainQuestionProps }) => {
+    const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+    const [followupStarted, setFollowupStarted] = useState(false);
+    const [followupSubmitted, setFollowupSubmitted] = useState(false);
+    const [contactSubmitted, setContactSubmitted] = useState(false);
 
     return (
-        <FieldGroup legend={description} className="jkl-feedback__fieldset" variant="medium">
-            {options?.map((option) => {
-                const { label, value: optionValue } = transformToValuePair(option);
-                const radioButtonId = `${id}-feedback--${optionValue}`;
-
-                return (
-                    <Fragment key={optionValue}>
-                        <input
-                            className="jkl-feedback__answer-input"
-                            type="radio"
-                            name="feedback"
-                            id={radioButtonId}
-                            value={optionValue}
-                            onChange={() => setValue(optionValue)}
-                            checked={value === optionValue}
-                        />
-                        <label
-                            data-testid={`feedback-${optionValue}`}
-                            className="jkl-feedback__answer-label"
-                            htmlFor={radioButtonId}
-                        >
-                            <Smiley element={optionValue} />
-                            <ScreenReaderOnly>{label}</ScreenReaderOnly>
-                        </label>
-                    </Fragment>
-                );
-            })}
-        </FieldGroup>
+        <div className="jkl-feedback" aria-live="polite">
+            <FeedbackContextProvider
+                value={{
+                    feedbackSubmitted,
+                    followupStarted,
+                    followupSubmitted,
+                    contactSubmitted,
+                    setFeedbackSubmitted,
+                    setFollowupStarted,
+                    setFollowupSubmitted,
+                    setContactSubmitted,
+                }}
+            >
+                {!followupStarted && <MainQuestion {...mainQuestionProps} />}
+                {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
+                {/* Show contact question after followup, or after feedback if no followup */}
+                {((!followup && feedbackSubmitted) || followupSubmitted) && contactQuestion && (
+                    <ContactQuestion {...contactQuestion} />
+                )}
+            </FeedbackContextProvider>
+        </div>
     );
-};
-
-export const Feedback: FC<BaseFeedbackProps> = (props) => {
-    return <BaseFeedback {...props} content={<FeedbackContent />} />;
 };
