@@ -9,6 +9,7 @@ type FollowupProps = React.ComponentProps<typeof Followup>;
 type ContactQuestionProps = React.ComponentProps<typeof ContactQuestion>;
 
 interface Props {
+    className?: string;
     type: "slider" | "radio";
     label: string;
     options: FeedbackOption[];
@@ -26,14 +27,14 @@ interface Props {
     contactQuestion?: ContactQuestionProps;
 }
 
-export const Feedback: React.VFC<Props> = ({ followup, contactQuestion, ...mainQuestionProps }) => {
+export const Feedback: React.VFC<Props> = ({ className, followup, contactQuestion, ...mainQuestionProps }) => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
     const [followupStarted, setFollowupStarted] = useState(false);
     const [followupSubmitted, setFollowupSubmitted] = useState(false);
     const [contactSubmitted, setContactSubmitted] = useState(false);
 
     return (
-        <div className="jkl-feedback" aria-live="polite">
+        <div className={`jkl-feedback ${className || ""}`} aria-live="polite">
             <FeedbackContextProvider
                 value={{
                     feedbackSubmitted,
