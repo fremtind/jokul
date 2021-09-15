@@ -1,14 +1,11 @@
-## 📥 Proposed changes
+<!--
+Forklar formålet med endringene dine og hvorfor de er nødvendige her. Om det er beskrevet allerede i et issue må du lenke til det. Utdyp gjerne hvorfor løsningen din ser ut som den gjør, alternativer du vurderte eller prøvde underveis, og så videre.
+-->
 
-Describe the big picture of your changes here to communicate to the maintainers why we should accept this pull request. If it fixes a bug or resolves a feature request, be sure to link to that issue.
+## ☑️ Sjekkliste
 
-## ☑️ Submission checklist
-
--   [ ] I have read the [CONTRIBUTING](https://github.com/fremtind/jokul/blob/main/CONTRIBUTING.md) doc
--   [ ] `yarn build` works locally with my changes
--   [ ] I have added tests that prove my fix is effective or that my feature works
--   [ ] I have added necessary documentation (if appropriate)
-
-## 💬 Further comments
-
-If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did, what alternatives you considered, etc...
+-   [ ] Jeg har lest [CONTRIBUTING](https://github.com/fremtind/jokul/blob/main/CONTRIBUTING.md) og dokumentasjon det henvises til
+-   [ ] Jeg har satt target branch til `main`, eller `external-contributions` dersom pull requesten kommer fra en fork
+-   [ ] Jeg har kjørt `yarn build` og `yarn ci:test` og disse gir ingen feil
+-   [ ] Jeg har lagt til tester som demonstrerer at feilen er rettet eller featuren fungerer
+-   [ ] Jeg har skrevet relevant dokumentasjon
