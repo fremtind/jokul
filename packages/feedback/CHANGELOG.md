@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-09-15)
+
+### Features
+
+- new feedback component with followup questions ([998eb30](https://github.com/fremtind/jokul/commit/998eb3045270d42b3bc97c143bdae12714d1b6d0))
+
+### BREAKING CHANGES
+
+- Partially new API for the component
+
 ## 6.0.0 (2021-07-09)
 
 ### Features

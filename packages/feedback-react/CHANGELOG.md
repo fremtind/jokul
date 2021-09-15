@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.0 (2021-09-15)
+
+### Features
+
+- add success message after submitting contact info ([82c7783](https://github.com/fremtind/jokul/commit/82c7783c7359e17b6488e903797034c56a62ac9d))
+- new feedback component with followup questions ([998eb30](https://github.com/fremtind/jokul/commit/998eb3045270d42b3bc97c143bdae12714d1b6d0))
+- provide better experience for keyboard nav and screen reader ([20a8a98](https://github.com/fremtind/jokul/commit/20a8a98c75fa0bb6dc69641714e2ab440774213d))
+
+### BREAKING CHANGES
+
+- Partially new API for the component
+
 ## 7.0.8 (2021-09-03)
 
 ### Bug Fixes
