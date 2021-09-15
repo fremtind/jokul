@@ -51,7 +51,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
 
     const metaDescription = site.siteMetadata.description;
     const siteTitle = site.siteMetadata.title;
-    const title = pageContext.frontmatter?.title || "Jøkul Designsystem";
+    const pageTitle = pageContext.frontmatter?.title;
 
     return (
         <div className="jkl jkl-portal">
@@ -59,8 +59,8 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
                 htmlAttributes={{
                     lang: "no",
                 }}
-                title={title}
-                titleTemplate={siteTitle ? `%s | ${siteTitle}` : undefined}
+                title={pageTitle || siteTitle}
+                titleTemplate={pageTitle && siteTitle ? `%s | ${siteTitle}` : undefined}
                 meta={[
                     {
                         name: `description`,
@@ -68,7 +68,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
                     },
                     {
                         property: `og:title`,
-                        content: title,
+                        content: pageTitle,
                     },
                     {
                         property: `og:description`,
@@ -84,7 +84,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
                     },
                     {
                         name: `twitter:title`,
-                        content: title,
+                        content: pageTitle,
                     },
                     {
                         name: `twitter:description`,
