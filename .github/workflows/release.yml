@@ -48,13 +48,16 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: Publish packages to GitHub Packages
+            - name: Switch registry
               if: ${{ success() }}
               uses: actions/setup-node@v2
               with:
                   registry-url: "https://npm.pkg.github.com"
                   # Defaults to the user or organization that owns the workflow file
                   scope: "@fremtind"
+
+            - name: Publish packages to GitHub Packages
+              if: ${{ success() }}
               run: yarn release-gh --yes
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
