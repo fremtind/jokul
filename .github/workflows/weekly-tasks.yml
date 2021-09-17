@@ -1,0 +1,35 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Weekly tasks
+on:
+  schedule:
+    - cron: 00 05 * * 0
+
+jobs:
+  create_issue:
+    name: Create weekly issue to upgrade dependencies
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name:  Create weekly issue to upgrade dependencies
+        uses: imjohnbo/issue-bot@v3.3.3
+        with:
+          assignees: "espkva, henrikhermansen, joms, kennidenni, mikaila94, piofinn, saegrov, sercansercan, wkillerud"
+          rotate-assignees: true
+          labels: "dependencies"
+          projects: 'Kjerneteamet'
+          title: "Weekly dependency update"
+          body: |
+            ### Agenda
+
+            - [ ] Use the command ```yarn upgrade-interactive``` to evaluate and upgrade packages.
+            - [ ] For major upgrades that requires more work, create a separate issue.
+                    
+          pinned: true
+          close-previous: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
