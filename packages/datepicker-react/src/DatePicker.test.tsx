@@ -1,8 +1,8 @@
 import { act, render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
 import { axe } from "jest-axe";
 import React from "react";
+
 import { DatePicker } from ".";
 
 describe("Datepicker", () => {
@@ -30,7 +30,62 @@ describe("Datepicker", () => {
         });
 
         expect(input).toHaveProperty("value", "01.12.2019");
-        expect(changeHandler).toHaveBeenCalledWith(new Date(2019, 11, 1));
+        expect(changeHandler).toHaveBeenLastCalledWith(new Date(2019, 11, 1), undefined, {
+            error: undefined,
+            value: "01.12.2019",
+        });
+    });
+
+    it("fires onChange method on edit input with wrong format", async () => {
+        const changeHandler = jest.fn();
+        render(<DatePicker onChange={changeHandler} />);
+        const input = screen.getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+
+        await act(async () => {
+            userEvent.clear(input);
+            await userEvent.type(input, "1.1", { delay: 5 });
+        });
+
+        expect(input).toHaveProperty("value", "1.1");
+
+        expect(changeHandler).toHaveBeenLastCalledWith(undefined, undefined, { error: "WRONG_FORMAT", value: "1.1" });
+    });
+
+    it("fires onChange method on edit input with date outside lower bound", async () => {
+        const changeHandler = jest.fn();
+        const lowerBound = new Date(2021, 8, 20);
+        render(<DatePicker onChange={changeHandler} disableBeforeDate={lowerBound} />);
+        const input = screen.getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+
+        await act(async () => {
+            userEvent.clear(input);
+            await userEvent.type(input, "19.09.2021", { delay: 5 });
+        });
+
+        expect(changeHandler).toHaveBeenLastCalledWith(new Date(2021, 8, 19), undefined, {
+            error: "OUTSIDE_LOWER_BOUND",
+            value: "19.09.2021",
+        });
+    });
+
+    it("fires onChange method on edit input with date outside upper bound", async () => {
+        const changeHandler = jest.fn();
+        const upperBound = new Date(2021, 8, 20);
+        render(<DatePicker onChange={changeHandler} disableAfterDate={upperBound} />);
+        const input = screen.getByTestId("jkl-datepicker__input");
+        expect(input).toHaveProperty("value", "");
+
+        await act(async () => {
+            userEvent.clear(input);
+            await userEvent.type(input, "21.09.2021", { delay: 5 });
+        });
+
+        expect(changeHandler).toHaveBeenLastCalledWith(new Date(2021, 8, 21), undefined, {
+            error: "OUTSIDE_UPPER_BOUND",
+            value: "21.09.2021",
+        });
     });
 
     it("fires onChange method with undefined when text input is cleared", async () => {
@@ -49,8 +104,11 @@ describe("Datepicker", () => {
         });
 
         expect(input).toHaveProperty("value", "");
-        expect(changeHandler).toHaveBeenCalledWith(new Date(2019, 11, 1));
-        expect(changeHandler).toHaveBeenCalledWith(undefined);
+        expect(changeHandler).toHaveBeenCalledWith(new Date(2019, 11, 1), undefined, {
+            error: undefined,
+            value: "01.12.2019",
+        });
+        expect(changeHandler).toHaveBeenCalledWith(undefined, undefined, { error: undefined, value: "" });
     });
 
     it("should change date on new props", () => {
@@ -295,7 +353,10 @@ describe("Datepicker", () => {
             userEvent.click(screen.getByText("31"));
         });
 
-        expect(onChangeFn).toHaveBeenCalledWith(new Date(2019, 9, 31));
+        expect(onChangeFn).toHaveBeenCalledWith(new Date(2019, 9, 31), undefined, {
+            error: undefined,
+            value: "31.10.2019",
+        });
         expect(onChangeFn).toHaveBeenCalledTimes(1);
 
         jest.useRealTimers();
@@ -479,18 +540,21 @@ describe("after user types string", () => {
 });
 
 describe("a11y", () => {
-    it("datepicker should be a11y compliant", async () => {
+    it("default datepicker should be a11y compliant", async () => {
         const { container } = render(<DatePicker initialShow />);
-        const collapsed = await axe(container);
+        const results = await axe(container);
 
-        expect(collapsed).toHaveNoViolations();
+        expect(results).toHaveNoViolations();
+    });
 
-        const expanded = await axe(container, {
+    it("extended datepicker should be a11y compliant", async () => {
+        const { container } = render(<DatePicker extended initialShow />);
+        const results = await axe(container, {
             rules: {
                 "form-field-multiple-labels": { enabled: false },
             },
         });
 
-        expect(expanded).toHaveNoViolations();
+        expect(results).toHaveNoViolations();
     });
 });

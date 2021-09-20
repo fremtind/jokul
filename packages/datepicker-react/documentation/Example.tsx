@@ -14,8 +14,6 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
-    const logDate = (message: string) => (date: Date | undefined) => console.log(message, date);
-
     return (
         <DatePicker
             label="Velg startdato for forsikringen"
@@ -27,9 +25,11 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
             helpLabel={helpLabel}
             disableBeforeDate={new Date(Date.now() - monthsIsh(2))}
             disableAfterDate={new Date(Date.now() + monthsIsh(5))}
-            onFocus={logDate("hello from onFocus")}
-            onBlur={logDate("hello from onBlur")}
-            onChange={logDate("hello from onChange")}
+            onFocus={(date) => console.log("hello from onFocus", date)}
+            onBlur={(date) => console.log("hello from onBlur", date)}
+            onChange={(date, _, meta) => {
+                console.log("hello from onChange", date, meta);
+            }}
         />
     );
 };
