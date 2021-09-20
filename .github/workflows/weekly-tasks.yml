@@ -6,7 +6,7 @@
 name: Weekly tasks
 on:
   schedule:
-    - cron: 00 05 * * 0
+    - cron: 00 05 * * 1
 
 jobs:
   create_issue:
@@ -21,7 +21,7 @@ jobs:
           assignees: "espkva, henrikhermansen, joms, kennidenni, mikaila94, piofinn, saegrov, sercansercan, wkillerud"
           rotate-assignees: true
           labels: "dependencies"
-          projects: 'Kjerneteamet'
+          project: "Kjerneteamet"
           title: "Weekly dependency update"
           body: |
             ### Agenda

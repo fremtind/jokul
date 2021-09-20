@@ -3368,10 +3368,10 @@
   resolved "https://registry.yarnpkg.com/@nrk/core-dialog/-/core-dialog-3.0.7.tgz#d8a8ad80a507197981603a411b81c2d309d4af66"
   integrity sha512-gjdJJbTlwnETAZmJQPuZfzgZW463KSVdpo6POVg28/NmUjmv9IseG0XKyfBLGgOQn9jhMTKFsT8BrNwZQ9KU3g==
 
-"@nrk/core-toggle@3.0.8":
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/@nrk/core-toggle/-/core-toggle-3.0.8.tgz#1f79b0fe1b99bc128b15d4dca5c684c27a8e5829"
-  integrity sha512-N2GG3zl8xTbqOP3tLBt1TUCqMAXVB47dDdLS/L+oep9X6UqfRlJzyLSRvXUwZNFUAn+TXo2zEaq6G5fHaEza0w==
+"@nrk/core-toggle@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@nrk/core-toggle/-/core-toggle-3.1.0.tgz#ec1db32381344704a8cc1851bf3aab1bf7dc3eac"
+  integrity sha512-8vBZNgtCQsMuqpn5Dyfsp9PS8FO+NJ8/n4SCb3k8PJF5/JNgfs1fBYYnzzI6WjADM39cjBLqxTLxt7W0+g8CCw==
 
 "@octokit/auth-token@^2.4.4":
   version "2.4.5"
