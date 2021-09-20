@@ -3358,10 +3358,10 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
-"@nrk/core-datepicker@3.0.8":
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-3.0.8.tgz#7e3905d9b9b9c0d6709bd6fae49c7e94c365d160"
-  integrity sha512-3j8O/RyonYBuTymPrphA+G9CnwOJnb4+HHNRyFHNgx3AHYXhwm5sbl+A+QJwPk4nkTXhmFtfnyODsm3vqHQM7Q==
+"@nrk/core-datepicker@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-3.1.0.tgz#66351649eaa7ffbf807b745c078f3968c5c9ee4d"
+  integrity sha512-m8z/dLJ5mLZRbWuoXRDENcC3qrta8y6uVgwEI6gag3BbjOlAGxM1mX+qzZR+sF5XjzeQEzgbwRwcDiLEZmJUCQ==
 
 "@nrk/core-dialog@^3.0.7":
   version "3.0.7"
