@@ -16,7 +16,7 @@ jobs:
       issues: write
     steps:
       - name:  Create weekly issue to upgrade dependencies
-        uses: imjohnbo/issue-bot@v3.3.3
+        uses: imjohnbo/issue-bot@v3.3.4
         with:
           assignees: "espkva, henrikhermansen, joms, kennidenni, mikaila94, piofinn, saegrov, sercansercan, wkillerud"
           rotate-assignees: true
