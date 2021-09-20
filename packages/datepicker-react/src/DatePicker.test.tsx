@@ -23,9 +23,10 @@ describe("Datepicker", () => {
         render(<DatePicker onChange={changeHandler} />);
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
+
         await act(async () => {
-            await userEvent.clear(input);
-            await userEvent.type(input, "01.12.2019");
+            userEvent.clear(input);
+            await userEvent.type(input, "01.12.2019", { delay: 5 });
         });
 
         expect(input).toHaveProperty("value", "01.12.2019");
@@ -39,26 +40,17 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "");
 
         await act(async () => {
-            await userEvent.clear(input);
-            await userEvent.type(input, "01.12.2019");
+            userEvent.clear(input);
+            await userEvent.type(input, "01.12.2019", { delay: 5 });
         });
 
         act(() => {
             userEvent.clear(input);
         });
+
         expect(input).toHaveProperty("value", "");
         expect(changeHandler).toHaveBeenCalledWith(new Date(2019, 11, 1));
         expect(changeHandler).toHaveBeenCalledWith(undefined);
-    });
-
-    it("does not fire onChange on edit input with invalid date", () => {
-        const changeHandler = jest.fn();
-        render(<DatePicker onChange={changeHandler} />);
-        const input = screen.getByTestId("jkl-datepicker__input");
-        expect(input).toHaveProperty("value", "");
-        userEvent.type(input, "a random string");
-        expect(input).toHaveProperty("value", "a random string");
-        expect(changeHandler).toHaveBeenCalledTimes(0);
     });
 
     it("should change date on new props", () => {
@@ -79,12 +71,14 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "");
     });
 
-    it("resets value when opening calendar, if it is set outside scope from input field", () => {
+    it("resets value when opening calendar, if it is set outside scope from input field", async () => {
         render(<DatePicker disableBeforeDate={new Date("09.12.2020")} />);
         const input = screen.getByTestId("jkl-datepicker__input");
 
-        userEvent.type(input, "08.12.2019");
-        userEvent.click(input);
+        await act(async () => {
+            await userEvent.type(input, "08.12.2019", { delay: 5 });
+            userEvent.click(input);
+        });
 
         expect(input).toHaveProperty("value", "");
     });
@@ -107,7 +101,9 @@ describe("Datepicker", () => {
 
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
 
-        userEvent.click(input);
+        act(() => {
+            userEvent.click(input);
+        });
 
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
     });
@@ -117,13 +113,13 @@ describe("Datepicker", () => {
         const input = screen.getByLabelText("Some datepicker");
 
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
-
-        userEvent.click(input);
-
+        act(() => {
+            userEvent.click(input);
+        });
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
-
-        userEvent.click(document.body);
-
+        act(() => {
+            userEvent.click(document.body);
+        });
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
     });
 
@@ -137,34 +133,35 @@ describe("Datepicker", () => {
         const input = screen.getByLabelText("Some datepicker");
 
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
-
-        userEvent.click(input);
-
+        act(() => {
+            userEvent.click(input);
+        });
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
 
         // Run userEvent.tab() 5 times to navigate out of datepicker. Progresses into the <button> element rendered above.
-        userEvent.tab();
-        userEvent.tab();
-        userEvent.tab();
-        userEvent.tab();
-        userEvent.tab();
-
+        act(() => {
+            userEvent.tab();
+            userEvent.tab();
+            userEvent.tab();
+            userEvent.tab();
+            userEvent.tab();
+        });
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
     });
 
-    it("should close the calendar when a valid date is entered in the field", () => {
+    it("should close the calendar when a valid date is entered in the field", async () => {
         render(<DatePicker label="Some datepicker" />);
         const input = screen.getByLabelText("Some datepicker");
 
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
-
-        userEvent.click(input);
-
+        act(() => {
+            userEvent.click(input);
+        });
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
-
-        // Enter a valid date into the field
-        userEvent.type(input, "14.10.1986");
-
+        await act(async () => {
+            // Enter a valid date into the field
+            await userEvent.type(input, "14.10.1986", { delay: 5 });
+        });
         expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
     });
 
@@ -172,7 +169,9 @@ describe("Datepicker", () => {
         render(<DatePicker label="Some datepicker" />);
         const input = screen.getByLabelText("Some datepicker");
 
-        userEvent.click(input);
+        act(() => {
+            userEvent.click(input);
+        });
 
         expect(document.activeElement).toBe(input);
     });
@@ -183,7 +182,9 @@ describe("Datepicker", () => {
         render(<DatePicker label="Some datepicker" />);
         const openCalendarButtonElement = screen.getByText("Åpne kalender");
 
-        userEvent.click(openCalendarButtonElement);
+        act(() => {
+            userEvent.click(openCalendarButtonElement);
+        });
         jest.runAllTimers();
 
         const todayButtonElement = screen.getByText("20");
@@ -201,8 +202,8 @@ describe("Datepicker", () => {
         await act(async () => {
             userEvent.click(input);
 
-            await userEvent.clear(input);
-            await userEvent.type(input, "01.09.2020");
+            userEvent.clear(input);
+            await userEvent.type(input, "01.09.2020", { delay: 5 });
         });
 
         expect(input).toHaveValue("01.09.2020");
@@ -223,9 +224,8 @@ describe("Datepicker", () => {
 
         await act(async () => {
             userEvent.click(input);
-
-            await userEvent.clear(input);
-            await userEvent.type(input, "01.09.2020");
+            userEvent.clear(input);
+            await userEvent.type(input, "01.09.2020", { delay: 5 });
         });
 
         expect(input).toHaveValue("01.09.2020");
@@ -246,13 +246,13 @@ describe("Datepicker", () => {
         await act(async () => {
             userEvent.click(input);
 
-            await userEvent.clear(input);
-            await userEvent.type(input, "01.09.2020");
+            userEvent.clear(input);
+            await userEvent.type(input, "01.09.2020", { delay: 5 });
         });
 
         expect(input).toHaveValue("01.09.2020");
 
-        await act(async () => {
+        act(() => {
             userEvent.click(toggleCalendarButtonElement); // Close calendar
             userEvent.click(toggleCalendarButtonElement); // Open calendar
         });
@@ -268,8 +268,8 @@ describe("Datepicker", () => {
         await act(async () => {
             userEvent.click(input);
 
-            await userEvent.clear(input);
-            await userEvent.type(input, "02.09.2020");
+            userEvent.clear(input);
+            await userEvent.type(input, "02.09.2020", { delay: 5 });
         });
 
         expect(input).toHaveValue("02.09.2020");
@@ -363,7 +363,9 @@ describe("Datepicker", () => {
 
         const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
 
-        userEvent.click(toggleCalendarButtonElement);
+        act(() => {
+            userEvent.click(toggleCalendarButtonElement);
+        });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
     });
@@ -386,7 +388,7 @@ describe("Datepicker", () => {
         expect(onBlur).toHaveBeenCalledTimes(1);
     });
 
-    it("should not call onBlur when focus changes inside the component and be called once when focus leaves component", async () => {
+    it("should not call onBlur when focus changes inside the component and be called once when focus leaves component", () => {
         const onBlur = jest.fn();
         jest.useFakeTimers("modern").setSystemTime(new Date(2019, 9, 20));
 
@@ -401,8 +403,6 @@ describe("Datepicker", () => {
         const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
         act(() => {
             userEvent.click(input);
-            userEvent.clear(input);
-            userEvent.type(input, "01.09.2019");
             userEvent.click(toggleCalendarButtonElement); // Close calendar
         });
 
@@ -468,9 +468,9 @@ describe("after user types string", () => {
         const input = screen.getByLabelText("Velg dato");
 
         await act(async () => {
-            await userEvent.click(input);
-            await userEvent.type(input, "01.01.2021");
-            await userEvent.click(screen.getByText("Click")); // Click button outside component
+            userEvent.click(input);
+            await userEvent.type(input, "01.01.2021", { delay: 5 });
+            userEvent.click(screen.getByText("Click")); // Click button outside component
         });
 
         expect(onBlur).toHaveBeenCalledTimes(1);
@@ -479,21 +479,18 @@ describe("after user types string", () => {
 });
 
 describe("a11y", () => {
-    it("default datepicker should be a11y compliant", async () => {
+    it("datepicker should be a11y compliant", async () => {
         const { container } = render(<DatePicker initialShow />);
-        const results = await axe(container);
+        const collapsed = await axe(container);
 
-        expect(results).toHaveNoViolations();
-    });
+        expect(collapsed).toHaveNoViolations();
 
-    it("extended datepicker should be a11y compliant", async () => {
-        const { container } = render(<DatePicker extended initialShow />);
-        const results = await axe(container, {
+        const expanded = await axe(container, {
             rules: {
                 "form-field-multiple-labels": { enabled: false },
             },
         });
 
-        expect(results).toHaveNoViolations();
+        expect(expanded).toHaveNoViolations();
     });
 });
