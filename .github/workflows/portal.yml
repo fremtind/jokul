@@ -24,6 +24,17 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-yarn-
 
+            - name: Caching Gatsby
+              id: gatsby-cache-build
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      portal/public
+                      portal/.cache
+                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-
+
             - name: Build and Deploy
               if: "!contains(github.event.head_commit.message, '[ci skip release]')"
               env:
