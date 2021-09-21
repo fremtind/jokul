@@ -12,7 +12,7 @@ const NotFoundPage = () => (
         className="jkl-portal__main"
     >
         <h1 className="jkl-title jkl-spacing--bottom-3 jkl-spacing--top-3">Oj sann, der fikk du en blank side!</h1>
-        <p className="jkl-body">
+        <p className="jkl-portal-paragraph">
             Det beklager vi. Du kan prøve å:
             <ul>
                 <li>
