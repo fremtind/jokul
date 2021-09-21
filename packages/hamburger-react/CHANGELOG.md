@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.6 (2021-09-21)
+
+### Bug Fixes
+
+- rett en typefeil i Hamburger sin onClick ([9fe7e9e](https://github.com/fremtind/jokul/commit/9fe7e9e1125bfcedcadd0faa043e096ddb198d9f))
+
 ## 5.2.0 (2021-08-05)
 
 ### Bug Fixes
