@@ -1,26 +1,94 @@
-import React, { createContext, useState, ReactNode, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
+
+export type MenuItemList = Array<MenuItem>;
+
+export type MenuItem = RootItem | LeafItem;
+
+export interface LeafItem {
+    linkText: string;
+    content: string;
+    basePath?: string;
+}
+export const isLeafItem = (item: MenuItem): item is LeafItem => typeof item.content === "string";
+
+export interface RootItem {
+    linkText: string;
+    content: MenuItemList;
+    basePath?: string;
+}
+export const isRootItem = (item: MenuItem): item is RootItem => typeof item.content !== "string";
 
 interface FSMenuContextProps {
-    menuIsOpen: string;
-    setMenuIsOpen: React.Dispatch<React.SetStateAction<string>>;
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+    currentItem: RootItem | null;
+    setCurrentItem: React.Dispatch<React.SetStateAction<RootItem | null>>;
+    history: ReadonlyArray<RootItem>;
+    pushHistory: (menuItem: RootItem) => void;
+    popHistory: () => RootItem | undefined;
+    peekHistory: () => RootItem | undefined;
 }
+
 const fullscreenMenuContext = createContext<FSMenuContextProps>({
-    menuIsOpen: "",
-    setMenuIsOpen: () => null,
+    isOpen: false,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    setIsOpen(_) {
+        return;
+    },
+    currentItem: null,
+    setCurrentItem: () => null,
+    history: [],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    pushHistory(_) {
+        return;
+    },
+    popHistory() {
+        return undefined;
+    },
+    peekHistory() {
+        return undefined;
+    },
 });
 
-export function useFullscreenMenu() {
+export function useFullscreenMenuContext() {
     return useContext(fullscreenMenuContext);
 }
 
-interface Props {
-    children: ReactNode;
-}
-export function FSMenuContextProvider({ children }: Props) {
-    const [menuIsOpen, setMenuIsOpen] = useState("");
+export const FSMenuContextProvider: React.FC = ({ children }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [currentItem, setCurrentItem] = useState<RootItem | null>(null);
+
+    const [history, setHistory] = useState<RootItem[]>([]);
+    const pushHistory = (menuItem: RootItem) => {
+        history.push(menuItem);
+        setHistory(history);
+    };
+    const popHistory = () => {
+        const menuItem = history.pop();
+        setHistory(history);
+        return menuItem;
+    };
+    const peekHistory = () => {
+        if (history.length === 0) {
+            return undefined;
+        }
+        return history[history.length - 1];
+    };
+
     return (
-        <fullscreenMenuContext.Provider value={{ menuIsOpen, setMenuIsOpen }}>
+        <fullscreenMenuContext.Provider
+            value={{
+                isOpen,
+                setIsOpen,
+                currentItem,
+                setCurrentItem,
+                history,
+                popHistory,
+                peekHistory,
+                pushHistory,
+            }}
+        >
             {children}
         </fullscreenMenuContext.Provider>
     );
-}
+};
