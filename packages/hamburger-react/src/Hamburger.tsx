@@ -15,6 +15,7 @@ interface Props {
         animated?: boolean;
         position?: "before" | "after";
     };
+    "aria-controls"?: string;
 }
 
 export const Hamburger = ({
@@ -24,11 +25,11 @@ export const Hamburger = ({
     description = "Hovedmeny",
     className,
     actionLabel,
+    "aria-controls": ariaControls,
 }: Props) => {
     const componentClassname = classnames(
         "jkl-hamburger",
         {
-            "jkl-hamburger--is-open": isOpen,
             "jkl-hamburger--inverted": inverted,
             "jkl-hamburger--label-before": actionLabel?.position === "before",
             "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
@@ -46,7 +47,10 @@ export const Hamburger = ({
             aria-label={description}
             onClick={onClick}
             className={componentClassname}
+            aria-expanded={isOpen || undefined}
+            aria-haspopup="menu"
             data-testid="jkl-hamburger"
+            aria-controls={ariaControls}
         >
             <span className="jkl-hamburger__lines"></span>
             {actionLabel && (
