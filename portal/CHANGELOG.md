@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.0 (2021-09-15)
+
+### Features
+
+- add new Slider component to Jøkul ([2cb471f](https://github.com/fremtind/jokul/commit/2cb471f8985d10bda91040b254f898c58e41f0ea))
+
+## 5.1.0 (2021-09-13)
+
+### Features
+
+- prop for å styre role på MessageBox ([87646ae](https://github.com/fremtind/jokul/commit/87646ae6437cb368aa6567e637d59ab2ab923b71)), closes [#1687](https://github.com/fremtind/jokul/issues/1687)
+
+## 5.0.8 (2021-09-03)
+
+### Bug Fixes
+
+- fixed font color in footer ([#2170](https://github.com/fremtind/jokul/issues/2170)) ([c70c6a7](https://github.com/fremtind/jokul/commit/c70c6a7894b7637e457e319420512ea88b1a060a))
+
 ## 5.0.7 (2021-09-02)
 
 ### Bug Fixes
@@ -803,4 +821,4 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 
 ### Reverts
 
--   **dropdown:** rebase to master without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))
+-   **dropdown:** rebase to main without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))

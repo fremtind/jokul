@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.4 (2021-09-22)
+
+### Bug Fixes
+
+- change duplicate default success message ([6f498eb](https://github.com/fremtind/jokul/commit/6f498eb9f5e9683076353b26a16ca962bdfbe3b1))
+
+## 8.0.3 (2021-09-15)
+
+### Bug Fixes
+
+- add missing dependencies ([4f0b7ae](https://github.com/fremtind/jokul/commit/4f0b7ae6d0e33b19c74380aab7b4d27df229103a))
+
+## 8.0.2 (2021-09-15)
+
+### Bug Fixes
+
+- add back className prop to Feedback ([bc24e54](https://github.com/fremtind/jokul/commit/bc24e5412caacdaefe5b35d99ceb36db63b78c93))
+
+## 8.0.1 (2021-09-15)
+
+### Bug Fixes
+
+- **radio-question:** inline when less than three options ([4273c46](https://github.com/fremtind/jokul/commit/4273c46181f0ccedece3303e71a416beb8355d4c))
+
+## 8.0.0 (2021-09-15)
+
+### Features
+
+- add success message after submitting contact info ([82c7783](https://github.com/fremtind/jokul/commit/82c7783c7359e17b6488e903797034c56a62ac9d))
+- new feedback component with followup questions ([998eb30](https://github.com/fremtind/jokul/commit/998eb3045270d42b3bc97c143bdae12714d1b6d0))
+- provide better experience for keyboard nav and screen reader ([20a8a98](https://github.com/fremtind/jokul/commit/20a8a98c75fa0bb6dc69641714e2ab440774213d))
+
+### BREAKING CHANGES
+
+- Partially new API for the component
+
+## 7.0.8 (2021-09-03)
+
+### Bug Fixes
+
+- default variant should be small ([ce1c05b](https://github.com/fremtind/jokul/commit/ce1c05bd9344f03b41ea23068d0f66e20714d134))
+
 ## 7.0.6 (2021-08-30)
 
 ### Bug Fixes

@@ -1,4 +1,4 @@
-import { Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
+import { DataTestAutoId, Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
@@ -7,17 +7,25 @@ import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMe
 import { Calendar } from "./Calendar";
 import { formatDate, getInitialDate } from "./dateFunctions";
 import { useCalendarId, useDisableDate } from "./internal/hooks";
-import { createReducer } from "./internal/reducer";
+import { createReducer, DateValidationError } from "./internal/reducer";
 
 export interface ChangeDate {
     date: Date;
 }
 
-type onChangeEventHandler = (date?: Date, e?: ChangeEvent) => void;
+type DatePickerMetadata = {
+    error: DateValidationError | undefined;
+    value: string;
+};
+
+type onChangeEventHandler =
+    | ((date?: Date, e?: ChangeEvent) => void)
+    | ((date: Date | undefined, e: ChangeEvent | undefined, meta: DatePickerMetadata) => void);
+
 type onBlurEventHandler = (date?: Date, e?: FocusEvent) => void;
 type onFocusEventHandler = (date?: Date, e?: FocusEvent) => void;
 
-interface Props {
+interface Props extends DataTestAutoId {
     name?: string;
     label?: string;
     monthLabel?: string;
@@ -71,6 +79,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             helpLabel,
             errorLabel,
             width = "11.5rem",
+            "data-testautoid": testAutoId,
             ...calendarProps
         },
         ref,
@@ -94,6 +103,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             date: initialDateState,
             calendarHidden: !initialShow,
             dateString: initialDateState ? formatDate(initialDateState) : "",
+            error: undefined,
         });
 
         const componentClassName = classNames(
@@ -135,7 +145,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             handleFocusChange(fn)(e);
         };
 
-        const handleOnChange = (e: FocusEvent<HTMLInputElement>) => {
+        const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
             dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
         };
 
@@ -150,9 +160,9 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
 
         useEffect(() => {
             if (!isFirstRenderRef.current && onChange) {
-                onChange(state.date);
+                onChange(state.date, undefined, { error: state.error, value: state.dateString });
             }
-        }, [state.date, onChange]);
+        }, [state.date, state.dateString, state.error, onChange]);
 
         useEffect(() => {
             if (!isFirstRenderRef.current) {
@@ -186,6 +196,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                         placeholder={placeholder}
                         width={width}
                         type="text"
+                        data-testautoid={testAutoId}
                     />
                     <IconButton
                         className="jkl-text-input__action-button"

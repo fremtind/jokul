@@ -31,6 +31,18 @@ describe("FieldGroup", () => {
         const { container } = render(<FieldGroup legend="Hello" className="this-is--a-class"></FieldGroup>);
         expect(container.firstChild).toHaveClass("this-is--a-class");
     });
+    it("should have data-testautoid", () => {
+        render(
+            <FieldGroup
+                legend="Hello"
+                className="this-is--a-class"
+                data-testautoid="jkl-fieldgroup__testautoid"
+            ></FieldGroup>,
+        );
+        const fieldGroup = document.getElementsByClassName("this-is--a-class")[0];
+        const testAutoId = fieldGroup.getAttribute("data-testautoid");
+        expect(testAutoId).toEqual("jkl-fieldgroup__testautoid");
+    });
 });
 
 describe("a11y", () => {

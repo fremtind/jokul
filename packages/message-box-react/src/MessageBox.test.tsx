@@ -27,11 +27,23 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
+    it("InfoMessage should have role `status` by default", async () => {
+        render(<InfoMessage title="info">Lorem Ipsum</InfoMessage>);
+        const message = screen.getByRole("status");
+        expect(message).toBeTruthy();
+    });
+
     it("ErrorMessage should be a11y compliant", async () => {
         const { container } = render(<ErrorMessage title="error">Lorem Ipsum</ErrorMessage>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
+    });
+
+    it("ErrorMessage should have role `alert` by default", async () => {
+        render(<ErrorMessage title="error">Lorem Ipsum</ErrorMessage>);
+        const message = screen.getByRole("alert");
+        expect(message).toBeTruthy();
     });
 
     it("WarningMessage should be a11y compliant", async () => {
@@ -41,10 +53,32 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
+    it("WarningMessage should have role `status` by default", async () => {
+        render(<WarningMessage title="warning">Lorem Ipsum</WarningMessage>);
+        const message = screen.getByRole("alert");
+        expect(message).toBeTruthy();
+    });
+
     it("SuccessMessage should be a11y compliant", async () => {
         const { container } = render(<SuccessMessage title="success">Lorem Ipsum</SuccessMessage>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
+    });
+
+    it("SuccessMessage should have role `status` by default", async () => {
+        render(<SuccessMessage title="success">Lorem Ipsum</SuccessMessage>);
+        const message = screen.getByRole("status");
+        expect(message).toBeTruthy();
+    });
+
+    it("should have a role equal to the given prop", async () => {
+        render(
+            <InfoMessage title="info" role="none presentation">
+                Lorem Ipsum
+            </InfoMessage>,
+        );
+        const message = screen.getByRole("none");
+        expect(message).toBeTruthy();
     });
 });

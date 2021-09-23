@@ -4,7 +4,7 @@ import classnames from "classnames";
 
 interface Props {
     isOpen: boolean;
-    onClick: () => void;
+    onClick: (() => void) | ((evt: React.MouseEvent) => void);
     className?: string;
     /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
     inverted?: boolean;

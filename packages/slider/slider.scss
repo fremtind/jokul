@@ -1,0 +1,129 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/variables/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
+
+$jkl-slider-thumb-height: rem(32px);
+
+@include jkl.helper-light-mode-variables {
+    --jkl-slider-track-color: #{jkl.$color-svaberg};
+    --jkl-slider-progress-color: #{jkl.$color-stein};
+    --jkl-slider-progress-color--feil: #{jkl.$color-feil};
+    --jkl-slider-thumb-color: #{jkl.$color-granitt};
+    --jkl-slider-number-color: #{jkl.$color-stein};
+    --jkl-slider-number-color--selected: #{jkl.$color-granitt};
+}
+@include jkl.helper-dark-mode-variables {
+    --jkl-slider-track-color: #{jkl.$color-stein};
+    --jkl-slider-progress-color: #{jkl.$color-svaberg};
+    --jkl-slider-progress-color--feil: #{jkl.$color-feil--darkbg};
+    --jkl-slider-thumb-color: #{jkl.$color-snohvit};
+    --jkl-slider-number-color: #{jkl.$color-svaberg};
+    --jkl-slider-number-color--selected: #{jkl.$color-snohvit};
+}
+
+@mixin slider-track {
+    width: 100%;
+    height: rem(3px);
+    cursor: pointer;
+}
+
+@mixin slider-thumb {
+    cursor: pointer;
+    width: rem(8px);
+    border-radius: 0;
+    height: $jkl-slider-thumb-height;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    background-color: jkl.$color-granitt;
+    background-color: var(--jkl-slider-thumb-color);
+}
+
+.jkl-slider {
+    width: 100%;
+
+    &__slider {
+        width: 100%;
+        height: $jkl-slider-thumb-height;
+        -webkit-appearance: none;
+        background: transparent;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            @include slider-thumb();
+            transform: translate3d(0, #{rem(-12px)}, 0);
+        }
+
+        &::-webkit-slider-runnable-track {
+            @include slider-track();
+            background-color: jkl.$color-sand;
+            background-color: var(--jkl-slider-track-color);
+            box-shadow: inset var(--progress-width, 0px) 0px 0px 0px var(--jkl-slider-progress-color);
+        }
+
+        &::-moz-range-progress,
+        &::-moz-range-track {
+            @include slider-track();
+            background-color: jkl.$color-sand;
+            background-color: var(--jkl-slider-track-color);
+        }
+
+        &::-moz-range-progress {
+            background-color: jkl.$color-granitt;
+            background-color: var(--jkl-slider-progress-color);
+        }
+
+        &::-moz-range-thumb {
+            @include slider-thumb();
+        }
+
+        &::-ms-track {
+            width: 100%;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        &::-ms-thumb {
+            @include slider-thumb();
+        }
+
+        &::-ms-fill-lower {
+            background-color: jkl.$color-granitt;
+        }
+
+        &::-ms-fill-upper {
+            background-color: jkl.$color-sand;
+        }
+    }
+
+    &__values {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: $component-spacing--small;
+        width: 100%;
+    }
+
+    &__value {
+        padding: 0;
+        @include jkl.text-style("small");
+        color: jkl.$color-stein;
+        color: var(--jkl-slider-number-color);
+
+        &--current {
+            color: jkl.$color-granitt;
+            color: var(--jkl-slider-number-color--selected);
+            @include jkl.text-style("small") {
+                font-weight: jkl.$typography-weight-bold;
+            }
+        }
+    }
+
+    &--invalid {
+        --jkl-slider-progress-color: var(--jkl-slider-progress-color--feil);
+        --jkl-slider-thumb-color: var(--jkl-slider-progress-color--feil);
+    }
+}

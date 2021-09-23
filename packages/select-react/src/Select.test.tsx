@@ -621,23 +621,13 @@ describe("a11y", () => {
         const { container } = render(
             <Select searchable label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
     test("select should be a11y compliant", async () => {
         const { container } = render(<Select label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />);
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -646,13 +636,50 @@ describe("a11y", () => {
         const { container } = render(
             <Select forceCompact label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
+    });
+
+    test("aria-label should update correctly on change", async () => {
+        const onChange = jest.fn();
+        function WrappedSelect() {
+            const [value, setValue] = useState<string>();
+
+            const items = [
+                { value: "apple", label: "Apple" },
+                { value: "samsung", label: "Samsung" },
+                { value: "huawei", label: "Huawei" },
+                { value: "LG", label: "LG" },
+            ];
+
+            return (
+                <Select
+                    label="Hvilket merke er telefonen?"
+                    items={items}
+                    value={value}
+                    onChange={(value: string | undefined) => {
+                        setValue(value);
+                        onChange();
+                    }}
+                />
+            );
+        }
+
+        const screen = render(<WrappedSelect />);
+
+        const dropdownButtonElement = screen.getByText("Velg");
+        const firstItemButton = screen.getByText("Apple");
+
+        act(() => {
+            userEvent.click(dropdownButtonElement);
+        });
+
+        act(() => {
+            userEvent.click(firstItemButton);
+        });
+
+        expect(onChange).toHaveBeenCalled();
+        expect(screen.getByTestId("jkl-select__button").getAttribute("aria-label")).toContain("Apple");
     });
 });

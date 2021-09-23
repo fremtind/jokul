@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.4 (2021-09-09)
+
+### Bug Fixes
+
+- retter strekfarge for invertert jkl-button--tertiary ([8a6a43e](https://github.com/fremtind/jokul/commit/8a6a43e7aafb1cf1878333e908f8cc96a6afd177)), closes [#1593](https://github.com/fremtind/jokul/issues/1593)
+
 ## 4.0.0 (2021-07-09)
 
 ### Features

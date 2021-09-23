@@ -34,6 +34,7 @@ Komponenten tar følgende props:
 -   `maxContentWidth`: Setter maks bredde på innholdet. Innholdet vil søke mot senter av siden `string`
 -   `paddingLeft`: Setter padding på venstre side av innholdet. `string`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
+-   `role`: Overstyring av `role`-attributtet. For å "skru av" standardrollen kan du bruke verdien `none presentation` ([ARIA 1.1](https://www.w3.org/TR/wai-aria-1.1/#none)). `string`
 
 En enkel bruk av meldingsboksen kan se slik ut:
 
