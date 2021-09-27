@@ -4,7 +4,7 @@ import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
 import CoreToggle from "@nrk/core-toggle/jsx";
 import cx from "classnames";
 import { navigate } from "gatsby";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
@@ -52,6 +52,19 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
             setCurrentItem(rootItem);
         }
     };
+
+    useEffect(() => {
+        const escapeListener = (event: globalThis.KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsOpen(false);
+            }
+        };
+        window.addEventListener<"keyup">("keyup", escapeListener);
+
+        return () => {
+            window.removeEventListener<"keyup">("keyup", escapeListener);
+        };
+    }, [setIsOpen]);
 
     return (
         <nav className={cx("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
