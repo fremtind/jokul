@@ -25,7 +25,9 @@ describe("Select", () => {
 
         const button = screen.getByTestId("jkl-select__button");
 
-        userEvent.click(button);
+        act(() => {
+            userEvent.click(button);
+        });
         expect(screen.getByText("drop")).toBeVisible();
     });
 
@@ -34,7 +36,9 @@ describe("Select", () => {
 
         const button = screen.getByTestId("jkl-select__button");
 
-        userEvent.type(button, "{arrowdown}");
+        act(() => {
+            userEvent.type(button, "{arrowdown}");
+        });
         expect(screen.getByText("drop")).toBeVisible();
     });
 
