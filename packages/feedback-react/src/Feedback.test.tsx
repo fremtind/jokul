@@ -104,7 +104,7 @@ describe("Feedback", () => {
         expect(mockFn).toBeCalledTimes(1);
     });
 
-    it("does not call followup onSubmit function on unload if no answers given", () => {
+    it("does not call followup onSubmit function on unload if no answers given", async () => {
         const { unmount } = render(
             <Feedback
                 {...PRESETS["Fant du"]}
@@ -115,6 +115,9 @@ describe("Feedback", () => {
 
         userEvent.click(screen.getByText("Ja"));
         userEvent.click(screen.getByText("Send"));
+
+        await screen.findByText("Jeg har tid!");
+
         userEvent.click(screen.getByText("Jeg har tid!"));
 
         unmount();
@@ -122,7 +125,7 @@ describe("Feedback", () => {
         expect(mockFn).toBeCalledTimes(0);
     });
 
-    it("calls followup onSubmit function on unload with only answered questions", () => {
+    it("calls followup onSubmit function on unload with only answered questions", async () => {
         const { unmount } = render(
             <Feedback
                 {...PRESETS["Fant du"]}
@@ -133,6 +136,9 @@ describe("Feedback", () => {
 
         userEvent.click(screen.getByText("Ja"));
         userEvent.click(screen.getByText("Send"));
+
+        await screen.findByText("Jeg har tid!");
+
         userEvent.click(screen.getByText("Jeg har tid!"));
         userEvent.click(screen.getByText("Tungvindt"));
         userEvent.click(screen.getByText("Neste"));
@@ -143,7 +149,7 @@ describe("Feedback", () => {
         expect(mockFn.mock.calls[0][0][0].value).toEqual("tungvindt");
     });
 
-    it("calls followup onSubmit function on submitting final question", () => {
+    it("calls followup onSubmit function on submitting final question", async () => {
         render(
             <Feedback
                 {...PRESETS["Fant du"]}
@@ -154,6 +160,9 @@ describe("Feedback", () => {
 
         userEvent.click(screen.getByText("Ja"));
         userEvent.click(screen.getByText("Send"));
+
+        await screen.findByText("Jeg har tid!");
+
         userEvent.click(screen.getByText("Jeg har tid!"));
 
         userEvent.click(screen.getByText("Tungvindt"));
@@ -161,14 +170,17 @@ describe("Feedback", () => {
 
         userEvent.click(screen.getByText("God informasjon"));
         userEvent.click(screen.getByText("At det ser fint ut"));
+
         userEvent.click(screen.getByText("Send inn"));
+
+        await screen.findByText("Takk, igjen!");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0][0].value).toEqual("tungvindt");
         expect(mockFn.mock.calls[0][0][1].value).toEqual(["info", "utseende"]);
     });
 
-    it("does not call followup onSubmit function on unload if already submitted", () => {
+    it("does not call followup onSubmit function on unload if already submitted", async () => {
         const { unmount } = render(
             <Feedback
                 {...PRESETS["Fant du"]}
@@ -179,16 +191,21 @@ describe("Feedback", () => {
 
         userEvent.click(screen.getByText("Ja"));
         userEvent.click(screen.getByText("Send"));
+
+        await screen.findByText("Jeg har tid!");
+
         userEvent.click(screen.getByText("Jeg har tid!"));
         userEvent.click(screen.getByText("Neste"));
         userEvent.click(screen.getByText("Send inn"));
+
+        await screen.findByText("Takk, igjen!");
 
         unmount();
 
         expect(mockFn).toBeCalledTimes(1);
     });
 
-    it("submits correct contact information", () => {
+    it("submits correct contact information", async () => {
         render(
             <Feedback
                 {...PRESETS["Fant du"]}
@@ -202,6 +219,9 @@ describe("Feedback", () => {
 
         userEvent.click(screen.getByText("Ja"));
         userEvent.click(screen.getByText("Send"));
+
+        await screen.findByText("E-post");
+
         userEvent.type(screen.getByLabelText("E-post"), email);
         userEvent.type(screen.getByLabelText("Telefonnummer"), phone);
         userEvent.click(screen.getByText("Sett meg på lista!"));
