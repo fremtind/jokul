@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.4 (2021-09-22)
+
+### Bug Fixes
+
+- change duplicate default success message ([6f498eb](https://github.com/fremtind/jokul/commit/6f498eb9f5e9683076353b26a16ca962bdfbe3b1))
+
 ## 8.0.3 (2021-09-15)
 
 ### Bug Fixes

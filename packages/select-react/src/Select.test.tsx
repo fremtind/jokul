@@ -25,7 +25,9 @@ describe("Select", () => {
 
         const button = screen.getByTestId("jkl-select__button");
 
-        userEvent.click(button);
+        act(() => {
+            userEvent.click(button);
+        });
         expect(screen.getByText("drop")).toBeVisible();
     });
 
@@ -34,7 +36,9 @@ describe("Select", () => {
 
         const button = screen.getByTestId("jkl-select__button");
 
-        userEvent.type(button, "{arrowdown}");
+        act(() => {
+            userEvent.type(button, "{arrowdown}");
+        });
         expect(screen.getByText("drop")).toBeVisible();
     });
 
@@ -621,23 +625,13 @@ describe("a11y", () => {
         const { container } = render(
             <Select searchable label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
     test("select should be a11y compliant", async () => {
         const { container } = render(<Select label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />);
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -646,12 +640,7 @@ describe("a11y", () => {
         const { container } = render(
             <Select forceCompact label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });

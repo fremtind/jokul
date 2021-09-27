@@ -64,12 +64,24 @@ Du kan sette en forhåndsvalgt dato med `initialDate`. Dersom ingen dato er valg
 ```
 
 ## Event Handling
-DatePicker-komponenten mottar tre event-funksjoner (onFocus, onChange og onBlur). 
-Disse eventene returnerer et native event-objekt og et Date-objekt. Begge parametrene er optional. 
+
+DatePicker-komponenten mottar tre event-funksjoner (onFocus, onChange og onBlur). Disse eventene returnerer et native event-objekt og et Date-objekt. Begge parametrene er optional.
+
+`onChange` returnerer i tillegg et `meta`-objekt med verdiene `error: "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND"` og `value: string`. Du kan bruke `error` til å velge hvilken feilmeldingstekst du viser til brukeren og `value` om du ønsker å bruke inputfeltets verdi i feilmeldingen.
 
 ```jsx
-<DatePicker 
-    onChange = {(date) => { handleChange(date); }} 
-    onBlur = {(date, e) => { updateValue(date, e); }} 
-/>;
+<DatePicker
+    onChange={(date, e, meta) => {
+        handleChange(date);
+        if (meta.error) {
+            handleError(meta.error);
+        }
+    }}
+    onFocus={(date, e) => {
+        handleFocus(date);
+    }}
+    onBlur={(date, e) => {
+        updateValue(date);
+    }}
+/>
 ```
