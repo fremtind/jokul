@@ -58,8 +58,6 @@ jobs:
 
             - name: Publish packages to GitHub Packages
               if: ${{ success() }}
-              run: |
-                echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PACKAGES_PAT }}" >> ~/.npmrc
-                yarn release-gh --yes
+              run: yarn release-gh --yes
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GH_PACKAGES_PAT }}
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
