@@ -10,7 +10,7 @@
         "jøkul",
         "fremtind"
     ],
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
