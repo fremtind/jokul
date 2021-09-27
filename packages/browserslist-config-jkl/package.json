@@ -10,7 +10,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "license": "MIT",
     "main": "index.js",
     "files": [
