@@ -76,6 +76,8 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                                 className={cx("jkl-portal-main-menu__root-link", {
                                     "jkl-portal-main-menu__root-link--active": currentItem?.linkText === item.linkText,
                                 })}
+                                aria-haspopup="menu"
+                                aria-expanded={currentItem?.linkText === item.linkText ? "true" : undefined}
                                 onClick={(e) => {
                                     if (!isOpen) {
                                         setIsOpen(true);
@@ -100,7 +102,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                 popup={true}
                 hidden={!isOpen}
             >
-                <div className="jkl-portal-main-menu__menu-wrapper">
+                <div className="jkl-portal-main-menu__menu-wrapper" role="menu">
                     {isSmallScreen && previousItem && (
                         <button
                             data-text={previousItem.linkText}
