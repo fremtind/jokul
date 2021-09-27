@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Simple validator-functions to use for validating",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "validators",
         "utils",
