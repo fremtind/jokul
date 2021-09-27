@@ -28,6 +28,10 @@
     "dependencies": {
         "@fremtind/jkl-core": "^7.1.0"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     }
