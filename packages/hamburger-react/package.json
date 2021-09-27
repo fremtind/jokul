@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "5.3.0",
+    "version": "5.3.1",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react hamburger component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "hamburger",
         "jøkul",
@@ -34,10 +34,10 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-content-toggle": "^1.2.4",
-        "@fremtind/jkl-content-toggle-react": "^1.2.6",
-        "@fremtind/jkl-hamburger": "^6.0.0",
-        "@fremtind/jkl-react-hooks": "^5.0.3"
+        "@fremtind/jkl-content-toggle": "^1.2.5",
+        "@fremtind/jkl-content-toggle-react": "^1.2.7",
+        "@fremtind/jkl-hamburger": "^6.0.1",
+        "@fremtind/jkl-react-hooks": "^5.0.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

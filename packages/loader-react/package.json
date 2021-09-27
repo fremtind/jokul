@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-loader-react",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react loader component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "loader",
         "jøkul",
@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-loader": "^4.0.3",
+        "@fremtind/jkl-loader": "^4.0.4",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
