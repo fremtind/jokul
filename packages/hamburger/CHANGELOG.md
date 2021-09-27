@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-09-27)
+
+### Code Refactoring
+
+- use aria-expanded attr to control appearance ([de1ee5a](https://github.com/fremtind/jokul/commit/de1ee5a9d0e2835f063a3224d79db22694ac9715))
+
+### BREAKING CHANGES
+
+- It is no longer possible to use the jkl-hamburger--is-open class to change the appearance of the
+hamburger menu. Use aria-expanded="true" instead
+
 ## 5.2.0 (2021-08-05)
 
 ### Features
