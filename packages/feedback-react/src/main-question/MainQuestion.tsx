@@ -14,7 +14,7 @@ import { FeedbackSuccess } from "../FeedbackSuccess";
 const defaultSuccessMessage = {
     title: "Takk for tilbakemeldingen!",
     children:
-        "Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker dem.",
+        "Husk at vi ikke kan besvare meldinger fra dette skjemaet. Kontakt gjerne din forsikringsrådgiver om du har flere spørsmål.",
 };
 
 interface Props {
