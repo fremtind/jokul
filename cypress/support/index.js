@@ -18,6 +18,18 @@ Cypress.Commands.add("checkInput", (inputName) => {
     cy.get(`input[name=${inputName}]`).first().check();
 });
 
+Cypress.Commands.add("openSelect", (inputName) => {
+    cy.get(`button[name=${inputName}-btn]`).first().click();
+});
+
+Cypress.Commands.add("selectValue", (value) => {
+    cy.get(`button[value=${value}]`).first().click();
+});
+
+Cypress.Commands.add("focusSelectValue", (value) => {
+    cy.get(`button[value=${value}]`).first().focus();
+});
+
 Cypress.Commands.add("focusInput", (inputName) => {
     cy.get(`input[name=${inputName}]`).first().focus();
 });
