@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.6 (2021-09-28)
+
+### Bug Fixes
+
+- adjust font size in full screen menu ([405d132](https://github.com/fremtind/jokul/commit/405d1328da72760e8659732bb22a3866d8cc0bb6))
+
 ## 5.2.5 (2021-09-28)
 
 ### Bug Fixes
