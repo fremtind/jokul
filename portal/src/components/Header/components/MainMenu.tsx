@@ -4,13 +4,14 @@ import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
 import CoreToggle from "@nrk/core-toggle/jsx";
 import cx from "classnames";
 import { navigate } from "gatsby";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 
 import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
 
 import "./MainMenu.scss";
+import { MainMenuItem } from "./MainMenuItem";
 
 interface MainMenuProps {
     className?: string;
@@ -80,17 +81,58 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                     isOpen={isOpen}
                 />
             )}
+            <CoreToggle
+                forwardRef={menuRef}
+                className={cx("jkl-portal-main-menu__overlay", {
+                    "jkl-portal-main-menu__overlay--open": isOpen,
+                })}
+                popup={true}
+                hidden={!isOpen}
+            >
+                <div className="jkl-portal-main-menu__menu-wrapper">
+                    {isSmallScreen && (
+                        <>
+                            {previousItem && (
+                                <button
+                                    data-text={previousItem.linkText}
+                                    aria-label={`Tilbake til ${previousItem.linkText}`}
+                                    className="jkl-portal-main-menu__back-button"
+                                    onClick={onNavigateBackward}
+                                >
+                                    ←
+                                </button>
+                            )}
+                            <ul className="jkl-portal-main-menu__menu-items" role="menu">
+                                {currentItem &&
+                                    currentItem.content.map((item, idx) => (
+                                        <FullScreenMenuItem
+                                            onClick={(evt) => {
+                                                if (isLeafItem(item)) {
+                                                    navigate(item.content);
+                                                    setIsOpen(false);
+                                                } else {
+                                                    onNavigateForward(item, evt);
+                                                }
+                                            }}
+                                            item={item}
+                                            key={item.linkText}
+                                            controls={controls}
+                                            idx={idx}
+                                        />
+                                    ))}
+                            </ul>
+                        </>
+                    )}
+                </div>
+            </CoreToggle>
             {!isSmallScreen && (
                 <ul className="jkl-portal-main-menu__root-list">
                     {items.map((item) => (
                         <li className="jkl-portal-main-menu__root-item" key={`main-menu-${item.linkText}`}>
-                            <button
-                                data-testid={`full-screen-menu--${item.linkText}`}
-                                className={cx("jkl-portal-main-menu__root-link", {
-                                    "jkl-portal-main-menu__root-link--active": currentItem?.linkText === item.linkText,
-                                })}
-                                aria-haspopup="menu"
-                                aria-expanded={currentItem?.linkText === item.linkText ? "true" : undefined}
+                            <MainMenuItem
+                                isActive={currentItem?.linkText === item.linkText}
+                                isOpen={isOpen && currentItem?.linkText === item.linkText}
+                                label={item.linkText}
                                 onClick={(e) => {
                                     if (!isOpen) {
                                         setIsOpen(true);
@@ -101,52 +143,27 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                                     onNavigateForward(item as RootItem, e);
                                 }}
                             >
-                                {item.linkText}
-                            </button>
+                                {(item as RootItem).content.map((item, idx) => (
+                                    <FullScreenMenuItem
+                                        onClick={(evt) => {
+                                            if (isLeafItem(item)) {
+                                                navigate(item.content);
+                                                setIsOpen(false);
+                                            } else {
+                                                onNavigateForward(item, evt);
+                                            }
+                                        }}
+                                        item={item}
+                                        key={item.linkText}
+                                        controls={controls}
+                                        idx={idx}
+                                    />
+                                ))}
+                            </MainMenuItem>
                         </li>
                     ))}
                 </ul>
             )}
-            <CoreToggle
-                forwardRef={menuRef}
-                className={cx("jkl-portal-main-menu__overlay", {
-                    "jkl-portal-main-menu__overlay--open": isOpen,
-                })}
-                popup={true}
-                hidden={!isOpen}
-            >
-                <div className="jkl-portal-main-menu__menu-wrapper" role="menu">
-                    {isSmallScreen && previousItem && (
-                        <button
-                            data-text={previousItem.linkText}
-                            aria-label={`Tilbake til ${previousItem.linkText}`}
-                            className="jkl-portal-main-menu__back-button"
-                            onClick={onNavigateBackward}
-                        >
-                            ←
-                        </button>
-                    )}
-                    <ul className="jkl-portal-main-menu__menu-items">
-                        {currentItem &&
-                            currentItem.content.map((item, idx) => (
-                                <FullScreenMenuItem
-                                    onClick={(evt) => {
-                                        if (isLeafItem(item)) {
-                                            navigate(item.content);
-                                            setIsOpen(false);
-                                        } else {
-                                            onNavigateForward(item, evt);
-                                        }
-                                    }}
-                                    item={item}
-                                    key={item.linkText}
-                                    controls={controls}
-                                    idx={idx}
-                                />
-                            ))}
-                    </ul>
-                </div>
-            </CoreToggle>
         </nav>
     );
 };
