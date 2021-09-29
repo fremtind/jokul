@@ -1,1 +1,1 @@
-# [`DescriptionList`](https://fremtind.github.io/jokul/komponenter/descriptionlist)
+# [`@fremtind/jkl-description-list`](https://jokul.fremtind.no/komponenter/descriptionlist)

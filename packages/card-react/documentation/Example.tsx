@@ -15,7 +15,7 @@ const CardDemo = () => (
 
         <br></br>
 
-        <Card title="Basic Card" clickable={{ href: "https://fremtind.github.io/jokul/" }} className="test-class">
+        <Card title="Basic Card" clickable={{ href: "https://jokul.fremtind.no/" }} className="test-class">
             <h2 className="jkl-h4">Clickable</h2>
             <p className="jkl-body">
                 Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag. Hvis den ikke kan

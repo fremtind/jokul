@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-logo`](https://fremtind.github.io/jokul/komponenter/logo)
+# [`@fremtind/jkl-logo`](https://jokul.fremtind.no/komponenter/logo)
 
 # Logo, logosymbol og stempel
 

@@ -1,4 +1,4 @@
-# [Jøkul]() av [Fremtind](https://fremtind.no)
+# [Jøkul](https://jokul.fremtind.no) av [Fremtind](https://fremtind.no)
 
 ![lint-test-typecheck](https://img.shields.io/github/workflow/status/fremtind/jokul/lint-test-typecheck)
 ![Visual regression tests](https://img.shields.io/github/workflow/status/fremtind/jokul/Visual%20regression%20tests?label=cypress)
@@ -11,7 +11,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 -   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
 -   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
 
-## [Kom i gang](https://fremtind.github.io/jokul/komigang/utvikling)
+## [Kom i gang](https://jokul.fremtind.no/komigang/utvikling)
 
 1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
 2. Installer avhengigheter og bygg pakkene med `yarn boot`
@@ -49,9 +49,9 @@ import "@fremtind/jkl-button/button.min.css";
 ...
 ```
 
-## [Dokumentasjon](https://fremtind.github.io/jokul/)
+## [Dokumentasjon](https://jokul.fremtind.no/)
 
-På [https://fremtind.github.io/jokul/](https://fremtind.github.io/jokul/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
+På [https://jokul.fremtind.no/](https://jokul.fremtind.no/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
 
 ## Bidra
 
@@ -61,7 +61,7 @@ Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsni
 
 Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra i [guiden](https://fremtind.github.io/jokul/komigang/utvikling) vår.
+Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/komigang/utvikling) vår.
 
 ### Oppførsel
 

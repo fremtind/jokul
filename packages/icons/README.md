@@ -1,4 +1,4 @@
-# [`Icons`](https://fremtind.github.io/jokul/komponenter/icons)
+# [`@fremtind/jkl-icons`](https://jokul.fremtind.no/komponenter/icons)
 
 # Ikoner
 

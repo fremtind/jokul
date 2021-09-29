@@ -1,1 +1,1 @@
-# [`@fremtind/jkl-card`](https://fremtind.github.io/jokul/komponenter/card)
+# [`@fremtind/jkl-card`](https://jokul.fremtind.no/komponenter/card)

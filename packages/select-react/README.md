@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-select-react`](https://fremtind.github.io/jokul/komponenter/select)
+# [`@fremtind/jkl-select-react`](https://jokul.fremtind.no/komponenter/select)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/select).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/select).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 

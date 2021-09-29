@@ -1,1 +1,1 @@
-# [`Feedback`](https://fremtind.github.io/jokul/komponenter/Feedback)
+# [`@fremtind/jkl-feedback`](https://jokul.fremtind.no/komponenter/Feedback)
