@@ -100,6 +100,10 @@ $button-wrapper-animation-safe-area: 10px;
     }
 }
 
+a.jkl-button {
+    text-decoration: none;
+}
+
 .jkl-button {
     @include reset-outline;
     display: inline-flex;
