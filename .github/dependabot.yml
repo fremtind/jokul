@@ -4,7 +4,9 @@ updates:
       directory: "/"
       schedule:
           interval: "weekly"
-          day: "sunday"
+          day: "monday"
+          time: "06:00"
+          timezone: "Europe/Berlin"
 
     - package-ecosystem: "github-actions"
       # Workflow files stored in the
@@ -12,4 +14,6 @@ updates:
       directory: "/"
       schedule:
           interval: "weekly"
-          day: "sunday"
+          day: "monday"
+          time: "06:00"
+          timezone: "Europe/Berlin"
