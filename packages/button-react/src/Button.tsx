@@ -7,7 +7,7 @@ import { BaseButton } from "./BaseButton";
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const button = forwardRef<HTMLButtonElement, Props>(
         ({ children, className = "", forceCompact, inverted, onClick, onTouchStart, loader, ...rest }, ref) => {
-            const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, {
+            const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
                 "jkl-button--compact": forceCompact,
                 "jkl-button--inverted": inverted,
             });
@@ -26,54 +26,40 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                 }
             };
 
-            if (!loader) {
-                return (
-                    <BaseButton
-                        className={classNames(componentClassName, className)}
-                        onClick={onClick}
-                        onTouchStart={handleTouch}
-                        {...rest}
-                        ref={ref}
-                    >
-                        {children}
-                    </BaseButton>
-                );
-            }
-
             return (
-                <div
-                    className={classNames("jkl-button-wrapper", className, {
-                        "jkl-button-wrapper--compact": forceCompact,
-                    })}
+                <BaseButton
+                    className={componentClassName}
+                    onClick={onClick}
+                    onTouchStart={handleTouch}
+                    disabled={loader?.showLoader}
+                    aria-live="polite"
+                    {...rest}
+                    ref={ref}
                 >
                     <div
-                        className={classNames("jkl-button-wrapper__slider", {
-                            "jkl-button-wrapper__slider--show-loader": !!loader.showLoader,
+                        className={classNames("jkl-button__content", {
+                            "jkl-button__content--compact": forceCompact,
                         })}
                     >
-                        <BaseButton
-                            className={componentClassName}
-                            onClick={onClick}
-                            onTouchStart={handleTouch}
-                            disabled={loader?.showLoader}
-                            {...rest}
-                            ref={ref}
+                        <div
+                            className={classNames("jkl-button__slider", {
+                                "jkl-button__slider--show-loader": !!loader?.showLoader,
+                            })}
                         >
                             {children}
-                        </BaseButton>
-
-                        {loader?.showLoader && (
-                            <div className="jkl-button-wrapper__loader jkl-layout-spacing--small-top">
-                                <Loader
-                                    textDescription={loader.textDescription}
-                                    negative={inverted}
-                                    aria-hidden={!!loader.showLoader}
-                                    inline={true}
-                                />
-                            </div>
-                        )}
+                            {loader && (
+                                <div className="jkl-button__loader">
+                                    <Loader
+                                        textDescription={loader.textDescription}
+                                        negative={buttonType === "primary" || inverted}
+                                        aria-hidden={!!loader.showLoader}
+                                        variant={forceCompact ? "small" : "medium"}
+                                    />
+                                </div>
+                            )}
+                        </div>
                     </div>
-                </div>
+                </BaseButton>
             );
         },
     );
