@@ -22,6 +22,10 @@ Cypress.Commands.add("focusInput", (inputName) => {
     cy.get(`input[name=${inputName}]`).first().focus();
 });
 
+Cypress.Commands.add("focusTextArea", (inputName) => {
+    cy.get(`textarea[name=${inputName}]`).first().focus();
+});
+
 Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example");
 });
