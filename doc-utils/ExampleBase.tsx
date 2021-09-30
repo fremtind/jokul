@@ -4,14 +4,14 @@ import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { Dictionary, ChoiceProp, ExampleComponentProps } from "./";
+import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp } from "./";
 import { hyphenate } from "./internal/hypenate";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
     title?: string;
     knobs?: {
-        boolProps?: Array<string>;
+        boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
     };
     responsiveLayout: boolean;
@@ -26,7 +26,14 @@ export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, tit
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
     useLayoutEffect(() => {
-        setBoolValues(knobs?.boolProps?.reduce((acc, boolProp) => ({ ...acc, [boolProp]: false }), {}) || {});
+        setBoolValues(
+            knobs?.boolProps?.reduce((acc, boolProp) => {
+                if (typeof boolProp === "string") {
+                    return { ...acc, [boolProp]: false };
+                }
+                return { ...acc, [boolProp.prop]: boolProp.defaultValue };
+            }, {}) || {},
+        );
         setChoices(knobs?.choiceProps?.reduce((acc, { name, values }) => ({ ...acc, [name]: values }), {}) || {});
         setChoiceValues(
             knobs?.choiceProps?.reduce(

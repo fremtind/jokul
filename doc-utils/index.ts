@@ -17,3 +17,4 @@ export interface ChoiceProp {
     values: Array<string>;
     defaultValue: number;
 }
+export type BoolProp = string | { prop: string; defaultValue: boolean };
