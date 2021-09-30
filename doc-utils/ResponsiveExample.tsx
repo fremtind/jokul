@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react";
-import { ExampleComponentProps, ChoiceProp } from "./";
+import { ExampleComponentProps, ChoiceProp, BoolProp } from "./";
 import { ExampleBase } from "./ExampleBase";
 import { devices } from "./internal/Devices";
 
@@ -7,7 +7,7 @@ export interface Props {
     component: FC<ExampleComponentProps>;
     title?: string;
     knobs?: {
-        boolProps?: Array<string>;
+        boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
     };
 }
