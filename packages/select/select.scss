@@ -104,6 +104,7 @@ $select-hover-option-color--inverted: $svaberg;
         background-color: var(--select-background-color);
         color: $select-text-color;
         color: var(--select-text-color);
+        cursor: pointer;
 
         height: rem(48px);
         border-radius: rem(3px);
@@ -202,6 +203,7 @@ $select-hover-option-color--inverted: $svaberg;
         transition-property: color, background-color;
         position: relative;
         padding: $select-padding;
+        cursor: pointer;
 
         &:before {
             content: "";
