@@ -70,13 +70,14 @@
         left: 0;
         z-index: -1;
         overflow-x: scroll;
+        height: 0vh;
 
         background-color: var(--full-screen-menu-bg-color);
         @include motion("standard", "lazy");
         transition-property: height;
 
         &--open {
-            height: auto;
+            height: 100vh;
             @include motion("entrance", "lazy");
         }
     }
