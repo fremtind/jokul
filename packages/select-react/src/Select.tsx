@@ -119,7 +119,8 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             "jkl-select--invalid": !!errorLabel,
         });
 
-        function onToggle() {
+        function onToggle(e: CoreToggleSelectEvent) {
+            e.preventDefault();
             const opening = !dropdownIsShown;
             setShown(!dropdownIsShown);
             if (opening && !searchable) {
@@ -133,6 +134,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         }
 
         function onToggleSelect(e: CoreToggleSelectEvent) {
+            e.preventDefault();
             const nextValue = e.detail.value;
             setSearchValue("");
             onChange && onChange(nextValue);
@@ -165,6 +167,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
 
         // add support for opening dropdown with arrowkey down as expected from native select
         function handleArrowDown(e: KeyboardEvent<HTMLButtonElement>) {
+            e.preventDefault();
             if (e.key === "ArrowDown" && !dropdownIsShown) {
                 buttonRef.current?.click();
             }
@@ -227,6 +230,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                             placeholder="Søk"
                             value={searchValue}
                             onChange={(e) => setSearchValue(e.target.value)}
+                            data-testid="jkl-select__search-input"
                             className="jkl-select__search-input"
                             onBlur={handleBlur}
                             onFocus={handleFocus}

@@ -1,6 +1,9 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
-import { Accordion } from ".";
+import { act, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+import { Accordion, AccordionItem } from ".";
+import { Select } from "@fremtind/jkl-select-react";
 
 describe("Accordion", () => {
     it("should render without exploding", () => {
@@ -12,5 +15,21 @@ describe("Accordion", () => {
         render(<Accordion>Hello</Accordion>);
 
         expect(screen.getByText("Hello")).toBeInTheDocument();
+    });
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+        render(
+            <Accordion>
+                <AccordionItem title="Velg tingen" startExpanded>
+                    <Select items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                </AccordionItem>
+            </Accordion>,
+        );
+
+        act(() => {
+            const button = screen.getByTestId("jkl-select__button");
+            userEvent.click(button);
+        });
+
+        expect(screen.getByTestId("jkl-select__button")).toBeVisible();
     });
 });
