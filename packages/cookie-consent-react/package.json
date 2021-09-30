@@ -40,7 +40,7 @@
         "@fremtind/jkl-list": "^5.0.4",
         "@fremtind/jkl-list-react": "^5.0.5",
         "@fremtind/jkl-react-hooks": "^5.0.4",
-        "@nrk/core-dialog": "^3.0.7",
+        "@nrk/core-dialog": "^4.0.0",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

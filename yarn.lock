@@ -3370,10 +3370,10 @@
   resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-3.0.8.tgz#7e3905d9b9b9c0d6709bd6fae49c7e94c365d160"
   integrity sha512-3j8O/RyonYBuTymPrphA+G9CnwOJnb4+HHNRyFHNgx3AHYXhwm5sbl+A+QJwPk4nkTXhmFtfnyODsm3vqHQM7Q==
 
-"@nrk/core-dialog@^3.0.7":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nrk/core-dialog/-/core-dialog-3.1.0.tgz#ecbaf7387c54452e463017006eb28122df47277b"
-  integrity sha512-owlngqYXVn/MP3uTwoFFPy0HfWFAw4EPHBViMsqizgWi+1M4Rxz+vTLcuhqzNC4JOxiffBAV2SZP+uAvp4Ob6g==
+"@nrk/core-dialog@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/core-dialog/-/core-dialog-4.0.0.tgz#b1784aa8cb2da5d0d9d3e21fe372613b9688fe34"
+  integrity sha512-9q0xAuPR8H1EQM4tIVs0Rho0c9PGRk1XRBfwgMSrvBXbK2l/4tcALJR+Lja1Bcu+ooubU1hEkvS3Lw7/U7zDQg==
 
 "@nrk/core-toggle@3.1.0":
   version "3.1.0"

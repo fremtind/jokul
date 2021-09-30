@@ -28,7 +28,7 @@
         "@fremtind/jkl-button": "^4.0.5",
         "@fremtind/jkl-core": "^7.1.1",
         "@fremtind/jkl-list": "^5.0.4",
-        "@nrk/core-dialog": "^3.0.7"
+        "@nrk/core-dialog": "^4.0.0"
     },
     "repository": {
         "type": "git",
