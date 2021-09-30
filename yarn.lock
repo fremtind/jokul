@@ -18950,9 +18950,9 @@ snapdragon@^0.8.1:
     use "^3.1.0"
 
 snyk@^1.696.0:
-  version "1.722.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.722.0.tgz#dafa9b204514c7bde8620618793873e3a300179c"
-  integrity sha512-EelrKO6Gv4r5Cs7XrOY4ZP6ZF59EaB0ln2gJRzPhxMJ1s5oBhly/Lojl9aZzgXDfFohm6fDa0kpCr+dQRtCT1g==
+  version "1.728.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.728.0.tgz#983c75c23dc390c5db5ed74a49304cc283a40abd"
+  integrity sha512-qzICYKNLk8gywBmbwUK72+ySbqE3JyjzLJc/yCwhNu3JMbomTtCFEtJBYnoE12A2Pp0f0DY3GBJsl8gH1NdR6Q==
 
 socket.io-adapter@~1.1.0:
   version "1.1.2"
