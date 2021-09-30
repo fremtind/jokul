@@ -1,7 +1,5 @@
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
-// @ts-ignore: wait for nrk to supply types
-import CoreToggle from "@nrk/core-toggle/jsx";
 import cx from "classnames";
 import { navigate } from "gatsby";
 import React, { useEffect } from "react";
@@ -25,7 +23,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
     const { isOpen, setIsOpen, currentItem, setCurrentItem, peekHistory, popHistory, pushHistory } =
         useFullscreenMenuContext();
 
-    const [menuRef] = useAnimatedHeight(isOpen);
+    const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
     const [controls] = useFullScreenMenuAnimaiton({ isOpen });
 
     const rootItem: RootItem = {
@@ -81,13 +79,12 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                     isOpen={isOpen}
                 />
             )}
-            <CoreToggle
-                forwardRef={menuRef}
+            <div
+                ref={menuRef}
                 className={cx("jkl-portal-main-menu__overlay", {
                     "jkl-portal-main-menu__overlay--open": isOpen,
                 })}
-                popup={true}
-                hidden={!isOpen}
+                aria-hidden={isOpen ? "false" : "true"}
             >
                 <div className="jkl-portal-main-menu__menu-wrapper">
                     {isSmallScreen && (
@@ -124,7 +121,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                         </>
                     )}
                 </div>
-            </CoreToggle>
+            </div>
             {!isSmallScreen && (
                 <ul className="jkl-portal-main-menu__root-list">
                     {items.map((item) => (
