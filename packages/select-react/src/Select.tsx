@@ -33,9 +33,15 @@ interface Props extends DataTestAutoId {
     onFocus?: SelectEventHandler;
 }
 
-interface CoreToggleSelectEvent {
+interface CoreToggleSelectTarget extends EventTarget {
+    hidden: boolean;
+    button: HTMLButtonElement;
+    value: { textContent: string };
+}
+
+interface CoreToggleSelectEvent extends Event {
     detail: { textContent: string; value: string };
-    target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
+    target: CoreToggleSelectTarget;
 }
 
 function toLower(str = "") {
