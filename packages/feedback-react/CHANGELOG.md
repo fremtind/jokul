@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.7 (2021-09-30)
+
+### Bug Fixes
+
+- sett rekkefølge for å unnga race condition ([b5f35a0](https://github.com/fremtind/jokul/commit/b5f35a035145eddf0dc87604bee31a51b2b8e77b)), closes [#2301](https://github.com/fremtind/jokul/issues/2301)
+
 ## 8.0.4 (2021-09-22)
 
 ### Bug Fixes
