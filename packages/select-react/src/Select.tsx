@@ -230,6 +230,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         ref={buttonRef}
                         hidden={showSearchInputField}
                         type="button"
+                        name={`${name}-btn`}
                         className="jkl-select__button"
                         data-testid="jkl-select__button"
                         aria-haspopup="listbox"
