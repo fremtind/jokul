@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.1 (2021-09-30)
+
+### Bug Fixes
+
+- rett padding, støtt lange labels i Select ([2101522](https://github.com/fremtind/jokul/commit/210152290d269d171fe856e868086ba9431cfb15)), closes [#1592](https://github.com/fremtind/jokul/issues/1592) [#2246](https://github.com/fremtind/jokul/issues/2246) [#2247](https://github.com/fremtind/jokul/issues/2247)
+
 ## 5.1.0 (2021-09-30)
 
 ### Features
