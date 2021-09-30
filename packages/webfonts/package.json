@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-webfonts",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "publishConfig": {
         "access": "public"
     },
     "description": "Web fonts for Jøkul design system",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "fremtind",
         "jøkul",

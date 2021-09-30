@@ -20,7 +20,7 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
     const inverted = boolValues && boolValues["Invertert"];
     const compact = boolValues && boolValues["Kompakt"];
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Help label" : undefined;
-    const errorLabel = boolValues && boolValues["Med feilmelding"] ? "Error label" : undefined;
+    const errorLabel = boolValues && boolValues["Med feil"] ? "Error label" : undefined;
 
     return (
         <TextInput
@@ -30,6 +30,7 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
             forceCompact={compact}
             action={action}
             label="Skriv noe her"
+            name="textinput"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             placeholder="Placeholder"

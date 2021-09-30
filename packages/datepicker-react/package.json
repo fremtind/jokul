@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-datepicker-react",
-    "version": "7.2.0",
+    "version": "7.2.4",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react datepicker component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "datepicker",
         "jøkul",
@@ -34,12 +34,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-core": "^7.1.0",
-        "@fremtind/jkl-datepicker": "^4.0.5",
-        "@fremtind/jkl-icon-button-react": "^0.6.4",
-        "@fremtind/jkl-react-hooks": "^5.0.3",
-        "@fremtind/jkl-select-react": "^6.1.4",
-        "@fremtind/jkl-text-input-react": "^6.2.0",
+        "@fremtind/jkl-core": "^7.1.1",
+        "@fremtind/jkl-datepicker": "^4.0.8",
+        "@fremtind/jkl-icon-button-react": "^0.6.5",
+        "@fremtind/jkl-react-hooks": "^5.0.4",
+        "@fremtind/jkl-select-react": "^6.1.8",
+        "@fremtind/jkl-text-input-react": "^6.2.2",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.22"
     },

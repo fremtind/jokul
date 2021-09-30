@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "5.0.3",
+    "version": "5.0.4",
     "publishConfig": {
         "access": "public"
     },
@@ -10,7 +10,7 @@
         "*.scss"
     ],
     "description": "Jøkul style for Fremtind logo",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "logo",
         "jøkul",
@@ -24,7 +24,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^7.1.0"
+        "@fremtind/jkl-core": "^7.1.1"
     },
     "repository": {
         "type": "git",

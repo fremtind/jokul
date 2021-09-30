@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-field-group-react",
-    "version": "3.1.0",
+    "version": "3.1.1",
     "publishConfig": {
         "access": "public"
     },
     "description": "Used to create a fieldset around groups of inputs",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "form"
     ],
@@ -36,11 +36,11 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-field-group": "^3.0.3",
+        "@fremtind/jkl-field-group": "^3.0.4",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^7.1.0"
+        "@fremtind/jkl-core": "^7.1.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
