@@ -93,7 +93,7 @@
         "husky": "^7.0.0",
         "jest": "^27.0.5",
         "jest-axe": "^5.0.1",
-        "jest-watch-typeahead": "^0.6.1",
+        "jest-watch-typeahead": "^1.0.0",
         "lerna": "^4.0.0",
         "lerna-clean-changelogs-cli": "^1.2.64",
         "lint-staged": "^11.0.0",
