@@ -1,28 +1,32 @@
 ---
 name: Funksjonalitetsønske
-about: Foreslå en idé til endring eller ny funksjonalitet
-title: ''
+about: Ønsket har blitt diskutert og er klart til å jobbes med
+title: ""
 labels: "✨ enhancement"
-assignees: ''
-
+assignees: ""
 ---
 
-Hvilke steg i [prosessen](https://fremtind.github.io/jokul/komigang/prosessen) er utført?
-- [ ] Undersøke
-- [ ] Rapportere
-- [ ] Avklare
-- [ ] Spesifisere krav
-- [ ] Utvikle
-- [ ] Ferdig!
+## Diskusjon
 
-**Er ønsket tilknyttet et problem? Fortell oss mer!**
-Gi oss en klar og konsis beskrivelse av problemet. F.eks "Det er dumt at jeg alltid må [...]".
+Funksjonalitetsønsket er diskutert her:
 
-**Beskriv løsningen du ønsker**
-En klar og konsis beskrivelse av hva du ønsker at skal skje.
+<!--
+Lim inn en lenke til diskusjonstråden på
+https://github.com/fremtind/jokul/discussions
+-->
 
-**Hvilke alternativer har du vurdert?**
-Beskriv gjerne hvilke andre potensielle løsninger du har vurdert.
+## Forslag til løsning
 
-**Mer info**
-Her kan du legge til mer kontekst, skjermbilder, eller andre ting du ikke synes passer inn over.
+<!--
+Oppsummer løsningen dere har blitt enige om å prøve.
+Designet trenger ikke være ferdig, men det må være en
+aktivitet knyttet til dette issuet – enten design eller
+utvikling.
+-->
+
+## Mer info
+
+<!--
+Her kan du legge til mer kontekst, skjermbilder,
+eller andre ting du ikke synes passer inn over.
+-->
