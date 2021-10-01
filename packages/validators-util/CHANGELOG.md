@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.0 (2021-10-01)
+
+### Bug Fixes
+
+- oppdater valideringsreglene for chassisnummer ([d402028](https://github.com/fremtind/jokul/commit/d402028436033925f456f4a7d0775592a1a7aec8)), closes [#1662](https://github.com/fremtind/jokul/issues/1662)
+
+### BREAKING CHANGES
+
+- isValidChassisnummer tillater nå ikke-numeriske strings og strings på 17 tegn. Om du parser
+resultatet som et tall eller har en lengdebegrensning i databaseskjemaet ditt må du oppdatere
+appen din til å støtte den nye regelen.
+
 ## 1.3.10 (2021-03-22)
 
 ### Bug Fixes
