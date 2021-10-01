@@ -1,7 +1,0 @@
-{
-    "installCommand": "ci:install",
-    "buildCommand": "build:quiet",
-    "packages": ["packages/**"],
-    "sandboxes": ["r4emo", "/portal"],
-    "node": "14"
-}
