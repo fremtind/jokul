@@ -1,6 +1,7 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import React, { useState } from "react";
 import { Select } from ".";
 
@@ -182,6 +183,23 @@ describe("Select", () => {
         });
 
         expect(onBlur).not.toHaveBeenCalled();
+    });
+
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+        render(
+            <Accordion>
+                <AccordionItem title="Velg tingen" startExpanded>
+                    <Select items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                </AccordionItem>
+            </Accordion>,
+        );
+
+        act(() => {
+            const button = screen.getByTestId("jkl-select__button");
+            userEvent.click(button);
+        });
+
+        expect(screen.getByTestId("jkl-select__button")).toBeVisible();
     });
 });
 
@@ -617,6 +635,23 @@ describe("Searchable select", () => {
         });
 
         expect(onBlur).toHaveBeenCalledTimes(1);
+    });
+
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+        render(
+            <Accordion>
+                <AccordionItem title="Velg tingen" startExpanded>
+                    <Select searchable items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                </AccordionItem>
+            </Accordion>,
+        );
+
+        act(() => {
+            const button = screen.getByTestId("jkl-select__button");
+            userEvent.click(button);
+        });
+
+        expect(screen.getByTestId("jkl-select__search-input")).toBeVisible();
     });
 });
 

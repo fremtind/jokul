@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.3.3 (2021-09-30)
+
+### Bug Fixes
+
+- fjern unødig CoreToggle i MainMenu ([d690bda](https://github.com/fremtind/jokul/commit/d690bdac8bf76ca39ad12317183eb2cecd7ddfd0))
+- lukk menyen ved klikk på hjemknappen ([9803adb](https://github.com/fremtind/jokul/commit/9803adbe9e86fc9e13e6d7650b13a9d026431f06)), closes [#2269](https://github.com/fremtind/jokul/issues/2269)
+- venstrejuster tekst i portalmeny ([a17dfad](https://github.com/fremtind/jokul/commit/a17dfada6f9753249afc57830a690c9cacef810b))
+
+## 5.3.2 (2021-09-30)
+
+### Bug Fixes
+
+- lukk menyen ved klikk på hjemknappen ([9803adb](https://github.com/fremtind/jokul/commit/9803adbe9e86fc9e13e6d7650b13a9d026431f06)), closes [#2269](https://github.com/fremtind/jokul/issues/2269)
+- venstrejuster tekst i portalmeny ([a17dfad](https://github.com/fremtind/jokul/commit/a17dfada6f9753249afc57830a690c9cacef810b))
+
+## 5.3.0 (2021-09-30)
+
+### Features
+
+- use cursor:pointer style on select ([843a232](https://github.com/fremtind/jokul/commit/843a2326ce68de8ed5f70d1584380089299b9906)), closes [#2173](https://github.com/fremtind/jokul/issues/2173)
+
+## 5.2.6 (2021-09-28)
+
+### Bug Fixes
+
+- adjust font size in full screen menu ([405d132](https://github.com/fremtind/jokul/commit/405d1328da72760e8659732bb22a3866d8cc0bb6))
+
 ## 5.2.5 (2021-09-28)
 
 ### Bug Fixes

@@ -21,7 +21,12 @@ export function AccordionItem({ children, title, className, startExpanded = fals
         "jkl-accordion-item--expanded": isOpen,
     });
 
-    const onToggle = () => setIsOpen(!isOpen);
+    const onToggle = (e: Event) => {
+        if (e.defaultPrevented) {
+            return;
+        }
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div data-testid="jkl-accordion-item" className={componentClassName}>

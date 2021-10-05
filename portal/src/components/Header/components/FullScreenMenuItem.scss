@@ -11,6 +11,7 @@
     &__link {
         position: relative;
         padding-left: 0;
+        text-align: left;
 
         // static font-sizes for old browsers:
         font-size: rem(30px);
@@ -23,21 +24,13 @@
         background-color: transparent;
         cursor: pointer;
 
-        @include medium-device {
+        @include from-medium-device {
             // static font-sizes for old browsers:
             font-size: rem(35px);
-            line-height: rem(40px);
+            line-height: rem(50px);
             // dynamic font sizes
-            font-size: relativeSize(35, 768, 1024);
-            line-height: relativeSize(50, 768, 1024);
-        }
-        @include from-large-device {
-            // static font-sizes for old browsers:
-            font-size: rem(40px);
-            line-height: rem(60px);
-            // dynamic font sizes
-            font-size: relativeSize(40);
-            line-height: relativeSize(60);
+            font-size: relativeSize(35);
+            line-height: relativeSize(50);
         }
     }
 }
