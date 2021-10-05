@@ -1,4 +1,4 @@
-# [Jøkul](https://jokul.fremtind.no) av [Fremtind](https://fremtind.no)
+# [Jøkul](https://jokul.fremtind.no)
 
 ![lint-test-typecheck](https://img.shields.io/github/workflow/status/fremtind/jokul/lint-test-typecheck)
 ![Visual regression tests](https://img.shields.io/github/workflow/status/fremtind/jokul/Visual%20regression%20tests?label=cypress)
