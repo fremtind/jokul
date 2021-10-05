@@ -38,10 +38,17 @@ jobs:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Verify release is needed
-              run: yarn version:check # will fail (exit with code 1) if there are no changes to release
+              id: lerna_changed
+              run: |
+                  yarn version:check
+                  if [ $? -eq 1 ]
+                  then
+                    echo "::set-output name=has_changes::false"
+                    exit 0
+                  fi
 
             - name: Publish packages to NPM
-              if: ${{ success() }} # only run if there are changes to publish
+              if: ${{ success() && steps.lerna_changed.has_changes != 'false' }} # only run if there are changes to publish
               run: yarn release --yes
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
@@ -49,7 +56,7 @@ jobs:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Switch registry
-              if: ${{ success() }}
+              if: ${{ success() && steps.lerna_changed.has_changes != 'false' }}
               uses: actions/setup-node@v2
               with:
                   registry-url: "https://npm.pkg.github.com"
@@ -57,7 +64,7 @@ jobs:
                   scope: "@fremtind"
 
             - name: Publish packages to GitHub Packages
-              if: ${{ success() }}
+              if: ${{ success() && steps.lerna_changed.has_changes != 'false' }}
               run: yarn release-gh --yes
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

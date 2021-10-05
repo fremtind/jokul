@@ -5,6 +5,14 @@ on:
         branches:
             - "**"
             - "!main"
+        paths:
+            - "cypress/*"
+            - "packages/*.mdx"
+            - "packages/*.scss"
+            - "packages/*.ts"
+            - "packages/*.tsx"
+            - "patches/*"
+            - "yarn.lock"
 
 jobs:
     cypress-run:
