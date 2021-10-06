@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.3.0 (2021-09-27)
+
+### Features
+
+- add better semantics to hamburger menu ([3cdb8dd](https://github.com/fremtind/jokul/commit/3cdb8dde12923d205c85b06dd6a51db9ecd21f99))
+
 ## 5.2.6 (2021-09-21)
 
 ### Bug Fixes

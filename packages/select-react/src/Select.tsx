@@ -33,9 +33,15 @@ interface Props extends DataTestAutoId {
     onFocus?: SelectEventHandler;
 }
 
-interface CoreToggleSelectEvent {
+interface CoreToggleSelectTarget extends EventTarget {
+    hidden: boolean;
+    button: HTMLButtonElement;
+    value: { textContent: string };
+}
+
+interface CoreToggleSelectEvent extends Event {
     detail: { textContent: string; value: string };
-    target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
+    target: CoreToggleSelectTarget;
 }
 
 function toLower(str = "") {
@@ -113,7 +119,8 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             "jkl-select--invalid": !!errorLabel,
         });
 
-        function onToggle() {
+        function onToggle(e: CoreToggleSelectEvent) {
+            e.preventDefault();
             const opening = !dropdownIsShown;
             setShown(!dropdownIsShown);
             if (opening && !searchable) {
@@ -127,6 +134,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         }
 
         function onToggleSelect(e: CoreToggleSelectEvent) {
+            e.preventDefault();
             const nextValue = e.detail.value;
             setSearchValue("");
             onChange && onChange(nextValue);
@@ -159,6 +167,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
 
         // add support for opening dropdown with arrowkey down as expected from native select
         function handleArrowDown(e: KeyboardEvent<HTMLButtonElement>) {
+            e.preventDefault();
             if (e.key === "ArrowDown" && !dropdownIsShown) {
                 buttonRef.current?.click();
             }
@@ -221,6 +230,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                             placeholder="Søk"
                             value={searchValue}
                             onChange={(e) => setSearchValue(e.target.value)}
+                            data-testid="jkl-select__search-input"
                             className="jkl-select__search-input"
                             onBlur={handleBlur}
                             onFocus={handleFocus}
@@ -230,6 +240,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         ref={buttonRef}
                         hidden={showSearchInputField}
                         type="button"
+                        name={`${name}-btn`}
                         className="jkl-select__button"
                         data-testid="jkl-select__button"
                         aria-haspopup="listbox"

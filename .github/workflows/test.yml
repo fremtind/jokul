@@ -5,6 +5,14 @@ on:
         branches:
             - "**"
             - "!release"
+        paths:
+            - "jest/*"
+            - "packages/*.ts"
+            - "packages/*.tsx"
+            - "patches/*"
+            - "portal/*.ts"
+            - "portal/*.tsx"
+            - "yarn.lock"
 
 jobs:
     build:

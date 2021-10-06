@@ -1,16 +1,15 @@
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
-// @ts-ignore: wait for nrk to supply types
-import CoreToggle from "@nrk/core-toggle/jsx";
 import cx from "classnames";
 import { navigate } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
 
 import "./MainMenu.scss";
+import { MainMenuItem } from "./MainMenuItem";
 
 interface MainMenuProps {
     className?: string;
@@ -24,7 +23,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
     const { isOpen, setIsOpen, currentItem, setCurrentItem, peekHistory, popHistory, pushHistory } =
         useFullscreenMenuContext();
 
-    const [menuRef] = useAnimatedHeight(isOpen);
+    const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
     const [controls] = useFullScreenMenuAnimaiton({ isOpen });
 
     const rootItem: RootItem = {
@@ -53,6 +52,19 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
         }
     };
 
+    useEffect(() => {
+        const escapeListener = (event: globalThis.KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsOpen(false);
+            }
+        };
+        window.addEventListener<"keyup">("keyup", escapeListener);
+
+        return () => {
+            window.removeEventListener<"keyup">("keyup", escapeListener);
+        };
+    }, [setIsOpen]);
+
     return (
         <nav className={cx("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
             {isSmallScreen && (
@@ -67,15 +79,57 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                     isOpen={isOpen}
                 />
             )}
+            <div
+                ref={menuRef}
+                className={cx("jkl-portal-main-menu__overlay", {
+                    "jkl-portal-main-menu__overlay--open": isOpen,
+                })}
+                aria-hidden={isOpen ? "false" : "true"}
+            >
+                <div className="jkl-portal-main-menu__menu-wrapper">
+                    {isSmallScreen && (
+                        <>
+                            {previousItem && (
+                                <button
+                                    data-text={previousItem.linkText}
+                                    aria-label={`Tilbake til ${previousItem.linkText}`}
+                                    className="jkl-portal-main-menu__back-button"
+                                    onClick={onNavigateBackward}
+                                >
+                                    ←
+                                </button>
+                            )}
+                            <ul className="jkl-portal-main-menu__menu-items" role="menu">
+                                {currentItem &&
+                                    currentItem.content.map((item, idx) => (
+                                        <FullScreenMenuItem
+                                            onClick={(evt) => {
+                                                if (isLeafItem(item)) {
+                                                    navigate(item.content);
+                                                    setIsOpen(false);
+                                                } else {
+                                                    onNavigateForward(item, evt);
+                                                }
+                                            }}
+                                            item={item}
+                                            key={item.linkText}
+                                            controls={controls}
+                                            idx={idx}
+                                        />
+                                    ))}
+                            </ul>
+                        </>
+                    )}
+                </div>
+            </div>
             {!isSmallScreen && (
                 <ul className="jkl-portal-main-menu__root-list">
                     {items.map((item) => (
                         <li className="jkl-portal-main-menu__root-item" key={`main-menu-${item.linkText}`}>
-                            <button
-                                data-testid={`full-screen-menu--${item.linkText}`}
-                                className={cx("jkl-portal-main-menu__root-link", {
-                                    "jkl-portal-main-menu__root-link--active": currentItem?.linkText === item.linkText,
-                                })}
+                            <MainMenuItem
+                                isActive={currentItem?.linkText === item.linkText}
+                                isOpen={isOpen && currentItem?.linkText === item.linkText}
+                                label={item.linkText}
                                 onClick={(e) => {
                                     if (!isOpen) {
                                         setIsOpen(true);
@@ -86,52 +140,27 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                                     onNavigateForward(item as RootItem, e);
                                 }}
                             >
-                                {item.linkText}
-                            </button>
+                                {(item as RootItem).content.map((item, idx) => (
+                                    <FullScreenMenuItem
+                                        onClick={(evt) => {
+                                            if (isLeafItem(item)) {
+                                                navigate(item.content);
+                                                setIsOpen(false);
+                                            } else {
+                                                onNavigateForward(item, evt);
+                                            }
+                                        }}
+                                        item={item}
+                                        key={item.linkText}
+                                        controls={controls}
+                                        idx={idx}
+                                    />
+                                ))}
+                            </MainMenuItem>
                         </li>
                     ))}
                 </ul>
             )}
-            <CoreToggle
-                forwardRef={menuRef}
-                className={cx("jkl-portal-main-menu__overlay", {
-                    "jkl-portal-main-menu__overlay--open": isOpen,
-                })}
-                popup={true}
-                hidden={!isOpen}
-            >
-                <div className="jkl-portal-main-menu__menu-wrapper">
-                    {isSmallScreen && previousItem && (
-                        <button
-                            data-text={previousItem.linkText}
-                            aria-label={`Tilbake til ${previousItem.linkText}`}
-                            className="jkl-portal-main-menu__back-button"
-                            onClick={onNavigateBackward}
-                        >
-                            ←
-                        </button>
-                    )}
-                    <ul className="jkl-portal-main-menu__menu-items">
-                        {currentItem &&
-                            currentItem.content.map((item, idx) => (
-                                <FullScreenMenuItem
-                                    onClick={(evt) => {
-                                        if (isLeafItem(item)) {
-                                            navigate(item.content);
-                                            setIsOpen(false);
-                                        } else {
-                                            onNavigateForward(item, evt);
-                                        }
-                                    }}
-                                    item={item}
-                                    key={item.linkText}
-                                    controls={controls}
-                                    idx={idx}
-                                />
-                            ))}
-                    </ul>
-                </div>
-            </CoreToggle>
         </nav>
     );
 };

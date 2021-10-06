@@ -9,7 +9,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     const values = [
         { value: "apple", label: "Apple" },
         { value: "samsung", label: "Samsung" },
-        { value: "huawei", label: "Huawei" },
+        { value: "google", label: "Google og utvalgte partnere" },
         { value: "LG", label: "LG" },
     ];
     const [value, setValue] = useState<string>();
@@ -51,6 +51,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     return (
         <C
             ref={selectRef}
+            id="produsent"
             name="produsent"
             forceCompact={boolValues && boolValues["Kompakt"]}
             inverted={boolValues && boolValues["Invertert"]}
