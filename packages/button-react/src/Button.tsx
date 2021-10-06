@@ -28,11 +28,11 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
 
             return (
                 <BaseButton
+                    aria-live="polite"
                     className={componentClassName}
+                    disabled={loader?.showLoader}
                     onClick={onClick}
                     onTouchStart={handleTouch}
-                    disabled={loader?.showLoader}
-                    aria-live="polite"
                     {...rest}
                     ref={ref}
                 >

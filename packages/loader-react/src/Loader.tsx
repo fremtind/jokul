@@ -29,14 +29,14 @@ export const Loader = ({
 
     return (
         <span
-            className={componentClassName}
-            data-testid="jkl-loader"
-            data-testautoid={dataTestAutoId}
-            title={textDescription}
-            aria-label={textDescription}
-            role="alert"
             aria-busy="true"
+            aria-label={textDescription}
             aria-live={politeness}
+            className={componentClassName}
+            data-testautoid={dataTestAutoId}
+            data-testid="jkl-loader"
+            role="alert"
+            title={textDescription}
             {...rest}
         >
             <span className="jkl-loader__dot jkl-loader__dot--left" />
