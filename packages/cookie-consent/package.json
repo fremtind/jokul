@@ -25,10 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^5.0.0",
-        "@fremtind/jkl-core": "^7.1.1",
-        "@fremtind/jkl-list": "^5.0.4",
-        "@nrk/core-dialog": "^3.0.7"
+        "@fremtind/jkl-core": "^7.1.1"
     },
     "repository": {
         "type": "git",
