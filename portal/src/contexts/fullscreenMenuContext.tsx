@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, FC } from "react";
 
 export type MenuItemList = Array<MenuItem>;
 
@@ -18,7 +18,7 @@ export interface RootItem {
 }
 export const isRootItem = (item: MenuItem): item is RootItem => typeof item.content !== "string";
 
-interface FSMenuContextProps {
+interface FullScreenMenuContext {
     isOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
     currentItem: RootItem | null;
@@ -29,7 +29,7 @@ interface FSMenuContextProps {
     peekHistory: () => RootItem | undefined;
 }
 
-const fullscreenMenuContext = createContext<FSMenuContextProps>({
+const fullscreenMenuContext = createContext<FullScreenMenuContext>({
     isOpen: false,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     setIsOpen(_) {
@@ -50,11 +50,11 @@ const fullscreenMenuContext = createContext<FSMenuContextProps>({
     },
 });
 
-export function useFullscreenMenuContext() {
+export function useFullscreenMenuContext(): FullScreenMenuContext {
     return useContext(fullscreenMenuContext);
 }
 
-export const FSMenuContextProvider: React.FC = ({ children }) => {
+export const FSMenuContextProvider: FC = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [currentItem, setCurrentItem] = useState<RootItem | null>(null);
 

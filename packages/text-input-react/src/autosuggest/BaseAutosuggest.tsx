@@ -38,7 +38,7 @@ function BaseAutosuggest<T>({
     onConfirm = () => {
         /* noop */
     },
-}: BaseAutosuggestProps<T>) {
+}: BaseAutosuggestProps<T>): JSX.Element {
     const customLabelProps =
         inputId && labelId
             ? {

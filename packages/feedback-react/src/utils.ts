@@ -1,9 +1,11 @@
-import React, { JSXElementConstructor } from "react";
+import React, { JSXElementConstructor, VFC } from "react";
 import { CheckboxQuestion, RadioQuestion, SliderQuestion, TextQuestion } from "./questions";
-import { QuestionType } from "./types";
+import { QuestionProps, QuestionType } from "./types";
 
 export function getChildrenOfType<P>(...allowedTypes: Array<string | JSXElementConstructor<P>>) {
-    return (children: React.ReactNode) =>
+    return (
+        children: React.ReactNode,
+    ): React.ReactElement<P, string | React.JSXElementConstructor<unknown>>[] | null | undefined =>
         React.Children.map(children, (child) => {
             if (React.isValidElement<P>(child) && allowedTypes.includes(child.type)) {
                 return child;
@@ -27,7 +29,7 @@ export const getTypeFromComponent = (component: React.ReactElement): QuestionTyp
     }
 };
 
-export const getQuestionFromType = (type: QuestionType) => {
+export const getQuestionFromType = (type: QuestionType): VFC<QuestionProps> => {
     switch (type) {
         case "radio":
             return RadioQuestion;

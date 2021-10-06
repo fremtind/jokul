@@ -1,4 +1,4 @@
-import React, { ReactNode, MouseEventHandler } from "react";
+import React, { ReactNode, MouseEventHandler, FC } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import classNames from "classnames";
 
@@ -30,7 +30,7 @@ interface Props {
     clickable?: Clickable;
 }
 
-export const Card = ({ title, children, className, media, action, dark, clickable }: Props) => {
+export const Card: FC<Props> = ({ title, children, className, media, action, dark, clickable }) => {
     const componentClassName = classNames("jkl-card", className, {
         "jkl-card--dark": dark,
         "jkl-card--clickable": clickable,

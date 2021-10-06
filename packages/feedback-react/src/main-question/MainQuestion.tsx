@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, VFC } from "react";
 import cn from "classnames";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -32,14 +32,14 @@ interface Props {
     onSubmit: (value: FeedbackType) => void;
 }
 
-export const MainQuestion = ({
+export const MainQuestion: VFC<Props> = ({
     label,
     options,
     type,
     addOnQuestion,
     successMessage = defaultSuccessMessage,
     onSubmit,
-}: Props) => {
+}) => {
     const mainQuestionState = useMainQuestion(onSubmit);
 
     const { setFeedbackSubmitted, contactSubmitted } = useFeedbackContext();

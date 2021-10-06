@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, VFC } from "react";
 // @ts-ignore: wait for nrk to supply types
 import CoreDialog from "@nrk/core-dialog/jsx";
 import { CheckListItem, UnorderedList } from "@fremtind/jkl-list-react";
@@ -34,7 +34,7 @@ const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps
     );
 };
 
-export const CookieConsentModal = ({ onAccept }: ConsentComponentBaseProps) => {
+export const CookieConsentModal: VFC<ConsentComponentBaseProps> = ({ onAccept }) => {
     const { consent, dispatch, isOpen, requirement, showSettings } = useCookieConsentState();
     const formMethods = useForm<FormValues>({
         defaultValues: convertConsentObjectToBooleans(consent),

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtons } from "../src";
 
-const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const choices = [
         "Jeg vil at dere skal ringe meg",
         "Nei",

@@ -12,7 +12,7 @@ import "../packages/checkbox/checkbox.min.css";
 
 import "./dev-example.scss";
 
-export const renderExample = (content: ReactElement, node: HTMLElement | null) => {
+export const renderExample = (content: ReactElement, node: HTMLElement | null): void => {
     initTabListener();
 
     ReactDOM.render(content, node);

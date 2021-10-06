@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { WarningMessage } from "@fremtind/jkl-message-box-react";
 import { Link } from "@fremtind/jkl-core";
 import "./style.scss";
 
-const WebComponentInfo = () => (
+const WebComponentInfo: VFC = () => (
     <WarningMessage fullWidth title="Web component" className="portal-wc-info">
         Denne komponenten bruker web components via{" "}
         <Link href="https://static.nrk.no/core-components/latest/index.html">NRK core components</Link> under panseret.

@@ -67,7 +67,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 });
             }
         }
-    }, [isOpen]);
+    }, [isOpen, options, prefersReducedMotion]);
 
     useLayoutEffect(() => {
         runAnimation();
@@ -84,6 +84,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 element.removeEventListener("transitionend", handleTransitionEnd);
             }
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
     useEffect(() => {

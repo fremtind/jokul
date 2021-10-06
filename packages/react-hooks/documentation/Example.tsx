@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 
 import AnimationExample from "./AnimationExample";
 import MutationObserverExample from "./MutationObserverExample";
@@ -9,7 +9,7 @@ import IntersectionObserverExample from "./IntersectionObserverExample";
 import ScreenExample from "./ScreenExample";
 import ScrollIntoViewExample from "./ScrollIntoViewExample";
 
-const Example = () => (
+const Example: VFC = () => (
     <>
         <AnimationExample />
         <MutationObserverExample />

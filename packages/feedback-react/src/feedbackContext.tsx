@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useContext } from "react";
+import React, { createContext, useContext, FC } from "react";
 
 interface FeedbackContext {
     feedbackSubmitted: boolean;
@@ -24,13 +24,12 @@ const initialState: FeedbackContext = {
 
 const feedbackContext = createContext(initialState);
 
-export const useFeedbackContext = () => useContext(feedbackContext);
+export const useFeedbackContext = (): FeedbackContext => useContext(feedbackContext);
 
 interface Props {
-    children?: ReactNode;
     value: FeedbackContext;
 }
 
-export const FeedbackContextProvider = ({ value, children }: Props) => (
+export const FeedbackContextProvider: FC<Props> = ({ value, children }) => (
     <feedbackContext.Provider value={value}>{children}</feedbackContext.Provider>
 );

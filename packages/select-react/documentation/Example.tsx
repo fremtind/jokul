@@ -1,9 +1,9 @@
-import React, { useState, ChangeEvent, FocusEvent, useRef, useEffect } from "react";
+import React, { useState, ChangeEvent, FocusEvent, useRef, useEffect, VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
 
-export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [

@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React, { VFC, useContext, createContext } from "react";
 import { useReducedMotion } from "../src";
 
 interface State {
     prefersReducedMotion: boolean;
 }
 
-const ScreenContext = React.createContext<State>({
+const ScreenContext = createContext<State>({
     prefersReducedMotion: false,
 });
 
-const ReducedMotionExample = () => {
+const ReducedMotionExample: VFC = () => {
     const { prefersReducedMotion } = useContext(ScreenContext);
 
     return (
@@ -19,7 +19,7 @@ const ReducedMotionExample = () => {
     );
 };
 
-const Provider = () => {
+const Provider: VFC = () => {
     const prefersReducedMotion = useReducedMotion();
 
     return (

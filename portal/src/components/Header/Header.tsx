@@ -1,6 +1,6 @@
 import { navigate } from "gatsby";
 import cx from "classnames";
-import React, { useCallback, useRef, useEffect } from "react";
+import React, { useCallback, useRef, useEffect, VFC } from "react";
 
 import { useNavigationLinks } from "./useNavigationLinks";
 import { MainMenu } from "./components/MainMenu";
@@ -9,7 +9,11 @@ import { MenuItemList, useFullscreenMenuContext } from "../../contexts/fullscree
 
 import "./header.scss";
 
-export const Header = ({ className }: { className?: string }) => {
+type Props = {
+    className?: string;
+};
+
+export const Header: VFC<Props> = ({ className }) => {
     const headerRef = useRef<HTMLElement>(null);
     const collapseMenu = useCallback(() => {
         const shouldCollapse = window.scrollY > 96;

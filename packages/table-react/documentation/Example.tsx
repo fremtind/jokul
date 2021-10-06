@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { Table, TableRowType } from "../src";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Sakstype", "Milepæl", "Følger saken"];
@@ -24,7 +24,7 @@ const rows = [
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Etterlatte", "Opprettet", "Per Persen"],
 ];
 
-const Example = () => {
+const Example: VFC = () => {
     return <Table columns={columns} rows={rows} className={"helloworld"} />;
 };
 

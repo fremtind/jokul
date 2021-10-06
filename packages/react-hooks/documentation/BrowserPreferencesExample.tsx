@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { createContext, VFC, useContext } from "react";
 import { useBrowserPreferences } from "../src";
 
-const ScreenContext = React.createContext<ReturnType<typeof useBrowserPreferences>>({
+const ScreenContext = createContext<ReturnType<typeof useBrowserPreferences>>({
     prefersReducedMotion: false,
     prefersColorScheme: "light",
 });
 
-const BrowserPreferencesExample = () => {
+const BrowserPreferencesExample: VFC = () => {
     const { prefersReducedMotion, prefersColorScheme } = useContext(ScreenContext);
 
     return (
@@ -22,7 +22,7 @@ const BrowserPreferencesExample = () => {
     );
 };
 
-const Provider = () => {
+const Provider: VFC = () => {
     const { prefersColorScheme, prefersReducedMotion } = useBrowserPreferences();
 
     return (

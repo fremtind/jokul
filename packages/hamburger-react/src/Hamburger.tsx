@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
 
@@ -18,7 +18,7 @@ interface Props {
     "aria-controls"?: string;
 }
 
-export const Hamburger = ({
+export const Hamburger: VFC<Props> = ({
     isOpen,
     onClick,
     inverted = false,
@@ -26,7 +26,7 @@ export const Hamburger = ({
     className,
     actionLabel,
     "aria-controls": ariaControls,
-}: Props) => {
+}) => {
     const componentClassname = classnames(
         "jkl-hamburger",
         {

@@ -1,9 +1,9 @@
 import { ErrorMessage } from "@fremtind/jkl-message-box-react";
-import React from "react";
+import React, { VFC } from "react";
 import { motion } from "framer-motion";
 import { Link as InternalLink } from "gatsby";
 
-const NotFoundPage = () => (
+const NotFoundPage: VFC = () => (
     <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

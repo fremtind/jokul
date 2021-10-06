@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import classNames from "classnames";
 
 export type LoaderVariant = "small" | "medium" | "large";
@@ -10,14 +10,14 @@ interface Props {
     dataTestAutoId?: string;
     politeness?: "polite" | "assertive";
 }
-export const Loader = ({
+export const Loader: VFC<Props> = ({
     variant = "large",
     textDescription,
     className,
     dataTestAutoId = "jkl-loader",
     politeness = "polite",
     ...rest
-}: Props) => {
+}) => {
     const componentClassName = classNames("jkl-loader", className, {
         "jkl-loader--medium": variant === "medium",
         "jkl-loader--small": variant === "small",

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { FC, ReactNode } from "react";
 import { Label, SupportLabel, LabelVariant, DataTestAutoId } from "@fremtind/jkl-core";
 import classNames from "classnames";
 
@@ -14,7 +14,7 @@ interface Props extends DataTestAutoId {
     inverted?: boolean;
 }
 
-export const FieldGroup = ({
+export const FieldGroup: FC<Props> = ({
     legend,
     className,
     children,
@@ -24,7 +24,7 @@ export const FieldGroup = ({
     forceCompact,
     "data-testautoid": testAutoId,
     inverted,
-}: Props) => {
+}) => {
     const componentClassName = classNames("jkl-field-group", className);
     return (
         <fieldset className={componentClassName} data-testautoid={testAutoId}>

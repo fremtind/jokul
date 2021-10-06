@@ -1,11 +1,11 @@
-import React from "react";
+import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Loader, LoaderVariant } from "../src";
 import "./styles.scss";
 
 type VariantChoice = "Large" | "Medium" | "Small";
 
-export default function LoaderExample({ choiceValues }: ExampleComponentProps) {
+const LoaderExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
     const variantChoice = choiceValues && (choiceValues["Variant"] as VariantChoice);
     let variant: LoaderVariant = "large";
     switch (variantChoice) {
@@ -27,4 +27,6 @@ export default function LoaderExample({ choiceValues }: ExampleComponentProps) {
             </div>
         </div>
     );
-}
+};
+
+export default LoaderExample;
