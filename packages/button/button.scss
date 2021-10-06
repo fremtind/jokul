@@ -58,6 +58,48 @@ $button-wrapper-animation-safe-area: 10px;
     --button-primary-background-color: #{$button-primary-background-color--inverted};
 }
 
+.jkl-button-wrapper {
+    height: $button-height--normal;
+    overflow: hidden;
+    padding: $button-wrapper-animation-safe-area;
+    @supports (clip-path: inset(-18% -18% -18% -18%)) {
+        overflow: initial;
+        clip-path: inset(-18% -18% -18% -18%);
+        padding: 0;
+    }
+
+    &__slider {
+        @include motion("standard", "productive");
+        transition-property: transform;
+        &--show-loader {
+            transform: translateY(-60%);
+        }
+    }
+
+    &__loader {
+        display: flex;
+        padding: 0 $button-padding;
+        align-items: center;
+        height: $button-height--normal;
+        min-width: $button-min-width--normal;
+    }
+
+    &--compact {
+        height: $button-height--compact;
+        min-width: $button-min-width--compact;
+
+        .jkl-button-wrapper__slider {
+            &--show-loader {
+                transform: translateY(-63%);
+            }
+        }
+
+        .jkl-button-wrapper__loader {
+            height: $button-height--compact;
+        }
+    }
+}
+
 a.jkl-button {
     text-decoration: none;
 }
@@ -73,13 +115,6 @@ a.jkl-button {
     line-height: $button-height--normal;
     cursor: pointer;
     user-select: none;
-    overflow: hidden;
-    padding: $button-wrapper-animation-safe-area;
-    @supports (clip-path: inset(-18% -18% -18% -18%)) {
-        overflow: initial;
-        clip-path: inset(-18% -18% -18% -18%);
-        padding: 0;
-    }
 
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
@@ -106,41 +141,6 @@ a.jkl-button {
     html[data-touchnavigation] &--pressed {
         transform: scale(0.95);
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }
-
-    &__content {
-        height: $button-height--normal;
-        overflow: hidden;
-
-        &--compact {
-            height: $button-height--compact;
-
-            .jkl-button__slider {
-                &--show-loader {
-                    transform: translateY(-51%);
-                }
-            }
-
-            .jkl-button__loader {
-                height: $button-height--compact;
-            }
-        }
-    }
-
-    &__slider {
-        @include motion("standard", "productive");
-        transition-property: transform;
-        &--show-loader {
-            transform: translateY(-51%);
-        }
-    }
-
-    &__loader {
-        display: flex;
-        padding: 0;
-        align-items: center;
-        justify-content: center;
-        height: $button-height--normal;
     }
 
     // ********* VARIANTS *********

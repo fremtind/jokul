@@ -13,13 +13,13 @@ describe("Loader", () => {
 
         expect(screen.getByTestId("jkl-loader")).toBeInTheDocument();
     });
-    it("should render medium negative to document", () => {
-        render(<Loader textDescription="Laster inn" negative variant="medium" />);
+    it("should render inline negative to document", () => {
+        render(<Loader textDescription="Laster inn" negative inline />);
 
         expect(screen.getByTestId("jkl-loader")).toBeInTheDocument();
     });
-    it("should render medium to document", () => {
-        render(<Loader textDescription="Laster inn" variant="medium" />);
+    it("should render inline to document", () => {
+        render(<Loader textDescription="Laster inn" inline />);
 
         expect(screen.getByTestId("jkl-loader")).toBeInTheDocument();
     });

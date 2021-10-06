@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import { ExampleComponentProps, ChoiceProp, BoolProp } from "./";
+import { ExampleComponentProps, ChoiceProp } from "./";
 import { ExampleBase } from "./ExampleBase";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
     title?: string;
     knobs?: {
-        boolProps?: Array<BoolProp>;
+        boolProps?: Array<string>;
         choiceProps?: Array<ChoiceProp>;
     };
 }

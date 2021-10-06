@@ -14,13 +14,9 @@ describe("Button", () => {
     buttonVariants.map((buttonVariant) => {
         it(`renders the ${buttonVariant.name} button correctly`, () => {
             const { name, component: Button } = buttonVariant;
-            render(
-                <Button data-testid={name} onClick={() => {}}>
-                    {name}
-                </Button>,
-            );
+            render(<Button onClick={() => {}}>{name}</Button>);
 
-            expect(screen.getByTestId(name)).toHaveClass(`jkl-button--${name}`);
+            expect(screen.getByText(name)).toHaveClass(`jkl-button--${name}`);
         });
     });
 
@@ -37,22 +33,22 @@ describe("Button", () => {
 
     it("applies passed classNames", () => {
         render(
-            <PrimaryButton data-testid="test" className="test-class" onClick={() => {}}>
+            <PrimaryButton className="test-class" onClick={() => {}}>
                 test
             </PrimaryButton>,
         );
 
-        expect(screen.getByTestId("test")).toHaveClass("test-class");
+        expect(screen.getByText("test")).toHaveClass("test-class");
     });
 
     it("applies compact mode when forced to", () => {
         render(
-            <PrimaryButton data-testid="test" forceCompact onClick={() => {}}>
+            <PrimaryButton forceCompact onClick={() => {}}>
                 test
             </PrimaryButton>,
         );
 
-        expect(screen.getByTestId("test")).toHaveClass("jkl-button--compact");
+        expect(screen.getByText("test")).toHaveClass("jkl-button--compact");
     });
 
     test("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
