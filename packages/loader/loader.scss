@@ -3,10 +3,12 @@
 @import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$loader-dot-size: rem(18px);
-$loader-dot-size--inline: rem(8px);
-$loader-spacing: $component-spacing--xxl;
-$loader-spacing--inline: $component-spacing--xl;
+$loader-dot-size--large: rem(18px);
+$loader-dot-size--medium: rem(7px);
+$loader-dot-size--small: rem(5px);
+$loader-spacing--large: $component-spacing--xxl;
+$loader-spacing--medium: $component-spacing--medium;
+$loader-spacing--small: $component-spacing--small;
 $loader-animation-properties: 2500ms linear infinite;
 
 $loader-color: jkl.$color-granitt;
@@ -28,32 +30,44 @@ $loader-color--inverted: jkl.$color-snohvit;
         transform-origin: center;
         background-color: $loader-color;
         background-color: var(--loader-color);
-        height: $loader-dot-size;
-        width: $loader-dot-size;
+        height: $loader-dot-size--large;
+        width: $loader-dot-size--large;
         animation: $loader-animation-properties;
 
         &--left {
             animation-name: spin-left;
-            margin-right: $loader-spacing * 0.9; // for visual balance
+            margin-right: $loader-spacing--large * 0.9; // for visual balance
         }
         &--middle {
             animation-name: spin-middle;
-            margin-right: $loader-spacing;
+            margin-right: $loader-spacing--large;
         }
         &--right {
             animation-name: spin-right;
         }
     }
 
-    &--inline > .jkl-loader__dot {
-        height: $loader-dot-size--inline;
-        width: $loader-dot-size--inline;
+    &--medium > .jkl-loader__dot {
+        height: $loader-dot-size--medium;
+        width: $loader-dot-size--medium;
 
         &--left {
-            margin-right: $loader-spacing--inline * 0.9;
+            margin-right: $loader-spacing--medium * 0.9;
         }
         &--middle {
-            margin-right: $loader-spacing--inline;
+            margin-right: $loader-spacing--medium;
+        }
+    }
+
+    &--small > .jkl-loader__dot {
+        height: $loader-dot-size--small;
+        width: $loader-dot-size--small;
+
+        &--left {
+            margin-right: $loader-spacing--small * 0.9;
+        }
+        &--middle {
+            margin-right: $loader-spacing--small;
         }
     }
 

@@ -1,39 +1,32 @@
 import React from "react";
-import { Loader } from "../src";
+import { ExampleComponentProps } from "../../../doc-utils";
+import { Loader, LoaderVariant } from "../src";
+import "./styles.scss";
 
-const Example = () => (
-    <section>
-        <Loader textDescription="Den som venter på noe godt…" />
-        <div
-            style={{
-                marginTop: "20px",
-                border: "1px solid black",
-                borderRadius: "20px",
-                height: "40px",
-                width: "200px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <Loader textDescription="Laster…" inline />
-        </div>
-        <div
-            style={{
-                marginTop: "20px",
-                border: "1px solid black",
-                borderRadius: "20px",
-                height: "40px",
-                width: "200px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "black",
-            }}
-        >
-            <Loader textDescription="Laster…" inline negative />
-        </div>
-    </section>
-);
+type VariantChoice = "Large" | "Medium" | "Small";
 
-export default Example;
+export default function LoaderExample({ boolValues, choiceValues }: ExampleComponentProps) {
+    const inverted = boolValues && boolValues["Invertert"];
+
+    const variantChoice = choiceValues && (choiceValues["Variant"] as VariantChoice);
+    let variant: LoaderVariant = "large";
+    switch (variantChoice) {
+        case "Medium":
+            variant = "medium";
+            break;
+        case "Small":
+            variant = "small";
+            break;
+        case "Large":
+        default:
+            break;
+    }
+
+    return (
+        <div className="jkl-loader-example">
+            <div>
+                <Loader negative={inverted} variant={variant} textDescription="Eksempelbeskrivelse for en loader" />
+            </div>
+        </div>
+    );
+}
