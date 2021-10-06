@@ -47,11 +47,10 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
         );
     }
 
-    const shouldShowSidebar = !isFrontPage && !(screen.isSmallDevice || screen.isMediumDevice);
-
     const metaDescription = site.siteMetadata.description;
     const siteTitle = site.siteMetadata.title;
     const pageTitle = pageContext.frontmatter?.title;
+    const shouldShowSidebar = !isFrontPage && pageTitle && !(screen.isSmallDevice || screen.isMediumDevice);
 
     return (
         <div className="jkl jkl-portal">
