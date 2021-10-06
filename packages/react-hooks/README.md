@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-react-hooks`](https://fremtind.github.io/jokul/komponenter/hooks)
+# [`@fremtind/jkl-react-hooks`](https://jokul.fremtind.no/komponenter/hooks)
 
 ## Beskrivelse
 
-[Bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/hooks).
+[Bruk og prinsipper](https://jokul.fremtind.no/komponenter/hooks).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/komigang/utvikling)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/komigang/utvikling)
 
 ## Bruk av React-pakken
 

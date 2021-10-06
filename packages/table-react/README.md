@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-table-react`](https://fremtind.github.io/jokul/komponenter/table)
+# [`@fremtind/jkl-table-react`](https://jokul.fremtind.no/komponenter/table)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/table).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/table).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-komponenten
 

@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-icons-react`](https://fremtind.github.io/jokul/komponenter/icons)
+# [`@fremtind/jkl-icons-react`](https://jokul.fremtind.no/komponenter/icons)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/icons).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/icons).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -29,11 +29,9 @@ import { ArrowDown } from "@fremtind/jkl-icons-react";
 
 Ikonene arver farge fra foreldre komponenten, så om man ønsker endring i dark mode, må det styres av komponenten over. Nødvendig stil kommer fra core stil pakka.
 
-
 ```js
 import { ArrowHorizontalAnimated } from "@fremtind/jkl-icons-react";
 import "@fremtind/jkl-icons/animated-icons.min.css";
-
 ```
 
 ### Bruk

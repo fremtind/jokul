@@ -3,6 +3,21 @@ on:
     push:
         branches:
             - main
+        paths:
+            - "packages/*.ts"
+            - "packages/*.tsx"
+            - "packages/*.mdx"
+            - "packages/*.scss"
+            - "patches/*"
+            - "portal/*.ts"
+            - "portal/*.tsx"
+            - "portal/*.mdx"
+            - "portal/*.scss"
+            - "portal/images/*"
+            - "portal/static/*"
+            - "portal/gatsby-*"
+            - "yarn.lock"
+
 jobs:
     build-and-deploy:
         name: Deploy portal
