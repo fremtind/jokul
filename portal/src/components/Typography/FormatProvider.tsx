@@ -24,6 +24,15 @@ import {
     ListItem,
 } from "../Typography";
 
+/** Don't add class jkl-link to <a /> if it's styled as a button */
+const Anchor: React.FC<{ className?: string }> = (props) => {
+    if (props.className && props.className.includes("jkl-button")) {
+        // eslint-disable-next-line jsx-a11y/anchor-has-content
+        return <a {...props} />;
+    }
+    return <Link {...props} />;
+};
+
 const components = {
     h1: PageTitle,
     h2: HeadingLarge,
@@ -35,7 +44,7 @@ const components = {
     ol: OrderedList as React.FC,
     li: ListItem as React.FC,
     img: PortalImg,
-    a: Link,
+    a: Anchor as React.FC,
     pre: CodeBlock,
     inlineCode: InlineCode,
     Ingress,
