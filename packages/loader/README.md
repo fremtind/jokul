@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-loader`](https://fremtind.github.io/jokul/komponenter/loader)
+# [`@fremtind/jkl-loader`](https://jokul.fremtind.no/komponenter/loader)
 
 # Lasteindikator
 

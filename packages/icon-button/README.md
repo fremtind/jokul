@@ -1,4 +1,4 @@
-#  [`@fremtind/jkl-button`](https://fremtind.github.io/jokul/komponenter/buttons)
+#  [`@fremtind/jkl-button`](https://jokul.fremtind.no/komponenter/buttons)
 
 # Knapper
 

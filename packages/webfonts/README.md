@@ -1,4 +1,4 @@
-# [`webfonts`](https://fremtind.github.io/jokul/komponenter/typography)
+# [`@fremtind/jkl-webfonts`](https://jokul.fremtind.no/komponenter/typography)
 
 Denne pakken inneholder skrifttypene våre til bruk i nettløsninger (disse kan ikke installeres lokalt på datamaskinen). Disse må gjøres tilgjengelige i løsningen ved at du legger fontfilene i en mappe som blir eksportert med app-en din, f.eks. `/build`, `/dist` eller lignende.
 
@@ -11,13 +11,13 @@ I tillegg til å distribuere fontfilene sammen med løsningen din må du importe
 Om du bruker Sass-stilark i prosjektet ditt er dette den enkleste måten. I rot-`.scss`-filen din:
 
 Med use syntax:
+
 ```scss
-@use '~@fremtind/jkl-webfonts/webfonts.scss' with (
-    $webfonts-dir: "/relative/path/to/font/files"
-);
+@use "~@fremtind/jkl-webfonts/webfonts.scss" with ($webfonts-dir: "/relative/path/to/font/files");
 ```
 
 Med import syntax:
+
 ```scss
 $webfonts-dir: "/relative/path/to/font/files";
 @import "~@fremtind/jkl-webfonts/webfonts.scss"; // NB! bruk riktig import for din sass-loader

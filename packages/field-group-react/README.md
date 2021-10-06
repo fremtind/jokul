@@ -1,12 +1,12 @@
-# [`@fremtind/field-group`](https://fremtind.github.io/jokul/komponenter/fieldgroup)
+# [`@fremtind/field-group-react`](https://jokul.fremtind.no/komponenter/fieldgroup)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/fieldgroup).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/fieldgroup).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-komponenten
 
