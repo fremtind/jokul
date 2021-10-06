@@ -27,7 +27,7 @@ Komponenten tar følgende props:
 
 -   `textDescription`: **Påkrevd**. Tekstlig forklaring av innlasting, f.eks. "Laster inn skjema". `string`
 -   `negative`: Angir om loaderen skal brukes på mørk bakgrunn. `boolean`
--   `inline`: Angir om loaderen skal brukes inne i et annet element. `boolean`
+-   `variant`: Velg mellom ulike størrelser. `large` (default), `medium` eller `small`.
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
 -   `politeness`: Sett politeness setting på aria-live. `polite` (default) eller `assertive`.
 
