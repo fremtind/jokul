@@ -1,4 +1,4 @@
-#  [`@fremtind/jkl-cookie-consent`](https://fremtind.github.io/jokul/komponenter/cookie-consent)
+#  [`@fremtind/jkl-cookie-consent`](https://jokul.fremtind.no/komponenter/cookie-consent)
 
 # Cookie consent
 

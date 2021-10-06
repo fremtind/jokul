@@ -1,1 +1,1 @@
-# [`SummaryTable`](https://fremtind.github.io/jokul/komponenter/summarytable)
+# [`@fremtind/jkl-summary-table`](https://jokul.fremtind.no/komponenter/summarytable)

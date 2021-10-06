@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-text-input-react`](https://fremtind.github.io/jokul/komponenter/textinput)
+# [`@fremtind/jkl-text-input-react`](https://jokul.fremtind.no/komponenter/textinput)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/textinput).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/textinput).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -53,7 +53,7 @@ Husk å sette `label` til en fornuftig beskrivelse av handlingen (f.eks. "nullst
 #### BaseInputField
 
 Denne er kun eksponert for å dekke spesielle behov og anbefales ikke å brukes.
-Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremtind/jkl-core`](https://fremtind.github.io/jokul/komponenter/Typography) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
+Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremtind/jkl-core`](https://jokul.fremtind.no/komponenter/Typography) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
 
 ```tsx
 <Label standAlone htmlFor="complicatedquestion">
