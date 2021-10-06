@@ -8,6 +8,7 @@ group: knapper
 import { Primary, PrimaryCode } from "./Primary";
 import { Secondary, SecondaryCode } from "./Secondary";
 import { Tertiary, TertiaryCode } from "./Tertiary";
+import { Anchors, AnchorsCode } from "./Anchors";
 
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
@@ -56,12 +57,6 @@ Knappetekster skal være så enkle og korte som mulig og skal oppfordre til hand
 
 Avhengig av situasjonen kan det hende en knapp teknisk sett er et `<a />`-element. Jøkul støtter å ha knappeklasser på `<a />`.
 
-<a href="#" className="jkl-button jkl-button--primary jkl-layout-spacing--medium-right">
-    Send inn
-</a>
-<a href="#" className="jkl-button jkl-button--secondary jkl-layout-spacing--medium-right">
-    Lagre
-</a>
-<a href="#" className="jkl-button jkl-button--tertiary jkl-layout-spacing--medium-right">
-    Avbryt
-</a>
+<ComponentExample component={Anchors}>
+    <CodeDemo code={AnchorsCode} />
+</ComponentExample>
