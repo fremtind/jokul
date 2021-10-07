@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 
 import "./IconTable.scss";
 import { TableHeader } from "./TableHeader";
@@ -84,7 +84,7 @@ const icons = [
     },
 ];
 
-export const Example = () => {
+export const Example: VFC = () => {
     return (
         <>
             <table className={`jkl-icon-table jkl-spacing--top-2`}>

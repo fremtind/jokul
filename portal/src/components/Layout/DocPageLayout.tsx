@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from "react";
+import React, { FC, ReactNode, useContext } from "react";
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { Table } from "@fremtind/jkl-table-react";
@@ -23,7 +23,7 @@ const getRows = (data: FrontmatterTypeProp[]) =>
         prop.type?.name ?? "",
     ]);
 
-export const DocPageLayout = ({ children, location, pageContext: { frontmatter } }: Props) => {
+export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { frontmatter } }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
     const { isCypress } = useLocation();
 

@@ -1,7 +1,7 @@
-import React from "react";
+import React, { VFC } from "react";
 import { Frontmatter } from "../../Header/useNavigationLinks";
 
-export function BlogPageHeader({ title, author, publishDate }: Frontmatter) {
+export const BlogPageHeader: VFC<Frontmatter> = ({ title, author, publishDate }) => {
     if (!author) {
         return null;
     }
@@ -14,4 +14,4 @@ export function BlogPageHeader({ title, author, publishDate }: Frontmatter) {
             </div>
         </>
     );
-}
+};

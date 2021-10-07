@@ -44,13 +44,13 @@ export class PrincipleDiamond extends React.Component<Props> {
         this.size = [250, 250];
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         this.lastMinScale = this.props.minScale;
         this.lastMaxScale = this.props.maxScale;
         this.updatedScaleAt = 0;
     }
 
-    componentDidUpdate(nextProps: Props) {
+    componentDidUpdate(nextProps: Props): void {
         if (this.props.minScale !== nextProps.minScale) {
             // console.log("updating minScale", this.lastMinScale, this.props.minScale, nextProps.minScale);
             this.lastMinScale = this.props.minScale;
@@ -66,13 +66,13 @@ export class PrincipleDiamond extends React.Component<Props> {
         this.draw();
     }
 
-    componentWillUnmount() {
+    componentWillUnmount(): void {
         if (this.animationTimeout) {
             window.clearTimeout(this.animationTimeout);
         }
     }
 
-    saveContext(ctx: CanvasRenderingContext2D | null) {
+    saveContext(ctx: CanvasRenderingContext2D | null): void {
         if (!ctx) {
             return;
         }
@@ -82,7 +82,7 @@ export class PrincipleDiamond extends React.Component<Props> {
         this.draw();
     }
 
-    getScale() {
+    getScale(): [number, number] {
         const t = (Date.now() - this.updatedScaleAt) / 150;
 
         let amount = t < 0 ? 0 : t;
@@ -94,7 +94,7 @@ export class PrincipleDiamond extends React.Component<Props> {
         return [lerpMin, lerpMax];
     }
 
-    draw() {
+    draw(): void {
         const { tileSize, ctx, size } = this;
         const { tiles } = this.props;
 
@@ -137,14 +137,15 @@ export class PrincipleDiamond extends React.Component<Props> {
         }, 1000 / 30);
     }
 
-    generateClasses = (baseClass: string) =>
-        classNames(baseClass, {
+    generateClasses(baseClass: string): string {
+        return classNames(baseClass, {
             [baseClass + "--elevated"]: this.props.principleState === 1,
             [baseClass + "--movement"]: this.props.principleState === 2,
             [baseClass + "--clarity"]: this.props.principleState === 3,
         });
+    }
 
-    render() {
+    render(): JSX.Element {
         return (
             <PureCanvas
                 className={this.generateClasses("jkl-portal-principle-diamond__" + this.props.type)}

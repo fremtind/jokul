@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 
 interface Props {
     className?: string;
@@ -7,7 +7,7 @@ interface Props {
     contextRef: (context: CanvasRenderingContext2D | null) => void;
 }
 
-export function PureCanvas({ className, width, height, contextRef }: Props) {
+export const PureCanvas: VFC<Props> = ({ className, width, height, contextRef }) => {
     return (
         <canvas
             className={className}
@@ -16,4 +16,4 @@ export function PureCanvas({ className, width, height, contextRef }: Props) {
             ref={(node) => (node ? contextRef(node.getContext("2d")) : null)}
         />
     );
-}
+};

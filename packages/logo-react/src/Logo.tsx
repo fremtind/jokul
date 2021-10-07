@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { VFC, useState } from "react";
 import { nanoid } from "nanoid";
 import classNames from "classnames";
 
@@ -12,7 +12,7 @@ interface Props {
     inverted?: boolean;
 }
 
-export const Logo = ({ className, centered = true, isSymbol, animated, title = "Fremtind", inverted }: Props) => {
+export const Logo: VFC<Props> = ({ className, centered = true, isSymbol, animated, title = "Fremtind", inverted }) => {
     const [uniqueId] = useState(`jkl-logo-${nanoid(16)}`);
     const componentClassName = classNames("jkl-logo", className, {
         "jkl-logo--animated": animated,

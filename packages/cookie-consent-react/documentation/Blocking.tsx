@@ -1,5 +1,4 @@
-import React from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import React, { VFC } from "react";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
 
@@ -13,7 +12,7 @@ const Content = () => {
     );
 };
 
-export const Blocking = ({}: ExampleComponentProps) => {
+export const Blocking: VFC = () => {
     if (typeof window === "undefined") {
         return null;
     }

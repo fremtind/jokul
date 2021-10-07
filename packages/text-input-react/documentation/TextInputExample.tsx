@@ -1,10 +1,10 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { TextInput } from "../src";
 import { Action } from "../src/TextInput";
 
-export function TextInputExample({ choiceValues, boolValues }: ExampleComponentProps) {
+export const TextInputExample: VFC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const [value, setValue] = useState("");
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
@@ -40,4 +40,4 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
             onKeyDown={() => console.log("onKeyDown event")}
         />
     );
-}
+};

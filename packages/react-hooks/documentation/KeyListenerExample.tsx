@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, VFC } from "react";
 import { useKeyListener } from "../src/useKeyListener";
 
-export default function KeyListenerExample() {
+const KeyListenerExample: VFC = () => {
     const [pressedKeys, setPressedKeys] = useState<string[]>([]);
     const keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
     const ref = useRef(null);
@@ -40,4 +40,6 @@ export default function KeyListenerExample() {
             )}
         </section>
     );
-}
+};
+
+export default KeyListenerExample;

@@ -104,8 +104,12 @@ const CookieConsentProvider: React.FC<{ cookieAdapter?: () => Consent | undefine
     return <CookieConsentContext.Provider value={value}>{children}</CookieConsentContext.Provider>;
 };
 
+interface UseCookieConsentState extends State {
+    dispatch: Dispatch;
+}
+
 // control and state for internal use
-const useCookieConsentState = () => {
+const useCookieConsentState = (): UseCookieConsentState => {
     const context = React.useContext(CookieConsentContext);
     if (context === undefined) {
         throw new Error("useCookieConsentState must be used within a CookieConsentProvider");
@@ -117,8 +121,12 @@ const useCookieConsentState = () => {
     };
 };
 
+type UseCookieConsent = {
+    openConsentModalWithSettings: () => void;
+};
+
 // expose functionality to be used by consumers
-const useCookieConsent = () => {
+const useCookieConsent = (): UseCookieConsent => {
     const context = React.useContext(CookieConsentContext);
     if (context === undefined) {
         throw new Error("useCookieConsent must be used within a CookieConsentProvider");

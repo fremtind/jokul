@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React, { MouseEvent, VFC } from "react";
 import { TableRowData, isAnchorRowData } from "./types";
 import { TableData } from "./TableData";
 
@@ -6,7 +6,7 @@ interface Props {
     row: TableRowData;
 }
 
-export function TableRow({ row }: Props) {
+export const TableRow: VFC<Props> = ({ row }) => {
     const rowData: string[] = isAnchorRowData(row) ? row.rowData : row;
 
     let componentClassName = "jkl-table__row jkl-table__row--data-row";
@@ -32,4 +32,4 @@ export function TableRow({ row }: Props) {
             ))}
         </tr>
     );
-}
+};

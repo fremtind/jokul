@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { DatePicker } from "../src";
@@ -8,7 +8,7 @@ const monthsIsh = (num: number) => {
     return raw < 0 ? 12 + raw : raw;
 };
 
-export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"] ? "Du vil være forsikret fra denne datoen" : undefined;
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;

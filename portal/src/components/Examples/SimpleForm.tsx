@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, VFC } from "react";
 import { AnimatePresence } from "framer-motion";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
 import { ExampleContext } from "../../../../doc-utils";
@@ -7,7 +7,7 @@ import PersonalInfoForm from "./SimpleForm/PersonalInfoForm";
 import AddressForm from "./SimpleForm/AddressForm";
 import HouseDetailsForm from "./SimpleForm/HouseDetailsForm";
 
-const SimpleForm = () => {
+const SimpleForm: VFC = () => {
     const [showAddress, setShowAddress] = useState(false);
     const [showHouseDetails, setShowHouseDetails] = useState(false);
     const { registerKnobs } = useContext(ExampleContext);

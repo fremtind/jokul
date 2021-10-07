@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import PropTypes from "prop-types";
 import { DevExample } from "../../../doc-utils";
 
@@ -23,7 +23,7 @@ Box.propTypes = {
     number: PropTypes.number,
 };
 
-export const Typo = () => (
+export const Typo: VFC = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <h1 className="jkl-h1">Heading1</h1>
         <h2 className="jkl-h2">Heading2</h2>
@@ -35,7 +35,7 @@ export const Typo = () => (
     </section>
 );
 
-export const Spacing = () => (
+export const Spacing: VFC = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <h1 className="jkl-h1">Spacing</h1>
         <h2 className="jkl-h2">Layout spacing</h2>
@@ -53,7 +53,7 @@ export const Spacing = () => (
     </section>
 );
 
-const Example = () => (
+const Example: VFC = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
         <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv", "Back"] }} />

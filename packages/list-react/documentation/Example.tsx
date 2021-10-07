@@ -1,7 +1,7 @@
-import React from "react";
+import React, { VFC } from "react";
 import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
 
-export const Ordered = () => (
+export const Ordered: VFC = () => (
     <OrderedList>
         <ListItem>Steg 1</ListItem>
         <ListItem>
@@ -16,7 +16,7 @@ export const Ordered = () => (
     </OrderedList>
 );
 
-export const Unordered = () => (
+export const Unordered: VFC = () => (
     <UnorderedList>
         <ListItem>Listeelement 1</ListItem>
         <ListItem>Listeelement 2</ListItem>
@@ -24,7 +24,7 @@ export const Unordered = () => (
     </UnorderedList>
 );
 
-export const Indent = () => (
+export const Indent: VFC = () => (
     <UnorderedList>
         <ListItem>
             Listeelement 1
@@ -37,7 +37,7 @@ export const Indent = () => (
     </UnorderedList>
 );
 
-export const IconedList = () => (
+export const IconedList: VFC = () => (
     <List>
         <CheckListItem>Dekkes</CheckListItem>
         <CheckListItem>Dekkes også</CheckListItem>
@@ -46,7 +46,7 @@ export const IconedList = () => (
     </List>
 );
 
-const Example = () => (
+const Example: VFC = () => (
     <section>
         <Ordered />
         <Unordered />

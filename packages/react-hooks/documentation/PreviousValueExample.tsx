@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { usePreviousValue } from "../src";
 
-const usePreviousValueExample = () => {
+const usePreviousValueExample: FC = () => {
     const [state, setState] = useState(0);
     const previousValue = usePreviousValue(state);
 

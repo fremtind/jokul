@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState, VFC } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { FeedbackAnswer, FollowupQuestion } from "../types";
 import { useFollowup } from "./useFollowup";
@@ -22,7 +22,7 @@ interface Props {
     onSubmit: (values: FeedbackAnswer[]) => void;
 }
 
-export const Followup = ({ questions, successMessage = defaultSuccessMessage, onSubmit }: Props) => {
+export const Followup: VFC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit }) => {
     const [noThanks, setNoThanks] = useState(false);
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);

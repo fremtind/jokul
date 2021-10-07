@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Logo } from "../src";
 import "./LogoExample.scss";
 
-export const LogoExample = ({ boolValues }: ExampleComponentProps) => (
+export const LogoExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
     <Logo
         className="logo-example"
         animated={boolValues && boolValues["Animert"]}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
@@ -25,7 +25,7 @@ import {
 } from "../Typography";
 
 /** Don't add class jkl-link to <a /> if it's styled as a button */
-const Anchor: React.FC<{ className?: string }> = (props) => {
+const Anchor: FC<{ className?: string }> = (props) => {
     if (props.className && props.className.includes("jkl-button")) {
         // eslint-disable-next-line jsx-a11y/anchor-has-content
         return <a {...props} />;
@@ -40,11 +40,11 @@ const components = {
     h4: HeadingSmall,
     h5: HeadingXS,
     p: Paragraph,
-    ul: UnorderedList as React.FC,
-    ol: OrderedList as React.FC,
-    li: ListItem as React.FC,
+    ul: UnorderedList as FC,
+    ol: OrderedList as FC,
+    li: ListItem as FC,
     img: PortalImg,
-    a: Anchor as React.FC,
+    a: Anchor as FC,
     pre: CodeBlock,
     inlineCode: InlineCode,
     Ingress,
@@ -59,10 +59,6 @@ const components = {
     Table,
 };
 
-interface Props {
-    children: ReactNode;
-}
-
-export function FormatProvider({ children }: Props) {
+export const FormatProvider: FC = ({ children }) => {
     return <MDXProvider components={components}>{children}</MDXProvider>;
-}
+};

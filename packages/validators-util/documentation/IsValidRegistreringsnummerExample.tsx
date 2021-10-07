@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { isValidRegistreringsnummer } from "../src";
 
 import "./index.scss";
 
-const IsValidRegistreringsnummerExample = () => {
+const IsValidRegistreringsnummerExample: VFC = () => {
     return (
         <section>
             <p>

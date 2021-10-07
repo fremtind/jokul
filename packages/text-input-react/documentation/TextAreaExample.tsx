@@ -1,9 +1,9 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { TextArea } from "../src";
 
-export function TextAreaExample({ choiceValues, boolValues }: ExampleComponentProps) {
+export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const [value, setValue] = useState("");
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value);
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
@@ -30,4 +30,4 @@ export function TextAreaExample({ choiceValues, boolValues }: ExampleComponentPr
             onKeyDown={() => console.log("onKeyDown event")}
         />
     );
-}
+};
