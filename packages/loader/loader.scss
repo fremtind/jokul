@@ -13,25 +13,13 @@ $loader-spacing--small: $component-spacing--small;
 
 $loader-animation-properties: 2500ms linear infinite;
 
-$loader-color: jkl.$color-granitt;
-$loader-color--inverted: jkl.$color-snohvit;
-
-@include jkl.helper-light-mode-variables {
-    --loader-color: #{$loader-color};
-}
-
-@include jkl.helper-dark-mode-variables {
-    --loader-color: #{$loader-color--inverted};
-}
-
 .jkl-loader {
     display: flex;
 
     &__dot {
         display: block;
         transform-origin: center;
-        background-color: $loader-color;
-        background-color: var(--loader-color);
+        background-color: currentColor;
         height: $loader-dot-size--large;
         width: $loader-dot-size--large;
         animation: $loader-animation-properties;
@@ -71,10 +59,6 @@ $loader-color--inverted: jkl.$color-snohvit;
         &--middle {
             margin-right: $loader-spacing--small;
         }
-    }
-
-    &--negative > .jkl-loader__dot {
-        background-color: $loader-color--inverted;
     }
 }
 

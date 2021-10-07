@@ -6,8 +6,6 @@ export type LoaderVariant = "small" | "medium" | "large";
 interface Props {
     variant?: LoaderVariant;
     textDescription: string;
-    /** @deprecated */
-    negative?: boolean;
     className?: string;
     dataTestAutoId?: string;
     politeness?: "polite" | "assertive";
@@ -15,14 +13,12 @@ interface Props {
 export const Loader = ({
     variant = "large",
     textDescription,
-    negative = false,
     className,
     dataTestAutoId = "jkl-loader",
     politeness = "polite",
     ...rest
 }: Props) => {
     const componentClassName = classNames("jkl-loader", className, {
-        "jkl-loader--negative": negative,
         "jkl-loader--medium": variant === "medium",
         "jkl-loader--small": variant === "small",
     });
