@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.2 (2021-10-07)
+
+### Bug Fixes
+
+- fjern clip-path på knapper for å vise touch-effekt riktig ([33ab605](https://github.com/fremtind/jokul/commit/33ab605f6b1ba70bddb939d07cbe16c1602d596f)), closes [#2356](https://github.com/fremtind/jokul/issues/2356)
+
 ## 5.0.0 (2021-10-06)
 
 ### Features
