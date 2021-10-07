@@ -5,7 +5,9 @@ interface Props {
     highQualitySrc: string;
 }
 
-export const useProgressiveImg = ({ lowQualitySrc, highQualitySrc }: Props) => {
+type ProgressiveImage = { src: string; isBlurred: boolean };
+
+export const useProgressiveImg = ({ lowQualitySrc, highQualitySrc }: Props): ProgressiveImage => {
     const [src, setSrc] = useState(lowQualitySrc);
 
     useEffect(() => {

@@ -6,7 +6,7 @@ export const dayMonthYearRegex = /^(\d\d)[\.-](\d\d)[\.-](\d{4}|\d{2})$/;
  * @param date1 first Date to compare
  * @param date2 second Date to compare
  */
-export function isSameDay(date1: Date, date2: Date) {
+export function isSameDay(date1: Date, date2: Date): boolean {
     return (
         date1.getDate() === date2.getDate() &&
         date1.getMonth() === date2.getMonth() &&
@@ -20,7 +20,7 @@ export function isSameDay(date1: Date, date2: Date) {
  * @param date the Date object to format
  * @return returns a date with "dd.mm.yyyy"-format
  */
-export function formatDate(date: Date) {
+export function formatDate(date: Date): string {
     const day = `${date.getDate()}`.padStart(2, "0");
     const month = `${date.getMonth() + 1}`.padStart(2, "0");
     return `${day}.${month}.${date.getFullYear()}`;
@@ -32,7 +32,7 @@ export function formatDate(date: Date) {
  * @param dateString date as string with format dd.mm.yyyy
  * @return a Date object representing the given date
  */
-export function parseDateString(dateString: string) {
+export function parseDateString(dateString: string): Date | undefined {
     const match = dayMonthYearRegex.exec(dateString);
 
     if (!match) {
@@ -58,7 +58,7 @@ export function parseDateString(dateString: string) {
  * @param date First date to compare
  * @param newDate Second date to compare
  */
-export function dateHasChanged(date: Date | undefined, newDate: Date) {
+export function dateHasChanged(date: Date | undefined, newDate: Date): boolean {
     return !date || !isSameDay(date, newDate);
 }
 
@@ -69,8 +69,8 @@ export function dateHasChanged(date: Date | undefined, newDate: Date) {
  * @param rangeStart Dates before this date should be disabled
  * @param rangeEnd Dates after this date should be disabled
  */
-export function dateIsOutsideRange(date: Date, rangeStart: Date | undefined, rangeEnd: Date | undefined) {
-    return (rangeEnd && date > rangeEnd) || (rangeStart && date < rangeStart);
+export function dateIsOutsideRange(date: Date, rangeStart: Date | undefined, rangeEnd: Date | undefined): boolean {
+    return Boolean((rangeEnd && date > rangeEnd) || (rangeStart && date < rangeStart));
 }
 
 /**
@@ -84,7 +84,7 @@ export function getInitialDate(
     value: Date | undefined,
     initialDate: Date | undefined,
     disableDate: (date: Date) => boolean | undefined,
-) {
+): Date | undefined {
     if (!!value) {
         return !disableDate(value) ? value : undefined;
     }

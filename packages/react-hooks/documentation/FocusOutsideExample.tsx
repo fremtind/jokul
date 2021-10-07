@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, VFC } from "react";
 import { useFocusOutside } from "../src/useFocusOutside";
 
-export default function FocusOutsideExample() {
+const FocusOutsideExample: VFC = () => {
     const [focusCounter, setFocusCounter] = useState(0);
     const [isEnabled, setIsEnabled] = useState(false);
     const ref = useRef(null);
@@ -33,4 +33,6 @@ export default function FocusOutsideExample() {
             <button className="jkl-button jkl-button--secondary jkl-spacing--top-2">Utenfor kortet</button>
         </section>
     );
-}
+};
+
+export default FocusOutsideExample;

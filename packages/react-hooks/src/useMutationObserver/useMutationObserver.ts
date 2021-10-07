@@ -6,7 +6,7 @@ export const useMutationObserver = (
     targetRef: RefObject<HTMLElement>,
     onObservation: MutationCallback,
     config?: Partial<MutationObserverInit>,
-) => {
+): void => {
     const observerRef = useRef<MutationObserver>(null);
 
     useEffect(() => {

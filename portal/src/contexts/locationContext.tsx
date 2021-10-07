@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, ReactNode, useEffect, useReducer } from "react";
+import React, { createContext, useState, useContext, useEffect, useReducer, FC } from "react";
 import { withPrefix } from "gatsby";
 
 type GatsbyLocation = Location & { state?: Record<string, string> };
@@ -17,7 +17,7 @@ const locationContext = createContext<LocationContext>({
     setLocation: () => null,
 });
 
-export function useLocation() {
+export function useLocation(): LocationContext {
     return useContext(locationContext);
 }
 
@@ -54,11 +54,7 @@ const reducer = (state: LocationState, action: LocationAction): LocationState =>
     }
 };
 
-interface Props {
-    children: ReactNode;
-}
-
-export function LocationContextProvider({ children }: Props) {
+export const LocationContextProvider: FC = ({ children }) => {
     const [gatsbyLocation, setLocation] = useState<GatsbyLocation>(window ? window.location : new Location());
 
     const initialState: LocationState = {
@@ -75,4 +71,4 @@ export function LocationContextProvider({ children }: Props) {
     }, [gatsbyLocation]);
 
     return <locationContext.Provider value={{ ...locationState, setLocation }}>{children}</locationContext.Provider>;
-}
+};

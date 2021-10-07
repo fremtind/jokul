@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { createContext, useContext, VFC } from "react";
 import { useScreen, initialScreenState } from "../src";
 
 interface State {
@@ -14,9 +14,9 @@ interface State {
     };
 }
 
-const ScreenContext = React.createContext<State>(initialScreenState);
+const ScreenContext = createContext<State>(initialScreenState);
 
-const ScreenExample = () => {
+const ScreenExample: VFC = () => {
     const {
         isSmallDevice,
         isMediumDevice,
@@ -53,7 +53,7 @@ const ScreenExample = () => {
     );
 };
 
-const Provider = () => {
+const Provider: VFC = () => {
     const screen = useScreen();
 
     return (

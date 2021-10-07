@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 
 import "./Typography.scss";
 
@@ -29,7 +29,7 @@ const ExampleRow = ({ text, style, type }: ExampleRowProps) => (
     </tr>
 );
 
-export const NormalExample = () => (
+export const NormalExample: VFC = () => (
     <table className="jkl-typography-example-table">
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>
@@ -47,7 +47,7 @@ export const NormalExample = () => (
     </table>
 );
 
-export const SmallExample = () => (
+export const SmallExample: VFC = () => (
     <table className="jkl-typography-example-table" data-compactlayout>
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>
@@ -64,7 +64,7 @@ export const SmallExample = () => (
     </table>
 );
 
-export const LargeExample = () => (
+export const LargeExample: VFC = () => (
     <table className="jkl-typography-example-table" data-compactlayout>
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>

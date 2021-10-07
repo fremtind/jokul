@@ -4,7 +4,7 @@ export function useKeyListener(
     ref: RefObject<HTMLElement> | null,
     keys: string[] | string | null,
     fn: (event: KeyboardEvent) => void,
-) {
+): void {
     if (typeof keys === "string") {
         keys = [keys];
     }

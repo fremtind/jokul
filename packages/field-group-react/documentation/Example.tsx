@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
 
-export function Example({ boolValues, choiceValues }: ExampleComponentProps) {
+export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpetekst for feltene samlet" : undefined;
     const errorLabel = boolValues && boolValues["Med feil"] ? "Feilmelding for feltene samlet" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
@@ -20,6 +20,6 @@ export function Example({ boolValues, choiceValues }: ExampleComponentProps) {
             <p className="jkl-body">her kan du sette inn innhold og felter</p>
         </FieldGroup>
     );
-}
+};
 
 export default Example;

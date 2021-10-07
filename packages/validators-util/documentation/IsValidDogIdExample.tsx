@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { isValidDogId } from "../src";
 
 import "./index.scss";
 
-const IsValidDogIdExample = () => {
+const IsValidDogIdExample: VFC = () => {
     const id1 = "578012345678912";
     const id2 = "578012345623432423423423423";
     const id3 = "123456789123456";

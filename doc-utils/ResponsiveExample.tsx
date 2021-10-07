@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, VFC } from "react";
 import { ExampleComponentProps, ChoiceProp, BoolProp } from "./";
 import { ExampleBase } from "./ExampleBase";
 import { devices } from "./internal/Devices";
@@ -19,7 +19,7 @@ const getDeviceFromLocalStore = (defaultDevice?: string) => {
     return defaultDevice;
 };
 
-export function ResponsiveExample({ component, knobs, title = "Komponent" }: Props) {
+export const ResponsiveExample: VFC<Props> = ({ component, knobs, title = "Komponent" }) => {
     const C = component;
     const [selectedDevice, setSelectedDevice] = useState(getDeviceFromLocalStore(devices[0].displayName));
 
@@ -76,4 +76,4 @@ export function ResponsiveExample({ component, knobs, title = "Komponent" }: Pro
             )}
         />
     );
-}
+};

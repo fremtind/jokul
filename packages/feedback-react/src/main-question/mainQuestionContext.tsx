@@ -3,7 +3,7 @@ import { FeedbackState } from "../types";
 
 const mainQuestionContext = createContext<FeedbackState | undefined>(undefined);
 
-export const useMainQuestionContext = () => useContext(mainQuestionContext);
+export const useMainQuestionContext = (): FeedbackState | undefined => useContext(mainQuestionContext);
 
 interface Props {
     state: FeedbackState;

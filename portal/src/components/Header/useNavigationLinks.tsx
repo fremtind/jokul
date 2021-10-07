@@ -42,7 +42,25 @@ export interface DocumentationPageInfo extends Frontmatter {
     path: string;
 }
 
-export function useNavigationLinks() {
+enum PageType {
+    PROFIL = "profil",
+    KOMIGANG = "komigang",
+    KOMPONENTER = "komponenter",
+    BLOG = "blog",
+    UU = "universell-utforming",
+}
+
+type NavigationLinks = {
+    profileDocPages: DocumentationPageInfo[];
+    getStartedDocPages: DocumentationPageInfo[];
+    componentDocPages: DocumentationPageInfo[];
+    componentGroup: string[];
+    uuDocPages: DocumentationPageInfo[];
+    blogPages: DocumentationPageInfo[];
+    PageType: typeof PageType;
+};
+
+export function useNavigationLinks(): NavigationLinks {
     const { allSitePage } = useStaticQuery(graphql`
         query getPages {
             allSitePage(
@@ -91,14 +109,6 @@ export function useNavigationLinks() {
         }
         return 0;
     };
-
-    enum PageType {
-        PROFIL = "profil",
-        KOMIGANG = "komigang",
-        KOMPONENTER = "komponenter",
-        BLOG = "blog",
-        UU = "universell-utforming",
-    }
 
     const profileDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("profil"))

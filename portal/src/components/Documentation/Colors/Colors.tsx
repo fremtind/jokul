@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { VFC, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
 import "./Colors.scss";
@@ -16,7 +16,7 @@ const componentToHex = (numValue: number) => {
     const hexVal = numValue.toString(16).toUpperCase();
     return hexVal.length === 1 ? `0${hexVal}` : hexVal;
 };
-export const rgbToHex = (rgbValue: RgbValue) =>
+export const rgbToHex = (rgbValue: RgbValue): string =>
     componentToHex(rgbValue[0]) + componentToHex(rgbValue[1]) + componentToHex(rgbValue[2]);
 
 interface ColorSwatchProps {
@@ -25,7 +25,7 @@ interface ColorSwatchProps {
     setColor?: (color: RgbValue) => void;
 }
 
-export const ColorSwatch = ({ colorVariable, className, setColor }: ColorSwatchProps) => {
+export const ColorSwatch: VFC<ColorSwatchProps> = ({ colorVariable, className, setColor }) => {
     const swatchClasses = classNames(
         {
             "jkl-portal-color-swatch": true,
@@ -64,7 +64,7 @@ interface ColorInfoProps extends Color {
     className?: string;
 }
 
-export const ColorInfo = ({ colorVariable, cmyk, pantone, vertical, className }: ColorInfoProps) => {
+export const ColorInfo: VFC<ColorInfoProps> = ({ colorVariable, cmyk, pantone, vertical, className }) => {
     const colorInfoClassName = classNames(
         {
             "jkl-portal-color-info": true,

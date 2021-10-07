@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { VFC, useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Slider } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
 
-export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const variant = choiceValues && (choiceValues["Etikettvariant"] as LabelVariant);
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du må velge en verdi" : undefined;
     const helpLabel =

@@ -9,8 +9,15 @@ interface Props {
     options?: ScrollIntoViewOptions;
 }
 
-export const useScrollIntoView = ({ ref, timeout = 0, autoScroll = true, options = { behavior: "smooth" } }: Props) => {
-    const scrollIntoView = () => {
+type ScrollFunction = () => void;
+
+export const useScrollIntoView = ({
+    ref,
+    timeout = 0,
+    autoScroll = true,
+    options = { behavior: "smooth" },
+}: Props): [ScrollFunction] => {
+    const scrollIntoView: ScrollFunction = () => {
         if (ref?.current) {
             ref.current.scrollIntoView(options);
         }
@@ -21,6 +28,7 @@ export const useScrollIntoView = ({ ref, timeout = 0, autoScroll = true, options
         }
         const scrollFn = setTimeout(scrollIntoView, timeout);
         return () => clearTimeout(scrollFn);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ref, timeout, autoScroll]);
 
     return [scrollIntoView];

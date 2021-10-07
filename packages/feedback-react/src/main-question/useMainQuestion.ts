@@ -1,7 +1,18 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, SetStateAction, Dispatch } from "react";
 import { FeedbackType, FeedbackOption } from "../types";
 
-export const useMainQuestion = (onSubmit: (f: FeedbackType) => void) => {
+type Value = FeedbackOption<string | number> | FeedbackOption<string | number>[] | undefined;
+
+type MainQuestion = {
+    currentValue: Value;
+    setCurrentValue: Dispatch<SetStateAction<Value>>;
+    message: string | undefined;
+    setMessage: Dispatch<SetStateAction<string | undefined>>;
+    submitted: boolean;
+    handleSubmit: () => void;
+};
+
+export const useMainQuestion = (onSubmit: (f: FeedbackType) => void): MainQuestion => {
     const [currentValue, setCurrentValue] = useState<FeedbackOption | FeedbackOption[]>();
     const [message, setMessage] = useState<string>();
     const [submitted, setSubmitted] = useState(false);

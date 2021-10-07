@@ -1,7 +1,24 @@
-import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import { Dispatch, FormEvent, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
 import { FeedbackAnswer, FeedbackOption, FollowupQuestion } from "../types";
 
-export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: FeedbackAnswer[]) => void) => {
+type CurrentValue = FeedbackOption<string | number> | FeedbackOption<string | number>[] | undefined;
+
+type Followup = {
+    questions: FollowupQuestion[];
+    values: FeedbackAnswer[] | undefined;
+    step: {
+        number: number;
+        question: FollowupQuestion;
+        isLast: boolean;
+    };
+    currentValue: CurrentValue;
+    setCurrentValue: Dispatch<SetStateAction<CurrentValue>>;
+    submitted: boolean;
+    handleNext: () => void;
+    handleAbort: () => void;
+};
+
+export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: FeedbackAnswer[]) => void): Followup => {
     const [values, setValues] = useState<FeedbackAnswer[]>();
     const [step, setStep] = useState({
         number: 0,

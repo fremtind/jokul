@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { FC, useRef, VFC } from "react";
 import "./colors.scss";
 
 type colors =
@@ -27,7 +27,7 @@ interface Props {
     handleClick: (color: string) => void;
 }
 
-const ColorBox: React.FC<Props> = ({ color, handleClick }) => (
+const ColorBox: VFC<Props> = ({ color, handleClick }) => (
     <button type="button" onClick={() => handleClick(color)} className="jkl-color-box__wrapper">
         <span className="jkl-color-box__multi">
             <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${color}`}></span>
@@ -42,7 +42,7 @@ interface MultiColorProps {
     handleClick: (color: string) => void;
 }
 
-const MultiColorBox: React.FC<MultiColorProps> = ({ colors, handleClick }) => (
+const MultiColorBox: VFC<MultiColorProps> = ({ colors, handleClick }) => (
     <button type="button" onClick={() => handleClick(`${colors[0]}, $${colors[1]}`)} className="jkl-color-box__wrapper">
         <span className="jkl-color-box__multi">
             <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${colors[0]}`}></span>
@@ -57,14 +57,14 @@ interface ColorProps {
     title: string;
 }
 
-const ColorGroup: React.FC<ColorProps> = ({ title, children }) => (
+const ColorGroup: FC<ColorProps> = ({ title, children }) => (
     <section className="jkl-colors__section">
         <h2 className="jkl-title-small jkl-spacing--bottom-2">{title}</h2>
         {children}
     </section>
 );
 
-const Colors = () => {
+const Colors: VFC = () => {
     const ref = useRef<HTMLTextAreaElement>(null);
 
     const copyCodeToClipboard = (color: string) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { Card } from "../src";
 import car from "./img/car.jpg";
 import grass from "./img/grass.jpg";
@@ -7,7 +7,7 @@ function handleClick() {
     console.log("This is working");
 }
 
-const CardDemo = () => (
+const CardDemo: VFC = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <Card className="test-class">
             <p className="jkl-body">Empty card</p>

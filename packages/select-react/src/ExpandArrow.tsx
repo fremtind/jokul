@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import classNames from "classnames";
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
     expanded?: boolean;
 }
 
-export function ExpandArrow({ expanded = false, className }: Props) {
+export const ExpandArrow: VFC<Props> = ({ expanded = false, className }) => {
     const componentClassName = classNames(
         {
             "jkl-expand-arrow": true,
@@ -30,4 +30,4 @@ export function ExpandArrow({ expanded = false, className }: Props) {
             </svg>
         </span>
     );
-}
+};
