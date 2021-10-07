@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-10-07)
+
+### Code Refactoring
+
+- **loading-state:** fjern bruk av negative-prop i loaderen ([69f4d42](https://github.com/fremtind/jokul/commit/69f4d426a68ccd4c3295d1be80544eb10ad19e37))
+
+### BREAKING CHANGES
+
+- **loading-state:** Avhenger av en versjon av loader med breaking changes
+
 ## 6.0.0 (2021-10-06)
 
 ### Features
