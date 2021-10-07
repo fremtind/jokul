@@ -36,12 +36,6 @@ $button-focus-color--inverted: jkl.$color-snohvit;
 $button-primary-text-color--inverted: jkl.$color-granitt;
 $button-primary-background-color--inverted: jkl.$color-snohvit;
 
-/* This padding ensures that there is enough space around the button so that it
-is fully visible during hover and focus inside the wrapper.
-Note that this padding is only necessary for browsers that does not support
-clip-path. */
-$button-wrapper-animation-safe-area: 10px;
-
 @include jkl.helper-light-mode-variables {
     --button-border-color: #{$button-border-color};
     --button-text-color: #{$button-text-color};
@@ -75,13 +69,7 @@ a.jkl-button {
     line-height: $button-height--normal;
     cursor: pointer;
     user-select: none;
-    overflow: hidden;
-    padding: $button-wrapper-animation-safe-area;
-    @supports (clip-path: inset(-18% -18% -18% -18%)) {
-        overflow: initial;
-        clip-path: inset(-18% -18% -18% -18%);
-        padding: 0;
-    }
+    overflow: visible;
 
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
