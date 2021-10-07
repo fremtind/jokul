@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-10-07)
+
+### Features
+
+- la loader ta farge fra teksten rundt ([e529255](https://github.com/fremtind/jokul/commit/e52925548dcdb8e1228bc445df18bc191bb6aaf5)), closes [#2348](https://github.com/fremtind/jokul/issues/2348)
+
+### BREAKING CHANGES
+
+- Propen negative har ikke lenger noen effekt, og er fjernet
+
 ## 5.0.0 (2021-10-06)
 
 ### Features
