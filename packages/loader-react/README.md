@@ -26,7 +26,6 @@ import "@fremtind/jkl-loader/loader.min.css";
 Komponenten tar følgende props:
 
 -   `textDescription`: **Påkrevd**. Tekstlig forklaring av innlasting, f.eks. "Laster inn skjema". `string`
--   `negative`: Angir om loaderen skal brukes på mørk bakgrunn. `boolean`
 -   `variant`: Velg mellom ulike størrelser. `large` (default), `medium` eller `small`.
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
 -   `politeness`: Sett politeness setting på aria-live. `polite` (default) eller `assertive`.
@@ -37,10 +36,10 @@ Den enkleste bruken av komponenten er altså:
 <Loader textDescription="Laster inn" />
 ```
 
-Prop'en `className` er praktisk dersom du vil benytte spacing-skalaen vår gjennom hjelpeklassene fra `jkl-core`:
+Prop'en `className` er praktisk dersom du vil benytte spacing eller sette farge gjennom hjelpeklassene fra `jkl-core`:
 
 ```tsx
-<Loader className="jkl-spacing--top-3" /> // Gir 4rem spacing over loaderen
+<Loader className="jkl-layout-spacing--small-top" /> // Gir spacing over loaderen
 ```
 
 Dersom du vil bruke inline loader i knapp har funksjonalitet for det blitt eksponert via props i `jkl-button-react`.

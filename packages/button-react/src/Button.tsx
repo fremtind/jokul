@@ -51,7 +51,6 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                                 <div className="jkl-button__loader">
                                     <Loader
                                         textDescription={loader.textDescription}
-                                        negative={buttonType === "primary" || inverted}
                                         aria-hidden={!!loader.showLoader}
                                         variant={forceCompact ? "small" : "medium"}
                                     />
