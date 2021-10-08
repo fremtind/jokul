@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.2.0 (2021-10-08)
+
+### Features
+
+- add new color notation to color docs ([abe695b](https://github.com/fremtind/jokul/commit/abe695bb149e1aa9401135c6907dc61cef60b776))
+
 ## 7.1.0 (2021-08-31)
 
 ### Features
