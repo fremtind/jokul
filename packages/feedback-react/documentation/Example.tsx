@@ -42,7 +42,7 @@ const contactQuestion = {
     onSubmit: console.info,
 };
 
-export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const FeedbackExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const followup = boolValues?.["Med oppfølgings-spørsmål"]
         ? {
               onSubmit: console.log,
@@ -67,4 +67,55 @@ export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }
     );
 };
 
-export default Example;
+export default FeedbackExample;
+
+export const feedbackCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+<Feedback
+    {...PRESETS["${choiceValues?.["Forhåndsvalg"]}"]}
+    onSubmit={console.log}
+    followup={${
+        !!boolValues?.["Med oppfølgings-spørsmål"]
+            ? `[
+        {
+            type: "radio",
+            label: "Hvordan opplevde du å bestille forsikring på nett?",
+            name: "opplevelse",
+            options: [
+                { label: "Enkelt og greit", value: "enkelt" },
+                { label: "Midt på treet", value: "ok" },
+                { label: "Tungvindt", value: "tungvindt" },
+            ],
+        },
+        {
+            type: "checkbox",
+            label: "Hva er viktig for deg?",
+            name: "viktig",
+            options: [
+                { label: "At det går raskt å bestille", value: "hurtighet" },
+                { label: "God informasjon", value: "info" },
+                { label: "At det ser fint ut", value: "utseende" },
+                { label: "At forsikringen er billig", value: "pris" },
+            ],
+        },
+        {
+            type: "text",
+            label: "Er det noe mer du vil legge til?",
+            name: "annet",
+        },
+    ]`
+            : undefined
+    }}
+    contactQuestion={${
+        !!boolValues?.["Med kontakt-spørsmål"]
+            ? `{
+        withPhone: true,
+        label: "Vil du være med å teste sidene våre?",
+        children:
+            "Vi gjennomfører jevnlig tester og intervjuer for å forbedre løsningene våre (ca. 30 minutter). Som takk for hjelpen får du et gavekort. Legg igjen din e-postadresse hvis du er interessert.",
+        sendButtonLabel: "Skriv meg opp!",
+        onSubmit: console.info,
+    }`
+            : undefined
+    }}
+/>
+`;
