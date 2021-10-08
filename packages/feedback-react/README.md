@@ -28,4 +28,5 @@ import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
+import "@fremtind/jkl-slider/slider.min.css";
 ```
