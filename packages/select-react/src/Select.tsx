@@ -1,6 +1,6 @@
 // @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { FocusEvent, forwardRef, useEffect, useRef, useState } from "react";
+import React, { FocusEvent, forwardRef, useEffect, useRef, useState, KeyboardEvent } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -33,9 +33,15 @@ interface Props extends DataTestAutoId {
     onFocus?: SelectEventHandler;
 }
 
-interface CoreToggleSelectEvent {
+interface CoreToggleSelectTarget extends EventTarget {
+    hidden: boolean;
+    button: HTMLButtonElement;
+    value: { textContent: string };
+}
+
+interface CoreToggleSelectEvent extends Event {
     detail: { textContent: string; value: string };
-    target: { hidden: boolean; button: HTMLButtonElement; value: { textContent: string } };
+    target: CoreToggleSelectTarget;
 }
 
 function toLower(str = "") {
@@ -113,7 +119,8 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             "jkl-select--invalid": !!errorLabel,
         });
 
-        function onToggle() {
+        function onToggle(e: CoreToggleSelectEvent) {
+            e.preventDefault();
             const opening = !dropdownIsShown;
             setShown(!dropdownIsShown);
             if (opening && !searchable) {
@@ -127,10 +134,11 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
         }
 
         function onToggleSelect(e: CoreToggleSelectEvent) {
-            e.target.value = e.detail;
+            e.preventDefault();
             const nextValue = e.detail.value;
             setSearchValue("");
             onChange && onChange(nextValue);
+            e.target.value = e.detail;
             selectRef.current && selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
             e.target.hidden = true;
             e.target.button.focus();
@@ -154,6 +162,14 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
             if (onFocus && !focusInsideRef.current) {
                 onFocus(value);
                 focusInsideRef.current = true;
+            }
+        }
+
+        // add support for opening dropdown with arrowkey down as expected from native select
+        function handleArrowDown(e: KeyboardEvent<HTMLButtonElement>) {
+            e.preventDefault();
+            if (e.key === "ArrowDown" && !dropdownIsShown) {
+                buttonRef.current?.click();
             }
         }
 
@@ -214,6 +230,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                             placeholder="Søk"
                             value={searchValue}
                             onChange={(e) => setSearchValue(e.target.value)}
+                            data-testid="jkl-select__search-input"
                             className="jkl-select__search-input"
                             onBlur={handleBlur}
                             onFocus={handleFocus}
@@ -223,11 +240,13 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                         ref={buttonRef}
                         hidden={showSearchInputField}
                         type="button"
+                        name={`${name}-btn`}
                         className="jkl-select__button"
                         data-testid="jkl-select__button"
                         aria-haspopup="listbox"
                         onBlur={handleBlur}
                         onFocus={handleFocus}
+                        onKeyUp={handleArrowDown}
                     >
                         {selectedValueLabel}
                     </button>
@@ -262,7 +281,7 @@ export const Select = forwardRef<HTMLSelectElement, Props>(
                                         onBlur={handleBlur}
                                         onFocus={handleFocus}
                                     >
-                                        {item.label}
+                                        <span className="jkl-select__option-label">{item.label}</span>
                                     </button>
                                 </li>
                             ))}

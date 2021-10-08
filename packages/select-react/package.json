@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "6.0.3",
+    "version": "6.1.11",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react select component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "dropdown",
         "select",
@@ -36,14 +36,14 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-core": "^7.0.2",
-        "@fremtind/jkl-react-hooks": "^5.0.2",
-        "@fremtind/jkl-select": "^5.0.2",
+        "@fremtind/jkl-core": "^7.2.0",
+        "@fremtind/jkl-react-hooks": "^5.0.6",
+        "@fremtind/jkl-select": "^5.1.3",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.22"
     },
     "devDependencies": {
-        "@nrk/core-toggle": "3.0.8"
+        "@nrk/core-toggle": "3.1.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

@@ -8,6 +8,7 @@ group: knapper
 import { Primary, PrimaryCode } from "./Primary";
 import { Secondary, SecondaryCode } from "./Secondary";
 import { Tertiary, TertiaryCode } from "./Tertiary";
+import { Anchors, AnchorsCode } from "./Anchors";
 
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
@@ -17,19 +18,19 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 **Primærknapp:** brukes til den viktigste handlingen på en side - hovedhandlingen. En side kan noen ganger ha mer enn en hovedhandling, men ikke mange.
 
-<ComponentExample component={Primary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
+<ComponentExample component={Primary} knobs={{ boolProps: ["Kompakt", "Invertert", "withLoader", "isLoading"] }}>
     <CodeDemo code={PrimaryCode} />
 </ComponentExample>
 
 **Sekundærknapp:** brukes til handlinger som ikke er like viktige for oss eller brukeren.
 
-<ComponentExample component={Secondary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
+<ComponentExample component={Secondary} knobs={{ boolProps: ["Kompakt", "Invertert", "withLoader", "isLoading"] }}>
     <CodeDemo code={SecondaryCode} />
 </ComponentExample>
 
 **Tertiærknapp:** brukes til handlinger som er mindre viktige, eller som kan gi uønskede konsekvenser.
 
-<ComponentExample component={Tertiary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
+<ComponentExample component={Tertiary} knobs={{ boolProps: ["Kompakt", "Invertert", "withLoader", "isLoading"] }}>
     <CodeDemo code={TertiaryCode} />
 </ComponentExample>
 
@@ -51,3 +52,11 @@ Knappetekster skal være så enkle og korte som mulig og skal oppfordre til hand
 <PrimaryButton className="jkl-layout-spacing--medium-right">Send inn</PrimaryButton>
 <SecondaryButton className="jkl-layout-spacing--medium-right">Lagre</SecondaryButton>
 <TertiaryButton className="jkl-layout-spacing--medium-right">Avbryt</TertiaryButton>
+
+## Knapper som er lenker
+
+Avhengig av situasjonen kan det hende en knapp teknisk sett er et `<a />`-element. Jøkul støtter å ha knappeklasser på `<a />`.
+
+<ComponentExample component={Anchors}>
+    <CodeDemo code={AnchorsCode} />
+</ComponentExample>

@@ -1,0 +1,42 @@
+{
+    "name": "@fremtind/jkl-slider",
+    "version": "1.1.3",
+    "description": "Jøkul slider style package",
+    "homepage": "https://jokul.fremtind.no",
+    "license": "MIT",
+    "main": "lib/jkl-slider.js",
+    "directories": {
+        "lib": "lib",
+        "test": "__tests__"
+    },
+    "keywords": [
+        "slider",
+        "input",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "*.css",
+        "*.scss"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "dev": "parcel example/index.html",
+        "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^7.2.0"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

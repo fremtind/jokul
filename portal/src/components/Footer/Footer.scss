@@ -5,23 +5,23 @@
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
-    --jkl-footer-text-color: jkl.$color-fjellgra;
+    --jkl-footer-text-color: #{jkl.$color-fjellgra};
 }
 @include jkl.helper-dark-mode-variables {
-    --jkl-footer-text-color: jkl.$color-stein;
+    --jkl-footer-text-color: #{jkl.$color-svaberg};
 }
 
 .jkl-portal-footer {
     display: flex;
     flex-direction: column;
-    border-top: solid rem(1px) $svaberg;
+    border-top: solid rem(1px) var(--jkl-footer-text-color);
     padding-top: $layout-spacing--medium;
     margin: $layout-spacing--large $layout-spacing--medium;
     margin-bottom: $layout-spacing--medium;
 
     &__column {
         @include jkl.text-style("small");
-        color: $fjellgra;
+        color: var(--jkl-footer-text-color);
         flex: 1 1 0px;
         padding-right: $layout-spacing--large;
 

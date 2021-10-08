@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import downloadjs from "downloadjs";
 import classNames from "classnames";
 import { withPrefix } from "gatsby";
@@ -11,7 +11,7 @@ interface Props {
     darkbg?: boolean;
 }
 
-export function DownloadAsset({ asset = "", name, darkbg = false }: Props) {
+export const DownloadAsset: VFC<Props> = ({ asset = "", name, darkbg = false }) => {
     const componentClassName = classNames({
         "jkl-portal-downloadasset": true,
         "jkl-portal-downloadasset--dark-bg": darkbg,
@@ -34,4 +34,4 @@ export function DownloadAsset({ asset = "", name, darkbg = false }: Props) {
             </button>
         </div>
     );
-}
+};

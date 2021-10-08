@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { VFC, useEffect, useState } from "react";
 import { Color, ColorSwatch, rgbToHex } from "./Colors";
 
 import "./ColorTable.scss";
 
-const ColorTableRow: React.FC<Color> = ({ colorVariable }) => {
+const ColorTableRow: VFC<Color> = ({ colorVariable }) => {
     const [color, setColor] = useState<number[]>();
     const [hexString, setHexString] = useState("N/A");
     const [rgbString, setRgbString] = useState("N/A");
@@ -38,7 +38,7 @@ const ColorTableRow: React.FC<Color> = ({ colorVariable }) => {
 interface ColorTableProps {
     colorVariables: string[];
 }
-export const ColorTable: React.FC<ColorTableProps> = ({ colorVariables }) => {
+export const ColorTable: VFC<ColorTableProps> = ({ colorVariables }) => {
     return (
         <table className="jkl-portal-color-table">
             <thead>
@@ -72,4 +72,4 @@ const fargetoner: string[] = [
     "svart",
 ];
 
-export const ColTable = () => <ColorTable colorVariables={fargetoner} />;
+export const ColTable: VFC = () => <ColorTable colorVariables={fargetoner} />;

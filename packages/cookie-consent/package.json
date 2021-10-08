@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-cookie-consent",
-    "version": "4.0.2",
+    "version": "4.0.10",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for cookie consent solutions",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "cookie consent",
         "jøkul",
@@ -25,10 +25,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "^4.0.2",
-        "@fremtind/jkl-core": "^7.0.2",
-        "@fremtind/jkl-list": "^5.0.2",
-        "@nrk/core-dialog": "^3.0.7"
+        "@fremtind/jkl-core": "^7.2.0"
     },
     "repository": {
         "type": "git",

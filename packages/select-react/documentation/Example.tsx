@@ -1,15 +1,15 @@
-import React, { useState, ChangeEvent, FocusEvent, useRef, useEffect } from "react";
+import React, { useState, ChangeEvent, FocusEvent, useRef, useEffect, VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
 
-export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
         { value: "apple", label: "Apple" },
         { value: "samsung", label: "Samsung" },
-        { value: "huawei", label: "Huawei" },
+        { value: "google", label: "Google og utvalgte partnere" },
         { value: "LG", label: "LG" },
     ];
     const [value, setValue] = useState<string>();
@@ -51,6 +51,7 @@ export const Example = ({ boolValues, choiceValues }: ExampleComponentProps) => 
     return (
         <C
             ref={selectRef}
+            id="produsent"
             name="produsent"
             forceCompact={boolValues && boolValues["Kompakt"]}
             inverted={boolValues && boolValues["Invertert"]}

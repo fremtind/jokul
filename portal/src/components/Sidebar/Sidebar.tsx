@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { useLocation } from "../../contexts/locationContext";
 import { SidebarMenu } from "./SidebarMenu";
@@ -6,7 +6,7 @@ import { ContentLink } from "../ContentLink/ContentLink";
 
 import "./Sidebar.scss";
 
-export function Sidebar() {
+export const Sidebar: VFC = () => {
     const { profileDocPages, getStartedDocPages, componentDocPages, uuDocPages, blogPages, PageType, componentGroup } =
         useNavigationLinks();
 
@@ -49,4 +49,4 @@ export function Sidebar() {
             />
         </nav>
     );
-}
+};

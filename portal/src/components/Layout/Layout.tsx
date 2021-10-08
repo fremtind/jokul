@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 
 import { FormatProvider } from "../Typography";
@@ -12,24 +13,31 @@ import "./Layout.scss";
 
 interface Props {
     location: Location;
-    pathContext?: {
+    pageContext: {
         frontmatter?: {
             title?: string;
         };
     };
 }
 
-export const Layout: React.FC<Props> = ({ children, location, pathContext }) => {
+export const Layout: React.FC<Props> = ({ children, location, pageContext }) => {
     const { setLocation, isFrontPage, isCypress } = useLocation();
-    useEffect(() => setLocation(location), [location, setLocation]);
-
     const screen = useScreen();
-    const shouldShowSidebar = !isFrontPage && !(screen.isSmallDevice || screen.isMediumDevice);
 
-    const PageTitle = `${
-        pathContext?.frontmatter?.title ? `${pathContext.frontmatter.title} - ` : ""
-    }Jøkul designsystem`;
-    const wrapperRef = useRef<HTMLDivElement>(null);
+    const { site } = useStaticQuery(
+        graphql`
+            query {
+                site {
+                    siteMetadata {
+                        title
+                        description
+                    }
+                }
+            }
+        `,
+    );
+
+    useEffect(() => setLocation(location), [location, setLocation]);
 
     if (isCypress) {
         return (
@@ -39,12 +47,50 @@ export const Layout: React.FC<Props> = ({ children, location, pathContext }) => 
         );
     }
 
+    const metaDescription = site.siteMetadata.description;
+    const siteTitle = site.siteMetadata.title;
+    const pageTitle = pageContext.frontmatter?.title;
+    const shouldShowSidebar = !isFrontPage && pageTitle && !(screen.isSmallDevice || screen.isMediumDevice);
+
     return (
-        <div className="jkl jkl-portal" ref={wrapperRef}>
-            <Helmet>
-                <html lang="no" />
-                <title>{PageTitle}</title>
-            </Helmet>
+        <div className="jkl jkl-portal">
+            <Helmet
+                htmlAttributes={{
+                    lang: "no",
+                }}
+                title={pageTitle || siteTitle}
+                titleTemplate={pageTitle && siteTitle ? `%s | ${siteTitle}` : undefined}
+                meta={[
+                    {
+                        name: `description`,
+                        content: metaDescription,
+                    },
+                    {
+                        property: `og:title`,
+                        content: pageTitle,
+                    },
+                    {
+                        property: `og:description`,
+                        content: metaDescription,
+                    },
+                    {
+                        property: `og:type`,
+                        content: `website`,
+                    },
+                    {
+                        name: `twitter:card`,
+                        content: `summary`,
+                    },
+                    {
+                        name: `twitter:title`,
+                        content: pageTitle,
+                    },
+                    {
+                        name: `twitter:description`,
+                        content: metaDescription,
+                    },
+                ]}
+            />
             <ThemeBG />
             <Header className="jkl-portal__header" />
             <AnimatePresence>{shouldShowSidebar && <Sidebar />}</AnimatePresence>

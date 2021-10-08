@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-select`](https://fremtind.github.io/jokul/komponenter/select)
+# [`@fremtind/jkl-select`](https://jokul.fremtind.no/komponenter/select)
 
 # Nedtrekksliste
 

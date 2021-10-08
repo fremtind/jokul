@@ -27,7 +27,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
-    variant = "medium",
+    variant = "small",
     noHitsMessage,
     maxNumberOfHits,
     placeholder,
@@ -38,7 +38,7 @@ function BaseAutosuggest<T>({
     onConfirm = () => {
         /* noop */
     },
-}: BaseAutosuggestProps<T>) {
+}: BaseAutosuggestProps<T>): JSX.Element {
     const customLabelProps =
         inputId && labelId
             ? {

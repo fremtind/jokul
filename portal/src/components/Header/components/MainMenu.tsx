@@ -1,71 +1,166 @@
-import React from "react";
-import { useScreen } from "@fremtind/jkl-react-hooks";
+import { Hamburger } from "@fremtind/jkl-hamburger-react";
+import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
+import cx from "classnames";
+import { navigate } from "gatsby";
+import React, { useEffect } from "react";
 
-import { mainMenuContext, NavigationFunction, defaultNavigationFunction } from "./mainMenuContext";
-import { FullScreenMenu } from "./FullScreenMenu";
-import { MainMenuLink } from "./MainMenuLink";
+import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
+import { FullScreenMenuItem } from "./FullScreenMenuItem";
+import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
 
 import "./MainMenu.scss";
-
-export type MenuItemList = Array<MenuItem>;
-
-export type MenuItem = RootItem | LeafItem;
-
-export interface LeafItem {
-    linkText: string;
-    content: string;
-    basePath?: string;
-}
-export const isLeafItem = (item: MenuItem): item is LeafItem => typeof item.content === "string";
-
-export interface RootItem {
-    linkText: string;
-    content: MenuItemList;
-    basePath?: string;
-}
-export const isRootItem = (item: MenuItem): item is RootItem => typeof item.content !== "string";
+import { MainMenuItem } from "./MainMenuItem";
 
 interface MainMenuProps {
     className?: string;
     items: MenuItemList;
-    ariaLabel?: string;
-    showTopLevel?: boolean;
-    navigationFunction?: NavigationFunction;
-    isActiveFunction?: (path: string) => boolean;
 }
 
-export const MainMenu: React.FC<MainMenuProps> = ({
-    className = "",
-    items,
-    ariaLabel = "Hovedmeny",
-    showTopLevel,
-    navigationFunction = defaultNavigationFunction,
-    isActiveFunction = () => false,
-    children,
-}) => {
+export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
     const screen = useScreen();
-    const shouldShowTopLevel = showTopLevel && !(screen.isSmallDevice || screen.isMediumDevice);
-    const baseItem: RootItem = {
-        linkText: ariaLabel || "Hovedmeny",
+    const isSmallScreen = screen.isSmallDevice || screen.isMediumDevice;
+
+    const { isOpen, setIsOpen, currentItem, setCurrentItem, peekHistory, popHistory, pushHistory } =
+        useFullscreenMenuContext();
+
+    const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
+    const [controls] = useFullScreenMenuAnimaiton({ isOpen });
+
+    const rootItem: RootItem = {
+        linkText: "Hovedmeny",
         content: items,
     };
+    const previousItem = peekHistory();
+
+    const onNavigateForward = (newItem: RootItem, evt: React.MouseEvent) => {
+        evt.preventDefault(); // prevent CoreToggle from closing menu
+        if (currentItem) {
+            pushHistory(currentItem);
+        } else {
+            pushHistory(rootItem);
+        }
+        setCurrentItem(newItem);
+    };
+
+    const onNavigateBackward = (evt: React.MouseEvent) => {
+        evt.preventDefault(); // prevent CoreToggle from closing menu
+        const previousItem = popHistory();
+        if (previousItem) {
+            setCurrentItem(previousItem);
+        } else {
+            setCurrentItem(rootItem);
+        }
+    };
+
+    useEffect(() => {
+        const escapeListener = (event: globalThis.KeyboardEvent) => {
+            if (event.key === "Escape") {
+                setIsOpen(false);
+            }
+        };
+        window.addEventListener<"keyup">("keyup", escapeListener);
+
+        return () => {
+            window.removeEventListener<"keyup">("keyup", escapeListener);
+        };
+    }, [setIsOpen]);
 
     return (
-        <mainMenuContext.Provider value={{ navigationFunction, isActiveFunction }}>
-            <nav className={"jkl-portal-main-menu " + className} aria-label={ariaLabel}>
-                {shouldShowTopLevel ? (
-                    <ul className="jkl-portal-main-menu__list">
-                        {items.map((item) => (
-                            <li className="jkl-portal-main-menu__item" key={`main-menu-${item.linkText}`}>
-                                <MainMenuLink item={item} />
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <FullScreenMenu className="jkl-portal-main-menu__link" showHamburger baseItem={baseItem} />
-                )}
-                {children}
-            </nav>
-        </mainMenuContext.Provider>
+        <nav className={cx("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
+            {isSmallScreen && (
+                <Hamburger
+                    onClick={(evt) => {
+                        evt.preventDefault();
+                        if (!currentItem) {
+                            setCurrentItem(rootItem);
+                        }
+                        setIsOpen(!isOpen);
+                    }}
+                    isOpen={isOpen}
+                />
+            )}
+            <div
+                ref={menuRef}
+                className={cx("jkl-portal-main-menu__overlay", {
+                    "jkl-portal-main-menu__overlay--open": isOpen,
+                })}
+                aria-hidden={isOpen ? "false" : "true"}
+            >
+                <div className="jkl-portal-main-menu__menu-wrapper">
+                    {isSmallScreen && (
+                        <>
+                            {previousItem && (
+                                <button
+                                    data-text={previousItem.linkText}
+                                    aria-label={`Tilbake til ${previousItem.linkText}`}
+                                    className="jkl-portal-main-menu__back-button"
+                                    onClick={onNavigateBackward}
+                                >
+                                    ←
+                                </button>
+                            )}
+                            <ul className="jkl-portal-main-menu__menu-items" role="menu">
+                                {currentItem &&
+                                    currentItem.content.map((item, idx) => (
+                                        <FullScreenMenuItem
+                                            onClick={(evt) => {
+                                                if (isLeafItem(item)) {
+                                                    navigate(item.content);
+                                                    setIsOpen(false);
+                                                } else {
+                                                    onNavigateForward(item, evt);
+                                                }
+                                            }}
+                                            item={item}
+                                            key={item.linkText}
+                                            controls={controls}
+                                            idx={idx}
+                                        />
+                                    ))}
+                            </ul>
+                        </>
+                    )}
+                </div>
+            </div>
+            {!isSmallScreen && (
+                <ul className="jkl-portal-main-menu__root-list">
+                    {items.map((item) => (
+                        <li className="jkl-portal-main-menu__root-item" key={`main-menu-${item.linkText}`}>
+                            <MainMenuItem
+                                isActive={currentItem?.linkText === item.linkText}
+                                isOpen={isOpen && currentItem?.linkText === item.linkText}
+                                label={item.linkText}
+                                onClick={(e) => {
+                                    if (!isOpen) {
+                                        setIsOpen(true);
+                                    } else if (currentItem?.linkText === item.linkText) {
+                                        // Toggle open state on repeat click
+                                        setIsOpen(false);
+                                    }
+                                    onNavigateForward(item as RootItem, e);
+                                }}
+                            >
+                                {(item as RootItem).content.map((item, idx) => (
+                                    <FullScreenMenuItem
+                                        onClick={(evt) => {
+                                            if (isLeafItem(item)) {
+                                                navigate(item.content);
+                                                setIsOpen(false);
+                                            } else {
+                                                onNavigateForward(item, evt);
+                                            }
+                                        }}
+                                        item={item}
+                                        key={item.linkText}
+                                        controls={controls}
+                                        idx={idx}
+                                    />
+                                ))}
+                            </MainMenuItem>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </nav>
     );
 };

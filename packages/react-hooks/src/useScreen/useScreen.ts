@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
-import { reducer, initialState, init, actionTypes } from "./state";
+import { reducer, initialState, init, actionTypes, State } from "./state";
 
-export const useScreen = () => {
+export const useScreen = (): State => {
     const [device, deviceDispatch] = useReducer(reducer, initialState, init);
 
     const handleScreenChange = () =>

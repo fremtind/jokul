@@ -1,0 +1,27 @@
+diff --git a/node_modules/@nrk/core-toggle/jsx.js b/node_modules/@nrk/core-toggle/jsx.js
+index 85952ec..246c521 100644
+--- a/node_modules/@nrk/core-toggle/jsx.js
++++ b/node_modules/@nrk/core-toggle/jsx.js
+@@ -490,7 +490,8 @@ var closest = function () {
+ 
+ function customElementToReact(elementClass, options) {
+   if (options === void 0) options = {};
+-  var name = elementClass.name || String(elementClass).match(/function ([^(]+)/)[1]; // String match for IE11
++  var suppliedName = options.name || elementClass.name || String(elementClass).match(/function ([^(]+)/)[1] // String match for IE11
++  var name = suppliedName + "-" + getUUID();
+ 
+   var dashCase = name.replace(/.[A-Z]/g, function (ref) {
+     var a = ref[0];
+@@ -607,10 +608,8 @@ function customElementToReact(elementClass, options) {
+   }(React__default['default'].Component);
+ }
+ 
+-var coreToggle = customElementToReact(CoreToggle, {
+-  props: ['popup'],
++export default customElementToReact(CoreToggle, {
++  name: "CoreToggle",
+   customEvents: ['toggle', 'toggle.select'],
+   suffix: version
+ });
+-
+-module.exports = coreToggle;

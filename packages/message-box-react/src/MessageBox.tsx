@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { AriaRole, ReactNode } from "react";
 import classNames from "classnames";
 
 import { IconButton } from "@fremtind/jkl-icon-button-react";
@@ -15,6 +15,8 @@ interface Props {
         handleDismiss: () => void;
         buttonTitle?: string;
     };
+    /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
+    role?: AriaRole;
 }
 
 type messageTypes = "info" | "error" | "success" | "warning";
@@ -28,6 +30,7 @@ function messageFactory(messageType: messageTypes) {
         dismissed,
         dismissAction,
         children,
+        role,
     }: Props) {
         const componentClassName = classNames("jkl-message-box", "jkl-message-box--" + messageType, className, {
             "jkl-message-box--full": fullWidth,
@@ -116,8 +119,21 @@ function messageFactory(messageType: messageTypes) {
             }
         };
 
+        const getRole = (messageType: messageTypes) => {
+            switch (messageType) {
+                case "error":
+                case "warning":
+                    return "alert";
+                case "info":
+                case "success":
+                    return "status";
+                default:
+                    return undefined;
+            }
+        };
+
         return (
-            <div className={componentClassName} role="alert">
+            <div className={componentClassName} role={role || getRole(messageType)}>
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
                     {title !== undefined && <p className="jkl-message-box__title">{title}</p>}

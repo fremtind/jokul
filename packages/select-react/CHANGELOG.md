@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.9 (2021-09-30)
+
+### Bug Fixes
+
+- rett et problem i samspillet Select og Accordion ([7733fd2](https://github.com/fremtind/jokul/commit/7733fd21e6eab8797ad30f3a1d59011a84276c2b)), closes [#1466](https://github.com/fremtind/jokul/issues/1466)
+
+## 6.1.4 (2021-09-20)
+
+### Bug Fixes
+
+- oppdater core-toggle for bugfix rundt aria-label ([54a3902](https://github.com/fremtind/jokul/commit/54a39020606f19b18808ba6ff6ecd157ed775461))
+
+## 6.1.3 (2021-09-17)
+
+### Bug Fixes
+
+- oppdater core-toggle for bugfix rundt aria-label ([54a3902](https://github.com/fremtind/jokul/commit/54a39020606f19b18808ba6ff6ecd157ed775461))
+
+## 6.1.2 (2021-09-10)
+
+### Bug Fixes
+
+- fiks feil aria-label i Select ([b36cbf9](https://github.com/fremtind/jokul/commit/b36cbf91ccf10145ecb2646b3b75ae8140f03a51)), closes [#2126](https://github.com/fremtind/jokul/issues/2126) [#1688](https://github.com/fremtind/jokul/issues/1688)
+
+## 6.1.0 (2021-08-24)
+
+### Features
+
+- add support for arrow down on select button ([9b344b4](https://github.com/fremtind/jokul/commit/9b344b4c5d2a1fe1e050d66cd0b02c3a75c4ac22))
+
 ## 6.0.0 (2021-07-09)
 
 ### Features

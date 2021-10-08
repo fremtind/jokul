@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { FC, useRef, VFC, useState, useEffect } from "react";
+import { ContentToggle } from "../../../content-toggle-react";
 import "./colors.scss";
 
 type colors =
@@ -27,49 +28,105 @@ interface Props {
     handleClick: (color: string) => void;
 }
 
-const ColorBox: React.FC<Props> = ({ color, handleClick }) => (
-    <button type="button" onClick={() => handleClick(color)} className="jkl-color-box__wrapper">
-        <span className="jkl-color-box__multi">
-            <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${color}`}></span>
-            <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${color}`}></span>
-        </span>
-        <span className="jkl-color-box__text jkl-body">${color}</span>
-    </button>
-);
+const generateColorVariableName = (color: string) => `jkl.$color-${color}`;
+
+const useTimedToggle = (): [boolean, () => void] => {
+    const [toggle, setToggle] = useState(false);
+
+    useEffect(() => {
+        let timeoutId: NodeJS.Timeout;
+
+        if (toggle) {
+            timeoutId = setTimeout(() => {
+                setToggle(false);
+            }, 1500);
+        }
+
+        return () => clearTimeout(timeoutId);
+    }, [toggle]);
+
+    return [toggle, () => setToggle(true)];
+};
+
+const ColorBox: VFC<Props> = ({ color, handleClick }) => {
+    const [copied, didCopy] = useTimedToggle();
+
+    return (
+        <button
+            type="button"
+            onClick={() => {
+                didCopy();
+                handleClick(generateColorVariableName(color));
+            }}
+            className="jkl-color-box__wrapper"
+        >
+            <span className="jkl-color-box__multi">
+                <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${color}`}></span>
+                <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${color}`}></span>
+            </span>
+            <ContentToggle
+                secondary={<span className="jkl-color-box__text jkl-body">Kopiert!</span>}
+                showSecondary={copied}
+                className="jkl-color-box__content-toggle"
+            >
+                <span className="jkl-color-box__text jkl-body">${color}</span>
+            </ContentToggle>
+        </button>
+    );
+};
 
 interface MultiColorProps {
     colors: colors[];
     handleClick: (color: string) => void;
 }
 
-const MultiColorBox: React.FC<MultiColorProps> = ({ colors, handleClick }) => (
-    <button type="button" onClick={() => handleClick(`${colors[0]}, $${colors[1]}`)} className="jkl-color-box__wrapper">
-        <span className="jkl-color-box__multi">
-            <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${colors[0]}`}></span>
-            <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${colors[1]}`}></span>
-        </span>
-        <span className="jkl-color-box__text jkl-body">${colors[0]}</span>
-        <span className="jkl-color-box__text jkl-body">${colors[1]}</span>
-    </button>
-);
+const MultiColorBox: VFC<MultiColorProps> = ({ colors, handleClick }) => {
+    const [copied, didCopy] = useTimedToggle();
+
+    return (
+        <button
+            type="button"
+            onClick={() => {
+                didCopy();
+                handleClick(`${generateColorVariableName(colors[0])}, $${generateColorVariableName(colors[1])}`);
+            }}
+            className="jkl-color-box__wrapper"
+        >
+            <span className="jkl-color-box__multi">
+                <span className={`jkl-color-box jkl-color-box--left jkl-color-box--${colors[0]}`}></span>
+                <span className={`jkl-color-box jkl-color-box--right jkl-color-box--${colors[1]}`}></span>
+            </span>
+            <ContentToggle
+                secondary={<span className="jkl-color-box__text jkl-body">Kopiert!</span>}
+                showSecondary={copied}
+                className="jkl-color-box__content-toggle jkl-color-box__content-toggle--multi"
+            >
+                <div className="jkl-color-box__text-wrapper">
+                    <span className="jkl-color-box__text jkl-body">${colors[0]}</span>
+                    <span className="jkl-color-box__text jkl-body">${colors[1]}</span>
+                </div>
+            </ContentToggle>
+        </button>
+    );
+};
 
 interface ColorProps {
     title: string;
 }
 
-const ColorGroup: React.FC<ColorProps> = ({ title, children }) => (
+const ColorGroup: FC<ColorProps> = ({ title, children }) => (
     <section className="jkl-colors__section">
         <h2 className="jkl-title-small jkl-spacing--bottom-2">{title}</h2>
         {children}
     </section>
 );
 
-const Colors = () => {
+const Colors: VFC = () => {
     const ref = useRef<HTMLTextAreaElement>(null);
 
     const copyCodeToClipboard = (color: string) => {
         if (ref.current) {
-            ref.current.value = `$${color}`;
+            ref.current.value = `${color}`;
             ref.current.select();
             document.execCommand("copy");
         }

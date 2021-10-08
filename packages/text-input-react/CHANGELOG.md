@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.2.2 (2021-09-30)
+
+### Bug Fixes
+
+- sync padding i TextInput med Figma ([f269f4f](https://github.com/fremtind/jokul/commit/f269f4f2750caad0d2bcf01d1b84b20dff048131))
+
+## 6.2.0 (2021-09-15)
+
+### Features
+
+- **text-area:** add inline and startOpen props ([88e4897](https://github.com/fremtind/jokul/commit/88e4897c50e490fa427208bca4c212093bb8db40))
+
+## 6.1.0 (2021-09-07)
+
+### Features
+
+- add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
+
+## 6.0.6 (2021-09-03)
+
+### Bug Fixes
+
+- default variant should be small ([ce1c05b](https://github.com/fremtind/jokul/commit/ce1c05bd9344f03b41ea23068d0f66e20714d134))
+
 ## 6.0.0 (2021-07-09)
 
 ### Features

@@ -2,8 +2,9 @@
 
 let hasBeenCalled = false;
 
-Cypress.on(`window:before:load`, (win) => {
-    cy.stub(win.console, `info`, (msg) => {
+Cypress.on(`window:load`, (win) => {
+    cy.stub(win.console, `log`, (msg) => {
+        console.info("Stubbed log:", msg);
         if (msg.feedbackValue) {
             hasBeenCalled = msg;
         }
@@ -17,21 +18,19 @@ describe("Feedback", () => {
 
     it("renders correctly", () => {
         cy.getComponent().toMatchImageSnapshot();
-        cy.getByTestid("feedback-5").first().click();
+        cy.getComponent().contains("Ja").click();
         cy.getComponent().toMatchImageSnapshot();
     });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.getByTestid("feedback-5").first().click();
-            cy.getComponent().toMatchImageSnapshot();
-        });
+    it("dark mode renders correctly", () => {
+        cy.setDarkMode();
+        cy.getComponent().toMatchImageSnapshot();
+        cy.getComponent().contains("Ja").click();
+        cy.getComponent().toMatchImageSnapshot();
     });
 
     it("should send feedback if value is selected and user navigate away", () => {
-        cy.getByTestid("feedback-1").first().click();
-        cy.visit("/").then(() => expect(hasBeenCalled).to.deep.equal({ feedbackValue: 1, message: "" }));
+        cy.getComponent().contains("Ja").click();
+        cy.visit("/").then(() => expect(hasBeenCalled).to.deep.equal({ feedbackValue: "ja", message: undefined }));
     });
 });

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-icons",
-    "version": "3.0.2",
+    "version": "3.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for icons",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "react",
         "icon",
@@ -27,7 +27,7 @@
         "dev": "echo 'noop'"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^7.0.2"
+        "@fremtind/jkl-core": "^7.2.0"
     },
     "repository": {
         "type": "git",

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-text-input",
-    "version": "5.0.2",
+    "version": "5.1.4",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for text input fields",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "text",
         "text field",
@@ -29,7 +29,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^7.0.2"
+        "@fremtind/jkl-core": "^7.2.0"
     },
     "repository": {
         "type": "git",

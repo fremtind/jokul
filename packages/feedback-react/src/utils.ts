@@ -1,32 +1,46 @@
-import { FeedbackOption, FeedbackValue } from "./types";
+import React, { JSXElementConstructor, VFC } from "react";
+import { CheckboxQuestion, RadioQuestion, SliderQuestion, TextQuestion } from "./questions";
+import { QuestionProps, QuestionType } from "./types";
 
-export function hasPrompt(option: FeedbackValue | FeedbackOption): option is FeedbackOption {
-    return option?.hasOwnProperty("prompt");
+export function getChildrenOfType<P>(...allowedTypes: Array<string | JSXElementConstructor<P>>) {
+    return (
+        children: React.ReactNode,
+    ): React.ReactElement<P, string | React.JSXElementConstructor<unknown>>[] | null | undefined =>
+        React.Children.map(children, (child) => {
+            if (React.isValidElement<P>(child) && allowedTypes.includes(child.type)) {
+                return child;
+            }
+            return undefined;
+        });
 }
 
-export function hasLabel(option: FeedbackValue | FeedbackOption): option is FeedbackOption {
-    return option?.hasOwnProperty("label");
-}
+export const getTypeFromComponent = (component: React.ReactElement): QuestionType => {
+    switch (component.type) {
+        case SliderQuestion:
+            return "slider";
+        case RadioQuestion:
+            return "radio";
+        case CheckboxQuestion:
+            return "checkbox";
+        case TextQuestion:
+            return "text";
+        default:
+            return "radio";
+    }
+};
 
-export function getLabel(option: FeedbackValue | FeedbackOption) {
-    return hasLabel(option) ? (option as FeedbackOption).label : `${getRawFeedbackValue(option)}`;
-}
+export const getQuestionFromType = (type: QuestionType): VFC<QuestionProps> => {
+    switch (type) {
+        case "radio":
+            return RadioQuestion;
+        case "checkbox":
+            return CheckboxQuestion;
+        case "text":
+            return TextQuestion;
+        case "slider":
+            return SliderQuestion;
 
-export function getRawFeedbackValue(option: FeedbackValue | FeedbackOption) {
-    return isFeedbackValue(option) ? option : option?.value;
-}
-
-export function getRawFeedbackValues(options: Array<FeedbackValue | FeedbackOption>) {
-    return options.map(getRawFeedbackValue);
-}
-
-export function isFeedbackValue(option: FeedbackValue | FeedbackOption): option is FeedbackValue {
-    return typeof option === "number";
-}
-
-export function transformToValuePair(option: FeedbackValue | FeedbackOption) {
-    return {
-        label: getLabel(option),
-        value: getRawFeedbackValue(option),
-    };
-}
+        default:
+            return RadioQuestion;
+    }
+};

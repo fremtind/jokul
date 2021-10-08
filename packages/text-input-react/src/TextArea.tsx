@@ -13,6 +13,8 @@ export interface Props extends BaseProps {
     inverted?: boolean;
     forceCompact?: boolean;
     rows?: number;
+    inline?: boolean;
+    startOpen?: boolean;
     autoExpand?: boolean;
 }
 
@@ -27,14 +29,17 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
             helpLabel,
             errorLabel,
             rows = 7,
+            inline = false,
             placeholder = " ",
             autoExpand = false,
-            forceCompact,
+            startOpen = false,
+            forceCompact = false,
             ...restProps
         },
         ref,
     ) => {
         const componentClassName = classNames("jkl-text-input jkl-text-area", className, {
+            "jkl-text-area--start-open": startOpen,
             "jkl-text-input--compact": forceCompact,
             "jkl-text-input--inverted": inverted,
         });
@@ -103,7 +108,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
 
         return (
             <div data-testid="jkl-text-area" className={componentClassName}>
-                <Label standAlone htmlFor={uid} variant={variant} forceCompact={forceCompact}>
+                <Label standAlone htmlFor={uid} srOnly={inline} variant={variant} forceCompact={forceCompact}>
                     {label}
                 </Label>
                 <textarea

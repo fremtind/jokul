@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.3 (2021-08-30)
+
+### Bug Fixes
+
+- add missing dependency ([76c0506](https://github.com/fremtind/jokul/commit/76c0506d71cdf749607d35bcb179733ae8357dd2))
+
 ## 4.0.0 (2021-07-09)
 
 ### chore

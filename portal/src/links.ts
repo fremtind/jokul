@@ -34,6 +34,12 @@ export interface ComponentLink {
     order: string;
 }
 
+type Pages = {
+    pages: Array<{ title: string; path: string }>;
+    sectionTitle: string;
+    matchingLocation: (location: WindowLocation) => boolean;
+};
+
 const by = (regex: RegExp) => (edge: GeneralDocPage) =>
     edge.node.frontmatter.path && edge.node.frontmatter.path.match(regex);
 const edgeToPage = (edge: GeneralDocPage) => ({
@@ -41,7 +47,7 @@ const edgeToPage = (edge: GeneralDocPage) => ({
     path: edge.node.frontmatter.path,
 });
 
-const profile = (rawPages: GeneralDocPages) => ({
+const profile = (rawPages: GeneralDocPages): Pages => ({
     pages: rawPages.edges
         .filter(by(/^\/profil/))
         .sort((a, b) => parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order))
@@ -49,7 +55,7 @@ const profile = (rawPages: GeneralDocPages) => ({
     sectionTitle: "Profilen vår",
     matchingLocation: (location: WindowLocation) => location.pathname.includes("profil"),
 });
-const developer = (rawPages: GeneralDocPages) => ({
+const developer = (rawPages: GeneralDocPages): Pages => ({
     pages: rawPages.edges
         .filter(by(/^\/komigang/))
         .sort((a, b) => parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order))
@@ -57,7 +63,7 @@ const developer = (rawPages: GeneralDocPages) => ({
     sectionTitle: "Kom i gang",
     matchingLocation: (location: WindowLocation) => location.pathname.includes("komigang"),
 });
-const components = (rawComponents: ComponentDocPages) => ({
+const components = (rawComponents: ComponentDocPages): Pages => ({
     pages: rawComponents.edges.map((edge: ComponentDocPage) => ({
         title: edge.node.context.frontmatter.title,
         path: edge.node.path,
@@ -66,7 +72,7 @@ const components = (rawComponents: ComponentDocPages) => ({
     matchingLocation: (location: WindowLocation) => location.pathname.includes("/documentation"),
 });
 
-export const mainMenu = (rawPages: GeneralDocPages, rawComponents: ComponentDocPages) => [
+export const mainMenu = (rawPages: GeneralDocPages, rawComponents: ComponentDocPages): Array<Pages> => [
     profile(rawPages),
     components(rawComponents),
     developer(rawPages),

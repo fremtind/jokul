@@ -16,6 +16,7 @@ export interface Props extends BaseProps {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
+    "data-testautoid"?: string;
     /** @deprecated */
     inverted?: boolean;
     forceCompact?: boolean;
@@ -31,11 +32,12 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             label,
             helpLabel,
             errorLabel,
-            variant = "medium",
+            variant,
             inline,
             inverted,
             forceCompact,
             action,
+            "data-testautoid": testAutoId,
             ...inputProps
         },
         ref,
@@ -65,6 +67,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                         id={uid}
                         describedBy={describedBy}
                         invalid={!!errorLabel}
+                        data-testautoid={testAutoId}
                         {...inputProps}
                     />
                     {action && (

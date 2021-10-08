@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-logo-react",
-    "version": "6.0.2",
+    "version": "6.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react logo component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "logo",
         "jøkul",
@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-logo": "^5.0.2",
+        "@fremtind/jkl-logo": "^5.0.6",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.22"
     },

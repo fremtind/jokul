@@ -1,6 +1,7 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import React, { useState } from "react";
 import { Select } from ".";
 
@@ -18,6 +19,28 @@ describe("Select", () => {
 
         const dropdown = screen.getByTestId("jkl-select");
         expect(dropdown).toHaveClass("jkl-select--inline");
+    });
+
+    it("should open when clicked", () => {
+        render(<Select inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+
+        const button = screen.getByTestId("jkl-select__button");
+
+        act(() => {
+            userEvent.click(button);
+        });
+        expect(screen.getByText("drop")).toBeVisible();
+    });
+
+    it("should open when arrow down is pressed", () => {
+        render(<Select inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+
+        const button = screen.getByTestId("jkl-select__button");
+
+        act(() => {
+            userEvent.type(button, "{arrowdown}");
+        });
+        expect(screen.getByText("drop")).toBeVisible();
     });
 
     it("should use the specified value", () => {
@@ -160,6 +183,23 @@ describe("Select", () => {
         });
 
         expect(onBlur).not.toHaveBeenCalled();
+    });
+
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+        render(
+            <Accordion>
+                <AccordionItem title="Velg tingen" startExpanded>
+                    <Select items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                </AccordionItem>
+            </Accordion>,
+        );
+
+        act(() => {
+            const button = screen.getByTestId("jkl-select__button");
+            userEvent.click(button);
+        });
+
+        expect(screen.getByTestId("jkl-select__button")).toBeVisible();
     });
 });
 
@@ -596,6 +636,23 @@ describe("Searchable select", () => {
 
         expect(onBlur).toHaveBeenCalledTimes(1);
     });
+
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+        render(
+            <Accordion>
+                <AccordionItem title="Velg tingen" startExpanded>
+                    <Select searchable items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                </AccordionItem>
+            </Accordion>,
+        );
+
+        act(() => {
+            const button = screen.getByTestId("jkl-select__button");
+            userEvent.click(button);
+        });
+
+        expect(screen.getByTestId("jkl-select__search-input")).toBeVisible();
+    });
 });
 
 describe("a11y", () => {
@@ -603,23 +660,13 @@ describe("a11y", () => {
         const { container } = render(
             <Select searchable label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
     test("select should be a11y compliant", async () => {
         const { container } = render(<Select label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />);
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
@@ -628,13 +675,50 @@ describe("a11y", () => {
         const { container } = render(
             <Select forceCompact label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
-        const results = await axe(container, {
-            rules: {
-                "aria-input-field-name": { enabled: false },
-                "aria-required-parent": { enabled: false },
-            },
-        });
+        const results = await axe(container);
 
         expect(results).toHaveNoViolations();
+    });
+
+    test("aria-label should update correctly on change", async () => {
+        const onChange = jest.fn();
+        function WrappedSelect() {
+            const [value, setValue] = useState<string>();
+
+            const items = [
+                { value: "apple", label: "Apple" },
+                { value: "samsung", label: "Samsung" },
+                { value: "huawei", label: "Huawei" },
+                { value: "LG", label: "LG" },
+            ];
+
+            return (
+                <Select
+                    label="Hvilket merke er telefonen?"
+                    items={items}
+                    value={value}
+                    onChange={(value: string | undefined) => {
+                        setValue(value);
+                        onChange();
+                    }}
+                />
+            );
+        }
+
+        const screen = render(<WrappedSelect />);
+
+        const dropdownButtonElement = screen.getByText("Velg");
+        const firstItemButton = screen.getByText("Apple");
+
+        act(() => {
+            userEvent.click(dropdownButtonElement);
+        });
+
+        act(() => {
+            userEvent.click(firstItemButton);
+        });
+
+        expect(onChange).toHaveBeenCalled();
+        expect(screen.getByTestId("jkl-select__button").getAttribute("aria-label")).toContain("Apple");
     });
 });

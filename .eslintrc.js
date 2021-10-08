@@ -23,7 +23,6 @@ module.exports = {
     ],
     parserOptions: { ecmaVersion: 2018, sourceType: "module" },
     rules: {
-        "@typescript-eslint/explicit-module-boundary-types": "off", // remove this when codebase is good an ready for it
         "@typescript-eslint/no-empty-interface": [
             "error",
             { allowSingleExtends: true }, // In some case you want to extend an empty interface. Example:  "interface Props extends RouteComponentProps"
@@ -52,6 +51,12 @@ module.exports = {
             files: ["**/*test.ts", "**/*test.tsx"],
             rules: {
                 "@typescript-eslint/no-empty-function": "off",
+            },
+        },
+        {
+            files: ["**/*.js"],
+            rules: {
+                "@typescript-eslint/explicit-module-boundary-types": "off",
             },
         },
         { files: ["**/*.spec.*"], extends: ["plugin:cypress/recommended"] },

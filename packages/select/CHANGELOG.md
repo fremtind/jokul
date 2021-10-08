@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.1 (2021-09-30)
+
+### Bug Fixes
+
+- rett padding, støtt lange labels i Select ([2101522](https://github.com/fremtind/jokul/commit/210152290d269d171fe856e868086ba9431cfb15)), closes [#1592](https://github.com/fremtind/jokul/issues/1592) [#2246](https://github.com/fremtind/jokul/issues/2246) [#2247](https://github.com/fremtind/jokul/issues/2247)
+
+## 5.1.0 (2021-09-30)
+
+### Features
+
+- use cursor:pointer style on select ([843a232](https://github.com/fremtind/jokul/commit/843a2326ce68de8ed5f70d1584380089299b9906)), closes [#2173](https://github.com/fremtind/jokul/issues/2173)
+
+## 5.0.3 (2021-08-24)
+
+### Bug Fixes
+
+- add hover color and cursor for select ([e9855d3](https://github.com/fremtind/jokul/commit/e9855d3c5b9d01719c9ed9da82d71ac4a8ea7d5c))
+- remove pointer style ([0ccc6ed](https://github.com/fremtind/jokul/commit/0ccc6ed2ac04c19be7847191a641da0baff76347))
+
 ## 5.0.0 (2021-07-09)
 
 ### Features

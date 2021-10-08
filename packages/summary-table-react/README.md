@@ -1,13 +1,12 @@
-# `@fremtind/jkl-summary-table-react`
-
+# [`@fremtind/jkl-summary-table-react`](https://jokul.fremtind.no/komponenter/summarytable)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/summarytable).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/summarytable).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 

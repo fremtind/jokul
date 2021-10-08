@@ -1,0 +1,26 @@
+---
+title: Slider
+react: slider-react
+scss: slider
+group: skjema
+---
+
+import { Example } from "./Example";
+
+<Ingress>
+    Vi bruker slider der brukeren skal velge en tallverdi fra et spesifisert område. Det kan for eksampel være å gi en
+    vurdering fra 1 til 5.
+</Ingress>
+<ComponentExample
+    component={Example}
+    knobs={{
+        boolProps: ["Med hjelpetekst", "Med feil"],
+        choiceProps: [
+            {
+                name: "Etikettvariant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+/>

@@ -8,7 +8,7 @@ export const useIntersectionObserver = (
     onIntersect: IntersectionObserverCallback,
     fallback: VoidFunction,
     options?: Partial<IntersectionObserverInit>,
-) => {
+): void => {
     const observerRef = useRef<IntersectionObserver>(null);
 
     useEffect(() => {

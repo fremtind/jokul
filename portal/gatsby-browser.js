@@ -33,6 +33,7 @@ import "@fremtind/jkl-icons/animated-icons.min.css";
 import "@fremtind/jkl-image/image.min.css";
 import "@fremtind/jkl-content-toggle/content-toggle.min.css";
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
+import "@fremtind/jkl-slider/slider.min.css";
 
 import { initTabListener } from "@fremtind/jkl-core";
 

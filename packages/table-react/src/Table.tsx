@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { TableRow } from "./TableRow";
 import { TableRowData } from "./types";
 
@@ -8,7 +8,7 @@ interface Props {
     className?: string;
 }
 
-export function Table({ columns, rows, className }: Props) {
+export const Table: VFC<Props> = ({ columns, rows, className }) => {
     return (
         <table className={`jkl-table ${className ? className : ""}`}>
             <thead>
@@ -27,4 +27,4 @@ export function Table({ columns, rows, className }: Props) {
             </tbody>
         </table>
     );
-}
+};

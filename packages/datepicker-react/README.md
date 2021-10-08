@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-datepicker-react`](https://fremtind.github.io/jokul/komponenter/datepicker)
+# [`@fremtind/jkl-datepicker-react`](https://jokul.fremtind.no/komponenter/datepicker)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/datepicker).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/datepicker).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -64,12 +64,24 @@ Du kan sette en forhåndsvalgt dato med `initialDate`. Dersom ingen dato er valg
 ```
 
 ## Event Handling
-DatePicker-komponenten mottar tre event-funksjoner (onFocus, onChange og onBlur). 
-Disse eventene returnerer et native event-objekt og et Date-objekt. Begge parametrene er optional. 
+
+DatePicker-komponenten mottar tre event-funksjoner (onFocus, onChange og onBlur). Disse eventene returnerer et native event-objekt og et Date-objekt. Begge parametrene er optional.
+
+`onChange` returnerer i tillegg et `meta`-objekt med verdiene `error: "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND"` og `value: string`. Du kan bruke `error` til å velge hvilken feilmeldingstekst du viser til brukeren og `value` om du ønsker å bruke inputfeltets verdi i feilmeldingen.
 
 ```jsx
-<DatePicker 
-    onChange = {(date) => { handleChange(date); }} 
-    onBlur = {(date, e) => { updateValue(date, e); }} 
-/>;
+<DatePicker
+    onChange={(date, e, meta) => {
+        handleChange(date);
+        if (meta.error) {
+            handleError(meta.error);
+        }
+    }}
+    onFocus={(date, e) => {
+        handleFocus(date);
+    }}
+    onBlur={(date, e) => {
+        updateValue(date);
+    }}
+/>
 ```

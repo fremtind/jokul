@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.3.5 (2021-10-06)
+
+### Bug Fixes
+
+- legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
+
+## 5.3.3 (2021-09-30)
+
+### Bug Fixes
+
+- fjern unødig CoreToggle i MainMenu ([d690bda](https://github.com/fremtind/jokul/commit/d690bdac8bf76ca39ad12317183eb2cecd7ddfd0))
+- lukk menyen ved klikk på hjemknappen ([9803adb](https://github.com/fremtind/jokul/commit/9803adbe9e86fc9e13e6d7650b13a9d026431f06)), closes [#2269](https://github.com/fremtind/jokul/issues/2269)
+- venstrejuster tekst i portalmeny ([a17dfad](https://github.com/fremtind/jokul/commit/a17dfada6f9753249afc57830a690c9cacef810b))
+
+## 5.3.2 (2021-09-30)
+
+### Bug Fixes
+
+- lukk menyen ved klikk på hjemknappen ([9803adb](https://github.com/fremtind/jokul/commit/9803adbe9e86fc9e13e6d7650b13a9d026431f06)), closes [#2269](https://github.com/fremtind/jokul/issues/2269)
+- venstrejuster tekst i portalmeny ([a17dfad](https://github.com/fremtind/jokul/commit/a17dfada6f9753249afc57830a690c9cacef810b))
+
+## 5.3.0 (2021-09-30)
+
+### Features
+
+- use cursor:pointer style on select ([843a232](https://github.com/fremtind/jokul/commit/843a2326ce68de8ed5f70d1584380089299b9906)), closes [#2173](https://github.com/fremtind/jokul/issues/2173)
+
+## 5.2.6 (2021-09-28)
+
+### Bug Fixes
+
+- adjust font size in full screen menu ([405d132](https://github.com/fremtind/jokul/commit/405d1328da72760e8659732bb22a3866d8cc0bb6))
+
+## 5.2.5 (2021-09-28)
+
+### Bug Fixes
+
+- gjenopprett lukking av meny med Esc ([5a118e1](https://github.com/fremtind/jokul/commit/5a118e103487c39b7b6cd8659049884d133958a8))
+- legg på manglende aria-attributter ([483ccd6](https://github.com/fremtind/jokul/commit/483ccd67bcb4b1b4c8e52da14adef3e05375e561))
+- rett opp padding mellom tekst og pil ([2e31e69](https://github.com/fremtind/jokul/commit/2e31e694aec7b491858125dbfb6cf5e8c132814b)), closes [#2245](https://github.com/fremtind/jokul/issues/2245)
+- rett tastaturrekkefølge og utvidet-tilstand ([37c7ca3](https://github.com/fremtind/jokul/commit/37c7ca3393e9573b14e452c29e24c3749514d21b)), closes [#2241](https://github.com/fremtind/jokul/issues/2241)
+
+## 5.2.0 (2021-09-15)
+
+### Features
+
+- add new Slider component to Jøkul ([2cb471f](https://github.com/fremtind/jokul/commit/2cb471f8985d10bda91040b254f898c58e41f0ea))
+
+## 5.1.0 (2021-09-13)
+
+### Features
+
+- prop for å styre role på MessageBox ([87646ae](https://github.com/fremtind/jokul/commit/87646ae6437cb368aa6567e637d59ab2ab923b71)), closes [#1687](https://github.com/fremtind/jokul/issues/1687)
+
+## 5.0.8 (2021-09-03)
+
+### Bug Fixes
+
+- fixed font color in footer ([#2170](https://github.com/fremtind/jokul/issues/2170)) ([c70c6a7](https://github.com/fremtind/jokul/commit/c70c6a7894b7637e457e319420512ea88b1a060a))
+
+## 5.0.7 (2021-09-02)
+
+### Bug Fixes
+
+- fixed font color in footer ([#2170](https://github.com/fremtind/jokul/issues/2170)) ([c70c6a7](https://github.com/fremtind/jokul/commit/c70c6a7894b7637e457e319420512ea88b1a060a))
+
+## 5.0.6 (2021-09-02)
+
+### Bug Fixes
+
+- fixed font color in footer ([1f88d67](https://github.com/fremtind/jokul/commit/1f88d6791af68deb8d6d3d24218489d18e860304))
+
 ## 5.0.3 (2021-08-16)
 
 ### Performance Improvements
@@ -791,4 +863,4 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 
 ### Reverts
 
--   **dropdown:** rebase to master without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))
+-   **dropdown:** rebase to main without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))
