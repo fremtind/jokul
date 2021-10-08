@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-uu-lenker-mdx","path":"/uu/lenker/","result":{"pageContext":{"frontmatter":{"title":"Lenker","tags":["tekstinnhold","modal","skjema"],"wcagRules":["1.3.1","1.4.1","2.4.4","2.4.7"],"links":[["Lenkekomponenter i Jøkul","/komponenter/link"]]}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-uu-lenker-mdx",
+    "path": "/uu/lenker/",
+    "result": {"pageContext":{"frontmatter":{"title":"Lenker","tags":["tekstinnhold","modal","skjema"],"wcagRules":["1.3.1","1.4.1","2.4.4","2.4.7"],"links":[["Lenkekomponenter i Jøkul","/komponenter/link"]]}}},
+    "staticQueryHashes": ["1260817848","3000541721"]}

@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-profile-pattern-mdx","path":"/profile/pattern/","result":{"pageContext":{"frontmatter":{}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-profile-pattern-mdx",
+    "path": "/profile/pattern/",
+    "result": {"pageContext":{"frontmatter":{}}},
+    "staticQueryHashes": ["1260817848","3000541721"]}

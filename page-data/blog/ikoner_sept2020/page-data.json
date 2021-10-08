@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-blog-ikoner-sept-2020-mdx","path":"/blog/ikoner_sept2020/","result":{"pageContext":{"frontmatter":{"title":"Ikon relatert til em-size","author":"Stein Olav Pettersen","description":"Hvordan kan vi lage et robust system for ikoner som skalerer og er tilpasset Fremtinds typografi?","publishDate":"2020.09.07"}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-blog-ikoner-sept-2020-mdx",
+    "path": "/blog/ikoner_sept2020/",
+    "result": {"pageContext":{"frontmatter":{"title":"Ikon relatert til em-size","author":"Stein Olav Pettersen","description":"Hvordan kan vi lage et robust system for ikoner som skalerer og er tilpasset Fremtinds typografi?","publishDate":"2020.09.07"}}},
+    "staticQueryHashes": ["1260817848","3000541721"]}

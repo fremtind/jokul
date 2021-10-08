@@ -1,1 +1,5 @@
-{"componentChunkName":"component---packages-core-documentation-colors-mdx","path":"/komponenter/colors","result":{"pageContext":{"frontmatter":{"title":"Colors","scss":"core","group":"util","type":[]}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---packages-core-documentation-colors-mdx",
+    "path": "/komponenter/colors",
+    "result": {"pageContext":{"frontmatter":{"title":"Colors","scss":"core","group":"util","type":[]}}},
+    "staticQueryHashes": ["1260817848","3000541721"]}

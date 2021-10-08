@@ -1,1 +1,5 @@
-{"componentChunkName":"component---src-texts-blog-fremtind-figma-mdx","path":"/blog/FremtindFigma/","result":{"pageContext":{"frontmatter":{"title":"Figma og Fremtind","author":"Mikkel Blytt","description":"Om Figma og hvordan det brukes i Fremtind","publishDate":"2020.08.10"}}},"staticQueryHashes":["1260817848"]}
+{
+    "componentChunkName": "component---src-texts-blog-fremtind-figma-mdx",
+    "path": "/blog/FremtindFigma/",
+    "result": {"pageContext":{"frontmatter":{"title":"Figma og Fremtind","author":"Mikkel Blytt","description":"Om Figma og hvordan det brukes i Fremtind","publishDate":"2020.08.10"}}},
+    "staticQueryHashes": ["1260817848","3000541721"]}
