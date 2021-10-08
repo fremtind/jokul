@@ -1,10 +1,10 @@
 diff --git a/node_modules/@nrk/core-datepicker/jsx.js b/node_modules/@nrk/core-datepicker/jsx.js
-index 00848d7..102cf89 100644
+index 35f9675..c2b7bae 100644
 --- a/node_modules/@nrk/core-datepicker/jsx.js
 +++ b/node_modules/@nrk/core-datepicker/jsx.js
-@@ -328,6 +328,35 @@ var index_min = createCommonjsModule(function (module, exports) {
-   });
- });
+@@ -349,6 +349,35 @@ var index_min = {exports: {}};
+ 
+ var _parse = index_min.exports;
  
 +var FILL = {
 +  month: function month(self, value) {
@@ -38,11 +38,11 @@ index 00848d7..102cf89 100644
  var MASK = {
    year: '*-m-d',
    month: 'y-*-d',
-@@ -404,13 +433,23 @@ function (_HTMLElement) {
+@@ -425,13 +454,23 @@ var CoreDatepicker = /*#__PURE__*/function (_HTMLElement) {
      key: "handleEvent",
      value: function handleEvent(event) {
        if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.type === 'keydown' && !KEYS[event.keyCode]) return;
--      if (!this.contains(event.target) && !closest(event.target, "[for=\"".concat(this.id, "\"]"))) return;
+-      if (!this.contains(event.target) && !closest$1(event.target, "[for=\"".concat(this.id, "\"],[data-for=\"").concat(this.id, "\"]"))) return;
 -      if (event.type === 'change') this.date = MASK[event.target.getAttribute('data-type')].replace('*', event.target.value);else if (event.type === 'click') {
 +      if (!this.contains(event.target) && !closest(event.target, "[for=\"".concat(this.id, "\"]").concat(", [data-for=\"".concat(this.id, "\"]")))) return;
 +      if (event.type === 'change') {
@@ -50,9 +50,9 @@ index 00848d7..102cf89 100644
 +        this.date = FILL[event.target.getAttribute('data-fill')](this, date);
 +      }
 +      else if (event.type === 'click') {
-         var _button = closest(event.target, 'button[value]');
+         var _button = closest$1(event.target, 'button[value]');
  
-         var _table = closest(event.target, 'table');
+         var _table = closest$1(event.target, 'table');
  
 -        if (_button) this.date = _button.value;
 +        if (_button) {
@@ -61,11 +61,11 @@ index 00848d7..102cf89 100644
 +          var fillMethod = match && match[0];
 +          date = FILL[fillMethod](this, date);
 +          this.date = date;
-+      }
++        }
          if (_button && _table) dispatchEvent(this, 'datepicker.click.day');
-       } else if (event.type === 'keydown' && closest(event.target, 'table')) {
+       } else if (event.type === 'keydown' && closest$1(event.target, 'table')) {
          this.date = KEYS[event.keyCode];
-@@ -529,7 +568,9 @@ function button(self, el) {
+@@ -550,7 +589,9 @@ function button(self, el) {
  
    el.type = 'button'; // Ensure forms are not submitted by datepicker-buttons
  
@@ -76,7 +76,7 @@ index 00848d7..102cf89 100644
  }
  
  function input(self, el) {
-@@ -580,18 +621,34 @@ function table(self, table) {
+@@ -601,20 +642,45 @@ function table(self, table) {
  function select(self, select) {
    if (!select.firstElementChild) {
      select._autofill = true;
@@ -109,13 +109,9 @@ index 00848d7..102cf89 100644
 +  return days;
 +}
 +
- var version = "3.0.8";
+ var version = "3.1.0";
  
- /**
-@@ -617,6 +674,14 @@ var closest$1 = function () {
-   };
- }();
- /**
++/**
 +* getUUID
 +* @return {String} A generated unique ID
 +*/
@@ -123,11 +119,11 @@ index 00848d7..102cf89 100644
 +function getUUID() {
 +  return Date.now().toString(36) + Math.random().toString(36).slice(2, 5)
 +}
-+/**
- * customElementToReact
- * @param {Class|Function} elementClass A custom element definition.
- * @param {Array} options Props and custom events
-@@ -626,7 +691,8 @@ var closest$1 = function () {
++
+ /**
+ * closest
+ * @param {Element} el Element to traverse up from
+@@ -647,7 +713,8 @@ var closest = function () {
  
  function customElementToReact(elementClass, options) {
    if (options === void 0) options = {};
@@ -137,13 +133,12 @@ index 00848d7..102cf89 100644
  
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -746,10 +812,9 @@ function customElementToReact(elementClass, options) {
-   );
+@@ -764,10 +831,8 @@ function customElementToReact(elementClass, options) {
+   }(React__default['default'].Component);
  }
  
 -var coreDatepicker = customElementToReact(CoreDatepicker, {
 +export default customElementToReact(CoreDatepicker, {
-+  name: "CoreDatepicker",
    props: ['disabled'],
    customEvents: ['datepicker.change', 'datepicker.click.day'],
    suffix: version
