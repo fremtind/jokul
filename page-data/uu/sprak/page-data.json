@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-uu-sprak-mdx",
-    "path": "/uu/sprak/",
-    "result": {"pageContext":{"frontmatter":{"title":"Språk","tags":["tekstinnhold","skjema"]}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-uu-sprak-mdx","path":"/uu/sprak/","result":{"pageContext":{"frontmatter":{"title":"Språk","tags":["tekstinnhold","skjema"]}}},"staticQueryHashes":["1260817848"]}

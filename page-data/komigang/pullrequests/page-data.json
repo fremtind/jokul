@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-getstarted-pull-request-guide-mdx",
-    "path": "/komigang/pullrequests",
-    "result": {"pageContext":{"frontmatter":{"title":"Pull requests","path":"/komigang/pullrequests","order":6}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-getstarted-pull-request-guide-mdx","path":"/komigang/pullrequests","result":{"pageContext":{"frontmatter":{"title":"Pull requests","path":"/komigang/pullrequests","order":6}}},"staticQueryHashes":["1260817848"]}

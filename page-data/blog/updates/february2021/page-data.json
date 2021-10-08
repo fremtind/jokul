@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-blog-updates-february-2021-mdx",
-    "path": "/blog/updates/february2021/",
-    "result": {"pageContext":{"frontmatter":{"title":"Februar 2021","description":"Oppdateringer fra Jøkul","author":"Kjerneteamet","publishDate":"2021.03.08"}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-blog-updates-february-2021-mdx","path":"/blog/updates/february2021/","result":{"pageContext":{"frontmatter":{"title":"Februar 2021","description":"Oppdateringer fra Jøkul","author":"Kjerneteamet","publishDate":"2021.03.08"}}},"staticQueryHashes":["1260817848"]}

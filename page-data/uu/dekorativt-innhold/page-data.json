@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-uu-dekorativt-innhold-mdx",
-    "path": "/uu/dekorativt-innhold/",
-    "result": {"pageContext":{"frontmatter":{"title":"Dekorativt innhold","tags":["bilder"],"wcagRules":["1.1.1"]}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-uu-dekorativt-innhold-mdx","path":"/uu/dekorativt-innhold/","result":{"pageContext":{"frontmatter":{"title":"Dekorativt innhold","tags":["bilder"],"wcagRules":["1.1.1"]}}},"staticQueryHashes":["1260817848"]}

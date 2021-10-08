@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-getstarted-getting-started-design-mdx",
-    "path": "/komigang/design",
-    "result": {"pageContext":{"frontmatter":{"title":"For designere","path":"/komigang/design","order":3}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-getstarted-getting-started-design-mdx","path":"/komigang/design","result":{"pageContext":{"frontmatter":{"title":"For designere","path":"/komigang/design","order":3}}},"staticQueryHashes":["1260817848"]}

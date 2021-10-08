@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-getstarted-mobile-guide-mdx",
-    "path": "/komigang/mobil",
-    "result": {"pageContext":{"frontmatter":{"title":"Mobil","path":"/komigang/mobil","order":6}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-getstarted-mobile-guide-mdx","path":"/komigang/mobil","result":{"pageContext":{"frontmatter":{"title":"Mobil","path":"/komigang/mobil","order":6}}},"staticQueryHashes":["1260817848"]}

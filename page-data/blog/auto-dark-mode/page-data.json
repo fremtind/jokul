@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-blog-auto-dark-mode-mdx",
-    "path": "/blog/auto-dark-mode/",
-    "result": {"pageContext":{"frontmatter":{"title":"Guide til dark mode i Jøkul","author":"Pio Rasch-Halvorsen","description":"Hvordan gjøre løsningen din klar for automatisk dark mode som designer eller utvikler","publishDate":"2021.07.07"}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-blog-auto-dark-mode-mdx","path":"/blog/auto-dark-mode/","result":{"pageContext":{"frontmatter":{"title":"Guide til dark mode i Jøkul","author":"Pio Rasch-Halvorsen","description":"Hvordan gjøre løsningen din klar for automatisk dark mode som designer eller utvikler","publishDate":"2021.07.07"}}},"staticQueryHashes":["1260817848"]}

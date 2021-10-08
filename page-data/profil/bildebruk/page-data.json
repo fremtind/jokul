@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-profile-picture-mdx",
-    "path": "/profil/bildebruk",
-    "result": {"pageContext":{"frontmatter":{"title":"Bildebruk","path":"/profil/bildebruk","order":9}}},
-    "staticQueryHashes": ["1260817848","1756004727","3000541721"]}
+{"componentChunkName":"component---src-texts-profile-picture-mdx","path":"/profil/bildebruk","result":{"pageContext":{"frontmatter":{"title":"Bildebruk","path":"/profil/bildebruk","order":9}}},"staticQueryHashes":["1260817848","1756004727"]}

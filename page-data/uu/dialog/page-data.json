@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-uu-dialog-mdx",
-    "path": "/uu/dialog/",
-    "result": {"pageContext":{"frontmatter":{"title":"Dialog","tags":["modal"],"wcagRules":["2.1.1","2.1.2","2.2.1","2.3.1","2.4.3","2.4.7","3.2.1"]}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-uu-dialog-mdx","path":"/uu/dialog/","result":{"pageContext":{"frontmatter":{"title":"Dialog","tags":["modal"],"wcagRules":["2.1.1","2.1.2","2.2.1","2.3.1","2.4.3","2.4.7","3.2.1"]}}},"staticQueryHashes":["1260817848"]}

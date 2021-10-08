@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-texts-blog-updates-december-2020-mdx",
-    "path": "/blog/updates/december2020/",
-    "result": {"pageContext":{"frontmatter":{"title":"Desember 2020 🤶","description":"Oppdateringer fra Jøkul","author":"Kjerneteamet","publishDate":"2020.12.02"}}},
-    "staticQueryHashes": ["1260817848","3000541721"]}
+{"componentChunkName":"component---src-texts-blog-updates-december-2020-mdx","path":"/blog/updates/december2020/","result":{"pageContext":{"frontmatter":{"title":"Desember 2020 🤶","description":"Oppdateringer fra Jøkul","author":"Kjerneteamet","publishDate":"2020.12.02"}}},"staticQueryHashes":["1260817848"]}
