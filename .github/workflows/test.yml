@@ -14,7 +14,8 @@ jobs:
         steps:
             - uses: actions/checkout@v2.3.4
 
-            - uses: dorny/paths-filter@v2
+            - name: Chack for changes
+              uses: dorny/paths-filter@v2
               id: changes
               with:
                   filters: |
@@ -26,12 +27,12 @@ jobs:
                         - "yarn.lock"
 
             - name: Get yarn cache directory path
-              if: steps.filter.outputs.runtests == 'true'
+              if: steps.changes.outputs.runtests == 'true'
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
 
             - name: Cache yarn directory
-              if: steps.filter.outputs.runtests == 'true'
+              if: steps.changes.outputs.runtests == 'true'
               uses: actions/cache@v2.1.6
               id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
@@ -41,7 +42,7 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: Lint and test
-              if: steps.filter.outputs.runtests == 'true' && !contains(github.event.head_commit.message, '[ci skip release]')
+              if: steps.changes.outputs.runtests == 'true' && !contains(github.event.head_commit.message, '[ci skip release]')
               run: |
                   yarn install --frozen-lockfile
                   yarn build
