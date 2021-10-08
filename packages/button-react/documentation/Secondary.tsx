@@ -6,7 +6,7 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [showLoader, setShowLoader] = useState(false);
     const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
 
-    const onClick = () => {
+    const simulateLoading = () => {
         console.log("Hello!");
         setShowLoader(true);
         setTimeout(() => {
@@ -16,24 +16,31 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
 
     return (
         <SecondaryButton
-            inverted={boolValues && boolValues["Invertert"]}
             forceCompact={boolValues && boolValues["Kompakt"]}
+            inverted={boolValues && boolValues["Invertert"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
-            onClick={onClick}
             className="jkl-spacing-l--right"
+            onClick={simulateLoading}
         >
             Lagre
         </SecondaryButton>
     );
 };
 
-export const SecondaryCode = `
+export const secondaryCode = ({ boolValues }: ExampleComponentProps): string => `
 <SecondaryButton
-    inverted={boolValues && boolValues["Invertert"]}
-    forceCompact={boolValues && boolValues["Kompakt"]}
-    loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
-    onClick={onClick}
-    className="jkl-spacing-l--right"
+    forceCompact={${!!boolValues?.["Kompakt"]}}
+    inverted={${!!boolValues?.["Invertert"]}}
+    loader={${
+        !!boolValues?.["withLoader"]
+            ? `{
+        showLoader: ${!!boolValues?.["isLoading"]},
+        textDescription: "Laster innhold"
+    }`
+            : `false`
+    }}
+    onClick={simulateLoading}
+    className="jkl-spacing--right-1"
 >
     Lagre
 </SecondaryButton>
