@@ -10,15 +10,14 @@ export interface Props {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
     };
+    codeExample?: string | ((options: ExampleComponentProps) => string);
 }
 
-export const ComponentExample: FC<Props> = ({ component, knobs, title = "Komponent", children, ...rest }) => {
+export const ComponentExample: FC<Props> = ({ component, children, ...rest }) => {
     const C = component;
 
     return (
         <ExampleBase
-            knobs={knobs}
-            title={title}
             responsiveLayout={false}
             component={({ boolValues, choiceValues }) => <C boolValues={boolValues} choiceValues={choiceValues} />}
             {...rest}

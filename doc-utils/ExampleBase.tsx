@@ -6,6 +6,7 @@ import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp } from "./";
 import { hyphenate } from "./internal/hypenate";
+import { CodeBlock } from "./CodeBlock";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
@@ -15,6 +16,7 @@ export interface Props {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
     };
+    codeExample?: string | ((options: ExampleComponentProps) => string);
     responsiveLayout: boolean;
 }
 
@@ -23,7 +25,7 @@ export const ExampleBase: FC<Props> = ({
     component,
     knobs,
     title = "Komponent",
-    children,
+    codeExample,
     scrollable,
 }) => {
     const [uid] = useState(`example-${nanoid(8)}`);
@@ -125,7 +127,7 @@ export const ExampleBase: FC<Props> = ({
                     </FieldGroup>
                 </aside>
             </section>
-            {children && (
+            {codeExample && (
                 <div
                     className={cx("jkl-portal-code-example", {
                         "jkl-portal-code-example--open": !showCode,
@@ -134,7 +136,11 @@ export const ExampleBase: FC<Props> = ({
                     <button className={"jkl-button jkl-button--tertiary jkl-spacing-xs--top"} onClick={toggleCode}>
                         {`${showCode ? "Skjul" : "Vis"} kode`}
                     </button>
-                    {showCode && children}
+                    {showCode && (
+                        <CodeBlock language="tsx">
+                            {typeof codeExample === "string" ? codeExample : codeExample({ boolValues, choiceValues })}
+                        </CodeBlock>
+                    )}
                 </div>
             )}
         </div>
