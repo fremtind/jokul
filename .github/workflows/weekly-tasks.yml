@@ -27,14 +27,13 @@ jobs:
                   body: |
                       ## Sjekkliste
 
-                      - [ ] På toppnivå i Jøkul, kjør `yarn upgrade-interactive` og velg alle patch- og minor-versjoner [^1]
-                      - [ ] Lag issue(s) på Github for å gjøre oppgraderinger som krever mer tid
+                      - [ ] Mottatt – jeg fikser i løpet av uka!
+                      - [ ] På toppnivå i Jøkul, kjør `yarn upgrade-interactive --latest`. Velg alle patch- og minor-versjoner [^1], og se om majors kan oppgraderes uten problemer (f. eks. devDependency som fjerner støtte for gammel Node-versjon).
+                      - [ ] Lag issue(s) på Github for å gjøre oppgraderinger av versjoner som krever mer tid
                       - [ ] Kjør `yarn build` og `yarn ci:test`
                       - [ ] Lag en pull request som vanlig
 
-                      Dersom en devDependency har en ny major-versjon må du gjerne sjekke changeloggen og se om vi kan oppgraderes uten større problemer (f. eks. ved fjerning av støtte for utdaterte Node-versjoner).
-
-                      Eksempler på oppgraderinger som krever mer tid er typisk React majorversjoner, eller dersom en oppgradering tar med seg typedefinisjoner som skaper store problemer.
+                      Eksempler på oppgraderinger som krever mer tid er typisk React majorversjoner, `@nrk/core-*`, eller dersom en oppgradering tar med seg typedefinisjoner som skaper store problemer.
 
                       ---
 
