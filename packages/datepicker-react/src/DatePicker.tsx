@@ -162,7 +162,8 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             if (!isFirstRenderRef.current && onChange) {
                 onChange(state.date, undefined, { error: state.error, value: state.dateString });
             }
-        }, [state.date, state.dateString, state.error, onChange]);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [state.date, state.dateString, state.error]);
 
         useEffect(() => {
             if (!isFirstRenderRef.current) {
