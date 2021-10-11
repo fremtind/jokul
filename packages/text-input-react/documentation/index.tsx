@@ -7,12 +7,13 @@ import { renderExample, DevExample } from "../../../doc-utils";
 import { TextInputExample } from "./TextInputExample";
 import { TextAreaExample } from "./TextAreaExample";
 import AutosuggestExample from "./AutosuggestExample";
-import "@fremtind/jkl-text-input/text-input.scss";
-import "@fremtind/jkl-icon-button/icon-button.scss";
+import "@fremtind/jkl-text-input/text-input.css";
+import "@fremtind/jkl-icon-button/icon-button.css";
 
 renderExample(
     <>
         <DevExample
+            title="TextInput"
             component={TextInputExample}
             knobs={{
                 boolProps: ["Inline", "Kompakt", "Invertert", "Med handling", "Med hjelpetekst", "Med feilmelding"],
@@ -26,6 +27,7 @@ renderExample(
             }}
         />
         <DevExample
+            title="TextArea"
             component={TextAreaExample}
             knobs={{
                 boolProps: ["Kompakt", "Invertert", "Ekspanderende", "Med hjelpetekst", "Med feilmelding"],
@@ -39,6 +41,7 @@ renderExample(
             }}
         />
         <DevExample
+            title="Autosuggest"
             component={AutosuggestExample}
             knobs={{
                 boolProps: [
