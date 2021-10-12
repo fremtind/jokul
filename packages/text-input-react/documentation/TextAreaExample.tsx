@@ -10,11 +10,14 @@ export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, bool
     const inverted = boolValues && boolValues["Invertert"];
     const compact = boolValues && boolValues["Kompakt"];
     const autoExpand = boolValues && boolValues["Ekspanderende"];
+    const medTeller = boolValues && boolValues["Med teller"];
+    const skjulProgress = boolValues && boolValues["Skjul progress"];
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Help label" : undefined;
     const errorLabel = boolValues && boolValues["Med feil"] ? "Error label" : undefined;
 
     return (
         <TextArea
+            counter={medTeller ? { maxLength: 200, hideProgress: skjulProgress } : undefined}
             variant={variant}
             inverted={inverted}
             forceCompact={compact}
