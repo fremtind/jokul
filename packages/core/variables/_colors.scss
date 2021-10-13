@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // Hovedfarger
 $svart: #000;
 $granitt: #1b1917;
@@ -28,3 +30,18 @@ $error-color: $feil;
 $focus-color: $granitt;
 $error-color--darkbg: $feil--darkbg;
 $focus-color--darkbg: $snohvit;
+
+// Varslingsfarger, disse er IKKE en del av profilfargene
+// Kun til bruk i komponenter som gir varslinger til bruker
+$varslingsfarger: (
+    "suksess": #c8ecd2,
+    "feil": #ffc9b2,
+    "info": #d9ddff,
+    "advarsel": #fdeab9,
+    "suksess--alt": #90c49e,
+    "feil--alt": #ff9a7a,
+);
+
+@function varslingsfarge($farge) {
+    @return map.get($varslingsfarger, $farge);
+}
