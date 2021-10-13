@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-message-box`](https://fremtind.github.io/jokul/komponenter/alert-message)
+# [`@fremtind/jkl-message-box`](https://jokul.fremtind.no/komponenter/alert-message)
 
 # Meldinger
 

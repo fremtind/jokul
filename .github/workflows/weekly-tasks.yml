@@ -5,31 +5,38 @@
 
 name: Weekly tasks
 on:
-  schedule:
-    - cron: 00 05 * * 1
+    schedule:
+        - cron: 00 05 * * 1
 
 jobs:
-  create_issue:
-    name: Create weekly issue to upgrade dependencies
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-    steps:
-      - name:  Create weekly issue to upgrade dependencies
-        uses: imjohnbo/issue-bot@v3.3.3
-        with:
-          assignees: "espkva, henrikhermansen, joms, kennidenni, mikaila94, piofinn, saegrov, sercansercan, wkillerud"
-          rotate-assignees: true
-          labels: "dependencies"
-          project: "Kjerneteamet"
-          title: "Weekly dependency update"
-          body: |
-            ### Agenda
+    create_issue:
+        name: Create weekly issue to upgrade dependencies
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+        steps:
+            - name: Create weekly issue to upgrade dependencies
+              uses: imjohnbo/issue-bot@v3.3.4
+              with:
+                  assignees: "wkillerud, henrikhermansen, joms, kennidenni, mikaila94, piofinn, saegrov, sercansercan, espkva"
+                  rotate-assignees: true
+                  labels: "🔁 round robin, 🔗 dependencies"
+                  pinned: true
+                  close-previous: true
+                  title: "Ukentlig oppdatering av avhengigheter"
+                  body: |
+                      ## Sjekkliste
 
-            - [ ] Use the command ```yarn upgrade-interactive``` to evaluate and upgrade packages.
-            - [ ] For major upgrades that requires more work, create a separate issue.
-                    
-          pinned: true
-          close-previous: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                      - [ ] Mottatt – jeg fikser i løpet av uka!
+                      - [ ] På toppnivå i Jøkul, kjør `yarn upgrade-interactive --latest`. Velg alle patch- og minor-versjoner [^1], og se om majors kan oppgraderes uten problemer (f. eks. devDependency som fjerner støtte for gammel Node-versjon).
+                      - [ ] Lag issue(s) på Github for å gjøre oppgraderinger av versjoner som krever mer tid
+                      - [ ] Kjør `yarn build` og `yarn ci:test`
+                      - [ ] Lag en pull request som vanlig
+
+                      Eksempler på oppgraderinger som krever mer tid er typisk React majorversjoner, `@nrk/core-*`, eller dersom en oppgradering tar med seg typedefinisjoner som skaper store problemer.
+
+                      ---
+
+                      [1]: Vi har [noen få pakker hvor vi gjør egne patcher](https://github.com/fremtind/jokul/tree/main/patches) i Jøkul. Disse må gjerne oppgraderes, men krever at vi [lager en tilsvarende patch](https://github.com/ds300/patch-package#usage) på den nye versjonen.
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

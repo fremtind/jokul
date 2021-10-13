@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useContext, useMemo, useRef, useState } from "react";
+import React, { ChangeEvent, VFC, useCallback, useContext, useMemo, useRef, useState } from "react";
 import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
 import { motion } from "framer-motion";
 import { Link } from "@fremtind/jkl-core";
@@ -55,7 +55,7 @@ interface MDXNode {
     body: string;
 }
 
-export const UU = () => {
+export const UU: VFC = () => {
     const data = useStaticQuery<{
         allMdx: {
             nodes: MDXNode[];

@@ -1,4 +1,4 @@
-# [`Image`](https://fremtind.github.io/jokul/komponenter/image)
+# [`@fremtind/jkl-image`](https://jokul.fremtind.no/komponenter/image)
 
 # Image
 

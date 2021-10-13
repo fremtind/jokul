@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-10-07)
+
+### Code Refactoring
+
+- **loading-state:** fjern bruk av negative-prop i loaderen ([69f4d42](https://github.com/fremtind/jokul/commit/69f4d426a68ccd4c3295d1be80544eb10ad19e37))
+
+### BREAKING CHANGES
+
+- **loading-state:** Avhenger av en versjon av loader med breaking changes
+
+## 6.0.0 (2021-10-06)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
+### Reverts
+
+- Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
+- Revert "docs: tillat default true på boolProps i eksempler" ([deaff68](https://github.com/fremtind/jokul/commit/deaff681bf795d1f434332911f287db07e5d489c))
+- Revert "chore: reset Cypress baseline for knapper" ([7dda3c1](https://github.com/fremtind/jokul/commit/7dda3c1bfcdffd86ffbd8e7e59d609d1b4f7b4af))
+- Revert "chore: update cypress snapshots [ci skip cypress]" ([438c4ef](https://github.com/fremtind/jokul/commit/438c4ef702b9fa0d8f0f9fdb40c281c13556363d))
+- Revert "docs: strukturer om dokumentasjonen av lenkeknapper" ([c42252e](https://github.com/fremtind/jokul/commit/c42252e89057d065184c013ca3aaccfeb51d8e59))
+
+### BREAKING CHANGES
+
+- APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
+Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
+variant="medium".
+
+## 5.1.0 (2021-10-06)
+
+### Bug Fixes
+
+- legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
 ## 5.0.1 (2021-07-13)
 
 ### Bug Fixes

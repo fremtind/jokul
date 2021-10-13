@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useEffect, VFC } from "react";
 import cn from "classnames";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -14,7 +14,7 @@ import { FeedbackSuccess } from "../FeedbackSuccess";
 const defaultSuccessMessage = {
     title: "Takk for tilbakemeldingen!",
     children:
-        "Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker dem.",
+        "Husk at vi ikke kan besvare meldinger fra dette skjemaet. Kontakt gjerne din forsikringsrådgiver om du har flere spørsmål.",
 };
 
 interface Props {
@@ -32,14 +32,14 @@ interface Props {
     onSubmit: (value: FeedbackType) => void;
 }
 
-export const MainQuestion = ({
+export const MainQuestion: VFC<Props> = ({
     label,
     options,
     type,
     addOnQuestion,
     successMessage = defaultSuccessMessage,
     onSubmit,
-}: Props) => {
+}) => {
     const mainQuestionState = useMainQuestion(onSubmit);
 
     const { setFeedbackSubmitted, contactSubmitted } = useFeedbackContext();

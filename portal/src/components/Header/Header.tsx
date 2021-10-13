@@ -1,15 +1,19 @@
 import { navigate } from "gatsby";
 import cx from "classnames";
-import React, { useCallback, useRef, useEffect } from "react";
+import React, { useCallback, useRef, useEffect, VFC } from "react";
 
 import { useNavigationLinks } from "./useNavigationLinks";
 import { MainMenu } from "./components/MainMenu";
 import { ContentLink } from "../ContentLink/ContentLink";
-import { MenuItemList } from "../../contexts/fullscreenMenuContext";
+import { MenuItemList, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
 
 import "./header.scss";
 
-export const Header = ({ className }: { className?: string }) => {
+type Props = {
+    className?: string;
+};
+
+export const Header: VFC<Props> = ({ className }) => {
     const headerRef = useRef<HTMLElement>(null);
     const collapseMenu = useCallback(() => {
         const shouldCollapse = window.scrollY > 96;
@@ -25,6 +29,8 @@ export const Header = ({ className }: { className?: string }) => {
     }, [collapseMenu]);
     const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, uuDocPages, PageType } =
         useNavigationLinks();
+    const { setIsOpen, setCurrentItem } = useFullscreenMenuContext();
+
     const componentClassName = cx("jkl-portal-header", className);
 
     const menuItems: MenuItemList = [
@@ -98,7 +104,15 @@ export const Header = ({ className }: { className?: string }) => {
     return (
         <header ref={headerRef} className={componentClassName}>
             <ContentLink>Hopp til innhold</ContentLink>
-            <button role="link" className="jkl-portal-header__title" onClick={() => navigate("/")}>
+            <button
+                role="link"
+                className="jkl-portal-header__title"
+                onClick={() => {
+                    setCurrentItem(null);
+                    setIsOpen(false);
+                    navigate("/");
+                }}
+            >
                 Jøkul
             </button>
             <MainMenu className="jkl-portal-header__menu" items={menuItems} />

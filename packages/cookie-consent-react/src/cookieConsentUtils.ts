@@ -18,7 +18,7 @@ const getCookie = (name = COOKIE_NAME) => {
     return cookie;
 };
 
-export const getConsentCookie = (adapter?: () => Consent | undefined) => {
+export const getConsentCookie = (adapter?: () => Consent | undefined): Consent | undefined => {
     const cookie = getCookie();
 
     if (cookie) {
@@ -37,7 +37,7 @@ export const getConsentCookie = (adapter?: () => Consent | undefined) => {
 // 120 days
 const DEFAULT_MAX_AGE = 10368000;
 
-export const setConsentCookie = (consent: Consent, maxAge = DEFAULT_MAX_AGE, name = COOKIE_NAME) => {
+export const setConsentCookie = (consent: Consent, maxAge = DEFAULT_MAX_AGE, name = COOKIE_NAME): void => {
     const cookie = [];
 
     cookie.push(`${name}=${JSON.stringify(consent)}`);
@@ -46,7 +46,7 @@ export const setConsentCookie = (consent: Consent, maxAge = DEFAULT_MAX_AGE, nam
     document.cookie = cookie.join(";");
 };
 
-export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent: Consent | undefined) => {
+export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent: Consent | undefined): boolean => {
     if (!consent) {
         // check if requirement has truthy values. should show consent if it has
         return Object.values(requirement).some((requirementValue) => requirementValue);
@@ -73,7 +73,7 @@ export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent
     }
 };
 
-export const convertConsentValueToFormValue = (consent: ConsentState) => {
+export const convertConsentValueToFormValue = (consent: ConsentState): boolean | undefined => {
     if (!consent) {
         return undefined;
     }
@@ -85,17 +85,18 @@ export const convertConsentValueToFormValue = (consent: ConsentState) => {
     return true;
 };
 
-export const convertConsentObjectToBooleans = (consent: Partial<Record<keyof Consent, ConsentState>>) => {
+export const convertConsentObjectToBooleans = (
+    consent: Partial<Record<keyof Consent, ConsentState>>,
+): { [k: string]: boolean | undefined } => {
     const defaultConsent = {
         functional: null,
         marketing: null,
         statistics: null,
     };
 
-    const consentEntries = Object.entries({ ...defaultConsent, ...consent }).map(([consentName, value]) => [
-        consentName,
-        convertConsentValueToFormValue(value),
-    ]);
+    const consentEntries: Array<[string, boolean | undefined]> = Object.entries({ ...defaultConsent, ...consent }).map(
+        ([consentName, value]) => [consentName, convertConsentValueToFormValue(value)],
+    );
     return Object.fromEntries(consentEntries);
 };
 

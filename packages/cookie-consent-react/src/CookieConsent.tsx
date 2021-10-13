@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, VFC } from "react";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 import { AcceptConsentCallback, Consent } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";
@@ -10,7 +10,7 @@ interface Props {
     onAccept?: AcceptConsentCallback;
 }
 
-export const CookieConsent = ({ blocking, onAccept }: Props) => {
+export const CookieConsent: VFC<Props> = ({ blocking, onAccept }) => {
     const { dispatch, consent } = useCookieConsentState();
     const prevConsent = usePreviousValue(consent);
 
@@ -39,7 +39,7 @@ export const CookieConsent = ({ blocking, onAccept }: Props) => {
     const handleAccept = (newConsent: Partial<Consent>) => {
         // Filter out null values from the new consent
         const newConsentWithoutNullValues = Object.fromEntries(
-            Object.entries(newConsent).filter(([_, value]) => value != null),
+            Object.entries(newConsent).filter(([, value]) => value != null),
         );
 
         // Merge the existing consent with the new consent

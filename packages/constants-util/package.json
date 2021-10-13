@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "0.2.20",
+    "version": "0.2.21",
     "publishConfig": {
         "access": "public"
     },

@@ -1,8 +1,7 @@
-import React from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import React, { VFC } from "react";
 import { Blocking } from "./Blocking";
 
-export const Example = ({}: ExampleComponentProps) => {
+export const Example: VFC = () => {
     return (
         <div className="jkl-cookie-consent-example">
             <Blocking />

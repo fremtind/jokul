@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { VFC, useState } from "react";
 
 import "./SpacingTable.scss";
 
@@ -28,7 +28,7 @@ const layoutSpacings = stringLiteralArray([
 
 type spacingClass = typeof componentSpacings[number] | typeof layoutSpacings[number];
 
-const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
+const SpacingTableRow: VFC<{ spacing: spacingClass }> = ({ spacing }) => {
     const getComputedProperty = (node: HTMLElement | null, cssProperty: string) => {
         return (node && window?.getComputedStyle(node)?.getPropertyValue(cssProperty)) || "N/A";
     };
@@ -60,7 +60,7 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
     );
 };
 
-const SpacingTable: React.FC<{ values: spacingClass[] }> = ({ values }) => (
+const SpacingTable: VFC<{ values: spacingClass[] }> = ({ values }) => (
     <table className="jkl-portal-spacing-table">
         <thead>
             <tr>
@@ -78,5 +78,5 @@ const SpacingTable: React.FC<{ values: spacingClass[] }> = ({ values }) => (
     </table>
 );
 
-export const ComponentSpacingTable = () => <SpacingTable values={componentSpacings} />;
-export const LayoutSpacingTable = () => <SpacingTable values={layoutSpacings} />;
+export const ComponentSpacingTable: VFC = () => <SpacingTable values={componentSpacings} />;
+export const LayoutSpacingTable: VFC = () => <SpacingTable values={layoutSpacings} />;

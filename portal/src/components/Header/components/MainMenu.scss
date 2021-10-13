@@ -70,13 +70,14 @@
         left: 0;
         z-index: -1;
         overflow-x: scroll;
+        height: 0vh;
 
         background-color: var(--full-screen-menu-bg-color);
         @include motion("standard", "lazy");
         transition-property: height;
 
         &--open {
-            height: auto;
+            height: 100vh;
             @include motion("entrance", "lazy");
         }
     }
@@ -130,11 +131,11 @@
 
         @include from-medium-device {
             // static font-sizes for IE11:
-            font-size: rem(40px);
-            line-height: rem(60px);
+            font-size: rem(35px);
+            line-height: rem(50px);
             // 40px/60px on 1440x900 screen:
-            font-size: relativeSize(40);
-            line-height: relativeSize(60);
+            font-size: relativeSize(35);
+            line-height: relativeSize(50);
 
             position: relative;
             top: unset;

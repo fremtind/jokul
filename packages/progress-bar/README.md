@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-progress-bar`](https://fremtind.github.io/jokul/komponenter/progessbar)
+# [`@fremtind/jkl-progress-bar`](https://jokul.fremtind.no/komponenter/progessbar)
 
 ## Om Fremdriftsindikator
 

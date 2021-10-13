@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactNode, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, FC, ReactNode, useEffect, useRef, useState } from "react";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { isValidEpost, isValidTelefonnummer } from "@fremtind/jkl-validators-util";
@@ -43,14 +43,14 @@ interface Props {
     };
 }
 
-export const ContactQuestion = ({
+export const ContactQuestion: FC<Props> = ({
     label = "Kan vi kontakte deg for flere innspill?",
     sendButtonLabel = "Sett meg på lista!",
     withPhone = false,
     onSubmit,
     successMessage = defaultSuccessMessage,
     children,
-}: Props) => {
+}) => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});

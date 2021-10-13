@@ -1,7 +1,7 @@
-import React from "react";
+import React, { VFC } from "react";
 import "./style.scss";
 
-export const ReactIcon = () => {
+export const ReactIcon: VFC = () => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 600 355.3" className="portal-icon portal-icon--react">
             <g fill="currentColor">

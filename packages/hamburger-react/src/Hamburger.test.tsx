@@ -8,12 +8,12 @@ describe("Hamburger", () => {
         render(<Hamburger isOpen={false} onClick={() => {}} />);
     });
 
-    it("should get class jkl-hamburger--is-open when isOpen is true", () => {
+    it("should have attribute aria-expanded when isOpen is true", () => {
         render(<Hamburger isOpen onClick={() => {}} />);
 
         const burger = screen.getByTestId("jkl-hamburger");
 
-        expect(burger).toHaveClass("jkl-hamburger--is-open");
+        expect(burger).toHaveAttribute("aria-expanded");
     });
 
     it("should get class jkl-hamburger--inverted when specified", () => {
@@ -21,6 +21,14 @@ describe("Hamburger", () => {
 
         const component = screen.getByTestId("jkl-hamburger");
         expect(component).toHaveClass("jkl-hamburger--inverted");
+    });
+
+    it("sets correct value for aria-controls", () => {
+        const menuid = "hgsf8w4kjDH";
+        render(<Hamburger isOpen={false} aria-controls={menuid} onClick={() => {}} />);
+
+        const component = screen.getByTestId("jkl-hamburger");
+        expect(component).toHaveAttribute("aria-controls", menuid);
     });
 
     it("should render call onClick", () => {
@@ -32,14 +40,14 @@ describe("Hamburger", () => {
         expect(fn).toHaveBeenCalledTimes(1);
     });
 
-    it("should set class to jkl-hamburger--is-open when changing isOpen state", () => {
+    it("should set attribute aria-expanded when changing isOpen state", () => {
         const { rerender } = render(<Hamburger isOpen={false} onClick={() => {}} />);
         const burger = screen.getByTestId("jkl-hamburger");
 
-        expect(burger).not.toHaveClass("jkl-hamburger--is-open");
+        expect(burger).not.toHaveAttribute("aria-expanded");
 
         rerender(<Hamburger isOpen={true} onClick={() => {}} />);
-        expect(burger).toHaveClass("jkl-hamburger--is-open");
+        expect(burger).toHaveAttribute("aria-expanded");
     });
 
     it("should render have correct description", () => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import classNames from "classnames";
 
 import "./Footer.scss";
@@ -7,7 +7,7 @@ interface Props {
     className?: string;
 }
 
-export function Footer({ className }: Props) {
+export const Footer: VFC<Props> = ({ className }) => {
     const componentClassName = classNames(
         {
             "jkl-portal-footer": true,
@@ -35,4 +35,4 @@ export function Footer({ className }: Props) {
             </p>
         </footer>
     );
-}
+};

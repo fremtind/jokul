@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { Card } from "../src";
 import car from "./img/car.jpg";
 import grass from "./img/grass.jpg";
@@ -7,7 +7,7 @@ function handleClick() {
     console.log("This is working");
 }
 
-const CardDemo = () => (
+const CardDemo: VFC = () => (
     <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
         <Card className="test-class">
             <p className="jkl-body">Empty card</p>
@@ -15,7 +15,7 @@ const CardDemo = () => (
 
         <br></br>
 
-        <Card title="Basic Card" clickable={{ href: "https://fremtind.github.io/jokul/" }} className="test-class">
+        <Card title="Basic Card" clickable={{ href: "https://jokul.fremtind.no/" }} className="test-class">
             <h2 className="jkl-h4">Clickable</h2>
             <p className="jkl-body">
                 Først ser vi om vi kan behandle saken din automatisk. Da får du svar samme dag. Hvis den ikke kan

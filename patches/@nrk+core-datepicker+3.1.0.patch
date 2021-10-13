@@ -1,0 +1,147 @@
+diff --git a/node_modules/@nrk/core-datepicker/jsx.js b/node_modules/@nrk/core-datepicker/jsx.js
+index 35f9675..c2b7bae 100644
+--- a/node_modules/@nrk/core-datepicker/jsx.js
++++ b/node_modules/@nrk/core-datepicker/jsx.js
+@@ -349,6 +349,35 @@ var index_min = {exports: {}};
+ 
+ var _parse = index_min.exports;
+ 
++var FILL = {
++  month: function month(self, value) {
++    if (!self.disabled(value)) {
++      return value;
++    }
++
++    var firstAvailableDate = daysInMonth(self.parse(value)).filter(function (day) {
++      return !self.disabled(day);
++    })[0];
++    return firstAvailableDate || value;
++  },
++  "null": function _null(_self, value) {
++    return value;
++  }
++};
++var DISABLED = {
++  month: function month(self, value) {
++    var allDays = daysInMonth(self.parse(value));
++    var allDaysDisabled = allDays.map(function (day) {
++      return self.disabled(day);
++    }).reduce(function (a, b) {
++      return a && b;
++    });
++    return allDaysDisabled;
++  },
++  "null": function _null(self, value) {
++    return self.disabled(value);
++  }
++};
+ var MASK = {
+   year: '*-m-d',
+   month: 'y-*-d',
+@@ -425,13 +454,23 @@ var CoreDatepicker = /*#__PURE__*/function (_HTMLElement) {
+     key: "handleEvent",
+     value: function handleEvent(event) {
+       if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.type === 'keydown' && !KEYS[event.keyCode]) return;
+-      if (!this.contains(event.target) && !closest$1(event.target, "[for=\"".concat(this.id, "\"],[data-for=\"").concat(this.id, "\"]"))) return;
+-      if (event.type === 'change') this.date = MASK[event.target.getAttribute('data-type')].replace('*', event.target.value);else if (event.type === 'click') {
++      if (!this.contains(event.target) && !closest(event.target, "[for=\"".concat(this.id, "\"]").concat(", [data-for=\"".concat(this.id, "\"]")))) return;
++      if (event.type === 'change') {
++        var date = MASK[event.target.getAttribute('data-type')].replace('*', event.target.value);
++        this.date = FILL[event.target.getAttribute('data-fill')](this, date);
++      }
++      else if (event.type === 'click') {
+         var _button = closest$1(event.target, 'button[value]');
+ 
+         var _table = closest$1(event.target, 'table');
+ 
+-        if (_button) this.date = _button.value;
++        if (_button) {
++          var date = MASK[_button.getAttribute('data-type')].replace('*', _button.value);
++          var match = _button.value.match(new RegExp(Object.keys(FILL).filter(key => key !== "null").join("\|")));
++          var fillMethod = match && match[0];
++          date = FILL[fillMethod](this, date);
++          this.date = date;
++        }
+         if (_button && _table) dispatchEvent(this, 'datepicker.click.day');
+       } else if (event.type === 'keydown' && closest$1(event.target, 'table')) {
+         this.date = KEYS[event.keyCode];
+@@ -550,7 +589,9 @@ function button(self, el) {
+ 
+   el.type = 'button'; // Ensure forms are not submitted by datepicker-buttons
+ 
+-  el.disabled = self.disabled(el.value);
++  var match = el.value.match(new RegExp(Object.keys(DISABLED).filter(key => key !== "null").join("\|")));
++  var disabledMethod = match && match[0];
++  el.disabled = DISABLED[disabledMethod](self, el.value);
+ }
+ 
+ function input(self, el) {
+@@ -601,20 +642,45 @@ function table(self, table) {
+ function select(self, select) {
+   if (!select.firstElementChild) {
+     select._autofill = true;
++    select.setAttribute('data-fill', 'month');
+     select.innerHTML = self.months.map(function (name, month) {
+       return "<option value=\"y-".concat(month + 1, "-d\"></option>");
+     }).join('');
+   }
+ 
++  var disabled = DISABLED[select.getAttribute('data-fill')];
+   queryAll(select.children).forEach(function (option, month) {
+     if (select._autofill) option.textContent = self.months[month];
+-    option.disabled = self.disabled(option.value);
++    option.disabled = disabled(self, option.value);
+     option.selected = !self.diff(option.value);
+   });
+ }
+ 
++function daysInMonth(dateInMonth) {
++  var date = new Date(dateInMonth);
++  date.setDate(1);
++  var month = date.getMonth();
++  var days = [];
++
++  while (date.getMonth() === month) {
++    days.push(new Date(date));
++    date.setDate(date.getDate() + 1);
++  }
++
++  return days;
++}
++
+ var version = "3.1.0";
+ 
++/**
++* getUUID
++* @return {String} A generated unique ID
++*/
++
++function getUUID() {
++  return Date.now().toString(36) + Math.random().toString(36).slice(2, 5)
++}
++
+ /**
+ * closest
+ * @param {Element} el Element to traverse up from
+@@ -647,7 +713,8 @@ var closest = function () {
+ 
+ function customElementToReact(elementClass, options) {
+   if (options === void 0) options = {};
+-  var name = elementClass.name || String(elementClass).match(/function ([^(]+)/)[1]; // String match for IE11
++  var suppliedName = options.name || elementClass.name || String(elementClass).match(/function ([^(]+)/)[1] // String match for IE11
++  var name = suppliedName + "-" + getUUID();
+ 
+   var dashCase = name.replace(/.[A-Z]/g, function (ref) {
+     var a = ref[0];
+@@ -764,10 +831,8 @@ function customElementToReact(elementClass, options) {
+   }(React__default['default'].Component);
+ }
+ 
+-var coreDatepicker = customElementToReact(CoreDatepicker, {
++export default customElementToReact(CoreDatepicker, {
+   props: ['disabled'],
+   customEvents: ['datepicker.change', 'datepicker.click.day'],
+   suffix: version
+ });
+-
+-module.exports = coreDatepicker;

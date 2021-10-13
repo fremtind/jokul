@@ -1,12 +1,12 @@
-# `@fremtind/jkl-description-list-react`
+# [`@fremtind/jkl-description-list-react`](https://jokul.fremtind.no/komponenter/descriptionlist)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/descriptionlist).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/descriptionlist).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ### Installasjon
 

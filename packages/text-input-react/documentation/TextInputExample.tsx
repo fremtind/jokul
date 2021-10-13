@@ -1,10 +1,10 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { TextInput } from "../src";
 import { Action } from "../src/TextInput";
 
-export function TextInputExample({ choiceValues, boolValues }: ExampleComponentProps) {
+export const TextInputExample: VFC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const [value, setValue] = useState("");
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
@@ -20,7 +20,7 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
     const inverted = boolValues && boolValues["Invertert"];
     const compact = boolValues && boolValues["Kompakt"];
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Help label" : undefined;
-    const errorLabel = boolValues && boolValues["Med feilmelding"] ? "Error label" : undefined;
+    const errorLabel = boolValues && boolValues["Med feil"] ? "Error label" : undefined;
 
     return (
         <TextInput
@@ -30,6 +30,7 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
             forceCompact={compact}
             action={action}
             label="Skriv noe her"
+            name="textinput"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             placeholder="Placeholder"
@@ -39,4 +40,4 @@ export function TextInputExample({ choiceValues, boolValues }: ExampleComponentP
             onKeyDown={() => console.log("onKeyDown event")}
         />
     );
-}
+};

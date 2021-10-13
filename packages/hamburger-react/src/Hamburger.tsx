@@ -1,4 +1,4 @@
-import React from "react";
+import React, { VFC } from "react";
 import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
 
@@ -15,20 +15,21 @@ interface Props {
         animated?: boolean;
         position?: "before" | "after";
     };
+    "aria-controls"?: string;
 }
 
-export const Hamburger = ({
+export const Hamburger: VFC<Props> = ({
     isOpen,
     onClick,
     inverted = false,
     description = "Hovedmeny",
     className,
     actionLabel,
-}: Props) => {
+    "aria-controls": ariaControls,
+}) => {
     const componentClassname = classnames(
         "jkl-hamburger",
         {
-            "jkl-hamburger--is-open": isOpen,
             "jkl-hamburger--inverted": inverted,
             "jkl-hamburger--label-before": actionLabel?.position === "before",
             "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
@@ -46,7 +47,10 @@ export const Hamburger = ({
             aria-label={description}
             onClick={onClick}
             className={componentClassname}
+            aria-expanded={isOpen || undefined}
+            aria-haspopup="menu"
             data-testid="jkl-hamburger"
+            aria-controls={ariaControls}
         >
             <span className="jkl-hamburger__lines"></span>
             {actionLabel && (

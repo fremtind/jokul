@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { VFC, useRef, useState } from "react";
 import { useIntersectionObserver } from "../src/useIntersectionObserver/useIntersectionObserver";
 import "./index.scss";
 
-const IntersectionObserverExample = () => {
+const IntersectionObserverExample: VFC = () => {
     const [isInViewport, setIsInViewport] = useState(false);
     const targetRef = useRef(null);
 

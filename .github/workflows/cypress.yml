@@ -15,11 +15,27 @@ jobs:
               with:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
+            - name: Check for changes
+              uses: dorny/paths-filter@v2
+              id: changes
+              with:
+                  filters: |
+                      visual:
+                        - "cypress/**"
+                        - "packages/**/*.mdx"
+                        - "**/*.js"
+                        - "**/*.scss"
+                        - "**/!(*.d|*.test).ts"
+                        - "**/!(*.test).tsx"
+                        - "yarn.lock"
+
             - name: Get yarn cache directory path
+              if: steps.changes.outputs.visual == 'true'
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
 
             - name: Cache yarn directory
+              if: steps.changes.outputs.visual == 'true'
               uses: actions/cache@v2.1.6
               id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
@@ -30,7 +46,7 @@ jobs:
 
             - name: Cypress run with env
               uses: cypress-io/github-action@v2
-              if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
               with:
                   build: yarn run build
                   start: yarn serve
@@ -40,20 +56,20 @@ jobs:
 
             - name: Upload screenshots
               uses: actions/upload-artifact@v2.2.4
-              if: failure()
+              if: steps.changes.outputs.visual == 'true' && failure()
               with:
                   name: cypress-screenshots
                   path: cypress/screenshots
 
             - name: Upload video
               uses: actions/upload-artifact@v2.2.4
-              if: always()
+              if: steps.changes.outputs.visual == 'true' && always()
               with:
                   name: cypress-videos
                   path: cypress/videos
 
             - name: Update snapshots
-              if: success() && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: steps.changes.outputs.visual == 'true' && success() && !contains(github.event.head_commit.message, '[ci skip cypress]')
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"

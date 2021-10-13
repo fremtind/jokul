@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.2 (2021-10-07)
+
+### Bug Fixes
+
+- fjern clip-path på knapper for å vise touch-effekt riktig ([33ab605](https://github.com/fremtind/jokul/commit/33ab605f6b1ba70bddb939d07cbe16c1602d596f)), closes [#2356](https://github.com/fremtind/jokul/issues/2356)
+
+## 5.0.0 (2021-10-06)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
+### Reverts
+
+- Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
+
+### BREAKING CHANGES
+
+- APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
+Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
+variant="medium".
+
+## 4.1.0 (2021-10-06)
+
+### Bug Fixes
+
+- legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
 ## 4.0.4 (2021-09-09)
 
 ### Bug Fixes

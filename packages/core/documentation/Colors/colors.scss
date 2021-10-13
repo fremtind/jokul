@@ -20,9 +20,18 @@
     align-items: flex-end;
     transition: transform 250ms ease-in-out;
 
+    &__text-wrapper {
+        display: flex;
+
+        @include small-device {
+            flex-direction: column;
+        }
+    }
+
     &__text {
         display: block;
-        margin: $component-spacing--medium $component-spacing--xxl;
+        margin-left: $component-spacing--xxl;
+        margin-right: $component-spacing--xxl;
         width: 180px;
     }
 
@@ -44,11 +53,31 @@
         }
     }
 
+    &__content-toggle {
+        height: 2em;
+
+        &--multi {
+            @include small-device {
+                height: 3.8em;
+            }
+
+            & > [data-show="second"] {
+                .jkl-color-box__text {
+                    @include small-device {
+                        padding-bottom: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
     &__wrapper {
         display: flex;
         align-items: center;
         @include reset-outline();
         background-color: transparent;
+        margin-top: $component-spacing--large;
+        margin-bottom: $component-spacing--large;
 
         @include small-device {
             flex-direction: column;

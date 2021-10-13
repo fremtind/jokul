@@ -3,6 +3,7 @@ on:
     push:
         branches:
             - main
+
 jobs:
     build-and-deploy:
         name: Deploy portal
@@ -11,11 +12,27 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v2.3.4
 
+            - name: Check for changes to portal
+              uses: dorny/paths-filter@v2
+              id: changes
+              with:
+                  filters: |
+                      portal:
+                        - "**/*.mdx"
+                        - "**/*.scss"
+                        - "**/*.js"
+                        - "**/*.ts"
+                        - "**/*.tsx"
+                        - "portal/static/**"
+                        - "yarn.lock"
+
             - name: Get yarn cache directory path
+              if: steps.changes.outputs.portal == 'true'
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
 
             - name: Cache yarn directory
+              if: steps.changes.outputs.portal == 'true'
               uses: actions/cache@v2.1.6
               id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
@@ -25,6 +42,7 @@ jobs:
                       ${{ runner.os }}-yarn-
 
             - name: Caching Gatsby
+              if: steps.changes.outputs.portal == 'true'
               id: gatsby-cache-build
               uses: actions/cache@v2
               with:
@@ -36,7 +54,7 @@ jobs:
                       ${{ runner.os }}-gatsby-build-
 
             - name: Build and Deploy
-              if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+              if: steps.changes.outputs.portal == 'true' && !contains(github.event.head_commit.message, '[ci skip release]')
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |

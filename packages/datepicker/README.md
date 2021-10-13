@@ -1,4 +1,4 @@
-# [`datepicker`](https://fremtind.github.io/jokul/komponenter/datepicker)
+# [`@fremtind/jkl-datepicker`](https://jokul.fremtind.no/komponenter/datepicker)
 
 # Datovelger
 

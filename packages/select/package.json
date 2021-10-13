@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-select",
-    "version": "5.0.4",
+    "version": "5.1.3",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for select",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "dropdown",
         "select",
@@ -26,7 +26,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^7.1.0"
+        "@fremtind/jkl-core": "^7.2.0"
     },
     "repository": {
         "type": "git",

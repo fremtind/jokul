@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-button",
-    "version": "4.0.4",
+    "version": "5.0.3",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for buttons",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "button",
         "primary button",
@@ -28,7 +28,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^7.1.0"
+        "@fremtind/jkl-core": "^7.2.0"
     },
     "repository": {
         "type": "git",

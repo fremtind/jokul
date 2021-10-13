@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-radio-button`](https://fremtind.github.io/jokul/komponenter/radiobutton)
+# [`@fremtind/jkl-radio-button`](https://jokul.fremtind.no/komponenter/radiobutton)
 
 ## Radioknapper
 

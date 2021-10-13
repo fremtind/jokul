@@ -2,7 +2,7 @@
 Hopefully someone (us?) will write types for it sometime soon */
 // @ts-ignore: wait for nrk to supply types
 import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { ReactNode, useState } from "react";
+import React, { FC, ReactNode, useState } from "react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import classNames from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
@@ -14,14 +14,19 @@ interface Props {
     className?: string;
 }
 
-export function AccordionItem({ children, title, className, startExpanded = false }: Props) {
+export const AccordionItem: FC<Props> = ({ children, title, className, startExpanded = false }) => {
     const [isOpen, setIsOpen] = useState(startExpanded);
     const [elementRef] = useAnimatedHeight(isOpen);
     const componentClassName = classNames("jkl-accordion-item", className, {
         "jkl-accordion-item--expanded": isOpen,
     });
 
-    const onToggle = () => setIsOpen(!isOpen);
+    const onToggle = (e: Event) => {
+        if (e.defaultPrevented) {
+            return;
+        }
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div data-testid="jkl-accordion-item" className={componentClassName}>
@@ -40,4 +45,4 @@ export function AccordionItem({ children, title, className, startExpanded = fals
             </CoreToggle>
         </div>
     );
-}
+};

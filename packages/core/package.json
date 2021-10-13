@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "7.1.0",
+    "version": "7.2.0",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul core styles",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "core",
         "typography",

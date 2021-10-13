@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { VFC, useState } from "react";
 import { useAnimatedHeight } from "../src";
 import "./index.scss";
 
@@ -9,7 +9,7 @@ const onTransitionEnd = (isOpen: boolean) => {
     console.log(`transition ended (${isOpen ? "open" : "closed"})`);
 };
 
-const AnimationExample = () => {
+const AnimationExample: VFC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, { onTransitionStart, onTransitionEnd });
 

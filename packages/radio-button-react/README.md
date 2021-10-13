@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-radio-button-react`](hhttps://fremtind.github.io/jokul/komponenter/radiobutton)
+# [`@fremtind/jkl-radio-button-react`](hhttps://jokul.fremtind.no/komponenter/radiobutton)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](hhttps://fremtind.github.io/jokul/komponenter/radiobutton).
+Se portalen for [bruk og prinsipper](hhttps://jokul.fremtind.no/komponenter/radiobutton).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-komponenten
 

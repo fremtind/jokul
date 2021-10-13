@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-10-07)
+
+### Features
+
+- la loader ta farge fra teksten rundt ([e529255](https://github.com/fremtind/jokul/commit/e52925548dcdb8e1228bc445df18bc191bb6aaf5)), closes [#2348](https://github.com/fremtind/jokul/issues/2348)
+
+### BREAKING CHANGES
+
+- Propen negative har ikke lenger noen effekt, og er fjernet
+
+## 5.0.0 (2021-10-06)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
+### Reverts
+
+- Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
+
+### BREAKING CHANGES
+
+- APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
+Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
+variant="medium".
+
+## 4.1.0 (2021-10-06)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
 ## 4.0.0 (2021-07-09)
 
 ### chore

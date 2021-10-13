@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-field-group",
-    "version": "3.0.3",
+    "version": "3.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Style for fieldsets in Jøkul",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "form"
     ],
@@ -23,7 +23,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^7.1.0"
+        "@fremtind/jkl-core": "^7.2.0"
     },
     "repository": {
         "type": "git",

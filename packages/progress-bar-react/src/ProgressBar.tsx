@@ -12,7 +12,8 @@ interface Props {
     progressTextValue?: string;
 }
 
-export const calculatePercentage = ({ current, total }: Progress) => (total === 0 ? 0 : (current * 100) / total);
+export const calculatePercentage = ({ current, total }: Progress): number =>
+    total === 0 ? 0 : (current * 100) / total;
 
 /**
  *  Jøkul ProgressBar component
