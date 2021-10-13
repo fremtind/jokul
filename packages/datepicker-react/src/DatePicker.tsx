@@ -22,8 +22,9 @@ type onChangeEventHandler =
     | ((date?: Date, e?: ChangeEvent) => void)
     | ((date: Date | undefined, e: ChangeEvent | undefined, meta: DatePickerMetadata) => void);
 
-type onBlurEventHandler = (date?: Date, e?: FocusEvent) => void;
-type onFocusEventHandler = (date?: Date, e?: FocusEvent) => void;
+type onBlurEventHandler = (date?: Date, e?: React.FocusEvent) => void;
+type onFocusEventHandler = (date?: Date, e?: React.FocusEvent) => void;
+type onKeyDownEventHandler = (date?: Date, e?: React.KeyboardEvent<HTMLInputElement>) => void;
 
 interface Props extends DataTestAutoId {
     name?: string;
@@ -53,6 +54,7 @@ interface Props extends DataTestAutoId {
     onChange?: onChangeEventHandler;
     onFocus?: onFocusEventHandler;
     onBlur?: onBlurEventHandler;
+    onKeyDown?: onKeyDownEventHandler;
 }
 
 export const DatePicker = forwardRef<HTMLElement, Props>(
@@ -69,6 +71,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             onChange,
             onBlur,
             onFocus,
+            onKeyDown,
             initialShow = false,
             className = "",
             forceCompact,
@@ -149,6 +152,10 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
         };
 
+        const handleKeyDown = (fn?: onKeyDownEventHandler) => (e: React.KeyboardEvent<HTMLInputElement>) => {
+            fn?.(state.date, e);
+        };
+
         useClickOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
 
         useFocusOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
@@ -192,6 +199,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                         value={state.dateString}
                         onFocus={handleFocusChange(onFocus)}
                         onBlur={handleOnBlurChange(onBlur)}
+                        onKeyDown={handleKeyDown(onKeyDown)}
                         onClick={handleOnClick}
                         onChange={handleOnChange}
                         placeholder={placeholder}
