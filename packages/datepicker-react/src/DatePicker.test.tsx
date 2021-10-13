@@ -431,12 +431,11 @@ describe("Datepicker", () => {
         expect(onFocus).toHaveBeenCalledTimes(1);
     });
 
-    it.only("should call onKeyDown after pressing [Enter] on input element", () => {
+    it("should call onKeyDown after pressing [Enter] on input element", () => {
         const onKeyDown = jest.fn();
         render(
             <div>
                 <DatePicker onKeyDown={onKeyDown} />
-                <button>Click</button>
             </div>,
         );
 
