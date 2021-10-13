@@ -431,6 +431,23 @@ describe("Datepicker", () => {
         expect(onFocus).toHaveBeenCalledTimes(1);
     });
 
+    it.only("should call onKeyDown after pressing [Enter] on input element", () => {
+        const onKeyDown = jest.fn();
+        render(
+            <div>
+                <DatePicker onKeyDown={onKeyDown} />
+                <button>Click</button>
+            </div>,
+        );
+
+        const input = screen.getByLabelText("Velg dato");
+        act(() => {
+            userEvent.type(input, "{enter}");
+        });
+
+        expect(onKeyDown).toHaveBeenCalledTimes(1);
+    });
+
     it("should call onBlur when clicking toggle calendar element and then clicking outside", async () => {
         const onBlur = jest.fn();
         render(
