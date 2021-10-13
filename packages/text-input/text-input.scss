@@ -371,14 +371,16 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
                 height: $progress-bar-height;
                 width: 100%;
                 overflow: hidden;
-            }
 
-            &-progress-bar {
-                display: block;
-                height: $progress-bar-height;
-                background-color: var(--jkl-color);
-                transition-property: width;
-                @include motion("standard", "lazy");
+                &::after {
+                    content: "";
+                    width: var(--progress-width, 100%);
+                    display: block;
+                    height: $progress-bar-height;
+                    background-color: var(--jkl-color);
+                    transition-property: width;
+                    @include motion("standard", "lazy");
+                }
             }
         }
 

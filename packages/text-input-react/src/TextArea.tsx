@@ -186,23 +186,25 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             {...restProps}
                         />
                     </div>
-                    <div className="jkl-text-area__counter">
-                        <div
-                            className="jkl-text-area__counter-count"
-                            aria-live="polite"
-                            aria-label={`${counterCurrent} av ${counterTotal} tegn brukt`}
-                        >
-                            <span aria-hidden="true">
-                                {counterCurrent}&nbsp;/&nbsp;{counterTotal}
-                            </span>
+                    <div
+                        className="jkl-text-area__counter"
+                        aria-live="polite"
+                        aria-label={`${counterCurrent} av ${counterTotal} tegn brukt`}
+                    >
+                        <div className="jkl-text-area__counter-count" aria-hidden="true">
+                            {counterCurrent}&nbsp;/&nbsp;{counterTotal}
                         </div>
                         {!counter.hideProgress && (
-                            <div className="jkl-text-area__counter-progress" aria-hidden="true">
-                                <div
-                                    className="jkl-text-area__counter-progress-bar"
-                                    style={{ width: `${calculatePercentage(progressCurrent, counterTotal)}%` }}
-                                />
-                            </div>
+                            <div
+                                className="jkl-text-area__counter-progress"
+                                aria-hidden="true"
+                                style={{
+                                    ["--progress-width" as string]: `${calculatePercentage(
+                                        progressCurrent,
+                                        counterTotal,
+                                    )}%`,
+                                }}
+                            />
                         )}
                     </div>
                 </div>
