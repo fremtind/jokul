@@ -153,9 +153,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         };
 
         const handleKeyDown = (fn?: onKeyDownEventHandler) => (e: React.KeyboardEvent<HTMLInputElement>) => {
-            if (fn) {
-                fn(state.date, e);
-            }
+            fn?.(state.date, e);
         };
 
         useClickOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
