@@ -40,6 +40,10 @@ export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }
                 console.log("hello from onChange", date, meta);
                 setValue(date);
             }}
+            onKeyDown={(date, _) => {
+                console.log("hello from onKeyDown", date);
+                setValue(date);
+            }}
         />
     );
 };
