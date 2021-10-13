@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.0 (2021-10-13)
+
+### Features
+
+- implement new alert message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
+
 ## 4.0.0 (2021-07-09)
 
 ### chore
