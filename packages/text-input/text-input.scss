@@ -293,10 +293,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             padding-bottom: $component-spacing--small;
             transition-property: max-height, box-shadow, padding-bottom;
 
-            &[data-has-content="true"] {
-                max-height: 100%;
-            }
-
+            &[data-has-content="true"],
             &:focus-within {
                 max-height: 100%;
                 background: var(--text-input-background-color);
