@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.3.0 (2021-10-13)
+
+### Features
+
+- **datepicker-react:** enable onKeyDown prop on DatePicker ([4c97543](https://github.com/fremtind/jokul/commit/4c9754362312b71d4b5082314b7e93277b6f0f6e)), closes [#2377](https://github.com/fremtind/jokul/issues/2377)
+
 ## 7.2.0 (2021-09-21)
 
 ### Bug Fixes
