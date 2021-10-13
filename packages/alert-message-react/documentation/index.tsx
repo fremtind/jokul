@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={AlertMessageExample}
         knobs={{
-            boolProps: ["Invertert", "Avvisbar"],
+            boolProps: ["Avvisbar"],
             choiceProps: [
                 {
                     name: "Type",

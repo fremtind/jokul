@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={Example}
         knobs={{
-            boolProps: ["Full bredde", "Invertert", "Avvisbar"],
+            boolProps: ["Full bredde", "Avvisbar"],
             choiceProps: [
                 {
                     name: "Type",

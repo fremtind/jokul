@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.0 (2021-10-13)
+
+### Features
+
+- implement new message box design ([26c9933](https://github.com/fremtind/jokul/commit/26c99332aee727dafed7b8bca522a242141e774e))
+
 ## 4.1.0 (2021-09-13)
 
 ### Features
