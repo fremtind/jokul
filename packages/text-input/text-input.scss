@@ -22,6 +22,11 @@ $text-input-placeholder-color: $stein;
 $text-input-background-color: $hvit;
 $text-input-focus-color: $granitt;
 $text-input-error-color: $feil;
+$text-input-selected-color: transparentize(
+    $color: $text-input-focus-color,
+    $amount: 0.8,
+);
+$text-input-selected-error-color: transparentize($text-input-error-color, 0.8);
 
 $text-input-border-color--inverted: $svaberg;
 $text-input-text-color--inverted: $snohvit;
@@ -29,6 +34,11 @@ $text-input-placeholder-color--inverted: $svaberg;
 $text-input-background-color--inverted: $svart;
 $text-input-focus-color--inverted: $snohvit;
 $text-input-error-color--inverted: $feil--darkbg;
+$text-input-selected-color--inverted: transparentize(
+    $color: $text-input-focus-color--inverted,
+    $amount: 0.75,
+);
+$text-input-selected-error-color--inverted: transparentize($text-input-error-color--inverted, 0.8);
 
 @include light-mode-variables {
     --text-input-border-color: #{$text-input-border-color};
@@ -37,8 +47,8 @@ $text-input-error-color--inverted: $feil--darkbg;
     --text-input-background-color: #{$text-input-background-color};
     --text-input-focus-color: #{$text-input-focus-color};
     --text-input-error-color: #{$text-input-error-color};
-    --text-input-selected-color: #{transparentize($color: $text-input-focus-color, $amount: 0.8)};
-    --text-input-selected-error-color: #{transparentize($text-input-error-color, 0.8)};
+    --text-input-selected-color: #{$text-input-selected-color};
+    --text-input-selected-error-color: #{$text-input-selected-error-color};
 }
 
 @include dark-mode-variables {
@@ -48,8 +58,8 @@ $text-input-error-color--inverted: $feil--darkbg;
     --text-input-background-color: #{$text-input-background-color--inverted};
     --text-input-focus-color: #{$text-input-focus-color--inverted};
     --text-input-error-color: #{$text-input-error-color--inverted};
-    --text-input-selected-color: #{transparentize($color: $text-input-focus-color--inverted, $amount: 0.75)};
-    --text-input-selected-error-color: #{transparentize($text-input-error-color--inverted, 0.8)};
+    --text-input-selected-color: #{$text-input-selected-color--inverted};
+    --text-input-selected-error-color: #{$text-input-selected-error-color--inverted};
 }
 
 .jkl-text-input {
@@ -89,11 +99,11 @@ $text-input-error-color--inverted: $feil--darkbg;
 
         /* Color of text selection */
         &::selection {
-            background-color: transparentize($color: $text-input-focus-color, $amount: 0.8);
+            background-color: $text-input-selected-color;
             background-color: var(--text-input-selected-color);
 
             [data-theme="dark"] & {
-                background-color: transparentize($color: $text-input-focus-color--inverted, $amount: 0.75);
+                background-color: $text-input-selected-color--inverted;
                 background-color: var(--text-input-selected-color);
             }
         }
@@ -121,11 +131,11 @@ $text-input-error-color--inverted: $feil--darkbg;
             box-shadow: inset 0 0 0 rem(1px) var(--text-input-error-color), 0 0 0 0 var(--text-input-error-color);
 
             &::selection {
-                background-color: transparentize($text-input-error-color, 0.8);
+                background-color: $text-input-selected-error-color;
                 background-color: var(--text-input-selected-error-color);
 
                 [data-theme="dark"] & {
-                    background-color: transparentize($color: $text-input-error-color--inverted, $amount: 0.75);
+                    background-color: $text-input-selected-error-color--inverted;
                     background-color: var(--text-input-selected-error-color);
                 }
             }
