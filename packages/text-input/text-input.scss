@@ -96,7 +96,8 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     /*  Invalid color text selection */
     &[aria-invalid="true"],
     &:invalid {
-        &::selection {
+        &::selection,
+        & textarea::selection {
             background-color: $text-input-selected-error-color;
             background-color: var(--text-input-selected-error-color);
 
