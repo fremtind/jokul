@@ -37,6 +37,8 @@ $text-input-error-color--inverted: $feil--darkbg;
     --text-input-background-color: #{$text-input-background-color};
     --text-input-focus-color: #{$text-input-focus-color};
     --text-input-error-color: #{$text-input-error-color};
+    --text-input-selected-color: #{transparentize($color: $text-input-focus-color, $amount: 0.8)};
+    --text-input-selected-error-color: #{transparentize($text-input-error-color, 0.8)};
 }
 
 @include dark-mode-variables {
@@ -46,6 +48,8 @@ $text-input-error-color--inverted: $feil--darkbg;
     --text-input-background-color: #{$text-input-background-color--inverted};
     --text-input-focus-color: #{$text-input-focus-color--inverted};
     --text-input-error-color: #{$text-input-error-color--inverted};
+    --text-input-selected-color: #{transparentize($color: $text-input-focus-color--inverted, $amount: 0.75)};
+    --text-input-selected-error-color: #{transparentize($text-input-error-color--inverted, 0.8)};
 }
 
 .jkl-text-input {
@@ -86,9 +90,11 @@ $text-input-error-color--inverted: $feil--darkbg;
         /* Color of text selection */
         &::selection {
             background-color: transparentize($color: $text-input-focus-color, $amount: 0.8);
+            background-color: var(--text-input-selected-color);
 
             [data-theme="dark"] & {
                 background-color: transparentize($color: $text-input-focus-color--inverted, $amount: 0.75);
+                background-color: var(--text-input-selected-color);
             }
         }
 
@@ -116,9 +122,11 @@ $text-input-error-color--inverted: $feil--darkbg;
 
             &::selection {
                 background-color: transparentize($text-input-error-color, 0.8);
+                background-color: var(--text-input-selected-error-color);
 
                 [data-theme="dark"] & {
                     background-color: transparentize($color: $text-input-error-color--inverted, $amount: 0.75);
+                    background-color: var(--text-input-selected-error-color);
                 }
             }
 
