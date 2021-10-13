@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.3.0 (2021-10-13)
+
+### Features
+
+- add new message colors ([075336e](https://github.com/fremtind/jokul/commit/075336ee16bddf2e89a12d77c4710f6b2e0da896))
+
 ## 7.2.0 (2021-10-08)
 
 ### Features
