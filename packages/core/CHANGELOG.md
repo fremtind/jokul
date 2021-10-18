@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.4.0 (2021-10-18)
+
+### Features
+
+- videresend native HTML props til SupportLabel ([da3f4b2](https://github.com/fremtind/jokul/commit/da3f4b2c418f90d7f65f6d48b721778db835ca87))
+
 ## 7.3.0 (2021-10-13)
 
 ### Features

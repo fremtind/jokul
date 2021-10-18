@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.3.0 (2021-10-18)
+
+### Features
+
+- legg til støtte for en teller i TextArea ([c17c42b](https://github.com/fremtind/jokul/commit/c17c42bb736f5c30f14cd9aa9d7c7863db16edf4)), closes [#1477](https://github.com/fremtind/jokul/issues/1477)
+
 ## 6.2.2 (2021-09-30)
 
 ### Bug Fixes

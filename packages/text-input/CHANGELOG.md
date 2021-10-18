@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.0 (2021-10-18)
+
+### Bug Fixes
+
+- added css to support marking in dark mode in text input ([f4ca342](https://github.com/fremtind/jokul/commit/f4ca34220f03127fb2ddc77c3c7db75c9947b090)), closes [#2376](https://github.com/fremtind/jokul/issues/2376)
+- reduser bevegelse ved focus i textarea med teller ([9e32d55](https://github.com/fremtind/jokul/commit/9e32d5578b5ab1090c12e7c0315c1a164daa81aa))
+- vis riktig selectionfarge for textarea med teller ([597aae0](https://github.com/fremtind/jokul/commit/597aae0ebdb71a312b17e8e2428adf035b855f94))
+
+### Features
+
+- legg til støtte for en teller i jkl-text-area ([8ba841e](https://github.com/fremtind/jokul/commit/8ba841ef2ffdd7a5716996d67b08d67a5adcbfe7)), closes [#1477](https://github.com/fremtind/jokul/issues/1477)
+
 ## 5.1.6 (2021-10-13)
 
 ### Bug Fixes

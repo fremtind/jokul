@@ -17,6 +17,28 @@ describe("TextInput", () => {
 
         cy.focusTextArea("textarea").type("Lorem ipsum");
         cy.getComponent().eq(1).toMatchImageSnapshot();
+
+        cy.get('input[value="Med teller"]').then(($input) => {
+            $input.click();
+        });
+        cy.focusTextArea("textarea").type("Lorem ipsum");
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+
+        cy.focusTextArea("textarea").type(
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas sed tempus urna et pharetra pharetra massa massa ultricies. Mollis aliquam ut porttitor leo.",
+        );
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+
+        cy.get('input[value="Skjul progress"]').then(($input) => {
+            $input.click();
+        });
+        cy.focusTextArea("textarea").type("Lorem ipsum");
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+
+        cy.setMedFeil();
+        cy.focusTextArea("textarea").type("Lorem ipsum");
+        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.resetMedFeil();
     });
 
     context("dark mode", () => {
@@ -34,6 +56,28 @@ describe("TextInput", () => {
 
             cy.focusTextArea("textarea").type("Lorem ipsum");
             cy.getComponent().eq(1).toMatchImageSnapshot();
+
+            cy.get('input[value="Med teller"]').then(($input) => {
+                $input.click();
+            });
+            cy.focusTextArea("textarea").type("Lorem ipsum");
+            cy.getComponent().eq(1).toMatchImageSnapshot();
+
+            cy.focusTextArea("textarea").type(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas sed tempus urna et pharetra pharetra massa massa ultricies. Mollis aliquam ut porttitor leo.",
+            );
+            cy.getComponent().eq(1).toMatchImageSnapshot();
+
+            cy.get('input[value="Skjul progress"]').then(($input) => {
+                $input.click();
+            });
+            cy.focusTextArea("textarea").type("Lorem ipsum");
+            cy.getComponent().eq(1).toMatchImageSnapshot();
+
+            cy.setMedFeil();
+            cy.focusTextArea("textarea").type("Lorem ipsum");
+            cy.getComponent().eq(1).toMatchImageSnapshot();
+            cy.resetMedFeil();
         });
     });
 });
