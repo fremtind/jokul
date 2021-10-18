@@ -62,6 +62,53 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     --text-input-selected-error-color: #{$text-input-selected-error-color--inverted};
 }
 
+@mixin shared-input-styles {
+    border: none;
+    background: none;
+    -webkit-appearance: none;
+
+    @include reset-outline;
+    @include jkl.text-style("body/large-screen");
+    @include motion("standard");
+
+    color: $text-input-text-color;
+    color: var(--text-input-text-color);
+    background-color: transparent;
+
+    /* Placeholder text style */
+    &::placeholder {
+        opacity: 1;
+        color: $text-input-placeholder-color;
+        color: var(--text-input-placeholder-color);
+    }
+
+    /* Color of text selection */
+    &::selection {
+        background-color: $text-input-selected-color;
+        background-color: var(--text-input-selected-color);
+
+        [data-theme="dark"] & {
+            background-color: $text-input-selected-color--inverted;
+            background-color: var(--text-input-selected-color);
+        }
+    }
+
+    /*  Invalid color text selection */
+    &[aria-invalid="true"],
+    &:invalid {
+        &::selection,
+        & textarea::selection {
+            background-color: $text-input-selected-error-color;
+            background-color: var(--text-input-selected-error-color);
+
+            [data-theme="dark"] & {
+                background-color: $text-input-selected-error-color--inverted;
+                background-color: var(--text-input-selected-error-color);
+            }
+        }
+    }
+}
+
 .jkl-text-input {
     @include reset-outline;
 
@@ -71,42 +118,18 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     }
 
     &__input {
-        border: none;
-        outline: none;
-        border-radius: rem(3px);
-        -webkit-appearance: none;
+        @include shared-input-styles;
 
+        border-radius: rem(3px);
         box-sizing: border-box;
         height: $text-input-height;
         padding: $text-input-padding;
-        @include jkl.text-style("body/large-screen");
 
-        color: $text-input-text-color;
-        color: var(--text-input-text-color);
         background-color: transparent;
         box-shadow: inset 0 0 0 rem(1px) $text-input-border-color, 0 0 0 0 $text-input-border-color;
         box-shadow: inset 0 0 0 rem(1px) var(--text-input-border-color), 0 0 0 0 var(--text-input-border-color);
 
-        @include motion("standard");
         transition-property: color, box-shadow;
-
-        /* Placeholder text style */
-        &::placeholder {
-            opacity: 1;
-            color: $text-input-placeholder-color;
-            color: var(--text-input-placeholder-color);
-        }
-
-        /* Color of text selection */
-        &::selection {
-            background-color: $text-input-selected-color;
-            background-color: var(--text-input-selected-color);
-
-            [data-theme="dark"] & {
-                background-color: $text-input-selected-color--inverted;
-                background-color: var(--text-input-selected-color);
-            }
-        }
 
         &:hover {
             box-shadow: inset 0 0 0 rem(1px) $text-input-focus-color, 0 0 0 rem(1px) $text-input-focus-color;
@@ -115,7 +138,8 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             border-color: var(--text-input-focus-color);
         }
 
-        &:focus {
+        &:focus,
+        &:focus-within {
             background-color: $text-input-background-color;
             background-color: var(--text-input-background-color);
             box-shadow: inset 0 0 0 rem(1px) $text-input-focus-color, 0 0 0 rem(1px) $text-input-focus-color;
@@ -130,18 +154,9 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             box-shadow: inset 0 0 0 rem(1px) $text-input-error-color, 0 0 0 0 $text-input-error-color;
             box-shadow: inset 0 0 0 rem(1px) var(--text-input-error-color), 0 0 0 0 var(--text-input-error-color);
 
-            &::selection {
-                background-color: $text-input-selected-error-color;
-                background-color: var(--text-input-selected-error-color);
-
-                [data-theme="dark"] & {
-                    background-color: $text-input-selected-error-color--inverted;
-                    background-color: var(--text-input-selected-error-color);
-                }
-            }
-
             &:hover,
-            &:focus {
+            &:focus,
+            &:focus-within {
                 box-shadow: inset 0 0 0 rem(1px) $text-input-error-color, 0 0 0 rem(1px) $text-input-error-color;
                 box-shadow: inset 0 0 0 rem(1px) var(--text-input-error-color),
                     0 0 0 rem(1px) var(--text-input-error-color);
@@ -269,12 +284,124 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
 .jkl-text-area {
     height: auto;
     width: 100%;
+
     & .jkl-text-input__input {
         @include motion("standard");
         transition-property: height, box-shadow;
         font-weight: normal;
         width: 100%;
         resize: none; // Disable textarea resize
+    }
+
+    &--with-counter {
+        $progress-bar-height: rem(4px);
+
+        .jkl-text-area__content {
+            position: relative;
+        }
+
+        .jkl-text-input__input {
+            height: auto;
+            max-height: $text-input-height;
+            padding-bottom: $component-spacing--small;
+            transition-property: max-height, box-shadow, padding-bottom;
+
+            &[data-has-content="true"],
+            &:focus-within {
+                max-height: 100%;
+                background: var(--text-input-background-color);
+                padding-bottom: $component-spacing--xxl;
+            }
+        }
+
+        /*
+         * Textarea respekterer ikke padding (teksten rendres under det som
+         * burde være tomrom), så om vi har en teller må vi wrappe textarea
+         * i noe som styles som selve inputfeltet. Det er rollen
+         * .jkl-text-input__input har i denne sammenhengen. Denne klassen
+         * sørger for at selve textarea-elementet ikke får native styles og
+         * får fonter, farger, og høyden den skal.
+         */
+        .jkl-text-area__text-area {
+            @include reset-outline;
+            @include shared-input-styles;
+
+            font-weight: normal;
+            resize: none; // Disable textarea resize
+            width: 100%;
+
+            height: calc($text-input-height - (2 * $component-spacing--small));
+            padding: 0;
+
+            transition-property: height;
+
+            &:focus-within  {
+                background: var(--text-input-background-color);
+            }
+        }
+
+        .jkl-text-area__counter {
+            @include motion("standard");
+            transition-property: opacity;
+            opacity: 0;
+
+            pointer-events: none; // Don't block interactivity when field is collapsed
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            &-count {
+                @include jkl.text-style("small");
+                padding: $component-spacing--small $component-spacing--medium;
+            }
+
+            &-progress {
+                background-color: transparent;
+                height: $progress-bar-height;
+                width: 100%;
+                overflow: hidden;
+
+                &::after {
+                    content: "";
+                    width: var(--progress-width, 100%);
+                    display: block;
+                    height: $progress-bar-height;
+                    background-color: var(--jkl-color);
+                    transition-property: width;
+                    @include motion("standard", "lazy");
+                }
+            }
+        }
+
+        &:focus-within .jkl-text-area__counter {
+            opacity: 1;
+            transition-delay: map-get($jkl--timings, "productive"); // Fade in once field is expanded
+        }
+
+        [aria-invalid="true"] ~ .jkl-text-area__counter {
+            color: var(--text-input-error-color);
+        }
+
+        *[data-compactlayout] &,
+        &.jkl-text-input--compact,
+        &.jkl-text-input--inline {
+            .jkl-text-input__input {
+                max-height: $text-input-height--compact;
+
+                &[data-has-content="true"] {
+                    max-height: 100%;
+                }
+
+                &:focus-within {
+                    max-height: 100%;
+                }
+            }
+            .jkl-text-area__text-area {
+                @include jkl.text-style("body/small-screen");
+                height: calc($text-input-height - (2 * $component-spacing--small));
+            }
+        }
     }
 }
 
@@ -283,6 +410,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     .jkl-text-input__input--#{$num}-rows:focus,
     .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
     .jkl-text-area--start-open .jkl-text-input__input--#{$num}-rows {
+        max-height: 100%;
         height: $text-input-line-height * $num + $component-spacing--small * 2;
         @include small-device {
             height: $text-input-line-height--compact * $num + $component-spacing--small * 2;
