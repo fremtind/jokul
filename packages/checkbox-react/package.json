@@ -38,7 +38,7 @@
         "@fremtind/jkl-checkbox": "^4.0.7",
         "@fremtind/jkl-core": "^7.3.0",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.22"
+        "nanoid": "^3.1.30"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

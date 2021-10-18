@@ -40,7 +40,7 @@
         "@fremtind/jkl-react-hooks": "^5.0.7",
         "@fremtind/jkl-select": "^5.1.4",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.22"
+        "nanoid": "^3.1.30"
     },
     "devDependencies": {
         "@nrk/core-toggle": "3.1.0"

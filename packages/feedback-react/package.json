@@ -45,7 +45,7 @@
         "@fremtind/jkl-text-input-react": "^6.2.6",
         "@fremtind/jkl-validators-util": "^2.0.1",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.22"
+        "nanoid": "^3.1.30"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
