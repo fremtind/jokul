@@ -13,6 +13,7 @@ import { TextAreaExample } from "./TextAreaExample";
     oppgi i feltet.
 </Ingress>
 <ComponentExample
+    title="TextInput"
     component={TextInputExample}
     knobs={{
         boolProps: ["Inline", "Kompakt", "Invertert", "Med handling", "Med hjelpetekst", "Med feil"],
@@ -30,21 +31,27 @@ Tekstfelt godtar data med fast format eller fritekst. Fast format bruker du for 
 
 Velg størrelse på tekstefelt etter typen data brukerne skal legge inn.
 
-## Typer tekstfelt
-
 **Vanlige tekstfelt:**
 For innhold som ikke overskrider lengden på feltet.
 
 **Inline tekstfelt:**
 Til spesialtilfeller, hvis vi for eksempel trenger å plassere et tekstfelt i en setning.
 
-**Lange tekstfelt:**
-Når innholdet blir lengre enn en setning. Høyden på feltet kan justeres.
+## Text area
 
 <ComponentExample
+    title="TextArea"
     component={TextAreaExample}
     knobs={{
-        boolProps: ["Kompakt", "Invertert", "Ekspanderende", "Med hjelpetekst", "Med feil"],
+        boolProps: [
+            "Kompakt",
+            "Invertert",
+            "Ekspanderende",
+            "Med teller",
+            "Skjul progress",
+            "Med hjelpetekst",
+            "Med feil",
+        ],
         choiceProps: [
             {
                 name: "Variant",
@@ -54,6 +61,12 @@ Når innholdet blir lengre enn en setning. Høyden på feltet kan justeres.
         ],
     }}
 />
+
+Et tekstområde brukes når innholdet blir lengre enn en setning.
+
+Vanligvis starter skjemafeltet minimert og likner et vanlig tekstfelt. Når det får fokus vil feltet ekspandere. Du kan styre antall rader feltet skal ekspanderes til. Om innholdet blir lenger enn antall rader vil feltet scrolle. Du kan velge om feltet alltid skal vise alt innhold (Ekspanderende).
+
+Dersom du har begrensninger på antall tegn kan du velge å vise en teller. Telleren vil ha en standard hjelpetekst om feltet går over grensen. Teksten kan overstyres. Det er ingen blokkering som hindrer brukeren å gå over grensen. Brukeren skal få fullføre tankerekken sin før hen redigerer teksten til å være innenfor grensen. Dersom feltet har en teller vises som standard en _progress bar_ som krymper etter hvert som teksten blir lenger. Denne kan du velge å skru av og bare vise telleren.
 
 ## Tekst og validering
 
