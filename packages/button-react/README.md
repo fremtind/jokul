@@ -19,6 +19,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/butto
 ```js
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
+import "@fremtind/jkl-loader/loader.min.css"; // stil for å bruke loader i knappen
 ```
 
 ### Bruk
