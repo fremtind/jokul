@@ -137,7 +137,9 @@ interface IMap {
 
 I wanted to receive two basic props. mapType can have ROADMAP, SATELLITE, TERRAIN or HYBRID values. These are specific map types defined by Google.
 
-![ROADMAP example](/assets/blog/googleMapsRoadMapExample.png)
+![Roadmap Example](/assets/blog/google.maps.MapTypeId.ROADMAP.png)
+
+![Satellite Example](/assets/blog/google.maps.MapTypeId.SATELLITE.png)
 
 And we will use mapTypeControl prop to show/hide the control menu on the left-top corner of your map. We may extend the number of props to increase the usability of our map component, but I wanted to use only two props to illustrate my example.
 
@@ -154,9 +156,9 @@ Before I explain the initMap, defaultMapStart, and startMap functions, I would l
 const ref = useRef<HTMLDivElement>(null);
 
 return (
-<div className="map-container">
- <div ref={ref} className="map-container__map"></div>
-</div>
+    <div className="map-container">
+        <div ref={ref} className="map-container__map"></div>
+    </div>
 );
 ```
 
@@ -211,6 +213,8 @@ Finally, **startMap** function calls defaultMapStart() when the map hook is not 
 
 ### Conclusion
 This application may not seem so impressive in terms of functionality, but you see that we had to do a lot of things just to start our map. While shooting the video, I had a problem with the API key because I did not want to screencast it via my youtube video, but when I include it, the output is as shown below:
+
+![Roadmap Example](/assets/blog/google.maps.MapTypeId.ROADMAP.png)
 
 See you on the next tutorial/video where I will show how to add/remove markers on Google Maps. I hope you enjoyed this tutorial 🙂
 
