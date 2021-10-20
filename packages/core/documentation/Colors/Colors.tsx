@@ -116,7 +116,7 @@ interface ColorProps {
 
 const ColorGroup: FC<ColorProps> = ({ title, children }) => (
     <section className="jkl-colors__section">
-        <h2 className="jkl-title-small jkl-spacing--bottom-2">{title}</h2>
+        <h2 className="jkl-title-small jkl-spacing-2xs--bottom">{title}</h2>
         {children}
     </section>
 );

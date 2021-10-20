@@ -3,7 +3,7 @@ import React, { VFC } from "react";
 import "./Mixins.scss";
 
 export const EasingTable: VFC = () => (
-    <table className="jkl-mixin-example-table jkl-spacing--bottom-3">
+    <table className="jkl-mixin-example-table jkl-spacing-xs--bottom">
         <tr>
             <th className="jkl-mixin-example-table__header">Navn på kurve</th>
             <th className="jkl-mixin-example-table__header">Verdi</th>

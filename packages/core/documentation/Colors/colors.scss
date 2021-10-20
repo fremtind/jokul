@@ -1,13 +1,14 @@
-@import "../../variables/_all.scss";
+@use "../../jkl";
+
 @import "../../mixins/all";
 
 .jkl-colors__section {
-    padding: $component-spacing--large;
-    margin: $layout-spacing--large 0;
-    background-color: $snohvit;
+    padding: jkl.$spacing-m;
+    margin: jkl.$spacing-2xl 0;
+    background-color: jkl.$color-snohvit;
 
     *[data-theme="dark"] & {
-        background-color: $granitt;
+        background-color: jkl.$color-granitt;
     }
 }
 
@@ -30,8 +31,8 @@
 
     &__text {
         display: block;
-        margin-left: $component-spacing--xxl;
-        margin-right: $component-spacing--xxl;
+        margin-left: jkl.$spacing-xl;
+        margin-right: jkl.$spacing-xl;
         width: 180px;
     }
 
@@ -76,78 +77,78 @@
         align-items: center;
         @include reset-outline();
         background-color: transparent;
-        margin-top: $component-spacing--large;
-        margin-bottom: $component-spacing--large;
+        margin-top: jkl.$spacing-m;
+        margin-bottom: jkl.$spacing-m;
 
         @include small-device {
             flex-direction: column;
-            padding-bottom: $layout-spacing--medium;
+            padding-bottom: jkl.$spacing-xl;
         }
 
         &:hover {
-            color: $stein;
+            color: jkl.$color-stein;
             *[data-theme="dark"] & {
-                color: $svaberg;
+                color: jkl.$color-svaberg;
             }
         }
     }
 
     &--hvit {
-        border-bottom-color: $hvit;
+        border-bottom-color: jkl.$color-hvit;
     }
     &--snohvit {
-        border-bottom-color: $snohvit;
+        border-bottom-color: jkl.$color-snohvit;
     }
     &--sand {
-        border-bottom-color: $sand;
+        border-bottom-color: jkl.$color-sand;
     }
     &--dis {
-        border-bottom-color: $dis;
+        border-bottom-color: jkl.$color-dis;
     }
     &--varde {
-        border-bottom-color: $varde;
+        border-bottom-color: jkl.$color-varde;
     }
     &--svaberg {
-        border-bottom-color: $svaberg;
+        border-bottom-color: jkl.$color-svaberg;
     }
     &--stein {
-        border-bottom-color: $stein;
+        border-bottom-color: jkl.$color-stein;
     }
     &--fjellgra {
-        border-bottom-color: $fjellgra;
+        border-bottom-color: jkl.$color-fjellgra;
     }
     &--skifer {
-        border-bottom-color: $skifer;
+        border-bottom-color: jkl.$color-skifer;
     }
     &--granitt {
-        border-bottom-color: $granitt;
+        border-bottom-color: jkl.$color-granitt;
     }
     &--svart {
-        border-bottom-color: $svart;
+        border-bottom-color: jkl.$color-svart;
     }
     &--suksess {
-        border-bottom-color: $suksess;
+        border-bottom-color: jkl.$color-suksess;
     }
     &--info {
-        border-bottom-color: $info;
+        border-bottom-color: jkl.$color-info;
     }
     &--advarsel {
-        border-bottom-color: $advarsel;
+        border-bottom-color: jkl.$color-advarsel;
     }
     &--feil {
-        border-bottom-color: $feil;
+        border-bottom-color: jkl.$color-feil;
     }
     &--suksess--darkbg {
-        border-bottom-color: $suksess--darkbg;
+        border-bottom-color: jkl.$color-suksess--darkbg;
     }
     &--info--darkbg {
-        border-bottom-color: $info--darkbg;
+        border-bottom-color: jkl.$color-info--darkbg;
     }
     &--advarsel--darkbg {
-        border-bottom-color: $advarsel--darkbg;
+        border-bottom-color: jkl.$color-advarsel--darkbg;
     }
     &--feil--darkbg {
-        border-bottom-color: $feil--darkbg;
+        border-bottom-color: jkl.$color-feil--darkbg;
     }
 }
 
