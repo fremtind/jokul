@@ -4,7 +4,7 @@ import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import { Table } from "@fremtind/jkl-table-react";
 import { ComponentExample, FlowExample, ResponsiveExample } from "../../../../doc-utils";
-import { InfoMessage } from "@fremtind/jkl-message-box-react";
+import { InfoMessageBox } from "@fremtind/jkl-message-box-react";
 import { PortalImg } from "../PortalImg/PortalImg";
 import { Experimental } from "../Experimental/Experimental";
 import { CodeDemo } from "../CodeDemo/CodeDemo";
@@ -53,7 +53,7 @@ const components = {
     DoDontExample,
     ExampleVideo,
     Experimental,
-    InfoMessage,
+    InfoMessageBox,
     ResponsiveExample,
     CodeDemo,
     Table,

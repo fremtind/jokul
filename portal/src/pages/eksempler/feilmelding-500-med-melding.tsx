@@ -1,4 +1,4 @@
-import { ErrorMessage } from "@fremtind/jkl-message-box-react";
+import { ErrorMessageBox } from "@fremtind/jkl-message-box-react";
 import React, { VFC } from "react";
 import { motion } from "framer-motion";
 import { Link as InternalLink } from "gatsby";
@@ -15,7 +15,7 @@ const NotFoundPage: VFC = () => (
             Huff da, nå har det skjedd en feil hos oss!
         </h1>
         <div className="jkl-portal-paragraph">
-            <ErrorMessage title="Feilmelding">Kunne ikke snakke med systemet</ErrorMessage>
+            <ErrorMessageBox title="Feilmelding">Kunne ikke snakke med systemet</ErrorMessageBox>
         </div>
         <p className="jkl-portal-paragraph">Vi setter i gang med å fikse feilen. Imens kan du prøve å:</p>
         <ul className="jkl-portal-paragraph">

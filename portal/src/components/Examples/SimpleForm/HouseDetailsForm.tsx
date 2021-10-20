@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { ExampleContext } from "../../../../../doc-utils";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
-import { ErrorMessage } from "@fremtind/jkl-message-box-react";
+import { ErrorMessageBox } from "@fremtind/jkl-message-box-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
 
 interface Props {
@@ -49,10 +49,10 @@ const HouseDetailsForm: React.FC<Props> = ({ onSubmit }) => {
                         exit={{ opacity: 0 }}
                         className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
                     >
-                        <ErrorMessage title="Vi forsikrer ikke eneboliger">
+                        <ErrorMessageBox title="Vi forsikrer ikke eneboliger">
                             Fordi vi ville vise en alternativ sti her så har vi lagt inn denne tulleregelen. Kontakt
                             nærmeste person for å få vite mer om dette.
-                        </ErrorMessage>
+                        </ErrorMessageBox>
                     </motion.div>
                 )}
             </AnimatePresence>
