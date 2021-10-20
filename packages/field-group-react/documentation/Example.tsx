@@ -14,7 +14,7 @@ export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }
             variant={variant}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            className="jkl-spacing--bottom-3"
+            className="jkl-spacing-2xl--bottom"
             legend="Samleoverskrift for feltene"
         >
             <p className="jkl-body">her kan du sette inn innhold og felter</p>

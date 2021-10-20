@@ -24,7 +24,7 @@ Box.propTypes = {
 };
 
 export const Typo: VFC = () => (
-    <section className="jkl-spacing-xs--top jkl-spacing-xs--bottom">
+    <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <h1 className="jkl-h1">Heading1</h1>
         <h2 className="jkl-h2">Heading2</h2>
         <h3 className="jkl-h3">Heading3</h3>
@@ -36,7 +36,7 @@ export const Typo: VFC = () => (
 );
 
 export const Spacing: VFC = () => (
-    <section className="jkl-spacing-xs--top jkl-spacing-xs--bottom">
+    <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <h1 className="jkl-h1">Spacing</h1>
 
         <div className="demo-wrapper">
@@ -48,7 +48,7 @@ export const Spacing: VFC = () => (
 );
 
 const Example: VFC = () => (
-    <section className="jkl-spacing-xs--top jkl-spacing-xs--bottom">
+    <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
         <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv", "Back"] }} />
         <Colors />

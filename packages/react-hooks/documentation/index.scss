@@ -1,7 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_colors";
-@import "~@fremtind/jkl-core/variables/_spacing";
 @import "~@fremtind/jkl-core/_functions";
 
 .lorem-text-wrapper {
@@ -14,9 +12,9 @@
 
 .lorem-text {
     @include jkl.text-style("body");
-    margin-top: $layout-spacing--small;
+    margin-top: jkl.$spacing-l;
     padding: 1rem;
-    background-color: $varde;
+    background-color: jkl.$color-varde;
     border-radius: rem(4px);
 }
 
@@ -25,22 +23,22 @@
     border-radius: rem(4px);
 }
 .jlk-intersection-example--visible {
-    background-color: $stein;
+    background-color: jkl.$color-stein;
 }
 
 .jlk-intersection-example--not-visible {
-    background-color: $varde;
+    background-color: jkl.$color-varde;
 }
 
 .focus-outside-example {
     & > &__card {
         box-sizing: border-box;
         width: 100%;
-        background-color: $hvit;
+        background-color: jkl.$color-hvit;
         @include jkl.text-style("body");
 
         & > * + * {
-            margin-top: $layout-spacing--small;
+            margin-top: jkl.$spacing-l;
         }
     }
 }

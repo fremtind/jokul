@@ -50,7 +50,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
             <InfoMessage
                 title="Fant ikke addresse"
                 fullWidth
-                className={`jkl-spacing--top-${isCompact ? "3" : "4"} jkl-spacing--bottom-1`}
+                className={`jkl-spacing-${isCompact ? "2xl" : "3xl"}--top jkl-spacing-l--bottom`}
             >
                 Vi fant ikke addressen din i vår database. Fortell oss hvor du bor.
             </InfoMessage>
@@ -58,7 +58,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                 <TextInput
                     variant="large"
                     label="Postnummer"
-                    className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
+                    className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
                     errorLabel={formState.errors.postnummer ? "Du må fylle inn postnummer" : ""}
                     inverted={darkMode}
                     forceCompact={isCompact}
@@ -78,7 +78,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             className={`jkl-simple-form__postal-group__area ${
-                                isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"
+                                isCompact ? "jkl-spacing-l--bottom" : "jkl-spacingls--bottom"
                             }`}
                         >
                             Geilo
@@ -92,7 +92,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                         <TextInput
                             variant="medium"
                             label="Gatenavn"
-                            className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
+                            className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
                             errorLabel={formState.errors.streetName ? "Du må fylle inn gateadresse" : ""}
                             inverted={darkMode}
                             forceCompact={isCompact}
@@ -111,7 +111,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} ref={numberRef}>
                         <Select
                             className={`jkl-simple-form__postal-group__house-number ${
-                                isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"
+                                isCompact ? "jkl-spacing-l--bottom" : "jkl-spacingls--bottom"
                             }`}
                             items={["1", "3", "5", "7", "9"]}
                             label="Nummer"
@@ -123,7 +123,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                 <PrimaryButton
                     forceCompact={isCompact}
                     inverted={darkMode}
-                    className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
+                    className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
                 >
                     Gå videre
                 </PrimaryButton>

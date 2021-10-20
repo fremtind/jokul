@@ -1,4 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .jkl-portal-image {
@@ -7,12 +8,12 @@
     cursor: pointer;
     display: block;
     padding: 0;
-    margin-top: $layout-spacing--medium;
+    margin-top: jkl.$spacing-xl;
     width: 100%;
 
     &:focus {
         @include keyboard-navigation {
-            box-shadow: 0 0 0 2px $granitt;
+            box-shadow: 0 0 0 2px jkl.$color-granitt;
         }
     }
 
@@ -45,22 +46,22 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        z-index: $z-index--modal;
+        z-index: jkl.$z-index--modal;
 
         & .jkl-portal-image__close {
             display: flex;
             justify-content: center;
             align-items: center;
-            color: $snohvit;
-            background-color: $granitt;
-            padding: $component-spacing--small;
+            color: jkl.$color-snohvit;
+            background-color: jkl.$color-granitt;
+            padding: jkl.$spacing-xs;
             border-bottom-left-radius: 4px;
             border-bottom-right-radius: 4px;
 
             & > svg {
-                margin-left: $component-spacing--large;
+                margin-left: jkl.$spacing-m;
                 @include keyboard-navigation {
-                    box-shadow: 0 0 0 2px $svaberg;
+                    box-shadow: 0 0 0 2px jkl.$color-svaberg;
                 }
             }
         }
@@ -78,8 +79,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: $layout-spacing--large;
+    padding: jkl.$spacing-2xl;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: $z-index--modal;
+    z-index: jkl.$z-index--modal;
     display: block;
 }

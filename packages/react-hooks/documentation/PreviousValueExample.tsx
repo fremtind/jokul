@@ -7,7 +7,7 @@ const usePreviousValueExample: FC = () => {
 
     return (
         <section>
-            <p className="jkl-body jkl-spacing--bottom-1">
+            <p className="jkl-body jkl-spacing-l--bottom">
                 Nåværende verdi: {state}
                 <br />
                 Forrige verdi: {previousValue?.toString() ?? "undefined"}

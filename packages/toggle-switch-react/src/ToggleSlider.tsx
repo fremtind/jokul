@@ -51,11 +51,7 @@ export const ToggleSlider: FC<Props> = ({
                 <ScreenReaderOnly>{selectedLabel}</ScreenReaderOnly>
             </div>
 
-            <label
-                id={`${id}-label`}
-                htmlFor={id}
-                className="jkl-toggle-slider__label jkl-component-spacing--medium-right"
-            >
+            <label id={`${id}-label`} htmlFor={id} className="jkl-toggle-slider__label jkl-spacing-s--right">
                 {children}
                 <ScreenReaderOnly>{ariaLabel}</ScreenReaderOnly>
             </label>

@@ -42,9 +42,9 @@ export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { fr
             <BlogPageHeader {...frontmatter} />
             {children}
             {frontmatter.type && (
-                <section className="jkl-layout-spacing--xl-bottom jkl-portal-paragraph">
-                    <h2 className="jkl-heading-3 jkl-layout-spacing--xl-top">PropTypes</h2>
-                    <Accordion className="jkl-layout-spacing--medium-top">
+                <section className="jkl-spacing-3xl--bottom jkl-portal-paragraph">
+                    <h2 className="jkl-heading-3 jkl-spacing-3xl--top">PropTypes</h2>
+                    <Accordion className="jkl-spacing-xl--top">
                         {frontmatter.type.map(({ displayName, props }) => (
                             <AccordionItem title={`${displayName}`} key={displayName}>
                                 <Table

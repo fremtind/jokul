@@ -1,7 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/functions";
 
 .jkl-icon-table {
@@ -16,7 +15,7 @@
 
     &__data,
     &__header {
-        padding: $component-spacing--small;
+        padding: jkl.$spacing-xs;
         @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
@@ -26,13 +25,13 @@
 
     &__header {
         font-weight: jkl.$typography-weight-bold;
-        border-bottom-color: $granitt;
+        border-bottom-color: jkl.$color-granitt;
         min-height: rem(48px);
     }
 
     &__data {
-        border-bottom-color: $stein;
-        padding-bottom: $component-spacing--large;
+        border-bottom-color: jkl.$color-stein;
+        padding-bottom: jkl.$spacing-m;
         min-height: rem(64px);
     }
 

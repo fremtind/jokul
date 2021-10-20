@@ -19,14 +19,14 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
 
     return (
         <div className="example-img-wrapper">
-            <p className="jkl-body jkl-layout-spacing--medium-bottom">
+            <p className="jkl-body jkl-spacing-xl--bottom">
                 Denne komponenten er til for å optimalisere innlasting av bilder, det gjør den litt vanskelig å
                 visualisere, siden den prøver å huske så godt den kan. For å se effekten ordentlig, skru ned hastigheten
                 i nettverksloggen din. For å se effekten på nytt, gjør en hard refresh (ctrl+shift+r), still inn
                 komponenten og trykk på last bilde.
             </p>
             <button
-                className="jkl-layout-spacing--medium-bottom"
+                className="jkl-spacing-xl--bottom"
                 onClick={() => {
                     if (!show) {
                         return toggleShow(true);
@@ -37,7 +37,7 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
                 {!show ? "Last bilde" : "Last siden på nytt"}
             </button>
             {show && (
-                <div className="jkl-layout-spacing--medium-bottom">
+                <div className="jkl-spacing-xl--bottom">
                     <p className="jkl-body">With largeSize</p>
                     <Image
                         className="example-class"

@@ -53,7 +53,7 @@ export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, tit
     const C = component;
 
     return (
-        <div className="jkl-layout-spacing--large-bottom">
+        <div className="jkl-spacing-2xl--bottom">
             <section className={responsiveLayout ? "jkl-portal-responsive-example" : "jkl-portal-component-example"}>
                 <div
                     data-theme={theme}
@@ -122,10 +122,7 @@ export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, tit
                         "jkl-portal-code-example--open": !showCode,
                     })}
                 >
-                    <button
-                        className={"jkl-button jkl-button--tertiary jkl-component-spacing--small-top"}
-                        onClick={toggleCode}
-                    >
+                    <button className={"jkl-button jkl-button--tertiary jkl-spacing-xs--top"} onClick={toggleCode}>
                         {`${showCode ? "Skjul" : "Vis"} kode`}
                     </button>
                     {showCode && children}

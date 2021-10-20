@@ -1,7 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
@@ -15,15 +14,15 @@
     display: flex;
     flex-direction: column;
     border-top: solid rem(1px) var(--jkl-footer-text-color);
-    padding-top: $layout-spacing--medium;
-    margin: $layout-spacing--large $layout-spacing--medium;
-    margin-bottom: $layout-spacing--medium;
+    padding-top: jkl.$spacing-xl;
+    margin: jkl.$spacing-2xl jkl.$spacing-xl;
+    margin-bottom: jkl.$spacing-xl;
 
     &__column {
         @include jkl.text-style("small");
         color: var(--jkl-footer-text-color);
         flex: 1 1 0px;
-        padding-right: $layout-spacing--large;
+        padding-right: jkl.$spacing-2xl;
 
         &:last-of-type {
             padding-right: 0;
