@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $jkl-slider-thumb-height: rem(32px);
@@ -103,7 +102,7 @@ $jkl-slider-thumb-height: rem(32px);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-top: $component-spacing--small;
+        margin-top: jkl.$spacing-xs;
         width: 100%;
     }
 

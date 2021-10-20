@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -12,24 +11,24 @@ $value-font-size: rem(22px);
 $arrow-height: rem(16px);
 $arrow-width: rem(13px);
 
-$select-padding: $component-spacing--small $component-spacing--medium;
+$select-padding: jkl.$spacing-xs jkl.$spacing-s;
 
-$select-border-color: $stein;
-$select-text-color: $granitt;
-$select-text-disabled-color: $stein;
+$select-border-color: jkl.$color-stein;
+$select-text-color: jkl.$color-granitt;
+$select-text-disabled-color: jkl.$color-stein;
 $select-background-color: transparent;
-$select-open-background-color: $hvit;
-$select-focus-color: $granitt;
-$select-error-color: $feil;
-$select-hover-option-color: $stein;
+$select-open-background-color: jkl.$color-hvit;
+$select-focus-color: jkl.$color-granitt;
+$select-error-color: jkl.$color-feil;
+$select-hover-option-color: jkl.$color-stein;
 
-$select-border-color--inverted: $svaberg;
-$select-text-color--inverted: $snohvit;
+$select-border-color--inverted: jkl.$color-svaberg;
+$select-text-color--inverted: jkl.$color-snohvit;
 $select-background-color--inverted: transparent;
-$select-open-background-color--inverted: $svart;
-$select-focus-color--inverted: $snohvit;
-$select-error-color--inverted: $feil--darkbg;
-$select-hover-option-color--inverted: $svaberg;
+$select-open-background-color--inverted: jkl.$color-svart;
+$select-focus-color--inverted: jkl.$color-snohvit;
+$select-error-color--inverted: jkl.$color-feil--darkbg;
+$select-hover-option-color--inverted: jkl.$color-svaberg;
 
 @include jkl.helper-light-mode-variables {
     --select-border-color: #{$select-border-color};
@@ -114,7 +113,7 @@ $select-hover-option-color--inverted: $svaberg;
         box-shadow: 0 0 0 0 var(--select-border-color);
 
         padding: $select-padding;
-        padding-right: $arrow-width + 2 * $component-spacing--large;
+        padding-right: $arrow-width + 2 * jkl.$spacing-m;
         text-align: left;
         width: 100%;
 
@@ -151,7 +150,7 @@ $select-hover-option-color--inverted: $svaberg;
     /* The dropdown arrow */
     &__arrow {
         position: absolute;
-        right: $component-spacing--large;
+        right: jkl.$spacing-m;
         top: 50%;
         transform: translateY(-50%);
         color: inherit;
@@ -165,7 +164,7 @@ $select-hover-option-color--inverted: $svaberg;
         left: rem(-1px);
         right: rem(-1px);
         top: 100%;
-        z-index: $z-index--dropdown;
+        z-index: jkl.$z-index--dropdown;
 
         background-color: $select-open-background-color;
         background-color: var(--select-open-background-color);
@@ -215,7 +214,7 @@ $select-hover-option-color--inverted: $svaberg;
 
             &::before {
                 content: "→ ";
-                padding-right: $component-spacing--small;
+                padding-right: jkl.$spacing-xs;
             }
         }
 
@@ -236,8 +235,8 @@ $select-hover-option-color--inverted: $svaberg;
                 -webkit-mask-image: $mask-image-url;
                 mask-image: $mask-image-url;
                 display: inline-block;
-                margin-left: $component-spacing--xs;
-                margin-top: $component-spacing--small;
+                margin-left: jkl.$spacing-2xs;
+                margin-top: jkl.$spacing-xs;
                 width: 17px;
                 height: 13px;
                 flex-shrink: 0;

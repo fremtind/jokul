@@ -2,7 +2,6 @@
 @use "~@fremtind/jkl-core/variables/colors";
 
 @import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $dismiss-animation-duration: 500ms;
@@ -23,7 +22,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__content {
         box-sizing: border-box;
-        padding: $component-spacing--large $component-spacing--xl;
+        padding: jkl.$spacing-m jkl.$spacing-l;
         display: flex;
         align-items: center;
         width: 100%;
@@ -31,14 +30,14 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__icon {
-        padding-right: $component-spacing--large;
+        padding-right: jkl.$spacing-m;
         align-self: flex-start;
-        padding-top: $component-spacing--xxs;
+        padding-top: jkl.$spacing-3xs;
         height: rem(24px);
     }
 
     &__message {
-        margin-right: $component-spacing--large;
+        margin-right: jkl.$spacing-m;
     }
 
     &__dismiss-button {
@@ -46,7 +45,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         background-color: transparent;
         padding: 0;
         margin-left: auto;
-        margin-top: $component-spacing--xs;
+        margin-top: jkl.$spacing-2xs;
         color: inherit;
         cursor: pointer;
         width: rem(20px);

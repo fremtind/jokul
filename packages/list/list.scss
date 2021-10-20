@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 @function solid-diamond($color) {
@@ -25,11 +24,11 @@
     @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='#{$c1}'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='#{$c2}' stroke-width='1.5'/%3E%3C/svg%3E%0A");
 }
 
-$item-space-between: $component-spacing--small;
-$list-padding-left: $layout-spacing--small;
+$item-space-between: jkl.$spacing-xs;
+$list-padding-left: jkl.$spacing-l;
 
-$list-text-color: $granitt;
-$list-text-color--inverted: $snohvit;
+$list-text-color: jkl.$color-granitt;
+$list-text-color--inverted: jkl.$color-snohvit;
 $list-cross-color: jkl.$color-feil;
 $list-cross-color--inverted: jkl.$color-feil--darkbg;
 $list-check-color: jkl.$color-suksess;
