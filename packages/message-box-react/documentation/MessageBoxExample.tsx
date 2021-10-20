@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "../src";
 
@@ -31,13 +32,11 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
         <C
             fullWidth={boolValues && boolValues["Full bredde"]}
             title={choiceValues && choiceValues["Type"]}
-            inverted={boolValues && boolValues["Invertert"]}
             dismissed={dismissed}
             dismissAction={dismissAction}
         >
-            Hei, jeg er en melding av typen {choiceValues ? choiceValues["Type"] : "ʕ•ᴥ•ʔ"}
+            Hei, jeg er en melding av typen {choiceValues ? choiceValues["Type"] : "ʕ•ᴥ•ʔ"} med{" "}
+            <NavLink href="/">en navlink</NavLink>
         </C>
     );
 };
-
-export default Example;

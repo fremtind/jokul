@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
 
@@ -29,8 +30,9 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
             : undefined;
 
     return (
-        <C inverted={boolValues && boolValues["Invertert"]} dismissed={dismissed} dismissAction={dismissAction}>
-            Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Type"] : "ᕙ(⇀‸↼‶)ᕗ"}
+        <C dismissed={dismissed} dismissAction={dismissAction}>
+            Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Type"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
+            <NavLink href="/">en navlink</NavLink>
         </C>
     );
 };

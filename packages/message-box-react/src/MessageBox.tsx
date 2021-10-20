@@ -127,7 +127,7 @@ function messageFactory(messageType: messageTypes) {
         };
 
         return (
-            <div className={componentClassName} role={role || getRole(messageType)}>
+            <div className={componentClassName} role={role || getRole(messageType)} data-theme="light">
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
                     {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
