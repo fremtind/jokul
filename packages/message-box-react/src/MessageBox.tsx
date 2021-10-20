@@ -8,8 +8,6 @@ interface Props {
     title?: string;
     fullWidth?: boolean;
     className?: string;
-    /** @deprecated */
-    inverted?: boolean;
     dismissed?: boolean;
     dismissAction?: {
         handleDismiss: () => void;
@@ -22,19 +20,9 @@ interface Props {
 type messageTypes = "info" | "error" | "success" | "warning";
 
 function messageFactory(messageType: messageTypes) {
-    return function messageBox({
-        title,
-        fullWidth,
-        className = "",
-        inverted,
-        dismissed,
-        dismissAction,
-        children,
-        role,
-    }: Props) {
+    return function messageBox({ title, fullWidth, className = "", dismissed, dismissAction, children, role }: Props) {
         const componentClassName = classNames("jkl-message-box", "jkl-message-box--" + messageType, className, {
             "jkl-message-box--full": fullWidth,
-            "jkl-message-box--dark": inverted,
             "jkl-message-box--dismissed": dismissed,
         });
 
@@ -146,7 +134,7 @@ function messageFactory(messageType: messageTypes) {
     };
 }
 
-export const InfoMessage = messageFactory("info");
-export const ErrorMessage = messageFactory("error");
-export const WarningMessage = messageFactory("warning");
-export const SuccessMessage = messageFactory("success");
+export const InfoMessageBox = messageFactory("info");
+export const ErrorMessageBox = messageFactory("error");
+export const WarningMessageBox = messageFactory("warning");
+export const SuccessMessageBox = messageFactory("success");
