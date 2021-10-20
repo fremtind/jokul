@@ -43,7 +43,7 @@ function alertFactory(messageType: messageTypes) {
         };
 
         return (
-            <div className={componentClassName} role={role}>
+            <div className={componentClassName} role={role} data-theme="light">
                 <div className="jkl-alert-message__content" data-testid="alert-message-content" style={{ ...styles }}>
                     <div aria-hidden className="jkl-alert-message__icon">
                         <MessageIcon messageType={messageType} />
