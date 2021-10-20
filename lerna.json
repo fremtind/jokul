@@ -21,7 +21,8 @@
                 "*.test.js",
                 "*.test.ts",
                 "*.test.tsx",
-                "jest/**/*"
+                "jest/**/*",
+                "**/documentation/**/*"
             ],
             "message": "chore(release): publish [ci skip release]"
         }
