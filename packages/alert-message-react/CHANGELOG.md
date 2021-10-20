@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.3 (2021-10-20)
+
+### Bug Fixes
+
+- always light mode inside MessageBox and AlertMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
+
 ## 4.2.0 (2021-10-13)
 
 ### Features
