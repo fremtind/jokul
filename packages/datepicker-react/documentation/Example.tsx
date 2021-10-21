@@ -25,8 +25,8 @@ export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }
             variant={variant}
             errorLabel={errorLabel}
             helpLabel={helpLabel}
-            disableBeforeDate={new Date(Date.now() - monthsIsh(2))}
-            disableAfterDate={new Date(Date.now() + monthsIsh(5))}
+            disableBeforeDate={new Date(Date.now() - monthsIsh(14))}
+            disableAfterDate={new Date(Date.now() + monthsIsh(14))}
             value={value}
             onFocus={(date) => {
                 console.log("hello from onFocus", date);
