@@ -1,17 +1,16 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$header-bg-color: $snohvit;
-$header-bg-color--inverted: $granitt;
+$header-bg-color: jkl.$color-snohvit;
+$header-bg-color--inverted: jkl.$color-granitt;
 $header-height: rem(96px);
 $header-height--collapsed: rem(64px);
 $header-height--mobile: rem(64px);
-$header-padding: 0 $layout-spacing--medium;
-$header-padding--right: $layout-spacing--xl;
-$header-padding--mobile: 0 $component-spacing--large;
+$header-padding: 0 jkl.$spacing-xl;
+$header-padding--right: jkl.$spacing-3xl;
+$header-padding--mobile: 0 jkl.$spacing-m;
 
 .jkl-portal-header {
     display: flex;
@@ -19,7 +18,7 @@ $header-padding--mobile: 0 $component-spacing--large;
     padding: $header-padding--mobile;
     align-items: center;
     justify-content: space-between;
-    z-index: $z-index--header;
+    z-index: jkl.$z-index--header;
     position: sticky;
     top: 0;
     left: 0;
@@ -40,10 +39,10 @@ $header-padding--mobile: 0 $component-spacing--large;
         text-decoration: none;
 
         &:hover {
-            color: $stein;
+            color: jkl.$color-stein;
         }
         html:not([data-mousenavigation]) &:focus {
-            color: $granitt;
+            color: jkl.$color-granitt;
             font-weight: jkl.$typography-weight-bold;
         }
     }
@@ -54,10 +53,10 @@ $header-padding--mobile: 0 $component-spacing--large;
 
     *[data-theme="dark"] & {
         background-color: $header-bg-color--inverted;
-        color: $snohvit;
+        color: jkl.$color-snohvit;
 
         &__title {
-            color: $snohvit;
+            color: jkl.$color-snohvit;
         }
     }
 

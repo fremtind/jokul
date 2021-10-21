@@ -1,7 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
@@ -19,13 +18,13 @@
 .jkl-portal-do-dont-example {
     display: inline-block;
     background-color: var(--do-dont-example-bg);
-    padding: $component-spacing--medium;
-    padding-bottom: $component-spacing--large;
-    margin-bottom: $layout-spacing--large;
+    padding: jkl.$spacing-s;
+    padding-bottom: jkl.$spacing-m;
+    margin-bottom: jkl.$spacing-2xl;
     width: 100%;
 
     &:not(:last-of-type) {
-        margin-right: $layout-spacing--medium;
+        margin-right: jkl.$spacing-xl;
     }
 
     &--fullwidth {
@@ -42,8 +41,8 @@
 
     &__heading {
         @include jkl.text-style("heading-4");
-        margin-top: $component-spacing--large;
-        margin-bottom: $component-spacing--xs;
+        margin-top: jkl.$spacing-m;
+        margin-bottom: jkl.$spacing-2xs;
 
         &--do {
             color: var(--do-dont-example-do-color);

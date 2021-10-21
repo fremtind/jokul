@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -12,21 +11,21 @@ $checkbox-height--compact: rem(40px);
 $checkbox-box-size--compact: rem(18px);
 $checkbox-line-height--compact: rem(28px);
 
-$checkbox-color: $granitt;
-$checkbox-background-color: $snohvit;
-$checkbox-focus-color: $granitt;
-$checkbox-focus-background-color: $hvit;
-$checkbox-error-color: $feil;
-$checkbox-disabled-color: $stein;
-$checkbox-box-default-color: $stein;
+$checkbox-color: jkl.$color-granitt;
+$checkbox-background-color: jkl.$color-snohvit;
+$checkbox-focus-color: jkl.$color-granitt;
+$checkbox-focus-background-color: jkl.$color-hvit;
+$checkbox-error-color: jkl.$color-feil;
+$checkbox-disabled-color: jkl.$color-stein;
+$checkbox-box-default-color: jkl.$color-stein;
 
-$checkbox-color--inverted: $snohvit;
+$checkbox-color--inverted: jkl.$color-snohvit;
 $checkbox-background-color--inverted: transparent;
-$checkbox-focus-color--inverted: $snohvit;
-$checkbox-focus-background-color--inverted: $svart;
-$checkbox-error-color--inverted: $feil--darkbg;
-$checkbox-disabled-color--inverted: $stein;
-$checkbox-box-default-color--inverted: $svaberg;
+$checkbox-focus-color--inverted: jkl.$color-snohvit;
+$checkbox-focus-background-color--inverted: jkl.$color-svart;
+$checkbox-error-color--inverted: jkl.$color-feil--darkbg;
+$checkbox-disabled-color--inverted: jkl.$color-stein;
+$checkbox-box-default-color--inverted: jkl.$color-svaberg;
 
 @include jkl.helper-light-mode-variables {
     --checkbox-color: #{$checkbox-color};
@@ -155,7 +154,7 @@ $checkbox-box-default-color--inverted: $svaberg;
         width: $checkbox-box-size;
 
         margin: (($checkbox-height - $checkbox-box-size) * 0.5) 0;
-        margin-right: $component-spacing--small;
+        margin-right: jkl.$spacing-xs;
         vertical-align: middle;
         flex-shrink: 0; // Don't allow the check-mark to shrink in case of really long text
 
@@ -205,7 +204,7 @@ $checkbox-box-default-color--inverted: $svaberg;
         display: inline-flex;
 
         &:not(:last-of-type) {
-            margin-right: $component-spacing--xl;
+            margin-right: jkl.$spacing-l;
         }
     }
 
@@ -258,7 +257,7 @@ $checkbox-box-default-color--inverted: $svaberg;
             height: $checkbox-box-size--compact;
             width: $checkbox-box-size--compact;
             margin: (($checkbox-height--compact - $checkbox-box-size--compact) * 0.5) 0;
-            margin-right: $component-spacing--small;
+            margin-right: jkl.$spacing-xs;
         }
         .jkl-checkbox__check-text {
             margin: (($checkbox-height--compact - $checkbox-line-height--compact) * 0.5) 0;
@@ -273,7 +272,7 @@ $checkbox-box-default-color--inverted: $svaberg;
             height: $checkbox-box-size--compact;
             width: $checkbox-box-size--compact;
             margin: (($checkbox-height--compact - $checkbox-box-size--compact) * 0.5) 0;
-            margin-right: $component-spacing--small;
+            margin-right: jkl.$spacing-xs;
         }
         .jkl-checkbox__check-text {
             margin: (($checkbox-height--compact - $checkbox-line-height--compact) * 0.5) 0;

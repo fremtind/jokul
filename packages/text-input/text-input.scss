@@ -2,38 +2,37 @@
 
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 
 @import "./autosuggest.scss";
 
 $text-input-height: rem(48px);
 $text-input-height--compact: rem(40px);
 $text-input-button-width: rem(48px);
-$text-input-padding: $component-spacing--small $component-spacing--medium;
+$text-input-padding: jkl.$spacing-xs jkl.$spacing-s;
 
 // These are used to calculate textarea height,
 // and MUST equal the line height in the text style used
 $text-input-line-height: rem(32px);
 $text-input-line-height--compact: rem(28px);
 
-$text-input-border-color: $stein;
-$text-input-text-color: $granitt;
-$text-input-placeholder-color: $stein;
-$text-input-background-color: $hvit;
-$text-input-focus-color: $granitt;
-$text-input-error-color: $feil;
+$text-input-border-color: jkl.$color-stein;
+$text-input-text-color: jkl.$color-granitt;
+$text-input-placeholder-color: jkl.$color-stein;
+$text-input-background-color: jkl.$color-hvit;
+$text-input-focus-color: jkl.$color-granitt;
+$text-input-error-color: jkl.$color-feil;
 $text-input-selected-color: transparentize(
     $color: $text-input-focus-color,
     $amount: 0.8,
 );
 $text-input-selected-error-color: transparentize($text-input-error-color, 0.8);
 
-$text-input-border-color--inverted: $svaberg;
-$text-input-text-color--inverted: $snohvit;
-$text-input-placeholder-color--inverted: $svaberg;
-$text-input-background-color--inverted: $svart;
-$text-input-focus-color--inverted: $snohvit;
-$text-input-error-color--inverted: $feil--darkbg;
+$text-input-border-color--inverted: jkl.$color-svaberg;
+$text-input-text-color--inverted: jkl.$color-snohvit;
+$text-input-placeholder-color--inverted: jkl.$color-svaberg;
+$text-input-background-color--inverted: jkl.$color-svart;
+$text-input-focus-color--inverted: jkl.$color-snohvit;
+$text-input-error-color--inverted: jkl.$color-feil--darkbg;
 $text-input-selected-color--inverted: transparentize(
     $color: $text-input-focus-color--inverted,
     $amount: 0.75,
@@ -173,7 +172,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         background-color: transparent;
         cursor: pointer;
         padding: 0;
-        padding: $component-spacing--small 0;
+        padding: jkl.$spacing-xs 0;
         height: $text-input-button-width;
         width: $text-input-height;
         margin-left: rem(-48px);
@@ -244,7 +243,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             }
 
             &::selection {
-                background-color: transparentize($info--darkbg, 0.75);
+                background-color: transparentize(jkl.$color-info--darkbg, 0.75);
             }
 
             &:focus,
@@ -259,7 +258,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
                     0 0 0 0 $text-input-error-color--inverted;
 
                 &::selection {
-                    background-color: transparentize($feil--darkbg, 0.75);
+                    background-color: transparentize(jkl.$color-feil--darkbg, 0.75);
                 }
 
                 &:focus,
@@ -303,14 +302,14 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         .jkl-text-input__input {
             height: auto;
             max-height: $text-input-height;
-            padding-bottom: $component-spacing--small;
+            padding-bottom: jkl.$spacing-xs;
             transition-property: max-height, box-shadow, padding-bottom;
 
             &[data-has-content="true"],
             &:focus-within {
                 max-height: 100%;
                 background: var(--text-input-background-color);
-                padding-bottom: $component-spacing--xxl;
+                padding-bottom: jkl.$spacing-xl;
             }
         }
 
@@ -330,12 +329,12 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             resize: none; // Disable textarea resize
             width: 100%;
 
-            height: calc($text-input-height - (2 * $component-spacing--small));
+            height: calc($text-input-height - (2 * jkl.$spacing-xs));
             padding: 0;
 
             transition-property: height;
 
-            &:focus-within  {
+            &:focus-within {
                 background: var(--text-input-background-color);
             }
         }
@@ -353,7 +352,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
 
             &-count {
                 @include jkl.text-style("small");
-                padding: $component-spacing--small $component-spacing--medium;
+                padding: jkl.$spacing-xs jkl.$spacing-s;
             }
 
             &-progress {
@@ -399,7 +398,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             }
             .jkl-text-area__text-area {
                 @include jkl.text-style("body/small-screen");
-                height: calc($text-input-height - (2 * $component-spacing--small));
+                height: calc($text-input-height - (2 * jkl.$spacing-xs));
             }
         }
     }
@@ -411,12 +410,12 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
     .jkl-text-area--start-open .jkl-text-input__input--#{$num}-rows {
         max-height: 100%;
-        height: $text-input-line-height * $num + $component-spacing--small * 2;
+        height: $text-input-line-height * $num + jkl.$spacing-xs * 2;
         @include small-device {
-            height: $text-input-line-height--compact * $num + $component-spacing--small * 2;
+            height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
         }
         .jkl-text-input--compact & {
-            height: $text-input-line-height--compact * $num + $component-spacing--small * 2;
+            height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
         }
     }
 }

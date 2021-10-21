@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/all.scss";
-@import "~@fremtind/jkl-core/variables/all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $bounding-touch-size: rem(48px);
@@ -34,7 +34,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
     min-width: $bounding-touch-size;
     display: flex;
     flex-direction: row;
-    padding: $component-spacing--small;
+    padding: jkl.$spacing-xs;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -109,7 +109,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         text-align: left;
 
         & .jkl-hamburger__lines {
-            margin-right: $component-spacing--small;
+            margin-right: jkl.$spacing-xs;
         }
     }
 
@@ -118,7 +118,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         text-align: right;
 
         & .jkl-hamburger__lines {
-            margin-left: $component-spacing--small;
+            margin-left: jkl.$spacing-xs;
         }
 
         & .jkl-hamburger__label {

@@ -20,7 +20,7 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
             forceCompact={boolValues && boolValues["Kompakt"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             onClick={onClick}
-            className="jkl-spacing--right-1"
+            className="jkl-spacing-l--right"
         >
             Lagre og send inn
         </PrimaryButton>
@@ -33,7 +33,7 @@ export const PrimaryCode = `
     forceCompact={boolValues && boolValues["Kompakt"]}
     loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
     onClick={onClick}
-    className="jkl-spacing--right-1"
+    className="jkl-spacing-l--right"
 >
     Lagre og send inn
 </PrimaryButton>

@@ -1,6 +1,5 @@
 @use "jkl";
 
-@import "./variables/all";
 @import "./mixins/all";
 @import "./functions";
 
@@ -27,7 +26,7 @@ $label-error-color--inverted: jkl.$color-feil--darkbg;
 .jkl-form-support-label {
     @include jkl.text-style("small");
     display: block;
-    margin-top: $component-spacing--small;
+    margin-top: jkl.$spacing-xs;
     color: $label-support-color;
     color: var(--label-support-color);
 
@@ -44,17 +43,17 @@ $label-error-color--inverted: jkl.$color-feil--darkbg;
         color: var(--label-support-color);
 
         &.jkl-form-support-label--error {
-            color: $feil--darkbg;
+            color: jkl.$color-feil--darkbg;
         }
     }
 }
 
-$label-spacing-large: $component-spacing--large;
-$label-spacing-medium: $component-spacing--small;
-$label-spacing-small: $component-spacing--xs;
-$label-spacing-large--compact: $component-spacing--medium;
-$label-spacing-medium--compact: $component-spacing--small;
-$label-spacing-small--compact: $component-spacing--xs;
+$label-spacing-large: jkl.$spacing-m;
+$label-spacing-medium: jkl.$spacing-xs;
+$label-spacing-small: jkl.$spacing-2xs;
+$label-spacing-large--compact: jkl.$spacing-s;
+$label-spacing-medium--compact: jkl.$spacing-xs;
+$label-spacing-small--compact: jkl.$spacing-2xs;
 
 .jkl-label {
     display: block;

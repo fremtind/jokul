@@ -35,11 +35,15 @@ const PersonalInfoForm: React.FC<Props> = ({ onSubmit }) => {
 
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <Label standAlone variant="large" className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}>
+            <Label
+                standAlone
+                variant="large"
+                className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
+            >
                 Første steg
             </Label>
             <TextInput
-                className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
+                className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
                 label="Fornavn"
                 errorLabel={formState.errors.fornavn ? "Du må fylle inn fornavn" : ""}
                 inverted={darkMode}
@@ -52,7 +56,7 @@ const PersonalInfoForm: React.FC<Props> = ({ onSubmit }) => {
                 variant="small"
             />
             <TextInput
-                className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
+                className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
                 label="Etternavn"
                 errorLabel={formState.errors.etternavn ? "Du må fylle inn etternavn" : ""}
                 inverted={darkMode}
@@ -65,7 +69,7 @@ const PersonalInfoForm: React.FC<Props> = ({ onSubmit }) => {
                 variant="small"
             />
             <TextInput
-                className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
+                className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
                 label="Personnummer"
                 errorLabel={formState.errors.personnummer ? "Du må fylle inn personnummer" : ""}
                 helpLabel="Vi lagrer ikke ditt personnummer"
@@ -85,7 +89,7 @@ const PersonalInfoForm: React.FC<Props> = ({ onSubmit }) => {
                 <PrimaryButton
                     forceCompact={isCompact}
                     inverted={darkMode}
-                    className={isCompact ? "jkl-spacing--bottom-1" : "jkl-spacing--bottom-2"}
+                    className={isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"}
                 >
                     Gå videre
                 </PrimaryButton>

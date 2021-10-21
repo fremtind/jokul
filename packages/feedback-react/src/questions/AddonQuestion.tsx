@@ -36,7 +36,7 @@ export const AddonQuestion: React.VFC<Props> = ({
             startOpen
             rows={4}
             data-testid="jkl-feedback__open-question"
-            className="jkl-layout-spacing--medium-bottom jkl-layout-spacing--medium-top"
+            className="jkl-spacing-xl--bottom jkl-spacing-xl--top"
             label={dynamicLabel}
             placeholder={dynamicLabel}
             helpLabel={helpLabel}

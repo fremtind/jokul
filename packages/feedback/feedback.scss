@@ -1,7 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $icon-size: rem(45px);
@@ -39,7 +38,7 @@ $max-feedback-input-width: 30rem;
         @include jkl.text-style("body");
         color: jkl.$color-stein;
         color: var(--jkl-feedback--step-color);
-        margin-bottom: $layout-spacing--xs;
+        margin-bottom: jkl.$spacing-m;
     }
 
     &__fade-in {

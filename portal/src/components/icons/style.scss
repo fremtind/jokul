@@ -1,4 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -10,7 +11,7 @@ $icon-line-offset: rem(7px);
 .portal-icon {
     transition-property: color;
     @include motion(standard, expressive);
-    color: $sand;
+    color: jkl.$color-sand;
     height: $icon-size;
     width: $icon-size;
     padding-top: $icon-line-offset;
