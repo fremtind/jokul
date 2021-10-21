@@ -2,9 +2,20 @@ import React, { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
-import { Table } from "@fremtind/jkl-table-react";
 import { ComponentExample, FlowExample, ResponsiveExample } from "../../../../doc-utils";
 import { InfoMessage } from "@fremtind/jkl-message-box-react";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableColumn,
+    TableColumnGroup,
+    TableFooter,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@fremtind/jkl-table-react";
 import { PortalImg } from "../PortalImg/PortalImg";
 import { Experimental } from "../Experimental/Experimental";
 import { CodeDemo } from "../CodeDemo/CodeDemo";
@@ -45,6 +56,16 @@ const components = {
     li: ListItem as FC,
     img: PortalImg,
     a: Anchor as FC,
+    table: Table,
+    thead: TableHead,
+    tbody: TableBody,
+    tfoot: TableFooter,
+    td: TableCell,
+    th: TableHeader,
+    tr: TableRow,
+    caption: TableCaption,
+    col: TableColumn,
+    colgroup: TableColumnGroup,
     pre: CodeBlock,
     inlineCode: InlineCode,
     Ingress,
@@ -56,7 +77,6 @@ const components = {
     InfoMessage,
     ResponsiveExample,
     CodeDemo,
-    Table,
 };
 
 export const FormatProvider: FC = ({ children }) => {
