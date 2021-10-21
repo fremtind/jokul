@@ -1,66 +1,53 @@
 @use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
-@import "~@fremtind/jkl-core/functions";
+@import "./table-caption.scss";
+@import "./table-head.scss";
+@import "./table-row.scss";
+@import "./table-header.scss";
+@import "./table-cell.scss";
 
-$bottom-border-size: rem(1px);
-$highlight-color: jkl.$color-snohvit;
-$cell-padding: jkl.$spacing-l jkl.$spacing-xs;
-$row-end-padding: jkl.$spacing-m;
+@mixin responsive-table {
+    display: block;
+
+    & > caption {
+        @include mixins.screenreader-only;
+    }
+
+    & > thead,
+    & > thead > tr,
+    & > thead > tr > th {
+        display: none;
+    }
+
+    & > tbody,
+    & > tbody > tr,
+    & > tbody > tr > td {
+        display: block;
+    }
+
+    & > tfoot,
+    & > tfoot > tr,
+    & > tfoot > tr > td {
+        display: block;
+    }
+}
 
 .jkl-table {
     border-collapse: collapse;
-    @include jkl.text-style("body");
+    position: relative;
 
-    &__heading {
-        color: jkl.$color-stein;
-        @include jkl.text-style("small");
-        padding: jkl.$spacing-xs;
+    &--full-width {
+        width: 100%;
     }
 
-    &__data-cell {
-        position: relative;
-        box-sizing: border-box;
-        padding: $cell-padding;
-    }
-
-    &__heading,
-    &__data-cell {
-        text-align: left;
-        vertical-align: top;
-
-        &:first-of-type {
-            padding-left: $row-end-padding;
+    &--collapse-to-list {
+        &[data-collapse] {
+            @include responsive-table;
         }
 
-        &:last-of-type {
-            padding-right: $row-end-padding;
-        }
-    }
-
-    &__row {
-        box-shadow: inset 0 -#{$bottom-border-size} 0 0 rgba(0, 0, 0, 0.2);
-
-        &--anchor-row {
-            cursor: pointer;
-
-            &:hover {
-                background-color: $highlight-color;
-                box-shadow: 0 4px 3px -3px rgba(0, 0, 0, 0.2);
-            }
-
-            &:active {
-                box-shadow: 0 $bottom-border-size 0 0 rgba(0, 0, 0, 0.4);
-            }
-        }
-
-        &--data-row {
-            transition: background-color 150ms ease, box-shadow 150ms ease;
-        }
-
-        /* Focus-within is not supported by IE/Edge */
-        &:focus-within {
-            background-color: $highlight-color;
-            box-shadow: 0 0 0 $bottom-border-size inset jkl.$color-focus-color;
+        @include mixins.small-device {
+            @include responsive-table;
         }
     }
 }
