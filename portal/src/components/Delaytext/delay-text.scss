@@ -1,4 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
 
@@ -12,7 +13,7 @@
 
     &__content {
         box-sizing: border-box;
-        padding-top: $layout-spacing--large;
+        padding-top: jkl.$spacing-2xl;
         padding-left: 5vw;
         height: 100%;
         width: 100%;

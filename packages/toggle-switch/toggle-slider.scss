@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -11,21 +10,21 @@ $jkl-slider-offset__pill--right: calc(calc(#{$jkl-slider-width}/ 2) - #{$jkl-sli
 $jkl-slider-rounded: rem(100px);
 
 @include jkl.helper-light-mode-variables {
-    --jkl-slider-bg: #{$varde};
-    --jkl-slider-pill: #{$snohvit};
-    --jkl-slider-pill-text: #{$granitt};
-    --jkl-slider-pill-text--active: #{$granitt};
-    --jkl-slider-focus-color: #{$svart};
-    --jkl-slider-hover-color: #{$stein};
+    --jkl-slider-bg: #{jkl.$color-varde};
+    --jkl-slider-pill: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text: #{jkl.$color-granitt};
+    --jkl-slider-pill-text--active: #{jkl.$color-granitt};
+    --jkl-slider-focus-color: #{jkl.$color-svart};
+    --jkl-slider-hover-color: #{jkl.$color-stein};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --jkl-slider-bg: #{$fjellgra};
-    --jkl-slider-pill: #{$granitt};
-    --jkl-slider-pill-text: #{$snohvit};
-    --jkl-slider-pill-text--active: #{$snohvit};
-    --jkl-slider-focus-color: #{$svaberg};
-    --jkl-slider-hover-color: #{$svaberg};
+    --jkl-slider-bg: #{jkl.$color-fjellgra};
+    --jkl-slider-pill: #{jkl.$color-granitt};
+    --jkl-slider-pill-text: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text--active: #{jkl.$color-snohvit};
+    --jkl-slider-focus-color: #{jkl.$color-svaberg};
+    --jkl-slider-hover-color: #{jkl.$color-svaberg};
 }
 
 $jkl-slider-focus-ring-width: rem(2px);
@@ -40,19 +39,19 @@ $jkl-slider-focus-ring-width: rem(2px);
         background-color: transparent;
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
-            box-shadow: 0 0 0 $jkl-slider-focus-ring-width $svart;
+            box-shadow: 0 0 0 $jkl-slider-focus-ring-width jkl.$color-svart;
             box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
 
             .jkl-toggle-slider__pill {
-                box-shadow: 0 0 0 $jkl-slider-focus-ring-width $svart;
+                box-shadow: 0 0 0 $jkl-slider-focus-ring-width jkl.$color-svart;
                 box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
             }
         }
 
         cursor: pointer;
-        background-color: $varde;
+        background-color: jkl.$color-varde;
         background-color: var(--jkl-slider-bg);
-        padding: $component-spacing--small 0;
+        padding: jkl.$spacing-xs 0;
         position: relative;
         border-radius: $jkl-slider-rounded;
         overflow: hidden;
@@ -65,7 +64,7 @@ $jkl-slider-focus-ring-width: rem(2px);
         &__pill {
             width: 50%;
             height: calc(100% - #{$jkl-slider-offset} - #{$jkl-slider-offset});
-            background-color: $snohvit;
+            background-color: jkl.$color-snohvit;
             background-color: var(--jkl-slider-pill);
             display: block;
             position: absolute;
@@ -74,7 +73,7 @@ $jkl-slider-focus-ring-width: rem(2px);
             transition-property: transform;
             @include motion(standard, expressive);
             border-radius: $jkl-slider-rounded;
-            box-shadow: 0 0 rem(4px) rgba($svart, 0.15);
+            box-shadow: 0 0 rem(4px) rgba(jkl.$color-svart, 0.15);
         }
 
         &--left,
@@ -83,7 +82,7 @@ $jkl-slider-focus-ring-width: rem(2px);
             display: block;
             width: 50%;
             text-align: center;
-            color: $granitt;
+            color: jkl.$color-granitt;
             color: var(--jkl-slider-pill-text);
             transition-property: color;
             @include motion(standard, expressive);
@@ -106,14 +105,14 @@ $jkl-slider-focus-ring-width: rem(2px);
 
         &--checked {
             & > .jkl-toggle-slider--right {
-                color: $granitt;
+                color: jkl.$color-granitt;
                 color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--left {
-                        color: $stein;
+                        color: jkl.$color-stein;
                         color: var(--jkl-slider-hover-color);
                     }
                 }
@@ -126,14 +125,14 @@ $jkl-slider-focus-ring-width: rem(2px);
             }
 
             & > .jkl-toggle-slider--left {
-                color: $granitt;
+                color: jkl.$color-granitt;
                 color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--right {
-                        color: $stein;
+                        color: jkl.$color-stein;
                         color: var(--jkl-slider-hover-color);
                     }
                 }
@@ -142,20 +141,20 @@ $jkl-slider-focus-ring-width: rem(2px);
     }
 
     &--inverted {
-        color: $snohvit;
-        --jkl-slider-pill-text--active: #{$snohvit};
-        --jkl-slider-hover-color: #{$svaberg};
+        color: jkl.$color-snohvit;
+        --jkl-slider-pill-text--active: #{jkl.$color-snohvit};
+        --jkl-slider-hover-color: #{jkl.$color-svaberg};
 
         .jkl-toggle-slider {
-            background-color: $fjellgra;
+            background-color: jkl.$color-fjellgra;
 
             &__pill {
-                background-color: $granitt;
+                background-color: jkl.$color-granitt;
             }
 
             &--left,
             &--right {
-                color: $snohvit;
+                color: jkl.$color-snohvit;
             }
         }
     }

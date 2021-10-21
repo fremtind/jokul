@@ -65,8 +65,8 @@ export const MainQuestion: VFC<Props> = ({
                         })}
                     >
                         {addOnQuestion && <AddonQuestion {...addOnQuestion} />}
-                        <div className="jkl-layout-spacing--medium-top">
-                            <PrimaryButton onClick={handleSubmit} className="jkl-layout-spacing--medium-right">
+                        <div className="jkl-spacing-xl--top">
+                            <PrimaryButton onClick={handleSubmit} className="jkl-spacing-xl--right">
                                 Send
                             </PrimaryButton>
                             <TertiaryButton onClick={() => setCurrentValue(undefined)}>Avbryt</TertiaryButton>

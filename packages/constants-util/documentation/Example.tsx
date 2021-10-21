@@ -13,7 +13,7 @@ export const Unicode: VFC = () => <Table className="jkl-constant-example__table"
 export const Example: VFC = () => (
     <>
         <section className="jkl-constant-example">
-            <h1 className="jkl-title-small jkl-layout-spacing--medium-bottom">Unicode</h1>
+            <h1 className="jkl-title-small jkl-spacing-xl--bottom">Unicode</h1>
             <Unicode />
         </section>
     </>

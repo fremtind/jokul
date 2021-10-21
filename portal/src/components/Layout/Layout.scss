@@ -1,16 +1,17 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 :root,
 [data-theme="light"] {
-    --portal-bg: #{$snohvit};
-    --portal-text-color: #{$granitt};
+    --portal-bg: #{jkl.$color-snohvit};
+    --portal-text-color: #{jkl.$color-granitt};
 }
 
 [data-theme="dark"] {
-    --portal-bg: #{$granitt};
-    --portal-text-color: #{$snohvit};
+    --portal-bg: #{jkl.$color-granitt};
+    --portal-text-color: #{jkl.$color-snohvit};
 }
 
 .jkl-portal {
@@ -23,15 +24,15 @@
     }
 
     &__main {
-        padding: $component-spacing--large;
-        padding-top: $layout-spacing--large;
+        padding: jkl.$spacing-m;
+        padding-top: jkl.$spacing-2xl;
     }
 
     @include medium-device {
         &__main {
-            padding-top: $layout-spacing--large;
-            padding-right: $layout-spacing--xl;
-            padding-left: $layout-spacing--medium;
+            padding-top: jkl.$spacing-2xl;
+            padding-right: jkl.$spacing-3xl;
+            padding-left: jkl.$spacing-xl;
         }
     }
 
@@ -62,9 +63,9 @@
 
         &__main {
             grid-area: main;
-            padding-top: $layout-spacing--large;
-            padding-right: $layout-spacing--xl;
-            padding-left: $layout-spacing--medium;
+            padding-top: jkl.$spacing-2xl;
+            padding-right: jkl.$spacing-3xl;
+            padding-left: jkl.$spacing-xl;
 
             &--frontpage {
                 grid-column: sidebar / span 2;
@@ -89,6 +90,6 @@
     }
 
     &[data-theme="dark"] {
-        color: $snohvit;
+        color: jkl.$color-snohvit;
     }
 }

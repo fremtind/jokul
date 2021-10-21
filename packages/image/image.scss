@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $loader-color: jkl.$color-sand;
@@ -61,7 +60,7 @@ $loader-color--inverted: jkl.$color-fjellgra;
     &--inverted {
         .jkl-image__blur-container--no-thumbnail,
         .jkl-image--empty {
-            background-color: $fjellgra;
+            background-color: jkl.$color-fjellgra;
             background: var(--jkl-image-loader-color);
         }
     }

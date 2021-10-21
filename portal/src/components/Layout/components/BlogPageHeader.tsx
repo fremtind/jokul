@@ -8,7 +8,7 @@ export const BlogPageHeader: VFC<Frontmatter> = ({ title, author, publishDate })
     return (
         <>
             <h1 className="jkl-title">{title}</h1>
-            <div className="jkl-spacing--top-1 jkl-spacing--bottom-1">
+            <div className="jkl-spacing-l--top jkl-spacing-l--bottom">
                 <p data-testid="blog-author">{author}</p>
                 {publishDate && <p data-testid="blog-publishDate">{publishDate}</p>}
             </div>

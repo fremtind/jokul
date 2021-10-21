@@ -9,7 +9,7 @@ interface Props {
 export const IconExample: React.FC<Props> = ({ name, renderIcon, inverted }) => (
     <div>
         {renderIcon()}
-        <div className={`jkl-micro jkl-component-spacing--small-top jkl-color-${inverted ? "hvit" : "svart"}`}>
+        <div className={`jkl-micro jkl-spacing-xs--top jkl-color-${inverted ? "hvit" : "svart"}`}>
             {name || renderIcon.name}
         </div>
     </div>

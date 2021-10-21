@@ -2,7 +2,6 @@
 
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 
 @include jkl.helper-light-mode-variables {
     --full-screen-menu-bg-color: #{jkl.$color-varde};
@@ -30,7 +29,7 @@
         height: 100%;
         color: inherit;
         &:not(:last-child) {
-            margin-right: $component-spacing--xxl;
+            margin-right: jkl.$spacing-xl;
         }
     }
 
@@ -84,13 +83,13 @@
 
     &__menu-wrapper {
         box-sizing: border-box;
-        padding: 15vh $layout-spacing--small 0 $layout-spacing--large;
+        padding: 15vh jkl.$spacing-l 0 jkl.$spacing-2xl;
         height: 100vh;
         max-height: 100vh;
         width: 100vw;
 
         @include from-medium-device {
-            padding: 25vh $layout-spacing--xl 15vh;
+            padding: 25vh jkl.$spacing-3xl 15vh;
         }
     }
 
@@ -115,7 +114,7 @@
 
         &:hover,
         &:focus {
-            color: $granitt;
+            color: jkl.$color-granitt;
 
             transform: translateX(-1ch);
             &:after {
@@ -148,11 +147,11 @@
         }
 
         [data-theme="dark"] & {
-            color: $snohvit;
+            color: jkl.$color-snohvit;
 
             &:hover,
             &:focus {
-                color: $svaberg;
+                color: jkl.$color-svaberg;
             }
         }
     }

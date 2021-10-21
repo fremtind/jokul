@@ -1,42 +1,14 @@
 @import "./variables/spacing";
 
-$counter: 1;
 $positions: top, bottom, left, right;
 
-@each $spacing in $layout-spacing {
-    .jkl-spacing {
-        &--all-#{$counter} {
+@each $name, $spacing in $spacing-new {
+    .jkl-spacing-#{$name} {
+        &--all {
             margin: $spacing;
         }
         @each $position in $positions {
-            &--#{$position}-#{$counter} {
-                margin-#{$position}: $spacing;
-            }
-        }
-    }
-    $counter: $counter + 1;
-}
-
-@each $name, $spacing in $component-spacing-new {
-    .jkl-component-spacing--#{$name} {
-        &-all {
-            margin: $spacing;
-        }
-        @each $position in $positions {
-            &-#{$position} {
-                margin-#{$position}: $spacing;
-            }
-        }
-    }
-}
-
-@each $name, $spacing in $layout-spacing-new {
-    .jkl-layout-spacing--#{$name} {
-        &-all {
-            margin: $spacing;
-        }
-        @each $position in $positions {
-            &-#{$position} {
+            &--#{$position} {
                 margin-#{$position}: $spacing;
             }
         }

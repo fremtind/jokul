@@ -1,21 +1,20 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/functions";
 
 $bottom-border-size: rem(1px);
-$highlight-color: $snohvit;
-$cell-padding: $component-spacing--xl $component-spacing--small;
-$row-end-padding: $component-spacing--large;
+$highlight-color: jkl.$color-snohvit;
+$cell-padding: jkl.$spacing-l jkl.$spacing-xs;
+$row-end-padding: jkl.$spacing-m;
 
 .jkl-table {
     border-collapse: collapse;
     @include jkl.text-style("body");
 
     &__heading {
-        color: $stein;
+        color: jkl.$color-stein;
         @include jkl.text-style("small");
-        padding: $component-spacing--small;
+        padding: jkl.$spacing-xs;
     }
 
     &__data-cell {
@@ -61,7 +60,7 @@ $row-end-padding: $component-spacing--large;
         /* Focus-within is not supported by IE/Edge */
         &:focus-within {
             background-color: $highlight-color;
-            box-shadow: 0 0 0 $bottom-border-size inset $focus-color;
+            box-shadow: 0 0 0 $bottom-border-size inset jkl.$color-focus-color;
         }
     }
 }

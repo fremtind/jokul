@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -14,21 +13,21 @@ $radio-button-height--compact: rem(40px);
 $radio-button-line-height--compact: rem(28px);
 $radio-button-dot-padding--compact: rem(3px);
 
-$radio-button-color: $granitt;
-$radio-button-background-color: $snohvit;
-$radio-button-focus-color: $granitt;
-$radio-button-focus-background-color: $hvit;
-$radio-button-error-color: $feil;
-$radio-button-disabled-color: $stein;
-$radio-button-default-color: $stein;
+$radio-button-color: jkl.$color-granitt;
+$radio-button-background-color: jkl.$color-snohvit;
+$radio-button-focus-color: jkl.$color-granitt;
+$radio-button-focus-background-color: jkl.$color-hvit;
+$radio-button-error-color: jkl.$color-feil;
+$radio-button-disabled-color: jkl.$color-stein;
+$radio-button-default-color: jkl.$color-stein;
 
-$radio-button-color--inverted: $snohvit;
+$radio-button-color--inverted: jkl.$color-snohvit;
 $radio-button-background-color--inverted: transparent;
-$radio-button-focus-color--inverted: $snohvit;
-$radio-button-focus-background-color--inverted: $svart;
-$radio-button-error-color--inverted: $feil--darkbg;
-$radio-button-disabled-color--inverted: $stein;
-$radio-button-default-color--inverted: $svaberg;
+$radio-button-focus-color--inverted: jkl.$color-snohvit;
+$radio-button-focus-background-color--inverted: jkl.$color-svart;
+$radio-button-error-color--inverted: jkl.$color-feil--darkbg;
+$radio-button-disabled-color--inverted: jkl.$color-stein;
+$radio-button-default-color--inverted: jkl.$color-svaberg;
 
 @include jkl.helper-light-mode-variables {
     --radio-button-color: #{$radio-button-color};
@@ -135,7 +134,7 @@ $radio-button-default-color--inverted: $svaberg;
         flex-shrink: 0;
 
         margin: (($radio-button-height - $radio-button-size) * 0.5) 0;
-        margin-right: $component-spacing--small;
+        margin-right: jkl.$spacing-xs;
 
         border-radius: 50%;
         box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
@@ -188,7 +187,7 @@ $radio-button-default-color--inverted: $svaberg;
     &--inline {
         display: inline-flex;
         margin-top: unset;
-        margin-right: $component-spacing--xl;
+        margin-right: jkl.$spacing-l;
     }
 
     @include compact-mode {
@@ -201,7 +200,7 @@ $radio-button-default-color--inverted: $svaberg;
         }
         .jkl-radio-button__dot {
             margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
-            margin-right: $component-spacing--small;
+            margin-right: jkl.$spacing-xs;
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;
 
@@ -223,7 +222,7 @@ $radio-button-default-color--inverted: $svaberg;
         }
         .jkl-radio-button__dot {
             margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
-            margin-right: $component-spacing--small;
+            margin-right: jkl.$spacing-xs;
             height: $radio-button-size--compact;
             width: $radio-button-size--compact;
 
@@ -253,7 +252,7 @@ $radio-button-default-color--inverted: $svaberg;
         }
 
         .jkl-radio-button__dot {
-            box-shadow: inset 0 0 0 rem(1px) $svaberg, 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 rem(1px) jkl.$color-svaberg, 0 0 0 0 transparent;
             box-shadow: inset 0 0 0 rem(1px) var(--radio-button-default-color--inverted), 0 0 0 0 transparent;
 
             background-color: $radio-button-background-color--inverted;
