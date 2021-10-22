@@ -126,12 +126,24 @@ function messageFactory(messageType: messageTypes) {
             }
         };
 
+        const newChildren = React.Children.map(children, (child) => {
+            if (typeof child === "string") {
+                return <p className="jkl-body">{child}</p>;
+            }
+            if (React.isValidElement(child)) {
+                return React.cloneElement(child, {
+                    className: `jkl-body ${child.props.className}`,
+                });
+            }
+            return child;
+        });
+
         return (
             <div className={componentClassName} role={role || getRole(messageType)} data-theme="light">
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
                     {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
-                    <p className="jkl-body">{children}</p>
+                    {newChildren}
                 </div>
                 {dismissAction?.handleDismiss && (
                     <IconButton
