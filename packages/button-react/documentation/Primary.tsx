@@ -40,7 +40,7 @@ export const primaryCode = ({ boolValues }: ExampleComponentProps): string => `
             : `false`
     }}
     onClick={simulateLoading}
-    className="jkl-spacing--right-1"
+    className="jkl-spacing-l--right"
 >
     Lagre og send inn
 </PrimaryButton>
