@@ -1,5 +1,9 @@
 # Migrasjonsguide
 
+## Til `jkl-table-react@7.0.0`
+
+Feilaktig merket som majorversjon. Ingen breaking change.
+
 ## Til `jkl-table-react@6.0.0`
 
 `Table`-komponenten er nå toppnivåkomponenten i det nye flerkomponents-APIet til tabeller.
