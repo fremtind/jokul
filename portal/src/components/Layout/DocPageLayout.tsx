@@ -1,11 +1,10 @@
 import React, { FC, ReactNode, useContext } from "react";
 import { motion } from "framer-motion";
-import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import { DataTable } from "@fremtind/jkl-table-react";
-import { Frontmatter, FrontmatterTypeProp } from "../Header/useNavigationLinks";
+import { Frontmatter } from "../Header/useNavigationLinks";
 import { BlogPageHeader, ComponentPageHeader } from "./components";
 import { a11yContext } from "../../contexts/a11yContext";
 import { useLocation } from "../../contexts/locationContext";
+import { APIDocumentation } from "./components/APIDocumentation/APIDocumentation";
 
 interface Props {
     location: Location;
@@ -14,14 +13,6 @@ interface Props {
         frontmatter: Frontmatter;
     };
 }
-
-const getRows = (data: FrontmatterTypeProp[]) =>
-    data.map((prop) => [
-        prop.name ? `${prop.name}` : "",
-        prop?.defaultValue?.value ? `${prop.defaultValue.value}` : "ingen",
-        prop.required ? "Påkrevd" : "Ikke påkrevd",
-        prop.type?.name ?? "",
-    ]);
 
 export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { frontmatter } }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
@@ -41,22 +32,7 @@ export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { fr
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />
             {children}
-            {frontmatter.type && (
-                <section className="jkl-spacing-3xl--bottom jkl-portal-paragraph">
-                    <h2 className="jkl-heading-3 jkl-spacing-3xl--top">PropTypes</h2>
-                    <Accordion className="jkl-spacing-xl--top">
-                        {frontmatter.type.map(({ displayName, props }) => (
-                            <AccordionItem title={`${displayName}`} key={displayName}>
-                                <DataTable
-                                    columns={["Prop", "DefaultValue", "Required", "Type"]}
-                                    rows={getRows(Object.values(props))}
-                                    verticalAlign="top"
-                                />
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </section>
-            )}
+            {frontmatter.type && frontmatter.type.length > 0 && <APIDocumentation types={frontmatter.type} />}
         </motion.main>
     );
 };
