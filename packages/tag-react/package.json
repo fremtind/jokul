@@ -1,0 +1,54 @@
+{
+    "name": "@fremtind/jkl-tag-react",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul React tag component",
+    "homepage": "https://jokul.fremtind.no",
+    "keywords": [
+        "tag",
+        "tags",
+        "jøkul",
+        "fremtind"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev:style": "lerna exec --scope=@fremtind/jkl-tag yarn build:watch",
+        "dev:js": "parcel documentation/index.html",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.15.4",
+        "@fremtind/jkl-core": "^8.0.0",
+        "@fremtind/jkl-tag": "^1.0.0"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0",
+        "react": "^16.8.6 || ^17.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}
