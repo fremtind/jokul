@@ -21,6 +21,10 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
     position: relative;
     text-align: left;
 
+    &--align-top {
+        vertical-align: top;
+    }
+
     &--align-right {
         text-align: right;
     }
