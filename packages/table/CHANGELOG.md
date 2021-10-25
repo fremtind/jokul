@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.0 (2021-10-25)
+
+### Features
+
+- variant av table-cell med toppjustering ([d4cf5bf](https://github.com/fremtind/jokul/commit/d4cf5bf22d70c034ff7a13ea5f72c56bba142093))
+
 ## 5.0.0 (2021-10-25)
 
 ### Features
