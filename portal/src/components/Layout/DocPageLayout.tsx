@@ -50,6 +50,7 @@ export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { fr
                                 <DataTable
                                     columns={["Prop", "DefaultValue", "Required", "Type"]}
                                     rows={getRows(Object.values(props))}
+                                    verticalAlign="top"
                                 />
                             </AccordionItem>
                         ))}
