@@ -15,9 +15,11 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableEl
     rows: React.ReactNode[][];
     columns: string[];
     emptyTableText?: string;
+    /** Velg mellom vertikal sentrering av innholdet eller toppjustering. Typisk skal innholdet være sentrert, men dersom én eller flere kolonner typisk har mye mer innhold enn naboene kan toppjustering være bedre. */
+    verticalAlign?: "center" | "top";
 }
 
-export const DataTable: VFC<Props> = ({ caption, columns, emptyTableText, rows, ...rest }) => {
+export const DataTable: VFC<Props> = ({ caption, columns, emptyTableText, rows, verticalAlign, ...rest }) => {
     return (
         <Table fullWidth={true} {...rest}>
             {caption && <TableCaption srOnly>{caption}</TableCaption>}
@@ -39,7 +41,7 @@ export const DataTable: VFC<Props> = ({ caption, columns, emptyTableText, rows, 
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.map((cell, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={columns[cellIndex]}>
+                            <TableCell key={cellIndex} data-th={columns[cellIndex]} verticalAlign={verticalAlign}>
                                 {cell}
                             </TableCell>
                         ))}
