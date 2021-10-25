@@ -126,17 +126,9 @@ function messageFactory(messageType: messageTypes) {
             }
         };
 
-        const newChildren = React.Children.map(children, (child) => {
-            if (typeof child === "string") {
-                return <p className="jkl-body">{child}</p>;
-            }
-            if (React.isValidElement(child)) {
-                return React.cloneElement(child, {
-                    className: `jkl-body ${child.props.className}`,
-                });
-            }
-            return child;
-        });
+        const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
+
+        const newChildren = hasStringChild?.[0] ? <p className="jkl-body">{children}</p> : children;
 
         return (
             <div className={componentClassName} role={role || getRole(messageType)} data-theme="light">
