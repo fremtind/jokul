@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-10-25)
+
+### Features
+
+- nye tabellkomponenter ([a135cf5](https://github.com/fremtind/jokul/commit/a135cf566ff0084c239931d31b31caca515dbdc8))
+
+### BREAKING CHANGES
+
+- Se migreringsdokumentasjonen for \`table-react\`
+
 ## 6.0.0 (2021-10-21)
 
 ### chore
