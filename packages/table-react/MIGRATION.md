@@ -1,6 +1,6 @@
 # Migrasjonsguide
 
-## Til `jkl-table-react@4.0.0`
+## Til `jkl-table-react@6.0.0`
 
 `Table`-komponenten er nå toppnivåkomponenten i det nye flerkomponents-APIet til tabeller.
 
@@ -22,3 +22,7 @@ Vi anbefaler at du gir en `caption` til `DataTable`.
 - <Table columns={cols} rows={rows} />
 + <DataTable columns={cols} rows={rows} caption="Saksliste" />
 ```
+
+## Til `jkl-table-react@5.0.0`
+
+Oppgrader til `@fremtind/jkl-core@^8.0.0`
