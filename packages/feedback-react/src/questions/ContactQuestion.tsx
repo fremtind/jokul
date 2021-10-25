@@ -32,11 +32,22 @@ const defaultSuccessMessage = {
 };
 
 interface Props {
+    /**
+     * Lar deg tilpasse spørsmålsteksten.
+     * @default "Kan vi kontakte deg for flere innspill?"
+     * */
     label?: string;
+    /**
+     * Lar deg tilpasse teksten på knappen for innsending.
+     * @default "Sett meg på lista!"
+     * */
     sendButtonLabel?: string;
+    /** Sett til true om du også vil spørre om brukjerens telefonnummer i tillegg til epost */
     withPhone?: boolean;
+    /** Her kan du legge inn eventuelt annet innhold du vil ha med. Kommer mellom overskriften og feltene for utfylling */
     children?: ReactNode;
     onSubmit: (values: { email: string; phone?: string }) => void;
+    /** Lar deg tilpasse meldingen som kommer når brukeren sender inn skjemaet.  */
     successMessage?: {
         title: string;
         children: ReactNode;

@@ -1,22 +1,29 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactElement, ReactNode, useState, ComponentProps } from "react";
 import { Followup } from "./followup/Followup";
 import { MainQuestion } from "./main-question/MainQuestion";
 import { FeedbackContextProvider } from "./feedbackContext";
 import { ContactQuestion } from "./questions";
 import { FeedbackOption, FeedbackType } from "./types";
 
-type FollowupProps = React.ComponentProps<typeof Followup>;
-type ContactQuestionProps = React.ComponentProps<typeof ContactQuestion>;
+type FollowupProps = ComponentProps<typeof Followup>;
+type ContactQuestionProps = ComponentProps<typeof ContactQuestion>;
 
 interface Props {
     className?: string;
+    /** Velg typen alternativer, Slider eller RadioButtons. */
     type: "slider" | "radio";
+    /** Spørsmålet som stilles til brukeren */
     label: string;
+    /** Svaralternativer til spørsmålet */
     options: FeedbackOption[];
+    /** Dersom du vil stille et åpent spørsmål i tillegg kan du legge det til her */
     addOnQuestion?: {
+        /** Spørsmålet du vil stille */
         label: string;
+        /** Eventuell hjelpetekst. Om du ikke spesifiserer en vil det vises en påminnelse om å ikke skrive inn personling informasjon. */
         helpLabel?: string;
     };
+    /** Lar deg tilpasse meldingen som kommer når brukeren sender inn tilbakemeldingen.  */
     successMessage?: {
         title: string;
         children: ReactNode;
@@ -27,7 +34,7 @@ interface Props {
     contactQuestion?: ContactQuestionProps;
 }
 
-export const Feedback: React.VFC<Props> = ({ className, followup, contactQuestion, ...mainQuestionProps }) => {
+export const Feedback = ({ className, followup, contactQuestion, ...mainQuestionProps }: Props): ReactElement => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
     const [followupStarted, setFollowupStarted] = useState(false);
     const [followupSubmitted, setFollowupSubmitted] = useState(false);
