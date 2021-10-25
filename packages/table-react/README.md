@@ -24,7 +24,7 @@ import { DataTable } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";
 ```
 
-Den enkleste tabellen benyttes som en tom komponent, som tar inn kolonner og rader som props. Kolonnene (`columns`) er et array av `string`-verdier, mens radene (`rows`) er et array av `string`-arrayer og/eller `TableAnchorRowData`-verdier (se under):
+Den enkleste tabellen benyttes som en tom komponent, som tar inn kolonner og rader som props. Kolonnene (`columns`) er et array av `string`-verdier, mens radene (`rows`) er et array av `string`-arrayer:
 
 ```jsx
 const cols = ["Dato", "Saksnummer", "Kundenummer"]
@@ -33,7 +33,7 @@ const rows = [
     ["13.04.2019", "20-8382811", "010203 99887"]
 ]
 
-<DataTable columns={cols} rows={rows} />
+<DataTable columns={cols} rows={rows} caption="Saksliste" />
 ```
 
 ### Større fleksibilitet
