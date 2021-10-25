@@ -1,0 +1,7 @@
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+.jkl-table-head {
+    &--sr-only {
+        @include screenreader-only;
+    }
+}

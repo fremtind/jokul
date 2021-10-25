@@ -62,6 +62,10 @@
         &:before {
             content: attr(data-example-text);
         }
+
+        &--scrollable {
+            overflow-x: scroll;
+        }
     }
 
     &__example-options {
