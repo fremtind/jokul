@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-10-25)
+
+### Features
+
+- nye tabellkomponenter ([a135cf5](https://github.com/fremtind/jokul/commit/a135cf566ff0084c239931d31b31caca515dbdc8))
+- variant av table-cell med toppjustering ([d4cf5bf](https://github.com/fremtind/jokul/commit/d4cf5bf22d70c034ff7a13ea5f72c56bba142093))
+
+### BREAKING CHANGES
+
+- Se migreringsdokumentasjonen for \`table-react\`
+
 ## 6.0.0 (2021-10-25)
 
 ### Features
