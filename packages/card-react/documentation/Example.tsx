@@ -8,7 +8,7 @@ function handleClick() {
 }
 
 const CardDemo: VFC = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+    <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <Card className="test-class">
             <p className="jkl-body">Empty card</p>
         </Card>

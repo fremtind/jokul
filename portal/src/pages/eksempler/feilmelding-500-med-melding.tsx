@@ -11,7 +11,7 @@ const NotFoundPage: VFC = () => (
         transition={{ duration: 0.35 }}
         className="jkl-portal__main"
     >
-        <h1 className="jkl-title jkl-spacing--bottom-3 jkl-spacing--top-3">
+        <h1 className="jkl-title jkl-spacing-2xl--bottom jkl-spacing-2xl--top">
             Huff da, nå har det skjedd en feil hos oss!
         </h1>
         <div className="jkl-portal-paragraph">

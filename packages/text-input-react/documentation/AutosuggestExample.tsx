@@ -41,7 +41,7 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
             />
 
             <Autosuggest
-                className="jkl-layout-spacing--small-top"
+                className="jkl-spacing-l--top"
                 label="Velg land med fritekst"
                 onInputValueChange={setValue2}
                 onChange={setValue2}

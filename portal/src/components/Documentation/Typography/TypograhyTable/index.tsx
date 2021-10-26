@@ -23,7 +23,7 @@ export const Example: VFC = () => {
     return (
         <>
             <table
-                className="jkl-typography-table jkl-spacing--top-2"
+                className="jkl-typography-table jkl-spacing-xl--top"
                 {...(isCompact ? { "data-compactlayout": true } : {})}
             >
                 <TableHeader />
@@ -33,7 +33,7 @@ export const Example: VFC = () => {
                     ))}
                 </tbody>
             </table>
-            <ToggleSwitch className="jkl-spacing--top-3" pressed={isCompact} onClick={toggleCompact}>
+            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isCompact} onClick={toggleCompact}>
                 Kompakt
             </ToggleSwitch>
         </>

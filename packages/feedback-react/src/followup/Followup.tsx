@@ -51,16 +51,13 @@ export const Followup: VFC<Props> = ({ questions, successMessage = defaultSucces
         <FollowUpProvider state={followupState}>
             {!followupStarted && (
                 <div className="jkl-feedback__fade-in">
-                    <p className="jkl-heading-4 jkl-layout-spacing--medium-top jkl-component-spacing--small-bottom">
+                    <p className="jkl-heading-4 jkl-spacing-xl--top jkl-spacing-xs--bottom">
                         Har du tid til å svare på noen flere spørsmål?
                     </p>
-                    <p className="jkl-body jkl-layout-spacing--medium-bottom">
+                    <p className="jkl-body jkl-spacing-xl--bottom">
                         Det tar kun et minutt, og hjelper oss å lage bedre løsninger for deg.
                     </p>
-                    <PrimaryButton
-                        onClick={() => setFollowupStarted(true)}
-                        className="jkl-layout-spacing--medium-right"
-                    >
+                    <PrimaryButton onClick={() => setFollowupStarted(true)} className="jkl-spacing-xl--right">
                         Jeg har tid!
                     </PrimaryButton>
                     <TertiaryButton onClick={() => setNoThanks(true)}>Nei takk</TertiaryButton>
@@ -73,9 +70,9 @@ export const Followup: VFC<Props> = ({ questions, successMessage = defaultSucces
                     </p>
                     {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
                     <QuestionComponent {...questions[step.number]} autoFocus />
-                    <div className="jkl-layout-spacing--medium-top" aria-live="off">
+                    <div className="jkl-spacing-xl--top" aria-live="off">
                         <Button type="submit">{step.isLast ? "Send inn" : "Neste"}</Button>
-                        <TertiaryButton onClick={handleAbort} className="jkl-layout-spacing--medium-left">
+                        <TertiaryButton onClick={handleAbort} className="jkl-spacing-xl--left">
                             Avbryt
                         </TertiaryButton>
                     </div>

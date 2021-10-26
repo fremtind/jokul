@@ -20,10 +20,10 @@ const IntersectionObserverExample: VFC = () => {
                 isInViewport ? "jlk-intersection-example--visible" : "jlk-intersection-example--not-visible"
             }`}
         >
-            <p className="jkl-body jkl-spacing--all-2" style={{ height: "100vh" }}>
+            <p className="jkl-body jkl-spacing-xl--all" style={{ height: "100vh" }}>
                 Scroll for å endre farge
             </p>
-            <p className="jkl-body jkl-spacing--all-2" ref={targetRef}>
+            <p className="jkl-body jkl-spacing-xl--all" ref={targetRef}>
                 Scroll tilbake for å endre fargen tilbake
             </p>
         </div>

@@ -1,4 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/functions";
 
 .jkl-portal-downloadasset {
@@ -6,7 +7,7 @@
     padding: rem(16px);
 
     &--dark-bg {
-        background-color: $granitt;
+        background-color: jkl.$color-granitt;
     }
     &__image {
         width: rem(300px);
@@ -19,7 +20,7 @@
         padding: rem(16px);
         display: block;
         &--dark {
-            color: $snohvit;
+            color: jkl.$color-snohvit;
         }
     }
     &__button {

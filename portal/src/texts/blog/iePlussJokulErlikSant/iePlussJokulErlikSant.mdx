@@ -69,7 +69,7 @@ import "./common/polyfills";
 
 IE 11 er ikke helt ukjent for å henge litt etter på stylingfronten. Ofte tenker man spesielt på [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout). Her finnes det også verktøy som kan hjelpe oss på veien, det er dog ikke like mye å hente her som på JavaScript-siden.
 
-Ved å benytte oss av [PostCSS](https://postcss.org/) kan vi få en del nyttig funksjonalitet, som blant annet autoprefix. Bare dette hjelper oss et stykke på veien. Dette verktøyet vil prøve å polyfille funksjonalitet så langt det er mulig. Men CSS Grid begrenser seg noe, og derfor er grid-modulen i autoprefixeren slått av som standard. Ved å legge til følgende konfigurasjonsfil kan vi konfigurere PostCSS til å autoprefixe CSS Grid:
+Ved å benytte oss av [PostCSS](https://postcss.org/) kan vi få en del nyttig funksjonalitet, som blant annet autoprefix. Bare dette hjelper oss et stykke på veien. Dette verktøyet vil prøve å polyfille funksjonalitet så langt det er mulig. Men CSS Grid begrenser seg noe, og derfor er grid-modulen i autoprefixeren slått av som standard. Ved å legge til følgende konfigurasjonsfil kan vi konfigurere PostCSS til å autoprefixe CSS Grid:
 
 
 ```javscript
@@ -147,7 +147,7 @@ Hvordan kan dette gjenskapes med Flexbox?
     flex-wrap: wrap;
     max-width: $bm-max-width;
     margin: 0 auto;
-    padding: $layout-spacing--large 0 $padding-bottom 0;
+    padding: jkl.$spacing-2xl 0 $padding-bottom 0;
 }
 
 @supports (display: grid) {

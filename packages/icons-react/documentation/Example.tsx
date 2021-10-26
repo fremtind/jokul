@@ -54,12 +54,12 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
 
     return (
         <div style={{ width: "100%" }} className={`jkl-color-${inverted ? "hvit" : "svart"}`}>
-            <p className="jkl-component-spacing--medium-bottom jkl-heading-3">Ikon</p>
+            <p className="jkl-spacing-s--bottom jkl-heading-3">Ikon</p>
             {variant === "inherit" && (
                 <TextInput
                     label="Sett fontstørrelse"
                     variant="small"
-                    className="jkl-layout-spacing--small-top jkl-layout-spacing--small-bottom"
+                    className="jkl-spacing-l--top jkl-spacing-l--bottom"
                     value={fontSize}
                     onChange={(e) => setFontSize(e.target.value)}
                     inverted={inverted}
@@ -75,13 +75,9 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
                     />
                 ))}
             </Grid>
-            <p className="jkl-layout-spacing--large-top jkl-component-spacing--medium-bottom jkl-heading-3">
-                Animerte ikon
-            </p>
+            <p className="jkl-spacing-2xl--top jkl-spacing-s--bottom jkl-heading-3">Animerte ikon</p>
             {variant === "inherit" && (
-                <p className="jkl-small jkl-layout-spacing--small-bottom">
-                    Animerte ikon støtter ikke inherit-varianten
-                </p>
+                <p className="jkl-small jkl-spacing-l--bottom">Animerte ikon støtter ikke inherit-varianten</p>
             )}
             <Grid columns="two" color={color}>
                 <AnimatedIcon

@@ -84,7 +84,7 @@ export const Slider = forwardRef<HTMLInputElement, Props>(
                         </span>
                     ))}
                 </div>
-                <SupportLabel className="jkl-layout-spacing--xs-top" helpLabel={helpLabel} errorLabel={errorLabel} />
+                <SupportLabel className="jkl-spacing-m--top" helpLabel={helpLabel} errorLabel={errorLabel} />
             </div>
         );
     },

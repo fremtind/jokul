@@ -1,5 +1,112 @@
 # Migrasjonsguide
 
+## Til `jkl-core@8.0.0`
+
+Denne oppdateringen fjerner skillet mellom layout og component spacing og samler disse i én ny skala. I tillegg fjernes tall-skalaen. Det er også gjort endringer på hvordan alle variabler i `@fremtind/jkl-core/variables` tas i bruk i stilark.
+
+### Sass-mixin
+
+Sass-mixinen har fått et nytt navn, og et litt annet API.
+Den importeres også fra den nye `jkl`-eksporten i `jkl-core` på samme måte som de nye fargeverdiene fra v5.0.0. \
+Alle variabler i `@fremtind/jkl-core/variables` blir nå videresendt via `@fremtind/jkl-core/jkl`.\
+I denne oppdateringen er det følgende som blir videresendt: `breakpoints`, `shadow`, `spacing` og `z-index`.
+
+Under ser du et eksempel:
+
+```scss
+@use "~@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
+
+.min-komponent {
+    box-shadow: jkl.$drop-shadow--medium; //shadow
+    margin: jkl.$spacing-m -#{jkl.$spacing-s}; //spacing
+    z-index: jkl.$z-index--floating; //z-index
+
+    @media screen and (max-width: #{jkl.$breakpoint-small}) {
+        // breakpoints
+    }
+}
+```
+
+### Variabler i spacingskalaen
+
+Under ser du tabeller for å oversette variabler til den nye skalaen.
+
+| component-spacing          | Ny skala     |
+| -------------------------- | ------------ |
+| $component-spacing--xxs    | $spacing-3xs |
+| $component-spacing--xs     | $spacing-2xs |
+| $component-spacing--small  | $spacing-xs  |
+| $component-spacing--medium | $spacing-s   |
+| $component-spacing--large  | $spacing-m   |
+| $component-spacing--xl     | $spacing-l   |
+| $component-spacing--xxl    | $spacing-xl  |
+| $component-spacing--giant  | $spacing-2xl |
+
+| layout-spacing          | Ny skala     |
+| ----------------------- | ------------ |
+| $layout-spacing--xs     | $spacing-m   |
+| $layout-spacing--small  | $spacing-l   |
+| $layout-spacing--medium | $spacing-xl  |
+| $layout-spacing--large  | $spacing-2xl |
+| $layout-spacing--xl     | $spacing-3xl |
+| $layout-spacing--xxl    | $spacing-4xl |
+
+| tall-spacing | Ny skala     |
+| ------------ | ------------ |
+| $spacing-1   | $spacing-3xs |
+| $spacing-2   | $spacing-2xs |
+| $spacing-3   | $spacing-xs  |
+| $spacing-4   | $spacing-s   |
+| $spacing-5   | $spacing-m   |
+| $spacing-6   | $spacing-l   |
+| $spacing-7   | $spacing-xl  |
+| $spacing-8   | $spacing-2xl |
+| $spacing-9   | $spacing-3xl |
+| $spacing-10  | $spacing-4xl |
+
+### Klassenavn for spacingskalaen
+
+Formatet for klassenavn har endret seg: `jkl-spacing-${navn}--${all | top | right | bottom | left}`
+
+Eksempel: `jkl-spacing-3xs--top`.
+
+Under ser du tabeller for å oversette klassenavn til den nye skalaen.
+
+| component-spacing             | Ny skala        |
+| ----------------------------- | --------------- |
+| jkl-component-spacing--xxs    | jkl-spacing-3xs |
+| jkl-component-spacing--xs     | jkl-spacing-2xs |
+| jkl-component-spacing--small  | jkl-spacing-xs  |
+| jkl-component-spacing--medium | jkl-spacing-s   |
+| jkl-component-spacing--large  | jkl-spacing-m   |
+| jkl-component-spacing--xl     | jkl-spacing-l   |
+| jkl-component-spacing--xxl    | jkl-spacing-xl  |
+| jkl-component-spacing--giant  | jkl-spacing-2xl |
+
+| layout-spacing             | Ny skala        |
+| -------------------------- | --------------- |
+| jkl-layout-spacing--xs     | jkl-spacing-m   |
+| jkl-layout-spacing--small  | jkl-spacing-l   |
+| jkl-layout-spacing--medium | jkl-spacing-xl  |
+| jkl-layout-spacing--large  | jkl-spacing-2xl |
+| jkl-layout-spacing--xl     | jkl-spacing-3xl |
+| jkl-layout-spacing--xxl    | jkl-spacing-4xl |
+
+MERK: For tabellen under skal `position` bli erstattet med en av disse verdiene: `all`, `top`, `right`, `bottom`, `left`
+
+| tall-spacing            | Ny skala                  |
+| ----------------------- | ------------------------- |
+|                         | jkl-spacing-3xs--position |
+|                         | jkl-spacing-2xs--position |
+|                         | jkl-spacing-xs--position  |
+|                         | jkl-spacing-s--position   |
+|                         | jkl-spacing-m--position   |
+| jkl-spacing--position-1 | jkl-spacing-l--position   |
+| jkl-spacing--position-2 | jkl-spacing-xl--position  |
+| jkl-spacing--position-3 | jkl-spacing-2xl--position |
+| jkl-spacing--position-4 | jkl-spacing-3xl--position |
+| jkl-spacing--position-5 | jkl-spacing-4xl--position |
+
 ## Til `jkl-core@7.0.0`
 
 Denne oppdateringen bytter ut hele fontskalaen, og gjør endringer i hvordan disse tas i bruk i stilarkene dine.

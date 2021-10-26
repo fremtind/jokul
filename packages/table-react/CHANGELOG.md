@@ -3,21 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-10-25)
+
+### Features
+
+-   variant av table-cell med toppjustering ([d4cf5bf](https://github.com/fremtind/jokul/commit/d4cf5bf22d70c034ff7a13ea5f72c56bba142093))
+
+### BREAKING CHANGES
+
+-   Feilaktig merket som majorversjon. Ingen breaking change.
+
+## 6.0.0 (2021-10-25)
+
+### Features
+
+-   nye tabellkomponenter ([a135cf5](https://github.com/fremtind/jokul/commit/a135cf566ff0084c239931d31b31caca515dbdc8))
+
+### BREAKING CHANGES
+
+-   Se migreringsdokumentasjonen for \`table-react\`
+
+## 5.0.0 (2021-10-21)
+
+### chore
+
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### BREAKING CHANGES
+
+-   depends on jkl-core v8 with breaking changes
+
 ## 4.0.3 (2021-08-30)
 
 ### Bug Fixes
 
-- add missing dependency ([76c0506](https://github.com/fremtind/jokul/commit/76c0506d71cdf749607d35bcb179733ae8357dd2))
+-   add missing dependency ([76c0506](https://github.com/fremtind/jokul/commit/76c0506d71cdf749607d35bcb179733ae8357dd2))
 
 ## 4.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 

@@ -24,8 +24,8 @@ const SimpleForm: VFC = () => {
 
     return (
         <section>
-            <h1 className="jkl-title jkl-spacing--top-3 jkl-spacing--bottom-2">Liksomskjema</h1>
-            <p className="jkl-heading-2 jkl-spacing--bottom-2">
+            <h1 className="jkl-title jkl-spacing-2xl--top jkl-spacing-xl--bottom">Liksomskjema</h1>
+            <p className="jkl-heading-2 jkl-spacing-xl--bottom">
                 Har du husforsikring får du erstatning slik at du kan reparere eller bygge nytt hvis noe skjer med
                 boligen din.
             </p>

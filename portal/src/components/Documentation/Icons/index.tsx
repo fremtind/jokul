@@ -87,7 +87,7 @@ const icons = [
 export const Example: VFC = () => {
     return (
         <>
-            <table className={`jkl-icon-table jkl-spacing--top-2`}>
+            <table className={`jkl-icon-table jkl-spacing-xl--top`}>
                 <TableHeader />
                 <tbody>
                     {icons.map((ico) => (

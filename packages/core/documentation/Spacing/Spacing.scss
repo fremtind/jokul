@@ -1,6 +1,5 @@
 @use "../../jkl";
 
-@import "../../variables/all";
 @import "../../mixins/all";
 @import "../../functions";
 
@@ -11,7 +10,7 @@
 
     &__data,
     &__header {
-        padding: $component-spacing--small;
+        padding: jkl.$spacing-xs;
         @include jkl.text-style("small");
         text-align: left;
         vertical-align: top;
@@ -35,7 +34,7 @@
 
     &__data {
         border-bottom-color: jkl.$color-stein;
-        padding-bottom: $component-spacing--large;
+        padding-bottom: jkl.$spacing-m;
         min-height: rem(48px);
     }
 
@@ -61,7 +60,7 @@
 
             &::before {
                 content: attr(data-header);
-                margin-right: $component-spacing--medium;
+                margin-right: jkl.$spacing-s;
             }
 
             &:first-of-type::before {
@@ -73,7 +72,7 @@
             display: block;
 
             &:not(:last-of-type) {
-                margin-bottom: $layout-spacing--medium;
+                margin-bottom: jkl.$spacing-xl;
             }
         }
     }

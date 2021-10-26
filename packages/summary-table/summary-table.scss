@@ -2,7 +2,6 @@
 
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 
 @include jkl.helper-light-mode-variables {
     --jkl-summary-table-border-color: #{jkl.$color-stein};
@@ -20,13 +19,13 @@
     tr {
         display: flex;
         justify-content: space-between;
-        padding-bottom: $component-spacing--large;
+        padding-bottom: jkl.$spacing-m;
     }
 
     th,
     td {
-        padding-left: $component-spacing--large;
-        padding-right: $component-spacing--large;
+        padding-left: jkl.$spacing-m;
+        padding-right: jkl.$spacing-m;
 
         &:first-child {
             text-align: left;
@@ -40,7 +39,7 @@
     & > tbody {
         th {
             font-weight: jkl.$typography-weight-normal;
-            padding-right: $component-spacing--medium;
+            padding-right: jkl.$spacing-s;
         }
     }
 
@@ -49,7 +48,7 @@
         border-top: rem(1px) solid var(--jkl-summary-table-border-color);
         border-bottom: rem(1px) solid jkl.$color-stein;
         border-bottom: rem(1px) solid var(--jkl-summary-table-border-color);
-        padding-top: $component-spacing--large;
+        padding-top: jkl.$spacing-m;
 
         th,
         td {
