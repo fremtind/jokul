@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, VFC } from "react";
 import { ExampleComponentProps, ChoiceProp, BoolProp } from "./";
 import { ExampleBase } from "./ExampleBase";
 
@@ -13,7 +13,7 @@ export interface Props {
     codeExample?: string | ((options: ExampleComponentProps) => string);
 }
 
-export const ComponentExample: FC<Props> = ({ component, children, ...rest }) => {
+export const ComponentExample: VFC<Props> = ({ component, ...rest }) => {
     const C = component;
 
     return (
@@ -21,8 +21,6 @@ export const ComponentExample: FC<Props> = ({ component, children, ...rest }) =>
             responsiveLayout={false}
             component={({ boolValues, choiceValues }) => <C boolValues={boolValues} choiceValues={choiceValues} />}
             {...rest}
-        >
-            {children}
-        </ExampleBase>
+        />
     );
 };

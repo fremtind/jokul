@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, FC } from "react";
+import React, { useState, useLayoutEffect, VFC, FC } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
@@ -20,7 +20,7 @@ export interface Props {
     responsiveLayout: boolean;
 }
 
-export const ExampleBase: FC<Props> = ({
+export const ExampleBase: VFC<Props> = ({
     responsiveLayout,
     component,
     knobs,
