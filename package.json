@@ -33,7 +33,8 @@
         "server": "lerna run --scope @fremtind/portal serve --stream",
         "boot": "yarn install --force && yarn build",
         "reboot": "yarn clean && yarn boot",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "scaffold": "node './scripts/scaffold'"
     },
     "dependencies": {
         "classnames": "^2.2.6",
