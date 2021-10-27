@@ -2,22 +2,22 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "5.3.11",
+    "version": "7.0.1",
     "devDependencies": {
         "@types/downloadjs": "^1.4.2",
-        "@types/react-helmet": "^6.1.0",
+        "@types/react-helmet": "^6.1.4",
         "@types/react-syntax-highlighter": "^13.5.0",
-        "react-docgen-typescript": "^2.0.0"
+        "react-docgen-typescript": "^2.1.1"
     },
     "dependencies": {
-        "@fremtind/jkl-react-hooks": "^5.0.8",
+        "@fremtind/jkl-react-hooks": "^6.0.0",
         "@mdx-js/mdx": "^1.6.22",
         "@mdx-js/react": "^1.6.22",
         "classnames": "^2.2.6",
         "downloadjs": "^1.4.7",
-        "focus-trap-react": "^8.7.0",
+        "focus-trap-react": "^8.8.2",
         "framer-motion": "^4.1.2",
-        "gatsby": "^3.13.0",
+        "gatsby": "^3.14.3",
         "gatsby-image": "^3.0.0",
         "gatsby-plugin-image": "^1.13.0",
         "gatsby-plugin-layout": "^2.13.0",
@@ -37,10 +37,9 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-helmet": "^6.1.0",
-        "react-hook-form": "^7.17.4",
+        "react-hook-form": "^7.17.5",
         "react-syntax-highlighter": "^15.4.3",
-        "sass": "^1.43.2",
-        "snyk": "^1.737.0"
+        "sass": "^1.43.2"
     },
     "keywords": [
         "portal"
@@ -53,9 +52,7 @@
         "build:test": "gatsby build && gatsby serve",
         "dev": "GATSBY_HOT_LOADER=fast-refresh gatsby develop --host 0.0.0.0",
         "start": "yarn dev",
-        "serve": "gatsby serve",
-        "snyk-protect": "snyk protect",
-        "prepublish": "npm run snyk-protect"
+        "serve": "gatsby serve"
     },
     "repository": {
         "type": "git",
@@ -63,6 +60,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "snyk": true
+    }
 }

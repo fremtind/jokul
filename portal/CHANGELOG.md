@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-10-25)
+
+### Features
+
+- nye tabellkomponenter ([a135cf5](https://github.com/fremtind/jokul/commit/a135cf566ff0084c239931d31b31caca515dbdc8))
+
+### BREAKING CHANGES
+
+- Se migreringsdokumentasjonen for \`table-react\`
+
+## 6.0.0 (2021-10-21)
+
+### chore
+
+- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### BREAKING CHANGES
+
+- depends on jkl-core v8 with breaking changes
+
 ## 5.3.5 (2021-10-06)
 
 ### Bug Fixes

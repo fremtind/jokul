@@ -1,7 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -22,7 +21,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     position: relative;
     width: 100%;
     max-width: $message-width;
-    padding: $component-spacing--xl;
+    padding: jkl.$spacing-l;
     padding-left: rem(56px);
     background-color: $bg-color--default;
     color: $text-color;
@@ -33,22 +32,22 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__icon {
         position: absolute;
-        left: $spacing-5;
+        left: jkl.$spacing-m;
         height: rem(24px);
     }
 
     &__content {
         & > * + * {
-            margin-top: $component-spacing--small;
+            margin-top: jkl.$spacing-xs;
         }
 
         &:not(:last-child) {
-            margin-right: $layout-spacing--xs;
+            margin-right: jkl.$spacing-m;
         }
     }
 
     &__title {
-        margin-bottom: $component-spacing--small;
+        margin-bottom: jkl.$spacing-xs;
 
         @include jkl.text-style("heading-4");
     }
@@ -58,7 +57,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         background-color: transparent;
         padding: 0;
         margin-left: auto;
-        margin-top: $component-spacing--xs;
+        margin-top: jkl.$spacing-2xs;
         color: inherit;
         cursor: pointer;
         width: rem(20px);

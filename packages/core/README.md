@@ -56,7 +56,7 @@ Når du skal utvikle egne komponenter basert på Jøkul anbefaler vi at du tar i
 Vi anbefaler å bruke variablene som design tokens, det vil si at du lager egne variabler for egenskapene til komponenten din, som henter verdier fra variablene i Jøkul. For eksempel kan det se slik ut i en knapp:
 
 ```scss
-$button-background-color: $svart;
+$button-background-color: jkl.$color-svart;
 /* ... */
 .jkl-button {
     background-color: $button-background-color;

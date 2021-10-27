@@ -13,7 +13,7 @@ const ReducedMotionExample: VFC = () => {
     const { prefersReducedMotion } = useContext(ScreenContext);
 
     return (
-        <p className="jkl-heading-3 jkl-spacing--bottom-2">{`Din dings har redusert bevegelse ${
+        <p className="jkl-heading-3 jkl-spacing-xl--bottom">{`Din dings har redusert bevegelse ${
             prefersReducedMotion ? "PÅ" : "AV"
         }`}</p>
     );

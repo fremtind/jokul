@@ -13,12 +13,12 @@ const ScrollIntoViewExample: React.FC = () => {
             <div style={{ display: "flex", flexDirection: "column" }}>
                 <div>
                     <button
-                        className="jkl-button jkl-button--primary jkl-spacing--bottom-2"
+                        className="jkl-button jkl-button--primary jkl-spacing-xl--bottom"
                         onClick={() => toggleAutoScroll(!autoScroll)}
                     >
                         {autoScroll ? "Skru av" : "Skru på"}
                     </button>
-                    <button className="jkl-button jkl-button--secondary jkl-spacing--left-1" onClick={manualScroll}>
+                    <button className="jkl-button jkl-button--secondary jkl-spacing-l--left" onClick={manualScroll}>
                         Scroll
                     </button>
                 </div>

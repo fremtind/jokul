@@ -7,12 +7,12 @@ import "./style.scss";
 import Colors from "./Colors/Colors";
 import { LinkExample } from "./Link/LinkExample";
 import { NavLinkExample } from "./Link/NavLinkExample";
-import { ComponentSpacingTable, LayoutSpacingTable } from "./Spacing/Spacing";
+import { SpacingScaleTable } from "./Spacing/Spacing";
 import { NormalExample, SmallExample, LargeExample } from "./Typography/Typography";
 import { Keyboard } from "./Mixins/Keyboard";
 
 interface BoxProps {
-    type: "color" | "component" | "layout";
+    type: "color" | "spacing";
     number: number;
 }
 
@@ -24,7 +24,7 @@ Box.propTypes = {
 };
 
 export const Typo: VFC = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+    <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <h1 className="jkl-h1">Heading1</h1>
         <h2 className="jkl-h2">Heading2</h2>
         <h3 className="jkl-h3">Heading3</h3>
@@ -36,30 +36,23 @@ export const Typo: VFC = () => (
 );
 
 export const Spacing: VFC = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+    <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <h1 className="jkl-h1">Spacing</h1>
-        <h2 className="jkl-h2">Layout spacing</h2>
+
         <div className="demo-wrapper">
-            {[...Array(7)].map((_, idx) => (
-                <Box key={idx} type="layout" number={idx} />
-            ))}
-        </div>
-        <h2 className="jkl-h2">Component spacing</h2>
-        <div className="demo-wrapper">
-            {[...Array(9)].map((_, idx) => (
-                <Box key={idx} type="component" number={idx} />
+            {[...Array(10)].map((_, idx) => (
+                <Box key={idx} type="spacing" number={idx} />
             ))}
         </div>
     </section>
 );
 
 const Example: VFC = () => (
-    <section className="jkl-spacing--top-3 jkl-spacing--bottom-3">
+    <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
         <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv", "Back"] }} />
         <Colors />
-        <ComponentSpacingTable />
-        <LayoutSpacingTable />
+        <SpacingScaleTable />
         <NormalExample />
         <SmallExample />
         <LargeExample />

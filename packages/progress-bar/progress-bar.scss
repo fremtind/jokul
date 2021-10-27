@@ -1,5 +1,6 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
-@import "~@fremtind/jkl-core/variables/_colors.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $height: rem(8px);
@@ -13,7 +14,7 @@ $height: rem(8px);
     &__tracker {
         display: block;
         height: $height;
-        background-color: $suksess;
+        background-color: jkl.$color-suksess;
         transition-property: width;
         @include motion("easeInBounceOut", "lazy");
     }

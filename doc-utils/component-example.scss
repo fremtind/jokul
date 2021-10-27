@@ -1,6 +1,5 @@
 @use "../packages/core/jkl";
 
-@import "../packages/core/variables/_all.scss";
 @import "../packages/core/mixins/_all.scss";
 @import "../packages/core/_functions.scss";
 
@@ -13,19 +12,19 @@
 }
 
 .jkl-portal-responsive-example {
-    padding: $component-spacing--medium;
+    padding: jkl.$spacing-s;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
 }
 
 .jkl-portal-code-example {
-    width: calc(100% - #{$layout-spacing--xxl});
+    width: calc(100% - #{jkl.$spacing-4xl});
     max-width: 50vw;
     min-width: rem(600px);
 
     @include small-device {
-        width: calc(100% - #{$layout-spacing--medium});
+        width: calc(100% - #{jkl.$spacing-xl});
         max-width: 100%;
         min-width: initial;
     }
@@ -34,10 +33,10 @@
 .jkl-portal-component-example {
     box-sizing: border-box;
     background-color: var(--component-example-bg);
-    padding: $component-spacing--medium;
+    padding: jkl.$spacing-s;
     display: flex;
     flex-direction: row;
-    width: calc(100% - #{$layout-spacing--xxl});
+    width: calc(100% - #{jkl.$spacing-4xl});
     max-width: 50vw;
     min-width: rem(600px);
     min-height: rem(208px);
@@ -50,38 +49,42 @@
         color: var(--jkl-color);
         background-color: var(--jkl-background-color);
         position: relative;
-        padding: $layout-spacing--large $component-spacing--large;
+        padding: jkl.$spacing-2xl jkl.$spacing-m;
 
         &::before {
             @include jkl.text-style("small");
             color: jkl.$color-fjellgra;
             position: absolute;
-            top: $component-spacing--medium;
-            left: $component-spacing--large;
+            top: jkl.$spacing-s;
+            left: jkl.$spacing-m;
         }
 
         &:before {
             content: attr(data-example-text);
         }
+
+        &--scrollable {
+            overflow-x: scroll;
+        }
     }
 
     &__example-options {
         display: block;
-        padding: $component-spacing--medium $component-spacing--xl;
+        padding: jkl.$spacing-s jkl.$spacing-l;
         min-width: rem(180px);
     }
 
     &__example-options-header {
         &:not(:first-child) {
-            margin-top: $layout-spacing--small;
+            margin-top: jkl.$spacing-l;
         }
         @include jkl.text-style("small");
         color: jkl.$color-fjellgra;
-        margin-bottom: $component-spacing--medium;
+        margin-bottom: jkl.$spacing-s;
     }
 
     &__choice-option {
-        margin-top: $layout-spacing--small;
+        margin-top: jkl.$spacing-l;
 
         & .jkl-label.jkl-label--small {
             @include jkl.text-style("small");
@@ -90,7 +93,7 @@
     }
 
     @include small-device {
-        width: calc(100% - #{$layout-spacing--medium});
+        width: calc(100% - #{jkl.$spacing-xl});
         max-width: 100%;
         min-width: initial;
         flex-direction: column;
@@ -99,7 +102,7 @@
         }
         &__example-options {
             padding: 0;
-            padding-top: $component-spacing--medium;
+            padding-top: jkl.$spacing-s;
         }
     }
 }
@@ -115,10 +118,10 @@
         top: 0;
         left: 0;
         bottom: 0;
-        color: $snohvit;
+        color: jkl.$color-snohvit;
 
         *[data-theme="dark"] & {
-            color: $granitt;
+            color: jkl.$color-granitt;
         }
     }
 
@@ -126,7 +129,7 @@
         &__content {
             height: 812px;
             width: 375px;
-            border: 1px solid $granitt;
+            border: 1px solid jkl.$color-granitt;
             overflow: auto;
         }
     }
@@ -135,7 +138,7 @@
         &__content {
             height: 833px;
             width: 1112px;
-            border: 1px solid $granitt;
+            border: 1px solid jkl.$color-granitt;
             overflow: auto;
         }
     }
@@ -144,7 +147,7 @@
         &__content {
             height: 1080px;
             width: 1920px;
-            border: 1px solid $granitt;
+            border: 1px solid jkl.$color-granitt;
             overflow: auto;
         }
     }

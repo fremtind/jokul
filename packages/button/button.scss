@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_screens.scss";
 @import "~@fremtind/jkl-core/mixins/_helpers.scss";
 @import "~@fremtind/jkl-core/mixins/_motion.scss";
@@ -14,7 +13,7 @@ $button-min-width--compact: rem(80px);
 $button-text-size--compact: rem(14px);
 
 $button-border-width: rem(1px);
-$button-padding: $component-spacing--xl;
+$button-padding: jkl.$spacing-l;
 
 $focus-ring-distance: rem(4px);
 $focus-ring-width: rem(2px);

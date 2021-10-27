@@ -1,4 +1,4 @@
-@import "~@fremtind/jkl-core/variables/_spacing.scss";
+@use "~@fremtind/jkl-core/jkl";
 
 .jkl-portal__card-list {
     display: flex;
@@ -6,7 +6,7 @@
 
     & > *:not(:last-child) {
         margin: 0;
-        margin-right: $layout-spacing--medium;
+        margin-right: jkl.$spacing-xl;
     }
 
     &--vertical {
@@ -14,7 +14,7 @@
 
         & > *:not(:last-child) {
             margin: 0;
-            margin-bottom: $layout-spacing--medium;
+            margin-bottom: jkl.$spacing-xl;
         }
     }
 }

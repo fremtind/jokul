@@ -47,7 +47,7 @@ export const Calendar = forwardRef<HTMLElement, Props>(
 
         return (
             <CoreDatepicker
-                timestamp={currentDate ? currentDate.getTime() : new Date()}
+                date={currentDate || new Date()}
                 months={months}
                 days={days}
                 onDatepickerClickDay={onClickDate}

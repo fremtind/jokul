@@ -1,8 +1,8 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
 
 .jkl-portal__skip-to-content {
-    z-index: $z-index--floating;
-    padding: $component-spacing--medium;
+    z-index: jkl.$z-index--floating;
+    padding: jkl.$spacing-s;
     background-color: transparent;
     position: absolute;
     top: 0;

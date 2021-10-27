@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/functions";
 
@@ -11,7 +10,7 @@
 
     &__data,
     &__header {
-        padding: $component-spacing--small;
+        padding: jkl.$spacing-xs;
         @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
@@ -32,13 +31,13 @@
 
     &__header {
         font-weight: jkl.$typography-weight-bold;
-        border-bottom-color: $granitt;
+        border-bottom-color: jkl.$color-granitt;
         min-height: rem(40px);
     }
 
     &__data {
-        border-bottom-color: $stein;
-        padding-bottom: $component-spacing--large;
+        border-bottom-color: jkl.$color-stein;
+        padding-bottom: jkl.$spacing-m;
         min-height: rem(48px);
     }
 
@@ -65,7 +64,7 @@
 
             &::before {
                 content: attr(data-header);
-                margin-right: $layout-spacing--medium;
+                margin-right: jkl.$spacing-xl;
             }
 
             &:first-of-type::before {
@@ -77,14 +76,14 @@
             display: block;
 
             &:not(:last-of-type) {
-                margin-bottom: $layout-spacing--medium;
+                margin-bottom: jkl.$spacing-xl;
             }
         }
     }
 
     *[data-theme="dark"] & {
         &__header {
-            border-bottom-color: $snohvit;
+            border-bottom-color: jkl.$color-snohvit;
         }
     }
 }
