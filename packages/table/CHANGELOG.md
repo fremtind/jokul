@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.0 (2021-10-25)
+
+### Features
+
+- variant av table-cell med toppjustering ([d4cf5bf](https://github.com/fremtind/jokul/commit/d4cf5bf22d70c034ff7a13ea5f72c56bba142093))
+
+## 5.0.0 (2021-10-25)
+
+### Features
+
+- nytt tabelldesign ([9f833fd](https://github.com/fremtind/jokul/commit/9f833fdb76fd1965a89370adcf49e6e5900ca59e))
+
+### BREAKING CHANGES
+
+- Bryter tabellen opp i flere klasser. Nye klassenavn, modifiers, med mer.
+
 ## 4.0.0 (2021-10-21)
 
 ### Features

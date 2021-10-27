@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.1 (2021-10-25)
+
+### Bug Fixes
+
+- enabled other components as children to messagebox ([#2407](https://github.com/fremtind/jokul/issues/2407)) ([f531c68](https://github.com/fremtind/jokul/commit/f531c68e88eb01cceecfb6a0133efc4efd66df99))
+
 ## 5.0.0 (2021-10-21)
 
 ### chore

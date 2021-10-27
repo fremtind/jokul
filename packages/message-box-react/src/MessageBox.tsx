@@ -126,12 +126,16 @@ function messageFactory(messageType: messageTypes) {
             }
         };
 
+        const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
+
+        const newChildren = hasStringChild?.[0] ? <p className="jkl-body">{children}</p> : children;
+
         return (
             <div className={componentClassName} role={role || getRole(messageType)} data-theme="light">
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
                     {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
-                    <p className="jkl-body">{children}</p>
+                    {newChildren}
                 </div>
                 {dismissAction?.handleDismiss && (
                     <IconButton

@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect, FC } from "react";
-import classNames from "classnames";
+import cx from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButtons } from "@fremtind/jkl-radio-button-react";
@@ -10,6 +10,7 @@ import { hyphenate } from "./internal/hypenate";
 export interface Props {
     component: FC<ExampleComponentProps>;
     title?: string;
+    scrollable?: boolean;
     knobs?: {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
@@ -17,7 +18,14 @@ export interface Props {
     responsiveLayout: boolean;
 }
 
-export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, title = "Komponent", children }) => {
+export const ExampleBase: FC<Props> = ({
+    responsiveLayout,
+    component,
+    knobs,
+    title = "Komponent",
+    children,
+    scrollable,
+}) => {
     const [uid] = useState(`example-${nanoid(8)}`);
     const [showCode, setShowCode] = useState(false);
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
@@ -58,8 +66,9 @@ export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, tit
                 <div
                     data-theme={theme}
                     data-example-text={title}
-                    className={classNames("jkl-portal-component-example__example-wrapper", {
+                    className={cx("jkl-portal-component-example__example-wrapper", {
                         "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
+                        "jkl-portal-component-example__example-wrapper--scrollable": scrollable,
                     })}
                 >
                     <C boolValues={boolValues} choiceValues={choiceValues} />
@@ -118,7 +127,7 @@ export const ExampleBase: FC<Props> = ({ responsiveLayout, component, knobs, tit
             </section>
             {children && (
                 <div
-                    className={classNames("jkl-portal-code-example", {
+                    className={cx("jkl-portal-code-example", {
                         "jkl-portal-code-example--open": !showCode,
                     })}
                 >

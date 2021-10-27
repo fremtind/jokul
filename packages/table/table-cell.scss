@@ -1,0 +1,67 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
+
+$focus-ring-width: jkl.rem(2px);
+$expand-button-focus-color: jkl.$color-granitt;
+$expand-button-focus-color--inverted: jkl.$color-snohvit;
+
+@include jkl.helper-light-mode-variables {
+    --expand-button-focus-color: #{$expand-button-focus-color};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --expand-button-focus-color: #{$expand-button-focus-color--inverted};
+}
+
+.jkl-table-cell {
+    @include jkl.text-style("body");
+    padding: jkl.$spacing-s jkl.$spacing-2xs;
+    padding-top: jkl.$spacing-s - jkl.rem(1px);
+    padding-bottom: jkl.$spacing-s - jkl.rem(1px);
+    position: relative;
+    text-align: left;
+
+    &--align-top {
+        vertical-align: top;
+    }
+
+    &--align-right {
+        text-align: right;
+    }
+
+    .jkl-table--collapse-to-list &--align-right {
+        @include mixins.small-device {
+            text-align: unset;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] &--align-right {
+        text-align: unset;
+    }
+
+    *[data-compactlayout] &,
+    &--compact {
+        @include jkl.text-style("small");
+        padding: jkl.$spacing-2xs;
+        padding-top: jkl.$spacing-xs - jkl.rem(1px);
+        padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
+    }
+
+    @mixin responsive-table-header {
+        @include jkl.text-style("heading-5");
+        content: attr(data-th);
+        display: block;
+    }
+
+    .jkl-table--collapse-to-list &[data-th]::before {
+        display: none;
+
+        @include mixins.small-device {
+            @include responsive-table-header;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] &::before {
+        @include responsive-table-header;
+    }
+}
