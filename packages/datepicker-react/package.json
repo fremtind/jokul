@@ -44,7 +44,7 @@
         "nanoid": "^3.1.30"
     },
     "devDependencies": {
-        "@nrk/core-datepicker": "3.1.0"
+        "@nrk/core-datepicker": "4.0.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
