@@ -13,15 +13,11 @@ export const AnimatedIcon: React.FC<AnimatedIconProps> = ({ renderIcon, iconName
         <>
             <div>
                 {renderIcon(state)}
-                <div className={`jkl-micro jkl-component-spacing--small-top jkl-color-${inverted ? "hvit" : "svart"}`}>
+                <div className={`jkl-micro jkl-spacing-xs--top jkl-color-${inverted ? "hvit" : "svart"}`}>
                     {iconName || renderIcon.name}
                 </div>
             </div>
-            <SecondaryButton
-                inverted={inverted}
-                className="jkl-layout-spacing--large-left"
-                onClick={() => setState(!state)}
-            >
+            <SecondaryButton inverted={inverted} className="jkl-spacing-2xl--left" onClick={() => setState(!state)}>
                 Animer
             </SecondaryButton>
         </>

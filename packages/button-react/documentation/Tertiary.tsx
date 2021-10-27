@@ -20,7 +20,7 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
             forceCompact={boolValues && boolValues["Kompakt"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             onClick={onClick}
-            className="jkl-spacing--right-1"
+            className="jkl-spacing-l--right"
         >
             Avbryt
         </TertiaryButton>
@@ -33,7 +33,7 @@ export const TertiaryCode = `
     forceCompact={boolValues && boolValues["Kompakt"]}
     loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
     onClick={onClick}
-    className="jkl-spacing--right-1"
+    className="jkl-spacing-l--right"
 >
     Avbryt
 </TertiaryButton>

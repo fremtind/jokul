@@ -6,27 +6,20 @@ function stringLiteralArray<T extends string>(a: T[]) {
     return a;
 }
 
-const componentSpacings = stringLiteralArray([
-    "component-spacing--xxs",
-    "component-spacing--xs",
-    "component-spacing--small",
-    "component-spacing--medium",
-    "component-spacing--large",
-    "component-spacing--xl",
-    "component-spacing--xxl",
-    "component-spacing--giant",
+const spacings = stringLiteralArray([
+    "spacing-3xs",
+    "spacing-2xs",
+    "spacing-xs",
+    "spacing-s",
+    "spacing-m",
+    "spacing-l",
+    "spacing-xl",
+    "spacing-2xl",
+    "spacing-3xl",
+    "spacing-4xl",
 ]);
 
-const layoutSpacings = stringLiteralArray([
-    "layout-spacing--xs",
-    "layout-spacing--small",
-    "layout-spacing--medium",
-    "layout-spacing--large",
-    "layout-spacing--xl",
-    "layout-spacing--xxl",
-]);
-
-type spacingClass = typeof componentSpacings[number] | typeof layoutSpacings[number];
+type spacingClass = typeof spacings[number];
 
 const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
     const getComputedProperty = (node: HTMLElement | null, cssProperty: string) => {
@@ -41,7 +34,7 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
     return (
         <tr className="jkl-portal-spacing-example-table__row">
             <td data-header="Spacing:" className="jkl-portal-spacing-example-table__data">
-                <div className={`jkl-${spacing}-top`} style={{ display: "none" }} ref={ref} />
+                <div className={`jkl-${spacing}--top`} style={{ display: "none" }} ref={ref} />
                 <div
                     aria-label={`${spacing},  ${pxValue}`}
                     style={{ backgroundColor: "currentColor", width: `${remValue}rem`, height: `${remValue}rem` }}
@@ -52,7 +45,7 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
                 <code className="jkl-portal-inline-code">${spacing}</code>
             </td>
             <td data-header="Klasse:" className="jkl-portal-spacing-example-table__data">
-                <code className="jkl-portal-inline-code">{`.jkl-${spacing}-<top|right|bottom|left|all>`}</code>
+                <code className="jkl-portal-inline-code">{`.jkl-${spacing}--<top|right|bottom|left|all>`}</code>
             </td>
         </tr>
     );
@@ -75,5 +68,4 @@ const SpacingTable: React.FC<{ values: spacingClass[] }> = ({ values }) => (
     </table>
 );
 
-export const ComponentSpacingTable: VFC = () => <SpacingTable values={componentSpacings} />;
-export const LayoutSpacingTable: VFC = () => <SpacingTable values={layoutSpacings} />;
+export const SpacingScaleTable: VFC = () => <SpacingTable values={spacings} />;

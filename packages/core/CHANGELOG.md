@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.0 (2021-10-21)
+
+### chore
+
+- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### Features
+
+- new spacing scale ([9eaae68](https://github.com/fremtind/jokul/commit/9eaae688c2d45a296696b740704a59a3d8b5c17b)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+
+### BREAKING CHANGES
+
+- depends on jkl-core v8 with breaking changes
+- new spacing scale: see migration guide for jkl-core
+
 ## 7.4.0 (2021-10-18)
 
 ### Features

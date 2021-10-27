@@ -1,56 +1,24 @@
 // Core spacing values
-$spacing-1: 0.125rem; // 2px
-$spacing-2: 0.25rem; //4px
-$spacing-3: 0.5rem; //8px
-$spacing-4: 0.75rem; //12px;
-$spacing-5: 1rem; //16px;
-$spacing-6: 1.5rem; //24px;
-$spacing-7: 2.5rem; //40px;
-$spacing-8: 4rem; //64px;
-$spacing-9: 6.5rem; //104px;
-$spacing-10: 10.5rem; //168px;
+$spacing-3xs: 0.125rem; // 2px
+$spacing-2xs: 0.25rem; //4px
+$spacing-xs: 0.5rem; //8px
+$spacing-s: 0.75rem; //12px;
+$spacing-m: 1rem; //16px;
+$spacing-l: 1.5rem; //24px;
+$spacing-xl: 2.5rem; //40px;
+$spacing-2xl: 4rem; //64px;
+$spacing-3xl: 6.5rem; //104px;
+$spacing-4xl: 10.5rem; //168px;
 
-// Component scale
-$component-spacing--xxs: $spacing-1;
-$component-spacing--xs: $spacing-2;
-$component-spacing--small: $spacing-3;
-$component-spacing--medium: $spacing-4;
-$component-spacing--large: $spacing-5;
-$component-spacing--xl: $spacing-6;
-$component-spacing--xxl: $spacing-7;
-$component-spacing--giant: $spacing-8;
-
-$component-spacing: $component-spacing--xxs, $component-spacing--xs, $component-spacing--small,
-    $component-spacing--medium, $component-spacing--large, $component-spacing--xl, $component-spacing--xxl,
-    $component-spacing--giant;
-
-$component-spacing-new: (
-    "xxs": $component-spacing--xxs,
-    "xs": $component-spacing--xs,
-    "small": $component-spacing--small,
-    "medium": $component-spacing--medium,
-    "large": $component-spacing--large,
-    "xl": $component-spacing--xl,
-    "xxl": $component-spacing--xxl,
-    "giant": $component-spacing--giant,
-);
-
-// Layout scale
-$layout-spacing--xs: $spacing-5;
-$layout-spacing--small: $spacing-6;
-$layout-spacing--medium: $spacing-7;
-$layout-spacing--large: $spacing-8;
-$layout-spacing--xl: $spacing-9;
-$layout-spacing--xxl: $spacing-10;
-
-$layout-spacing: $layout-spacing--small, $layout-spacing--medium, $layout-spacing--large, $layout-spacing--xl,
-    $layout-spacing--xxl;
-
-$layout-spacing-new: (
-    "xs": $layout-spacing--xs,
-    "small": $layout-spacing--small,
-    "medium": $layout-spacing--medium,
-    "large": $layout-spacing--large,
-    "xl": $layout-spacing--xl,
-    "xxl": $layout-spacing--xxl,
+$spacing-new: (
+    "3xs": $spacing-3xs,
+    "2xs": $spacing-2xs,
+    "xs": $spacing-xs,
+    "s": $spacing-s,
+    "m": $spacing-m,
+    "l": $spacing-l,
+    "xl": $spacing-xl,
+    "2xl": $spacing-2xl,
+    "3xl": $spacing-3xl,
+    "4xl": $spacing-4xl,
 );

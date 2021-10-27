@@ -39,7 +39,7 @@ Den enkleste bruken av komponenten er altså:
 Prop'en `className` er praktisk dersom du vil benytte spacing eller sette farge gjennom hjelpeklassene fra `jkl-core`:
 
 ```tsx
-<Loader className="jkl-layout-spacing--small-top" /> // Gir spacing over loaderen
+<Loader className="jkl-spacing-l--top" /> // Gir spacing over loaderen
 ```
 
 Dersom du vil bruke inline loader i knapp har funksjonalitet for det blitt eksponert via props i `jkl-button-react`.

@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -8,17 +7,17 @@ $arrow-height: rem(16px);
 $arrow-width: rem(13px);
 
 @include jkl.helper-light-mode-variables {
-    --accordion-border: #{$svaberg};
-    --accordion-accent: #{$stein};
-    --accordion-focus: #{$focus-color};
-    --accordion-expanded-background: #{$hvit};
+    --accordion-border: #{jkl.$color-svaberg};
+    --accordion-accent: #{jkl.$color-stein};
+    --accordion-focus: #{jkl.$color-focus-color};
+    --accordion-expanded-background: #{jkl.$color-hvit};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --accordion-border: #{$stein};
-    --accordion-accent: #{$svaberg};
-    --accordion-focus: #{$focus-color--darkbg};
-    --accordion-expanded-background: #{$svart};
+    --accordion-border: #{jkl.$color-stein};
+    --accordion-accent: #{jkl.$color-svaberg};
+    --accordion-focus: #{jkl.$color-focus-color--darkbg};
+    --accordion-expanded-background: #{jkl.$color-svart};
 }
 
 .jkl-accordion {
@@ -26,23 +25,23 @@ $arrow-width: rem(13px);
 
     &--inverted {
         .jkl-accordion-item {
-            color: $snohvit;
-            border-top: rem(1px) solid $snohvit;
+            color: jkl.$color-snohvit;
+            border-top: rem(1px) solid jkl.$color-snohvit;
             &:last-child {
-                border-bottom: rem(1px) solid $snohvit;
+                border-bottom: rem(1px) solid jkl.$color-snohvit;
             }
             &__title {
                 background-color: transparent;
                 &:hover {
-                    color: $svaberg;
+                    color: jkl.$color-svaberg;
                 }
                 html:not([data-mousenavigation]) &:focus {
-                    box-shadow: inset 0 0 0 2px $focus-color--darkbg;
+                    box-shadow: inset 0 0 0 2px jkl.$color-focus-color--darkbg;
                 }
             }
             &--expanded {
                 &__title {
-                    color: $svaberg;
+                    color: jkl.$color-svaberg;
                 }
             }
         }
@@ -52,29 +51,29 @@ $arrow-width: rem(13px);
 .jkl-accordion-item {
     @include reset-outline;
 
-    $title-padding: $component-spacing--large;
+    $title-padding: jkl.$spacing-m;
 
     &:nth-child(n) {
-        border-top: rem(1px) solid $svaberg;
+        border-top: rem(1px) solid jkl.$color-svaberg;
         border-top: rem(1px) solid var(--accordion-border);
 
         &:hover {
-            border-top: rem(1px) solid $granitt;
+            border-top: rem(1px) solid jkl.$color-granitt;
             border-top: rem(1px) solid var(--accordion-focus);
 
             + .jkl-accordion-item {
-                border-top: rem(1px) solid $granitt;
+                border-top: rem(1px) solid jkl.$color-granitt;
                 border-top: rem(1px) solid var(--accordion-focus);
             }
         }
     }
 
     &:last-child {
-        border-bottom: rem(1px) solid $svaberg;
+        border-bottom: rem(1px) solid jkl.$color-svaberg;
         border-bottom: rem(1px) solid var(--accordion-border);
 
         &:hover {
-            border-bottom: rem(1px) solid $granitt;
+            border-bottom: rem(1px) solid jkl.$color-granitt;
             border-bottom: rem(1px) solid var(--accordion-focus);
         }
     }
@@ -97,7 +96,7 @@ $arrow-width: rem(13px);
         /* The dropdown arrow */
         &__arrow {
             position: absolute;
-            left: $component-spacing--large;
+            left: jkl.$spacing-m;
             top: 50%;
             transform: translateY(-50%);
             color: inherit;
@@ -111,13 +110,13 @@ $arrow-width: rem(13px);
         }
 
         html:not([data-mousenavigation]) &:focus {
-            box-shadow: inset 0 0 0 2px $focus-color;
+            box-shadow: inset 0 0 0 2px jkl.$color-focus-color;
             box-shadow: inset 0 0 0 2px var(--accordion-focus);
         }
     }
 
     &--expanded {
-        background-color: $hvit;
+        background-color: jkl.$color-hvit;
         background-color: var(--accordion-expanded-background);
         .jkl-accordion-item {
             &__title {
@@ -137,7 +136,7 @@ $arrow-width: rem(13px);
         @include jkl.text-style("body");
         display: block;
         padding-right: 2rem;
-        margin-left: $component-spacing--xl;
+        margin-left: jkl.$spacing-l;
     }
 
     &__content-wrapper {
@@ -148,7 +147,7 @@ $arrow-width: rem(13px);
     &__content {
         @include jkl.text-style("body");
         height: auto;
-        padding: $component-spacing--large $component-spacing--xs $component-spacing--xxl $component-spacing--xl;
+        padding: jkl.$spacing-m jkl.$spacing-2xs jkl.$spacing-xl jkl.$spacing-l;
         color: inherit; // Make content same color as rest of page text
     }
 }

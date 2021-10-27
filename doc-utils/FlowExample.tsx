@@ -28,7 +28,7 @@ export const FlowExample: FC = ({ children }) => {
                 <div data-compactlayout={true} className="jkl-portal-component-example__example-options">
                     <Checkbox
                         name="dark-mode"
-                        className="jkl-spacing--top-1"
+                        className="jkl-spacing-l--top"
                         value="dark-mode"
                         checked={theme === "dark"}
                         onChange={toggleTheme}
@@ -37,7 +37,7 @@ export const FlowExample: FC = ({ children }) => {
                     </Checkbox>
                     <Checkbox
                         name="compact-mode"
-                        className="jkl-spacing--top-1"
+                        className="jkl-spacing-l--top"
                         value="compact-mode"
                         checked={isCompact}
                         onChange={toggleIsCompact}
@@ -45,7 +45,7 @@ export const FlowExample: FC = ({ children }) => {
                         Kompakt
                     </Checkbox>
                     {knobs.map((knob, idx) => (
-                        <div key={idx} className="jkl-spacing--top-1">
+                        <div key={idx} className="jkl-spacing-l--top">
                             {knob}
                         </div>
                     ))}

@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/variables/all";
 @import "~@fremtind/jkl-core/mixins/all";
 @import "~@fremtind/jkl-core/functions";
 
@@ -16,7 +15,7 @@ $container-width--compact: rem(320px);
     right: 0;
     bottom: 0;
     transition: 0.2s;
-    z-index: $z-index--modal !important;
+    z-index: jkl.$z-index--modal !important;
 }
 .jkl-cookie-consent-modal[hidden],
 .jkl-cookie-consent-modal + backdrop[hidden] {
@@ -27,7 +26,7 @@ $container-width--compact: rem(320px);
 }
 
 .jkl-cookie-consent-modal {
-    z-index: $z-index--floating !important;
+    z-index: jkl.$z-index--floating !important;
     position: fixed;
     margin: auto;
     top: 10%;
@@ -37,16 +36,16 @@ $container-width--compact: rem(320px);
     left: 0;
     right: 0;
     width: 100%;
-    padding: $layout-spacing--medium $layout-spacing--medium rem(30px) $layout-spacing--medium;
+    padding: jkl.$spacing-xl jkl.$spacing-xl rem(30px) jkl.$spacing-xl;
     min-width: $container-width--compact;
     max-width: $container-width;
     background-color: jkl.$color-snohvit;
     background-color: var(--jkl-background-color);
-    box-shadow: $drop-shadow--large;
+    box-shadow: jkl.$drop-shadow--large;
     transition: 0.2s;
 
     &__checklist {
-        margin-bottom: $component-spacing--large;
+        margin-bottom: jkl.$spacing-m;
     }
 
     @include jkl.text-style("body");
@@ -57,26 +56,26 @@ $container-width--compact: rem(320px);
 
     &__header {
         @include jkl.text-style("heading-3");
-        margin-bottom: $layout-spacing--small;
+        margin-bottom: jkl.$spacing-l;
     }
 
     &__checkbox {
-        margin-bottom: $component-spacing--small;
-        margin-top: $component-spacing--xl;
+        margin-bottom: jkl.$spacing-xs;
+        margin-top: jkl.$spacing-l;
     }
 
     &__button-group {
-        margin-top: $layout-spacing--medium;
+        margin-top: jkl.$spacing-xl;
 
         & > :not(:first-child) {
-            margin-left: $layout-spacing--small;
+            margin-left: jkl.$spacing-l;
         }
     }
 
     @include small-device {
-        top: $layout-spacing--medium;
-        margin: $layout-spacing--small;
-        max-width: calc(100% - #{$layout-spacing--small} - #{$layout-spacing--small});
-        padding: $layout-spacing--small;
+        top: jkl.$spacing-xl;
+        margin: jkl.$spacing-l;
+        max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});
+        padding: jkl.$spacing-l;
     }
 }

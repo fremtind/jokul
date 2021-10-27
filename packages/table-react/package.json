@@ -1,10 +1,10 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "4.0.9",
+    "version": "7.0.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react table component",
+    "description": "Jøkul react table components",
     "keywords": [
         "table",
         "jøkul",
@@ -33,10 +33,11 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-core": "^7.4.0",
-        "@fremtind/jkl-table": "^3.0.8"
+        "@fremtind/jkl-core": "^8.0.0",
+        "@fremtind/jkl-table": "^5.1.0"
     },
     "devDependencies": {
+        "faker": "^5.5.3",
         "npm-run-all": "^4.1.5"
     },
     "peerDependencies": {
