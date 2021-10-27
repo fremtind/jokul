@@ -1,0 +1,52 @@
+@use "~@fremtind/jkl-core/jkl";
+
+$tab-text-color: jkl.$color-granitt;
+$tab-text-color--inverted: jkl.$color-snohvit;
+
+$tab-indicator-color: jkl.$color-granitt;
+$tab-indicator-color--inverted: jkl.$color-snohvit;
+
+$tab-hover-color: jkl.$color-stein;
+$tab-hover-color--inverted: jkl.$color-svaberg;
+
+@include jkl.helper-light-mode-variables {
+    --tab-text-color: #{$tab-text-color};
+    --tab-indicator-color: #{$tab-indicator-color};
+    --tab-hover-color: #{$tab-hover-color};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --tab-text-color: #{$tab-text-color--inverted};
+    --tab-indicator-color: #{$tab-indicator-color--inverted};
+    --tab-hover-color: #{$tab-hover-color--inverted};
+}
+
+.jkl-tablist {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px jkl.$color-svaberg solid;
+    width: 100%;
+}
+
+.jkl-tab {
+    @include jkl.text-style("body");
+    border: none;
+    background-color: transparent;
+    padding: jkl.$spacing-m;
+    cursor: pointer;
+    color: var(--tab-text-color);
+
+    &:hover {
+        color: var(--tab-hover-color);
+    }
+
+    &__indicator {
+        position: absolute;
+        height: 2px;
+        transition: ease 0.3s;
+        background-color: var(--tab-indicator-color);
+    }
+}
