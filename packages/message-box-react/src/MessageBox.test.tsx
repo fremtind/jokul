@@ -20,7 +20,7 @@ describe("Message boxes", () => {
 });
 
 describe("a11y", () => {
-    it("InfoMessage should be a11y compliant", async () => {
+    it("InfoMessageBox should be a11y compliant", async () => {
         const { container } = render(<InfoMessageBox title="info">Lorem Ipsum</InfoMessageBox>);
         const results = await axe(container);
 
