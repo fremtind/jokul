@@ -46,7 +46,7 @@ After removing files like `logo.svg` and `App.test.tsx`, run the command below t
 npm install --save-dev @types/googlemaps
 ```
 
-*Bonus Hint*: By doing so, you will also obtain google.maps.places.AutocompletePrediction type which can be used to build an address dropdown component.
+Bonus Hint: By doing so, you will also obtain `google.maps.places.AutocompletePrediction` type which can be used to build an address dropdown component.
 
 Now we are ready to give a shape to our React project. I set up the file and folder structure of my src folder as blueprinted below:
 
@@ -146,8 +146,8 @@ I wanted to receive two basic props. mapType can have ROADMAP, SATELLITE, TERRAI
 
 ![Satellite Example](/assets/blog/google.maps.MapTypeId.SATELLITE.png)
 
-<br/>
-<p>And we will use mapTypeControl prop to show/hide the control menu on the left-top corner of your map. We may extend the number of props to increase the usability of our map component, but I wanted to use only two props to illustrate my example.</p>
+
+And we will use mapTypeControl prop to show/hide the control menu on the left-top corner of your map. We may extend the number of props to increase the usability of our map component, but I wanted to use only two props to illustrate my example.
 
 <p>I also use typescript’s custom type definition feature to increase the readability of my source code.</p>
 
@@ -168,7 +168,7 @@ return (
 );
 ```
 
-The inner div element is the reference point for Google Maps. The API will load my map content into this div element and I use the outer div just for styling purposes. On the other hand, the same ref value is used by initMap function where the map is triggered.
+The inner div element is the reference point for Google Maps. The API will load my map content into this div element and I use the outer div just for styling purposes. On the other hand, the same ref value is used by `initMap` function where the map is triggered.
 
 ```typescript
 const initMap = (zoomLevel: number, address: GoogleLatLng): void => {
@@ -193,9 +193,9 @@ const initMap = (zoomLevel: number, address: GoogleLatLng): void => {
 };
 ```
 
-As you see above, before implementing the initMap function, I created a hook called **map**. This hook is used to keep the map object created by google.maps.Map(…) function. The same function takes our div element via ref.current as its first parameter and the second parameter is a json object which keeps the preferences of our map.
+As you see above, before implementing the initMap function, I created a hook called `map`. This hook is used to keep the map object created by google.maps.Map(…) function. The same function takes our div element via ref.current as its first parameter and the second parameter is a json object which keeps the preferences of our map.
 
-initMap receives two inputs: *zoomLevel* and *address*. zoomLevel is straightforward to understand, but what address does will be more clear when we take a look at **defaultMapStart()** function.
+`initMap` receives two inputs: `zoomLevel` and `address`. zoomLevel is straightforward to understand, but what address does will be more clear when we take a look at `defaultMapStart()` function.
 
 ```typescript
 const defaultMapStart = (): void => {
@@ -204,7 +204,7 @@ const defaultMapStart = (): void => {
 };
 ```
 
-So, this function basically calls the initMap, but it also does some critical work as well. It decides where to focus and how much to focus when our map starts.
+So, this function basically calls the `initMap`, but it also does some critical work as well. It decides where to focus and how much to focus when our map starts.
 
 ```typescript
 const startMap = (): void => {
@@ -215,7 +215,7 @@ const startMap = (): void => {
 useEffect(startMap, [map]);
 ```
 
-Finally, **startMap** function calls defaultMapStart() when the map hook is not null anymore. This check is necessary because of rendering delays and typescript will complain if you do not run this check.
+Finally, `startMap` function calls `defaultMapStart()` when the map hook is not null anymore. This check is necessary because of rendering delays and typescript will complain if you do not run this check.
 
 ### Conclusion
 This application may not seem so impressive in terms of functionality, but you see that we had to do a lot of things just to start our map. While shooting the video, I had a problem with the API key because I did not want to screencast it via my youtube video, but when I include it, the output is as shown below:
