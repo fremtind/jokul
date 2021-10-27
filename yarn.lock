@@ -3373,20 +3373,20 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
-"@nrk/core-datepicker@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-3.1.0.tgz#66351649eaa7ffbf807b745c078f3968c5c9ee4d"
-  integrity sha512-m8z/dLJ5mLZRbWuoXRDENcC3qrta8y6uVgwEI6gag3BbjOlAGxM1mX+qzZR+sF5XjzeQEzgbwRwcDiLEZmJUCQ==
+"@nrk/core-datepicker@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-4.0.0.tgz#3bb7185d7ce99a0849806a6c13bc9de2be7d5cb8"
+  integrity sha512-zVCdQ1NULPdXy8jusqPsgXzrHaQG8ZbmRIT9krXKEjipOg7ce7XJp10Lor9Hb4u7O/OHLx+g0CyqDf0laps6HQ==
 
-"@nrk/core-dialog@^3.0.7":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nrk/core-dialog/-/core-dialog-3.1.0.tgz#ecbaf7387c54452e463017006eb28122df47277b"
-  integrity sha512-owlngqYXVn/MP3uTwoFFPy0HfWFAw4EPHBViMsqizgWi+1M4Rxz+vTLcuhqzNC4JOxiffBAV2SZP+uAvp4Ob6g==
+"@nrk/core-dialog@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@nrk/core-dialog/-/core-dialog-4.0.0.tgz#b1784aa8cb2da5d0d9d3e21fe372613b9688fe34"
+  integrity sha512-9q0xAuPR8H1EQM4tIVs0Rho0c9PGRk1XRBfwgMSrvBXbK2l/4tcALJR+Lja1Bcu+ooubU1hEkvS3Lw7/U7zDQg==
 
-"@nrk/core-toggle@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@nrk/core-toggle/-/core-toggle-3.1.0.tgz#ec1db32381344704a8cc1851bf3aab1bf7dc3eac"
-  integrity sha512-8vBZNgtCQsMuqpn5Dyfsp9PS8FO+NJ8/n4SCb3k8PJF5/JNgfs1fBYYnzzI6WjADM39cjBLqxTLxt7W0+g8CCw==
+"@nrk/core-toggle@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@nrk/core-toggle/-/core-toggle-3.2.0.tgz#d46b98fa9cd5bbc92699addf2a05b4736775e55a"
+  integrity sha512-MDY+inlYyemRng72n4WyyTSNHROJuDGby4nb7SUZXObAhjCSJdX/tJ2Czb4kfFERkEiznYi3sVIEvUHYttE+ug==
 
 "@octokit/auth-token@^2.4.4":
   version "2.5.0"

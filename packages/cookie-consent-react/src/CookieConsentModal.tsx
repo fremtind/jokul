@@ -54,7 +54,7 @@ export const CookieConsentModal: VFC<ConsentComponentBaseProps> = ({ onAccept })
 
     return (
         <CoreDialog
-            backdrop
+            backdrop="on"
             strict
             hidden={!isOpen}
             aria-label="Informasjonskapsler"

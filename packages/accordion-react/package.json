@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -39,7 +39,7 @@
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@nrk/core-toggle": "3.1.0"
+        "@nrk/core-toggle": "3.2.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
