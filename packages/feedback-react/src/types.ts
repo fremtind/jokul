@@ -1,8 +1,10 @@
 import { Dispatch, FormEvent, SetStateAction } from "react";
 
 export type FeedbackOption<T = string | number> = {
+    /** Teksten som vises ved alternativet */
     label: string;
     value: T;
+    /** Her kan du spesifisere en egen tekst til oppfølgingsspørsmålet dersom dette alternativet er valgt (gjelder kun alternativene til hovedspørsmålet i Feedback, ignoreres ellers) */
     textAreaLabel?: string;
 };
 
