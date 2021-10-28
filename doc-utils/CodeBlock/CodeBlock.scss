@@ -1,7 +1,8 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "../packages/core/jkl";
 
-@import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "../packages/core/_functions.scss";
+@import "../packages/core/mixins/_all.scss";
+@import "../packages/core/variables/_all.scss";
 
 @include jkl.helper-light-mode-variables {
     --code-block-bg-color: #{jkl.$color-hvit};
