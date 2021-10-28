@@ -1,2 +1,4 @@
-export { Feedback } from "./Feedback";
-export { PRESETS } from "./presets";
+import { Feedback } from "./Feedback";
+import { PRESETS } from "./presets";
+
+export { Feedback, PRESETS };
