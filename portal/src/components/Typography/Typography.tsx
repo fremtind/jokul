@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react";
 import { ListItem as JklListItem } from "@fremtind/jkl-list-react";
-
-import { CodeBlock as FTCodeBlock } from "../CodeBlock";
+import { CodeBlock as FTCodeBlock } from "../../../../doc-utils/CodeBlock";
 
 export const PageTitle: React.FC = ({ children, ...rest }) => (
     <h1 className="jkl-portal-page-title" {...rest}>

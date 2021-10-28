@@ -6,7 +6,7 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [showLoader, setShowLoader] = useState(false);
     const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
 
-    const onClick = () => {
+    const simulateLoading = () => {
         console.log("Hello!");
         setShowLoader(true);
         setTimeout(() => {
@@ -16,23 +16,30 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
 
     return (
         <PrimaryButton
-            inverted={boolValues && boolValues["Invertert"]}
-            forceCompact={boolValues && boolValues["Kompakt"]}
+            forceCompact={!!boolValues?.["Kompakt"]}
+            inverted={!!boolValues?.["Invertert"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
-            onClick={onClick}
             className="jkl-spacing-l--right"
+            onClick={simulateLoading}
         >
             Lagre og send inn
         </PrimaryButton>
     );
 };
 
-export const PrimaryCode = `
+export const primaryCode = ({ boolValues }: ExampleComponentProps): string => `
 <PrimaryButton
-    inverted={boolValues && boolValues["Invertert"]}
-    forceCompact={boolValues && boolValues["Kompakt"]}
-    loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
-    onClick={onClick}
+    forceCompact={${!!boolValues?.["Kompakt"]}}
+    inverted={${!!boolValues?.["Invertert"]}}
+    loader={${
+        !!boolValues?.["withLoader"]
+            ? `{
+        showLoader: ${!!boolValues?.["isLoading"]},
+        textDescription: "Laster innhold"
+    }`
+            : `false`
+    }}
+    onClick={simulateLoading}
     className="jkl-spacing-l--right"
 >
     Lagre og send inn
