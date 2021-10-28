@@ -1,11 +1,11 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { InfoMessage, ErrorMessage, SuccessMessage, WarningMessage } from ".";
+import { InfoMessageBox, ErrorMessageBox, SuccessMessageBox, WarningMessageBox } from ".";
 import { axe } from "jest-axe";
 
 describe("Message boxes", () => {
     [true, false].map((fullWidth) => {
-        [InfoMessage, ErrorMessage, SuccessMessage, WarningMessage].map((E) => {
+        [InfoMessageBox, ErrorMessageBox, SuccessMessageBox, WarningMessageBox].map((E) => {
             it("should render message title and content", () => {
                 render(
                     <E fullWidth={fullWidth} title="test">
@@ -20,63 +20,63 @@ describe("Message boxes", () => {
 });
 
 describe("a11y", () => {
-    it("InfoMessage should be a11y compliant", async () => {
-        const { container } = render(<InfoMessage title="info">Lorem Ipsum</InfoMessage>);
+    it("InfoMessageBox should be a11y compliant", async () => {
+        const { container } = render(<InfoMessageBox title="info">Lorem Ipsum</InfoMessageBox>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
-    it("InfoMessage should have role `status` by default", async () => {
-        render(<InfoMessage title="info">Lorem Ipsum</InfoMessage>);
+    it("InfoMessageBox should have role `status` by default", async () => {
+        render(<InfoMessageBox title="info">Lorem Ipsum</InfoMessageBox>);
         const message = screen.getByRole("status");
         expect(message).toBeTruthy();
     });
 
-    it("ErrorMessage should be a11y compliant", async () => {
-        const { container } = render(<ErrorMessage title="error">Lorem Ipsum</ErrorMessage>);
+    it("ErrorMessageBox should be a11y compliant", async () => {
+        const { container } = render(<ErrorMessageBox title="error">Lorem Ipsum</ErrorMessageBox>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
-    it("ErrorMessage should have role `alert` by default", async () => {
-        render(<ErrorMessage title="error">Lorem Ipsum</ErrorMessage>);
+    it("ErrorMessageBox should have role `alert` by default", async () => {
+        render(<ErrorMessageBox title="error">Lorem Ipsum</ErrorMessageBox>);
         const message = screen.getByRole("alert");
         expect(message).toBeTruthy();
     });
 
-    it("WarningMessage should be a11y compliant", async () => {
-        const { container } = render(<WarningMessage title="warning">Lorem Ipsum</WarningMessage>);
+    it("WarningMessageBox should be a11y compliant", async () => {
+        const { container } = render(<WarningMessageBox title="warning">Lorem Ipsum</WarningMessageBox>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
-    it("WarningMessage should have role `status` by default", async () => {
-        render(<WarningMessage title="warning">Lorem Ipsum</WarningMessage>);
+    it("WarningMessageBox should have role `status` by default", async () => {
+        render(<WarningMessageBox title="warning">Lorem Ipsum</WarningMessageBox>);
         const message = screen.getByRole("alert");
         expect(message).toBeTruthy();
     });
 
-    it("SuccessMessage should be a11y compliant", async () => {
-        const { container } = render(<SuccessMessage title="success">Lorem Ipsum</SuccessMessage>);
+    it("SuccessMessageBox should be a11y compliant", async () => {
+        const { container } = render(<SuccessMessageBox title="success">Lorem Ipsum</SuccessMessageBox>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
-    it("SuccessMessage should have role `status` by default", async () => {
-        render(<SuccessMessage title="success">Lorem Ipsum</SuccessMessage>);
+    it("SuccessMessageBox should have role `status` by default", async () => {
+        render(<SuccessMessageBox title="success">Lorem Ipsum</SuccessMessageBox>);
         const message = screen.getByRole("status");
         expect(message).toBeTruthy();
     });
 
     it("should have a role equal to the given prop", async () => {
         render(
-            <InfoMessage title="info" role="none presentation">
+            <InfoMessageBox title="info" role="none presentation">
                 Lorem Ipsum
-            </InfoMessage>,
+            </InfoMessageBox>,
         );
         const message = screen.getByRole("none");
         expect(message).toBeTruthy();
