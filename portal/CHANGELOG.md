@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.3 (2021-10-28)
+
+### Bug Fixes
+
+- **portal:** riktig bakgrunn på menykort ([#2423](https://github.com/fremtind/jokul/issues/2423)) ([496c76c](https://github.com/fremtind/jokul/commit/496c76c878e6f03138f9f12775b4086702c1c3a2))
+
 ## 7.0.0 (2021-10-25)
 
 ### Features

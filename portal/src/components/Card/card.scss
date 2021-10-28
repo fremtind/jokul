@@ -18,7 +18,7 @@
     max-width: rem(400px);
 
     @include small-device {
-        background-color: jkl.$color-snohvit;
+        background-color: var(--jkl-background-color);
     }
 
     &__heading {
