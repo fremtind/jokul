@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { NavLink } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "../src";
+import { ErrorMessageBox, InfoMessageBox, SuccessMessageBox, WarningMessageBox } from "../src";
 
 const getTypeOfBox = (typeofBox?: string) => {
     switch (typeofBox) {
         case "Infomelding":
-            return InfoMessage;
+            return InfoMessageBox;
         case "Suksessmelding":
-            return SuccessMessage;
+            return SuccessMessageBox;
         case "Advarselsmelding":
-            return WarningMessage;
+            return WarningMessageBox;
         case "Feilmelding":
-            return ErrorMessage;
+            return ErrorMessageBox;
         default:
-            return InfoMessage;
+            return InfoMessageBox;
     }
 };
 

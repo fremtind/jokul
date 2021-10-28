@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,6 @@
         "@fremtind/jkl-cookie-consent": "^5.0.0",
         "@fremtind/jkl-list-react": "^6.0.0",
         "@fremtind/jkl-react-hooks": "^6.0.0",
-        "@nrk/core-dialog": "^3.0.7",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
@@ -54,5 +53,8 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb",
+    "devDependencies": {
+        "@nrk/core-dialog": "4.0.0"
+    }
 }

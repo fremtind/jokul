@@ -4,7 +4,7 @@ scss: feedback
 react: feedback-react
 ---
 
-import Example from "./Example";
+import Example, { feedbackCode } from "./Example";
 import { exampleProps } from "./exampleProps";
 import { Feedback } from "../src";
 
@@ -13,7 +13,7 @@ import { Feedback } from "../src";
     brukeropplevelsen, og avdekke ønsker om funksjonalitet.
 </Ingress>
 
-<ComponentExample knobs={exampleProps} component={Example} />
+<ComponentExample knobs={exampleProps} component={Example} codeExample={feedbackCode} />
 
 Bruk spørsmål med to til fem alternativer når du ber om tilbake&shy;melding. For hvert alternativ kan du spesifisere både teksten som vises og verdien som blir sendt inn, slik at det lett kan integreres med side&shy;statistikk. Vi tilbyr noen standard&shy;spørsmål med alternativer, som dekker de vanligste tilbake&shy;meldings&shy;behovene.
 

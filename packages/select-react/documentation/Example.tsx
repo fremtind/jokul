@@ -3,7 +3,7 @@ import { ExampleComponentProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
 
-export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
@@ -69,4 +69,29 @@ export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }
     );
 };
 
-export default Example;
+export default SelectExample;
+
+export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+<${!!boolValues?.["Native"] ? "NativeSelect" : "Select"}
+    ref={selectRef}
+    id="produsent"
+    name="produsent"
+    forceCompact={${!!boolValues?.["Kompakt"]}}
+    inverted={${!!boolValues?.["Invertert"]}}
+    variant="${choiceValues?.["Etikettvariant"]}"
+    label="Hvilket merke er telefonen?"
+    helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
+    errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}
+    items={[
+        { value: "apple", label: "Apple" },
+        { value: "samsung", label: "Samsung" },
+        { value: "google", label: "Google og utvalgte partnere" },
+        { value: "LG", label: "LG" },
+    ]}
+    value={value}
+    onChange={setValue}
+    searchable={${!!boolValues?.["Med søk"]}}
+    onFocus={onFocus}
+    onBlur={onBlur}
+/>
+`;
