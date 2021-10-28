@@ -15,7 +15,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/tag).
 1. Installér pakken med `yarn add @fremtind/jkl-tag-react` eller `npm i @fremtind/jkl-tag-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
-### Datatabeller
+### Bruk
 
 ```js
 import { Tag } from "@fremtind/jkl-tag-react";

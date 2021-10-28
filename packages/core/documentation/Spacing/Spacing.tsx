@@ -43,7 +43,7 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
             <td data-header="Variabel:" className="jkl-portal-spacing-example-table__data">
                 <code className="jkl-portal-inline-code">${spacing}</code>
             </td>
-            <td data-header="Pixelverdi:" className="jkl-portal-spacing-example-table__data">
+            <td data-header="Rem:" className="jkl-portal-spacing-example-table__data">
                 <code className="jkl-portal-inline-code">{remValue}rem</code>
             </td>
             <td data-header="Pixelverdi:" className="jkl-portal-spacing-example-table__data">
