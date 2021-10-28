@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
-type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableColElement>, HTMLTableColElement>;
+type Props = DetailedHTMLProps<HTMLAttributes<HTMLTableColElement>, HTMLTableColElement>;
 
 export const TableColumn: FC<Props> = (props) => {
     return <col {...props} />;
