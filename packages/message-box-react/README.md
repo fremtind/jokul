@@ -17,7 +17,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/messa
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { InfoMessage, ErrorMessage, WarningMessage, SuccessMessage } from "@fremtind/jkl-message-box-react";
+import { InfoMessageBox, ErrorMessageBox, WarningMessageBox, SuccessMessageBox } from "@fremtind/jkl-message-box-react";
 import "@fremtind/jkl-message-box/message-box.min.css";
 ```
 
