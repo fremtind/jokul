@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-10-28)
+
+### Bug Fixes
+
+- renamed Message to MessageBox, fix dark mode, removed inverted option ([ffeee2a](https://github.com/fremtind/jokul/commit/ffeee2afd00b84ef3c6db61f0fe8acfb7264bae5))
+
+### Code Refactoring
+
+- renamed *Message to *MessageBox a few more places ([b5bd136](https://github.com/fremtind/jokul/commit/b5bd136be645195306728dd10d0058910b936259))
+
+### BREAKING CHANGES
+
+- Depends on package with breaking change
+- Renamed *Message to *MessageBox and removed inverted option
+
 ## 5.0.1 (2021-10-25)
 
 ### Bug Fixes

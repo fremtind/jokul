@@ -5,7 +5,7 @@ import { TextInput } from "@fremtind/jkl-text-input-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { ExampleContext } from "../../../../../doc-utils";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
-import { InfoMessage } from "@fremtind/jkl-message-box-react";
+import { InfoMessageBox } from "@fremtind/jkl-message-box-react";
 
 import "./AddressForm.scss";
 import { Select } from "@fremtind/jkl-select-react";
@@ -47,13 +47,13 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
             style={{ position: "relative" }}
         >
             <aside style={{ position: "absolute", top: "-150px" }} ref={ref} />
-            <InfoMessage
+            <InfoMessageBox
                 title="Fant ikke addresse"
                 fullWidth
                 className={`jkl-spacing-${isCompact ? "2xl" : "3xl"}--top jkl-spacing-l--bottom`}
             >
                 Vi fant ikke addressen din i vår database. Fortell oss hvor du bor.
-            </InfoMessage>
+            </InfoMessageBox>
             <div className="jkl-simple-form__postal-group">
                 <TextInput
                     variant="large"
