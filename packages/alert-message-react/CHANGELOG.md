@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-10-28)
+
+### Bug Fixes
+
+- remove inverted option from alertMessage and always light mode inside component ([9b2466c](https://github.com/fremtind/jokul/commit/9b2466cf55cd093be9fed1ea5bb2ed86b92568b1))
+
+### BREAKING CHANGES
+
+- Removed inverted option
+
 ## 5.0.0 (2021-10-21)
 
 ### chore
