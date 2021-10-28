@@ -34,13 +34,13 @@ Komponentene tar følgende props:
 En enkel bruk av meldingsboksen kan se slik ut:
 
 ```jsx
-<SuccessMessage title="Opplasting fullført">Filene ble lastet opp uten feil</SuccessMessage>
+<SuccessMessageBox title="Opplasting fullført">Filene ble lastet opp uten feil</SuccessMessageBox>
 ```
 
 Du kan sende mer enn bare ren tekst som innhold. Innholdet blir rendret inne i et `<div>`-element:
 
 ```jsx
-<ErrorMessage title="Feil under innsending av skjema">
+<ErrorMessageBox title="Feil under innsending av skjema">
     <Body>Skjemaet kunne ikke sendes inn på grunn av feil i følgende felter:</Body>
     <UnorderedList>
         <ListItem>Fødselsnummer</ListItem>
@@ -48,7 +48,7 @@ Du kan sende mer enn bare ren tekst som innhold. Innholdet blir rendret inne i e
         <ListItem>Telefonnummer</ListItem>
     </UnorderedList>
     <Body>Rett opp feilene og send deretter inn skjemaet på nytt</Body>
-</ErrorMessage>
+</ErrorMessageBox>
 ```
 
 ### Tilgjengelighet
