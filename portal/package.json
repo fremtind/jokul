@@ -16,7 +16,7 @@
         "classnames": "^2.2.6",
         "downloadjs": "^1.4.7",
         "focus-trap-react": "^8.8.2",
-        "framer-motion": "^4.1.2",
+        "framer-motion": "^5.0.0",
         "gatsby": "^3.14.3",
         "gatsby-image": "^3.0.0",
         "gatsby-plugin-image": "^1.13.0",
