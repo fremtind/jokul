@@ -1,9 +1,8 @@
 import cx from "classnames";
-import React, { FC } from "react";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
-interface Props
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement> {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement> {
     srOnly?: boolean;
 }
 

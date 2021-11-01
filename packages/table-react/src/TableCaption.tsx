@@ -1,8 +1,7 @@
 import cx from "classnames";
-import React, { FC } from "react";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
-interface Props
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableCaptionElement>, HTMLTableCaptionElement> {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableCaptionElement>, HTMLTableCaptionElement> {
     /** Skjuler caption visuelt */
     srOnly?: boolean;
 }

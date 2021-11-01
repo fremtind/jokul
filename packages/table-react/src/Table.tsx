@@ -1,8 +1,8 @@
 import cx from "classnames";
-import React, { FC } from "react";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { TableContextProvider } from "./tableContext";
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
     compact?: boolean;
     /** Bryt ned til en stablet listevisning på små skjermer. NB: husk å sette `data-th` på hver celle! */
     collapseToList?: boolean;
