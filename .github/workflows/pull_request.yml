@@ -1,0 +1,282 @@
+name: Pull Request
+
+on:
+    pull_request:
+        branches:
+            - main
+
+##
+# Sjekker først om det er endringer som krever grundigere test.
+# Bygger i så fall pakkene og laster dem opp som en artifact.
+# Artifacten lastes ned av to jobber: testlint og gatsby.
+# Førstnevnte kjører enhetstester, ESLint, og TypeScript typesjekk.
+# Sistnevnte bygger portalen og laster opp siten som en artifact.
+# Site-artifacten lastes ned av N instanser av cypress-jobben.
+# Cypressjobben server den ferdigbyggede siten og kjører et utvalg
+# av testene. Om en jobb feiler blir de andre avbrutt. Om en jobb
+# har nye snapshots lastes disse opp som en artifact. Til slutt
+# sjekker en jobb om nye snapshots har blitt generert av en eller
+# flere av cypressjobbene. I så fall samles disse i én commit
+# som pushes til branchen som testes.
+##
+
+jobs:
+    build:
+        outputs:
+            visual: ${{ steps.changes.outputs.visual }}
+            testlint: ${{ steps.changes.outputs.testlint }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Check for changes that require extra verification
+              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+              id: changes
+              with:
+                  filters: |
+                      testlint:
+                        - "**/*.js"
+                        - "**/*.scss"
+                        - "**/*.ts"
+                        - "**/*.tsx"
+                        - "yarn.lock"
+                      visual:
+                        - "cypress/**"
+                        - "packages/**/*.mdx"
+                        - "**/*.js"
+                        - "**/*.scss"
+                        - "**/!(*.d|*.test).ts"
+                        - "**/!(*.test).tsx"
+                        - "yarn.lock"
+
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              with:
+                  node-version: "lts/*"
+                  cache: "yarn"
+
+            - name: Install dependencies
+              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              run: yarn install --frozen-lockfile
+
+            - name: Build packages
+              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              run: yarn build
+
+            - name: Upload built packages
+              uses: actions/upload-artifact@v2
+              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              with:
+                  name: built-packages
+                  path: |
+                      packages/**/build/**
+                      packages/**/*.css
+
+    testlint:
+        needs: [build]
+        if: needs.build.outputs.testlint == 'true'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "lts/*"
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Download built packages
+              uses: actions/download-artifact@v2
+              with:
+                  name: built-packages
+                  path: packages/
+
+            - name: Lint and test
+              run: yarn ci:test
+
+    gatsby:
+        needs: [build]
+        if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "lts/*"
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Download built packages
+              uses: actions/download-artifact@v2
+              with:
+                  name: built-packages
+                  path: packages/
+
+            - name: Caching Gatsby
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      portal/public
+                      portal/.cache
+                  key: ${{ runner.os }}-gatsby-build-${{ github.head_ref }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-
+
+            - name: Build site
+              run: yarn build:docs
+
+            - name: Upload built site
+              uses: actions/upload-artifact@v2
+              with:
+                  name: built-site
+                  path: |
+                      portal/public/
+
+    cypress:
+        needs: [gatsby]
+        if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
+                group: [1, 2, 3, 4, 5]
+                groups: [5]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "lts/*"
+                  cache: "yarn"
+
+            - name: Download built packages
+              uses: actions/download-artifact@v2
+              with:
+                  name: built-packages
+                  path: packages/
+
+            - name: Download built site
+              uses: actions/download-artifact@v2
+              with:
+                  name: built-site
+                  path: portal/public/
+
+            - name: Calculate which tests to run
+              id: parallel
+              uses: outsideopen/cypress-e2e-parallel-test-action@11345a74b311e33022c365f421cf6c906518838b
+              with:
+                  group: ${{ matrix.group }}
+                  groups: ${{ matrix.groups }}
+                  test-pattern: "packages/**/*.spec.js"
+
+            - name: Run Cypress
+              uses: cypress-io/github-action@v2
+              with:
+                  start: yarn server
+                  wait-on: "http://localhost:9000"
+                  wait-on-timeout: 280
+                  spec: ${{ steps.parallel.outputs.tests }}
+
+            - name: Upload screenshots
+              uses: actions/upload-artifact@v2
+              if: failure()
+              with:
+                  name: cypress-screenshots-${{ matrix.group }}
+                  path: |
+                      cypress/screenshots
+                      packages/**/integration/**/*.png
+
+            - name: Upload video
+              uses: actions/upload-artifact@v2
+              if: failure()
+              with:
+                  name: cypress-videos-${{ matrix.group }}
+                  path: cypress/videos
+
+            - name: Debug
+              if: success()
+              run: git status --porcelain
+
+            - name: Look for new snapshots
+              if: success()
+              uses: tj-actions/verify-changed-files@527ff7533afca6e5bece96bd15a998f90f54c624
+              id: verify-changed-files
+              with:
+                  files: |
+                      __image_snapshots__
+
+            - name: Upload snapshots
+              uses: actions/upload-artifact@v2
+              if: steps.verify-changed-files.outputs.files_changed == 'true'
+              with:
+                  name: cypress-snapshots-${{ matrix.group }}
+                  # Inkluder en fil fra rotnivå for å beholde hele mappestrukturen i artefakten
+                  # siden vi aldri vet hvilke mapper som ellers blir "rot" (hvilken pakke som
+                  # får nye snapshots).
+                  path: |
+                      .cypress.json
+                      ${{ steps.verify-changed-files.outputs.changed_files }}
+
+    snapshots:
+        needs: [cypress]
+        if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.event.pull_request.head.ref }}
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              # Sannsynligvis lastet ikke alle jobbene opp nye snapshots
+              # Dette gjør at vi får noen errors i oppsummeringen, men selve
+              # bygget markeres som grønt.
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-1
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-2
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-3
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-4
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-5
+
+            - name: Commit snapshots
+              run: |
+                  git config user.email "bot@wllm.no"
+                  git config user.name "wllm-bot"
+                  git add . || echo "No updated snapshots, nothing to add!"
+                  git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
+                  git push
