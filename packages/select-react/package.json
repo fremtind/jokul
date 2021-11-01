@@ -35,7 +35,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0",
+        "@babel/runtime": "^7.16.0",
         "@fremtind/jkl-core": "^8.0.0",
         "@fremtind/jkl-react-hooks": "^6.0.0",
         "@fremtind/jkl-select": "^6.0.0",
