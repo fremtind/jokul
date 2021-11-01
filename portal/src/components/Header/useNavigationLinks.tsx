@@ -1,10 +1,13 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { ComponentDoc } from "react-docgen-typescript";
 
 export interface FrontmatterTypeProp {
     name?: string;
     defaultValue?: { value?: unknown };
     required?: boolean;
     type?: { name?: string };
+    description: string;
+    declarations?: Array<{ name: string; fileName: string }>;
 }
 
 export interface FrontmatterTypePropsObj {
@@ -26,7 +29,7 @@ export interface Frontmatter {
     author?: string;
     publishDate?: string;
     group?: string;
-    type?: FrontmatterType[];
+    type?: ComponentDoc[];
 }
 
 interface RawDocumentationPage {

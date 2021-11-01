@@ -147,7 +147,7 @@ $arrow-width: rem(13px);
     &__content {
         @include jkl.text-style("body");
         height: auto;
-        padding: jkl.$spacing-m jkl.$spacing-2xs jkl.$spacing-xl jkl.$spacing-l;
+        padding: jkl.$spacing-m jkl.$spacing-l jkl.$spacing-xl jkl.$spacing-l;
         color: inherit; // Make content same color as rest of page text
     }
 }

@@ -1,8 +1,8 @@
 import cx from "classnames";
-import React, { FC } from "react";
+import React, { DetailedHTMLProps, FC, TdHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
-interface Props extends React.DetailedHTMLProps<React.TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
+interface Props extends DetailedHTMLProps<TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
     compact?: boolean;
     /** Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal innholdet være venstrejustert, men for eksempel summer er høyrejustert. */
     align?: "left" | "right";

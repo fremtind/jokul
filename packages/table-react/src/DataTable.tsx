@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, VFC } from "react";
 import { TableHeader } from "./TableHeader";
 import { TableHead } from "./TableHead";
 import { Table } from "./Table";
@@ -7,7 +7,7 @@ import { TableCell } from "./TableCell";
 import { TableBody } from "./TableBody";
 import { TableCaption } from "./TableCaption";
 
-interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */
     caption?: string;
     compact?: boolean;
