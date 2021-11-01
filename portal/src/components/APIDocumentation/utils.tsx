@@ -1,5 +1,5 @@
 import React, { UIEventHandler } from "react";
-import { PropItem } from "react-docgen-typescript";
+import type { PropItem } from "react-docgen-typescript";
 
 const inlineCode = (code: string) => <code className="jkl-portal-inline-code">{code}</code>;
 
@@ -15,7 +15,7 @@ export const getRows = (data: PropItem[]) =>
     data.map((prop) => [
         prop.name ? inlineCode(prop.name) : "",
         prop.description,
-        prop?.defaultValue?.value ? inlineCode(prop.defaultValue.value as string) : "ingen",
+        prop.defaultValue?.value ? inlineCode(prop.defaultValue.value as string) : "ingen",
         prop.required ? "Påkrevd" : "Ikke påkrevd",
         prop.type?.name ? inlineCode(prop.type.name) : "",
     ]);

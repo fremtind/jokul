@@ -1,5 +1,5 @@
 import React, { useRef, VFC, useEffect } from "react";
-import { ComponentDoc, PropItem } from "react-docgen-typescript";
+import type { ComponentDoc, PropItem } from "react-docgen-typescript";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { DataTable } from "@fremtind/jkl-table-react";
 
@@ -56,7 +56,9 @@ const PropsTable: VFC<PropsTableProps> = ({ props }) => {
 };
 
 interface APIDocumentationProps {
-    types: ComponentDoc[];
+    types: {
+        [x: string]: ComponentDoc;
+    };
 }
 
 export const APIDocumentation: VFC<APIDocumentationProps> = ({ types }) => {
@@ -67,9 +69,9 @@ export const APIDocumentation: VFC<APIDocumentationProps> = ({ types }) => {
                 Her finner du en oversikt over props på komponentene i pakken.
             </p>
             <Accordion className="jkl-spacing-xl--top jkl-portal-api-docs">
-                {types.map(({ displayName, props }) => {
-                    const ownProps = Object.values(props).filter(isOwnProp);
-                    const externalProps = Object.values(props).filter(isExternalProp);
+                {Object.entries(types).map(([displayName, propTypes]) => {
+                    const ownProps = propTypes.props ? Object.values(propTypes.props).filter(isOwnProp) : [];
+                    const externalProps = propTypes.props ? Object.values(propTypes.props).filter(isExternalProp) : [];
 
                     return (
                         <AccordionItem title={displayName} key={displayName} className="jkl-portal-api-docs__item">

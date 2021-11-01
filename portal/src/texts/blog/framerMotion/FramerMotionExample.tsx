@@ -2,7 +2,7 @@ import React, { VFC } from "react";
 import { motion } from "framer-motion";
 import "./style.scss";
 
-const Example: VFC = () => {
+export const FramerMotionExample: VFC = () => {
     return (
         <div className="wrapper jkl-portal-paragraph">
             <div className="example-container">
@@ -11,5 +11,3 @@ const Example: VFC = () => {
         </div>
     );
 };
-
-export default Example;

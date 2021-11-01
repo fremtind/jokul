@@ -1,22 +1,32 @@
-import React, { FC, ReactNode, useContext } from "react";
+import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import React, { VFC, ReactNode, useContext } from "react";
 import { motion } from "framer-motion";
-import { Frontmatter } from "../Header/useNavigationLinks";
-import { BlogPageHeader, ComponentPageHeader } from "./components";
-import { a11yContext } from "../../contexts/a11yContext";
-import { useLocation } from "../../contexts/locationContext";
-import { APIDocumentation } from "./components/APIDocumentation/APIDocumentation";
+import type { ComponentDoc } from "react-docgen-typescript";
+import { Frontmatter } from "../components/Header/useNavigationLinks";
+import { BlogPageHeader, ComponentPageHeader } from "../components/Layout/components";
+import { a11yContext } from "../contexts/a11yContext";
+import { useLocation } from "../contexts/locationContext";
+import { APIDocumentation } from "../components";
 
 interface Props {
     location: Location;
-    children: ReactNode;
+    data: {
+        page: { body: string & ReactNode; frontmatter: Frontmatter };
+    };
     pageContext: {
-        frontmatter: Frontmatter;
+        types: {
+            [x: string]: ComponentDoc;
+        };
     };
 }
 
-export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { frontmatter } }) => {
+export const DocPageLayout: VFC<Props> = ({ location, data, pageContext }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
     const { isCypress } = useLocation();
+
+    const { body, frontmatter } = data.page; // Fra pageQuery
+    const { types } = pageContext; // Fra context i gatsby-node
 
     return (
         <motion.main
@@ -31,7 +41,7 @@ export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { fr
         >
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />
-            {children}
+            <MDXRenderer>{body}</MDXRenderer>
             {frontmatter.discussion && (
                 <>
                     <h2 className="jkl-portal-heading-large jkl-spacing-3xl--top">Hva trenger du?</h2>
@@ -44,9 +54,27 @@ export const DocPageLayout: FC<Props> = ({ children, location, pageContext: { fr
                     </p>
                 </>
             )}
-            {frontmatter.type && frontmatter.type.length > 0 && <APIDocumentation types={frontmatter.type} />}
+            {types && <APIDocumentation types={types} />}
         </motion.main>
     );
 };
 
 export default DocPageLayout;
+
+export const pageQuery = graphql`
+    query DocPageQuery($id: String!) {
+        page: mdx(id: { eq: $id }) {
+            id
+            body
+            frontmatter {
+                title
+                react
+                scss
+                order
+                author
+                publishDate
+                group
+            }
+        }
+    }
+`;

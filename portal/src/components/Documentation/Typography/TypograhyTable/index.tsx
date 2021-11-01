@@ -16,7 +16,7 @@ const levels: TypographyLevels[] = [
     "Small",
 ];
 
-export const Example: VFC = () => {
+export const TypographyExample: VFC = () => {
     const [isCompact, setIsCompact] = useState(false);
     const toggleCompact = () => setIsCompact(!isCompact);
 
