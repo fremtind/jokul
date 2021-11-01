@@ -18,7 +18,7 @@ Siden vi har endret navngivingen i skalaen kan man ikke bruke _ett_ magisk regex
 
 De gamle hjelpelklassene var på formen `jkl-<type>-spacing--<steg>-<posisjon>`, der **type** er `layout` eller `component`, **steg** er steget i den gamle skalaen (f.eks. `large`), og **posisjon** er `top`, `right`, `bottom`, `left` eller `all`.
 
-De nye klassene er på formen `jkl-spacing-<steg>--<posisjon>`, der **steg** er et steg i den nye skalaen **posisjon** er det samme som i de gamle klassene. Med en regex søk-og-erstatt kan vi gjøre om fra det gamle til det nye formatet, men med steg og type fra den gamle skalaen. Da er vi sklare for senere å oversette verdiene fra gammel til ny skala.
+De nye klassene er på formen `jkl-spacing-<steg>--<posisjon>`, der **steg** er et steg i den nye skalaen **posisjon** er det samme som i de gamle klassene. Med en regex søk-og-erstatt kan vi gjøre om fra det gamle til det nye formatet, men med steg og type fra den gamle skalaen. Da er vi klare for senere å oversette verdiene fra gammel til ny skala.
 
 -   Vi søker etter `jkl-(component|layout)-spacing--(\w+)-(\w+)`, og får da ut grupper for type, steg og posisjon. Disse kan vi sette inn i det nye formatet, f.eks. slik: `jkl-spacing-<$1-$2>--$3`.
 
