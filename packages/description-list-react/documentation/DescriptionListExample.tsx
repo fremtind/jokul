@@ -1,8 +1,8 @@
 import React from "react";
 import { DescriptionList, DescriptionDetail, DescriptionTerm } from "../src";
-import "./Example.scss";
+import "./DescriptionListExample.scss";
 
-export const Example: React.VFC = () => {
+export const DescriptionListExample: React.VFC = () => {
     return (
         <div className="description-list-example">
             <DescriptionList className="jkl-body">
@@ -20,5 +20,3 @@ export const Example: React.VFC = () => {
         </div>
     );
 };
-
-export default Example;

@@ -3,7 +3,7 @@ import { LabelVariant } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtons } from "../src";
 
-const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const RadioButtonExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const choices = [
         "Jeg vil at dere skal ringe meg",
         "Nei",
@@ -30,5 +30,3 @@ const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
         />
     );
 };
-
-export default Example;

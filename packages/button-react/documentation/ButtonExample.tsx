@@ -5,7 +5,7 @@ import { Secondary } from "./Secondary";
 import { Tertiary } from "./Tertiary";
 import "./style.scss";
 
-export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const ButtonExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
         <div className="jkl-button-example">
             <div>
@@ -20,5 +20,3 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => {
         </div>
     );
 };
-
-export default Example;

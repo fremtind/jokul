@@ -7,7 +7,7 @@ import largeSize from "./assets/largeSize.jpg";
 import thumbnail from "./assets/thumbnail.jpg";
 import "./style.scss";
 
-export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const { isSmallDevice } = useScreen();
     const [show, toggleShow] = useState(false);
 

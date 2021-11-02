@@ -4,7 +4,7 @@ import { ExampleComponentProps } from "../../../doc-utils";
 import { Accordion, AccordionItem } from "../src";
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
-export const Example: React.FC<ExampleComponentProps> = ({ boolValues }) => (
+export const AccordionExample: React.FC<ExampleComponentProps> = ({ boolValues }) => (
     <Accordion inverted={boolValues && boolValues["Invertert"]}>
         <AccordionItem title="Hvem kan kjøpe livsforsikring?">
             <UnorderedList>

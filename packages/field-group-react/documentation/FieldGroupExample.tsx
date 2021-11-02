@@ -3,7 +3,7 @@ import { LabelVariant } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
 
-export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const FieldGroupExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpetekst for feltene samlet" : undefined;
     const errorLabel = boolValues && boolValues["Med feil"] ? "Feilmelding for feltene samlet" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
@@ -21,5 +21,3 @@ export const Example: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }
         </FieldGroup>
     );
 };
-
-export default Example;

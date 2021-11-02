@@ -5,7 +5,7 @@ import "./styles.scss";
 
 type VariantChoice = "Large" | "Medium" | "Small";
 
-const LoaderExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+export const LoaderExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
     const variantChoice = choiceValues && (choiceValues["Variant"] as VariantChoice);
     let variant: LoaderVariant = "large";
     switch (variantChoice) {
@@ -28,5 +28,3 @@ const LoaderExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
         </div>
     );
 };
-
-export default LoaderExample;

@@ -2,7 +2,7 @@ import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Checkbox } from "../src";
 
-export const Example: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
     const [checked, setChecked] = React.useState(false);
     const [checked2, setChecked2] = React.useState(false);
     return (
@@ -32,5 +32,3 @@ export const Example: VFC<ExampleComponentProps> = ({ boolValues }) => {
         </div>
     );
 };
-
-export default Example;

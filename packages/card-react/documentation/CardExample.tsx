@@ -7,7 +7,7 @@ function handleClick() {
     console.log("This is working");
 }
 
-const CardDemo: VFC = () => (
+export const CardExample: VFC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <Card className="test-class">
             <p className="jkl-body">Empty card</p>
@@ -75,5 +75,3 @@ const CardDemo: VFC = () => (
         </Card>
     </section>
 );
-
-export default CardDemo;

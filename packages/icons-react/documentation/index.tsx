@@ -4,7 +4,7 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { IconsExample } from "./IconsExample";
 import { choiceProps, boolProps } from "./internal/props";
 import "@fremtind/jkl-icons/animated-icons.css";
 import "@fremtind/jkl-text-input/text-input.css";
@@ -12,7 +12,7 @@ import "@fremtind/jkl-button/button.css";
 
 renderExample(
     <DevExample
-        component={Example}
+        component={IconsExample}
         knobs={{
             boolProps,
             choiceProps,

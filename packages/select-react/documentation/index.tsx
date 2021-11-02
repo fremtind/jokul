@@ -4,7 +4,7 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { SelectExample } from "./Example";
+import { SelectExample } from "./SelectExample";
 import "@fremtind/jkl-select/select.css"; // non-minified css for easier debugging
 
 renderExample(

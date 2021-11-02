@@ -46,7 +46,7 @@ export const IconedList: VFC = () => (
     </List>
 );
 
-const Example: VFC = () => (
+export const ListExample: VFC = () => (
     <section>
         <Ordered />
         <Unordered />
@@ -54,5 +54,3 @@ const Example: VFC = () => (
         <IconedList />
     </section>
 );
-
-export default Example;

@@ -1,6 +1,6 @@
 import { PRESETS } from "../src/presets";
 
-export const exampleProps = {
+export const feedbackExampleProps = {
     boolProps: ["Med oppfølgings-spørsmål", "Med kontakt-spørsmål"],
     choiceProps: [
         {

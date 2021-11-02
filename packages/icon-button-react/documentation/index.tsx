@@ -4,12 +4,12 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { IconButtonExample } from "./IconButtonExample";
 import "@fremtind/jkl-icon-button/icon-button.css";
 
 renderExample(
     <DevExample
-        component={Example}
+        component={IconButtonExample}
         knobs={{
             choiceProps: [
                 {

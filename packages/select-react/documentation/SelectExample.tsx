@@ -69,8 +69,6 @@ export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceVa
     );
 };
 
-export default SelectExample;
-
 export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
 <${!!boolValues?.["Native"] ? "NativeSelect" : "Select"}
     ref={selectRef}

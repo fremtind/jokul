@@ -47,7 +47,7 @@ export const Spacing: VFC = () => (
     </section>
 );
 
-const Example: VFC = () => (
+export const CoreExample: VFC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
         <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv", "Back"] }} />
@@ -59,5 +59,3 @@ const Example: VFC = () => (
         <Keyboard />
     </section>
 );
-
-export default Example;

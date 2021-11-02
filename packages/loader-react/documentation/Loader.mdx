@@ -5,14 +5,14 @@ scss: loader
 group: annet
 ---
 
-import Example from "./Example";
+import { LoaderExample } from "./LoaderExample";
 
 <Ingress>
     En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren når vi har handlinger eller
     prosesser som tar lengre tid enn ett sekund.
 </Ingress>
 <ComponentExample
-    component={Example}
+    component={LoaderExample}
     knobs={{
         choiceProps: [
             {

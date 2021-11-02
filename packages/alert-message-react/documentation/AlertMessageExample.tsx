@@ -18,7 +18,7 @@ const getTypeOfBox = (typeofBox?: string) => {
     }
 };
 
-export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
     const [dismissed, setDismissed] = useState(false);
     const dismissAction =
@@ -36,5 +36,3 @@ export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
         </C>
     );
 };
-
-export default Example;

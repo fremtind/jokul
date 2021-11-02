@@ -32,7 +32,7 @@ export const Slider: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     );
 };
 
-const Example: React.FC<ExampleComponentProps> = (props) => (
+export const ToggleSwitchExample: React.FC<ExampleComponentProps> = (props) => (
     <section>
         <Switch {...props} />
         <div className="jkl-spacing-2xl--top">
@@ -40,5 +40,3 @@ const Example: React.FC<ExampleComponentProps> = (props) => (
         </div>
     </section>
 );
-
-export default Example;

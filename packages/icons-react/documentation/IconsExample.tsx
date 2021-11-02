@@ -27,7 +27,7 @@ import { IconExample } from "./internal/IconExample";
 import { variants } from "../src/icons/types";
 import { Grid } from "./internal/Grid";
 
-export const Example: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const IconsExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const allIcons = [
         Close,
         CheckMark,

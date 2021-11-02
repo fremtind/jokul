@@ -67,8 +67,6 @@ export const FeedbackExample: VFC<ExampleComponentProps> = ({ boolValues, choice
     );
 };
 
-export default FeedbackExample;
-
 export const feedbackCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
 <Feedback
     {...PRESETS["${choiceValues?.["Forhåndsvalg"]}"]}

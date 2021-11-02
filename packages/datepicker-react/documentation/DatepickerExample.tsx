@@ -48,8 +48,6 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
     );
 };
 
-export default DatepickerExample;
-
 export const datepickerCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
 <DatePicker
     label="Velg startdato for forsikringen"

@@ -4,8 +4,8 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import Example from "./Example";
+import { CardExample } from "./CardExample";
 import "@fremtind/jkl-card/card.css";
 import "@fremtind/jkl-button/button.css";
 
-renderExample(<DevExample component={Example} />, document.getElementById("app"));
+renderExample(<DevExample component={CardExample} />, document.getElementById("app"));

@@ -9,7 +9,7 @@ const rows = Object.entries(unicode).map((entry) => entry);
 
 export const Unicode: VFC = () => <DataTable className="jkl-constant-example__table" columns={columns} rows={rows} />;
 
-export const Example: VFC = () => (
+export const ConstantsExample: VFC = () => (
     <>
         <section className="jkl-constant-example">
             <h1 className="jkl-title-small jkl-spacing-xl--bottom">Unicode</h1>

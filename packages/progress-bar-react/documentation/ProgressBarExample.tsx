@@ -1,7 +1,7 @@
 import React, { VFC, useState } from "react";
 import { ProgressBar } from "../src";
 
-export const Example: VFC = () => {
+export const ProgressBarExample: VFC = () => {
     const [val, setVal] = useState(50);
 
     return (

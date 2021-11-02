@@ -2,7 +2,7 @@ import React, { VFC, useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Hamburger } from "../src";
 
-const Example: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const HamburgerExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -23,5 +23,3 @@ const Example: VFC<ExampleComponentProps> = ({ boolValues }) => {
         />
     );
 };
-
-export default Example;

@@ -6,7 +6,7 @@ function onClick() {
     console.log("Button Clicked!");
 }
 
-export const Example: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+export const IconButtonExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues && (choiceValues["Type"] as IconVariant);
 
     return (
@@ -15,5 +15,3 @@ export const Example: VFC<ExampleComponentProps> = ({ choiceValues }) => {
         </>
     );
 };
-
-export default Example;
