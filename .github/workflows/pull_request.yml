@@ -148,6 +148,7 @@ jobs:
         if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
         runs-on: ubuntu-latest
         strategy:
+            fail-fast: false
             matrix:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
                 group: [1, 2, 3, 4, 5]
