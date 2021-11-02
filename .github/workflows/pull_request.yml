@@ -59,7 +59,7 @@ jobs:
 
             - name: Install dependencies
               if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
-              run: yarn install --frozen-lockfile
+              run: yarn ci:install
 
             - name: Build packages
               if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
@@ -89,7 +89,7 @@ jobs:
                   cache: "yarn"
 
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: yarn ci:install
 
             - name: Download built packages
               uses: actions/download-artifact@v2
@@ -115,7 +115,7 @@ jobs:
                   cache: "yarn"
 
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: yarn ci:install
 
             - name: Download built packages
               uses: actions/download-artifact@v2

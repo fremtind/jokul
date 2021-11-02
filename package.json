@@ -16,7 +16,7 @@
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "eslint '**/*.{js,jsx,ts,tsx}' --fix",
         "ci:test": "run-p test lint typecheck",
-        "ci:install": "yarn install --ignore-engines",
+        "ci:install": "yarn install --frozen-lockfile && yarn patch-package",
         "test": "yarn run test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "test:watch": "jest -c './jest/jest.unit.js' --watch",
