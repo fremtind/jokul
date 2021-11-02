@@ -30,6 +30,7 @@
         "dev": "lerna run --scope @fremtind/portal dev --stream",
         "start": "yarn run dev",
         "serve": "lerna run build:test --stream",
+        "server": "lerna run --scope @fremtind/portal serve --stream",
         "boot": "yarn install --force && yarn build",
         "reboot": "yarn clean && yarn boot",
         "prepare": "husky install"
