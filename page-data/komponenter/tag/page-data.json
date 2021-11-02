@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---packages-tag-react-documentation-tag-mdx",
+    "path": "/komponenter/tag",
+    "result": {"pageContext":{"frontmatter":{"title":"Tag","react":"tag-react","scss":"tag","group":"annet","discussion":"https://github.com/fremtind/jokul/discussions/2341","type":[{"tags":{},"filePath":"../packages/tag-react/src/index.ts","description":"","displayName":"Tag","methods":[],"props":{}},{"tags":{},"filePath":"../packages/tag-react/src/index.ts","description":"","displayName":"InfoTag","methods":[],"props":{}},{"tags":{},"filePath":"../packages/tag-react/src/index.ts","description":"","displayName":"ErrorTag","methods":[],"props":{}},{"tags":{},"filePath":"../packages/tag-react/src/index.ts","description":"","displayName":"WarningTag","methods":[],"props":{}},{"tags":{},"filePath":"../packages/tag-react/src/index.ts","description":"","displayName":"SuccessTag","methods":[],"props":{}}]}}},
+    "staticQueryHashes": ["2567475215","3000541721"]}
