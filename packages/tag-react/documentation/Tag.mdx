@@ -16,19 +16,44 @@ import TagExample, { tagExampleCode } from "./TagExample";
 
 Vi har to kategorier av tags:
 
-1.  status - vises med en passende farge
-2.  emne, metadata - nøytral
+1.  Status vises med en passende farge.
+2.  Emne eller metadata vises nøytralt.
 
 <ComponentExample title="Tag" component={TagExample}>
 	<CodeDemo code={tagExampleCode} />
 </ComponentExample>
 
-Tags inneholder kun tekst. Teksten starter med stor forbokstav etterfulgt av små, med mindre det er en forkortelse eller merkevare. Teksten bør ikke overskride 12 tegn, og mellomrom bør unngås hvis mulig.
+Vi har også noen prinsipper for innholdet i tags:
 
-<DoDontExample type="do" description="Kort tekst" content={<Tag>E-kunde</Tag>} />
-<DoDontExample type="dont" description="Lang tekst" content={<Tag>Kunden er e-kunde</Tag>} />
-<DoDontExample type="do" description="Forkortelse" content={<Tag>PDF</Tag>} />
-<DoDontExample type="dont" description="Alt som versaler" content={<Tag>E-KUNDE</Tag>} />
+-   Tags inneholder kun tekst.
+-   Teksten starter med stor forbokstav etterfulgt av små, med mindre det er en forkortelse eller merkevare.
+-   Teksten bør ikke overskride 12 tegn.
+-   Mellomrom bør unngås hvis mulig.
+
+<div>
+	<DoDontExample
+		type="do"
+		description="Kort tekst"
+		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">E-kunde</Tag>}
+	/>
+	<DoDontExample
+		type="dont"
+		description="Lang tekst"
+		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Kunden er e-kunde</Tag>}
+	/>
+</div>
+<div>
+	<DoDontExample
+		type="do"
+		description="Forkortelse"
+		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">PDF</Tag>}
+	/>
+	<DoDontExample
+		type="dont"
+		description="Alt som versaler"
+		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">E-KUNDE</Tag>}
+	/>
+</div>
 
 Fargene i statustags har en betydning på samme måte som [Message box](/komponenter/messagebox):
 
@@ -38,14 +63,42 @@ Fargene i statustags har en betydning på samme måte som [Message box](/kompone
 
 Blått kan brukes om de andre kategoriene ikke passer, men bare dersom samme sted vil kunne vise en annen statusfarge hvis situasjonen var annerledes. Blått er med andre ord ikke en nøytral farge som kan brukes til informasjon utenfor statuskategorien. Til det brukes emnevarianten.
 
-<DoDontExample type="do" description="Status" content={<SuccessTag>Registrert</SuccessTag>} />
-<DoDontExample type="dont" description="Statusfarge for emne" content={<SuccessTag>Miljøvennlig</SuccessTag>} />
-
-<DoDontExample type="do" description="Status" content={<InfoTag>Behandles</InfoTag>} />
-<DoDontExample type="dont" description="Emnefarge for status" content={<Tag>Behandles</Tag>} />
-
-<DoDontExample type="do" description="Emne" content={<Tag>Flom</Tag>} />
-<DoDontExample type="dont" description="Statusfarge for emne" content={<InfoTag>Flom</InfoTag>} />
+<div>
+	<DoDontExample
+		type="do"
+		description="Status"
+		content={<SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Registrert</SuccessTag>}
+	/>
+	<DoDontExample
+		type="dont"
+		description="Statusfarge for emne"
+		content={<SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Miljøvennlig</SuccessTag>}
+	/>
+</div>
+<div>
+	<DoDontExample
+		type="do"
+		description="Status"
+		content={<InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Behandles</InfoTag>}
+	/>
+	<DoDontExample
+		type="dont"
+		description="Emnefarge for status"
+		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Behandles</Tag>}
+	/>
+</div>
+<div>
+	<DoDontExample
+		type="do"
+		description="Emne"
+		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Flom</Tag>}
+	/>
+	<DoDontExample
+		type="dont"
+		description="Statusfarge for emne"
+		content={<InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Flom</InfoTag>}
+	/>
+</div>
 
 ## Når bruker vi tags?
 
