@@ -1,0 +1,37 @@
+{
+    "name": "@fremtind/jkl-tag",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for tags",
+    "homepage": "https://jokul.fremtind.no",
+    "keywords": [
+        "tag",
+        "tags",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo \"Error: run dev from tag-react\" && exit 1"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^8.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

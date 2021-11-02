@@ -38,14 +38,16 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
                 <div
                     aria-label={`${spacing},  ${pxValue}`}
                     style={{ backgroundColor: "currentColor", width: `${remValue}rem`, height: `${remValue}rem` }}
-                    title={pxValue}
                 />
             </td>
             <td data-header="Variabel:" className="jkl-portal-spacing-example-table__data">
                 <code className="jkl-portal-inline-code">${spacing}</code>
             </td>
-            <td data-header="Klasse:" className="jkl-portal-spacing-example-table__data">
-                <code className="jkl-portal-inline-code">{`.jkl-${spacing}--<top|right|bottom|left|all>`}</code>
+            <td data-header="Rem:" className="jkl-portal-spacing-example-table__data">
+                <code className="jkl-portal-inline-code">{remValue}rem</code>
+            </td>
+            <td data-header="Pixelverdi:" className="jkl-portal-spacing-example-table__data">
+                <code className="jkl-portal-inline-code">{pxValue}</code>
             </td>
         </tr>
     );
@@ -57,7 +59,8 @@ const SpacingTable: React.FC<{ values: spacingClass[] }> = ({ values }) => (
             <tr>
                 <th className="jkl-portal-spacing-example-table__header">Spacing</th>
                 <th className="jkl-portal-spacing-example-table__header">Variabel</th>
-                <th className="jkl-portal-spacing-example-table__header">Klasse</th>
+                <th className="jkl-portal-spacing-example-table__header">Rem</th>
+                <th className="jkl-portal-spacing-example-table__header">Pixler</th>
             </tr>
         </thead>
         <tbody>

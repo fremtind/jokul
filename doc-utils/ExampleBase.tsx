@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, VFC, FC } from "react";
+import React, { useState, useEffect, VFC, FC } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
@@ -35,7 +35,7 @@ export const ExampleBase: VFC<Props> = ({
     const [choiceValues, setChoiceValues] = useState<Dictionary<string>>({});
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setBoolValues(
             knobs?.boolProps?.reduce((acc, boolProp) => {
                 if (typeof boolProp === "string") {

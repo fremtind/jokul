@@ -35,6 +35,12 @@
         max-width: rem(420px);
     }
 
+    &__content {
+        color: var(--jkl-color);
+        background-color: var(--jkl-background-color);
+        padding: jkl.$spacing-s;
+    }
+
     &__image {
         width: 100%;
     }
