@@ -1,4 +1,16 @@
-/* eslint-disable */
+const ignoreNonMdx = [
+    "**/.*", // filer som starter med .
+    "**/*.png",
+    "**/*.md",
+    "**/*.scss",
+    "**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.html",
+    "**/*.json",
+    "**/node_modules/**",
+];
+
 module.exports = {
     pathPrefix: "/jokul",
     siteMetadata: {
@@ -21,7 +33,7 @@ module.exports = {
             options: {
                 name: "components",
                 path: `${__dirname}/../packages`,
-                ignore: ["!**/documentation/*.mdx"],
+                ignore: ignoreNonMdx,
             },
         },
         {
@@ -29,7 +41,7 @@ module.exports = {
             options: {
                 name: "docs",
                 path: `${__dirname}/src/texts`,
-                ignore: ["!**/*.mdx"],
+                ignore: ignoreNonMdx,
             },
         },
         "gatsby-plugin-mdx",

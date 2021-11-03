@@ -47,7 +47,7 @@
     "scripts": {
         "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
         "clean:portal": "gatsby clean",
-        "build": "gatsby build",
+        "build": "rimraf public/ && gatsby build",
         "build:test": "gatsby build && gatsby serve",
         "dev": "GATSBY_HOT_LOADER=fast-refresh gatsby develop --host 0.0.0.0",
         "start": "yarn dev",
