@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-scaffold",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -11,7 +11,6 @@
         "fremtind"
     ],
     "files": [
-        "!example",
         "*.css",
         "*.scss"
     ],
@@ -21,7 +20,7 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev": "echo \"Error: run dev from scaffold-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^8.0.0"

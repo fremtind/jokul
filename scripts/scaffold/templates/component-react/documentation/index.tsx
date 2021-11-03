@@ -4,7 +4,7 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { ScaffoldExample } from "./ScaffoldExample";
 import "@fremtind/jkl-scaffold/scaffold.css";
 
-renderExample(<DevExample component={Example} knobs={{}} />, document.getElementById("app"));
+renderExample(<DevExample component={ScaffoldExample} knobs={{}} />, document.getElementById("app"));

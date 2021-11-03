@@ -34,7 +34,7 @@
         "boot": "yarn install --force && yarn build",
         "reboot": "yarn clean && yarn boot",
         "prepare": "husky install",
-        "scaffold": "node './scripts/scaffold'"
+        "scaffold": "node './scripts/scaffold' && yarn install"
     },
     "dependencies": {
         "classnames": "^2.2.6",
@@ -113,6 +113,7 @@
         "postcss": "^8.3.11",
         "postinstall-postinstall": "^2.1.0",
         "prettier": "^2.3.2",
+        "prompt": "^1.2.0",
         "react-test-renderer": "^17.0.1",
         "regenerator-runtime": "^0.13.5",
         "rimraf": "^3.0.2",

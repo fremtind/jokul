@@ -1,8 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { HTMLAttributes } from "react";
 
-interface Props {
-    children: ReactNode;
-}
+interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 export const Scaffold = (props: Props) => {
     return <div>{props.children}</div>;

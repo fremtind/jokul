@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Scaffold } from "../src";
 
-export const Example: VFC<ExampleComponentProps> = () => {
+export const ScaffoldExample: FC<ExampleComponentProps> = () => {
     return (
         <div>
             <Scaffold>Edit me!</Scaffold>
@@ -10,4 +10,4 @@ export const Example: VFC<ExampleComponentProps> = () => {
     );
 };
 
-export default Example;
+export default ScaffoldExample;
