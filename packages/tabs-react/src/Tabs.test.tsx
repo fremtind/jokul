@@ -6,7 +6,7 @@ import { axe } from "jest-axe";
 const renderComponent = () =>
     render(
         <Tabs>
-            <TabList>
+            <TabList aria-label="testlist">
                 <Tab>Tab 1</Tab>
                 <Tab>Tab 2</Tab>
                 <Tab>Tab 3</Tab>
