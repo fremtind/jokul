@@ -6,10 +6,6 @@ module.exports = function (api) {
     const environment = api.env(); // Will be production, test or development (process.env.NODE_ENV)
     api.cache.using(() => environment);
 
-    if (environment === "development") {
-        return {};
-    }
-
     const isTest = api.env("test");
 
     // Tests run in a node environment, so commonjs is required;
