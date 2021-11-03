@@ -5,7 +5,7 @@ scss: checkbox
 group: knapper
 ---
 
-import Example from "./Example";
+import { CheckboxExample } from "./CheckboxExample";
 
 <Ingress>
     Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene
@@ -13,7 +13,7 @@ import Example from "./Example";
     kan velge ett eller flere alternativer.
 </Ingress>
 <ComponentExample
-    component={Example}
+    component={CheckboxExample}
     knobs={{
         boolProps: ["Kompakt", "Med feil", "Invertert"],
     }}

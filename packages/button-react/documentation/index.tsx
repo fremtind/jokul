@@ -4,7 +4,7 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { ButtonExample } from "./ButtonExample";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-loader/loader.css";
 
@@ -12,7 +12,7 @@ const mountNode = document.getElementById("app");
 
 renderExample(
     <DevExample
-        component={Example}
+        component={ButtonExample}
         knobs={{
             boolProps: ["Kompakt", "Invertert", { prop: "withLoader", defaultValue: true }, "isLoading"],
         }}

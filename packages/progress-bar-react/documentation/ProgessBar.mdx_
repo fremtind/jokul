@@ -5,10 +5,10 @@ scss: "progress-bar"
 group: annet
 ---
 
-import { Example } from "./Example.tsx";
+import { ProgressBarExample } from "./ProgressBarExample.tsx";
 
 <Ingress>Fremdriftsindikator kan brukes for å vise brukeren hvor langt man er kommet i en lengre operasjon.</Ingress>
-<ComponentExample component={Example} />
+<ComponentExample component={ProgressBarExample} />
 
 Korte oppgaver bør ikke ha fremdriftsindikator, da det kan virke mot sin hensikt. Lengre prosesser kan bruke fremdriftsindikator.
 

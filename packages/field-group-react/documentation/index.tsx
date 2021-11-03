@@ -4,12 +4,12 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { FieldGroupExample } from "./FieldGroupExample";
 import "@fremtind/jkl-field-group/field-group.css";
 
 renderExample(
     <DevExample
-        component={Example}
+        component={FieldGroupExample}
         knobs={{
             boolProps: ["Kompakt", "Med hjelpetekst", "Med feil"],
             choiceProps: [

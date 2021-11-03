@@ -4,13 +4,13 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { AccordionExample } from "./AccordionExample";
 import "@fremtind/jkl-accordion/accordion.css";
 
 const mountNode = document.getElementById("app");
 renderExample(
     <DevExample
-        component={Example}
+        component={AccordionExample}
         knobs={{
             boolProps: ["Invertert"],
         }}
