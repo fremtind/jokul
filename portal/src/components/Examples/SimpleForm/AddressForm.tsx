@@ -111,7 +111,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} ref={numberRef}>
                         <Select
                             className={`jkl-simple-form__postal-group__house-number ${
-                                isCompact ? "jkl-spacing-l--bottom" : "jkl-spacingls--bottom"
+                                isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"
                             }`}
                             items={["1", "3", "5", "7", "9"]}
                             label="Nummer"
