@@ -2,7 +2,7 @@ import React, { useState, useEffect, VFC, FC } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp } from "./";
 import { hyphenate } from "./internal/hypenate";
@@ -98,16 +98,19 @@ export const ExampleBase: VFC<Props> = ({
                     {knobs?.choiceProps && (
                         <>
                             {Object.entries(choiceValues).map(([key, value]) => (
-                                <RadioButtons
+                                <RadioButtonGroup
                                     className="jkl-portal-component-example__example-options-header"
                                     variant="small"
-                                    key={key}
                                     name={`${uid}-${hyphenate(key)}`}
+                                    key={key}
                                     legend={key}
-                                    choices={[...choices[key]]}
-                                    selectedValue={value}
+                                    value={value}
                                     onChange={(e) => setChoiceValue(key, e.target.value)}
-                                />
+                                >
+                                    {choices[key]?.map((choice) => (
+                                        <RadioButton key={choice} label={choice} value={choice} />
+                                    ))}
+                                </RadioButtonGroup>
                             ))}
                         </>
                     )}

@@ -1,4 +1,5 @@
-import { RadioButtonOption } from "./RadioButtonOption";
-import { RadioButtons } from "./RadioButtons";
+export type { RadioButtonProps } from "./RadioButton";
+export { RadioButton } from "./RadioButton";
 
-export { RadioButtonOption, RadioButtons };
+export type { RadioButtonGroupProps } from "./RadioButtonGroup";
+export { RadioButtonGroup } from "./RadioButtonGroup";

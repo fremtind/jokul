@@ -8,99 +8,65 @@ Se portalen for [bruk og prinsipper](hhttps://jokul.fremtind.no/komponenter/radi
 
 [Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
-## Bruk av React-komponenten
-
-### Installasjon
+## Installasjon
 
 1. Installér pakken med `yarn add @fremtind/jkl-radio-button-react` eller `npm i @fremtind/jkl-radio-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { RadioButtonGroup, RadioButton } from "@fremtind/jkl-radio-button-react";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 ```
 
-Komponenten `RadioButtonOption` brukes ikke for seg selv, men kun gjennom `RadioButtons`. Denne komponenten håndterer alle valg og event handlers. Spørsmålet som stilles gis gjennom prop'en `legend` og valgene gis som et array av `string` eller `ValuePair`-verdier:
+## Bruk
 
-```ts
-type ValuePair = {
-    value: string;
-    label: string;
-};
-```
+Komponenten `RadioButton` brukes ikke for seg selv, men kun gjennom `RadioButtonGroup`. Spørsmålet som stilles gis gjennom `legend` på `RadioButtonGroup` og valgene gis som children av type `RadioButton`. Du må også spesifisere et `name` som gis til alle valgene.
 
-Du må også spesifisere et `name` som gis til alle valgene, en `selectedValue` og en `onChange`-funksjon som får et `ChangeEvent` som første argument. Komponenten brukes altså som en kontrollert konponent:
+Om du bruker `react-hook-form` vil bruken kunne se slik ut:
 
 ```tsx
-const [selectedValue, setSelectedValue] = useState("full");
-return (
-    <RadioButtons
-        name="coverage"
-        legend="Hvilken dekning ønsker du?"
-        choices={[
-            { value: "del", label: "Delkasko" },
-            { value: "full", label: "Fullkasko" },
-        ]}
-        selectedValue={selectedValue}
-        onChange={setSelectedValue}
-    />
-);
+<RadioButtonGroup legend="Hvilken dekning ønsker du?">
+    <RadioButton {...register("coverage", { required: true })} label="Delkasko" value="del" />
+    <RadioButton {...register("coverage", { required: true })} label="Fullkasko" value="full" />
+</RadioButtonGroup>
 ```
 
-Radioknappene kan vises ved siden av hverandre ved hjelp av prop'en `inline`. Denne bør kun brukes dersom det er to relativt korte valg:
+En mer manuell variant kan se slik ut:
 
 ```tsx
-<RadioButtons inline choices={["Ja", "Nei"]} />
-// Noen påkrevde props fjernet for lesbarhet
-```
-
-Komponenten tar imot hjelpe- og feilmeldinger gjennom `helpLabel` og `errorLabel`. Dersom `errorLabel` finnes vises _kun_ denne, og spørsmålet markeres som feilbesvart.
-
-```tsx
-const [selectedValue, setSelectedValue] = useState("");
-const hasError = selectedValue === "";
-
-return (
-    <RadioButtons
-        inline
-        legend="Vil du motta informasjon fra oss?"
-        choices={["Ja", "Nei"]}
-        helpLabel="Vi videreselger aldri kontaktinformasjonen din"
-        errorLabel={hasError ? "Du må foreta et valg" : undefined}
-    />
-);
-```
-
-Komponenten kan også brukes uten forhåndsvalg. Da lar du `selectedValue` stå tom.
-
-```tsx
+const choices = ["Jeg vil at dere skal ringe meg", "Jeg vil at dere skal sende en e-post"];
 const [selectedValue, setSelectedValue] = useState("");
 
 return (
-    <RadioButtons
-        name="coverage"
-        legend="Hvilken dekning ønsker du?"
-        choices={[
-            { value: "del", label: "Delkasko" },
-            { value: "full", label: "Fullkasko" },
-        ]}
-        selectedValue={selectedValue}
-        onChange={setSelectedValue}
-    />
+    <RadioButtonGroup
+        legend="Hvordan vil du bli kontaktet?"
+        name="kontaktmetode"
+        value={selectedValue}
+        onChange={(e) => setSelectedValue(e.target.value)}
+    >
+        {choices.map((value) => (
+            <RadioButton key={value} label={value} value={value} />
+        ))}
+    </RadioButtonGroup>
 );
 ```
 
-### Props
+Radioknappene kan vises ved siden av hverandre om `inline` er satt. Denne bør kun brukes dersom det er to relativt korte valg:
 
-komponenten tar i bruk følgende props:
+```tsx
+<RadioButtonGroup legend="Er noen sjåfører under 23 år?" inline>
+    <RadioButton {...register("u23", { required: true })} label="Ja" value="y" />
+    <RadioButton {...register("u23", { required: true })} label="Nei" value="n" />
+</RadioButtonGroup>
+```
 
--   `name`: **Påkrevd**. Navnet på valget som tas. `string`
--   `legend`: **Påkrevd**. Overskriften på valget.`string`
--   `choices`: **Påkrevd**. Array med valgalternativene. `Array<string | ValuePair>`
--   `selectedValue`: Angir det valgte alternativet. `string`
--   `onChange`: Angir funksjon for å håndtere endring i verdi. Får en `ChangeEvent` som første argument.
--   `helpLabel`: Hjelpetekst som vises under valgene. `string`
--   `errorLabel` (**Erstatter** `helpLabel`): Feilmelding som vises under valgene. `string`
--   `inline`: Angir om boksen skal stå på linje med andre bokser. `boolean`
--   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
--   `forceCompact`: Angir at boksen skal vises i liten versjon uavhengig av skjermstørrelse. `boolean`
+Det finnes også en `forceCompact`-variant som brukes på samme måte:
+
+```tsx
+<RadioButtonGroup legend="Er noen sjåfører under 23 år?" forceCompact>
+    <RadioButton {...register("u23", { required: true })} label="Ja" value="y" />
+    <RadioButton {...register("u23", { required: true })} label="Nei" value="n" />
+</RadioButtonGroup>
+```
+
+Komponenten tar imot hjelpe- og feilmeldinger gjennom `helpLabel` og `errorLabel`. Dersom `errorLabel` finnes vises _kun_ denne, og skjemafeltene markeres som ugyldige.
