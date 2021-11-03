@@ -4,12 +4,12 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { CheckboxExample } from "./CheckboxExample";
 import "@fremtind/jkl-checkbox/checkbox.css";
 
 renderExample(
     <DevExample
-        component={Example}
+        component={CheckboxExample}
         knobs={{
             boolProps: ["Kompakt", "Med feil", "Invertert"],
         }}

@@ -5,14 +5,14 @@ scss: message-box
 group: meldinger
 ---
 
-import { Example } from "./MessageBoxExample";
+import { MessageBoxExample } from "./MessageBoxExample";
 
 <Ingress>
     En melding er en beskjed til brukeren. Det kan være et varsel om at noe er feil, informasjon om at noe mangler i et
     skjema, eller en bekreftelse på at noe har blitt oppdatert. Meldingene består av en overskrift og en meldingstekst.
 </Ingress>
 <ComponentExample
-    component={Example}
+    component={MessageBoxExample}
     knobs={{
         boolProps: ["Full bredde", "Avvisbar"],
         choiceProps: [

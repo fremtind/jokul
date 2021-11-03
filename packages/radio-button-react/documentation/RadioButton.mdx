@@ -5,14 +5,14 @@ scss: radio-button
 group: knapper
 ---
 
-import Example from "./Example";
+import { RadioButtonExample } from "./RadioButtonExample";
 
 <Ingress>
     Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil
     fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en nedtrekksliste.
 </Ingress>
 <ComponentExample
-    component={Example}
+    component={RadioButtonExample}
     knobs={{
         boolProps: ["Kompakt", "Inline", "Med feil", "Invertert"],
         choiceProps: [
