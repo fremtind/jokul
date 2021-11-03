@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
-import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { QuestionProps } from "../types";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
@@ -37,16 +37,23 @@ export const RadioQuestion: React.VFC<QuestionProps> = ({ label, name, options, 
     }
 
     return (
-        <RadioButtons
-            ref={ref}
-            variant="large"
-            inline={numOptions < 3}
+        <RadioButtonGroup
             legend={label}
+            labelProps={{ variant: "large" }}
             name={name || label}
-            choices={options?.map(({ label, value }) => ({ label, value: value.toString() })) || []}
-            selectedValue={selectedValue}
+            inline={numOptions < 3}
+            value={selectedValue || ""}
             onChange={handleChange}
             helpLabel={helpLabel}
-        />
+        >
+            {options?.map((option, i) => (
+                <RadioButton
+                    ref={i === 0 ? ref : undefined}
+                    key={`${name || label}${option.value}`}
+                    label={option.label}
+                    value={String(option.value)}
+                />
+            ))}
+        </RadioButtonGroup>
     );
 };
