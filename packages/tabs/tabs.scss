@@ -1,4 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
+@import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $tab-text-color: jkl.$color-granitt;
 $tab-text-color--inverted: jkl.$color-snohvit;
@@ -9,16 +10,21 @@ $tab-indicator-color--inverted: jkl.$color-snohvit;
 $tab-hover-color: jkl.$color-stein;
 $tab-hover-color--inverted: jkl.$color-svaberg;
 
+$tab-focus-border-color: jkl.$color-granitt;
+$tab-focus-border-color--inverted: jkl.$color-snohvit;
+
 @include jkl.helper-light-mode-variables {
     --tab-text-color: #{$tab-text-color};
     --tab-indicator-color: #{$tab-indicator-color};
     --tab-hover-color: #{$tab-hover-color};
+    --tab-focus-border-color: #{$tab-focus-border-color};
 }
 
 @include jkl.helper-dark-mode-variables {
     --tab-text-color: #{$tab-text-color--inverted};
     --tab-indicator-color: #{$tab-indicator-color--inverted};
     --tab-hover-color: #{$tab-hover-color--inverted};
+    --tab-focus-border-color: #{$tab-focus-border-color--inverted};
 }
 
 .jkl-tablist {
@@ -29,6 +35,15 @@ $tab-hover-color--inverted: jkl.$color-svaberg;
     margin: 0;
     border-bottom: 1px jkl.$color-svaberg solid;
     width: 100%;
+
+    &__indicator {
+        position: absolute;
+        height: 2px;
+        background-color: var(--tab-indicator-color);
+        @include motion("standard", "lazy");
+        transition-property: left, width;
+        will-change: left, width;
+    }
 }
 
 .jkl-tab {
@@ -43,10 +58,11 @@ $tab-hover-color--inverted: jkl.$color-svaberg;
         color: var(--tab-hover-color);
     }
 
-    &__indicator {
-        position: absolute;
-        height: 2px;
-        transition: ease 0.3s;
-        background-color: var(--tab-indicator-color);
+    &:focus-visible {
+        outline: var(--tab-focus-border-color) solid 2px;
+    }
+
+    &[aria-selected="true"] {
+        @include no-grow-bold;
     }
 }
