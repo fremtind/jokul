@@ -55,7 +55,7 @@ useEffect(initEventListener, [map]);
 As you notice, I invoke a function called `coordinateToAddress()` whenever the user clicks somewhere on the map.
 The click event of `google.maps` namespace returns us a typical event (e), but this e event has a special attribute called latLng.
 This is our location value. In this function, I pull three different data types from `geocoder`. I get the address, latitute and longitude.
-Just what I need to update my marker hook with.
+Just what I need to set my marker state.
 
 At this point of the program, our Map component successfully retrieves the coordinates of clicked point and
 it stores the data in our hook (marker), but we do not illustrate any marker to the user, yet.
