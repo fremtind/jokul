@@ -78,7 +78,7 @@ const coordinateToAddress = async (coordinate: GoogleLatLng) => {
 
 ### Adding single marker
 
-I created this function just for convention. If we decide to create an array of IMarker objects
+I created this function just for convenience. If we decide to create an array of IMarker objects
 (which means storing several markers on the map at the same time), we would create another function called addMultipleMarkers.
 But let’s see what `addSingleMarker()` does first. It simply follows the changes on `marker` hook with a `useEffect` and
 whenever it is updated we invoke `addMarker()` function.
