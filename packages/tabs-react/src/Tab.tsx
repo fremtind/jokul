@@ -1,8 +1,9 @@
-import React, { HTMLAttributes } from "react";
+import React from "react";
 import cx from "classnames";
 
-interface TabProps extends HTMLAttributes<HTMLButtonElement> {
+interface Props {
     children: string;
+    className?: string;
 }
 
 /**
@@ -10,7 +11,7 @@ interface TabProps extends HTMLAttributes<HTMLButtonElement> {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tab = React.forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
+export const Tab = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
     const classes = cx("jkl-tab", props.className);
 
     return <button role="tab" type="button" ref={ref} {...props} className={classes} />;

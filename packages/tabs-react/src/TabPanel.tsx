@@ -1,7 +1,10 @@
-import React, { HTMLAttributes } from "react";
+import React, { ReactNode } from "react";
 import cx from "classnames";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {}
+interface Props {
+    children: ReactNode;
+    className?: string;
+}
 
 /**
  * Konteiner for innhold i et tabbet brukergrensesnitt. Ikke funksjonell utenfor et Tabs element.

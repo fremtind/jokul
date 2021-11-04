@@ -1,11 +1,13 @@
-import React, { HTMLAttributes, useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { ReactNode, useCallback, useLayoutEffect, useRef, useState } from "react";
 import cx from "classnames";
 
-interface TabListProps extends HTMLAttributes<HTMLDivElement> {
+interface Props {
+    children: ReactNode;
     "aria-label": string;
+    className?: string;
 }
 
-interface TabListInjectedProps {
+interface InjectedProps {
     activeIndex: number;
     setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
     tabIDs: string[];
@@ -17,10 +19,9 @@ interface TabListInjectedProps {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const TabList = ({ children, ...injected }: TabListProps) => {
+export const TabList = ({ children, ...injected }: Props) => {
     // props injected by Tabs
-    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...props } = injected as TabListProps &
-        TabListInjectedProps;
+    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...props } = injected as Props & InjectedProps;
 
     const [tabsRect, setTabsRect] = useState<DOMRect>();
     const [activeRect, setActiveRect] = useState<DOMRect>();

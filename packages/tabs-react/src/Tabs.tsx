@@ -1,8 +1,11 @@
-import React, { useState, useCallback, useEffect, HTMLAttributes } from "react";
+import React, { useState, useCallback, useEffect, ReactNode } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
 
-interface Props extends HTMLAttributes<HTMLDivElement> {}
+interface Props {
+    children: ReactNode;
+    className?: string;
+}
 
 /**
  * Konteiner for et grensesnitt hvor man kan tabbe mellom innhold.
