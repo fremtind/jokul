@@ -6,6 +6,7 @@ const path = require("path");
 const prompt = require("prompt");
 const replace = require("replace-in-file");
 const glob = require("glob");
+const { spawnSync } = require("child_process");
 
 const main = async () => {
     try {
@@ -61,6 +62,10 @@ const main = async () => {
             path.resolve(__dirname, "templates", "component-react"),
             path.resolve(process.cwd(), "packages", `${componentName}-react`),
         );
+
+        spawnSync("yarn", ["install"], { stdio: "inherit" });
+
+        spawnSync("yarn", ["lerna", "run", "--scope", `@fremtind/jkl-${componentName}`, "build"], { stdio: "inherit" });
     } catch (error) {
         console.error(error);
         process.exit(1);
