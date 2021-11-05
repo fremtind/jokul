@@ -14,9 +14,7 @@ import "./Layout.scss";
 interface Props {
     location: Location;
     pageContext: {
-        frontmatter?: {
-            title?: string;
-        };
+        title?: string;
     };
 }
 
@@ -49,7 +47,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
 
     const metaDescription = site.siteMetadata.description;
     const siteTitle = site.siteMetadata.title;
-    const pageTitle = pageContext.frontmatter?.title;
+    const pageTitle = pageContext.title;
     const shouldShowSidebar = !isFrontPage && pageTitle && !(screen.isSmallDevice || screen.isMediumDevice);
 
     return (

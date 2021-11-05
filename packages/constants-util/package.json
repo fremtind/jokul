@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "0.2.21",
+    "version": "0.2.22",
     "publishConfig": {
         "access": "public"
     },
@@ -35,6 +35,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0"
+        "@babel/runtime": "^7.16.0"
     }
 }

@@ -5,7 +5,7 @@ import { renderExample, DevExample } from "../../../doc-utils";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { SummaryTableExample } from "./SummaryTableExample";
 import "@fremtind/jkl-summary-table/summary-table.css";
 
-renderExample(<DevExample component={Example} />, document.getElementById("app"));
+renderExample(<DevExample component={SummaryTableExample} />, document.getElementById("app"));

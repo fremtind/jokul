@@ -8,8 +8,6 @@ type messageTypes = "info" | "error" | "success" | "warning";
 interface Props {
     children: ReactNode;
     className?: string;
-    /** @deprecated */
-    inverted?: boolean;
     maxContentWidth?: string;
     paddingLeft?: string;
     /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
@@ -24,7 +22,6 @@ interface Props {
 function alertFactory(messageType: messageTypes) {
     return function alertMessage({
         className = "",
-        inverted,
         maxContentWidth,
         paddingLeft,
         role = "status",
@@ -33,7 +30,6 @@ function alertFactory(messageType: messageTypes) {
         children,
     }: Props) {
         const componentClassName = classNames("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
-            "jkl-alert-message--dark": inverted,
             "jkl-alert-message--dismissed": dismissed,
         });
 

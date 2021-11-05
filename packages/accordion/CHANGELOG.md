@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.1 (2021-11-01)
+
+### Bug Fixes
+
+- **accordion:** symmetrisk padding i AccordionItem ([c2bc8b0](https://github.com/fremtind/jokul/commit/c2bc8b0ff1158f789385699e291dbab389ddb4d2))
+
 ## 5.0.0 (2021-10-21)
 
 ### Features

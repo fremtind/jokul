@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
-type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
+type Props = DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>;
 
 export const TableBody: FC<Props> = (props) => {
     return (

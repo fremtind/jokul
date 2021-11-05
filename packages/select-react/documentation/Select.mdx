@@ -5,7 +5,7 @@ scss: select
 group: skjema
 ---
 
-import { Example } from "./Example";
+import { SelectExample, selectCode } from "./SelectExample";
 
 <Ingress>
     Vi bruker nedtrekkslister til å gi brukeren en liste med alternativ. Nedtrekkslister passer i de tilfellene det er
@@ -13,7 +13,7 @@ import { Example } from "./Example";
     velge mellom i listen.
 </Ingress>
 <ComponentExample
-    component={Example}
+    component={SelectExample}
     knobs={{
         boolProps: ["Native", "Kompakt", "Invertert", "Med hjelpetekst", "Med feil", "Med søk"],
         choiceProps: [
@@ -24,6 +24,7 @@ import { Example } from "./Example";
             },
         ],
     }}
+    codeExample={selectCode}
 />
 
 Hvis du trenger en nedtrekksliste med mange valg, kan du også legge inn en søke- eller filtreringsfunksjon.

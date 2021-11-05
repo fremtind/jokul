@@ -3,16 +3,18 @@ import classNames from "classnames";
 
 import "./DoDontExample.scss";
 import { PortalImg } from "../PortalImg/PortalImg";
+import { ExampleVideo } from "../ExampleVideo";
 
 interface Props {
     type: "do" | "dont";
     content?: ReactNode;
     image?: string;
+    video?: string;
     description?: string;
     fullWidth?: boolean;
 }
 
-export const DoDontExample: React.FC<Props> = ({ type, content, image = "", description, fullWidth }) => {
+export const DoDontExample: React.FC<Props> = ({ type, content, image = "", video, description, fullWidth }) => {
     const heading = type === "do" ? "Riktig" : "Feil";
     const altText = description ? `${heading}: ${description}` : `${heading} bruk`;
     const containerClass = classNames({
@@ -28,11 +30,15 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", desc
 
     return (
         <section className={containerClass}>
-            {content ? (
-                <div>{content}</div>
-            ) : (
+            {content && <div className="jkl-portal-do-dont-example__content">{content}</div>}
+            {image && (
                 <div className="jkl-portal-do-dont-example__image">
                     <PortalImg src={image} alt={altText} noMargin fullWidth />
+                </div>
+            )}
+            {video && (
+                <div>
+                    <ExampleVideo videoUrl={video} />
                 </div>
             )}
             <p className={headingClass}>{heading}</p>

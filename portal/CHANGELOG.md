@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.1.0 (2021-11-02)
+
+### Features
+
+- react-implementasjon av tag-komponenten ([3005cee](https://github.com/fremtind/jokul/commit/3005cee21b691accae0e3713183fdb9e76f80090))
+
+## 8.0.2 (2021-10-29)
+
+### Bug Fixes
+
+- **portal:** riktig bakgrunn på menykort ([#2423](https://github.com/fremtind/jokul/issues/2423)) ([496c76c](https://github.com/fremtind/jokul/commit/496c76c878e6f03138f9f12775b4086702c1c3a2))
+
+## 8.0.0 (2021-10-28)
+
+### Code Refactoring
+
+- renamed *Message to *MessageBox a few more places ([b5bd136](https://github.com/fremtind/jokul/commit/b5bd136be645195306728dd10d0058910b936259))
+- renamed *Message to *MessageBox where it is dependent on ([5effa3d](https://github.com/fremtind/jokul/commit/5effa3d9ed6a4eaaeba5d126306ea8320ec59f31))
+
+### BREAKING CHANGES
+
+- Depends on package with breaking change
+- Depends on package with breaking change
+
+## 7.0.3 (2021-10-28)
+
+### Bug Fixes
+
+- **portal:** riktig bakgrunn på menykort ([#2423](https://github.com/fremtind/jokul/issues/2423)) ([496c76c](https://github.com/fremtind/jokul/commit/496c76c878e6f03138f9f12775b4086702c1c3a2))
+
 ## 7.0.0 (2021-10-25)
 
 ### Features

@@ -4,7 +4,7 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import AlertMessageExample from "./AlertMessageExample";
+import { AlertMessageExample } from "./AlertMessageExample";
 import "@fremtind/jkl-alert-message/alert-message.css";
 
 renderExample(

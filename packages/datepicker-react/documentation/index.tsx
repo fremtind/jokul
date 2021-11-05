@@ -5,14 +5,14 @@ import { renderExample, DevExample } from "../../../doc-utils";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { DatepickerExample } from "./DatepickerExample";
 import "@fremtind/jkl-datepicker/datepicker.css";
 import "@fremtind/jkl-text-input/text-input.css";
 import "@fremtind/jkl-select/select.css";
 
 renderExample(
     <DevExample
-        component={Example}
+        component={DatepickerExample}
         knobs={{
             boolProps: ["Utvidet velger", "Kompakt", "Med feil", "Med hjelpetekst", "Invertert"],
             choiceProps: [

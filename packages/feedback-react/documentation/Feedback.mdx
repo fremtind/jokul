@@ -4,8 +4,8 @@ scss: feedback
 react: feedback-react
 ---
 
-import Example from "./Example";
-import { exampleProps } from "./exampleProps";
+import { FeedbackExample, feedbackCode } from "./FeedbackExample";
+import { feedbackExampleProps } from "./feedbackExampleProps";
 import { Feedback } from "../src";
 
 <Ingress>
@@ -13,7 +13,7 @@ import { Feedback } from "../src";
     brukeropplevelsen, og avdekke ønsker om funksjonalitet.
 </Ingress>
 
-<ComponentExample knobs={exampleProps} component={Example} />
+<ComponentExample knobs={feedbackExampleProps} component={FeedbackExample} codeExample={feedbackCode} />
 
 Bruk spørsmål med to til fem alternativer når du ber om tilbake&shy;melding. For hvert alternativ kan du spesifisere både teksten som vises og verdien som blir sendt inn, slik at det lett kan integreres med side&shy;statistikk. Vi tilbyr noen standard&shy;spørsmål med alternativer, som dekker de vanligste tilbake&shy;meldings&shy;behovene.
 
@@ -44,5 +44,5 @@ Funksjonen for håndtering av hovedspørmålet får inn et objekt med verdien fr
 Funksjonen for håndtering av oppfølgings&shy;spørmål får inn en liste med objekter etter hvor mange spørsmål som er besvart. Objektene inneholder informasjon om feltet, og verdien eller verdiene som er valgt:
 
 ```ts
-[{ label: string: name: string; type: "single" | "multi" | "text"; value: string | string[] }]
+[{ label: string: name: string; type: "radio" | "checkbox" | "text"; value: string | string[] }]
 ```

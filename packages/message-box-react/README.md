@@ -17,7 +17,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/messa
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { InfoMessage, ErrorMessage, WarningMessage, SuccessMessage } from "@fremtind/jkl-message-box-react";
+import { InfoMessageBox, ErrorMessageBox, WarningMessageBox, SuccessMessageBox } from "@fremtind/jkl-message-box-react";
 import "@fremtind/jkl-message-box/message-box.min.css";
 ```
 
@@ -34,13 +34,13 @@ Komponentene tar følgende props:
 En enkel bruk av meldingsboksen kan se slik ut:
 
 ```jsx
-<SuccessMessage title="Opplasting fullført">Filene ble lastet opp uten feil</SuccessMessage>
+<SuccessMessageBox title="Opplasting fullført">Filene ble lastet opp uten feil</SuccessMessageBox>
 ```
 
 Du kan sende mer enn bare ren tekst som innhold. Innholdet blir rendret inne i et `<div>`-element:
 
 ```jsx
-<ErrorMessage title="Feil under innsending av skjema">
+<ErrorMessageBox title="Feil under innsending av skjema">
     <Body>Skjemaet kunne ikke sendes inn på grunn av feil i følgende felter:</Body>
     <UnorderedList>
         <ListItem>Fødselsnummer</ListItem>
@@ -48,7 +48,7 @@ Du kan sende mer enn bare ren tekst som innhold. Innholdet blir rendret inne i e
         <ListItem>Telefonnummer</ListItem>
     </UnorderedList>
     <Body>Rett opp feilene og send deretter inn skjemaet på nytt</Body>
-</ErrorMessage>
+</ErrorMessageBox>
 ```
 
 ### Tilgjengelighet

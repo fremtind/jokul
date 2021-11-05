@@ -3,6 +3,7 @@ title: Table
 react: table-react
 scss: table
 group: annet
+discussion: https://github.com/fremtind/jokul/discussions/2333
 ---
 
 import DataTableExample, { dataTableExampleCode } from "./DataTableExample";
@@ -181,9 +182,12 @@ Det sagt ser vi som oftest én av to varianter av tabeller på mobil:
 Under ser du et eksempel på horisontal scroll. Legg merke til at scrollbaren legger seg ved tabellen (gjør vinduet ditt mindre om det ikke scrolles). Det er viktig at tabeller
 som dette _ikke_ gjør så hele siden scroller horisontalt.
 
-<ComponentExample scrollable={true} title="Mobil: horisontal scroll" component={MobileScrollTableExample}>
-    <CodeDemo code={mobileScrollTableExampleCode} />
-</ComponentExample>
+<ComponentExample
+    scrollable={true}
+    title="Mobil: horisontal scroll"
+    component={MobileScrollTableExample}
+    codeExample={mobileScrollTableExampleCode}
+/>
 
 Og her ser du et eksempel på en tabell som gjøres om til en listevisning.
 
@@ -200,9 +204,8 @@ Og her ser du et eksempel på en tabell som gjøres om til en listevisning.
             },
         ],
     }}
->
-    <CodeDemo code={mobileListTableExampleCode} />
-</ComponentExample>
+    codeExample={mobileListTableExampleCode}
+/>
 
 ## Typografi
 
@@ -221,9 +224,12 @@ Om du er usikker, bruk en kompakt og bold overskrift.
 
 Det er også mulig å skjule tabelloverskrifter visuelt. De må fremdeles være der for skjermlesere, og det må komme tydelig fram av innholdet rundt hva tabellen handler om.
 
-<ComponentExample scrollable={true} title="Skjulte overskrifter" component={HeadlessTableExample}>
-    <CodeDemo code={headlessTableExampleCode} />
-</ComponentExample>
+<ComponentExample
+    scrollable={true}
+    title="Skjulte overskrifter"
+    component={HeadlessTableExample}
+    codeExample={headlessTableExampleCode}
+/>
 
 ## Flere eksempler på bruk
 
@@ -245,9 +251,8 @@ De enkleste tabellene består av et sett med navngitte kolonner, og en eller fle
             },
         ],
     }}
->
-    <CodeDemo code={dataTableExampleCode} />
-</ComponentExample>
+    codeExample={dataTableExampleCode}
+/>
 
 ### Rader med handling
 
@@ -267,9 +272,8 @@ Knapper skal komme til slutt i raden og høyrejusteres. I listevisning skal knap
             },
         ],
     }}
->
-    <CodeDemo code={actionTableExampleCode} />
-</ComponentExample>
+    codeExample={actionTableExampleCode}
+/>
 
 ### Klikkbare rader
 
@@ -289,9 +293,8 @@ Hele raden kan gjøres klikkbar om du ønsker, men foretrekk å ha en rad med ha
             },
         ],
     }}
->
-    <CodeDemo code={clickableTableExampleCode} />
-</ComponentExample>
+    codeExample={clickableTableExampleCode}
+/>
 
 ### Ekspanderende tabeller
 
@@ -304,9 +307,3 @@ Det vi kan komme med er noen føringer:
 -   Det er denne knappen som gjør ekspandering og lukking. Klikk på raden styrer ikke denne handlingen.
 -   Knappen kan ha en tekst som beskriver handlingen, som "Vis mer" og "Skjul". Denne skal stå til venstre for pila.
 -   Ekspanderingen bør animeres.
-
-## Hva trenger du?
-
-Er det en variant vi har glemt? Er det noe du savner fra dokumentasjonen?
-Fortsett gjerne [tabelldiskusjonen på GitHub](https://github.com/fremtind/jokul/discussions/2333)
-og fortell oss mer om hva du trenger.
