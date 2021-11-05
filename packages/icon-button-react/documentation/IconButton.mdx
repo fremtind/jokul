@@ -5,20 +5,21 @@ react: icon-button-react
 group: knapper
 ---
 
-import Example from "./Example";
+import { IconButtonExample } from "./IconButtonExample";
 
 <Ingress>
-    En rekke av komponenter bruker ulike ikon knapper. IconButton er en klikkbar komponent som støtter Jøkuls UI elementer.
+    En rekke av komponenter bruker ulike ikon knapper. IconButton er en klikkbar komponent som støtter Jøkuls UI
+    elementer.
 </Ingress>
 <ComponentExample
-    component={Example}
+    component={IconButtonExample}
     knobs={{
-      choiceProps: [
-          {
-              name: "Type",
-              values: ["clear", "search", "calendar"],
-              defaultValue: 1,
-          },
-      ],
+        choiceProps: [
+            {
+                name: "Type",
+                values: ["clear", "search", "calendar"],
+                defaultValue: 1,
+            },
+        ],
     }}
 />

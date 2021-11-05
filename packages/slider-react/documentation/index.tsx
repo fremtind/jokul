@@ -4,12 +4,12 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { SliderExample } from "./SliderExample";
 import "@fremtind/jkl-slider/slider.css"; // non-minified css for easier debugging
 
 renderExample(
     <DevExample
-        component={Example}
+        component={SliderExample}
         knobs={{
             boolProps: ["Med hjelpetekst", "Med feil"],
             choiceProps: [

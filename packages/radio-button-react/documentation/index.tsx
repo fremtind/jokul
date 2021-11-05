@@ -4,12 +4,12 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import Example from "./Example";
+import { RadioButtonExample } from "./RadioButtonExample";
 import "@fremtind/jkl-radio-button/radio-button.css";
 
 renderExample(
     <DevExample
-        component={Example}
+        component={RadioButtonExample}
         knobs={{
             boolProps: ["Kompakt", "Inline", "Med feil", "Invertert"],
             choiceProps: [

@@ -4,7 +4,7 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { ConstantsExample } from "./ConstantsExample";
 import "@fremtind/jkl-table/table.css";
 
-renderExample(<DevExample component={Example} />, document.getElementById("app"));
+renderExample(<DevExample component={ConstantsExample} />, document.getElementById("app"));

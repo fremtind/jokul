@@ -84,7 +84,7 @@ const icons = [
     },
 ];
 
-export const Example: VFC = () => {
+export const IconsExample: VFC = () => {
     return (
         <>
             <table className={`jkl-icon-table jkl-spacing-xl--top`}>

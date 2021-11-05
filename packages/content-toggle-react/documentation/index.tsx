@@ -4,7 +4,7 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { Example } from "./Example";
+import { ContentToggleExample } from "./ContentToggleExample";
 import "@fremtind/jkl-content-toggle/content-toggle.css";
 
 renderExample(
@@ -19,7 +19,7 @@ renderExample(
                 },
             ],
         }}
-        component={Example}
+        component={ContentToggleExample}
     />,
     document.getElementById("app"),
 );

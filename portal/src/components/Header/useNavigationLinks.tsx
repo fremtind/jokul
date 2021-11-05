@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { ComponentDoc } from "react-docgen-typescript";
 
 export interface FrontmatterTypeProp {
     name?: string;
@@ -30,15 +29,15 @@ export interface Frontmatter {
     author?: string;
     publishDate?: string;
     group?: string;
-    type?: ComponentDoc[];
+    path?: string;
 }
 
 interface RawDocumentationPage {
     node: {
-        path: string;
-        context: {
-            frontmatter: Frontmatter;
+        fields: {
+            path: string;
         };
+        frontmatter: Frontmatter;
     };
 }
 
@@ -65,34 +64,37 @@ type NavigationLinks = {
 };
 
 export function useNavigationLinks(): NavigationLinks {
-    const { allSitePage } = useStaticQuery(graphql`
+    const { allMdx } = useStaticQuery(graphql`
         query getPages {
-            allSitePage(
-                sort: { order: ASC, fields: context___frontmatter___title }
-                filter: { context: { frontmatter: { title: { regex: "/.*/" } } } }
+            allMdx(
+                sort: { order: ASC, fields: frontmatter___title }
+                filter: { frontmatter: { title: { regex: "/.+/" } } }
             ) {
                 edges {
                     node {
-                        path
-                        context {
-                            frontmatter {
-                                title
-                                order
-                                author
-                                publishDate
-                                group
-                                discussion
-                            }
+                        fields {
+                            path
+                        }
+                        frontmatter {
+                            title
+                            react
+                            scss
+                            order
+                            author
+                            publishDate
+                            group
+                            path
+                            discussion
                         }
                     }
                 }
-                distinct(field: context___frontmatter___group)
+                distinct(field: frontmatter___group)
             }
         }
     `);
-    const pages: DocumentationPageInfo[] = allSitePage.edges.map((edge: RawDocumentationPage) => ({
-        path: edge.node.path,
-        ...edge.node.context.frontmatter,
+    const pages: DocumentationPageInfo[] = allMdx.edges.map((edge: RawDocumentationPage) => ({
+        ...edge.node.frontmatter,
+        path: edge.node.frontmatter.path || edge.node.fields.path,
     }));
 
     const sortByOrder = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
@@ -125,7 +127,7 @@ export function useNavigationLinks(): NavigationLinks {
         .filter((page: DocumentationPageInfo) => page.path.includes("universell-utforming"))
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
-    const componentGroup = allSitePage.distinct;
+    const componentGroup = allMdx.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG)).sort(sortByDate);
 
