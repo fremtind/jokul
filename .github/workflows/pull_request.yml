@@ -26,6 +26,9 @@ jobs:
             visual: ${{ steps.changes.outputs.visual }}
             testlint: ${{ steps.changes.outputs.testlint }}
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -78,6 +81,9 @@ jobs:
         needs: [build]
         if: needs.build.outputs.testlint == 'true'
         runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -104,6 +110,9 @@ jobs:
         needs: [build]
         if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -153,6 +162,9 @@ jobs:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
                 group: [1, 2, 3, 4, 5]
                 groups: [5]
+        permissions:
+            actions: write
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -235,6 +247,9 @@ jobs:
         needs: [cypress]
         if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: write
         steps:
             - name: Checkout
               uses: actions/checkout@v2
