@@ -18,9 +18,7 @@ describe("TextInput", () => {
         cy.focusTextArea("textarea").type("Lorem ipsum");
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
-        cy.get('input[value="Med teller"]').then(($input) => {
-            $input.click();
-        });
+        cy.get('input[value="Med teller"]').click();
         cy.focusTextArea("textarea").type("Lorem ipsum");
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
@@ -29,9 +27,7 @@ describe("TextInput", () => {
         );
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
-        cy.get('input[value="Skjul progress"]').then(($input) => {
-            $input.click();
-        });
+        cy.get('input[value="Skjul progress"]').click();
         cy.focusTextArea("textarea").type("Lorem ipsum");
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
@@ -57,9 +53,7 @@ describe("TextInput", () => {
             cy.focusTextArea("textarea").type("Lorem ipsum");
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
-            cy.get('input[value="Med teller"]').then(($input) => {
-                $input.click();
-            });
+            cy.get('input[value="Med teller"]').click();
             cy.focusTextArea("textarea").type("Lorem ipsum");
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
@@ -68,9 +62,7 @@ describe("TextInput", () => {
             );
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
-            cy.get('input[value="Skjul progress"]').then(($input) => {
-                $input.click();
-            });
+            cy.get('input[value="Skjul progress"]').click();
             cy.focusTextArea("textarea").type("Lorem ipsum");
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
