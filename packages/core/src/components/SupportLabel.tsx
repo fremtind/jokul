@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 
-interface Props {
+export interface SupportLabelProps {
     id?: string;
     helpLabel?: string;
     errorLabel?: string;
@@ -12,7 +12,7 @@ interface Props {
     inverted?: boolean;
 }
 
-export const SupportLabel: FC<Props> = ({
+export const SupportLabel: FC<SupportLabelProps> = ({
     id,
     helpLabel,
     errorLabel,

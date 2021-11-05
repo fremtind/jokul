@@ -1,14 +1,14 @@
 import React, { AnchorHTMLAttributes, FC } from "react";
 import classnames from "classnames";
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
     /** @deprecated */
     inverted?: boolean;
     active?: boolean;
     back?: boolean;
 }
 
-export const NavLink: FC<Props> = ({
+export const NavLink: FC<NavLinkProps> = ({
     inverted = false,
     active = false,
     back = false,
