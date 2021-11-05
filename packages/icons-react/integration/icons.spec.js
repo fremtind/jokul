@@ -6,13 +6,13 @@ context("Icons", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
+        cy.getComponent().eq(0).toMatchImageSnapshot();
     });
 
     context("dark mode", () => {
         it("renders correctly", () => {
             cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
+            cy.getComponent().eq(0).toMatchImageSnapshot();
         });
     });
 });

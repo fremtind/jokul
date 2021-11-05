@@ -5,15 +5,23 @@ scss: icons
 group: annet
 ---
 
-import { IconsExample } from "./IconsExample";
-import { choiceProps, boolProps } from "./internal/props";
+import { IconsExample, choiceProps as iconsChoiceProps } from "./IconsExample";
+import { AnimatedIconsExample, choiceProps as animatedIconsChoiceProps } from "./AnimatedIconsExample";
 
 Hvis du bare bruker standard ikoner trenger du ikke laste inn CSS fra ikonpakken, den brukes kun til animerte ikoner.
 
 <ComponentExample
+    title="Ikoner"
     component={IconsExample}
     knobs={{
-        boolProps,
-        choiceProps,
+        choiceProps: iconsChoiceProps,
+    }}
+/>
+
+<ComponentExample
+    title="Animerte ikoner"
+    component={AnimatedIconsExample}
+    knobs={{
+        choiceProps: animatedIconsChoiceProps,
     }}
 />
