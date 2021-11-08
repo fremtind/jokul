@@ -213,7 +213,7 @@ jobs:
 
             - name: Look for new snapshots
               if: success()
-              uses: tj-actions/verify-changed-files@527ff7533afca6e5bece96bd15a998f90f54c624
+              uses: wkillerud/verify-changed-files@83d33d8210c562bd1de3066e0767ab020359b7c1
               id: verify-changed-files
               with:
                   files: |
