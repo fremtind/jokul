@@ -213,6 +213,7 @@ jobs:
 
             - name: Look for new snapshots
               if: success()
+              # Bruk en fork av tj-actions/verify-changed-files med støtte for multiline output (for actions/upload-artifact)
               uses: wkillerud/verify-changed-files@83d33d8210c562bd1de3066e0767ab020359b7c1
               id: verify-changed-files
               with:
