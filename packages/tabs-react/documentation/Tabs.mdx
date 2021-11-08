@@ -8,11 +8,23 @@ group: knapper
 import TabsExample, { tabsExampleCode } from "./TabsExample";
 import "@fremtind/jkl-tabs/tabs.css";
 
-<Ingress>En liste med tabs kan brukes til å bytte mellom likestilt innhold på en side.</Ingress>
+<Ingress>
+    Tabs/faner er en enkel måte å organisere innhold på ved å gruppere lignende informasjon på samme side. Dette gjør at
+    innhold kan sees uten at brukeren må navigere bort fra den siden.
+</Ingress>
 
 <ComponentExample title="Tabs" component={TabsExample} codeExample={tabsExampleCode} />
 
-## Bruk
+## Best practices
 
--   Denne komponenten egner seg ikke som hovednavigasjon i en applikasjon.
--   Unngå helst å bruke flere nivåer av tabs, og bruk dem ikke rett under hverandre.
+-   Denne komponenten er i første omgang utformet for å brukes i innholdsdelen av en side, og er designet for å brukes med ett nivå.
+-   Bytter visning av innhold på samme side - navigerer ikke til en ny.
+-   Brukes horisontalt med 2-9 tabs.
+-   Bør ha korte og beskrivende navn.
+-   Den første fanen skal vise den informasjonen som er mest relevant for brukeren.
+
+## Når skal man ikke bruke tabs?
+
+-   Bør ikke brukes når det er nødvendig å sammenligne eller se innholdet i de ulike fanene samtidig. Hvis dette er et behov, er det bedre å bruke accordion.
+-   Bør ikke brukes hvis man trenger å lese gjennom alt innholdet for å forstå en stegvis prosess.
+-   Skal ikke brukes for å sende brukeren til en ny side.
