@@ -26,6 +26,9 @@ jobs:
             visual: ${{ steps.changes.outputs.visual }}
             testlint: ${{ steps.changes.outputs.testlint }}
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -78,6 +81,9 @@ jobs:
         needs: [build]
         if: needs.build.outputs.testlint == 'true'
         runs-on: ubuntu-latest
+        permissions:
+            actions: read
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -104,6 +110,9 @@ jobs:
         needs: [build]
         if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -153,6 +162,9 @@ jobs:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
                 group: [1, 2, 3, 4, 5]
                 groups: [5]
+        permissions:
+            actions: write
+            contents: read
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -213,7 +225,8 @@ jobs:
 
             - name: Look for new snapshots
               if: success()
-              uses: tj-actions/verify-changed-files@527ff7533afca6e5bece96bd15a998f90f54c624
+              # Bruk en fork av tj-actions/verify-changed-files med støtte for multiline output (for actions/upload-artifact)
+              uses: wkillerud/verify-changed-files@83d33d8210c562bd1de3066e0767ab020359b7c1
               id: verify-changed-files
               with:
                   files: |
@@ -235,6 +248,9 @@ jobs:
         needs: [cypress]
         if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: write
         steps:
             - name: Checkout
               uses: actions/checkout@v2

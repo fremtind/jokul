@@ -9,9 +9,13 @@ jobs:
     build-and-publish:
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+        permissions:
+            actions: write
+            contents: write
+            packages: write
         steps:
             - name: Checkout branch
-              uses: actions/checkout@v2.3.4
+              uses: actions/checkout@v2
               with:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   fetch-depth: "0" # fetch entire git history
