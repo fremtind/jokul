@@ -189,7 +189,7 @@ jobs:
 
             - name: Calculate which tests to run
               id: parallel
-              uses: outsideopen/cypress-e2e-parallel-test-action@11345a74b311e33022c365f421cf6c906518838b
+              uses: outsideopen/cypress-e2e-parallel-test-action@fff7e987b02d5e6c6fa5bb7504eeb933d845a000
               with:
                   group: ${{ matrix.group }}
                   groups: ${{ matrix.groups }}
