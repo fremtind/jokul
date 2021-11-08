@@ -1,9 +1,10 @@
 name: Pull Request
 
 on:
-    pull_request:
+    push:
         branches:
-            - main
+            - "**"
+            - "!main"
 
 ##
 # Sjekker først om det er endringer som krever grundigere test.
@@ -293,7 +294,7 @@ jobs:
             - name: Commit snapshots
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
-                   git config user.name "fremtind-bot"
+                  git config user.name "fremtind-bot"
                   git add . || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
                   git push
