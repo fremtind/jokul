@@ -19,9 +19,7 @@
 }
 
 .jkl-portal-code-example {
-    width: calc(100% - #{jkl.$spacing-4xl});
-    max-width: 50vw;
-    min-width: rem(600px);
+    max-width: min(#{rem(750px)}, 50vw);
 
     @include small-device {
         width: calc(100% - #{jkl.$spacing-xl});
@@ -36,9 +34,7 @@
     padding: jkl.$spacing-s;
     display: flex;
     flex-direction: row;
-    width: calc(100% - #{jkl.$spacing-4xl});
-    max-width: 50vw;
-    min-width: rem(600px);
+    max-width: min(#{rem(750px)}, 50vw);
     min-height: rem(208px);
 
     &__example-wrapper {
