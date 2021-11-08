@@ -226,7 +226,7 @@ jobs:
             - name: Look for new snapshots
               if: success()
               # Bruk en fork av tj-actions/verify-changed-files med støtte for multiline output (for actions/upload-artifact)
-              uses: wkillerud/verify-changed-files@83d33d8210c562bd1de3066e0767ab020359b7c1
+              uses: wkillerud/verify-changed-files@2d6b141c6b098870f74026ea6392f6202188d281
               id: verify-changed-files
               with:
                   files: |
@@ -292,8 +292,8 @@ jobs:
 
             - name: Commit snapshots
               run: |
-                  git config user.email "bot@wllm.no"
-                  git config user.name "wllm-bot"
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                   git config user.name "fremtind-bot"
                   git add . || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
                   git push
