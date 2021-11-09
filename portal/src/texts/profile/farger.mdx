@@ -1,13 +1,11 @@
 ---
 title: Farger
 path: /profil/farger
+scss: core
 order: 3
 ---
 
-import { ColorDescription, TwoToneColorDescription } from "../../components/Documentation/Colors/ColorDescription";
-import { ColTable } from "../../components/Documentation/Colors/ColorTable";
-
-# Farger
+import { ColorTable, PrimaryColor } from "../../../components/colors";
 
 <Ingress>
     Farger er en viktig del av Fremtinds identitet. Det etterlatte inntrykket av våre løsninger skal være snøhvit med
@@ -18,89 +16,69 @@ import { ColTable } from "../../components/Documentation/Colors/ColorTable";
 
 Disse fargene bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk. Primærfargene våre er:
 
-<ColorDescription title="Snøhvit" colorVariable="snohvit" cmyk="0 0 0 0">
+<PrimaryColor title="Snøhvit" colorVariable="snohvit" cmyk="0 0 0 0">
     Snøhvit bruker vi mest som bakgrunnsfarge, og som tekstfarge der vi har mørke flater. I tillegg er den fokusfarge,
     for eksempel på kort som er opphøyd over annet innhold, eller på inndataelementer som brukeren har valgt, for
     eksempel et felt i et skjema.
-</ColorDescription>
+</PrimaryColor>
 
-<ColorDescription title="Granitt" colorVariable="granitt" cmyk="15 15 15 100" pantone="Pantone Black U">
+<PrimaryColor title="Granitt" colorVariable="granitt" cmyk="15 15 15 100" pantone="Pantone Black U">
     Granitt bruker vi gjerne i elementer vi vil fremheve. Et godt eksempel er primærknappen. Vi kan bruke store flater
     med granitt, men de bør ha lite innhold i forhold til størrelsen. Unngå å sette granitt flater nær bakgrunner med
     fargen varde.
-</ColorDescription>
+</PrimaryColor>
 
-<ColorDescription title="Varde" colorVariable="varde" cmyk="12 13 19 0">
+<PrimaryColor title="Varde" colorVariable="varde" cmyk="12 13 19 0">
     Varde bruker vi som bakgrunnsfarge eller på elementer for å fremheve innhold. Når vi velger å bruke den på en flate,
     unngår vi å ha mye innhold på den, i forhold til størrelsen. Bruk svart på teksten, for å sikre god kontrast. Ikke
     bruke varde på flater som står nærme grå bakgrunner og elementer, eller svarte flater.
-</ColorDescription>
+</PrimaryColor>
 
 ## Fargespektrumet vårt
 
 Vi har et sett av valører som fungerer godt med hverandre. Disse kan vi bruke til å skape nyanser og nivåer i løsningene våre. Vi bruker disse i hovedsak bare på digitale flater.
 
-For Varde og lavere skal man bruke granitt tekst, og for Fjellgra og høyere skal man bruke snøhvit tekst. Bruk Svaberg og Stein med omhu.
+For varde og lavere skal man bruke granitt tekst, og for fjellgrå og høyere skal man bruke snøhvit tekst. Bruk svaberg og stein med omhu.
 
 ### Farger
 
-<ColTable />
+<ColorTable
+    colorNames={[
+        "Hvit",
+        "Snøhvit",
+        "Sand",
+        "Dis",
+        "Varde",
+        "Svaberg",
+        "Stein",
+        "Fjellgrå",
+        "Skifer",
+        "Granitt",
+        "Svart",
+    ]}
+/>
 
 ## Meldingsfargene
 
 Meldingsfargene bruker vi på digitale flater, for eksempel når vi trenger å gi informasjon fra systemet. Feil, advarsler, informasjonsmeldinger, grafer og fokusringer ved tastaturnavigasjon er eksempler på hva vi bruker meldingsfargene til. Meldingsfargene skal bare brukes funksjonelt, det vil si ikke som rene dekorelementer.
 
-Meldingsfargene finnes for mørk og lys bakgrunn.
+Vi bruker de samme fargene for mørk modus og lys modus.
 
-<TwoToneColorDescription
-    className="jkl-spacing-2xl--top"
-    title="Suksessfarge"
-    color={{
-        colorVariable: "suksess",
-    }}
-    darkColor={{
-        colorVariable: "suksess--darkbg",
-    }}
->
+<PrimaryColor title="Suksessfarge" colorVariable="suksess">
     En grønnfarge som vi bruker til å vise at en handling er vellykket, for eksempel at brukeren er ferdig med noe.
-</TwoToneColorDescription>
+</PrimaryColor>
 
-<TwoToneColorDescription
-    title="Infofarge"
-    color={{
-        colorVariable: "info",
-    }}
-    darkColor={{
-        colorVariable: "info--darkbg",
-    }}
->
-    Blåfargen bruker vi til informasjonsmeldinger og fokustilstander.
-</TwoToneColorDescription>
+<PrimaryColor title="Infofarge" colorVariable="info">
+    Blåfargen bruker vi til informasjonsmeldinger.
+</PrimaryColor>
 
-<TwoToneColorDescription
-    title="Advarselsfarge"
-    color={{
-        colorVariable: "advarsel",
-    }}
-    darkColor={{
-        colorVariable: "advarsel--darkbg",
-    }}
->
-    Denne gulfargen er til advarsler. Denne oppfyller ikke kontrastkravet mot hvit så den kan ikke være funksjonsbærende
-    mot hvite flater uten andre virkemiddler (e.g. tekst).
-</TwoToneColorDescription>
+<PrimaryColor title="Advarselsfarge" colorVariable="advarsel">
+    Denne gulfargen er til advarsler.
+</PrimaryColor>
 
-<TwoToneColorDescription
-    title="Feilfarge"
-    color={{
-        colorVariable: "feil",
-    }}
-    darkColor={{
-        colorVariable: "feil--darkbg",
-    }}
->
-    En rødfarge som vi bruker til feilmeldinger eller andre viktige varsler.
-</TwoToneColorDescription>
+<PrimaryColor title="Feilfarge" colorVariable="feil" className="jkl-spacing-2xl--bottom">
+    En rødfarge som vi bruker til feeilmeldinger eller andre viktige varsler.
+</PrimaryColor>
 
 ## Tilgjengelighet
 
@@ -119,3 +97,31 @@ Tekstfargene våre er snøhvit eller granitt. Se fargebeskrivelsene for å finne
 
 -   [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 -   [Colour Contrast Analyzer](https://developer.paciellogroup.com/resources/contrastanalyser/)
+
+## Eksempler
+
+For å skape en varm og hyggelig brukeropplevelse jobber vi med lyse bakgrunnsfarger.
+
+<Grid className="jkl-spacing-xl--bottom">
+    <PortalImage
+        alt="Skjermbilde av en detaljside for en bilforsikring"
+        src="/assets/documentation/farger/bilforsikring_detaljside.png"
+    />
+    <PortalImage
+        alt="Skjermbilde av en fakturaoversikt med detaljvisning for en faktura"
+        src="/assets/documentation/farger/betaling_faktura.png"
+    />
+</Grid>
+
+Vi bruker fire meldingsfarger pluss to ekstra farger i hjelpetekster.
+
+<Grid className="jkl-spacing-xl--bottom">
+    <PortalImage
+        alt="Skjermbilde av et skjema for kjøp av hundeforsikring med en valideringsfeil"
+        src="/assets/documentation/farger/hund_feilmelding.png"
+    />
+    <PortalImage
+        alt="Skjermbilde av et skjema for tilgangsstyring med en beskjed om at en endring var vellykket"
+        src="/assets/documentation/farger/tilganger_suksess.png"
+    />
+</Grid>
