@@ -1,36 +1,43 @@
 /// <reference types="cypress" />
 
 context("Radio button", () => {
+    const kontaktmetode = 0;
+    const fantDuFram = 1;
+    const prisvisning = 2;
+
     beforeEach(() => {
         cy.testComponent("radiobutton");
     });
 
     it("renders correctly", () => {
-        cy.focusInput("likesradiobuttons");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.checkInput("likesradiobuttons");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.checkInput("likesradiobuttons");
-        cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
-        cy.checkInput("likesradiobuttons");
-        cy.setInline().getComponent().toMatchImageSnapshot().resetInline();
-        cy.checkInput("likesradiobuttons");
-        cy.setKompakt().getComponent().toMatchImageSnapshot().resetKompakt();
+        cy.focusInput("kontaktmetode");
+        cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
+
+        cy.checkInput("kontaktmetode");
+        cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
+
+        cy.setMedFeil().getComponent().eq(kontaktmetode).toMatchImageSnapshot().resetMedFeil();
+
+        cy.setInline().getComponent().eq(prisvisning).toMatchImageSnapshot().resetInline();
+
+        cy.setKompakt().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetKompakt();
     });
 
     context("dark mode", () => {
         it("renders correctly", () => {
             cy.setDarkMode();
-            cy.focusInput("likesradiobuttons");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.checkInput("likesradiobuttons");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.checkInput("likesradiobuttons");
-            cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
-            cy.checkInput("likesradiobuttons");
-            cy.setInline().getComponent().toMatchImageSnapshot().resetInline();
-            cy.checkInput("likesradiobuttons");
-            cy.setKompakt().getComponent().toMatchImageSnapshot().resetKompakt();
+
+            cy.focusInput("kontaktmetode");
+            cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
+
+            cy.checkInput("kontaktmetode");
+            cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
+
+            cy.setMedFeil().getComponent().eq(kontaktmetode).toMatchImageSnapshot().resetMedFeil();
+
+            cy.setInline().getComponent().eq(prisvisning).toMatchImageSnapshot().resetInline();
+
+            cy.setKompakt().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetKompakt();
         });
     });
 });
