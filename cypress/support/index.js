@@ -1,5 +1,4 @@
 import "cypress-plugin-snapshots/commands";
-import "cypress-axe";
 
 function pascalCase(phrase) {
     return phrase.replace(/\ ./, (match) => match.slice(-1).toUpperCase());
@@ -47,27 +46,15 @@ Cypress.Commands.add("waitForAnimation", (timeout = 300) => {
     cy.wait(timeout);
 });
 
-Cypress.Commands.add("getComponentInIphoneMode", () => {
-    cy.get("#jkl-portal-device-Iphone-X").click().waitForAnimation(100).getByTestid("jkl-portal__iphone-view");
-});
-
-Cypress.Commands.add("getComponentInIpadMode", () => {
-    cy.get("#jkl-portal-device-Ipad-Pro").click().waitForAnimation(100).getByTestid("jkl-portal__ipad-view");
-});
-
-Cypress.Commands.add("getComponentInLaptopMode", () => {
-    cy.get("#jkl-portal-device-Full-HD").click().waitForAnimation(100).getByTestid("jkl-portal__laptop-view");
-});
-
-const setMode = (action, reset) => () =>
-    cy.get(`input[value="${action}"]`).then(($input) => {
-        if (reset ? $input[0].checked : !$input[0].checked) {
-            $input.click();
-        }
-    });
+const setMode = (action, reset) => () => {
+    if (reset) {
+        return cy.get(`input[value="${action}"]:checked`).click({ multiple: true });
+    }
+    return cy.get(`input[value="${action}"]:not(:checked)`).click({ multiple: true });
+};
 
 Cypress.Commands.add("setChoice", (choice, value) =>
-    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).then(($input) => $input.click()),
+    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click(),
 );
 
 const setModeFactory = (knob) => {

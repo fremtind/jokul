@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import {
-    ArrowVerticalAnimated,
-    PlusRemoveAnimated,
-    ArrowHorizontalAnimated,
     Close,
     CheckMark,
     Plus,
@@ -16,18 +13,29 @@ import {
     ArrowDown,
     ArrowRight,
     ArrowLeft,
-    HamburgerCloseAnimated,
     Info,
     Error,
     Warning,
     Success,
 } from "../src";
-import { AnimatedIcon } from "./internal/AnimatedIcon";
 import { IconExample } from "./internal/IconExample";
 import { variants } from "../src/icons/types";
-import { Grid } from "./internal/Grid";
+import { IconsExampleGrid } from "./internal/IconsExampleGrid";
 
-export const IconsExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const choiceProps = [
+    {
+        name: "Variant",
+        values: ["inherit", "small", "medium", "large"],
+        defaultValue: 1,
+    },
+    {
+        name: "Farge",
+        values: ["inherit", "info", "advarsel", "feil", "suksess"],
+        defaultValue: 0,
+    },
+];
+
+export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
     const allIcons = [
         Close,
         CheckMark,
@@ -46,15 +54,14 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ boolValues, choi
         Success,
     ];
 
-    const inverted = !!(boolValues && boolValues["Invertert"]);
-    const color = choiceValues ? choiceValues["Farge"] : "hvit";
+    const colorValue = choiceValues ? choiceValues["Farge"] : "inherit";
+    const color = colorValue === "inherit" ? undefined : colorValue;
     const variant = choiceValues ? (choiceValues["Variant"] as variants) : "small";
 
     const [fontSize, setFontSize] = useState("1rem");
 
     return (
-        <div style={{ width: "100%" }} className={`jkl-color-${inverted ? "hvit" : "svart"}`}>
-            <p className="jkl-spacing-s--bottom jkl-heading-3">Ikon</p>
+        <div style={{ width: "100%" }}>
             {variant === "inherit" && (
                 <TextInput
                     label="Sett fontstørrelse"
@@ -62,45 +69,13 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ boolValues, choi
                     className="jkl-spacing-l--top jkl-spacing-l--bottom"
                     value={fontSize}
                     onChange={(e) => setFontSize(e.target.value)}
-                    inverted={inverted}
                 />
             )}
-            <Grid style={{ fontSize }} columns="four" color={color}>
+            <IconsExampleGrid style={{ fontSize }} columns="four" color={color}>
                 {allIcons.map((Ico) => (
-                    <IconExample
-                        key={Ico.name}
-                        renderIcon={() => <Ico variant={variant} />}
-                        name={Ico.displayName}
-                        inverted={inverted}
-                    />
+                    <IconExample key={Ico.name} renderIcon={() => <Ico variant={variant} />} name={Ico.displayName} />
                 ))}
-            </Grid>
-            <p className="jkl-spacing-2xl--top jkl-spacing-s--bottom jkl-heading-3">Animerte ikon</p>
-            {variant === "inherit" && (
-                <p className="jkl-small jkl-spacing-l--bottom">Animerte ikon støtter ikke inherit-varianten</p>
-            )}
-            <Grid columns="two" color={color}>
-                <AnimatedIcon
-                    renderIcon={(isDown) => <ArrowVerticalAnimated pointingDown={isDown} variant={variant} />}
-                    iconName={ArrowVerticalAnimated.displayName}
-                    inverted={inverted}
-                />
-                <AnimatedIcon
-                    renderIcon={(isRight) => <ArrowHorizontalAnimated pointingRight={isRight} variant={variant} />}
-                    iconName={ArrowHorizontalAnimated.displayName}
-                    inverted={inverted}
-                />
-                <AnimatedIcon
-                    renderIcon={(isPlus) => <PlusRemoveAnimated isPlus={isPlus} variant={variant} />}
-                    iconName={PlusRemoveAnimated.displayName}
-                    inverted={inverted}
-                />
-                <AnimatedIcon
-                    renderIcon={(isBurger) => <HamburgerCloseAnimated isBurger={isBurger} variant={variant} />}
-                    iconName={HamburgerCloseAnimated.displayName}
-                    inverted={inverted}
-                />
-            </Grid>
+            </IconsExampleGrid>
         </div>
     );
 };
