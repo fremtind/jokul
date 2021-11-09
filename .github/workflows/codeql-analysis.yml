@@ -23,6 +23,8 @@ jobs:
                 language: ["javascript"]
         permissions:
             contents: read
+            security-events: write
+            pull-requests: read
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
