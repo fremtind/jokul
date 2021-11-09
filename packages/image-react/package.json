@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image-react",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "publishConfig": {
         "access": "public"
     },
@@ -41,8 +41,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.16.0",
-        "@fremtind/jkl-image": "^0.5.1",
-        "@fremtind/jkl-react-hooks": "^6.0.1",
+        "@fremtind/jkl-image": "^0.5.2",
+        "@fremtind/jkl-react-hooks": "^6.0.2",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

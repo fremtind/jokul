@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-11-09)
+
+### Features
+
+- refactor RadioButtons for bedre hook-form støtte ([467cb0c](https://github.com/fremtind/jokul/commit/467cb0cae3c5ba6ad789b12fedd0d0f2fb8aa97e)), closes [#2435](https://github.com/fremtind/jokul/issues/2435)
+
+### BREAKING CHANGES
+
+- Komponenten har fått et helt nytt API. Se migreringsdok.
+
 ## 5.0.0 (2021-10-21)
 
 ### chore

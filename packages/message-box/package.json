@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^8.0.1"
+        "@fremtind/jkl-core": "^8.1.0"
     },
     "repository": {
         "type": "git",

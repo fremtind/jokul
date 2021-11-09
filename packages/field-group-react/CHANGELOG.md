@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.0 (2021-11-09)
+
+### Features
+
+- eksporter propstype, legg til labelProps ([b99687f](https://github.com/fremtind/jokul/commit/b99687f7a198fef123fbdd3862151c2b6bcaf7a1))
+
 ## 4.0.0 (2021-10-21)
 
 ### chore

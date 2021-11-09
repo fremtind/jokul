@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.1.0 (2021-11-09)
+
+### Features
+
+- core eksporterer typer for komponentene ([b895b36](https://github.com/fremtind/jokul/commit/b895b36abbdaf4c7ee6ca4c034f23e717c41c048))
+
 ## 8.0.0 (2021-10-21)
 
 ### chore

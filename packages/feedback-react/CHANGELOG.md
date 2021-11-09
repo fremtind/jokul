@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.0.0 (2021-11-09)
+
+### chore
+
+- oppdater bruken av radioknapper ([de30c8b](https://github.com/fremtind/jokul/commit/de30c8b1e577a8f68c4dda6356eb6a4f4e720c4d))
+
+### BREAKING CHANGES
+
+- Avhenger av jkl-radio-button med breaking change
+
 ## 10.0.0 (2021-10-28)
 
 ### Code Refactoring
