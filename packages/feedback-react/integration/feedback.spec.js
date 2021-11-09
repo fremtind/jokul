@@ -31,6 +31,7 @@ describe("Feedback", () => {
 
     it("should send feedback if value is selected and user navigate away", () => {
         cy.getComponent().contains("Ja").click();
-        cy.visit("/").then(() => expect(hasBeenCalled).to.deep.equal({ feedbackValue: "ja", message: undefined }));
+        cy.visit("/");
+        expect(hasBeenCalled).to.deep.equal({ feedbackValue: "ja", message: undefined });
     });
 });
