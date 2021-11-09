@@ -105,6 +105,7 @@ export const ExampleBase: VFC<Props> = ({
                                     key={key}
                                     legend={key}
                                     value={value}
+                                    labelProps={{ variant: "small" }}
                                     onChange={(e) => setChoiceValue(key, e.target.value)}
                                 >
                                     {choices[key]?.map((choice) => (
