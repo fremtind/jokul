@@ -4,7 +4,7 @@ import { TextInput } from "@fremtind/jkl-text-input-react";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 import { Link } from "@fremtind/jkl-core";
 import { DocumentationPageInfo } from "../Header/useNavigationLinks";
-import { RadioButtons } from "@fremtind/jkl-radio-button-react";
+import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { a11yContext } from "../../contexts/a11yContext";
 
 interface Props {
@@ -59,17 +59,20 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 data-testid="sidebar-filter"
             />
             {showGroups && (
-                <RadioButtons
+                <RadioButtonGroup
                     className="jkl-portal-sidebar-menu__meta"
                     legend="Vis"
                     name="filter-radio"
-                    choices={[allComponents, ...groups]}
-                    selectedValue={selectedGroup}
+                    value={selectedGroup}
                     onChange={(e) => setSelectedGroup(e.target.value)}
                     variant={"small"}
                     forceCompact
                     inline
-                />
+                >
+                    {[allComponents, ...groups].map((value) => (
+                        <RadioButton key={value} label={value} value={value} />
+                    ))}
+                </RadioButtonGroup>
             )}
             <motion.ul animate={controls} className="jkl-portal-sidebar-menu__items">
                 {filteredLinks.length === 0 ? (

@@ -19,7 +19,7 @@ Hvis du vil ta i bruk en Jøkul React-komponent, trenger du å laste inn både s
     <code>@fremtind/jkl-core</code>. Det trenger du bare å gjøre én gang i prosjektet ditt.
 </InfoMessageBox>
 
-## [Installer avhengigheter](#installer-avhengigheter)
+## Installer avhengigheter
 
 Hvis du bruker React-komponenten, installerer du den med `yarn add @fremtind/jkl-accordion-react`. Stilpakken blir automatisk installert som en avhengighet.
 
@@ -113,9 +113,8 @@ Du trenger også [babel runtime](https://babeljs.io/docs/en/babel-plugin-transfo
 
 Flere av våre komponenter bruker nanoid for å generere automatiske ID-er på komponenter som har behov for det, feks radiobuttons. Nanoid er mye lettere enn feks UUID og gir mer enn unike nok ID-er for vårt behov. Men i version 3 droppet de support for IE 11, så for at komponentene som bruker dette skal virke ordentlig hos deg trenger du å transpilere Nanoid med samme settings som din øvrige kode, og du må tilgjengeliggjøre crypto for IE 11. Polyfill.js eller hvor du legger crypto overriden bør være så tidlig i din runtime som mulig. Hvis du ikke må støtte IE 11, kan du trygt sløyfe dette steget.
 
-webpack.js
-
-```
+```js
+ // webpack.js
  module: {
         rules: [
             {
@@ -123,12 +122,11 @@ webpack.js
                 test: /\.(js|ts)x?$/,
                 use: ['babel-loader'],
             },
-        ...
+        //...
 ```
 
-polyfill.js
-
-```
+```js
+// polyfill.js
 if (!window.crypto) {
     window.crypto = window.msCrypto;
 }
@@ -157,4 +155,91 @@ configure({
         );
     },
 });
+```
+
+### Skjemaverktøy
+
+#### React Hook Form
+
+Mange team i Fremtind velger å bruke [React Hook Form](https://react-hook-form.com) for å gjøre skjemavalidering.
+
+Skjemakomponentene i Jøkul skal kunne brukes med `react-hook-form` på en enkel måte.
+I praksis betyr det at de skal fungere som _uncontrolled components_ så [register](https://react-hook-form.com/get-started#Registerfields)
+kan brukes i stedet for [Controller](https://react-hook-form.com/get-started#IntegratingControlledInputs).
+
+```tsx
+import React, { VFC } from "react";
+import { useForm } from "react-hook-form";
+import { PrimaryButton } from "@fremtind/jkl-button-react";
+import { RadioButtonGroup, RadioButton } from "@fremtind/jkl-radio-button-react";
+
+type FormValues = {
+    housetype: string;
+};
+
+type Props = {
+    onSubmit: () => void;
+};
+
+const HouseDetailsForm: VFC<Props> = ({ onSubmit }) => {
+    const { register, handleSubmit } = useForm<FormValues>();
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <RadioButtonGroup legend="Hvilken boligtype?" variant="large">
+                {["Enebolig", "Tomannsbolig", "Rekkehus", "Leilighet"].map((type) => (
+                    <RadioButton {...register("housetype", { required: true })} key={type} label={type} value={type} />
+                ))}
+            </RadioButtonGroup>
+            <PrimaryButton type="submit">Gå videre</PrimaryButton>
+        </form>
+    );
+};
+
+export default HouseDetailsForm;
+```
+
+Enkelte komponenter kan likevel trenge `Controller` i en overgangsperiode. Om du kommer over en komponent som fortsatt krever
+`Controller` må du gjerne [lage et issue på GitHub](https://github.com/fremtind/jokul/issues), og veldig gjerne [komme med en pull request](/komigang/pullrequests)!
+
+```tsx
+import React, { VFC } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { PrimaryButton } from "@fremtind/jkl-button-react";
+import { Select } from "@fremtind/jkl-select-react";
+
+type FormValues = {
+    housetype: string;
+};
+
+type Props = {
+    onSubmit: () => void;
+};
+
+const AddressForm: VFC<Props> = ({ onSubmit }) => {
+    const { register, handleSubmit } = useForm<FormValues>();
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <Controller
+                control={control}
+                name="currency"
+                defaultValue="USD"
+                render={({ field: { onChange, value, ref } }) => (
+                    <Select
+                        ref={ref}
+                        label="Valuta"
+                        items={["USD", "EUR", "JPY"]}
+                        onChange={onChange}
+                        value={value}
+                        width="6rem"
+                    />
+                )}
+            />
+            <PrimaryButton type="submit">Gå videre</PrimaryButton>
+        </form>
+    );
+};
+
+export default AddressForm;
 ```
