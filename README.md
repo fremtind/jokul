@@ -130,6 +130,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="https://wllm.no"><img src="https://avatars.githubusercontent.com/u/1223410?v=4?s=100" width="100px;" alt=""/><br /><sub><b>William Killerud</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=wkillerud" title="Documentation">📖</a> <a href="#infra-wkillerud" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/fremtind/jokul/commits?author=wkillerud" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/espkva"><img src="https://avatars.githubusercontent.com/u/1224929?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Espen Kvalvik</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=espkva" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/adriandersen"><img src="https://avatars.githubusercontent.com/u/31202534?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Adrian Andersen</b></sub></a><br /><a href="#infra-adriandersen" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/tomef96"><img src="https://avatars.githubusercontent.com/u/31108801?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom </b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=tomef96" title="Code">💻</a></td>
   </tr>
 </table>
 
