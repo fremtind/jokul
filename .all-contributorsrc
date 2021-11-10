@@ -357,7 +357,8 @@
       "profile": "https://wllm.no",
       "contributions": [
         "doc",
-        "infra"
+        "infra",
+        "code"
       ]
     }
   ],
