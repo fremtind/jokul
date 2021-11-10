@@ -133,6 +133,9 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="https://github.com/kathta"><img src="https://avatars.githubusercontent.com/u/9533278?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kathrine </b></sub></a><br /><a href="#design-kathta" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/tomef96"><img src="https://avatars.githubusercontent.com/u/31108801?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom </b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=tomef96" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/hjellek"><img src="https://avatars.githubusercontent.com/u/1640160?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Knut Eirik Leira Hjelle</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Ahjellek" title="Bug reports">🐛</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
