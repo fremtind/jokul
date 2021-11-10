@@ -436,6 +436,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "onordbo",
+      "name": "Øyvind Nordbø",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4263132?v=4",
+      "profile": "http://oyvind.co",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
