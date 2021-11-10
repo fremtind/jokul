@@ -391,6 +391,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "tomef96",
+      "name": "Tom ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31108801?v=4",
+      "profile": "https://github.com/tomef96",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
