@@ -409,6 +409,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "BjorneOma",
+      "name": "Bjørne Oma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55135175?v=4",
+      "profile": "https://github.com/BjorneOma",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
