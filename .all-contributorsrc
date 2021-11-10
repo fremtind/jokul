@@ -370,6 +370,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "adriandersen",
+      "name": "Adrian Andersen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31202534?v=4",
+      "profile": "https://github.com/adriandersen",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,
