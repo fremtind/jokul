@@ -424,6 +424,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "HavardPede",
+      "name": "Håvard Pedersen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30959515?v=4",
+      "profile": "https://github.com/HavardPede",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
