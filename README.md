@@ -126,6 +126,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/henrikhermansen"><img src="https://avatars.githubusercontent.com/u/435037?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Henrik Hermansen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=henrikhermansen" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/BjorneOmaFremtind"><img src="https://avatars.githubusercontent.com/u/89779105?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bjørne Oma</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=BjorneOmaFremtind" title="Code">💻</a></td>
   </tr>
 </table>
 
