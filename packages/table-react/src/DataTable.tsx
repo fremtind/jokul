@@ -15,7 +15,10 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTML
     rows: React.ReactNode[][];
     columns: string[];
     emptyTableText?: string;
-    /** Velg mellom vertikal sentrering av innholdet eller toppjustering. Typisk skal innholdet være sentrert, men dersom én eller flere kolonner typisk har mye mer innhold enn naboene kan toppjustering være bedre. */
+    /**
+     * Velg mellom vertikal sentrering av innholdet eller toppjustering. Typisk skal innholdet være toppjustert, men dersom raden har knapper kan midtstilling fungere bedre.
+     * @default "top"
+     */
     verticalAlign?: "center" | "top";
 }
 

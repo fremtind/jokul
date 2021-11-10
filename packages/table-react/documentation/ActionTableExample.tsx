@@ -46,11 +46,11 @@ const ActionTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValu
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.rowData.map((cell, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={headings[cellIndex]}>
+                            <TableCell key={cellIndex} data-th={headings[cellIndex]} verticalAlign="center">
                                 {cell}
                             </TableCell>
                         ))}
-                        <TableCell align="right" data-th="Dokument">
+                        <TableCell align="right" data-th="Dokument" verticalAlign="center">
                             <SecondaryButton onClick={(e) => console.log(e)} forceCompact={compact || props.compact}>
                                 Åpne
                             </SecondaryButton>
@@ -81,9 +81,9 @@ export const actionTableExampleCode = `
         {rows.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
                 {row.rowData.map((cell, cellIndex) => (
-                    <TableCell key={cellIndex}>{cell}</TableCell>
+                    <TableCell key={cellIndex} data-th={headings[cellIndex]} verticalAlign="center">{cell}</TableCell>
                 ))}
-                <TableCell align="right">
+                <TableCell align="right" data-th="Dokument" verticalAlign="center">
                     <SecondaryButton onClick={onClick} forceCompact={compact}>
                         Åpne
                     </SecondaryButton>
