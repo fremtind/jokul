@@ -382,6 +382,15 @@
       "contributions": [
         "infra"
       ]
+    },
+    {
+      "login": "kathta",
+      "name": "Kathrine ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9533278?v=4",
+      "profile": "https://github.com/kathta",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
