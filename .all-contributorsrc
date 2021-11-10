@@ -364,7 +364,8 @@
       "contributions": [
         "doc",
         "infra",
-        "code"
+        "code",
+        "bug"
       ]
     },
     {
