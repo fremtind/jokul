@@ -64,12 +64,6 @@ $button-background-color: jkl.$color-svart;
 }
 ```
 
-##### Farger som utility-klasser
-
-`@import "~@fremtind/jkl-core/color-classes.scss";`
-
-Vi anbefaler som nevnt å bruke variablene i dine egne klasser. Det sagt finnes det et utvalg hjelpeklasser du kan ta i bruk f. eks. til prototyping på formatet `jkl-color-{fargenavn}` og `jkl-bgcolor-{fargenavn}`.
-
 #### Tekststiler
 
 Du får tilgang til tekststilene i Jøkul gjennom mixin-en `jkl-text-style()`. Den tar navnet på tekststilen som argument, og navnet samsvarer med navnet i Figma, f.eks. `"compact/body"`. Legg merke til at det ikke er bygget inn noen responsivitet i tekststilene. Dette må du implementere selv der/om du ønsker det, f.eks. ved hjelp av media queries.
