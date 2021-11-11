@@ -6,8 +6,12 @@ publishDate: "2021.10.20"
 ---
 
 <Ingress>
-    Internet Explorer (IE) har vært med oss i mange år, men nå kan vi endelig si ha det bra! I denne artikkelen vi jeg komme med et forslag til en implementasjon av en sperre du kan bruke i din applikasjon slik at vi kan fjerne støtten i Jøkul.
+    Internet Explorer (IE) har vært med oss i mange år, men nå kan vi endelig si ha det bra! I denne artikkelen vi jeg
+    komme med et forslag til en implementasjon av en sperre du kan bruke i din applikasjon slik at vi kan fjerne støtten
+    i Jøkul.
 </Ingress>
+
+-   Oppdatert 2021.11.11: [IE-støtte droppes i Jøkul](/blog/jokul-dropper-ie-stotte/).
 
 Med mindre du har levd under en stein har du sikkert fått med deg at [støtte for IE sakte men sikkert forsvinner](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).
 Edge har vært basert på Chromium fra mars 2021 så derfor kan du også legge inn en melding om dette. Teamene må selv bestemme hva de ønsker å gjøre med Edge, men vi anbefaler alle å legge inn melding om IE. Meldingen for IE vil bli seende slik ut:
@@ -32,14 +36,13 @@ Først legger du inn referanse til CSS- og JS-filene som en del av `<head>` i `i
         <script src="/scripts/ie-melding.js"></script>
     </head>
     <body>
-        <div id="root" class="jkl root-container">
-            {...}
-        </div>
+        <div id="root" class="jkl root-container">{...}</div>
     </body>
 </html>
 ```
 
 Og så oppretter du en JS-fil som heter `ie-melding.js`:
+
 ```js
 const isIe = window.navigator.userAgent.match(/(MSIE|Trident)/);
 
@@ -94,7 +97,7 @@ const ieMelding = `
     </footer>
 `;
 
-const isOldEdge = window.navigator.userAgent.toLowerCase().indexOf('edge') > -1; // old MS edge
+const isOldEdge = window.navigator.userAgent.toLowerCase().indexOf("edge") > -1; // old MS edge
 
 const oldEdgeMelding = `
     <header>
@@ -136,27 +139,24 @@ const oldEdgeMelding = `
 
 const callback = function () {
     if (isIe || isOldEdge) {
-        const appRoot = document.getElementById('root');
-        appRoot.classList.add('hide-app');
+        const appRoot = document.getElementById("root");
+        appRoot.classList.add("hide-app");
 
-        const ieRoot = document.getElementById('ie-melding');
+        const ieRoot = document.getElementById("ie-melding");
         if (isIe) {
             ieRoot.innerHTML += ieMelding;
         }
         if (isOldEdge) {
             ieRoot.innerHTML += oldEdgeMelding;
         }
-        ieRoot.classList.add('vis-ie');
+        ieRoot.classList.add("vis-ie");
     }
 };
 
-if (
-    document.readyState === 'complete' ||
-    (document.readyState !== 'loading' && !document.documentElement.doScroll)
-) {
+if (document.readyState === "complete" || (document.readyState !== "loading" && !document.documentElement.doScroll)) {
     callback();
 } else {
-    document.addEventListener('DOMContentLoaded', callback);
+    document.addEventListener("DOMContentLoaded", callback);
 }
 ```
 
@@ -247,4 +247,3 @@ body {
     margin-bottom: 21px;
 }
 ```
-
