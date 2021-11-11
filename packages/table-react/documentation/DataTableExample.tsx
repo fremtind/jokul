@@ -11,8 +11,8 @@ const rows = [
 ];
 
 const DataTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues && boolValues["Kompakt"];
-    const type = choiceValues ? choiceValues["Mobilvisning"] : "";
+    const compact = boolValues?.["Kompakt"];
+    const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
 
     return <DataTable caption="Saksliste" compact={compact} columns={columns} rows={rows} {...props} />;
@@ -20,11 +20,12 @@ const DataTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues
 
 export default DataTableExample;
 
-export const dataTableExampleCode = `
-    <DataTable
-        caption="Saksliste"
-        compact={compact}
-        columns={columns}
-        rows={rows}
-    />
+export const dataTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+<DataTable
+    caption="Saksliste"
+    compact={${boolValues?.["Kompakt"]}}
+    collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}
+    columns={columns}
+    rows={rows}
+/>
 `;

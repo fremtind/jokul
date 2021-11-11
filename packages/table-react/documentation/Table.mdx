@@ -6,6 +6,7 @@ group: annet
 discussion: https://github.com/fremtind/jokul/discussions/2333
 ---
 
+import TableExamples, { tableExamplesCode, tableExamplesProps } from "./TableExamples";
 import DataTableExample, { dataTableExampleCode } from "./DataTableExample";
 import HeadlessTableExample, { headlessTableExampleCode } from "./HeadlessTableExample";
 import ClickableTableExample, { clickableTableExampleCode } from "./ClickableTableExample";
@@ -14,6 +15,14 @@ import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./Mobile
 import MobileListTableExample, { mobileListTableExampleCode } from "./MobileListTableExample";
 
 <Ingress>Vi bruker tabeller for å vise data på en ordnet måte som gjør sammenlikning enkelt.</Ingress>
+
+<ComponentExample
+    scrollable={true}
+    title="Tabell"
+    component={TableExamples}
+    knobs={tableExamplesProps}
+    codeExample={tableExamplesCode}
+/>
 
 Jøkul tilbyr enkeltkomponenter tilsvarende de du finner i HTML. Hvert tabell-element har sin egen Jøkul-motpart du kan ta i bruk:
 

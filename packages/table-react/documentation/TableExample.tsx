@@ -10,16 +10,19 @@ const rows = [
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
 ];
 
-const MobileListTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+const TableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+    const compact = boolValues?.["Kompakt"];
+    const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true" } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+
     return (
-        <Table {...props} compact collapseToList fullWidth>
-            <TableCaption srOnly>Tabell som vises som liste på mobil</TableCaption>
-            <TableHead>
+        <Table compact={compact} fullWidth {...props}>
+            <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+            <TableHead srOnly={headless}>
                 <TableRow>
                     {columns.map((column, index) => (
-                        <TableHeader key={index} bold>
+                        <TableHeader key={index} compact bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -28,9 +31,9 @@ const MobileListTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) =>
             <TableBody>
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
-                        {row.map((row, cellIndex) => (
+                        {row.map((cell, cellIndex) => (
                             <TableCell key={cellIndex} data-th={columns[cellIndex]}>
-                                {row}
+                                {cell}
                             </TableCell>
                         ))}
                     </TableRow>
@@ -40,34 +43,25 @@ const MobileListTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) =>
     );
 };
 
-export default MobileListTableExample;
+export default TableExample;
 
-export const mobileListTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
-<Table compact fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
-    <TableCaption srOnly>Tabell som vises som liste på mobil</TableCaption>
-    <TableHead>
+export const tableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+<Table fullWidth compact={${boolValues?.["Kompakt"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+    <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+    <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
-            {columns.map((column, index) => (
-                <TableHeader key={index} bold>
-                    {column}
+            {columns.map((header, index) => (
+                <TableHeader key={index} compact bold>
+                    {header}
                 </TableHeader>
             ))}
         </TableRow>
     </TableHead>
     <TableBody>
-        {rows.map((row, i) => (
-            <TableRow key={i}>
-                {rows.map((row, rowIndex) => (
-                    <TableRow key={rowIndex}>
-                        {row.map((row, cellIndex) => (
-                            <TableCell
-                                key={cellIndex}
-                                data-th={columns[cellIndex]}
-                            >
-                                {row}
-                            </TableCell>
-                        ))}
-                    </TableRow>
+        {rows.map((row, rowIndex) => (
+            <TableRow key={rowIndex}>
+                {row.map((cell, cellIndex) => (
+                    <TableCell key={cellIndex} data-th={columns[cellIndex]}>{cell}</TableCell>
                 ))}
             </TableRow>
         ))}
