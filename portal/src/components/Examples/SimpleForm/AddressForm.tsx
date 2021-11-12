@@ -110,6 +110,7 @@ const AddressForm: React.FC<Props> = ({ onSubmit }) => {
                 {postnummer?.toString().length === 4 && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} ref={numberRef}>
                         <Select
+                            name="nummer"
                             className={`jkl-simple-form__postal-group__house-number ${
                                 isCompact ? "jkl-spacing-l--bottom" : "jkl-spacing-xl--bottom"
                             }`}
