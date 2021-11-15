@@ -1,57 +1,52 @@
 import React, { ImgHTMLAttributes, useState, useRef } from "react";
-import cn from "classnames";
+import cx from "classnames";
 import FocusTrap from "focus-trap-react";
-import { withPrefix } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useKeyListener } from "@fremtind/jkl-react-hooks";
-import { Close } from "@fremtind/jkl-icons-react";
-import "./style.scss";
+import "./portal-img.scss";
 
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
+    src: string;
+    alt: string;
+    inline?: boolean;
     noMargin?: boolean;
     fullWidth?: boolean;
 }
 
-export const PortalImg: React.FC<Props> = ({ src, alt, noMargin = false, fullWidth = false }) => {
+export const PortalImg: React.FC<Props> = ({ src, alt, inline = false, noMargin = false, fullWidth = false }) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
 
     const toggleFullscreen = () => setFullscreen(!isFullscreen);
-
-    const className = cn({
-        "jkl-portal-image": true,
-        "jkl-portal-image--no-margin": noMargin,
-        "jkl-portal-image--fullscreen": isFullscreen,
-        "jkl-portal-paragraph": !fullWidth && !isFullscreen,
-    });
-
-    let imgSrc = src;
-    if (src?.startsWith("/")) {
-        imgSrc = withPrefix(src);
-    }
+    // Vi har ikke tilgang på filstien på disk i query. Ulempen blir at filnavn må være unike.
+    const imgSrc = src.split("/").pop() as string;
 
     return (
         <FocusTrap active={isFullscreen}>
-            <div>
+            <div
+                className={cx("jkl-portal-image", {
+                    "jkl-portal-image--no-margin": noMargin,
+                })}
+            >
                 <BlurredBackground blur={isFullscreen} />
-                <motion.button ref={ref} layout onClick={toggleFullscreen} className={className}>
+                <motion.button
+                    ref={ref}
+                    layout
+                    onClick={toggleFullscreen}
+                    className={cx("jkl-portal-image__content", {
+                        "jkl-portal-image__content--fullscreen": isFullscreen,
+                        "jkl-portal-paragraph": !fullWidth && !isFullscreen,
+                    })}
+                >
                     <Image imgSrc={imgSrc} alt={alt} />
                     {!isFullscreen && !noMargin && <div className="jkl-micro">Klikk for å se større</div>}
-                    {
-                        <span className="jkl-portal-image__close">
-                            Lukk
-                            <Close variant="medium" />
-                        </span>
-                    }
                 </motion.button>
                 {isFullscreen && (
-                    <div
-                        className={`jkl-portal-image jkl-portal-paragraph ${
-                            noMargin ? "jkl-portal-image--no-margin" : ""
-                        }`}
-                    >
-                        <Image imgSrc={imgSrc} />
+                    <div className="jkl-portal-image__content jkl-portal-paragraph">
+                        <Image imgSrc={imgSrc} alt={alt} />
                         {!noMargin && <div className="jkl-micro">&nbsp;</div>}
                     </div>
                 )}
@@ -60,8 +55,27 @@ export const PortalImg: React.FC<Props> = ({ src, alt, noMargin = false, fullWid
     );
 };
 
-function Image({ imgSrc, alt }: { imgSrc?: string; alt?: string }) {
-    return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt={alt || "illustrasjon"} />;
+function Image({ imgSrc, alt }: { imgSrc: string; alt: string }) {
+    const data = useStaticQuery(graphql`
+        query {
+            allImageSharp {
+                nodes {
+                    gatsbyImageData
+                }
+            }
+        }
+    `);
+
+    // @ts-ignore No available type for Sharp image data
+    const image = data.allImageSharp.nodes.find((node) =>
+        (node.gatsbyImageData.images.fallback.src as string).includes(imgSrc),
+    );
+
+    return (
+        <motion.div layout className="jkl-portal-image__img">
+            <GatsbyImage image={image.gatsbyImageData} alt={alt} />
+        </motion.div>
+    );
 }
 
 function BlurredBackground({ blur }: { blur: boolean }) {
@@ -72,7 +86,7 @@ function BlurredBackground({ blur }: { blur: boolean }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 1 }}
-                    className="portal-bg-blur"
+                    className="jkl-portal-image__bg-blur"
                 />
             )}
         </AnimatePresence>

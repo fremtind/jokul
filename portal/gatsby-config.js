@@ -28,6 +28,7 @@ module.exports = {
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
+        { resolve: "gatsby-source-filesystem", options: { path: "./static/assets" } },
         {
             resolve: "gatsby-source-filesystem",
             options: {
