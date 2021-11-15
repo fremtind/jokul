@@ -31,6 +31,13 @@ module.exports = {
         {
             resolve: "gatsby-source-filesystem",
             options: {
+                // Det ligger bilder her av historiske årsaker
+                path: "./src/components/Documentation/Picture/Assets",
+            },
+        },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
                 name: "components",
                 path: `${__dirname}/../packages`,
                 ignore: ignoreNonMdx,
