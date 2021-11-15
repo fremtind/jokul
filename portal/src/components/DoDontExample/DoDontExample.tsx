@@ -1,9 +1,8 @@
 import React, { ReactNode } from "react";
 import classNames from "classnames";
-
-import "./DoDontExample.scss";
-import { PortalImg } from "../PortalImg/PortalImg";
+import { PortalImage } from "../portal-image";
 import { ExampleVideo } from "../ExampleVideo";
+import "./DoDontExample.scss";
 
 interface Props {
     type: "do" | "dont";
@@ -33,7 +32,7 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", vide
             {content && <div className="jkl-portal-do-dont-example__content">{content}</div>}
             {image && (
                 <div className="jkl-portal-do-dont-example__image">
-                    <PortalImg src={image} alt={altText} noMargin fullWidth />
+                    <PortalImage src={image} alt={altText} noMargin fullWidth />
                 </div>
             )}
             {video && (
