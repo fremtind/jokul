@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.1 (2021-11-15)
+
+### Bug Fixes
+
+- gjenopprett bilder i Bildebruk ([08a6203](https://github.com/fremtind/jokul/commit/08a6203440b1f1fd1d5c78c5b69184c69e353b99))
+
 ## 9.0.0 (2021-11-09)
 
 ### Features
