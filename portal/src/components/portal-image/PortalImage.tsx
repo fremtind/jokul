@@ -22,8 +22,6 @@ export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, 
     }
 
     const toggleFullscreen = () => setFullscreen(!isFullscreen);
-    // Vi har ikke tilgang på filstien på disk i query. Ulempen blir at filnavn må være unike.
-    const imgSrc = src.split("/").pop() as string;
 
     return (
         <FocusTrap active={isFullscreen}>
@@ -42,12 +40,12 @@ export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, 
                         "jkl-portal-paragraph": !fullWidth && !isFullscreen,
                     })}
                 >
-                    <AnimatedImage imgSrc={imgSrc} alt={alt} />
+                    <AnimatedImage src={src} alt={alt} />
                     {!isFullscreen && !noMargin && <div className="jkl-micro">Klikk for å se større</div>}
                 </motion.button>
                 {isFullscreen && (
                     <div className="jkl-portal-image__content jkl-portal-paragraph">
-                        <AnimatedImage imgSrc={imgSrc} alt={alt} />
+                        <AnimatedImage src={src} alt={alt} />
                         {!noMargin && <div className="jkl-micro">&nbsp;</div>}
                     </div>
                 )}
