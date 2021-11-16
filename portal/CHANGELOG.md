@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.0 (2021-11-16)
+
+### Bug Fixes
+
+- gjør så Select støtter react-hook-form ([87d54b7](https://github.com/fremtind/jokul/commit/87d54b749899811b16f52f81c39c48d244652b46)), closes [#2456](https://github.com/fremtind/jokul/issues/2456)
+
+### BREAKING CHANGES
+
+- Select: Output fra onChange, onBlur, og onFocus er endret til å ligne eventstrukturen
+(e.target.value) i stedet for å gi verdien direkte. Name er gjort til en påkrevd prop.
+
+## 9.0.1 (2021-11-15)
+
+### Bug Fixes
+
+- gjenopprett bilder i Bildebruk ([08a6203](https://github.com/fremtind/jokul/commit/08a6203440b1f1fd1d5c78c5b69184c69e353b99))
+
 ## 9.0.0 (2021-11-09)
 
 ### Features
