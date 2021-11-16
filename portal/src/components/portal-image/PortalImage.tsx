@@ -12,7 +12,7 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     fullWidth?: boolean;
 }
 
-export const PortalImage: FC<Props> = ({ src, alt, noMargin = false, fullWidth = false }) => {
+export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, fullWidth = false }) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
@@ -28,7 +28,7 @@ export const PortalImage: FC<Props> = ({ src, alt, noMargin = false, fullWidth =
     return (
         <FocusTrap active={isFullscreen}>
             <div
-                className={cx("jkl-portal-image", {
+                className={cx("jkl-portal-image", className, {
                     "jkl-portal-image--no-margin": noMargin,
                 })}
             >
