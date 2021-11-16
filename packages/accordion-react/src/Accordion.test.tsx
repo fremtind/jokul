@@ -20,7 +20,7 @@ describe("Accordion", () => {
         render(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
-                    <Select items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                    <Select name="ting" items={[{ label: "Item 3", value: "3" }]} label="Ting" />
                 </AccordionItem>
             </Accordion>,
         );

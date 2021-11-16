@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FocusEvent, useRef, useEffect, VFC } from "react";
+import React, { useState, VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 import { LabelVariant } from "@fremtind/jkl-core";
@@ -13,44 +13,14 @@ export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceVa
         { value: "LG", label: "LG" },
     ];
     const [value, setValue] = useState<string>();
-    const universalSetValue = (input: string | ChangeEvent<HTMLSelectElement> | undefined) => {
-        let eventValue;
-        if (typeof input === "string") {
-            eventValue = input;
-        } else if (input) {
-            eventValue = input.target.value;
-        }
-        setValue(eventValue);
-        console.log("Change: ", eventValue);
-    };
 
     const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
     const variant = choiceValues && (choiceValues["Etikettvariant"] as LabelVariant);
     const searchAble = boolValues && boolValues["Med søk"];
 
-    const selectRef = useRef<HTMLSelectElement>(null);
-    useEffect(() => {
-        const select = selectRef.current;
-        select?.addEventListener("change", (e: unknown) =>
-            console.log("Verdi fra selectRef:", (e as ChangeEvent<HTMLSelectElement>).target.value),
-        );
-        return () => {
-            select?.removeEventListener("change", (e: unknown) =>
-                console.log("Verdi fra selectRef:", (e as ChangeEvent<HTMLSelectElement>).target.value),
-            );
-        };
-    }, [selectRef]);
-    const onFocus = (input: string | FocusEvent<HTMLSelectElement> | undefined) => {
-        console.log("Focus: ", input);
-    };
-    const onBlur = (input: string | FocusEvent<HTMLSelectElement> | undefined) => {
-        console.log("Blur: ", input);
-    };
-
     return (
         <C
-            ref={selectRef}
             id="produsent"
             name="produsent"
             forceCompact={boolValues && boolValues["Kompakt"]}
@@ -61,10 +31,17 @@ export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceVa
             value={value}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            onChange={universalSetValue}
+            onChange={(event) => {
+                setValue(event.target.value);
+                console.log("Change: ", event);
+            }}
             searchable={searchAble}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            onFocus={(event) => {
+                console.log("Focus: ", event);
+            }}
+            onBlur={(event) => {
+                console.log("Blur: ", event);
+            }}
         />
     );
 };
