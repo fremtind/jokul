@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.0 (2021-11-16)
+
+### Bug Fixes
+
+- gjør så NativeSelect fungerer med react-hook-form ([2be8ad7](https://github.com/fremtind/jokul/commit/2be8ad7ded02e998937b4929eb4cd4b6b3cafa4a)), closes [#2456](https://github.com/fremtind/jokul/issues/2456)
+- gjør så Select støtter react-hook-form ([87d54b7](https://github.com/fremtind/jokul/commit/87d54b749899811b16f52f81c39c48d244652b46)), closes [#2456](https://github.com/fremtind/jokul/issues/2456)
+
+### BREAKING CHANGES
+
+- Select: Output fra onChange, onBlur, og onFocus er endret til å ligne eventstrukturen
+(e.target.value) i stedet for å gi verdien direkte. Name er gjort til en påkrevd prop.
+- NativeSelect: Kaller ikke lenger onChange-funksjonen ved onBlur-eventet. Om du vil beholde den
+oppførselen, sett onBlur lik onChange der du bruker NativeSelect.
+
 ## 7.0.0 (2021-10-21)
 
 ### chore
