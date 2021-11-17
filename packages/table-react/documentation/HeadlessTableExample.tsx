@@ -12,7 +12,7 @@ const rows = [
 
 const HeadlessTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues ? choiceValues["Mobilvisning"] : "";
-    const props = type === "Liste" ? { "data-collapse": "true" } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", compact: true, collapseToList: true } : {};
     return (
         <Table {...props} fullWidth>
             <TableCaption srOnly>Tabell uten synlig header</TableCaption>
@@ -38,8 +38,8 @@ const HeadlessTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
 
 export default HeadlessTableExample;
 
-export const headlessTableExampleCode = `
-<Table fullWidth>
+export const headlessTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell uten synlig header</TableCaption>
     <TableHead srOnly>
         <TableRow>

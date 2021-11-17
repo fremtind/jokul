@@ -20,9 +20,10 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
     padding-bottom: jkl.$spacing-s - jkl.rem(1px);
     position: relative;
     text-align: left;
+    vertical-align: top;
 
-    &--align-top {
-        vertical-align: top;
+    &--align-center {
+        vertical-align: baseline;
     }
 
     &--align-right {

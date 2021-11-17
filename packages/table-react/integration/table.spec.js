@@ -1,10 +1,14 @@
 /// <reference types="cypress" />
 
 describe("Table", () => {
-    const mobilScroll = 0;
-    const mobilListe = 1;
-    const skjulteHeaders = 2;
-    const radMedHandling = 4;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const intro = 0;
+    const mobilScroll = 1;
+    const mobilListe = 2;
+    const skjulteHeaders = 3;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const datatabell = 4;
+    const radMedHandling = 5;
 
     beforeEach(() => {
         cy.testComponent("table");
@@ -14,9 +18,7 @@ describe("Table", () => {
         cy.getComponent().eq(mobilScroll).toMatchImageSnapshot();
         cy.getComponent().eq(skjulteHeaders).toMatchImageSnapshot();
 
-        cy.get('input[value="Liste"]').then(($input) => {
-            $input.click();
-        });
+        cy.get('input[value="Liste"]').click({ multiple: true });
         cy.getComponent().eq(mobilListe).toMatchImageSnapshot();
         cy.getComponent().eq(radMedHandling).toMatchImageSnapshot();
     });
@@ -28,9 +30,7 @@ describe("Table", () => {
             cy.getComponent().eq(mobilScroll).toMatchImageSnapshot();
             cy.getComponent().eq(skjulteHeaders).toMatchImageSnapshot();
 
-            cy.get('input[value="Liste"]').then(($input) => {
-                $input.click();
-            });
+            cy.get('input[value="Liste"]').click({ multiple: true });
             cy.getComponent().eq(mobilListe).toMatchImageSnapshot();
             cy.getComponent().eq(radMedHandling).toMatchImageSnapshot();
         });
