@@ -25,14 +25,15 @@ const rows = Array.from(Array(3)).map(() => ({
 }));
 
 const ActionTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues && boolValues["Kompakt"];
-    const type = choiceValues ? choiceValues["Mobilvisning"] : "";
+    const compact = boolValues?.["Kompakt"];
+    const headless = boolValues?.["Skjul overskrift"];
+    const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
 
     return (
         <Table compact={compact} fullWidth {...props}>
             <TableCaption srOnly>Tabell med handlinger</TableCaption>
-            <TableHead>
+            <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
                         <TableHeader key={column} compact bold>
@@ -46,11 +47,11 @@ const ActionTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValu
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.rowData.map((cell, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={headings[cellIndex]}>
+                            <TableCell key={cellIndex} data-th={headings[cellIndex]} verticalAlign="center">
                                 {cell}
                             </TableCell>
                         ))}
-                        <TableCell align="right" data-th="Dokument">
+                        <TableCell align="right" data-th="Dokument" verticalAlign="center">
                             <SecondaryButton onClick={(e) => console.log(e)} forceCompact={compact || props.compact}>
                                 Åpne
                             </SecondaryButton>
@@ -64,10 +65,10 @@ const ActionTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValu
 
 export default ActionTableExample;
 
-export const actionTableExampleCode = `
-<Table compact={compact} fullWidth={true}>
+export const actionTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+<Table fullWidth compact={${boolValues?.["Kompakt"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med handlinger</TableCaption>
-    <TableHead>
+    <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
             {headings.map((column) => (
                 <TableHeader key={column} compact bold>
@@ -81,9 +82,9 @@ export const actionTableExampleCode = `
         {rows.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
                 {row.rowData.map((cell, cellIndex) => (
-                    <TableCell key={cellIndex}>{cell}</TableCell>
+                    <TableCell key={cellIndex} data-th={headings[cellIndex]} verticalAlign="center">{cell}</TableCell>
                 ))}
-                <TableCell align="right">
+                <TableCell align="right" data-th="Dokument" verticalAlign="center">
                     <SecondaryButton onClick={onClick} forceCompact={compact}>
                         Åpne
                     </SecondaryButton>
