@@ -86,6 +86,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         frontmatter {
                             react
                             title
+                            displayTypes
                         }
                     }
                 }
@@ -100,6 +101,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         frontmatter {
                             react
                             title
+                            displayTypes
                         }
                     }
                 }
@@ -114,6 +116,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         frontmatter {
                             react
                             title
+                            displayTypes
                         }
                     }
                 }
@@ -206,38 +209,60 @@ ${JSON.stringify(result.errors, null, 2)}
         return structuredTypes[`../packages/${packageName}/src/index.ts`];
     }
 
+    /**
+     * @param {*} types
+     * @param {string | string[]} displayTypes
+     */
+    function getComponentTypes(types, displayTypes) {
+        return Object.entries(types)
+            .filter(([displayName]) => displayTypes.includes(displayName))
+            .reduce((acc, [displayName, types]) => ({ ...acc, [displayName]: types }), {});
+    }
+
     result.data.components.edges.forEach(({ node }) => {
-        const types = getTypes(node.frontmatter.react);
+        const packageTypes = getTypes(node.frontmatter.react);
+        const pageTypes = node.frontmatter.displayTypes
+            ? getComponentTypes(packageTypes, node.frontmatter.displayTypes)
+            : packageTypes;
+
         createPage({
             path: node.fields.path,
             component: documentationTemplate,
             context: {
                 id: node.id,
-                types,
+                types: pageTypes,
                 title: node.frontmatter.title,
             },
         });
     });
     result.data.core.edges.forEach(({ node }) => {
-        const types = getTypes(node.frontmatter.react);
+        const coreTypes = getTypes(node.frontmatter.react);
+        const pageTypes = node.frontmatter.displayTypes
+            ? getComponentTypes(coreTypes, node.frontmatter.displayTypes)
+            : coreTypes;
+
         createPage({
             path: node.fields.path,
             component: documentationTemplate,
             context: {
                 id: node.id,
-                types,
+                types: pageTypes,
                 title: node.frontmatter.title,
             },
         });
     });
     result.data.utils.edges.forEach(({ node }) => {
-        const types = getTypes(node.frontmatter.react);
+        const utilTypes = getTypes(node.frontmatter.react);
+        const pageTypes = node.frontmatter.displayTypes
+            ? getComponentTypes(utilTypes, node.frontmatter.displayTypes)
+            : utilTypes;
+
         createPage({
             path: node.fields.path,
             component: documentationTemplate,
             context: {
                 id: node.id,
-                types,
+                types: pageTypes,
                 title: node.frontmatter.title,
             },
         });
