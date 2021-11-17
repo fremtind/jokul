@@ -28,6 +28,14 @@ module.exports = {
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
+        { resolve: "gatsby-source-filesystem", options: { path: "./static/assets" } },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                // Det ligger bilder her av historiske årsaker
+                path: "./src/components/Documentation/Picture/Assets",
+            },
+        },
         {
             resolve: "gatsby-source-filesystem",
             options: {
