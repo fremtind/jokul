@@ -47,16 +47,9 @@
 
     &__heading {
         @include jkl.text-style("heading-4");
+
         margin-top: jkl.$spacing-m;
         margin-bottom: jkl.$spacing-2xs;
-
-        &--do {
-            color: var(--do-dont-example-do-color);
-        }
-
-        &--dont {
-            color: var(--do-dont-example-dont-color);
-        }
     }
 
     &__description {

@@ -1,9 +1,8 @@
 import React, { ReactNode } from "react";
-import classNames from "classnames";
-
-import "./DoDontExample.scss";
-import { PortalImg } from "../PortalImg/PortalImg";
+import cx from "classnames";
+import { PortalImage } from "../portal-image";
 import { ExampleVideo } from "../ExampleVideo";
+import "./DoDontExample.scss";
 
 interface Props {
     type: "do" | "dont";
@@ -17,23 +16,18 @@ interface Props {
 export const DoDontExample: React.FC<Props> = ({ type, content, image = "", video, description, fullWidth }) => {
     const heading = type === "do" ? "Riktig" : "Feil";
     const altText = description ? `${heading}: ${description}` : `${heading} bruk`;
-    const containerClass = classNames({
-        "jkl-portal-do-dont-example": true,
-        "jkl-portal-do-dont-example--fullwidth": fullWidth,
-        "jkl-portal-do-dont-example--halfwidth": !fullWidth,
-    });
-    const headingClass = classNames({
-        "jkl-portal-do-dont-example__heading": true,
-        "jkl-portal-do-dont-example__heading--do": type === "do",
-        "jkl-portal-do-dont-example__heading--dont": type === "dont",
-    });
 
     return (
-        <section className={containerClass}>
+        <section
+            className={cx("jkl-portal-do-dont-example", {
+                "jkl-portal-do-dont-example--fullwidth": fullWidth,
+                "jkl-portal-do-dont-example--halfwidth": !fullWidth,
+            })}
+        >
             {content && <div className="jkl-portal-do-dont-example__content">{content}</div>}
             {image && (
                 <div className="jkl-portal-do-dont-example__image">
-                    <PortalImg src={image} alt={altText} noMargin fullWidth />
+                    <PortalImage src={image} alt={altText} noMargin fullWidth />
                 </div>
             )}
             {video && (
@@ -41,7 +35,7 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", vide
                     <ExampleVideo videoUrl={video} />
                 </div>
             )}
-            <p className={headingClass}>{heading}</p>
+            <p className="jkl-portal-do-dont-example__heading">{heading}</p>
             <p className="jkl-portal-do-dont-example__description">{description}</p>
         </section>
     );

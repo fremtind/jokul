@@ -16,10 +16,10 @@ import {
     TableHeader,
     TableRow,
 } from "@fremtind/jkl-table-react";
-import { PortalImg } from "../PortalImg/PortalImg";
+import { PortalImage } from "../portal-image";
+import { Grid } from "../Grid";
 import { Experimental } from "../Experimental/Experimental";
 import { CodeDemo } from "../CodeDemo/CodeDemo";
-
 import { DoDontExample } from "../DoDontExample";
 import { ExampleVideo } from "../ExampleVideo";
 import {
@@ -54,7 +54,7 @@ const components = {
     ul: UnorderedList as FC,
     ol: OrderedList as FC,
     li: ListItem as FC,
-    img: PortalImg,
+    img: PortalImage,
     a: Anchor as FC,
     table: Table,
     thead: TableHead,
@@ -68,6 +68,7 @@ const components = {
     colgroup: TableColumnGroup,
     pre: CodeBlock,
     inlineCode: InlineCode,
+    Grid,
     Ingress,
     ComponentExample,
     FlowExample,
@@ -77,6 +78,7 @@ const components = {
     InfoMessageBox,
     ResponsiveExample,
     CodeDemo,
+    PortalImage,
 };
 
 export const FormatProvider: FC = ({ children }) => {
