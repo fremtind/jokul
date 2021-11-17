@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.3 (2021-11-17)
+
+### Bug Fixes
+
+- endre standard vertical-align i henhold til design ([a545a58](https://github.com/fremtind/jokul/commit/a545a58fbc219285304dea34b3ebc3963fe860b4)), closes [#2434](https://github.com/fremtind/jokul/issues/2434)
+
 ## 5.1.0 (2021-10-25)
 
 ### Features
