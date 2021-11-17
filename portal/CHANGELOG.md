@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.1.0 (2021-11-17)
+
+### Bug Fixes
+
+- eradicate <the process :cowboy: ([544bf0d](https://github.com/fremtind/jokul/commit/544bf0dd60d37465c4d2ff73dc035b98a6717ddd))
+- fiks SVG-src for PortalImage og fjern gammel profilfarge ([463b96d](https://github.com/fremtind/jokul/commit/463b96df6f9c22d57618d9ccfd2d731963b754ca))
+- fjern unødvendig import ([be78644](https://github.com/fremtind/jokul/commit/be786442da0b4453f8cf377093e143117b1e049d))
+- fjern uriktig fargebruk fra DoDontExample ([f51bf6c](https://github.com/fremtind/jokul/commit/f51bf6ccf5ee430b3d972441d1fbaac55a2f575b))
+- la PortalImg bruke Gatsby sin image-pipeline ([086d5e8](https://github.com/fremtind/jokul/commit/086d5e8c8604d1f5e21370d72205e0e843710b97))
+
+### Features
+
+- åpne for å sette className på PortalImage ([388884b](https://github.com/fremtind/jokul/commit/388884be88efcb2afa9fc8abc4f761e6c1b29680))
+- åpne for å vise PortalImage i en Grid ([6e78a23](https://github.com/fremtind/jokul/commit/6e78a23ce4ee48a893ed5e99fe6f4361b53c5f00))
+
 ## 10.0.0 (2021-11-16)
 
 ### Bug Fixes
