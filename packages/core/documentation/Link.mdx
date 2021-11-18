@@ -3,10 +3,13 @@ title: Link og NavLink
 scss: core
 react: core
 group: knapper
+displayTypes: |
+    - Link
+    - NavLink
 ---
 
-import { LinkExample } from "./Link/LinkExample";
-import { NavLinkExample } from "./Link/NavLinkExample";
+import { LinkExample, linkExampleCode } from "./Link/LinkExample";
+import { NavLinkExample, navLinkExampleCode } from "./Link/NavLinkExample";
 
 <Ingress>
     Vi bruker lenker for å lede brukeren til andre nettsider, eller til andre steder på samme nettside. Lenker til
@@ -19,6 +22,7 @@ import { NavLinkExample } from "./Link/NavLinkExample";
     knobs={{
         boolProps: ["Invertert", "Ekstern"],
     }}
+    codeExample={linkExampleCode}
 />
 
 <ComponentExample
@@ -27,6 +31,7 @@ import { NavLinkExample } from "./Link/NavLinkExample";
     knobs={{
         boolProps: ["Invertert", "Aktiv", "Back"],
     }}
+    codeExample={navLinkExampleCode}
 />
 
 ## Bruk
