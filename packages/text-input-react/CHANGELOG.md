@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.5 (2021-11-18)
+
+### Bug Fixes
+
+- unngå å kutte toppen av Å i Chrome ([02e4922](https://github.com/fremtind/jokul/commit/02e49228682cd41d10ea5b8edb25f55eb253041b)), closes [#2503](https://github.com/fremtind/jokul/issues/2503)
+
 ## 7.0.0 (2021-10-21)
 
 ### chore

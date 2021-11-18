@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.2.0 (2021-11-18)
+
+### Features
+
+- legg til støtte for å velge hvilke typer som skal vises ([cc51007](https://github.com/fremtind/jokul/commit/cc51007a6c6f9da4e5df5e135306f17efa5f074a))
+
 ## 10.1.0 (2021-11-17)
 
 ### Bug Fixes
