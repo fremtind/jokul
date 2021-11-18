@@ -9,7 +9,7 @@ const getTypeOfBox = (typeofBox?: string) => {
             return InfoAlertMessage;
         case "Suksessmelding":
             return SuccessAlertMessage;
-        case "Advarselmelding":
+        case "Advarselsmelding":
             return WarningAlertMessage;
         case "Feilmelding":
             return ErrorAlertMessage;
@@ -21,13 +21,12 @@ const getTypeOfBox = (typeofBox?: string) => {
 export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
     const [dismissed, setDismissed] = useState(false);
-    const dismissAction =
-        boolValues && boolValues["Avvisbar"]
-            ? {
-                  handleDismiss: () => setDismissed(true),
-                  buttonTitle: "Merk som lest",
-              }
-            : undefined;
+    const dismissAction = boolValues?.["Avvisbar"]
+        ? {
+              handleDismiss: () => setDismissed(true),
+              buttonTitle: "Merk som lest",
+          }
+        : undefined;
 
     return (
         <C dismissed={dismissed} dismissAction={dismissAction}>
@@ -35,4 +34,18 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
             <NavLink href="/">en navlink</NavLink>
         </C>
     );
+};
+
+export const alertMessageExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+    const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
+    return `
+<${C.displayName} dismissed={false} dismissAction={${
+        boolValues?.["Avvisbar"]
+            ? `{
+    handleDismiss: () => setDismissed(true),
+    buttonTitle: "Merk som lest",
+}`
+            : undefined
+    }}  />
+`;
 };
