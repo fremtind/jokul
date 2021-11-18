@@ -12,14 +12,14 @@ describe("TextInput", () => {
         cy.setMedFeil().getComponent().eq(0).toMatchImageSnapshot().resetMedFeil();
         cy.setMedFeil().getComponent().eq(1).toMatchImageSnapshot().resetMedFeil();
 
-        cy.focusInput("textinput").type("Lorem ipsum");
+        cy.focusInput("textinput").type("Å være eller ikke være");
         cy.getComponent().eq(0).toMatchImageSnapshot();
 
-        cy.focusTextArea("textarea").type("Lorem ipsum");
+        cy.focusTextArea("textarea").type("Å være eller ikke være");
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
         cy.get('input[value="Med teller"]').click();
-        cy.focusTextArea("textarea").type("Lorem ipsum");
+        cy.focusTextArea("textarea").type("Å være eller ikke være");
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
         cy.focusTextArea("textarea").type(
@@ -28,11 +28,11 @@ describe("TextInput", () => {
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
         cy.get('input[value="Skjul progress"]').click();
-        cy.focusTextArea("textarea").type("Lorem ipsum");
+        cy.focusTextArea("textarea").type("Å være eller ikke være");
         cy.getComponent().eq(1).toMatchImageSnapshot();
 
         cy.setMedFeil();
-        cy.focusTextArea("textarea").type("Lorem ipsum");
+        cy.focusTextArea("textarea").type("Å være eller ikke være");
         cy.getComponent().eq(1).toMatchImageSnapshot();
         cy.resetMedFeil();
     });
@@ -47,14 +47,14 @@ describe("TextInput", () => {
             cy.setMedFeil().getComponent().eq(0).toMatchImageSnapshot().resetMedFeil();
             cy.setMedFeil().getComponent().eq(1).toMatchImageSnapshot().resetMedFeil();
 
-            cy.focusInput("textinput").type("Lorem ipsum");
+            cy.focusInput("textinput").type("Å være eller ikke være");
             cy.getComponent().eq(0).toMatchImageSnapshot();
 
-            cy.focusTextArea("textarea").type("Lorem ipsum");
+            cy.focusTextArea("textarea").type("Å være eller ikke være");
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
             cy.get('input[value="Med teller"]').click();
-            cy.focusTextArea("textarea").type("Lorem ipsum");
+            cy.focusTextArea("textarea").type("Å være eller ikke være");
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
             cy.focusTextArea("textarea").type(
@@ -63,11 +63,11 @@ describe("TextInput", () => {
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
             cy.get('input[value="Skjul progress"]').click();
-            cy.focusTextArea("textarea").type("Lorem ipsum");
+            cy.focusTextArea("textarea").type("Å være eller ikke være");
             cy.getComponent().eq(1).toMatchImageSnapshot();
 
             cy.setMedFeil();
-            cy.focusTextArea("textarea").type("Lorem ipsum");
+            cy.focusTextArea("textarea").type("Å være eller ikke være");
             cy.getComponent().eq(1).toMatchImageSnapshot();
             cy.resetMedFeil();
         });

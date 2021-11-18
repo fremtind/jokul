@@ -280,12 +280,17 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     }
 }
 
+.jkl-text-input:not(.jkl-text-area) .jkl-text-input__input {
+    line-height: $text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+}
+
 .jkl-text-area {
     height: auto;
     width: 100%;
 
     & .jkl-text-input__input {
         @include motion("standard");
+
         transition-property: height, box-shadow;
         font-weight: normal;
         width: 100%;
