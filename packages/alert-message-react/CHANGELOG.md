@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.5 (2021-11-18)
+
+### Bug Fixes
+
+- gi AlertMessage riktig displayName, typing ([e32bdaa](https://github.com/fremtind/jokul/commit/e32bdaa81a097b4e5b130b1447346b40774ff2f7))
+
 ## 6.0.0 (2021-10-28)
 
 ### Bug Fixes
