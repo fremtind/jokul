@@ -2,6 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { AccordionItem } from ".";
 import { axe } from "jest-axe";
+import { act } from "react-dom/test-utils";
+import userEvent from "@testing-library/user-event/dist";
 
 describe("AccordionItem", () => {
     it("should render without exploding", () => {
@@ -29,6 +31,26 @@ describe("AccordionItem", () => {
         const wrapper = screen.getByTestId("jkl-accordion-item__content-wrapper");
 
         expect(wrapper).toHaveProperty("hidden", true);
+    });
+    it("should return click event", async () => {
+        let openingAccordion = false;
+        render(
+            <AccordionItem
+                title="Hello"
+                onClick={(e, isOpen) => {
+                    openingAccordion = isOpen;
+                }}
+            >
+                Something
+            </AccordionItem>,
+        );
+
+        const button = screen.getByRole("button");
+        await act(async () => {
+            await userEvent.click(button);
+        });
+
+        expect(openingAccordion).toBe(true);
     });
     it("should start open if told to", () => {
         render(
