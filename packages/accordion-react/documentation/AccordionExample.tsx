@@ -6,7 +6,12 @@ import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 
 export const AccordionExample: React.FC<ExampleComponentProps> = ({ boolValues }) => (
     <Accordion inverted={boolValues && boolValues["Invertert"]}>
-        <AccordionItem title="Hvem kan kjøpe livsforsikring?">
+        <AccordionItem
+            title="Hvem kan kjøpe livsforsikring?"
+            onClick={(e, isOpen) => {
+                isOpen ? console.log("Opening first accordion item") : console.log("Closing first accordion item");
+            }}
+        >
             <UnorderedList>
                 <ListItem>Personer med et norsk fødselsnummer.</ListItem>
                 <ListItem>Personer som har vært bosatt i Norge i minst de fem siste årene før avtalen inngås.</ListItem>
