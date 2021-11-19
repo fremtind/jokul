@@ -280,8 +280,18 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     }
 }
 
-.jkl-text-input:not(.jkl-text-area) .jkl-text-input__input {
-    line-height: $text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+.jkl-text-input:not(.jkl-text-area) {
+    .jkl-text-input__input {
+        line-height: $text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+    }
+}
+
+*[data-compactlayout] .jkl-text-input:not(.jkl-text-area),
+.jkl-text-input--compact:not(.jkl-text-area),
+.jkl-text-input--inline:not(.jkl-text-area) {
+    .jkl-text-input__input {
+        line-height: $text-input-height--compact; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+    }
 }
 
 .jkl-text-area {
