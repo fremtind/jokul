@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.4 (2021-11-19)
+
+### Bug Fixes
+
+- rett feil linjehøyde for kompakte tekstfelt ([a260923](https://github.com/fremtind/jokul/commit/a26092381ed7043d30b19b73c70e44f0f7e0ae11))
+
 ## 6.0.3 (2021-11-18)
 
 ### Bug Fixes
