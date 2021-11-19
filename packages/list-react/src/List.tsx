@@ -8,7 +8,7 @@ interface Props {
 type validLists = "unordered" | "ordered";
 
 function makeListComponent(listType: validLists): FC<Props> {
-    return ({ children, className = "jkl-body" }) => {
+    const BaseList: FC<Props> = ({ children, className = "jkl-body" }) => {
         const componentClassName = classNames("jkl-list", className, {
             "jkl-list--ordered": listType === "ordered",
         });
@@ -21,8 +21,12 @@ function makeListComponent(listType: validLists): FC<Props> {
             </C>
         );
     };
+    return BaseList;
 }
 
 export const UnorderedList = makeListComponent("unordered");
+UnorderedList.displayName = "UnorderedList";
 export const OrderedList = makeListComponent("ordered");
+OrderedList.displayName = "OrderedList";
 export const List = UnorderedList;
+List.displayName = "List";
