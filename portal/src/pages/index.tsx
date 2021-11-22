@@ -81,14 +81,14 @@ const IndexPage: React.FC = () => {
                             <Card heading="Universell utforming" link="/universell-utforming/guide">
                                 Få hjelp til å komme i gang med Universell utforming.
                             </Card>
-                            <Card heading="For utviklere" link="/komigang/utvikling">
+                            <Card heading="For utviklere" link="/komigang/bygg">
                                 Her får du vite det mest grunnleggende før du setter i gang å bruke Jøkul.
                             </Card>
                             <Card heading="For designere" link="/komigang/design">
                                 Her får du vite det mest grunnleggende før du setter i gang å bruke Jøkul.
                             </Card>
-                            <Card heading="Prosessen" link="/komigang/prosessen">
-                                Hvordan du kan jobbe med designsystemet.
+                            <Card heading="Bidra" link="/komigang/prosessen">
+                                Hvordan du kan bidra til designsystemet.
                             </Card>
                         </CardList>
                     </div>
