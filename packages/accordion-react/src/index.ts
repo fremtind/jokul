@@ -1,4 +1,4 @@
-import { AccordionItem } from "./AccordionItem";
-import { Accordion } from "./Accordion";
-
-export { Accordion, AccordionItem };
+export type { AccordionItemProps } from "./AccordionItem";
+export { AccordionItem } from "./AccordionItem";
+export type { AccordionProps } from "./Accordion";
+export { Accordion } from "./Accordion";

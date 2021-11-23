@@ -19,8 +19,8 @@ interface Props {
     };
 }
 
-function alertFactory(messageType: messageTypes) {
-    return function alertMessage({
+function alertFactory(messageType: messageTypes): React.FC<Props> {
+    const AlertMessage: React.FC<Props> = ({
         className = "",
         maxContentWidth,
         paddingLeft,
@@ -28,7 +28,7 @@ function alertFactory(messageType: messageTypes) {
         dismissed,
         dismissAction,
         children,
-    }: Props) {
+    }) => {
         const componentClassName = classNames("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
             "jkl-alert-message--dismissed": dismissed,
         });
@@ -57,9 +57,14 @@ function alertFactory(messageType: messageTypes) {
             </div>
         );
     };
+    return AlertMessage;
 }
 
 export const InfoAlertMessage = alertFactory("info");
+InfoAlertMessage.displayName = "InfoAlertMessage";
 export const ErrorAlertMessage = alertFactory("error");
+ErrorAlertMessage.displayName = "ErrorAlertMessage";
 export const WarningAlertMessage = alertFactory("warning");
+WarningAlertMessage.displayName = "WarningAlertMessage";
 export const SuccessAlertMessage = alertFactory("success");
+SuccessAlertMessage.displayName = "SuccessAlertMessage";

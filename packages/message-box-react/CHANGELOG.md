@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.0 (2021-11-23)
+
+### Features
+
+- eksporter MessageBoxProps ([3ecff42](https://github.com/fremtind/jokul/commit/3ecff429fbfae98e30a40255dba92700e6022ac7))
+
 ## 6.0.0 (2021-10-28)
 
 ### Bug Fixes
