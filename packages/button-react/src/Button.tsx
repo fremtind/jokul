@@ -5,7 +5,7 @@ import { Props, ValidButtons } from "./types";
 import { BaseButton } from "./BaseButton";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
-    const button = forwardRef<HTMLButtonElement, Props>(
+    const Button = forwardRef<HTMLButtonElement, Props>(
         ({ children, className = "", forceCompact, inverted, onClick, onTouchStart, loader, ...rest }, ref) => {
             const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
                 "jkl-button--compact": forceCompact,
@@ -62,9 +62,13 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
             );
         },
     );
-    return button;
+    Button.displayName = "BaseButton";
+    return Button;
 };
 
 export const PrimaryButton = makeButtonComponent("primary");
+PrimaryButton.displayName = "PrimaryButton";
 export const SecondaryButton = makeButtonComponent("secondary");
+SecondaryButton.displayName = "SecondaryButton";
 export const TertiaryButton = makeButtonComponent("tertiary");
+TertiaryButton.displayName = "TertiaryButton";

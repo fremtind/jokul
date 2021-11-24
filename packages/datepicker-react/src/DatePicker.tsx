@@ -242,3 +242,4 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         );
     },
 );
+DatePicker.displayName = "DatePicker";
