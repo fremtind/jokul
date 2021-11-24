@@ -3,6 +3,108 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.1.0 (2021-11-09)
+
+### Features
+
+- core eksporterer typer for komponentene ([b895b36](https://github.com/fremtind/jokul/commit/b895b36abbdaf4c7ee6ca4c034f23e717c41c048))
+
+## 8.0.0 (2021-10-21)
+
+### chore
+
+- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### Features
+
+- new spacing scale ([9eaae68](https://github.com/fremtind/jokul/commit/9eaae688c2d45a296696b740704a59a3d8b5c17b)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+
+### BREAKING CHANGES
+
+- depends on jkl-core v8 with breaking changes
+- new spacing scale: see migration guide for jkl-core
+
+## 7.4.0 (2021-10-18)
+
+### Features
+
+- videresend native HTML props til SupportLabel ([da3f4b2](https://github.com/fremtind/jokul/commit/da3f4b2c418f90d7f65f6d48b721778db835ca87))
+
+## 7.3.0 (2021-10-13)
+
+### Features
+
+- add new message colors ([075336e](https://github.com/fremtind/jokul/commit/075336ee16bddf2e89a12d77c4710f6b2e0da896))
+
+## 7.2.0 (2021-10-08)
+
+### Features
+
+- add new color notation to color docs ([abe695b](https://github.com/fremtind/jokul/commit/abe695bb149e1aa9401135c6907dc61cef60b776))
+
+## 7.1.0 (2021-08-31)
+
+### Features
+
+- **sass:** forward functions to new jkl entrypoint ([451662a](https://github.com/fremtind/jokul/commit/451662ab03b23dac383eecf3c28a5c4ed7bff8e3))
+
+## 7.0.1 (2021-08-06)
+
+### Bug Fixes
+
+- **text-styles:** use correct weight for heading 2 on small screens ([7ca9516](https://github.com/fremtind/jokul/commit/7ca9516795ea72307166144007310bcd74c4f43e))
+
+## 7.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+
+### Features
+
+- **jkl:** add new typog. scale and new text-style mixin ([69e1604](https://github.com/fremtind/jokul/commit/69e160458ade25b319efadc1e76ac58184c3faf9))
+- **labels:** use new typog. scale in field labels ([8b96f69](https://github.com/fremtind/jokul/commit/8b96f690fea59d6d5571c057f78c6736fee98e4a))
+- **links:** update import of typographic variables ([3d408e6](https://github.com/fremtind/jokul/commit/3d408e63598f51ce62d5366de6b195d03fbcb3af))
+
+### BREAKING CHANGES
+
+- **jkl:** Removes the old jkl-text-style mixin and old utility classes
+
+## 6.0.0 (2021-07-06)
+
+### Features
+
+- **core:** add base class with automatic dark mode ([2183410](https://github.com/fremtind/jokul/commit/2183410328619848caea2e8a4e5efdddb4b65fba))
+- **labels:** add automatic dark mode ([e9f4a4d](https://github.com/fremtind/jokul/commit/e9f4a4d64762fc7cc6907c1088fe01f12472a9a3))
+- **links:** add automatic dark mode ([982ba1e](https://github.com/fremtind/jokul/commit/982ba1ee2682760c489e8ff783ad0dbaed3cd0fd))
+- **sass:** add helper for defining dark/light mode vars ([47de260](https://github.com/fremtind/jokul/commit/47de2606d2cf7156dc70238fcc65d7737a752af6))
+
+### BREAKING CHANGES
+
+- **core:** Base class .jkl must now be set to get Fremtind Grotesk font
+
+## 5.0.2 (2021-07-02)
+
+### Bug Fixes
+
+- changed focus state for NavLink ([178e972](https://github.com/fremtind/jokul/commit/178e9726fc57770ae793204fd65d2d83cfb9f05a))
+
+## 5.0.1 (2021-06-25)
+
+### Bug Fixes
+
+- **sass:** upgrade sass and stop using dep. syntax ([194d414](https://github.com/fremtind/jokul/commit/194d4145cbde712eb351ef6b41cefe6a47f40b5e))
+
+## 5.0.0 (2021-06-07)
+
+### Features
+
+- new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+
+### BREAKING CHANGES
+
+- all color variables are changed
+
 ## 4.21.1 (2021-02-12)
 
 ### Bug Fixes

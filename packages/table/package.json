@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-table",
-    "version": "1.2.6",
+    "version": "5.1.4",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for tables",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "table",
         "jøkul",
@@ -23,6 +23,9 @@
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^8.1.1"
     },
     "repository": {
         "type": "git",

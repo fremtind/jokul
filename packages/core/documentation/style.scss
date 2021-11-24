@@ -1,6 +1,6 @@
-@import "../variables/_all.scss";
+@use "../jkl";
 
-@mixin demo-box($size, $color: $gra-80) {
+@mixin demo-box($size, $color: jkl.$color-fjellgra) {
     width: $size;
     height: $size;
     background-color: $color;
@@ -12,43 +12,33 @@
     align-items: flex-start;
 }
 
-.demo-layout--1 {
-    @include demo-box($layout-spacing--small);
+.demo-spacing--1 {
+    @include demo-box(jkl.$spacing-3xs);
 }
-.demo-layout--2 {
-    @include demo-box($layout-spacing--medium);
+.demo-spacing--2 {
+    @include demo-box(jkl.$spacing-2xs);
 }
-.demo-layout--3 {
-    @include demo-box($layout-spacing--large);
+.demo-spacing--3 {
+    @include demo-box(jkl.$spacing-xs);
 }
-.demo-layout--4 {
-    @include demo-box($layout-spacing--xl);
+.demo-spacing--4 {
+    @include demo-box(jkl.$spacing-s);
 }
-.demo-layout--5 {
-    @include demo-box($layout-spacing--xxl);
+.demo-spacing--5 {
+    @include demo-box(jkl.$spacing-m);
 }
-
-.demo-component--1 {
-    @include demo-box($component-spacing--xxs);
+.demo-spacing--6 {
+    @include demo-box(jkl.$spacing-l);
 }
-.demo-component--2 {
-    @include demo-box($component-spacing--xs);
+.demo-spacing--7 {
+    @include demo-box(jkl.$spacing-xl);
 }
-.demo-component--3 {
-    @include demo-box($component-spacing--small);
+.demo-spacing--8 {
+    @include demo-box(jkl.$spacing-2xl);
 }
-.demo-component--4 {
-    @include demo-box($component-spacing--medium);
+.demo-spacing--9 {
+    @include demo-box(jkl.$spacing-3xl);
 }
-.demo-component--5 {
-    @include demo-box($component-spacing--large);
-}
-.demo-component--6 {
-    @include demo-box($component-spacing--xl);
-}
-.demo-component--7 {
-    @include demo-box($component-spacing--xxl);
-}
-.demo-component--8 {
-    @include demo-box($component-spacing--giant);
+.demo-spacing--10 {
+    @include demo-box(jkl.$spacing-4xl);
 }

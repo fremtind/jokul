@@ -1,83 +1,158 @@
-import React, { ReactNode } from "react";
+import React, { AriaRole, ReactNode } from "react";
 import classNames from "classnames";
 
-interface Props {
+import { IconButton } from "@fremtind/jkl-icon-button-react";
+
+export interface MessageBoxProps {
     children: ReactNode;
     title?: string;
     fullWidth?: boolean;
     className?: string;
-    inverted?: boolean;
+    dismissed?: boolean;
+    dismissAction?: {
+        handleDismiss: () => void;
+        buttonTitle?: string;
+    };
+    /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
+    role?: AriaRole;
 }
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
+const getIcon = (messageType: messageTypes) => {
+    switch (messageType) {
+        case "error":
+            return (
+                <svg
+                    className="jkl-message-box__icon"
+                    aria-hidden
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M12 24C18.8503 24 24 18.6274 24 12C24 5.37258 18.8503 0 12 0C5.59548 0 0 5.37258 0 12C0 18.6274 5.59548 24 12 24ZM17.43 8.41421L13.6371 12.2071L17.43 16L16.0158 17.4142L12 13.6213L8.43001 17.4142L7.01579 16L10.8087 12.2071L7.01579 8.41421L8.43001 7L12 10.7929L16.0158 7L17.43 8.41421Z"
+                        fill="currentColor"
+                    />
+                </svg>
+            );
+        case "info":
+            return (
+                <svg
+                    className="jkl-message-box__icon"
+                    aria-hidden
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M24 12C24 18.6274 18.8503 24 12 24C5.59548 24 0 18.6274 0 12C0 5.37258 5.59548 0 12 0C18.8503 0 24 5.37258 24 12ZM11 17.4142V10H13.2229V17.4142H11.2229ZM12 8.5C12.9133 8.5 13.4729 7.94036 13.4729 7.25C13.4729 6.55964 12.9133 6 12 6C11.5325 6 10.9729 6.55964 10.9729 7.25C10.9729 7.94036 11.5325 8.5 12 8.5Z"
+                        fill="currentColor"
+                    />
+                </svg>
+            );
+        case "success":
+            return (
+                <svg
+                    className="jkl-message-box__icon"
+                    aria-hidden
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M12 24C18.8503 24 24 18.6274 24 12C24 5.37258 18.8503 0 12 0C5.59548 0 0 5.37258 0 12C0 18.6274 5.59548 24 12 24ZM11.5503 16.7071L19.0503 9.20711L17.6361 7.79289L10.8432 14.5858L7.26909 11.0116L5.85486 12.4258L10.1361 16.7071L10.8432 17.4142L11.5503 16.7071Z"
+                        fill="currentColor"
+                    />
+                </svg>
+            );
+        case "warning":
+            return (
+                <svg
+                    className="jkl-message-box__icon"
+                    aria-hidden
+                    viewBox="0 0 26 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M22.8058 23L3.19424 23C0.885265 23 -0.558162 20.5008 0.595683 18.5008L10.4015 1.50415C11.5559 -0.496963 14.4441 -0.496963 15.5986 1.50415L25.4043 18.5008C26.5582 20.5008 25.1148 23 22.8058 23ZM14 8.00001L14 15.4142L12 15.4142L12 8.00001L14 8.00001ZM13 17C12.3096 17 11.75 17.5597 11.75 18.25C11.75 18.9404 12.3096 19.5 13 19.5C13.6904 19.5 14.25 18.9404 14.25 18.25C14.25 17.5597 13.6904 17 13 17Z"
+                        fill="currentColor"
+                    />
+                </svg>
+            );
+        default:
+            return null;
+    }
+};
+
+const getRole = (messageType: messageTypes) => {
+    switch (messageType) {
+        case "error":
+        case "warning":
+            return "alert";
+        case "info":
+        case "success":
+            return "status";
+        default:
+            return undefined;
+    }
+};
+
 function messageFactory(messageType: messageTypes) {
-    return function messageBox({ title, fullWidth, className = "", children, inverted }: Props) {
+    const MessageBox: React.FC<MessageBoxProps> = ({
+        title,
+        fullWidth,
+        className = "",
+        dismissed,
+        dismissAction,
+        children,
+        role,
+    }) => {
         const componentClassName = classNames("jkl-message-box", "jkl-message-box--" + messageType, className, {
             "jkl-message-box--full": fullWidth,
-            "jkl-message-box--dark": inverted,
+            "jkl-message-box--dismissed": dismissed,
         });
 
-        const getIcon = (messageType: messageTypes) => {
-            switch (messageType) {
-                case "error":
-                    return (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
-                            <rect
-                                x="4"
-                                y="4.22168"
-                                width="1"
-                                height="22"
-                                transform="rotate(-45 4 4.22168)"
-                                fill="currentColor"
-                            />
-                        </svg>
-                    );
-                case "info":
-                    return (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
-                            <path
-                                d="M11.952 7.328C12.384 7.328 12.688 7.072 12.688 6.624C12.688 6.192 12.384 5.92 11.952 5.92C11.536 5.92 11.248 6.192 11.248 6.624C11.248 7.072 11.536 7.328 11.952 7.328ZM11.504 18H12.512V9.408H11.504V18Z"
-                                fill="currentColor"
-                            />
-                        </svg>
-                    );
-                case "success":
-                    return (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
-                            <path d="M7 13.5L10 16.5L19.5 7" stroke="currentColor" />
-                        </svg>
-                    );
-                case "warning":
-                    return (
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="11.5" stroke="currentColor" />
-                            <path
-                                className="jkl-icon-exclamation"
-                                d="M11.112 14.624H11.688L11.896 11.36V6H10.904V11.36L11.112 14.624ZM11.4 18.24C11.784 18.24 12.136 17.952 12.136 17.504C12.136 17.072 11.784 16.784 11.4 16.784C11.016 16.784 10.664 17.072 10.664 17.504C10.664 17.952 11.016 18.24 11.4 18.24Z"
-                                fill="currentColor"
-                            />
-                        </svg>
-                    );
-                default:
-                    return null;
-            }
-        };
+        const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
+
+        const newChildren = hasStringChild?.[0] ? <p className="jkl-body">{children}</p> : children;
 
         return (
-            <div className={componentClassName} role="alert">
-                <div className="jkl-message-box__icon">{getIcon(messageType)}</div>
-                {title !== undefined && <div className="jkl-message-box__title jkl-heading-small">{title}</div>}
-                <span className="jkl-message-box__message jkl-body">{children}</span>
+            <div className={componentClassName} role={role || getRole(messageType)} data-theme="light">
+                {getIcon(messageType)}
+                <div className="jkl-message-box__content">
+                    {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
+                    {newChildren}
+                </div>
+                {dismissAction?.handleDismiss && (
+                    <IconButton
+                        className="jkl-message-box__dismiss-button"
+                        iconType="clear"
+                        buttonTitle={dismissAction.buttonTitle || "Lukk"}
+                        onClick={dismissAction.handleDismiss}
+                    />
+                )}
             </div>
         );
     };
+
+    return MessageBox;
 }
 
-export const InfoMessage = messageFactory("info");
-export const ErrorMessage = messageFactory("error");
-export const WarningMessage = messageFactory("warning");
-export const SuccessMessage = messageFactory("success");
+export const InfoMessageBox = messageFactory("info");
+InfoMessageBox.displayName = "InfoMessageBox";
+export const ErrorMessageBox = messageFactory("error");
+ErrorMessageBox.displayName = "ErrorMessageBox";
+export const WarningMessageBox = messageFactory("warning");
+WarningMessageBox.displayName = "WarningMessageBox";
+export const SuccessMessageBox = messageFactory("success");
+SuccessMessageBox.displayName = "SuccessMessageBox";

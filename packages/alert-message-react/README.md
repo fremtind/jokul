@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-alert-message-react`](https://fremtind.github.io/jokul/komponenter/alert-message)
+# [`@fremtind/jkl-alert-message-react`](https://jokul.fremtind.no/komponenter/alert-message)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/alert-message).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/alert-message).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -34,6 +34,7 @@ Komponenten tar følgende props:
 -   `maxContentWidth`: Setter maks bredde på innholdet. Innholdet vil søke mot senter av siden `string`
 -   `paddingLeft`: Setter padding på venstre side av innholdet. `string`
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
+-   `role`: Overstyring av `role`-attributtet. For å "skru av" standardrollen kan du bruke verdien `none presentation` ([ARIA 1.1](https://www.w3.org/TR/wai-aria-1.1/#none)). `string`
 
 En enkel bruk av meldingsboksen kan se slik ut:
 

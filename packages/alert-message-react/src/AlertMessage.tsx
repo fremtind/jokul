@@ -8,9 +8,9 @@ type messageTypes = "info" | "error" | "success" | "warning";
 interface Props {
     children: ReactNode;
     className?: string;
-    inverted?: boolean;
     maxContentWidth?: string;
     paddingLeft?: string;
+    /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
     role?: string;
     dismissed?: boolean;
     dismissAction?: {
@@ -19,19 +19,17 @@ interface Props {
     };
 }
 
-function alertFactory(messageType: messageTypes) {
-    return function alertMessage({
+function alertFactory(messageType: messageTypes): React.FC<Props> {
+    const AlertMessage: React.FC<Props> = ({
         className = "",
-        inverted,
         maxContentWidth,
         paddingLeft,
         role = "status",
         dismissed,
         dismissAction,
         children,
-    }: Props) {
+    }) => {
         const componentClassName = classNames("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
-            "jkl-alert-message--dark": inverted,
             "jkl-alert-message--dismissed": dismissed,
         });
 
@@ -41,7 +39,7 @@ function alertFactory(messageType: messageTypes) {
         };
 
         return (
-            <div className={componentClassName} role={role}>
+            <div className={componentClassName} role={role} data-theme="light">
                 <div className="jkl-alert-message__content" data-testid="alert-message-content" style={{ ...styles }}>
                     <div aria-hidden className="jkl-alert-message__icon">
                         <MessageIcon messageType={messageType} />
@@ -59,9 +57,14 @@ function alertFactory(messageType: messageTypes) {
             </div>
         );
     };
+    return AlertMessage;
 }
 
 export const InfoAlertMessage = alertFactory("info");
+InfoAlertMessage.displayName = "InfoAlertMessage";
 export const ErrorAlertMessage = alertFactory("error");
+ErrorAlertMessage.displayName = "ErrorAlertMessage";
 export const WarningAlertMessage = alertFactory("warning");
+WarningAlertMessage.displayName = "WarningAlertMessage";
 export const SuccessAlertMessage = alertFactory("success");
+SuccessAlertMessage.displayName = "SuccessAlertMessage";

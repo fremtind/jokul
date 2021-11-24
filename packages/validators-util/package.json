@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-validators-util",
-    "version": "1.3.10",
+    "version": "2.0.3",
     "publishConfig": {
         "access": "public"
     },
     "description": "Simple validator-functions to use for validating",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "validators",
         "utils",
@@ -32,9 +32,6 @@
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
-    "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.5"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
@@ -43,6 +40,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0"
+        "@babel/runtime": "^7.16.3"
     }
 }

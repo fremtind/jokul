@@ -1,27 +1,25 @@
-@import "~@fremtind/jkl-core/mixins/_motion.scss";
-@import "~@fremtind/jkl-core/mixins/_helpers.scss";
-@import "~@fremtind/jkl-core/variables/_colors.scss";
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/mixins/all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/variables/_font-size.scss";
 
 $bounding-touch-size: rem(48px);
-$hamburger-line-width: rem(3px);
+$hamburger-line-height: rem(2px);
 $hamburger-icon-width: rem(35px);
-$hamburger-line-spacing: rem(-10px);
+$hamburger-line-spacing: rem(-8px);
 
-$hamburger-color: $svart;
-$hamburger-focus-color: $focus-color;
+$hamburger-color: jkl.$color-granitt;
+$hamburger-focus-color: jkl.$color-stein;
 
-$hamburger-color--inverted: $hvit;
-$hamburger-focus-color--inverted: $focus-color--darkbg;
+$hamburger-color--inverted: jkl.$color-snohvit;
+$hamburger-focus-color--inverted: jkl.$color-svaberg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --hamburger-color: #{$hamburger-color};
     --hamburger-focus-color: #{$hamburger-focus-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --hamburger-color: #{$hamburger-color--inverted};
     --hamburger-focus-color: #{$hamburger-focus-color--inverted};
 }
@@ -30,90 +28,139 @@ $hamburger-focus-color--inverted: $focus-color--darkbg;
     @include reset-outline;
     border: none;
     outline: none;
-    display: flex;
     cursor: pointer;
-    transition-property: opacity, filter;
-    @include motion(standard, productive);
     background-color: transparent;
     height: $bounding-touch-size;
-    width: $bounding-touch-size;
-    padding: 0;
+    min-width: $bounding-touch-size;
+    display: flex;
+    flex-direction: row;
+    padding: jkl.$spacing-xs;
     justify-content: center;
+    align-items: center;
     position: relative;
 
     color: $hamburger-color;
     color: var(--hamburger-color);
 
-    &:hover {
-        color: $hamburger-focus-color;
-        color: var(--hamburger-focus-color);
+    @include jkl.text-style("body");
+
+    &__label.jkl-content-toggle {
+        height: rem(32px);
+        @include motion(standard, expressive);
+        transform-origin: left;
     }
 
-    html:not([data-mousenavigation]) &:focus {
-        box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
-        box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
-    }
-
-    &__inner {
-        position: absolute;
-        display: block;
-        top: 50%;
-        transform: translateY(-50%);
-        transition-duration: 0.075s;
-        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    &__lines {
+        position: relative;
+        transform-origin: center;
 
         &::before,
         &::after {
             content: "";
             display: block;
+            position: absolute;
+            transform-origin: center;
         }
+
         &::before {
-            content: "";
-            display: block;
             top: $hamburger-line-spacing;
-            transition: top 0.075s 0.12s ease, opacity 0.075s ease;
         }
         &::after {
             bottom: $hamburger-line-spacing;
-            transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
         }
     }
-    &__inner,
-    &__inner::before,
-    &__inner::after {
+
+    &__lines,
+    &__lines::before,
+    &__lines::after {
         width: $hamburger-icon-width;
-        height: $hamburger-line-width;
+        height: $hamburger-line-height;
         background-color: currentColor;
-        position: absolute;
-        transition-property: transform;
-        @include motion(standard, productive);
+
+        transition-property: background-color, transform, top, bottom;
+
+        @include motion(standard, expressive);
     }
 
-    &--is-active {
-        & .jkl-hamburger__inner {
-            margin: auto;
-            transform: translateY(-50%) rotate(45deg);
-            transition-delay: 0.12s;
-            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    &:hover {
+        .jkl-hamburger__lines {
+            &::before {
+                top: calc(#{$hamburger-line-spacing} * 1.5);
+            }
+
+            &::after {
+                bottom: calc(#{$hamburger-line-spacing} * 1.5);
+            }
         }
-        & .jkl-hamburger__inner::before {
+
+        .jkl-hamburger__label.jkl-hamburger__label--animated {
+            transform: scale(1.2);
+        }
+    }
+
+    @include keyboard-navigation {
+        &:focus {
+            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
+            box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
+        }
+    }
+
+    &--label-after {
+        text-align: left;
+
+        & .jkl-hamburger__lines {
+            margin-right: jkl.$spacing-xs;
+        }
+    }
+
+    &--label-before {
+        flex-direction: row-reverse;
+        text-align: right;
+
+        & .jkl-hamburger__lines {
+            margin-left: jkl.$spacing-xs;
+        }
+
+        & .jkl-hamburger__label {
+            transform-origin: right;
+        }
+    }
+
+    &[aria-expanded="true"] {
+        & .jkl-hamburger__lines {
+            transform: rotate(-180deg);
+            background-color: transparent;
+        }
+
+        & .jkl-hamburger__lines::before,
+        & .jkl-hamburger__lines::after {
+            width: calc(#{$hamburger-icon-width} - 3px);
+        }
+
+        & .jkl-hamburger__lines::before {
             top: 0;
-            opacity: 0;
-            transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+            transform: rotate(-45deg);
         }
-        & .jkl-hamburger__inner::after {
-            bottom: 0;
-            transform: rotate(-90deg);
-            transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-    }
 
-    &--negative {
-        color: $hamburger-color--inverted;
+        & .jkl-hamburger__lines::after {
+            bottom: 0;
+            transform: rotate(45deg);
+        }
 
         &:hover {
-            color: $hamburger-focus-color--inverted;
+            .jkl-hamburger__lines::before {
+                top: 0;
+                transform: rotate(-45deg) scale3d(1.25, 1, 1);
+            }
+            .jkl-hamburger__lines::after {
+                bottom: 0;
+                transform: rotate(45deg) scale3d(1.25, 1, 1);
+            }
         }
+    }
+
+    &--inverted {
+        color: $hamburger-color--inverted;
 
         html:not([data-mousenavigation]) &:focus {
             box-shadow: 0 0 0 rem(2px) $hamburger-focus-color--inverted;

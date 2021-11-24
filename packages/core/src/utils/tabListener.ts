@@ -72,7 +72,7 @@ function handleTouchStart() {
     }, 150); // Yes, it can take this long between the events
 }
 
-export function initTabListener() {
+export function initTabListener(): void {
     if (typeof document !== "undefined") {
         addListener("touchstart");
         addListener("mousedown");

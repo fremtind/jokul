@@ -4,7 +4,6 @@ path: /komigang/utvikling
 order: 4
 ---
 
-
 # Slik skriver du kode til Jøkul
 
 Jøkul er et designsystem: Et bibliotek med komponenter. Det gir litt andre utfordringer enn når du driver med klientutvikling. Her får du en liten innføring i hvordan vi jobber med Jøkul. Jøkul blir brukt til å utvikle mange forskjellige løsninger, og må derfor dekke forskjellige behov og ønsker. Det er viktig at vi balanserer funksjonalitet, brukervennlighet, pakkestørrelse og kompleksitet i hver enkelt komponent.
@@ -19,21 +18,50 @@ Jøkul er et designsystem: Et bibliotek med komponenter. Det gir litt andre utfo
 -   CSS-preprosessor: [Sass](https://sass-lang.com/)
 -   CSS-metodikk: [BEM](http://getbem.com)
 
+## Dette må være installert på maskinen
+
+-   Node LTS. Bruk gjerne [Node Version Manager](https://github.com/nvm-sh/nvm) om du kan, eller hent fra [Node](https://nodejs.org/en/download/).
+-   [Yarn Classic](https://classic.yarnpkg.com/lang/en/)
+-   [Git](https://git-scm.com) 2.0.0 eller nyere
+
 ## Slik setter du opp utviklingsmiljøet på din egen maskin
 
 1. Klon eller fork [Jøkul-biblioteket](https://github.com/fremtind/jokul) fra GitHub.
 2. Lag en ny branch og gi den et fornuftig navn etter hva du skal lage.
-3. Bygg prosjektet med kommandoene `yarn` og `yarn build` fra rot i prosjektet.
+3. Bygg prosjektet med kommandoen `yarn boot`
 
 ## Slik har vi organisert pakkene
 
-Alle komponentene er organisert under `/packages`. De som slutter på `-react` er React-pakker. De som ikke har en endelse, er stilpakker. Stilpakkene skal være generelle og du kan bruke dem uten noe JavaScript-rammeverk. Hver enkelt pakke inneholder et eksempel, som du kan kan starte med `yarn dev` fra hver enkelt pakke. Noen av stilpakkene mangler eksempler, fordi det kreves en del JavaScript for å få eksempelet til å kjøre. `Select` og `Datepicker` er eksempler på dette.
+Alle komponentene er organisert under `/packages`. De som slutter på `-react` er React-pakker. De som slutter på `-utils` er støttebibliotek. De som ikke har en endelse, er stilpakker. Stilpakkene skal være generelle og du kan bruke dem uten noe JavaScript-rammeverk. Hver React-pakke inneholder et eksempel, som du kan kan starte med `yarn dev` fra hver enkelt pakke.
+
+## Slik håndterer vi brancher og versjoner
+
+Vi organiserer koden i et monorepo og bruker [Lerna](https://github.com/lerna/lerna) for å holde kontroll på de individuelle pakkene i repositoriet. Hver enkelt pakke følger [semantisk versjonering](https://semver.org). Nye versjoner og Changelog blir automatisk generert fra commit-loggen basert på [Conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Derfor er det satt regler for hvordan en commit skal se ut. Du kan bruke kommandoen `yarn commit` for å få hjelp med å lage en riktig formatert commitmelding.
+
+All utvikling skjer på brancher basert på hovedbranchen. Når du er klar lager du en [pull request](/komigang/pullrequests) med mål om å gjøre en merge til hovedbranchen. Når endringen merges inn sørger Github Actions for å automatisk bygge og publisere nye versjoner av pakkene som er endret.
 
 ## Slik lager du en ny pakke
 
-1. Gå til rot og kjør kommandoen `lerna create <pakke-navn>`.
-2. Du får noen spørsmål om pakken. Fyll ut så godt du kan. Husk at navnet på pakken skal starte med `@fremtind/jkl-`.
-3. Når pakken er opprettet, finner du en pakke av typen du skal lage (stil eller React). Kopier de script- og oppsettfilene du trenger, for eksempel `tsconfig-for-declarations.json` for React-pakker eller `gulpfile.js` for stilpakker.
+1. Gå til rot, kjør kommandoen `yarn scaffold`, og følg instruksene i terminalen.
+2. Etter kommandoen har kjørt vil det være opprettet to mapper i packages mappen (komponent-navn og komponent-navn-react).
+
+Vi har noen minstekrav til dokumentasjon som den nye komponenten din **må** følge. Disse kravene gjelder dokumentasjonen som vises under Komponenter. I tillegg **må** det ligge en Figma-branch klar til å merges inn i [Jøkul-biblioteket](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=0%3A1) som dokumenterer komponenten og alle varianter. Tiden mellom merging av kode og merging av design må være så kort som mulig.
+
+**Må**-krav:
+
+-   Ingress med kort beskrivelse av komponenten
+-   Første eksempel synlig uten å scrolle
+-   Relevante eksempler på riktig og feil bruk
+-   Live kodeeksempel (oppdateres med valgte egenskaper)
+-   React-props for komponentene i bunnen
+
+I tillegg har vi noen _vil_-ønsker. Disse er det fint om du har med fordi de gjør det lettere for andre å bruke komponenten, men de er ikke et krav.
+
+-   Kontrollspørsmål for bruk
+-   Lenker til relevante eller alternative komponenter der det er naturlig
+-   Eksempler på bruk ute i teamene
+
+Du kan se på dokumentasjonen for [Tag](/komponenter/tag) og [Alert message](/komponenter/alertmessage) for inspirasjon.
 
 ## Slik lenker du pakker sammen
 
@@ -43,10 +71,10 @@ Hvis du vil legge til en pakke i en annen, kan du fra hvor som helst i prosjekte
 
 Det finnes avhengigheter på ulike nivåer i Jøkul. Globale avhengigheter, for eksempel de som trengs til å kjøre en byggejobb, ligger på rotnivå. Du kan legge til en ny pakke på rotnivå, med kommandoen `yarn add pakke -W`. For å legge til som en utviklingsavhengighet bruker du `-DW`.
 
-Lokale avhengigheter, som trengs for at en pakke skal fungere i bruk, legger vi vanligvis på pakkenivå. Se "Slik lenker du pakker sammen". Bruk kommandoen `yarn add` for å legge til pakker som ikke er en del av Jøkul. Før du gjør det, er det lurt å tenke på om de skal sendes med komponenten eller om brukeren av komponenten har ansvaret for å ha avhengigheten i sitt prosjekt. React bør for eksempel være en `peerDependency`, slik at brukeren ikke ender opp med flere utgaver av React i sin pakke.
-
+Lokale avhengigheter, som trengs for at en pakke skal fungere i bruk, legger vi vanligvis på pakkenivå. Se "Slik lenker du pakker sammen". Bruk kommandoen `yarn add` for å legge til pakker som ikke er en del av Jøkul. Alternativt kan du bruke [`lerna add`](https://github.com/lerna/lerna/tree/main/commands/add#readme). Før du gjør det, er det lurt å tenke på om de skal sendes med komponenten eller om brukeren av komponenten har ansvaret for å ha avhengigheten i sitt prosjekt. React bør for eksempel være en `peerDependency`, slik at brukeren ikke ender opp med flere utgaver av React i sin pakke.
 
 ## Ende til ende tester
+
 Hvis du lager en ny komponent, så kan du installere Cypress lokalt og utvikle ny integrasjons- og visuell regresjonstest av komponenten din.
 
 Hvis du gjør endring i en komponent som har visuell regresjonstest, sørg for at endringen din er ønsket og forventet på alle støttede plattformer. Så sletter du de eksisterende snapshotene av komponenten i prosjektet.
@@ -58,4 +86,3 @@ Grunnen til at vi ikke vil ha lokale snapshots inn, er fordi vi ønsker at konte
 -   Tester: [Kom i gang med tester](/komigang/tester)
 -   Pullrequests: [Bidra til Jøkul på GitHub](/komigang/pullrequests)
 -   Portalen: [Dokumentasjon til portalen](/komigang/portalen)
-

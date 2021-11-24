@@ -2,21 +2,42 @@ name: release-portal
 on:
     push:
         branches:
-            - master
+            - main
+
 jobs:
     build-and-deploy:
         name: Deploy portal
         runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: read
+            deployments: write
         steps:
             - name: Checkout
-              uses: actions/checkout@master
+              uses: actions/checkout@v2
+
+            - name: Check for changes to portal
+              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+              id: changes
+              with:
+                  filters: |
+                      portal:
+                        - "**/*.mdx"
+                        - "**/*.scss"
+                        - "**/*.js"
+                        - "**/*.ts"
+                        - "**/*.tsx"
+                        - "portal/static/**"
+                        - "yarn.lock"
 
             - name: Get yarn cache directory path
+              if: steps.changes.outputs.portal == 'true'
               id: yarn-cache-dir-path
               run: echo "::set-output name=dir::$(yarn cache dir)"
 
             - name: Cache yarn directory
-              uses: actions/cache@v2.1.4
+              if: steps.changes.outputs.portal == 'true'
+              uses: actions/cache@v2
               id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
                   path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -24,8 +45,20 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-yarn-
 
+            - name: Caching Gatsby
+              if: steps.changes.outputs.portal == 'true'
+              id: gatsby-cache-build
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      portal/public
+                      portal/.cache
+                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-
+
             - name: Build and Deploy
-              if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+              if: steps.changes.outputs.portal == 'true' && !contains(github.event.head_commit.message, '[ci skip release]')
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |

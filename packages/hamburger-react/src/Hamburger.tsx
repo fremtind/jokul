@@ -1,56 +1,68 @@
-import React, { RefObject, useRef, useState } from "react";
-import { useClickOutside } from "@fremtind/jkl-react-hooks";
+import React, { VFC } from "react";
+import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
+import classnames from "classnames";
 
 interface Props {
+    isOpen: boolean;
+    onClick: (() => void) | ((evt: React.MouseEvent) => void);
     className?: string;
-    onClick?: (isActive: boolean) => void;
-    onClickOutside?: (isActive: boolean) => void;
-    enableClickOutside?: boolean;
-    initialIsActive?: boolean;
-    negative?: boolean;
+    /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
+    inverted?: boolean;
     description?: string;
-    insideRef?: RefObject<HTMLElement>;
+    actionLabel?: {
+        open: string;
+        close: string;
+        animated?: boolean;
+        position?: "before" | "after";
+    };
+    "aria-controls"?: string;
 }
 
-export const Hamburger = ({
-    className = "",
-    initialIsActive = false,
-    negative = false,
-    description = "Hovedmeny",
+export const Hamburger: VFC<Props> = ({
+    isOpen,
     onClick,
-    onClickOutside,
-    enableClickOutside = false,
-    insideRef,
-}: Props) => {
-    const [isActive, toggleIsActive] = useState(initialIsActive);
-    const wrapperRef = useRef(null);
+    inverted = false,
+    description = "Hovedmeny",
+    className,
+    actionLabel,
+    "aria-controls": ariaControls,
+}) => {
+    const componentClassname = classnames(
+        "jkl-hamburger",
+        {
+            "jkl-hamburger--inverted": inverted,
+            "jkl-hamburger--label-before": actionLabel?.position === "before",
+            "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
+        },
+        className,
+    );
 
-    const toggleActive = (fn: ((isActive: boolean) => void) | undefined) => {
-        const nextActive = !isActive;
-        toggleIsActive(nextActive);
-        if (fn) {
-            fn(nextActive);
-        }
-    };
-
-    const onButtonClick = () => toggleActive(onClick);
-    const onOutsideClick = () => toggleActive(onClickOutside);
-    const getRef = () => insideRef || wrapperRef;
-
-    useClickOutside(enableClickOutside ? getRef() : null, onOutsideClick);
+    const labelClassname = classnames("jkl-hamburger__label", {
+        "jkl-hamburger__label--animated": actionLabel?.animated,
+    });
 
     return (
         <button
             type="button"
             aria-label={description}
-            onClick={onButtonClick}
-            className={`jkl-hamburger ${isActive ? "jkl-hamburger--is-active" : ""} ${
-                negative ? "jkl-hamburger--negative" : ""
-            } ${className}`}
+            onClick={onClick}
+            className={componentClassname}
+            aria-expanded={isOpen || undefined}
+            aria-haspopup="menu"
             data-testid="jkl-hamburger"
-            ref={wrapperRef}
+            aria-controls={ariaControls}
         >
-            <span className="jkl-hamburger__inner"></span>
+            <span className="jkl-hamburger__lines"></span>
+            {actionLabel && (
+                <ContentToggle
+                    className={labelClassname}
+                    secondary={actionLabel.close}
+                    showSecondary={isOpen}
+                    variant="fade"
+                >
+                    {actionLabel.open}
+                </ContentToggle>
+            )}
         </button>
     );
 };

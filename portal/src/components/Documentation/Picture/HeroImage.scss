@@ -1,17 +1,18 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 :root,
 [data-theme="light"] {
-    --hero-bg: #{$hvit};
-    --hero-text-color: #{$svart};
-    --hero-hover-color: #{$info};
+    --hero-bg: #{jkl.$color-snohvit};
+    --hero-text-color: #{jkl.$color-granitt};
+    --hero-hover-color: #{jkl.$color-stein};
 }
 
 [data-theme="dark"] {
-    --hero-bg: #{$svart};
-    --hero-text-color: #{$hvit};
-    --hero-hover-color: #{$info--darkbg};
+    --hero-bg: #{jkl.$color-granitt};
+    --hero-text-color: #{jkl.$color-snohvit};
+    --hero-hover-color: #{jkl.$color-svaberg};
 }
 
 .jkl-portal-fullView {
@@ -35,13 +36,13 @@
         background-color: transparent;
         text-align: left;
         position: absolute;
-        bottom: $component-spacing--xxl;
-        left: $component-spacing--large;
+        bottom: jkl.$spacing-xl;
+        left: jkl.$spacing-m;
         background-color: var(--hero-bg);
         color: var(--hero-text-color);
         max-width: 900px;
-        margin-right: $component-spacing--xxl;
-        padding: $component-spacing--xxl;
+        margin-right: jkl.$spacing-xl;
+        padding: jkl.$spacing-xl;
 
         @include motion("standard", "expressive");
         transition-property: box-shadow;
@@ -55,7 +56,7 @@
         }
 
         &:hover {
-            box-shadow: $drop-shadow--large;
+            box-shadow: jkl.$drop-shadow--large;
             .jkl-portal-hero__card__arrow {
                 color: var(--hero-hover-color);
                 transform: translateY(10px);

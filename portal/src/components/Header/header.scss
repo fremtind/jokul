@@ -1,15 +1,16 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$header-bg-color: $hvit;
-$header-bg-color--inverted: $svart;
+$header-bg-color: jkl.$color-snohvit;
+$header-bg-color--inverted: jkl.$color-granitt;
 $header-height: rem(96px);
 $header-height--collapsed: rem(64px);
 $header-height--mobile: rem(64px);
-$header-padding: 0 $layout-spacing--medium;
-$header-padding--right: $layout-spacing--xl;
-$header-padding--mobile: 0 $component-spacing--large;
+$header-padding: 0 jkl.$spacing-xl;
+$header-padding--right: jkl.$spacing-3xl;
+$header-padding--mobile: 0 jkl.$spacing-m;
 
 .jkl-portal-header {
     display: flex;
@@ -17,40 +18,32 @@ $header-padding--mobile: 0 $component-spacing--large;
     padding: $header-padding--mobile;
     align-items: center;
     justify-content: space-between;
-    z-index: $z-index--header;
+    z-index: jkl.$z-index--header;
     position: sticky;
     top: 0;
     left: 0;
-    background-color: $header-bg-color;
+    background-color: inherit;
 
     @include motion("standard", "lazy");
     transition-property: height;
-
-    &__skip-to-content {
-        z-index: $z-index--floating;
-        padding: $component-spacing--medium;
-        background-color: $hvit;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
 
     &__title {
         @include reset-outline;
         padding: 0;
         background-color: transparent;
         cursor: pointer;
-        @include jkl-text-style("desktop/heading-small");
+        @include jkl.text-style("heading-4") {
+            font-weight: jkl.$typography-weight-normal;
+        }
         color: inherit;
         text-decoration: none;
-        font-weight: $normal-weight;
 
         &:hover {
-            color: #000afa;
+            color: jkl.$color-stein;
         }
         html:not([data-mousenavigation]) &:focus {
-            color: #000afa;
-            font-weight: $bold-weight;
+            color: jkl.$color-granitt;
+            font-weight: jkl.$typography-weight-bold;
         }
     }
 
@@ -60,10 +53,10 @@ $header-padding--mobile: 0 $component-spacing--large;
 
     *[data-theme="dark"] & {
         background-color: $header-bg-color--inverted;
-        color: $hvit;
+        color: jkl.$color-snohvit;
 
         &__title {
-            color: $hvit;
+            color: jkl.$color-snohvit;
         }
     }
 

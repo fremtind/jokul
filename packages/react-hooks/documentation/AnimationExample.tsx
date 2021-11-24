@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { VFC, useState } from "react";
 import { useAnimatedHeight } from "../src";
 import "./index.scss";
 
-const AnimationExample = () => {
+const onTransitionStart = (isOpening: boolean) => {
+    console.log(`transition started (${isOpening ? "opening" : "closing"})`);
+};
+const onTransitionEnd = (isOpen: boolean) => {
+    console.log(`transition ended (${isOpen ? "open" : "closed"})`);
+};
+
+const AnimationExample: VFC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
+    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, { onTransitionStart, onTransitionEnd });
+
     return (
         <section>
-            <button className="jkl-button jkl-button--secondary" onClick={() => setIsOpen(!isOpen)}>
+            <button className="jkl-button jkl-button--secondary" onClick={() => setIsOpen((isOpen) => !isOpen)}>
                 Animate {isOpen ? "Out" : "In"}
             </button>
             <div className={`lorem-text-wrapper ${isOpen ? "" : "lorem-text-wrapper--hidden"}`} ref={animationRef}>

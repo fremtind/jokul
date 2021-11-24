@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-radio-button",
-    "version": "1.4.12",
+    "version": "5.0.4",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for radio button",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "radio",
         "radio button",
@@ -27,7 +27,7 @@
         "dev": "parcel example/index.html --open"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.21.1"
+        "@fremtind/jkl-core": "^8.1.1"
     },
     "repository": {
         "type": "git",

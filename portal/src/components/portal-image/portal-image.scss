@@ -1,0 +1,69 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+
+.jkl-portal-image {
+    margin-top: jkl.$spacing-xl;
+    width: 100%;
+
+    &--no-margin {
+        margin-top: 0;
+    }
+
+    &__content {
+        @include reset-outline;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0;
+
+        &:focus {
+            @include keyboard-navigation {
+                box-shadow: 0 0 0 2px jkl.$color-granitt;
+            }
+        }
+
+        &--fullscreen {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: jkl.$z-index--modal;
+
+            &:focus {
+                @include keyboard-navigation {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        > .jkl-micro {
+            text-align: left;
+        }
+    }
+
+    &__img {
+        max-width: 100vw;
+        max-height: 100vh;
+        object-fit: contain;
+        overscroll-behavior: contain;
+        overflow-y: scroll;
+    }
+
+    &__bg-blur {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: jkl.$spacing-2xl;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: jkl.$z-index--modal;
+        display: block;
+    }
+}

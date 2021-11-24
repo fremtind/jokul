@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, VFC } from "react";
 import { useKeyListener } from "../src/useKeyListener";
 
-export default function KeyListenerExample() {
+const KeyListenerExample: VFC = () => {
     const [pressedKeys, setPressedKeys] = useState<string[]>([]);
     const keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
     const ref = useRef(null);
@@ -18,12 +18,12 @@ export default function KeyListenerExample() {
 
     return (
         <section>
-            <p className="jkl-body jkl-spacing--bottom-1">
+            <p className="jkl-body jkl-spacing-l--bottom">
                 Flytt fokus til aktiver-knappen under med Tab eller ved å trykke på den. Trykk på piltastene vil nå
                 listes opp under. Klikk utenfor knappen, eller flytt fokus med Tab, for å se at tastetrykkene ikke
                 lenger registreres.
             </p>
-            <button ref={ref} className="jkl-button jkl-button--secondary jkl-spacing--right-1" onClick={toggleActive}>
+            <button ref={ref} className="jkl-button jkl-button--secondary jkl-spacing-l--right" onClick={toggleActive}>
                 {active ? "Deaktiver" : "Aktiver"}
             </button>
             <button className="jkl-button jkl-button--tertiary" onClick={resetList}>
@@ -40,4 +40,6 @@ export default function KeyListenerExample() {
             )}
         </section>
     );
-}
+};
+
+export default KeyListenerExample;

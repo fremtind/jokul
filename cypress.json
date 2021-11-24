@@ -4,7 +4,7 @@
     "baseUrl": "http://localhost:9000",
     "viewportWidth": 1920,
     "viewportHeight": 1080,
-    "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*", "**/node_modules/**"],
+    "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*", "**/node_modules/**", "./scripts/**"],
     "env": {
         "cypress-plugin-snapshots": {
             "autoCleanUp": false,

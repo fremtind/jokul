@@ -1,8 +1,8 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
 
 .jkl-portal-github-links {
-    @include jkl-text-style("desktop/body");
-    margin-bottom: $layout-spacing--large;
+    @include jkl.text-style("body");
+    margin-bottom: jkl.$spacing-2xl;
 
     &__link {
         &:after {
@@ -10,7 +10,7 @@
         }
 
         &:not(:last-child) {
-            margin-right: $layout-spacing--small;
+            margin-right: jkl.$spacing-l;
         }
     }
 }

@@ -27,7 +27,7 @@ export const actionTypes = {
     resized: ActionTypes.resized,
 };
 
-const setDeviceSize = (width: number, height: number) => ({
+const setDeviceSize = (width: number, height: number): State => ({
     isSmallDevice: width <= breakpoints.small,
     isMediumDevice: width > breakpoints.small && width < breakpoints.medium,
     isLargeDevice: width > breakpoints.medium && width < breakpoints.large,
@@ -40,7 +40,7 @@ const setDeviceSize = (width: number, height: number) => ({
     },
 });
 
-export const initialState = {
+export const initialState: State = {
     isSmallDevice: false,
     isMediumDevice: false,
     isLargeDevice: false,
@@ -53,13 +53,13 @@ export const initialState = {
     },
 };
 
-export const init = () => {
+export const init = (): State => {
     const width = typeof window !== "undefined" ? window.innerWidth : 0;
     const height = typeof window !== "undefined" ? window.innerHeight : 0;
     return setDeviceSize(width, height);
 };
 
-export const reducer = (state: State, { type, width, height }: Action) => {
+export const reducer = (state: State, { type, width, height }: Action): State => {
     switch (type) {
         case actionTypes.resized:
             return {

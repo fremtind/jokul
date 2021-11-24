@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "0.2.9",
+    "version": "0.2.23",
     "publishConfig": {
         "access": "public"
     },
@@ -27,9 +27,6 @@
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
-    "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.5"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
@@ -38,6 +35,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0"
+        "@babel/runtime": "^7.16.3"
     }
 }

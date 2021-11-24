@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "4.21.1",
+    "version": "8.1.1",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul score styles",
-    "homepage": "https://fremtind.github.io/jokul",
+    "description": "Jøkul core styles",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "core",
         "typography",
@@ -50,7 +50,7 @@
     },
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb",
     "dependencies": {
-        "@babel/runtime": "^7.9.0",
+        "@babel/runtime": "^7.16.3",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-image",
-    "version": "0.1.11",
+    "version": "0.5.3",
     "description": "Jøkul style for image",
     "publishConfig": {
         "access": "public"
     },
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "image",
         "images",
@@ -26,7 +26,11 @@
         "dev": "echo 'noop'"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.21.1"
+        "@fremtind/jkl-core": "^8.1.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

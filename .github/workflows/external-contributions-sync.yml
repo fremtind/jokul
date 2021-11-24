@@ -1,0 +1,16 @@
+name: Main to External
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    Main-to-External:
+        name: Merge main to external-contributions
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - run: gh api --method POST /repos/fremtind/jokul/merges -F base='external-contributions' -F head='main' # do a server-side merge using GitHub API https://cli.github.com/manual/gh_api and https://docs.github.com/en/rest/reference/repos#merging
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,16 +1,19 @@
-import React, { useLayoutEffect, useCallback, useRef } from "react";
 import { navigate } from "gatsby";
-import classNames from "classnames";
+import cx from "classnames";
+import React, { useCallback, useRef, useEffect, VFC } from "react";
 
-import { Link as JokulLink } from "@fremtind/jkl-core";
-
-import { useLocation } from "../../contexts/locationContext";
-import { useFullscreenMenu } from "../../contexts/fullscreenMenuContext";
 import { useNavigationLinks } from "./useNavigationLinks";
-import { MainMenu, MenuItemList } from "./components/MainMenu";
+import { MainMenu } from "./components/MainMenu";
+import { ContentLink } from "../ContentLink/ContentLink";
+import { MenuItemList, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+
 import "./header.scss";
 
-export const Header = ({ className }: { className?: string }) => {
+type Props = {
+    className?: string;
+};
+
+export const Header: VFC<Props> = ({ className }) => {
     const headerRef = useRef<HTMLElement>(null);
     const collapseMenu = useCallback(() => {
         const shouldCollapse = window.scrollY > 96;
@@ -20,19 +23,15 @@ export const Header = ({ className }: { className?: string }) => {
             headerRef.current?.classList.remove("jkl-portal-header--collapsed");
         }
     }, []);
-    useLayoutEffect(() => {
+    useEffect(() => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
-    const {
-        profileDocPages,
-        getStartedDocPages,
-        componentDocPages,
-        blogPages,
-        uuDocPages,
-        PageType,
-    } = useNavigationLinks();
-    const componentClassName = classNames("jkl-portal-header", className);
+    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, uuDocPages, PageType } =
+        useNavigationLinks();
+    const { setIsOpen, setCurrentItem } = useFullscreenMenuContext();
+
+    const componentClassName = cx("jkl-portal-header", className);
 
     const menuItems: MenuItemList = [
         {
@@ -101,33 +100,22 @@ export const Header = ({ className }: { className?: string }) => {
             basePath: PageType.BLOG,
         },
     ];
-    const { currentSection } = useLocation();
-    const { menuIsOpen } = useFullscreenMenu();
-    const isActiveFunction = (path: string) => {
-        const itemPathMatches = currentSection !== "" && path.includes(currentSection);
-        const thisMenuIsOpen = path !== "" && menuIsOpen.includes(path);
-
-        return thisMenuIsOpen || (itemPathMatches && (thisMenuIsOpen || menuIsOpen == ""));
-    };
 
     return (
         <header ref={headerRef} className={componentClassName}>
-            <JokulLink
-                className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal-header__skip-to-content"
-                href="#innhold"
+            <ContentLink>Hopp til innhold</ContentLink>
+            <button
+                role="link"
+                className="jkl-portal-header__title"
+                onClick={() => {
+                    setCurrentItem(null);
+                    setIsOpen(false);
+                    navigate("/");
+                }}
             >
-                Hopp til innhold
-            </JokulLink>
-            <button role="link" className="jkl-portal-header__title" onClick={() => navigate("/")}>
                 Jøkul
             </button>
-            <MainMenu
-                className="jkl-portal-header__menu"
-                navigationFunction={navigate}
-                isActiveFunction={isActiveFunction}
-                showTopLevel
-                items={menuItems}
-            />
+            <MainMenu className="jkl-portal-header__menu" items={menuItems} />
         </header>
     );
 };

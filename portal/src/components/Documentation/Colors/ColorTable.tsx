@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { VFC, useEffect, useState } from "react";
 import { Color, ColorSwatch, rgbToHex } from "./Colors";
 
 import "./ColorTable.scss";
 
-const ColorTableRow: React.FC<Color> = ({ colorVariable }) => {
+const ColorTableRow: VFC<Color> = ({ colorVariable }) => {
     const [color, setColor] = useState<number[]>();
     const [hexString, setHexString] = useState("N/A");
     const [rgbString, setRgbString] = useState("N/A");
@@ -38,7 +38,7 @@ const ColorTableRow: React.FC<Color> = ({ colorVariable }) => {
 interface ColorTableProps {
     colorVariables: string[];
 }
-export const ColorTable: React.FC<ColorTableProps> = ({ colorVariables }) => {
+export const ColorTable: VFC<ColorTableProps> = ({ colorVariables }) => {
     return (
         <table className="jkl-portal-color-table">
             <thead>
@@ -58,32 +58,18 @@ export const ColorTable: React.FC<ColorTableProps> = ({ colorVariables }) => {
     );
 };
 
-const gratoner: string[] = [
-    "gra-10",
-    "gra-20",
-    "gra-30",
-    "gra-40",
-    "gra-50",
-    "gra-60",
-    "gra-70",
-    "gra-80",
-    "gra-90",
-    "gra-100",
+const fargetoner: string[] = [
+    "hvit",
+    "snohvit",
+    "sand",
+    "dis",
+    "varde",
+    "svaberg",
+    "stein",
+    "fjellgra",
+    "skifer",
+    "granitt",
+    "svart",
 ];
 
-const vardetoner: string[] = [
-    "varde-10",
-    "varde-20",
-    "varde-30",
-    "varde-40",
-    "varde-50",
-    "varde-60",
-    "varde-70",
-    "varde-80",
-    "varde-90",
-    "varde-100",
-];
-
-export const GraTable = () => <ColorTable colorVariables={gratoner} />;
-
-export const VardeTable = () => <ColorTable colorVariables={vardetoner} />;
+export const ColTable: VFC = () => <ColorTable colorVariables={fargetoner} />;

@@ -1,40 +1,66 @@
-import React, { Fragment, useContext, useState, FC } from "react";
-import { ScreenReaderOnly } from "@fremtind/jkl-core";
-import { Smiley } from "./Smiley";
-import { BaseFeedback, BaseFeedbackProps, FeedbackContext, rawFeedbackValues } from "./BaseFeedback";
-import { nanoid } from "nanoid";
+import React, { ReactElement, ReactNode, useState, ComponentProps } from "react";
+import { Followup } from "./followup/Followup";
+import { MainQuestion } from "./main-question/MainQuestion";
+import { FeedbackContextProvider } from "./feedbackContext";
+import { ContactQuestion } from "./questions";
+import { FeedbackOption, FeedbackType } from "./types";
 
-const FeedbackContent = () => {
-    const { options, value, setValue } = useContext(FeedbackContext);
-    const [id] = useState(nanoid(8));
+type FollowupProps = ComponentProps<typeof Followup>;
+type ContactQuestionProps = ComponentProps<typeof ContactQuestion>;
+
+interface Props {
+    className?: string;
+    /** Velg typen alternativer, Slider eller RadioButtons. */
+    type: "slider" | "radio";
+    /** Spørsmålet som stilles til brukeren */
+    label: string;
+    /** Svaralternativer til spørsmålet */
+    options: FeedbackOption[];
+    /** Dersom du vil stille et åpent spørsmål i tillegg kan du legge det til her */
+    addOnQuestion?: {
+        /** Spørsmålet du vil stille */
+        label: string;
+        /** Eventuell hjelpetekst. Om du ikke spesifiserer en vil det vises en påminnelse om å ikke skrive inn personling informasjon. */
+        helpLabel?: string;
+    };
+    /** Lar deg tilpasse meldingen som kommer når brukeren sender inn tilbakemeldingen.  */
+    successMessage?: {
+        title: string;
+        children: ReactNode;
+    };
+    onSubmit: (value: FeedbackType) => void;
+
+    followup?: FollowupProps;
+    contactQuestion?: ContactQuestionProps;
+}
+
+export const Feedback = ({ className, followup, contactQuestion, ...mainQuestionProps }: Props): ReactElement => {
+    const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+    const [followupStarted, setFollowupStarted] = useState(false);
+    const [followupSubmitted, setFollowupSubmitted] = useState(false);
+    const [contactSubmitted, setContactSubmitted] = useState(false);
 
     return (
-        <>
-            {rawFeedbackValues(options)?.map((feedbackOption) => (
-                <Fragment key={feedbackOption}>
-                    <input
-                        className="jkl-feedback__answer-input"
-                        type="radio"
-                        name="feedback"
-                        id={`${id}-feedback--${feedbackOption}`}
-                        value={feedbackOption}
-                        onChange={() => setValue(feedbackOption)}
-                        checked={value === feedbackOption}
-                    />
-                    <label
-                        data-testid={`feedback-${feedbackOption}`}
-                        className="jkl-feedback__answer-label"
-                        htmlFor={`${id}-feedback--${feedbackOption}`}
-                    >
-                        <Smiley element={feedbackOption} />
-                        <ScreenReaderOnly>{feedbackOption}</ScreenReaderOnly>
-                    </label>
-                </Fragment>
-            ))}
-        </>
+        <div className={`jkl-feedback ${className || ""}`} aria-live="polite">
+            <FeedbackContextProvider
+                value={{
+                    feedbackSubmitted,
+                    followupStarted,
+                    followupSubmitted,
+                    contactSubmitted,
+                    setFeedbackSubmitted,
+                    setFollowupStarted,
+                    setFollowupSubmitted,
+                    setContactSubmitted,
+                }}
+            >
+                {!followupStarted && <MainQuestion {...mainQuestionProps} />}
+                {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
+                {/* Show contact question after followup, or after feedback if no followup */}
+                {((!followup && feedbackSubmitted) || followupSubmitted) && contactQuestion && (
+                    <ContactQuestion {...contactQuestion} />
+                )}
+            </FeedbackContextProvider>
+        </div>
     );
-};
-
-export const Feedback: FC<BaseFeedbackProps> = (props) => {
-    return <BaseFeedback {...props} content={<FeedbackContent />} />;
 };

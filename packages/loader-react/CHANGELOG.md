@@ -3,58 +3,136 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-10-21)
+
+### chore
+
+- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### BREAKING CHANGES
+
+- depends on jkl-core v8 with breaking changes
+
+## 6.0.0 (2021-10-07)
+
+### Features
+
+- la loader ta farge fra teksten rundt ([e529255](https://github.com/fremtind/jokul/commit/e52925548dcdb8e1228bc445df18bc191bb6aaf5)), closes [#2348](https://github.com/fremtind/jokul/issues/2348)
+
+### BREAKING CHANGES
+
+- Propen negative har ikke lenger noen effekt, og er fjernet
+
+## 5.0.0 (2021-10-06)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
+### Reverts
+
+- Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
+
+### BREAKING CHANGES
+
+- APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
+Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
+variant="medium".
+
+## 4.1.0 (2021-10-06)
+
+### Features
+
+- redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+
+## 4.0.0 (2021-07-09)
+
+### chore
+
+- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core-version with breaking changes
+
+## 3.0.0 (2021-07-06)
+
+### chore
+
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### BREAKING CHANGES
+
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
+
+## 2.1.0 (2021-07-02)
+
+### Features
+
+-   **loader-react:** add aria-live and politeness prop ([#2059](https://github.com/fremtind/jokul/issues/2059)) ([4260554](https://github.com/fremtind/jokul/commit/42605542e8663583c0e2297c3f9f5b595ca32ec4)), closes [#2058](https://github.com/fremtind/jokul/issues/2058)
+
+## 2.0.0 (2021-06-07)
+
+### Features
+
+-   upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+
+### BREAKING CHANGES
+
+-   Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+
 ## 1.5.6 (2021-02-12)
 
 ### Bug Fixes
 
-- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+-   add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
 
 ## 1.5.0 (2020-11-25)
 
 ### Features
 
-- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+-   update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
 
 ## 1.4.0 (2020-10-01)
 
 ### Features
 
-- add data-testautoid for loader ([d793b23](https://github.com/fremtind/jokul/commit/d793b23d7534dd75ede3be40029e545d84f090c0))
-- expose dataTestAutoId as a prop ([098b32d](https://github.com/fremtind/jokul/commit/098b32ddc84dcc06451b559ef15c5cf697cc5642))
+-   add data-testautoid for loader ([d793b23](https://github.com/fremtind/jokul/commit/d793b23d7534dd75ede3be40029e545d84f090c0))
+-   expose dataTestAutoId as a prop ([098b32d](https://github.com/fremtind/jokul/commit/098b32ddc84dcc06451b559ef15c5cf697cc5642))
 
 ## 1.3.0 (2020-07-29)
 
 ### Features
 
-- **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+-   **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
 
 ## 1.2.3 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 1.2.0 (2020-03-06)
 
 ### Features
 
-- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+-   **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
 
 ## 1.1.2 (2020-02-18)
 
 ### Bug Fixes
 
-- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+-   **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+-   **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
 
 ## 0.3.0 (2019-10-09)
 

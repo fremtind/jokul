@@ -1,0 +1,46 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/functions";
+
+.jkl-icon-table {
+    border: 0;
+    width: 100%;
+    max-width: rem(768px);
+
+    &__img {
+        width: rem(30px);
+        display: flex;
+    }
+
+    &__data,
+    &__header {
+        padding: jkl.$spacing-xs;
+        @include jkl.text-style("body");
+        text-align: left;
+        vertical-align: top;
+        border-bottom: rem(1px) solid;
+        box-sizing: border-box;
+    }
+
+    &__header {
+        font-weight: jkl.$typography-weight-bold;
+        border-bottom-color: jkl.$color-granitt;
+        min-height: rem(48px);
+    }
+
+    &__data {
+        border-bottom-color: jkl.$color-stein;
+        padding-bottom: jkl.$spacing-m;
+        min-height: rem(64px);
+    }
+
+    @include small-device {
+        &__header,
+        &__data {
+            &:first-child {
+                width: 40%; // kan også være en fast verdi om det er bedre
+            }
+        }
+    }
+}

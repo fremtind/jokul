@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-hamburger-react`](https://fremtind.github.io/jokul/komponenter/hamburger)
+# [`@fremtind/jkl-hamburger-react`](https://jokul.fremtind.no/komponenter/hamburger)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/hamburger).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/hamburger).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -22,18 +22,15 @@ import "@fremtind/jkl-hamburger/hamburger.min.css";
 
 ### Bruk
 
-Bruk på lys bakgrunn
+Vi anbefaler at du refererer til elementet som åpnes/lukkes av hamburgermenyen ved hjelp av `aria-controls`-attributten:
 
 ```jsx
-<div>
-    <Hamburger />
-</div>
-```
+const [menuIsOpen, setMenuIsOpen] = useState(false);
+const toggleMenu = () => setMenuIsOpen((prevState) => !prevState);
 
-Ved bruk på mørk bakgrunn brukes prop-en `negative` for å invertere ikonene.
+<Hamburger onClick={toggleMenu} isOpen={menuIsOpen} aria-controls="min-meny" />
 
-```jsx
-<div style={{ backgroundColor: "black" }}>
-    <Hamburger negative />
-</div>
+<ul id="min-meny" hidden={!menuIsOpen}>
+    // ...menyobjekter
+</ul>
 ```

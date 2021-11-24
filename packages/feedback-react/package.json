@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-feedback-react",
-    "version": "3.0.2",
+    "version": "11.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react feedback component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "feedback",
         "jøkul",
@@ -33,16 +33,19 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-button-react": "^2.5.11",
-        "@fremtind/jkl-core": "^4.21.1",
-        "@fremtind/jkl-feedback": "^3.0.0",
-        "@fremtind/jkl-message-box-react": "^1.7.7",
-        "@fremtind/jkl-radio-button-react": "^1.9.5",
-        "@fremtind/jkl-react-hooks": "^1.10.5",
-        "@fremtind/jkl-text-input-react": "^3.8.10",
+        "@babel/runtime": "^7.16.3",
+        "@fremtind/jkl-button-react": "^8.0.5",
+        "@fremtind/jkl-checkbox-react": "^5.0.5",
+        "@fremtind/jkl-core": "^8.1.1",
+        "@fremtind/jkl-feedback": "^8.0.3",
+        "@fremtind/jkl-message-box-react": "^6.1.1",
+        "@fremtind/jkl-radio-button-react": "^6.0.2",
+        "@fremtind/jkl-react-hooks": "^6.0.3",
+        "@fremtind/jkl-slider-react": "^2.0.4",
+        "@fremtind/jkl-text-input-react": "^7.0.9",
+        "@fremtind/jkl-validators-util": "^2.0.3",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.10"
+        "nanoid": "^3.1.30"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

@@ -1,33 +1,41 @@
-import React, { ReactNode } from "react";
-import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
+import React, { FC, ReactNode, HTMLAttributes } from "react";
+import type { LabelProps } from "@fremtind/jkl-core";
+import { Label, SupportLabel, LabelVariant, DataTestAutoId } from "@fremtind/jkl-core";
 import classNames from "classnames";
 
-interface Props {
+export interface FieldGroupProps extends DataTestAutoId, HTMLAttributes<HTMLFieldSetElement> {
     legend: string;
+    labelProps?: LabelProps;
     children?: ReactNode;
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
+    /** @deprecated Foretrekk `labelProps.variant` */
     variant?: LabelVariant;
+    /** @deprecated Foretrekk `labelProps.forceCompact` */
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
 }
 
-export const FieldGroup = ({
+export const FieldGroup: FC<FieldGroupProps> = ({
     legend,
+    labelProps,
     className,
     children,
     helpLabel,
     errorLabel,
-    variant = "medium",
+    variant,
     forceCompact,
+    "data-testautoid": testAutoId,
     inverted,
-}: Props) => {
+    ...rest
+}) => {
     const componentClassName = classNames("jkl-field-group", className);
     return (
-        <fieldset className={componentClassName}>
+        <fieldset className={componentClassName} data-testautoid={testAutoId} {...rest}>
             <legend className="jkl-field-group__legend">
-                <Label variant={variant} forceCompact={forceCompact}>
+                <Label variant={variant} forceCompact={forceCompact} {...labelProps}>
                     {legend}
                 </Label>
             </legend>

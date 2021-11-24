@@ -1,38 +1,46 @@
-import React from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import React, { useState } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { TertiaryButton } from "../src";
 
-function onClick() {
-    console.log("Hello!");
-}
+export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+    const [showLoader, setShowLoader] = useState(false);
+    const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
 
-export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues }) => (
-    <TertiaryButton
-        inverted={boolValues && boolValues["Invertert"]}
-        forceCompact={boolValues && boolValues["Kompakt"]}
-        loader={
-            !!boolValues?.["withLoader"]
-                ? { showLoader: !!boolValues?.["isLoading"], textDescription: "Laster innhold" }
-                : undefined
-        }
-        onClick={onClick}
-        className="jkl-spacing--right-1"
-    >
-        Avbryt
-    </TertiaryButton>
-);
+    const simulateLoading = () => {
+        console.log("Hello!");
+        setShowLoader(true);
+        setTimeout(() => {
+            setShowLoader(false);
+        }, 2200);
+    };
 
-export const TertiaryCode = `
+    return (
+        <TertiaryButton
+            forceCompact={boolValues && boolValues["Kompakt"]}
+            inverted={boolValues && boolValues["Invertert"]}
+            loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
+            className="jkl-spacing-l--right"
+            onClick={simulateLoading}
+        >
+            Avbryt
+        </TertiaryButton>
+    );
+};
+
+export const tertiaryCode = ({ boolValues }: ExampleComponentProps): string => `
 <TertiaryButton
-    inverted={boolValues && boolValues["Invertert"]}
-    forceCompact={boolValues && boolValues["Kompakt"]}
-    loader={
+    forceCompact={${!!boolValues?.["Kompakt"]}}
+    inverted={${!!boolValues?.["Invertert"]}}
+    loader={${
         !!boolValues?.["withLoader"]
-            ? { showLoader: !!boolValues?.["isLoading"], textDescription: "Laster innhold" }
-            : undefined
-    }
-    onClick={onClick}
-    className="jkl-spacing--right-1"
+            ? `{
+        showLoader: ${!!boolValues?.["isLoading"]},
+        textDescription: "Laster innhold"
+    }`
+            : `false`
+    }}
+    onClick={simulateLoading}
+    className="jkl-spacing-l--right"
 >
     Avbryt
 </TertiaryButton>

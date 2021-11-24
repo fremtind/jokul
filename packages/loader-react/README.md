@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-loader-react`](https://fremtind.github.io/jokul/komponenter/loader)
+# [`@fremtind/jkl-loader-react`](https://jokul.fremtind.no/komponenter/loader)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/loader).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/loader).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-komponenten
 
@@ -26,9 +26,9 @@ import "@fremtind/jkl-loader/loader.min.css";
 Komponenten tar følgende props:
 
 -   `textDescription`: **Påkrevd**. Tekstlig forklaring av innlasting, f.eks. "Laster inn skjema". `string`
--   `negative`: Angir om loaderen skal brukes på mørk bakgrunn. `boolean`
--   `inline`: Angir om loaderen skal brukes inne i et annet element. `boolean`
+-   `variant`: Velg mellom ulike størrelser. `large` (default), `medium` eller `small`.
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
+-   `politeness`: Sett politeness setting på aria-live. `polite` (default) eller `assertive`.
 
 Den enkleste bruken av komponenten er altså:
 
@@ -36,16 +36,10 @@ Den enkleste bruken av komponenten er altså:
 <Loader textDescription="Laster inn" />
 ```
 
-Dersom du for eksempel vil bruke loaderen inne i en primærknapp kan det gjøres på denne måten:
+Prop'en `className` er praktisk dersom du vil benytte spacing eller sette farge gjennom hjelpeklassene fra `jkl-core`:
 
 ```tsx
-<PrimaryButton>
-    <Loader inline negative textDescription="Sender inn skjema" />
-</PrimaryButton>
+<Loader className="jkl-spacing-l--top" /> // Gir spacing over loaderen
 ```
 
-Prop'en `className` er praktisk dersom du vil benytte spacing-skalaen vår gjennom hjelpeklassene fra `jkl-core`:
-
-```tsx
-<Loader className="jkl-spacing--top-3" /> // Gir 4rem spacing over loaderen
-```
+Dersom du vil bruke inline loader i knapp har funksjonalitet for det blitt eksponert via props i `jkl-button-react`.

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { LabelVariant } from "../index";
 import classNames from "classnames";
 
-interface Props {
+export interface LabelProps {
     variant?: LabelVariant;
     forceCompact?: boolean;
     srOnly?: boolean;
@@ -11,8 +11,8 @@ interface Props {
     className?: string;
 }
 
-export const Label: FC<Props> = ({
-    variant = "medium",
+export const Label: FC<LabelProps> = ({
+    variant = "small",
     forceCompact,
     srOnly,
     children,

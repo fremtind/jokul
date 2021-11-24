@@ -5,9 +5,11 @@ order: 6
 ---
 
 # Bidra til Jøkul på GitHub
+
 Jøkul-biblioteket ligger på GitHub som et åpent kildekodeprosjekt. Det følger vanlige regler for bidrag i slike prosjekter. Om du er en del av [organisasjonen Fremtind](https://github.com/fremtind) på GitHub, kan du klone ned prosjektet direkte, hvis ikke må du jobbe i en fork under din egen GitHub-bruker. Ta kontakt med oss om du ikke er med i organisasjonen og mener du burde vært det!
 
 ## Din første pull request
+
 Vi setter pris på at du vil bidra til Jøkul! Enten du vil legge til funksjonalitet du trenger selv, eller plukker et issue fra prosjektet på GitHub er det fint om du først
 
 -   sjekker at ingen andre jobber aktivt med samme oppgave
@@ -18,17 +20,27 @@ Designsystemteamet jobber med en prioritert backlog. Hvis du vil bidra, blir vi 
 Se gjerne på aktive/tidligere pull requests, og les samtalene i dem, så får du fort en følelse av hvordan vi jobber i prosjektet.
 
 ## Krav til kode og utviklingsprosess
+
 Det skal ikke være vanskelig å utvikle for Jøkul, men vi vil gjerne at du følger [vår kodestil](/utvikler/kodestil) og bruker [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/). Det siste er ekstra viktig, siden versjonsloggene blir automatisk generert fra commit-meldingene. Vi har satt opp noen verktøy i biblioteket for å hjelpe deg med dette:
 
-1. Når du har lagt til ny funksjonalitet og har laget dokumentasjon og tester for den, kjører du testene **fra rot** i prosjektet med kommandoen `yarn test:unit`.
-2. For å utføre endringene dine, legger du dem til med `git add` på vanlig måte, og kjører deretter `yarn commit` **fra rot** i prosjektet. Du får spørsmål som hjelper deg å lage en commit-melding, som samsvarer med conventional commits.
-3. Push endringene dine til Jøkul.
-4. Når du er klar til å legge inn en pull request, fyller du ut malen som vises i GitHub.
+1.  Når du har lagt til ny funksjonalitet og har laget dokumentasjon og tester for den, kjører du testene **fra rot** i prosjektet med kommandoen `yarn test:unit`.
+2.  For å utføre endringene dine, legger du dem til med `git add` på vanlig måte, og kjører deretter `yarn commit` **fra rot** i prosjektet. Du får spørsmål som hjelper deg å lage en commit-melding, som samsvarer med conventional commits.
+3.  Push endringene dine til Jøkul.
+4.  Når du er klar til å legge inn en pull request, fyller du ut malen som vises i GitHub.
+
+<div className="jkl-portal-paragraph">
+    <InfoMessageBox role="none presentation" fullWidth title="Sender du en pull request fra en fork?">
+        Sett <code className="jkl-portal-inline-code">external-contributions</code> som mål for pull requesten, så loser
+        en maintainer koden videre til <code className="jkl-portal-inline-code">main</code>.
+    </InfoMessageBox>
+</div>
 
 ## Når legger du inn en pull request?
-En pull request bør inneholde kode som fungerer og er _klar til bruk_, gode [enhetstester](/utvikler/tester) og [dokumentasjon av komponenten](/utvikler/portalen) du har laget eller endret. Vi hjelper deg gjerne med spørsmål du har mens du  utvikler komponenten, men ønsker ikke at pull requests skal ligge lenge i prosjektet. Hvis du ikke føler deg ferdig med komponenten, men ønsker tilbakemelding eller hjelp, blir vi veldig glade om du kommer og snakker med oss! Du kan også legge inn en [draft pull request](https://github.blog/2019-02-14-introducing-draft-pull-requests/) på GitHub, men det er stort sett enklest å se på ting sammen.
+
+En pull request bør inneholde kode som fungerer og er _klar til bruk_, gode [enhetstester](/utvikler/tester) og [dokumentasjon av komponenten](/utvikler/portalen) du har laget eller endret. Vi hjelper deg gjerne med spørsmål du har mens du utvikler komponenten, men ønsker ikke at pull requests skal ligge lenge i prosjektet. Hvis du ikke føler deg ferdig med komponenten, men ønsker tilbakemelding eller hjelp, blir vi veldig glade om du kommer og snakker med oss! Du kan også legge inn en [draft pull request](https://github.blog/2019-02-14-introducing-draft-pull-requests/) på GitHub, men det er stort sett enklest å se på ting sammen.
 
 ## Hva skjer når requesten er lagt inn?
+
 Designsystemteamet følger med på det som skjer på GitHub-repoet til Jøkul. Når du sender inn en pull request, skal du alltid få tilbakemelding fra noen i kjerneteamet i løpet av kort tid. Vi kan enten velge å merge pull requesten direkte, eller gi deg en tilbakemelding på hva du må gjøre før vi kan ta inn endringene dine.
 
 Hvis det gjelder større API-endringer, kan det ta litt tid før vi kan merge, fordi vi kanskje må teste det i noen interne applikasjoner først.

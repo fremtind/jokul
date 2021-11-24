@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-accordion-react`](https://fremtind.github.io/jokul/komponenter/accordion)
+# [`@fremtind/jkl-accordion-react`](https://jokul.fremtind.no/komponenter/accordion)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/accordion).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/accordion).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -34,4 +34,4 @@ En enkel bruk av `Accordion` kan se slik ut:
 
 Merk at `AccordionItem` kan ha annet innhold enn ren tekst. Komponenten tar inn prop-en `children` som er av typen `ReactNode.`
 
-Dersom det er ønskelig at komponenten er utvidet når komponenten lastes inn kan prop-en `startExpanded` benyttes.
+Dersom det er ønskelig at et `AccordionItem` er utvidet når komponenten lastes inn, kan prop-en `startExpanded` benyttes.

@@ -5,6 +5,8 @@ export interface FrontmatterTypeProp {
     defaultValue?: { value?: unknown };
     required?: boolean;
     type?: { name?: string };
+    description: string;
+    declarations?: Array<{ name: string; fileName: string }>;
 }
 
 export interface FrontmatterTypePropsObj {
@@ -22,19 +24,20 @@ export interface Frontmatter {
     title: string;
     react?: string;
     scss?: string;
+    discussion?: string;
     order?: string;
     author?: string;
     publishDate?: string;
     group?: string;
-    type?: FrontmatterType[];
+    path?: string;
 }
 
 interface RawDocumentationPage {
     node: {
-        path: string;
-        context: {
-            frontmatter: Frontmatter;
+        fields: {
+            path: string;
         };
+        frontmatter: Frontmatter;
     };
 }
 
@@ -42,34 +45,56 @@ export interface DocumentationPageInfo extends Frontmatter {
     path: string;
 }
 
-export function useNavigationLinks() {
-    const { allSitePage } = useStaticQuery(graphql`
+enum PageType {
+    PROFIL = "profil",
+    KOMIGANG = "komigang",
+    KOMPONENTER = "komponenter",
+    BLOG = "blog",
+    UU = "universell-utforming",
+}
+
+type NavigationLinks = {
+    profileDocPages: DocumentationPageInfo[];
+    getStartedDocPages: DocumentationPageInfo[];
+    componentDocPages: DocumentationPageInfo[];
+    componentGroup: string[];
+    uuDocPages: DocumentationPageInfo[];
+    blogPages: DocumentationPageInfo[];
+    PageType: typeof PageType;
+};
+
+export function useNavigationLinks(): NavigationLinks {
+    const { allMdx } = useStaticQuery(graphql`
         query getPages {
-            allSitePage(
-                sort: { order: ASC, fields: context___frontmatter___title }
-                filter: { context: { frontmatter: { title: { regex: "/.*/" } } } }
+            allMdx(
+                sort: { order: ASC, fields: frontmatter___title }
+                filter: { frontmatter: { title: { regex: "/.+/" } } }
             ) {
                 edges {
                     node {
-                        path
-                        context {
-                            frontmatter {
-                                title
-                                order
-                                author
-                                publishDate
-                                group
-                            }
+                        fields {
+                            path
+                        }
+                        frontmatter {
+                            title
+                            react
+                            scss
+                            order
+                            author
+                            publishDate
+                            group
+                            path
+                            discussion
                         }
                     }
                 }
-                distinct(field: context___frontmatter___group)
+                distinct(field: frontmatter___group)
             }
         }
     `);
-    const pages: DocumentationPageInfo[] = allSitePage.edges.map((edge: RawDocumentationPage) => ({
-        path: edge.node.path,
-        ...edge.node.context.frontmatter,
+    const pages: DocumentationPageInfo[] = allMdx.edges.map((edge: RawDocumentationPage) => ({
+        ...edge.node.frontmatter,
+        path: edge.node.frontmatter.path || edge.node.fields.path,
     }));
 
     const sortByOrder = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
@@ -92,14 +117,6 @@ export function useNavigationLinks() {
         return 0;
     };
 
-    enum PageType {
-        PROFIL = "profil",
-        KOMIGANG = "komigang",
-        KOMPONENTER = "komponenter",
-        BLOG = "blog",
-        UU = "universell-utforming",
-    }
-
     const profileDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("profil"))
         .sort(sortByOrder);
@@ -110,7 +127,7 @@ export function useNavigationLinks() {
         .filter((page: DocumentationPageInfo) => page.path.includes("universell-utforming"))
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("komponenter"));
-    const componentGroup = allSitePage.distinct;
+    const componentGroup = allMdx.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes(PageType.BLOG)).sort(sortByDate);
 

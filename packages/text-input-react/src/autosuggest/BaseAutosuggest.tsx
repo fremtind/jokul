@@ -9,6 +9,7 @@ import Menu from "./Menu";
 const KEY_ENTER = 13;
 
 type BaseAutosuggestProps<T> = CommonProps & {
+    /** @deprecated */
     inverted?: boolean;
     itemToString: (item: T | null) => string;
     items: T[];
@@ -26,7 +27,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
-    variant = "medium",
+    variant = "small",
     noHitsMessage,
     maxNumberOfHits,
     placeholder,
@@ -37,7 +38,7 @@ function BaseAutosuggest<T>({
     onConfirm = () => {
         /* noop */
     },
-}: BaseAutosuggestProps<T>) {
+}: BaseAutosuggestProps<T>): JSX.Element {
     const customLabelProps =
         inputId && labelId
             ? {
@@ -70,7 +71,7 @@ function BaseAutosuggest<T>({
                                 {label}
                             </label>
                         )}
-                        {leadText && <p className="jkl-body jkl-spacing--bottom-1">{leadText}</p>}
+                        {leadText && <p className="jkl-body jkl-spacing-l--bottom">{leadText}</p>}
                         <div className={`jkl-autosuggest__input_group ${inverted ? "jkl-text-input--inverted" : ""}`}>
                             <input
                                 {...getInputProps({

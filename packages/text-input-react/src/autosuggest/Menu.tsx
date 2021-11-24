@@ -9,6 +9,7 @@ interface MenuProps<T> {
     itemToString: (item: T | null) => string;
     noHitsMessage?: ReactNode;
     maxNumberOfHits?: number;
+    /** @deprecated */
     inverted?: boolean;
 }
 
@@ -20,7 +21,7 @@ function Menu<T>({
     noHitsMessage,
     maxNumberOfHits = Infinity,
     inverted = false,
-}: MenuProps<T>) {
+}: MenuProps<T>): JSX.Element | null {
     const visibleItems = items.length > maxNumberOfHits ? items.slice(0, maxNumberOfHits) : items;
 
     if (visibleItems.length === 0 && !noHitsMessage) {

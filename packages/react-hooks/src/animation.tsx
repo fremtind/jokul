@@ -5,27 +5,43 @@ interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElemen
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
-export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefObject<T>, () => void] {
+interface Options {
+    onTransitionStart?: (isOpening: boolean) => void;
+    onTransitionEnd?: (isOpen: boolean) => void;
+}
+
+export function useAnimatedHeight<T extends HTMLElement>(
+    isOpen: boolean,
+    options?: Options,
+): [RefObject<T>, () => void] {
     const raf1 = useRef<number>();
     const raf2 = useRef<number>();
     const elementRef = useRef<T>(null);
     const firstRender = useRef<boolean>(true);
     const prefersReducedMotion = useReducedMotion();
 
-    function handleTransitionEnd() {
+    function handleTransitionEnd(event: TransitionEvent) {
         const element = getElement(elementRef);
-        if (element) {
+
+        // Ignore bubbling transitions from within container
+        if (element && event.target === element) {
             element.removeAttribute("style");
+            options?.onTransitionEnd?.(isOpen);
         }
     }
 
     const runAnimation = useCallback(() => {
-        if (prefersReducedMotion) {
-            return;
-        }
         if (firstRender.current) {
             return; // Do not play animation on first render
         }
+
+        options?.onTransitionStart?.(isOpen);
+
+        if (prefersReducedMotion) {
+            options?.onTransitionEnd?.(isOpen); // make sure to call callback when animation is off
+            return;
+        }
+
         const element = getElement(elementRef);
         if (element) {
             element.style.display = "block";
@@ -51,7 +67,7 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
                 });
             }
         }
-    }, [isOpen]);
+    }, [isOpen, options, prefersReducedMotion]);
 
     useLayoutEffect(() => {
         runAnimation();
@@ -68,6 +84,7 @@ export function useAnimatedHeight<T extends HTMLElement>(isOpen: boolean): [RefO
                 element.removeEventListener("transitionend", handleTransitionEnd);
             }
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
     useEffect(() => {

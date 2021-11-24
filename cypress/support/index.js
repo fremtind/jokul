@@ -1,6 +1,4 @@
 import "cypress-plugin-snapshots/commands";
-import "cypress-axe";
-import "./checkPortalPage";
 
 function pascalCase(phrase) {
     return phrase.replace(/\ ./, (match) => match.slice(-1).toUpperCase());
@@ -11,8 +9,32 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.visit(`/komponenter/${component}?cypress`).wait(1000);
+    cy.visit(`/komponenter/${component}?cypress`);
+    cy.getComponent().should("be.visible").as("componentIsVisible");
+});
+
+Cypress.Commands.add("checkInput", (inputName) => {
+    cy.get(`input[name=${inputName}]`).first().check();
+});
+
+Cypress.Commands.add("openSelect", (inputName) => {
+    cy.get(`button[name=${inputName}-btn]`).first().click();
+});
+
+Cypress.Commands.add("selectValue", (value) => {
+    cy.get(`button[value=${value}]`).first().click();
+});
+
+Cypress.Commands.add("focusSelectValue", (value) => {
+    cy.get(`button[value=${value}]`).first().focus();
+});
+
+Cypress.Commands.add("focusInput", (inputName) => {
+    cy.get(`input[name=${inputName}]`).first().focus();
+});
+
+Cypress.Commands.add("focusTextArea", (inputName) => {
+    cy.get(`textarea[name=${inputName}]`).first().focus();
 });
 
 Cypress.Commands.add("getComponent", () => {
@@ -24,33 +46,16 @@ Cypress.Commands.add("waitForAnimation", (timeout = 300) => {
     cy.wait(timeout);
 });
 
-Cypress.Commands.add("getComponentInIphoneMode", () => {
-    cy.get("#jkl-portal-device-Iphone-X").click().waitForAnimation(100).getByTestid("jkl-portal__iphone-view");
-});
+const setMode = (action, reset) => () => {
+    if (reset) {
+        return cy.get(`input[value="${action}"]:checked`).click({ multiple: true });
+    }
+    return cy.get(`input[value="${action}"]:not(:checked)`).click({ multiple: true });
+};
 
-Cypress.Commands.add("getComponentInIpadMode", () => {
-    cy.get("#jkl-portal-device-Ipad-Pro").click().waitForAnimation(100).getByTestid("jkl-portal__ipad-view");
-});
-
-Cypress.Commands.add("getComponentInLaptopMode", () => {
-    cy.get("#jkl-portal-device-Full-HD").click().waitForAnimation(100).getByTestid("jkl-portal__laptop-view");
-});
-
-Cypress.Commands.add("verifyA11y", () => {
-    // Cypress misunderstand the animation for lack of contrast
-    // Must wait a bit long to make sure all animations are done, else color contrast is off
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(1000).checkA11y({
-        exclude: [[".jkl-portal-frontpage__section-contribute", ".jkl-portal-code-block__code"]],
-    });
-});
-
-const setMode = (action, reset) => () =>
-    cy.get(`input[value="${action}"]`).then(($input) => {
-        if (reset ? $input[0].checked : !$input[0].checked) {
-            $input.click();
-        }
-    });
+Cypress.Commands.add("setChoice", (choice, value) =>
+    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click(),
+);
 
 const setModeFactory = (knob) => {
     Cypress.Commands.add(`set${pascalCase(knob)}`, setMode(knob, false));
@@ -65,7 +70,8 @@ const setModeFactory = (knob) => {
     "Utvidet velger",
     "Med hjelpetekst",
     "Dark mode",
-    "Flip",
+    "Bytt verdi",
     "withLoader",
     "isLoading",
+    "Avvisbar",
 ].map((knob) => setModeFactory(knob));

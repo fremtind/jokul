@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-checkbox",
-    "version": "1.4.15",
+    "version": "5.0.4",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for checkbox",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "checkbox",
         "form",
@@ -26,7 +26,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.21.1"
+        "@fremtind/jkl-core": "^8.1.1"
     },
     "repository": {
         "type": "git",

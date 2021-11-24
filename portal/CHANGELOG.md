@@ -3,6 +3,268 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.3.0 (2021-11-24)
+
+### Features
+
+- bruk Tag i uu-guiden i portalen ([6fd4bd9](https://github.com/fremtind/jokul/commit/6fd4bd93aeb626ff0044f7cd781d12982fb3ec96))
+
+## 10.2.0 (2021-11-18)
+
+### Features
+
+- legg til støtte for å velge hvilke typer som skal vises ([cc51007](https://github.com/fremtind/jokul/commit/cc51007a6c6f9da4e5df5e135306f17efa5f074a))
+
+## 10.1.0 (2021-11-17)
+
+### Bug Fixes
+
+- eradicate <the process :cowboy: ([544bf0d](https://github.com/fremtind/jokul/commit/544bf0dd60d37465c4d2ff73dc035b98a6717ddd))
+- fiks SVG-src for PortalImage og fjern gammel profilfarge ([463b96d](https://github.com/fremtind/jokul/commit/463b96df6f9c22d57618d9ccfd2d731963b754ca))
+- fjern unødvendig import ([be78644](https://github.com/fremtind/jokul/commit/be786442da0b4453f8cf377093e143117b1e049d))
+- fjern uriktig fargebruk fra DoDontExample ([f51bf6c](https://github.com/fremtind/jokul/commit/f51bf6ccf5ee430b3d972441d1fbaac55a2f575b))
+- la PortalImg bruke Gatsby sin image-pipeline ([086d5e8](https://github.com/fremtind/jokul/commit/086d5e8c8604d1f5e21370d72205e0e843710b97))
+
+### Features
+
+- åpne for å sette className på PortalImage ([388884b](https://github.com/fremtind/jokul/commit/388884be88efcb2afa9fc8abc4f761e6c1b29680))
+- åpne for å vise PortalImage i en Grid ([6e78a23](https://github.com/fremtind/jokul/commit/6e78a23ce4ee48a893ed5e99fe6f4361b53c5f00))
+
+## 10.0.0 (2021-11-16)
+
+### Bug Fixes
+
+- gjør så Select støtter react-hook-form ([87d54b7](https://github.com/fremtind/jokul/commit/87d54b749899811b16f52f81c39c48d244652b46)), closes [#2456](https://github.com/fremtind/jokul/issues/2456)
+
+### BREAKING CHANGES
+
+- Select: Output fra onChange, onBlur, og onFocus er endret til å ligne eventstrukturen
+(e.target.value) i stedet for å gi verdien direkte. Name er gjort til en påkrevd prop.
+
+## 9.0.1 (2021-11-15)
+
+### Bug Fixes
+
+- gjenopprett bilder i Bildebruk ([08a6203](https://github.com/fremtind/jokul/commit/08a6203440b1f1fd1d5c78c5b69184c69e353b99))
+
+## 9.0.0 (2021-11-09)
+
+### Features
+
+- refactor RadioButtons for bedre hook-form støtte ([467cb0c](https://github.com/fremtind/jokul/commit/467cb0cae3c5ba6ad789b12fedd0d0f2fb8aa97e)), closes [#2435](https://github.com/fremtind/jokul/issues/2435)
+
+### BREAKING CHANGES
+
+- Komponenten har fått et helt nytt API. Se migreringsdok.
+
+## 8.1.0 (2021-11-02)
+
+### Features
+
+- react-implementasjon av tag-komponenten ([3005cee](https://github.com/fremtind/jokul/commit/3005cee21b691accae0e3713183fdb9e76f80090))
+
+## 8.0.2 (2021-10-29)
+
+### Bug Fixes
+
+- **portal:** riktig bakgrunn på menykort ([#2423](https://github.com/fremtind/jokul/issues/2423)) ([496c76c](https://github.com/fremtind/jokul/commit/496c76c878e6f03138f9f12775b4086702c1c3a2))
+
+## 8.0.0 (2021-10-28)
+
+### Code Refactoring
+
+- renamed *Message to *MessageBox a few more places ([b5bd136](https://github.com/fremtind/jokul/commit/b5bd136be645195306728dd10d0058910b936259))
+- renamed *Message to *MessageBox where it is dependent on ([5effa3d](https://github.com/fremtind/jokul/commit/5effa3d9ed6a4eaaeba5d126306ea8320ec59f31))
+
+### BREAKING CHANGES
+
+- Depends on package with breaking change
+- Depends on package with breaking change
+
+## 7.0.3 (2021-10-28)
+
+### Bug Fixes
+
+- **portal:** riktig bakgrunn på menykort ([#2423](https://github.com/fremtind/jokul/issues/2423)) ([496c76c](https://github.com/fremtind/jokul/commit/496c76c878e6f03138f9f12775b4086702c1c3a2))
+
+## 7.0.0 (2021-10-25)
+
+### Features
+
+- nye tabellkomponenter ([a135cf5](https://github.com/fremtind/jokul/commit/a135cf566ff0084c239931d31b31caca515dbdc8))
+
+### BREAKING CHANGES
+
+- Se migreringsdokumentasjonen for \`table-react\`
+
+## 6.0.0 (2021-10-21)
+
+### chore
+
+- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### BREAKING CHANGES
+
+- depends on jkl-core v8 with breaking changes
+
+## 5.3.5 (2021-10-06)
+
+### Bug Fixes
+
+- legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
+
+## 5.3.3 (2021-09-30)
+
+### Bug Fixes
+
+- fjern unødig CoreToggle i MainMenu ([d690bda](https://github.com/fremtind/jokul/commit/d690bdac8bf76ca39ad12317183eb2cecd7ddfd0))
+- lukk menyen ved klikk på hjemknappen ([9803adb](https://github.com/fremtind/jokul/commit/9803adbe9e86fc9e13e6d7650b13a9d026431f06)), closes [#2269](https://github.com/fremtind/jokul/issues/2269)
+- venstrejuster tekst i portalmeny ([a17dfad](https://github.com/fremtind/jokul/commit/a17dfada6f9753249afc57830a690c9cacef810b))
+
+## 5.3.2 (2021-09-30)
+
+### Bug Fixes
+
+- lukk menyen ved klikk på hjemknappen ([9803adb](https://github.com/fremtind/jokul/commit/9803adbe9e86fc9e13e6d7650b13a9d026431f06)), closes [#2269](https://github.com/fremtind/jokul/issues/2269)
+- venstrejuster tekst i portalmeny ([a17dfad](https://github.com/fremtind/jokul/commit/a17dfada6f9753249afc57830a690c9cacef810b))
+
+## 5.3.0 (2021-09-30)
+
+### Features
+
+- use cursor:pointer style on select ([843a232](https://github.com/fremtind/jokul/commit/843a2326ce68de8ed5f70d1584380089299b9906)), closes [#2173](https://github.com/fremtind/jokul/issues/2173)
+
+## 5.2.6 (2021-09-28)
+
+### Bug Fixes
+
+- adjust font size in full screen menu ([405d132](https://github.com/fremtind/jokul/commit/405d1328da72760e8659732bb22a3866d8cc0bb6))
+
+## 5.2.5 (2021-09-28)
+
+### Bug Fixes
+
+- gjenopprett lukking av meny med Esc ([5a118e1](https://github.com/fremtind/jokul/commit/5a118e103487c39b7b6cd8659049884d133958a8))
+- legg på manglende aria-attributter ([483ccd6](https://github.com/fremtind/jokul/commit/483ccd67bcb4b1b4c8e52da14adef3e05375e561))
+- rett opp padding mellom tekst og pil ([2e31e69](https://github.com/fremtind/jokul/commit/2e31e694aec7b491858125dbfb6cf5e8c132814b)), closes [#2245](https://github.com/fremtind/jokul/issues/2245)
+- rett tastaturrekkefølge og utvidet-tilstand ([37c7ca3](https://github.com/fremtind/jokul/commit/37c7ca3393e9573b14e452c29e24c3749514d21b)), closes [#2241](https://github.com/fremtind/jokul/issues/2241)
+
+## 5.2.0 (2021-09-15)
+
+### Features
+
+- add new Slider component to Jøkul ([2cb471f](https://github.com/fremtind/jokul/commit/2cb471f8985d10bda91040b254f898c58e41f0ea))
+
+## 5.1.0 (2021-09-13)
+
+### Features
+
+- prop for å styre role på MessageBox ([87646ae](https://github.com/fremtind/jokul/commit/87646ae6437cb368aa6567e637d59ab2ab923b71)), closes [#1687](https://github.com/fremtind/jokul/issues/1687)
+
+## 5.0.8 (2021-09-03)
+
+### Bug Fixes
+
+- fixed font color in footer ([#2170](https://github.com/fremtind/jokul/issues/2170)) ([c70c6a7](https://github.com/fremtind/jokul/commit/c70c6a7894b7637e457e319420512ea88b1a060a))
+
+## 5.0.7 (2021-09-02)
+
+### Bug Fixes
+
+- fixed font color in footer ([#2170](https://github.com/fremtind/jokul/issues/2170)) ([c70c6a7](https://github.com/fremtind/jokul/commit/c70c6a7894b7637e457e319420512ea88b1a060a))
+
+## 5.0.6 (2021-09-02)
+
+### Bug Fixes
+
+- fixed font color in footer ([1f88d67](https://github.com/fremtind/jokul/commit/1f88d6791af68deb8d6d3d24218489d18e860304))
+
+## 5.0.3 (2021-08-16)
+
+### Performance Improvements
+
+- **portal:** slight performance enhancements/fixes ([edee432](https://github.com/fremtind/jokul/commit/edee432841265875bb8af98e5821ec00a55e27de))
+
+## 5.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+
+### Features
+
+- use new typog. scale in portal ([e67b446](https://github.com/fremtind/jokul/commit/e67b446e20f5fa26f092ead46d7a355d999f9869))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
+## 4.2.3 (2021-07-09)
+
+### Bug Fixes
+
+- update example and portal with new hamburger component ([94e1085](https://github.com/fremtind/jokul/commit/94e108567a16bc6dc867a7c2175672a0368424ce))
+
+## 4.2.2 (2021-07-07)
+
+### Bug Fixes
+
+- upgrade form example using react-hook-form ([bc78b6e](https://github.com/fremtind/jokul/commit/bc78b6ee64248d44f0edf423552f3afa45927554))
+
+## 4.2.1 (2021-07-07)
+
+### Bug Fixes
+
+- **uu-guide:** fix filter background in uu guide for dark mode ([3fbd329](https://github.com/fremtind/jokul/commit/3fbd3290da3c54af6cad040364b28af4dff7d8a0))
+
+## 4.2.0 (2021-07-06)
+
+### Bug Fixes
+
+- **examples:** let do-dont-images fill container width ([28bb085](https://github.com/fremtind/jokul/commit/28bb0852febe7dd0c47f2aad9ee93d17ffb1bd68))
+
+### Features
+
+- **portal:** implement automatic dark mode ([2215523](https://github.com/fremtind/jokul/commit/2215523d270ee1523bd5c2d4710f99c3de2c2c92))
+
+## 4.1.0 (2021-06-24)
+
+### Features
+
+- **@fremtind/jkl-description-list @fremtind/jkl-description-list-react:** new component: Descriptio ([6006c1e](https://github.com/fremtind/jokul/commit/6006c1e89cfa1a5ef016a5f4385cae6df97d9a62))
+
+## 4.0.0 (2021-06-07)
+
+### Bug Fixes
+
+- fixed contrast in codeblock ([6f19150](https://github.com/fremtind/jokul/commit/6f19150f9a93da8390d9707e5cec3e7aab45f2b2))
+
+### Features
+
+- new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+
+### BREAKING CHANGES
+
+- all color variables are changed
+
+## 3.28.9 (2021-05-27)
+
+### Bug Fixes
+
+- upgrade prism-react-renderer from 1.2.0 to 1.2.1 ([1049502](https://github.com/fremtind/jokul/commit/1049502552422bea35f22491e03ed714576c7163))
+
+## 3.28.8 (2021-05-03)
+
+### Bug Fixes
+
+- **portal:** add skip sidemenu invisible link ([313f661](https://github.com/fremtind/jokul/commit/313f661552638f2814466857ef1e42ff431c9488))
+
+## 3.28.7 (2021-04-14)
+
+### Bug Fixes
+
+- **portal:** add focus state and trap to portalimg ([7127a44](https://github.com/fremtind/jokul/commit/7127a4460dca895ce4bd28afbaa73eaacc58d6cf))
+
 ## 3.28.0 (2021-03-05)
 
 ### Features
@@ -705,4 +967,4 @@ TextInput: ActionTextField, InlineTextField, BaseInputField
 
 ### Reverts
 
--   **dropdown:** rebase to master without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))
+-   **dropdown:** rebase to main without new dropdown stuff ([3b21e7b](https://github.com/gatsbyjs/gatsby-starter-default/commit/3b21e7b))

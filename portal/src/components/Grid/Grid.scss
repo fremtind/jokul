@@ -1,4 +1,6 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/functions";
 
 .jkl-portal-grid {
     display: flex;
@@ -9,7 +11,7 @@
     }
 
     &__col {
-        margin: $layout-spacing--small;
+        margin: jkl.$spacing-l;
         flex: 1;
         &:first-child {
             margin-left: 0;

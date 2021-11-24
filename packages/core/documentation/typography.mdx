@@ -5,7 +5,7 @@ react: core
 group: layout
 ---
 
-import { DesktopExample, CompactExample } from "./Typography/Typography";
+import { NormalExample, SmallExample, LargeExample } from "./Typography/Typography";
 
 <Ingress>Vi tilbyr Sass-mixins og utility-klasser for alle de typografiske stilene i Jøkul.</Ingress>
 
@@ -13,20 +13,26 @@ import { DesktopExample, CompactExample } from "./Typography/Typography";
 
 For å bruke typografistilene kan du velge mellom å bruke utility-klassene direkte, eller å lage din egen klasse hvor du bruker Sass-mixins for å hente inn riktig stil. Vi anbefaler at du bruker mixins til å lage egne klasser når du lager komponenter til løsningen din, og at du bare bruker utility-klassene til løpende tekst og overskrifter.
 
-For å bruke mixin-ene må du ha satt opp støtte for Sass i prosjektet ditt, og importere dem der du skal bruke dem, f.eks. slik: `@import "~@fremtind/jkl-core/variables/_font-size.scss";`. Nøyaktig syntaks kan variere ut fra byggoppsettet ditt.
-
-Utility-klassene bytter automatisk mellom desktop-/kompakt variant ut fra skjermstørrelse.
+For å bruke mixin-ene må du ha satt opp støtte for Sass i prosjektet ditt, og importere Jøkul der du skal bruke dem, f.eks. slik: `@use "~@fremtind/jkl-core/jkl";`. Nøyaktig syntaks kan variere ut fra byggoppsettet ditt.
 
 Les mer om regler for typografi [under Profilen vår](/profil/typografi).
 
-### Desktop
+### Fontskala
 
-Dette er stilene du vanligvis skal bruke når du lager løsninger for skjermer fra tablet-størrelse og oppover. **NB!** utility-klassene vil automatisk bytte til kompakt variant på små skjermer.
+Dette er tekststilene som tilbys i Jøkul, og hvordan du bruker dem ved hjelp av mixins eller nytteklasser. Stilene tilpasses automatisk på små skjermer.
 
-<DesktopExample />
+<NormalExample />
 
-### Compact
+### Manuell styring av variant
 
-Disse stilene kan brukes i meget informasjonstette løsninger for internt bruk, og bør også brukes på mobiltelefon og tilsvarende skjermer. **NB!** utility-klassene vil automatisk bytte til desktop-variant på større skjermer. Om du vil tvinge frem kompakt modus må du bruke mixin-en i en klasse du selv spesifiserer.
+I de aller fleste tilfeller skal tekststilene brukes som de er, slik at tekststørrelsen tilpasses brukerens skjerm. I noen tilfeller kan det likevel være riktig å spesifisere varianten av en stil, som for eksempel når man lager en versjon av en komponent for informasjonstette løsninger.
 
-<CompactExample />
+For å velge variant må du bruke Sass-mixins, og spesifisere om du vil ha varianten for `small-screen` eller `large-screen`: `@include jkl.text-style("body/small-screen");`
+
+#### Fontskala for små skjermer
+
+<SmallExample />
+
+#### Fontskala for store skjermer
+
+<LargeExample />

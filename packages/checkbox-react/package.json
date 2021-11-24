@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-checkbox-react",
-    "version": "1.10.5",
+    "version": "5.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react checkbox component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "checkbox",
         "form",
@@ -34,11 +34,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-checkbox": "^1.4.15",
-        "@fremtind/jkl-core": "^4.21.1",
+        "@babel/runtime": "^7.16.3",
+        "@fremtind/jkl-checkbox": "^5.0.4",
+        "@fremtind/jkl-core": "^8.1.1",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.10"
+        "nanoid": "^3.1.30"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

@@ -5,16 +5,23 @@ scss: radio-button
 group: knapper
 ---
 
-import Example from "./Example";
+import { RadioButtonExample, radioButtonExampleCode } from "./RadioButtonExample";
+import {
+    RadioButtonInputRequiredExample,
+    radioButtonInputRequiredExampleCode,
+} from "./RadioButtonInputRequiredExample";
+import { RadioButtonPreselectedExample, radioButtonPreselectedExampleCode } from "./RadioButtonPreselectedExample";
 
 <Ingress>
     Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil
     fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en nedtrekksliste.
 </Ingress>
+
 <ComponentExample
-    component={Example}
+    title="Radioknapper"
+    component={RadioButtonExample}
     knobs={{
-        boolProps: ["Kompakt", "Inline", "Med feil", "Invertert"],
+        boolProps: ["Kompakt", "Med feil"],
         choiceProps: [
             {
                 name: "Variant",
@@ -23,15 +30,43 @@ import Example from "./Example";
             },
         ],
     }}
+    codeExample={radioButtonExampleCode}
 />
 
-Over radioknappene setter vi inn en tydelig overskrift, som forteller hva det er brukeren skal velge mellom. I tillegg skal hver radioknapp ha en kort og tydelig ledetekst til høyre for knappen, som beskriver alternativet.
+Over radioknappene setter vi normalt inn en tydelig overskrift, som forteller hva det er brukeren skal velge mellom. Radioknappene skal alltid beskrives med en slik overskrift, men den kan i noen tilfeller skjules visuelt. I tillegg skal hver radioknapp alltid ha en kort og tydelig ledetekst til høyre for knappen, som beskriver alternativet.
 
 ## Bruk
 
 En gruppe radioknapper kan enten settes opp under eller ved siden av hverandre. Det er mest brukervennlig å sette dem opp vertikalt.
 
-En av radioknappene bør alltid være valgt på forhånd. Det kan være det alternativet som de fleste vil velge, eller det som har minst følger for brukeren. I noen tilfeller kan det være viktig at brukeren selv velger, uten å bli påvirket av et forhåndsvalg. Da kan vi sette opp radioknapper uten forhåndsvalg. **Vis eksempler på det**
+I mange tilfeller er det viktig at brukeren selv velger, uten å bli påvirket av et forhåndsvalg. Da kan vi sette opp radioknapper uten forhåndsvalg.
+
+<ComponentExample
+    title="Uten forhåndsvalg"
+    component={RadioButtonInputRequiredExample}
+    knobs={{
+        boolProps: ["Inline", "Kompakt"],
+        choiceProps: [
+            {
+                name: "Variant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+    codeExample={radioButtonInputRequiredExampleCode}
+/>
+
+Der hvor det er mindre viktig at brukeren velger selv bør en av radioknappene alltid være valgt på forhånd. Det kan være det alternativet som de fleste vil velge, eller det som har minst følger for brukeren.
+
+<ComponentExample
+    title="Forhåndsvalgt og visuelt skjult label"
+    component={RadioButtonPreselectedExample}
+    knobs={{
+        boolProps: ["Inline", "Kompakt"],
+    }}
+    codeExample={radioButtonPreselectedExampleCode}
+/>
 
 ## Tekst og validering
 
@@ -40,4 +75,6 @@ Bruk prinsippene for skjemadesign når du velger størrelse på overskriften til
 Hvis radioknappene ikke validerer, viser systemet en feilmelding som forklarer hva som er galt. Feilmeldingen erstatter en eventuell hjelpetekst, så den må eventuelt gjenta det viktigste fra hjelpeteksten.
 
 Eksempel fra helsevurdering:
-**Hjelpetekst**: _Velg om du har hatt diagnosen de siste 5, 10 eller 15 årene_. **Feilmelding**: _Du har ikke valgt hvor lenge du har hatt diagnosen_.
+
+-   **Hjelpetekst**: _Velg om du har hatt diagnosen de siste 5, 10 eller 15 årene_.
+-   **Feilmelding**: _Du har ikke valgt hvor lenge du har hatt diagnosen_.

@@ -1,1 +1,2 @@
-export { InfoMessage, ErrorMessage, SuccessMessage, WarningMessage } from "./MessageBox";
+export type { MessageBoxProps } from "./MessageBox";
+export { InfoMessageBox, ErrorMessageBox, SuccessMessageBox, WarningMessageBox } from "./MessageBox";

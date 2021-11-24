@@ -1,21 +1,83 @@
+import faker from "faker";
 import React from "react";
-import ReactDOM from "react-dom";
 
-// Import core styles, webfonts and tab listener (same for all components):
-import { initTabListener } from "@fremtind/jkl-core";
-import "@fremtind/jkl-core/core.scss";
-import "../../webfonts/documentation/internal.scss";
+// Import utils for showing example
+import { renderExample, DevExample } from "../../../doc-utils";
 
-// Imports required for showing example (same for all components):
-import { DevExample } from "@fremtind/jkl-portal-components";
-import "@fremtind/jkl-portal-components/dev-example.min.css";
-import "@fremtind/jkl-radio-button/radio-button.min.css";
-import "@fremtind/jkl-checkbox/checkbox.min.css";
-
+import "../../button/button.css";
+import "../../icons/animated-icons.css";
 // Import actual example and component stylesheet (specific for this component):
-import Example from "./Example";
 import "@fremtind/jkl-table/table.css";
+import DataTableExample from "./DataTableExample";
+import ClickableTableExample from "./ClickableTableExample";
+import ActionTableExample from "./ActionTableExample";
+import MobileListTableExample from "./MobileListTableExample";
+import { DataTable } from "../src";
 
-initTabListener();
+const columns = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Avsetning", "Prosesser"];
 
-ReactDOM.render(<DevExample component={Example} />, document.getElementById("app"));
+const rows = Array.from(Array(100)).map(() => [
+    String(faker.datatype.number()),
+    faker.address.stateAbbr(),
+    faker.lorem.word(),
+    faker.system.semver(),
+    faker.finance.amount(),
+    faker.lorem.word(),
+]);
+
+renderExample(
+    <>
+        <DevExample
+            title="DataTable"
+            component={DataTableExample}
+            knobs={{
+                boolProps: ["Kompakt"],
+            }}
+        />
+        <DevExample
+            title="Mobil: tabell til liste"
+            component={MobileListTableExample}
+            knobs={{
+                choiceProps: [
+                    {
+                        name: "Mobilvisning",
+                        values: ["Tabell", "Liste"],
+                        defaultValue: 0,
+                    },
+                ],
+            }}
+        />
+        <DevExample
+            title="Klikkbar tabell"
+            component={ClickableTableExample}
+            knobs={{
+                boolProps: ["Kompakt", "Markér v/ klikk"],
+                choiceProps: [
+                    {
+                        name: "Mobilvisning",
+                        values: ["Tabell", "Liste"],
+                        defaultValue: 0,
+                    },
+                ],
+            }}
+        />
+        <DevExample
+            title="Tabell med knapper"
+            component={ActionTableExample}
+            knobs={{
+                boolProps: ["Kompakt"],
+                choiceProps: [
+                    {
+                        name: "Mobilvisning",
+                        values: ["Tabell", "Liste"],
+                        defaultValue: 0,
+                    },
+                ],
+            }}
+        />
+        <div>
+            <DataTable caption="Lang tabell" columns={columns} rows={rows} />
+        </div>
+    </>,
+    document.getElementById("app"),
+);

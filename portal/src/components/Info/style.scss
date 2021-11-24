@@ -1,5 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_spacing.scss";
+@use "~@fremtind/jkl-core/jkl";
 
 .portal-wc-info {
-    margin-bottom: $layout-spacing--large;
+    margin-bottom: jkl.$spacing-2xl;
 }

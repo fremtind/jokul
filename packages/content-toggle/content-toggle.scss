@@ -1,37 +1,98 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
+$animation-duration: 300ms;
+$half-animation-duration: calc(#{$animation-duration} / 2);
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 .jkl-content-toggle {
     height: 1.2em;
     overflow: hidden;
     display: block;
 
-    &--show-first {
-        transform: translateY(0);
-        & > span:last-child {
-            opacity: 0;
-        }
-    }
-
-    &--show-second {
-        transform: translateY(-50%);
-        & > span:first-child {
-            opacity: 0;
-        }
-    }
-
     &__slider {
-        display: flex;
-        flex-direction: column;
-        transition-property: transform;
-        @include motion(standard, expressive);
-        @media (prefers-reduced-motion) {
-            transition-property: none;
+        .jkl-content-toggle--flip > & {
+            display: flex;
+            flex-direction: column;
+            @include motion(standard, expressive);
+            transition-property: transform;
+
+            &[data-show="first"] {
+                transform: translateY(0);
+            }
+
+            &[data-show="second"] {
+                transform: translateY(-50%);
+            }
         }
 
-        & > span {
-            opacity: 1;
+        .jkl-content-toggle--fade > & {
+            animation-duration: $half-animation-duration;
+
+            &[data-initial="true"] {
+                animation-duration: 0ms;
+                & > .jkl-content-toggle__first,
+                & > .jkl-content-toggle__second {
+                    animation-delay: 0ms !important;
+                }
+            }
+        }
+    }
+
+    &__first,
+    &__second {
+        .jkl-content-toggle--fade & {
+            display: block;
+            animation-fill-mode: both;
+            animation-duration: inherit;
             transition-property: opacity;
-            @include motion(standard, expressive);
+        }
+    }
+
+    &__first {
+        .jkl-content-toggle--fade [data-show="first"] & {
+            animation-name: fadeIn;
+            animation-delay: $half-animation-duration;
+            visibility: hidden;
+        }
+        .jkl-content-toggle--fade [data-show="second"] & {
+            animation-name: fadeOut;
+            animation-delay: 0ms;
+        }
+    }
+
+    &__second {
+        .jkl-content-toggle--fade & {
+            transform: translateY(-100%);
+        }
+        .jkl-content-toggle--fade [data-show="first"] & {
+            animation-name: fadeOut;
+            animation-delay: 0ms;
+            visibility: visible;
+        }
+        .jkl-content-toggle--fade [data-show="second"] & {
+            animation-name: fadeIn;
+            animation-delay: $half-animation-duration;
         }
     }
 }

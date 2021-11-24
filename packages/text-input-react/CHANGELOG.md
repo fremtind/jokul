@@ -3,197 +3,279 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.5 (2021-11-18)
+
+### Bug Fixes
+
+- unngå å kutte toppen av Å i Chrome ([02e4922](https://github.com/fremtind/jokul/commit/02e49228682cd41d10ea5b8edb25f55eb253041b)), closes [#2503](https://github.com/fremtind/jokul/issues/2503)
+
+## 7.0.0 (2021-10-21)
+
+### chore
+
+- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### BREAKING CHANGES
+
+- depends on jkl-core v8 with breaking changes
+
+## 6.3.0 (2021-10-18)
+
+### Features
+
+- legg til støtte for en teller i TextArea ([c17c42b](https://github.com/fremtind/jokul/commit/c17c42bb736f5c30f14cd9aa9d7c7863db16edf4)), closes [#1477](https://github.com/fremtind/jokul/issues/1477)
+
+## 6.2.2 (2021-09-30)
+
+### Bug Fixes
+
+- sync padding i TextInput med Figma ([f269f4f](https://github.com/fremtind/jokul/commit/f269f4f2750caad0d2bcf01d1b84b20dff048131))
+
+## 6.2.0 (2021-09-15)
+
+### Features
+
+- **text-area:** add inline and startOpen props ([88e4897](https://github.com/fremtind/jokul/commit/88e4897c50e490fa427208bca4c212093bb8db40))
+
+## 6.1.0 (2021-09-07)
+
+### Features
+
+- add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
+
+## 6.0.6 (2021-09-03)
+
+### Bug Fixes
+
+- default variant should be small ([ce1c05b](https://github.com/fremtind/jokul/commit/ce1c05bd9344f03b41ea23068d0f66e20714d134))
+
+## 6.0.0 (2021-07-09)
+
+### Features
+
+- use new typographic scale ([8b9c490](https://github.com/fremtind/jokul/commit/8b9c4906b76a19f0b6abb158781d5a7564ad793e))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
+## 5.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
+
+## 4.0.0 (2021-06-07)
+
+### Features
+
+-   upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+
+### BREAKING CHANGES
+
+-   Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+
+## 3.8.15 (2021-06-02)
+
+### Bug Fixes
+
+-   **text-area:** remove describedby attr when field has no message ([dddc472](https://github.com/fremtind/jokul/commit/dddc472ff7b6ed47ac96f15128b9f00d24a9c4cf))
+
 ## 3.8.8 (2021-02-16)
 
 ### Bug Fixes
 
-- **text-input:** expose default value prop ([11d7525](https://github.com/fremtind/jokul/commit/11d752585e2fa39b25b9386591ba224b087a2d2b))
+-   **text-input:** expose default value prop ([11d7525](https://github.com/fremtind/jokul/commit/11d752585e2fa39b25b9386591ba224b087a2d2b))
 
 ## 3.8.7 (2021-02-12)
 
 ### Bug Fixes
 
-- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+-   add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
 
 ## 3.8.0 (2020-12-15)
 
 ### Features
 
-- display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
+-   display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
 
 ## 3.7.0 (2020-11-25)
 
 ### Features
 
-- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+-   update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
 
 ## 3.6.0 (2020-11-12)
 
 ### Features
 
-- **text-input-react:** add onClick prop to BaseInputField ([a45fd3d](https://github.com/fremtind/jokul/commit/a45fd3def73ec13ca8d57778cec3eec36482f701))
+-   **text-input-react:** add onClick prop to BaseInputField ([a45fd3d](https://github.com/fremtind/jokul/commit/a45fd3def73ec13ca8d57778cec3eec36482f701))
 
 ## 3.5.14 (2020-10-28)
 
 ### Bug Fixes
 
-- update related to match sorter ([5e43a3c](https://github.com/fremtind/jokul/commit/5e43a3ca1fc3ad25bbb522deb763821f52462f88))
+-   update related to match sorter ([5e43a3c](https://github.com/fremtind/jokul/commit/5e43a3ca1fc3ad25bbb522deb763821f52462f88))
 
 ## 3.5.10 (2020-09-24)
 
 ### Bug Fixes
 
-- **text-input:** changes alignment ([fd044a8](https://github.com/fremtind/jokul/commit/fd044a87e10eb0841d5205e50e544904f54f99c3))
+-   **text-input:** changes alignment ([fd044a8](https://github.com/fremtind/jokul/commit/fd044a87e10eb0841d5205e50e544904f54f99c3))
 
 ## 3.5.9 (2020-09-11)
 
 ### Bug Fixes
 
-- **text-input:** uses search icon ([1c00d95](https://github.com/fremtind/jokul/commit/1c00d954f642454847b501f591732aca2dec3fde))
+-   **text-input:** uses search icon ([1c00d95](https://github.com/fremtind/jokul/commit/1c00d954f642454847b501f591732aca2dec3fde))
 
 ## 3.5.0 (2020-08-26)
 
 ### Features
 
-- **autosuggest:** add autosuggest component ([ac3d399](https://github.com/fremtind/jokul/commit/ac3d3996be720d93ae4396dbdb120a1911e6025f))
+-   **autosuggest:** add autosuggest component ([ac3d399](https://github.com/fremtind/jokul/commit/ac3d3996be720d93ae4396dbdb120a1911e6025f))
 
 ## 3.4.0 (2020-07-29)
 
 ### Features
 
-- **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+-   **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
 
 ## 3.3.9 (2020-06-26)
 
 ### Bug Fixes
 
-- align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
+-   align nanoid version, and migrate to 3 ([a3d571d](https://github.com/fremtind/jokul/commit/a3d571db3e18937d40df5268c8f711232a72314e))
 
 ## 3.3.3 (2020-06-04)
 
 ### Bug Fixes
 
-- **text-input:** account for padding when setting width ([819a138](https://github.com/fremtind/jokul/commit/819a1380ed7418feacd4a6366fe589e722c3737a)), closes [#965](https://github.com/fremtind/jokul/issues/965)
-- **text-input:** remove extraneous class from input field ([5cc474e](https://github.com/fremtind/jokul/commit/5cc474e91de771439108ee6cbc826ff6d3de06be)), closes [#969](https://github.com/fremtind/jokul/issues/969)
+-   **text-input:** account for padding when setting width ([819a138](https://github.com/fremtind/jokul/commit/819a1380ed7418feacd4a6366fe589e722c3737a)), closes [#965](https://github.com/fremtind/jokul/issues/965)
+-   **text-input:** remove extraneous class from input field ([5cc474e](https://github.com/fremtind/jokul/commit/5cc474e91de771439108ee6cbc826ff6d3de06be)), closes [#969](https://github.com/fremtind/jokul/issues/969)
 
 ## 3.3.1 (2020-05-27)
 
 ### Bug Fixes
 
-- **text-input-react:** add missing nanoid dependency ([9f17ad1](https://github.com/fremtind/jokul/commit/9f17ad15ee7e45555b95da375231da0e37c2276e))
+-   **text-input-react:** add missing nanoid dependency ([9f17ad1](https://github.com/fremtind/jokul/commit/9f17ad15ee7e45555b95da375231da0e37c2276e))
 
 ## 3.3.0 (2020-05-20)
 
 ### Bug Fixes
 
-- export interface in an actual functioning manner ([928222b](https://github.com/fremtind/jokul/commit/928222b619e5964c45d9fc33a4c980ba8d68750c))
+-   export interface in an actual functioning manner ([928222b](https://github.com/fremtind/jokul/commit/928222b619e5964c45d9fc33a4c980ba8d68750c))
 
 ### Features
 
-- expose prop interface for textinput and button ([5be19a4](https://github.com/fremtind/jokul/commit/5be19a4d7af4ae80fcda180faf0473960de868ff))
+-   expose prop interface for textinput and button ([5be19a4](https://github.com/fremtind/jokul/commit/5be19a4d7af4ae80fcda180faf0473960de868ff))
 
 ## 3.2.0 (2020-05-13)
 
 ### Bug Fixes
 
-- import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
-- **BaseInputField:** fix proper passing of className prop ([#950](https://github.com/fremtind/jokul/issues/950)) ([d76736a](https://github.com/fremtind/jokul/commit/d76736ad67dae896b573b7267e1719e694ab1778))
+-   import labels and links from core ([f2bba87](https://github.com/fremtind/jokul/commit/f2bba87aab70e887e44b11b4f390324ab3fa5a2b))
+-   **BaseInputField:** fix proper passing of className prop ([#950](https://github.com/fremtind/jokul/issues/950)) ([d76736a](https://github.com/fremtind/jokul/commit/d76736ad67dae896b573b7267e1719e694ab1778))
 
 ### Features
 
-- **text-input:** expose more properties on action button ([cea9e75](https://github.com/fremtind/jokul/commit/cea9e758a768fa5b3e66bbaf3943e23e5b617929))
+-   **text-input:** expose more properties on action button ([cea9e75](https://github.com/fremtind/jokul/commit/cea9e758a768fa5b3e66bbaf3943e23e5b617929))
 
 ## 3.1.0 (2020-05-11)
 
 ### Features
 
-- **text-input-react:** add functionality to pass onKey events ([3abc52f](https://github.com/fremtind/jokul/commit/3abc52fa6b0afabb890f4a18a27f3f24bb1a6d44))
+-   **text-input-react:** add functionality to pass onKey events ([3abc52f](https://github.com/fremtind/jokul/commit/3abc52fa6b0afabb890f4a18a27f3f24bb1a6d44))
 
 ## 3.0.0 (2020-04-27)
 
 ### Bug Fixes
 
-- **text-input-react:** ensure consistent hook calls ([db29140](https://github.com/fremtind/jokul/commit/db2914018817d3b16d6acaadf4fdd626cfef9fd2))
-- **textarea:** ensure correct initial height for autoexpand ([3aac406](https://github.com/fremtind/jokul/commit/3aac40669722043fd4688041883480cd2fedb07e))
+-   **text-input-react:** ensure consistent hook calls ([db29140](https://github.com/fremtind/jokul/commit/db2914018817d3b16d6acaadf4fdd626cfef9fd2))
+-   **textarea:** ensure correct initial height for autoexpand ([3aac406](https://github.com/fremtind/jokul/commit/3aac40669722043fd4688041883480cd2fedb07e))
 
 ### Features
 
-- **text-area:** add support for inverted mode ([152dd5e](https://github.com/fremtind/jokul/commit/152dd5eede1d915f390f21308b4fe6efcf6326ca))
-- **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
-- **text-input:** start implementing new text inputs ([b2bcfab](https://github.com/fremtind/jokul/commit/b2bcfab37a4c1da542ebd49ad5fdba249e17b63a))
-- **text-input-react:** add support for ref forwarding ([8b2a517](https://github.com/fremtind/jokul/commit/8b2a5172c6e66f880957aa7f576eb6eb9ca4fb17))
-- **text-input-react:** expose base input component ([15b0409](https://github.com/fremtind/jokul/commit/15b04091b1f5771e850a30edc31d2ff14cd52d96))
-- add support for inverted error labels ([a55f35b](https://github.com/fremtind/jokul/commit/a55f35b91d98e1ddd82da3b138ff3edd8de5b5a5))
+-   **text-area:** add support for inverted mode ([152dd5e](https://github.com/fremtind/jokul/commit/152dd5eede1d915f390f21308b4fe6efcf6326ca))
+-   **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
+-   **text-input:** start implementing new text inputs ([b2bcfab](https://github.com/fremtind/jokul/commit/b2bcfab37a4c1da542ebd49ad5fdba249e17b63a))
+-   **text-input-react:** add support for ref forwarding ([8b2a517](https://github.com/fremtind/jokul/commit/8b2a5172c6e66f880957aa7f576eb6eb9ca4fb17))
+-   **text-input-react:** expose base input component ([15b0409](https://github.com/fremtind/jokul/commit/15b04091b1f5771e850a30edc31d2ff14cd52d96))
+-   add support for inverted error labels ([a55f35b](https://github.com/fremtind/jokul/commit/a55f35b91d98e1ddd82da3b138ff3edd8de5b5a5))
 
 ### BREAKING CHANGES
 
-- **text-input-react:** Behaviour of refs on TextArea and TextInput may change
-- **text-input:** * TextField is now called TextInput|* The following variants have all been integrated into
-TextInput: ActionTextField, InlineTextField, BaseInputField
+-   **text-input-react:** Behaviour of refs on TextArea and TextInput may change
+-   **text-input:** _ TextField is now called TextInput|_ The following variants have all been integrated into
+    TextInput: ActionTextField, InlineTextField, BaseInputField
 
 ## 2.0.0 (2020-03-30)
 
 ### Documentation
 
-- update README.md ([54a30c8](https://github.com/fremtind/jokul/commit/54a30c8770107bf4aded0b8bc73ec8ab88767000))
+-   update README.md ([54a30c8](https://github.com/fremtind/jokul/commit/54a30c8770107bf4aded0b8bc73ec8ab88767000))
 
 ### BREAKING CHANGES
 
-- you must import icon-button styles
+-   you must import icon-button styles
 
 ## 1.3.3 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
-- **removed tests:** removed test for autoexpand ([9019667](https://github.com/fremtind/jokul/commit/9019667e73c80d11e86aaa20fe681de176808d16)), closes [#851](https://github.com/fremtind/jokul/issues/851)
-- **suppoert for autoexpand:** support for autoexpand ([8720e08](https://github.com/fremtind/jokul/commit/8720e08b108204546c2e538df7c0ed59898046e9))
-- **support for autoexpand:** added support for autoexpand ([0732d67](https://github.com/fremtind/jokul/commit/0732d671b125e7419045f8b7237a64a0677f0e5e)), closes [#851](https://github.com/fremtind/jokul/issues/851)
-- **text-input-react:** fix correct height with long placeholder ([10acacb](https://github.com/fremtind/jokul/commit/10acacb14c5abe77b737b16d51185dd00f8d587e))
-- **text-input-react:** fix wrong firefox height ([d32498a](https://github.com/fremtind/jokul/commit/d32498a3baecbcc7a92864a2e6b6bf82d7b14fd9))
-- **text-input-react:** only set rows when auto expanding ([400d836](https://github.com/fremtind/jokul/commit/400d8369e8afc8a4cbb37ccceef51282203e10de))
-- **text-input-react:** remove unnecessary overflowY hidden ([00d0046](https://github.com/fremtind/jokul/commit/00d0046430bb8d3699ea0ed8fcaff286b752e64e))
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   **removed tests:** removed test for autoexpand ([9019667](https://github.com/fremtind/jokul/commit/9019667e73c80d11e86aaa20fe681de176808d16)), closes [#851](https://github.com/fremtind/jokul/issues/851)
+-   **suppoert for autoexpand:** support for autoexpand ([8720e08](https://github.com/fremtind/jokul/commit/8720e08b108204546c2e538df7c0ed59898046e9))
+-   **support for autoexpand:** added support for autoexpand ([0732d67](https://github.com/fremtind/jokul/commit/0732d671b125e7419045f8b7237a64a0677f0e5e)), closes [#851](https://github.com/fremtind/jokul/issues/851)
+-   **text-input-react:** fix correct height with long placeholder ([10acacb](https://github.com/fremtind/jokul/commit/10acacb14c5abe77b737b16d51185dd00f8d587e))
+-   **text-input-react:** fix wrong firefox height ([d32498a](https://github.com/fremtind/jokul/commit/d32498a3baecbcc7a92864a2e6b6bf82d7b14fd9))
+-   **text-input-react:** only set rows when auto expanding ([400d836](https://github.com/fremtind/jokul/commit/400d8369e8afc8a4cbb37ccceef51282203e10de))
+-   **text-input-react:** remove unnecessary overflowY hidden ([00d0046](https://github.com/fremtind/jokul/commit/00d0046430bb8d3699ea0ed8fcaff286b752e64e))
 
 ## 1.3.0 (2020-03-06)
 
 ### Features
 
-- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
-- **text-input-react:** add autoExpand to TextArea ([919193b](https://github.com/fremtind/jokul/commit/919193b542c50c583da6d4575386cce3e1ae758c)), closes [#769](https://github.com/fremtind/jokul/issues/769)
+-   **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+-   **text-input-react:** add autoExpand to TextArea ([919193b](https://github.com/fremtind/jokul/commit/919193b542c50c583da6d4575386cce3e1ae758c)), closes [#769](https://github.com/fremtind/jokul/issues/769)
 
 ## 1.2.1 (2020-02-24)
 
 ### Bug Fixes
 
-- **text-input-react:** adjust size of "clear" action icon ([19761c4](https://github.com/fremtind/jokul/commit/19761c44fdea534fdc177a3753db10e8d0b53870))
+-   **text-input-react:** adjust size of "clear" action icon ([19761c4](https://github.com/fremtind/jokul/commit/19761c44fdea534fdc177a3753db10e8d0b53870))
 
 ## 1.2.0 (2020-02-19)
 
 ### Bug Fixes
 
-- **text-input-react:** fix cropped search icon ([5d45405](https://github.com/fremtind/jokul/commit/5d4540517ab748111a25c598ba282bf72ca2a3e2))
+-   **text-input-react:** fix cropped search icon ([5d45405](https://github.com/fremtind/jokul/commit/5d4540517ab748111a25c598ba282bf72ca2a3e2))
 
 ### Features
 
-- **text-input:** tweak action icon placement and add focus state ([7b37ee1](https://github.com/fremtind/jokul/commit/7b37ee1bd6aee1c33db48f3b85024693d63790dd))
+-   **text-input:** tweak action icon placement and add focus state ([7b37ee1](https://github.com/fremtind/jokul/commit/7b37ee1bd6aee1c33db48f3b85024693d63790dd))
 
 ## 1.1.2 (2020-02-18)
 
 ### Bug Fixes
 
-- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+-   **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- **text-input:** fix lint ([50145a2](https://github.com/fremtind/jokul/commit/50145a29f0c7760b7b9664ff0ea47b6089767216))
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   **text-input:** fix lint ([50145a2](https://github.com/fremtind/jokul/commit/50145a29f0c7760b7b9664ff0ea47b6089767216))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
-- update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+-   **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+-   update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
 
 ## 1.0.0 (2019-12-03)
 

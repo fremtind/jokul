@@ -1,5 +1,5 @@
 {
-    "packages": ["packages/*", "portal"],
+    "packages": ["packages/*"],
     "version": "independent",
     "useWorkspaces": true,
     "npmClient": "yarn",
@@ -9,7 +9,7 @@
             "registry": "https://registry.npmjs.org/",
             "access": "public",
             "npmClient": "yarn",
-            "allowBranch": ["master", "release"],
+            "allowBranch": ["main", "release"],
             "ignoreChanges": [
                 ".eslintrc",
                 ".prettierrc",
@@ -17,8 +17,12 @@
                 ".npmignore",
                 ".npmrc",
                 "*.md",
+                "*.mdx",
                 "*.test.js",
-                "jest/**/*"
+                "*.test.ts",
+                "*.test.tsx",
+                "jest/**/*",
+                "**/documentation/**/*"
             ],
             "message": "chore(release): publish [ci skip release]"
         }

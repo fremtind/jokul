@@ -1,17 +1,27 @@
 import React, { FC } from "react";
 import classNames from "classnames";
 
-interface Props {
+export interface SupportLabelProps {
     id?: string;
     helpLabel?: string;
     errorLabel?: string;
     forceCompact?: boolean;
     className?: string;
     srOnly?: boolean;
+    /** @deprecated */
     inverted?: boolean;
 }
 
-export const SupportLabel: FC<Props> = ({ id, helpLabel, errorLabel, forceCompact, className, srOnly, inverted }) => {
+export const SupportLabel: FC<SupportLabelProps> = ({
+    id,
+    helpLabel,
+    errorLabel,
+    forceCompact,
+    className,
+    srOnly,
+    inverted,
+    ...rest
+}) => {
     const componentClassName = classNames("jkl-form-support-label", className, {
         "jkl-form-support-label--compact": forceCompact,
         "jkl-form-support-label--error": errorLabel,
@@ -22,7 +32,7 @@ export const SupportLabel: FC<Props> = ({ id, helpLabel, errorLabel, forceCompac
 
     if (errorLabel || helpLabel) {
         return (
-            <span id={id} className={componentClassName}>
+            <span id={id} className={componentClassName} {...rest}>
                 {errorLabel || helpLabel}
             </span>
         );

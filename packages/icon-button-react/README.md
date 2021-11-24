@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-icon-button-react`](https://fremtind.github.io/jokul/komponenter/iconbutton)
+# [`@fremtind/jkl-icon-button-react`](https://jokul.fremtind.no/komponenter/iconbutton)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/iconbutton).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/iconbutton).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -29,10 +29,8 @@ Komponentene tar følgende props:
 -   `buttonTitle`: Serverer som hjelpetekst. `string`
 -   `onClick`: **Påkrevd**. Klikkhåndtering for knappen. Får en MouseEvent som første argument. `MouseEventHandler<HTMLButtonElement>`
 
-
 En enkel bruk av knapper kan se slik ut:
 
 ```jsx
 <IconButton iconType="calendar" onClick={onClick} buttonTitle="Vis kalendar" />
 ```
-

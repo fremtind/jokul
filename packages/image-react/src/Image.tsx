@@ -10,6 +10,7 @@ export interface Props {
     thumbnail?: string;
     largeSize?: string;
     className?: string;
+    /** @deprecated */
     inverted?: boolean;
     backgroundColor?: string;
 }

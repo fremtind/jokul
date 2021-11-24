@@ -1,15 +1,16 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 .jkl-portal-theme-bg {
-    z-index: $z-index--hidden;
+    z-index: jkl.$z-index--hidden;
     width: 100vw;
     height: 0vh;
     box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: $svart;
+    background-color: jkl.$color-svart;
 
     @include motion("standard", "lazy");
     transition-property: height;

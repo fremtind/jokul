@@ -1,4 +1,7 @@
-@import "../../variables/all";
+@use "../../jkl";
+
+@import "../../functions";
+@import "../../mixins/all";
 
 .jkl-typography-example-table {
     border: 0;
@@ -7,8 +10,8 @@
 
     &__data,
     &__header {
-        padding: $component-spacing--small;
-        @include jkl-text-style("compact/body");
+        padding: jkl.$spacing-xs;
+        @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -16,14 +19,14 @@
     }
 
     &__header {
-        font-weight: $bold-weight;
-        border-bottom-color: $svart;
+        font-weight: jkl.$typography-weight-bold;
+        border-bottom-color: jkl.$color-granitt;
         min-height: rem(40px);
     }
 
     &__data {
-        border-bottom-color: $gra-50;
-        padding-bottom: $component-spacing--large;
+        border-bottom-color: jkl.$color-stein;
+        padding-bottom: jkl.$spacing-m;
         min-height: rem(48px);
     }
 
@@ -40,11 +43,11 @@
 
             &::before {
                 content: attr(data-header);
-                margin-right: $layout-spacing--medium;
+                margin-right: jkl.$spacing-xl;
             }
 
             &:first-of-type::before {
-                font-weight: $bold-weight;
+                font-weight: jkl.$typography-weight-bold;
             }
         }
 
@@ -52,8 +55,37 @@
             display: block;
 
             &:not(:last-of-type) {
-                margin-bottom: $layout-spacing--medium;
+                margin-bottom: jkl.$spacing-xl;
             }
+        }
+    }
+}
+
+@each $variant in ("small-screen", "large-screen") {
+    .force-#{$variant} {
+        .jkl-title {
+            @include jkl.text-style("title/#{$variant}");
+        }
+        .jkl-heading-1 {
+            @include jkl.text-style("heading-1/#{$variant}");
+        }
+        .jkl-heading-2 {
+            @include jkl.text-style("heading-2/#{$variant}");
+        }
+        .jkl-heading-3 {
+            @include jkl.text-style("heading-3/#{$variant}");
+        }
+        .jkl-heading-4 {
+            @include jkl.text-style("heading-4/#{$variant}");
+        }
+        .jkl-heading-5 {
+            @include jkl.text-style("heading-5/#{$variant}");
+        }
+        .jkl-body {
+            @include jkl.text-style("body/#{$variant}");
+        }
+        .jkl-small {
+            @include jkl.text-style("small/#{$variant}");
         }
     }
 }

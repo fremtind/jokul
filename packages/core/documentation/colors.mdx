@@ -10,11 +10,13 @@ Les mer om fargene [her](/profil/farger).
 
 For å ta i bruk fargene må du ha oppsett for sass i ditt prosjekt, normalt vil i importen i dine sass filer bli:
 
-`@import "~@fremtind/jkl-core/variables/_colors.scss";`
+`@use "~@fremtind/jkl-core/variables/_colors.scss";`
 
 eller om du har behov for flere variabler enn farger:
 
-`@import "~@fremtind/jkl-core/variables/_all.scss";`
+`@use "~@fremtind/jkl-core/jkl";`
+
+Fargene referers til med variabelnavn etter mønster `jkl.$color-hvit;`
 
 Klikk på fargene for å kopiere scss-variabelnavnet til clipboard
 
@@ -26,4 +28,4 @@ Klikk på fargene for å kopiere scss-variabelnavnet til clipboard
 
 farger som util klasser
 
-Disse klassene er strengt tatt ut og brukes i dokumentasjon der det er behov, bruker vanligvis ikke disse klassene, men først og fremst fargevariablene ovenfor.
+Vi bruker vanligvis ikke disse klassene, men først og fremst fargevariablene ovenfor.

@@ -1,9 +1,17 @@
-@import "./variables/all";
+@use "./jkl";
+
 @import "./mixins/all";
 @import "./functions";
 
 @mixin underline-gradient($color) {
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
+}
+
+@mixin border-gradient($color) {
+    border-width: #{$link-underline-thickness};
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
 $right-arrow: "\2192"; // unicode right arrow
@@ -13,19 +21,22 @@ $north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 $link-underline-thickness: rem(1px);
 $link-underline-thickness--hover: rem(2px);
 
-$link-color: $svart;
-$link-active-color: $info;
+$link-color: jkl.$color-granitt;
+$link-hover-color: jkl.$color-stein;
+$link-active-color: jkl.$color-granitt;
 
-$link-color--inverted: $hvit;
-$link-active-color--inverted: $info--darkbg;
+$link-color--inverted: jkl.$color-snohvit;
+$link-hover-color--inverted: jkl.$color-svaberg;
+$link-active-color--inverted: jkl.$color-snohvit;
 
-:root,
-[data-theme="light"] {
+@include light-mode-variables {
     --link-color: #{$link-color};
+    --link-hover-color: #{$link-hover-color};
     --link-active-color: #{$link-active-color};
 }
-[data-theme="dark"] {
+@include dark-mode-variables {
     --link-color: #{$link-color--inverted};
+    --link-hover-color: #{$link-hover-color--inverted};
     --link-active-color: #{$link-active-color--inverted};
 }
 
@@ -42,14 +53,26 @@ $link-active-color--inverted: $info--darkbg;
     outline: none;
     text-decoration: none;
 
-    html:not([data-mousenavigation]) &:focus,
-    &:hover {
-        color: $link-active-color;
-        color: var(--link-active-color);
-        @include underline-gradient($link-active-color);
-        @include underline-gradient(var(--link-active-color));
+    &:hover:not(:focus) {
+        color: $link-hover-color;
+        color: var(--link-hover-color);
+        @include underline-gradient($link-hover-color);
+        @include underline-gradient(var(--link-hover-color));
         background-position: 0 100%;
         background-size: $link-underline-thickness--hover $link-underline-thickness--hover;
+    }
+
+    &:hover &:focus {
+        color: $link-color;
+        color: var(--link-color);
+        @include underline-gradient($link-color);
+        @include underline-gradient(var(--link-color));
+    }
+
+    html:not([data-mousenavigation]) &:focus {
+        @include no-grow-bold;
+        @include border-gradient($link-active-color);
+        @include border-gradient(var(--link-active-color));
     }
 
     &:active {
@@ -67,13 +90,9 @@ $link-active-color--inverted: $info--darkbg;
     }
 
     &--negative {
-        color: $link-color--inverted;
-
-        html:not([data-mousenavigation]) &:focus,
-        &:hover {
-            color: $link-active-color--inverted;
-            @include underline-gradient($link-active-color--inverted);
-        }
+        --link-color: #{$link-color--inverted};
+        --link-hover-color: #{$link-hover-color--inverted};
+        --link-active-color: #{$link-active-color--inverted};
     }
 }
 
@@ -83,7 +102,7 @@ $link-active-color--inverted: $info--darkbg;
 
     @include reset-outline;
     box-sizing: border-box;
-    font-weight: $normal-weight;
+    font-weight: jkl.$typography-weight-normal;
     text-decoration: none;
     position: relative;
     padding-right: 1.2em;
@@ -97,10 +116,19 @@ $link-active-color--inverted: $info--darkbg;
         transition-property: transform;
     }
 
-    &:hover,
+    &:hover:not(:focus) {
+        color: $link-hover-color;
+        color: var(--link-hover-color);
+
+        &:after {
+            transform: translateX(33%);
+        }
+    }
+
     html:not([data-mousenavigation]) &:focus {
-        color: $link-active-color;
-        color: var(--link-active-color);
+        @include border-gradient($link-color);
+        @include border-gradient(var(--link-color));
+        @include no-grow-bold;
 
         &:after {
             transform: translateX(33%);
@@ -112,19 +140,16 @@ $link-active-color--inverted: $info--darkbg;
     }
 
     &--inverted {
-        color: $link-color--inverted;
-
-        &:hover,
-        html:not([data-mousenavigation]) &:focus {
-            color: $link-active-color--inverted;
-        }
+        --link-color: #{$link-color--inverted};
+        --link-hover-color: #{$link-hover-color--inverted};
+        --link-active-color: #{$link-active-color--inverted};
     }
 }
 
 .jkl-nav-link--back {
     padding-right: 0;
     padding-left: 1em;
-    
+
     &:after {
         display: none;
     }
@@ -132,7 +157,7 @@ $link-active-color--inverted: $info--darkbg;
     &:before {
         position: absolute;
         left: 0;
-        top: rem(-2px);
+        top: 0;
         content: $left-arrow;
         transform: translateX(0);
         @include motion("standard");

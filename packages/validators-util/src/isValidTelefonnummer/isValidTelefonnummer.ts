@@ -1,3 +1,3 @@
 export const PHONENR_REGEX = /^\d{8}$/;
 
-export const isValidTelefonnummer = (value: string) => PHONENR_REGEX.test(value);
+export const isValidTelefonnummer = (value: string): boolean => PHONENR_REGEX.test(value);

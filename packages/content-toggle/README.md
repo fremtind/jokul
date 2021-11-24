@@ -1,1 +1,1 @@
-# [`@fremtind/jkl-content-toggle`](https://fremtind.github.io/jokul/komponenter/contenttoggle)
+# [`@fremtind/jkl-content-toggle`](https://jokul.fremtind.no/komponenter/contenttoggle)

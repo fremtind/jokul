@@ -1,0 +1,57 @@
+@use "../../packages/core/jkl";
+
+@import "../../packages/core/_functions.scss";
+@import "../../packages/core/mixins/_all.scss";
+@import "../../packages/core/variables/_all.scss";
+
+@include jkl.helper-light-mode-variables {
+    --code-block-bg-color: #{jkl.$color-hvit};
+    --code-block-focus-color: #{jkl.$color-granitt};
+    --language-tag-bg-color: #{jkl.$color-svart};
+    --language-tag-text-color: #{jkl.$color-snohvit};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --code-block-bg-color: #{jkl.$color-svart};
+    --code-block-focus-color: #{jkl.$color-snohvit};
+    --language-tag-bg-color: #{jkl.$color-stein};
+    --language-tag-text-color: #{jkl.$color-granitt};
+}
+
+.jkl-portal-code-block {
+    position: relative;
+    background-color: var(--code-block-bg-color);
+    box-sizing: border-box;
+    border-radius: rem(2px);
+    width: 100%;
+    padding: jkl.$spacing-s;
+    max-width: min(#{rem(750px)}, 50vw);
+
+    @include small-device {
+        width: calc(100% - #{jkl.$spacing-xl});
+        max-width: 100%;
+        min-width: initial;
+    }
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: jkl.$spacing-xs;
+        background-color: var(--language-tag-bg-color);
+        color: jkl.$color-snohvit;
+        @include jkl.text-style("small");
+        text-transform: uppercase;
+        content: attr(data-language);
+    }
+
+    &__code {
+        display: block;
+        padding: jkl.$spacing-l jkl.$spacing-m;
+        overflow-x: scroll;
+    }
+
+    html:not([data-mousenavigation]) &:focus-within {
+        box-shadow: 0 0 0 rem(2px) var(--code-block-focus-color);
+    }
+}

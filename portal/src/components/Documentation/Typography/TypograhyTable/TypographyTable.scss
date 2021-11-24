@@ -1,4 +1,7 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/functions";
 
 .jkl-typography-table {
     border: 0;
@@ -7,8 +10,8 @@
 
     &__data,
     &__header {
-        padding: $component-spacing--small;
-        @include jkl-text-style("desktop/body");
+        padding: jkl.$spacing-xs;
+        @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -16,14 +19,14 @@
     }
 
     &__header {
-        font-weight: $bold-weight;
-        border-bottom-color: $svart;
+        font-weight: jkl.$typography-weight-bold;
+        border-bottom-color: jkl.$color-granitt;
         min-height: rem(48px);
     }
 
     &__data {
-        border-bottom-color: $gra-50;
-        padding-bottom: $component-spacing--large;
+        border-bottom-color: jkl.$color-stein;
+        padding-bottom: jkl.$spacing-m;
         min-height: rem(64px);
     }
 
@@ -44,7 +47,8 @@
                 margin-left: 0;
             }
             &::before {
-                @include jkl-text-style("desktop/micro");
+                @include jkl.text-style("small");
+                color: jkl.$color-stein;
                 content: attr(data-rowtitle);
                 position: absolute;
                 top: 13px;
@@ -52,7 +56,7 @@
             }
         }
         &__row {
-            border-bottom: 1px solid $gra-50;
+            border-bottom: 1px solid jkl.$color-stein;
         }
     }
 }

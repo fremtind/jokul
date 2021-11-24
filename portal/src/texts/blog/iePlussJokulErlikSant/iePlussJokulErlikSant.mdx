@@ -5,9 +5,19 @@ author: Jo Emil Holen
 publishDate: "2020.08.05"
 ---
 
-"Vi må støtte IE 11" trenger ikke være den verste setningen en utvikler kan høre. Med noen enkle steg kan man komme veldig langt uten å hverken måtte snu opp-ned på markup eller kode.
+import { WarningMessageBox } from "@fremtind/jkl-message-box-react";
 
-*Oppdatert 2020.09.03 for NanoID.*
+<WarningMessageBox title="Du ser på en gammel bloggpost" className="jkl-spacing-2xl--bottom">
+    Støtten for Internet Explorer har blitt droppet i Jøkul etter at denne bloggposten ble skrevet.
+</WarningMessageBox>
+
+<Ingress>
+    "Vi må støtte IE 11" trenger ikke være den verste setningen en utvikler kan høre. Med noen enkle steg kan man komme
+    veldig langt uten å hverken måtte snu opp-ned på markup eller kode.
+</Ingress>
+
+-   Oppdatert 2021.11.15: [IE-støtte droppes i Jøkul](/blog/jokul-dropper-ie-stotte/).
+-   Oppdatert 2020.09.03: NanoID.
 
 ## Steg én: Polyfill JavaScript for IE 11
 
@@ -22,16 +32,15 @@ Legg til følgende konfigurasjon i `package.json`:
 
 BrowsersList forteller verktøy som [Babel](https://babeljs.io/docs/en/babel-preset-env) og [PostCSS](https://github.com/postcss/autoprefixer#browsers) hvilke polyfills som kreves. I tillegg til dette må vi registrere noen ekstra polyfills:
 
-
 ```javascript
 import "document-register-element";
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 ```
 
-- `document-register-element` polyfiller [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
-- `react-app-polyfill/ie11` polyfiller f.eks `Promise`, `fetch` og [noen andre nyttige funksjoner](https://www.npmjs.com/package/react-app-polyfill).
-- `react-app-polyfill/stable` polyfiller [ytteligere JavaScript-funksjoner som ikke er støttet](https://www.npmjs.com/package/react-app-polyfill#polyfilling-other-language-features).
+-   `document-register-element` polyfiller [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
+-   `react-app-polyfill/ie11` polyfiller f.eks `Promise`, `fetch` og [noen andre nyttige funksjoner](https://www.npmjs.com/package/react-app-polyfill).
+-   `react-app-polyfill/stable` polyfiller [ytteligere JavaScript-funksjoner som ikke er støttet](https://www.npmjs.com/package/react-app-polyfill#polyfilling-other-language-features).
 
 Jøkul bruker [NanoID](https://github.com/ai/nanoid), som ikke lenger støtter IE 11. For å fikse dette kan man fortelle Babel at pakken må kompileres, samt definere `window.crypto`:
 
@@ -47,13 +56,13 @@ module.exports = {
                     loader: "babel-loader",
                     options: {
                         presets: ["@babel/preset-env", "@babel/preset-react"],
-                        plugins: ["@babel/plugin-proposal-export-default-from"]
-                    }
-                }
-            }
-        ]
-    }
-}
+                        plugins: ["@babel/plugin-proposal-export-default-from"],
+                    },
+                },
+            },
+        ],
+    },
+};
 
 // polyfills.ts
 if (typeof window !== "undefined" && !window.crypto) {
@@ -69,8 +78,7 @@ import "./common/polyfills";
 
 IE 11 er ikke helt ukjent for å henge litt etter på stylingfronten. Ofte tenker man spesielt på [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout). Her finnes det også verktøy som kan hjelpe oss på veien, det er dog ikke like mye å hente her som på JavaScript-siden.
 
-Ved å benytte oss av [PostCSS](https://postcss.org/) kan vi få en del nyttig funksjonalitet, som blant annet autoprefix. Bare dette hjelper oss et stykke på veien. Dette verktøyet vil prøve å polyfille funksjonalitet så langt det er mulig. Men CSS Grid begrenser seg noe, og derfor er grid-modulen i autoprefixeren slått av som standard. Ved å legge til følgende konfigurasjonsfil kan vi konfigurere PostCSS til å autoprefixe CSS Grid:
-
+Ved å benytte oss av [PostCSS](https://postcss.org/) kan vi få en del nyttig funksjonalitet, som blant annet autoprefix. Bare dette hjelper oss et stykke på veien. Dette verktøyet vil prøve å polyfille funksjonalitet så langt det er mulig. Men CSS Grid begrenser seg noe, og derfor er grid-modulen i autoprefixeren slått av som standard. Ved å legge til følgende konfigurasjonsfil kan vi konfigurere PostCSS til å autoprefixe CSS Grid:
 
 ```javscript
 // postcss.config.js
@@ -116,7 +124,6 @@ Hvordan kan dette gjenskapes med Flexbox?
 }
 ```
 
-
 ## Gotchas
 
 #### 1. Bruk CSS Grid til å definere navngitte områder og kjente størrelser; PostCSS klarer ikke blant annet `grid-auto-rows` og `grid-auto-columns`.
@@ -147,7 +154,7 @@ Hvordan kan dette gjenskapes med Flexbox?
     flex-wrap: wrap;
     max-width: $bm-max-width;
     margin: 0 auto;
-    padding: $layout-spacing--large 0 $padding-bottom 0;
+    padding: jkl.$spacing-2xl 0 $padding-bottom 0;
 }
 
 @supports (display: grid) {

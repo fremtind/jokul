@@ -2,28 +2,36 @@
 
 let hasBeenCalled = false;
 
-Cypress.on(`window:before:load`, (win) => {
-    cy.stub(win.console, `info`, (msg) => {
+Cypress.on(`window:load`, (win) => {
+    cy.stub(win.console, `log`, (msg) => {
+        console.info("Stubbed log:", msg);
         if (msg.feedbackValue) {
             hasBeenCalled = msg;
         }
     });
 });
 
-context("Feedback", () => {
+describe("Feedback", () => {
     beforeEach(() => {
         cy.testComponent("feedback");
     });
 
-    it("Feedback should work", () => {
+    it("renders correctly", () => {
         cy.getComponent().toMatchImageSnapshot();
-        cy.setDarkMode().getComponent().toMatchImageSnapshot();
+        cy.getComponent().contains("Ja").click();
+        cy.getComponent().toMatchImageSnapshot();
+    });
+
+    it("dark mode renders correctly", () => {
+        cy.setDarkMode();
+        cy.getComponent().toMatchImageSnapshot();
+        cy.getComponent().contains("Ja").click();
+        cy.getComponent().toMatchImageSnapshot();
     });
 
     it("should send feedback if value is selected and user navigate away", () => {
-        cy.getByTestid("feedback-1").first().click();
+        cy.getComponent().contains("Ja").click();
         cy.visit("/");
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200).then(() => expect(hasBeenCalled).to.deep.equal({ feedbackValue: 1, message: "" }));
+        expect(hasBeenCalled).to.deep.equal({ feedbackValue: "ja", message: undefined });
     });
 });

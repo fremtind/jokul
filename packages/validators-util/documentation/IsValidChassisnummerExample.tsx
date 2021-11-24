@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { isValidChassisnummer } from "../src";
 
 import "./index.scss";
 
-const IsValidChassisnummerExample = () => {
+const IsValidChassisnummerExample: VFC = () => {
     return (
         <section>
             <p>

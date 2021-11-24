@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useContext, useMemo, useRef, useState } from "react";
+import React, { ChangeEvent, VFC, useCallback, useContext, useMemo, useRef, useState } from "react";
 import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
 import { motion } from "framer-motion";
 import { Link } from "@fremtind/jkl-core";
@@ -8,6 +8,7 @@ import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
+import { Tag } from "@fremtind/jkl-tag-react";
 import { a11yContext } from "../../contexts/a11yContext";
 import { FormatProvider } from "../Typography";
 import { getCriteriaById } from "./wcag";
@@ -15,7 +16,7 @@ import "./uu.scss";
 
 type Role = "developer" | "designer";
 
-type Tag =
+type TagType =
     | "skjema"
     | "bilder"
     | "tabell"
@@ -27,7 +28,7 @@ type Tag =
     | "navigasjon"
     | "liste";
 
-const tagMap: { [key in Tag]: string } = {
+const tagMap: { [key in TagType]: string } = {
     skjema: "Skjema",
     bilder: "Bilder",
     tabell: "Tabell",
@@ -47,7 +48,7 @@ interface MDXNode {
     slug: string;
     frontmatter: {
         title: string;
-        tags: Tag[];
+        tags: TagType[];
         links?: NodeLink[];
         wcagRules?: string[];
         role?: Role[];
@@ -55,7 +56,7 @@ interface MDXNode {
     body: string;
 }
 
-export const UU = () => {
+export const UU: VFC = () => {
     const data = useStaticQuery<{
         allMdx: {
             nodes: MDXNode[];
@@ -79,7 +80,7 @@ export const UU = () => {
         }
     `);
 
-    const availableTags: Tag[] = useMemo(() => {
+    const availableTags: TagType[] = useMemo(() => {
         if (!data) {
             return [];
         }
@@ -98,7 +99,7 @@ export const UU = () => {
         availableTags.reduce((obj, t) => {
             obj[t] = { checked: false };
             return obj;
-        }, {} as { [key in Tag]: { checked: boolean } }),
+        }, {} as { [key in TagType]: { checked: boolean } }),
     );
 
     const [scrollToResults] = useScrollIntoView({ ref: resultWrapperRef, autoScroll: false });
@@ -109,7 +110,7 @@ export const UU = () => {
 
     const onTagChange = (e: ChangeEvent<HTMLInputElement>) => {
         const _t = { ...tagFilter };
-        _t[e.target.value as Tag] = {
+        _t[e.target.value as TagType] = {
             checked: e.target.checked,
         };
 
@@ -120,7 +121,7 @@ export const UU = () => {
         (node: MDXNode) => {
             // find tags where checked is true, and make it into a tuple
             const checkedTags = Object.entries(tagFilter).filter(([, { checked }]) => checked) as [
-                Tag,
+                TagType,
                 { checked: boolean },
             ][];
 
@@ -174,7 +175,7 @@ export const UU = () => {
                 <FieldGroup legend="Hva inneholder løsningen din?">
                     {Object.entries(tagFilter).map(([tag, { checked }]) => (
                         <Checkbox name="uu-area-tag" value={tag} key={tag} checked={checked} onChange={onTagChange}>
-                            {tagMap[tag as Tag]}
+                            {tagMap[tag as TagType]}
                         </Checkbox>
                     ))}
                 </FieldGroup>
@@ -225,13 +226,13 @@ export const UU = () => {
                 {filteredNodes.map((node) => (
                     <article key={node.id} className="uu-article">
                         <header className="uu-article__header">
-                            <h3 className="uu-article__header--heading" id={node.slug}>
+                            <h3 className="uu-article__heading" id={node.slug}>
                                 {node.frontmatter.title}
                             </h3>
-                            <ul className="uu-article__header--tags" aria-label="Artikkel tags">
+                            <ul className="uu-article__tags" aria-label="Artikkel tags">
                                 {node.frontmatter.tags.map((t) => (
-                                    <li key={t} className="uu-article__header__tag">
-                                        {tagMap[t]}
+                                    <li key={t} /* className="uu-article__header__tag" */>
+                                        <Tag>{tagMap[t]}</Tag>
                                     </li>
                                 ))}
                             </ul>

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-content-toggle-react",
-    "version": "0.2.5",
+    "version": "2.0.4",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react content-toggle component",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "content-toggle",
         "animation",
@@ -34,11 +34,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-content-toggle": "^0.0.10"
-    },
-    "devDependencies": {
-        "@fremtind/jkl-portal-components": "^0.9.5"
+        "@babel/runtime": "^7.16.3",
+        "@fremtind/jkl-content-toggle": "^2.0.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

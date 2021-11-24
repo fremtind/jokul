@@ -8,26 +8,19 @@ describe("Loader", () => {
 
         expect(screen.getByTestId("jkl-loader")).toBeInTheDocument();
     });
-    it("should render negative to document", () => {
-        render(<Loader textDescription="Laster inn" negative />);
+
+    it("should render medium to document", () => {
+        render(<Loader textDescription="Laster inn" variant="medium" />);
 
         expect(screen.getByTestId("jkl-loader")).toBeInTheDocument();
     });
-    it("should render inline negative to document", () => {
-        render(<Loader textDescription="Laster inn" negative inline />);
 
-        expect(screen.getByTestId("jkl-loader")).toBeInTheDocument();
-    });
-    it("should render inline to document", () => {
-        render(<Loader textDescription="Laster inn" inline />);
-
-        expect(screen.getByTestId("jkl-loader")).toBeInTheDocument();
-    });
     it("should apply passed className prop", () => {
         render(<Loader textDescription="Laster inn" className="testclass" />);
 
         expect(screen.getByTestId("jkl-loader")).toHaveClass("testclass");
     });
+
     it("should apply passed aria-label and title", () => {
         render(<Loader textDescription="Loading" />);
 

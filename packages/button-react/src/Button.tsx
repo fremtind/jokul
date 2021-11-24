@@ -5,9 +5,9 @@ import { Props, ValidButtons } from "./types";
 import { BaseButton } from "./BaseButton";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
-    const button = forwardRef<HTMLButtonElement, Props>(
+    const Button = forwardRef<HTMLButtonElement, Props>(
         ({ children, className = "", forceCompact, inverted, onClick, onTouchStart, loader, ...rest }, ref) => {
-            const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, {
+            const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
                 "jkl-button--compact": forceCompact,
                 "jkl-button--inverted": inverted,
             });
@@ -26,57 +26,49 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                 }
             };
 
-            if (!loader) {
-                return (
-                    <BaseButton
-                        className={classNames(componentClassName, className)}
-                        onClick={onClick}
-                        onTouchStart={handleTouch}
-                        {...rest}
-                        ref={ref}
-                    >
-                        {children}
-                    </BaseButton>
-                );
-            }
-
             return (
-                <div
-                    className={classNames("jkl-button-wrapper", className, {
-                        "jkl-button-wrapper--compact": forceCompact,
-                    })}
+                <BaseButton
+                    aria-live="polite"
+                    className={componentClassName}
+                    disabled={loader?.showLoader}
+                    onClick={onClick}
+                    onTouchStart={handleTouch}
+                    {...rest}
+                    ref={ref}
                 >
                     <div
-                        className={classNames("jkl-button-wrapper__slider", {
-                            "jkl-button-wrapper__slider--show-loader": !!loader.showLoader,
+                        className={classNames("jkl-button__content", {
+                            "jkl-button__content--compact": forceCompact,
                         })}
                     >
-                        <BaseButton
-                            className={componentClassName}
-                            onClick={onClick}
-                            onTouchStart={handleTouch}
-                            disabled={loader?.showLoader}
-                            {...rest}
-                            ref={ref}
+                        <div
+                            className={classNames("jkl-button__slider", {
+                                "jkl-button__slider--show-loader": !!loader?.showLoader,
+                            })}
                         >
                             {children}
-                        </BaseButton>
-                        <div className="jkl-button-wrapper__loader jkl-layout-spacing--small-top">
-                            <Loader
-                                textDescription={loader.textDescription}
-                                negative={inverted}
-                                aria-hidden={!!loader.showLoader}
-                                inline={true}
-                            />
+                            {loader && (
+                                <div className="jkl-button__loader">
+                                    <Loader
+                                        textDescription={loader.textDescription}
+                                        aria-hidden={!!loader.showLoader}
+                                        variant={forceCompact ? "small" : "medium"}
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
-                </div>
+                </BaseButton>
             );
         },
     );
-    return button;
+    Button.displayName = "BaseButton";
+    return Button;
 };
 
 export const PrimaryButton = makeButtonComponent("primary");
+PrimaryButton.displayName = "PrimaryButton";
 export const SecondaryButton = makeButtonComponent("secondary");
+SecondaryButton.displayName = "SecondaryButton";
 export const TertiaryButton = makeButtonComponent("tertiary");
+TertiaryButton.displayName = "TertiaryButton";

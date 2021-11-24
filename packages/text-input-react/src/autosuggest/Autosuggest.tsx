@@ -1,5 +1,5 @@
 import { StateChangeOptions } from "downshift";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState, VFC } from "react";
 
 import BaseAutosuggest from "./BaseAutosuggest";
 import { filter } from "./utils";
@@ -27,6 +27,7 @@ export type CommonProps = (
     maxNumberOfHits?: number;
     showDropdownControllerButton?: boolean;
     onInputValueChange?: (inputValue: string) => void;
+    /** @deprecated */
     inverted?: boolean;
 };
 
@@ -40,7 +41,7 @@ export interface AutosuggestStringItemProps {
 
 type Props = CommonProps & AutosuggestStringItemProps;
 
-export function Autosuggest({
+export const Autosuggest: VFC<Props> = ({
     allItems,
     onChange = () => {
         /* default noop */
@@ -53,7 +54,7 @@ export function Autosuggest({
     value,
     isOpen,
     ...rest
-}: Props) {
+}) => {
     const [hits, setHits] = useState(allItems);
 
     useEffect(() => setHits(allItems), [allItems]);
@@ -86,4 +87,4 @@ export function Autosuggest({
             }}
         />
     );
-}
+};

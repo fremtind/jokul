@@ -1,5 +1,5 @@
-import React, { ReactNode, MouseEventHandler } from "react";
-import { SupportLabel } from "@fremtind/jkl-typography-react";
+import React, { ReactNode, MouseEventHandler, FC } from "react";
+import { SupportLabel } from "@fremtind/jkl-core";
 import classNames from "classnames";
 
 interface Props {
@@ -8,11 +8,12 @@ interface Props {
     className?: string;
     onClick?: MouseEventHandler<HTMLButtonElement>;
     disabled?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     helpLabel?: string;
 }
 
-export const ToggleSwitch = ({ children, pressed, onClick, className, disabled, inverted, helpLabel }: Props) => {
+export const ToggleSwitch: FC<Props> = ({ children, pressed, onClick, className, disabled, inverted, helpLabel }) => {
     const componentClassName = classNames("jkl-toggle-switch", className, {
         "jkl-toggle-switch--inverted": inverted,
     });

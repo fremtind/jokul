@@ -1,4 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/navigation";
 
 .example-video {
@@ -6,8 +7,8 @@
 
     &__button {
         position: absolute;
-        bottom: $layout-spacing--small;
-        left: $layout-spacing--xs;
+        bottom: jkl.$spacing-l;
+        left: jkl.$spacing-m;
         width: 2rem;
         height: 2.2rem;
         border: none;
@@ -16,7 +17,7 @@
         &:focus {
             outline: none;
             @include keyboard-navigation {
-                box-shadow: 0 0 0 2px $info;
+                box-shadow: 0 0 0 2px jkl.$color-granitt;
             }
         }
 

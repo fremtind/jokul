@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import React, { HTMLAttributes, VFC } from "react";
 import { IconVariant } from "./index";
 import { IconSearch } from "./Icons/IconSearch";
 import { IconClear } from "./Icons/IconClear";
@@ -22,7 +22,7 @@ function getIcon(iconType: IconVariant) {
     }
 }
 
-export const IconButton = ({ iconType = "clear", buttonTitle, ...rest }: Props) => {
+export const IconButton: VFC<Props> = ({ iconType = "clear", buttonTitle, ...rest }) => {
     return (
         <button type="button" title={buttonTitle} data-testid="jkl-icon-button" className="jkl-icon-button" {...rest}>
             <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">

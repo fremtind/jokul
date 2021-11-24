@@ -1,8 +1,7 @@
-# [Jøkul]() av [Fremtind](https://fremtind.no)
+# [Jøkul](https://jokul.fremtind.no)
 
 ![lint-test-typecheck](https://img.shields.io/github/workflow/status/fremtind/jokul/lint-test-typecheck)
 ![Visual regression tests](https://img.shields.io/github/workflow/status/fremtind/jokul/Visual%20regression%20tests?label=cypress)
-[![Known Vulnerabilities](https://snyk.io//test/github/fremtind/jokul/badge.svg?targetFile=package.json)](https://snyk.io//test/github/fremtind/jokul?targetFile=package.json)
 [![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
 [![All Contributors](https://img.shields.io/badge/all_contributors-18-green.svg?style=flat-rounded)](#contributors)
 
@@ -12,11 +11,11 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 -   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
 -   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
 
-## [Kom i gang](https://fremtind.github.io/jokul/komigang/utvikling)
+## [Kom i gang](https://jokul.fremtind.no/komigang/utvikling)
 
 1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
 2. Installer avhengigheter og bygg pakkene med `yarn boot`
-3. Start portalen lokalt med `yarn dev`
+3. Start portalen lokalt med `yarn dev` og åpne [localhost på port 8000](http://localhost:8000/)
 
 **NB!** Når du sjekker ut en ny branch bør du bygge på nytt for å hindre at gammel bygget kode blir med når du kjører opp eksempler eller portalen. Kommandoen `yarn reboot` sletter alle bygde filer, installerer avhengigheter, og bygger pakkene på nytt.
 
@@ -50,9 +49,9 @@ import "@fremtind/jkl-button/button.min.css";
 ...
 ```
 
-## [Dokumentasjon](https://fremtind.github.io/jokul/)
+## [Dokumentasjon](https://jokul.fremtind.no/)
 
-På [https://fremtind.github.io/jokul/](https://fremtind.github.io/jokul/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
+På [https://jokul.fremtind.no/](https://jokul.fremtind.no/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
 
 ## Bidra
 
@@ -62,7 +61,7 @@ Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsni
 
 Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra i [guiden](https://fremtind.github.io/jokul/komigang/utvikling) vår.
+Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/komigang/utvikling) vår.
 
 ### Oppførsel
 
@@ -81,8 +80,8 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/piofinn"><img src="https://avatars1.githubusercontent.com/u/25739615?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pio Rasch-Halvorsen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=piofinn" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/pulls?q=is%3Apr+reviewed-by%3Apiofinn" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/fremtind/jokul/commits?author=piofinn" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/gbrownlee"><img src="https://avatars1.githubusercontent.com/u/888229?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Glenn A. Brownlee</b></sub></a><br /><a href="#projectManagement-gbrownlee" title="Project Management">📆</a> <a href="#eventOrganizing-gbrownlee" title="Event Organizing">📋</a></td>
+    <td align="center"><a href="https://github.com/piofinn"><img src="https://avatars1.githubusercontent.com/u/25739615?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pio Rasch-Halvorsen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=piofinn" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/pulls?q=is%3Apr+reviewed-by%3Apiofinn" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/fremtind/jokul/commits?author=piofinn" title="Documentation">📖</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3Apiofinn" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/gbrownlee"><img src="https://avatars1.githubusercontent.com/u/888229?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Glenn A. Brownlee</b></sub></a><br /><a href="#projectManagement-gbrownlee" title="Project Management">📆</a> <a href="#eventOrganizing-gbrownlee" title="Event Organizing">📋</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3Agbrownlee" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/lfbergee"><img src="https://avatars0.githubusercontent.com/u/46530368?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Leiv Fredrik Berge</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=lfbergee" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/commits?author=lfbergee" title="Documentation">📖</a> <a href="#infra-lfbergee" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/fremtind/jokul/pulls?q=is%3Apr+reviewed-by%3Alfbergee" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/Saegrov"><img src="https://avatars2.githubusercontent.com/u/124469?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Simen Sægrov</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Saegrov" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/pulls?q=is%3Apr+reviewed-by%3ASaegrov" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/Steinop"><img src="https://avatars3.githubusercontent.com/u/51952891?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Steinop</b></sub></a><br /><a href="#design-Steinop" title="Design">🎨</a></td>
@@ -110,11 +109,11 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
   <tr>
     <td align="center"><a href="https://github.com/Murstam"><img src="https://avatars1.githubusercontent.com/u/47025023?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Murstam</b></sub></a><br /><a href="#design-Murstam" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/fremtind-bot"><img src="https://avatars1.githubusercontent.com/u/57256715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>fremtind-bot</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=fremtind-bot" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://github.com/joms"><img src="https://avatars2.githubusercontent.com/u/537060?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jo Emil Holen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=joms" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/joms"><img src="https://avatars2.githubusercontent.com/u/537060?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jo Emil Holen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=joms" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/commits?author=joms" title="Documentation">📖</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3Ajoms" title="Bug reports">🐛</a> <a href="#blog-joms" title="Blogposts">📝</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/eduardoir"><img src="https://avatars1.githubusercontent.com/u/56429532?v=4?s=100" width="100px;" alt=""/><br /><sub><b>eduardodir</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=eduardodir" title="Code">💻</a></td>
-    <td align="center"><a href="https://storksnestblog.wordpress.com"><img src="https://avatars2.githubusercontent.com/u/50489699?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sercan Leylek</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=SercanSercan" title="Code">💻</a></td>
+    <td align="center"><a href="https://storksnestblog.wordpress.com"><img src="https://avatars2.githubusercontent.com/u/50489699?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sercan Leylek</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=SercanSercan" title="Code">💻</a> <a href="#blog-SercanSercan" title="Blogposts">📝</a></td>
     <td align="center"><a href="https://github.com/CamillaDahlstroem"><img src="https://avatars2.githubusercontent.com/u/11536996?v=4?s=100" width="100px;" alt=""/><br /><sub><b>CamillaDahlstroem</b></sub></a><br /><a href="#design-CamillaDahlstroem" title="Design">🎨</a></td>
-    <td align="center"><a href="https://github.com/Mikaila94"><img src="https://avatars1.githubusercontent.com/u/10635523?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mikail Arslan</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Mikaila94" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Mikaila94"><img src="https://avatars1.githubusercontent.com/u/10635523?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mikail Arslan</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Mikaila94" title="Code">💻</a> <a href="#infra-Mikaila94" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/Fridaks"><img src="https://avatars1.githubusercontent.com/u/72193934?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Fridaks</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=Fridaks" title="Code">💻</a></td>
@@ -122,6 +121,23 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="http://audunberdal.no"><img src="https://avatars.githubusercontent.com/u/57794116?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Audun Berdal</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=AudunBerdal" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/commits?author=AudunBerdal" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/fremtind-tony"><img src="https://avatars.githubusercontent.com/u/54317847?v=4?s=100" width="100px;" alt=""/><br /><sub><b>fremtind-tony</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=fremtind-tony" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/jarledb"><img src="https://avatars.githubusercontent.com/u/835878?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jarle Berentzen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=jarledb" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Stormoen"><img src="https://avatars.githubusercontent.com/u/64519175?v=4?s=100" width="100px;" alt=""/><br /><sub><b>stormoen</b></sub></a><br /><a href="#design-stormoen" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/kennidenni"><img src="https://avatars.githubusercontent.com/u/31621649?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kenneth Apeland</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=kennidenni" title="Code">💻</a> <a href="#blog-kennidenni" title="Blogposts">📝</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3Akennidenni" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/henrikhermansen"><img src="https://avatars.githubusercontent.com/u/435037?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Henrik Hermansen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=henrikhermansen" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/BjorneOmaFremtind"><img src="https://avatars.githubusercontent.com/u/89779105?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bjørne Oma</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=BjorneOmaFremtind" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3ABjorneOmaFremtind" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://wllm.no"><img src="https://avatars.githubusercontent.com/u/1223410?v=4?s=100" width="100px;" alt=""/><br /><sub><b>William Killerud</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=wkillerud" title="Documentation">📖</a> <a href="#infra-wkillerud" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/fremtind/jokul/commits?author=wkillerud" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3Awkillerud" title="Bug reports">🐛</a> <a href="#blog-wkillerud" title="Blogposts">📝</a></td>
+    <td align="center"><a href="https://github.com/espkva"><img src="https://avatars.githubusercontent.com/u/1224929?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Espen Kvalvik</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=espkva" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3Aespkva" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/adriandersen"><img src="https://avatars.githubusercontent.com/u/31202534?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Adrian Andersen</b></sub></a><br /><a href="#infra-adriandersen" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/kathta"><img src="https://avatars.githubusercontent.com/u/9533278?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kathrine </b></sub></a><br /><a href="#design-kathta" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/tomef96"><img src="https://avatars.githubusercontent.com/u/31108801?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom </b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=tomef96" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/issues?q=author%3Atomef96" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/hjellek"><img src="https://avatars.githubusercontent.com/u/1640160?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Knut Eirik Leira Hjelle</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Ahjellek" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/karimarkhus"><img src="https://avatars.githubusercontent.com/u/91268511?v=4?s=100" width="100px;" alt=""/><br /><sub><b>karimarkhus</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Akarimarkhus" title="Bug reports">🐛</a> <a href="#design-karimarkhus" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/HavardPede"><img src="https://avatars.githubusercontent.com/u/30959515?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Håvard Pedersen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3AHavardPede" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://oyvind.co"><img src="https://avatars.githubusercontent.com/u/4263132?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Øyvind Nordbø</b></sub></a><br /><a href="#design-onordbo" title="Design">🎨</a></td>
   </tr>
 </table>
 

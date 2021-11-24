@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect, ReactNode, useContext } from "react";
+import React, { useState, useRef, ReactNode, useContext, useEffect } from "react";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 import { a11yContext } from "../../../contexts/a11yContext";
@@ -19,7 +19,7 @@ const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => 
     const mediaRef = useRef<HTMLDivElement>(null);
     const { scrollY } = useViewportScroll();
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const element = ref.current;
         if (element) {
             setElementTop(element.offsetTop);
@@ -54,7 +54,7 @@ const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => 
                 style={{ y: prefersReducedMotion ? 0 : y }}
                 className={`jkl-portal-media-box__card ${isLongText ? "jkl-portal-media-box__card--long-text" : ""}`}
             >
-                <p className={isLongText ? "jkl-body" : "jkl-lead"}>{children}</p>
+                <p className={isLongText ? "jkl-body" : "jkl-heading-2"}>{children}</p>
             </motion.div>
         </div>
     );

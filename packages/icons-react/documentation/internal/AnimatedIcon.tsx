@@ -1,29 +1,21 @@
 import React from "react";
 import { SecondaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-button/button.min.css";
 
 interface AnimatedIconProps {
     renderIcon: (arg0: boolean) => React.ReactNode;
     iconName?: string;
-    inverted: boolean;
 }
 
-export const AnimatedIcon: React.FC<AnimatedIconProps> = ({ renderIcon, iconName, inverted }) => {
+export const AnimatedIcon: React.FC<AnimatedIconProps> = ({ renderIcon, iconName }) => {
     const [state, setState] = React.useState(false);
     return (
         <>
             <div>
                 {renderIcon(state)}
-                <div className={`jkl-micro jkl-component-spacing--small-top jkl-color-${inverted ? "hvit" : "svart"}`}>
-                    {iconName || renderIcon.name}
-                </div>
+                <div className={`jkl-micro jkl-spacing-xs--top`}>{iconName || renderIcon.name}</div>
             </div>
-            <SecondaryButton
-                inverted={inverted}
-                className="jkl-layout-spacing--large-left"
-                onClick={() => setState(!state)}
-            >
-                Animer
+            <SecondaryButton forceCompact className="jkl-spacing-2xl--left" onClick={() => setState(!state)}>
+                Animér <span className="jkl-sr-only">{iconName}</span>
             </SecondaryButton>
         </>
     );

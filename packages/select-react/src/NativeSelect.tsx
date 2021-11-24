@@ -1,13 +1,10 @@
-/* eslint "jsx-a11y/no-onchange": 0 */
-
 import React, { FocusEventHandler, ChangeEventHandler, useState, forwardRef } from "react";
 import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
-import classNames from "classnames";
-
+import cx from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 
-interface Props {
+export interface NativeSelectProps {
     id?: string;
     name?: string;
     label: string;
@@ -20,6 +17,7 @@ interface Props {
     placeholder?: string;
     value?: string;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
@@ -27,11 +25,10 @@ interface Props {
     onBlur?: FocusEventHandler<HTMLSelectElement>;
 }
 
-export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
+export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     (
         {
             id,
-            name,
             label,
             items,
             className = "",
@@ -44,32 +41,22 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
             forceCompact,
             inverted,
             width,
-            onChange,
-            onBlur,
-            onFocus,
+            ...rest
         },
         ref,
     ) => {
-        // If no value is given, set it to first item, or to empty string if there is a placeholder
-        if (!value) {
-            if (!placeholder && items.length) {
-                value = getValuePair(items[0]).value;
-            }
-        }
-
-        const componentClassName = classNames("jkl-select", className, {
-            "jkl-select--inline": inline,
-            "jkl-select--compact": forceCompact,
-            "jkl-select--inverted": inverted,
-            "jkl-select--invalid": !!errorLabel,
-        });
-
-        const defaultValue = value ? undefined : "";
-
         const [uid] = useState(id || `jkl-select-${nanoid(8)}`);
 
         return (
-            <div data-testid="jkl-select" className={componentClassName}>
+            <div
+                data-testid="jkl-select"
+                className={cx("jkl-select", className, {
+                    "jkl-select--inline": inline,
+                    "jkl-select--compact": forceCompact,
+                    "jkl-select--inverted": inverted,
+                    "jkl-select--invalid": !!errorLabel,
+                })}
+            >
                 <Label standAlone htmlFor={uid} variant={variant} forceCompact={forceCompact}>
                     {label}
                 </Label>
@@ -77,13 +64,10 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
                     <select
                         ref={ref}
                         id={uid}
-                        name={name}
-                        value={value}
-                        defaultValue={defaultValue}
                         className="jkl-select__button"
-                        onChange={onChange}
-                        onBlur={onBlur || onChange}
-                        onFocus={onFocus}
+                        defaultValue={value ? undefined : ""}
+                        value={value}
+                        {...rest}
                     >
                         {placeholder && !value && (
                             <option disabled value="">
@@ -108,3 +92,5 @@ export const NativeSelect = forwardRef<HTMLSelectElement, Props>(
         );
     },
 );
+
+NativeSelect.displayName = "NativeSelect";

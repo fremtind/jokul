@@ -1,4 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -9,14 +10,14 @@
         width: rem(104px);
         height: rem(104px);
         flex-shrink: 0;
-        margin-right: $layout-spacing--small;
+        margin-right: jkl.$spacing-l;
     }
 
     &--vertical {
         flex-direction: column;
 
         .jkl-portal-color-info__swatch {
-            margin-bottom: $layout-spacing--medium;
+            margin-bottom: jkl.$spacing-xl;
         }
     }
 }
@@ -32,14 +33,14 @@
         stroke: currentColor;
     }
 
-    &--hvit {
+    &--snohvit {
         .jkl-portal-color-swatch__diamond {
-            stroke: $svart;
+            stroke: jkl.$color-granitt;
         }
     }
-    [data-theme="dark"] &--svart {
+    &--granitt {
         .jkl-portal-color-swatch__diamond {
-            stroke: $hvit;
+            stroke: jkl.$color-snohvit;
         }
     }
 }

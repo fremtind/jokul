@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-feedback-react`](https://fremtind.github.io/jokul/komponenter/feedback)
+# [`@fremtind/jkl-feedback-react`](https://jokul.fremtind.no/komponenter/feedback)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/feedback).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/feedback).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/komigang/utvikling/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/komigang/utvikling/)
 
 ## Bruk av React-pakken
 
@@ -28,4 +28,5 @@ import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
+import "@fremtind/jkl-slider/slider.min.css";
 ```

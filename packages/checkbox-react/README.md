@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-checkbox-react`](https://fremtind.github.io/jokul/komponenter/checkbox)
+# [`@fremtind/jkl-checkbox-react`](https://jokul.fremtind.no/komponenter/checkbox)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/checkbox).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/checkbox).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -22,7 +22,7 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 
 ### Bruk
 
-Som regel vil du bruke `Checkbox`-komponenten sammen med `FieldGroup` for å skape en forståelse av konteksten rundt valgene. Se [dokumentasjonen i den pakken](https://fremtind.github.io/jokul/komponenter/FieldGroup) for nærmere forklaring av funksjonaliteten.
+Som regel vil du bruke `Checkbox`-komponenten sammen med `FieldGroup` for å skape en forståelse av konteksten rundt valgene. Se [dokumentasjonen i den pakken](https://jokul.fremtind.no/komponenter/FieldGroup) for nærmere forklaring av funksjonaliteten.
 
 `Checkbox` tar et `name`, som kan være det samme for flere bokser, og en `value` som er unik blandt avmerkingsbokser som deler samme `name`:
 
@@ -48,16 +48,6 @@ Som standard stables avmerkingsboksene under hverandre. Om de skal stilles side 
 
 // Vil stilles opp slik:
 // [ ] Valg 1  [ ] Valg 2
-```
-
-`Checkbox` brukes som en kontrollert komponent gjennom `checked`-prop'en og en `onChange`-handler som får en `ChangeEvent` som første argument:
-
-```jsx
-// const [isChecked, setChecked] = useState(false);
-
-<Checkbox onChange={setChecked(!isChecked)} checked={isChecked}>
-    Kontrollert
-</Checkbox>
 ```
 
 ### Props

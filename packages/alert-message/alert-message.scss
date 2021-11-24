@@ -1,76 +1,28 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/variables/colors";
+
 @import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
-@function message-bg-light($color) {
-    @return change-color($color, $lightness: 97%);
-}
-@function message-bg-dark($color) {
-    @return change-color($color, $lightness: 5%);
-}
-
 $dismiss-animation-duration: 500ms;
+$dismiss-focus-border-color: jkl.$color-granitt;
+$dismiss-hover-color: jkl.$color-stein;
 
-$background-color: $gra-10;
-$border-color: $svart;
-$info-background-color: message-bg-light($info);
-$info-border-color: $info;
-$warning-background-color: message-bg-light($advarsel);
-$warning-border-color: $advarsel;
-$error-background-color: message-bg-light($feil);
-$error-border-color: $feil;
-$success-background-color: message-bg-light($suksess);
-$success-border-color: $suksess;
-
-$background-color--inverted: $gra-100;
-$border-color--inverted: $hvit;
-$info-background-color--inverted: message-bg-dark($info--darkbg);
-$info-border-color--inverted: $info--darkbg;
-$warning-background-color--inverted: message-bg-dark($advarsel--darkbg);
-$warning-border-color--inverted: $advarsel--darkbg;
-$error-background-color--inverted: message-bg-dark($feil--darkbg);
-$error-border-color--inverted: $feil--darkbg;
-$success-background-color--inverted: message-bg-dark($suksess--darkbg);
-$success-border-color--inverted: $suksess--darkbg;
-
-:root,
-[data-theme="light"] {
-    --border-color: #{$border-color};
-    --background-color: #{$background-color};
-    --info-border-color: #{$info-border-color};
-    --info-background-color: #{$info-background-color};
-    --warning-border-color: #{$warning-border-color};
-    --warning-background-color: #{$warning-background-color};
-    --error-border-color: #{$error-border-color};
-    --error-background-color: #{$error-background-color};
-    --success-border-color: #{$success-border-color};
-    --success-background-color: #{$success-background-color};
-}
-
-[data-theme="dark"] {
-    --border-color: #{$border-color--inverted};
-    --background-color: #{$background-color--inverted};
-    --info-border-color: #{$info-border-color--inverted};
-    --info-background-color: #{$info-background-color--inverted};
-    --warning-border-color: #{$warning-border-color--inverted};
-    --warning-background-color: #{$warning-background-color--inverted};
-    --error-border-color: #{$error-border-color--inverted};
-    --error-background-color: #{$error-background-color--inverted};
-    --success-border-color: #{$success-border-color--inverted};
-    --success-background-color: #{$success-background-color--inverted};
-}
+$bg-color--default: jkl.$color-snohvit;
+$bg-color--suksess: colors.varslingsfarge("suksess");
+$bg-color--feil: colors.varslingsfarge("feil");
+$bg-color--info: colors.varslingsfarge("info");
+$bg-color--advarsel: colors.varslingsfarge("advarsel");
 
 .jkl-alert-message {
     width: 100%;
-    background-color: $background-color;
-    background-color: var(--background-color);
-    border: rem(1px) solid $border-color;
-    border: rem(1px) solid var(--border-color);
+    background-color: $bg-color--default;
+    color: jkl.$color-granitt;
     box-sizing: border-box;
 
     &__content {
         box-sizing: border-box;
-        padding: $component-spacing--large $component-spacing--xl;
+        padding: jkl.$spacing-m jkl.$spacing-l;
         display: flex;
         align-items: center;
         width: 100%;
@@ -78,13 +30,14 @@ $success-border-color--inverted: $suksess--darkbg;
     }
 
     &__icon {
-        padding-right: $component-spacing--large;
+        padding-right: jkl.$spacing-m;
         align-self: flex-start;
-        padding-top: $component-spacing--xxs;
+        padding-top: jkl.$spacing-3xs;
+        height: rem(24px);
     }
 
     &__message {
-        margin-right: $component-spacing--large;
+        margin-right: jkl.$spacing-m;
     }
 
     &__dismiss-button {
@@ -92,7 +45,7 @@ $success-border-color--inverted: $suksess--darkbg;
         background-color: transparent;
         padding: 0;
         margin-left: auto;
-        margin-top: $component-spacing--xs;
+        margin-top: jkl.$spacing-2xs;
         color: inherit;
         cursor: pointer;
         width: rem(20px);
@@ -101,11 +54,11 @@ $success-border-color--inverted: $suksess--darkbg;
         align-self: flex-start;
         flex-shrink: 0;
 
-        &:hover,
-        &:focus {
-            color: $info-border-color;
-            color: var(--info-border-color);
+        &:hover {
+            color: $dismiss-hover-color;
+        }
 
+        &:focus {
             @include keyboard-navigation {
                 position: relative;
 
@@ -116,8 +69,7 @@ $success-border-color--inverted: $suksess--darkbg;
                     right: rem(-2px);
                     bottom: rem(-2px);
                     left: rem(-2px);
-                    box-shadow: 0 0 0 rem(2px) $info-border-color;
-                    box-shadow: 0 0 0 rem(2px) var(--info-border-color);
+                    box-shadow: 0 0 0 rem(2px) $dismiss-focus-border-color;
                 }
             }
         }
@@ -135,95 +87,19 @@ $success-border-color--inverted: $suksess--darkbg;
     }
 
     &--info {
-        border-color: $info-border-color;
-        border-color: var(--info-border-color);
-        background-color: $info-background-color;
-        background-color: var(--info-background-color);
-
-        .jkl-alert-message__icon {
-            color: $info;
-            color: var(--info-border-color);
-        }
+        background-color: $bg-color--info;
     }
 
     &--warning {
-        border-color: $warning-border-color;
-        border-color: var(--warning-border-color);
-        background-color: $warning-background-color;
-        background-color: var(--warning-background-color);
-
-        .jkl-alert-message__icon {
-            color: $warning-border-color;
-            color: var(--warning-border-color);
-
-            .jkl-icon-exclamation {
-                color: $border-color;
-                color: var(--border-color);
-            }
-        }
+        background-color: $bg-color--advarsel;
     }
 
     &--error {
-        border-color: $error-border-color;
-        border-color: var(--error-border-color);
-        background-color: $error-background-color;
-        background-color: var(--error-background-color);
-
-        .jkl-alert-message__icon {
-            color: $error-border-color;
-            color: var(--error-border-color);
-        }
+        background-color: $bg-color--feil;
     }
 
     &--success {
-        border-color: $success-border-color;
-        border-color: var(--success-border-color);
-        background-color: $success-background-color;
-        background-color: var(--success-background-color);
-
-        .jkl-alert-message__icon {
-            color: $success-border-color;
-            color: var(--success-border-color);
-        }
-    }
-
-    &--dark {
-        &.jkl-alert-message--info {
-            border-color: $info-border-color--inverted;
-            background-color: $info-background-color--inverted;
-
-            .jkl-alert-message__icon {
-                color: $info-border-color--inverted;
-            }
-        }
-        &.jkl-alert-message--warning {
-            border-color: $warning-border-color--inverted;
-            background-color: $warning-background-color--inverted;
-
-            .jkl-alert-message__icon {
-                color: $warning-border-color--inverted;
-
-                .jkl-icon-exclamation {
-                    color: $border-color--inverted;
-                }
-            }
-        }
-        &.jkl-alert-message--error {
-            border-color: $error-border-color--inverted;
-            background-color: $error-background-color--inverted;
-
-            .jkl-alert-message__icon {
-                color: $error-border-color--inverted;
-            }
-        }
-        &.jkl-alert-message--success {
-            border-color: $success-border-color--inverted;
-            background-color: $success-background-color--inverted;
-
-            .jkl-alert-message__icon {
-                color: $success-border-color--inverted;
-            }
-        }
+        background-color: $bg-color--suksess;
     }
 }
 

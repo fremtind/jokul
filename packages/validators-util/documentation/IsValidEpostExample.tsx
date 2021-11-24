@@ -1,9 +1,9 @@
-import React from "react";
+import React, { VFC } from "react";
 import { isValidEpost } from "../src";
 
 import "./index.scss";
 
-const IsValidEpostExample = () => {
+const IsValidEpostExample: VFC = () => {
     return (
         <section>
             <p>

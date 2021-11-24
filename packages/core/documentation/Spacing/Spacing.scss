@@ -1,4 +1,6 @@
-@import "../../variables/all";
+@use "../../jkl";
+
+@import "../../mixins/all";
 @import "../../functions";
 
 .jkl-portal-spacing-example-table {
@@ -8,8 +10,8 @@
 
     &__data,
     &__header {
-        padding: $component-spacing--small;
-        @include jkl-text-style("desktop/small");
+        padding: jkl.$spacing-xs;
+        @include jkl.text-style("small");
         text-align: left;
         vertical-align: top;
         border-bottom: rem(1px) solid;
@@ -25,14 +27,14 @@
     }
 
     &__header {
-        font-weight: $bold-weight;
-        border-bottom-color: $svart;
+        font-weight: jkl.$typography-weight-bold;
+        border-bottom-color: jkl.$color-granitt;
         min-height: rem(40px);
     }
 
     &__data {
-        border-bottom-color: $gra-50;
-        padding-bottom: $component-spacing--large;
+        border-bottom-color: jkl.$color-stein;
+        padding-bottom: jkl.$spacing-m;
         min-height: rem(48px);
     }
 
@@ -58,11 +60,11 @@
 
             &::before {
                 content: attr(data-header);
-                margin-right: $component-spacing--medium;
+                margin-right: jkl.$spacing-s;
             }
 
             &:first-of-type::before {
-                font-weight: $bold-weight;
+                font-weight: jkl.$typography-weight-bold;
             }
         }
 
@@ -70,14 +72,14 @@
             display: block;
 
             &:not(:last-of-type) {
-                margin-bottom: $layout-spacing--medium;
+                margin-bottom: jkl.$spacing-xl;
             }
         }
     }
 
     *[data-theme="dark"] & {
         &__header {
-            border-bottom-color: $hvit;
+            border-bottom-color: jkl.$color-snohvit;
         }
     }
 }

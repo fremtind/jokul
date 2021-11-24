@@ -3,10 +3,13 @@ title: Link og NavLink
 scss: core
 react: core
 group: knapper
+displayTypes: |
+    - Link
+    - NavLink
 ---
 
-import { LinkExample } from "./Link/LinkExample";
-import { NavLinkExample } from "./Link/NavLinkExample";
+import { LinkExample, linkExampleCode } from "./Link/LinkExample";
+import { NavLinkExample, navLinkExampleCode } from "./Link/NavLinkExample";
 
 <Ingress>
     Vi bruker lenker for å lede brukeren til andre nettsider, eller til andre steder på samme nettside. Lenker til
@@ -19,6 +22,7 @@ import { NavLinkExample } from "./Link/NavLinkExample";
     knobs={{
         boolProps: ["Invertert", "Ekstern"],
     }}
+    codeExample={linkExampleCode}
 />
 
 <ComponentExample
@@ -27,29 +31,34 @@ import { NavLinkExample } from "./Link/NavLinkExample";
     knobs={{
         boolProps: ["Invertert", "Aktiv", "Back"],
     }}
+    codeExample={navLinkExampleCode}
 />
 
 ## Bruk
 
 Vi har to typer lenker. I løpende tekst brukes vanlige lenker, mens navigasjons&shy;lenker brukes i menyer og der lenken står for seg selv. Bruk egenskapen `Back` hvis det skal indikere en navigasjon som går mot hovedretningen. Feks en tilbake til "oversikt" i en kjøpsflyt.
 
-<DoDontExample
-    image="/assets/documentation/link/link-tekst.svg"
-    type="do"
-    description="Bruk vanlige lenker i løpende tekst, og marker eksterne lenker."
-/>
-<DoDontExample
-    image="/assets/documentation/link/navlink-tekst-feil.svg"
-    type="dont"
-    description="Ikke bruk navigasjonslenker i løpende tekst, heller ikke for eksterne lenker."
-/>
-<DoDontExample
-    image="/assets/documentation/link/navlink-meny.svg"
-    type="do"
-    description="Bruk navigasjonslenker når du skal lage en meny."
-/>
-<DoDontExample
-    image="/assets/documentation/link/navlink-alene.svg"
-    type="do"
-    description="Bruk en navigasjonslenke hvis lenken skal stå for seg selv."
-/>
+<Grid>
+    <DoDontExample
+        image="/assets/documentation/link/link-tekst.svg"
+        type="do"
+        description="Bruk vanlige lenker i løpende tekst, og marker eksterne lenker."
+    />
+    <DoDontExample
+        image="/assets/documentation/link/navlink-tekst-feil.svg"
+        type="dont"
+        description="Ikke bruk navigasjonslenker i løpende tekst, heller ikke for eksterne lenker."
+    />
+</Grid>
+<Grid>
+    <DoDontExample
+        image="/assets/documentation/link/navlink-meny.svg"
+        type="do"
+        description="Bruk navigasjonslenker når du skal lage en meny."
+    />
+    <DoDontExample
+        image="/assets/documentation/link/navlink-alene.svg"
+        type="do"
+        description="Bruk en navigasjonslenke hvis lenken skal stå for seg selv."
+    />
+</Grid>

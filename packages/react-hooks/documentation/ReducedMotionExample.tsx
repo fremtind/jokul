@@ -1,27 +1,25 @@
-import React, { useContext } from "react";
+import React, { VFC, useContext, createContext } from "react";
 import { useReducedMotion } from "../src";
 
 interface State {
     prefersReducedMotion: boolean;
 }
 
-const ScreenContext = React.createContext<State>({
+const ScreenContext = createContext<State>({
     prefersReducedMotion: false,
 });
 
-const ReducedMotionExample = () => {
+const ReducedMotionExample: VFC = () => {
     const { prefersReducedMotion } = useContext(ScreenContext);
 
     return (
-        <section className="hooks-example key-listener-example jkl-spacing--bottom-3">
-            <h2 className="jkl-h2 jkl-spacing--bottom-2">{`Din dings har en redusert bevegelse ${
-                prefersReducedMotion ? "på" : "av"
-            }`}</h2>
-        </section>
+        <p className="jkl-heading-3 jkl-spacing-xl--bottom">{`Din dings har redusert bevegelse ${
+            prefersReducedMotion ? "PÅ" : "AV"
+        }`}</p>
     );
 };
 
-const Provider = () => {
+const Provider: VFC = () => {
     const prefersReducedMotion = useReducedMotion();
 
     return (

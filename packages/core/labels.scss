@@ -1,23 +1,37 @@
-@import "./variables/all";
+@use "jkl";
+
 @import "./mixins/all";
 @import "./functions";
 
-:root,
-[data-theme="light"] {
-    --label-error-color: #{$feil};
+$label-color: jkl.$color-granitt;
+$label-support-color: jkl.$color-stein;
+$label-error-color: jkl.$color-feil;
+
+$label-color--inverted: jkl.$color-snohvit;
+$label-support-color--inverted: jkl.$color-svaberg;
+$label-error-color--inverted: jkl.$color-feil--darkbg;
+
+@include jkl.helper-light-mode-variables {
+    --label-color: #{$label-color};
+    --label-support-color: #{$label-support-color};
+    --label-error-color: #{$label-error-color};
 }
 
-[data-theme="dark"] {
-    --label-error-color: #{$feil--darkbg};
+@include jkl.helper-dark-mode-variables {
+    --label-color: #{$label-color--inverted};
+    --label-support-color: #{$label-support-color--inverted};
+    --label-error-color: #{$label-error-color--inverted};
 }
 
 .jkl-form-support-label {
-    @include jkl-text-style("desktop/small");
+    @include jkl.text-style("small");
     display: block;
-    margin-top: $component-spacing--small;
+    margin-top: jkl.$spacing-xs;
+    color: $label-support-color;
+    color: var(--label-support-color);
 
     &--error {
-        color: $feil;
+        color: $label-error-color;
         color: var(--label-error-color);
     }
 
@@ -26,36 +40,40 @@
     }
 
     &--inverted {
+        color: var(--label-support-color);
+
         &.jkl-form-support-label--error {
-            color: $feil--darkbg;
+            color: jkl.$color-feil--darkbg;
         }
     }
 }
 
-$label-spacing-large: $component-spacing--large;
-$label-spacing-medium: $component-spacing--small;
-$label-spacing-small: $component-spacing--xs;
-$label-spacing-large--compact: $component-spacing--medium;
-$label-spacing-medium--compact: $component-spacing--small;
-$label-spacing-small--compact: $component-spacing--xs;
+$label-spacing-large: jkl.$spacing-m;
+$label-spacing-medium: jkl.$spacing-xs;
+$label-spacing-small: jkl.$spacing-2xs;
+$label-spacing-large--compact: jkl.$spacing-s;
+$label-spacing-medium--compact: jkl.$spacing-xs;
+$label-spacing-small--compact: jkl.$spacing-2xs;
 
 .jkl-label {
     display: block;
     margin-left: initial;
+    color: $label-color;
+    color: var(--label-color);
 
     &--large {
-        @include jkl-text-style("desktop/title-small");
+        @include jkl.text-style("heading-2");
         margin-bottom: $label-spacing-large;
         margin-left: rem(-1px); // adjust visual alignment
     }
 
     &--medium {
-        @include jkl-text-style("desktop/lead");
+        @include jkl.text-style("body");
         margin-bottom: $label-spacing-medium;
     }
 
     &--small {
-        @include jkl-text-style("desktop/small");
+        @include jkl.text-style("small");
         margin-bottom: $label-spacing-small;
     }
 
@@ -63,32 +81,17 @@ $label-spacing-small--compact: $component-spacing--xs;
         @include screenreader-only;
     }
 
-    @include small-device {
-        &.jkl-label--small {
-            @include jkl-text-style("compact/small");
-            margin-bottom: $label-spacing-small--compact;
-        }
-        &.jkl-label--medium {
-            @include jkl-text-style("compact/lead");
-            margin-bottom: $label-spacing-medium--compact;
-        }
-        &.jkl-label--large {
-            @include jkl-text-style("compact/title-small");
-            margin-bottom: $label-spacing-large--compact;
-        }
-    }
-
     @include compact-mode {
         &.jkl-label--small {
-            @include jkl-text-style("compact/small");
+            @include jkl.text-style("small/small-screen");
             margin-bottom: $label-spacing-small--compact;
         }
         &.jkl-label--medium {
-            @include jkl-text-style("compact/lead");
+            @include jkl.text-style("body/small-screen");
             margin-bottom: $label-spacing-medium--compact;
         }
         &.jkl-label--large {
-            @include jkl-text-style("compact/title-small");
+            @include jkl.text-style("heading-2/small-screen");
             margin-bottom: $label-spacing-large--compact;
         }
     }

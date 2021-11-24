@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { Autosuggest } from "../src";
 
 export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
@@ -41,7 +41,7 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
             />
 
             <Autosuggest
-                className="jkl-layout-spacing--small-top"
+                className="jkl-spacing-l--top"
                 label="Velg land med fritekst"
                 onInputValueChange={setValue2}
                 onChange={setValue2}

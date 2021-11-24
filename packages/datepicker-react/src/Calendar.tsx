@@ -11,6 +11,7 @@ interface Props {
     hidden?: boolean;
     extended?: boolean;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     onClickDate?: (e: ChangeEvent<ChangeDate>) => void;
     currentDate?: Date;
@@ -46,7 +47,7 @@ export const Calendar = forwardRef<HTMLElement, Props>(
 
         return (
             <CoreDatepicker
-                timestamp={currentDate ? currentDate.getTime() : new Date()}
+                date={currentDate || new Date()}
                 months={months}
                 days={days}
                 onDatepickerClickDay={onClickDate}

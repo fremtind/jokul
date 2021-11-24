@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-list",
-    "version": "2.1.8",
+    "version": "6.0.3",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for list",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "bullet list",
         "ordered list",
@@ -28,7 +28,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.21.1"
+        "@fremtind/jkl-core": "^8.1.1"
     },
     "repository": {
         "type": "git",

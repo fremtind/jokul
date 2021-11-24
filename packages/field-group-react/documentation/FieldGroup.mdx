@@ -5,21 +5,21 @@ scss: field-group
 group: skjema
 ---
 
-import Example from "./Example";
+import { FieldGroupExample } from "./FieldGroupExample";
 
 <Ingress>
     Et feltsett er et sett med skjemafelter som hører sammen, for eksempel navn, adresse og postnummer/sted. Feltsettet
     må ha en overskrift som beskriver innholdet, og kan også ha en hjelpetekst eller en feilmelding.
 </Ingress>
 <ComponentExample
-    component={Example}
+    component={FieldGroupExample}
     knobs={{
         boolProps: ["Kompakt", "Med hjelpetekst", "Med feil"],
         choiceProps: [
             {
                 name: "Variant",
                 values: ["small", "medium", "large"],
-                defaultValue: 1,
+                defaultValue: 0,
             },
         ],
     }}

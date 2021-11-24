@@ -1,12 +1,21 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
+
+@include jkl.helper-light-mode-variables {
+    --full-screen-menu-bg-color: #{jkl.$color-varde};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --full-screen-menu-bg-color: #{jkl.$color-skifer};
+}
 
 .jkl-portal-main-menu {
     display: inline-flex;
     align-items: center;
 
-    &__list {
+    &__root-list {
         list-style-type: none;
         display: block;
         margin: 0;
@@ -14,17 +23,17 @@
         height: 100%;
     }
 
-    &__item {
-        @include jkl-text-style("desktop/body");
+    &__root-item {
+        @include jkl.text-style("body");
         display: inline-block;
         height: 100%;
         color: inherit;
         &:not(:last-child) {
-            margin-right: $component-spacing--xxl;
+            margin-right: jkl.$spacing-xl;
         }
     }
 
-    &__link {
+    &__root-link {
         @include reset-outline;
         background-color: transparent;
         color: inherit;
@@ -39,9 +48,8 @@
         @include motion("standard");
         transition-property: box-shadow;
 
-        &:hover,
         html:not([data-mousenavigation]) &:focus {
-            color: #000afa;
+            @include no-grow-bold;
         }
 
         &:hover,
@@ -53,11 +61,114 @@
         &--active {
             @include no-grow-bold;
         }
+    }
 
-        *[data-theme="dark"] & {
-            &--active {
-                color: #00faff;
+    &__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        overflow-x: scroll;
+        height: 0vh;
+
+        background-color: var(--full-screen-menu-bg-color);
+        @include motion("standard", "lazy");
+        transition-property: height;
+
+        &--open {
+            height: 100vh;
+            @include motion("entrance", "lazy");
+        }
+    }
+
+    &__menu-wrapper {
+        box-sizing: border-box;
+        padding: 15vh jkl.$spacing-l 0 jkl.$spacing-2xl;
+        height: 100vh;
+        max-height: 100vh;
+        width: 100vw;
+
+        @include from-medium-device {
+            padding: 25vh jkl.$spacing-3xl 15vh;
+        }
+    }
+
+    &__back-button {
+        @include reset-outline;
+        padding: 0;
+        cursor: pointer;
+        background-color: transparent;
+        // static font-sizes for IE11:
+        font-size: rem(30px);
+        line-height: rem(40px);
+        // 30px/40px on iPhone X:
+        font-size: relativeSize(30, 375, 812);
+        line-height: relativeSize(40, 375, 812);
+        @include motion("standard");
+        transition-property: transform;
+
+        &:after {
+            @include motion("standard");
+            transition-property: transform;
+        }
+
+        &:hover,
+        &:focus {
+            color: jkl.$color-granitt;
+
+            transform: translateX(-1ch);
+            &:after {
+                transform: translateX(1ch);
             }
+        }
+
+        @include small-device {
+            position: sticky;
+            top: 15vh;
+            margin-left: -1.5em;
+        }
+
+        @include from-medium-device {
+            // static font-sizes for IE11:
+            font-size: rem(35px);
+            line-height: rem(50px);
+            // 40px/60px on 1440x900 screen:
+            font-size: relativeSize(35);
+            line-height: relativeSize(50);
+
+            position: relative;
+            top: unset;
+            left: unset;
+
+            &::after {
+                content: attr(data-text);
+                display: inline-block;
+            }
+        }
+
+        [data-theme="dark"] & {
+            color: jkl.$color-snohvit;
+
+            &:hover,
+            &:focus {
+                color: jkl.$color-svaberg;
+            }
+        }
+    }
+
+    &__menu-items {
+        min-height: 100%;
+        padding: 0;
+        padding-bottom: 5vh;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+
+        @include from-medium-device {
+            height: 100%;
+            flex-wrap: wrap;
+            padding: 0;
         }
     }
 }

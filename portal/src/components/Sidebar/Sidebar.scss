@@ -1,19 +1,20 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 
 $animation-timing: 300ms ease-out both;
 
 .jkl-portal-sidebar-menu {
-    padding-left: $layout-spacing--medium;
-    padding-top: $layout-spacing--large;
+    padding-left: jkl.$spacing-xl;
+    padding-top: jkl.$spacing-2xl;
 
     &__filter {
-        margin-bottom: $layout-spacing--medium;
+        margin-bottom: jkl.$spacing-xl;
     }
 
     &__meta {
         text-transform: capitalize;
-        margin: $component-spacing--large 0;
+        margin: jkl.$spacing-m 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -29,7 +30,7 @@ $animation-timing: 300ms ease-out both;
     position: relative;
 
     &__link {
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body");
         display: block;
     }
 }

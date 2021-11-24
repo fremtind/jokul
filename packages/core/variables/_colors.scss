@@ -1,31 +1,17 @@
+@use "sass:map";
+
 // Hovedfarger
 $svart: #000;
-$varde: #ded4c7;
+$granitt: #1b1917;
+$skifer: #313030;
+$fjellgra: #444141;
+$stein: #636060;
+$svaberg: #c8c5c3;
+$varde: #e0dbd4;
+$dis: #ece9e5;
+$sand: #f4f2ef;
+$snohvit: #f9f9f9;
 $hvit: #fff;
-
-// Gråtoner
-$gra-10: #f8f8f8;
-$gra-20: #ebebeb;
-$gra-30: #d6d6d6;
-$gra-40: #b8b8b8;
-$gra-50: #999999;
-$gra-60: #6f6f6f;
-$gra-70: #525252;
-$gra-80: #3d3d3d;
-$gra-90: #292929;
-$gra-100: #181818;
-
-// Vardetoner
-$varde-10: #f9f6f4;
-$varde-20: #f4f0ec;
-$varde-30: #ede7e0;
-$varde-40: #e5ddd3;
-$varde-50: $varde;
-$varde-60: #cfc1ae;
-$varde-70: #baa589;
-$varde-80: #ab9271;
-$varde-90: #8d7453;
-$varde-100: #68563e;
 
 // Meldingsfarger for lys bakgrunn
 $suksess: #287e68;
@@ -41,6 +27,21 @@ $feil--darkbg: #ff8b79;
 
 // Farger knyttet til bruksområde
 $error-color: $feil;
-$focus-color: $info;
+$focus-color: $granitt;
 $error-color--darkbg: $feil--darkbg;
-$focus-color--darkbg: $info--darkbg;
+$focus-color--darkbg: $snohvit;
+
+// Varslingsfarger, disse er IKKE en del av profilfargene
+// Kun til bruk i komponenter som gir varslinger til bruker
+$varslingsfarger: (
+    "suksess": #c8ecd2,
+    "feil": #ffc9b2,
+    "info": #d9ddff,
+    "advarsel": #fdeab9,
+    "suksess--alt": #90c49e,
+    "feil--alt": #ff9a7a,
+);
+
+@function varslingsfarge($farge) {
+    @return map.get($varslingsfarger, $farge);
+}

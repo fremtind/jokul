@@ -1,3 +1,5 @@
-$drop-shadow--small: 0px rem(4px) rem(8px) rgba(0, 0, 0, 0.08);
-$drop-shadow--medium: rem(4px) rem(4px) rem(8px) rgba(0, 0, 0, 0.08);
-$drop-shadow--large: rem(4px) rem(6px) rem(16px) rgba(0, 0, 0, 0.15);
+@use "../functions" as func;
+
+$drop-shadow--small: 0px func.rem(4px) func.rem(8px) rgba(0, 0, 0, 0.08);
+$drop-shadow--medium: func.rem(4px) func.rem(4px) func.rem(8px) rgba(0, 0, 0, 0.08);
+$drop-shadow--large: func.rem(4px) func.rem(6px) func.rem(16px) rgba(0, 0, 0, 0.15);

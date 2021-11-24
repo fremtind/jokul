@@ -1,0 +1,36 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/variables/colors";
+
+$tag-background-color: jkl.$color-varde;
+$tag-color: jkl.$color-granitt;
+
+$tag-background-color--success: colors.varslingsfarge("suksess");
+$tag-background-color--error: colors.varslingsfarge("feil");
+$tag-background-color--info: colors.varslingsfarge("info");
+$tag-background-color--warning: colors.varslingsfarge("advarsel");
+
+.jkl-tag {
+    @include jkl.text-style("heading-5");
+    background-color: $tag-background-color;
+    border-radius: jkl.rem(4px);
+    color: $tag-color;
+    display: inline-block;
+    padding: jkl.$spacing-3xs jkl.$spacing-xs;
+    white-space: nowrap;
+
+    &--info {
+        background-color: $tag-background-color--info;
+    }
+
+    &--warning {
+        background-color: $tag-background-color--warning;
+    }
+
+    &--error {
+        background-color: $tag-background-color--error;
+    }
+
+    &--success {
+        background-color: $tag-background-color--success;
+    }
+}

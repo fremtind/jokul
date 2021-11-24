@@ -1,86 +1,89 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/variables/colors";
 
-@function message-bg-light($color) {
-    @return change-color($color, $lightness: 97%);
-}
-@function message-bg-dark($color) {
-    @return change-color($color, $lightness: 5%);
-}
+@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
+$dismiss-animation-duration: 500ms;
 $message-width: rem(560px);
 
-$background-color: $gra-10;
-$border-color: $svart;
-$info-background-color: message-bg-light($info);
-$info-border-color: $info;
-$warning-background-color: message-bg-light($advarsel);
-$warning-border-color: $advarsel;
-$error-background-color: message-bg-light($feil);
-$error-border-color: $feil;
-$success-background-color: message-bg-light($suksess);
-$success-border-color: $suksess;
+$dismiss-focus-border-color: jkl.$color-granitt;
+$dismiss-hover-color: jkl.$color-stein;
 
-$background-color--inverted: $gra-100;
-$border-color--inverted: $hvit;
-$info-background-color--inverted: message-bg-dark($info--darkbg);
-$info-border-color--inverted: $info--darkbg;
-$warning-background-color--inverted: message-bg-dark($advarsel--darkbg);
-$warning-border-color--inverted: $advarsel--darkbg;
-$error-background-color--inverted: message-bg-dark($feil--darkbg);
-$error-border-color--inverted: $feil--darkbg;
-$success-background-color--inverted: message-bg-dark($suksess--darkbg);
-$success-border-color--inverted: $suksess--darkbg;
-
-:root,
-[data-theme="light"] {
-    --border-color: #{$border-color};
-    --background-color: #{$background-color};
-    --info-border-color: #{$info-border-color};
-    --info-background-color: #{$info-background-color};
-    --warning-border-color: #{$warning-border-color};
-    --warning-background-color: #{$warning-background-color};
-    --error-border-color: #{$error-border-color};
-    --error-background-color: #{$error-background-color};
-    --success-border-color: #{$success-border-color};
-    --success-background-color: #{$success-background-color};
-}
-
-[data-theme="dark"] {
-    --border-color: #{$border-color--inverted};
-    --background-color: #{$background-color--inverted};
-    --info-border-color: #{$info-border-color--inverted};
-    --info-background-color: #{$info-background-color--inverted};
-    --warning-border-color: #{$warning-border-color--inverted};
-    --warning-background-color: #{$warning-background-color--inverted};
-    --error-border-color: #{$error-border-color--inverted};
-    --error-background-color: #{$error-background-color--inverted};
-    --success-border-color: #{$success-border-color--inverted};
-    --success-background-color: #{$success-background-color--inverted};
-}
+$text-color: jkl.$color-granitt;
+$bg-color--default: jkl.$color-snohvit;
+$bg-color--suksess: colors.varslingsfarge("suksess");
+$bg-color--feil: colors.varslingsfarge("feil");
+$bg-color--info: colors.varslingsfarge("info");
+$bg-color--advarsel: colors.varslingsfarge("advarsel");
 
 .jkl-message-box {
     position: relative;
     width: 100%;
     max-width: $message-width;
-    min-height: $layout-spacing--xl;
-    padding: $component-spacing--xl;
+    padding: jkl.$spacing-l;
     padding-left: rem(56px);
-    background-color: $background-color;
-    border: rem(1px) solid $border-color;
+    background-color: $bg-color--default;
+    color: $text-color;
+    border-radius: rem(4px);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
 
     &__icon {
         position: absolute;
-        left: $spacing-5;
+        left: jkl.$spacing-m;
+        height: rem(24px);
+    }
+
+    &__content {
+        & > * + * {
+            margin-top: jkl.$spacing-xs;
+        }
+
+        &:not(:last-child) {
+            margin-right: jkl.$spacing-m;
+        }
     }
 
     &__title {
-        margin-bottom: $component-spacing--small;
+        margin-bottom: jkl.$spacing-xs;
+
+        @include jkl.text-style("heading-4");
     }
 
-    &__message,
-    &__message:last-child {
-        margin-bottom: 0;
+    &__dismiss-button {
+        @include reset-outline();
+        background-color: transparent;
+        padding: 0;
+        margin-left: auto;
+        margin-top: jkl.$spacing-2xs;
+        color: inherit;
+        cursor: pointer;
+        width: rem(20px);
+        height: rem(20px);
+
+        align-self: flex-start;
+        flex-shrink: 0;
+
+        &:hover {
+            color: $dismiss-hover-color;
+        }
+        &:focus {
+            @include keyboard-navigation {
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: rem(-2px);
+                    right: rem(-2px);
+                    bottom: rem(-2px);
+                    left: rem(-2px);
+                    box-shadow: 0 0 0 rem(2px) $dismiss-focus-border-color;
+                }
+            }
+        }
     }
 
     &--full {
@@ -88,98 +91,39 @@ $success-border-color--inverted: $suksess--darkbg;
     }
 
     &--info {
-        border-color: $info-border-color;
-        border-color: var(--info-border-color);
-        background-color: $info-background-color;
-        background-color: var(--info-background-color);
-
-        .jkl-message-box__icon {
-            color: $info;
-            color: var(--info-border-color);
-        }
+        background-color: $bg-color--info;
     }
 
     &--warning {
-        border-color: $warning-border-color;
-        border-color: var(--warning-border-color);
-        background-color: $warning-background-color;
-        background-color: var(--warning-background-color);
-
-        .jkl-message-box__icon {
-            color: $warning-border-color;
-            color: var(--warning-border-color);
-
-            .jkl-icon-exclamation {
-                color: $border-color;
-                color: var(--border-color);
-            }
-        }
+        background-color: $bg-color--advarsel;
     }
 
     &--error {
-        border-color: $error-border-color;
-        border-color: var(--error-border-color);
-        background-color: $error-background-color;
-        background-color: var(--error-background-color);
-
-        .jkl-message-box__icon {
-            color: $error-border-color;
-            color: var(--error-border-color);
-        }
+        background-color: $bg-color--feil;
     }
 
     &--success {
-        border-color: $success-border-color;
-        border-color: var(--success-border-color);
-        background-color: $success-background-color;
-        background-color: var(--success-background-color);
-
-        .jkl-message-box__icon {
-            color: $success-border-color;
-            color: var(--success-border-color);
-        }
+        background-color: $bg-color--suksess;
     }
 
-    &--dark {
-        &.jkl-message-box--info {
-            border-color: $info-border-color--inverted;
-            background-color: $info-background-color--inverted;
-
-            .jkl-message-box__icon {
-                color: $info-border-color--inverted;
-            }
-        }
-        &.jkl-message-box--warning {
-            border-color: $warning-border-color--inverted;
-            background-color: $warning-background-color--inverted;
-
-            .jkl-message-box__icon {
-                color: $warning-border-color--inverted;
-
-                .jkl-icon-exclamation {
-                    color: $border-color--inverted;
-                }
-            }
-        }
-        &.jkl-message-box--error {
-            border-color: $error-border-color--inverted;
-            background-color: $error-background-color--inverted;
-
-            .jkl-message-box__icon {
-                color: $error-border-color--inverted;
-            }
-        }
-        &.jkl-message-box--success {
-            border-color: $success-border-color--inverted;
-            background-color: $success-background-color--inverted;
-
-            .jkl-message-box__icon {
-                color: $success-border-color--inverted;
-            }
-        }
+    &--dismissed {
+        animation: dismiss-animation $dismiss-animation-duration ease-in-out forwards;
+        transition: visibility 0ms $dismiss-animation-duration;
+        visibility: hidden;
     }
 
     @include small-device {
         width: 100%;
+    }
+}
+
+@keyframes dismiss-animation {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
     }
 }

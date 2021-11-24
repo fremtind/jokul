@@ -3,41 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.3 (2021-11-17)
+
+### Bug Fixes
+
+- endre standard vertical-align i henhold til design ([a545a58](https://github.com/fremtind/jokul/commit/a545a58fbc219285304dea34b3ebc3963fe860b4)), closes [#2434](https://github.com/fremtind/jokul/issues/2434)
+
+## 5.1.0 (2021-10-25)
+
+### Features
+
+- variant av table-cell med toppjustering ([d4cf5bf](https://github.com/fremtind/jokul/commit/d4cf5bf22d70c034ff7a13ea5f72c56bba142093))
+
+## 5.0.0 (2021-10-25)
+
+### Features
+
+- nytt tabelldesign ([9f833fd](https://github.com/fremtind/jokul/commit/9f833fdb76fd1965a89370adcf49e6e5900ca59e))
+
+### BREAKING CHANGES
+
+- Bryter tabellen opp i flere klasser. Nye klassenavn, modifiers, med mer.
+
+## 4.0.0 (2021-10-21)
+
+### Features
+
+- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+
+### BREAKING CHANGES
+
+- new spacing scale: see migration guide for jkl-core
+
+## 3.0.0 (2021-07-09)
+
+### Bug Fixes
+
+- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+
+### Features
+
+- use new typographic scale ([105dac2](https://github.com/fremtind/jokul/commit/105dac262f5cf98e9005eeaf86536a5c617ea27c))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core-version with breaking changes
+
+## 2.0.0 (2021-06-07)
+
+### Features
+
+-   new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+
+### BREAKING CHANGES
+
+-   all color variables are changed
+
 ## 1.2.2 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 1.2.1 (2020-03-16)
 
 ### Bug Fixes
 
-- **table:** fix bug causing shadow not to be drawn in IE 11 ([f8ec243](https://github.com/fremtind/jokul/commit/f8ec2430c68f7bafcfcc713ebc2f60ed133da0ac))
+-   **table:** fix bug causing shadow not to be drawn in IE 11 ([f8ec243](https://github.com/fremtind/jokul/commit/f8ec2430c68f7bafcfcc713ebc2f60ed133da0ac))
 
 ## 1.2.0 (2020-02-19)
 
 ### Features
 
-- export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+-   export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
 
 ## 1.1.2 (2020-02-18)
 
 ### Bug Fixes
 
-- make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
-- make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
-- use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+-   make use of new color token (changed name) ([f14c149](https://github.com/fremtind/jokul/commit/f14c149f779e65fe0775afde4421aef26be8ed1d))
+-   make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+-   use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- **table:** update table with new paragraph styles ([f5f8a35](https://github.com/fremtind/jokul/commit/f5f8a351bd4b3a0be90c6ea07f735b719c28a127))
+-   **table:** update table with new paragraph styles ([f5f8a35](https://github.com/fremtind/jokul/commit/f5f8a351bd4b3a0be90c6ea07f735b719c28a127))
 
 ## 0.3.0 (2019-10-09)
 

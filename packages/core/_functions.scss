@@ -1,8 +1,11 @@
+@use "sass:math";
+
 /**
  * Function for converting a px size to rem;
  */
+
 @function rem($pxSize) {
-    $remSize: $pxSize / 16px;
+    $remSize: math.div($pxSize, 16px);
     //Default font size on html element is 100%, equivalent to 16px;
     @return to-number(#{$remSize}rem);
 }
@@ -52,7 +55,7 @@
             $result: $result * 10 + map-get($numbers, $character);
         } @else {
             $digits: $digits * 10;
-            $result: $result + map-get($numbers, $character) / $digits;
+            $result: $result + math.div(map-get($numbers, $character), $digits);
         }
     }
 
@@ -105,8 +108,8 @@
 /// @return `$pxSize` expressed as a responsive value
 ///
 @function relativeSize($pxSize, $screenWidth: 1400, $screenHeight: 900) {
-    $horSize: $pxSize / $screenWidth * 100 * 1vw;
-    $verSize: $pxSize / $screenHeight * 100 * 1vh;
+    $horSize: math.div($pxSize, $screenWidth) * 100 * 1vw;
+    $verSize: math.div($pxSize, $screenHeight) * 100 * 1vh;
 
     @return min(#{$horSize}, #{$verSize});
 }

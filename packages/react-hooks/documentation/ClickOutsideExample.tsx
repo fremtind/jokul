@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, VFC } from "react";
 import { useClickOutside } from "../src";
 
-const ClickOutsideExample = () => {
+const ClickOutsideExample: VFC = () => {
     const [listOfClicksOutside, appendToClickOutsideList] = useState<string[]>([]);
     const [isEnabled, setIsEnabled] = useState(false);
 
@@ -19,11 +19,11 @@ const ClickOutsideExample = () => {
 
     return (
         <section ref={clickOutsideRef}>
-            <p className="jkl-body jkl-spacing--bottom-1">
+            <p className="jkl-body jkl-spacing-l--bottom">
                 Klikk utenfor eksempelet for å se klikket listet opp under. Klikk inne i eksempelet vil ikke listes opp
             </p>
             <button
-                className="jkl-button jkl-button--secondary jkl-spacing--right-1"
+                className="jkl-button jkl-button--secondary jkl-spacing-l--left"
                 onClick={() => setIsEnabled(!isEnabled)}
             >
                 {isEnabled ? "Skru av" : "Skru på"}

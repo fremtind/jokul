@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-accordion`](https://fremtind.github.io/jokul/komponenter/accordion)
+# [`@fremtind/jkl-accordion`](https://jokul.fremtind.no/komponenter/accordion)
 
 # Trekkspillister
 

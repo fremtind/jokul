@@ -5,9 +5,10 @@ react: button-react
 group: knapper
 ---
 
-import { Primary, PrimaryCode } from "./Primary";
-import { Secondary, SecondaryCode } from "./Secondary";
-import { Tertiary, TertiaryCode } from "./Tertiary";
+import { Primary, primaryCode } from "./Primary";
+import { Secondary, secondaryCode } from "./Secondary";
+import { Tertiary, tertiaryCode } from "./Tertiary";
+import { Anchors, AnchorsCode } from "./Anchors";
 
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
@@ -17,21 +18,27 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 **Primærknapp:** brukes til den viktigste handlingen på en side - hovedhandlingen. En side kan noen ganger ha mer enn en hovedhandling, men ikke mange.
 
-<ComponentExample component={Primary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
-    <CodeDemo code={PrimaryCode} />
-</ComponentExample>
+<ComponentExample
+    component={Primary}
+    knobs={{ boolProps: ["Kompakt", "Invertert", "withLoader", "isLoading"] }}
+    codeExample={primaryCode}
+/>
 
 **Sekundærknapp:** brukes til handlinger som ikke er like viktige for oss eller brukeren.
 
-<ComponentExample component={Secondary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
-    <CodeDemo code={SecondaryCode} />
-</ComponentExample>
+<ComponentExample
+    component={Secondary}
+    knobs={{ boolProps: ["Kompakt", "Invertert", "withLoader", "isLoading"] }}
+    codeExample={secondaryCode}
+/>
 
 **Tertiærknapp:** brukes til handlinger som er mindre viktige, eller som kan gi uønskede konsekvenser.
 
-<ComponentExample component={Tertiary} knobs={{ boolProps: ["Kompakt", "Invertert", "isLoading", 'withLoader'] }}>
-    <CodeDemo code={TertiaryCode} />
-</ComponentExample>
+<ComponentExample
+    component={Tertiary}
+    knobs={{ boolProps: ["Kompakt", "Invertert", "withLoader", "isLoading"] }}
+    codeExample={tertiaryCode}
+/>
 
 ## Lastemodus
 
@@ -48,6 +55,12 @@ Disse tre hovedknappetypene har et hierarki. Når brukeren har flere valg samtid
 
 Knappetekster skal være så enkle og korte som mulig og skal oppfordre til handling. Bruk helst bare to ord:
 
-<PrimaryButton className="jkl-layout-spacing--medium-right">Send inn</PrimaryButton>
-<SecondaryButton className="jkl-layout-spacing--medium-right">Lagre</SecondaryButton>
-<TertiaryButton className="jkl-layout-spacing--medium-right">Avbryt</TertiaryButton>
+<PrimaryButton className="jkl-spacing-xl--right">Send inn</PrimaryButton>
+<SecondaryButton className="jkl-spacing-xl--right">Lagre</SecondaryButton>
+<TertiaryButton className="jkl-spacing-xl--right">Avbryt</TertiaryButton>
+
+## Knapper som er lenker
+
+Avhengig av situasjonen kan det hende en knapp teknisk sett er et `<a />`-element. Jøkul støtter å ha knappeklasser på `<a />`.
+
+<ComponentExample component={Anchors} codeExample={AnchorsCode} />

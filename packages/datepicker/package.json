@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-datepicker",
-    "version": "1.5.48",
+    "version": "5.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for datepicker",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "datepicker",
         "jøkul",
@@ -25,9 +25,9 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^4.21.1",
-        "@fremtind/jkl-select": "^2.3.16",
-        "@fremtind/jkl-text-input": "^2.2.16"
+        "@fremtind/jkl-core": "^8.1.1",
+        "@fremtind/jkl-select": "^6.0.4",
+        "@fremtind/jkl-text-input": "^6.0.6"
     },
     "repository": {
         "type": "git",

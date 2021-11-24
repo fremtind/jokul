@@ -1,10 +1,10 @@
-import React from "react";
-import { WarningMessage } from "@fremtind/jkl-message-box-react";
+import React, { VFC } from "react";
+import { WarningMessageBox } from "@fremtind/jkl-message-box-react";
 import { Link } from "@fremtind/jkl-core";
 import "./style.scss";
 
-const WebComponentInfo = () => (
-    <WarningMessage fullWidth title="Web component" className="portal-wc-info">
+const WebComponentInfo: VFC = () => (
+    <WarningMessageBox fullWidth title="Web component" className="portal-wc-info">
         Denne komponenten bruker web components via{" "}
         <Link href="https://static.nrk.no/core-components/latest/index.html">NRK core components</Link> under panseret.
         Det betyr at for å støtte eldre browsere må du laste inn{" "}
@@ -12,7 +12,7 @@ const WebComponentInfo = () => (
         custom elements. <br />
         Denne brukes ved boot av portalen:
         <pre>import &quot;document-register-element&quot;;</pre>
-    </WarningMessage>
+    </WarningMessageBox>
 );
 
 export default WebComponentInfo;

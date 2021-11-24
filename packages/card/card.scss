@@ -1,10 +1,12 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/functions";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-button/button.scss";
 
-$card-bg-color: $gra-10;
+$card-bg-color: jkl.$color-snohvit;
 $card-corner-radius: rem(2px);
-$card-padding-normal: $component-spacing--xl;
+$card-padding-normal: jkl.$spacing-l;
 
 .jkl-card {
     @include reset-outline;
@@ -15,39 +17,39 @@ $card-padding-normal: $component-spacing--xl;
     max-width: 60ch; //TODO: find out if we want this
     background-color: $card-bg-color;
     border-radius: $card-corner-radius;
-    box-shadow: $drop-shadow--medium;
+    box-shadow: jkl.$drop-shadow--medium;
     padding: $card-padding-normal;
     text-align: inherit;
     transition-property: box-shadow, transform;
     @include motion("standard");
 
     &__title {
-        margin-bottom: $layout-spacing--small;
+        margin-bottom: jkl.$spacing-l;
     }
     &__action {
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-bottom: $layout-spacing--small;
-        margin-top: $layout-spacing--small;
+        margin-bottom: jkl.$spacing-l;
+        margin-top: jkl.$spacing-l;
     }
     &__media {
         margin: -$card-padding-normal;
-        margin-bottom: $layout-spacing--small;
+        margin-bottom: jkl.$spacing-l;
         width: calc(100% + 2 * #{$card-padding-normal});
     }
     &--dark {
-        background-color: $svart;
-        color: $hvit;
+        background-color: jkl.$color-granitt;
+        color: jkl.$color-snohvit;
     }
     &--clickable:hover,
     &--clickable:focus {
-        box-shadow: $drop-shadow--large;
+        box-shadow: jkl.$drop-shadow--large;
         transform: translateY(-0.125rem);
     }
     &--clickable:focus-within {
         @include keyboard-navigation {
-            box-shadow: 0 0px 0 rem(2px) $focus-color;
+            box-shadow: 0 0px 0 rem(2px) jkl.$color-focus-color;
         }
     }
     &--clickable:active {

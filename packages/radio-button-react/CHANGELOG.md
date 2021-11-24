@@ -3,81 +3,143 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-11-09)
+
+### Features
+
+- refactor RadioButtons for bedre hook-form støtte ([467cb0c](https://github.com/fremtind/jokul/commit/467cb0cae3c5ba6ad789b12fedd0d0f2fb8aa97e)), closes [#2435](https://github.com/fremtind/jokul/issues/2435)
+
+### BREAKING CHANGES
+
+- Komponenten har fått et helt nytt API. Se migreringsdok.
+
+## 5.0.0 (2021-10-21)
+
+### chore
+
+- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+
+### BREAKING CHANGES
+
+- depends on jkl-core v8 with breaking changes
+
+## 4.2.0 (2021-09-15)
+
+### Features
+
+- add forwardRef to radio buttons ([24856c3](https://github.com/fremtind/jokul/commit/24856c3474af68247831c3e7cd14bb55ada82222))
+
+## 4.1.0 (2021-09-07)
+
+### Features
+
+- add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
+
+## 4.0.0 (2021-07-09)
+
+### Features
+
+- use new typographic scale ([19cf729](https://github.com/fremtind/jokul/commit/19cf729c29ddda8b10d656122ca8f5d70b684037))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
+## 3.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
+
+## 2.0.0 (2021-06-07)
+
+### Features
+
+-   upgrade dependency jkl-core to v5.0.0 ([c3dc8dc](https://github.com/fremtind/jokul/commit/c3dc8dcbd3cba99502f1124cbe1dcaa688177f55))
+
+### BREAKING CHANGES
+
+-   Upgrades dependency jkl-core to v5.0.0, introducing breaking changes to color variables
+
 ## 1.9.5 (2021-02-12)
 
 ### Bug Fixes
 
-- add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
+-   add react 17 types as valid peerdep ([a074c34](https://github.com/fremtind/jokul/commit/a074c34dcece089ad6b4c581b8c920c8bdd4f1e0))
 
 ## 1.9.0 (2020-12-15)
 
 ### Features
 
-- display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
+-   display types in portal ([5c62a16](https://github.com/fremtind/jokul/commit/5c62a161c278d3a5a136741aea8dcf9b62338bda))
 
 ## 1.8.0 (2020-11-25)
 
 ### Features
 
-- update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
+-   update to react 17 ([4639058](https://github.com/fremtind/jokul/commit/4639058067eaa9be222825f8ac4f495a1e74cc0f))
 
 ## 1.7.0 (2020-10-29)
 
 ### Features
 
-- add support for more attributes on RadioButtonOption ([65e4c5a](https://github.com/fremtind/jokul/commit/65e4c5a5b522520399e3fceba2a5d7549f72e317))
+-   add support for more attributes on RadioButtonOption ([65e4c5a](https://github.com/fremtind/jokul/commit/65e4c5a5b522520399e3fceba2a5d7549f72e317))
 
 ## 1.6.0 (2020-09-02)
 
 ### Features
 
-- **field-group:** implement inverted mode in field group ([11dc6bb](https://github.com/fremtind/jokul/commit/11dc6bbca1635383f67fef4bb82de80fe6628c20))
+-   **field-group:** implement inverted mode in field group ([11dc6bb](https://github.com/fremtind/jokul/commit/11dc6bbca1635383f67fef4bb82de80fe6628c20))
 
 ## 1.5.0 (2020-07-29)
 
 ### Features
 
-- **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
+-   **build:** use @babel/runtime instead of inlining helpers in each file ([bbadce5](https://github.com/fremtind/jokul/commit/bbadce52ba4da5d540b479b07273332587bed436)), closes [#1136](https://github.com/fremtind/jokul/issues/1136)
 
 ## 1.4.0 (2020-07-06)
 
 ### Features
 
-- **radio-buttons:** make labels responsive ([85317fb](https://github.com/fremtind/jokul/commit/85317fbba3bd647452833ecb7de6d8ad23a697ac)), closes [#986](https://github.com/fremtind/jokul/issues/986)
+-   **radio-buttons:** make labels responsive ([85317fb](https://github.com/fremtind/jokul/commit/85317fbba3bd647452833ecb7de6d8ad23a697ac)), closes [#986](https://github.com/fremtind/jokul/issues/986)
 
 ## 1.3.3 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 1.3.0 (2020-03-06)
 
 ### Features
 
-- **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
-- **portal:** portal component examples and meu fixes ([2ffe8fe](https://github.com/fremtind/jokul/commit/2ffe8fe39ff826983f027dad1ea7ffa97a013ccf))
+-   **portal:** implement dev and portal examples ([857f2e2](https://github.com/fremtind/jokul/commit/857f2e29359f9442a7da0c977a94d63dfbdfc194))
+-   **portal:** portal component examples and meu fixes ([2ffe8fe](https://github.com/fremtind/jokul/commit/2ffe8fe39ff826983f027dad1ea7ffa97a013ccf))
 
 ## 1.2.0 (2020-02-18)
 
 ### Bug Fixes
 
-- **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
-- **radiobutton-react:** add support for className prop ([6f058ef](https://github.com/fremtind/jokul/commit/6f058ef95cec01ceb1a0322a65413097583ada68))
+-   **jkl:** rename classnames import and move types ([e06ef21](https://github.com/fremtind/jokul/commit/e06ef21062b345d5defab335253041dad7ae6134))
+-   **radiobutton-react:** add support for className prop ([6f058ef](https://github.com/fremtind/jokul/commit/6f058ef95cec01ceb1a0322a65413097583ada68))
 
 ### Features
 
-- **radio-button:** add inverted mode ([fda7e5f](https://github.com/fremtind/jokul/commit/fda7e5f26ed7742be1a4fce9afe5ba5a4cacf292))
+-   **radio-button:** add inverted mode ([fda7e5f](https://github.com/fremtind/jokul/commit/fda7e5f26ed7742be1a4fce9afe5ba5a4cacf292))
 
 ## 1.1.0 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
+-   **portal:** use examples as documentation for all comp ([e99e56a](https://github.com/fremtind/jokul/commit/e99e56ab2f5bf13cd0e72bf010e6472a08ffabe9))
 
 ## 1.0.0 (2019-12-03)
 

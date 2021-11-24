@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-icons-react`](https://fremtind.github.io/jokul/komponenter/image)
+# [`@fremtind/jkl-image-react`](https://jokul.fremtind.no/komponenter/image)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/image).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/image).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 

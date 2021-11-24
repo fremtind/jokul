@@ -3,44 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2021-10-21)
+
+### Features
+
+- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+
+### BREAKING CHANGES
+
+- new spacing scale: see migration guide for jkl-core
+
+## 5.0.0 (2021-07-09)
+
+### chore
+
+- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core-version with breaking changes
+
+## 4.0.0 (2021-07-06)
+
+### chore
+
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### Features
+
+-   **logo:** add automatic dark mode ([14a7c9d](https://github.com/fremtind/jokul/commit/14a7c9dc03eb1c64280899ed0dd77a58cd19f281))
+
+### BREAKING CHANGES
+
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
+
+## 3.0.0 (2021-06-07)
+
+### Features
+
+-   new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+
+### BREAKING CHANGES
+
+-   all color variables are changed
+
 ## 2.2.0 (2020-09-01)
 
 ### Features
 
-- implement global dark mode ([47b8e2d](https://github.com/fremtind/jokul/commit/47b8e2dc0abcd366212fc67f306f8523a63d11c8))
+-   implement global dark mode ([47b8e2d](https://github.com/fremtind/jokul/commit/47b8e2dc0abcd366212fc67f306f8523a63d11c8))
 
 ## 2.1.5 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 2.1.0 (2020-02-19)
 
 ### Features
 
-- export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+-   export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
 
 ## 2.0.0 (2020-02-18)
 
 ### Bug Fixes
 
-- make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+-   make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
 
 ### Features
 
-- **logo:** tweak bounding boxes, add "animated" prop ([b611af6](https://github.com/fremtind/jokul/commit/b611af69747b425a602eeb2ac02819912464250b))
+-   **logo:** tweak bounding boxes, add "animated" prop ([b611af6](https://github.com/fremtind/jokul/commit/b611af69747b425a602eeb2ac02819912464250b))
 
 ### BREAKING CHANGES
 
-- **logo:** Logo component now requires "animated" prop to be true in order to animate. The logo now fills the
-entire width of the component, including the symbol version when "animated" is set to false
+-   **logo:** Logo component now requires "animated" prop to be true in order to animate. The logo now fills the
+    entire width of the component, including the symbol version when "animated" is set to false
 
 ## 1.0.14 (2020-01-16)
 
 ### Bug Fixes
 
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ## 0.7.0 (2019-07-30)
 

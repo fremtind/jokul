@@ -1,0 +1,81 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/mixins/all";
+@import "~@fremtind/jkl-core/functions";
+
+$card-corner-radius: rem(2px);
+$container-width: rem(660px);
+$container-width--compact: rem(320px);
+
+.jkl-cookie-consent-modal + backdrop {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.2s;
+    z-index: jkl.$z-index--modal !important;
+}
+.jkl-cookie-consent-modal[hidden],
+.jkl-cookie-consent-modal + backdrop[hidden] {
+    pointer-events: none;
+    visibility: hidden;
+    display: block;
+    opacity: 0;
+}
+
+.jkl-cookie-consent-modal {
+    z-index: jkl.$z-index--floating !important;
+    position: fixed;
+    margin: auto;
+    top: 10%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: jkl.$spacing-xl jkl.$spacing-xl rem(30px) jkl.$spacing-xl;
+    min-width: $container-width--compact;
+    max-width: $container-width;
+    background-color: jkl.$color-snohvit;
+    background-color: var(--jkl-background-color);
+    box-shadow: jkl.$drop-shadow--large;
+    transition: 0.2s;
+
+    &__checklist {
+        margin-bottom: jkl.$spacing-m;
+    }
+
+    @include jkl.text-style("body");
+
+    &__info-text {
+        @include jkl.text-style("small");
+    }
+
+    &__header {
+        @include jkl.text-style("heading-3");
+        margin-bottom: jkl.$spacing-l;
+    }
+
+    &__checkbox {
+        margin-bottom: jkl.$spacing-xs;
+        margin-top: jkl.$spacing-l;
+    }
+
+    &__button-group {
+        margin-top: jkl.$spacing-xl;
+
+        & > :not(:first-child) {
+            margin-left: jkl.$spacing-l;
+        }
+    }
+
+    @include small-device {
+        top: jkl.$spacing-xl;
+        margin: jkl.$spacing-l;
+        max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});
+        padding: jkl.$spacing-l;
+    }
+}

@@ -3,103 +3,201 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.5 (2021-11-24)
+
+### Bug Fixes
+
+- animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
+
+## 6.0.4 (2021-11-19)
+
+### Bug Fixes
+
+- rett feil linjehøyde for kompakte tekstfelt ([a260923](https://github.com/fremtind/jokul/commit/a26092381ed7043d30b19b73c70e44f0f7e0ae11))
+
+## 6.0.3 (2021-11-18)
+
+### Bug Fixes
+
+- unngå å kutte toppen av Å i Chrome ([02e4922](https://github.com/fremtind/jokul/commit/02e49228682cd41d10ea5b8edb25f55eb253041b)), closes [#2503](https://github.com/fremtind/jokul/issues/2503)
+
+## 6.0.0 (2021-10-21)
+
+### Features
+
+- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+
+### BREAKING CHANGES
+
+- new spacing scale: see migration guide for jkl-core
+
+## 5.2.0 (2021-10-18)
+
+### Bug Fixes
+
+- added css to support marking in dark mode in text input ([f4ca342](https://github.com/fremtind/jokul/commit/f4ca34220f03127fb2ddc77c3c7db75c9947b090)), closes [#2376](https://github.com/fremtind/jokul/issues/2376)
+- reduser bevegelse ved focus i textarea med teller ([9e32d55](https://github.com/fremtind/jokul/commit/9e32d5578b5ab1090c12e7c0315c1a164daa81aa))
+- vis riktig selectionfarge for textarea med teller ([597aae0](https://github.com/fremtind/jokul/commit/597aae0ebdb71a312b17e8e2428adf035b855f94))
+
+### Features
+
+- legg til støtte for en teller i jkl-text-area ([8ba841e](https://github.com/fremtind/jokul/commit/8ba841ef2ffdd7a5716996d67b08d67a5adcbfe7)), closes [#1477](https://github.com/fremtind/jokul/issues/1477)
+
+## 5.1.6 (2021-10-13)
+
+### Bug Fixes
+
+- added css to support marking in dark mode in text input ([f4ca342](https://github.com/fremtind/jokul/commit/f4ca34220f03127fb2ddc77c3c7db75c9947b090)), closes [#2376](https://github.com/fremtind/jokul/issues/2376)
+
+## 5.1.2 (2021-09-30)
+
+### Bug Fixes
+
+- sync padding i TextInput med Figma ([f269f4f](https://github.com/fremtind/jokul/commit/f269f4f2750caad0d2bcf01d1b84b20dff048131))
+
+## 5.1.0 (2021-09-15)
+
+### Features
+
+- **text-area:** add inline and startOpen props ([88e4897](https://github.com/fremtind/jokul/commit/88e4897c50e490fa427208bca4c212093bb8db40))
+
+## 5.0.0 (2021-07-09)
+
+### Features
+
+- use new typographic scale ([8b9c490](https://github.com/fremtind/jokul/commit/8b9c4906b76a19f0b6abb158781d5a7564ad793e))
+
+### BREAKING CHANGES
+
+- Depends on jkl-core version with breaking changes
+
+## 4.0.0 (2021-07-06)
+
+### chore
+
+- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+
+### Features
+
+- **text-input:** add automatic dark mode ([0ad0bda](https://github.com/fremtind/jokul/commit/0ad0bdabe94b604cccc690aad6c84779e090e7ce))
+
+### BREAKING CHANGES
+
+- Now depends on jkl-core 6.0.0, which introduces breaking changes
+
+## 3.0.0 (2021-06-07)
+
+### Features
+
+-   new colors ([9144947](https://github.com/fremtind/jokul/commit/9144947766c73fbe5eaac3372495006e3b89dec7))
+
+### BREAKING CHANGES
+
+-   all color variables are changed
+
+## 2.2.17 (2021-04-28)
+
+### Bug Fixes
+
+-   **datepicker:** use better clickoutside target for closing calendar ([4a19fcb](https://github.com/fremtind/jokul/commit/4a19fcb59787a50661d4e15ddeddb49c2c585dbd)), closes [#1889](https://github.com/fremtind/jokul/issues/1889)
+
 ## 2.2.16 (2021-03-05)
 
 ### Bug Fixes
 
-- **text-input:** add better keyboard focus to action ([08d9d35](https://github.com/fremtind/jokul/commit/08d9d35dc77d4a01d4e280ad922500cadebb57ee))
+-   **text-input:** add better keyboard focus to action ([08d9d35](https://github.com/fremtind/jokul/commit/08d9d35dc77d4a01d4e280ad922500cadebb57ee))
 
 ## 2.2.5 (2020-09-24)
 
 ### Bug Fixes
 
-- **text-input:** changes alignment ([fd044a8](https://github.com/fremtind/jokul/commit/fd044a87e10eb0841d5205e50e544904f54f99c3))
+-   **text-input:** changes alignment ([fd044a8](https://github.com/fremtind/jokul/commit/fd044a87e10eb0841d5205e50e544904f54f99c3))
 
 ## 2.2.4 (2020-09-11)
 
 ### Bug Fixes
 
-- **text-input:** uses search icon ([1c00d95](https://github.com/fremtind/jokul/commit/1c00d954f642454847b501f591732aca2dec3fde))
+-   **text-input:** uses search icon ([1c00d95](https://github.com/fremtind/jokul/commit/1c00d954f642454847b501f591732aca2dec3fde))
 
 ## 2.2.0 (2020-09-01)
 
 ### Features
 
-- implement global dark mode ([47b8e2d](https://github.com/fremtind/jokul/commit/47b8e2dc0abcd366212fc67f306f8523a63d11c8))
+-   implement global dark mode ([47b8e2d](https://github.com/fremtind/jokul/commit/47b8e2dc0abcd366212fc67f306f8523a63d11c8))
 
 ## 2.1.0 (2020-08-26)
 
 ### Features
 
-- **autosuggest:** add autosuggest component ([ac3d399](https://github.com/fremtind/jokul/commit/ac3d3996be720d93ae4396dbdb120a1911e6025f))
+-   **autosuggest:** add autosuggest component ([ac3d399](https://github.com/fremtind/jokul/commit/ac3d3996be720d93ae4396dbdb120a1911e6025f))
 
 ## 2.0.2 (2020-05-13)
 
 ### Bug Fixes
 
-- **text-input:** use correct border color in dark mode ([a8f5f64](https://github.com/fremtind/jokul/commit/a8f5f64ddbd89c4b4c936dd75c85c4f5949b8867))
+-   **text-input:** use correct border color in dark mode ([a8f5f64](https://github.com/fremtind/jokul/commit/a8f5f64ddbd89c4b4c936dd75c85c4f5949b8867))
 
 ## 2.0.0 (2020-04-27)
 
 ### Bug Fixes
 
-- **text-input:** correct behaviour of width prop ([d752601](https://github.com/fremtind/jokul/commit/d752601b8e11100600026c5683f10e211680c155))
-- **text-input:** use more neutral selection color ([920219b](https://github.com/fremtind/jokul/commit/920219bb07acb226a4e2c9ee67e635c863083c28))
+-   **text-input:** correct behaviour of width prop ([d752601](https://github.com/fremtind/jokul/commit/d752601b8e11100600026c5683f10e211680c155))
+-   **text-input:** use more neutral selection color ([920219b](https://github.com/fremtind/jokul/commit/920219bb07acb226a4e2c9ee67e635c863083c28))
 
 ### Features
 
-- **design:** updated to boxed design ([8b8ab7c](https://github.com/fremtind/jokul/commit/8b8ab7c6ba74657a70e0142deaaeb41dc473e377))
-- **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
-- **text-input:** start implementing new text inputs ([b2bcfab](https://github.com/fremtind/jokul/commit/b2bcfab37a4c1da542ebd49ad5fdba249e17b63a))
-- minor color tweaks ([3071c7e](https://github.com/fremtind/jokul/commit/3071c7e4d21859f81844d6b152322de1fbb2f323))
+-   **design:** updated to boxed design ([8b8ab7c](https://github.com/fremtind/jokul/commit/8b8ab7c6ba74657a70e0142deaaeb41dc473e377))
+-   **text-input:** consolidate text inputs and apply new style ([0b1cc84](https://github.com/fremtind/jokul/commit/0b1cc847c07790abf7feb303e1e24c3450090b27))
+-   **text-input:** start implementing new text inputs ([b2bcfab](https://github.com/fremtind/jokul/commit/b2bcfab37a4c1da542ebd49ad5fdba249e17b63a))
+-   minor color tweaks ([3071c7e](https://github.com/fremtind/jokul/commit/3071c7e4d21859f81844d6b152322de1fbb2f323))
 
 ### BREAKING CHANGES
 
-- **text-input:** * TextField is now called TextInput|* The following variants have all been integrated into
-TextInput: ActionTextField, InlineTextField, BaseInputField
+-   **text-input:** _ TextField is now called TextInput|_ The following variants have all been integrated into
+    TextInput: ActionTextField, InlineTextField, BaseInputField
 
 ## 1.3.7 (2020-04-20)
 
 ### Bug Fixes
 
-- use correct height for compact text inputs ([4c76b52](https://github.com/fremtind/jokul/commit/4c76b527ff5317bf601ec7186793140cf022eac1)), closes [#877](https://github.com/fremtind/jokul/issues/877)
+-   use correct height for compact text inputs ([4c76b52](https://github.com/fremtind/jokul/commit/4c76b527ff5317bf601ec7186793140cf022eac1)), closes [#877](https://github.com/fremtind/jokul/issues/877)
 
 ## 1.3.5 (2020-03-25)
 
 ### Bug Fixes
 
-- move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
+-   move browserslist declaration to root package.json ([51c790e](https://github.com/fremtind/jokul/commit/51c790ea79ca3d667871380c6bfbe85a5738920b)), closes [#862](https://github.com/fremtind/jokul/issues/862)
 
 ## 1.3.4 (2020-03-16)
 
 ### Bug Fixes
 
-- **text-input:** use bold font weight in compact mode ([0809200](https://github.com/fremtind/jokul/commit/0809200709dbb4d9bdb9028654e87b4024f9b1d2))
+-   **text-input:** use bold font weight in compact mode ([0809200](https://github.com/fremtind/jokul/commit/0809200709dbb4d9bdb9028654e87b4024f9b1d2))
 
 ## 1.3.0 (2020-02-19)
 
 ### Features
 
-- export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
-- **text-input:** tweak action icon placement and add focus state ([7b37ee1](https://github.com/fremtind/jokul/commit/7b37ee1bd6aee1c33db48f3b85024693d63790dd))
+-   export scss files with style pkgs ([edb6278](https://github.com/fremtind/jokul/commit/edb627838075d3d613ae78b6aae765c81067ba6a))
+-   **text-input:** tweak action icon placement and add focus state ([7b37ee1](https://github.com/fremtind/jokul/commit/7b37ee1bd6aee1c33db48f3b85024693d63790dd))
 
 ## 1.2.2 (2020-02-18)
 
 ### Bug Fixes
 
-- make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
-- use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
+-   make use of new core color tokens ([075f7b3](https://github.com/fremtind/jokul/commit/075f7b37920805bf780120247461d79c3d8c406e))
+-   use new text-style mixins ([2873a57](https://github.com/fremtind/jokul/commit/2873a57f4570ddb87a7390a773433d26a9fde4ac))
 
 ## 1.2.0 (2020-01-16)
 
 ### Bug Fixes
 
-- **text-input:** change to bigger line-height ([39731ae](https://github.com/fremtind/jokul/commit/39731ae2d4b77b5328c1679b373e56c5a9003902)), closes [#611](https://github.com/fremtind/jokul/issues/611)
-- fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
+-   **text-input:** change to bigger line-height ([39731ae](https://github.com/fremtind/jokul/commit/39731ae2d4b77b5328c1679b373e56c5a9003902)), closes [#611](https://github.com/fremtind/jokul/issues/611)
+-   fix links to components in readme ([4e2ade2](https://github.com/fremtind/jokul/commit/4e2ade2f71d4fa1bd80e4e3d823691589207b641))
 
 ### Features
 
-- update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
+-   update to new typography naming ([5c061d7](https://github.com/fremtind/jokul/commit/5c061d7b52529f83a16cf944db240984b67f5229))
 
 ## 1.1.0 (2019-12-17)
 

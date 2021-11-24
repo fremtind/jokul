@@ -5,7 +5,9 @@ context("SummaryTable", () => {
         cy.testComponent("summarytable");
     });
 
-    it("SummaryTable should work", () => {
+    it("renders correctly", () => {
+        cy.getComponent().toMatchImageSnapshot();
+        cy.setDarkMode();
         cy.getComponent().toMatchImageSnapshot();
     });
 });

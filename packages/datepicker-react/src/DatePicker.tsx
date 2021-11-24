@@ -1,23 +1,32 @@
-import { Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
+import { DataTestAutoId, Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { useAnimatedHeight, useClickOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import classNames from "classnames";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
 import { Calendar } from "./Calendar";
 import { formatDate, getInitialDate } from "./dateFunctions";
 import { useCalendarId, useDisableDate } from "./internal/hooks";
-import { createReducer } from "./internal/reducer";
+import { createReducer, DateValidationError } from "./internal/reducer";
 
 export interface ChangeDate {
     date: Date;
 }
 
-type onChangeEventHandler = (date?: Date, e?: ChangeEvent) => void;
-type onBlurEventHandler = (date?: Date, e?: FocusEvent) => void;
-type onFocusEventHandler = (date?: Date, e?: FocusEvent) => void;
+type DatePickerMetadata = {
+    error: DateValidationError | undefined;
+    value: string;
+};
 
-interface Props {
+type onChangeEventHandler =
+    | ((date?: Date, e?: ChangeEvent) => void)
+    | ((date: Date | undefined, e: ChangeEvent | undefined, meta: DatePickerMetadata) => void);
+
+type onBlurEventHandler = (date?: Date, e?: React.FocusEvent) => void;
+type onFocusEventHandler = (date?: Date, e?: React.FocusEvent) => void;
+type onKeyDownEventHandler = (date?: Date, e?: React.KeyboardEvent<HTMLInputElement>) => void;
+
+interface Props extends DataTestAutoId {
     name?: string;
     label?: string;
     monthLabel?: string;
@@ -37,6 +46,7 @@ interface Props {
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     disableBeforeDate?: Date;
     disableAfterDate?: Date;
@@ -44,6 +54,7 @@ interface Props {
     onChange?: onChangeEventHandler;
     onFocus?: onFocusEventHandler;
     onBlur?: onBlurEventHandler;
+    onKeyDown?: onKeyDownEventHandler;
 }
 
 export const DatePicker = forwardRef<HTMLElement, Props>(
@@ -60,6 +71,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             onChange,
             onBlur,
             onFocus,
+            onKeyDown,
             initialShow = false,
             className = "",
             forceCompact,
@@ -70,6 +82,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             helpLabel,
             errorLabel,
             width = "11.5rem",
+            "data-testautoid": testAutoId,
             ...calendarProps
         },
         ref,
@@ -83,16 +96,17 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         const disableDate = useDisableDate(disableBeforeDate, disableAfterDate);
         const [inputId, supportLabelId] = useCalendarId();
 
-        const reducer = useMemo(() => createReducer(disableBeforeDate, disableAfterDate), [
-            disableBeforeDate,
-            disableAfterDate,
-        ]);
+        const reducer = useMemo(
+            () => createReducer(disableBeforeDate, disableAfterDate),
+            [disableBeforeDate, disableAfterDate],
+        );
         const initialDateState = getInitialDate(value, initialDate, disableDate);
 
         const [state, dispatch] = useReducer(reducer, {
             date: initialDateState,
             calendarHidden: !initialShow,
             dateString: initialDateState ? formatDate(initialDateState) : "",
+            error: undefined,
         });
 
         const componentClassName = classNames(
@@ -107,7 +121,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             "jkl-text-input--compact": forceCompact,
             "jkl-text-input--inverted": inverted,
         });
-        const componentRef = useRef<HTMLDivElement>(null);
+        const wrapperRef = useRef<HTMLDivElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
         const textboxRef = (ref as RefObject<HTMLInputElement>) || inputRef;
         const [calendarRef] = useAnimatedHeight(!state.calendarHidden);
@@ -119,7 +133,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         };
 
         const handleFocusChange = (fn?: onFocusEventHandler) => (e: FocusEvent) => {
-            const nextFocusIsInside = componentRef.current && componentRef.current.contains(e.relatedTarget as Node);
+            const nextFocusIsInside = wrapperRef.current && wrapperRef.current.contains(e.relatedTarget as Node);
             if (fn && !nextFocusIsInside) {
                 fn(state.date, e);
             }
@@ -134,11 +148,17 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             handleFocusChange(fn)(e);
         };
 
-        const handleOnChange = (e: FocusEvent<HTMLInputElement>) => {
+        const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
             dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
         };
 
-        useClickOutside(componentRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
+        const handleKeyDown = (fn?: onKeyDownEventHandler) => (e: React.KeyboardEvent<HTMLInputElement>) => {
+            fn?.(state.date, e);
+        };
+
+        useClickOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
+
+        useFocusOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
 
         useKeyListener(calendarRef, ["Escape"], () => {
             !state.calendarHidden && dispatch({ type: "TOGGLE" });
@@ -147,9 +167,10 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
 
         useEffect(() => {
             if (!isFirstRenderRef.current && onChange) {
-                onChange(state.date);
+                onChange(state.date, undefined, { error: state.error, value: state.dateString });
             }
-        }, [state.date, onChange]);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [state.date, state.dateString, state.error]);
 
         useEffect(() => {
             if (!isFirstRenderRef.current) {
@@ -162,11 +183,11 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         }, []);
 
         return (
-            <div className={componentClassName} ref={componentRef}>
+            <div className={componentClassName}>
                 <Label standAlone htmlFor={inputId} variant={variant}>
                     {label}
                 </Label>
-                <div className={inputWrapperClassName}>
+                <div className={inputWrapperClassName} ref={wrapperRef}>
                     <BaseInputField
                         id={inputId}
                         ref={textboxRef}
@@ -178,11 +199,13 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                         value={state.dateString}
                         onFocus={handleFocusChange(onFocus)}
                         onBlur={handleOnBlurChange(onBlur)}
+                        onKeyDown={handleKeyDown(onKeyDown)}
                         onClick={handleOnClick}
                         onChange={handleOnChange}
                         placeholder={placeholder}
                         width={width}
                         type="text"
+                        data-testautoid={testAutoId}
                     />
                     <IconButton
                         className="jkl-text-input__action-button"
@@ -219,3 +242,4 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         );
     },
 );
+DatePicker.displayName = "DatePicker";

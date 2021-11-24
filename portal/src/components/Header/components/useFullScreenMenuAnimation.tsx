@@ -1,12 +1,12 @@
 import { useEffect, useCallback, useContext, useMemo } from "react";
-import { useAnimation } from "framer-motion";
+import { AnimationControls, useAnimation } from "framer-motion";
 import { a11yContext } from "../../../contexts/a11yContext";
 
 interface Props {
     isOpen: boolean;
 }
 
-export const useFullScreenMenuAnimaiton = ({ isOpen }: Props) => {
+export const useFullScreenMenuAnimaiton = ({ isOpen }: Props): AnimationControls[] => {
     const controls = useAnimation();
     const { prefersReducedMotion } = useContext(a11yContext);
 

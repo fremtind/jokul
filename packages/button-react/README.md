@@ -1,12 +1,12 @@
-# [`@fremtind/jkl-button-react`](https://fremtind.github.io/jokul/komponenter/buttons)
+# [`@fremtind/jkl-button-react`](https://jokul.fremtind.no/komponenter/buttons)
 
 ## Beskrivelse
 
-Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponenter/buttons).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/buttons).
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://fremtind.github.io/jokul/developer/getting-started/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
 
 ## Bruk av React-pakken
 
@@ -19,6 +19,7 @@ Se portalen for [bruk og prinsipper](https://fremtind.github.io/jokul/komponente
 ```js
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import "@fremtind/jkl-button/button.min.css";
+import "@fremtind/jkl-loader/loader.min.css"; // stil for å bruke loader i knappen
 ```
 
 ### Bruk
@@ -39,11 +40,13 @@ En enkel bruk av knapper kan se slik ut:
 Knapper kan ha annet innhold enn ren tekst, for eksempel for å vise aktivitet knyttet til knappens handling:
 
 ```jsx
-<PrimaryButton onClick={uploadFiles}>
-  {
-    isUploading
-      ? <Loader inline negative textDescription="Laster opp filer">
-      : "Last opp"
-  }
+<PrimaryButton
+    onClick={uploadFiles}
+    loader={{
+        showLoading: isUploading,
+        textDescription: "Laster opp filer",
+    }}
+>
+    Last opp
 </PrimaryButton>
 ```

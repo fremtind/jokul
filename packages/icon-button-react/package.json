@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-icon-button-react",
-    "version": "0.4.8",
+    "version": "0.7.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react icon-button components",
-    "homepage": "https://fremtind.github.io/jokul",
+    "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "button",
         "icon button",
@@ -36,13 +36,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.9.0",
-        "@fremtind/jkl-icon-button": "^0.2.40"
+        "@babel/runtime": "^7.16.3",
+        "@fremtind/jkl-icon-button": "^0.5.3"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.5.3",
-        "@fremtind/jkl-portal-components": "^0.9.5",
-        "@fremtind/jkl-toggle-switch-react": "^2.6.7"
+        "@fremtind/browserslist-config-jkl": "^0.5.4",
+        "@fremtind/jkl-toggle-switch-react": "^6.0.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

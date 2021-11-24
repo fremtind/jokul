@@ -1,39 +1,47 @@
-import React from "react";
-import { ExampleComponentProps } from "@fremtind/jkl-portal-components";
+import React, { useState } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { PrimaryButton } from "../src";
 
-function onClick() {
-    console.log("Hello!");
-}
+export const Primary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+    const [showLoader, setShowLoader] = useState(false);
+    const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
 
-export const Primary: React.FC<ExampleComponentProps> = ({ boolValues }) => (
-    <PrimaryButton
-        inverted={boolValues && boolValues["Invertert"]}
-        forceCompact={boolValues && boolValues["Kompakt"]}
-        loader={
-            !!boolValues?.["withLoader"]
-                ? { showLoader: !!boolValues?.["isLoading"], textDescription: "Laster innhold" }
-                : undefined
-        }
-        onClick={onClick}
-        className="jkl-spacing--right-1"
-    >
-        Avbryt
-    </PrimaryButton>
-);
+    const simulateLoading = () => {
+        console.log("Hello!");
+        setShowLoader(true);
+        setTimeout(() => {
+            setShowLoader(false);
+        }, 2200);
+    };
 
-export const PrimaryCode = `
+    return (
+        <PrimaryButton
+            forceCompact={!!boolValues?.["Kompakt"]}
+            inverted={!!boolValues?.["Invertert"]}
+            loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
+            className="jkl-spacing-l--right"
+            onClick={simulateLoading}
+        >
+            Lagre og send inn
+        </PrimaryButton>
+    );
+};
+
+export const primaryCode = ({ boolValues }: ExampleComponentProps): string => `
 <PrimaryButton
-    inverted={boolValues && boolValues["Invertert"]}
-    forceCompact={boolValues && boolValues["Kompakt"]}
-    loader={
+    forceCompact={${!!boolValues?.["Kompakt"]}}
+    inverted={${!!boolValues?.["Invertert"]}}
+    loader={${
         !!boolValues?.["withLoader"]
-            ? { showLoader: !!boolValues?.["isLoading"], textDescription: "Laster innhold" }
-            : undefined
-    }
-    onClick={onClick}
-    className="jkl-spacing--right-1"
+            ? `{
+        showLoader: ${!!boolValues?.["isLoading"]},
+        textDescription: "Laster innhold"
+    }`
+            : `false`
+    }}
+    onClick={simulateLoading}
+    className="jkl-spacing-l--right"
 >
-    Avbryt
+    Lagre og send inn
 </PrimaryButton>
 `;

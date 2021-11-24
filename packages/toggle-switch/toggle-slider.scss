@@ -1,4 +1,5 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
@@ -8,23 +9,22 @@ $jkl-slider-offset__pill--left: calc(#{$jkl-slider-offset} + 1px);
 $jkl-slider-offset__pill--right: calc(calc(#{$jkl-slider-width}/ 2) - #{$jkl-slider-offset});
 $jkl-slider-rounded: rem(100px);
 
-:root,
-[data-theme="light"] {
-    --jkl-slider-bg: #{$gra-10};
-    --jkl-slider-pill: #{$hvit};
-    --jkl-slider-pill-color: #{$gra-60};
-    --jkl-slider-pill-color--active: #{$gra-100};
-    --jkl-slider-focus-color: #{$info};
-    --jkl-slider-hover-color: #{$info};
+@include jkl.helper-light-mode-variables {
+    --jkl-slider-bg: #{jkl.$color-varde};
+    --jkl-slider-pill: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text: #{jkl.$color-granitt};
+    --jkl-slider-pill-text--active: #{jkl.$color-granitt};
+    --jkl-slider-focus-color: #{jkl.$color-svart};
+    --jkl-slider-hover-color: #{jkl.$color-stein};
 }
 
-[data-theme="dark"] {
-    --jkl-slider-bg: #{$gra-90};
-    --jkl-slider-pill: #{$svart};
-    --jkl-slider-pill-color: #{$gra-40};
-    --jkl-slider-pill-color--active: #{$hvit};
-    --jkl-slider-focus-color: #{$info--darkbg};
-    --jkl-slider-hover-color: #{$info--darkbg};
+@include jkl.helper-dark-mode-variables {
+    --jkl-slider-bg: #{jkl.$color-fjellgra};
+    --jkl-slider-pill: #{jkl.$color-granitt};
+    --jkl-slider-pill-text: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text--active: #{jkl.$color-snohvit};
+    --jkl-slider-focus-color: #{jkl.$color-svaberg};
+    --jkl-slider-hover-color: #{jkl.$color-svaberg};
 }
 
 $jkl-slider-focus-ring-width: rem(2px);
@@ -39,19 +39,19 @@ $jkl-slider-focus-ring-width: rem(2px);
         background-color: transparent;
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
-            box-shadow: 0 0 0 $jkl-slider-focus-ring-width $info;
+            box-shadow: 0 0 0 $jkl-slider-focus-ring-width jkl.$color-svart;
             box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
 
             .jkl-toggle-slider__pill {
-                box-shadow: 0 0 0 $jkl-slider-focus-ring-width $info;
+                box-shadow: 0 0 0 $jkl-slider-focus-ring-width jkl.$color-svart;
                 box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
             }
         }
 
         cursor: pointer;
-        background-color: $gra-10;
+        background-color: jkl.$color-varde;
         background-color: var(--jkl-slider-bg);
-        padding: $component-spacing--small 0;
+        padding: jkl.$spacing-xs 0;
         position: relative;
         border-radius: $jkl-slider-rounded;
         overflow: hidden;
@@ -64,7 +64,7 @@ $jkl-slider-focus-ring-width: rem(2px);
         &__pill {
             width: 50%;
             height: calc(100% - #{$jkl-slider-offset} - #{$jkl-slider-offset});
-            background-color: $hvit;
+            background-color: jkl.$color-snohvit;
             background-color: var(--jkl-slider-pill);
             display: block;
             position: absolute;
@@ -73,7 +73,7 @@ $jkl-slider-focus-ring-width: rem(2px);
             transition-property: transform;
             @include motion(standard, expressive);
             border-radius: $jkl-slider-rounded;
-            box-shadow: 0 0 rem(4px) rgba($svart, 0.15);
+            box-shadow: 0 0 rem(4px) rgba(jkl.$color-svart, 0.15);
         }
 
         &--left,
@@ -82,8 +82,8 @@ $jkl-slider-focus-ring-width: rem(2px);
             display: block;
             width: 50%;
             text-align: center;
-            color: $gra-60;
-            color: var(--jkl-slider-pill-color);
+            color: jkl.$color-granitt;
+            color: var(--jkl-slider-pill-text);
             transition-property: color;
             @include motion(standard, expressive);
         }
@@ -98,29 +98,21 @@ $jkl-slider-focus-ring-width: rem(2px);
         &--left,
         &--right,
         &__label {
-            @include jkl-text-style("compact/small");
-            font-weight: $bold-weight;
-        }
-
-        @include from-large-device {
-            &--left,
-            &--right,
-            &__label {
-                @include jkl-text-style("desktop/small");
-                font-weight: $bold-weight;
+            @include jkl.text-style("small") {
+                font-weight: jkl.$typography-weight-bold;
             }
         }
 
         &--checked {
             & > .jkl-toggle-slider--right {
-                color: $svart;
-                color: var(--jkl-slider-pill-color--active);
+                color: jkl.$color-granitt;
+                color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--left {
-                        color: $info;
+                        color: jkl.$color-stein;
                         color: var(--jkl-slider-hover-color);
                     }
                 }
@@ -133,14 +125,14 @@ $jkl-slider-focus-ring-width: rem(2px);
             }
 
             & > .jkl-toggle-slider--left {
-                color: $svart;
-                color: var(--jkl-slider-pill-color--active);
+                color: jkl.$color-granitt;
+                color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--right {
-                        color: $info;
+                        color: jkl.$color-stein;
                         color: var(--jkl-slider-hover-color);
                     }
                 }
@@ -149,21 +141,20 @@ $jkl-slider-focus-ring-width: rem(2px);
     }
 
     &--inverted {
-        background-color: $svart;
-        color: $hvit;
-        --jkl-slider-pill-color--active: #{$hvit};
-        --jkl-slider-hover-color: #{$info--darkbg};
+        color: jkl.$color-snohvit;
+        --jkl-slider-pill-text--active: #{jkl.$color-snohvit};
+        --jkl-slider-hover-color: #{jkl.$color-svaberg};
 
         .jkl-toggle-slider {
-            background-color: $gra-90;
+            background-color: jkl.$color-fjellgra;
 
             &__pill {
-                background-color: $svart;
+                background-color: jkl.$color-granitt;
             }
 
             &--left,
             &--right {
-                color: $gra-40;
+                color: jkl.$color-snohvit;
             }
         }
     }

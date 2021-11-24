@@ -1,125 +1,28 @@
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/variables/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $icon-size: rem(45px);
 $max-feedback-input-width: 30rem;
 
-:root,
-[data-theme="light"] {
-    --jkl-feedback-icon--base: #{$hvit};
-    --jkl-feedback-icon--outline: #{$svart};
-    --jkl-feedback-icon--hover: #{$gra-30};
-    --jkl-feedback-icon--selected: #{$suksess--darkbg};
+@include jkl.helper-light-mode-variables {
+    --jkl-feedback--step-color: #{jkl.$color-stein};
 }
 
-[data-theme="dark"] {
-    --jkl-feedback-icon--base: #{$svart};
-    --jkl-feedback-icon--outline: #{$hvit};
-    --jkl-feedback-icon--hover: #{$gra-70};
-    --jkl-feedback-icon--selected: #{$suksess};
+@include jkl.helper-dark-mode-variables {
+    --jkl-feedback--step-color: #{jkl.$color-svaberg};
 }
 
 @keyframes show {
     from {
-        transform: translateY(20px);
+        transform: translate3D(0, 0.5rem, 0);
         opacity: 0;
-    }
-}
-
-@keyframes hide {
-    to {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-}
-
-.jkl-feedback-icon {
-    width: $icon-size;
-    stroke-width: rem(2px);
-    stroke: $svart;
-    stroke: var(--jkl-feedback-icon--outline);
-    transition-property: color;
-    @include motion(standard, expressive);
-
-    &__eyes {
-        fill: $svart;
-        fill: var(--jkl-feedback-icon--outline);
-    }
-
-    &--1 {
-        --jkl-feedback-icon--selected: #ff7059;
-    }
-    &--2 {
-        --jkl-feedback-icon--selected: #f2994a;
-    }
-    &--3 {
-        --jkl-feedback-icon--selected: #ffc880;
-    }
-    &--4 {
-        --jkl-feedback-icon--selected: #50e68c;
-    }
-    &--5 {
-        --jkl-feedback-icon--selected: #27ae60;
     }
 }
 
 .jkl-feedback {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-    &__form {
-        &--hidden {
-            animation: hide 0.25s ease-in;
-        }
-    }
-
-    &__heading,
-    &__fieldset {
-        text-align: center;
-    }
-
-    &__answer-input {
-        @include reset-outline;
-        opacity: 0;
-        position: absolute;
-
-        html:not([data-mousenavigation]) &:focus {
-            + .jkl-feedback__answer-icon {
-                box-shadow: 0 0 0 rem(2px) $gra-10, 0 0 0 rem(4px) $info;
-            }
-        }
-        &:checked {
-            + .jkl-feedback__answer-label > .jkl-feedback-icon {
-                color: $suksess--darkbg;
-                color: var(--jkl-feedback-icon--selected);
-            }
-        }
-    }
-
-    &__answer-label {
-        cursor: pointer;
-        box-sizing: border-box;
-        display: inline-block;
-        margin-top: $layout-spacing--small;
-        margin-bottom: $layout-spacing--small;
-        margin-right: $layout-spacing--small;
-        color: white;
-        color: var(--jkl-feedback-icon--base);
-        transition-property: color, transform;
-        @include motion(standard, expressive);
-
-        &:last-of-type {
-            margin-right: 0;
-        }
-
-        &:hover {
-            color: var(--jkl-feedback-icon--hover);
-            transform: scale(1.05);
-        }
-    }
+    max-width: rem(550px);
 
     &__submit-wrapper {
         width: 100%;
@@ -131,17 +34,14 @@ $max-feedback-input-width: 30rem;
         }
     }
 
-    &__submit-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    &__step-counter {
+        @include jkl.text-style("body");
+        color: jkl.$color-stein;
+        color: var(--jkl-feedback--step-color);
+        margin-bottom: jkl.$spacing-m;
     }
 
-    &__message-input {
-        max-width: $max-feedback-input-width;
-    }
-
-    &__success {
+    &__fade-in {
         animation: show 0.25s ease-out;
     }
 }

@@ -1,8 +1,9 @@
 import React, { ReactNode, useState, forwardRef, ChangeEventHandler, FocusEventHandler } from "react";
 import classNames from "classnames";
 import { nanoid } from "nanoid";
+import { DataTestAutoId } from "@fremtind/jkl-core";
 
-interface Props {
+interface Props extends DataTestAutoId {
     children: ReactNode;
     name: string;
     value: string;
@@ -11,6 +12,7 @@ interface Props {
     className?: string;
     forceCompact?: boolean;
     invalid?: boolean;
+    /** @deprecated */
     inverted?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onFocus?: FocusEventHandler<HTMLInputElement>;
@@ -29,6 +31,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
             inline = false,
             forceCompact,
             inverted,
+            "data-testautoid": testAutoId,
             ...eventHandlers
         },
         ref,
@@ -53,6 +56,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
                     type="checkbox"
                     name={name}
                     value={value}
+                    data-testautoid={testAutoId}
                     {...eventHandlers}
                 />
                 <label htmlFor={id} className="jkl-checkbox__label">
@@ -63,3 +67,4 @@ export const Checkbox = forwardRef<HTMLInputElement, Props>(
         );
     },
 );
+Checkbox.displayName = "Checkbox";

@@ -1,49 +1,53 @@
-@import "~@fremtind/jkl-core/variables/_all.scss";
+@use "~@fremtind/jkl-core/jkl";
+
 @import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions.scss";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
-$value-height: $line-height-4;
-$value-font-size: $font-size-6;
-
-$side-padding: $component-spacing--small;
-$bottom-padding: $component-spacing--small;
+$value-height: rem(32px);
+$value-font-size: rem(22px);
 
 $arrow-height: rem(16px);
 $arrow-width: rem(13px);
 
-$select-border-color: $svart;
-$select-text-color: $svart;
-$select-text-disabled-color: $gra-60;
-$select-background-color: $hvit;
-$select-open-background-color: $hvit;
-$select-focus-color: $info;
-$select-error-color: $feil;
+$select-padding: jkl.$spacing-xs jkl.$spacing-s;
 
-$select-border-color--inverted: $hvit;
-$select-text-color--inverted: $hvit;
+$select-border-color: jkl.$color-stein;
+$select-text-color: jkl.$color-granitt;
+$select-text-disabled-color: jkl.$color-stein;
+$select-background-color: transparent;
+$select-open-background-color: jkl.$color-hvit;
+$select-focus-color: jkl.$color-granitt;
+$select-error-color: jkl.$color-feil;
+$select-hover-option-color: jkl.$color-stein;
+
+$select-border-color--inverted: jkl.$color-svaberg;
+$select-text-color--inverted: jkl.$color-snohvit;
 $select-background-color--inverted: transparent;
-$select-open-background-color--inverted: $gra-80;
-$select-focus-color--inverted: $info--darkbg;
-$select-error-color--inverted: $feil--darkbg;
+$select-open-background-color--inverted: jkl.$color-svart;
+$select-focus-color--inverted: jkl.$color-snohvit;
+$select-error-color--inverted: jkl.$color-feil--darkbg;
+$select-hover-option-color--inverted: jkl.$color-svaberg;
 
-:root,
-[data-theme="light"] {
+@include jkl.helper-light-mode-variables {
     --select-border-color: #{$select-border-color};
     --select-text-color: #{$select-text-color};
     --select-background-color: #{$select-background-color};
     --select-open-background-color: #{$select-open-background-color};
     --select-focus-color: #{$select-focus-color};
     --select-error-color: #{$select-error-color};
+    --select-hover-option-color: #{$select-hover-option-color};
 }
 
-[data-theme="dark"] {
+@include jkl.helper-dark-mode-variables {
     --select-border-color: #{$select-border-color--inverted};
     --select-text-color: #{$select-text-color--inverted};
     --select-background-color: #{$select-background-color--inverted};
     --select-open-background-color: #{$select-open-background-color--inverted};
     --select-focus-color: #{$select-focus-color--inverted};
     --select-error-color: #{$select-error-color--inverted};
+    --select-hover-option-color: #{$select-hover-option-color--inverted};
 }
 
 .jkl-select {
@@ -91,7 +95,7 @@ $select-error-color--inverted: $feil--darkbg;
     /* The main select element showing the current value */
     &__search-input,
     &__button {
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body/large-screen");
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -99,23 +103,22 @@ $select-error-color--inverted: $feil--darkbg;
         background-color: var(--select-background-color);
         color: $select-text-color;
         color: var(--select-text-color);
+        cursor: pointer;
 
         height: rem(48px);
         border-radius: rem(3px);
         border: rem(1px) solid $select-border-color;
         border: rem(1px) solid var(--select-border-color);
-        box-shadow: 0 0 0 0 $select-border-color;
-        box-shadow: 0 0 0 0 var(--select-border-color);
+        box-shadow: 0 0 0 rem(1px) transparent;
 
-        padding: $component-spacing--small $component-spacing--large;
-        padding-right: $arrow-width + 2 * $component-spacing--large;
+        padding: $select-padding;
+        padding-right: $arrow-width + 2 * jkl.$spacing-m;
         text-align: left;
         width: 100%;
 
         @include motion("standard");
         transition-property: color, border-color, box-shadow;
 
-        &:hover,
         &:focus {
             border-color: $select-focus-color;
             border-color: var(--select-focus-color);
@@ -123,6 +126,8 @@ $select-error-color--inverted: $feil--darkbg;
             color: var(--select-focus-color);
             box-shadow: 0 0 0 rem(1px) $select-focus-color;
             box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
+            background-color: $select-open-background-color;
+            background-color: var(--select-open-background-color);
 
             & ~ .jkl-select__arrow {
                 color: $select-focus-color;
@@ -131,6 +136,10 @@ $select-error-color--inverted: $feil--darkbg;
         }
 
         &:hover {
+            border-color: $select-focus-color;
+            border-color: var(--select-focus-color);
+            box-shadow: 0 0 0 rem(1px) $select-focus-color;
+            box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
             & ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{rem(3px)}));
             }
@@ -140,7 +149,7 @@ $select-error-color--inverted: $feil--darkbg;
     /* The dropdown arrow */
     &__arrow {
         position: absolute;
-        right: $component-spacing--large;
+        right: jkl.$spacing-m;
         top: 50%;
         transform: translateY(-50%);
         color: inherit;
@@ -154,7 +163,7 @@ $select-error-color--inverted: $feil--darkbg;
         left: rem(-1px);
         right: rem(-1px);
         top: 100%;
-        z-index: $z-index--dropdown;
+        z-index: jkl.$z-index--dropdown;
 
         background-color: $select-open-background-color;
         background-color: var(--select-open-background-color);
@@ -179,19 +188,20 @@ $select-error-color--inverted: $feil--darkbg;
 
     /* The individual options in the dropdown list */
     &__option {
-        @include jkl-text-style("desktop/body");
+        @include jkl.text-style("body/large-screen");
         color: unset;
+        display: flex; // avoids wrapping long names "under" the focus arrow
+        align-items: flex-start;
         border: 0; // removes native styling
         width: 100%;
         background-color: inherit;
         min-height: rem(48px);
-        padding: $component-spacing--small $component-spacing--large;
-        clip-path: inset($component-spacing--small $component-spacing--large);
-        clip: rect();
         text-align: left;
         @include motion("standard");
         transition-property: color, background-color;
         position: relative;
+        padding: $select-padding;
+        cursor: pointer;
 
         &:before {
             content: "";
@@ -203,12 +213,13 @@ $select-error-color--inverted: $feil--darkbg;
 
             &::before {
                 content: "→ ";
+                padding-right: jkl.$spacing-xs;
             }
         }
 
         &:hover {
-            color: $select-focus-color;
-            color: var(--select-focus-color);
+            color: $select-hover-option-color;
+            color: var(--select-hover-option-color);
         }
 
         &[aria-selected="true"]:not(:focus) {
@@ -217,15 +228,17 @@ $select-error-color--inverted: $feil--darkbg;
                 background-color: $select-focus-color;
                 background-color: var(--select-focus-color);
                 content: "";
-                /* autoprefixer with Browserlist="Chrome >= 70" will not generate 
+                /* autoprefixer with Browserlist="Chrome >= 70" will not generate
                  * a prefix for this even if Chrome 70 doesn't support mask-image
                  */
                 -webkit-mask-image: $mask-image-url;
                 mask-image: $mask-image-url;
                 display: inline-block;
-                margin-left: $component-spacing--xs;
+                margin-left: jkl.$spacing-2xs;
+                margin-top: jkl.$spacing-xs;
                 width: 17px;
                 height: 13px;
+                flex-shrink: 0;
             }
         }
     }
@@ -382,11 +395,15 @@ $select-error-color--inverted: $feil--darkbg;
     @include compact-mode {
         & .jkl-select__search-input,
         & .jkl-select__button {
-            @include jkl-text-style("compact/body");
+            @include jkl.text-style("body/small-screen") {
+                line-height: rem(24px);
+            }
             height: rem(40px);
         }
         & .jkl-select__option {
-            @include jkl-text-style("compact/body");
+            @include jkl.text-style("body/small-screen") {
+                line-height: rem(24px);
+            }
             min-height: rem(40px);
         }
     }

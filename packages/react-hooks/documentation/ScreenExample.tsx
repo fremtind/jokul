@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { createContext, useContext, VFC } from "react";
 import { useScreen, initialScreenState } from "../src";
 
 interface State {
@@ -14,9 +14,9 @@ interface State {
     };
 }
 
-const ScreenContext = React.createContext<State>(initialScreenState);
+const ScreenContext = createContext<State>(initialScreenState);
 
-const ScreenExample = () => {
+const ScreenExample: VFC = () => {
     const {
         isSmallDevice,
         isMediumDevice,
@@ -43,19 +43,17 @@ const ScreenExample = () => {
     };
 
     return (
-        <section className="hooks-example key-listener-example jkl-spacing--bottom-3">
-            <h2 className="jkl-h2 jkl-spacing--bottom-2">Din dings har en {getDeviceName()} skjerm</h2>
-            <h3 className="jkl-h3 jkl-spacing--bottom-2">{`Den er i ${isLandscape ? "landskaps" : ""}${
-                isPortrait ? "portrett" : ""
-            }modus`}</h3>
-            <p className="jkl-p jkl-spacing--bottom-2">
-                {width} x {height}
-            </p>
-        </section>
+        <>
+            <p className="jkl-heading-3 jkl-spacing-xl--bottom">{`Din dings har en ${getDeviceName()} skjerm i ${
+                isLandscape ? "landskaps" : ""
+            }${isPortrait ? "portrett" : ""}modus`}</p>
+
+            <p className="jkl-body jkl-spacing-xl--bottom">{`Oppløsningen på nettleservinduet er ${width} x ${height}`}</p>
+        </>
     );
 };
 
-const Provider = () => {
+const Provider: VFC = () => {
     const screen = useScreen();
 
     return (
