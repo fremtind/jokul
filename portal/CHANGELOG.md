@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.3.0 (2021-11-24)
+
+### Features
+
+- bruk Tag i uu-guiden i portalen ([6fd4bd9](https://github.com/fremtind/jokul/commit/6fd4bd93aeb626ff0044f7cd781d12982fb3ec96))
+
 ## 10.2.0 (2021-11-18)
 
 ### Features

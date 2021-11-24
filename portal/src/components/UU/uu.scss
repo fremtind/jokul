@@ -91,31 +91,16 @@
             margin-top: jkl.$spacing-3xl;
         }
 
-        &__header {
-            &--tags {
-                display: flex;
-                flex-wrap: wrap;
-                list-style: none;
-                padding-inline-start: 0;
-                margin-block-start: jkl.$spacing-xs;
-                column-gap: jkl.$spacing-xs;
-                row-gap: jkl.$spacing-xs;
-                margin-bottom: jkl.$spacing-l;
-                max-width: rem(750px);
-            }
-
-            &__tag {
-                @include jkl.text-style("small");
-                height: 24px;
-                display: flex;
-                align-self: center;
-                align-items: center;
-                justify-content: center;
-                border-radius: 100px;
-                padding: jkl.$spacing-2xs jkl.$spacing-xs jkl.$spacing-3xs jkl.$spacing-xs;
-                background-color: jkl.$color-sand;
-                color: jkl.$color-fjellgra;
-            }
+        &__tags {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding-inline-start: 0;
+            margin-block-start: jkl.$spacing-xs;
+            column-gap: jkl.$spacing-xs;
+            row-gap: jkl.$spacing-xs;
+            margin-bottom: jkl.$spacing-l;
+            max-width: rem(750px);
         }
 
         &__links {
