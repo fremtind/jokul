@@ -109,8 +109,7 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
         border-radius: rem(3px);
         border: rem(1px) solid $select-border-color;
         border: rem(1px) solid var(--select-border-color);
-        box-shadow: 0 0 0 0 $select-border-color;
-        box-shadow: 0 0 0 0 var(--select-border-color);
+        box-shadow: 0 0 0 rem(1px) transparent;
 
         padding: $select-padding;
         padding-right: $arrow-width + 2 * jkl.$spacing-m;
