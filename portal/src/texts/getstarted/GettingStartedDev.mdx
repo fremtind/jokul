@@ -32,7 +32,7 @@ Jøkul er et designsystem: Et bibliotek med komponenter. Det gir litt andre utfo
 
 ## Slik har vi organisert pakkene
 
-Alle komponentene er organisert under `/packages`. De som slutter på `-react` er React-pakker. De som ikke har en endelse, er stilpakker. Stilpakkene skal være generelle og du kan bruke dem uten noe JavaScript-rammeverk. Hver enkelt pakke inneholder et eksempel, som du kan kan starte med `yarn dev` fra hver enkelt pakke. Noen av stilpakkene mangler eksempler, fordi det kreves en del JavaScript for å få eksempelet til å kjøre. `Select` og `Datepicker` er eksempler på dette.
+Alle komponentene er organisert under `/packages`. De som slutter på `-react` er React-pakker. De som slutter på `-utils` er støttebibliotek. De som ikke har en endelse, er stilpakker. Stilpakkene skal være generelle og du kan bruke dem uten noe JavaScript-rammeverk. Hver React-pakke inneholder et eksempel, som du kan kan starte med `yarn dev` fra hver enkelt pakke.
 
 ## Slik håndterer vi brancher og versjoner
 
@@ -44,6 +44,24 @@ All utvikling skjer på brancher basert på hovedbranchen. Når du er klar lager
 
 1. Gå til rot, kjør kommandoen `yarn scaffold`, og følg instruksene i terminalen.
 2. Etter kommandoen har kjørt vil det være opprettet to mapper i packages mappen (komponent-navn og komponent-navn-react).
+
+Vi har noen minstekrav til dokumentasjon som den nye komponenten din <strong>må</strong> følge. Disse kravene gjelder dokumentasjonen som vises under Komponenter.
+
+<strong>Må</strong>-krav:
+
+-   Ingress med kort beskrivelse av komponenten
+-   Første eksempel synlig uten å scrolle
+-   Relevante eksempler på riktig og feil bruk
+-   Live kodeeksempel (oppdateres med valgte egenskaper)
+-   React-props for komponentene i bunnen
+
+I tillegg har vi noen <i>vil</i>-ønsker. Disse er det fint om du har med fordi de gjør det lettere for andre å bruke komponenten, men de er ikke et krav.
+
+-   Kontrollspørsmål for bruk
+-   Lenker til relevante eller alternative komponenter der det er naturlig
+-   Eksempler på bruk ute i teamene
+
+Du kan se på dokumentasjonen for [Tag](/komponenter/tag) og [Alert message](/komponenter/alertmessage) for inspirasjon.
 
 ## Slik lenker du pakker sammen
 
