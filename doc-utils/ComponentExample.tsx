@@ -1,5 +1,5 @@
 import React, { FC, VFC } from "react";
-import { ExampleComponentProps, ChoiceProp, BoolProp } from "./";
+import { ExampleComponentProps, ChoiceProp, BoolProp, CodeExample } from "./";
 import { ExampleBase } from "./ExampleBase";
 
 export interface Props {
@@ -10,7 +10,7 @@ export interface Props {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
     };
-    codeExample?: string | ((options: ExampleComponentProps) => string);
+    codeExample?: CodeExample;
 }
 
 export const ComponentExample: VFC<Props> = ({ component, ...rest }) => {
