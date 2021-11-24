@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp } from "./";
+import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
 import { hyphenate } from "./internal/hypenate";
 import { CodeBlock } from "./CodeBlock";
 
@@ -16,7 +16,7 @@ export interface Props {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
     };
-    codeExample?: string | ((options: ExampleComponentProps) => string);
+    codeExample?: CodeExample;
     responsiveLayout: boolean;
 }
 

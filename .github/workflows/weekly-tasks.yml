@@ -18,7 +18,7 @@ jobs:
             - name: Create weekly issue to upgrade dependencies
               uses: imjohnbo/issue-bot@7e438653c0da13f4f79678a56bb9ecbd9dcc26ac
               with:
-                  assignees: "wkillerud, henrikhermansen, joms, kennidenni, mikaila94, piofinn, saegrov, sercansercan, espkva"
+                  assignees: "wkillerud, piofinn"
                   rotate-assignees: true
                   labels: "🔁 round robin, 🔗 dependencies"
                   pinned: true
