@@ -7,14 +7,14 @@ describe("Slider", () => {
 
     it("renders correctly", () => {
         cy.getComponent().toMatchImageSnapshot();
-        cy.setMedFeil().toMatchImageSnapshot();
+        cy.setMedFeil().getComponent().toMatchImageSnapshot();
     });
 
     context("dark mode", () => {
         it("renders correctly", () => {
             cy.setDarkMode();
             cy.getComponent().toMatchImageSnapshot();
-            cy.setMedFeil().toMatchImageSnapshot();
+            cy.setMedFeil().getComponent().toMatchImageSnapshot();
         });
     });
 });
