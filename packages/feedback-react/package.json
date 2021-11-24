@@ -33,7 +33,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.0",
+        "@babel/runtime": "^7.16.3",
         "@fremtind/jkl-button-react": "^8.0.4",
         "@fremtind/jkl-checkbox-react": "^5.0.4",
         "@fremtind/jkl-core": "^8.1.0",

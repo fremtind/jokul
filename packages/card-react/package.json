@@ -31,7 +31,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.0",
+        "@babel/runtime": "^7.16.3",
         "@fremtind/jkl-button-react": "^8.0.4",
         "@fremtind/jkl-card": "^5.0.2",
         "classnames": "^2.2.6"
