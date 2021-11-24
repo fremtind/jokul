@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "5.1.0",
+    "version": "5.1.1",
     "publishConfig": {
         "access": "public"
     },
@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.16.3",
-        "@fremtind/jkl-accordion": "^5.0.3",
-        "@fremtind/jkl-react-hooks": "^6.0.2",
+        "@fremtind/jkl-accordion": "^5.0.4",
+        "@fremtind/jkl-react-hooks": "^6.0.3",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
