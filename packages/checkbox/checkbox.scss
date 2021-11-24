@@ -106,7 +106,7 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
             color: var(--checkbox-disabled-color);
 
             &:hover .jkl-checkbox__check-mark {
-                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 currentColor;
+                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
             }
         }
     }
@@ -132,7 +132,7 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
             color: var(--checkbox-color);
 
             .jkl-checkbox__check-mark {
-                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 currentColor;
+                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
                 background-color: $checkbox-focus-background-color;
                 background-color: var(--checkbox-focus-background-color);
             }
@@ -160,7 +160,7 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
 
         outline: none;
         border-radius: 0; // fixes rounded corners in iOS Safari
-        box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 0 transparent;
+        box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
 
         @include motion("standard");
         transition-property: box-shadow;
@@ -240,7 +240,7 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
             }
         }
         .jkl-checkbox__check-mark {
-            box-shadow: inset 0 0 0 rem(1px) $checkbox-box-default-color--inverted, 0 0 0 0 transparent;
+            box-shadow: inset 0 0 0 rem(1px) $checkbox-box-default-color--inverted, 0 0 0 rem(1px) transparent;
             background-color: $checkbox-background-color--inverted;
         }
         &.jkl-checkbox--error {
