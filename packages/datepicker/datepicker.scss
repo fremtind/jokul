@@ -36,8 +36,8 @@ $datepicker-focus-color--inverted: jkl.$color-snohvit;
 
     &--open {
         .jkl-datepicker__input {
-            box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color, 0 0 0 0 $datepicker-focus-color;
-            box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color), 0 0 0 0 var(--datepicker-focus-color);
+            box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color, 0 0 0 rem(1px) transparent;
+            box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color), 0 0 0 rem(1px) transparent;
             &:hover,
             &:focus {
                 box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color, 0 0 0 rem(1px) $datepicker-focus-color;
@@ -50,8 +50,7 @@ $datepicker-focus-color--inverted: jkl.$color-snohvit;
     /// Legacy code for IE11 support
     &--inverted.jkl-datepicker--open {
         .jkl-datepicker__input {
-            box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color--inverted,
-                0 0 0 0 $datepicker-focus-color--inverted;
+            box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color--inverted, 0 0 0 rem(1px) transparent;
             &:hover,
             &:focus {
                 box-shadow: inset 0 0 0 rem(1px) $datepicker-focus-color--inverted,
