@@ -23,7 +23,10 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
     const [dismissed, setDismissed] = useState(false);
     const dismissAction = boolValues?.["Avvisbar"]
         ? {
-              handleDismiss: () => setDismissed(true),
+              handleDismiss: () => {
+                  setDismissed(true);
+                  setTimeout(() => setDismissed(false), 2600);
+              },
               buttonTitle: "Merk som lest",
           }
         : undefined;

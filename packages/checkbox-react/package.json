@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-checkbox-react",
-    "version": "5.0.3",
+    "version": "5.0.4",
     "publishConfig": {
         "access": "public"
     },
@@ -35,7 +35,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.16.3",
-        "@fremtind/jkl-checkbox": "^5.0.2",
+        "@fremtind/jkl-checkbox": "^5.0.3",
         "@fremtind/jkl-core": "^8.1.0",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.30"

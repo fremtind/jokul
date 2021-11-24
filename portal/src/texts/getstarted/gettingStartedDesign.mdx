@@ -1,21 +1,39 @@
 ---
-title: For designere
+title: Designe for Jøkul
 path: /komigang/design
 order: 3
 ---
 
 # Kom i gang som designer
 
-Vi designer våre løsninger i Figma. Der finner du også skisser, prototyper og andre eksempler på løsninger som er laget i vår drakt.
+Vi designer våre løsninger i Figma. Der finner du [Jøkul-biblioteket](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=0%3A1), skisser, prototyper og andre eksempler på løsninger som er laget i vår drakt.
 
 Før du starter å designe løsninger for Fremtind, bør du gjøre deg kjent med profilen vår. Den kan du lese om her i portalen.
 
-## Spørsmål om designsystemet
+## Slik gjør du en endring i Jøkul
 
-Er du designer og har spørsmål om designsystemet? Ta kontakt med Support-kanalen direkte.
+Før du kommer for langt er det fint om du har lest [Bidra til designsystemet](/komigang/prosessen). Hvordan gjør du så en endring i Jøkul, rent praktisk?
 
--   Hvis du ser noe i designsystemet du syntes er rart eller feil, kan du opprette et issue i GitHub.
+Vi bruker [branches](https://www.figma.com/best-practices/branching-in-figma/) i Figma. Det betyr at du starter med [Jøkul-biblioteket](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=0%3A1) og lager en egen branch hvor du dokumenterer designet ditt (med varianter ved behov) såpass at det er klart for å merges inn. Branchen din må være sjekket av minst én annen designer. Spør kjerneteamet om du trenger en buddy.
 
--   Har du behov for tilganger, kan du kontakte fremtind.designsystem@fremtind.no.
+Når designet har fått en tommel opp er det opp til en utvikler å gjøre ferdig koden (programmeringen har forhåpentligvis gått noenlunde i parallell med design). Dokumentasjonen som skal vises under Komponenter her i portalen blir et samarbeid mellom deg som designer og utvikleren som koder inn endringen, men utvikleren har ansvaret for å gjøre innholdet og eksemplene tilgjengelig i portalen.
 
--   Designsystemforum i Support-kanalen hver tirsdag kl 14.
+Når både kode, dokumentasjon i portalen, og designet i Figma er klart merges alt inn i sine respektive hovedbrancher. Tiden mellom merging av kode og merging av design må være så kort som mulig. Klapp deg selv på skulderen, du har vært med på å lande en endring i Jøkul! 👏
+
+### Dokumentasjon av nye komponenter
+
+Vi har noen minstekrav til dokumentasjon som den nye komponenten din **må** følge. Disse kravene gjelder dokumentasjonen som vises under Komponenter.
+
+**Må**-krav:
+
+-   Ingress med kort beskrivelse av komponenten
+-   Første eksempel synlig uten å scrolle
+-   Relevante eksempler på riktig og feil bruk
+
+I tillegg har vi noen _vil_-ønsker. Disse er det fint om du har med fordi de gjør det lettere for andre å bruke komponenten, men de er ikke et krav.
+
+-   Kontrollspørsmål for bruk
+-   Lenker til relevante eller alternative komponenter der det er naturlig
+-   Eksempler på bruk ute i teamene
+
+Du kan se på dokumentasjonen for [Tag](/komponenter/tag) og [Alert message](/komponenter/alertmessage) for inspirasjon.
