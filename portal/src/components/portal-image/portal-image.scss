@@ -12,6 +12,7 @@
 
     &__content {
         @include reset-outline;
+
         background-color: transparent;
         cursor: pointer;
         padding: 0;
@@ -42,7 +43,8 @@
             }
         }
 
-        > .jkl-micro {
+        > .jkl-small {
+            margin-top: jkl.$spacing-s;
             text-align: left;
         }
     }
