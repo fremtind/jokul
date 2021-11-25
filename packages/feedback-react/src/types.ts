@@ -8,7 +8,7 @@ export type FeedbackOption<T = string | number> = {
     textAreaLabel?: string;
 };
 
-export type QuestionType = "radio" | "checkbox" | "text" | "slider" | "smiley";
+export type QuestionType = "radio" | "checkbox" | "text" | "smiley";
 
 interface BaseQuestion {
     type: QuestionType;
@@ -31,16 +31,11 @@ interface SmileyQuestion extends BaseQuestion {
     options: FeedbackOption<number>[];
 }
 
-interface SliderQuestion extends BaseQuestion {
-    type: "slider";
-    options: FeedbackOption<number>[];
-}
-
 interface TextQuestion extends BaseQuestion {
     type: "text";
 }
 
-export type MainQuestion = RadioQuestion | SliderQuestion | SmileyQuestion;
+export type MainQuestion = RadioQuestion | SmileyQuestion;
 export type FollowupQuestion = MainQuestion | TextQuestion | CheckboxQuestion;
 
 interface BaseFeedbackAnswer {

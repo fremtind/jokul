@@ -18,7 +18,7 @@ const defaultSuccessMessage = {
 };
 
 interface Props {
-    type: "slider" | "radio" | "smiley";
+    type: "radio" | "smiley";
     label: string;
     options: FeedbackOption[];
     addOnQuestion?: {
