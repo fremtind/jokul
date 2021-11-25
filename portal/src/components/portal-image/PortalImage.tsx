@@ -10,9 +10,10 @@ import "./portal-image.scss";
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     noMargin?: boolean;
     fullWidth?: boolean;
+    caption?: string;
 }
 
-export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, fullWidth = false }) => {
+export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, fullWidth = false, caption }) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
@@ -41,12 +42,16 @@ export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, 
                     })}
                 >
                     <AnimatedImage src={src} alt={alt} />
-                    {!isFullscreen && !noMargin && <div className="jkl-micro">Klikk for å se større</div>}
+                    {!isFullscreen && !noMargin && (
+                        <p className="jkl-small">
+                            {caption ? `${caption} ` : undefined}Klikk for å se større{caption && "."}
+                        </p>
+                    )}
                 </motion.button>
                 {isFullscreen && (
                     <div className="jkl-portal-image__content jkl-portal-paragraph">
                         <AnimatedImage src={src} alt={alt} />
-                        {!noMargin && <div className="jkl-micro">&nbsp;</div>}
+                        {!noMargin && <div className="jkl-small">&nbsp;</div>}
                     </div>
                 )}
             </div>
