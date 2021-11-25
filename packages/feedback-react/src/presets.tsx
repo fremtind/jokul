@@ -70,4 +70,36 @@ export const PRESETS: Record<string, Pick<FeedbackProps, "label" | "type" | "opt
         ],
         addOnQuestion: { label: "Vil du legge til noe mer?" },
     },
+    Smiley: {
+        type: "smiley",
+        label: "Hvor fornøyd er du med denne nettsiden?",
+        options: [
+            {
+                label: "Veldig misfornøyd",
+                value: 1,
+                textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+            },
+            {
+                label: "Litt misfornøyd",
+                value: 2,
+                textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+            },
+            {
+                label: "Midt på treet",
+                value: 3,
+                textAreaLabel: "Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+            },
+            {
+                label: "Ganske fornøyd",
+                value: 4,
+                textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+            },
+            {
+                label: "Veldig fornøyd",
+                value: 5,
+                textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+            },
+        ],
+        addOnQuestion: { label: "Vil du legge til noe mer?" },
+    },
 };

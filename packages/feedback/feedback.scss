@@ -3,15 +3,19 @@
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
 
-$icon-size: rem(45px);
+$smiley-size: rem(40px);
 $max-feedback-input-width: 30rem;
 
 @include jkl.helper-light-mode-variables {
     --jkl-feedback--step-color: #{jkl.$color-stein};
+    --jkl-feedback-smiley-color: #{jkl.$color-stein};
+    --jkl-feedback-smiley-color--hover: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
     --jkl-feedback--step-color: #{jkl.$color-svaberg};
+    --jkl-feedback-smiley-color: #{jkl.$color-svaberg};
+    --jkl-feedback-smiley-color--hover: #{jkl.$color-snohvit};
 }
 
 @keyframes show {
@@ -43,5 +47,68 @@ $max-feedback-input-width: 30rem;
 
     &__fade-in {
         animation: show 0.25s ease-out;
+    }
+}
+
+.jkl-feedback-smiley-option {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: $smiley-size;
+    width: $smiley-size;
+    color: var(--jkl-feedback-smiley-color);
+    transform: translate3d(0, 0, 0);
+
+    @include motion("standard");
+    transition-property: transform, color;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0;
+
+        @include motion("standard");
+        transition-property: opacity;
+    }
+
+    &::after {
+        top: rem(-2px);
+        right: rem(-2px);
+        bottom: rem(-2px);
+        left: rem(-2px);
+        box-shadow: 0 0 0 rem(2px) currentColor;
+    }
+
+    &::before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        box-shadow: 0 rem(2px) rem(30px) rgba(0, 0, 0, 0.1);
+    }
+
+    &:not(:last-child) {
+        margin-right: jkl.$spacing-xl;
+    }
+
+    &:hover {
+        color: var(--jkl-feedback-smiley-color--hover);
+    }
+
+    input:checked + & {
+        color: var(--jkl-feedback-smiley-color--hover);
+        transform: translate3d(0, -20%, 0);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    input:focus + &::after {
+        @include keyboard-navigation {
+            opacity: 1;
+        }
     }
 }

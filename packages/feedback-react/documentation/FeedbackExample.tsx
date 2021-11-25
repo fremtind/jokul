@@ -68,6 +68,8 @@ export const FeedbackExample: VFC<ExampleComponentProps> = ({ boolValues, choice
 };
 
 export const feedbackCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+import { Feedback, PRESETS } from "@fremtind/jkl-feedback-react";
+
 <Feedback
     {...PRESETS["${choiceValues?.["Forhåndsvalg"]}"]}
     onSubmit={console.log}

@@ -1,5 +1,5 @@
 import React, { JSXElementConstructor, VFC } from "react";
-import { CheckboxQuestion, RadioQuestion, SliderQuestion, TextQuestion } from "./questions";
+import { CheckboxQuestion, RadioQuestion, SliderQuestion, TextQuestion, SmileyQuestion } from "./questions";
 import { QuestionProps, QuestionType } from "./types";
 
 export function getChildrenOfType<P>(...allowedTypes: Array<string | JSXElementConstructor<P>>) {
@@ -39,6 +39,8 @@ export const getQuestionFromType = (type: QuestionType): VFC<QuestionProps> => {
             return TextQuestion;
         case "slider":
             return SliderQuestion;
+        case "smiley":
+            return SmileyQuestion;
 
         default:
             return RadioQuestion;

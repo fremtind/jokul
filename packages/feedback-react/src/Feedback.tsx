@@ -11,7 +11,7 @@ type ContactQuestionProps = ComponentProps<typeof ContactQuestion>;
 interface Props {
     className?: string;
     /** Velg typen alternativer, Slider eller RadioButtons. */
-    type: "slider" | "radio";
+    type: "slider" | "radio" | "smiley";
     /** Spørsmålet som stilles til brukeren */
     label: string;
     /** Svaralternativer til spørsmålet */
