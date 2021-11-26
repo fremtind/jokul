@@ -16,7 +16,7 @@
         "classnames": "^2.2.6",
         "downloadjs": "^1.4.7",
         "focus-trap-react": "^8.8.2",
-        "framer-motion": "^5.3.1",
+        "framer-motion": "^5.3.3",
         "gatsby": "^4.2.0",
         "gatsby-plugin-image": "^2.2.0",
         "gatsby-plugin-layout": "^3.2.0",
@@ -36,9 +36,9 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-helmet": "^6.1.0",
-        "react-hook-form": "^7.20.1",
+        "react-hook-form": "^7.20.3",
         "react-syntax-highlighter": "^15.4.5",
-        "sass": "^1.43.4"
+        "sass": "^1.43.5"
     },
     "keywords": [
         "portal"
