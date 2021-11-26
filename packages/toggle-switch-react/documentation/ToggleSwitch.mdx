@@ -5,7 +5,7 @@ scss: toggle-switch
 group: knapper
 ---
 
-import { Switch, Slider } from "./ToggleSwitchExample";
+import { ToggleSwitchExample, ToggleSliderExample } from "./ToggleSwitchExample";
 
 <Ingress>
     Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. Ledeteksten
@@ -16,7 +16,7 @@ import { Switch, Slider } from "./ToggleSwitchExample";
 ## ToggleSwitch
 
 <ComponentExample
-    component={Switch}
+    component={ToggleSwitchExample}
     knobs={{
         boolProps: ["Invertert", "Deaktivert", "Med hjelpetekst"],
     }}
@@ -29,7 +29,7 @@ Ikke bruk veksleknapp hvis brukeren må bekrefte valget sitt.
 ## ToggleSlider
 
 <ComponentExample
-    component={Slider}
+    component={ToggleSliderExample}
     knobs={{
         boolProps: [],
     }}

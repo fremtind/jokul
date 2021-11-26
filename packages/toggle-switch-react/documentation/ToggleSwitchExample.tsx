@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { ToggleSlider, ToggleSwitch } from "../src";
 
-export const Switch: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOn, setIsOn] = useState(false);
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"] ? "Du må være koblet til wifi for å velge dette" : undefined;
@@ -19,7 +19,7 @@ export const Switch: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     );
 };
 
-export const Slider: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
         <ToggleSlider
             defaultValue="måned"
@@ -32,11 +32,11 @@ export const Slider: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     );
 };
 
-export const ToggleSwitchExample: React.FC<ExampleComponentProps> = (props) => (
+export const ToggleSwitchExamples: React.FC<ExampleComponentProps> = (props) => (
     <section>
-        <Switch {...props} />
+        <ToggleSwitchExample {...props} />
         <div className="jkl-spacing-2xl--top">
-            <Slider {...props} />
+            <ToggleSliderExample {...props} />
         </div>
     </section>
 );

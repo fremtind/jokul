@@ -9,13 +9,17 @@ interface Props {
     label: string;
     helpLabel?: string;
     errorLabel?: string;
+    /** @default "medium" */
     variant?: LabelVariant;
     name: string;
+    /** En unik ID genereres automatisk, men du kan sette din egen om du ønsker */
     id?: string;
+    /** @default 1 */
     from?: number;
+    /** @default 5 */
     to?: number;
     value?: number;
-    onChange: ChangeEventHandler<HTMLInputElement>;
+    onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const Slider = forwardRef<HTMLInputElement, Props>(
