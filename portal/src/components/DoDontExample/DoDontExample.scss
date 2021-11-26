@@ -59,4 +59,8 @@
     @include small-device {
         max-width: 75vw;
     }
+
+    .jkl-portal-grid & {
+        margin-bottom: 0;
+    }
 }

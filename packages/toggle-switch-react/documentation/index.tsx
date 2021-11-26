@@ -4,12 +4,12 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { ToggleSwitchExample } from "./ToggleSwitchExample";
+import { ToggleSwitchExamples } from "./ToggleSwitchExample";
 import "@fremtind/jkl-toggle-switch/toggle-switch.css";
 
 renderExample(
     <DevExample
-        component={ToggleSwitchExample}
+        component={ToggleSwitchExamples}
         knobs={{
             boolProps: ["Invertert", "Deaktivert", "Med hjelpetekst"],
         }}
