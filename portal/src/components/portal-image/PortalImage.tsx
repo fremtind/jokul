@@ -10,7 +10,7 @@ import "./portal-image.scss";
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     noMargin?: boolean;
     fullWidth?: boolean;
-    caption?: string;
+    caption?: JSX.Element;
 }
 
 export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, fullWidth = false, caption }) => {
@@ -44,7 +44,7 @@ export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, 
                     <AnimatedImage src={src} alt={alt} />
                     {!isFullscreen && !noMargin && (
                         <p className="jkl-small">
-                            {caption ? `${caption} ` : undefined}Klikk for å se større{caption && "."}
+                            {caption && caption} Klikk for å se større{caption && "."}
                         </p>
                     )}
                 </motion.button>

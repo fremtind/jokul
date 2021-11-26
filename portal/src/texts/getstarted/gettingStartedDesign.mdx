@@ -1,39 +1,91 @@
 ---
-title: Designe for Jøkul
+title: For designere
 path: /komigang/design
 order: 3
 ---
 
+import { WarningMessageBox } from "@fremtind/jkl-message-box-react";
+
 # Kom i gang som designer
 
-Vi designer våre løsninger i Figma. Der finner du [Jøkul-biblioteket](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=0%3A1), skisser, prototyper og andre eksempler på løsninger som er laget i vår drakt.
+<Ingress>
+    Som Designer i Fremtind vil du dra god nytte av designsystemet vårt, Jøkul. Systemet er en del av hverdagen til
+    mange designere, og det manifesterer seg i vårt daglige arbeid, hovedsakelig via Figma-biblioteket vårt.
+</Ingress>
 
-Før du starter å designe løsninger for Fremtind, bør du gjøre deg kjent med profilen vår. Den kan du lese om her i portalen.
+## Verktøy og samarbeid
 
-## Slik gjør du en endring i Jøkul
+Alle veier fører til Rom, er det noen som sier. Det samme kan sies designere og våre verktøy, det finnes mange måter å komme seg i mål på. I Fremtind bruker vi hovedsakelig Figma og FigJam til å designe skisser for løsninger, GitHub for samarbeid og disuksjon, og Adobe programmene for nisjerte utfordringer. Siden vi designer våre løsninger i Figma, er det også der designsystemet vårt lever.
 
-Før du kommer for langt er det fint om du har lest [Bidra til designsystemet](/komigang/prosessen). Hvordan gjør du så en endring i Jøkul, rent praktisk?
+## Et par ting som er greit å vite
 
-Vi bruker [branches](https://www.figma.com/best-practices/branching-in-figma/) i Figma. Det betyr at du starter med [Jøkul-biblioteket](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=0%3A1) og lager en egen branch hvor du dokumenterer designet ditt (med varianter ved behov) såpass at det er klart for å merges inn. Branchen din må være sjekket av minst én annen designer. Spør kjerneteamet om du trenger en buddy.
+Så mye som det sikkert klør i fingra etter å jafse tak i en saftig problemstilling og designe ut løsninger, så er det et et par ting det er praktisk å være kjent med før du starter.
 
-Når designet har fått en tommel opp er det opp til en utvikler å gjøre ferdig koden (programmeringen har forhåpentligvis gått noenlunde i parallell med design). Dokumentasjonen som skal vises under Komponenter her i portalen blir et samarbeid mellom deg som designer og utvikleren som koder inn endringen, men utvikleren har ansvaret for å gjøre innholdet og eksemplene tilgjengelig i portalen.
+-   Gjør deg kjent med [profilen vår](/profil/designprinsipper), det er viktig at alle som designer løsninger for oss har merkevareopplevelsen vår i fingerspissene.
+-   Ta en kikk i [Figma-biblioteket](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/?node-id=0%3A1), og gjør deg kjent med variants. Det kommer til å gjøre det uendelig mye enklere for deg å lage skisser.
+-   Spør gjerne andre designere om du kan få se på løsningene de jobber med, det gir et godt inntrykk av hvordan vi jobber.
+-   Svipp innom [diskusjonsforaet](https://github.com/fremtind/jokul/discussions) vårt på GitHub, der diskuterer vi endringer og forbedringer vi ønsker å gjøre på designsystemet vårt. Jo fler som deltar, jo bedre blir systemet for alle som bruker det. Kjenner du ikke til GitHub fra før av, kan du [ta kurset vårt](https://www.figma.com/proto/HOmcpKHfjHnS9f8397hfxU/Github-for-Designere?page-id=0%3A1&node-id=1%3A2&viewport=260%2C48%2C0.1&scaling=scale-down-width&starting-point-node-id=1%3A2).
 
-Når både kode, dokumentasjon i portalen, og designet i Figma er klart merges alt inn i sine respektive hovedbrancher. Tiden mellom merging av kode og merging av design må være så kort som mulig. Klapp deg selv på skulderen, du har vært med på å lande en endring i Jøkul! 👏
+## Figma-biblioteket og viktige funksjoner
 
-### Dokumentasjon av nye komponenter
+Vi har brukt mye tid på å gjøre biblioteket vårt avansert og funksjonelt, dette tilrettelegger for kort tid til skisser med høyt detaljnivå. Det innebærer bruk av mange funksjoner som Figma tilbyr, og det er lurt å være kjent med hvordan de fungerer, både for å lage skisser, og for å bidra til biblioteket selv:
 
-Vi har noen minstekrav til dokumentasjon som den nye komponenten din **må** følge. Disse kravene gjelder dokumentasjonen som vises under Komponenter.
+-   Komponentbiblioteket vårt
+-   Variants i komponenter
+-   Versjonskontroll (også kjent som branching)
 
-**Må**-krav:
+### Komponentbiblioteket
 
--   Ingress med kort beskrivelse av komponenten
--   Første eksempel synlig uten å scrolle
--   Relevante eksempler på riktig og feil bruk
+Mye av det vi trenger for å sette sammen løsningene våre i Fremtind er bygget opp som komponenter med [Auto-Layout](https://help.figma.com/hc/en-us/articles/360040451373-Create-dynamic-designs-with-auto-layout) og [Variants](https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants). For å ivareta høy presisjon og konsistente brukeropplevelser er vi avhengige av høy innsettingsgrad fra biblioteket, slik at vi kan enkelt sørge for at komponentene holder seg oppdatert. Alle komponentene er tilgjengelig via “Assets” fanen til venstre i grensesnittet.
 
-I tillegg har vi noen _vil_-ønsker. Disse er det fint om du har med fordi de gjør det lettere for andre å bruke komponenten, men de er ikke et krav.
+<PortalImage
+    src="/assets/kom-i-gang/design-figma-components.png"
+    caption="Innsetting: Bruk Shift + I inne i Figmafilen din, for å ta frem en hurtigmeny med søk for innsetting av nye komponenter fra designsystemet."
+/>
 
--   Kontrollspørsmål for bruk
--   Lenker til relevante eller alternative komponenter der det er naturlig
--   Eksempler på bruk ute i teamene
+### Variants
 
-Du kan se på dokumentasjonen for [Tag](/komponenter/tag) og [Alert message](/komponenter/alertmessage) for inspirasjon.
+Variants er en funksjon i komponenter som lar oss ha flere versjoner av en komponent innenfor samme komponent. Et typisk eksempel er en knapp med flere states. Før måtte man lage en egen komponent for hver av disse, og forholde seg til veldig mange kopier for å ivareta alle de forskellige stilene. Nå kan man bygge alle variasjonene av en komponent inn i selve komponenten, og velge hvilken som skal vises fra sidepanelet i Figma.
+
+<PortalImage
+    className="jkl-spacing-xl--bottom"
+    src="/assets/kom-i-gang/design-variants.png"
+    caption="Variants i komponenter: I stedet for å ha mange kopier av samme komponent, kan vi nå slå av og på variasjoner av samme komponent etter behov."
+/>
+
+Ønsker du å bygge din egen komponent med variants, eller lære deg hvordan det funker? Da anbefaler vi at du lager din egen branch av Figma-biblioteket vårt, og eksperimenterer med de komponentene som allerede er satt opp. I tillegg finnes det [gode kurs fra Figma](https://help.figma.com/hc/en-us/sections/360006233714-Components-and-styles) som forklarer deg hvordan det funker.
+
+### Versjonskontroll (Branching)
+
+<div className="jkl-portal-paragraph">
+    <WarningMessageBox title="Obs: funksjon for viderekomne" role="none presentation" fullWidth>
+        Du trenger ikke være kjent med branching i Figma med mindre du skal lage nye komponenter eller redigere
+        Figma-biblioteket til Jøkul.
+    </WarningMessageBox>
+</div>
+
+Siden det er mange som bruker Figma-biblioteket vårt, er vi avhengige av å kvalitetssikre endringer før de tilgjengeliggjøres for alle våre brukere. Figma har nylig kommet med forenklet versjonskontroll som tilrettelegger for dette. Vi anbefaler at du sjekker ut [Figma sitt branching-kurs](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes). I korte trekk går det ut på at man lager en egen kopi (branch) av biblioteket inne i biblioteket, utfører endringene man ønsker å gjøre, og deretter sender en forespørsel (merge request) om å legge inn endringene i hovedfilen. Det foregår cirka slik:
+
+-   Lag en ny versjon av filen (branch), inne i biblioteket
+-   Design opp ditt nye forslag til endringer på systemet
+-   Send forslaget til kameratsjekk hos kjerneteamet eller en annen designer, eventuelt link til forslaget ditt til en [Discussion på GitHub](https://github.com/fremtind/jokul/discussions).
+-   Sørg for at forslaget ditt er robust, og kvalifiserer til [minstekravene for bidrag](/komigang/prosessen#klar-for-å-lansere-huskelista-hjelper-deg-) til designsystemet, før du limer inn arbeidet i hovedfila.
+
+<div className="jkl-portal-paragraph">
+    <p className="jkl-small jkl-spacing-s--bottom">
+        Navnetips til branches: Når det er mange som lager branches kan det være lurt å ha noen føringer for hva man
+        kaller kopien sin. Vi bruker med følgende prefiks for våre branches; <b>fix:</b> for endringer på eksisterende
+        komponenter, <b>feat:</b> for nye komponenter, og <b>docs:</b> for endringer på dokumentasjonen.
+    </p>
+</div>
+
+<PortalImage
+    src="/assets/kom-i-gang/design-branchdiagram.png"
+    caption={
+        <>
+            Branching: Ved å lage en kopi (<b>branch</b>) av en fil inne i seg selv, kan man enkelt eksperimentere med
+            nye tillegg eller endringer, uten å måtte bekymre seg for å “ødelegge” noe mens man utforsker. Når man er
+            ferdig kan man enkelt sette de inn i hovedfila, via en <b>merge request</b>.{" "}
+        </>
+    }
+/>
