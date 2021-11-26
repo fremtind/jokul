@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.1.0 (2021-11-26)
+
+### Features
+
+- legg til spørsmålstype med smileys ([f176c48](https://github.com/fremtind/jokul/commit/f176c48fb8f20b71b623919d75934082eead8e70))
+- **smileys:** juster utseende og mobilvisning ([f7799d3](https://github.com/fremtind/jokul/commit/f7799d3bf5c907dfc0efe7cdae3edd5ecc8b623a))
+
 ## 8.0.0 (2021-10-21)
 
 ### Features

@@ -1,5 +1,5 @@
 import React, { JSXElementConstructor, VFC } from "react";
-import { CheckboxQuestion, RadioQuestion, SliderQuestion, TextQuestion } from "./questions";
+import { CheckboxQuestion, RadioQuestion, TextQuestion, SmileyQuestion } from "./questions";
 import { QuestionProps, QuestionType } from "./types";
 
 export function getChildrenOfType<P>(...allowedTypes: Array<string | JSXElementConstructor<P>>) {
@@ -16,8 +16,6 @@ export function getChildrenOfType<P>(...allowedTypes: Array<string | JSXElementC
 
 export const getTypeFromComponent = (component: React.ReactElement): QuestionType => {
     switch (component.type) {
-        case SliderQuestion:
-            return "slider";
         case RadioQuestion:
             return "radio";
         case CheckboxQuestion:
@@ -37,8 +35,8 @@ export const getQuestionFromType = (type: QuestionType): VFC<QuestionProps> => {
             return CheckboxQuestion;
         case "text":
             return TextQuestion;
-        case "slider":
-            return SliderQuestion;
+        case "smiley":
+            return SmileyQuestion;
 
         default:
             return RadioQuestion;
