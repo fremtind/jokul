@@ -1,9 +1,18 @@
 import { ComponentProps } from "react";
 import { Feedback } from "./";
+import { defaultOptions as smileyOptions } from "./questions/smileyUtils";
 
 type FeedbackProps = ComponentProps<typeof Feedback>;
+type PresetProperties = Pick<FeedbackProps, "label" | "type" | "options" | "addOnQuestion">;
 
-export const PRESETS: Record<string, Pick<FeedbackProps, "label" | "type" | "options" | "addOnQuestion">> = {
+const smileyQuestion: PresetProperties = {
+    type: "smiley",
+    label: "Hvor fornøyd er du med denne nettsiden?",
+    options: smileyOptions,
+    addOnQuestion: { label: "Vil du legge til noe mer?" },
+};
+
+export const PRESETS: Record<string, PresetProperties> = {
     "Fant du": {
         type: "radio",
         label: "Fant du det du lette etter?",
@@ -38,36 +47,6 @@ export const PRESETS: Record<string, Pick<FeedbackProps, "label" | "type" | "opt
         ],
         addOnQuestion: { label: "Vil du legge til noe mer?" },
     },
-    "Hvor fornøyd 5": {
-        type: "slider",
-        label: "På en skala fra 1 til 5, hvor fornøyd er du med løsningen?",
-        options: [
-            {
-                label: "Kjempefornøyd!",
-                value: 5,
-                textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
-            },
-            {
-                label: "Ganske fornøyd",
-                value: 4,
-                textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
-            },
-            {
-                label: "Hverken eller",
-                value: 3,
-                textAreaLabel: "Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
-            },
-            {
-                label: "Litt misfornøyd",
-                value: 2,
-                textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
-            },
-            {
-                label: "Veldig misfornøyd!",
-                value: 1,
-                textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
-            },
-        ],
-        addOnQuestion: { label: "Vil du legge til noe mer?" },
-    },
+    "Hvor fornøyd 5": smileyQuestion,
+    Smileys: smileyQuestion,
 };
