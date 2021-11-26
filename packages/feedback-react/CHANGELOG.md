@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.0 (2021-11-26)
+
+### Features
+
+- fjern SliderQuestion og erstatt preset med smileys ([a39891e](https://github.com/fremtind/jokul/commit/a39891e4b993fd4a65660ecb9dfb7c7b1dd4ba38))
+- legg til spørsmålstype med smileys ([f176c48](https://github.com/fremtind/jokul/commit/f176c48fb8f20b71b623919d75934082eead8e70))
+- **smileys:** juster utseende og mobilvisning ([f7799d3](https://github.com/fremtind/jokul/commit/f7799d3bf5c907dfc0efe7cdae3edd5ecc8b623a))
+
+### BREAKING CHANGES
+
+- Typen "slider" kan ikke lenger benyttes når man spesifiserer spørsmål i Feedback. Typen "smiley" kan
+benyttes med samme verdier uten ytterligere endringer i API.
+
 ## 11.0.0 (2021-11-09)
 
 ### chore
