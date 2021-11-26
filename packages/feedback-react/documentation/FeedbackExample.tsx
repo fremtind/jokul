@@ -52,7 +52,7 @@ export const FeedbackExample: VFC<ExampleComponentProps> = ({ boolValues, choice
     const contact = boolValues?.["Med kontakt-spørsmål"] ? contactQuestion : undefined;
     const preset = choiceValues?.["Forhåndsvalg"]
         ? PRESETS[choiceValues["Forhåndsvalg"] as keyof typeof PRESETS]
-        : PRESETS["Hvor fornøyd 5"];
+        : PRESETS["Smileys"];
 
     return (
         <Feedback
@@ -68,6 +68,8 @@ export const FeedbackExample: VFC<ExampleComponentProps> = ({ boolValues, choice
 };
 
 export const feedbackCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+import { Feedback, PRESETS } from "@fremtind/jkl-feedback-react";
+
 <Feedback
     {...PRESETS["${choiceValues?.["Forhåndsvalg"]}"]}
     onSubmit={console.log}
