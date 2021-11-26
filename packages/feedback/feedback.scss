@@ -4,6 +4,7 @@
 @import "~@fremtind/jkl-core/_functions.scss";
 
 $smiley-size: rem(40px);
+$smileys-max-width: $smiley-size * 9; // 5 smileys med fire like store mellomrom
 $max-feedback-input-width: 30rem;
 
 @include jkl.helper-light-mode-variables {
@@ -50,6 +51,16 @@ $max-feedback-input-width: 30rem;
     }
 }
 
+.jkl-feedback-smileys {
+    margin-top: jkl.$spacing-xs;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: $smileys-max-width;
+    flex-wrap: nowrap;
+    gap: jkl.$spacing-s;
+}
+
 .jkl-feedback-smiley-option {
     display: inline-block;
     position: relative;
@@ -87,10 +98,6 @@ $max-feedback-input-width: 30rem;
         bottom: 0;
         left: 0;
         box-shadow: 0 rem(2px) rem(30px) rgba(0, 0, 0, 0.1);
-    }
-
-    &:not(:last-child) {
-        margin-right: jkl.$spacing-xl;
     }
 
     &:hover {

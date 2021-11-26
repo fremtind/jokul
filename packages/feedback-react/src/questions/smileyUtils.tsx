@@ -33,11 +33,11 @@ const Smiley: FC = ({ children }) => (
     <svg
         className="jkl-feedback-smiley-option__icon"
         aria-hidden
-        viewBox="0 0 48 48"
+        viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <circle cx="24" cy="24" r="23" stroke="currentColor" strokeWidth="2" />
+        <circle cx="20" cy="20" r="19" stroke="currentColor" strokeWidth="2" />
         {children}
     </svg>
 );
@@ -45,48 +45,56 @@ const Smiley: FC = ({ children }) => (
 const VeldigSurSmiley = () => (
     <Smiley>
         <path
-            d="M12 36C12 29.3726 17.3726 24 24 24C30.6274 24 36 29.3726 36 36"
+            d="M10 30C10 24.4772 14.4772 20 20 20C25.5228 20 30 24.4772 30 30"
             stroke="currentColor"
             strokeWidth="2"
         />
-        <path d="M12 16.7837H20" stroke="currentColor" strokeWidth="2" />
-        <path d="M28 16.7837H36" stroke="currentColor" strokeWidth="2" />
+        <path d="M10 13.9865H16.6667" stroke="currentColor" strokeWidth="2" />
+        <path d="M23.3333 13.9865H29.9999" stroke="currentColor" strokeWidth="2" />
     </Smiley>
 );
 
 const LittSurSmiley = () => (
     <Smiley>
-        <circle cx="15.5" cy="16.5" r="1.5" fill="currentColor" />
-        <circle cx="32.5" cy="16.5" r="1.5" fill="currentColor" />
-        <path d="M12 34.5C12 34.5 16.5 28 24 28C31.5 28 36 34.5 36 34.5" stroke="currentColor" strokeWidth="2" />
+        <path
+            d="M10 28.75C10 28.75 13.75 23.3334 20 23.3334C26.25 23.3334 30 28.75 30 28.75"
+            stroke="currentColor"
+            strokeWidth="2"
+        />
+        <circle cx="12.5" cy="14.5" r="1.5" fill="currentColor" />
+        <circle cx="27.5" cy="14.5" r="1.5" fill="currentColor" />
     </Smiley>
 );
 
 const NoytralSmiley = () => (
     <Smiley>
-        <path d="M10.9834 30.8384L37.0172 30.8384" stroke="currentColor" strokeWidth="2" />
-        <circle cx="15.5" cy="17.5" r="1.5" fill="currentColor" />
-        <circle cx="32.5" cy="17.5" r="1.5" fill="currentColor" />
+        <path d="M9.15283 25.6986H30.8477" stroke="currentColor" strokeWidth="2" />
+        <circle cx="12.5" cy="14.5" r="1.5" fill="currentColor" />
+        <circle cx="27.5" cy="14.5" r="1.5" fill="currentColor" />
     </Smiley>
 );
 
 const LittGladSmiley = () => (
     <Smiley>
-        <circle cx="15.5" cy="16.5" r="1.5" fill="currentColor" />
-        <circle cx="32.5" cy="16.5" r="1.5" fill="currentColor" />
-        <path d="M12 28C12 28 15.5 36 24 36C32.5 36 36 28 36 28" stroke="currentColor" strokeWidth="2" />
+        <path
+            d="M10 23.3334C10 23.3334 12.9167 30 20 30C27.0833 30 30 23.3334 30 23.3334"
+            stroke="currentColor"
+            strokeWidth="2"
+        />
+        <circle cx="12.5" cy="14.5" r="1.5" fill="currentColor" />
+        <circle cx="27.5" cy="14.5" r="1.5" fill="currentColor" />
     </Smiley>
 );
 
 const VeldigGladSmiley = () => (
     <Smiley>
         <path
-            d="M36 24C36 30.6274 30.6274 36 24 36C17.3726 36 12 30.6274 12 24"
+            d="M30 21C30 26.5228 25.5228 31 20 31C14.4772 31 10 26.5228 10 21"
             stroke="currentColor"
             strokeWidth="2"
         />
-        <path d="M28.5 16.6001H34.5" stroke="currentColor" strokeWidth="2" />
-        <circle cx="15.5" cy="16.6616" r="1.5" fill="currentColor" />
+        <path d="M24 14.5H29" stroke="currentColor" strokeWidth="2" />
+        <circle cx="12.5" cy="14.5" r="1.5" fill="currentColor" />
     </Smiley>
 );
 

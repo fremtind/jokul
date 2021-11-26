@@ -40,24 +40,26 @@ export const SmileyQuestion: React.VFC<QuestionProps> = ({
 
     return (
         <FieldGroup labelProps={{ variant: "large" }} legend={label} helpLabel={helpLabel}>
-            {options.map((option) => (
-                <>
-                    <input
-                        className="jkl-sr-only"
-                        id={`${name}-${option.value}`}
-                        key={option.value}
-                        name={name}
-                        type="radio"
-                        value={option.value}
-                        onChange={handleChange}
-                        checked={selectedValue === option.value}
-                    />
-                    <label className="jkl-feedback-smiley-option" htmlFor={`${name}-${option.value}`}>
-                        <span className="jkl-sr-only">{option.label}</span>
-                        {getSmiley(Number(option.value))}
-                    </label>
-                </>
-            ))}
+            <div className="jkl-feedback-smileys">
+                {options.map((option) => (
+                    <>
+                        <input
+                            className="jkl-sr-only"
+                            id={`${name}-${option.value}`}
+                            key={option.value}
+                            name={name}
+                            type="radio"
+                            value={option.value}
+                            onChange={handleChange}
+                            checked={selectedValue === option.value}
+                        />
+                        <label className="jkl-feedback-smiley-option" htmlFor={`${name}-${option.value}`}>
+                            <span className="jkl-sr-only">{option.label}</span>
+                            {getSmiley(Number(option.value))}
+                        </label>
+                    </>
+                ))}
+            </div>
         </FieldGroup>
     );
 };
