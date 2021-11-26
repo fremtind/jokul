@@ -35,6 +35,17 @@ export const Header: VFC<Props> = ({ className }) => {
 
     const menuItems: MenuItemList = [
         {
+            linkText: "Kom i gang",
+            content: [
+                ...getStartedDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.KOMIGANG,
+                })),
+            ],
+            basePath: PageType.KOMIGANG,
+        },
+        {
             linkText: "Profil",
             content: profileDocPages.map((page) => ({
                 linkText: page.title,
@@ -66,17 +77,6 @@ export const Header: VFC<Props> = ({ className }) => {
                 },
             ],
             basePath: PageType.KOMPONENTER,
-        },
-        {
-            linkText: "Kom i gang",
-            content: [
-                ...getStartedDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.KOMIGANG,
-                })),
-            ],
-            basePath: PageType.KOMIGANG,
         },
         {
             linkText: "Universell utforming",
