@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.0 (2021-11-26)
+
+### Features
+
+- alter Tabs styling ([f9f24be](https://github.com/fremtind/jokul/commit/f9f24beb4ea942bb83ba10089b915c364a95cf8c))
+
 ## 1.1.0 (2021-11-09)
 
 ### Features
