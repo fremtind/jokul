@@ -125,8 +125,8 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         padding: $text-input-padding;
 
         background-color: transparent;
-        box-shadow: inset 0 0 0 rem(1px) $text-input-border-color, 0 0 0 0 $text-input-border-color;
-        box-shadow: inset 0 0 0 rem(1px) var(--text-input-border-color), 0 0 0 0 var(--text-input-border-color);
+        box-shadow: inset 0 0 0 rem(1px) $text-input-border-color, 0 0 0 rem(1px) transparent;
+        box-shadow: inset 0 0 0 rem(1px) var(--text-input-border-color), 0 0 0 rem(1px) transparent;
 
         transition-property: color, box-shadow;
 
@@ -150,8 +150,8 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         /*  Invalid states */
         &[aria-invalid="true"],
         &:invalid {
-            box-shadow: inset 0 0 0 rem(1px) $text-input-error-color, 0 0 0 0 $text-input-error-color;
-            box-shadow: inset 0 0 0 rem(1px) var(--text-input-error-color), 0 0 0 0 var(--text-input-error-color);
+            box-shadow: inset 0 0 0 rem(1px) $text-input-error-color, 0 0 0 rem(1px) transparent;
+            box-shadow: inset 0 0 0 rem(1px) var(--text-input-error-color), 0 0 0 rem(1px) transparent;
 
             &:hover,
             &:focus,
@@ -235,8 +235,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         & .jkl-text-input__input {
             color: $text-input-text-color--inverted;
             background-color: $text-input-background-color--inverted;
-            box-shadow: inset 0 0 0 rem(1px) $text-input-border-color--inverted,
-                0 0 0 0 $text-input-border-color--inverted;
+            box-shadow: inset 0 0 0 rem(1px) $text-input-border-color--inverted, 0 0 0 rem(1px) transparent;
 
             &::placeholder {
                 color: $text-input-placeholder-color--inverted;
@@ -254,8 +253,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
 
             &[aria-invalid="true"],
             &:invalid {
-                box-shadow: inset 0 0 0 rem(1px) $text-input-error-color--inverted,
-                    0 0 0 0 $text-input-error-color--inverted;
+                box-shadow: inset 0 0 0 rem(1px) $text-input-error-color--inverted, 0 0 0 rem(1px) transparent;
 
                 &::selection {
                     background-color: transparentize(jkl.$color-feil--darkbg, 0.75);
