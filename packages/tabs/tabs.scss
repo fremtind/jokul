@@ -50,7 +50,8 @@ $tab-focus-border-color--inverted: jkl.$color-snohvit;
     @include jkl.text-style("body");
     border: none;
     background-color: transparent;
-    padding: jkl.$spacing-m;
+    padding: jkl.$spacing-xs jkl.$spacing-3xs;
+    padding-right: jkl.$spacing-xl;
     cursor: pointer;
     color: var(--tab-text-color);
 
@@ -60,6 +61,7 @@ $tab-focus-border-color--inverted: jkl.$color-snohvit;
 
     &:focus-visible {
         outline: var(--tab-focus-border-color) solid 2px;
+        outline-offset: -1px;
     }
 
     &[aria-selected="true"] {

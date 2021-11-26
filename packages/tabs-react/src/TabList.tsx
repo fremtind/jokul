@@ -84,7 +84,7 @@ export const TabList = ({ children, ...injected }: Props) => {
                 style={{
                     left: (activeRect?.left || 0) - (tabsRect?.left || 0),
                     bottom: -1,
-                    width: activeRect?.width,
+                    width: (activeRect?.width || 0) - 38,
                 }}
             />
         </div>
