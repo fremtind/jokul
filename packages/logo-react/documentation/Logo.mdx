@@ -5,20 +5,40 @@ scss: logo
 group: annet
 ---
 
-import { LogoExample } from "./LogoExample";
+import { LogoExample, logoExampleCode } from "./LogoExample";
+import { LogoStampExample, logoStampExampleCode } from "./LogoStampExample";
 
 <Ingress>
     Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger, eller i andre
     løsninger der Fremtind skal være synlig.
 </Ingress>
+
 <ComponentExample
-component={LogoExample}
-knobs={{
-boolProps: ["Animert", "Kun symbol", "Sentrert", "Invertert"],
-}}
+    title="Logo og logosymbol"
+    component={LogoExample}
+    knobs={{
+        boolProps: ["Animert", "Kun symbol", "Sentrert", "Invertert"],
+    }}
+    codeExample={logoExampleCode}
 />
 
-Du kan lese mer om hvordan vi skal bruke logo og logosymbol, under [Prinsipper for bruk](/profil/logo). Logoen og logosymbolet skal ikke stå synlige sammen.
-Vi kan animere dem, slik at vi ser at det skifter mellom logo og logosymbol. Se eksempelet.
+Logoen og logosymbolet skal ikke stå synlige sammen. Vi kan animere mellom dem, slik at vi ser at det skifter mellom logo og logosymbol. Velg _Animert_ og så _Kun symbol_ i eksempelet over for å se effekten.
+
+<ComponentExample
+    title="Logostempel"
+    component={LogoStampExample}
+    knobs={{
+        boolProps: ["Animert"],
+    }}
+    codeExample={logoStampExampleCode}
+/>
 
 Vi kan bruke _logostemplene_ der det er behov, for å vise at Fremtind er en del av budskapet. Stemplene skal ikke brukes på samme måte som logoen eller logosymbolet.
+
+## Hvordan bruker vi logo eller logosymbol?
+
+Se [profildokumentasjonen](/profil/logo) for korrekt bruk av logo og logosymbol.
+
+## Hvordan bruker vi logostemplene?
+
+Et vanlig bruksområde er i footere. Her er en vanlig variant å animere en rotasjon av teksten i stempelet første gang det vises.
