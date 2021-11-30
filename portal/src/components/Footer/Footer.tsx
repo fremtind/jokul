@@ -1,6 +1,8 @@
 import React, { VFC } from "react";
-import classNames from "classnames";
-
+import cx from "classnames";
+import { Logo, LogoStamp } from "@fremtind/jkl-logo-react";
+import { Feedback } from "@fremtind/jkl-feedback-react";
+import { Link } from "@fremtind/jkl-core";
 import "./Footer.scss";
 
 interface Props {
@@ -8,31 +10,86 @@ interface Props {
 }
 
 export const Footer: VFC<Props> = ({ className }) => {
-    const componentClassName = classNames(
-        {
-            "jkl-portal-footer": true,
-        },
-        className,
-    );
     return (
-        <footer className={componentClassName}>
-            <p className="jkl-portal-footer__column">
-                Fremtind Forsikring er et nytt forsikringsselskap med lang erfaring. 1.januar 2019 fusjonerte
-                forsikringsselskapene til SpareBank 1 og DNB, og Fremtind ble født.
-            </p>
-            <p className="jkl-portal-footer__column">
-                Vi er landets tredje største forsikringsselskap, og det største med distribusjon i bank. Vi tilbyr alle
-                skade- og personforsikringer for privatpersoner og bedrifter.
-            </p>
-            <p className="jkl-portal-footer__column">
-                Vi har solid erfaring og kunnskap om forsikring, og utvikler nye produkter og tjenester som betyr noe i
-                folks liv. Vi var de første til å utnytte teknologi for å gjøre bilforsikringen smart. Vi var også først
-                ute med en enkel, selvbetjent helsevurdering.
-            </p>
-            <p className="jkl-portal-footer__column">
-                Vi vil fortsette å bruke digital innovasjon og fornyelse for å gjøre hverdagen enklere og tryggere for
-                folk og bedrifter flest.
-            </p>
+        <footer className={cx("jkl-portal-footer", className)}>
+            <div className="jkl-portal-footer__feedback">
+                <Feedback
+                    type="radio"
+                    label="Fant du det du lette etter?"
+                    options={[
+                        {
+                            label: "Ja",
+                            value: "ja",
+                            textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+                        },
+                        {
+                            label: "Nei",
+                            value: "nei",
+                            textAreaLabel:
+                                "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+                        },
+                    ]}
+                    addOnQuestion={{
+                        label: "Vil du legge til noe mer?",
+                        helpLabel:
+                            "Når du trykker på send vil en e-post genereres for deg. Ikke del personlige opplysninger. Vi behandler dine data i henhold til vår personvernserklæring.",
+                    }}
+                    successMessage={{
+                        title: "Takk! Jøkul blir enda bedre med dine tilbakemeldinger.",
+                        children: (
+                            <>
+                                <p className="jkl-spacing-s--bottom">
+                                    Spill gjerne inn på GitHub, eller delta på forum (hver tirsdag{" "}
+                                    <time dateTime="14:00">kl. 14</time>)!
+                                </p>
+                                <a
+                                    href="https://github.com/fremtind/jokul/discussions"
+                                    className="jkl-button jkl-button--secondary"
+                                >
+                                    Diskuter på GitHub
+                                </a>
+                            </>
+                        ),
+                    }}
+                    onSubmit={(feedback) => {
+                        const message = `${feedback.message}
+
+Fant du det du trengte? ${feedback.feedbackValue}
+Side: ${window.location.href}`;
+                        const to = "fremtind.designsystem";
+                        const domain = "fremtind";
+                        const mailto = `mailto:${to}@${domain}.no?subject=Tilbakemelding%20fra%20portalen&body=${encodeURIComponent(
+                            message,
+                        )}`;
+                        window.location.href = mailto;
+                    }}
+                />
+                <LogoStamp className="jkl-portal-footer__stamp" animated />
+            </div>
+            <div className="jkl-portal-footer__about-us">
+                <div className="jkl-portal-footer__logo">
+                    <Logo />
+                </div>
+                <div>
+                    <ul className="jkl-portal-footer__links">
+                        <li>
+                            <Link external href="https://github.com/fremtind/jokul">
+                                Jøkul på GitHub
+                            </Link>
+                        </li>
+                        <li>
+                            <Link external href="https://www.fremtind.no/personvern/">
+                                Personvernserklæring
+                            </Link>
+                        </li>
+                        <li>
+                            <Link external href="https://jobb.fremtind.no">
+                                Jobb i Fremtind
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </footer>
     );
 };
