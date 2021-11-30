@@ -1,14 +1,11 @@
 import React, { useState, useMemo } from "react";
 import { withPrefix } from "gatsby";
 import { motion } from "framer-motion";
-
-import { useScreen } from "@fremtind/jkl-react-hooks";
-
+import { useScreen, useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import { DelayText } from "../components/Delaytext";
 import { CardList, Card } from "../components/Card";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
-
 import "./style.scss";
 import "./index.scss";
 
@@ -21,6 +18,8 @@ const IndexPage: React.FC = () => {
     const onPrincipleStateChange = (state: number) => {
         setPrincipleState(state);
     };
+
+    const { prefersColorScheme } = useBrowserPreferences();
 
     const onLeave = (state: number) => {
         if (state === principleState) {
@@ -104,12 +103,14 @@ const IndexPage: React.FC = () => {
                                 principleState={principleState}
                                 minScale={minScale}
                                 maxScale={maxScale}
+                                colorScheme={prefersColorScheme}
                                 type="diamond"
                             />
                             <PrincipleDiamond
                                 principleState={principleState}
                                 minScale={minScale}
                                 maxScale={maxScale}
+                                colorScheme={prefersColorScheme}
                                 type="shadow"
                             />
                         </div>
