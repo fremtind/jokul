@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import type { ColorScheme } from "@fremtind/jkl-react-hooks";
 import { PureCanvas } from "./PureCanvas";
 import "./princible-diamond.scss";
 
@@ -13,6 +14,7 @@ export enum States {
 interface Props {
     minScale: number;
     maxScale: number;
+    colorScheme: ColorScheme;
     principleState?: number;
     type?: string;
     tiles: number;
@@ -103,7 +105,7 @@ export class PrincipleDiamond extends React.Component<Props> {
 
         if (ctx) {
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = "black";
+            ctx.fillStyle = this.props.colorScheme === "dark" ? "#fff" : "#000";
         }
 
         const time = Date.now();
