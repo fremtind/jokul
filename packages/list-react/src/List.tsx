@@ -1,22 +1,24 @@
 import React, { FC } from "react";
-import classNames from "classnames";
+import cx from "classnames";
 
-interface Props {
+export interface ListProps {
     className?: string;
 }
 
-type validLists = "unordered" | "ordered";
+type ValidLists = "unordered" | "ordered";
 
-function makeListComponent(listType: validLists): FC<Props> {
-    const BaseList: FC<Props> = ({ children, className = "jkl-body" }) => {
-        const componentClassName = classNames("jkl-list", className, {
-            "jkl-list--ordered": listType === "ordered",
-        });
-
+function makeListComponent(listType: ValidLists): FC<ListProps> {
+    const BaseList: FC<ListProps> = ({ children, className = "jkl-body", ...rest }) => {
         const C = listType === "ordered" ? "ol" : "ul";
 
         return (
-            <C data-testid="jkl-list" className={componentClassName}>
+            <C
+                className={cx("jkl-list", className, {
+                    "jkl-list--ordered": listType === "ordered",
+                })}
+                data-testid="jkl-list"
+                {...rest}
+            >
                 {children}
             </C>
         );
