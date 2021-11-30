@@ -36,9 +36,9 @@
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-helmet": "^6.1.0",
-        "react-hook-form": "^7.20.3",
+        "react-hook-form": "^7.20.5",
         "react-syntax-highlighter": "^15.4.5",
-        "sass": "^1.43.5"
+        "sass": "^1.44.0"
     },
     "keywords": [
         "portal"
