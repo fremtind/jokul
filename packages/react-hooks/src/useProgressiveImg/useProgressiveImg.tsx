@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-interface Props {
+export interface ProgressiveImageProps {
     lowQualitySrc: string;
     highQualitySrc: string;
 }
 
 type ProgressiveImage = { src: string; isBlurred: boolean };
 
-export const useProgressiveImg = ({ lowQualitySrc, highQualitySrc }: Props): ProgressiveImage => {
+export const useProgressiveImg = ({ lowQualitySrc, highQualitySrc }: ProgressiveImageProps): ProgressiveImage => {
     const [src, setSrc] = useState(lowQualitySrc);
 
     useEffect(() => {
