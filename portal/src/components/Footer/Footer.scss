@@ -4,32 +4,96 @@
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
-    --jkl-footer-text-color: #{jkl.$color-fjellgra};
+    --jkl-footer-background-color: #{jkl.$color-hvit};
+    --jkl-footer-text-color: #{jkl.$color-granitt};
 }
 @include jkl.helper-dark-mode-variables {
-    --jkl-footer-text-color: #{jkl.$color-svaberg};
+    --jkl-footer-background-color: #{jkl.$color-svart};
+    --jkl-footer-text-color: #{jkl.$color-snohvit};
 }
 
 .jkl-portal-footer {
-    display: flex;
-    flex-direction: column;
-    border-top: solid rem(1px) var(--jkl-footer-text-color);
-    padding-top: jkl.$spacing-xl;
-    margin: jkl.$spacing-2xl jkl.$spacing-xl;
-    margin-bottom: jkl.$spacing-xl;
+    padding-top: jkl.$spacing-l;
 
-    &__column {
-        @include jkl.text-style("small");
-        color: var(--jkl-footer-text-color);
-        flex: 1 1 0px;
-        padding-right: jkl.$spacing-2xl;
+    &__feedback {
+        background-color: var(--jkl-footer-background-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: jkl.$spacing-l;
 
-        &:last-of-type {
-            padding-right: 0;
+        .jkl-feedback {
+            max-width: rem(640px);
+        }
+
+        .jkl-message-box {
+            max-width: initial;
+        }
+
+        @include medium-device {
+            padding: jkl.$spacing-xl;
+        }
+
+        @include from-large-device {
+            flex-direction: row;
+            padding: jkl.$spacing-2xl jkl.$spacing-4xl;
         }
     }
 
-    @include from-medium-device {
-        flex-direction: row;
+    &__stamp {
+        margin-top: -#{jkl.$spacing-l};
+        width: rem(185px);
+        height: rem(185px);
+        opacity: 1;
+        display: none;
+
+        @include from-large-device {
+            display: block;
+        }
+    }
+
+    &__about-us {
+        display: flex;
+        padding: jkl.$spacing-l;
+        justify-content: space-between;
+        flex-direction: column;
+
+        @include medium-device {
+            padding: jkl.$spacing-xl;
+        }
+
+        @include from-large-device {
+            flex-direction: row;
+            padding: jkl.$spacing-2xl;
+        }
+    }
+
+    &__logo {
+        width: rem(170px);
+        margin-bottom: jkl.$spacing-l;
+
+        @include from-medium-device {
+            margin-bottom: jkl.$spacing-xl;
+        }
+    }
+
+    &__links {
+        @include jkl.text-style("body");
+
+        display: block;
+        padding-top: jkl.$spacing-m;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        & > li {
+            display: block;
+            margin-bottom: jkl.$spacing-m;
+
+            @include from-medium-device {
+                display: inline-block;
+                margin-right: jkl.$spacing-l;
+            }
+        }
     }
 }

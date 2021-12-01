@@ -65,3 +65,23 @@ $logo-color--inverted: jkl.$color-snohvit;
         transform: translateX(35%) rotate(45deg);
     }
 }
+
+.jkl-logo-stamp {
+    color: var(--logo-stamp-color);
+
+    &--animated {
+        .jkl-logo-stamp__text {
+            transform-origin: 256px 256px;
+            transition-timing-function: cubic-bezier(0.75, 0, 0, 1);
+            transition-duration: 150ms;
+            transition-property: transform;
+        }
+
+        &.jkl-logo-stamp--rotate {
+            .jkl-logo-stamp__text {
+                transition-duration: 1500ms;
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
