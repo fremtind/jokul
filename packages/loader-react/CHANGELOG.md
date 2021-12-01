@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.0 (2021-12-01)
+
+### Features
+
+- legg til inline og delay-props ([3527f84](https://github.com/fremtind/jokul/commit/3527f84422f90eaa6aae201965d55d6ee3c9ece7))
+
 ## 7.0.0 (2021-10-21)
 
 ### chore
