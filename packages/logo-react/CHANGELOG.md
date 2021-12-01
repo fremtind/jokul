@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.0 (2021-12-01)
+
+### Features
+
+- legg til logostempel ([318b085](https://github.com/fremtind/jokul/commit/318b08520ab6b1296f642ac4258f1f3fe08c193c))
+
 ## 7.0.0 (2021-10-21)
 
 ### chore
