@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.4 (2021-12-01)
+
+### Bug Fixes
+
+- legg til manglende helpLabel-type ([07e588d](https://github.com/fremtind/jokul/commit/07e588d964de3599b2d3d6c45c0477656a1f2f07))
+
 ## 12.0.0 (2021-11-26)
 
 ### Features
