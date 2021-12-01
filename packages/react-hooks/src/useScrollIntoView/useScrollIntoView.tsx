@@ -2,7 +2,7 @@ import { useEffect, RefObject } from "react";
 
 type ValueOf<T> = T[keyof T];
 
-interface Props {
+export interface ScrollIntoViewProps {
     ref: RefObject<ValueOf<HTMLElementTagNameMap>>;
     timeout?: number;
     autoScroll?: boolean;
@@ -16,7 +16,7 @@ export const useScrollIntoView = ({
     timeout = 0,
     autoScroll = true,
     options = { behavior: "smooth" },
-}: Props): [ScrollFunction] => {
+}: ScrollIntoViewProps): [ScrollFunction] => {
     const scrollIntoView: ScrollFunction = () => {
         if (ref?.current) {
             ref.current.scrollIntoView(options);

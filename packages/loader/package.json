@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-loader",
-    "version": "7.0.3",
+    "version": "7.1.0",
     "publishConfig": {
         "access": "public"
     },
