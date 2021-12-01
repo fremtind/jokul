@@ -8,6 +8,9 @@ const getInitialState = () => {
     return false;
 };
 
+/**
+ * @deprecated Foretrekk useBrowserPreferences for ny kode
+ */
 export const useReducedMotion = (): boolean => {
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialState());
 
