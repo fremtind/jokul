@@ -5,12 +5,15 @@ scss: loader
 group: annet
 ---
 
-import { LoaderExample } from "./LoaderExample";
+import { Loader } from "../src";
+import { LoaderExample, loaderExampleCode } from "./LoaderExample";
+import { QuickLoaderExampleDo, QuickLoaderExampleDont } from "./QuickLoaderExample";
 
 <Ingress>
     En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren når vi har handlinger eller
     prosesser som tar lengre tid enn ett sekund.
 </Ingress>
+
 <ComponentExample
     component={LoaderExample}
     knobs={{
@@ -22,11 +25,53 @@ import { LoaderExample } from "./LoaderExample";
             },
         ],
     }}
+    codeExample={loaderExampleCode}
 />
 
-Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik posisjon og størrelse, avhengig av konteksten den skal fungere i. Lasteindikatoren tar farge etter teksten rundt ved hjelp av `currentColor`.
+Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik posisjon og størrelse, avhengig av konteksten den skal fungere i. Lasteindikatoren tar farge etter teksten rundt.
 
-### Bruk
+<Grid className="jkl-spacing-l--bottom">
+    <DoDontExample
+        type="do"
+        description="Bruk passende størrelse"
+        content={
+            <p className="jkl-small">
+                Foreløpig beregnet pris:
+                <Loader
+                    className="jkl-spacing-s--left"
+                    variant="small"
+                    inline
+                    textDescription="Laster eksempel på passende størrelse"
+                />
+            </p>
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Bruk upassende størrelse"
+        content={
+            <p className="jkl-small">
+                Foreløpig beregnet pris:
+                <Loader
+                    className="jkl-spacing-s--left"
+                    variant="large"
+                    inline
+                    textDescription="Laster eksempel på upassende størrelse"
+                />
+            </p>
+        }
+    />
+</Grid>
 
--   På en knapp som brukeren har klikket på (se [Buttons](/komponenter/buttons/) for bruk).
--   På et kort eller i felt der noe blir beregnet før innholdet vises.
+Dersom handlingen vanligvis tar under et halvt sekund, men _kan_ ta lenger tid enn ett sekund, er det lurt å vente med å vise loaderen til vi ser at den trengs tilbakemelding til brukeren.
+
+<Grid>
+    <DoDontExample type="do" description="Hopp over loader for raske handlinger" content={<QuickLoaderExampleDo />} />
+    <DoDontExample type="dont" description="Vis et kort glimt av en loader" content={<QuickLoaderExampleDont />} />
+</Grid>
+
+### Hvor bruker vi loaders?
+
+-   I [knapper](/komponenter/buttons/) som brukeren har klikket på
+-   På et [kort](/komponenter/buttons/) eller i felt der noe blir beregnet før innholdet vises.
+-   Som overgang mellom sider hvor vi ikke har noe innhold å vise uten å vente
