@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.3.9 (2021-12-02)
+
+### Bug Fixes
+
+- added jkl class to text under photos ([fdd9f85](https://github.com/fremtind/jokul/commit/fdd9f852f6330f8e44ef7d1f81613aaf797a754b))
+
 ## 10.3.0 (2021-11-24)
 
 ### Features
