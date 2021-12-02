@@ -5,31 +5,97 @@ scss: checkbox
 group: knapper
 ---
 
-import { CheckboxExample } from "./CheckboxExample";
+import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { Checkbox } from "../src";
+import { CheckboxExample, checkboxExampleCode } from "./CheckboxExample";
 
 <Ingress>
-    Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene
-    jeg har gitt er riktige". Vi bruker flere avmerkingsbokser sammen når vi vil gi brukerne en liste med valg, der de
-    kan velge ett eller flere alternativer.
+    Vi bruker avmerkingsbokser når vi vil gi brukerne en liste med valg, der de kan velge ett eller flere alternativer.
+    Vi bruker også enkeltstående avmerkingsbokser der brukere må bekrefte noe.
 </Ingress>
+
 <ComponentExample
     component={CheckboxExample}
     knobs={{
-        boolProps: ["Kompakt", "Med feil", "Invertert"],
+        boolProps: ["Kompakt", "Med hjelpetekst", "Med feil", "Invertert"],
     }}
+    codeExample={checkboxExampleCode}
 />
 
-## Bruk
+Vi bruker flere avmerkingsbokser sammen i en [Field group](/komponenter/fieldgroup) når vi vil gi brukerne en liste med valg, der de kan velge etter eller flere alternativer. Vi anbefaler at du plasserer valgene under hverandre. Standard tilstand for avmerkingsbokser er _ikke valgt_.
 
-En gruppe avmerkingsbokser må ha en god overskrift, og ledeteksten til hver avmerkingsboks må beskrive alternativet. En avmerkingsboks som står alene trenger ikke noen overskrift, så lenge ledeteksten er god og beskrivende.
+En gruppe avmerkingsbokser må ha en god overskrift, og ledeteksten til hver avmerkingsboks må beskrive alternativet.
 
-Du kan sette boksene under eller etter hverandre, men vi anbefaler at du plasserer dem under hverandre. Standard status for avmerkingsbokser er _ikke valgt_.
+En avmerkingsboks som står alene trenger ikke noen overskrift, så lenge ledeteksten er god og beskrivende. Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene jeg har gitt er riktige".
+
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Enkeltstående avmerkingsboks med beskrivende ledetekst"
+        content={
+            <Checkbox name="singledo" value="confirm">
+                Jeg bekrefter å ha lest vedlegget
+            </Checkbox>
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Lite beskrivende ledetekst uten overskrift"
+        content={
+            <Checkbox name="singledont" value="confirm">
+                Bekreft
+            </Checkbox>
+        }
+    />
+</Grid>
 
 ## Tekst og validering
 
-Velg størrelse på overskriften til en gruppe avmerkingsbokser etter prinsippene for skjemadesign. Ha en kort og tydelig overskrift, som beskriver hva brukeren skal velge. Hvis du trenger å gi mer forklaring, kan du sette en hjelpetekst under gruppen.
+Velg størrelse på overskriften til en gruppe avmerkingsbokser etter [prinsippene for skjemadesign](/profil/skjemadesign). Ha en kort og tydelig overskrift, som beskriver hva brukeren skal velge. Hvis du trenger å gi mer forklaring, kan du sette en hjelpetekst under gruppen.
 
-Hvis avmerkingsboksene ikke validerer, vises det en feilmelding som forklarer hva som er galt. Denne feilmeldingen erstatter en eventuell hjelpetekst du har der fra før, og bør formuleres slik at brukeren både får hjelp og får vite hva som er feil.
+Hvis avmerkingsboksene ikke validerer, vises det en feilmelding som forklarer hva som er galt. Denne feilmeldingen erstatter en eventuell hjelpetekst du har der fra før, og bør formuleres slik at brukeren både får viktig informasjon fra hjelpeteksten, og får vite hva som er feil.
 
-Eksempel:
-Hjelpetekst: "Oppgi fødselsnummeret ditt, 11 siffer". Feilmelding: "Du må oppgi fødselsnummeret ditt, 11 siffer".
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Informasjon i hjelpetekst"
+        content={
+            <FieldGroup
+                legend="Hvordan kan vi kontakte deg?"
+                labelProps={{ variant: "small" }}
+                errorLabel="Du må velge minst én kontaktmetode hvor vi kan sende viktige beskjeder"
+            >
+                <Checkbox name="infodo" value="phone" invalid={true}>
+                    Telefon
+                </Checkbox>
+                <Checkbox name="infodo" value="email" invalid={true}>
+                    E-post
+                </Checkbox>
+                <Checkbox name="infodo" value="snailmail" invalid={true}>
+                    Brev
+                </Checkbox>
+            </FieldGroup>
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Lite hjelp å få fra feilmeldingen"
+        content={
+            <FieldGroup
+                legend="Hvordan kan vi kontakte deg?"
+                labelProps={{ variant: "small" }}
+                errorLabel="Du må velge"
+            >
+                <Checkbox name="infodont" value="phone" invalid={true}>
+                    Telefon
+                </Checkbox>
+                <Checkbox name="infodont" value="email" invalid={true}>
+                    E-post
+                </Checkbox>
+                <Checkbox name="infodont" value="snailmail" invalid={true}>
+                    Brev
+                </Checkbox>
+            </FieldGroup>
+        }
+    />
+</Grid>

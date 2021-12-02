@@ -1,34 +1,102 @@
+import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import React, { VFC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Checkbox } from "../src";
 
 export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
-    const [checked, setChecked] = React.useState(false);
-    const [checked2, setChecked2] = React.useState(false);
+    const [phone, setPhone] = React.useState(false);
+    const [email, setEmail] = React.useState(false);
+    const [snailMail, setSnailMail] = React.useState(false);
+
+    const helpText = boolValues?.["Med hjelpetekst"];
+    const invalid = boolValues?.["Med feil"];
+    const inverted = boolValues?.["Invertert"];
+    const forceCompact = boolValues?.["Kompakt"];
+
     return (
-        <div>
+        <FieldGroup
+            legend="Hvordan kan vi kontakte deg?"
+            labelProps={{ variant: forceCompact ? "small" : "medium" }}
+            helpLabel={helpText ? "Vi sender viktige beskjeder til deg med de valgte metodene" : undefined}
+            errorLabel={invalid ? "Du må velge minst én kontaktmetode hvor vi kan sende viktige beskjeder" : undefined}
+        >
             <Checkbox
                 name="checklist"
-                value="checkbox"
-                checked={checked}
-                invalid={boolValues && boolValues["Med feil"]}
-                inverted={boolValues && boolValues["Invertert"]}
-                forceCompact={boolValues && boolValues["Kompakt"]}
-                onChange={() => setChecked(!checked)}
+                value="phone"
+                checked={phone}
+                invalid={invalid}
+                inverted={inverted}
+                forceCompact={forceCompact}
+                onChange={() => setPhone(!phone)}
             >
-                Jeg vil bli kontaktet via telefon, i tillegg til at jeg vil motta brev på posten
+                Telefon
             </Checkbox>
             <Checkbox
                 name="checklist"
-                value="checkbox2"
-                checked={checked2}
-                invalid={boolValues && boolValues["Med feil"]}
-                inverted={boolValues && boolValues["Invertert"]}
-                forceCompact={boolValues && boolValues["Kompakt"]}
-                onChange={() => setChecked2(!checked2)}
+                value="email"
+                checked={email}
+                invalid={invalid}
+                inverted={inverted}
+                forceCompact={forceCompact}
+                onChange={() => setEmail(!email)}
             >
-                Jeg vil bli kontaktet via epost
+                E-post
             </Checkbox>
-        </div>
+            <Checkbox
+                name="checklist"
+                value="snailmail"
+                checked={snailMail}
+                invalid={invalid}
+                inverted={inverted}
+                forceCompact={forceCompact}
+                onChange={() => setSnailMail(!snailMail)}
+            >
+                Brev
+            </Checkbox>
+        </FieldGroup>
     );
+};
+
+export const checkboxExampleCode: CodeExample = ({ boolValues }) => {
+    const helpText = boolValues?.["Med hjelpetekst"];
+    const invalid = boolValues?.["Med feil"];
+    const inverted = boolValues?.["Invertert"];
+    const forceCompact = boolValues?.["Kompakt"];
+
+    return `
+<FieldGroup
+    legend="Hvordan kan vi kontakte deg?"
+    labelProps={{ variant: "${forceCompact ? "small" : "medium"}" }}
+    helpLabel=${helpText ? `"Vi sender viktige beskjeder til deg med de valgte metodene"` : "{undefined}"}
+    errorLabel=${invalid ? `"Du må velge minst én kontaktmetode hvor vi kan sende viktige beskjeder"` : "{undefined}"}
+>
+    <Checkbox
+        name="checklist"
+        value="phone"
+        invalid={${invalid}}
+        inverted={${inverted}}
+        forceCompact={${forceCompact}}
+    >
+        Telefon
+    </Checkbox>
+    <Checkbox
+        name="checklist"
+        value="email"
+        invalid={${invalid}}
+        inverted={${inverted}}
+        forceCompact={${forceCompact}}
+    >
+        E-post
+    </Checkbox>
+    <Checkbox
+        name="checklist"
+        value="snailmail"
+        invalid={${invalid}}
+        inverted={${inverted}}
+        forceCompact={${forceCompact}}
+    >
+        Brev
+    </Checkbox>
+</FieldGroup>
+`;
 };
