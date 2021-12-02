@@ -1,29 +1,41 @@
-import React, { VFC, useState } from "react";
+import React, { useState } from "react";
 import { nanoid } from "nanoid";
-import classNames from "classnames";
+import cx from "classnames";
 
-interface Props {
+export interface LogoProps {
     className?: string;
+    id?: string;
+    /** Sentrerer logosymbolet i viewboksen i stedet for den vanlige venstrejusteringen */
     centered?: boolean;
+    /** Animerer overgangen mellom logo og logosymbol */
     animated?: boolean;
+    /** Vis logosymbol i stedet for logo */
     isSymbol?: boolean;
+    /** Beskrivelse av logoen tilgjengelig for skjermlesere */
     title?: string;
     /** @deprecated */
     inverted?: boolean;
 }
 
-export const Logo: VFC<Props> = ({ className, centered = true, isSymbol, animated, title = "Fremtind", inverted }) => {
-    const [uniqueId] = useState(`jkl-logo-${nanoid(16)}`);
-    const componentClassName = classNames("jkl-logo", className, {
-        "jkl-logo--animated": animated,
-        "jkl-logo--symbol-only": isSymbol,
-        "jkl-logo--centered": centered && isSymbol,
-        "jkl-logo--inverted": inverted,
-    });
+export const Logo = ({
+    className,
+    id,
+    centered = true,
+    isSymbol = false,
+    animated = false,
+    title = "Fremtind",
+    inverted,
+}: LogoProps): JSX.Element => {
+    const [uniqueId] = useState(id || `jkl-logo-${nanoid(16)}`);
 
     return (
         <svg
-            className={componentClassName}
+            className={cx("jkl-logo", className, {
+                "jkl-logo--animated": animated,
+                "jkl-logo--symbol-only": isSymbol,
+                "jkl-logo--centered": centered && isSymbol,
+                "jkl-logo--inverted": inverted,
+            })}
             aria-labelledby={uniqueId}
             role="img"
             xmlns="http://www.w3.org/2000/svg"
