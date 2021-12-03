@@ -1,22 +1,35 @@
+import { CodeExample } from "doc-utils";
 import React from "react";
-import { DescriptionList, DescriptionDetail, DescriptionTerm } from "../src";
-import "./DescriptionListExample.scss";
+import { DescriptionList, DescriptionDetail as DD, DescriptionTerm as DT } from "../src";
 
 export const DescriptionListExample: React.VFC = () => {
     return (
-        <div className="description-list-example">
-            <DescriptionList className="jkl-body">
-                <DescriptionTerm>Forsikringer</DescriptionTerm>
-                <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
-                <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
-                <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
-                <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
-                <DescriptionDetail>SAGA Dødsrisiko Grunndekning Hovedforsikret</DescriptionDetail>
+        <div className="jkl-body">
+            <DescriptionList>
+                <DT>Dekning</DT>
+                <DD>Kasko</DD>
 
-                <DescriptionTerm>Mat</DescriptionTerm>
-                <DescriptionDetail>Sushi</DescriptionDetail>
-                <DescriptionDetail>Carbonara</DescriptionDetail>
+                <DT>Egenandel</DT>
+                <DD>2 000 kr for glass</DD>
+                <DD>6 000 kr for øvrige skader</DD>
+
+                <DT>Sjåfør under 23 år</DT>
+                <DD>Nei</DD>
             </DescriptionList>
         </div>
     );
 };
+
+export const descriptionListExampleCode: CodeExample = () => `
+<DescriptionList>
+    <DescriptionTerm>Dekning</DescriptionTerm>
+    <DescriptionDetail>Kasko</DescriptionDetail>
+
+    <DescriptionTerm>Egenandel</DescriptionTerm>
+    <DescriptionDetail>2 000 kr for glass</DescriptionDetail>
+    <DescriptionDetail>6 000 kr for øvrige skader</DescriptionDetail>
+
+    <DescriptionTerm>Sjåfør under 23 år</DescriptionTerm>
+    <DescriptionDetail>Nei</DescriptionDetail>
+</DescriptionList>
+`;
