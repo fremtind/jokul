@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-type ColorScheme = "light" | "dark";
+export type ColorScheme = "light" | "dark";
 type BrowserPreferences = {
     prefersReducedMotion: boolean;
     prefersColorScheme: ColorScheme;

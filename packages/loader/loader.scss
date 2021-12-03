@@ -15,6 +15,10 @@ $loader-animation-properties: 2500ms linear infinite;
 .jkl-loader {
     display: flex;
 
+    &--inline {
+        display: inline-flex;
+    }
+
     &__dot {
         display: block;
         transform-origin: center;

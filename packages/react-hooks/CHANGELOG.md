@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.0 (2021-11-30)
+
+### Features
+
+- eksporter proptypes fra hooks ([bda3fa5](https://github.com/fremtind/jokul/commit/bda3fa5833600b3d3232d7d3c3b6751ae337e495))
+
 ## 6.0.0 (2021-10-21)
 
 ### chore

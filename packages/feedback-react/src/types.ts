@@ -13,6 +13,7 @@ export type QuestionType = "radio" | "checkbox" | "text" | "smiley";
 interface BaseQuestion {
     type: QuestionType;
     label: string;
+    helpLabel?: string;
     name?: string;
 }
 

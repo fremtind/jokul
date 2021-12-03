@@ -43,7 +43,7 @@ export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, 
                 >
                     <AnimatedImage src={src} alt={alt} />
                     {!isFullscreen && !noMargin && (
-                        <p className="jkl-small">
+                        <p className="jkl jkl-small">
                             {caption && caption} Klikk for å se større{caption && "."}
                         </p>
                     )}
