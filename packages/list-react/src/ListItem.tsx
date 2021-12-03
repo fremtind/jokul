@@ -1,22 +1,23 @@
 import React, { FC } from "react";
-import cn from "classnames";
+import cx from "classnames";
 
-interface Props {
+export interface ListItemProps {
     className?: string;
 }
 
-type validListItems = "normal" | "check" | "cross";
+type ValidListItems = "normal" | "check" | "cross";
 
-function makeListItem(listItemType: validListItems): FC<Props> {
-    const ListItem: FC<Props> = ({ className = "", children }) => {
+function makeListItem(listItemType: ValidListItems): FC<ListItemProps> {
+    const ListItem: FC<ListItemProps> = ({ className, children, ...rest }) => {
         return (
             <li
-                className={cn("jkl-list__item", className, {
+                className={cx("jkl-list__item", className, {
                     "jkl-list__item--iconed": listItemType !== "normal",
                     "jkl-list__item--check": listItemType === "check",
                     "jkl-list__item--cross": listItemType === "cross",
                 })}
                 data-testid="jkl-list-item"
+                {...rest}
             >
                 {children}
             </li>
@@ -26,5 +27,8 @@ function makeListItem(listItemType: validListItems): FC<Props> {
 }
 
 export const ListItem = makeListItem("normal");
+ListItem.displayName = "ListItem";
 export const CrossListItem = makeListItem("cross");
+CrossListItem.displayName = "CrossListItem";
 export const CheckListItem = makeListItem("check");
+CheckListItem.displayName = "CheckListItem";

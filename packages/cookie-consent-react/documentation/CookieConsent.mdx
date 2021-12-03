@@ -5,21 +5,35 @@ react: cookie-consent-react
 group: annet
 ---
 
-import { Blocking } from "./Blocking";
+import { Blocking, blockingExampleCode } from "./Blocking";
 
-<Ingress>Et Cookie Consent informerer en bruker av et nettsted om bruken av informasjonskapsler.</Ingress>
+<Ingress>
+    Informasjonskapselsamtykke informerer om bruken av informasjonskapsler på nettstedet og lar brukeren velge bort de
+    som ikke er nødvendige for at siden skal fungere.
+</Ingress>
 
-Vi anser det som at cookies kan deles opp i 3 formål, med hver sine hensikter og lovverk:
+<ComponentExample
+    title="Samtykkemodal"
+    component={Blocking}
+    knobs={{ boolProps: ["Functional", "Statistics", "Marketing"] }}
+    codeExample={blockingExampleCode}
+/>
+
+Vi anser det som at informasjonskapsler kan deles opp i 3 formål, med hver sine hensikter og lovverk:
 
 -   Funksjonelle
 -   Markedsføring
 -   Statistikk
 
-Et kjernekonsept i Cookie Consent komponenten er at man **ikke skal spørre om mer enn man har behov for**. I praksis
-betyr dette at man eksplisitt setter hvilke formål man vil inhente et consent for, og man blir ikke spurt om andre
+Et kjernekonsept er at man **ikke skal spørre om mer enn man har behov for**. I praksis
+betyr dette at man eksplisitt setter hvilke formål man vil inhente et samtykke for, og man blir ikke spurt om andre
 formål enn disse.
 
-Ved aksept vil komponenten lagre en cookie med en utløpstid på 120 dager, hvor det defineres hvorvidt et consent
+Foreløpig har Jøkul kun en blokkerende modal, hvor brukeren må ta et aktivt valg for å komme videre. Modalen vil ikke vises dersom ingen av de valgfrie kategoriene er i bruk.
+
+## Lagring og bruk av samtykker
+
+Når brukeren lukker modalen vil komponenten lagre en cookie med en utløpstid på 120 dager, hvor det defineres hvorvidt et consent
 er tatt stilling til:
 
 ```JSON
@@ -30,8 +44,19 @@ er tatt stilling til:
 }
 ```
 
-## Blocking
+Det er opp til hvert enkelt nettsted å **sørge for at brukerens valg faktisk respekteres**. Her er et eksempel:
 
-Foreløpig støtter Cookie Consent kun en blokkerende modal, hvor brukeren må ta et aktivt valg for å komme videre.
-
-<ComponentExample component={Blocking} />
+```tsx
+<CookieConsent
+    blocking
+    onAccept={(v) => {
+        if (v.statistics === "accepted") {
+            mixpanel.opt_in_tracking();
+            saveUserState(user, { statistics: true });
+        } else if (v.statistics === "denied") {
+            mixpanel.opt_out_tracking();
+            saveUserState(user, { statistics: false });
+        }
+    }}
+/>
+```

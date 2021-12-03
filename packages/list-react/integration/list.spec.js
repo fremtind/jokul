@@ -6,8 +6,23 @@ describe("List", () => {
     });
 
     it("renders correctly", () => {
-        [0, 1, 2, 3].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-        cy.setDarkMode();
-        [0, 1, 2, 3].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+        cy.get('input[value="Nummerert"]').click();
+        cy.getComponent().toMatchImageSnapshot();
+        cy.get('input[value="Unummerert"]').click();
+        cy.getComponent().toMatchImageSnapshot();
+        cy.get('input[value="Med ikon"]').click();
+        cy.getComponent().toMatchImageSnapshot();
+    });
+
+    context("dark mode", () => {
+        it("renders correctly", () => {
+            cy.setDarkMode();
+            cy.get('input[value="Nummerert"]').click();
+            cy.getComponent().toMatchImageSnapshot();
+            cy.get('input[value="Unummerert"]').click();
+            cy.getComponent().toMatchImageSnapshot();
+            cy.get('input[value="Med ikon"]').click();
+            cy.getComponent().toMatchImageSnapshot();
+        });
     });
 });

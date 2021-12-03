@@ -1,16 +1,16 @@
-import React, { useEffect, VFC } from "react";
+import React, { useEffect } from "react";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 import { AcceptConsentCallback, Consent } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";
 import { CookieConsentModal } from "./CookieConsentModal";
 import { setConsentCookie } from "./cookieConsentUtils";
 
-interface Props {
+export interface CookieConsentProps {
     blocking?: boolean;
     onAccept?: AcceptConsentCallback;
 }
 
-export const CookieConsent: VFC<Props> = ({ blocking, onAccept }) => {
+export const CookieConsent = ({ blocking, onAccept }: CookieConsentProps): JSX.Element | null => {
     const { dispatch, consent } = useCookieConsentState();
     const prevConsent = usePreviousValue(consent);
 
