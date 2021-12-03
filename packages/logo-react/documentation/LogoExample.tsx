@@ -1,14 +1,23 @@
 import React, { VFC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Logo } from "../src";
 import "./LogoExample.scss";
 
 export const LogoExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
     <Logo
         className="logo-example"
-        animated={boolValues && boolValues["Animert"]}
-        isSymbol={boolValues && boolValues["Kun symbol"]}
-        centered={boolValues && boolValues["Sentrert"]}
-        inverted={boolValues && boolValues["Invertert"]}
+        animated={boolValues?.["Animert"]}
+        isSymbol={boolValues?.["Kun symbol"]}
+        centered={boolValues?.["Sentrert"]}
+        inverted={boolValues?.["Invertert"]}
     />
 );
+
+export const logoExampleCode: CodeExample = ({ boolValues }) => `
+<Logo
+    animated={${boolValues?.["Animert"]}}
+    isSymbol={${boolValues?.["Kun symbol"]}}
+    centered={${boolValues?.["Sentrert"]}}
+    inverted={${boolValues?.["Invertert"]}}
+/>
+`;

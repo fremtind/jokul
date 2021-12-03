@@ -7,9 +7,10 @@ on:
 ##
 # Sjekker først om det er endringer som krever grundigere test.
 # Bygger i så fall pakkene og laster dem opp som en artifact.
-# Artifacten lastes ned av to jobber: testlint og gatsby.
+# Bygger så portalen og laster siten opp som en artifact dersom
+# det er visuelle endringer.
+# Artifactene lastes ned av to jobber: testlint og cypress.
 # Førstnevnte kjører enhetstester, ESLint, og TypeScript typesjekk.
-# Sistnevnte bygger portalen og laster opp siten som en artifact.
 # Site-artifacten lastes ned av N instanser av cypress-jobben.
 # Cypressjobben server den ferdigbyggede siten og kjører et utvalg
 # av testene. Om en jobb feiler blir de andre avbrutt. Om en jobb
@@ -30,9 +31,11 @@ jobs:
             contents: read
         steps:
             - name: Checkout
+              if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
               uses: actions/checkout@v2
 
             - name: Check for changes that require extra verification
+              if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
               uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
               id: changes
               with:
@@ -54,31 +57,54 @@ jobs:
 
             - name: Setup Node
               uses: actions/setup-node@v2
-              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
               with:
                   node-version: "lts/*"
                   cache: "yarn"
 
             - name: Install dependencies
-              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
               run: yarn ci:install
 
             - name: Build packages
-              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
               run: yarn build
 
             - name: Upload built packages
               uses: actions/upload-artifact@v2
-              if: steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true'
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
               with:
                   name: built-packages
                   path: |
                       packages/**/build/**
                       packages/**/*.css
 
+            - name: Caching Gatsby
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      portal/public
+                      portal/.cache
+                  key: ${{ runner.os }}-gatsby-build-${{ github.head_ref }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-
+
+            - name: Build site
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              run: yarn build:docs
+
+            - name: Upload built site
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              uses: actions/upload-artifact@v2
+              with:
+                  name: built-site
+                  path: |
+                      portal/public/
+
     testlint:
         needs: [build]
-        if: needs.build.outputs.testlint == 'true'
+        if: needs.build.outputs.testlint == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
         runs-on: ubuntu-latest
         permissions:
             actions: read
@@ -105,54 +131,8 @@ jobs:
             - name: Lint and test
               run: yarn ci:test
 
-    gatsby:
-        needs: [build]
-        if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
-        runs-on: ubuntu-latest
-        permissions:
-            actions: write
-            contents: read
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-
-            - name: Setup Node
-              uses: actions/setup-node@v2
-              with:
-                  node-version: "lts/*"
-                  cache: "yarn"
-
-            - name: Install dependencies
-              run: yarn ci:install
-
-            - name: Download built packages
-              uses: actions/download-artifact@v2
-              with:
-                  name: built-packages
-                  path: packages/
-
-            - name: Caching Gatsby
-              uses: actions/cache@v2
-              with:
-                  path: |
-                      portal/public
-                      portal/.cache
-                  key: ${{ runner.os }}-gatsby-build-${{ github.head_ref }}
-                  restore-keys: |
-                      ${{ runner.os }}-gatsby-build-
-
-            - name: Build site
-              run: yarn build:docs
-
-            - name: Upload built site
-              uses: actions/upload-artifact@v2
-              with:
-                  name: built-site
-                  path: |
-                      portal/public/
-
     cypress:
-        needs: [gatsby]
+        needs: [build]
         if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
         runs-on: ubuntu-latest
         strategy:

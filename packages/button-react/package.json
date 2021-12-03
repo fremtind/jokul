@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button-react",
-    "version": "8.0.5",
+    "version": "8.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
     "dependencies": {
         "@babel/runtime": "^7.16.3",
         "@fremtind/jkl-button": "^6.0.3",
-        "@fremtind/jkl-loader-react": "^7.0.4",
+        "@fremtind/jkl-loader-react": "^7.1.0",
         "classnames": "^2.2.6"
     },
     "devDependencies": {

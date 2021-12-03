@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.0 (2021-12-02)
+
+### Features
+
+- eksporter komponentprops ([d7af150](https://github.com/fremtind/jokul/commit/d7af15065351e056d65fb473c62167241d909723))
+
 ## 5.0.0 (2021-10-21)
 
 ### chore

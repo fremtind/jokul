@@ -1,9 +1,9 @@
 import React, { ReactNode, useState, forwardRef, ChangeEventHandler, FocusEventHandler } from "react";
-import classNames from "classnames";
+import cx from "classnames";
 import { nanoid } from "nanoid";
 import { DataTestAutoId } from "@fremtind/jkl-core";
 
-interface Props extends DataTestAutoId {
+export interface CheckboxProps extends DataTestAutoId {
     children: ReactNode;
     name: string;
     value: string;
@@ -19,45 +19,40 @@ interface Props extends DataTestAutoId {
     onBlur?: FocusEventHandler<HTMLInputElement>;
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, Props>(
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     (
         {
             children,
-            name,
-            value,
-            checked,
             invalid,
             className,
             inline = false,
             forceCompact,
             inverted,
             "data-testautoid": testAutoId,
-            ...eventHandlers
+            ...rest
         },
         ref,
     ) => {
-        const componentClassNames = classNames("jkl-checkbox", className, {
-            "jkl-checkbox--compact": forceCompact,
-            "jkl-checkbox--inline": inline,
-            "jkl-checkbox--error": invalid,
-            "jkl-checkbox--inverted": inverted,
-        });
         const [id] = useState(`jkl-checkbox-${nanoid(8)}`);
 
         return (
-            <div className={componentClassNames}>
+            <div
+                className={cx("jkl-checkbox", className, {
+                    "jkl-checkbox--compact": forceCompact,
+                    "jkl-checkbox--inline": inline,
+                    "jkl-checkbox--error": invalid,
+                    "jkl-checkbox--inverted": inverted,
+                })}
+            >
                 <input
                     id={id}
                     ref={ref}
                     className="jkl-checkbox__input"
                     data-testid="jkl-checkbox-input"
                     aria-invalid={invalid}
-                    checked={checked}
                     type="checkbox"
-                    name={name}
-                    value={value}
                     data-testautoid={testAutoId}
-                    {...eventHandlers}
+                    {...rest}
                 />
                 <label htmlFor={id} className="jkl-checkbox__label">
                     <span className="jkl-checkbox__check-mark" />
