@@ -1,4 +1,3 @@
-import { UnorderedList, OrderedList, List } from "./List";
-import { ListItem, CheckListItem, CrossListItem } from "./ListItem";
-
-export { ListItem, UnorderedList, OrderedList, List, CheckListItem, CrossListItem };
+export type { ListProps } from "./List";
+export { UnorderedList, OrderedList, List } from "./List";
+export { ListItem, CheckListItem, CrossListItem } from "./ListItem";

@@ -1,7 +1,8 @@
+import { CodeExample, ExampleComponentProps } from "doc-utils";
 import React, { VFC } from "react";
 import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
 
-export const Ordered: VFC = () => (
+const Ordered: VFC = () => (
     <OrderedList>
         <ListItem>Steg 1</ListItem>
         <ListItem>
@@ -16,28 +17,52 @@ export const Ordered: VFC = () => (
     </OrderedList>
 );
 
-export const Unordered: VFC = () => (
-    <UnorderedList>
-        <ListItem>Listeelement 1</ListItem>
-        <ListItem>Listeelement 2</ListItem>
-        <ListItem>Listelement 3</ListItem>
-    </UnorderedList>
-);
+const orderedCodeExample = `
+<OrderedList>
+    <ListItem>Steg 1</ListItem>
+    <ListItem>
+        Steg 2
+        <OrderedList>
+            <ListItem>Steg 2a</ListItem>
+            <ListItem>Steg 2b</ListItem>
+        </OrderedList>
+    </ListItem>
+    <ListItem>Steg 3</ListItem>
+    <ListItem>Steg 4</ListItem>
+</OrderedList>
+`;
 
-export const Indent: VFC = () => (
+const Unordered: VFC = () => (
     <UnorderedList>
+        <ListItem>Element 1</ListItem>
         <ListItem>
-            Listeelement 1
+            Element 2
             <UnorderedList>
-                <ListItem>Nøstet listeelement 1</ListItem>
-                <ListItem>Nøstet listeelement 2</ListItem>
+                <ListItem>Nøstet 1</ListItem>
+                <ListItem>Nøstet 2</ListItem>
             </UnorderedList>
         </ListItem>
-        <ListItem>Listelement 2</ListItem>
+        <ListItem>Element 3</ListItem>
+        <ListItem>Element 4</ListItem>
     </UnorderedList>
 );
 
-export const IconedList: VFC = () => (
+const unorderedCodeExample = `
+<UnorderedList>
+    <ListItem>Element 1</ListItem>
+    <ListItem>
+        Element 2
+        <UnorderedList>
+            <ListItem>Nøstet 1</ListItem>
+            <ListItem>Nøstet 2</ListItem>
+        </UnorderedList>
+    </ListItem>
+    <ListItem>Element 3</ListItem>
+    <ListItem>Element 4</ListItem>
+</UnorderedList>
+`;
+
+const IconedList: VFC = () => (
     <List>
         <CheckListItem>Dekkes</CheckListItem>
         <CheckListItem>Dekkes også</CheckListItem>
@@ -46,11 +71,41 @@ export const IconedList: VFC = () => (
     </List>
 );
 
-export const ListExample: VFC = () => (
-    <section>
-        <Ordered />
-        <Unordered />
-        <Indent />
-        <IconedList />
-    </section>
-);
+const iconedListCodeExample = `
+<List>
+    <CheckListItem>Dekkes</CheckListItem>
+    <CheckListItem>Dekkes også</CheckListItem>
+    <CrossListItem>Dekkes ikke</CrossListItem>
+    <CrossListItem>Dekkes heller ikke</CrossListItem>
+</List>
+`;
+
+export const listExamplesProps = {
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["Nummerert", "Unummerert", "Med ikon"],
+            defaultValue: 0,
+        },
+    ],
+};
+
+export const ListExamples: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+    let C = Ordered;
+    if (choiceValues?.["Variant"] === "Unummerert") {
+        C = Unordered;
+    } else if (choiceValues?.["Variant"] === "Med ikon") {
+        C = IconedList;
+    }
+    return <C />;
+};
+
+export const listExamplesCode: CodeExample = ({ choiceValues }) => {
+    let code = orderedCodeExample;
+    if (choiceValues?.["Variant"] === "Unummerert") {
+        code = unorderedCodeExample;
+    } else if (choiceValues?.["Variant"] === "Med ikon") {
+        code = iconedListCodeExample;
+    }
+    return code;
+};
