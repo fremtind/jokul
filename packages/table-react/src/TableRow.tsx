@@ -3,21 +3,21 @@ import React, { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
 import { useTableContext } from "./tableContext";
 import { useTableSectionContext } from "./tableSectionContext";
 
-interface Clickable {
+export interface ClickableRowProps {
     markClickedRows?: boolean;
     /** Lar deg kontrollere radens tilstand untenfra */
     isClicked?: boolean;
     onClick: (e: React.MouseEvent<HTMLTableRowElement, MouseEvent> | React.KeyboardEvent<HTMLTableRowElement>) => void;
 }
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement> {
+export interface TableRowProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement> {
     /**
      * Gir raden interaktivitet og en click-handler.
      */
-    clickable?: Clickable;
+    clickable?: ClickableRowProps;
 }
 
-export const TableRow: FC<Props> = ({ className, clickable, children, ...rest }) => {
+export const TableRow: FC<TableRowProps> = ({ className, clickable, children, ...rest }) => {
     const { compact } = useTableContext();
     const { isTableBody } = useTableSectionContext();
 
