@@ -1,5 +1,5 @@
 import React, { VFC } from "react";
-import { DataTable } from "../src";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
 
@@ -17,7 +17,33 @@ const MobileScrollTableExample: VFC = () => {
                 overflowX: "scroll",
             }}
         >
-            <DataTable caption="Tabell som scroller horisontalt på mobil" compact columns={columns} rows={rows} />
+            <Table fullWidth compact>
+                <TableCaption srOnly>Tabell som scroller horisontalt på mobil</TableCaption>
+                <TableHead>
+                    <TableRow>
+                        {columns.map((column, index) => (
+                            <TableHeader key={index} compact bold>
+                                {column}
+                            </TableHeader>
+                        ))}
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {rows.map((row, rowIndex) => (
+                        <TableRow key={rowIndex}>
+                            {row.map((cell, cellIndex) => (
+                                <TableCell
+                                    key={cellIndex}
+                                    data-th={columns[cellIndex]}
+                                    align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                                >
+                                    {cell}
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
         </div>
     );
 };
@@ -31,6 +57,32 @@ export const mobileScrollTableExampleCode = `
             overflowX: "scroll",
         }}
     >
-        <DataTable caption="Tabell som scroller horisontalt på mobil" compact columns={columns} rows={rows} />
+        <Table fullWidth compact>
+            <TableCaption srOnly>Tabell som scroller horisontalt på mobil</TableCaption>
+            <TableHead>
+                <TableRow>
+                    {columns.map((column, index) => (
+                        <TableHeader key={index} compact bold>
+                            {column}
+                        </TableHeader>
+                    ))}
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                {rows.map((row, rowIndex) => (
+                    <TableRow key={rowIndex}>
+                        {row.map((cell, cellIndex) => (
+                            <TableCell
+                                key={cellIndex}
+                                data-th={columns[cellIndex]}
+                                align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                            >
+                                {cell}
+                            </TableCell>
+                        ))}
+                    </TableRow>
+                ))}
+            </TableBody>
+        </Table>
     </div>
 `;
