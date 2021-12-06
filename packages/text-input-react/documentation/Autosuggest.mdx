@@ -7,16 +7,11 @@ displayTypes: |
     - Autosuggest
 ---
 
-import AutosuggestExample from "./AutosuggestExample";
+import AutosuggestExample, { autosuggestExampleCode } from "./AutosuggestExample";
 
 <Ingress>
-    Autosuggest er en del av{" "}
-    <a className="jkl-link" href="/komponenter/textinput">
-        text-input
-    </a>{" "}
-    pakken, og kan brukes til å gi brukerene forslag basert på det man legger inn. Den er spesielt nyttig når brukeren
-    må/kan velge fra en veldig lang liste med potensielle resultat. Komponenten kan også brukes async, hvor resultatene
-    hentes etter at brukeren har tastet inn x antall tegn.
+    Autosuggest kan brukes til å gi brukerene forhåndsdefinerte forslag basert på det de skriver, men også godta
+    brukerens tekst som gyldig input uavhengig av treff.
 </Ingress>
 
 <Experimental>
@@ -37,16 +32,7 @@ import AutosuggestExample from "./AutosuggestExample";
 <ComponentExample
     component={AutosuggestExample}
     knobs={{
-        boolProps: [
-            "Invertert",
-            "Hjelpetekst",
-            "Feiltekst",
-            "Leadtekst",
-            "Ingen treff",
-            "Max antall treff",
-            "Placeholder",
-            "Vis kontroller",
-        ],
+        boolProps: ["Hjelpetekst", "Feiltekst", "Ingen treff", "Mis maks 3 treff", "Placeholder", "Vis ikoner"],
         choiceProps: [
             {
                 name: "Variant",
@@ -55,4 +41,11 @@ import AutosuggestExample from "./AutosuggestExample";
             },
         ],
     }}
+    codeExample={autosuggestExampleCode}
 />
+
+## Bruk
+
+Autosuggest har noen likhetstrekk med en [Select](/komponenter/select) med søk. En nyanseforskjell er at en nedtrekksliste ikke lar brukeren velge noe annet enn de forhåndsbestemte alternativene. Autosuggest lar deg derimot godta brukerens input uansett om det er treff eller ei – fritekst. Om brukeren alltid skal velge ett av de gitte alternativene er det sannsynligvis Select som er riktig komponent å bruke.
+
+For å skille Autosuggest visuelt fra [Text input](/komponenter/textinput) kan du bruke ikonene som er innebygget.
