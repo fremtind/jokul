@@ -19,7 +19,12 @@ interface UpdateConsentAction {
     payload: Consent;
 }
 
-type Action = SetShowConsentAction | UpdateConsentAction | SetShowSettingsAction;
+interface UpdateRequirementsAction {
+    type: "UPDATE_REQUIREMENTS";
+    payload: ConsentRequirement;
+}
+
+type Action = SetShowConsentAction | UpdateConsentAction | SetShowSettingsAction | UpdateRequirementsAction;
 type Dispatch = (action: Action) => void;
 
 interface State {
@@ -47,6 +52,15 @@ const cookieConsentReducer = (state: State, action: Action): State => {
                 ...state,
                 consent: {
                     ...state.consent,
+                    ...action.payload,
+                },
+            };
+
+        case "UPDATE_REQUIREMENTS":
+            return {
+                ...state,
+                requirement: {
+                    ...state.requirement,
                     ...action.payload,
                 },
             };
