@@ -17,6 +17,7 @@ export type CommonProps = (
 ) & {
     className?: string;
     isOpen?: boolean;
+    /** @deprecated Bruk helpLabel eller flytt denne teksten ovenfor skjemafeltets label */
     leadText?: string;
     errorLabel?: string;
     helpLabel?: string;
