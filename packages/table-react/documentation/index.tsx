@@ -1,4 +1,3 @@
-import faker from "faker";
 import React from "react";
 
 // Import utils for showing example
@@ -12,18 +11,6 @@ import DataTableExample from "./DataTableExample";
 import ClickableTableExample from "./ClickableTableExample";
 import ActionTableExample from "./ActionTableExample";
 import MobileListTableExample from "./MobileListTableExample";
-import { DataTable } from "../src";
-
-const columns = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Avsetning", "Prosesser"];
-
-const rows = Array.from(Array(100)).map(() => [
-    String(faker.datatype.number()),
-    faker.address.stateAbbr(),
-    faker.lorem.word(),
-    faker.system.semver(),
-    faker.finance.amount(),
-    faker.lorem.word(),
-]);
 
 renderExample(
     <>
@@ -75,9 +62,6 @@ renderExample(
                 ],
             }}
         />
-        <div>
-            <DataTable caption="Lang tabell" columns={columns} rows={rows} />
-        </div>
     </>,
     document.getElementById("app"),
 );

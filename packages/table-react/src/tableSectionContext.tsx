@@ -14,10 +14,10 @@ const tableSectionContext = createContext<TableSectionContext>({
 
 export const useTableSectionContext = (): TableSectionContext => useContext(tableSectionContext);
 
-interface Props {
+export interface TableSectionContextProviderProps {
     state: TableSectionContext;
 }
 
-export const TableSectionContextProvider: React.FC<Props> = ({ state, children }) => (
+export const TableSectionContextProvider: React.FC<TableSectionContextProviderProps> = ({ state, children }) => (
     <tableSectionContext.Provider value={state}>{children}</tableSectionContext.Provider>
 );
