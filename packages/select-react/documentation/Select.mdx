@@ -27,19 +27,24 @@ import { SelectExample, selectCode } from "./SelectExample";
     codeExample={selectCode}
 />
 
-Hvis du trenger en nedtrekksliste med mange valg, kan du også legge inn en søke- eller filtreringsfunksjon.
+Om du har fem eller færre valg kan det være bedre å bruke [Radio buttons](/komponenter/radiobutton). <!-- Vi har bare fire i eksempelet for å få med oss hele rammen i de visuelle regresjonstestene -->
 
-## Tekst og validering
-
-Bruk prinsippene for skjemadesign til å velge størrelse på overskriften til listen. Lag en kort og tydelig tekst, som forteller hva det er brukeren skal gjøre i nedtrekkslisten. Eksempel: _Velg land_. Hvis det trengs, kan du legge en hjelpetekst under listen for å forklare mer.
-
-Hvis nedtrekkslisten ikke validerer, viser systemet en feilmelding som forklarer hva som er galt. Feilmeldingen erstatter en eventuell hjelpetekst, så den må eventuelt gjenta informasjonen fra hjelpeteksten.
-
-Eksempel:
-**Hjelpetekst**: _Velg landet du var på ferie i da du ble syk_. **Feilmelding**: _Du må velge hvor du var på ferie_.
+Hvis du trenger en nedtrekksliste med mange valg, kan du også legge inn en søke- eller filtreringsfunksjon. Dersom brukeren alltid må scrolle i listen over valg er det kanskje på tide å la de søke.
 
 ## Bruk
 
--   Velg årsak eller skadetype (gjerne mange valg)
--   Velg diagnose (for dyre- eller helseforsikring, gjerne med søkemulighet)
--   Velg stilling (gjerne med søkemulighet)
+Vi bruker en nedtrekksliste når vi skal gi brukeren en liste med alternativ, og hvor [Radio buttons](/komponenter/radiobutton) ikke passer. Noen eksempler på bruk er:
+
+-   Til å velge årsak eller skadetype
+-   Til å velge diagnose
+-   Til å velge stilling
+
+En nedtrekksliste med søk har noen likhetstrekk med [Autosuggest](/komponenter/autosuggest). En nyanseforskjell er at en nedtrekksliste ikke lar brukeren velge noe annet enn de forhåndsbestemte alternativene. Om du ønsker at brukerens søk skal være et gyldig valg uansett, bruk Autosuggest.
+
+## Tekst og validering
+
+Bruk [prinsippene for skjemadesign](/profil/skjemadesign) til å velge størrelse på overskriften til listen. Lag en kort og tydelig tekst, som forteller hva det er brukeren skal gjøre i nedtrekkslisten. Hvis det trengs, kan du legge en hjelpetekst under listen for å forklare mer.
+
+Hvis nedtrekkslisten ikke validerer, viser systemet en feilmelding som forklarer hva som er galt. Feilmeldingen erstatter en eventuell hjelpetekst, så den må eventuelt gjenta informasjonen fra hjelpeteksten.
+
+For eksempel, gitt en hjelpetekst "Velg landet du var på ferie i da du ble syk" kan vi ha en feilmelding "Du må velge hvor du var på ferie da du ble syk".
