@@ -1,7 +1,8 @@
 import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
-type Props = DetailedHTMLProps<HTMLAttributes<HTMLTableColElement>, HTMLTableColElement>;
+export interface TableColumnGroupProps
+    extends DetailedHTMLProps<HTMLAttributes<HTMLTableColElement>, HTMLTableColElement> {}
 
-export const TableColumnGroup: FC<Props> = (props) => {
+export const TableColumnGroup: FC<TableColumnGroupProps> = (props) => {
     return <colgroup {...props} />;
 };

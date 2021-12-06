@@ -2,7 +2,8 @@ import cx from "classnames";
 import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
+export interface TableHeaderProps
+    extends DetailedHTMLProps<HTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
     bold?: boolean;
     compact?: boolean;
     /**
@@ -13,7 +14,14 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableCellElement>, 
     srOnly?: boolean;
 }
 
-export const TableHeader: FC<Props> = ({ bold = true, compact, className, scope = "col", srOnly, ...rest }) => {
+export const TableHeader: FC<TableHeaderProps> = ({
+    bold = true,
+    compact,
+    className,
+    scope = "col",
+    srOnly,
+    ...rest
+}) => {
     const { compact: contextCompact } = useTableContext();
     return (
         <th

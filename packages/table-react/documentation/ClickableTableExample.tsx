@@ -1,27 +1,14 @@
-import faker from "faker/locale/nb_NO";
 import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
-function formatDate(date: Date): string {
-    const day = `${date.getDate()}`.padStart(2, "0");
-    const month = `${date.getMonth() + 1}`.padStart(2, "0");
-    return `${day}.${month}.${date.getFullYear()}`;
-}
-
 const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato", "Avsetning", "Prosesser"];
 
-const rows = Array.from(Array(3)).map(() => ({
-    rowData: [
-        String(faker.datatype.number()),
-        faker.address.stateAbbr(),
-        faker.lorem.word(),
-        faker.system.semver(),
-        formatDate(faker.date.past()),
-        faker.finance.amount(),
-        faker.lorem.word(),
-    ],
-}));
+const rows = [
+    ["11102", "F", "QA", "3.2.2", "22.11.2021", "233", "Ut"],
+    ["1232", "G", "QA", "3.2.2", "01.12.2021", "312", "Inn"],
+    ["32312", "H", "PR", "2.2.0", "12.11.2021", "1332", "Siden"],
+];
 
 const ClickableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const compact = boolValues?.["Kompakt"];
@@ -45,8 +32,12 @@ const ClickableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceV
             <TableBody>
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex} clickable={{ onClick: (e) => console.log(e), markClickedRows }}>
-                        {row.rowData.map((cell, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={headings[cellIndex]}>
+                        {row.map((cell, cellIndex) => (
+                            <TableCell
+                                key={cellIndex}
+                                data-th={headings[cellIndex]}
+                                align={[0, 3, 5].includes(cellIndex) ? "right" : "left"}
+                            >
                                 {cell}
                             </TableCell>
                         ))}

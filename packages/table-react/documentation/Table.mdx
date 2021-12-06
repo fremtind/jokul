@@ -6,6 +6,8 @@ group: annet
 discussion: https://github.com/fremtind/jokul/discussions/2333
 ---
 
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import { Table, TableCaption, TableHead, TableHeader, TableRow, TableBody, TableCell } from "../src";
 import TableExamples, { tableExamplesCode, tableExamplesProps } from "./TableExamples";
 import DataTableExample, { dataTableExampleCode } from "./DataTableExample";
 import HeadlessTableExample, { headlessTableExampleCode } from "./HeadlessTableExample";
@@ -24,149 +26,155 @@ import MobileListTableExample, { mobileListTableExampleCode } from "./MobileList
     codeExample={tableExamplesCode}
 />
 
-Jøkul tilbyr enkeltkomponenter tilsvarende de du finner i HTML. Hvert tabell-element har sin egen Jøkul-motpart du kan ta i bruk:
+Jøkul tilbyr enkeltkomponenter tilsvarende de du finner i HTML. Hvert tabell-element har sin egen Jøkul-motpart du kan ta i bruk.
 
-<table className="jkl-spacing-xl--top jkl-spacing-2xl--bottom">
-    <caption className="jkl-table-caption--sr-only">Tabell-HTML og deres Jøkul-motpart</caption>
-    <thead>
-        <tr>
-            <th>HTML</th>
-            <th>Jøkul</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;table /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;Table /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;thead /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableHead /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;tbody /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableBody /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;tfoot /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableFooter /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;tr /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableRow /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;th /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableHeader /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;td /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableCell /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;caption /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableCaption /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;colgroup /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableColumnGroup /&gt;</code>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col"
-                    className="jkl-link jkl-link--external"
-                >
-                    <code>&lt;col /&gt;</code>
-                </a>
-            </td>
-            <td>
-                <code>&lt;TableColumn /&gt;</code>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div className="jkl-portal-paragraph">
+    <Accordion>
+        <AccordionItem title="Tabell-HTML og deres Jøkul-motparter">
+            <Table className="jkl-spacing-xl--top jkl-spacing-2xl--bottom">
+                <TableCaption srOnly>Tabell-HTML og deres Jøkul-motpart</TableCaption>
+                <TableHead>
+                    <TableRow>
+                        <TableHeader>HTML</TableHeader>
+                        <TableHeader>Jøkul</TableHeader>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;table /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;Table /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;thead /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableHead /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;tbody /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableBody /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;tfoot /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableFooter /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;tr /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableRow /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;th /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableHeader /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;td /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableCell /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;caption /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableCaption /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;colgroup /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableColumnGroup /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>
+                            <a
+                                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col"
+                                className="jkl-link jkl-link--external"
+                            >
+                                <code>&lt;col /&gt;</code>
+                            </a>
+                        </TableCell>
+                        <TableCell>
+                            <code>&lt;TableColumn /&gt;</code>
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </AccordionItem>
+    </Accordion>
+</div>
 
 ## Tilgjengelighet
 
@@ -220,10 +228,63 @@ Og her ser du et eksempel på en tabell som gjøres om til en listevisning.
 
 Som regel skal innholdet i cellene være venstrejustert, med noen unntak som høyrejusteres:
 
--   Tall
+-   Tall og valuta
 -   Knapper
 
 Vanligvis skal innholdet være toppjustert i tabellraden på grunn av lesbarhet på smalere skjermer. I enkelte tilfeller, for eksempel om raden har én eller flere knapper, kan sentrering brukes i stedet.
+
+<Grid className="jkl-spacing-l--bottom">
+    <DoDontExample
+        type="do"
+        description="Høyrehuster tall for lesbarhet"
+        content={
+            <Table fullWidth>
+                <TableCaption srOnly>Eksempel: høyrehuster tall</TableCaption>
+                <TableHead>
+                    <TableRow>
+                        <TableHeader>Produkt</TableHeader>
+                        <TableHeader>Pris</TableHeader>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell>Testforsikring</TableCell>
+                        <TableCell align="right">20 kr</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>QA-forsikring</TableCell>
+                        <TableCell align="right">200 kr</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Venstrejusterte tall blir gjerne rotete"
+        content={
+            <Table fullWidth>
+                <TableCaption srOnly>Eksempel: venstrejusterte tall</TableCaption>
+                <TableHead>
+                    <TableRow>
+                        <TableHeader>Produkt</TableHeader>
+                        <TableHeader>Pris</TableHeader>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell>Testforsikring</TableCell>
+                        <TableCell>20 kr</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell>QA-forsikring</TableCell>
+                        <TableCell>200 kr</TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        }
+    />
+</Grid>
 
 Størrelsen på tabelloverskriften bør stå i stil til innholdet rundt. For eksempel: si at tabellen filtreres av ett eller flere skjemafelter.
 Da bør det brukes en kompakt tabelloverskrift for å stå mer i stil med labelen til skjemafeltet. Derimot, om tabellen for eksempel er rett
@@ -244,7 +305,7 @@ Det er også mulig å skjule tabelloverskrifter visuelt. De må fremdeles være 
 
 ### Datatabeller
 
-De enkleste tabellene består av et sett med navngitte kolonner, og en eller flere rader med data som tilhører de angitte kolonnene. Radene er uten interaksjon.
+De enkleste tabellene består av et sett med navngitte kolonner, og en eller flere rader med data som tilhører de angitte kolonnene. Radene er uten interaksjon, og alle cellene er venstrejusterte. Den kan ikke brukes med tallverdier eller valuta.
 
 <ComponentExample
     scrollable={true}

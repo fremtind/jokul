@@ -32,7 +32,11 @@ const TableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) 
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.map((cell, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={columns[cellIndex]}>
+                            <TableCell
+                                key={cellIndex}
+                                data-th={columns[cellIndex]}
+                                align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                            >
                                 {cell}
                             </TableCell>
                         ))}
@@ -61,7 +65,13 @@ export const tableExampleCode = ({ boolValues, choiceValues }: ExampleComponentP
         {rows.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
                 {row.map((cell, cellIndex) => (
-                    <TableCell key={cellIndex} data-th={columns[cellIndex]}>{cell}</TableCell>
+                    <TableCell
+                        key={cellIndex}
+                        data-th={columns[cellIndex]}
+                        align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                    >
+                        {cell}
+                    </TableCell>
                 ))}
             </TableRow>
         ))}

@@ -2,11 +2,12 @@ import cx from "classnames";
 import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement> {
+export interface TableHeadProps
+    extends DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement> {
     srOnly?: boolean;
 }
 
-export const TableHead: FC<Props> = ({ className, srOnly, ...rest }) => {
+export const TableHead: FC<TableHeadProps> = ({ className, srOnly, ...rest }) => {
     return (
         <TableSectionContextProvider state={{ isTableHead: true, isTableBody: false, isTableFooter: false }}>
             <thead
