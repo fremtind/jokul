@@ -1,4 +1,4 @@
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import React, { useState } from "react";
 import { Image } from "../src";
@@ -10,23 +10,29 @@ import "./style.scss";
 export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const { isSmallDevice } = useScreen();
     const [show, toggleShow] = useState(false);
-
-    const inverted = !!(boolValues && boolValues["Invertert"]);
-    const withBackgroundColor = boolValues && boolValues["Bakgrunn"];
-    const withThumbnail = boolValues && boolValues["Thumbnail"];
-    const withLargeSize = boolValues && boolValues["LargeSize"];
-    const color = choiceValues ? choiceValues["Farge"] : "Default";
+    const color = choiceValues?.["Farge"] || "Default";
 
     return (
         <div className="example-img-wrapper">
             <p className="jkl-body jkl-spacing-xl--bottom">
-                Denne komponenten er til for å optimalisere innlasting av bilder, det gjør den litt vanskelig å
-                visualisere, siden den prøver å huske så godt den kan. For å se effekten ordentlig, skru ned hastigheten
-                i nettverksloggen din. For å se effekten på nytt, gjør en hard refresh (ctrl+shift+r), still inn
-                komponenten og trykk på last bilde.
+                For å se effekten ordentlig,{" "}
+                <a
+                    className="jkl-link jkl-link--external"
+                    href="https://developer.chrome.com/docs/devtools/network/reference/#throttling"
+                >
+                    skru ned hastigheten
+                </a>{" "}
+                i nettverksloggen din. For å se effekten på nytt,{" "}
+                <a
+                    className="jkl-link jkl-link--external"
+                    href="https://developer.chrome.com/docs/devtools/network/reference/#clear-cache"
+                >
+                    tøm cachen
+                </a>
+                , still inn komponenten og trykk på last bilde.
             </p>
             <button
-                className="jkl-spacing-xl--bottom"
+                className="jkl-spacing-xl--bottom jkl-button jkl-button--tertiary"
                 onClick={() => {
                     if (!show) {
                         return toggleShow(true);
@@ -42,15 +48,39 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choi
                     <Image
                         className="example-class"
                         defaultSize={defaultSize}
-                        alt="dog"
-                        largeSize={withLargeSize ? largeSize : undefined}
-                        thumbnail={withThumbnail ? thumbnail : undefined}
+                        alt="Bilde av en sort hund av typen pug, kledd opp i en skjorte av blått jeansstoff"
+                        largeSize={boolValues?.["LargeSize"] ? largeSize : undefined}
+                        thumbnail={boolValues?.["Thumbnail"] ? thumbnail : undefined}
                         isSmallDevice={isSmallDevice}
-                        inverted={inverted}
-                        backgroundColor={withBackgroundColor && color !== "Default" ? color : undefined}
+                        inverted={boolValues?.["Invertert"]}
+                        backgroundColor={boolValues?.["Bakgrunn"] && color !== "Default" ? color : undefined}
                     />
                 </div>
             )}
         </div>
     );
 };
+
+export const imageExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
+/**
+ * import { useScreen } from "@fremtind/jkl-react-hooks";
+ * import defaultSize from "./assets/defaultSize.jpg";
+ * import largeSize from "./assets/largeSize.jpg";
+ * import thumbnail from "./assets/thumbnail.jpg";
+ */
+
+const { isSmallDevice } = useScreen();
+
+return (
+    <Image
+        alt="Bilde av en sort hund av typen pug, kledd opp i en skjorte av blått jeansstoff"
+        backgroundColor=${
+            boolValues?.["Bakgrunn"] && choiceValues?.["Color"] !== "Default" ? choiceValues?.["Color"] : "{undefined}"
+        }
+        thumbnail={${boolValues?.["Thumbnail"] ? "thumbnail" : "undefined"}}
+        defaultSize={defaultSize}
+        largeSize={${boolValues?.["LargeSize"] ? "largeSize" : "undefined"}}
+        isSmallDevice={isSmallDevice}
+    />
+);
+`;

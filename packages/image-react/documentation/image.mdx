@@ -5,30 +5,44 @@ scss: image
 group: annet
 ---
 
-import { ImageExample } from "./ImageExample";
+import { ImageExample, imageExampleCode } from "./ImageExample";
 import { boolProps, choiceProps } from "./internal/props";
+
+<Ingress>
+    Bildekomponenten hjelper med å animere inn bilder fra en angitt bakgrunnsfarge, eller fra et bilde i lavere
+    oppløsning. Brukes for å gi en mer behagelig innlasting av bilder over trege forbindelser, for eksempel over
+    mobildata.
+</Ingress>
 
 <Experimental>
     Bildekomponent er ikke 100% ferdigstilt, den kan brukes, men forvent at APIet kan forandre seg.
 </Experimental>
 
-<Ingress>
-    Bildekomponent med blur up. Den støtter to størrelser på bilder og thumbnail. Nyttig for å laste mindre bilder på
-    små dingser, og høyere oppløsning på større. Hvis man legger ved en thumbnail, så vil den vises blurret ut først, og
-    byttes ut med det ekte bilde når det er lastet. Hvis man ikke legger ved thumbnail, så blurrer vi opp fra grå 20
-    eller 80, i light og dark-mode respektivt. Hvis du ønsker kan du sette bakgrunnsfarge isteden for thumbnail. Feks
-    plukk ut en av de fremtredene fargene i bildet og bruk det som default staten.
-</Ingress>
+<ComponentExample component={ImageExample} knobs={{ boolProps, choiceProps }} codeExample={imageExampleCode} />
 
-<ComponentExample component={ImageExample} knobs={{ boolProps, choiceProps }} />
+Forhåndsvisningen, eller <i lang="en">thumbnail</i>, vil vises uskarpt først, og animeres til et skarpt fullstørrelse bilde når det er lastet ferdig.
+
+Hvis du ikke legger ved forhåndsvisning, så animeres bildet inn fra grå 20 eller 80, i lyst og mørkt tema respektivt. Du kan sette en annen startfarge for denne animasjonen. Her kan du selv vurdere om det gir best opplevelse å animere fra bakgrunnsfargen rundt bildet, eller den mest fremtredende fargen i bildet.
+
+Foretrekk å bruke en thumbnail over å bruke farger.
+
+## Retningslinjer for bildestørrelser
+
+Det er viktig at forhåndsvisningen er <em>betydelig</em> mindre enn fullstørrelse. Poenget med å gi en bedre forhåndsvisning på trege forbindelser faller helt bort om brukeren også må vente på å laste ned forhåndsvisningen! Det er forventet at forhåndsvisningen er så liten at det er umulig å se detaljer.
 
 -   Thumbnail
     -   Ca 40px i bredde
     -   Max 5 kB
--   DefaultSize
+-   Default
     -   Brukes for mobil
     -   Max 800px i bredde
     -   Under 500 kB
--   LargeSize
+-   Large
     -   Brukes for større skjermer
-    -   Bruk fornuft
+    -   Bruk fornuft rundt størrelsen – ingen vil ha en 30MB RAW
+
+## Når bruker vi bildekomponenten?
+
+Dette er ment som et hjelpeverktøy hovedsakelig til dekorative bilder. Det er ikke meningen at vi skal animere inn [ikoner](/komponenter/icons) på denne måten, for eksempel.
+
+Dersom utvikleren allerede har liknende hjelpemidler, <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-image/" className="jkl-link jkl-link--external">for eksempel i Gatsby</a>, trenger de ikke bruke denne komponenten.
