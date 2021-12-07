@@ -1,16 +1,14 @@
 ---
-title: Icon Buttons
+title: Icon buttons
 scss: icon-button
 react: icon-button-react
 group: knapper
 ---
 
-import { IconButtonExample } from "./IconButtonExample";
+import { IconButtonExample, iconButtonExampleCode } from "./IconButtonExample";
 
-<Ingress>
-    En rekke av komponenter bruker ulike ikon knapper. IconButton er en klikkbar komponent som støtter Jøkuls UI
-    elementer.
-</Ingress>
+<Ingress>Ikonknapper er klikkbare varianter av ikoner for vanlige handlinger.</Ingress>
+
 <ComponentExample
     component={IconButtonExample}
     knobs={{
@@ -22,4 +20,21 @@ import { IconButtonExample } from "./IconButtonExample";
             },
         ],
     }}
+    codeExample={iconButtonExampleCode}
 />
+
+## Tilgjengelighet
+
+En ikonknapp har ingen synlig tekst. Det er viktig at en bruker kan forstå hva knappen er til ut i fra konteksten.
+
+Det er et krav at knappen har en beskrivende hjelpetekst for brukere av skjermleser.
+
+## Hvordan bruker vi ikonknapper?
+
+Se [profildokumentasjonen](/profil/ikoner) for mer om hvordan vi bruker ikoner generelt.
+
+Vi bruker sjeldent ikoner. En ikonknapp bør derfor helst bare brukes i sammenhenger hvor for eksempel en [Tertiary button](/komponenter/buttons) ikke fungerer.
+
+## Trenger du andre ikoner?
+
+Om du savner en klikkbar variant av ett av [ikonene vi allerede har](/komponenter/icons), si ifra på [GitHub](https://github.com/fremtind/jokul/discussions).
