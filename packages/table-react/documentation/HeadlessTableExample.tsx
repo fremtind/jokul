@@ -27,7 +27,9 @@ const HeadlessTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.map((row, cellIndex) => (
-                            <TableCell key={cellIndex}>{row}</TableCell>
+                            <TableCell key={cellIndex} align={[1, 2].includes(cellIndex) ? "right" : "left"}>
+                                {row}
+                            </TableCell>
                         ))}
                     </TableRow>
                 ))}
@@ -54,7 +56,9 @@ export const headlessTableExampleCode = ({ choiceValues }: ExampleComponentProps
         {rows.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
                 {row.map((row, cellIndex) => (
-                    <TableCell key={cellIndex}>{row}</TableCell>
+                    <TableCell key={cellIndex} align={[1, 2].includes(cellIndex) ? "right" : "left"}>
+                        {row}
+                    </TableCell>
                 ))}
             </TableRow>
         ))}

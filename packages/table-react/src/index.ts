@@ -1,31 +1,27 @@
-import { DataTable } from "./DataTable";
-import { Table } from "./Table";
-import { TableBody } from "./TableBody";
-import { TableCaption } from "./TableCaption";
-import { TableCell } from "./TableCell";
-import { TableColumn } from "./TableColumn";
-import { TableColumnGroup } from "./TableColumnGroup";
-import { useTableContext, TableContextProvider } from "./tableContext";
-import { useTableSectionContext, TableSectionContextProvider } from "./tableSectionContext";
-import { TableFooter } from "./TableFooter";
-import { TableHead } from "./TableHead";
-import { TableHeader } from "./TableHeader";
-import { TableRow } from "./TableRow";
+export { DataTable } from "./DataTable";
+export { Table } from "./Table";
+export { TableBody } from "./TableBody";
+export { TableCaption } from "./TableCaption";
+export { TableCell } from "./TableCell";
+export { TableColumn } from "./TableColumn";
+export { TableColumnGroup } from "./TableColumnGroup";
+export { useTableContext, TableContextProvider } from "./tableContext";
+export { useTableSectionContext, TableSectionContextProvider } from "./tableSectionContext";
+export { TableFooter } from "./TableFooter";
+export { TableHead } from "./TableHead";
+export { TableHeader } from "./TableHeader";
+export { TableRow } from "./TableRow";
 
-export {
-    DataTable,
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableColumn,
-    TableColumnGroup,
-    TableContextProvider,
-    TableSectionContextProvider,
-    TableFooter,
-    TableHead,
-    TableHeader,
-    TableRow,
-    useTableContext,
-    useTableSectionContext,
-};
+export type { DataTableProps } from "./DataTable";
+export type { TableProps } from "./Table";
+export type { TableBodyProps } from "./TableBody";
+export type { TableCaptionProps } from "./TableCaption";
+export type { TableCellProps } from "./TableCell";
+export type { TableColumnProps } from "./TableColumn";
+export type { TableColumnGroupProps } from "./TableColumnGroup";
+export type { TableContextProviderProps } from "./tableContext";
+export type { TableSectionContextProviderProps } from "./tableSectionContext";
+export type { TableFooterProps } from "./TableFooter";
+export type { TableHeadProps } from "./TableHead";
+export type { TableHeaderProps } from "./TableHeader";
+export type { TableRowProps } from "./TableRow";

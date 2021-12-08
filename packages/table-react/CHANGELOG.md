@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.0 (2021-12-06)
+
+### Features
+
+- eksporter tabelltyper ([94bed82](https://github.com/fremtind/jokul/commit/94bed8248a1978dea6277045c9b15d0ac12d5692))
+
 ## 7.0.5 (2021-11-17)
 
 ### Bug Fixes

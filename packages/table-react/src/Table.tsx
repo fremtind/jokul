@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { TableContextProvider } from "./tableContext";
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+export interface TableProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
     compact?: boolean;
     /** Bryt ned til en stablet listevisning på små skjermer. NB: husk å sette `data-th` på hver celle! */
     collapseToList?: boolean;
@@ -10,7 +10,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTML
     fullWidth?: boolean;
 }
 
-export const Table: FC<Props> = ({
+export const Table: FC<TableProps> = ({
     className,
     compact = false,
     collapseToList = false,

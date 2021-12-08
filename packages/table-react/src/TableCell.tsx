@@ -2,7 +2,8 @@ import cx from "classnames";
 import React, { DetailedHTMLProps, FC, TdHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
-interface Props extends DetailedHTMLProps<TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
+export interface TableCellProps
+    extends DetailedHTMLProps<TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
     compact?: boolean;
     /**
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal innholdet være venstrejustert, men for eksempel summer er høyrejustert.
@@ -16,7 +17,13 @@ interface Props extends DetailedHTMLProps<TdHTMLAttributes<HTMLTableCellElement>
     verticalAlign?: "center" | "top";
 }
 
-export const TableCell: FC<Props> = ({ align = "left", verticalAlign = "top", className, compact, ...rest }) => {
+export const TableCell: FC<TableCellProps> = ({
+    align = "left",
+    verticalAlign = "top",
+    className,
+    compact,
+    ...rest
+}) => {
     const { compact: contextCompact } = useTableContext();
     return (
         <td

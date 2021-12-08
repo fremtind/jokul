@@ -29,7 +29,11 @@ const MobileListTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) =>
                 {rows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.map((row, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={columns[cellIndex]}>
+                            <TableCell
+                                key={cellIndex}
+                                data-th={columns[cellIndex]}
+                                align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                            >
                                 {row}
                             </TableCell>
                         ))}
@@ -63,6 +67,7 @@ export const mobileListTableExampleCode = ({ choiceValues }: ExampleComponentPro
                             <TableCell
                                 key={cellIndex}
                                 data-th={columns[cellIndex]}
+                                align={[1, 2].includes(cellIndex) ? "right" : "left"}
                             >
                                 {row}
                             </TableCell>
