@@ -10,10 +10,10 @@ const tableContext = createContext<TableContext>({
 
 export const useTableContext = (): TableContext => useContext(tableContext);
 
-interface Props {
+export interface TableContextProviderProps {
     state: TableContext;
 }
 
-export const TableContextProvider: React.FC<Props> = ({ state, children }) => (
+export const TableContextProvider: React.FC<TableContextProviderProps> = ({ state, children }) => (
     <tableContext.Provider value={state}>{children}</tableContext.Provider>
 );

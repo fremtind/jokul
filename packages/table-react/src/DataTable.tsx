@@ -7,7 +7,7 @@ import { TableCell } from "./TableCell";
 import { TableBody } from "./TableBody";
 import { TableCaption } from "./TableCaption";
 
-interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+export interface DataTableProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */
     caption?: string;
     compact?: boolean;
@@ -22,7 +22,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTML
     verticalAlign?: "center" | "top";
 }
 
-export const DataTable: VFC<Props> = ({ caption, columns, emptyTableText, rows, verticalAlign, ...rest }) => {
+export const DataTable: VFC<DataTableProps> = ({ caption, columns, emptyTableText, rows, verticalAlign, ...rest }) => {
     return (
         <Table fullWidth={true} {...rest}>
             {caption && <TableCaption srOnly>{caption}</TableCaption>}
