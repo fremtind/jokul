@@ -60,6 +60,7 @@ a.jkl-button {
 .jkl-button {
     @include reset-outline;
     display: inline-flex;
+    box-sizing: border-box;
     justify-content: center;
     @include jkl.text-style("body/small-screen");
     font-weight: jkl.$typography-weight-bold;
