@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.4 (2021-12-08)
+
+### Bug Fixes
+
+- make all button elements respect width constraint ([a1b9715](https://github.com/fremtind/jokul/commit/a1b97157e23ecda666ec7b9fdd92c0c899517f61))
+
 ## 6.0.0 (2021-10-21)
 
 ### Features
