@@ -44,7 +44,7 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
         // adapt to maxLength, but capped at 40ch
         const length = `${Math.min(maxLength, 40)}ch`;
         const padding = "24px"; // left + right padding
-        return { maxWidth: `calc(${length} + ${padding})` };
+        return { width: `calc(${length} + ${padding})` };
     }
 
     return undefined;
