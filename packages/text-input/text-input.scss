@@ -114,7 +114,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     &__input-wrapper {
         display: inline-flex;
         align-items: center;
-        width: 100%;
+        max-width: 100%;
     }
 
     &__input {
