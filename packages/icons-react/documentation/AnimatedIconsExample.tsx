@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated, HamburgerCloseAnimated } from "../src";
 import { AnimatedIcon } from "./internal/AnimatedIcon";
 import { variants } from "../src/icons/types";
@@ -46,3 +46,7 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
         </div>
     );
 };
+
+export const animatedIconsExampleCode: CodeExample = ({ choiceValues }) => `
+<ArrowVerticalAnimated variant="${choiceValues?.["Variant"]}" pointingDown={false} />
+`;
