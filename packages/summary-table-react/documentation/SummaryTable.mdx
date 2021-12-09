@@ -1,13 +1,18 @@
 ---
-title: Summary Table
+title: Summary table
 scss: summary-table
 react: summary-table-react
 ---
 
-import { SummaryTableExample } from "./SummaryTableExample";
+import { SummaryTableExample, summaryTableExampleCode } from "./SummaryTableExample";
 
 <Ingress>
-    Summary table brukes for å oppsumere et sett med elementer. Dette kan for eksempel være å vise produkter i
-    handlekurven med informasjon om navn og pris.
+    Oppsummeringstabeller brukes for eksempel til å vise produkter som ligger i en handlekurv med informasjon om navn og
+    pris.
 </Ingress>
-<ComponentExample component={SummaryTableExample} />
+
+<ComponentExample component={SummaryTableExample} codeExample={summaryTableExampleCode} />
+
+En oppsummeringstabell skal alltid ha en footer. Bruk [Description list](/komponenter/descriptionlist) om du skal vise _metadata_, for eksempel detaljer om et produkt, hvor oppsummering ikke er et behov.
+
+Dersom du trenger mer fleksibilitet i presentasjonen av innholdet, bruk komponentene fra [Table](/komponenter/table).

@@ -24,7 +24,6 @@ export interface Frontmatter {
     title: string;
     react?: string;
     scss?: string;
-    discussion?: string;
     order?: string;
     author?: string;
     publishDate?: string;
@@ -84,7 +83,6 @@ export function useNavigationLinks(): NavigationLinks {
                             publishDate
                             group
                             path
-                            discussion
                         }
                     }
                 }

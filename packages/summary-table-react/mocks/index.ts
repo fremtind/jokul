@@ -4,8 +4,8 @@ export const mockColumnDescriptions = ["Product", "Price"] as [string, string];
 
 export const mockItems = [
     { label: "Person", value: "", bold: true },
-    { label: `Barne${SOFT_HYPHEN}forsikring`, value: `200 ${SOFT_HYPHEN}kr/mnd` },
-    { label: `Behandlings${SOFT_HYPHEN}forsikring`, value: `200 ${SOFT_HYPHEN}kr/mnd` },
+    { label: `Barne${SOFT_HYPHEN}forsikring`, value: "200 kr/mnd" },
+    { label: `Behandlings${SOFT_HYPHEN}forsikring`, value: "200 kr/mnd" },
     { label: "Skade", value: "", bold: true },
     { label: "Innboforsikring", value: "100 kr/mnd" },
     { label: "Reiseforsikring", value: "100 kr/mnd" },
