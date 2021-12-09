@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.8 (2021-12-09)
+
+### Bug Fixes
+
+- bruk riktig lengde for TextInput ([8ae7835](https://github.com/fremtind/jokul/commit/8ae783500e44576baeea28627b28d070789980bf))
+
 ## 6.0.7 (2021-12-08)
 
 ### Bug Fixes
