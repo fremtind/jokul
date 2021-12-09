@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.12 (2021-12-09)
+
+### Bug Fixes
+
+- deprecate leadText ([1075ca4](https://github.com/fremtind/jokul/commit/1075ca475583c34dc3c7297c2f1a5f86b27075f5))
+
 ## 7.0.11 (2021-12-09)
 
 ### Bug Fixes
