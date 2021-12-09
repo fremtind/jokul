@@ -42,18 +42,6 @@ export const DocPageLayout: VFC<Props> = ({ location, data, pageContext }) => {
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />
             <MDXRenderer>{body}</MDXRenderer>
-            {frontmatter.discussion && (
-                <>
-                    <h2 className="jkl-portal-heading-large jkl-spacing-3xl--top">Hva trenger du?</h2>
-                    <p className="jkl-portal-paragraph">
-                        Er det en variant vi har glemt? Er det noe du savner fra dokumentasjonen? Fortsett gjerne{" "}
-                        <a className="jkl-link jkl-link--external" href={frontmatter.discussion}>
-                            diskusjonen på GitHub
-                        </a>{" "}
-                        og fortell oss mer om hva du trenger.
-                    </p>
-                </>
-            )}
             {types && <APIDocumentation types={types} />}
         </motion.main>
     );

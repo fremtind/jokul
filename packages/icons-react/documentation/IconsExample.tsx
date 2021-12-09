@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import {
     Close,
@@ -79,3 +79,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues }) 
         </div>
     );
 };
+
+export const iconsExampleCode: CodeExample = ({ choiceValues }) => `
+<ArrowDown variant="${choiceValues?.["Variant"]}" />
+`;
