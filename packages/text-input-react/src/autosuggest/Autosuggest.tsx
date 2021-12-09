@@ -1,6 +1,5 @@
 import { StateChangeOptions } from "downshift";
-import React, { ReactNode, useEffect, useState, VFC } from "react";
-
+import React, { ReactNode, useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest";
 import { filter } from "./utils";
 
@@ -18,6 +17,7 @@ export type CommonProps = (
 ) & {
     className?: string;
     isOpen?: boolean;
+    /** @deprecated Bruk helpLabel eller flytt denne teksten ovenfor skjemafeltets label */
     leadText?: string;
     errorLabel?: string;
     helpLabel?: string;
@@ -39,9 +39,9 @@ export interface AutosuggestStringItemProps {
     onConfirm?: () => void;
 }
 
-type Props = CommonProps & AutosuggestStringItemProps;
+export type AutosuggestProps = CommonProps & AutosuggestStringItemProps;
 
-export const Autosuggest: VFC<Props> = ({
+export const Autosuggest = ({
     allItems,
     onChange = () => {
         /* default noop */
@@ -54,7 +54,7 @@ export const Autosuggest: VFC<Props> = ({
     value,
     isOpen,
     ...rest
-}) => {
+}: AutosuggestProps): JSX.Element => {
     const [hits, setHits] = useState(allItems);
 
     useEffect(() => setHits(allItems), [allItems]);
