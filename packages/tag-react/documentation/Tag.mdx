@@ -3,15 +3,14 @@ title: Tag
 react: tag-react
 scss: tag
 group: annet
-discussion: https://github.com/fremtind/jokul/discussions/2341
 ---
 
 import { Tag, InfoTag, ErrorTag, WarningTag, SuccessTag } from "../src";
 import TagExample, { tagExampleCode } from "./TagExample";
 
 <Ingress>
-	Tags er små informasjonsbobler som kan brukes til å presentere en eller flere biter med informasjon tilknyttet et
-	hovedtema.
+    Tags er små informasjonsbobler som kan brukes til å presentere en eller flere biter med informasjon tilknyttet et
+    hovedtema.
 </Ingress>
 
 Vi har to kategorier av tags:
@@ -29,28 +28,28 @@ Vi har også noen prinsipper for innholdet i tags:
 -   Mellomrom bør unngås hvis mulig.
 
 <div>
-	<DoDontExample
-		type="do"
-		description="Kort tekst"
-		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">E-kunde</Tag>}
-	/>
-	<DoDontExample
-		type="dont"
-		description="Lang tekst"
-		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Kunden er e-kunde</Tag>}
-	/>
+    <DoDontExample
+        type="do"
+        description="Kort tekst"
+        content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">E-kunde</Tag>}
+    />
+    <DoDontExample
+        type="dont"
+        description="Lang tekst"
+        content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Kunden er e-kunde</Tag>}
+    />
 </div>
 <div>
-	<DoDontExample
-		type="do"
-		description="Forkortelse"
-		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">PDF</Tag>}
-	/>
-	<DoDontExample
-		type="dont"
-		description="Alt som versaler"
-		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">E-KUNDE</Tag>}
-	/>
+    <DoDontExample
+        type="do"
+        description="Forkortelse"
+        content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">PDF</Tag>}
+    />
+    <DoDontExample
+        type="dont"
+        description="Alt som versaler"
+        content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">E-KUNDE</Tag>}
+    />
 </div>
 
 Fargene i statustags har en betydning på samme måte som [Message box](/komponenter/messagebox):
@@ -62,40 +61,40 @@ Fargene i statustags har en betydning på samme måte som [Message box](/kompone
 Blått kan brukes om de andre kategoriene ikke passer, men bare dersom samme sted vil kunne vise en annen statusfarge hvis situasjonen var annerledes. Blått er med andre ord ikke en nøytral farge som kan brukes til informasjon utenfor statuskategorien. Til det brukes emnevarianten.
 
 <div>
-	<DoDontExample
-		type="do"
-		description="Status"
-		content={<SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Registrert</SuccessTag>}
-	/>
-	<DoDontExample
-		type="dont"
-		description="Statusfarge for emne"
-		content={<SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Miljøvennlig</SuccessTag>}
-	/>
+    <DoDontExample
+        type="do"
+        description="Status"
+        content={<SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Registrert</SuccessTag>}
+    />
+    <DoDontExample
+        type="dont"
+        description="Statusfarge for emne"
+        content={<SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Miljøvennlig</SuccessTag>}
+    />
 </div>
 <div>
-	<DoDontExample
-		type="do"
-		description="Status"
-		content={<InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Behandles</InfoTag>}
-	/>
-	<DoDontExample
-		type="dont"
-		description="Emnefarge for status"
-		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Behandles</Tag>}
-	/>
+    <DoDontExample
+        type="do"
+        description="Status"
+        content={<InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Behandles</InfoTag>}
+    />
+    <DoDontExample
+        type="dont"
+        description="Emnefarge for status"
+        content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Behandles</Tag>}
+    />
 </div>
 <div>
-	<DoDontExample
-		type="do"
-		description="Emne"
-		content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Flom</Tag>}
-	/>
-	<DoDontExample
-		type="dont"
-		description="Statusfarge for emne"
-		content={<InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Flom</InfoTag>}
-	/>
+    <DoDontExample
+        type="do"
+        description="Emne"
+        content={<Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Flom</Tag>}
+    />
+    <DoDontExample
+        type="dont"
+        description="Statusfarge for emne"
+        content={<InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Flom</InfoTag>}
+    />
 </div>
 
 ## Når bruker vi tags?
