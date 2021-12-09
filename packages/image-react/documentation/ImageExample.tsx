@@ -48,7 +48,7 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choi
                     <Image
                         className="example-class"
                         defaultSize={defaultSize}
-                        alt="Bilde av en sort hund av typen pug, kledd opp i en skjorte av blått jeansstoff"
+                        alt="Bilde av en sort hund av typen mops, kledd opp i en skjorte av blått jeansstoff"
                         largeSize={boolValues?.["LargeSize"] ? largeSize : undefined}
                         thumbnail={boolValues?.["Thumbnail"] ? thumbnail : undefined}
                         isSmallDevice={isSmallDevice}
@@ -73,7 +73,7 @@ const { isSmallDevice } = useScreen();
 
 return (
     <Image
-        alt="Bilde av en sort hund av typen pug, kledd opp i en skjorte av blått jeansstoff"
+        alt="Bilde av en sort hund av typen mops, kledd opp i en skjorte av blått jeansstoff"
         backgroundColor=${
             boolValues?.["Bakgrunn"] && choiceValues?.["Color"] !== "Default" ? choiceValues?.["Color"] : "{undefined}"
         }
