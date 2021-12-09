@@ -5,10 +5,14 @@ scss: icons
 group: annet
 ---
 
-import { IconsExample, choiceProps as iconsChoiceProps } from "./IconsExample";
-import { AnimatedIconsExample, choiceProps as animatedIconsChoiceProps } from "./AnimatedIconsExample";
+import { IconsExample, choiceProps as iconsChoiceProps, iconsExampleCode } from "./IconsExample";
+import {
+    AnimatedIconsExample,
+    choiceProps as animatedIconsChoiceProps,
+    animatedIconsExampleCode,
+} from "./AnimatedIconsExample";
 
-Hvis du bare bruker standard ikoner trenger du ikke laste inn CSS fra ikonpakken, den brukes kun til animerte ikoner.
+<Ingress>Vi bruker sjelden ikoner. De ikonene vi har valgt å ha, er funksjonelle, ikke til dekorasjon.</Ingress>
 
 <ComponentExample
     title="Ikoner"
@@ -16,7 +20,10 @@ Hvis du bare bruker standard ikoner trenger du ikke laste inn CSS fra ikonpakken
     knobs={{
         choiceProps: iconsChoiceProps,
     }}
+    codeExample={iconsExampleCode}
 />
+
+Et lite utvalg av ikonene våre er animerbare. For å bruke animasjonene trengs [CSSen fra ikonpakka](https://github.com/fremtind/jokul/tree/main/packages/icons).
 
 <ComponentExample
     title="Animerte ikoner"
@@ -24,4 +31,13 @@ Hvis du bare bruker standard ikoner trenger du ikke laste inn CSS fra ikonpakken
     knobs={{
         choiceProps: animatedIconsChoiceProps,
     }}
+    codeExample={animatedIconsExampleCode}
 />
+
+Det animerte hamburgerikonet er ikke tiltenkt hovedmenyer. Til det bruker vi den dedikerte [Hamburger](/komponenter/hamburger)-komponenten.
+
+## Hvordan bruker vi ikoner?
+
+Se [profildokumentasjonen](/profil/ikoner) for mer om hvordan vi bruker ikoner.
+
+Om du skal bruke ikonet som en knapp, se også [Icon button](/komponenter/iconbutton).
