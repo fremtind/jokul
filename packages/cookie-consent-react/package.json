@@ -39,7 +39,7 @@
         "@fremtind/jkl-list-react": "^6.1.0",
         "@fremtind/jkl-react-hooks": "^6.1.0",
         "classnames": "^2.2.6",
-        "react-hook-form": "^7.20.5"
+        "react-hook-form": "^7.21.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
