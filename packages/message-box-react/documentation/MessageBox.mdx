@@ -6,6 +6,7 @@ group: meldinger
 ---
 
 import { MessageBoxExample, messageBoxExampleCode } from "./MessageBoxExample";
+import { FormErrorMessageBoxExample, formErrorMessageBoxExampleCode } from "./FormErrorMessageBoxExample";
 
 <Ingress>
     En melding er en beskjed til brukeren som vises i tilknytning til innhold på siden. Det kan være et varsel om at noe
@@ -39,9 +40,23 @@ Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn. [Meldingsfar
 -   Rødt gir brukeren en feilmelding, for eksempel om det oppstår en systemfeil eller brukeren avbryter en handling.
 -   Grønt betyr at en handling var vellykket.
 
+## I skjema
+
+Som beskrevet i [Skjemavalidering](/profil/skjemadesign#skjemavalidering) bruker vi en ErrorMessageBox til å oppsummere valideringsfeil. Det finnes en ferdig variant `FormErrorMessageBox` som animeres, og skjules på små skjermer. Se [eksempelet på skjemavalidering](/eksempler/skjemavalidering) for å se komponenten i bruk.
+
+<ComponentExample
+    component={FormErrorMessageBoxExample}
+    knobs={{
+        boolProps: ["Full bredde", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
+    }}
+    codeExample={formErrorMessageBoxExampleCode}
+/>
+
 ## Tilgjengelighet
 
 Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende tekst, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.
+
+`ErrorMessageBox` og `WarningMessageBox` har `role="alert"`, som betyr at innholdet vil bli lest opp av skjermlesere uansett hvor skjermleserens markør befinner seg på siden. Rollen kan overstyres.
 
 ## Når bruker vi en melding?
 
