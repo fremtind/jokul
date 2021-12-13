@@ -127,3 +127,9 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         transform: translate3d(0, -50%, 0);
     }
 }
+
+.jkl-form-error-message-box {
+    @include jkl.text-style("body");
+
+    padding-bottom: jkl.$spacing-xl;
+}
