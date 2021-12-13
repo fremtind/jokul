@@ -1,36 +1,75 @@
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
+import { PrimaryButton } from "../../button-react/src";
 import { ToggleSlider, ToggleSwitch } from "../src";
 
 export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOn, setIsOn] = useState(false);
-    const helpLabel =
-        boolValues && boolValues["Med hjelpetekst"] ? "Du må være koblet til wifi for å velge dette" : undefined;
+    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Veksle mellom lys og mørk grensesnitt" : undefined;
     return (
         <ToggleSwitch
             pressed={isOn}
             onClick={() => setIsOn(!isOn)}
-            inverted={boolValues && boolValues["Invertert"]}
-            disabled={boolValues && boolValues["Deaktivert"]}
+            inverted={boolValues?.["Invertert"]}
+            disabled={boolValues?.["Deaktivert"]}
             helpLabel={helpLabel}
         >
-            Send inn data om min kjørestil
+            Mørk modus
         </ToggleSwitch>
     );
 };
 
 export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+    const [value, setValue] = useState("måned");
+
     return (
-        <ToggleSlider
-            defaultValue="måned"
-            labels={["måned", "år"]}
-            onToggle={console.log}
-            inverted={boolValues && boolValues["Invertert"]}
-        >
-            Pris per
-        </ToggleSlider>
+        <section style={{ width: "100%" }}>
+            <ToggleSlider
+                defaultValue="måned"
+                labels={["måned", "år"]}
+                onToggle={setValue}
+                inverted={boolValues?.["Invertert"]}
+            >
+                Pris per
+            </ToggleSlider>
+            <p className="jkl-heading-5 jkl-spacing-l--top">100 kr/{value === "år" ? value : "mnd"}</p>
+        </section>
     );
 };
+
+export const toggleSwitchCodeExample = ({ boolValues }: ExampleComponentProps): string => `
+    <ToggleSwitch
+        helpLabel={${boolValues?.["Med hjelpetekst"] ? `"Veksle mellom lys og mørk grensesnitt"` : `undefined`}}
+        disabled={${boolValues?.["Deaktivert"]}}
+    />
+`;
+
+export const toggleSliderCodeExample = ({ boolValues }: ExampleComponentProps): string => `
+    <ToggleSlider
+        defaultValue="måned"
+        labels={["måned", "år"]}
+    />
+`;
+
+export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = (props) => {
+    const [isOn, setIsOn] = useState(false);
+
+    return (
+        <form>
+            <ToggleSwitch pressed={isOn} onClick={() => setIsOn(!isOn)}>
+                Jeg samtykker
+            </ToggleSwitch>
+
+            <PrimaryButton type="submit" className="jkl-spacing-l--top">
+                Send
+            </PrimaryButton>
+        </form>
+    );
+};
+
+export const ToggleSliderWrongExamples: React.FC<ExampleComponentProps> = () => (
+    <ToggleSlider defaultValue="Pris per måned" labels={["Pris per måned", "Pris per år"]} onToggle={console.log} />
+);
 
 export const ToggleSwitchExamples: React.FC<ExampleComponentProps> = (props) => (
     <section>

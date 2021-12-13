@@ -19,7 +19,7 @@ export const ToggleSwitch: FC<Props> = ({ children, pressed, onClick, className,
     });
 
     return (
-        <>
+        <div className="jkl-toggle-switch__container">
             <button
                 type="button"
                 aria-pressed={!!pressed}
@@ -33,6 +33,6 @@ export const ToggleSwitch: FC<Props> = ({ children, pressed, onClick, className,
                 {children}
             </button>
             {helpLabel && <SupportLabel className="jkl-toggle-switch__help-label" helpLabel={helpLabel} />}
-        </>
+        </div>
     );
 };
