@@ -48,6 +48,11 @@ $expanding-pill-background-color--inverted: jkl.$color-fjellgra;
     color: currentColor;
     @include jkl.text-style("body/large-screen");
 
+    &__container {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__help-label {
         margin-top: jkl.$spacing-s;
     }
