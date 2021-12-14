@@ -127,31 +127,31 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                     {items.map((item) => (
                         <li className="jkl-portal-main-menu__root-item" key={`main-menu-${item.linkText}`}>
                             <MainMenuItem
-                                isActive={currentItem?.linkText === item.linkText}
-                                isOpen={isOpen && currentItem?.linkText === item.linkText}
+                                isActive={currentItem?.basePath === item.basePath}
+                                isOpen={isOpen && currentItem?.basePath === item.basePath}
                                 label={item.linkText}
                                 onClick={(e) => {
                                     if (!isOpen) {
                                         setIsOpen(true);
-                                    } else if (currentItem?.linkText === item.linkText) {
+                                    } else if (currentItem?.basePath === item.basePath) {
                                         // Toggle open state on repeat click
                                         setIsOpen(false);
                                     }
                                     onNavigateForward(item as RootItem, e);
                                 }}
                             >
-                                {(item as RootItem).content.map((item, idx) => (
+                                {(currentItem || (item as RootItem)).content.map((itm, idx) => (
                                     <FullScreenMenuItem
                                         onClick={(evt) => {
-                                            if (isLeafItem(item)) {
-                                                navigate(item.content);
+                                            if (isLeafItem(itm)) {
+                                                navigate(itm.content);
                                                 setIsOpen(false);
                                             } else {
-                                                onNavigateForward(item, evt);
+                                                onNavigateForward(itm, evt);
                                             }
                                         }}
-                                        item={item}
-                                        key={item.linkText}
+                                        item={itm}
+                                        key={itm.linkText}
                                         controls={controls}
                                         idx={idx}
                                     />
