@@ -37,7 +37,8 @@ export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues,
             dismissed={dismissed}
             dismissAction={dismissAction}
         >
-            Hei, jeg er en melding av typen {choiceValues?.["Type"]} med <NavLink href="/">en navlink</NavLink>
+            Hei, jeg er en melding av typen {choiceValues?.["Type"]} med{" "}
+            <NavLink href="/komponenter/messagebox">en navlink</NavLink>
         </C>
     );
 };
