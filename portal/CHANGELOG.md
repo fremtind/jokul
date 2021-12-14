@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.3.14 (2021-12-14)
+
+### Bug Fixes
+
+- gjenopprett React Hooks menypunkt ([27b7208](https://github.com/fremtind/jokul/commit/27b720850a07caf7a711e954c9e8f4d5648eac5f)), closes [#2425](https://github.com/fremtind/jokul/issues/2425)
+
 ## 10.3.9 (2021-12-02)
 
 ### Bug Fixes
