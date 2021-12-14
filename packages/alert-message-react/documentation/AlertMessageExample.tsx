@@ -34,7 +34,7 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
     return (
         <C dismissed={dismissed} dismissAction={dismissAction}>
             Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Type"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
-            <NavLink href="/">en navlink</NavLink>
+            <NavLink href="/komponenter/alertmessage">en navlink</NavLink>
         </C>
     );
 };

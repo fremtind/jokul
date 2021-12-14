@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.8.0 (2021-12-14)
+
+### Features
+
+- eksporter typer for ikonknappkomponenten ([270778e](https://github.com/fremtind/jokul/commit/270778e3b6f7bc97ac7b465b683ae5323e5e4b17))
+
 ## 0.7.0 (2021-10-21)
 
 ### chore

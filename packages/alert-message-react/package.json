@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "6.0.7",
+    "version": "6.0.8",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
     "dependencies": {
         "@babel/runtime": "^7.16.3",
         "@fremtind/jkl-alert-message": "^5.0.3",
-        "@fremtind/jkl-icon-button-react": "^0.7.6",
+        "@fremtind/jkl-icon-button-react": "^0.8.0",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
