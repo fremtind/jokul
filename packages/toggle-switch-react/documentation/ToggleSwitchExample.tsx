@@ -44,14 +44,14 @@ export const toggleSwitchCodeExample = ({ boolValues }: ExampleComponentProps): 
     />
 `;
 
-export const toggleSliderCodeExample = ({ boolValues }: ExampleComponentProps): string => `
+export const toggleSliderCodeExample = (): string => `
     <ToggleSlider
         defaultValue="måned"
         labels={["måned", "år"]}
     />
 `;
 
-export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = (props) => {
+export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = () => {
     const [isOn, setIsOn] = useState(false);
 
     return (

@@ -39,14 +39,17 @@ import {
 
 Bruk veksleknapper dersom du ønsker:
 
-- Å skru av/på en funksjonalitet uten bekreftelse fra brukeren. Et godt eksempel på det er når man skrur på Bluetooth på en mobiltelefon. Det aktiveres umiddelbart, altså uten bekreftelse.
+-   Å skru av/på en funksjonalitet uten bekreftelse fra brukeren. Et godt eksempel på det er når man skrur på Bluetooth på en mobiltelefon. Det aktiveres umiddelbart, altså uten bekreftelse.
+-   Å endre visning av innhold. For eksempel så kan man bytte mellom å vise pris per måned eller år. Avhengig av situasjonen, bør man vurdere om andre komponenter som [Tabs](/komponenter/tabs) er et bedre valg.
 
-- Å endre visning av innhold. For eksempel så kan man bytte mellom å vise pris per måned eller år. Avhengig av situasjonen, bør man vurdere om andre komponenter som [Tabs](/komponenter/tabs) er et bedre valg.
-
-Ikke bruk veksleknapper dersom brukeren skal bekrefte et valg. Et eksempel på det er når veksleknapper benyttes som en Checkbox i et skjema. 
+Ikke bruk veksleknapper dersom brukeren skal bekrefte et valg. Et eksempel på det er når veksleknapper benyttes som en Checkbox i et skjema.
 
 <Grid>
-    <DoDontExample type="do" description="Skrur av/på mørk modus umidderlbart uten bekreftelse fra brukeren" content={<ToggleSwitchExample />} />
+    <DoDontExample
+        type="do"
+        description="Skrur av/på mørk modus umidderlbart uten bekreftelse fra brukeren"
+        content={<ToggleSwitchExample />}
+    />
     <DoDontExample
         type="dont"
         description="Ønsker bekreftelse fra brukeren ved å benytte veksleknapp som CheckBox"
@@ -54,22 +57,17 @@ Ikke bruk veksleknapper dersom brukeren skal bekrefte et valg. Et eksempel på d
     />
 </Grid>
 
-Vi tilbyr andre komponenter som kan brukes dersom man ønsker at brukeren skal bekrefte valget sitt. Under ser du noen eksempler: 
+Vi tilbyr andre komponenter som kan brukes dersom man ønsker at brukeren skal bekrefte valget sitt. Under ser du noen eksempler:
 
 -   [Checkbox](/komponenter/checkbox): I tilfeller der man ønsker å tilby flere valg og skal velge et eller flere valg.
-
--   [Radio buttons](/komponenter/radiobutton): I tilfeller der man ønsker å tilby flere valg og skal kun velge ett valg.
-
+-   [RadioButton](/komponenter/radiobutton): I tilfeller der man ønsker å tilby flere valg og skal kun velge ett valg.
 -   [Select](/komponenter/select): I tilfeller der man ønsker å tilby mange valg og skal kun velge ett valg.
-
 -   [Autosuggest](/komponenter/autosuggest): I tilfeller der man ønsker å tilby mange valg som forslag via fritekst og skal kun velge ett.
-
 
 I tillegg bør man etterstrebe å følge disse prinsippene:
 
-- Bruk korte og beskrivende navn.
-
-- Mellomrom bør unngås hvis mulig.
+-   Bruk korte og beskrivende navn.
+-   Mellomrom bør unngås hvis mulig.
 
 <Grid>
     <DoDontExample type="do" description="Korte og beskrivende valg uten mellomrom" content={<ToggleSliderExample />} />

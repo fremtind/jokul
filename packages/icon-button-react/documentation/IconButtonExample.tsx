@@ -1,5 +1,5 @@
 import React, { VFC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { IconButton, IconVariant } from "../src";
 
 function onClick() {
@@ -15,3 +15,11 @@ export const IconButtonExample: VFC<ExampleComponentProps> = ({ choiceValues }) 
         </>
     );
 };
+
+export const iconButtonExampleCode: CodeExample = ({ choiceValues }) => `
+<IconButton
+    buttonTitle="Beskrivelse av handlingen for skjermlesere"
+    iconType="${choiceValues?.["Type"]}"
+    onClick={onClick}
+/>
+`;
