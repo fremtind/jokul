@@ -2,15 +2,19 @@ import React from "react";
 import cx from "classnames";
 import { ArrowUp } from "../icons/ArrowUp";
 import { ArrowDown } from "../icons/ArrowDown";
-import { variants } from "../icons/types";
+import { IconVariant } from "../icons/types";
 
-interface Props {
+export interface ArrowVerticalAnimatedProps {
     className?: string;
     pointingDown: boolean;
-    variant?: variants;
+    variant?: IconVariant;
 }
 
-export const ArrowVerticalAnimated = ({ className = "", pointingDown, variant = "small" }: Props) => {
+export const ArrowVerticalAnimated = ({
+    className = "",
+    pointingDown,
+    variant = "small",
+}: ArrowVerticalAnimatedProps) => {
     const iconSize = variant !== "inherit" ? variant : "small";
 
     return (

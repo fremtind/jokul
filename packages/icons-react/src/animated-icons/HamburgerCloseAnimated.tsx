@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import cx from "classnames";
 import { Hamburger } from "../icons/Hamburger";
 import { Close } from "../icons/Close";
-import { variants } from "../icons/types";
+import { IconVariant } from "../icons/types";
 
-interface Props {
+export interface HamburgerCloseAnimatedProps {
     className?: string;
     isBurger: boolean;
-    variant?: variants;
+    variant?: IconVariant;
     hamburgerTitle?: string;
     closeTitle?: string;
 }
@@ -22,7 +22,7 @@ const Show: FC<ShowProps> = ({ when, children }) => (
     </div>
 );
 
-export const HamburgerCloseAnimated: FC<Props> = ({
+export const HamburgerCloseAnimated: FC<HamburgerCloseAnimatedProps> = ({
     className,
     isBurger,
     variant = "small",

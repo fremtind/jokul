@@ -1,17 +1,17 @@
 import React, { FC } from "react";
 import cx from "classnames";
 import { Plus } from "../icons/Plus";
-import { variants } from "../icons/types";
+import { IconVariant } from "../icons/types";
 
-interface Props {
+export interface PlusRemoveAnimatedProps {
     className?: string;
     isPlus: boolean;
-    variant?: variants;
+    variant?: IconVariant;
     plusTitle?: string;
     closeTitle?: string;
 }
 
-export const PlusRemoveAnimated: FC<Props> = ({
+export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
     className,
     isPlus,
     variant = "small",
