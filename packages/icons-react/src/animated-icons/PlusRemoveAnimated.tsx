@@ -1,8 +1,10 @@
 import React, { FC } from "react";
+import cx from "classnames";
 import { Plus } from "../icons/Plus";
 import { variants } from "../icons/types";
 
 interface Props {
+    className?: string;
     isPlus: boolean;
     variant?: variants;
     plusTitle?: string;
@@ -10,6 +12,7 @@ interface Props {
 }
 
 export const PlusRemoveAnimated: FC<Props> = ({
+    className,
     isPlus,
     variant = "small",
     plusTitle = "pluss",
@@ -18,9 +21,12 @@ export const PlusRemoveAnimated: FC<Props> = ({
     const iconSize = variant !== "inherit" ? variant : "small";
     return (
         <div
-            className={`jkl-icon--${iconSize} jkl-icons-animated__plus jkl-icons-animated__plus--${
-                isPlus ? "plus" : "close"
-            }`}
+            className={cx(
+                `jkl-icon--${iconSize}`,
+                "jkl-icons-animated__plus",
+                `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`,
+                className,
+            )}
         >
             <Plus
                 variant={iconSize}

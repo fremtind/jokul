@@ -1,9 +1,11 @@
 import React, { FC } from "react";
+import cx from "classnames";
 import { Hamburger } from "../icons/Hamburger";
 import { Close } from "../icons/Close";
 import { variants } from "../icons/types";
 
 interface Props {
+    className?: string;
     isBurger: boolean;
     variant?: variants;
     hamburgerTitle?: string;
@@ -21,6 +23,7 @@ const Show: FC<ShowProps> = ({ when, children }) => (
 );
 
 export const HamburgerCloseAnimated: FC<Props> = ({
+    className,
     isBurger,
     variant = "small",
     hamburgerTitle = "meny",
@@ -29,7 +32,7 @@ export const HamburgerCloseAnimated: FC<Props> = ({
     const iconSize = variant !== "inherit" ? variant : "small";
 
     return (
-        <div className={`jkl-icon--${iconSize} jkl-icons-animated__burger`}>
+        <div className={cx(`jkl-icon--${iconSize}`, "jkl-icons-animated__burger", className)}>
             <Show when={isBurger}>
                 <Hamburger variant={iconSize} title={hamburgerTitle} />
             </Show>
