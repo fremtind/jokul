@@ -184,10 +184,10 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
 
         return (
             <div className={componentClassName}>
-                <Label standAlone htmlFor={inputId} variant={variant}>
+                <Label standAlone htmlFor={inputId} variant={variant} forceCompact={forceCompact}>
                     {label}
                 </Label>
-                <div className={inputWrapperClassName} ref={wrapperRef}>
+                <div className={inputWrapperClassName} ref={wrapperRef} data-testid="jkl-datepicker__input-wrapper">
                     <BaseInputField
                         id={inputId}
                         ref={textboxRef}
@@ -237,7 +237,13 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                         />
                     </div>
                 </div>
-                <SupportLabel inverted={inverted} id={supportLabelId} helpLabel={helpLabel} errorLabel={errorLabel} />
+                <SupportLabel
+                    inverted={inverted}
+                    forceCompact={forceCompact}
+                    id={supportLabelId}
+                    helpLabel={helpLabel}
+                    errorLabel={errorLabel}
+                />
             </div>
         );
     },
