@@ -1,4 +1,4 @@
-import { act, render, screen, cleanup } from "@testing-library/react";
+import { act, render, screen, cleanup, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -552,6 +552,38 @@ describe("after user types string", () => {
 
         expect(onBlur).toHaveBeenCalledTimes(1);
         expect(onBlur.mock.calls[0][0]).toStrictEqual(new Date("01.01.2021"));
+    });
+
+    it("should pass forceCompact to all compactable child components", () => {
+        const thePast = new Date(2019, 11, 24);
+        render(
+            <DatePicker
+                initialDate={thePast}
+                label="Hva er tid?" /* label skal være kompakt */
+                helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
+                extended /* extended for å vise inputfelt i kalenderen, som også skal være kompakte */
+                forceCompact
+                yearLabel="År" /* i tilfelle default endrer seg – den biten er ikke vesentlig */
+                monthLabel="Måned" /* i tilfelle default endrer seg – den biten er ikke vesentlig */
+            />,
+        );
+
+        const label = screen.getByText("Hva er tid?");
+        expect(label).toHaveClass("jkl-label--compact");
+
+        const inputWrapper = screen.getByTestId("jkl-datepicker__input-wrapper");
+        expect(inputWrapper).toHaveClass("jkl-text-input--compact");
+
+        const helpText = screen.getByText("Tid er en flat sirkel");
+        expect(helpText).toHaveClass("jkl-form-support-label--compact");
+
+        const calendarYear = screen.getByTestId("jkl-text-input");
+        expect(within(calendarYear).getByLabelText("År")).toBeInTheDocument(); // bekreft at vi tester på riktig element
+        expect(calendarYear).toHaveClass("jkl-text-input--compact");
+
+        const calendarMonth = screen.getByTestId("jkl-select");
+        expect(within(calendarMonth).getByLabelText("Måned")).toBeInTheDocument(); // bekreft at vi tester på riktig element
+        expect(calendarMonth).toHaveClass("jkl-select--compact");
     });
 });
 
