@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.18 (2021-12-16)
+
+### Bug Fixes
+
+- sett forceCompact på child components ([9d79ffe](https://github.com/fremtind/jokul/commit/9d79ffedb040928a66d7dd708408cec7d3760307)), closes [#2600](https://github.com/fremtind/jokul/issues/2600)
+
 ## 8.0.0 (2021-10-21)
 
 ### chore
