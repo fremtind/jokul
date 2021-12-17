@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.2.0 (2021-12-17)
+
+### Features
+
+- legg til to nye mixins i core for responsivt design ([e0cddcd](https://github.com/fremtind/jokul/commit/e0cddcdc5c27c5d7ed355b8250d5c400cacebf2d))
+
 ## 8.1.0 (2021-11-09)
 
 ### Features

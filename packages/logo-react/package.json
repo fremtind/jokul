@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo-react",
-    "version": "7.1.1",
+    "version": "7.1.2",
     "publishConfig": {
         "access": "public"
     },
@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.16.3",
-        "@fremtind/jkl-logo": "^6.1.0",
-        "@fremtind/jkl-react-hooks": "^6.1.1",
+        "@fremtind/jkl-logo": "^6.1.1",
+        "@fremtind/jkl-react-hooks": "^6.1.2",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.30"
     },
