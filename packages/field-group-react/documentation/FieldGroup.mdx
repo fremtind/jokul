@@ -5,12 +5,13 @@ scss: field-group
 group: skjema
 ---
 
-import { FieldGroupExample } from "./FieldGroupExample";
+import { FieldGroupExample, fieldGroupExampleCode } from "./FieldGroupExample";
 
 <Ingress>
     Et feltsett er et sett med skjemafelter som hører sammen, for eksempel navn, adresse og postnummer/sted. Feltsettet
     må ha en overskrift som beskriver innholdet, og kan også ha en hjelpetekst eller en feilmelding.
 </Ingress>
+
 <ComponentExample
     component={FieldGroupExample}
     knobs={{
@@ -23,19 +24,22 @@ import { FieldGroupExample } from "./FieldGroupExample";
             },
         ],
     }}
+    codeExample={fieldGroupExampleCode}
 />
 
 ## Tekst og validering
 
-Velg størrelse på overskriften til feltsettet etter prinsippene for skjemadesign. Lag en kort og tydelig overskrift, som beskriver hva brukeren skal gjøre. Du kan også legge en forklarende hjelpetekst under feltsettet.
+Velg størrelse på overskriften til et feltsett etter [prinsippene for skjemadesign](/profil/skjemadesign). Ha en kort og tydelig overskrift, som beskriver hva brukeren skal velge. Hvis du trenger å gi mer forklaring, kan du sette en hjelpetekst under feltsettet.
 
 Hvis feltsettet ikke validerer, kan vi enten velge å legge en feilemelding under hele settet, eller under ett eller flere felt, hvis det gir bedre hjelp.
 
-Eksempel:
-I et sett med radioknapper, viser vi feilmeldingen under feltsettet. Merk at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
-
 ## Bruk
 
--   Et sett med radioknapper
--   Et sett med avmerkingsbokser
--   Et feltsett som til sammen utgjør et konsept (for eksempel adressefelter)
+Selv om det visuelle i et feltsett dukker opp mange steder vil `FieldGroup`-komponenten ikke brukes så ofte direkte.
+
+Dersom du bruker [RadioButton](/komponenter/radiobutton) har den sin egen `RadioButtonGroup` (visuelt identisk) som fyller rollen til `FieldGroup`, med noe skreddersøm for en gruppe radioknapper. Skjemafelter som [TextInput](/komponenter/textinput), [Select](/komponenter/select) og [Datepicker](/komponenter/datepicker) har innebygget støtte for ledetekst, hjelpetekst, og feilmeldinger. Med mindre disse skjemafeltene _sammen_ utgjør et konsept skal det ikke brukes en `FieldGroup` rundt dem.
+
+Der du vil trenge å bruke `FieldGroup`-komponenten direkte er:
+
+-   rundt en liste med [Checkbox](/komponenter/checkbox)
+-   rundt inputfelter som til sammen utgjør et konsept (for eksempel adressefelter)
