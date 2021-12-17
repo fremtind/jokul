@@ -10,9 +10,7 @@ export interface FieldGroupProps extends DataTestAutoId, HTMLAttributes<HTMLFiel
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
-    /** @deprecated Foretrekk `labelProps.variant` */
     variant?: LabelVariant;
-    /** @deprecated Foretrekk `labelProps.forceCompact` */
     forceCompact?: boolean;
     /** @deprecated */
     inverted?: boolean;
@@ -41,7 +39,12 @@ export const FieldGroup: FC<FieldGroupProps> = ({
             </legend>
             {children}
             {(helpLabel || errorLabel) && (
-                <SupportLabel inverted={inverted} helpLabel={helpLabel} errorLabel={errorLabel} />
+                <SupportLabel
+                    forceCompact={forceCompact}
+                    inverted={inverted}
+                    helpLabel={helpLabel}
+                    errorLabel={errorLabel}
+                />
             )}
         </fieldset>
     );
