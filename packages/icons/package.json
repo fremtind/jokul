@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icons",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
         "dev": "echo 'noop'"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^8.1.1"
+        "@fremtind/jkl-core": "^8.2.0"
     },
     "repository": {
         "type": "git",
