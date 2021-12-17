@@ -1,6 +1,43 @@
 @use "../variables/breakpoints";
 
 /*
+    Mixin to simplify media queries.
+    Max value is _exclusive_ (value will be max - 1px).
+
+    Usage:
+    ```css
+    .class {
+        @include screen-between(42px, 420px) {
+            display: none;
+        }
+    }
+    ```
+*/
+@mixin screen-between($min, $max) {
+    @media (min-width: $min) and (max-width: #{$max - 1px}) {
+        @content;
+    }
+}
+
+/*
+    Mixin to simplify media queries
+
+    Usage:
+    ```css
+    .class {
+        @include screen-from(42px) {
+            display: none;
+        }
+    }
+    ```
+*/
+@mixin screen-from($min) {
+    @media (min-width: $min) {
+        @content;
+    }
+}
+
+/*
     Mixins to simplify media queries
 
     Usage:
