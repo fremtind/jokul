@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message",
-    "version": "5.0.4",
+    "version": "5.0.5",
     "publishConfig": {
         "access": "public"
     },
@@ -26,7 +26,7 @@
         "dev": "parcel example/index.html"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^8.2.0"
+        "@fremtind/jkl-core": "^8.2.1"
     },
     "repository": {
         "type": "git",
