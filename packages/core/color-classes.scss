@@ -1,5 +1,6 @@
 @use "jkl";
 
+/// @deprecated Bruk fargevariablene direkte
 $color-map: (
     hvit: jkl.$color-hvit,
     snohvit: jkl.$color-snohvit,
@@ -23,11 +24,14 @@ $color-map: (
 );
 
 @each $property, $value in $color-map {
+    /// @deprecated Bruk fargevariablene som verdier i din egen klasse.
     .jkl-color {
         &-#{$property} {
             color: $value;
         }
     }
+
+    /// @deprecated Bruk fargevariablene som verdier i din egen klasse.
     .jkl-bgcolor {
         &-#{$property} {
             background-color: $value;

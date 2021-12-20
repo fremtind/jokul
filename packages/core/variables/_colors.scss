@@ -13,16 +13,22 @@ $sand: #f4f2ef;
 $snohvit: #f9f9f9;
 $hvit: #fff;
 
-// Meldingsfarger for lys bakgrunn
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $suksess: #287e68;
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $info: #000afa;
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $advarsel: #fbb15b;
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $feil: #aa1f23;
 
-// Meldingsfarger for mørk bakgrunn
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $suksess--darkbg: #5effa0;
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $info--darkbg: #00faff;
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $advarsel--darkbg: #fec97b;
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $feil--darkbg: #ff8b79;
 
 // Farger knyttet til bruksområde
@@ -31,8 +37,9 @@ $focus-color: $granitt;
 $error-color--darkbg: $feil--darkbg;
 $focus-color--darkbg: $snohvit;
 
-// Varslingsfarger, disse er IKKE en del av profilfargene
-// Kun til bruk i komponenter som gir varslinger til bruker
+/// Varslingsfarger / Meldingsfarger.
+/// Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
+/// @access private
 $varslingsfarger: (
     "suksess": #c8ecd2,
     "feil": #ffc9b2,
