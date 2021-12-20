@@ -14,7 +14,7 @@ const ignoreNonMdx = [
 module.exports = {
     pathPrefix: "/jokul",
     siteMetadata: {
-        title: `Jøkul`,
+        title: `Jøkul Designsystem`,
         description: `Jøkul er designsystemet til Fremtind`,
         author: `Fremtind`,
     },
