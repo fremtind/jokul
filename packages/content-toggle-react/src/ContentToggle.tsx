@@ -2,11 +2,14 @@ import React, { ReactNode, FC, useState, useEffect } from "react";
 import cn from "classnames";
 
 export const ContentToggle: FC<{
+    /** @default "polite" */
+    "aria-live"?: "polite" | "assertive" | "off";
+    className?: string;
     showSecondary: boolean;
     secondary: ReactNode;
-    className?: string;
+    /** @default "flip" */
     variant?: "flip" | "fade";
-}> = ({ showSecondary, secondary, children, className = "", variant = "flip" }) => {
+}> = ({ "aria-live": ariaLive = "polite", showSecondary, secondary, children, className, variant = "flip" }) => {
     // this mechanism is to be able to prevent animating keyframes on the initial render.
     // looking for actual change and then enable animating prevents initial blinking and premature animations
     const [initialShowSecondary] = useState(showSecondary);
@@ -21,6 +24,7 @@ export const ContentToggle: FC<{
         <span className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
             <span
                 className="jkl-content-toggle__slider"
+                aria-live={ariaLive}
                 data-show={showSecondary ? "second" : "first"}
                 data-initial={initial}
             >
