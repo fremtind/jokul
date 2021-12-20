@@ -63,7 +63,13 @@ test("button should be a11y compliant", async () => {
             Hello
         </ContentToggle>,
     );
-    const results = await axe(container);
+    let results = await axe(container);
 
+    const { container: secondaryContainer } = render(
+        <ContentToggle secondary="World" showSecondary={true}>
+            Hello
+        </ContentToggle>,
+    );
+    results = await axe(secondaryContainer);
     expect(results).toHaveNoViolations();
 });
