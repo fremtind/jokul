@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-slider",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "Jøkul slider style package",
     "homepage": "https://jokul.fremtind.no",
     "license": "MIT",
@@ -34,7 +34,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^8.2.0"
+        "@fremtind/jkl-core": "^8.2.1"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

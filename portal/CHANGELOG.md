@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.3.17 (2021-12-20)
+
+### Bug Fixes
+
+- docs fixup ([3c660ee](https://github.com/fremtind/jokul/commit/3c660eee5eec35205bdcd97478afc9eceb098ea1))
+
 ## 10.3.14 (2021-12-14)
 
 ### Bug Fixes
