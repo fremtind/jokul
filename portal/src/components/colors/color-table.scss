@@ -1,12 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
-
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 .jkl-portal-color-table {
     border: 0;
     width: 100%;
-    max-width: rem(750px);
+    max-width: jkl.rem(750px);
     margin-top: jkl.$spacing-xl;
     margin-bottom: jkl.$spacing-2xl;
 
@@ -26,20 +24,20 @@
     &__header {
         font-weight: jkl.$typography-weight-bold;
         vertical-align: bottom;
-        box-shadow: inset 0 rem(-1px) 0 0 jkl.$color-granitt;
+        box-shadow: inset 0 jkl.rem(-1px) 0 0 jkl.$color-granitt;
     }
 
     &__data {
         vertical-align: top;
-        box-shadow: inset 0 rem(-1px) 0 0 jkl.$color-stein;
+        box-shadow: inset 0 jkl.rem(-1px) 0 0 jkl.$color-stein;
     }
 
     &__swatch {
-        height: rem(32px);
-        width: rem(32px);
+        height: jkl.rem(32px);
+        width: jkl.rem(32px);
     }
 
-    @include small-device {
+    @include mixins.small-device {
         &__header {
             display: none;
         }

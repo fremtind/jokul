@@ -13,7 +13,7 @@ export const choiceProps = [
     },
     {
         name: "Farge",
-        values: ["inherit", "info", "advarsel", "feil", "suksess"],
+        values: ["inherit", "feil", "suksess"],
         defaultValue: 0,
     },
 ];
