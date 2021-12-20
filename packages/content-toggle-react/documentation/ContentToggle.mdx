@@ -5,12 +5,11 @@ scss: content-toggle
 group: layout
 ---
 
-import { ContentToggleExample } from "./ContentToggleExample";
+import { ContentToggleExample, contentToggleExampleCode } from "./ContentToggleExample";
 
 <Ingress>
-    Content-toggle er en komponent for som representerer en av Jøkuls kjerneanimasjoner. Du ser denne bevelgesen på
-    pilene i select eller accordion, men det kan brukes til mye mer. Hver gang du har behov for to states som man
-    toggler mellom, så er content-toggle en måte å løse det på en elegant måte.
+    ContentToggle er en komponent for to av Jøkuls kjerneanimasjoner. Om du har behov for to tilstander som man veksler
+    mellom, så er ContentToggle en måte å løse det på en elegant måte.
 </Ingress>
 
 <ComponentExample
@@ -25,17 +24,29 @@ import { ContentToggleExample } from "./ContentToggleExample";
         ],
     }}
     component={ContentToggleExample}
+    codeExample={contentToggleExampleCode}
 />
 
-Content-toggle komponenten tar inn to ReactNoder, det kan være strenger eller sammensatte komponenter, men bør ikke være store element.
+ContentToggle komponenten tar inn to React-komponenter. Det kan være tekststrenger eller sammensatte komponenter, men egner seg nok best til tekster kortere enn en setning, og enkeltkomponenter som én knapp.
 
-## I bruk
+## Bruk
 
-Content-toggle komponenten gjør sitt beste gjett på hvor store elementene inni er, så den animerer riktig avstand. Det er basert på font-størrelsen fra foreldrekomponenten. Så om du animerer `jkl-lead`, sørg for at den klassen er satt over content-toggle komponenten. Men i noen tilfellet så treffer den ikke helt. For å fortelle content-toggle at den skal bevege seg mer eller mindre, så kan du sette `font-size` på content-toggle elementet via `className`.
+Eksempler på bruk:
+
+-   Animere overgang fra [Loader](/komponenter/loader) til innhold (tenk på varigheten her – unngå "flash of loader")
+-   Veksle mellom visning av pris per år og per måned
+-   Bytte fra ett ikon til et annet, som ikke er dekket av [Icons](/komponenter/icons) (men [del gjerne at det er et behov](/komigang/prosessen)!)
 
 ## Tilgjengelighet
 
-Husk at du må skru av interaktive elementer når de ikke vises. Så om du en knapp er en av togglestatene, må du disable den når den ikke syntes, ellers vil det fortsatt være mulig å tabbe til den og trykke.
+Komponenten setter `aria-hidden` på elemetet som ikke synes for øyeblikket. Vi kan dessverre ikke sette `hidden`, siden vi er avhengige av at elementet har en høyde for at animasjonene skal fungere riktig.
 
--   Aria-hidden settes på komponenten som ikke vises
--   Komponenten hånterer redusert bevegelse på egenhånd
+Det betyr at **du selv sørger for at interaktive elementer som knapper kan ikke nås med tastatur**, ved å sette `disabled`-attributtet på komponenten.
+
+Komponenten har også satt `aria-live="polite"` slik at innholdet vil leses opp av skjermleser når tilstanden endres. Om dette ikke passer for ditt bruk kan du overstyre det med props.
+
+## Feilsøking
+
+ContentToggle komponenten gjør sitt beste på å gjette hvor store elementene inni er, så den animerer riktig avstand. Det er basert på fontstørrelsen fra foreldrekomponenten. Så om du animerer `jkl-lead`, sørg for at den klassen er satt over ContentToggle komponenten.
+
+I noen tilfellet så treffer den ikke helt. For å fortelle ContentToggle at den skal bevege seg mer eller mindre, så kan du sette `font-size` på ContentToggle elementet via `className`.
