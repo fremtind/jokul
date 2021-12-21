@@ -1,6 +1,6 @@
 import { isValidSsn } from "./isValidSsn";
 
-describe("isExactLength", () => {
+describe("isValidSsn", () => {
     // testdata ssn
     it("should return true valid ssn", () => {
         expect(isValidSsn("15129449648")).toBe(true);
