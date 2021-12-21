@@ -5,4 +5,4 @@ export { isValidChassisnummer } from "./isValidChassisnummer/isValidChassisnumme
 export { isValidDogId } from "./isValidDogId/isValidDogId";
 export { isExactLength } from "./isExactLength/isExactLength";
 export { isInteger } from "./isInteger/isInteger";
-export { isValidSsn } from "./isValidSsn/isValidSsn";
+export { isValidFodselsnummer } from "./isValidFodselsnummer/isValidFodselsnummer";
