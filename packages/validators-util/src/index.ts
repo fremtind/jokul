@@ -3,3 +3,6 @@ export { isValidTelefonnummer } from "./isValidTelefonnummer/isValidTelefonnumme
 export { isValidRegistreringsnummer } from "./isValidRegistreringsnummer/isValidRegistreringsnummer";
 export { isValidChassisnummer } from "./isValidChassisnummer/isValidChassisnummer";
 export { isValidDogId } from "./isValidDogId/isValidDogId";
+export { isExactLength } from "./isExactLength/isExactLength";
+export { isInteger } from "./isInteger/isInteger";
+export { isValidSsn } from "./isValidSsn/isValidSsn";
