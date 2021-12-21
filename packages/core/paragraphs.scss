@@ -8,6 +8,18 @@
     }
 }
 
+.jkl-bold {
+    @include mixins.text-style("body") {
+        @include mixins.helper-no-grow-bold;
+    }
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("body/small-screen") {
+            @include mixins.helper-no-grow-bold;
+        }
+    }
+}
+
 .jkl-small {
     @include mixins.text-style("small");
 
