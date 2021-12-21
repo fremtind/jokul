@@ -14,13 +14,13 @@ interface Props {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = (props: Props) => {
+export const Tabs = ({ onChange, ...props }: Props) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const [tabIDs, setTabIDs] = useState<string[]>([]);
     const [tabPanelIDs, setTabPanelIds] = useState<string[]>([]);
 
-    useEffect(() => props.onChange?.(activeIndex), [activeIndex, props]);
+    useEffect(() => onChange?.(activeIndex), [activeIndex, onChange]);
 
     const resolveIDs = useCallback(() => {
         const tabList = React.Children.toArray(props.children)[0];
