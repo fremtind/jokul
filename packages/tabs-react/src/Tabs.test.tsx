@@ -37,7 +37,7 @@ describe("Tabs", () => {
 
         renderComponent(onChange);
 
-        expect(onChange).toHaveBeenCalledWith(0);
+        expect(onChange).not.toHaveBeenCalled();
 
         fireEvent.click(screen.getByText("Tab 2"));
 
