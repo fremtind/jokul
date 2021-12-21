@@ -1,11 +1,11 @@
 import React, { ReactNode, FC } from "react";
-import { variants } from "./icons/types";
+import { IconVariant } from "./icons/types";
 
 interface Props {
     title: string;
     description: string;
     innerSvg: ReactNode;
-    variant?: variants;
+    variant?: IconVariant;
     viewBox?: string;
     className?: string;
 }

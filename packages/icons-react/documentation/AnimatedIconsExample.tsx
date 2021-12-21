@@ -2,7 +2,7 @@ import React from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated, HamburgerCloseAnimated } from "../src";
 import { AnimatedIcon } from "./internal/AnimatedIcon";
-import { variants } from "../src/icons/types";
+import { IconVariant } from "../src/icons/types";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
 
 export const choiceProps = [
@@ -21,7 +21,7 @@ export const choiceProps = [
 export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
     const colorValue = choiceValues ? choiceValues["Farge"] : "inherit";
     const color = colorValue === "inherit" ? undefined : colorValue;
-    const variant = choiceValues ? (choiceValues["Variant"] as variants) : "small";
+    const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
 
     return (
         <div style={{ width: "100%" }}>

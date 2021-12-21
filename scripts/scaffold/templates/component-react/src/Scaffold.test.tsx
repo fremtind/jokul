@@ -7,7 +7,7 @@ describe("Scaffold", () => {
     it("should render", () => {
         render(<Scaffold>Edit me!</Scaffold>);
 
-        screen.findByText("Edit me!");
+        screen.getByText("Edit me!");
     });
 });
 
