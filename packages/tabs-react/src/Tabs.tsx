@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 interface Props {
     children: ReactNode;
     className?: string;
+    onChange?: (tabIndex: number) => void;
 }
 
 /**
@@ -18,6 +19,8 @@ export const Tabs = (props: Props) => {
 
     const [tabIDs, setTabIDs] = useState<string[]>([]);
     const [tabPanelIDs, setTabPanelIds] = useState<string[]>([]);
+
+    useEffect(() => props.onChange?.(activeIndex), [activeIndex, props]);
 
     const resolveIDs = useCallback(() => {
         const tabList = React.Children.toArray(props.children)[0];
