@@ -17,8 +17,8 @@ describe("isInteger", () => {
         expect(isInteger("asd123")).toBe(false);
     });
 
-     it("should return false if decimals", () => {
-         expect(isInteger("1.23")).toBe(false);
-         expect(isInteger("1,23")).toBe(false);
-     });
+    it("should return false if decimals", () => {
+        expect(isInteger("1.23")).toBe(false);
+        expect(isInteger("1,23")).toBe(false);
+    });
 });
