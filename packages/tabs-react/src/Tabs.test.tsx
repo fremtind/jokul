@@ -3,9 +3,9 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Tabs, Tab, TabList, TabPanel } from ".";
 import { axe } from "jest-axe";
 
-const renderComponent = () =>
+const renderComponent = (onChange?: () => void) =>
     render(
-        <Tabs>
+        <Tabs onChange={onChange}>
             <TabList aria-label="testlist">
                 <Tab>Tab 1</Tab>
                 <Tab>Tab 2</Tab>
@@ -30,6 +30,18 @@ describe("Tabs", () => {
 
         screen.getByText("Tabpanel 2");
         expect(screen.queryByText("Tabpanel 1")).toBeNull();
+    });
+
+    it("triggers onChange when changing tabs", async () => {
+        const onChange = jest.fn();
+
+        renderComponent(onChange);
+
+        expect(onChange).not.toHaveBeenCalled();
+
+        fireEvent.click(screen.getByText("Tab 2"));
+
+        expect(onChange).toHaveBeenCalledWith(1);
     });
 });
 
