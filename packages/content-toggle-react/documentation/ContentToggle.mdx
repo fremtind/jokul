@@ -29,6 +29,8 @@ import { ContentToggleExample, contentToggleExampleCode } from "./ContentToggleE
 
 ContentToggle komponenten tar inn to React-komponenter. Det kan være tekststrenger eller sammensatte komponenter, men egner seg nok best til tekster kortere enn en setning, og enkeltkomponenter som én knapp.
 
+Om du skal animere høyden til et element kan du bruke [useAnimatedHeight](/komponenter/animation).
+
 ## Bruk
 
 Eksempler på bruk:
@@ -47,6 +49,6 @@ Komponenten har også satt `aria-live="polite"` slik at innholdet vil leses opp 
 
 ## Feilsøking
 
-ContentToggle komponenten gjør sitt beste på å gjette hvor store elementene inni er, så den animerer riktig avstand. Det er basert på fontstørrelsen fra foreldrekomponenten. Så om du animerer `jkl-lead`, sørg for at den klassen er satt over ContentToggle komponenten.
+ContentToggle komponenten gjør sitt beste på å gjette hvor store elementene inni er, så den animerer riktig avstand. Det er basert på fontstørrelsen fra foreldrekomponenten (`height` settes med `em`-enheten). Så om du animerer `jkl-lead`, sørg for at den klassen er satt over ContentToggle komponenten.
 
-I noen tilfellet så treffer den ikke helt. For å fortelle ContentToggle at den skal bevege seg mer eller mindre, så kan du sette `font-size` på ContentToggle elementet via `className`.
+I noen tilfeller så treffer den ikke helt. For å fortelle ContentToggle at den skal bevege seg mer eller mindre, så kan du overstyre `height` på ContentToggle elementet via `className`.
