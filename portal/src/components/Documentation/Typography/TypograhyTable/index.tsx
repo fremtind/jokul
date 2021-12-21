@@ -1,6 +1,5 @@
 import React, { VFC, useState } from "react";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
-
 import "./TypographyTable.scss";
 import { TableHeader } from "./TableHeader";
 import { ExampleRow, TypographyLevels } from "./ExampleRow";
@@ -13,6 +12,7 @@ const levels: TypographyLevels[] = [
     "Heading 4",
     "Heading 5",
     "Body",
+    "Bold",
     "Small",
 ];
 

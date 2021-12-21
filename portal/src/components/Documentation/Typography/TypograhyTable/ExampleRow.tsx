@@ -10,11 +10,13 @@ export type TypographyLevels =
     | "Heading 4"
     | "Heading 5"
     | "Body"
+    | "Bold"
     | "Small";
 
 interface Props {
     level: TypographyLevels;
 }
+
 export const ExampleRow: React.FC<Props> = ({ level }) => {
     const [fontWeight, setFontWeight] = useState("N/A");
     const [fontSize, setFontSize] = useState("N/A");
