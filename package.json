@@ -3,7 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "scripts": {
-        "clean": "lerna run --parallel clean",
+        "clean": "lerna run --parallel clean && rimraf node_modules/",
         "clean:portal": "lerna run clean:portal --stream",
         "build": "yarn patch-package && lerna run --ignore @fremtind/browserslist-config-jkl --ignore @fremtind/portal build --stream",
         "build:quiet": "yarn patch-package && lerna run --ignore @fremtind/browserslist-config-jkl --ignore @fremtind/portal build",
