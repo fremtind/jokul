@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.4 (2021-12-21)
+
+### Bug Fixes
+
+- eksporter options-typer ([55966ad](https://github.com/fremtind/jokul/commit/55966ad991e78d87d88b86ab4a4b38cd2a601dfd))
+
 ## 6.1.0 (2021-11-30)
 
 ### Features

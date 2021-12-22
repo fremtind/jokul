@@ -234,7 +234,8 @@
         "code",
         "doc",
         "bug",
-        "blog"
+        "blog",
+        "review"
       ]
     },
     {
@@ -338,7 +339,8 @@
       "contributions": [
         "code",
         "blog",
-        "bug"
+        "bug",
+        "review"
       ]
     },
     {

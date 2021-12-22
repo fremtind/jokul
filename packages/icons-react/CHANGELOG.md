@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.0 (2021-12-21)
+
+### Features
+
+- eksporter typer ([0ed794e](https://github.com/fremtind/jokul/commit/0ed794e00f0c4b9d391e697860cd204782ae056c))
+- legg til className prop i animerte ikoner ([ff77555](https://github.com/fremtind/jokul/commit/ff7755574f4301bb65afc57ff1143f4d58ec8413))
+
 ## 4.0.0 (2021-10-21)
 
 ### chore

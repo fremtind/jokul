@@ -4,7 +4,6 @@ import { DevExample } from "../../../doc-utils";
 
 import "../core.scss";
 import "./style.scss";
-import Colors from "./Colors/Colors";
 import { LinkExample } from "./Link/LinkExample";
 import { NavLinkExample } from "./Link/NavLinkExample";
 import { SpacingScaleTable } from "./Spacing/Spacing";
@@ -51,7 +50,6 @@ export const CoreExample: VFC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Invertert", "Ekstern"] }} />
         <DevExample component={NavLinkExample} knobs={{ boolProps: ["Invertert", "Aktiv", "Back"] }} />
-        <Colors />
         <SpacingScaleTable />
         <NormalExample />
         <SmallExample />

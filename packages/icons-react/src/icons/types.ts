@@ -1,8 +1,8 @@
-export type variants = "inherit" | "small" | "medium" | "large";
+export type IconVariant = "inherit" | "small" | "medium" | "large";
 
 export interface IconProps {
     className?: string;
-    variant?: variants;
+    variant?: IconVariant;
     title?: string;
     description?: string;
 }

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.6 (2021-12-20)
+
+### Bug Fixes
+
+- sett default aria-live til polite ([23e1dd7](https://github.com/fremtind/jokul/commit/23e1dd7df2013ed94acb87ba3bf96f6e1f47bf64))
+
 ## 2.0.0 (2021-10-21)
 
 ### chore
