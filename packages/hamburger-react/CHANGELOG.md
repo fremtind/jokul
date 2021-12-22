@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.0 (2021-12-22)
+
+### Bug Fixes
+
+- rett a11y-problemer i Hamburger ([721db9f](https://github.com/fremtind/jokul/commit/721db9f6632f523e2b38badbc0b54eddecf868bb)), closes [#2606](https://github.com/fremtind/jokul/issues/2606)
+
+### BREAKING CHANGES
+
+- - Fjernet `description`-propen. Den var en renamet `aria-label`. Bruk
+heller `aria-label`.
+- Hamburger krever nå at du gir den en ID og setter `aria-controls` med IDen
+til menyen hamburgeren styrer. Dette er for å gjøre det enklere å bygge en
+tilgjengelig hamburgermeny.
+
 ## 6.0.0 (2021-10-21)
 
 ### chore
