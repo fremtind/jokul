@@ -5,11 +5,11 @@
 
 $label-color: jkl.$color-granitt;
 $label-support-color: jkl.$color-stein;
-$label-error-color: jkl.$color-feil;
+$label-error-color: jkl.$color-granitt;
 
 $label-color--inverted: jkl.$color-snohvit;
 $label-support-color--inverted: jkl.$color-svaberg;
-$label-error-color--inverted: jkl.$color-feil--darkbg;
+$label-error-color--inverted: jkl.$color-snohvit;
 
 @include jkl.helper-light-mode-variables {
     --label-color: #{$label-color};
@@ -25,14 +25,41 @@ $label-error-color--inverted: jkl.$color-feil--darkbg;
 
 .jkl-form-support-label {
     @include jkl.text-style("small");
+    @include motion("standard");
+
     display: block;
     margin-top: jkl.$spacing-xs;
     color: $label-support-color;
     color: var(--label-support-color);
+    transition-property: color;
+
+    &__icon {
+        @include motion("standard");
+        transition-property: opacity, margin-right;
+
+        opacity: 0;
+        $icon-width: rem(20px);
+        height: $icon-width;
+        margin-bottom: -#{jkl.$spacing-2xs};
+        margin-right: -#{$icon-width};
+    }
+
+    &--compact {
+        .jkl-form-support-label__icon {
+            $icon-width: rem(18px);
+            height: $icon-width;
+            margin-bottom: -#{jkl.$spacing-2xs};
+            margin-right: -#{$icon-width};
+        }
+    }
 
     &--error {
         color: $label-error-color;
         color: var(--label-error-color);
+        .jkl-form-support-label__icon {
+            opacity: 1;
+            margin-right: jkl.$spacing-xs;
+        }
     }
 
     &--sr-only {
@@ -43,7 +70,7 @@ $label-error-color--inverted: jkl.$color-feil--darkbg;
         color: var(--label-support-color);
 
         &.jkl-form-support-label--error {
-            color: jkl.$color-feil--darkbg;
+            color: $label-error-color--inverted;
         }
     }
 }
