@@ -5,9 +5,35 @@ scss: hamburger
 group: layout
 ---
 
-import { HamburgerExample } from "./HamburgerExample";
+import { HamburgerExample, hamburgerExampleCode } from "./HamburgerExample";
+
+<Ingress>Hamburgeren brukes til å vise hovedmenyer på små flater.</Ingress>
 
 <ComponentExample
-    knobs={{ boolProps: ["Invertert", "Med tekst", "Tekst før knapp", "Skaler tekst ved hover"] }}
+    title="Hamburger"
+    knobs={{ boolProps: ["Med tekst", "Tekst før knapp", "Skaler tekst ved hover"] }}
     component={HamburgerExample}
+    codeExample={hamburgerExampleCode}
 />
+
+Vi har ikke flere hamburgere på samme side. Om du trenger å skjule annet innhold enn hovedmenyen kan du vurdere [ExpandButton](/komponenter/expandbutton).
+
+## Tilgjengelighet
+
+Det er viktig å hjelpe skjermlesere med å forstå at hamburgeren er en knapp som kommer til å påvirke et annet stykke innhold. Det er to elementer som må spille på lag her:
+
+1.  Hamburgeren
+2.  Menyen som skjules og vises
+
+På hamburgeren må vi ha:
+
+-   `aria-controls` med en ID som peker på innholdet som styres av knappen (settes av deg på `Hamburger`)
+-   `aria-expanded="false"` når lukket og `aria-expanded="true"` når åpen (styres med `isOpen`)
+
+På menyen som skjules og vises:
+
+-   `aria-labelledby` med en ID som peker tilbake på Hamburger
+-   `role="group"`
+-   `hidden` hvis innholdet er skjult
+
+Hamburgerens typedefinisjon hjelper med deler av dette, men det er opp til deg å sørge for at menyen har riktige attributter.
