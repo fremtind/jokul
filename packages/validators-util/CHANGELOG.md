@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.0 (2021-12-22)
+
+### Features
+
+- **validators:** added validators for isValidName and hasMinimumWords ([19247cb](https://github.com/fremtind/jokul/commit/19247cbb412a18a0de0d722ebc136d1904e48fee))
+
 ## 2.1.0 (2021-12-21)
 
 ### Features
