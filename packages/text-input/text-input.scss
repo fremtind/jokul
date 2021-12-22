@@ -1,4 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/variables/colors";
 
 @import "~@fremtind/jkl-core/_functions.scss";
 @import "~@fremtind/jkl-core/mixins/_all.scss";
@@ -20,24 +21,23 @@ $text-input-text-color: jkl.$color-granitt;
 $text-input-placeholder-color: jkl.$color-stein;
 $text-input-background-color: jkl.$color-hvit;
 $text-input-focus-color: jkl.$color-granitt;
-$text-input-error-color: jkl.$color-feil;
+$text-input-error-background-color: colors.varslingsfarge("feil");
+$text-input-error-text-color: jkl.$color-granitt;
+$text-input-error-placeholder-color: jkl.$color-stein;
 $text-input-selected-color: transparentize(
     $color: $text-input-focus-color,
     $amount: 0.8,
 );
-$text-input-selected-error-color: transparentize($text-input-error-color, 0.8);
 
 $text-input-border-color--inverted: jkl.$color-svaberg;
 $text-input-text-color--inverted: jkl.$color-snohvit;
 $text-input-placeholder-color--inverted: jkl.$color-svaberg;
 $text-input-background-color--inverted: jkl.$color-svart;
 $text-input-focus-color--inverted: jkl.$color-snohvit;
-$text-input-error-color--inverted: jkl.$color-feil--darkbg;
 $text-input-selected-color--inverted: transparentize(
     $color: $text-input-focus-color--inverted,
     $amount: 0.75,
 );
-$text-input-selected-error-color--inverted: transparentize($text-input-error-color--inverted, 0.8);
 
 @include light-mode-variables {
     --text-input-border-color: #{$text-input-border-color};
@@ -45,9 +45,11 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     --text-input-placeholder-color: #{$text-input-placeholder-color};
     --text-input-background-color: #{$text-input-background-color};
     --text-input-focus-color: #{$text-input-focus-color};
-    --text-input-error-color: #{$text-input-error-color};
+    --text-input-error-background-color: #{$text-input-error-background-color};
+    --text-input-error-text-color: #{$text-input-error-text-color};
+    --text-input-error-placeholder-color: #{$text-input-error-placeholder-color};
     --text-input-selected-color: #{$text-input-selected-color};
-    --text-input-selected-error-color: #{$text-input-selected-error-color};
+    --text-input-error-selected-color: #{$text-input-selected-color};
 }
 
 @include dark-mode-variables {
@@ -56,9 +58,11 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
     --text-input-placeholder-color: #{$text-input-placeholder-color--inverted};
     --text-input-background-color: #{$text-input-background-color--inverted};
     --text-input-focus-color: #{$text-input-focus-color--inverted};
-    --text-input-error-color: #{$text-input-error-color--inverted};
     --text-input-selected-color: #{$text-input-selected-color--inverted};
-    --text-input-selected-error-color: #{$text-input-selected-error-color--inverted};
+    --text-input-error-background-color: #{$text-input-error-background-color};
+    --text-input-error-text-color: #{$text-input-error-text-color};
+    --text-input-error-placeholder-color: #{$text-input-error-placeholder-color};
+    --text-input-error-selected-color: #{$text-input-selected-color};
 }
 
 @mixin shared-input-styles {
@@ -92,18 +96,58 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         }
     }
 
-    /*  Invalid color text selection */
+    /*  Invalid states */
     &[aria-invalid="true"],
     &:invalid {
-        &::selection,
-        & textarea::selection {
-            background-color: $text-input-selected-error-color;
-            background-color: var(--text-input-selected-error-color);
+        background: $text-input-error-background-color;
+        background: var(--text-input-error-background-color);
+        color: $text-input-error-text-color;
+        color: var(--text-input-error-text-color);
 
-            [data-theme="dark"] & {
-                background-color: $text-input-selected-error-color--inverted;
-                background-color: var(--text-input-selected-error-color);
+        &::placeholder {
+            color: $text-input-error-placeholder-color;
+            color: var(--text-input-error-placeholder-color);
+        }
+
+        /* Color of text selection */
+        &::selection {
+            background-color: $text-input-selected-color;
+            background-color: var(--text-input-error-selected-color);
+        }
+
+        & ~ .jkl-text-input__action-button {
+            color: $text-input-error-placeholder-color;
+            color: var(--text-input-error-placeholder-color);
+
+            &:hover {
+                color: $text-input-error-text-color;
+                color: var(--text-input-error-text-color);
             }
+            &:focus {
+                @include keyboard-navigation {
+                    &::after {
+                        box-shadow: inset 0 0 0 rem(2px) $text-input-error-text-color;
+                        box-shadow: inset 0 0 0 rem(2px) var(--text-input-error-text-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin shared-error-styles {
+    /*  Invalid states */
+    &[aria-invalid="true"],
+    &:invalid {
+        background-color: $text-input-error-background-color;
+        background-color: var(--text-input-error-background-color);
+        color: $text-input-error-text-color;
+        color: var(--text-input-error-text-color);
+
+        /* Color of text selection */
+        &::selection {
+            background-color: $text-input-selected-color;
+            background-color: var(--text-input-error-selected-color);
         }
     }
 }
@@ -131,7 +175,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         box-shadow: inset 0 0 0 rem(1px) $text-input-border-color, 0 0 0 rem(1px) transparent;
         box-shadow: inset 0 0 0 rem(1px) var(--text-input-border-color), 0 0 0 rem(1px) transparent;
 
-        transition-property: color, box-shadow;
+        transition-property: color, box-shadow, background-color;
 
         &:hover {
             box-shadow: inset 0 0 0 rem(1px) $text-input-focus-color, 0 0 0 rem(1px) $text-input-focus-color;
@@ -150,20 +194,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             border-color: var(--text-input-focus-color);
         }
 
-        /*  Invalid states */
-        &[aria-invalid="true"],
-        &:invalid {
-            box-shadow: inset 0 0 0 rem(1px) $text-input-error-color, 0 0 0 rem(1px) transparent;
-            box-shadow: inset 0 0 0 rem(1px) var(--text-input-error-color), 0 0 0 rem(1px) transparent;
-
-            &:hover,
-            &:focus,
-            &:focus-within {
-                box-shadow: inset 0 0 0 rem(1px) $text-input-error-color, 0 0 0 rem(1px) $text-input-error-color;
-                box-shadow: inset 0 0 0 rem(1px) var(--text-input-error-color),
-                    0 0 0 rem(1px) var(--text-input-error-color);
-            }
-        }
+        @include shared-error-styles;
     }
 
     &__action-button {
@@ -256,17 +287,10 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
 
             &[aria-invalid="true"],
             &:invalid {
-                box-shadow: inset 0 0 0 rem(1px) $text-input-error-color--inverted, 0 0 0 rem(1px) transparent;
-
-                &::selection {
-                    background-color: transparentize(jkl.$color-feil--darkbg, 0.75);
-                }
-
-                &:focus,
-                &:hover {
-                    box-shadow: inset 0 0 0 rem(1px) $text-input-error-color--inverted,
-                        0 0 0 rem(1px) $text-input-error-color--inverted;
-                }
+                background: $text-input-error-background-color;
+                background: var(--text-input-error-background-color);
+                color: $text-input-error-text-color;
+                color: var(--text-input-error-text-color);
             }
         }
 
@@ -327,6 +351,8 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
                 background: var(--text-input-background-color);
                 padding-bottom: jkl.$spacing-xl;
             }
+
+            @include shared-error-styles;
         }
 
         /*
@@ -341,6 +367,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
             @include reset-outline;
             @include shared-input-styles;
 
+            background: transparent;
             font-weight: normal;
             resize: none; // Disable textarea resize
             width: 100%;
@@ -350,9 +377,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
 
             transition-property: height;
 
-            &:focus-within {
-                background: var(--text-input-background-color);
-            }
+            @include shared-error-styles;
         }
 
         .jkl-text-area__counter {
@@ -395,7 +420,7 @@ $text-input-selected-error-color--inverted: transparentize($text-input-error-col
         }
 
         [aria-invalid="true"] ~ .jkl-text-area__counter {
-            color: var(--text-input-error-color);
+            color: var(--text-input-error-text-color);
         }
 
         *[data-compactlayout] &,
