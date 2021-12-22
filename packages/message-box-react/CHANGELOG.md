@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.2.0 (2021-12-22)
+
+### Features
+
+- etabler en ny komponent for oppsummering av skjemafeil ([2a1bd43](https://github.com/fremtind/jokul/commit/2a1bd43411cf9528afb3aabcb5813de56229b5dc))
+
 ## 6.1.0 (2021-11-23)
 
 ### Features
