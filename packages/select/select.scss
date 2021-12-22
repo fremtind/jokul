@@ -1,4 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/variables/colors";
 
 @import "~@fremtind/jkl-core/mixins/_all.scss";
 @import "~@fremtind/jkl-core/_functions.scss";
@@ -19,16 +20,25 @@ $select-text-disabled-color: jkl.$color-stein;
 $select-background-color: transparent;
 $select-open-background-color: jkl.$color-hvit;
 $select-focus-color: jkl.$color-granitt;
-$select-error-color: jkl.$color-feil;
+$select-error-background-color: colors.varslingsfarge("feil");
+$select-error-text-color: jkl.$color-granitt;
 $select-hover-option-color: jkl.$color-stein;
+$select-search-input-selected-color: transparentize(
+    $color: $select-focus-color,
+    $amount: 0.8,
+);
 
 $select-border-color--inverted: jkl.$color-svaberg;
 $select-text-color--inverted: jkl.$color-snohvit;
 $select-background-color--inverted: transparent;
 $select-open-background-color--inverted: jkl.$color-svart;
 $select-focus-color--inverted: jkl.$color-snohvit;
-$select-error-color--inverted: jkl.$color-feil--darkbg;
+$select-error-background-color--inverted: jkl.$color-feil--darkbg;
 $select-hover-option-color--inverted: jkl.$color-svaberg;
+$select-search-input-selected-color--inverted: transparentize(
+    $color: $select-focus-color--inverted,
+    $amount: 0.75,
+);
 
 @include jkl.helper-light-mode-variables {
     --select-border-color: #{$select-border-color};
@@ -36,8 +46,11 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
     --select-background-color: #{$select-background-color};
     --select-open-background-color: #{$select-open-background-color};
     --select-focus-color: #{$select-focus-color};
-    --select-error-color: #{$select-error-color};
+    --select-error-background-color: #{$select-error-background-color};
+    --select-error-text-color: #{$select-error-text-color};
     --select-hover-option-color: #{$select-hover-option-color};
+    --select-search-input-selected-color: #{$select-search-input-selected-color};
+    --select-search-input-error-selected-color: #{$select-search-input-selected-color};
 }
 
 @include jkl.helper-dark-mode-variables {
@@ -46,8 +59,11 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
     --select-background-color: #{$select-background-color--inverted};
     --select-open-background-color: #{$select-open-background-color--inverted};
     --select-focus-color: #{$select-focus-color--inverted};
-    --select-error-color: #{$select-error-color--inverted};
+    --select-error-background-color: #{$select-error-background-color};
+    --select-error-text-color: #{$select-error-text-color};
     --select-hover-option-color: #{$select-hover-option-color--inverted};
+    --select-search-input-selected-color: #{$select-search-input-selected-color--inverted};
+    --select-search-input-error-selected-color: #{$select-search-input-selected-color};
 }
 
 .jkl-select {
@@ -88,8 +104,19 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
 
     &__search-input {
         box-sizing: border-box;
-        color: $select-text-color !important;
-        color: var(--select-text-color) !important;
+        color: $select-text-color;
+        color: var(--select-text-color);
+
+        /* Color of text selection */
+        &::selection {
+            background-color: $select-search-input-selected-color;
+            background-color: var(--select-search-input-selected-color);
+
+            [data-theme="dark"] & {
+                background-color: $select-search-input-selected-color--inverted;
+                background-color: var(--select-search-input-selected-color);
+            }
+        }
     }
 
     /* The main select element showing the current value */
@@ -128,11 +155,6 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
             box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
             background-color: $select-open-background-color;
             background-color: var(--select-open-background-color);
-
-            & ~ .jkl-select__arrow {
-                color: $select-focus-color;
-                color: var(--select-focus-color);
-            }
         }
 
         &:hover {
@@ -273,39 +295,19 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
     &--invalid {
         .jkl-select__search-input,
         .jkl-select__button {
-            border-color: $select-error-color;
-            border-color: var(--select-error-color);
+            background-color: $select-error-background-color;
+            background-color: var(--select-error-background-color);
         }
-        .jkl-select__search-input:hover,
-        .jkl-select__search-input:focus,
-        .jkl-select__button:hover,
-        .jkl-select__button:focus {
-            box-shadow: 0 0 0 rem(1px) $select-error-color;
-            box-shadow: 0 0 0 rem(1px) var(--select-error-color);
-            color: $select-error-color;
-            color: var(--select-error-color);
-
-            & ~ .jkl-select__arrow {
-                color: $select-error-color;
-                color: var(--select-error-color);
-            }
+        .jkl-select__search-input,
+        .jkl-select__button,
+        .jkl-select__arrow {
+            color: $select-error-text-color;
+            color: var(--select-error-text-color);
         }
-
-        &.jkl-select--open {
-            .jkl-select__search-input,
-            .jkl-select__button {
-                border-color: $select-focus-color;
-                border-color: var(--select-focus-color);
-                box-shadow: 0 0 0 rem(1px) $select-focus-color;
-                box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
-                &:hover,
-                &:focus {
-                    & ~ .jkl-select__arrow {
-                        color: $select-focus-color;
-                        color: var(--select-focus-color);
-                    }
-                }
-            }
+        /* Color of text selection */
+        .jkl-select__search-input::selection {
+            background-color: $select-search-input-selected-color;
+            background-color: var(--select-search-input-error-selected-color);
         }
     }
 
@@ -361,20 +363,6 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
         }
 
         &.jkl-select--invalid {
-            .jkl-select__search-input,
-            .jkl-select__button {
-                border-color: $select-error-color--inverted;
-
-                &:hover,
-                &:focus {
-                    box-shadow: 0 0 0 rem(1px) $select-error-color--inverted;
-                    color: $select-error-color--inverted;
-                    & ~ .jkl-select__arrow {
-                        color: $select-error-color--inverted;
-                    }
-                }
-            }
-
             &.jkl-select--open {
                 .jkl-select__search-input,
                 .jkl-select__button {
@@ -382,12 +370,24 @@ $select-hover-option-color--inverted: jkl.$color-svaberg;
                     box-shadow: 0 0 0 rem(1px) $select-focus-color--inverted;
                     &:hover,
                     &:focus {
-                        color: $select-focus-color--inverted;
-                        & ~ .jkl-select__arrow {
-                            color: $select-focus-color--inverted;
-                        }
+                        color: $select-focus-color;
+                    }
+                    & ~ .jkl-select__arrow {
+                        color: $select-focus-color;
                     }
                 }
+            }
+
+            .jkl-select__search-input,
+            .jkl-select__button {
+                background-color: $select-error-background-color;
+                background-color: var(--select-error-background-color);
+            }
+            .jkl-select__search-input,
+            .jkl-select__button,
+            .jkl-select__arrow {
+                color: $select-error-text-color;
+                color: var(--select-error-text-color);
             }
         }
     }
