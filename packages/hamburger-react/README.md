@@ -22,15 +22,17 @@ import "@fremtind/jkl-hamburger/hamburger.min.css";
 
 ### Bruk
 
-Vi anbefaler at du refererer til elementet som åpnes/lukkes av hamburgermenyen ved hjelp av `aria-controls`-attributten:
+Sørg for at du får med deg riktige attributter for tilgjengelighet. [Se i portalen](https://jokul.fremtind.no/komponenter/hamburger#tilgjengelighet) om du er usikker.
 
-```jsx
+```tsx
 const [menuIsOpen, setMenuIsOpen] = useState(false);
 const toggleMenu = () => setMenuIsOpen((prevState) => !prevState);
 
-<Hamburger onClick={toggleMenu} isOpen={menuIsOpen} aria-controls="min-meny" />
+<Hamburger id="min-hamburger" onClick={toggleMenu} isOpen={menuIsOpen} aria-controls="min-meny" />
 
-<ul id="min-meny" hidden={!menuIsOpen}>
-    // ...menyobjekter
-</ul>
+<div id="min-meny" aria-labelledby="min-hamburger" role="group" hidden={!menuIsOpen}>
+    <ul>
+        // ...menyobjekter
+    </ul>
+</div>
 ```
