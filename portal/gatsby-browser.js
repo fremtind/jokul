@@ -22,7 +22,6 @@ import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-loader/loader.min.css";
 import "@fremtind/jkl-logo/logo.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
-import "@fremtind/jkl-progress-bar/progress-bar.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-select/select.min.css";
 import "@fremtind/jkl-summary-table/summary-table.min.css";
@@ -34,7 +33,6 @@ import "@fremtind/jkl-icons/animated-icons.min.css";
 import "@fremtind/jkl-image/image.min.css";
 import "@fremtind/jkl-content-toggle/content-toggle.min.css";
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
-import "@fremtind/jkl-slider/slider.min.css";
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 
 import { initTabListener } from "@fremtind/jkl-core";
