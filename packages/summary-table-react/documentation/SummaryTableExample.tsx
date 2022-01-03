@@ -1,13 +1,13 @@
 import React from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { SummaryTable } from "../src";
-import { mockColumnDescriptions, mockItems, mockFooter } from "../mocks";
+import { mockProps } from "../mocks";
 import "./SummaryTableExample.scss";
 
 export const SummaryTableExample: React.FC<ExampleComponentProps> = () => {
     return (
         <div className="summary-table-example">
-            <SummaryTable columnDescriptions={mockColumnDescriptions} items={mockItems} footer={mockFooter} />
+            <SummaryTable {...mockProps} />
         </div>
     );
 };
@@ -16,15 +16,26 @@ const SOFT_HYPHEN = "\u00AD";
 
 export const summaryTableExampleCode: CodeExample = `
 <SummaryTable
-    columnDescriptions={["Produkt", "Pris"]}
-    items={[
-        { label: "Person", value: "", bold: true },
-        { label: "Barne${SOFT_HYPHEN}forsikring", value: "200 kr/mnd" },
-        { label: "Behandlings${SOFT_HYPHEN}forsikring", value: "200 kr/mnd" },
-        { label: "Skade", value: "", bold: true },
-        { label: "Innboforsikring", value: "100 kr/mnd" },
-        { label: "Reiseforsikring", value: "100 kr/mnd" },
-    ]}
-    footer={{ label: "Total sum", value: "600 kr/mnd" }}
+    caption="Informasjon om produkter og pris i handlekurven"
+    header={["Produkt", "Pris"]}
+    body={
+        <>
+            <SummaryTableRow header={\`Uføre${SOFT_HYPHEN}pensjon\`} content="340,00 kr/mnd" />
+            <SummaryTableRow
+                className="summary-table-example__custom-row"
+                header={\`Livs${SOFT_HYPHEN}forsikring\`}
+                content="Tatt ut av tilbudet"
+            />
+            <SummaryTableRow header={\`Innbo${SOFT_HYPHEN}forsikring\`} content="122,00 kr/mnd" />
+            <SummaryTableRow header={\`Reise${SOFT_HYPHEN}forsikring\`} content="249,00 kr/mnd" />
+            <SummaryTableRow className="summary-table-example__custom-row" header="Rabatt" content="- 17,50 kr/mnd" />
+        </>
+    }
+    footer={
+        <>
+            <SummaryTableRow header="Total sum" content="693,50 kr/mnd" />
+            <SummaryTableRow header="" content="8322,50 kr/mnd" />
+        </> 
+    }
 />
 `;
