@@ -12,8 +12,6 @@ export interface FieldGroupProps extends DataTestAutoId, HTMLAttributes<HTMLFiel
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
-    /** @deprecated */
-    inverted?: boolean;
 }
 
 export const FieldGroup: FC<FieldGroupProps> = ({
@@ -26,7 +24,6 @@ export const FieldGroup: FC<FieldGroupProps> = ({
     variant,
     forceCompact,
     "data-testautoid": testAutoId,
-    inverted,
     ...rest
 }) => {
     const componentClassName = classNames("jkl-field-group", className);
@@ -39,12 +36,7 @@ export const FieldGroup: FC<FieldGroupProps> = ({
             </legend>
             {children}
             {(helpLabel || errorLabel) && (
-                <SupportLabel
-                    forceCompact={forceCompact}
-                    inverted={inverted}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
-                />
+                <SupportLabel forceCompact={forceCompact} helpLabel={helpLabel} errorLabel={errorLabel} />
             )}
         </fieldset>
     );

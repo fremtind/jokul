@@ -17,8 +17,6 @@ export interface Props extends BaseProps {
     errorLabel?: string;
     variant?: LabelVariant;
     "data-testautoid"?: string;
-    /** @deprecated */
-    inverted?: boolean;
     forceCompact?: boolean;
     inline?: boolean;
     action?: Action;
@@ -34,7 +32,6 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             errorLabel,
             variant,
             inline,
-            inverted,
             forceCompact,
             action,
             "data-testautoid": testAutoId,
@@ -50,7 +47,6 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             {
                 "jkl-text-input": true,
                 "jkl-text-input--inline": inline,
-                "jkl-text-input--inverted": inverted,
                 "jkl-text-input--compact": forceCompact,
                 "jkl-text-input--action": action,
             },
@@ -82,7 +78,6 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     )}
                 </div>
                 <SupportLabel
-                    inverted={inverted}
                     id={supportId}
                     helpLabel={helpLabel}
                     errorLabel={errorLabel}

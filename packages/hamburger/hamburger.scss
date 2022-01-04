@@ -39,7 +39,6 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
     align-items: center;
     position: relative;
 
-    color: $hamburger-color;
     color: var(--hamburger-color);
 
     @include jkl.text-style("body");
@@ -100,7 +99,6 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
 
     @include keyboard-navigation {
         &:focus {
-            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
             box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
         }
     }
@@ -156,14 +154,6 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);
             }
-        }
-    }
-
-    &--inverted {
-        color: $hamburger-color--inverted;
-
-        html:not([data-mousenavigation]) &:focus {
-            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color--inverted;
         }
     }
 }

@@ -36,7 +36,6 @@ $label-error-color--inverted: jkl.$color-snohvit;
 
     display: block;
     margin-top: jkl.$spacing-xs;
-    color: $label-support-color;
     color: var(--label-support-color);
     transition-property: color;
     transition-delay: 150ms;
@@ -59,7 +58,6 @@ $label-error-color--inverted: jkl.$color-snohvit;
     }
 
     &--error {
-        color: $label-error-color;
         color: var(--label-error-color);
         .jkl-form-support-label__icon {
             animation: map.get($jkl--timings, "lazy") cubic-bezier(0, 0, 0.3, 1) map.get($jkl--timings, "expressive")
@@ -69,14 +67,6 @@ $label-error-color--inverted: jkl.$color-snohvit;
 
     &--sr-only {
         @include screenreader-only;
-    }
-
-    &--inverted {
-        color: var(--label-support-color);
-
-        &.jkl-form-support-label--error {
-            color: $label-error-color--inverted;
-        }
     }
 }
 
@@ -90,7 +80,6 @@ $label-spacing-small--compact: jkl.$spacing-2xs;
 .jkl-label {
     display: block;
     margin-left: initial;
-    color: $label-color;
     color: var(--label-color);
 
     &--large {

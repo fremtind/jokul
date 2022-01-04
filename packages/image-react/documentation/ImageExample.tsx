@@ -52,7 +52,6 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choi
                         largeSize={boolValues?.["LargeSize"] ? largeSize : undefined}
                         thumbnail={boolValues?.["Thumbnail"] ? thumbnail : undefined}
                         isSmallDevice={isSmallDevice}
-                        inverted={boolValues?.["Invertert"]}
                         backgroundColor={boolValues?.["Bakgrunn"] && color !== "Default" ? color : undefined}
                     />
                 </div>

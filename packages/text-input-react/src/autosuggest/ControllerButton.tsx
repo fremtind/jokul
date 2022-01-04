@@ -5,16 +5,12 @@ interface Props {
     clearSelection: () => void;
     hasSelectedItem: boolean;
     onClick: () => void;
-    /** @deprecated */
-    inverted?: boolean;
 }
 
-const ControllerButton: FC<Props> = ({ hasSelectedItem, clearSelection, onClick, inverted = false, ...rest }) => (
+const ControllerButton: FC<Props> = ({ hasSelectedItem, clearSelection, onClick, ...rest }) => (
     <button
         {...rest}
-        className={`jkl-autosuggest__controller-button ${
-            inverted ? "jkl-autosuggest__controller-button--inverted" : ""
-        }`}
+        className="jkl-autosuggest__controller-button"
         aria-label={hasSelectedItem ? "Fjern valg" : "Vis valg"}
         onClick={hasSelectedItem ? clearSelection : onClick}
         type="button"

@@ -15,7 +15,6 @@ $logo-color--inverted: jkl.$color-snohvit;
 }
 
 .jkl-logo {
-    color: $logo-color;
     color: var(--logo-color);
 
     &__F {
@@ -53,10 +52,6 @@ $logo-color--inverted: jkl.$color-snohvit;
         & .jkl-logo__remtind {
             transition: opacity 250ms 75ms ease-in, transform 250ms ease;
         }
-    }
-
-    &--inverted {
-        color: $logo-color--inverted;
     }
 }
 

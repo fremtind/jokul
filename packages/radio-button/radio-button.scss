@@ -239,47 +239,4 @@ $radio-button-default-color--inverted: jkl.$color-svaberg;
             }
         }
     }
-
-    // LEGACY IE11 STUFF
-    &--inverted {
-        color: $radio-button-color--inverted;
-
-        .jkl-radio-button__input {
-            html:not([data-mousenavigation]) &:focus {
-                + .jkl-radio-button__label {
-                    color: $radio-button-focus-color--inverted;
-
-                    & > .jkl-radio-button__dot::before {
-                        box-shadow: 0 0 0 rem(2px) $radio-button-focus-color--inverted;
-                    }
-                }
-            }
-        }
-
-        .jkl-radio-button__dot {
-            box-shadow: inset 0 0 0 rem(1px) jkl.$color-svaberg, 0 0 0 rem(1px) transparent;
-            box-shadow: inset 0 0 0 rem(1px) var(--radio-button-default-color--inverted), 0 0 0 rem(1px) transparent;
-
-            background-color: $radio-button-background-color--inverted;
-        }
-
-        .jkl-radio-button__label {
-            &:hover {
-                color: $radio-button-focus-color--inverted;
-            }
-
-            &:active {
-                color: $radio-button-color--inverted;
-
-                & > .jkl-radio-button__dot {
-                    color: $radio-button-color--inverted;
-                }
-            }
-        }
-
-        &.jkl-radio-button--error {
-            color: $radio-button-error-background-color;
-        }
-    }
-    // END LEGACY STUFF
 }

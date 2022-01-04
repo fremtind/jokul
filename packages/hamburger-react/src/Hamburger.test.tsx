@@ -16,13 +16,6 @@ describe("Hamburger", () => {
         expect(burger).toHaveAttribute("aria-expanded");
     });
 
-    it("should get class jkl-hamburger--inverted when specified", () => {
-        render(<Hamburger id="jkl-hamburger" aria-controls="nothing" inverted isOpen={false} onClick={() => {}} />);
-
-        const component = screen.getByTestId("jkl-hamburger");
-        expect(component).toHaveClass("jkl-hamburger--inverted");
-    });
-
     it("sets correct value for aria-controls", () => {
         const menuid = "hgsf8w4kjDH";
         render(<Hamburger id="jkl-hamburger" isOpen={false} aria-controls={menuid} onClick={() => {}} />);

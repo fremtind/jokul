@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={ToggleSwitchExamples}
         knobs={{
-            boolProps: ["Invertert", "Deaktivert", "Med hjelpetekst"],
+            boolProps: ["Deaktivert", "Med hjelpetekst"],
         }}
     />,
     document.getElementById("app"),

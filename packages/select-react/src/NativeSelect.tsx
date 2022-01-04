@@ -17,8 +17,6 @@ export interface NativeSelectProps {
     placeholder?: string;
     value?: string;
     forceCompact?: boolean;
-    /** @deprecated */
-    inverted?: boolean;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
@@ -39,7 +37,6 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             placeholder,
             value,
             forceCompact,
-            inverted,
             width,
             ...rest
         },
@@ -53,7 +50,6 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 className={cx("jkl-select", className, {
                     "jkl-select--inline": inline,
                     "jkl-select--compact": forceCompact,
-                    "jkl-select--inverted": inverted,
                     "jkl-select--invalid": !!errorLabel,
                 })}
             >

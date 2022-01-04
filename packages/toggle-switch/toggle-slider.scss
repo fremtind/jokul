@@ -39,17 +39,14 @@ $jkl-slider-focus-ring-width: rem(2px);
         background-color: transparent;
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
-            box-shadow: 0 0 0 $jkl-slider-focus-ring-width jkl.$color-svart;
             box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
 
             .jkl-toggle-slider__pill {
-                box-shadow: 0 0 0 $jkl-slider-focus-ring-width jkl.$color-svart;
                 box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
             }
         }
 
         cursor: pointer;
-        background-color: jkl.$color-varde;
         background-color: var(--jkl-slider-bg);
         padding: jkl.$spacing-xs 0;
         position: relative;
@@ -64,7 +61,6 @@ $jkl-slider-focus-ring-width: rem(2px);
         &__pill {
             width: 50%;
             height: calc(100% - #{$jkl-slider-offset} - #{$jkl-slider-offset});
-            background-color: jkl.$color-snohvit;
             background-color: var(--jkl-slider-pill);
             display: block;
             position: absolute;
@@ -82,7 +78,6 @@ $jkl-slider-focus-ring-width: rem(2px);
             display: block;
             width: 50%;
             text-align: center;
-            color: jkl.$color-granitt;
             color: var(--jkl-slider-pill-text);
             transition-property: color;
             @include motion(standard, expressive);
@@ -105,14 +100,12 @@ $jkl-slider-focus-ring-width: rem(2px);
 
         &--checked {
             & > .jkl-toggle-slider--right {
-                color: jkl.$color-granitt;
                 color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--left {
-                        color: jkl.$color-stein;
                         color: var(--jkl-slider-hover-color);
                     }
                 }
@@ -125,36 +118,15 @@ $jkl-slider-focus-ring-width: rem(2px);
             }
 
             & > .jkl-toggle-slider--left {
-                color: jkl.$color-granitt;
                 color: var(--jkl-slider-pill-text--active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--right {
-                        color: jkl.$color-stein;
                         color: var(--jkl-slider-hover-color);
                     }
                 }
-            }
-        }
-    }
-
-    &--inverted {
-        color: jkl.$color-snohvit;
-        --jkl-slider-pill-text--active: #{jkl.$color-snohvit};
-        --jkl-slider-hover-color: #{jkl.$color-svaberg};
-
-        .jkl-toggle-slider {
-            background-color: jkl.$color-fjellgra;
-
-            &__pill {
-                background-color: jkl.$color-granitt;
-            }
-
-            &--left,
-            &--right {
-                color: jkl.$color-snohvit;
             }
         }
     }

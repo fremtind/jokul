@@ -9,7 +9,6 @@ export const LogoExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
         animated={boolValues?.["Animert"]}
         isSymbol={boolValues?.["Kun symbol"]}
         centered={boolValues?.["Sentrert"]}
-        inverted={boolValues?.["Invertert"]}
     />
 );
 
@@ -18,6 +17,5 @@ export const logoExampleCode: CodeExample = ({ boolValues }) => `
     animated={${boolValues?.["Animert"]}}
     isSymbol={${boolValues?.["Kun symbol"]}}
     centered={${boolValues?.["Sentrert"]}}
-    inverted={${boolValues?.["Invertert"]}}
 />
 `;

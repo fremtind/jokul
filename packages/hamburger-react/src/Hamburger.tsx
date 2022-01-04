@@ -16,8 +16,6 @@ export interface HamburgerProps {
     isOpen: boolean;
     onClick: (() => void) | ((evt: React.MouseEvent) => void);
     className?: string;
-    /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
-    inverted?: boolean;
     /**
      * Vis en tekst før eller etter hamburgerikonet som varierer med åpnet og
      * lukket tilstand.
@@ -44,13 +42,11 @@ export const Hamburger = ({
     onClick,
     className,
     actionLabel,
-    inverted = false,
     ...rest
 }: HamburgerProps): JSX.Element => {
     const componentClassname = classnames(
         "jkl-hamburger",
         {
-            "jkl-hamburger--inverted": inverted,
             "jkl-hamburger--label-before": actionLabel?.position === "before",
             "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
         },

@@ -41,7 +41,6 @@ $link-active-color--inverted: jkl.$color-snohvit;
 }
 
 .jkl-link {
-    color: $link-color;
     color: var(--link-color);
 
     @include underline-gradient(currentColor);
@@ -54,24 +53,19 @@ $link-active-color--inverted: jkl.$color-snohvit;
     text-decoration: none;
 
     &:hover:not(:focus) {
-        color: $link-hover-color;
         color: var(--link-hover-color);
-        @include underline-gradient($link-hover-color);
         @include underline-gradient(var(--link-hover-color));
         background-position: 0 100%;
         background-size: $link-underline-thickness--hover $link-underline-thickness--hover;
     }
 
     &:hover &:focus {
-        color: $link-color;
         color: var(--link-color);
-        @include underline-gradient($link-color);
         @include underline-gradient(var(--link-color));
     }
 
     html:not([data-mousenavigation]) &:focus {
         @include no-grow-bold;
-        @include border-gradient($link-active-color);
         @include border-gradient(var(--link-active-color));
     }
 
@@ -88,16 +82,9 @@ $link-active-color--inverted: jkl.$color-snohvit;
             content: $north-east-arrow;
         }
     }
-
-    &--negative {
-        --link-color: #{$link-color--inverted};
-        --link-hover-color: #{$link-hover-color--inverted};
-        --link-active-color: #{$link-active-color--inverted};
-    }
 }
 
 .jkl-nav-link {
-    color: $link-color;
     color: var(--link-color);
 
     @include reset-outline;
@@ -121,7 +108,6 @@ $link-active-color--inverted: jkl.$color-snohvit;
     }
 
     &:hover:not(:focus) {
-        color: $link-hover-color;
         color: var(--link-hover-color);
 
         &:after {
@@ -130,7 +116,6 @@ $link-active-color--inverted: jkl.$color-snohvit;
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include border-gradient($link-color);
         @include border-gradient(var(--link-color));
         @include no-grow-bold;
 
@@ -141,12 +126,6 @@ $link-active-color--inverted: jkl.$color-snohvit;
 
     &--active {
         @include no-grow-bold;
-    }
-
-    &--inverted {
-        --link-color: #{$link-color--inverted};
-        --link-hover-color: #{$link-hover-color--inverted};
-        --link-active-color: #{$link-active-color--inverted};
     }
 }
 

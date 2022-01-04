@@ -263,46 +263,6 @@ $text-input-selection-color--inverted: transparentize(
             width: rem(18px);
         }
     }
-
-    /* Modifications for legacy (IE11) dark mode */
-    &--inverted {
-        & .jkl-text-input__input {
-            color: $text-input-text-color--inverted;
-            background-color: $text-input-background-color--inverted;
-            box-shadow: inset 0 0 0 rem(1px) $text-input-border-color--inverted, 0 0 0 rem(1px) transparent;
-
-            &::placeholder {
-                color: $text-input-placeholder-color--inverted;
-            }
-
-            &::selection {
-                background-color: transparentize(jkl.$color-info--darkbg, 0.75);
-            }
-
-            &:focus,
-            &:hover {
-                box-shadow: inset 0 0 0 rem(1px) $text-input-focus-color--inverted,
-                    0 0 0 rem(1px) $text-input-focus-color--inverted;
-            }
-
-            &[aria-invalid="true"],
-            &:invalid {
-                background: $text-input-error-background-color;
-                background: var(--text-input-error-background-color);
-                color: $text-input-error-text-color;
-                color: var(--text-input-error-text-color);
-            }
-        }
-
-        & .jkl-text-input_action-button {
-            color: $text-input-border-color--inverted;
-        }
-
-        & .jkl-text-input__action-button:hover,
-        & .jkl-text-input__action-button:focus {
-            color: $text-input-focus-color--inverted;
-        }
-    }
 }
 
 .jkl-text-input:not(.jkl-text-area) {

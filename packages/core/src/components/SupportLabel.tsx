@@ -8,8 +8,6 @@ export interface SupportLabelProps {
     forceCompact?: boolean;
     className?: string;
     srOnly?: boolean;
-    /** @deprecated */
-    inverted?: boolean;
 }
 
 export const SupportLabel: FC<SupportLabelProps> = ({
@@ -19,7 +17,6 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     forceCompact,
     className,
     srOnly,
-    inverted,
     ...rest
 }) => {
     const hasLabel = errorLabel || helpLabel;
@@ -30,7 +27,6 @@ export const SupportLabel: FC<SupportLabelProps> = ({
               "jkl-form-support-label--error": errorLabel,
               "jkl-form-support-label--help": !errorLabel,
               "jkl-form-support-label--sr-only": srOnly,
-              "jkl-form-support-label--inverted": inverted,
           })
         : "jkl-dormant-form-support-label";
 

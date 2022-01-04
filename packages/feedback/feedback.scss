@@ -41,7 +41,6 @@ $max-feedback-input-width: 30rem;
 
     &__step-counter {
         @include jkl.text-style("body");
-        color: jkl.$color-stein;
         color: var(--jkl-feedback--step-color);
         margin-bottom: jkl.$spacing-m;
     }

@@ -43,8 +43,6 @@ export interface SelectProps extends DataTestAutoId {
      */
     searchable?: boolean;
     forceCompact?: boolean;
-    /** @deprecated */
-    inverted?: boolean;
     width?: string;
     onChange?: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
@@ -108,7 +106,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             defaultPrompt = "Velg",
             variant,
             forceCompact,
-            inverted,
             width,
             ...rest
         },
@@ -143,7 +140,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const componentClassName = classNames("jkl-select", className, {
             "jkl-select--inline": inline,
             "jkl-select--compact": forceCompact,
-            "jkl-select--inverted": inverted,
             "jkl-select--open": dropdownIsShown,
             "jkl-select--no-value": !hasSelectedValue,
             "jkl-select--invalid": !!errorLabel,
@@ -321,12 +317,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     </CoreToggle>
                     <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
                 </div>
-                <SupportLabel
-                    inverted={inverted}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
-                    forceCompact={forceCompact}
-                />
+                <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
             </div>
         );
     },

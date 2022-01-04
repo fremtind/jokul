@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Downshift, { DownshiftProps } from "downshift";
 import cn from "classnames";
 import { SupportLabel } from "@fremtind/jkl-core";
 import { CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";
+import { nanoid } from "nanoid";
 
 const KEY_ENTER = 13;
 
 type BaseAutosuggestProps<T> = CommonProps & {
-    /** @deprecated */
-    inverted?: boolean;
     itemToString: (item: T | null) => string;
     items: T[];
     downshiftProps: DownshiftProps<T>;
@@ -19,7 +18,6 @@ type BaseAutosuggestProps<T> = CommonProps & {
 };
 
 function BaseAutosuggest<T>({
-    inverted = false,
     className = "",
     label,
     inputId,
@@ -39,13 +37,17 @@ function BaseAutosuggest<T>({
         /* noop */
     },
 }: BaseAutosuggestProps<T>): JSX.Element {
-    const customLabelProps =
-        inputId && labelId
-            ? {
-                  inputId,
-                  labelId,
-              }
-            : {};
+    const [uid] = useState(inputId || `jkl-text-input-${nanoid(8)}`);
+    const [lid] = useState(labelId || `jkl-label-${nanoid(8)}`);
+
+    const customLabelProps = {
+        inputId: uid,
+        labelId: lid,
+    };
+
+    const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
+    const hasSupportText = helpLabel || errorLabel;
+    const describedBy = hasSupportText ? supportId : undefined;
 
     return (
         <Downshift {...downshiftProps} {...customLabelProps} itemToString={itemToString}>
@@ -65,6 +67,7 @@ function BaseAutosuggest<T>({
                         {label && (
                             <label
                                 {...getLabelProps({
+                                    id: lid,
                                     className: `jkl-label jkl-label--${variant}`,
                                 })}
                             >
@@ -75,14 +78,15 @@ function BaseAutosuggest<T>({
                         <div
                             className={cn("jkl-autosuggest__input-group", {
                                 "jkl-autosuggest__input-group--open": isOpen && items.length !== 0,
-                                "jkl-text-input--inverted": inverted,
                             })}
                         >
                             <input
                                 {...getInputProps({
+                                    id: uid,
                                     placeholder,
                                     className: "jkl-text-input__input",
                                     "aria-invalid": !!errorLabel,
+                                    "aria-describedby": describedBy,
                                     onKeyDown: (e) => {
                                         if (e.keyCode === KEY_ENTER && !isOpen) {
                                             onConfirm();
@@ -96,7 +100,6 @@ function BaseAutosuggest<T>({
                                     {...getToggleButtonProps()}
                                     hasSelectedItem={!!selectedItem}
                                     clearSelection={clearSelection}
-                                    inverted={inverted}
                                 />
                             )}
                         </div>
@@ -111,10 +114,9 @@ function BaseAutosuggest<T>({
                                 itemToString={itemToString}
                                 noHitsMessage={noHitsMessage}
                                 maxNumberOfHits={maxNumberOfHits}
-                                inverted={inverted}
                             />
                         )}
-                        <SupportLabel inverted={inverted} errorLabel={errorLabel} helpLabel={helpLabel} />
+                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} />
                     </div>
                 );
             }}

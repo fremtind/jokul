@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 import { useProgressiveImg } from "@fremtind/jkl-react-hooks";
 
 export interface Props {
@@ -10,8 +10,6 @@ export interface Props {
     thumbnail?: string;
     largeSize?: string;
     className?: string;
-    /** @deprecated */
-    inverted?: boolean;
     backgroundColor?: string;
 }
 
@@ -23,7 +21,6 @@ export const Image: FC<Props> = ({
     alt,
     isSmallDevice,
     className = "",
-    inverted = false,
     backgroundColor,
 }) => {
     const { src, isBlurred } = useProgressiveImg({
@@ -32,13 +29,13 @@ export const Image: FC<Props> = ({
     });
     return (
         <div className={className}>
-            <picture className={classNames("jkl-image__container", { "jkl-image--inverted": inverted })}>
+            <picture className="jkl-image__container">
                 <img
                     data-testid="jkl-image-blurred"
                     style={{ objectPosition, backgroundColor }}
                     alt=""
                     src={thumbnail}
-                    className={classNames("jkl-image", "jkl-image__blur-container", {
+                    className={cn("jkl-image", "jkl-image__blur-container", {
                         "jkl-image__blur-container--blur": isBlurred,
                         "jkl-image__blur-container--blur-out": !isBlurred,
                         "jkl-image__blur-container--no-thumbnail": !thumbnail,
@@ -49,7 +46,7 @@ export const Image: FC<Props> = ({
                     style={{ objectPosition, backgroundColor }}
                     src={src}
                     alt={alt}
-                    className={classNames("jkl-image", {
+                    className={cn("jkl-image", {
                         "jkl-image--empty": src === "",
                     })}
                 />

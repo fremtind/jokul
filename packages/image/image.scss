@@ -42,26 +42,16 @@ $loader-color--inverted: jkl.$color-fjellgra;
         }
 
         &--no-thumbnail {
-            background: $loader-color;
             background: var(--jkl-image-loader-color);
         }
     }
 
     &--empty {
-        background-color: $loader-color;
         background: var(--jkl-image-loader-color);
         display: block;
 
         &:before {
             display: none;
-        }
-    }
-
-    &--inverted {
-        .jkl-image__blur-container--no-thumbnail,
-        .jkl-image--empty {
-            background-color: jkl.$color-fjellgra;
-            background: var(--jkl-image-loader-color);
         }
     }
 }

@@ -138,11 +138,6 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
         padding: 1rem 0.5rem 0;
         z-index: jkl.$z-index--dropdown;
         -webkit-overflow-scrolling: touch;
-
-        &--inverted {
-            background-color: $autosuggest-menu-background-color--inverted;
-            color: $autosuggest-text-color--inverted;
-        }
     }
 
     &__item {

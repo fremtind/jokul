@@ -3,8 +3,8 @@ import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Accordion, AccordionItem } from "../src";
 
-export const AccordionExample: React.FC<ExampleComponentProps> = ({ boolValues }) => (
-    <Accordion inverted={boolValues && boolValues["Invertert"]}>
+export const AccordionExample: React.FC<ExampleComponentProps> = () => (
+    <Accordion>
         <AccordionItem
             title="Hvem kan kjøpe livsforsikring?"
             onClick={(e, isOpen) => {
@@ -33,8 +33,8 @@ export const AccordionExample: React.FC<ExampleComponentProps> = ({ boolValues }
     </Accordion>
 );
 
-export const accordionExampleCode: CodeExample = ({ boolValues }) => `
-<Accordion inverted={${boolValues && boolValues["Invertert"]}}>
+export const accordionExampleCode: CodeExample = () => `
+<Accordion>
     <AccordionItem title="Hvem kan kjøpe livsforsikring?">
         <UnorderedList>
             <ListItem>Personer med et norsk fødselsnummer.</ListItem>

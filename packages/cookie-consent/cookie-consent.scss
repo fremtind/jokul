@@ -39,7 +39,6 @@ $container-width--compact: rem(320px);
     padding: jkl.$spacing-xl jkl.$spacing-xl rem(30px) jkl.$spacing-xl;
     min-width: $container-width--compact;
     max-width: $container-width;
-    background-color: jkl.$color-snohvit;
     background-color: var(--jkl-background-color);
     box-shadow: jkl.$drop-shadow--large;
     transition: 0.2s;

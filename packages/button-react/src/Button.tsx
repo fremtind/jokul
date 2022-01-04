@@ -6,10 +6,9 @@ import { BaseButton } from "./BaseButton";
 
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const Button = forwardRef<HTMLButtonElement, Props>(
-        ({ children, className = "", forceCompact, inverted, onClick, onTouchStart, loader, ...rest }, ref) => {
+        ({ children, className, forceCompact, onClick, onTouchStart, loader, ...rest }, ref) => {
             const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
                 "jkl-button--compact": forceCompact,
-                "jkl-button--inverted": inverted,
             });
 
             const handleTouch = (event: TouchEvent<HTMLButtonElement>) => {

@@ -22,12 +22,6 @@ describe("NavLink", () => {
         expect(screen.getByText("Some link")).toHaveClass("jkl-nav-link--active");
     });
 
-    it("should get the correct style when inverted", () => {
-        render(<NavLink inverted>Some link</NavLink>);
-
-        expect(screen.getByText("Some link")).toHaveClass("jkl-nav-link--inverted");
-    });
-
     it("should get the supplied className", () => {
         render(<NavLink className="my-class">Some link</NavLink>);
 

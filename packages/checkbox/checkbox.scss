@@ -242,45 +242,6 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
         }
     }
 
-    // <<<< Legacy support for IE11 via "inverted" prop
-    &--inverted {
-        color: $checkbox-color--inverted;
-
-        .jkl-checkbox__input {
-            // Focused state:
-            html:not([data-mousenavigation]) &:focus + .jkl-checkbox__label {
-                color: $checkbox-focus-color--inverted;
-
-                & > .jkl-checkbox__check-mark:before {
-                    box-shadow: 0 0px 0 rem(2px) $checkbox-focus-color--inverted;
-                }
-            }
-            // Disabled state
-            &:disabled + .jkl-checkbox__label {
-                color: $checkbox-disabled-color--inverted;
-            }
-        }
-        .jkl-checkbox__label {
-            &:hover {
-                color: $checkbox-focus-color--inverted;
-            }
-            &:active {
-                color: $checkbox-color--inverted;
-            }
-        }
-        .jkl-checkbox__check-mark {
-            box-shadow: inset 0 0 0 rem(1px) $checkbox-box-default-color--inverted, 0 0 0 rem(1px) transparent;
-            background-color: $checkbox-background-color--inverted;
-        }
-        &.jkl-checkbox--error {
-            .jkl-radio-button__check-mark {
-                background-color: $checkbox-error-background-color;
-                background-color: var(--checkbox-error-background-color);
-            }
-        }
-    }
-    // end of legacy support >>>>
-
     @include compact-mode {
         @include jkl.text-style("body/small-screen");
         @include compact-design();

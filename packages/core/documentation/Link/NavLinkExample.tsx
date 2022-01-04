@@ -10,7 +10,6 @@ export const NavLinkExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
             href="#"
             active={boolValues?.["Aktiv"]}
             back={boolValues?.["Back"]}
-            inverted={boolValues?.["Invertert"]}
         >
             Gå til forsiden
         </NavLink>
@@ -23,8 +22,6 @@ export const navLinkExampleCode = ({ boolValues }: ExampleComponentProps): strin
     href="#"
     active={${boolValues?.["Aktiv"]}}
     back={${boolValues?.["Back"]}}
-    {/* NB: inverted er deprecated */}
-    inverted={${boolValues?.["Invertert"]}}
 >
     Gå til forsiden
 </NavLink>`;

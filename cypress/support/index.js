@@ -66,7 +66,6 @@ const setModeFactory = (knob) => {
 [
     "Compact",
     "Inline",
-    "Invertert",
     "Med feil",
     "Utvidet velger",
     "Med hjelpetekst",
