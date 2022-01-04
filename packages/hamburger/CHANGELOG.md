@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.0 (2022-01-04)
+
+### Bug Fixes
+
+- fjern padding fra hamburger ([72e8899](https://github.com/fremtind/jokul/commit/72e8899fcfaed69225d54a3c18118dea571e5683))
+
+### BREAKING CHANGES
+
+- spacing rundt hamburger er fjernet
+
 ## 7.0.0 (2021-10-21)
 
 ### Features
