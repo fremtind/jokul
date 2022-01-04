@@ -9,7 +9,7 @@ export const TextInputExample: VFC<ExampleComponentProps> = ({ choiceValues, boo
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Fødselsnummer består av 11 siffer" : undefined;
-    const errorLabel = boolValues?.["Med feil"] ? "Du må fylle ut fødselsnummer, 11 siffer." : undefined;
+    const errorLabel = boolValues?.["Med feil"] ? "Du må fylle ut fødselsnummer, 11 siffer" : undefined;
 
     const compact = boolValues?.["Compact"];
     const inline = boolValues?.["Inline"];
