@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.12 (2022-01-04)
+
+### Bug Fixes
+
+- sett korrekt aria-hidden basert på showLoader ([81c2fcc](https://github.com/fremtind/jokul/commit/81c2fcca1cdb9e8eb54ab0bbee63ffd6e04d3fd9)), closes [#2647](https://github.com/fremtind/jokul/issues/2647)
+
 ## 8.0.0 (2021-10-21)
 
 ### chore
