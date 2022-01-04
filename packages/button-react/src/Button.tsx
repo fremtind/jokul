@@ -51,7 +51,7 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                                 <div className="jkl-button__loader">
                                     <Loader
                                         textDescription={loader.textDescription}
-                                        aria-hidden={!!loader.showLoader}
+                                        aria-hidden={!loader.showLoader}
                                         variant={forceCompact ? "small" : "medium"}
                                     />
                                 </div>
