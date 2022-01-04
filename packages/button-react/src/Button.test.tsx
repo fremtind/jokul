@@ -122,5 +122,20 @@ describe("a11y", () => {
 
             expect(results).toHaveNoViolations();
         });
+
+        [false, true].map((showLoader) => {
+            it(`${buttonVariant.name} sets aria-hidden="${String(
+                !showLoader,
+            )}" on loader when showLoader is ${showLoader}`, async () => {
+                const { name, component: Button } = buttonVariant;
+                render(
+                    <Button loader={{ showLoader, textDescription: "Vennligst vent" }} onClick={() => {}}>
+                        {name}
+                    </Button>,
+                );
+                const loader = screen.getByTestId("jkl-loader");
+                expect(loader).toHaveAttribute("aria-hidden", String(!showLoader));
+            });
+        });
     });
 });
