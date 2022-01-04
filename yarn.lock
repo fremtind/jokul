@@ -2382,23 +2382,6 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fremtind/jkl-slider-react@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/@fremtind/jkl-slider-react/-/jkl-slider-react-2.0.8.tgz#a94a118cfac7b6fd9883ceada6027db3c6fde393"
-  integrity sha512-Cl7UPPNW1SAEx0NF6+g168dV7FKg24HDaEM538r5NBGVg/Ey0mYKOaPBvCSZ1HPRct8NdAwbDdgc5IPn/Ae+bw==
-  dependencies:
-    "@fremtind/jkl-core" "^8.3.0"
-    "@fremtind/jkl-slider" "^2.0.6"
-    classnames "^2.3.1"
-    nanoid "^3.1.30"
-
-"@fremtind/jkl-slider@^2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@fremtind/jkl-slider/-/jkl-slider-2.0.6.tgz#3cc889d8af53ef154642bf72724b8a53725dcfcb"
-  integrity sha512-/gtGYHX7inoLKt44cUna6/LkQJnOYND7I5x2nT1sfInAPw0RUpUEx8goy3HGCCj+6eqGsP9vx8UrFfkC/uwPCg==
-  dependencies:
-    "@fremtind/jkl-core" "^8.3.0"
-
 "@gar/promisify@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.2.tgz#30aa825f11d438671d585bd44e7fd564535fc210"
@@ -12308,11 +12291,6 @@ get-port@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/get-port/-/get-port-5.1.1.tgz#0469ed07563479de6efb986baf053dcd7d4e3193"
   integrity sha512-g/Q1aTSDOxFpchXC4i8ZWvxA1lnPqx/JHqcpIw0/LX9T8x/GBbi6YnlN5nhaKIFkT8oFsscUKgDJYxfwfS6QsQ==
-
-get-stdin@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
-  integrity sha1-uWjGsKBDhDJJAui/Gl3zJXmkUP4=
 
 get-stdin@^8.0.0:
   version "8.0.0"

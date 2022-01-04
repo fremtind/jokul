@@ -41,7 +41,6 @@
         "@fremtind/jkl-message-box-react": "^6.2.6",
         "@fremtind/jkl-radio-button-react": "^6.1.5",
         "@fremtind/jkl-react-hooks": "^6.1.7",
-        "@fremtind/jkl-slider-react": "^2.0.8",
         "@fremtind/jkl-text-input-react": "^7.0.22",
         "@fremtind/jkl-validators-util": "^2.2.2",
         "classnames": "^2.2.6",
