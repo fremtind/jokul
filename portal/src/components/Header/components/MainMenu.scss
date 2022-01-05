@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 @include jkl.helper-light-mode-variables {
     --full-screen-menu-bg-color: #{jkl.$color-varde};
@@ -98,12 +98,8 @@
         padding: 0;
         cursor: pointer;
         background-color: transparent;
-        // static font-sizes for IE11:
-        font-size: rem(30px);
-        line-height: rem(40px);
-        // 30px/40px on iPhone X:
-        font-size: relativeSize(30, 375, 812);
-        line-height: relativeSize(40, 375, 812);
+        font-size: relativesize(30, 375, 812);
+        line-height: relativesize(40, 375, 812);
         @include motion("standard");
         transition-property: transform;
 
@@ -129,13 +125,8 @@
         }
 
         @include from-medium-device {
-            // static font-sizes for IE11:
-            font-size: rem(35px);
-            line-height: rem(50px);
-            // 40px/60px on 1440x900 screen:
-            font-size: relativeSize(35);
-            line-height: relativeSize(50);
-
+            font-size: relativesize(35);
+            line-height: relativesize(50);
             position: relative;
             top: unset;
             left: unset;
