@@ -24,7 +24,7 @@ $text-input-focus-color: jkl.$color-granitt;
 $text-input-error-background-color: colors.varslingsfarge("feil");
 $text-input-error-text-color: jkl.$color-granitt;
 $text-input-error-placeholder-color: jkl.$color-stein;
-$text-input-selected-color: transparentize(
+$text-input-selection-color: transparentize(
     $color: $text-input-focus-color,
     $amount: 0.8,
 );
@@ -34,7 +34,7 @@ $text-input-text-color--inverted: jkl.$color-snohvit;
 $text-input-placeholder-color--inverted: jkl.$color-svaberg;
 $text-input-background-color--inverted: jkl.$color-svart;
 $text-input-focus-color--inverted: jkl.$color-snohvit;
-$text-input-selected-color--inverted: transparentize(
+$text-input-selection-color--inverted: transparentize(
     $color: $text-input-focus-color--inverted,
     $amount: 0.75,
 );
@@ -48,8 +48,8 @@ $text-input-selected-color--inverted: transparentize(
     --text-input-error-background-color: #{$text-input-error-background-color};
     --text-input-error-text-color: #{$text-input-error-text-color};
     --text-input-error-placeholder-color: #{$text-input-error-placeholder-color};
-    --text-input-selected-color: #{$text-input-selected-color};
-    --text-input-error-selected-color: #{$text-input-selected-color};
+    --text-input-selection-color: #{$text-input-selection-color};
+    --text-input-error-selection-color-color: #{$text-input-selection-color};
 }
 
 @include dark-mode-variables {
@@ -58,11 +58,11 @@ $text-input-selected-color--inverted: transparentize(
     --text-input-placeholder-color: #{$text-input-placeholder-color--inverted};
     --text-input-background-color: #{$text-input-background-color--inverted};
     --text-input-focus-color: #{$text-input-focus-color--inverted};
-    --text-input-selected-color: #{$text-input-selected-color--inverted};
+    --text-input-selection-color: #{$text-input-selection-color--inverted};
     --text-input-error-background-color: #{$text-input-error-background-color};
     --text-input-error-text-color: #{$text-input-error-text-color};
     --text-input-error-placeholder-color: #{$text-input-error-placeholder-color};
-    --text-input-error-selected-color: #{$text-input-selected-color};
+    --text-input-error-selection-color-color: #{$text-input-selection-color};
 }
 
 @mixin shared-input-styles {
@@ -87,12 +87,12 @@ $text-input-selected-color--inverted: transparentize(
 
     /* Color of text selection */
     &::selection {
-        background-color: $text-input-selected-color;
-        background-color: var(--text-input-selected-color);
+        background-color: $text-input-selection-color;
+        background-color: var(--text-input-selection-color);
 
         [data-theme="dark"] & {
-            background-color: $text-input-selected-color--inverted;
-            background-color: var(--text-input-selected-color);
+            background-color: $text-input-selection-color--inverted;
+            background-color: var(--text-input-selection-color);
         }
     }
 
@@ -111,8 +111,8 @@ $text-input-selected-color--inverted: transparentize(
 
         /* Color of text selection */
         &::selection {
-            background-color: $text-input-selected-color;
-            background-color: var(--text-input-error-selected-color);
+            background-color: $text-input-selection-color;
+            background-color: var(--text-input-error-selection-color-color);
         }
 
         & ~ .jkl-text-input__action-button {
@@ -146,8 +146,8 @@ $text-input-selected-color--inverted: transparentize(
 
         /* Color of text selection */
         &::selection {
-            background-color: $text-input-selected-color;
-            background-color: var(--text-input-error-selected-color);
+            background-color: $text-input-selection-color;
+            background-color: var(--text-input-error-selection-color-color);
         }
     }
 }
