@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import cx from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageBoxProps, ErrorMessageBox } from "./MessageBox";
@@ -22,6 +22,13 @@ const defaultMessageBoxProps = {
 export const FormErrorMessageBox = forwardRef<HTMLDivElement, FormErrorMessageBoxProps>(
     (props, ref): JSX.Element | null => {
         const { className, errors, isSubmitted, isValid, messageBoxProps, ...rest } = props;
+        const previousErrors = useRef<Array<string | undefined>>(errors);
+
+        useEffect(() => {
+            previousErrors.current = errors;
+        }, [errors]);
+
+        const hasNewErrors = errors.length > previousErrors.current.length;
 
         return (
             <AnimatePresence>
@@ -34,7 +41,11 @@ export const FormErrorMessageBox = forwardRef<HTMLDivElement, FormErrorMessageBo
                         exit={{ opacity: 0 }}
                         {...rest}
                     >
-                        <ErrorMessageBox {...defaultMessageBoxProps} {...messageBoxProps}>
+                        <ErrorMessageBox
+                            {...defaultMessageBoxProps}
+                            {...messageBoxProps}
+                            role={hasNewErrors ? "alert" : "presentation"} // Unngå å repetere hele oppsummeringen etter hvert som feilene rettes
+                        >
                             <ul className="jkl-list">
                                 {errors
                                     .filter((error) => typeof error !== "undefined")
