@@ -18,7 +18,6 @@ export const ComponentExample: VFC<Props> = ({ component, ...rest }) => {
 
     return (
         <ExampleBase
-            responsiveLayout={false}
             component={({ boolValues, choiceValues }) => <C boolValues={boolValues} choiceValues={choiceValues} />}
             {...rest}
         />

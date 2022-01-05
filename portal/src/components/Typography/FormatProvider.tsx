@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
-import { ComponentExample, FlowExample, ResponsiveExample } from "../../../../doc-utils";
+import { ComponentExample } from "../../../../doc-utils";
 import { InfoMessageBox } from "@fremtind/jkl-message-box-react";
 import {
     Table,
@@ -71,12 +71,10 @@ const components = {
     Grid,
     Ingress,
     ComponentExample,
-    FlowExample,
     DoDontExample,
     ExampleVideo,
     Experimental,
     InfoMessageBox,
-    ResponsiveExample,
     CodeDemo,
     PortalImage,
 };
