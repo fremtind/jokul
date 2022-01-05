@@ -51,10 +51,11 @@ export const ExpandButton = ({
             className={cx("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
                 "jkl-expand-button--compact": forceCompact,
+                "jkl-expand-button--icon-only": !children,
             })}
             {...rest}
         >
-            <ContentWrapper>{children}</ContentWrapper>
+            {children && <ContentWrapper>{children}</ContentWrapper>}
             <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
         </button>
     );
