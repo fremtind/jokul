@@ -1,16 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
-$focus-ring-width: jkl.rem(2px);
-$expand-button-focus-color: jkl.$color-granitt;
-$expand-button-focus-color--inverted: jkl.$color-snohvit;
-
-@include jkl.helper-light-mode-variables {
-    --expand-button-focus-color: #{$expand-button-focus-color};
-}
-
-@include jkl.helper-dark-mode-variables {
-    --expand-button-focus-color: #{$expand-button-focus-color--inverted};
+@mixin _expanded-arrow($px) {
+    .jkl-expand-button__arrow {
+        transform: translateY(jkl.rem($px));
+    }
 }
 
 .jkl-table-cell {
@@ -64,5 +58,19 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
 
     .jkl-table--collapse-to-list[data-collapse] &::before {
         @include responsive-table-header;
+    }
+}
+
+.jkl-table-row--expandable {
+    &:hover,
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
+        .jkl-table-row-expand-button {
+            @include _expanded-arrow(3px);
+            color: var(--expand-button-focus-color);
+
+            &--expanded {
+                @include _expanded-arrow(0px);
+            }
+        }
     }
 }
