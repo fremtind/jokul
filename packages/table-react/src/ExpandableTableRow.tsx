@@ -59,15 +59,23 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                         }
                     })}
                 </tr>
-                {React.Children.map(expandedChildren, (child) => {
-                    if (React.isValidElement(child)) {
-                        return React.cloneElement(child, {
-                            className: "jkl-expandable-table-row__expanded-row",
-                            ref: animationRef,
-                        });
-                    }
-                    return child;
-                })}
+                <tr>
+                    <td colSpan={100}>
+                        <div
+                            ref={animationRef}
+                            className={cx("jkl-expandable-table-row__expanded-row", {
+                                ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
+                            })}
+                        >
+                            {React.Children.map(expandedChildren, (child) => {
+                                if (React.isValidElement(child)) {
+                                    return React.cloneElement(child, {});
+                                }
+                                return child;
+                            })}
+                        </div>
+                    </td>
+                </tr>
             </>
         );
     }

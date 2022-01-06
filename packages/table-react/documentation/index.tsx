@@ -68,7 +68,7 @@ renderExample(
             title="Tabell med ekspanderbare rader"
             component={ExpandableTableExample}
             knobs={{
-                boolProps: ["Kompakt"],
+                boolProps: ["Kompakt", "Klikkbar"],
                 choiceProps: [
                     {
                         name: "Mobilvisning",

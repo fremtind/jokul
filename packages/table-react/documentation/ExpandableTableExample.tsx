@@ -15,6 +15,7 @@ const rows = [
 const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const compact = boolValues?.["Kompakt"];
     const headless = boolValues?.["Skjul overskrift"];
+    const clickable = boolValues?.["Klikkbar"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
 
@@ -35,6 +36,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                 {rows.map((row, rowIndex) => (
                     <ExpandableTableRow
                         key={rowIndex}
+                        clickable={clickable ? { onClick: (e) => console.log(e) } : undefined}
                         expandedChildren={
                             <Table fullWidth>
                                 <TableBody>
