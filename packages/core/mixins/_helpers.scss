@@ -1,3 +1,5 @@
+@use "sass:string";
+@use "sass:color";
 @use "../variables/typography";
 
 @mixin light-mode-variables {
@@ -26,8 +28,8 @@
 
 @function urlencodecolor($color) {
     @if type-of($color) == "color" and str-index(#{$color}, "#") == 1 {
-        $hex: str-slice(ie-hex-str($color), 4);
-        $converted-color: unquote("#{$hex}");
+        $hex: string.slice(color.ie-hex-str($color), 4);
+        $converted-color: string.unquote("#{$hex}");
 
         @return "%23" + $converted-color;
     }
@@ -80,7 +82,6 @@
     &:focus,
     &:link,
     &:visited {
-        outline: 0;
         outline: 0 !important;
         outline-style: none;
     }
@@ -99,7 +100,6 @@
     a:focus,
     a:link,
     a:visited {
-        outline: 0;
         outline: 0 !important;
         outline-style: none;
     }

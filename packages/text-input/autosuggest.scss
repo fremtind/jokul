@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
 $controller-button-padding: jkl.$spacing-s;
 
@@ -55,6 +55,26 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
         }
     }
 
+    &__input-group > input[aria-invalid="true"],
+    &__input-group > input:invalid {
+        & ~ .jkl-autosuggest__controller-button {
+            color: $autosuggest-error-placeholder-color;
+            color: var(--autosuggest-error-placeholder-color);
+
+            &:hover {
+                color: $autosuggest-error-text-color;
+                color: var(--autosuggest-error-text-color);
+            }
+
+            @include keyboard-navigation {
+                &:focus::after {
+                    box-shadow: inset 0 0 0 rem(2px) $autosuggest-error-text-color;
+                    box-shadow: inset 0 0 0 rem(2px) var(--autosuggest-error-text-color);
+                }
+            }
+        }
+    }
+
     &__no-hits-message {
         margin-bottom: jkl.$spacing-m;
     }
@@ -90,30 +110,6 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
                     left: rem(8px);
                     box-shadow: inset 0 0 0 rem(2px) $autosuggest-focus-color;
                     box-shadow: inset 0 0 0 rem(2px) var(--autosuggest-focus-color);
-                }
-            }
-        }
-    }
-
-    &__input-group > input {
-        &[aria-invalid="true"],
-        &:invalid {
-            & ~ .jkl-autosuggest__controller-button {
-                color: $autosuggest-error-placeholder-color;
-                color: var(--autosuggest-error-placeholder-color);
-
-                &:hover {
-                    color: $autosuggest-error-text-color;
-                    color: var(--autosuggest-error-text-color);
-                }
-
-                &:focus {
-                    @include keyboard-navigation {
-                        &::after {
-                            box-shadow: inset 0 0 0 rem(2px) $autosuggest-error-text-color;
-                            box-shadow: inset 0 0 0 rem(2px) var(--autosuggest-error-text-color);
-                        }
-                    }
                 }
             }
         }

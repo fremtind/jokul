@@ -99,8 +99,8 @@
         padding: 0;
         cursor: pointer;
         background-color: transparent;
-        font-size: relativesize(30, 375, 812);
-        line-height: relativesize(40, 375, 812);
+        font-size: relative-size(30, 375, 812);
+        line-height: relative-size(40, 375, 812);
         @include motion("standard");
         transition-property: transform;
 
@@ -127,8 +127,8 @@
         }
 
         @include from-medium-device {
-            font-size: relativesize(35);
-            line-height: relativesize(50);
+            font-size: relative-size(35);
+            line-height: relative-size(50);
             position: relative;
             top: unset;
             left: unset;

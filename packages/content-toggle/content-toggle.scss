@@ -1,9 +1,9 @@
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 $animation-duration: 300ms;
 $half-animation-duration: calc(#{$animation-duration} / 2);
 
-@keyframes fadeOut {
+@keyframes fade-out {
     0% {
         opacity: 1;
         visibility: visible;
@@ -15,7 +15,7 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
     }
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
     0% {
         opacity: 0;
         visibility: hidden;
@@ -74,13 +74,13 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
 
     &__first {
         .jkl-content-toggle--fade [data-show="first"] & {
-            animation-name: fadeIn;
+            animation-name: fade-in;
             animation-delay: $half-animation-duration;
             visibility: hidden;
         }
 
         .jkl-content-toggle--fade [data-show="second"] & {
-            animation-name: fadeOut;
+            animation-name: fade-out;
             animation-delay: 0ms;
         }
     }
@@ -91,13 +91,13 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
         }
 
         .jkl-content-toggle--fade [data-show="first"] & {
-            animation-name: fadeOut;
+            animation-name: fade-out;
             animation-delay: 0ms;
             visibility: visible;
         }
 
         .jkl-content-toggle--fade [data-show="second"] & {
-            animation-name: fadeIn;
+            animation-name: fade-in;
             animation-delay: $half-animation-duration;
         }
     }

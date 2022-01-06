@@ -24,7 +24,7 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
     --expand-button-focus-color: #{$expand-button-focus-color--inverted};
 }
 
-@mixin _expanded-arrow($px) {
+@mixin expanded-arrow($px) {
     .jkl-expand-button__arrow {
         transform: translateY(jkl.rem($px));
     }
@@ -65,7 +65,7 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
 
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
-        @include _expanded-arrow(3px);
+        @include expanded-arrow(3px);
         color: var(--expand-button-focus-color);
     }
 
@@ -82,11 +82,11 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
     }
 
     &--expanded {
-        @include _expanded-arrow(3px);
+        @include expanded-arrow(3px);
         @include mixins.no-grow-bold;
 
         &:hover {
-            @include _expanded-arrow(0);
+            @include expanded-arrow(0);
         }
     }
 

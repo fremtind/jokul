@@ -1,10 +1,12 @@
+@use "sass:color";
+@use "sass:map";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions";
+@import "~@fremtind/jkl-core/mixins/_all";
 
-@import "./autosuggest.scss";
+@import "./autosuggest";
 
 $text-input-height: rem(48px);
 $text-input-height--compact: rem(40px);
@@ -24,9 +26,9 @@ $text-input-focus-color: jkl.$color-granitt;
 $text-input-error-background-color: colors.varslingsfarge("feil");
 $text-input-error-text-color: jkl.$color-granitt;
 $text-input-error-placeholder-color: jkl.$color-stein;
-$text-input-selection-color: transparentize(
+$text-input-selection-color: color.scale(
     $color: $text-input-focus-color,
-    $amount: 0.8,
+    $alpha: -80%,
 );
 
 $text-input-border-color--inverted: jkl.$color-svaberg;
@@ -34,9 +36,9 @@ $text-input-text-color--inverted: jkl.$color-snohvit;
 $text-input-placeholder-color--inverted: jkl.$color-svaberg;
 $text-input-background-color--inverted: jkl.$color-svart;
 $text-input-focus-color--inverted: jkl.$color-snohvit;
-$text-input-selection-color--inverted: transparentize(
+$text-input-selection-color--inverted: color.scale(
     $color: $text-input-focus-color--inverted,
-    $amount: 0.75,
+    $alpha: -75%,
 );
 
 @include light-mode-variables {
@@ -380,7 +382,7 @@ $text-input-selection-color--inverted: transparentize(
 
         &:focus-within .jkl-text-area__counter {
             opacity: 1;
-            transition-delay: map-get($jkl--timings, "productive"); // Fade in once field is expanded
+            transition-delay: map.get($jkl--timings, "productive"); // Fade in once field is expanded
         }
 
         [aria-invalid="true"] ~ .jkl-text-area__counter {

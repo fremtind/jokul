@@ -1,9 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
-@import "./toggle-slider.scss";
+@import "./toggle-slider";
 
 $toggle-width: rem(48px);
 $toggle-height: rem(24px);
@@ -102,7 +102,7 @@ $expanding-pill-background-color--inverted: jkl.$color-fjellgra;
         left: 0;
         position: absolute;
         top: 0;
-        transition: top 150ms ease 50ms, height 150ms ease 50ms, width 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: top 150ms ease 75ms, height 150ms ease 75ms, width 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
         width: $toggle-height;
 
         &::after {

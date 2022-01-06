@@ -1,11 +1,11 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
-@import "./table-caption.scss";
-@import "./table-head.scss";
-@import "./table-row.scss";
-@import "./table-header.scss";
-@import "./table-cell.scss";
+@import "./table-caption";
+@import "./table-head";
+@import "./table-row";
+@import "./table-header";
+@import "./table-cell";
 
 @mixin responsive-table {
     display: block;

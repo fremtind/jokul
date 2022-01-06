@@ -1,8 +1,9 @@
+@use "sass:color";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
 $transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
 
@@ -23,9 +24,9 @@ $select-focus-color: jkl.$color-granitt;
 $select-error-background-color: colors.varslingsfarge("feil");
 $select-error-text-color: jkl.$color-granitt;
 $select-hover-option-color: jkl.$color-stein;
-$select-search-input-selection-color: transparentize(
+$select-search-input-selection-color: color.scale(
     $color: $select-focus-color,
-    $amount: 0.8,
+    $alpha: -80%,
 );
 
 $select-border-color--inverted: jkl.$color-svaberg;
@@ -35,9 +36,9 @@ $select-open-background-color--inverted: jkl.$color-svart;
 $select-focus-color--inverted: jkl.$color-snohvit;
 $select-error-background-color--inverted: jkl.$color-feil--darkbg;
 $select-hover-option-color--inverted: jkl.$color-svaberg;
-$select-search-input-selection-color--inverted: transparentize(
+$select-search-input-selection-color--inverted: color.scale(
     $color: $select-focus-color--inverted,
-    $amount: 0.75,
+    $alpha: -75%,
 );
 
 @include jkl.helper-light-mode-variables {

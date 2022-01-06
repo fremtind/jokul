@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 :root,
 [data-theme="light"] {
@@ -34,7 +34,6 @@
     &__card {
         @include reset-outline;
         cursor: pointer;
-        background-color: transparent;
         text-align: left;
         position: absolute;
         bottom: jkl.$spacing-xl;
@@ -47,9 +46,6 @@
 
         @include motion("standard", "expressive");
         transition-property: box-shadow;
-
-        @include small-device {
-        }
 
         &__arrow {
             @include motion("standard", "expressive");

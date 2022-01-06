@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 .jkl-portal-frontpage {
     section {
@@ -90,11 +90,10 @@
 
         &-principles {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            grid-template-areas:
-                "heading heading"
-                "diamond principle";
+            grid-template:
+                "heading heading" auto
+                "diamond principle" auto
+                / 1fr 1fr;
 
             &__principle {
                 margin-bottom: jkl.$spacing-4xl;

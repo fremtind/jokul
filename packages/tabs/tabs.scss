@@ -1,5 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 $tab-text-color: jkl.$color-granitt;
 $tab-text-color--inverted: jkl.$color-snohvit;

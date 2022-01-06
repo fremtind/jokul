@@ -1,8 +1,8 @@
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
 $webfonts-dir: "../../static/fonts";
-@import "~@fremtind/jkl-webfonts/webfonts.scss";
+@import "~@fremtind/jkl-webfonts/webfonts";
 
 $header-height: rem(96px);
 

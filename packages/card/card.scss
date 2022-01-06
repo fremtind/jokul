@@ -1,8 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/functions";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-button/button.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-button/button";
 
 $card-bg-color: jkl.$color-snohvit;
 $card-corner-radius: rem(2px);
@@ -14,7 +14,7 @@ $card-padding-normal: jkl.$spacing-l;
     overflow: hidden;
     display: block;
     border: none;
-    max-width: 60ch; //TODO: find out if we want this
+    max-width: 60ch; // TODO: find out if we want this
     background-color: $card-bg-color;
     border-radius: $card-corner-radius;
     box-shadow: jkl.$drop-shadow--medium;

@@ -2,7 +2,7 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
 
-@mixin _horizontal-list {
+@mixin horizontal-list {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-columns: fit-content(40%) 1fr;
@@ -52,6 +52,6 @@
     }
 
     @include mix.from-medium-device {
-        @include _horizontal-list;
+        @include horizontal-list;
     }
 }

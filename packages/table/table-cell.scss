@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
-@mixin _expanded-arrow($px) {
+@mixin expanded-arrow($px) {
     .jkl-expand-button__arrow {
         transform: translateY(jkl.rem($px));
     }
@@ -77,11 +77,11 @@
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         .jkl-table-row-expand-button {
-            @include _expanded-arrow(3px);
+            @include expanded-arrow(3px);
             color: var(--expand-button-focus-color);
 
             &--expanded {
-                @include _expanded-arrow(0px);
+                @include expanded-arrow(0);
             }
         }
     }

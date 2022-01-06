@@ -1,13 +1,13 @@
 @use "sass:color";
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
 $jkl-slider-offset: 3px;
 $jkl-slider-width: 170px;
-$jkl-slider-offset__pill--left: calc(#{$jkl-slider-offset} + 1px);
-$jkl-slider-offset__pill--right: calc(calc(#{$jkl-slider-width} / 2) - #{$jkl-slider-offset});
+$jkl-slider-pill-offset--left: calc(#{$jkl-slider-offset} + 1px);
+$jkl-slider-pill-offset--right: calc(calc(#{$jkl-slider-width} / 2) - #{$jkl-slider-offset});
 $jkl-slider-rounded: rem(100px);
 
 @include jkl.helper-light-mode-variables {
@@ -37,7 +37,6 @@ $jkl-slider-focus-ring-width: rem(2px);
 
     .jkl-toggle-slider {
         @include reset-outline;
-        background-color: transparent;
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
             box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
@@ -66,7 +65,7 @@ $jkl-slider-focus-ring-width: rem(2px);
             display: block;
             position: absolute;
             top: $jkl-slider-offset;
-            transform: translateX($jkl-slider-offset__pill--right);
+            transform: translateX($jkl-slider-pill-offset--right);
             transition-property: transform;
             @include motion(standard, expressive);
             border-radius: $jkl-slider-rounded;
@@ -116,7 +115,7 @@ $jkl-slider-focus-ring-width: rem(2px);
 
         &--not-checked {
             & > .jkl-toggle-slider__pill {
-                transform: translateX($jkl-slider-offset__pill--left);
+                transform: translateX($jkl-slider-pill-offset--left);
             }
 
             & > .jkl-toggle-slider--left {
