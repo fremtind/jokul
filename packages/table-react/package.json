@@ -35,6 +35,7 @@
         "@babel/runtime": "^7.16.7",
         "@fremtind/jkl-core": "^8.3.3",
         "@fremtind/jkl-expand-button-react": "^1.1.0",
+        "@fremtind/jkl-react-hooks": "^6.1.4",
         "@fremtind/jkl-table": "^5.1.8"
     },
     "devDependencies": {

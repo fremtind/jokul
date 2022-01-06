@@ -90,8 +90,7 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
 
     &--icon-only {
         .jkl-expand-button__arrow {
-            margin-right: jkl.$spacing-xs;
-            margin-left: jkl.$spacing-xs;
+            margin: jkl.$spacing-2xs jkl.$spacing-xs;
         }
     }
 

@@ -33,7 +33,21 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
             </TableHead>
             <TableBody>
                 {rows.map((row, rowIndex) => (
-                    <ExpandableTableRow key={rowIndex} expandedChildren={<>Hello, world!</>}>
+                    <ExpandableTableRow
+                        key={rowIndex}
+                        expandedChildren={
+                            <Table fullWidth>
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell>Hello, world!</TableCell>
+                                        <TableCell>Hello, world!</TableCell>
+                                        <TableCell>Hello, world!</TableCell>
+                                        <TableCell>Hello, world!</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        }
+                    >
                         {row.map((cell, cellIndex) => (
                             <TableCell
                                 key={cellIndex}
@@ -44,7 +58,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                                 {cell}
                             </TableCell>
                         ))}
-                        <ExpandableTableRowCell data-th="Mer informasjon" />
+                        <ExpandableTableRowCell data-th="Mer informasjon" verticalAlign="center" compact={compact} />
                     </ExpandableTableRow>
                 ))}
             </TableBody>

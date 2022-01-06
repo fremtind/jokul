@@ -59,9 +59,13 @@
     .jkl-table--collapse-to-list[data-collapse] &::before {
         @include responsive-table-header;
     }
+
+    .jkl-table-row-expand-button {
+        display: flex;
+    }
 }
 
-.jkl-table-row--expandable {
+.jkl-table-row--expandable.jkl-table-row--clickable {
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         .jkl-table-row-expand-button {

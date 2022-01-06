@@ -6,6 +6,7 @@ import { TableCell, TableCellProps } from ".";
 interface ExpandableTableRowCellProps extends TableCellProps {
     isOpen?: boolean;
     onClick?: () => void;
+    compact?: boolean;
 }
 
 export const ExpandableTableRowCell: React.FC<ExpandableTableRowCellProps> = ({
@@ -13,6 +14,7 @@ export const ExpandableTableRowCell: React.FC<ExpandableTableRowCellProps> = ({
     onClick,
     children,
     className,
+    compact,
     ...rest
 }) => {
     if (isOpen === undefined || typeof onClick !== "function") {
@@ -25,6 +27,7 @@ export const ExpandableTableRowCell: React.FC<ExpandableTableRowCellProps> = ({
                 className={cx("jkl-table-row-expand-button", {
                     ["jkl-table-row-expand-button--expanded"]: isOpen,
                 })}
+                forceCompact={compact}
                 isExpanded={isOpen}
                 onClick={(e) => {
                     e.stopPropagation();

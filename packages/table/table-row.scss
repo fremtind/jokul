@@ -158,3 +158,12 @@ $table-row-focus-color--inverted: jkl.$color-snohvit;
         }
     }
 }
+
+.jkl-expandable-table-row__expanded-row {
+    display: none;
+    transition: height 0.2s ease-in-out;
+
+    &--expanded {
+        display: table-cell;
+    }
+}

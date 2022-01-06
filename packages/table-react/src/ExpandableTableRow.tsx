@@ -1,22 +1,11 @@
+import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
+import React, { FC, useState } from "react";
 import { ExpandableTableRowCell } from "./ExpandableTableRowCell";
 import { useTableContext } from "./tableContext";
 import { useTableSectionContext } from "./tableSectionContext";
-
-export interface ClickableRowProps {
-    markClickedRows?: boolean;
-    /** Lar deg kontrollere radens tilstand untenfra */
-    isClicked?: boolean;
-    onClick: (e: React.MouseEvent<HTMLTableRowElement, MouseEvent> | React.KeyboardEvent<HTMLTableRowElement>) => void;
-}
-
-export interface ExpandableTableRowProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement> {
-    /**
-     * Gir raden interaktivitet og en click-handler.
-     */
-    clickable?: ClickableRowProps;
+import { TableRowProps } from "./TableRow";
+export interface ExpandableTableRowProps extends TableRowProps {
     expandedChildren: React.ReactNode;
 }
 
@@ -32,6 +21,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
 
     const [isOpen, setIsOpen] = useState(false);
     const [clicked, setClicked] = useState(clickable?.isClicked || false);
+    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
 
     if (isTableBody && clickable) {
         return (
@@ -69,15 +59,15 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                         }
                     })}
                 </tr>
-                {isOpen &&
-                    React.Children.map(expandedChildren, (child) => {
-                        if (React.isValidElement(child)) {
-                            return React.cloneElement(child, {
-                                className: "jkl-expandable-table-row__expanded-row",
-                            });
-                        }
-                        return child;
-                    })}
+                {React.Children.map(expandedChildren, (child) => {
+                    if (React.isValidElement(child)) {
+                        return React.cloneElement(child, {
+                            className: "jkl-expandable-table-row__expanded-row",
+                            ref: animationRef,
+                        });
+                    }
+                    return child;
+                })}
             </>
         );
     }
@@ -103,15 +93,23 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                     }
                 })}
             </tr>
-            {isOpen &&
-                React.Children.map(expandedChildren, (child) => {
-                    if (React.isValidElement(child)) {
-                        return React.cloneElement(child, {
-                            className: "jkl-expandable-table-row__expanded-row",
-                        });
-                    }
-                    return child;
-                })}
+            <tr>
+                <td colSpan={100}>
+                    <div
+                        ref={animationRef}
+                        className={cx("jkl-expandable-table-row__expanded-row", {
+                            ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
+                        })}
+                    >
+                        {React.Children.map(expandedChildren, (child) => {
+                            if (React.isValidElement(child)) {
+                                return React.cloneElement(child, {});
+                            }
+                            return child;
+                        })}
+                    </div>
+                </td>
+            </tr>
         </>
     );
 };
