@@ -46,6 +46,10 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                     }
                 })}
             </TableRow>
+            {/*
+                Use a table row with a single as wide as possible cell to contain content. This allows
+                using useAnimatedHeight to animate the row height.
+            */}
             <tr>
                 <td colSpan={100}>
                     <div ref={animationRef} className={childWrapperClassName}>
