@@ -85,9 +85,11 @@
         max-width: 100%;
         min-width: initial;
         flex-direction: column;
+
         &__example-wrapper {
             width: initial;
         }
+
         &__example-options {
             padding: 0;
             padding-top: jkl.$spacing-s;

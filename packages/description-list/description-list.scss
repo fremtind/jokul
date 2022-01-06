@@ -11,6 +11,7 @@
         grid-column-start: 1;
         margin: 0;
         overflow-wrap: break-word;
+
         &:not(:first-of-type) {
             margin-top: jkl.$spacing-xs;
         }
@@ -36,6 +37,7 @@
     &__term {
         font-weight: jkl.$typography-weight-bold;
         margin-bottom: jkl.$spacing-2xs;
+
         &:not(:first-child) {
             margin-top: jkl.$spacing-s;
         }
@@ -49,7 +51,7 @@
         margin-top: jkl.$spacing-2xs;
     }
 
-    @include mix.from-medium-device() {
+    @include mix.from-medium-device {
         @include _horizontal-list;
     }
 }

@@ -41,7 +41,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-button {
-        @include reset-outline();
+        @include reset-outline;
         background-color: transparent;
         padding: 0;
         margin-left: auto;
@@ -108,6 +108,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
+
     to {
         opacity: 0;
         transform: translate3d(0, -50%, 0);

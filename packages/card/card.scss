@@ -26,6 +26,7 @@ $card-padding-normal: jkl.$spacing-l;
     &__title {
         margin-bottom: jkl.$spacing-l;
     }
+
     &__action {
         width: 100%;
         display: flex;
@@ -33,28 +34,34 @@ $card-padding-normal: jkl.$spacing-l;
         margin-bottom: jkl.$spacing-l;
         margin-top: jkl.$spacing-l;
     }
+
     &__media {
         margin: -$card-padding-normal;
         margin-bottom: jkl.$spacing-l;
         width: calc(100% + 2 * #{$card-padding-normal});
     }
+
     &--dark {
         background-color: jkl.$color-granitt;
         color: jkl.$color-snohvit;
     }
+
     &--clickable:hover,
     &--clickable:focus {
         box-shadow: jkl.$drop-shadow--large;
         transform: translateY(-0.125rem);
     }
+
     &--clickable:focus-within {
         @include keyboard-navigation {
-            box-shadow: 0 0px 0 rem(2px) jkl.$color-focus-color;
+            box-shadow: 0 0 0 rem(2px) jkl.$color-focus-color;
         }
     }
+
     &--clickable:active {
         box-shadow: 0 0 0 0 transparent;
     }
+
     &__link {
         text-decoration: none;
         color: initial;

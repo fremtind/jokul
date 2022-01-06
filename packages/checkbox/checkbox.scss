@@ -76,6 +76,7 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
         margin: (($checkbox-height--compact - $checkbox-box-size--compact) * 0.5) 0;
         margin-right: jkl.$spacing-xs;
     }
+
     .jkl-checkbox__check-text {
         margin: (($checkbox-height--compact - $checkbox-line-height--compact) * 0.5) 0;
         transform: translate3d(0, 0, 0);
@@ -109,9 +110,10 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
             color: var(--checkbox-focus-color);
 
             & > .jkl-checkbox__check-mark::before {
-                box-shadow: 0 0px 0 rem(2px) $checkbox-focus-color;
-                box-shadow: 0 0px 0 rem(2px) var(--checkbox-focus-color);
+                box-shadow: 0 0 0 rem(2px) $checkbox-focus-color;
+                box-shadow: 0 0 0 rem(2px) var(--checkbox-focus-color);
             }
+
             & > .jkl-checkbox__check-mark {
                 background-color: $checkbox-focus-background-color;
                 background-color: var(--checkbox-focus-background-color);
@@ -244,10 +246,10 @@ $checkbox-box-default-color--inverted: jkl.$color-svaberg;
 
     @include compact-mode {
         @include jkl.text-style("body/small-screen");
-        @include compact-design();
+        @include compact-design;
     }
 
     @include small-device {
-        @include compact-design();
+        @include compact-design;
     }
 }

@@ -64,6 +64,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         &::before {
             top: $hamburger-line-spacing;
         }
+
         &::after {
             bottom: $hamburger-line-spacing;
         }
@@ -150,6 +151,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
                 top: 0;
                 transform: rotate(-45deg) scale3d(1.25, 1, 1);
             }
+
             .jkl-hamburger__lines::after {
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);

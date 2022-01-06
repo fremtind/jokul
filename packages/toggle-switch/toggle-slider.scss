@@ -6,7 +6,7 @@
 $jkl-slider-offset: 3px;
 $jkl-slider-width: 170px;
 $jkl-slider-offset__pill--left: calc(#{$jkl-slider-offset} + 1px);
-$jkl-slider-offset__pill--right: calc(calc(#{$jkl-slider-width}/ 2) - #{$jkl-slider-offset});
+$jkl-slider-offset__pill--right: calc(calc(#{$jkl-slider-width} / 2) - #{$jkl-slider-offset});
 $jkl-slider-rounded: rem(100px);
 
 @include jkl.helper-light-mode-variables {
@@ -69,7 +69,7 @@ $jkl-slider-focus-ring-width: rem(2px);
             transition-property: transform;
             @include motion(standard, expressive);
             border-radius: $jkl-slider-rounded;
-            box-shadow: 0 0 rem(4px) rgba(jkl.$color-svart, 0.15);
+            box-shadow: 0 0 rem(4px) rgb(jkl.$color-svart 0.15);
         }
 
         &--left,
@@ -86,6 +86,7 @@ $jkl-slider-focus-ring-width: rem(2px);
         &--left {
             margin-left: calc(#{$jkl-slider-offset} * 2);
         }
+
         &--right {
             margin-right: calc(#{$jkl-slider-offset} * 2);
         }

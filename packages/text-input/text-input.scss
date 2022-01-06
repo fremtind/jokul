@@ -123,6 +123,7 @@ $text-input-selection-color--inverted: transparentize(
                 color: $text-input-error-text-color;
                 color: var(--text-input-error-text-color);
             }
+
             &:focus {
                 @include keyboard-navigation {
                     &::after {
@@ -217,6 +218,7 @@ $text-input-selection-color--inverted: transparentize(
             color: $text-input-focus-color;
             color: var(--text-input-focus-color);
         }
+
         &:focus {
             @include keyboard-navigation {
                 position: relative;
@@ -256,9 +258,11 @@ $text-input-selection-color--inverted: transparentize(
             @include jkl.text-style("body/small-screen");
             height: $text-input-height--compact;
         }
+
         .jkl-text-input__action-button {
             height: $text-input-height--compact;
         }
+
         .jkl-text-input__action-icon {
             width: rem(18px);
         }
@@ -397,6 +401,7 @@ $text-input-selection-color--inverted: transparentize(
                     max-height: 100%;
                 }
             }
+
             .jkl-text-area__text-area {
                 @include jkl.text-style("body/small-screen");
                 height: calc($text-input-height - (2 * jkl.$spacing-xs));
@@ -415,6 +420,7 @@ $text-input-selection-color--inverted: transparentize(
         @include small-device {
             height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
         }
+
         .jkl-text-input--compact & {
             height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
         }

@@ -78,7 +78,7 @@ $link-active-color--inverted: jkl.$color-snohvit;
     in a new window or tab: */
     &[target="_blank"],
     &--external {
-        &:after {
+        &::after {
             content: $north-east-arrow;
         }
     }
@@ -102,7 +102,7 @@ $link-active-color--inverted: jkl.$color-snohvit;
         transition-property: transform;
     }
 
-    &:after {
+    &::after {
         content: $right-arrow;
         padding-left: rem(2px);
     }
@@ -110,7 +110,7 @@ $link-active-color--inverted: jkl.$color-snohvit;
     &:hover:not(:focus) {
         color: var(--link-hover-color);
 
-        &:after {
+        &::after {
             transform: translateX(33%);
         }
     }
@@ -119,7 +119,7 @@ $link-active-color--inverted: jkl.$color-snohvit;
         @include border-gradient(var(--link-color));
         @include no-grow-bold;
 
-        &:after {
+        &::after {
             transform: translateX(33%);
         }
     }
@@ -136,18 +136,18 @@ $link-active-color--inverted: jkl.$color-snohvit;
     padding-left: $left-arrow-focus-margin;
     margin-left: -#{$left-arrow-focus-margin};
 
-    &:after {
+    &::after {
         display: none;
     }
 
-    &:before {
+    &::before {
         content: $left-arrow;
         padding-right: rem(4px);
     }
 
     &:hover,
     html:not([data-mousenavigation]) &:focus {
-        &:before {
+        &::before {
             transform: translateX(-33%);
         }
     }

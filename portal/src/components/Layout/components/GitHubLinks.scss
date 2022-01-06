@@ -5,7 +5,7 @@
     margin-bottom: jkl.$spacing-2xl;
 
     &__link {
-        &:after {
+        &::after {
             content: "\2197";
         }
 

@@ -18,13 +18,13 @@
         height: 100%;
         width: 100%;
 
-        &:after {
+        &::after {
             opacity: 1;
             content: "_";
         }
 
         &--done {
-            &:after {
+            &::after {
                 @include motion("exit");
                 transition-property: opacity;
                 opacity: 0;

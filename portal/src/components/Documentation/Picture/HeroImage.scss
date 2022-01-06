@@ -25,13 +25,14 @@
     overflow: hidden;
     @include small-device {
         height: 90vh;
+
         &__card {
             max-width: 100%;
         }
     }
 
     &__card {
-        @include reset-outline();
+        @include reset-outline;
         cursor: pointer;
         background-color: transparent;
         text-align: left;
@@ -57,6 +58,7 @@
 
         &:hover {
             box-shadow: jkl.$drop-shadow--large;
+
             .jkl-portal-hero__card__arrow {
                 color: var(--hero-hover-color);
                 transform: translateY(10px);

@@ -75,6 +75,7 @@ $arrow-width: rem(13px);
 
         &:hover {
             cursor: pointer;
+
             .jkl-accordion-item__title__arrow {
                 transform: translateY(calc(-50% + #{rem(3px)}));
             }
@@ -87,11 +88,13 @@ $arrow-width: rem(13px);
 
     &--expanded {
         background-color: var(--accordion-expanded-background);
+
         .jkl-accordion-item {
             &__title {
                 &-text {
-                    @include no-grow-bold();
+                    @include no-grow-bold;
                 }
+
                 &:hover {
                     .jkl-accordion-item__title__arrow {
                         transform: translateY(calc(-50% + #{rem(-3px)}));

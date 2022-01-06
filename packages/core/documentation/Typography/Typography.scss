@@ -66,24 +66,31 @@
         .jkl-title {
             @include jkl.text-style("title/#{$variant}");
         }
+
         .jkl-heading-1 {
             @include jkl.text-style("heading-1/#{$variant}");
         }
+
         .jkl-heading-2 {
             @include jkl.text-style("heading-2/#{$variant}");
         }
+
         .jkl-heading-3 {
             @include jkl.text-style("heading-3/#{$variant}");
         }
+
         .jkl-heading-4 {
             @include jkl.text-style("heading-4/#{$variant}");
         }
+
         .jkl-heading-5 {
             @include jkl.text-style("heading-5/#{$variant}");
         }
+
         .jkl-body {
             @include jkl.text-style("body/#{$variant}");
         }
+
         .jkl-small {
             @include jkl.text-style("small/#{$variant}");
         }

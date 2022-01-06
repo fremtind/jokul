@@ -33,6 +33,7 @@
 .jkl-animated-vertical-arrows__slider {
     transition-property: top;
     flex-direction: column;
+
     &--up {
         top: calc(var(--jkl-arrow-down-y) * -1);
     }
@@ -77,10 +78,12 @@
     &__icons {
         position: absolute;
         transition: map-get($jkl--timings, "expressive") ease opacity;
+
         &--show {
             transition-delay: map-get($jkl--timings, "expressive");
             opacity: 1;
         }
+
         &--hide {
             transition-delay: 0;
             opacity: 0;

@@ -31,10 +31,12 @@ $loader-animation-properties: 2500ms linear infinite;
             animation-name: spin-left;
             margin-right: $loader-spacing--large * 0.9; // for visual balance
         }
+
         &--middle {
             animation-name: spin-middle;
             margin-right: $loader-spacing--large;
         }
+
         &--right {
             animation-name: spin-right;
         }
@@ -47,6 +49,7 @@ $loader-animation-properties: 2500ms linear infinite;
         &--left {
             margin-right: $loader-spacing--medium * 0.9;
         }
+
         &--middle {
             margin-right: $loader-spacing--medium;
         }
@@ -59,6 +62,7 @@ $loader-animation-properties: 2500ms linear infinite;
         &--left {
             margin-right: $loader-spacing--small * 0.9;
         }
+
         &--middle {
             margin-right: $loader-spacing--small;
         }
@@ -69,12 +73,15 @@ $loader-animation-properties: 2500ms linear infinite;
     0% {
         transform: rotate(0) scale(0);
     }
+
     30% {
         transform: rotate(90deg) scale(1);
     }
+
     70% {
         transform: rotate(180deg) scale(0);
     }
+
     100% {
         transform: rotate(180deg) scale(0);
     }
@@ -84,15 +91,19 @@ $loader-animation-properties: 2500ms linear infinite;
     0% {
         transform: rotate(20deg) scale(0);
     }
+
     10% {
         transform: rotate(20deg) scale(0);
     }
+
     40% {
         transform: rotate(110deg) scale(1.4);
     }
+
     85% {
         transform: rotate(200deg) scale(0);
     }
+
     100% {
         transform: rotate(200deg) scale(0);
     }
@@ -102,12 +113,15 @@ $loader-animation-properties: 2500ms linear infinite;
     0% {
         transform: rotate(40deg) scale(0);
     }
+
     20% {
         transform: rotate(40deg) scale(0);
     }
+
     50% {
         transform: rotate(130deg) scale(1);
     }
+
     100% {
         transform: rotate(220deg) scale(0);
     }

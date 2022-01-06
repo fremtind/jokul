@@ -65,9 +65,11 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
         &:first-of-type {
             margin-top: 0;
         }
+
         &:last-of-type {
             margin-bottom: 0;
         }
+
         & > .jkl-list {
             margin-bottom: 0;
         }
@@ -81,6 +83,7 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
         &:first-of-type {
             margin-top: $item-space-between;
         }
+
         &:last-of-type {
             margin-bottom: $item-space-between;
         }

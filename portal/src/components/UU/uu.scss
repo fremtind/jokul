@@ -14,9 +14,11 @@
     h2 {
         @include jkl.text-style("heading-1");
     }
+
     h3 {
         @include jkl.text-style("heading-3");
     }
+
     h4 {
         @include jkl.text-style("heading-4");
     }

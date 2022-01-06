@@ -9,7 +9,7 @@ $container-width--compact: rem(320px);
 
 .jkl-cookie-consent-modal + backdrop {
     position: fixed;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgb(0 0 0 / 30%);
     top: 0;
     left: 0;
     right: 0;
@@ -17,6 +17,7 @@ $container-width--compact: rem(320px);
     transition: 0.2s;
     z-index: jkl.$z-index--modal !important;
 }
+
 .jkl-cookie-consent-modal[hidden],
 .jkl-cookie-consent-modal + backdrop[hidden] {
     pointer-events: none;

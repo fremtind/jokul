@@ -41,6 +41,7 @@ $header-padding--mobile: 0 jkl.$spacing-m;
         &:hover {
             color: jkl.$color-stein;
         }
+
         html:not([data-mousenavigation]) &:focus {
             color: jkl.$color-granitt;
             font-weight: jkl.$typography-weight-bold;

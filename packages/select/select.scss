@@ -75,25 +75,31 @@ $select-search-input-selection-color--inverted: transparentize(
     & *:focus {
         outline: none;
     }
+
     & select {
         appearance: none;
+
         &::ms-expand {
             display: none;
         }
+
         &:-moz-focusring {
             color: transparent;
             text-shadow: 0 0 0 $select-text-color;
             text-shadow: 0 0 0 var(--select-text-color);
         }
+
         & option {
             font-weight: normal;
             font-family: sans-serif;
             color: $select-text-color;
+
             &:disabled {
                 color: $select-text-disabled-color;
             }
         }
     }
+
     /* End of resets */
 
     &__outer-wrapper {
@@ -162,6 +168,7 @@ $select-search-input-selection-color--inverted: transparentize(
             border-color: var(--select-focus-color);
             box-shadow: 0 0 0 rem(1px) $select-focus-color;
             box-shadow: 0 0 0 rem(1px) var(--select-focus-color);
+
             & ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{rem(3px)}));
             }
@@ -225,7 +232,7 @@ $select-search-input-selection-color--inverted: transparentize(
         padding: $select-padding;
         cursor: pointer;
 
-        &:before {
+        &::before {
             content: "";
         }
 
@@ -250,6 +257,7 @@ $select-search-input-selection-color--inverted: transparentize(
                 background-color: $select-focus-color;
                 background-color: var(--select-focus-color);
                 content: "";
+
                 /* autoprefixer with Browserlist="Chrome >= 70" will not generate
                  * a prefix for this even if Chrome 70 doesn't support mask-image
                  */
@@ -298,12 +306,14 @@ $select-search-input-selection-color--inverted: transparentize(
             background-color: $select-error-background-color;
             background-color: var(--select-error-background-color);
         }
+
         .jkl-select__search-input,
         .jkl-select__button,
         .jkl-select__arrow {
             color: $select-error-text-color;
             color: var(--select-error-text-color);
         }
+
         /* Color of text selection */
         .jkl-select__search-input::selection {
             background-color: $select-search-input-selection-color;
@@ -319,6 +329,7 @@ $select-search-input-selection-color--inverted: transparentize(
             }
             height: rem(40px);
         }
+
         & .jkl-select__option {
             @include jkl.text-style("body/small-screen") {
                 line-height: rem(24px);

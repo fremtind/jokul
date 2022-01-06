@@ -42,6 +42,7 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
 
     &__input-group {
         position: relative;
+
         & > input {
             width: 100%;
             padding-right: jkl.$spacing-xl; // to accomodate button
@@ -105,6 +106,7 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
                     color: $autosuggest-error-text-color;
                     color: var(--autosuggest-error-text-color);
                 }
+
                 &:focus {
                     @include keyboard-navigation {
                         &::after {
@@ -149,7 +151,7 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
         margin-bottom: jkl.$spacing-m;
 
         &--active {
-            @include no-grow-bold();
+            @include no-grow-bold;
         }
     }
 }

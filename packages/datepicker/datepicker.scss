@@ -37,6 +37,7 @@ $datepicker-focus-color--inverted: jkl.$color-snohvit;
     &--open {
         .jkl-datepicker__input {
             box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color), 0 0 0 rem(1px) transparent;
+
             &:hover,
             &:focus {
                 box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color),
@@ -114,7 +115,7 @@ $calendar-selected-date-background-color--inverted: jkl.$color-snohvit;
     color: var(--calendar-text-color);
     border-radius: 3px;
     box-shadow: inset 0 0 0 rem(1px) var(--calendar-border-color), 0 0 0 rem(1px) var(--calendar-border-color),
-        rem(2px) rem(4px) rem(16px) rgba(0, 0, 0, 0.24);
+        rem(2px) rem(4px) rem(16px) rgb(0 0 0 / 24%);
 
     @include motion("standard");
     transition-property: height;
@@ -240,6 +241,7 @@ $calendar-selected-date-background-color--inverted: jkl.$color-snohvit;
         flex-grow: 2;
         min-width: unset !important;
     }
+
     &__month-value {
         text-transform: capitalize;
     }
@@ -267,13 +269,16 @@ $calendar-selected-date-background-color--inverted: jkl.$color-snohvit;
     td {
         text-align: center;
     }
+
     td + td,
     th + th {
         padding-left: rem(4px); // space between columns
     }
+
     tr + tr > td {
         padding-top: rem(4px); // space between rows
     }
+
     td button {
         @include reset-outline;
         appearance: none;
@@ -317,6 +322,7 @@ $calendar-selected-date-background-color--inverted: jkl.$color-snohvit;
             }
             color: var(--calendar-adjacent-month-color);
         }
+
         &[aria-current="date"] {
             font-weight: jkl.$typography-weight-bold;
         }
