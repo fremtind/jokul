@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/mixins/_all.scss";
@@ -69,7 +70,7 @@ $jkl-slider-focus-ring-width: rem(2px);
             transition-property: transform;
             @include motion(standard, expressive);
             border-radius: $jkl-slider-rounded;
-            box-shadow: 0 0 rem(4px) rgb(jkl.$color-svart 0.15);
+            box-shadow: 0 0 rem(4px) color.scale(jkl.$color-svart, $alpha: -15%);
         }
 
         &--left,

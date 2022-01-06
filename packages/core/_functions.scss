@@ -4,10 +4,13 @@
  * Function for converting a px size to rem;
  */
 
-@function rem($pxSize) {
-    $remSize: math.div($pxSize, 16px);
-    //Default font size on html element is 100%, equivalent to 16px;
-    @return to-number(#{$remSize}rem);
+@function rem($px-size) {
+    @if $px-size == 0 {
+        @return 0;
+    }
+    $rem-size: math.div($px-size, 16px);
+    // Default font size on html element is 100%, equivalent to 16px;
+    @return to-number(#{$rem-size}rem);
 }
 
 ///
