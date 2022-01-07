@@ -3,7 +3,7 @@ import cx from "classnames";
 import { ExpandButton } from "@fremtind/jkl-expand-button-react";
 import { TableCell, TableCellProps } from ".";
 
-interface ExpandableTableRowCellProps extends TableCellProps {
+export interface ExpandableTableRowCellProps extends TableCellProps {
     isOpen?: boolean;
     onClick?: () => void;
     compact?: boolean;
