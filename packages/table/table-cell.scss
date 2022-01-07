@@ -48,7 +48,9 @@
         display: block;
     }
 
-    .jkl-table--collapse-to-list &[data-th]::before {
+    // only show inline text if it's not an ExpandController with text inside. if it doesn't
+    // have text inside. the text is moved inside the ExpandButton
+    .jkl-table--collapse-to-list &[data-th]:not(.jkl-table-cell--expand-without-text)::before {
         display: none;
 
         @include mixins.small-device {
@@ -56,7 +58,7 @@
         }
     }
 
-    .jkl-table--collapse-to-list[data-collapse] &::before {
+    .jkl-table--collapse-to-list[data-collapse] &:not(.jkl-table-cell--expand-without-text)::before {
         @include responsive-table-header;
     }
 

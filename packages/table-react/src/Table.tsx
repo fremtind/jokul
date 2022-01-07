@@ -18,7 +18,7 @@ export const Table: FC<TableProps> = ({
     ...rest
 }) => {
     return (
-        <TableContextProvider state={{ compact }}>
+        <TableContextProvider state={{ compact, collapseToList }}>
             <table
                 className={cx("jkl-table", className, {
                     ["jkl-table--full-width"]: fullWidth,
