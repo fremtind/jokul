@@ -1,10 +1,10 @@
-import React, { useState, forwardRef, InputHTMLAttributes, ChangeEventHandler } from "react";
+import React, { useState, forwardRef, InputHTMLAttributes, ChangeEventHandler, ReactNode } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
 import { useRadioGroupContext } from "./radioGroupContext";
 
 export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
-    label: string;
+    label: ReactNode;
     value: string;
     /** Kan også settes på RadioButtonGroup, men settes på RadioButton f. eks. av react-hook-form */
     name?: string;
