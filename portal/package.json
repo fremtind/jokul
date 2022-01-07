@@ -40,6 +40,11 @@
         "react-syntax-highlighter": "^15.4.5",
         "sass": "^1.49.0"
     },
+    "browserslist": [
+        ">0.2% in no",
+        "not dead",
+        "not op_mini all"
+    ],
     "keywords": [
         "portal"
     ],
