@@ -11,6 +11,7 @@ import TableExamples, { tableExamplesCode, tableExamplesProps } from "./TableExa
 import DataTableExample, { dataTableExampleCode } from "./DataTableExample";
 import HeadlessTableExample, { headlessTableExampleCode } from "./HeadlessTableExample";
 import ClickableTableExample, { clickableTableExampleCode } from "./ClickableTableExample";
+import ExpandableTableExample, { expandableTableExampleCode } from "./ExpandableTableExample";
 import ActionTableExample, { actionTableExampleCode } from "./ActionTableExample";
 import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
 import MobileListTableExample, { mobileListTableExampleCode } from "./MobileListTableExample";
@@ -367,12 +368,20 @@ Hele raden kan gjøres klikkbar om du ønsker, men foretrekk å ha en rad med ha
 
 ### Ekspanderende tabeller
 
-Flere av tabellene våre har en eller annen form for ekspandering, det være seg at flere rader blir synlige eller noe annet relatert innhold.
-Jøkul tilbyr per nå ikke noen ferdig komponent for dette, men det er et mål på sikt.
+Hele raden gjøres klikkbar, samtidig som man skal sette inn en celle for å vise hvorvidt raden er åpen eller ikke og tilføre informasjon for hjelpemidler. Hvis raden er satt til klikkbar, er det kun knappen som vil kontrollere hvorvidt raden er åpen eller ikke.
 
-Det vi kan komme med er noen føringer:
-
--   Det skal være en pil på høyre side av tabellraden som ekspanderer og lukker raden (tenk Accordion)
--   Det er denne knappen som gjør ekspandering og lukking. Klikk på raden styrer ikke denne handlingen.
--   Knappen kan ha en tekst som beskriver handlingen, som "Vis mer" og "Skjul". Denne skal stå til venstre for pila.
--   Ekspanderingen bør animeres.
+<ComponentExample
+    title="Tabell med ekspanderbare rader"
+    component={ExpandableTableExample}
+    knobs={{
+        boolProps: ["Kompakt", "Klikkbar"],
+        choiceProps: [
+            {
+                name: "Mobilvisning",
+                values: ["Tabell", "Liste"],
+                defaultValue: 0,
+            },
+        ],
+    }}
+    codeExample={headlessTableExampleCode}
+/>

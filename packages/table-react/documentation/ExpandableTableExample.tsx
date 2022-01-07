@@ -69,3 +69,50 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
 };
 
 export default ExpandableTableExample;
+
+export const headlessTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+    <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
+    <TableHead srOnly={headless}>
+        <TableRow>
+            {headings.map((column) => (
+                <TableHeader key={column} compact bold>
+                    {column}
+                </TableHeader>
+            ))}
+            <TableHeader srOnly>Vis mer</TableHeader>
+        </TableRow>
+    </TableHead>
+    <TableBody>
+        {rows.map((row, rowIndex) => (
+            <ExpandableTableRow
+                key={rowIndex}
+                expandedChildren={
+                    <Table fullWidth>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>Hello, world!</TableCell>
+                                <TableCell>Hello, world!</TableCell>
+                                <TableCell>Hello, world!</TableCell>
+                                <TableCell>Hello, world!</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                }
+            >
+                {row.map((cell, cellIndex) => (
+                    <TableCell
+                        key={cellIndex}
+                        data-th={headings[cellIndex]}
+                        verticalAlign="center"
+                        align={[0, 3, 5, 7].includes(cellIndex) ? "right" : "left"}
+                    >
+                        {cell}
+                    </TableCell>
+                ))}
+                <ExpandableTableRowCell data-th="Mer informasjon" verticalAlign="center" />
+            </ExpandableTableRow>
+        ))}
+    </TableBody>
+</Table>
+`;
