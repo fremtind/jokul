@@ -1,8 +1,7 @@
 import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Table, TableCaption, TableHead, TableRow, TableHeader, TableBody, TableCell } from "../src";
-import { ExpandableTableRowCell } from "../src/ExpandableTableRowCell";
-import { ExpandableTableRow } from "../src/ExpandableTableRow";
+import { ExpandableTableRowCell, ExpandableTableRow } from "../src/";
 
 const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato"];
 
@@ -70,7 +69,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
 
 export default ExpandableTableExample;
 
-export const headlessTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
+export const expandableTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
 <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
     <TableHead srOnly={headless}>
