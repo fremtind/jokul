@@ -4,6 +4,7 @@ import { ExpandButton } from "@fremtind/jkl-expand-button-react";
 import { TableCell, TableCellProps } from ".";
 
 export interface ExpandableTableRowCellProps extends TableCellProps {
+    /** Settes automatisk av ExpandableTableRow */
     isOpen?: boolean;
     onClick?: () => void;
     compact?: boolean;
