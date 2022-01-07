@@ -53,12 +53,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
             <tr>
                 <td colSpan={100}>
                     <div ref={animationRef} className={childWrapperClassName}>
-                        {React.Children.map(expandedChildren, (child) => {
-                            if (React.isValidElement(child)) {
-                                return React.cloneElement(child, {});
-                            }
-                            return child;
-                        })}
+                        {expandedChildren}
                     </div>
                 </td>
             </tr>
