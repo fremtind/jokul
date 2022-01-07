@@ -161,7 +161,8 @@ $table-row-focus-color--inverted: jkl.$color-snohvit;
 
 .jkl-expandable-table-row__expanded-row {
     display: none;
-    transition: height 0.2s ease-in-out;
+    @include mixins.motion("standard", "expressive");
+    transition-property: height;
 
     &--expanded {
         display: block;
