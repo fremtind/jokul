@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import cx from "classnames";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import { ExpandableTableRowCell } from "./ExpandableTableRowCell";
+import { ExpandableTableRowController } from "./ExpandableTableRowController";
 import { TableRowProps, TableRow } from "./TableRow";
 
 export interface ExpandableTableRowProps extends TableRowProps {
@@ -43,7 +43,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                 {...rest}
             >
                 {React.Children.map(children, (child) => {
-                    if (React.isValidElement(child) && child.type == ExpandableTableRowCell) {
+                    if (React.isValidElement(child) && child.type == ExpandableTableRowController) {
                         return React.cloneElement(child, {
                             isOpen,
                             onClick: () => setIsOpen(!isOpen),

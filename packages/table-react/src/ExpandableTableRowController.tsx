@@ -3,14 +3,14 @@ import cx from "classnames";
 import { ExpandButton } from "@fremtind/jkl-expand-button-react";
 import { TableCell, TableCellProps } from ".";
 
-export interface ExpandableTableRowCellProps extends TableCellProps {
+export interface ExpandableTableRowControllerProps extends TableCellProps {
     /** Settes automatisk av ExpandableTableRow */
     isOpen?: boolean;
     onClick?: () => void;
     compact?: boolean;
 }
 
-export const ExpandableTableRowCell: React.FC<ExpandableTableRowCellProps> = ({
+export const ExpandableTableRowController: React.FC<ExpandableTableRowControllerProps> = ({
     isOpen,
     onClick,
     children,
@@ -19,7 +19,7 @@ export const ExpandableTableRowCell: React.FC<ExpandableTableRowCellProps> = ({
     ...rest
 }) => {
     if (isOpen === undefined || typeof onClick !== "function") {
-        throw new Error("ExpandableTableRowCell must have ExpandableTableRow as parent");
+        throw new Error("ExpandableTableRowController must have ExpandableTableRow as parent");
     }
 
     return (

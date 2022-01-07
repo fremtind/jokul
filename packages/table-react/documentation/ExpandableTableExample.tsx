@@ -1,7 +1,7 @@
 import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Table, TableCaption, TableHead, TableRow, TableHeader, TableBody, TableCell } from "../src";
-import { ExpandableTableRowCell, ExpandableTableRow } from "../src/";
+import { ExpandableTableRowController, ExpandableTableRow } from "../src/";
 
 const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato"];
 
@@ -59,7 +59,11 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                                 {cell}
                             </TableCell>
                         ))}
-                        <ExpandableTableRowCell data-th="Mer informasjon" verticalAlign="center" compact={compact} />
+                        <ExpandableTableRowController
+                            data-th="Mer informasjon"
+                            verticalAlign="center"
+                            compact={compact}
+                        />
                     </ExpandableTableRow>
                 ))}
             </TableBody>
@@ -109,7 +113,7 @@ export const expandableTableExampleCode = ({ choiceValues }: ExampleComponentPro
                         {cell}
                     </TableCell>
                 ))}
-                <ExpandableTableRowCell data-th="Mer informasjon" verticalAlign="center" />
+                <ExpandableTableRowController data-th="Mer informasjon" verticalAlign="center" />
             </ExpandableTableRow>
         ))}
     </TableBody>
