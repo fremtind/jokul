@@ -3,8 +3,14 @@ import cx from "classnames";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { ExpandableTableRowCell } from "./ExpandableTableRowCell";
 import { TableRowProps, TableRow } from "./TableRow";
+
 export interface ExpandableTableRowProps extends TableRowProps {
     expandedChildren: React.ReactNode;
+    /**
+     * Setter bredden på raden som blir åpnet
+     * @default 100
+     */
+    colSpan?: number;
 }
 
 export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
@@ -12,6 +18,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
     clickable,
     children,
     expandedChildren,
+    colSpan = 100,
     ...rest
 }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +58,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                 using useAnimatedHeight to animate the row height.
             */}
             <tr>
-                <td colSpan={100}>
+                <td colSpan={colSpan}>
                     <div ref={animationRef} className={childWrapperClassName}>
                         {expandedChildren}
                     </div>
