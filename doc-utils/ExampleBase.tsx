@@ -1,4 +1,4 @@
-import React, { useState, useEffect, VFC, FC, memo } from "react";
+import React, { useState, useEffect, VFC, FC } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
@@ -60,7 +60,7 @@ export const ExampleBase: VFC<Props> = ({
     const setChoiceValue = (key: string, value: string) => setChoiceValues({ ...choiceValues, [key]: value });
 
     const toggleCode = () => setShowCode(!showCode);
-    const C = memo(component);
+    const C = component;
 
     return (
         <div className="jkl-spacing-2xl--bottom">
