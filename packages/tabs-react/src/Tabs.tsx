@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 
 interface Props {
+    initialActiveIndex?: number;
     children: ReactNode;
     className?: string;
     onChange?: (tabIndex: number) => void;
@@ -15,8 +16,8 @@ interface Props {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, ...props }: Props) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+export const Tabs = ({ initialActiveIndex, onChange, ...props }: Props) => {
+    const [activeIndex, setActiveIndex] = useState(initialActiveIndex || 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
 
