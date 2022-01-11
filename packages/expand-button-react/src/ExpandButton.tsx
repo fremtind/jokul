@@ -13,6 +13,7 @@ export interface ExpandButtonProps {
     children: ReactNode;
     className?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
     /**
      * Styrer retningen til pila, som animeres ved endring. Styrer også aria-expanded.
      * @default false

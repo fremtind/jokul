@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import cx from "classnames";
-import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import { ExpandableTableRowController } from "./ExpandableTableRowController";
 import { TableRowProps, TableRow } from "./TableRow";
 
@@ -31,6 +31,8 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
         ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
     });
 
+    const tableRowId = useId("jkl-expandable-table-row");
+
     return (
         <>
             <TableRow
@@ -47,6 +49,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                         return React.cloneElement(child, {
                             isOpen,
                             onClick: () => setIsOpen(!isOpen),
+                            "aria-controls": tableRowId,
                         });
                     } else {
                         return child;
@@ -57,9 +60,9 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                 Use a table row with a single as wide as possible cell to contain content. This allows
                 using useAnimatedHeight to animate the row height.
             */}
-            <tr>
+            <tr aria-hidden={!isOpen}>
                 <td colSpan={colSpan}>
-                    <div ref={animationRef} className={childWrapperClassName}>
+                    <div ref={animationRef} className={childWrapperClassName} id={tableRowId}>
                         {expandedChildren}
                     </div>
                 </td>

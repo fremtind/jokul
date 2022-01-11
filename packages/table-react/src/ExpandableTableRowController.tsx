@@ -14,6 +14,7 @@ export const ExpandableTableRowController: React.FC<ExpandableTableRowController
     onClick,
     children,
     className,
+    "aria-controls": ariaControls,
     ...rest
 }) => {
     if (isOpen === undefined || typeof onClick !== "function") {
@@ -36,9 +37,16 @@ export const ExpandableTableRowController: React.FC<ExpandableTableRowController
                 })}
                 forceCompact={compact}
                 isExpanded={isOpen}
+                aria-controls={ariaControls}
                 onClick={(e) => {
                     e.stopPropagation();
                     onClick();
+                }}
+                onKeyDown={(e) => {
+                    if (e.key === "enter" || e.key === " ") {
+                        e.stopPropagation();
+                        onClick();
+                    }
                 }}
             >
                 {/* show children. or try to use data-th if children is undefined */}

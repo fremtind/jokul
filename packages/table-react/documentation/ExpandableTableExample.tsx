@@ -38,12 +38,20 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                         clickable={clickable ? { onClick: (e) => console.log(e) } : undefined}
                         expandedChildren={
                             <Table fullWidth>
+                                <TableHead srOnly>
+                                    <TableRow>
+                                        <TableHeader>Cell 1</TableHeader>
+                                        <TableHeader>Cell 2</TableHeader>
+                                        <TableHeader>Cell 3</TableHeader>
+                                        <TableHeader>Cell 4</TableHeader>
+                                    </TableRow>
+                                </TableHead>
                                 <TableBody>
                                     <TableRow>
-                                        <TableCell>Hello, world!</TableCell>
-                                        <TableCell>Hello, world!</TableCell>
-                                        <TableCell>Hello, world!</TableCell>
-                                        <TableCell>Hello, world!</TableCell>
+                                        <TableCell>Hello, world 1!</TableCell>
+                                        <TableCell>Hello, world 2!</TableCell>
+                                        <TableCell>Hello, world 3!</TableCell>
+                                        <TableCell>Hello, world 4!</TableCell>
                                     </TableRow>
                                 </TableBody>
                             </Table>
