@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-feedback-react",
-    "version": "12.0.20",
+    "version": "12.0.22",
     "publishConfig": {
         "access": "public"
     },
@@ -33,17 +33,17 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.3",
-        "@fremtind/jkl-button-react": "^8.0.12",
-        "@fremtind/jkl-checkbox-react": "^5.1.3",
-        "@fremtind/jkl-core": "^8.3.0",
-        "@fremtind/jkl-feedback": "^8.1.3",
-        "@fremtind/jkl-message-box-react": "^6.2.0",
-        "@fremtind/jkl-radio-button-react": "^6.0.6",
-        "@fremtind/jkl-react-hooks": "^6.1.4",
+        "@babel/runtime": "^7.16.7",
+        "@fremtind/jkl-button-react": "^8.0.13",
+        "@fremtind/jkl-checkbox-react": "^5.1.4",
+        "@fremtind/jkl-core": "^8.3.1",
+        "@fremtind/jkl-feedback": "^8.1.4",
+        "@fremtind/jkl-message-box-react": "^6.2.1",
+        "@fremtind/jkl-radio-button-react": "^6.1.1",
+        "@fremtind/jkl-react-hooks": "^6.1.5",
         "@fremtind/jkl-slider-react": "^2.0.8",
-        "@fremtind/jkl-text-input-react": "^7.0.17",
-        "@fremtind/jkl-validators-util": "^2.2.0",
+        "@fremtind/jkl-text-input-react": "^7.0.18",
+        "@fremtind/jkl-validators-util": "^2.2.1",
         "classnames": "^2.2.6",
         "nanoid": "^3.1.30"
     },

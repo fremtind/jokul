@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tag-react",
-    "version": "1.1.7",
+    "version": "1.1.8",
     "publishConfig": {
         "access": "public"
     },
@@ -34,9 +34,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.3",
-        "@fremtind/jkl-core": "^8.3.0",
-        "@fremtind/jkl-tag": "^1.1.6"
+        "@babel/runtime": "^7.16.7",
+        "@fremtind/jkl-core": "^8.3.1",
+        "@fremtind/jkl-tag": "^1.1.7"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
