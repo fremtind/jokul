@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.0 (2022-01-12)
+
+### Features
+
+- makes summary-table more flexible ([374f557](https://github.com/fremtind/jokul/commit/374f5579b3ddf2de2f2bc0662583c0ac8c8b1c06)), closes [#2617](https://github.com/fremtind/jokul/issues/2617)
+
+### BREAKING CHANGES
+
+- breaking: new props for summary-table
+
 ## 5.0.0 (2021-10-21)
 
 ### chore
