@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-checkbox-react",
-    "version": "5.1.4",
+    "version": "5.1.5",
     "publishConfig": {
         "access": "public"
     },
