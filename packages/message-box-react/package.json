@@ -38,7 +38,7 @@
         "@fremtind/jkl-icon-button-react": "^0.8.4",
         "@fremtind/jkl-message-box": "^5.1.1",
         "classnames": "^2.2.6",
-        "framer-motion": "^5.5.5"
+        "framer-motion": "^5.6.0"
     },
     "devDependencies": {
         "@fremtind/jkl-core": "^8.3.1"
