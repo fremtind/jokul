@@ -38,7 +38,7 @@
         "@babel/runtime": "^7.16.7",
         "@fremtind/jkl-toggle-switch": "^6.0.8",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.30"
+        "nanoid": "^3.2.0"
     },
     "devDependencies": {
         "@fremtind/jkl-core": "^8.3.1"
