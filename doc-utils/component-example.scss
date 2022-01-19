@@ -5,10 +5,12 @@
 
 @include jkl.helper-light-mode-variables {
     --component-example-bg: #{jkl.$color-dis};
+    --component-example-header-color: #{jkl.$color-stein};
 }
 
 @include jkl.helper-dark-mode-variables {
     --component-example-bg: #{jkl.$color-skifer};
+    --component-example-header-color: #{jkl.$color-svaberg};
 }
 
 .jkl-portal-responsive-example {
@@ -49,7 +51,7 @@
 
         &::before {
             @include jkl.text-style("small");
-            color: jkl.$color-fjellgra;
+            color: var(--component-example-header-color);
             position: absolute;
             top: jkl.$spacing-s;
             left: jkl.$spacing-m;
