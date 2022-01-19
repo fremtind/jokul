@@ -132,7 +132,7 @@
         }
     },
     "lint-staged": {
-        "*.{scss,css,html,json}": [
+        "*.{scss,css,html,json,md,mdx}": [
             "prettier --write"
         ],
         "*.{ts,tsx,js,jsx}": [
