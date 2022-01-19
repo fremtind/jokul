@@ -1,43 +1,58 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 context("Radio button", () => {
-    const kontaktmetode = 0;
-    const fantDuFram = 1;
-    const prisvisning = 2;
-
     beforeEach(() => {
         cy.testComponent("radiobutton");
     });
 
     it("renders correctly", () => {
-        cy.focusInput("kontaktmetode");
-        cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
+        const kontaktmetode = 0;
+        const fantDuFram = 1;
+        const prisvisning = 2;
 
-        cy.checkInput("kontaktmetode");
-        cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.focusInput("kontaktmetode");
+            },
+            eq: kontaktmetode,
+        });
 
-        cy.setMedFeil().getComponent().eq(kontaktmetode).toMatchImageSnapshot().resetMedFeil();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.checkInput("kontaktmetode");
+            },
+            eq: kontaktmetode,
+        });
 
-        cy.setInline().getComponent().eq(prisvisning).toMatchImageSnapshot().resetInline();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setMedFeil();
+            },
+            teardown: () => {
+                cy.resetMedFeil();
+            },
+            eq: kontaktmetode,
+        });
 
-        cy.setCompact().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetCompact();
-    });
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setInline();
+            },
+            teardown: () => {
+                cy.resetInline();
+            },
+            eq: prisvisning,
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-
-            cy.focusInput("kontaktmetode");
-            cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
-
-            cy.checkInput("kontaktmetode");
-            cy.getComponent().eq(kontaktmetode).toMatchImageSnapshot();
-
-            cy.setMedFeil().getComponent().eq(kontaktmetode).toMatchImageSnapshot().resetMedFeil();
-
-            cy.setInline().getComponent().eq(prisvisning).toMatchImageSnapshot().resetInline();
-
-            cy.setCompact().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetCompact();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setCompact();
+            },
+            teardown: () => {
+                cy.resetCompact();
+            },
+            eq: fantDuFram,
         });
     });
 });

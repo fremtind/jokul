@@ -19,7 +19,7 @@ const getTypeOfBox = (typeofBox?: string) => {
 };
 
 export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
+    const C = getTypeOfBox(choiceValues ? choiceValues["Variant"] : "");
     const [dismissed, setDismissed] = useState(false);
     const dismissAction = boolValues?.["Dismissable"]
         ? {
@@ -33,14 +33,14 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
 
     return (
         <C dismissed={dismissed} dismissAction={dismissAction}>
-            Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Type"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
+            Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
             <NavLink href="/komponenter/alertmessage">en navlink</NavLink>
         </C>
     );
 };
 
 export const alertMessageExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
-    const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
+    const C = getTypeOfBox(choiceValues ? choiceValues["Variant"] : "");
     return `
 <${C.displayName} dismissed={false} dismissAction={${
         boolValues?.["Dismissable"]

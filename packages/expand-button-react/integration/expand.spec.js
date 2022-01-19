@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("ExpandButton", () => {
     beforeEach(() => {
@@ -6,29 +7,32 @@ describe("ExpandButton", () => {
     });
 
     it("renders correctly", () => {
-        cy.get('input[value="Frittstående"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-        cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
-        cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Frittstående"]').click();
+            },
+        });
 
-        cy.get('input[value="Oppover"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-        cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
-        cy.getComponent().toMatchImageSnapshot();
-    });
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Frittstående"]').click();
+                cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
+            },
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.get('input[value="Frittstående"]').click();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
-            cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Frittstående"]').click();
+                cy.get('input[value="Oppover"]').click();
+            },
+        });
 
-            cy.get('input[value="Oppover"]').click();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
-            cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Frittstående"]').click();
+                cy.get('input[value="Oppover"]').click();
+                cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
+            },
         });
     });
 });

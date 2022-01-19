@@ -1,28 +1,26 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 context("ContentToggle", () => {
     beforeEach(() => {
         cy.testComponent("contenttoggle");
     });
 
-    context("flip", () => {
-        it("renders correctly", () => {
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setByttVerdi().waitForAnimation();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
-        });
-    });
+    it("renders correctly", () => {
+        const variants = ["flip", "fade"];
 
-    context("fade", () => {
-        it("renders correctly", () => {
-            cy.setChoice("Variant", "fade");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setByttVerdi().waitForAnimation();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            variants,
+        });
+
+        cy.takeSnapshots({
+            variants,
+            setup: () => {
+                cy.setByttVerdi().waitForAnimation();
+            },
+            teardown: () => {
+                cy.resetByttVerdi();
+            },
         });
     });
 });

@@ -20,7 +20,7 @@ const getTypeOfBox = (typeofBox?: string) => {
 
 export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [dismissed, setDismissed] = useState(false);
-    const C = getTypeOfBox(choiceValues?.["Type"]);
+    const C = getTypeOfBox(choiceValues?.["Variant"]);
     const dismissAction = boolValues?.["Dismissable"]
         ? {
               handleDismiss: () => {
@@ -33,21 +33,21 @@ export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues,
     return (
         <C
             fullWidth={boolValues?.["Full width"]}
-            title={choiceValues?.["Type"]}
+            title={choiceValues?.["Variant"]}
             dismissed={dismissed}
             dismissAction={dismissAction}
         >
-            Hei, jeg er en melding av typen {choiceValues?.["Type"]} med{" "}
+            Hei, jeg er en melding av typen {choiceValues?.["Variant"]} med{" "}
             <NavLink href="/komponenter/messagebox">en navlink</NavLink>
         </C>
     );
 };
 
 export const messageBoxExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
-    const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
+    const C = getTypeOfBox(choiceValues ? choiceValues["Variant"] : "");
     return `
 <${C.displayName}
-    title="${choiceValues?.["Type"]}"
+    title="${choiceValues?.["Variant"]}"
     fullWidth={${boolValues?.["Full width"]}}
     dismissed={false}
     dismissAction={${

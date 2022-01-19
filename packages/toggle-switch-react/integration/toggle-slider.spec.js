@@ -1,47 +1,45 @@
 /// <reference types="cypress" />
-
-beforeEach(() => {
-    cy.testComponent("toggleswitch");
-});
+/// <reference types="../../../cypress/support" />
 
 describe("ToggleSwitch", () => {
-    it("renders correctly", () => {
-        cy.getComponent().eq(0).toMatchImageSnapshot();
-        cy.get(".jkl-toggle-switch").first().focus();
-        cy.getComponent().eq(0).toMatchImageSnapshot();
-        cy.get(".jkl-toggle-switch").first().click().waitForAnimation();
-        cy.getComponent().eq(0).toMatchImageSnapshot();
+    beforeEach(() => {
+        cy.testComponent("toggleswitch");
     });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().eq(0).toMatchImageSnapshot();
-            cy.get(".jkl-toggle-switch").first().focus();
-            cy.getComponent().eq(0).toMatchImageSnapshot();
-            cy.get(".jkl-toggle-switch").first().click().waitForAnimation();
-            cy.getComponent().eq(0).toMatchImageSnapshot();
+    it("renders correctly", () => {
+        const toggleSwitch = 0;
+        const toggleSlider = 1;
+
+        cy.takeSnapshots({ eq: toggleSwitch });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get(".jkl-toggle-switch").first().focus();
+            },
+            eq: toggleSwitch,
         });
-    });
-});
 
-describe("ToggleSlider", () => {
-    it("renders correctly", () => {
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getByTestid("jkl-toggle-slider").first().focus();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.getByTestid("jkl-toggle-slider").first().click().waitForAnimation();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-    });
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get(".jkl-toggle-switch").first().click().waitForAnimation();
+            },
+            eq: toggleSwitch,
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-            cy.getByTestid("jkl-toggle-slider").first().focus();
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-            cy.getByTestid("jkl-toggle-slider").first().click().waitForAnimation();
-            cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.takeSnapshots({ eq: toggleSlider });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.getByTestid("jkl-toggle-slider").first().focus();
+            },
+            eq: toggleSlider,
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.getByTestid("jkl-toggle-slider").first().click().waitForAnimation();
+            },
+            eq: toggleSlider,
         });
     });
 });

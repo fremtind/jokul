@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("Checkbox", () => {
     beforeEach(() => {
@@ -6,33 +7,43 @@ describe("Checkbox", () => {
     });
 
     it("renders correctly", () => {
-        cy.focusInput("checklist");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.checkInput("checklist");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.get('input[value="Med hjelpetekst"]').click();
-        cy.checkInput("checklist");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.checkInput("checklist");
-        cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
-        cy.checkInput("checklist");
-        cy.setCompact().getComponent().toMatchImageSnapshot().resetCompact();
-    });
+        cy.takeSnapshots({
+            setup: () => {
+                cy.focusInput("checklist");
+            },
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.focusInput("checklist");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.checkInput("checklist");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.get('input[value="Med hjelpetekst"]').click();
-            cy.checkInput("checklist");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.checkInput("checklist");
-            cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
-            cy.checkInput("checklist");
-            cy.setCompact().getComponent().toMatchImageSnapshot().resetCompact();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.checkInput("checklist");
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med hjelpetekst"]').check();
+                cy.checkInput("checklist");
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.checkInput("checklist");
+                cy.setMedFeil();
+            },
+            teardown: () => {
+                cy.resetMedFeil();
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setCompact();
+                cy.checkInput("checklist");
+            },
+            teardown: () => {
+                cy.resetCompact();
+            },
         });
     });
 });

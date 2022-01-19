@@ -7,7 +7,7 @@ function onClick() {
 }
 
 export const IconButtonExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
-    const type = choiceValues && (choiceValues["Type"] as IconVariant);
+    const type = choiceValues && (choiceValues["Variant"] as IconVariant);
 
     return (
         <>
@@ -19,7 +19,7 @@ export const IconButtonExample: VFC<ExampleComponentProps> = ({ choiceValues }) 
 export const iconButtonExampleCode: CodeExample = ({ choiceValues }) => `
 <IconButton
     buttonTitle="Beskrivelse av handlingen for skjermlesere"
-    iconType="${choiceValues?.["Type"]}"
+    iconType="${choiceValues?.["Variant"]}"
     onClick={onClick}
 />
 `;

@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 context("Logo", () => {
     const logo = 0;
@@ -9,19 +10,19 @@ context("Logo", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().eq(logo).toMatchImageSnapshot();
-        cy.get('input[value="Kun symbol"]').click();
-        cy.getComponent().eq(logo).toMatchImageSnapshot();
-        cy.getComponent().eq(logostempel).toMatchImageSnapshot();
-    });
+        cy.takeSnapshots({
+            eq: logo,
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().eq(logo).toMatchImageSnapshot();
-            cy.get('input[value="Kun symbol"]').click();
-            cy.getComponent().eq(logo).toMatchImageSnapshot();
-            cy.getComponent().eq(logostempel).toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Kun symbol"]').check();
+            },
+            eq: logo,
+        });
+
+        cy.takeSnapshots({
+            eq: logostempel,
         });
     });
 });

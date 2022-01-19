@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 context("AlertMessage", () => {
     beforeEach(() => {
@@ -6,21 +7,17 @@ context("AlertMessage", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Success").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Warning").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Error").getComponent().toMatchImageSnapshot();
-        cy.setDismissable().getComponent().toMatchImageSnapshot();
-    });
+        cy.takeSnapshots({
+            variants: ["Info", "Success", "Warning", "Error"],
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "Success").getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "Warning").getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "Error").getComponent().toMatchImageSnapshot();
-            cy.setDismissable().getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setDismissable();
+            },
+            teardown: () => {
+                cy.resetDismissable();
+            },
         });
     });
 });

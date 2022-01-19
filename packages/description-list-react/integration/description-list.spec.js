@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("DescriptionList", () => {
     beforeEach(() => {
@@ -6,8 +7,6 @@ describe("DescriptionList", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setDarkMode();
-        cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots();
     });
 });

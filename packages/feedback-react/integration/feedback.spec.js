@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("Feedback", () => {
     beforeEach(() => {
@@ -6,15 +7,12 @@ describe("Feedback", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.getComponent().contains("Ja").click();
-        cy.getComponent().toMatchImageSnapshot();
-    });
+        cy.takeSnapshots();
 
-    it("dark mode renders correctly", () => {
-        cy.setDarkMode();
-        cy.getComponent().toMatchImageSnapshot();
-        cy.getComponent().contains("Ja").click();
-        cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.getComponent().contains("Ja").click();
+            },
+        });
     });
 });

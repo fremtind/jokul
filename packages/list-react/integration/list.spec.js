@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("List", () => {
     beforeEach(() => {
@@ -6,23 +7,8 @@ describe("List", () => {
     });
 
     it("renders correctly", () => {
-        cy.get('input[value="Ordered"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-        cy.get('input[value="Unordered"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-        cy.get('input[value="Coverage"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-    });
-
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.get('input[value="Ordered"]').click();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.get('input[value="Unordered"]').click();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.get('input[value="Coverage"]').click();
-            cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            variants: ["Ordered", "Unordered", "Coverage"],
         });
     });
 });

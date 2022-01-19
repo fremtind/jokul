@@ -1,3 +1,5 @@
+/// OM DU GJØR ENDRINGER HER, SØRG FOR Å OPPDATERE TYPEDEFINISJONENE I `index.d.ts`!
+
 import "cypress-plugin-snapshots/commands";
 
 function pascalCase(phrase) {
@@ -17,7 +19,11 @@ Cypress.Commands.add("checkInput", (inputName) => {
     cy.get(`input[name=${inputName}]`).first().check();
 });
 
-Cypress.Commands.add("openSelect", (inputName) => {
+Cypress.Commands.add("uncheckInput", (inputName) => {
+    cy.get(`input[name=${inputName}]`).first().uncheck();
+});
+
+Cypress.Commands.add("toggleSelectMenu", (inputName) => {
     cy.get(`button[name=${inputName}-btn]`).first().click();
 });
 
@@ -54,7 +60,7 @@ const setMode = (action, reset) => () => {
 };
 
 Cypress.Commands.add("setChoice", (choice, value) =>
-    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click(),
+    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click({ multiple: true }),
 );
 
 const setModeFactory = (knob) => {
@@ -75,3 +81,37 @@ const setModeFactory = (knob) => {
     "isLoading",
     "Dismissable",
 ].map((knob) => setModeFactory(knob));
+
+Cypress.Commands.add("takeSnapshots", (options = {}) => {
+    const variants = options.variants || ["__DEFAULT__"];
+
+    variants.forEach((variant) => {
+        doSnapshot(options, variant);
+
+        cy.setDarkMode();
+        doSnapshot(options, variant);
+        cy.resetDarkMode();
+    });
+
+    function doSnapshot(options, variant) {
+        const componentIndex = options.eq || 0;
+
+        if (variant !== "__DEFAULT__") {
+            cy.setChoice("Variant", variant);
+        }
+
+        if (typeof options.setup === "function") {
+            options.setup();
+        }
+
+        if (typeof options.customSelector === "function") {
+            options.customSelector().toMatchImageSnapshot();
+        } else {
+            cy.getComponent().eq(componentIndex).toMatchImageSnapshot();
+        }
+
+        if (typeof options.teardown === "function") {
+            options.teardown();
+        }
+    }
+});

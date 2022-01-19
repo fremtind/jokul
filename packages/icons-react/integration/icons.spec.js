@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 context("Icons", () => {
     beforeEach(() => {
@@ -6,13 +7,6 @@ context("Icons", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().eq(0).toMatchImageSnapshot();
-    });
-
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().eq(0).toMatchImageSnapshot();
-        });
+        cy.takeSnapshots();
     });
 });

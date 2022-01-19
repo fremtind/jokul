@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("Tag", () => {
     beforeEach(() => {
@@ -6,14 +7,6 @@ describe("Tag", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-    });
-
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-
-            cy.getComponent().toMatchImageSnapshot();
-        });
+        cy.takeSnapshots();
     });
 });

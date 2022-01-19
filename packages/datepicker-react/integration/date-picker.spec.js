@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("DatePicker", () => {
     beforeEach(() => {
@@ -6,43 +7,42 @@ describe("DatePicker", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots();
 
-        cy.focusInput("datepicker").type("24.10.1990");
-        cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.focusInput("datepicker").type("24.10.1990");
+            },
+        });
 
-        cy.get('input[value="large"]').click();
-        cy.setCompact();
-        cy.getComponent().toMatchImageSnapshot().resetCompact();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="large"]').click();
+                cy.setCompact();
+            },
+            teardown: () => {
+                cy.resetCompact();
+            },
+        });
 
-        cy.setMedFeil();
-        cy.focusInput("datepicker").type("24.10.1990");
-        cy.getComponent().toMatchImageSnapshot().resetMedFeil();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setMedFeil();
+                cy.focusInput("datepicker").type("24.10.1990");
+            },
+            teardown: () => {
+                cy.resetMedFeil();
+            },
+        });
 
-        cy.get('input[value="large"]').click();
-        cy.setCompact().setMedFeil();
-        cy.getComponent().toMatchImageSnapshot().resetCompact().resetMedFeil();
-    });
-
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
-
-            cy.focusInput("datepicker").type("24.10.1990");
-            cy.getComponent().toMatchImageSnapshot();
-
-            cy.get('input[value="large"]').click();
-            cy.setCompact();
-            cy.getComponent().toMatchImageSnapshot().resetCompact();
-
-            cy.setMedFeil();
-            cy.focusInput("datepicker").type("24.10.1990");
-            cy.getComponent().toMatchImageSnapshot().resetMedFeil();
-
-            cy.get('input[value="large"]').click();
-            cy.setCompact().setMedFeil();
-            cy.getComponent().toMatchImageSnapshot().resetCompact().resetMedFeil();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setCompact().setMedFeil();
+                cy.focusInput("datepicker").type("24.10.1990");
+            },
+            teardown: () => {
+                cy.resetCompact().resetMedFeil();
+            },
         });
     });
 });
