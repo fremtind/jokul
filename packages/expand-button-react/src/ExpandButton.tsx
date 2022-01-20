@@ -31,6 +31,7 @@ export interface ExpandButtonProps {
      * @default false
      */
     hideLabel?: boolean;
+    id?: string;
 }
 
 export const ExpandButton = ({
