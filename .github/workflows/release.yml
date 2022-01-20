@@ -1,4 +1,4 @@
-name: publish-packages
+name: Publish release
 
 on:
     push:
@@ -7,12 +7,14 @@ on:
 
 jobs:
     build-and-publish:
+        name: Build and publish
         runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[ci skip release]')"
         permissions:
             actions: write
             contents: write
             packages: write
+            deployments: write
         steps:
             - name: Checkout branch
               uses: actions/checkout@v2
@@ -28,6 +30,19 @@ jobs:
                   git config --global user.name '@fremtind-bot'
                   git config --global user.email 'fremtind-bot@users.noreply.github.com'
                   git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
+
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+
+            - name: Cache yarn directory
+              uses: actions/cache@v2
+              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
 
             - name: Install Packages
               run: yarn install --frozen-lockfile
@@ -46,6 +61,20 @@ jobs:
               continue-on-error: true
               run: yarn version:check
 
+            - name: Check for changes to portal
+              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+              id: changes
+              with:
+                  filters: |
+                      portal:
+                        - "**/*.mdx"
+                        - "**/*.scss"
+                        - "**/*.js"
+                        - "**/*.ts"
+                        - "**/*.tsx"
+                        - "portal/static/**"
+                        - "yarn.lock"
+
             - name: Publish packages to NPM
               if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
               run: yarn release --yes
@@ -53,6 +82,11 @@ jobs:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            - name: Ensure build
+              # Publish-step will do a build, but if there's nothing to publish we still need a build if there are portal changes
+              if: steps.changes.outputs.portal == 'true' && steps.lerna_changed.outcome != 'success'
+              run: yarn build
 
             - name: Switch registry
               if: steps.lerna_changed.outcome == 'success'
@@ -67,3 +101,35 @@ jobs:
               run: yarn release-gh --yes
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Caching Gatsby
+              if: steps.changes.outputs.portal == 'true'
+              id: gatsby-cache-build
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      portal/public
+                      portal/.cache
+                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-
+
+            - name: Build and deploy portal
+              if: steps.changes.outputs.portal == 'true'
+              env:
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  yarn deploy:docs
+
+    main-to-external:
+        name: Merge main to external-contributions
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - run: gh api --method POST /repos/fremtind/jokul/merges -F base='external-contributions' -F head='main' # do a server-side merge using GitHub API https://cli.github.com/manual/gh_api and https://docs.github.com/en/rest/reference/repos#merging
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
