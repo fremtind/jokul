@@ -62,6 +62,12 @@
         @include responsive-table-header;
     }
 
+    .jkl-table--collapse-to-list:not([data-collapse]) &--expand-without-text .jkl-expand-button__text {
+        @include mixins.from-medium-device {
+            display: none;
+        }
+    }
+
     .jkl-table-row-expand-button {
         display: flex;
     }

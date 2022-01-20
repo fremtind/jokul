@@ -57,7 +57,11 @@ export const ExpandButton = ({
             })}
             {...rest}
         >
-            {children && <ContentWrapper>{children}</ContentWrapper>}
+            {children && (
+                <ContentWrapper>
+                    <span className="jkl-expand-button__text">{children}</span>
+                </ContentWrapper>
+            )}
             <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
         </button>
     );
