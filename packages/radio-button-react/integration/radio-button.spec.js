@@ -20,7 +20,7 @@ context("Radio button", () => {
 
         cy.setInline().getComponent().eq(prisvisning).toMatchImageSnapshot().resetInline();
 
-        cy.setKompakt().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetKompakt();
+        cy.setCompact().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetCompact();
     });
 
     context("dark mode", () => {
@@ -37,7 +37,7 @@ context("Radio button", () => {
 
             cy.setInline().getComponent().eq(prisvisning).toMatchImageSnapshot().resetInline();
 
-            cy.setKompakt().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetKompakt();
+            cy.setCompact().getComponent().eq(fantDuFram).toMatchImageSnapshot().resetCompact();
         });
     });
 });

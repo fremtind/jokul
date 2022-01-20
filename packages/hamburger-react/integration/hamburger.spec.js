@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("🍔 Hamburger", () => {
+describe("Hamburger", () => {
     beforeEach(() => {
         cy.testComponent("hamburger");
     });

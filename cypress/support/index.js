@@ -63,7 +63,7 @@ const setModeFactory = (knob) => {
 };
 
 [
-    "Kompakt",
+    "Compact",
     "Inline",
     "Invertert",
     "Med feil",
@@ -73,5 +73,5 @@ const setModeFactory = (knob) => {
     "Bytt verdi",
     "withLoader",
     "isLoading",
-    "Avvisbar",
+    "Dismissable",
 ].map((knob) => setModeFactory(knob));

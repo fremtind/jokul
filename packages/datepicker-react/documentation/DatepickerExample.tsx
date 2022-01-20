@@ -20,7 +20,7 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
         <DatePicker
             label="Velg startdato for forsikringen"
             extended={boolValues && boolValues["Utvidet velger"]}
-            forceCompact={boolValues && boolValues["Kompakt"]}
+            forceCompact={boolValues && boolValues["Compact"]}
             inverted={boolValues && boolValues["Invertert"]}
             variant={variant}
             errorLabel={errorLabel}
@@ -53,7 +53,7 @@ export const datepickerCode = ({ boolValues, choiceValues }: ExampleComponentPro
 <DatePicker
     label="Velg startdato for forsikringen"
     extended={${!!boolValues?.["Utvidet velger"]}}
-    forceCompact={${!!boolValues?.["Kompakt"]}}
+    forceCompact={${!!boolValues?.["Compact"]}}
     inverted={${!!boolValues?.["Invertert"]}}
     variant="${choiceValues?.["Variant"]}"
     errorLabel=${boolValues?.["Med feil"] ? `"Du kan ikke velge en dato som har vært"` : `{undefined}`}

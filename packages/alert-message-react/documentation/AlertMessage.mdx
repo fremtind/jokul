@@ -13,14 +13,14 @@ import { AlertMessageExample, alertMessageExampleCode } from "./AlertMessageExam
 </Ingress>
 
 <ComponentExample
-    title="Varselmelding"
+    title="AlertMessage"
     component={AlertMessageExample}
     knobs={{
-        boolProps: ["Avvisbar"],
+        boolProps: ["Dismissable"],
         choiceProps: [
             {
                 name: "Type",
-                values: ["Infomelding", "Suksessmelding", "Advarselsmelding", "Feilmelding"],
+                values: ["Info", "Success", "Warning", "Error"],
                 defaultValue: 0,
             },
         ],

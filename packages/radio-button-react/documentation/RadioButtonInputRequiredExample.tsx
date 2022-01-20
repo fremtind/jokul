@@ -12,7 +12,7 @@ export const RadioButtonInputRequiredExample: VFC<ExampleComponentProps> = ({ bo
             legend="Fikk du gjort det du skulle?"
             name="fant-du-fram"
             inline={boolValues && boolValues["Inline"]}
-            forceCompact={boolValues && boolValues["Kompakt"]}
+            forceCompact={boolValues && boolValues["Compact"]}
             labelProps={{ variant }}
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
@@ -28,7 +28,7 @@ export const radioButtonInputRequiredExampleCode = ({ boolValues, choiceValues }
     legend="Fikk du gjort det du skulle?"
     name="fant-du-fram"
     inline={${!!boolValues?.["Inline"]}}
-    forceCompact={${!!boolValues?.["Kompakt"]}}
+    forceCompact={${!!boolValues?.["Compact"]}}
     labelProps={{ variant: "${choiceValues?.["Variant"] || "medium"}" }}
     value={selectedValue}
     onChange={(e) => setSelectedValue(e.target.value)}

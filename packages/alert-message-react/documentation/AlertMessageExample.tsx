@@ -5,13 +5,13 @@ import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertM
 
 const getTypeOfBox = (typeofBox?: string) => {
     switch (typeofBox) {
-        case "Infomelding":
+        case "Info":
             return InfoAlertMessage;
-        case "Suksessmelding":
+        case "Success":
             return SuccessAlertMessage;
-        case "Advarselsmelding":
+        case "Warning":
             return WarningAlertMessage;
-        case "Feilmelding":
+        case "Error":
             return ErrorAlertMessage;
         default:
             return InfoAlertMessage;
@@ -21,7 +21,7 @@ const getTypeOfBox = (typeofBox?: string) => {
 export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
     const [dismissed, setDismissed] = useState(false);
-    const dismissAction = boolValues?.["Avvisbar"]
+    const dismissAction = boolValues?.["Dismissable"]
         ? {
               handleDismiss: () => {
                   setDismissed(true);
@@ -43,7 +43,7 @@ export const alertMessageExampleCode = ({ boolValues, choiceValues }: ExampleCom
     const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
     return `
 <${C.displayName} dismissed={false} dismissAction={${
-        boolValues?.["Avvisbar"]
+        boolValues?.["Dismissable"]
             ? `{
     handleDismiss: () => setDismissed(true),
     buttonTitle: "Merk som lest",

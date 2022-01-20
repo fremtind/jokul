@@ -11,7 +11,7 @@ export const TextInputExample: VFC<ExampleComponentProps> = ({ choiceValues, boo
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Fødselsnummer består av 11 siffer" : undefined;
     const errorLabel = boolValues?.["Med feil"] ? "Du må fylle ut fødselsnummer, 11 siffer." : undefined;
 
-    const compact = boolValues?.["Kompakt"];
+    const compact = boolValues?.["Compact"];
     const inline = boolValues?.["Inline"];
     const variant = choiceValues?.["Variant"] as LabelVariant;
     const action = boolValues?.["Med handling"]
@@ -67,7 +67,7 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
     name="fodselsnummer"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Fødselsnummer består av 11 siffer"` : `{undefined}`}
     errorLabel=${boolValues?.["Med feil"] ? `"Du må fylle ut fødselsnummer, 11 siffer."` : `{undefined}`}
-    forceCompact={${boolValues?.["Kompakt"]}}
+    forceCompact={${boolValues?.["Compact"]}}
     variant={${choiceValues?.["Variant"]}}
     action={${
         boolValues?.["Med handling"]

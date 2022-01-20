@@ -5,13 +5,13 @@ import { ErrorMessageBox, InfoMessageBox, SuccessMessageBox, WarningMessageBox }
 
 const getTypeOfBox = (typeofBox?: string) => {
     switch (typeofBox) {
-        case "Infomelding":
+        case "Info":
             return InfoMessageBox;
-        case "Suksessmelding":
+        case "Success":
             return SuccessMessageBox;
-        case "Advarselsmelding":
+        case "Warning":
             return WarningMessageBox;
-        case "Feilmelding":
+        case "Error":
             return ErrorMessageBox;
         default:
             return InfoMessageBox;
@@ -21,7 +21,7 @@ const getTypeOfBox = (typeofBox?: string) => {
 export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [dismissed, setDismissed] = useState(false);
     const C = getTypeOfBox(choiceValues?.["Type"]);
-    const dismissAction = boolValues?.["Avvisbar"]
+    const dismissAction = boolValues?.["Dismissable"]
         ? {
               handleDismiss: () => {
                   setDismissed(true);
@@ -32,7 +32,7 @@ export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues,
         : undefined;
     return (
         <C
-            fullWidth={boolValues?.["Full bredde"]}
+            fullWidth={boolValues?.["Full width"]}
             title={choiceValues?.["Type"]}
             dismissed={dismissed}
             dismissAction={dismissAction}
@@ -48,10 +48,10 @@ export const messageBoxExampleCode = ({ boolValues, choiceValues }: ExampleCompo
     return `
 <${C.displayName}
     title="${choiceValues?.["Type"]}"
-    fullWidth={${boolValues?.["Full bredde"]}}
+    fullWidth={${boolValues?.["Full width"]}}
     dismissed={false}
     dismissAction={${
-        boolValues?.["Avvisbar"]
+        boolValues?.["Dismissable"]
             ? `{
         handleDismiss: () => setDismissed(true),
         buttonTitle: "Merk som lest",

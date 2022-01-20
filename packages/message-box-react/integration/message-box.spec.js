@@ -11,20 +11,20 @@ context("MessageBox", () => {
 
     it("renders correctly", () => {
         cy.getComponent().eq(messageBox).toMatchImageSnapshot();
-        cy.setChoice("Type", "Suksessmelding").getComponent().eq(messageBox).toMatchImageSnapshot();
-        cy.setChoice("Type", "Advarselsmelding").getComponent().eq(messageBox).toMatchImageSnapshot();
-        cy.setChoice("Type", "Feilmelding").getComponent().eq(messageBox).toMatchImageSnapshot();
-        cy.setAvvisbar().getComponent().eq(messageBox).toMatchImageSnapshot();
+        cy.setChoice("Type", "Success").getComponent().eq(messageBox).toMatchImageSnapshot();
+        cy.setChoice("Type", "Warning").getComponent().eq(messageBox).toMatchImageSnapshot();
+        cy.setChoice("Type", "Error").getComponent().eq(messageBox).toMatchImageSnapshot();
+        cy.setDismissable().getComponent().eq(messageBox).toMatchImageSnapshot();
     });
 
     context("dark mode", () => {
         it("renders correctly", () => {
             cy.setDarkMode();
             cy.getComponent().eq(messageBox).toMatchImageSnapshot();
-            cy.setChoice("Type", "Suksessmelding").getComponent().eq(messageBox).toMatchImageSnapshot();
-            cy.setChoice("Type", "Advarselsmelding").getComponent().eq(messageBox).toMatchImageSnapshot();
-            cy.setChoice("Type", "Feilmelding").getComponent().eq(messageBox).toMatchImageSnapshot();
-            cy.setAvvisbar().getComponent().eq(messageBox).toMatchImageSnapshot();
+            cy.setChoice("Type", "Success").getComponent().eq(messageBox).toMatchImageSnapshot();
+            cy.setChoice("Type", "Warning").getComponent().eq(messageBox).toMatchImageSnapshot();
+            cy.setChoice("Type", "Error").getComponent().eq(messageBox).toMatchImageSnapshot();
+            cy.setDismissable().getComponent().eq(messageBox).toMatchImageSnapshot();
         });
     });
 });

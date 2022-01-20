@@ -13,13 +13,14 @@ import { FormErrorMessageBoxExample, formErrorMessageBoxExampleCode } from "./Fo
     er feil, informasjon om at noe mangler i et skjema, eller en bekreftelse på at noe har blitt oppdatert.
 </Ingress>
 <ComponentExample
+    title="MessageBox"
     component={MessageBoxExample}
     knobs={{
-        boolProps: ["Full bredde", "Avvisbar"],
+        boolProps: ["Full width", "Dismissable"],
         choiceProps: [
             {
                 name: "Type",
-                values: ["Infomelding", "Suksessmelding", "Advarselsmelding", "Feilmelding"],
+                values: ["Info", "Success", "Warning", "Error"],
                 defaultValue: 0,
             },
         ],
@@ -45,9 +46,10 @@ Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn. [Meldingsfar
 Som beskrevet i [Skjemavalidering](/profil/skjemadesign#skjemavalidering) bruker vi en ErrorMessageBox til å oppsummere valideringsfeil. Det finnes en ferdig variant `FormErrorMessageBox` som animeres, og skjules på små skjermer. Se [eksempelet på skjemavalidering](/eksempler/skjemavalidering) for å se komponenten i bruk.
 
 <ComponentExample
+    title="FormErrorMessageBox"
     component={FormErrorMessageBoxExample}
     knobs={{
-        boolProps: ["Full bredde", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
+        boolProps: ["Full width", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
     }}
     codeExample={formErrorMessageBoxExampleCode}
 />

@@ -16,7 +16,7 @@ describe("Checkbox", () => {
         cy.checkInput("checklist");
         cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
         cy.checkInput("checklist");
-        cy.setKompakt().getComponent().toMatchImageSnapshot().resetKompakt();
+        cy.setCompact().getComponent().toMatchImageSnapshot().resetCompact();
     });
 
     context("dark mode", () => {
@@ -32,7 +32,7 @@ describe("Checkbox", () => {
             cy.checkInput("checklist");
             cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
             cy.checkInput("checklist");
-            cy.setKompakt().getComponent().toMatchImageSnapshot().resetKompakt();
+            cy.setCompact().getComponent().toMatchImageSnapshot().resetCompact();
         });
     });
 });

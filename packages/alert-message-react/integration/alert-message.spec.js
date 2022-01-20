@@ -7,20 +7,20 @@ context("AlertMessage", () => {
 
     it("renders correctly", () => {
         cy.getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Suksessmelding").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Advarselsmelding").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "Feilmelding").getComponent().toMatchImageSnapshot();
-        cy.setAvvisbar().getComponent().toMatchImageSnapshot();
+        cy.setChoice("Type", "Success").getComponent().toMatchImageSnapshot();
+        cy.setChoice("Type", "Warning").getComponent().toMatchImageSnapshot();
+        cy.setChoice("Type", "Error").getComponent().toMatchImageSnapshot();
+        cy.setDismissable().getComponent().toMatchImageSnapshot();
     });
 
     context("dark mode", () => {
         it("renders correctly", () => {
             cy.setDarkMode();
             cy.getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "Suksessmelding").getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "Advarselsmelding").getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "Feilmelding").getComponent().toMatchImageSnapshot();
-            cy.setAvvisbar().getComponent().toMatchImageSnapshot();
+            cy.setChoice("Type", "Success").getComponent().toMatchImageSnapshot();
+            cy.setChoice("Type", "Warning").getComponent().toMatchImageSnapshot();
+            cy.setChoice("Type", "Error").getComponent().toMatchImageSnapshot();
+            cy.setDismissable().getComponent().toMatchImageSnapshot();
         });
     });
 });

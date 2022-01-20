@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={RadioButtonExample}
         knobs={{
-            boolProps: ["Kompakt", "Inline", "Med feil"],
+            boolProps: ["Compact", "Inline", "Med feil"],
             choiceProps: [
                 {
                     name: "Variant",

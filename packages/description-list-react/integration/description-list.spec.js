@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe("description list", () => {
+describe("DescriptionList", () => {
     beforeEach(() => {
         cy.testComponent("descriptionlist");
     });

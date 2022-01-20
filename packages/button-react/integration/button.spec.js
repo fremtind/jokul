@@ -7,9 +7,9 @@ describe("Buttons", () => {
 
     it("render correctly", () => {
         [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-        cy.setKompakt();
+        cy.setCompact();
         [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-        cy.resetKompakt();
+        cy.resetCompact();
         cy.setwithLoader().setisLoading();
         [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
     });
@@ -18,9 +18,9 @@ describe("Buttons", () => {
         it("render correctly", () => {
             cy.setDarkMode();
             [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-            cy.setKompakt();
+            cy.setCompact();
             [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-            cy.resetKompakt();
+            cy.resetCompact();
             cy.setwithLoader().setisLoading();
             [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
         });
