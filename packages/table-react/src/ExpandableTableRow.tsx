@@ -32,6 +32,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
     });
 
     const tableRowId = useId("jkl-expandable-table-row");
+    const expandableTableRowControllerId = useId("jkl-expandable-table-row-controller");
 
     return (
         <>
@@ -50,6 +51,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
                             isOpen,
                             onClick: () => setIsOpen(!isOpen),
                             "aria-controls": tableRowId,
+                            id: expandableTableRowControllerId,
                         });
                     } else {
                         return child;
@@ -62,7 +64,14 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
             */}
             <tr aria-hidden={!isOpen}>
                 <td colSpan={colSpan}>
-                    <div ref={animationRef} className={childWrapperClassName} id={tableRowId}>
+                    <div
+                        ref={animationRef}
+                        className={childWrapperClassName}
+                        id={tableRowId}
+                        aria-labelledby={expandableTableRowControllerId}
+                        hidden={!isOpen}
+                        role="group"
+                    >
                         {expandedChildren}
                     </div>
                 </td>

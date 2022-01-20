@@ -14,6 +14,7 @@ export const ExpandableTableRowController: React.FC<ExpandableTableRowController
     onClick,
     children,
     className,
+    id,
     "aria-controls": ariaControls,
     ...rest
 }) => {
@@ -35,6 +36,7 @@ export const ExpandableTableRowController: React.FC<ExpandableTableRowController
                 className={cx("jkl-table-row-expand-button", {
                     ["jkl-table-row-expand-button--expanded"]: isOpen,
                 })}
+                id={id}
                 forceCompact={compact}
                 isExpanded={isOpen}
                 aria-controls={ariaControls}
