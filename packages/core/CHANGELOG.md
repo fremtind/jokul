@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.3.0 (2021-12-21)
+
+### Features
+
+- legg til bold som egen klasse ([2837d10](https://github.com/fremtind/jokul/commit/2837d109ea94f383fabaf0ad2cbb605facc6faa9))
+
 ## 8.2.0 (2021-12-17)
 
 ### Features

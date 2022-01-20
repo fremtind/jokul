@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-checkbox-react",
-    "version": "5.1.2",
+    "version": "5.1.5",
     "publishConfig": {
         "access": "public"
     },
@@ -34,11 +34,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.3",
-        "@fremtind/jkl-checkbox": "^5.0.6",
-        "@fremtind/jkl-core": "^8.2.1",
+        "@babel/runtime": "^7.16.7",
+        "@fremtind/jkl-checkbox": "^5.0.8",
+        "@fremtind/jkl-core": "^8.3.1",
         "classnames": "^2.2.6",
-        "nanoid": "^3.1.30"
+        "nanoid": "^3.2.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

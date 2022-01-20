@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "8.2.1",
+    "version": "8.3.1",
     "publishConfig": {
         "access": "public"
     },
@@ -50,7 +50,7 @@
     },
     "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb",
     "dependencies": {
-        "@babel/runtime": "^7.16.3",
+        "@babel/runtime": "^7.16.7",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

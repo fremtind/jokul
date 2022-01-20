@@ -1,3 +1,4 @@
+export type { UseAnimatedHeightOptions } from "./animation";
 export { useAnimatedHeight } from "./animation";
 export { useClickOutside } from "./useClickOutside";
 export { useFocusOutside } from "./useFocusOutside";

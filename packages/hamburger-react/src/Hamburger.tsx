@@ -1,32 +1,52 @@
-import React, { VFC } from "react";
+import React from "react";
 import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
 
-interface Props {
+export interface HamburgerProps {
+    /** Kreves for at menyen skal kunne sette `aria-labelledby`. */
+    id: string;
+    /** Hjelp skjermleseren forstå hva som blir styrt av hamburgeren. */
+    "aria-controls": string;
+    /**
+     * Gi en beskrivende tekst for skjermlesere.
+     * @default "Hovedmeny"
+     */
+    "aria-label"?: string;
+    /** Styrer utseende, tekst, og `aria-expanded`. */
     isOpen: boolean;
     onClick: (() => void) | ((evt: React.MouseEvent) => void);
     className?: string;
     /** @deprecated use data-theme["dark|light"] where possible in stead. this prop is to support IE11 */
     inverted?: boolean;
-    description?: string;
+    /**
+     * Vis en tekst før eller etter hamburgerikonet som varierer med åpnet og
+     * lukket tilstand.
+     *
+     * NB! Komponenten setter en standard `aria-label`. Skjermlesere vil kunne
+     * ignorere teksten i `actionLabel` og fremdeles annonsere knappens
+     * `aria-label`. Skjermleseren annonserer knappens tilstand basert på
+     * `aria-expanded`.
+     *
+     * Dersom du heller ønsker at knappens `actionLabel` skal leses opp må du
+     * sette en tom string som `aria-label`.
+     */
     actionLabel?: {
         open: string;
         close: string;
         animated?: boolean;
         position?: "before" | "after";
     };
-    "aria-controls"?: string;
 }
 
-export const Hamburger: VFC<Props> = ({
+export const Hamburger = ({
+    "aria-label": ariaLabel = "Hovedmeny",
     isOpen,
     onClick,
-    inverted = false,
-    description = "Hovedmeny",
     className,
     actionLabel,
-    "aria-controls": ariaControls,
-}) => {
+    inverted = false,
+    ...rest
+}: HamburgerProps): JSX.Element => {
     const componentClassname = classnames(
         "jkl-hamburger",
         {
@@ -44,13 +64,12 @@ export const Hamburger: VFC<Props> = ({
     return (
         <button
             type="button"
-            aria-label={description}
+            aria-label={ariaLabel ? ariaLabel : undefined}
             onClick={onClick}
             className={componentClassname}
-            aria-expanded={isOpen || undefined}
-            aria-haspopup="menu"
+            aria-expanded={isOpen}
             data-testid="jkl-hamburger"
-            aria-controls={ariaControls}
+            {...rest}
         >
             <span className="jkl-hamburger__lines"></span>
             {actionLabel && (

@@ -1,51 +1,32 @@
-import React, { FC } from "react";
+import React, { ReactNode, VFC } from "react";
 import cn from "classnames";
 
-export interface Item {
-    label: string;
-    value: string;
-    bold?: boolean;
-}
-
 export interface Props {
-    columnDescriptions: [string, string];
-    items: Item[];
     className?: string;
-    footer?: Item;
+    caption?: string;
+    header: [string, string];
+    body: ReactNode;
+    footer?: ReactNode;
 }
 
-export const SummaryTable: FC<Props> = ({ columnDescriptions, items, className, footer }) => {
+export const SummaryTable: VFC<Props> = ({ className, caption, header, body, footer }) => {
     return (
         <table className={cn("jkl-summary-table", "jkl-body", className)}>
+            {caption && <caption className="jkl-sr-only">{caption}</caption>}
+
             <thead className="jkl-sr-only">
                 <tr>
-                    {columnDescriptions.map((category, index) => (
-                        <th scope="col" key={`${category}-${index}`}>
-                            {category}
+                    {header.map((description, index) => (
+                        <th scope="col" key={index}>
+                            {description}
                         </th>
                     ))}
                 </tr>
             </thead>
 
-            <tbody>
-                {items.map(({ label, value, bold = false }, index) => (
-                    <tr key={`${label}-${index}`}>
-                        <th scope="row">
-                            <span className={cn({ "jkl-summary-table__row--bold": bold })}>{label}</span>
-                        </th>
-                        <td>{value}</td>
-                    </tr>
-                ))}
-            </tbody>
+            <tbody>{body}</tbody>
 
-            {footer && (
-                <tfoot>
-                    <tr>
-                        <th scope="row">{footer?.label}</th>
-                        <td>{footer?.value}</td>
-                    </tr>
-                </tfoot>
-            )}
+            <tfoot>{footer}</tfoot>
         </table>
     );
 };

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.0 (2021-12-22)
+
+### Features
+
+- **validators:** added validators for isValidName and hasMinimumWords ([19247cb](https://github.com/fremtind/jokul/commit/19247cbb412a18a0de0d722ebc136d1904e48fee))
+
+## 2.1.0 (2021-12-21)
+
+### Features
+
+- changed from ssn to fodselsnummer and made the documentation simpler ([604c08f](https://github.com/fremtind/jokul/commit/604c08f77d54ccbbc3029650cb9de3af91bbbcbc))
+- created new form validators ([92e1e35](https://github.com/fremtind/jokul/commit/92e1e35b129dc22f0e93b7290092374323e57aa2))
+
 ## 2.0.0 (2021-10-01)
 
 ### Bug Fixes

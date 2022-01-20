@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "6.1.5",
+    "version": "6.2.2",
     "publishConfig": {
         "access": "public"
     },
@@ -34,13 +34,14 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.3",
-        "@fremtind/jkl-icon-button-react": "^0.8.2",
-        "@fremtind/jkl-message-box": "^5.0.5",
-        "classnames": "^2.2.6"
+        "@babel/runtime": "^7.16.7",
+        "@fremtind/jkl-icon-button-react": "^0.8.5",
+        "@fremtind/jkl-message-box": "^5.1.1",
+        "classnames": "^2.2.6",
+        "framer-motion": "^5.6.0"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^8.2.1"
+        "@fremtind/jkl-core": "^8.3.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

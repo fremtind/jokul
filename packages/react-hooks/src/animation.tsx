@@ -5,14 +5,14 @@ interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElemen
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
-interface Options {
+export interface UseAnimatedHeightOptions {
     onTransitionStart?: (isOpening: boolean) => void;
     onTransitionEnd?: (isOpen: boolean) => void;
 }
 
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
-    options?: Options,
+    options?: UseAnimatedHeightOptions,
 ): [RefObject<T>, () => void] {
     const raf1 = useRef<number>();
     const raf2 = useRef<number>();

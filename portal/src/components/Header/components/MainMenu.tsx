@@ -69,6 +69,8 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
         <nav className={cx("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
             {isSmallScreen && (
                 <Hamburger
+                    id="jkl-portal-main-menu-hamburger"
+                    aria-controls="jkl-portal-main-menu-overlay"
                     onClick={(evt) => {
                         evt.preventDefault();
                         if (!currentItem) {
@@ -81,10 +83,12 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
             )}
             <div
                 ref={menuRef}
+                aria-labelledby="jkl-portal-main-menu-hamburger"
+                id="jkl-portal-main-menu-overlay"
+                hidden={isOpen}
                 className={cx("jkl-portal-main-menu__overlay", {
                     "jkl-portal-main-menu__overlay--open": isOpen,
                 })}
-                aria-hidden={isOpen ? "false" : "true"}
             >
                 <div className="jkl-portal-main-menu__menu-wrapper">
                     {isSmallScreen && (

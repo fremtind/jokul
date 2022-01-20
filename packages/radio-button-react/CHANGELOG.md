@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.0 (2022-01-07)
+
+### Features
+
+- **radio-button:** changed label to ReactNode ([2a04d76](https://github.com/fremtind/jokul/commit/2a04d7684bba850a2cdaea693d5f32a721fd6e57))
+
 ## 6.0.0 (2021-11-09)
 
 ### Features
