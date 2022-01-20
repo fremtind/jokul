@@ -47,6 +47,7 @@ export const ExpandableTableRowController: React.FC<ExpandableTableRowController
                 onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                         e.stopPropagation();
+                        e.preventDefault();
                         onClick();
                     }
                 }}
