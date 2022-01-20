@@ -189,14 +189,8 @@ jobs:
                   name: cypress-screenshots-${{ matrix.group }}
                   path: |
                       cypress/screenshots
-                      packages/**/integration/**/*.png
-
-            - name: Upload video
-              uses: actions/upload-artifact@v2
-              if: failure()
-              with:
-                  name: cypress-videos-${{ matrix.group }}
-                  path: cypress/videos
+                      packages/**/integration/**/*.actual.png
+                      packages/**/integration/**/*.diff.png
 
             - name: Debug
               if: success()

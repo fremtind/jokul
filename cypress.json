@@ -5,6 +5,7 @@
     "viewportWidth": 1920,
     "viewportHeight": 1080,
     "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*", "**/node_modules/**", "./scripts/**"],
+    "video": false,
     "env": {
         "cypress-plugin-snapshots": {
             "autoCleanUp": false,
