@@ -26,6 +26,7 @@ export const ExpandableTableRow: FC<ExpandableTableRowProps> = ({
 
     const tableRowClassName = cx("jkl-table-row--expandable", className, {
         ["jkl-table-row--expanded"]: isOpen,
+        ["jkl-expandable-table-row--clickable-external"]: clickable,
     });
     const childWrapperClassName = cx("jkl-expandable-table-row__expanded-row", {
         ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,

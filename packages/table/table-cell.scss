@@ -73,7 +73,7 @@
     }
 }
 
-.jkl-table-row--expandable.jkl-table-row--clickable {
+.jkl-table-row--expandable.jkl-table-row--clickable:not(.jkl-expandable-table-row--clickable-external) {
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         .jkl-table-row-expand-button {
