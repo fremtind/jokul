@@ -29,7 +29,7 @@ describe("Select", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.toggleSelectMenu("produsent").focusSelectValue("google").waitForAnimation();
+                cy.toggleSelectMenu("produsent").focusSelectValue("google");
             },
             teardown: () => {
                 cy.toggleSelectMenu("produsent");
@@ -38,7 +38,7 @@ describe("Select", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.toggleSelectMenu("produsent").selectValue("google").waitForAnimation();
+                cy.toggleSelectMenu("produsent").selectValue("google");
             },
             teardown: () => {
                 cy.toggleSelectMenu("produsent");
@@ -49,10 +49,8 @@ describe("Select", () => {
             setup: () => {
                 cy.toggleSelectMenu("produsent")
                     .selectValue("google")
-                    .waitForAnimation()
                     .toggleSelectMenu("produsent")
-                    .focusSelectValue("apple")
-                    .waitForAnimation();
+                    .focusSelectValue("apple");
             },
             teardown: () => {
                 cy.toggleSelectMenu("produsent");

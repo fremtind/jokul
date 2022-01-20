@@ -16,7 +16,7 @@ context("ContentToggle", () => {
         cy.takeSnapshots({
             variants,
             setup: () => {
-                cy.setByttVerdi().waitForAnimation();
+                cy.setByttVerdi();
             },
             teardown: () => {
                 cy.resetByttVerdi();

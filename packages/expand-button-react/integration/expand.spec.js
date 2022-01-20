@@ -16,7 +16,7 @@ describe("ExpandButton", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Frittstående"]').click();
-                cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
+                cy.getByTestid("jkl-expand-button").first().click();
             },
         });
 
@@ -31,7 +31,7 @@ describe("ExpandButton", () => {
             setup: () => {
                 cy.get('input[value="Frittstående"]').click();
                 cy.get('input[value="Oppover"]').click();
-                cy.getByTestid("jkl-expand-button").first().click().waitForAnimation();
+                cy.getByTestid("jkl-expand-button").first().click();
             },
         });
     });

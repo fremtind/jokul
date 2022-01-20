@@ -47,11 +47,6 @@ Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example");
 });
 
-Cypress.Commands.add("waitForAnimation", (timeout = 300) => {
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(timeout);
-});
-
 const setMode = (action, reset) => () => {
     if (reset) {
         return cy.get(`input[value="${action}"]:checked`).click({ multiple: true });

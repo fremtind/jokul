@@ -31,12 +31,6 @@ declare namespace Cypress {
         focusTextArea: (inputName: string) => Chainable<Subject>;
         /** Gir deg alle komponenteksempler på siden. Om du har flere, bruk `.eq(index)` for å plukke riktig komponent. */
         getComponent: () => Chainable<Subject>;
-        /**
-         * Den eneste måten du får lov til å kalle `.wait()` ;)
-         *
-         * @default 300
-         */
-        waitForAnimation: (timeout: number) => Chainable<Subject>;
         setCompact: () => Chainable<Subject>;
         resetCompact: () => Chainable<Subject>;
         setInline: () => Chainable<Subject>;
