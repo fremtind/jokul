@@ -8,31 +8,20 @@ $controller-button-padding: jkl.$spacing-s;
 $autosuggest-item-height: rem(28px);
 $autosuggest-item-font-size: rem(18px);
 
-$autosuggest-text-color: jkl.$color-granitt;
-$autosuggest-menu-background-color: jkl.$color-hvit;
-$autosuggest-focus-color: jkl.$color-granitt;
-
-$autosuggest-text-color--inverted: jkl.$color-snohvit;
-$autosuggest-menu-background-color--inverted: jkl.$color-svart;
-$autosuggest-focus-color--inverted: jkl.$color-snohvit;
-
-$autosuggest-error-text-color: jkl.$color-granitt;
-$autosuggest-error-placeholder-color: jkl.$color-stein;
-
 @include light-mode-variables {
-    --autosuggest-text-color: #{$autosuggest-text-color};
-    --autosuggest-menu-background-color: #{$autosuggest-menu-background-color};
-    --autosuggest-focus-color: #{$autosuggest-focus-color};
-    --autosuggest-error-text-color: #{$autosuggest-error-text-color};
-    --autosuggest-error-placeholder-color: #{$autosuggest-error-placeholder-color};
+    --autosuggest-text-color: #{jkl.$color-granitt};
+    --autosuggest-menu-background-color: #{jkl.$color-hvit};
+    --autosuggest-focus-color: #{jkl.$color-granitt};
+    --autosuggest-error-text-color: #{jkl.$color-granitt};
+    --autosuggest-error-placeholder-color: #{jkl.$color-stein};
 }
 
 @include dark-mode-variables {
-    --autosuggest-text-color: #{$autosuggest-text-color--inverted};
-    --autosuggest-menu-background-color: #{$autosuggest-menu-background-color--inverted};
-    --autosuggest-focus-color: #{$autosuggest-focus-color--inverted};
-    --autosuggest-error-text-color: #{$autosuggest-error-text-color};
-    --autosuggest-error-placeholder-color: #{$autosuggest-error-placeholder-color};
+    --autosuggest-text-color: #{jkl.$color-snohvit};
+    --autosuggest-menu-background-color: #{jkl.$color-svart};
+    --autosuggest-focus-color: #{jkl.$color-snohvit};
+    --autosuggest-error-text-color: #{jkl.$color-granitt};
+    --autosuggest-error-placeholder-color: #{jkl.$color-stein};
 }
 
 .jkl-autosuggest {
@@ -58,17 +47,14 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
     &__input-group > input[aria-invalid="true"],
     &__input-group > input:invalid {
         & ~ .jkl-autosuggest__controller-button {
-            color: $autosuggest-error-placeholder-color;
             color: var(--autosuggest-error-placeholder-color);
 
             &:hover {
-                color: $autosuggest-error-text-color;
                 color: var(--autosuggest-error-text-color);
             }
 
             @include keyboard-navigation {
                 &:focus::after {
-                    box-shadow: inset 0 0 0 rem(2px) $autosuggest-error-text-color;
                     box-shadow: inset 0 0 0 rem(2px) var(--autosuggest-error-text-color);
                 }
             }
@@ -92,12 +78,7 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
         position: absolute;
         right: 0;
         top: 0;
-        color: $autosuggest-text-color;
         color: var(--autosuggest-text-color);
-
-        &--inverted {
-            color: $autosuggest-focus-color--inverted;
-        }
 
         &:focus {
             @include keyboard-navigation {
@@ -108,7 +89,6 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
                     right: rem(8px);
                     bottom: rem(8px);
                     left: rem(8px);
-                    box-shadow: inset 0 0 0 rem(2px) $autosuggest-focus-color;
                     box-shadow: inset 0 0 0 rem(2px) var(--autosuggest-focus-color);
                 }
             }
@@ -116,14 +96,11 @@ $autosuggest-error-placeholder-color: jkl.$color-stein;
     }
 
     &__menu {
-        background-color: $autosuggest-menu-background-color;
         background-color: var(--autosuggest-menu-background-color);
-        border: rem(2px) solid $autosuggest-focus-color;
         border: rem(2px) solid var(--autosuggest-focus-color);
         border-top: none;
         border-radius: 0 0 rem(3px) rem(3px);
         box-sizing: border-box;
-        color: $autosuggest-text-color;
         color: var(--autosuggest-text-color);
         list-style-type: none;
         position: absolute;

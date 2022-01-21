@@ -4,24 +4,16 @@
 @import "./mixins/all";
 @import "./functions";
 
-$label-color: jkl.$color-granitt;
-$label-support-color: jkl.$color-stein;
-$label-error-color: jkl.$color-granitt;
-
-$label-color--inverted: jkl.$color-snohvit;
-$label-support-color--inverted: jkl.$color-svaberg;
-$label-error-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --label-color: #{$label-color};
-    --label-support-color: #{$label-support-color};
-    --label-error-color: #{$label-error-color};
+    --label-color: #{jkl.$color-granitt};
+    --label-support-color: #{jkl.$color-stein};
+    --label-error-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --label-color: #{$label-color--inverted};
-    --label-support-color: #{$label-support-color--inverted};
-    --label-error-color: #{$label-error-color--inverted};
+    --label-color: #{jkl.$color-snohvit};
+    --label-support-color: #{jkl.$color-svaberg};
+    --label-error-color: #{jkl.$color-snohvit};
 }
 
 .jkl-dormant-form-support-label {

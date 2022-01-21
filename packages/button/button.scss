@@ -21,36 +21,22 @@ $focus-ring-width: rem(2px);
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
-$button-border-color: jkl.$color-granitt;
-$button-text-color: jkl.$color-granitt;
-$button-background-color: transparent;
-$button-focus-color: jkl.$color-granitt;
-$button-primary-text-color: jkl.$color-snohvit;
-$button-primary-background-color: jkl.$color-granitt;
-
-$button-border-color--inverted: jkl.$color-snohvit;
-$button-text-color--inverted: jkl.$color-snohvit;
-$button-background-color--inverted: transparent;
-$button-focus-color--inverted: jkl.$color-snohvit;
-$button-primary-text-color--inverted: jkl.$color-granitt;
-$button-primary-background-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --button-border-color: #{$button-border-color};
-    --button-text-color: #{$button-text-color};
-    --button-background-color: #{$button-background-color};
-    --button-focus-color: #{$button-focus-color};
-    --button-primary-text-color: #{$button-primary-text-color};
-    --button-primary-background-color: #{$button-primary-background-color};
+    --button-border-color: #{jkl.$color-granitt};
+    --button-text-color: #{jkl.$color-granitt};
+    --button-background-color: transparent;
+    --button-focus-color: #{jkl.$color-granitt};
+    --button-primary-text-color: #{jkl.$color-snohvit};
+    --button-primary-background-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --button-border-color: #{$button-border-color--inverted};
-    --button-text-color: #{$button-text-color--inverted};
-    --button-background-color: #{$button-background-color--inverted};
-    --button-focus-color: #{$button-focus-color--inverted};
-    --button-primary-text-color: #{$button-primary-text-color--inverted};
-    --button-primary-background-color: #{$button-primary-background-color--inverted};
+    --button-border-color: #{jkl.$color-snohvit};
+    --button-text-color: #{jkl.$color-snohvit};
+    --button-background-color: transparent;
+    --button-focus-color: #{jkl.$color-snohvit};
+    --button-primary-text-color: #{jkl.$color-granitt};
+    --button-primary-background-color: #{jkl.$color-snohvit};
 }
 
 a.jkl-button {
@@ -279,17 +265,6 @@ a.jkl-button {
         opacity: 0;
     }
 }
-@keyframes invertedflash {
-    0% {
-        box-shadow: 0 0 0 0 #{$button-focus-color--inverted};
-        opacity: 0.5;
-    }
-
-    100% {
-        box-shadow: 0 0 0 #{rem(16px)} #{$button-focus-color--inverted};
-        opacity: 0;
-    }
-}
 
 @keyframes tertiaryflash {
     0% {
@@ -301,19 +276,6 @@ a.jkl-button {
     100% {
         box-shadow: 0 0 0 #{rem(40px)} var(--button-focus-color);
         background-color: var(--button-focus-color);
-        opacity: 0;
-    }
-}
-@keyframes invertedtertiaryflash {
-    0% {
-        box-shadow: 0 0 0 0 #{$button-focus-color--inverted};
-        background-color: #{$button-focus-color--inverted};
-        opacity: 0.5;
-    }
-
-    100% {
-        box-shadow: 0 0 0 #{rem(40px)} #{$button-focus-color--inverted};
-        background-color: #{$button-focus-color--inverted};
         opacity: 0;
     }
 }

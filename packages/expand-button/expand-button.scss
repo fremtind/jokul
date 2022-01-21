@@ -8,20 +8,14 @@ $expand-button-border-width: jkl.rem(1px);
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $focus-ring-width: jkl.rem(2px);
 
-$expand-button-text-color: jkl.$color-granitt;
-$expand-button-focus-color: jkl.$color-granitt;
-
-$expand-button-text-color--inverted: jkl.$color-snohvit;
-$expand-button-focus-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --expand-button-text-color: #{$expand-button-text-color};
-    --expand-button-focus-color: #{$expand-button-focus-color};
+    --expand-button-text-color: #{jkl.$color-granitt};
+    --expand-button-focus-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --expand-button-text-color: #{$expand-button-text-color--inverted};
-    --expand-button-focus-color: #{$expand-button-focus-color--inverted};
+    --expand-button-text-color: #{jkl.$color-snohvit};
+    --expand-button-focus-color: #{jkl.$color-snohvit};
 }
 
 @mixin expanded-arrow($px) {

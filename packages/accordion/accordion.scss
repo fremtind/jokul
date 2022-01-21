@@ -3,9 +3,6 @@
 @import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/_functions";
 
-$arrow-height: rem(16px);
-$arrow-width: rem(13px);
-
 @include jkl.helper-light-mode-variables {
     --accordion-border: #{jkl.$color-svaberg};
     --accordion-accent: #{jkl.$color-stein};
@@ -128,6 +125,9 @@ $arrow-width: rem(13px);
 }
 
 .jkl-expand-arrow {
+    $arrow-height: rem(16px);
+    $arrow-width: rem(13px);
+
     height: $arrow-height;
     width: $arrow-width;
     clip: rect(auto, auto, auto, auto);

@@ -3,14 +3,11 @@
 @import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/_functions";
 
-$datepicker-focus-color: jkl.$color-granitt;
-$datepicker-focus-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --datepicker-focus-color: #{$datepicker-focus-color};
+    --datepicker-focus-color: #{jkl.$color-granitt};
 }
 @include jkl.helper-dark-mode-variables {
-    --datepicker-focus-color: #{$datepicker-focus-color--inverted};
+    --datepicker-focus-color: #{jkl.$color-snohvit};
 }
 
 .jkl-datepicker {
@@ -55,53 +52,30 @@ $calendar-padding: jkl.$spacing-l;
 $calendar-padding--compact: jkl.$spacing-xs;
 $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 2);
 
-// Theme colors:
-$calendar-text-color: jkl.$color-granitt;
-$calendar-background-color: jkl.$color-hvit;
-$calendar-border-color: jkl.$color-granitt;
-$calendar-adjacent-month-color: jkl.$color-stein;
-$calendar-disabled-day-color: jkl.$color-svaberg;
-$calendar-active-day-color: jkl.$color-hvit;
-$calendar-focus-color: jkl.$color-granitt;
-$calendar-navigation-arrow-focus-color: jkl.$color-stein;
-$calendar-hover-date-background-color: jkl.$color-varde;
-$calendar-selected-date-background-color: jkl.$color-granitt;
-
-$calendar-text-color--inverted: jkl.$color-snohvit;
-$calendar-background-color--inverted: jkl.$color-svart;
-$calendar-border-color--inverted: jkl.$color-snohvit;
-$calendar-adjacent-month-color--inverted: jkl.$color-svaberg;
-$calendar-disabled-day-color--inverted: jkl.$color-stein;
-$calendar-active-day-color--inverted: jkl.$color-svart;
-$calendar-focus-color--inverted: jkl.$color-snohvit;
-$calendar-navigation-arrow-focus-color--inverted: jkl.$color-svaberg;
-$calendar-hover-date-background-color--inverted: jkl.$color-stein;
-$calendar-selected-date-background-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --calendar-text-color: #{$calendar-text-color};
-    --calendar-background-color: #{$calendar-background-color};
-    --calendar-border-color: #{$calendar-border-color};
-    --calendar-adjacent-month-color: #{$calendar-adjacent-month-color};
-    --calendar-disabled-day-color: #{$calendar-disabled-day-color};
-    --calendar-active-day-color: #{$calendar-active-day-color};
-    --calendar-focus-color: #{$calendar-focus-color};
-    --calendar-navigation-arrow-focus-color: #{$calendar-navigation-arrow-focus-color};
-    --calendar-selected-date-background-color: #{$calendar-selected-date-background-color};
-    --calendar-hover-date-background-color: #{$calendar-hover-date-background-color};
+    --calendar-text-color: #{jkl.$color-granitt};
+    --calendar-background-color: #{jkl.$color-hvit};
+    --calendar-border-color: #{jkl.$color-granitt};
+    --calendar-adjacent-month-color: #{jkl.$color-stein};
+    --calendar-disabled-day-color: #{jkl.$color-svaberg};
+    --calendar-active-day-color: #{jkl.$color-hvit};
+    --calendar-focus-color: #{jkl.$color-granitt};
+    --calendar-navigation-arrow-focus-color: #{jkl.$color-stein};
+    --calendar-hover-date-background-color: #{jkl.$color-varde};
+    --calendar-selected-date-background-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --calendar-text-color: #{$calendar-text-color--inverted};
-    --calendar-background-color: #{$calendar-background-color--inverted};
-    --calendar-border-color: #{$calendar-border-color--inverted};
-    --calendar-adjacent-month-color: #{$calendar-adjacent-month-color--inverted};
-    --calendar-disabled-day-color: #{$calendar-disabled-day-color--inverted};
-    --calendar-active-day-color: #{$calendar-active-day-color--inverted};
-    --calendar-focus-color: #{$calendar-focus-color--inverted};
-    --calendar-navigation-arrow-focus-color: #{$calendar-navigation-arrow-focus-color--inverted};
-    --calendar-selected-date-background-color: #{$calendar-selected-date-background-color--inverted};
-    --calendar-hover-date-background-color: #{$calendar-hover-date-background-color--inverted};
+    --calendar-text-color: #{jkl.$color-snohvit};
+    --calendar-background-color: #{jkl.$color-svart};
+    --calendar-border-color: #{jkl.$color-snohvit};
+    --calendar-adjacent-month-color: #{jkl.$color-svaberg};
+    --calendar-disabled-day-color: #{jkl.$color-stein};
+    --calendar-active-day-color: #{jkl.$color-svart};
+    --calendar-focus-color: #{jkl.$color-snohvit};
+    --calendar-navigation-arrow-focus-color: #{jkl.$color-svaberg};
+    --calendar-hover-date-background-color: #{jkl.$color-stein};
+    --calendar-selected-date-background-color: #{jkl.$color-snohvit};
 }
 
 .jkl-calendar {

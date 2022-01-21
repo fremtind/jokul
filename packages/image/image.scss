@@ -2,15 +2,12 @@
 
 @import "~@fremtind/jkl-core/_functions";
 
-$loader-color: jkl.$color-sand;
-$loader-color--inverted: jkl.$color-fjellgra;
-
 @include jkl.helper-light-mode-variables {
-    --jkl-image-loader-color: #{$loader-color};
+    --jkl-image-loader-color: #{jkl.$color-sand};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --jkl-image-loader-color: #{$loader-color--inverted};
+    --jkl-image-loader-color: #{jkl.$color-fjellgra};
 }
 
 .jkl-image {

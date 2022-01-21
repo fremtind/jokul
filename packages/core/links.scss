@@ -21,23 +21,15 @@ $north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 $link-underline-thickness: rem(1px);
 $link-underline-thickness--hover: rem(2px);
 
-$link-color: jkl.$color-granitt;
-$link-hover-color: jkl.$color-stein;
-$link-active-color: jkl.$color-granitt;
-
-$link-color--inverted: jkl.$color-snohvit;
-$link-hover-color--inverted: jkl.$color-svaberg;
-$link-active-color--inverted: jkl.$color-snohvit;
-
 @include light-mode-variables {
-    --link-color: #{$link-color};
-    --link-hover-color: #{$link-hover-color};
-    --link-active-color: #{$link-active-color};
+    --link-color: #{jkl.$color-granitt};
+    --link-hover-color: #{jkl.$color-stein};
+    --link-active-color: #{jkl.$color-granitt};
 }
 @include dark-mode-variables {
-    --link-color: #{$link-color--inverted};
-    --link-hover-color: #{$link-hover-color--inverted};
-    --link-active-color: #{$link-active-color--inverted};
+    --link-color: #{jkl.$color-snohvit};
+    --link-hover-color: #{jkl.$color-svaberg};
+    --link-active-color: #{jkl.$color-snohvit};
 }
 
 .jkl-link {
