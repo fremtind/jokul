@@ -3,35 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.1 (2022-01-21)
+
+### Bug Fixes
+
+-   lesbar farge på mørk bakgrunn i eksempler ([ad323ac](https://github.com/fremtind/jokul/commit/ad323ac291da0157742a1f307e0eb8cfb5815e31)), closes [#2661](https://github.com/fremtind/jokul/issues/2661)
+
 ## 6.0.0 (2022-01-12)
 
 ### Features
 
-- makes summary-table more flexible ([374f557](https://github.com/fremtind/jokul/commit/374f5579b3ddf2de2f2bc0662583c0ac8c8b1c06)), closes [#2617](https://github.com/fremtind/jokul/issues/2617)
+-   makes summary-table more flexible ([374f557](https://github.com/fremtind/jokul/commit/374f5579b3ddf2de2f2bc0662583c0ac8c8b1c06)), closes [#2617](https://github.com/fremtind/jokul/issues/2617)
 
 ### BREAKING CHANGES
 
-- breaking: new props for summary-table
+-   breaking: new props for summary-table
 
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
