@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 context("IconButton", () => {
     beforeEach(() => {
@@ -6,17 +7,8 @@ context("IconButton", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "clear").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Type", "calendar").getComponent().toMatchImageSnapshot();
-    });
-
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "clear").getComponent().toMatchImageSnapshot();
-            cy.setChoice("Type", "calendar").getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            variants: ["clear", "search", "calendar"],
         });
     });
 });

@@ -16,7 +16,7 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
 
     return (
         <TertiaryButton
-            forceCompact={boolValues && boolValues["Kompakt"]}
+            forceCompact={boolValues && boolValues["Compact"]}
             inverted={boolValues && boolValues["Invertert"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
@@ -29,7 +29,7 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
 
 export const tertiaryCode = ({ boolValues }: ExampleComponentProps): string => `
 <TertiaryButton
-    forceCompact={${!!boolValues?.["Kompakt"]}}
+    forceCompact={${!!boolValues?.["Compact"]}}
     inverted={${!!boolValues?.["Invertert"]}}
     loader={${
         !!boolValues?.["withLoader"]

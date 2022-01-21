@@ -1,38 +1,31 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("Table", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const intro = 0;
-    const mobilScroll = 1;
-    const mobilListe = 2;
-    const skjulteHeaders = 3;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const datatabell = 4;
-    const radMedHandling = 5;
-
     beforeEach(() => {
         cy.testComponent("table");
     });
 
     it("renders correctly", () => {
-        cy.getComponent().eq(mobilScroll).toMatchImageSnapshot();
-        cy.getComponent().eq(skjulteHeaders).toMatchImageSnapshot();
+        const mobilScroll = 1;
+        const mobilListe = 2;
+        const skjulteHeaders = 3;
+        const radMedHandling = 5;
 
-        cy.get('input[value="Liste"]').click({ multiple: true });
-        cy.getComponent().eq(mobilListe).toMatchImageSnapshot();
-        cy.getComponent().eq(radMedHandling).toMatchImageSnapshot();
-    });
+        cy.takeSnapshots({ eq: mobilScroll });
+        cy.takeSnapshots({ eq: skjulteHeaders });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-
-            cy.getComponent().eq(mobilScroll).toMatchImageSnapshot();
-            cy.getComponent().eq(skjulteHeaders).toMatchImageSnapshot();
-
-            cy.get('input[value="Liste"]').click({ multiple: true });
-            cy.getComponent().eq(mobilListe).toMatchImageSnapshot();
-            cy.getComponent().eq(radMedHandling).toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setChoice("Mobilvisning", "Liste");
+            },
+            eq: mobilListe,
+        });
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setChoice("Mobilvisning", "Liste");
+            },
+            eq: radMedHandling,
         });
     });
 });

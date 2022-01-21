@@ -12,7 +12,7 @@ const rows = [
 ];
 
 const ActionTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Kompakt"];
+    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
@@ -58,7 +58,7 @@ const ActionTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValu
 export default ActionTableExample;
 
 export const actionTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth compact={${boolValues?.["Kompakt"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+<Table fullWidth compact={${boolValues?.["Compact"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med handlinger</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>

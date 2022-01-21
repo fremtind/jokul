@@ -10,7 +10,7 @@ export const ExpandSectionExample = ({ boolValues }: ExampleComponentProps) => {
                 Noen ganger trenger vi å gi brukerne som ønsker det litt mer informasjon.
             </p>
             <ExpandSection
-                forceCompact={boolValues?.["Kompakt"]}
+                forceCompact={boolValues?.["Compact"]}
                 title={isExpanded ? "Skjul seksjonen igjen" : "Vis den skjulte seksjonen"}
                 onClick={(_, expanded) => {
                     setIsExpanded(expanded);
@@ -36,7 +36,7 @@ const [isExpanded, setIsExpanded] = useState(false);
 
 return (
     <ExpandSection
-        forceCompact={${boolValues?.["Kompakt"]}}
+        forceCompact={${boolValues?.["Compact"]}}
         title={isExpanded ? "Skjul seksjonen igjen" : "Vis den skjulte seksjonen"}
         onClick={(e, expanded) => {
             setIsExpanded(expanded);

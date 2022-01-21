@@ -18,7 +18,7 @@ renderExample(
             title="DataTable"
             component={DataTableExample}
             knobs={{
-                boolProps: ["Kompakt"],
+                boolProps: ["Compact"],
             }}
         />
         <DevExample
@@ -38,7 +38,7 @@ renderExample(
             title="Klikkbar tabell"
             component={ClickableTableExample}
             knobs={{
-                boolProps: ["Kompakt", "Markér v/ klikk"],
+                boolProps: ["Compact", "Markér v/ klikk"],
                 choiceProps: [
                     {
                         name: "Mobilvisning",
@@ -52,7 +52,7 @@ renderExample(
             title="Tabell med knapper"
             component={ActionTableExample}
             knobs={{
-                boolProps: ["Kompakt"],
+                boolProps: ["Compact"],
                 choiceProps: [
                     {
                         name: "Mobilvisning",

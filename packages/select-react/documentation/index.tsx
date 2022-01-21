@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={SelectExample}
         knobs={{
-            boolProps: ["Native", "Kompakt", "Invertert", "Med hjelpetekst", "Med feil", "Med søk"],
+            boolProps: ["Native", "Compact", "Invertert", "Med hjelpetekst", "Med feil", "Med søk"],
             choiceProps: [
                 {
                     name: "Etikettvariant",

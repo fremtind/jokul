@@ -2,7 +2,7 @@ import React from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { SummaryTable } from "../src";
 import { mockProps } from "../mocks";
-import "./SummaryTableExample.scss";
+import "./summary-table-example.scss";
 
 export const SummaryTableExample: React.FC<ExampleComponentProps> = () => {
     return (
@@ -35,7 +35,7 @@ export const summaryTableExampleCode: CodeExample = `
         <>
             <SummaryTableRow header="Total sum" content="693,50 kr/mnd" />
             <SummaryTableRow header="" content="8322,50 kr/mnd" />
-        </> 
+        </>
     }
 />
 `;

@@ -5,7 +5,7 @@ import { NavLink } from "../../src";
 
 export const NavLinkExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
     <NavLink
-        className="jkl-body"
+        className={boolValues?.["Compact"] ? "jkl-small" : "jkl-body"}
         href="#"
         active={boolValues?.["Aktiv"]}
         back={boolValues?.["Back"]}
@@ -17,7 +17,7 @@ export const NavLinkExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
 
 export const navLinkExampleCode = ({ boolValues }: ExampleComponentProps): string => `
 <NavLink
-    className="jkl-body"
+    className="${boolValues?.["Compact"] ? "jkl-small" : "jkl-body"}"
     href="#"
     active={${boolValues?.["Aktiv"]}}
     back={${boolValues?.["Back"]}}

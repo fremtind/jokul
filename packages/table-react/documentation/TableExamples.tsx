@@ -5,7 +5,7 @@ import ActionTableExample, { actionTableExampleCode } from "./ActionTableExample
 import ClickableTableExample, { clickableTableExampleCode } from "./ClickableTableExample";
 
 export const tableExamplesProps = {
-    boolProps: ["Kompakt", "Skjul overskrift"],
+    boolProps: ["Compact", "Skjul overskrift"],
     choiceProps: [
         {
             name: "Variant",

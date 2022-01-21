@@ -1,3 +1,5 @@
+/// OM DU GJØR ENDRINGER HER, SØRG FOR Å OPPDATERE TYPEDEFINISJONENE I `index.d.ts`!
+
 import "cypress-plugin-snapshots/commands";
 
 function pascalCase(phrase) {
@@ -17,7 +19,11 @@ Cypress.Commands.add("checkInput", (inputName) => {
     cy.get(`input[name=${inputName}]`).first().check();
 });
 
-Cypress.Commands.add("openSelect", (inputName) => {
+Cypress.Commands.add("uncheckInput", (inputName) => {
+    cy.get(`input[name=${inputName}]`).first().uncheck();
+});
+
+Cypress.Commands.add("toggleSelectMenu", (inputName) => {
     cy.get(`button[name=${inputName}-btn]`).first().click();
 });
 
@@ -41,11 +47,6 @@ Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example");
 });
 
-Cypress.Commands.add("waitForAnimation", (timeout = 300) => {
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(timeout);
-});
-
 const setMode = (action, reset) => () => {
     if (reset) {
         return cy.get(`input[value="${action}"]:checked`).click({ multiple: true });
@@ -54,7 +55,7 @@ const setMode = (action, reset) => () => {
 };
 
 Cypress.Commands.add("setChoice", (choice, value) =>
-    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click(),
+    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click({ multiple: true }),
 );
 
 const setModeFactory = (knob) => {
@@ -63,7 +64,7 @@ const setModeFactory = (knob) => {
 };
 
 [
-    "Kompakt",
+    "Compact",
     "Inline",
     "Invertert",
     "Med feil",
@@ -73,5 +74,39 @@ const setModeFactory = (knob) => {
     "Bytt verdi",
     "withLoader",
     "isLoading",
-    "Avvisbar",
+    "Dismissable",
 ].map((knob) => setModeFactory(knob));
+
+Cypress.Commands.add("takeSnapshots", (options = {}) => {
+    const variants = options.variants || ["__DEFAULT__"];
+
+    variants.forEach((variant) => {
+        doSnapshot(options, variant);
+
+        cy.setDarkMode();
+        doSnapshot(options, variant);
+        cy.resetDarkMode();
+    });
+
+    function doSnapshot(options, variant) {
+        const componentIndex = options.eq || 0;
+
+        if (variant !== "__DEFAULT__") {
+            cy.setChoice("Variant", variant);
+        }
+
+        if (typeof options.setup === "function") {
+            options.setup();
+        }
+
+        if (typeof options.customSelector === "function") {
+            options.customSelector().toMatchImageSnapshot();
+        } else {
+            cy.getComponent().eq(componentIndex).toMatchImageSnapshot();
+        }
+
+        if (typeof options.teardown === "function") {
+            options.teardown();
+        }
+    }
+});

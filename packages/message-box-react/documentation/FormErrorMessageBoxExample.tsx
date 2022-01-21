@@ -13,7 +13,7 @@ export const FormErrorMessageBoxExample: React.FC<ExampleComponentProps> = ({ bo
                 isSubmitted={boolValues?.["Submitted"] || false}
                 isValid={(boolValues?.["Gyldig fornavn"] && boolValues?.["Gyldig etternavn"]) || false}
                 messageBoxProps={{
-                    fullWidth: boolValues?.["Full bredde"],
+                    fullWidth: boolValues?.["Full width"],
                 }}
             />
             <p className="jkl-small">
@@ -31,7 +31,7 @@ export const formErrorMessageBoxExampleCode = ({ boolValues }: ExampleComponentP
     isSubmitted={${boolValues?.["Submitted"] || false}}
     isValid={${boolValues?.["Gyldig fornavn"] && boolValues?.["Gyldig etternavn"]}}
     messageBoxProps={{
-        fullWidth: ${boolValues?.["Full bredde"]},
+        fullWidth: ${boolValues?.["Full width"]},
     }}
 />
 `;
