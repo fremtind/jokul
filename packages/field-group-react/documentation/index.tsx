@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={FieldGroupExample}
         knobs={{
-            boolProps: ["Kompakt", "Med hjelpetekst", "Med feil"],
+            boolProps: ["Compact", "Med hjelpetekst", "Med feil"],
             choiceProps: [
                 {
                     name: "Variant",

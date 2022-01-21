@@ -5,13 +5,13 @@ import { ErrorMessageBox, InfoMessageBox, SuccessMessageBox, WarningMessageBox }
 
 const getTypeOfBox = (typeofBox?: string) => {
     switch (typeofBox) {
-        case "Infomelding":
+        case "Info":
             return InfoMessageBox;
-        case "Suksessmelding":
+        case "Success":
             return SuccessMessageBox;
-        case "Advarselsmelding":
+        case "Warning":
             return WarningMessageBox;
-        case "Feilmelding":
+        case "Error":
             return ErrorMessageBox;
         default:
             return InfoMessageBox;
@@ -20,8 +20,8 @@ const getTypeOfBox = (typeofBox?: string) => {
 
 export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [dismissed, setDismissed] = useState(false);
-    const C = getTypeOfBox(choiceValues?.["Type"]);
-    const dismissAction = boolValues?.["Avvisbar"]
+    const C = getTypeOfBox(choiceValues?.["Variant"]);
+    const dismissAction = boolValues?.["Dismissable"]
         ? {
               handleDismiss: () => {
                   setDismissed(true);
@@ -32,26 +32,26 @@ export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues,
         : undefined;
     return (
         <C
-            fullWidth={boolValues?.["Full bredde"]}
-            title={choiceValues?.["Type"]}
+            fullWidth={boolValues?.["Full width"]}
+            title={choiceValues?.["Variant"]}
             dismissed={dismissed}
             dismissAction={dismissAction}
         >
-            Hei, jeg er en melding av typen {choiceValues?.["Type"]} med{" "}
+            Hei, jeg er en melding av typen {choiceValues?.["Variant"]} med{" "}
             <NavLink href="/komponenter/messagebox">en navlink</NavLink>
         </C>
     );
 };
 
 export const messageBoxExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
-    const C = getTypeOfBox(choiceValues ? choiceValues["Type"] : "");
+    const C = getTypeOfBox(choiceValues ? choiceValues["Variant"] : "");
     return `
 <${C.displayName}
-    title="${choiceValues?.["Type"]}"
-    fullWidth={${boolValues?.["Full bredde"]}}
+    title="${choiceValues?.["Variant"]}"
+    fullWidth={${boolValues?.["Full width"]}}
     dismissed={false}
     dismissAction={${
-        boolValues?.["Avvisbar"]
+        boolValues?.["Dismissable"]
             ? `{
         handleDismiss: () => setDismissed(true),
         buttonTitle: "Merk som lest",

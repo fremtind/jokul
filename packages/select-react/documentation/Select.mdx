@@ -13,12 +13,13 @@ import { SelectExample, selectCode } from "./SelectExample";
     velge mellom i listen.
 </Ingress>
 <ComponentExample
+    title="Select"
     component={SelectExample}
     knobs={{
-        boolProps: ["Native", "Kompakt", "Invertert", "Med hjelpetekst", "Med feil", "Med søk"],
+        boolProps: ["Native", "Compact", "Invertert", "Med hjelpetekst", "Med feil", "Med søk"],
         choiceProps: [
             {
-                name: "Etikettvariant",
+                name: "Variant",
                 values: ["small", "medium", "large"],
                 defaultValue: 0,
             },

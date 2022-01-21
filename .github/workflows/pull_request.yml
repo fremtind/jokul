@@ -177,7 +177,8 @@ jobs:
             - name: Run Cypress
               uses: cypress-io/github-action@v2
               with:
-                  env: ELECTRON_EXTRA_LAUNCH_ARGS="--force-prefers-reduced-motion"
+                  browser: chrome
+                  headless: true
                   start: yarn server
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 280

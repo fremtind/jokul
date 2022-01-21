@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("TextInput", () => {
     beforeEach(() => {
@@ -6,70 +7,85 @@ describe("TextInput", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().eq(0).toMatchImageSnapshot();
-        cy.getComponent().eq(1).toMatchImageSnapshot();
+        const textInput = 0;
+        const textArea = 1;
 
-        cy.setMedFeil().getComponent().eq(0).toMatchImageSnapshot().resetMedFeil();
-        cy.setMedFeil().getComponent().eq(1).toMatchImageSnapshot().resetMedFeil();
+        [textInput, textArea].forEach((component) => {
+            cy.takeSnapshots({ eq: component });
 
-        cy.focusInput("fodselsnummer").type("Å være eller ikke være");
-        cy.getComponent().eq(0).toMatchImageSnapshot();
+            cy.takeSnapshots({
+                setup: () => {
+                    cy.setMedFeil();
+                },
+                teardown: () => {
+                    cy.resetMedFeil();
+                },
+                eq: component,
+            });
+        });
 
-        cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.focusInput("fodselsnummer").type("Å være eller ikke være");
+            },
+            eq: textInput,
+        });
 
-        cy.get('input[value="Med teller"]').click();
-        cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+            },
+            eq: textArea,
+        });
 
-        cy.focusTextArea("beskrivelse").type(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas sed tempus urna et pharetra pharetra massa massa ultricies. Mollis aliquam ut porttitor leo.",
-        );
-        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med teller"]').check();
+                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+            },
+            teardown: () => {
+                cy.get('input[value="Med teller"]').check();
+            },
+            eq: textArea,
+        });
 
-        cy.get('input[value="Skjul progress"]').click();
-        cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-        cy.getComponent().eq(1).toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med teller"]').check();
+                cy.focusTextArea("beskrivelse").type(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas sed tempus urna et pharetra pharetra massa massa ultricies. Mollis aliquam ut porttitor leo.",
+                );
+            },
+            teardown: () => {
+                cy.get('input[value="Med teller"]').uncheck();
+            },
+            eq: textArea,
+        });
 
-        cy.setMedFeil();
-        cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-        cy.getComponent().eq(1).toMatchImageSnapshot();
-        cy.resetMedFeil();
-    });
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med teller"]').check();
+                cy.get('input[value="Skjul progress"]').check();
+                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+            },
+            teardown: () => {
+                cy.get('input[value="Med teller"]').uncheck();
+                cy.get('input[value="Skjul progress"]').uncheck();
+            },
+            eq: textArea,
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-
-            cy.getComponent().eq(0).toMatchImageSnapshot();
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-
-            cy.setMedFeil().getComponent().eq(0).toMatchImageSnapshot().resetMedFeil();
-            cy.setMedFeil().getComponent().eq(1).toMatchImageSnapshot().resetMedFeil();
-
-            cy.focusInput("fodselsnummer").type("Å være eller ikke være");
-            cy.getComponent().eq(0).toMatchImageSnapshot();
-
-            cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-
-            cy.get('input[value="Med teller"]').click();
-            cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-
-            cy.focusTextArea("beskrivelse").type(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas sed tempus urna et pharetra pharetra massa massa ultricies. Mollis aliquam ut porttitor leo.",
-            );
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-
-            cy.get('input[value="Skjul progress"]').click();
-            cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-
-            cy.setMedFeil();
-            cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
-            cy.getComponent().eq(1).toMatchImageSnapshot();
-            cy.resetMedFeil();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med teller"]').check();
+                cy.setMedFeil();
+                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+            },
+            teardown: () => {
+                cy.get('input[value="Med teller"]').uncheck();
+                cy.resetMedFeil();
+            },
+            eq: textArea,
         });
     });
 });

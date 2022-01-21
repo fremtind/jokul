@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("Buttons", () => {
     beforeEach(() => {
@@ -6,23 +7,42 @@ describe("Buttons", () => {
     });
 
     it("render correctly", () => {
-        [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-        cy.setKompakt();
-        [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-        cy.resetKompakt();
-        cy.setwithLoader().setisLoading();
-        [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-    });
+        const primaryButton = 0;
+        const secondaryButton = 1;
+        const tertiaryButton = 2;
 
-    context("dark mode", () => {
-        it("render correctly", () => {
-            cy.setDarkMode();
-            [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-            cy.setKompakt();
-            [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
-            cy.resetKompakt();
-            cy.setwithLoader().setisLoading();
-            [0, 1, 2].forEach((i) => cy.getComponent().eq(i).toMatchImageSnapshot());
+        [primaryButton, secondaryButton, tertiaryButton].forEach((component) => {
+            cy.takeSnapshots({ eq: component });
+
+            cy.takeSnapshots({
+                setup: () => {
+                    cy.setwithLoader().setisLoading();
+                },
+                teardown: () => {
+                    cy.resetwithLoader().resetisLoading();
+                },
+                eq: component,
+            });
+
+            cy.takeSnapshots({
+                setup: () => {
+                    cy.setCompact();
+                },
+                teardown: () => {
+                    cy.resetCompact();
+                },
+                eq: component,
+            });
+
+            cy.takeSnapshots({
+                setup: () => {
+                    cy.setCompact().setwithLoader().setisLoading();
+                },
+                teardown: () => {
+                    cy.resetCompact().resetwithLoader().resetisLoading();
+                },
+                eq: component,
+            });
         });
     });
 });

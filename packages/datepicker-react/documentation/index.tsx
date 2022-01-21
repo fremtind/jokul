@@ -14,7 +14,7 @@ renderExample(
     <DevExample
         component={DatepickerExample}
         knobs={{
-            boolProps: ["Utvidet velger", "Kompakt", "Med feil", "Med hjelpetekst", "Invertert"],
+            boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst", "Invertert"],
             choiceProps: [
                 {
                     name: "Variant",

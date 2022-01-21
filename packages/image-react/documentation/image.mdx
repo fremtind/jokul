@@ -18,7 +18,12 @@ import { boolProps, choiceProps } from "./internal/props";
     Bildekomponent er ikke 100% ferdigstilt, den kan brukes, men forvent at APIet kan forandre seg.
 </Experimental>
 
-<ComponentExample component={ImageExample} knobs={{ boolProps, choiceProps }} codeExample={imageExampleCode} />
+<ComponentExample
+    title="Image"
+    component={ImageExample}
+    knobs={{ boolProps, choiceProps }}
+    codeExample={imageExampleCode}
+/>
 
 Forhåndsvisningen, eller <i lang="en">thumbnail</i>, vil vises uskarpt først, og animeres til et skarpt fullstørrelse bilde når det er lastet ferdig.
 

@@ -10,4 +10,4 @@ import ScreenExample from "./ScreenExample";
 
 Av og til er kan det være nødvendig å endre strukturen på innholdet bassert på hvor stor skjerm innholdet skal presenteres på. Anbefalt implementasjon er å legge `useScreen` så høyt oppe i applikasjonen din som du mener er nødvendig i en `context`, for å benytte den contexten når du trenger å plukke ut verdiene i en komponent. Dette er for å unngå å sette opp flere eventlyttere enn nødvendig. Om du bruker server side rendering bør denne brukes med forsiktighet, da serveren ikke vil vite hvilken size den skal rendre for.
 
-<ComponentExample component={ScreenExample} />
+<ComponentExample title="useScreen" component={ScreenExample} />

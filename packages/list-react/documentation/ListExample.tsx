@@ -62,7 +62,7 @@ const unorderedCodeExample = `
 </UnorderedList>
 `;
 
-const IconedList: VFC = () => (
+const CoverageList: VFC = () => (
     <List>
         <CheckListItem>Dekkes</CheckListItem>
         <CheckListItem>Dekkes også</CheckListItem>
@@ -71,7 +71,7 @@ const IconedList: VFC = () => (
     </List>
 );
 
-const iconedListCodeExample = `
+const coverageListCodeExample = `
 <List>
     <CheckListItem>Dekkes</CheckListItem>
     <CheckListItem>Dekkes også</CheckListItem>
@@ -84,7 +84,7 @@ export const listExamplesProps = {
     choiceProps: [
         {
             name: "Variant",
-            values: ["Nummerert", "Unummerert", "Med ikon"],
+            values: ["Ordered", "Unordered", "Coverage"],
             defaultValue: 0,
         },
     ],
@@ -92,10 +92,10 @@ export const listExamplesProps = {
 
 export const ListExamples: VFC<ExampleComponentProps> = ({ choiceValues }) => {
     let C = Ordered;
-    if (choiceValues?.["Variant"] === "Unummerert") {
+    if (choiceValues?.["Variant"] === "Unordered") {
         C = Unordered;
-    } else if (choiceValues?.["Variant"] === "Med ikon") {
-        C = IconedList;
+    } else if (choiceValues?.["Variant"] === "Coverage") {
+        C = CoverageList;
     }
     return <C />;
 };
@@ -104,8 +104,8 @@ export const listExamplesCode: CodeExample = ({ choiceValues }) => {
     let code = orderedCodeExample;
     if (choiceValues?.["Variant"] === "Unummerert") {
         code = unorderedCodeExample;
-    } else if (choiceValues?.["Variant"] === "Med ikon") {
-        code = iconedListCodeExample;
+    } else if (choiceValues?.["Variant"] === "Coverage") {
+        code = coverageListCodeExample;
     }
     return code;
 };

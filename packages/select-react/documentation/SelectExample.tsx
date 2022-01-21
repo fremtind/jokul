@@ -16,14 +16,14 @@ export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceVa
 
     const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
-    const variant = choiceValues && (choiceValues["Etikettvariant"] as LabelVariant);
+    const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
     const searchAble = boolValues && boolValues["Med søk"];
 
     return (
         <C
             id="produsent"
             name="produsent"
-            forceCompact={boolValues && boolValues["Kompakt"]}
+            forceCompact={boolValues && boolValues["Compact"]}
             inverted={boolValues && boolValues["Invertert"]}
             variant={variant}
             label="Hvilket merke er telefonen?"
@@ -51,9 +51,9 @@ export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps):
     ref={selectRef}
     id="produsent"
     name="produsent"
-    forceCompact={${!!boolValues?.["Kompakt"]}}
+    forceCompact={${!!boolValues?.["Compact"]}}
     inverted={${!!boolValues?.["Invertert"]}}
-    variant="${choiceValues?.["Etikettvariant"]}"
+    variant="${choiceValues?.["Variant"]}"
     label="Hvilket merke er telefonen?"
     helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
     errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}

@@ -15,14 +15,14 @@ renderExample(
             title="ExpandSection"
             component={ExpandSectionExample}
             knobs={{
-                boolProps: ["Kompakt"],
+                boolProps: ["Compact"],
             }}
         />
         <DevExample
             title="ExpandButton"
             component={ExpandButtonExample}
             knobs={{
-                boolProps: ["Kompakt"],
+                boolProps: ["Compact"],
             }}
         />
     </>,

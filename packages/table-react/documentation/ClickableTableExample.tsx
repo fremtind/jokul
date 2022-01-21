@@ -11,7 +11,7 @@ const rows = [
 ];
 
 const ClickableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Kompakt"];
+    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
     const type = choiceValues?.["Mobilvisning"];
@@ -51,7 +51,7 @@ const ClickableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceV
 export default ClickableTableExample;
 
 export const clickableTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth compact={${boolValues?.["Kompakt"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+<Table fullWidth compact={${boolValues?.["Compact"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med klikkbare rader</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>

@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 context("SummaryTable", () => {
     beforeEach(() => {
@@ -6,8 +7,6 @@ context("SummaryTable", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setDarkMode();
-        cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots();
     });
 });
