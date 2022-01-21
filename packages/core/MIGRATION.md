@@ -2,7 +2,19 @@
 
 ## Til `jkl-core@9.0.0`
 
-Versjonen fjerner støtte for Internet Explorer.
+Vårrengjøringsreleasen.
+
+tl;dr:
+
+-   Dropper IE-støtte
+-   Fjerner `inverted` og `negative`-props
+-   Renamet noen Sass-variabler og funksjoner du sannsynligvis ikke bruker
+
+### Dropper IE-støtte
+
+Versjonen fjerner støtte for Internet Explorer. Alt av gammelt rusk i Sasskode er ryddet vekk.
+
+### Fjerner `inverted` og `negative`-props
 
 Propsene `inverted` og `negative` er fjernet (de var merket som deprecated for en stund siden). Bruk `data-theme="dark"` om du trenger funksjonaliteten. Se [bloggposten om temaet](https://jokul.fremtind.no/blog/darkmode/) hvis du lurer på hvordan.
 
