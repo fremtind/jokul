@@ -62,6 +62,15 @@ jobs:
                   node-version: "lts/*"
                   cache: "yarn"
 
+            - name: Turbo Cache
+              id: turbo-cache
+              uses: actions/cache@v2
+              with:
+                  path: node_modules/.cache/turbo
+                  key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+                  restore-keys: |
+                      turbo-${{ github.job }}-${{ github.ref_name }}-
+
             - name: Install dependencies
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               run: yarn ci:install
@@ -181,7 +190,7 @@ jobs:
               with:
                   browser: chrome
                   headless: true
-                  start: yarn server
+                  start: yarn serve
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 280
                   spec: ${{ steps.parallel.outputs.tests }}
