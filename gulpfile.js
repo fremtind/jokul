@@ -18,7 +18,7 @@ module.exports = function (gulp) {
     gulp.task("build", function () {
         return gulp
             .src(scssFiles)
-            .pipe(sass({ importer }).on("error", throwSassError))
+            .pipe(sass.sync({ importer }).on("error", throwSassError))
             .pipe(postcss([autoprefixer()]))
             .pipe(gulp.dest("./"))
             .pipe(postcss([cssnano(litePreset())]))
