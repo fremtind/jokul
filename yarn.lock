@@ -7977,7 +7977,17 @@ cssnano-preset-default@^5.1.11:
     postcss-svgo "^5.0.3"
     postcss-unique-selectors "^5.0.3"
 
-cssnano-utils@^3.0.1:
+cssnano-preset-lite@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/cssnano-preset-lite/-/cssnano-preset-lite-2.0.2.tgz#2da6888532ed964ea5738d0d16f159fd559deb28"
+  integrity sha512-i4AmNxiYmsv1i5wOaRVR1fc/Y3fkl0TRxDkYgdrNP6stsrbE/XgIofVKX0FzB+mvlRtYwKw+vqHR1sVaNPhiRg==
+  dependencies:
+    cssnano-utils "^3.0.0"
+    postcss-discard-comments "^5.0.1"
+    postcss-discard-empty "^5.0.1"
+    postcss-normalize-whitespace "^5.0.2"
+
+cssnano-utils@^3.0.0, cssnano-utils@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/cssnano-utils/-/cssnano-utils-3.0.1.tgz#d3cc0a142d3d217f8736837ec0a2ccff6a89c6ea"
   integrity sha512-VNCHL364lh++/ono+S3j9NlUK+d97KNkxI77NlqZU2W3xd2/qmyN61dsa47pTpb55zuU4G4lI7qFjAXZJH1OAQ==
@@ -16650,7 +16660,7 @@ postcss-convert-values@^5.0.3:
   dependencies:
     postcss-value-parser "^4.2.0"
 
-postcss-discard-comments@^5.0.2:
+postcss-discard-comments@^5.0.1, postcss-discard-comments@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/postcss-discard-comments/-/postcss-discard-comments-5.0.2.tgz#811ed34e2b6c40713daab0beb4d7a04125927dcd"
   integrity sha512-6VQ3pYTsJHEsN2Bic88Aa7J/Brn4Bv8j/rqaFQZkH+pcVkKYwxCIvoMQkykEW7fBjmofdTnQgcivt5CCBJhtrg==
@@ -16660,7 +16670,7 @@ postcss-discard-duplicates@^5.0.2:
   resolved "https://registry.yarnpkg.com/postcss-discard-duplicates/-/postcss-discard-duplicates-5.0.2.tgz#61076f3d256351bdaac8e20aade730fef0609f44"
   integrity sha512-LKY81YjUjc78p6rbXIsnppsaFo8XzCoMZkXVILJU//sK0DgPkPSpuq/cZvHss3EtdKvWNYgWzQL+wiJFtEET4g==
 
-postcss-discard-empty@^5.0.2:
+postcss-discard-empty@^5.0.1, postcss-discard-empty@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/postcss-discard-empty/-/postcss-discard-empty-5.0.2.tgz#0676a9bcfc44bb00d338352a45ab80845a31d8f0"
   integrity sha512-SxBsbTjlsKUvZLL+dMrdWauuNZU8TBq5IOL/DHa6jBUSXFEwmDqeXRfTIK/FQpPTa8MJMxEHjSV3UbiuyLARPQ==
@@ -16845,7 +16855,7 @@ postcss-normalize-url@^5.0.4:
     normalize-url "^6.0.1"
     postcss-value-parser "^4.2.0"
 
-postcss-normalize-whitespace@^5.0.3:
+postcss-normalize-whitespace@^5.0.2, postcss-normalize-whitespace@^5.0.3:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/postcss-normalize-whitespace/-/postcss-normalize-whitespace-5.0.3.tgz#fb6bcc9ff2f834448b802657c7acd0956f4591d1"
   integrity sha512-333JWRnX655fSoUbufJ10HJop3c8mrpKkCCUnEmgz/Cb/QEtW+/TMZwDAUt4lnwqP6tCCk0x0b58jqvDgiQm/A==

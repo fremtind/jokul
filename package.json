@@ -81,6 +81,7 @@
         "autoprefixer": "^10.4.2",
         "commitizen": "^4.1.2",
         "cssnano": "^5.0.16",
+        "cssnano-preset-lite": "^2.0.2",
         "cypress": "^9.4.1",
         "cypress-plugin-snapshots": "^1.4.4",
         "cz-lerna-changelog": "^2.0.3",
