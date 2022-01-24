@@ -1,11 +1,10 @@
-<!--
-Forklar formålet med endringene dine og hvorfor de er nødvendige her. Om det er beskrevet allerede i et issue må du lenke til det. Utdyp gjerne hvorfor løsningen din ser ut som den gjør, alternativer du vurderte eller prøvde underveis, og så videre.
--->
+<!-- Oppsummer kort hva som er gjort, og hvorfor. Lenk til issuet som løses av endringen. -->
 
-## ☑️ Sjekkliste
+## 🎯 Sjekkliste
 
--   [ ] Jeg har lest [CONTRIBUTING](https://github.com/fremtind/jokul/blob/main/CONTRIBUTING.md) og dokumentasjon det henvises til
--   [ ] Jeg har satt target branch til `main`, eller `external-contributions` dersom pull requesten kommer fra en fork
--   [ ] Jeg har kjørt `yarn build` og `yarn ci:test` og disse gir ingen feil
--   [ ] Jeg har lagt til tester som demonstrerer at feilen er rettet eller featuren fungerer
--   [ ] Jeg har skrevet relevant dokumentasjon
+<!-- Sjekk av de som er relevant. Du kan slette irrelevante steg om du vil.  -->
+
+-   [ ] Minstekrav til dokumentasjon er oppfyllt (sjekk [Contributing](https://github.com/fremtind/jokul/blob/main/CONTRIBUTING.md) om du er usikker)
+-   [ ] Testet [responsivitet](https://jokul.fremtind.no/komigang/mobil) og [UU](https://jokul.fremtind.no/universell-utforming/testguide) ([tastaturnavigasjon](https://jokul.fremtind.no/universell-utforming/tastatur), [skjermleser](https://jokul.fremtind.no/universell-utforming/skjermleser))
+-   [ ] Testdekningen er god nok (enhetstest, visuell regresjonstest)
+-   [ ] `yarn build` og `yarn ci:test` gir ingen feil
