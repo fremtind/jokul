@@ -11,7 +11,7 @@ export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
     const helpText = boolValues?.["Med hjelpetekst"];
     const invalid = boolValues?.["Med feil"];
     const inverted = boolValues?.["Invertert"];
-    const forceCompact = boolValues?.["Kompakt"];
+    const forceCompact = boolValues?.["Compact"];
 
     return (
         <FieldGroup
@@ -61,7 +61,7 @@ export const checkboxExampleCode: CodeExample = ({ boolValues }) => {
     const helpText = boolValues?.["Med hjelpetekst"];
     const invalid = boolValues?.["Med feil"];
     const inverted = boolValues?.["Invertert"];
-    const forceCompact = boolValues?.["Kompakt"];
+    const forceCompact = boolValues?.["Compact"];
 
     return `
 <FieldGroup

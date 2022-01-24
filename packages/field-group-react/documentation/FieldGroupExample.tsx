@@ -7,7 +7,7 @@ export const FieldGroupExample: VFC<ExampleComponentProps> = ({ boolValues, choi
     return (
         <FieldGroup
             legend="Samleoverskrift for feltene"
-            forceCompact={boolValues?.["Kompakt"]}
+            forceCompact={boolValues?.["Compact"]}
             variant={choiceValues?.["Variant"] as LabelVariant}
             helpLabel={boolValues?.["Med hjelpetekst"] ? "Hjelpetekst for feltene samlet" : undefined}
             errorLabel={boolValues?.["Med feil"] ? "Feilmelding for feltene samlet" : undefined}
@@ -21,7 +21,7 @@ export const FieldGroupExample: VFC<ExampleComponentProps> = ({ boolValues, choi
 export const fieldGroupExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
 <FieldGroup
     legend="Samleoverskrift for feltene"
-    forceCompact={${boolValues?.["Kompakt"]}}
+    forceCompact={${boolValues?.["Compact"]}}
     variant="${choiceValues?.["Variant"] as LabelVariant}"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Hjelpetekst for feltene samlet"` : `{undefined}`}
     errorLabel=${boolValues?.["Med feil"] ? `"Feilmelding for feltene samlet"` : `{undefined}`}

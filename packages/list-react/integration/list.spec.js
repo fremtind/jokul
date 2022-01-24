@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("List", () => {
     beforeEach(() => {
@@ -6,23 +7,8 @@ describe("List", () => {
     });
 
     it("renders correctly", () => {
-        cy.get('input[value="Nummerert"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-        cy.get('input[value="Unummerert"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-        cy.get('input[value="Med ikon"]').click();
-        cy.getComponent().toMatchImageSnapshot();
-    });
-
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.get('input[value="Nummerert"]').click();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.get('input[value="Unummerert"]').click();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.get('input[value="Med ikon"]').click();
-            cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            variants: ["Ordered", "Unordered", "Coverage"],
         });
     });
 });

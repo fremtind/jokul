@@ -51,7 +51,7 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
             <ExpandButton
                 className="jkl-spacing-l--bottom"
                 data-for="jkl-expand-button-example-content" // Brukt av CoreToggle for å ta seg av a11y, f. eks. aria-controls
-                forceCompact={boolValues?.["Kompakt"]}
+                forceCompact={boolValues?.["Compact"]}
                 expandDirection={expandDirection}
                 isExpanded={isExpanded}
             >
@@ -86,7 +86,7 @@ return (
         <ExpandButton
             className="jkl-spacing-l--bottom"
             data-for="jkl-expand-button-example-content" // Brukt av CoreToggle for å ta seg av a11y, f. eks. aria-controls
-            forceCompact={${boolValues?.["Kompakt"]}}
+            forceCompact={${boolValues?.["Compact"]}}
             expandDirection="${choiceValues?.["Ekspander i retning (kun frittstående)"] === "Oppover" ? "up" : "down"}"
             isExpanded={isExpanded}
         >

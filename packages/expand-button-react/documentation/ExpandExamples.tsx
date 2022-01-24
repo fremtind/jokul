@@ -4,7 +4,7 @@ import ExpandSectionExample, { expandSectionExampleCode } from "./ExpandSectionE
 import ExpandButtonExample, { expandButtonExampleCode } from "./ExpandButtonExample";
 
 export const expandExamplesProps = {
-    boolProps: ["Kompakt"],
+    boolProps: ["Compact"],
     choiceProps: [
         {
             name: "Innhold",

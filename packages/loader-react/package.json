@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-loader-react",
-    "version": "7.1.4",
+    "version": "7.1.5",
     "publishConfig": {
         "access": "public"
     },

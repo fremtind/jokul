@@ -16,7 +16,7 @@ export const RadioButtonExample: VFC<ExampleComponentProps> = ({ boolValues, cho
         <RadioButtonGroup
             legend="Hvordan vil du bli kontaktet?"
             name="kontaktmetode"
-            forceCompact={boolValues && boolValues["Kompakt"]}
+            forceCompact={boolValues && boolValues["Compact"]}
             labelProps={{ variant }}
             helpLabel="Ved å velge e-post får du beskjed raskest mulig"
             errorLabel={errorLabel}
@@ -34,7 +34,7 @@ export const radioButtonExampleCode = ({ boolValues, choiceValues }: ExampleComp
 <RadioButtonGroup
     legend="Hvordan vil du bli kontaktet?"
     name="kontaktmetode"
-    forceCompact={${!!boolValues?.["Kompakt"]}}
+    forceCompact={${!!boolValues?.["Compact"]}}
     labelProps={{ variant: "${choiceValues?.["Variant"] || "medium"}" }}
     helpLabel="Hjelpetekst"${
         boolValues?.["Med feil"]

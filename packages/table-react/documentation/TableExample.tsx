@@ -11,7 +11,7 @@ const rows = [
 ];
 
 const TableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Kompakt"];
+    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
@@ -50,7 +50,7 @@ const TableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) 
 export default TableExample;
 
 export const tableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth compact={${boolValues?.["Kompakt"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+<Table fullWidth compact={${boolValues?.["Compact"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>

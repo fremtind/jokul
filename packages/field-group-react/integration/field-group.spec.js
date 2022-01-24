@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("FieldGroup", () => {
     beforeEach(() => {
@@ -6,19 +7,17 @@ describe("FieldGroup", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setChoice("Variant", "medium").getComponent().toMatchImageSnapshot();
-        cy.setChoice("Variant", "large").getComponent().toMatchImageSnapshot();
-        cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
-    });
+        cy.takeSnapshots({
+            variants: ["small", "medium", "large"],
+        });
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setChoice("Variant", "medium").getComponent().toMatchImageSnapshot();
-            cy.setChoice("Variant", "large").getComponent().toMatchImageSnapshot();
-            cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setMedFeil();
+            },
+            teardown: () => {
+                cy.resetMedFeil();
+            },
         });
     });
 });

@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={CheckboxExample}
         knobs={{
-            boolProps: ["Kompakt", "Med feil", "Invertert"],
+            boolProps: ["Compact", "Med feil", "Invertert"],
         }}
     />,
     document.getElementById("app"),

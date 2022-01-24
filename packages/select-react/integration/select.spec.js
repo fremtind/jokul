@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+/// <reference types="../../../cypress/support" />
 
 describe("Select", () => {
     beforeEach(() => {
@@ -6,31 +7,54 @@ describe("Select", () => {
     });
 
     it("renders correctly", () => {
-        cy.getComponent().toMatchImageSnapshot();
-        cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
-        cy.openSelect("produsent");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.openSelect("produsent").focusSelectValue("google");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.openSelect("produsent").selectValue("google");
-        cy.getComponent().toMatchImageSnapshot();
-        cy.openSelect("produsent").selectValue("google").openSelect("produsent").focusSelectValue("apple");
-        cy.getComponent().toMatchImageSnapshot();
-    });
+        cy.takeSnapshots();
 
-    context("dark mode", () => {
-        it("renders correctly", () => {
-            cy.setDarkMode();
-            cy.getComponent().toMatchImageSnapshot();
-            cy.setMedFeil().getComponent().toMatchImageSnapshot().resetMedFeil();
-            cy.openSelect("produsent");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.openSelect("produsent").focusSelectValue("google");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.openSelect("produsent").selectValue("google");
-            cy.getComponent().toMatchImageSnapshot();
-            cy.openSelect("produsent").selectValue("google").openSelect("produsent").focusSelectValue("apple");
-            cy.getComponent().toMatchImageSnapshot();
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setMedFeil();
+            },
+            teardown: () => {
+                cy.resetMedFeil();
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.toggleSelectMenu("produsent");
+            },
+            teardown: () => {
+                cy.toggleSelectMenu("produsent");
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.toggleSelectMenu("produsent").focusSelectValue("google");
+            },
+            teardown: () => {
+                cy.toggleSelectMenu("produsent");
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.toggleSelectMenu("produsent").selectValue("google");
+            },
+            teardown: () => {
+                cy.toggleSelectMenu("produsent");
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.toggleSelectMenu("produsent")
+                    .selectValue("google")
+                    .toggleSelectMenu("produsent")
+                    .focusSelectValue("apple");
+            },
+            teardown: () => {
+                cy.toggleSelectMenu("produsent");
+            },
         });
     });
 });
