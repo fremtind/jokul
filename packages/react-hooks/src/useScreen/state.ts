@@ -28,10 +28,10 @@ export const actionTypes = {
 };
 
 const setDeviceSize = (width: number, height: number): State => ({
-    isSmallDevice: width <= breakpoints.medium,
-    isMediumDevice: width > breakpoints.medium && width < breakpoints.large,
-    isLargeDevice: width > breakpoints.large && width < breakpoints.xl,
-    isXlDevice: width > breakpoints.xl,
+    isSmallDevice: width < breakpoints.medium,
+    isMediumDevice: width >= breakpoints.medium && width < breakpoints.large,
+    isLargeDevice: width >= breakpoints.large && width < breakpoints.xl,
+    isXlDevice: width >= breakpoints.xl,
     isPortrait: height >= width,
     isLandscape: height < width,
     inner: {
