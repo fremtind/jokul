@@ -14,7 +14,7 @@ const rows = [
 const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const compact = boolValues?.["Kompakt"];
     const headless = boolValues?.["Skjul overskrift"];
-    const clickable = boolValues?.["Klikkbar"];
+    const markClickedRows = boolValues?.["Markér v/ klikk"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
 
@@ -35,7 +35,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                 {rows.map((row, rowIndex) => (
                     <ExpandableTableRow
                         key={rowIndex}
-                        clickable={clickable ? { onClick: (e) => console.log(e) } : undefined}
+                        clickable={markClickedRows ? { onClick: (e) => console.log(e), markClickedRows } : undefined}
                         expandedChildren={
                             <Table fullWidth>
                                 <TableHead srOnly>
@@ -81,7 +81,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
 
 export default ExpandableTableExample;
 
-export const expandableTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
+export const expandableTableExampleCode = ({ choiceValues, boolValues }: ExampleComponentProps): string => `
 <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
     <TableHead srOnly={headless}>
@@ -97,7 +97,12 @@ export const expandableTableExampleCode = ({ choiceValues }: ExampleComponentPro
     <TableBody>
         {rows.map((row, rowIndex) => (
             <ExpandableTableRow
-                key={rowIndex}
+                key={rowIndex}${
+                    boolValues?.["Markér v/ klikk"] || false
+                        ? `
+                clickable={{ onClick: (e) => console.log(e), markClickedRows }}`
+                        : ``
+                }
                 expandedChildren={
                     <Table fullWidth>
                         <TableBody>

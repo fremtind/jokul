@@ -368,13 +368,13 @@ Hele raden kan gjøres klikkbar om du ønsker, men foretrekk å ha en rad med ha
 
 ### Ekspanderende tabeller
 
-Hele raden gjøres klikkbar, samtidig som man skal sette inn en celle for å vise hvorvidt raden er åpen eller ikke og tilføre informasjon for hjelpemidler. Hvis raden er satt til klikkbar, er det kun knappen som vil kontrollere hvorvidt raden er åpen eller ikke.
+Hele raden blir automatisk klikkbar, samtidig som man skal sette inn en celle for å vise hvorvidt raden er åpen eller ikke og tilføre informasjon for hjelpemidler. Hvis man vil ha en egen klikk-handling på raden og bruker propen `clickable`, er det kun knappen som vil kontrollere hvorvidt raden er åpen eller ikke.
 
 <ComponentExample
     title="Tabell med ekspanderbare rader"
     component={ExpandableTableExample}
     knobs={{
-        boolProps: ["Kompakt", "Klikkbar"],
+        boolProps: ["Kompakt", "Markér v/ klikk"],
         choiceProps: [
             {
                 name: "Mobilvisning",
@@ -383,5 +383,5 @@ Hele raden gjøres klikkbar, samtidig som man skal sette inn en celle for å vis
             },
         ],
     }}
-    codeExample={headlessTableExampleCode}
+    codeExample={expandableTableExampleCode}
 />
