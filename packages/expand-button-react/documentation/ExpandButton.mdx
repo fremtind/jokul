@@ -8,7 +8,7 @@ group: knapper
 import ExpandExamples, { expandExamplesProps, expandExamplesCode } from "./ExpandExamples";
 
 <Ingress>
-    Med en ExpandButton kan vi presentere mye innhold på listen plass. Knappen kan brukes frittstående, og styre
+    Med en ExpandButton kan vi presentere mye innhold på liten plass. Knappen kan brukes frittstående, og styre
     ekspandering av innhold som ikke er direkte under komponenten.
 </Ingress>
 
@@ -36,15 +36,17 @@ Som hovedregel skal ekspanderingen av innhold skje i retning nedover. Et unntak 
 
 ## Tilgjengelighet
 
-Som nevnt i eksempelet for frittstående bruk er det viktig å hjelpe skjermlesere med å forstå at det er en knapp som kommer til å påvirke et stykke innhold. Inspisér gjerne HTMLen som genereres av eksempelet og se hvilke `aria`-attributter som settes, og hvilken verdi de har i åpen og lukket tilstand.
+Det er viktig å hjelpe skjermlesere med å forstå at det er en knapp som kommer til å påvirke annet innhold. Inspisér gjerne HTMLen som genereres av eksempelet og se hvilke attributter som settes, og hvilken verdi de har i åpen og lukket tilstand.
 
 På selve knappen ser du sannsynligvis:
 
--   `aria-expanded="false"` når lukket og `aria-expanded="true"` når åpen
+-   `id`
+-   `aria-expanded="false"` når lukket og `aria-expanded="true"` når åpen (styres av `isExpanded`-propen)
 -   `aria-controls` med en ID som peker på innholdet som styres av knappen
 
 På innholdet som styres av knappen ser du sannsynligvis:
 
+-   `id`
 -   `aria-labelledby` med en ID som peker tilbake på knappen
 -   `role="group"`
 -   `hidden` hvis innholdet er skjult
