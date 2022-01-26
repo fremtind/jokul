@@ -42,6 +42,7 @@ export const ExpandButton = ({
         <button
             aria-expanded={isExpanded}
             data-testid="jkl-expand-button"
+            type="button"
             className={cx("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
                 "jkl-expand-button--compact": forceCompact,
