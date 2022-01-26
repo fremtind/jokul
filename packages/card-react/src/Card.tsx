@@ -30,6 +30,10 @@ interface Props {
     clickable?: Clickable;
 }
 
+/**
+ * @deprecated bruk NavCard, TaskCard eller InfoCard i stedet.
+ * Se https://jokul.fremtind.no/komponenter/card for informasjon om bruk
+ */
 export const Card: FC<Props> = ({ title, children, className, media, action, dark, clickable }) => {
     const componentClassName = classNames("jkl-card", className, {
         "jkl-card--dark": dark,

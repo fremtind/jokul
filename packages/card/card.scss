@@ -8,6 +8,7 @@ $card-bg-color: jkl.$color-snohvit;
 $card-corner-radius: func.rem(2px);
 $card-padding-normal: jkl.$spacing-l;
 
+/// @deprecated Bruk heller .jkl-nav-card, .jkl-task-card eller .jkl-info-card
 .jkl-card {
     @include reset-outline;
     position: relative;
