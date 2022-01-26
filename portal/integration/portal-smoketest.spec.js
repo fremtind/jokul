@@ -6,6 +6,9 @@ context("Portal", () => {
         it("passes a basic smoketest", () => {
             cy.visit("/");
 
+            // eslint-disable-next-line cypress/no-unnecessary-waiting
+            cy.wait(1000); // Må vente til hamburgeren blir interaktiv
+
             cy.get("button#jkl-portal-main-menu-hamburger").click();
 
             cy.get("button.jkl-portal-full-screen-menu-item__link").eq(0).click();
