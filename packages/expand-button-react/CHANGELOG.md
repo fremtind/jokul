@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.4 (2022-01-26)
+
+### Bug Fixes
+
+-   legg til manglende typer for å styre selv ([e08680b](https://github.com/fremtind/jokul/commit/e08680bb31e5f79cd04fa6bb0a4d97ebbe9e0ddb))
+
 ## 1.1.3 (2022-01-26)
 
 ### Bug Fixes
