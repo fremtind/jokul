@@ -1,0 +1,14 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.helper-light-mode-variables {
+    --card-background: #{jkl.$color-svart};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --card-background: #{jkl.$color-skifer};
+}
+
+.example-info-card {
+    background-color: var(--card-background);
+    color: jkl.$color-snohvit;
+}
