@@ -105,15 +105,19 @@ $link-active-color--inverted: jkl.$color-snohvit;
     font-weight: jkl.$typography-weight-normal;
     text-decoration: none;
     position: relative;
-    padding-right: 1.2em;
+    padding-right: 0.3em;
 
-    &:after {
-        position: absolute;
-        content: $right-arrow;
-        padding-left: rem(2px);
+    &::after,
+    &::before {
+        display: inline-block;
         transform: translateX(0);
         @include motion("standard");
         transition-property: transform;
+    }
+
+    &:after {
+        content: $right-arrow;
+        padding-left: rem(2px);
     }
 
     &:hover:not(:focus) {
@@ -148,20 +152,18 @@ $link-active-color--inverted: jkl.$color-snohvit;
 
 .jkl-nav-link--back {
     padding-right: 0;
-    padding-left: 1em;
+
+    $left-arrow-focus-margin: 0.3em; // Unngå at border ved tastaturfokus "kapper" pila
+    padding-left: $left-arrow-focus-margin;
+    margin-left: -#{$left-arrow-focus-margin};
 
     &:after {
         display: none;
     }
 
     &:before {
-        position: absolute;
-        left: 0;
-        top: 0;
         content: $left-arrow;
-        transform: translateX(0);
-        @include motion("standard");
-        transition-property: transform;
+        padding-right: rem(4px);
     }
 
     &:hover,
