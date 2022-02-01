@@ -85,7 +85,8 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                 ref={menuRef}
                 aria-labelledby="jkl-portal-main-menu-hamburger"
                 id="jkl-portal-main-menu-overlay"
-                hidden={isOpen}
+                role="group"
+                hidden={!isOpen}
                 className={cx("jkl-portal-main-menu__overlay", {
                     "jkl-portal-main-menu__overlay--open": isOpen,
                 })}
