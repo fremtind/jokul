@@ -3,47 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.8 (2022-02-02)
+
+### Bug Fixes
+
+-   bruk skjemakategori til skjemakomp ([d17a3ce](https://github.com/fremtind/jokul/commit/d17a3cefc9c3b61cb3c551143461e1bb471d8c62))
+-   slett utdaterte snapshots ([fcd47bb](https://github.com/fremtind/jokul/commit/fcd47bbaedaadd528130eb6d22b1608a8eb90aa4))
+
 ## 5.1.0 (2021-12-02)
 
 ### Features
 
-- eksporter komponentprops ([d7af150](https://github.com/fremtind/jokul/commit/d7af15065351e056d65fb473c62167241d909723))
+-   eksporter komponentprops ([d7af150](https://github.com/fremtind/jokul/commit/d7af15065351e056d65fb473c62167241d909723))
 
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.1.0 (2021-09-07)
 
 ### Features
 
-- add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
+-   add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([1d5e654](https://github.com/fremtind/jokul/commit/1d5e6547f32f6be43a4cd91cd952304a5e2b1e0b))
+-   use new typographic scale ([1d5e654](https://github.com/fremtind/jokul/commit/1d5e6547f32f6be43a4cd91cd952304a5e2b1e0b))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

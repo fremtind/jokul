@@ -3,86 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.2.6 (2022-02-02)
+
+### Bug Fixes
+
+-   bruk currentColor som fill i warningikon ([d6d5801](https://github.com/fremtind/jokul/commit/d6d5801d574256923843c93aadc14a86ecf5f995))
+-   gjør oppsummering av skjemafeil mindre chatty ([9b52db4](https://github.com/fremtind/jokul/commit/9b52db4e6609b11b323607b588fe6adccd10f54a))
+-   oppdater ikon for WarningMessageBox ([20fdcb1](https://github.com/fremtind/jokul/commit/20fdcb17d49be3fe6d533470e62dd402e79404b8))
+
 ## 6.2.0 (2021-12-22)
 
 ### Features
 
-- etabler en ny komponent for oppsummering av skjemafeil ([2a1bd43](https://github.com/fremtind/jokul/commit/2a1bd43411cf9528afb3aabcb5813de56229b5dc))
+-   etabler en ny komponent for oppsummering av skjemafeil ([2a1bd43](https://github.com/fremtind/jokul/commit/2a1bd43411cf9528afb3aabcb5813de56229b5dc))
 
 ## 6.1.0 (2021-11-23)
 
 ### Features
 
-- eksporter MessageBoxProps ([3ecff42](https://github.com/fremtind/jokul/commit/3ecff429fbfae98e30a40255dba92700e6022ac7))
+-   eksporter MessageBoxProps ([3ecff42](https://github.com/fremtind/jokul/commit/3ecff429fbfae98e30a40255dba92700e6022ac7))
 
 ## 6.0.0 (2021-10-28)
 
 ### Bug Fixes
 
-- renamed Message to MessageBox, fix dark mode, removed inverted option ([ffeee2a](https://github.com/fremtind/jokul/commit/ffeee2afd00b84ef3c6db61f0fe8acfb7264bae5))
+-   renamed Message to MessageBox, fix dark mode, removed inverted option ([ffeee2a](https://github.com/fremtind/jokul/commit/ffeee2afd00b84ef3c6db61f0fe8acfb7264bae5))
 
 ### Code Refactoring
 
-- renamed *Message to *MessageBox a few more places ([b5bd136](https://github.com/fremtind/jokul/commit/b5bd136be645195306728dd10d0058910b936259))
+-   renamed *Message to *MessageBox a few more places ([b5bd136](https://github.com/fremtind/jokul/commit/b5bd136be645195306728dd10d0058910b936259))
 
 ### BREAKING CHANGES
 
-- Depends on package with breaking change
-- Renamed *Message to *MessageBox and removed inverted option
+-   Depends on package with breaking change
+-   Renamed *Message to *MessageBox and removed inverted option
 
 ## 5.0.1 (2021-10-25)
 
 ### Bug Fixes
 
-- enabled other components as children to messagebox ([#2407](https://github.com/fremtind/jokul/issues/2407)) ([f531c68](https://github.com/fremtind/jokul/commit/f531c68e88eb01cceecfb6a0133efc4efd66df99))
+-   enabled other components as children to messagebox ([#2407](https://github.com/fremtind/jokul/issues/2407)) ([f531c68](https://github.com/fremtind/jokul/commit/f531c68e88eb01cceecfb6a0133efc4efd66df99))
 
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.2.3 (2021-10-20)
 
 ### Bug Fixes
 
-- always light mode inside MessageBox and AlertMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
+-   always light mode inside MessageBox and AlertMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
 
 ## 4.2.0 (2021-10-13)
 
 ### Features
 
-- implement new message box design ([26c9933](https://github.com/fremtind/jokul/commit/26c99332aee727dafed7b8bca522a242141e774e))
+-   implement new message box design ([26c9933](https://github.com/fremtind/jokul/commit/26c99332aee727dafed7b8bca522a242141e774e))
 
 ## 4.1.0 (2021-09-13)
 
 ### Features
 
-- prop for å styre role på MessageBox ([87646ae](https://github.com/fremtind/jokul/commit/87646ae6437cb368aa6567e637d59ab2ab923b71)), closes [#1687](https://github.com/fremtind/jokul/issues/1687)
+-   prop for å styre role på MessageBox ([87646ae](https://github.com/fremtind/jokul/commit/87646ae6437cb368aa6567e637d59ab2ab923b71)), closes [#1687](https://github.com/fremtind/jokul/issues/1687)
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([da664c4](https://github.com/fremtind/jokul/commit/da664c4898ba2a580159f7cb808f030c61740989))
+-   use new typographic scale ([da664c4](https://github.com/fremtind/jokul/commit/da664c4898ba2a580159f7cb808f030c61740989))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

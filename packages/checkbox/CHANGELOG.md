@@ -3,51 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.10 (2022-02-02)
+
+### Bug Fixes
+
+-   redesign feilstate for checkbox ([8a4098d](https://github.com/fremtind/jokul/commit/8a4098d1331e927c146c59a81c73137d8b390d1f)), closes [#2631](https://github.com/fremtind/jokul/issues/2631)
+
 ## 5.0.3 (2021-11-24)
 
 ### Bug Fixes
 
-- animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
+-   animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
 
 ## 5.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([1d5e654](https://github.com/fremtind/jokul/commit/1d5e6547f32f6be43a4cd91cd952304a5e2b1e0b))
+-   use new typographic scale ([1d5e654](https://github.com/fremtind/jokul/commit/1d5e6547f32f6be43a4cd91cd952304a5e2b1e0b))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **checkbox:** add automatic dark mode ([5c88c42](https://github.com/fremtind/jokul/commit/5c88c42b50ec946bb154bf4d49cb064c94c3ba4f))
+-   **checkbox:** add automatic dark mode ([5c88c42](https://github.com/fremtind/jokul/commit/5c88c42b50ec946bb154bf4d49cb064c94c3ba4f))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.2 (2021-07-02)
 
 ### Bug Fixes
 
-- changed hoverstate for checkbox ([84b336f](https://github.com/fremtind/jokul/commit/84b336f976d1614583e91ea60c058ad3738c4ecf))
+-   changed hoverstate for checkbox ([84b336f](https://github.com/fremtind/jokul/commit/84b336f976d1614583e91ea60c058ad3738c4ecf))
 
 ## 2.0.1 (2021-06-25)
 

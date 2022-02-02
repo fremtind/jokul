@@ -3,89 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.22 (2022-02-02)
+
+### Bug Fixes
+
+-   redesign feilstate for text-input ([c532e27](https://github.com/fremtind/jokul/commit/c532e27692c0b5fe3397b62694129aa014b97e49)), closes [#2631](https://github.com/fremtind/jokul/issues/2631) [#2631](https://github.com/fremtind/jokul/issues/2631) [#2631](https://github.com/fremtind/jokul/issues/2631) [#1417](https://github.com/fremtind/jokul/issues/1417)
+-   redesign label for feilmelding ([b5eeabc](https://github.com/fremtind/jokul/commit/b5eeabc6fc755ceec2dc8144c85af42c5f1b86c6)), closes [#2631](https://github.com/fremtind/jokul/issues/2631)
+-   slett utdaterte snapshots ([fcd47bb](https://github.com/fremtind/jokul/commit/fcd47bbaedaadd528130eb6d22b1608a8eb90aa4))
+
 ## 7.0.12 (2021-12-09)
 
 ### Bug Fixes
 
-- deprecate leadText ([1075ca4](https://github.com/fremtind/jokul/commit/1075ca475583c34dc3c7297c2f1a5f86b27075f5))
+-   deprecate leadText ([1075ca4](https://github.com/fremtind/jokul/commit/1075ca475583c34dc3c7297c2f1a5f86b27075f5))
 
 ## 7.0.11 (2021-12-09)
 
 ### Bug Fixes
 
-- bruk riktig lengde for TextInput ([8ae7835](https://github.com/fremtind/jokul/commit/8ae783500e44576baeea28627b28d070789980bf))
+-   bruk riktig lengde for TextInput ([8ae7835](https://github.com/fremtind/jokul/commit/8ae783500e44576baeea28627b28d070789980bf))
 
 ## 7.0.10 (2021-12-08)
 
 ### Bug Fixes
 
-- fix maxWidth bug with narrow screens ([256c2ef](https://github.com/fremtind/jokul/commit/256c2ef60f2b662e244d698e72d08e977e5af723)), closes [#2576](https://github.com/fremtind/jokul/issues/2576)
+-   fix maxWidth bug with narrow screens ([256c2ef](https://github.com/fremtind/jokul/commit/256c2ef60f2b662e244d698e72d08e977e5af723)), closes [#2576](https://github.com/fremtind/jokul/issues/2576)
 
 ## 7.0.5 (2021-11-18)
 
 ### Bug Fixes
 
-- unngå å kutte toppen av Å i Chrome ([02e4922](https://github.com/fremtind/jokul/commit/02e49228682cd41d10ea5b8edb25f55eb253041b)), closes [#2503](https://github.com/fremtind/jokul/issues/2503)
+-   unngå å kutte toppen av Å i Chrome ([02e4922](https://github.com/fremtind/jokul/commit/02e49228682cd41d10ea5b8edb25f55eb253041b)), closes [#2503](https://github.com/fremtind/jokul/issues/2503)
 
 ## 7.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 6.3.0 (2021-10-18)
 
 ### Features
 
-- legg til støtte for en teller i TextArea ([c17c42b](https://github.com/fremtind/jokul/commit/c17c42bb736f5c30f14cd9aa9d7c7863db16edf4)), closes [#1477](https://github.com/fremtind/jokul/issues/1477)
+-   legg til støtte for en teller i TextArea ([c17c42b](https://github.com/fremtind/jokul/commit/c17c42bb736f5c30f14cd9aa9d7c7863db16edf4)), closes [#1477](https://github.com/fremtind/jokul/issues/1477)
 
 ## 6.2.2 (2021-09-30)
 
 ### Bug Fixes
 
-- sync padding i TextInput med Figma ([f269f4f](https://github.com/fremtind/jokul/commit/f269f4f2750caad0d2bcf01d1b84b20dff048131))
+-   sync padding i TextInput med Figma ([f269f4f](https://github.com/fremtind/jokul/commit/f269f4f2750caad0d2bcf01d1b84b20dff048131))
 
 ## 6.2.0 (2021-09-15)
 
 ### Features
 
-- **text-area:** add inline and startOpen props ([88e4897](https://github.com/fremtind/jokul/commit/88e4897c50e490fa427208bca4c212093bb8db40))
+-   **text-area:** add inline and startOpen props ([88e4897](https://github.com/fremtind/jokul/commit/88e4897c50e490fa427208bca4c212093bb8db40))
 
 ## 6.1.0 (2021-09-07)
 
 ### Features
 
-- add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
+-   add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
 
 ## 6.0.6 (2021-09-03)
 
 ### Bug Fixes
 
-- default variant should be small ([ce1c05b](https://github.com/fremtind/jokul/commit/ce1c05bd9344f03b41ea23068d0f66e20714d134))
+-   default variant should be small ([ce1c05b](https://github.com/fremtind/jokul/commit/ce1c05bd9344f03b41ea23068d0f66e20714d134))
 
 ## 6.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([8b9c490](https://github.com/fremtind/jokul/commit/8b9c4906b76a19f0b6abb158781d5a7564ad793e))
+-   use new typographic scale ([8b9c490](https://github.com/fremtind/jokul/commit/8b9c4906b76a19f0b6abb158781d5a7564ad793e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 5.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 4.0.0 (2021-06-07)
 
