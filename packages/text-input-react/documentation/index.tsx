@@ -60,7 +60,7 @@ renderExample(
                     "Ingen treff",
                     "Max antall treff",
                     "Placeholder",
-                    "Vis kontroller",
+                    "Vis ikoner",
                 ],
                 choiceProps: [
                     {

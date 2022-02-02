@@ -179,6 +179,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             onFocus={onFocus}
                             onBlur={onBlur}
                             aria-describedby={describedBy}
+                            aria-invalid={Boolean(errorLabel || counterLabel)}
                             placeholder={placeholder}
                             rows={autoExpand ? currentRows : undefined}
                             // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700

@@ -86,6 +86,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     id={supportId}
                     helpLabel={helpLabel}
                     errorLabel={errorLabel}
+                    forceCompact={forceCompact}
                     srOnly={inline}
                 />
             </div>
