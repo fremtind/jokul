@@ -88,6 +88,12 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
         }
     }
 
+    &--icon-only {
+        .jkl-expand-button__arrow {
+            margin: jkl.$spacing-2xs jkl.$spacing-xs;
+        }
+    }
+
     &__arrow {
         @include mixins.motion("standard");
 

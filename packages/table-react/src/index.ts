@@ -11,6 +11,8 @@ export { TableFooter } from "./TableFooter";
 export { TableHead } from "./TableHead";
 export { TableHeader } from "./TableHeader";
 export { TableRow } from "./TableRow";
+export { ExpandableTableRow } from "./ExpandableTableRow";
+export { ExpandableTableRowController } from "./ExpandableTableRowController";
 
 export type { DataTableProps } from "./DataTable";
 export type { TableProps } from "./Table";
@@ -25,3 +27,5 @@ export type { TableFooterProps } from "./TableFooter";
 export type { TableHeadProps } from "./TableHead";
 export type { TableHeaderProps } from "./TableHeader";
 export type { TableRowProps } from "./TableRow";
+export type { ExpandableTableRowProps } from "./ExpandableTableRow";
+export type { ExpandableTableRowControllerProps } from "./ExpandableTableRowController";
