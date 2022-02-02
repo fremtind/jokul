@@ -43,7 +43,7 @@ export const FormFieldAnatomy: VFC = () => {
                             name="fodselsnummer"
                             label="Fødselsnummer"
                             defaultValue="Input"
-                            errorLabel="Hjelpetekst eller feilmeldingstekst"
+                            helpLabel="Hjelpetekst eller feilmeldingstekst"
                         />
                         <span
                             className="jkl-portal-form-field-anatomy__indicator jkl-portal-form-field-anatomy__indicator--input-with-icon"
