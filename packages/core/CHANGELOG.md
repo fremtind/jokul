@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.3.3 (2022-02-02)
+
+### Bug Fixes
+
+-   bruk currentColor som fill i warningikon ([d6d5801](https://github.com/fremtind/jokul/commit/d6d5801d574256923843c93aadc14a86ecf5f995))
+-   gjør så SupportLabel sin inngang kan animeres ([d819ba6](https://github.com/fremtind/jokul/commit/d819ba6fd3dfc6900dce67c02009ce98e7d1e2f1))
+-   redesign label for feilmelding ([b5eeabc](https://github.com/fremtind/jokul/commit/b5eeabc6fc755ceec2dc8144c85af42c5f1b86c6)), closes [#2631](https://github.com/fremtind/jokul/issues/2631)
+
 ## 8.3.2 (2022-02-01)
 
 ### Bug Fixes

@@ -3,64 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.10 (2022-02-02)
+
+### Bug Fixes
+
+-   redesign feilstate for select ([c9adece](https://github.com/fremtind/jokul/commit/c9adeceef2255f4b8d892979faf4c2471db6daab)), closes [#2631](https://github.com/fremtind/jokul/issues/2631)
+
 ## 6.0.3 (2021-11-24)
 
 ### Bug Fixes
 
-- animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
+-   animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
 
 ## 6.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 5.1.1 (2021-09-30)
 
 ### Bug Fixes
 
-- rett padding, støtt lange labels i Select ([2101522](https://github.com/fremtind/jokul/commit/210152290d269d171fe856e868086ba9431cfb15)), closes [#1592](https://github.com/fremtind/jokul/issues/1592) [#2246](https://github.com/fremtind/jokul/issues/2246) [#2247](https://github.com/fremtind/jokul/issues/2247)
+-   rett padding, støtt lange labels i Select ([2101522](https://github.com/fremtind/jokul/commit/210152290d269d171fe856e868086ba9431cfb15)), closes [#1592](https://github.com/fremtind/jokul/issues/1592) [#2246](https://github.com/fremtind/jokul/issues/2246) [#2247](https://github.com/fremtind/jokul/issues/2247)
 
 ## 5.1.0 (2021-09-30)
 
 ### Features
 
-- use cursor:pointer style on select ([843a232](https://github.com/fremtind/jokul/commit/843a2326ce68de8ed5f70d1584380089299b9906)), closes [#2173](https://github.com/fremtind/jokul/issues/2173)
+-   use cursor:pointer style on select ([843a232](https://github.com/fremtind/jokul/commit/843a2326ce68de8ed5f70d1584380089299b9906)), closes [#2173](https://github.com/fremtind/jokul/issues/2173)
 
 ## 5.0.3 (2021-08-24)
 
 ### Bug Fixes
 
-- add hover color and cursor for select ([e9855d3](https://github.com/fremtind/jokul/commit/e9855d3c5b9d01719c9ed9da82d71ac4a8ea7d5c))
-- remove pointer style ([0ccc6ed](https://github.com/fremtind/jokul/commit/0ccc6ed2ac04c19be7847191a641da0baff76347))
+-   add hover color and cursor for select ([e9855d3](https://github.com/fremtind/jokul/commit/e9855d3c5b9d01719c9ed9da82d71ac4a8ea7d5c))
+-   remove pointer style ([0ccc6ed](https://github.com/fremtind/jokul/commit/0ccc6ed2ac04c19be7847191a641da0baff76347))
 
 ## 5.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([eaed7c1](https://github.com/fremtind/jokul/commit/eaed7c1301114e792350d8ca17de789b5925341b))
+-   use new typographic scale ([eaed7c1](https://github.com/fremtind/jokul/commit/eaed7c1301114e792350d8ca17de789b5925341b))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 4.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **select:** add automatic dark mode ([bcce917](https://github.com/fremtind/jokul/commit/bcce917f5d3e2a0c1acea7e637ad9752e1de516a))
+-   **select:** add automatic dark mode ([bcce917](https://github.com/fremtind/jokul/commit/bcce917f5d3e2a0c1acea7e637ad9752e1de516a))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 3.0.0 (2021-06-07)
 

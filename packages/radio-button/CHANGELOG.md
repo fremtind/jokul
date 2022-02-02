@@ -3,45 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.10 (2022-02-02)
+
+### Bug Fixes
+
+-   redesign feilstate for radio-button ([13acee1](https://github.com/fremtind/jokul/commit/13acee131d84782d8f013fefd246df8986590c30)), closes [#2631](https://github.com/fremtind/jokul/issues/2631)
+
 ## 5.0.3 (2021-11-24)
 
 ### Bug Fixes
 
-- animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
+-   animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
 
 ## 5.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([19cf729](https://github.com/fremtind/jokul/commit/19cf729c29ddda8b10d656122ca8f5d70b684037))
+-   use new typographic scale ([19cf729](https://github.com/fremtind/jokul/commit/19cf729c29ddda8b10d656122ca8f5d70b684037))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **radio-button:** add automatic dark mode ([2c5c492](https://github.com/fremtind/jokul/commit/2c5c492e1aca203136b149f07bde968376961847))
+-   **radio-button:** add automatic dark mode ([2c5c492](https://github.com/fremtind/jokul/commit/2c5c492e1aca203136b149f07bde968376961847))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.1 (2021-06-25)
 

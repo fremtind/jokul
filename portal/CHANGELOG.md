@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.0.8 (2022-02-02)
+
+### Bug Fixes
+
+-   sett en lesbar tekstfarge på vardebakgrunn ([f08e820](https://github.com/fremtind/jokul/commit/f08e8200125e11e06ab190ea233f7ef4b7f0cf9d)), closes [#2645](https://github.com/fremtind/jokul/issues/2645)
+
 ## 11.0.5 (2022-01-26)
 
 ### Bug Fixes
