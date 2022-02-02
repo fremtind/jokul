@@ -3,51 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.1.10...@fremtind/jkl-table@5.2.0) (2022-02-02)
+
+### Bug Fixes
+
+-   fix a bug where the child wrapper got the wrong display value ([527276b](https://github.com/fremtind/jokul/commit/527276bbc7e5fcbf5ca324fcac51aea5397bc744))
+-   fix arrow hover effect when clickable is enabled ([b039007](https://github.com/fremtind/jokul/commit/b039007ef5e7335caab7ef6572843ad8d271c208))
+-   make th-text only show on small screens in collapsed mode ([37e35c4](https://github.com/fremtind/jokul/commit/37e35c4b015bc8716db2331c5f0583f3a526d7bd))
+-   use Jøkul motion definitions ([86a14bc](https://github.com/fremtind/jokul/commit/86a14bcd07ec48d9b5181baf211c7ab783e6b0e6))
+
+### Features
+
+-   add base functionality for expanding rows ([4290cfc](https://github.com/fremtind/jokul/commit/4290cfc0def5d3b6ae0449e0e52b1527e332a02a))
+-   animate expandable table ([e2fb733](https://github.com/fremtind/jokul/commit/e2fb7335f63c1e8b6a575680296222f1517150a7))
+-   use data-th inside ExpandButton when table is shown as list ([4f10a7a](https://github.com/fremtind/jokul/commit/4f10a7a6a03ddeea35e2aee7bdad7697589580f4))
+
 ## 5.1.3 (2021-11-17)
 
 ### Bug Fixes
 
-- endre standard vertical-align i henhold til design ([a545a58](https://github.com/fremtind/jokul/commit/a545a58fbc219285304dea34b3ebc3963fe860b4)), closes [#2434](https://github.com/fremtind/jokul/issues/2434)
+-   endre standard vertical-align i henhold til design ([a545a58](https://github.com/fremtind/jokul/commit/a545a58fbc219285304dea34b3ebc3963fe860b4)), closes [#2434](https://github.com/fremtind/jokul/issues/2434)
 
 ## 5.1.0 (2021-10-25)
 
 ### Features
 
-- variant av table-cell med toppjustering ([d4cf5bf](https://github.com/fremtind/jokul/commit/d4cf5bf22d70c034ff7a13ea5f72c56bba142093))
+-   variant av table-cell med toppjustering ([d4cf5bf](https://github.com/fremtind/jokul/commit/d4cf5bf22d70c034ff7a13ea5f72c56bba142093))
 
 ## 5.0.0 (2021-10-25)
 
 ### Features
 
-- nytt tabelldesign ([9f833fd](https://github.com/fremtind/jokul/commit/9f833fdb76fd1965a89370adcf49e6e5900ca59e))
+-   nytt tabelldesign ([9f833fd](https://github.com/fremtind/jokul/commit/9f833fdb76fd1965a89370adcf49e6e5900ca59e))
 
 ### BREAKING CHANGES
 
-- Bryter tabellen opp i flere klasser. Nye klassenavn, modifiers, med mer.
+-   Bryter tabellen opp i flere klasser. Nye klassenavn, modifiers, med mer.
 
 ## 4.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 3.0.0 (2021-07-09)
 
 ### Bug Fixes
 
-- **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
+-   **sass:** make sure to import functions where using rem() ([02268ab](https://github.com/fremtind/jokul/commit/02268ab1494165ac489978d17bd404030347d9ff))
 
 ### Features
 
-- use new typographic scale ([105dac2](https://github.com/fremtind/jokul/commit/105dac262f5cf98e9005eeaf86536a5c617ea27c))
+-   use new typographic scale ([105dac2](https://github.com/fremtind/jokul/commit/105dac262f5cf98e9005eeaf86536a5c617ea27c))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 2.0.0 (2021-06-07)
 

@@ -3,51 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@6.1.7...@fremtind/jkl-react-hooks@6.2.0) (2022-02-02)
+
+### Features
+
+-   add useId hook ([7afa48b](https://github.com/fremtind/jokul/commit/7afa48bb1a8cc56f516eff20af2fe48e33a98bca))
+
 ## 6.1.4 (2021-12-21)
 
 ### Bug Fixes
 
-- eksporter options-typer ([55966ad](https://github.com/fremtind/jokul/commit/55966ad991e78d87d88b86ab4a4b38cd2a601dfd))
+-   eksporter options-typer ([55966ad](https://github.com/fremtind/jokul/commit/55966ad991e78d87d88b86ab4a4b38cd2a601dfd))
 
 ## 6.1.0 (2021-11-30)
 
 ### Features
 
-- eksporter proptypes fra hooks ([bda3fa5](https://github.com/fremtind/jokul/commit/bda3fa5833600b3d3232d7d3c3b6751ae337e495))
+-   eksporter proptypes fra hooks ([bda3fa5](https://github.com/fremtind/jokul/commit/bda3fa5833600b3d3232d7d3c3b6751ae337e495))
 
 ## 6.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 5.0.0 (2021-07-09)
 
 ### Documentation
 
-- **examples:** update examples to use new typog. scale ([1d9abfd](https://github.com/fremtind/jokul/commit/1d9abfd6a6535b5047ae0765a328a8cc8d73f7ba))
+-   **examples:** update examples to use new typog. scale ([1d9abfd](https://github.com/fremtind/jokul/commit/1d9abfd6a6535b5047ae0765a328a8cc8d73f7ba))
 
 ### BREAKING CHANGES
 
-- **examples:** Depends on jkl-core version with breaking changes
+-   **examples:** Depends on jkl-core version with breaking changes
 
 ## 4.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- add new hook for browser preferences ([e246eb8](https://github.com/fremtind/jokul/commit/e246eb8687794801ed089314a9d06521b0cf137e))
+-   add new hook for browser preferences ([e246eb8](https://github.com/fremtind/jokul/commit/e246eb8687794801ed089314a9d06521b0cf137e))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 3.0.0 (2021-06-29)
 

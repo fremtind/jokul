@@ -3,17 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.1.7...@fremtind/jkl-table-react@7.2.0) (2022-02-02)
+
+### Bug Fixes
+
+-   actually export component and types ([725339d](https://github.com/fremtind/jokul/commit/725339d000b403b10a25501e0aadfb16c57e5d4f))
+-   add more accessibility props to ExpandableTableRow ([ba308e1](https://github.com/fremtind/jokul/commit/ba308e15f836e65236d8081aeacfc7ee382ad224))
+-   fix a bug where enter keypress was not handled ([602c006](https://github.com/fremtind/jokul/commit/602c006625f94a52f66f274f848e4bb32fa6a6ad))
+-   fix a bug where keyboard events would bubble ([ca26a2b](https://github.com/fremtind/jokul/commit/ca26a2bb2c12e743f23b117b536889322dbeb31f))
+-   fix arrow hover effect when clickable is enabled ([b039007](https://github.com/fremtind/jokul/commit/b039007ef5e7335caab7ef6572843ad8d271c208))
+-   fix naming and imports ([abb3ef6](https://github.com/fremtind/jokul/commit/abb3ef6168258e8dfefda8a9e9639d58cedd5d8f))
+-   make expandable row more accessible ([9c6b573](https://github.com/fremtind/jokul/commit/9c6b573861c3103ef7f8042883c947c242bd030b))
+-   rename ExpandableTableRowCell for a better defined use area ([4858b05](https://github.com/fremtind/jokul/commit/4858b05470a30fd9552fe4a98006d78297ce8561))
+
+### Features
+
+-   add base functionality for expanding rows ([4290cfc](https://github.com/fremtind/jokul/commit/4290cfc0def5d3b6ae0449e0e52b1527e332a02a))
+-   animate expandable table ([e2fb733](https://github.com/fremtind/jokul/commit/e2fb7335f63c1e8b6a575680296222f1517150a7))
+-   handle clickable row properly ([01c1ab9](https://github.com/fremtind/jokul/commit/01c1ab90f7d6b7646fe7d6a33bfed02a929f6797))
+-   properly compose component from TableRow ([2774729](https://github.com/fremtind/jokul/commit/27747295310b99113d2426a77cce20e5da954eee))
+-   set colSpan to be a controllable prop ([7cbf0d9](https://github.com/fremtind/jokul/commit/7cbf0d9db8fc654d5329e24d5c64641455f9eec4))
+-   this map have no use anymore ([6bdf333](https://github.com/fremtind/jokul/commit/6bdf333c87225f82e56c72dc908847749d9368c3))
+-   use data-th inside ExpandButton when table is shown as list ([4f10a7a](https://github.com/fremtind/jokul/commit/4f10a7a6a03ddeea35e2aee7bdad7697589580f4))
+-   use TableRow ([6a0ecc1](https://github.com/fremtind/jokul/commit/6a0ecc1548d153de5e6a6b734cfe9f912ddcec4e))
+
 ## 7.1.0 (2021-12-06)
 
 ### Features
 
-- eksporter tabelltyper ([94bed82](https://github.com/fremtind/jokul/commit/94bed8248a1978dea6277045c9b15d0ac12d5692))
+-   eksporter tabelltyper ([94bed82](https://github.com/fremtind/jokul/commit/94bed8248a1978dea6277045c9b15d0ac12d5692))
 
 ## 7.0.5 (2021-11-17)
 
 ### Bug Fixes
 
-- endre standard vertical-align i henhold til design ([a545a58](https://github.com/fremtind/jokul/commit/a545a58fbc219285304dea34b3ebc3963fe860b4)), closes [#2434](https://github.com/fremtind/jokul/issues/2434)
+-   endre standard vertical-align i henhold til design ([a545a58](https://github.com/fremtind/jokul/commit/a545a58fbc219285304dea34b3ebc3963fe860b4)), closes [#2434](https://github.com/fremtind/jokul/issues/2434)
 
 ## 7.0.0 (2021-10-25)
 
