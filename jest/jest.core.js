@@ -12,8 +12,6 @@ module.exports = {
     },
 
     moduleFileExtensions: ["ts", "tsx", "js"],
-    notify: true,
-    notifyMode: "always",
     roots: ["../packages", "../portal"],
     testEnvironment: "jsdom",
 
