@@ -6,9 +6,27 @@ Vårrengjøringsreleasen.
 
 tl;dr:
 
+-   Oppdaterer breakpoints
 -   Dropper IE-støtte
 -   Fjerner `inverted` og `negative`-props
 -   Renamet noen Sass-variabler og funksjoner du sannsynligvis ikke bruker
+
+### Oppdaterer breakpoints
+
+Denne oppdateringen endrer verdiene til breakpointsene i Jøkul. Vi gjør om på minsteverdien, og bytter om på semantikken bak brekkpunktene. Brekkpunktet går fra å være maksimumsverdien til størrelsen, til å bli minimumsstørrelsen (_breaking into medium_, for eksempel).
+
+Du kan fortsette å bruke de samme mixinene i Sass (`small-device`, `from-medium-device`, og så videre).
+
+Du bør gå igjennom de forskjellige sidene i appen din og sjekke at layouten fremdeles fungerer bra på ulike skjermstørrelser.
+
+Husk også at du står fritt til å definere dine egne breakpoints, hvor enn du trenger det!
+
+| Variabel            | Gammel verdi | Ny verdi |
+| ------------------- | ------------ | -------- |
+| $breakpoint--small  | 768          | Fjernet  |
+| $breakpoint--medium | 992          | 680      |
+| $breakpoint--large  | 1200         | 1200     |
+| $breakpoint--xl     | 1600         | 1600     |
 
 ### Dropper IE-støtte
 
