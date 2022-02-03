@@ -275,3 +275,54 @@ jobs:
                   git add . || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
                   git push
+
+    preview:
+        needs: [build]
+        if: needs.build.outputs.visual == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: write
+            issues: write
+        env:
+            PREVIEW_PATH: preview/${{github.event.number}}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.event.pull_request.head.ref }}
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "lts/*"
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn ci:install
+
+            - name: Download built packages
+              uses: actions/download-artifact@v2
+              with:
+                  name: built-packages
+                  path: packages/
+
+            - name: Build site with path prefix
+              env:
+                  PREFIX_PATHS: true
+              run: yarn build:docs
+
+            - name: Deploy preview
+              env:
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  yarn gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview ${{github.event.number}}"
+
+            - name: Add a comment with a link to the preview
+              run: gh api --method POST /repos/fremtind/jokul/issues/${{github.event.number}}/comments -F body='A preview will be available at https://jokul.fremtind.no/${{ env.PREVIEW_PATH }} within a few minutes'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
