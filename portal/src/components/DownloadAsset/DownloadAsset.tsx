@@ -1,6 +1,5 @@
 import React, { VFC } from "react";
-import downloadjs from "downloadjs";
-import classNames from "classnames";
+import cn from "classnames";
 import { withPrefix } from "gatsby";
 
 import "./DownloadAsset.scss";
@@ -12,26 +11,24 @@ interface Props {
 }
 
 export const DownloadAsset: VFC<Props> = ({ asset = "", name, darkbg = false }) => {
-    const componentClassName = classNames({
-        "jkl-portal-downloadasset": true,
-        "jkl-portal-downloadasset--dark-bg": darkbg,
-    });
-    const textClassName = classNames({
-        "jkl-portal-downloadasset__name": true,
-        "jkl-portal-downloadasset__name--dark": darkbg,
-    });
-    const clickDownload = (event: React.MouseEvent) => {
-        event.preventDefault();
-        if (confirm("Vil du laste ned " + name + "?")) {
-            downloadjs(asset);
-        }
-    };
+    const src = withPrefix(asset);
+
     return (
-        <div className={componentClassName}>
-            <button className="jkl-portal-downloadasset__button" onClick={clickDownload}>
-                <img className="jkl-portal-downloadasset__image" src={withPrefix(asset)} alt={"Fil " + name} />
-                <span className={textClassName}>{name}</span>
-            </button>
+        <div
+            className={cn("jkl-portal-downloadasset", {
+                "jkl-portal-downloadasset--dark-bg": darkbg,
+            })}
+        >
+            <a className="jkl-portal-downloadasset__button" href={src}>
+                <img className="jkl-portal-downloadasset__image" src={src} alt="" />
+                <span
+                    className={cn("jkl-portal-downloadasset__name", {
+                        "jkl-portal-downloadasset__name--dark": darkbg,
+                    })}
+                >
+                    {name}
+                </span>
+            </a>
         </div>
     );
 };

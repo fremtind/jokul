@@ -4,17 +4,14 @@
     "description": "Documentation portal for Jøkul",
     "version": "11.0.8",
     "devDependencies": {
-        "@types/downloadjs": "^1.4.3",
         "@types/react-helmet": "^6.1.5",
         "@types/react-syntax-highlighter": "^13.5.0",
         "react-docgen-typescript": "^2.2.2"
     },
     "dependencies": {
-        "@fremtind/jkl-react-hooks": "^6.1.7",
         "@mdx-js/mdx": "^1.6.22",
         "@mdx-js/react": "^1.6.22",
         "classnames": "^2.2.6",
-        "downloadjs": "^1.4.7",
         "focus-trap-react": "^8.9.1",
         "framer-motion": "^6.2.3",
         "gatsby": "^4.6.1",
@@ -30,9 +27,6 @@
         "gatsby-source-filesystem": "^4.6.0",
         "gatsby-transformer-react-docgen": "^7.6.0",
         "gatsby-transformer-sharp": "^4.6.0",
-        "prism-react-renderer": "1.2.1",
-        "prismjs": "^1.26.0",
-        "raw-loader": "^4.0.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
         "react-helmet": "^6.1.0",
