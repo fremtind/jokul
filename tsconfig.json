@@ -3,7 +3,7 @@
         /* Basic Options */
         "target": "esnext"                        /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */,
         "noEmit": true                            /* Do not emit outputs. We use babel as our compiler. */,
-        "isolatedModules": false                  /* Even though we use babel for compilation, we turn this flag off to use declared modules in typechecking (see raw-loader.ts) */,
+        "isolatedModules": true                   /* We use Babel, so error on things that may not be compiled the way we expect (https://www.typescriptlang.org/tsconfig#isolatedModules) */,
         "lib": [                                  /* Specify library files to be included in the compilation. */
             "dom",                                /* We have a browser environment */
             "ESNext.Array",                        /* We like flat arrays */
