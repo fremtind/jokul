@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
+import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import { ComponentExample, FlowExample, ResponsiveExample } from "../../../../doc-utils";
 import { InfoMessageBox } from "@fremtind/jkl-message-box-react";
@@ -68,6 +69,9 @@ const components = {
     colgroup: TableColumnGroup,
     pre: CodeBlock,
     inlineCode: InlineCode,
+    dl: DescriptionList,
+    dt: DescriptionTerm,
+    dd: DescriptionDetail,
     Grid,
     Ingress,
     ComponentExample,
