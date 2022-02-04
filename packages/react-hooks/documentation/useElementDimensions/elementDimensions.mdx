@@ -25,7 +25,7 @@ useElementDimensions returnerer en `ref` som du kan sette på elementet du vil f
 const [myElementRef, myDimensions] = useElementDimensions<HTMLDivElement>();
 ```
 
-Hokk-en lytter også etter forandringer når nettleservinduet endrer størrelse. Du kan velge hvor hyppig den skal lese av størrelsen ved å sende inn et delay i millisekunder. Standardverdi er 200 millisekunder.
+Hooken lytter også etter forandringer når nettleservinduet endrer størrelse. Av ytelsesgrunner begrenser hooken hvor often størrelsen leses til én gang hver 200 millisekunder. Du kan endre hvor hyppig lesingen skal skje når du kaller hooken dersom du trenger det.
 
 ```tsx
 const [ref, dimensions] = useElementDimensions(400);
