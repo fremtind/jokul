@@ -35,6 +35,7 @@ import {
     ArticleLead as Ingress,
     ListItem,
 } from "../Typography";
+import { Blockquote } from "./Typography";
 
 /** Don't add class jkl-link to <a /> if it's styled as a button */
 const Anchor: FC<{ className?: string }> = (props) => {
@@ -57,6 +58,7 @@ const components = {
     li: ListItem as FC,
     img: PortalImage,
     a: Anchor as FC,
+    blockquote: Blockquote,
     table: Table,
     thead: TableHead,
     tbody: TableBody,

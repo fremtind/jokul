@@ -4,9 +4,13 @@
 
 @include jkl.helper-light-mode-variables {
     --inline-code-bg-color: #{jkl.$color-sand};
+    --blockquote-color: #{jkl.$color-stein};
+    --blockquote-line-color: #{jkl.$color-dis};
 }
 @include jkl.helper-dark-mode-variables {
     --inline-code-bg-color: #{jkl.$color-skifer};
+    --blockquote-color: #{jkl.$color-svaberg};
+    --blockquote-line-color: #{jkl.$color-skifer};
 }
 
 .jkl-portal-list-item {
@@ -20,6 +24,27 @@
 
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-l;
+    }
+}
+
+.jkl-portal-blockquote {
+    max-width: rem(750px);
+
+    @include jkl.text-style("heading-3") {
+        font-weight: jkl.$typography-weight-normal;
+        font-style: italic;
+    }
+    color: var(--blockquote-color);
+    margin: 0;
+    padding-left: jkl.$spacing-l;
+    border-left: rem(5px) solid var(--blockquote-line-color);
+
+    &:not(:last-child) {
+        margin-bottom: jkl.$spacing-xl;
+    }
+
+    &:not(:first-child) {
+        margin-top: jkl.$spacing-xl;
     }
 }
 
