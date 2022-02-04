@@ -30,6 +30,7 @@ export const Image: VFC<ImageProps> = ({ className, placeholder, alt, ...imagePr
             <img
                 alt={alt}
                 className="jkl-image__image"
+                data-testid="jkl-image__image"
                 ref={imageRef}
                 sizes={`${dimensions.width}px`}
                 loading="lazy"
