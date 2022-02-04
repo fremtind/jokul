@@ -31,11 +31,11 @@ jobs:
             contents: read
         steps:
             - name: Checkout
-              if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
+              if: "!contains(github.event.pull_request.sender, 'fremtind-bot')"
               uses: actions/checkout@v2
 
             - name: Check for changes that require extra verification
-              if: "!contains(github.event.head_commit.message, '[ci skip cypress]')"
+              if: "!contains(github.event.pull_request.sender, 'fremtind-bot')"
               uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
               id: changes
               with:
@@ -57,22 +57,22 @@ jobs:
 
             - name: Setup Node
               uses: actions/setup-node@v2
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.pull_request.sender, 'fremtind-bot')
               with:
                   node-version: "lts/*"
                   cache: "yarn"
 
             - name: Install dependencies
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.pull_request.sender, 'fremtind-bot')
               run: yarn ci:install
 
             - name: Build packages
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.pull_request.sender, 'fremtind-bot')
               run: yarn build
 
             - name: Upload built packages
               uses: actions/upload-artifact@v2
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.pull_request.sender, 'fremtind-bot')
               with:
                   name: built-packages
                   path: |
@@ -80,7 +80,7 @@ jobs:
                       packages/**/*.css
 
             - name: Caching Gatsby
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
               uses: actions/cache@v2
               with:
                   path: |
@@ -91,11 +91,11 @@ jobs:
                       ${{ runner.os }}-gatsby-build-
 
             - name: Build site
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
               run: yarn build:docs
 
             - name: Upload built site
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
               uses: actions/upload-artifact@v2
               with:
                   name: built-site
@@ -104,7 +104,7 @@ jobs:
 
     testlint:
         needs: [build]
-        if: needs.build.outputs.testlint == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+        if: needs.build.outputs.testlint == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
         runs-on: ubuntu-latest
         permissions:
             actions: read
@@ -133,7 +133,7 @@ jobs:
 
     cypress:
         needs: [build]
-        if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+        if: needs.build.outputs.visual == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
@@ -223,7 +223,7 @@ jobs:
 
     snapshots:
         needs: [cypress]
-        if: needs.build.outputs.visual == 'true' && !contains(github.event.head_commit.message, '[ci skip cypress]')
+        if: needs.build.outputs.visual == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
         runs-on: ubuntu-latest
         permissions:
             actions: write
@@ -275,3 +275,54 @@ jobs:
                   git add . || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
                   git push
+
+    preview:
+        needs: [build]
+        if: needs.build.outputs.visual == 'true' && !contains(github.event.pull_request.sender, 'fremtind-bot')
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: write
+            issues: write
+        env:
+            PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.event.pull_request.head.ref }}
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "lts/*"
+                  cache: "yarn"
+
+            - name: Install dependencies
+              run: yarn ci:install
+
+            - name: Download built packages
+              uses: actions/download-artifact@v2
+              with:
+                  name: built-packages
+                  path: packages/
+
+            - name: Build site with path prefix
+              env:
+                  PREFIX_PATHS: true
+              run: yarn build:docs
+
+            - name: Deploy preview
+              env:
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  yarn gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
+
+            - name: Add a comment with a link to the preview
+              run: gh api --method POST /repos/fremtind/jokul/issues/${{ github.event.number }}/comments -F body='A preview will be available at https://jokul.fremtind.no/${{ env.PREVIEW_PATH }} within a few minutes'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}

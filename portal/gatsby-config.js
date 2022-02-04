@@ -12,7 +12,7 @@ const ignoreNonMdx = [
 ];
 
 module.exports = {
-    pathPrefix: "/jokul",
+    pathPrefix: process.env.PREVIEW_PATH ? `/${process.env.PREVIEW_PATH}` : "/",
     siteMetadata: {
         title: `Jøkul Designsystem`,
         description: `Jøkul er designsystemet til Fremtind`,

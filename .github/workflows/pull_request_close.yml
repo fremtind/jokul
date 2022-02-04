@@ -1,0 +1,29 @@
+name: Pull Request Closed
+
+on:
+    pull_request:
+        types: [closed]
+
+jobs:
+    remove-preview:
+        runs-on: ubuntu-20.04
+        permissions:
+            actions: write
+            contents: write
+        env:
+            PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  ref: gh-pages
+
+            - name: Remove preview from gh-pages branch
+              # Ikke alle pull requests har laget noen preview. Ignorer om det feiler.
+              continue-on-error: true
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git rm -r ${{ env.PREVIEW_PATH }}
+                  git commit -m "docs: remove preview #${{ github.event.number }}" --no-verify
+                  git push
