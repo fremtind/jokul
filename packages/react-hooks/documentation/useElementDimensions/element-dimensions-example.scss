@@ -1,0 +1,16 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.helper-light-mode-variables {
+    --example-div-bg: #{jkl.$color-dis};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --example-div-bg: #{jkl.$color-stein};
+}
+
+.example-div {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--example-div-bg);
+    padding: jkl.$spacing-xl;
+}
