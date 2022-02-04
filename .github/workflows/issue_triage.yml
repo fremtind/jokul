@@ -1,0 +1,17 @@
+name: Issue triage
+
+on:
+    issues:
+        types: ["labelled"]
+
+jobs:
+    assign_enhancement_issue:
+        name: Assign enhancement issue
+        runs-on: ubuntu-latest
+        if: ${{ github.event.label == "✨ enhancement" }}
+        permissions:
+            issues: write
+        steps:
+            - run: gh api --method POST /repos/fremtind/jokul/issues/${{ github.event.issue.number }}/assignees -F assignees='[${{ github.event.sender.login }}]'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,63 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.5 (2022-02-02)
+
+### Bug Fixes
+
+-   bruk skjemakategori til skjemakomp ([d17a3ce](https://github.com/fremtind/jokul/commit/d17a3cefc9c3b61cb3c551143461e1bb471d8c62))
+-   slett utdaterte snapshots ([fcd47bb](https://github.com/fremtind/jokul/commit/fcd47bbaedaadd528130eb6d22b1608a8eb90aa4))
+
 ## 6.1.0 (2022-01-07)
 
 ### Features
 
-- **radio-button:** changed label to ReactNode ([2a04d76](https://github.com/fremtind/jokul/commit/2a04d7684bba850a2cdaea693d5f32a721fd6e57))
+-   **radio-button:** changed label to ReactNode ([2a04d76](https://github.com/fremtind/jokul/commit/2a04d7684bba850a2cdaea693d5f32a721fd6e57))
 
 ## 6.0.0 (2021-11-09)
 
 ### Features
 
-- refactor RadioButtons for bedre hook-form støtte ([467cb0c](https://github.com/fremtind/jokul/commit/467cb0cae3c5ba6ad789b12fedd0d0f2fb8aa97e)), closes [#2435](https://github.com/fremtind/jokul/issues/2435)
+-   refactor RadioButtons for bedre hook-form støtte ([467cb0c](https://github.com/fremtind/jokul/commit/467cb0cae3c5ba6ad789b12fedd0d0f2fb8aa97e)), closes [#2435](https://github.com/fremtind/jokul/issues/2435)
 
 ### BREAKING CHANGES
 
-- Komponenten har fått et helt nytt API. Se migreringsdok.
+-   Komponenten har fått et helt nytt API. Se migreringsdok.
 
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.2.0 (2021-09-15)
 
 ### Features
 
-- add forwardRef to radio buttons ([24856c3](https://github.com/fremtind/jokul/commit/24856c3474af68247831c3e7cd14bb55ada82222))
+-   add forwardRef to radio buttons ([24856c3](https://github.com/fremtind/jokul/commit/24856c3474af68247831c3e7cd14bb55ada82222))
 
 ## 4.1.0 (2021-09-07)
 
 ### Features
 
-- add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
+-   add data-testautoid to CheckBox, FieldGroup, TextInput and RadioButtons ([4c751ed](https://github.com/fremtind/jokul/commit/4c751ed9b69c1e67670a05d247783c27c8cd76b9))
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([19cf729](https://github.com/fremtind/jokul/commit/19cf729c29ddda8b10d656122ca8f5d70b684037))
+-   use new typographic scale ([19cf729](https://github.com/fremtind/jokul/commit/19cf729c29ddda8b10d656122ca8f5d70b684037))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

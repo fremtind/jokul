@@ -1,7 +1,7 @@
 import React from "react";
-import { SupportLabel } from "@fremtind/jkl-core";
 import Downshift, { DownshiftProps } from "downshift";
-
+import cn from "classnames";
+import { SupportLabel } from "@fremtind/jkl-core";
 import { CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";
@@ -72,7 +72,12 @@ function BaseAutosuggest<T>({
                             </label>
                         )}
                         {leadText && <p className="jkl-body jkl-spacing-l--bottom">{leadText}</p>}
-                        <div className={`jkl-autosuggest__input_group ${inverted ? "jkl-text-input--inverted" : ""}`}>
+                        <div
+                            className={cn("jkl-autosuggest__input-group", {
+                                "jkl-autosuggest__input-group--open": isOpen && items.length !== 0,
+                                "jkl-text-input--inverted": inverted,
+                            })}
+                        >
                             <input
                                 {...getInputProps({
                                     placeholder,

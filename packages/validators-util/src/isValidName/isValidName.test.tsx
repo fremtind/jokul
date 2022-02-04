@@ -7,6 +7,7 @@ describe("isValidName", () => {
         expect(isValidName("Rávna Ròverdatter")).toBe(true);
         expect(isValidName("Jökull Guðrún")).toBe(true);
         expect(isValidName("Mike O'Brien")).toBe(true);
+        expect(isValidName("Nils-Olav Nordmann")).toBe(true);
     });
 
     it("should return false if contains Punctuation, Symbols or Digits", () => {

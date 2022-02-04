@@ -420,7 +420,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/1640160?v=4",
       "profile": "https://github.com/hjellek",
       "contributions": [
-        "bug"
+        "bug",
+        "code"
       ]
     },
     {
@@ -451,6 +452,15 @@
       "profile": "http://oyvind.co",
       "contributions": [
         "design"
+      ]
+    },
+    {
+      "login": "daa1",
+      "name": "David Aasterud",
+      "avatar_url": "https://avatars.githubusercontent.com/u/353737?v=4",
+      "profile": "https://github.com/daa1",
+      "contributions": [
+        "bug"
       ]
     }
   ],

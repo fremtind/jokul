@@ -3,63 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.26 (2022-02-02)
+
+### Bug Fixes
+
+-   bruk skjemakategori til skjemakomp ([d17a3ce](https://github.com/fremtind/jokul/commit/d17a3cefc9c3b61cb3c551143461e1bb471d8c62))
+-   slett utdaterte snapshots ([fcd47bb](https://github.com/fremtind/jokul/commit/fcd47bbaedaadd528130eb6d22b1608a8eb90aa4))
+
 ## 8.0.18 (2021-12-16)
 
 ### Bug Fixes
 
-- sett forceCompact på child components ([9d79ffe](https://github.com/fremtind/jokul/commit/9d79ffedb040928a66d7dd708408cec7d3760307)), closes [#2600](https://github.com/fremtind/jokul/issues/2600)
+-   sett forceCompact på child components ([9d79ffe](https://github.com/fremtind/jokul/commit/9d79ffedb040928a66d7dd708408cec7d3760307)), closes [#2600](https://github.com/fremtind/jokul/issues/2600)
 
 ## 8.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 7.3.0 (2021-10-13)
 
 ### Features
 
-- **datepicker-react:** enable onKeyDown prop on DatePicker ([4c97543](https://github.com/fremtind/jokul/commit/4c9754362312b71d4b5082314b7e93277b6f0f6e)), closes [#2377](https://github.com/fremtind/jokul/issues/2377)
+-   **datepicker-react:** enable onKeyDown prop on DatePicker ([4c97543](https://github.com/fremtind/jokul/commit/4c9754362312b71d4b5082314b7e93277b6f0f6e)), closes [#2377](https://github.com/fremtind/jokul/issues/2377)
 
 ## 7.2.0 (2021-09-21)
 
 ### Bug Fixes
 
-- wrap handlinger i act, rydd i bruk av async ([2caf95e](https://github.com/fremtind/jokul/commit/2caf95e553ceaa32c54f2e5636e23051338a2424))
+-   wrap handlinger i act, rydd i bruk av async ([2caf95e](https://github.com/fremtind/jokul/commit/2caf95e553ceaa32c54f2e5636e23051338a2424))
 
 ### Features
 
-- utvid onChange med metadata om valideringsfeil ([e402604](https://github.com/fremtind/jokul/commit/e402604ed1ab6bfb4396653270017163a2855f26)), closes [#2198](https://github.com/fremtind/jokul/issues/2198)
+-   utvid onChange med metadata om valideringsfeil ([e402604](https://github.com/fremtind/jokul/commit/e402604ed1ab6bfb4396653270017163a2855f26)), closes [#2198](https://github.com/fremtind/jokul/issues/2198)
 
 ## 7.1.0 (2021-09-07)
 
 ### Features
 
-- add data-testautoid ([22ae35d](https://github.com/fremtind/jokul/commit/22ae35d7da2f3d66f45881e71201bd2ec1f9331d))
+-   add data-testautoid ([22ae35d](https://github.com/fremtind/jokul/commit/22ae35d7da2f3d66f45881e71201bd2ec1f9331d))
 
 ## 7.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([50b8815](https://github.com/fremtind/jokul/commit/50b8815a325be0a92302a9c033f320c53cfa941c))
+-   use new typographic scale ([50b8815](https://github.com/fremtind/jokul/commit/50b8815a325be0a92302a9c033f320c53cfa941c))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 6.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 5.2.0 (2021-06-24)
 

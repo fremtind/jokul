@@ -3,6 +3,7 @@
 @use "@fremtind/jkl-core/variables/typography";
 
 $indicator-background-color: colors.$varde;
+$indicator-text-color: colors.$granitt;
 $indicator-size: jkl.$spacing-xs;
 
 .jkl-portal-form-field-anatomy {
@@ -11,6 +12,7 @@ $indicator-size: jkl.$spacing-xs;
     &__indicator {
         background-color: $indicator-background-color;
         border-radius: 50%;
+        color: $indicator-text-color;
         height: $indicator-size;
         left: -#{jkl.rem(50px)};
         font-size: typography.$font-size-1;

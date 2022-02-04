@@ -13,6 +13,7 @@ export interface ExpandButtonProps {
     children: ReactNode;
     className?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
     /**
      * Styrer retningen til pila, som animeres ved endring. Styrer også aria-expanded.
      * @default false
@@ -51,10 +52,15 @@ export const ExpandButton = ({
             className={cx("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
                 "jkl-expand-button--compact": forceCompact,
+                "jkl-expand-button--icon-only": !children,
             })}
             {...rest}
         >
-            <ContentWrapper>{children}</ContentWrapper>
+            {children && (
+                <ContentWrapper>
+                    <span className="jkl-expand-button__text">{children}</span>
+                </ContentWrapper>
+            )}
             <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
         </button>
     );
