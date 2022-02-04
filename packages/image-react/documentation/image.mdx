@@ -1,50 +1,43 @@
 ---
-title: Image 🧪
+title: Image
 react: image-react
 scss: image
 group: annet
 ---
 
 import { ImageExample, imageExampleCode } from "./ImageExample";
-import { boolProps, choiceProps } from "./internal/props";
+import { choiceProps } from "./internal/props";
 
 <Ingress>
-    Bildekomponenten hjelper med å animere inn bilder fra en angitt bakgrunnsfarge, eller fra et bilde i lavere
-    oppløsning. Brukes for å gi en mer behagelig innlasting av bilder over trege forbindelser, for eksempel over
-    mobildata.
+    Bildekomponenten viser et bilde i riktig oppløsning ut fra størrelsen det vises i på skjermen, og kan vise en
+    lavoppløselig forhåndsvisning under innlasting av store bilder.
 </Ingress>
 
-<Experimental>
-    Bildekomponent er ikke 100% ferdigstilt, den kan brukes, men forvent at APIet kan forandre seg.
-</Experimental>
+<ComponentExample title="Image" knobs={{ choiceProps }} component={ImageExample} codeExample={imageExampleCode} />
 
-<ComponentExample
-    title="Image"
-    component={ImageExample}
-    knobs={{ boolProps, choiceProps }}
-    codeExample={imageExampleCode}
-/>
+## Bruk
 
 Forhåndsvisningen, eller <i lang="en">thumbnail</i>, vil vises uskarpt først, og animeres til et skarpt fullstørrelse bilde når det er lastet ferdig.
 
-Hvis du ikke legger ved forhåndsvisning, så animeres bildet inn fra grå 20 eller 80, i lyst og mørkt tema respektivt. Du kan sette en annen startfarge for denne animasjonen. Her kan du selv vurdere om det gir best opplevelse å animere fra bakgrunnsfargen rundt bildet, eller den mest fremtredende fargen i bildet.
+For å få mest ut av denne komponenten må du sende inn et [`srcSet`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset), altså en liste over bilder i forskjellig oppløsning sammen med informasjon om bildenes bredde. Dette brukes av nettleseren for å laste ned riktig bilde i forhold til størrelse og skjermoppløsning. Du kan generere dette automatisk, f.eks. ved hjelp av [responsive-loader](https://github.com/dazuaz/responsive-loader) for Webpack, eller sette det sammen manuelt.
 
-Foretrekk å bruke en thumbnail over å bruke farger.
+Det er også mulig å sende inn kun ett enkelt bilde som kilde. I så fall lastes bildet inn på vanlig måte, iten forhåndsvisning.
 
 ## Retningslinjer for bildestørrelser
 
 Det er viktig at forhåndsvisningen er <em>betydelig</em> mindre enn fullstørrelse. Poenget med å gi en bedre forhåndsvisning på trege forbindelser faller helt bort om brukeren også må vente på å laste ned forhåndsvisningen! Det er forventet at forhåndsvisningen er så liten at det er umulig å se detaljer.
 
--   Thumbnail
-    -   Ca 40px i bredde
-    -   Max 5 kB
--   Default
-    -   Brukes for mobil
-    -   Max 800px i bredde
-    -   Under 500 kB
--   Large
-    -   Brukes for større skjermer
-    -   Bruk fornuft rundt størrelsen – ingen vil ha en 30MB RAW
+### Forhåndsvisning
+
+Forhåndsvisningen bør ikke være mer enn ca. 50 piksler bred, og ikke mer enn 2-5 kB i filstørrelse.
+
+### Responsive bildestørrelser
+
+Den laveste opppløsningen bør fungere fint på mobiltelefoner uten å være for stor. 400 piksler er en god minstestørrelse. Den største oppløsningen bør være det dobbelte av den største bredden bildet kan ha, for å imøtekomme skjermer med retina-oppløsning. Du trenger imidlertid ikke lage bilder med noe særlig mer enn 1920px bredde, ellers blir filstørrelsen for veldig stor!
+
+### Filformater
+
+Bruk gjerne moderne bildeformater som [WebP](https://en.wikipedia.org/wiki/WebP)! Disse tar gjerne mindre plass for tilsvarende størrelse enn tradisjonelle formater som jpg, og støttes av alle nettlesere vi har støtte for i Jøkul. Ikke bruk png for fotografier, kun for grafiske fremstillinger.
 
 ## Når bruker vi bildekomponenten?
 
