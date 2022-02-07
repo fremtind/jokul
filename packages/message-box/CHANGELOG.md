@@ -3,52 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.4 (2022-02-07)
+
+### Bug Fixes
+
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
 ## 5.1.0 (2021-12-22)
 
 ### Features
 
-- etabler en ny komponent for oppsummering av skjemafeil ([5ca33a5](https://github.com/fremtind/jokul/commit/5ca33a5ba285a101969f6b61b8f1eb51d5b58982))
+-   etabler en ny komponent for oppsummering av skjemafeil ([5ca33a5](https://github.com/fremtind/jokul/commit/5ca33a5ba285a101969f6b61b8f1eb51d5b58982))
 
 ## 5.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 4.1.0 (2021-10-13)
 
 ### Features
 
-- implement new message box design ([26c9933](https://github.com/fremtind/jokul/commit/26c99332aee727dafed7b8bca522a242141e774e))
+-   implement new message box design ([26c9933](https://github.com/fremtind/jokul/commit/26c99332aee727dafed7b8bca522a242141e774e))
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([da664c4](https://github.com/fremtind/jokul/commit/da664c4898ba2a580159f7cb808f030c61740989))
+-   use new typographic scale ([da664c4](https://github.com/fremtind/jokul/commit/da664c4898ba2a580159f7cb808f030c61740989))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **message-box:** add automatic dark mode ([140cfae](https://github.com/fremtind/jokul/commit/140cfae672939b49b86c5ed35d4e191121fe331d))
-- **message-box:** add automatic dark mode ([a8ce2d4](https://github.com/fremtind/jokul/commit/a8ce2d4e232b7ce5801eb593118681bb1e7e9863))
+-   **message-box:** add automatic dark mode ([140cfae](https://github.com/fremtind/jokul/commit/140cfae672939b49b86c5ed35d4e191121fe331d))
+-   **message-box:** add automatic dark mode ([a8ce2d4](https://github.com/fremtind/jokul/commit/a8ce2d4e232b7ce5801eb593118681bb1e7e9863))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

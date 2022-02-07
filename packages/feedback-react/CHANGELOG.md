@@ -3,140 +3,146 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.30](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@12.0.29...@fremtind/jkl-feedback-react@12.0.30) (2022-02-07)
+
+### Bug Fixes
+
+-   fjern unødvendig avhengighet ([ead65c2](https://github.com/fremtind/jokul/commit/ead65c299dd29ef4ddc630c5b503d601f190511e))
+
 ## 12.0.4 (2021-12-01)
 
 ### Bug Fixes
 
-- legg til manglende helpLabel-type ([07e588d](https://github.com/fremtind/jokul/commit/07e588d964de3599b2d3d6c45c0477656a1f2f07))
+-   legg til manglende helpLabel-type ([07e588d](https://github.com/fremtind/jokul/commit/07e588d964de3599b2d3d6c45c0477656a1f2f07))
 
 ## 12.0.0 (2021-11-26)
 
 ### Features
 
-- fjern SliderQuestion og erstatt preset med smileys ([a39891e](https://github.com/fremtind/jokul/commit/a39891e4b993fd4a65660ecb9dfb7c7b1dd4ba38))
-- legg til spørsmålstype med smileys ([f176c48](https://github.com/fremtind/jokul/commit/f176c48fb8f20b71b623919d75934082eead8e70))
-- **smileys:** juster utseende og mobilvisning ([f7799d3](https://github.com/fremtind/jokul/commit/f7799d3bf5c907dfc0efe7cdae3edd5ecc8b623a))
+-   fjern SliderQuestion og erstatt preset med smileys ([a39891e](https://github.com/fremtind/jokul/commit/a39891e4b993fd4a65660ecb9dfb7c7b1dd4ba38))
+-   legg til spørsmålstype med smileys ([f176c48](https://github.com/fremtind/jokul/commit/f176c48fb8f20b71b623919d75934082eead8e70))
+-   **smileys:** juster utseende og mobilvisning ([f7799d3](https://github.com/fremtind/jokul/commit/f7799d3bf5c907dfc0efe7cdae3edd5ecc8b623a))
 
 ### BREAKING CHANGES
 
-- Typen "slider" kan ikke lenger benyttes når man spesifiserer spørsmål i Feedback. Typen "smiley" kan
-benyttes med samme verdier uten ytterligere endringer i API.
+-   Typen "slider" kan ikke lenger benyttes når man spesifiserer spørsmål i Feedback. Typen "smiley" kan
+    benyttes med samme verdier uten ytterligere endringer i API.
 
 ## 11.0.0 (2021-11-09)
 
 ### chore
 
-- oppdater bruken av radioknapper ([de30c8b](https://github.com/fremtind/jokul/commit/de30c8b1e577a8f68c4dda6356eb6a4f4e720c4d))
+-   oppdater bruken av radioknapper ([de30c8b](https://github.com/fremtind/jokul/commit/de30c8b1e577a8f68c4dda6356eb6a4f4e720c4d))
 
 ### BREAKING CHANGES
 
-- Avhenger av jkl-radio-button med breaking change
+-   Avhenger av jkl-radio-button med breaking change
 
 ## 10.0.0 (2021-10-28)
 
 ### Code Refactoring
 
-- renamed *Message to *MessageBox where it is dependent on ([5effa3d](https://github.com/fremtind/jokul/commit/5effa3d9ed6a4eaaeba5d126306ea8320ec59f31))
+-   renamed *Message to *MessageBox where it is dependent on ([5effa3d](https://github.com/fremtind/jokul/commit/5effa3d9ed6a4eaaeba5d126306ea8320ec59f31))
 
 ### BREAKING CHANGES
 
-- Depends on package with breaking change
+-   Depends on package with breaking change
 
 ## 9.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 8.0.7 (2021-09-30)
 
 ### Bug Fixes
 
-- sett rekkefølge for å unnga race condition ([b5f35a0](https://github.com/fremtind/jokul/commit/b5f35a035145eddf0dc87604bee31a51b2b8e77b)), closes [#2301](https://github.com/fremtind/jokul/issues/2301)
+-   sett rekkefølge for å unnga race condition ([b5f35a0](https://github.com/fremtind/jokul/commit/b5f35a035145eddf0dc87604bee31a51b2b8e77b)), closes [#2301](https://github.com/fremtind/jokul/issues/2301)
 
 ## 8.0.4 (2021-09-22)
 
 ### Bug Fixes
 
-- change duplicate default success message ([6f498eb](https://github.com/fremtind/jokul/commit/6f498eb9f5e9683076353b26a16ca962bdfbe3b1))
+-   change duplicate default success message ([6f498eb](https://github.com/fremtind/jokul/commit/6f498eb9f5e9683076353b26a16ca962bdfbe3b1))
 
 ## 8.0.3 (2021-09-15)
 
 ### Bug Fixes
 
-- add missing dependencies ([4f0b7ae](https://github.com/fremtind/jokul/commit/4f0b7ae6d0e33b19c74380aab7b4d27df229103a))
+-   add missing dependencies ([4f0b7ae](https://github.com/fremtind/jokul/commit/4f0b7ae6d0e33b19c74380aab7b4d27df229103a))
 
 ## 8.0.2 (2021-09-15)
 
 ### Bug Fixes
 
-- add back className prop to Feedback ([bc24e54](https://github.com/fremtind/jokul/commit/bc24e5412caacdaefe5b35d99ceb36db63b78c93))
+-   add back className prop to Feedback ([bc24e54](https://github.com/fremtind/jokul/commit/bc24e5412caacdaefe5b35d99ceb36db63b78c93))
 
 ## 8.0.1 (2021-09-15)
 
 ### Bug Fixes
 
-- **radio-question:** inline when less than three options ([4273c46](https://github.com/fremtind/jokul/commit/4273c46181f0ccedece3303e71a416beb8355d4c))
+-   **radio-question:** inline when less than three options ([4273c46](https://github.com/fremtind/jokul/commit/4273c46181f0ccedece3303e71a416beb8355d4c))
 
 ## 8.0.0 (2021-09-15)
 
 ### Features
 
-- add success message after submitting contact info ([82c7783](https://github.com/fremtind/jokul/commit/82c7783c7359e17b6488e903797034c56a62ac9d))
-- new feedback component with followup questions ([998eb30](https://github.com/fremtind/jokul/commit/998eb3045270d42b3bc97c143bdae12714d1b6d0))
-- provide better experience for keyboard nav and screen reader ([20a8a98](https://github.com/fremtind/jokul/commit/20a8a98c75fa0bb6dc69641714e2ab440774213d))
+-   add success message after submitting contact info ([82c7783](https://github.com/fremtind/jokul/commit/82c7783c7359e17b6488e903797034c56a62ac9d))
+-   new feedback component with followup questions ([998eb30](https://github.com/fremtind/jokul/commit/998eb3045270d42b3bc97c143bdae12714d1b6d0))
+-   provide better experience for keyboard nav and screen reader ([20a8a98](https://github.com/fremtind/jokul/commit/20a8a98c75fa0bb6dc69641714e2ab440774213d))
 
 ### BREAKING CHANGES
 
-- Partially new API for the component
+-   Partially new API for the component
 
 ## 7.0.8 (2021-09-03)
 
 ### Bug Fixes
 
-- default variant should be small ([ce1c05b](https://github.com/fremtind/jokul/commit/ce1c05bd9344f03b41ea23068d0f66e20714d134))
+-   default variant should be small ([ce1c05b](https://github.com/fremtind/jokul/commit/ce1c05bd9344f03b41ea23068d0f66e20714d134))
 
 ## 7.0.6 (2021-08-30)
 
 ### Bug Fixes
 
-- improve language ([99155b4](https://github.com/fremtind/jokul/commit/99155b46c3fdd89c5c22aa532f475ebfff4f0ef4))
+-   improve language ([99155b4](https://github.com/fremtind/jokul/commit/99155b46c3fdd89c5c22aa532f475ebfff4f0ef4))
 
 ## 7.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([8a2a691](https://github.com/fremtind/jokul/commit/8a2a691122a0c5a809429b1bdc2a4fea9eb8c258))
+-   use new typographic scale ([8a2a691](https://github.com/fremtind/jokul/commit/8a2a691122a0c5a809429b1bdc2a4fea9eb8c258))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 6.0.1 (2021-07-06)
 
 ### Bug Fixes
 
-- fix type(os) ([79be4e7](https://github.com/fremtind/jokul/commit/79be4e7b27541f3ae7ba1db72d69183dc42331c2))
+-   fix type(os) ([79be4e7](https://github.com/fremtind/jokul/commit/79be4e7b27541f3ae7ba1db72d69183dc42331c2))
 
 ## 6.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 5.1.4 (2021-07-02)
 
 ### Bug Fixes
 
-- **feedback:** fix a bug causing submitted feedback to be submitted again ([e78bf30](https://github.com/fremtind/jokul/commit/e78bf3003c96d9efb268bdc282fbad784ce35cb2))
+-   **feedback:** fix a bug causing submitted feedback to be submitted again ([e78bf30](https://github.com/fremtind/jokul/commit/e78bf3003c96d9efb268bdc282fbad784ce35cb2))
 
 ## 5.1.0 (2021-06-29)
 

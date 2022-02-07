@@ -3,83 +3,94 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 6.0.4 (2021-12-08)
 
 ### Bug Fixes
 
-- make all button elements respect width constraint ([a1b9715](https://github.com/fremtind/jokul/commit/a1b97157e23ecda666ec7b9fdd92c0c899517f61))
+-   make all button elements respect width constraint ([a1b9715](https://github.com/fremtind/jokul/commit/a1b97157e23ecda666ec7b9fdd92c0c899517f61))
 
 ## 6.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 5.0.2 (2021-10-07)
 
 ### Bug Fixes
 
-- fjern clip-path på knapper for å vise touch-effekt riktig ([33ab605](https://github.com/fremtind/jokul/commit/33ab605f6b1ba70bddb939d07cbe16c1602d596f)), closes [#2356](https://github.com/fremtind/jokul/issues/2356)
+-   fjern clip-path på knapper for å vise touch-effekt riktig ([33ab605](https://github.com/fremtind/jokul/commit/33ab605f6b1ba70bddb939d07cbe16c1602d596f)), closes [#2356](https://github.com/fremtind/jokul/issues/2356)
 
 ## 5.0.0 (2021-10-06)
 
 ### Features
 
-- redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+-   redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
 
 ### Reverts
 
-- Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
+-   Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
 
 ### BREAKING CHANGES
 
-- APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
-Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
-variant="medium".
+-   APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
+    Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
+    variant="medium".
 
 ## 4.1.0 (2021-10-06)
 
 ### Bug Fixes
 
-- legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
+-   legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
 
 ### Features
 
-- redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+-   redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
 
 ## 4.0.4 (2021-09-09)
 
 ### Bug Fixes
 
-- retter strekfarge for invertert jkl-button--tertiary ([8a6a43e](https://github.com/fremtind/jokul/commit/8a6a43e7aafb1cf1878333e908f8cc96a6afd177)), closes [#1593](https://github.com/fremtind/jokul/issues/1593)
+-   retter strekfarge for invertert jkl-button--tertiary ([8a6a43e](https://github.com/fremtind/jokul/commit/8a6a43e7aafb1cf1878333e908f8cc96a6afd177)), closes [#1593](https://github.com/fremtind/jokul/issues/1593)
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([bf3da67](https://github.com/fremtind/jokul/commit/bf3da67d7ee14e36db26a03f1b0aac06780e828b))
+-   use new typographic scale ([bf3da67](https://github.com/fremtind/jokul/commit/bf3da67d7ee14e36db26a03f1b0aac06780e828b))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **button:** add automatic dark mode ([d31c3bf](https://github.com/fremtind/jokul/commit/d31c3bf43fdf2bcf6b3f41ef3af0d3b18c81f876))
+-   **button:** add automatic dark mode ([d31c3bf](https://github.com/fremtind/jokul/commit/d31c3bf43fdf2bcf6b3f41ef3af0d3b18c81f876))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

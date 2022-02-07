@@ -3,92 +3,103 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 8.0.0 (2022-01-04)
 
 ### Bug Fixes
 
-- fjern padding fra hamburger ([72e8899](https://github.com/fremtind/jokul/commit/72e8899fcfaed69225d54a3c18118dea571e5683))
+-   fjern padding fra hamburger ([72e8899](https://github.com/fremtind/jokul/commit/72e8899fcfaed69225d54a3c18118dea571e5683))
 
 ### BREAKING CHANGES
 
-- spacing rundt hamburger er fjernet
+-   spacing rundt hamburger er fjernet
 
 ## 7.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 6.0.0 (2021-09-27)
 
 ### Code Refactoring
 
-- use aria-expanded attr to control appearance ([de1ee5a](https://github.com/fremtind/jokul/commit/de1ee5a9d0e2835f063a3224d79db22694ac9715))
+-   use aria-expanded attr to control appearance ([de1ee5a](https://github.com/fremtind/jokul/commit/de1ee5a9d0e2835f063a3224d79db22694ac9715))
 
 ### BREAKING CHANGES
 
-- It is no longer possible to use the jkl-hamburger--is-open class to change the appearance of the
-hamburger menu. Use aria-expanded="true" instead
+-   It is no longer possible to use the jkl-hamburger--is-open class to change the appearance of the
+    hamburger menu. Use aria-expanded="true" instead
 
 ## 5.2.0 (2021-08-05)
 
 ### Features
 
-- add support for label placement ([bc396af](https://github.com/fremtind/jokul/commit/bc396af43385cfb6e5c08873188459184637828d))
-- **hamburger:** add control for animating label ([7369810](https://github.com/fremtind/jokul/commit/73698103d09829215b38b96b6ca36f149dab2add))
+-   add support for label placement ([bc396af](https://github.com/fremtind/jokul/commit/bc396af43385cfb6e5c08873188459184637828d))
+-   **hamburger:** add control for animating label ([7369810](https://github.com/fremtind/jokul/commit/73698103d09829215b38b96b6ca36f149dab2add))
 
 ## 5.1.0 (2021-07-13)
 
 ### Features
 
-- **hamburger:** add support for a text in the hamburger button ([512b2c6](https://github.com/fremtind/jokul/commit/512b2c6a579f85e72b7382f43eb045885ba9410c))
-- **hamburger:** make toggle-animation perhty ([0caacb9](https://github.com/fremtind/jokul/commit/0caacb92d851405652bb422ec233c922f5bd7441))
-- move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
-- second try on animating the menu text ([a9f33ee](https://github.com/fremtind/jokul/commit/a9f33ee27c1dcd7a42973b378e54938f45cade07))
+-   **hamburger:** add support for a text in the hamburger button ([512b2c6](https://github.com/fremtind/jokul/commit/512b2c6a579f85e72b7382f43eb045885ba9410c))
+-   **hamburger:** make toggle-animation perhty ([0caacb9](https://github.com/fremtind/jokul/commit/0caacb92d851405652bb422ec233c922f5bd7441))
+-   move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
+-   second try on animating the menu text ([a9f33ee](https://github.com/fremtind/jokul/commit/a9f33ee27c1dcd7a42973b378e54938f45cade07))
 
 ## 5.0.0 (2021-07-09)
 
 ### Bug Fixes
 
-- remove import of old font-size variables ([46284c3](https://github.com/fremtind/jokul/commit/46284c3a893c55664a3ef10a4a74806b046f6159))
+-   remove import of old font-size variables ([46284c3](https://github.com/fremtind/jokul/commit/46284c3a893c55664a3ef10a4a74806b046f6159))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- **hamburger:** make hamburger controlled ([d9b8723](https://github.com/fremtind/jokul/commit/d9b8723a0268571c42270ba79ad2dfd0deac25df))
+-   **hamburger:** make hamburger controlled ([d9b8723](https://github.com/fremtind/jokul/commit/d9b8723a0268571c42270ba79ad2dfd0deac25df))
 
 ### BREAKING CHANGES
 
-- **hamburger:** API is changed to be controlled
+-   **hamburger:** API is changed to be controlled
 
 ## 3.1.0 (2021-07-07)
 
 ### Features
 
-- **hamburger:** update animation for hamburger component ([b7a30fe](https://github.com/fremtind/jokul/commit/b7a30fe803ecf172c5d1df29fe00538b3bfa669b))
+-   **hamburger:** update animation for hamburger component ([b7a30fe](https://github.com/fremtind/jokul/commit/b7a30fe803ecf172c5d1df29fe00538b3bfa669b))
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **hamburger:** add automatic dark mode ([13dacc4](https://github.com/fremtind/jokul/commit/13dacc424813fcca47c81ed23dd23ed172d3fafe))
+-   **hamburger:** add automatic dark mode ([13dacc4](https://github.com/fremtind/jokul/commit/13dacc424813fcca47c81ed23dd23ed172d3fafe))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

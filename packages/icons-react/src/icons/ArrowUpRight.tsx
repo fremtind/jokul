@@ -2,15 +2,8 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const ArrowUpRight: FC<IconProps> = ({
-    className,
-    variant,
-    title = "Pil-ekstern",
-    description = "Ikon av en pil opp mot høyre",
-}) => (
+export const ArrowUpRight: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
-        title={title}
-        description={description}
         viewBox="0 0 15 16"
         className={className}
         variant={variant}

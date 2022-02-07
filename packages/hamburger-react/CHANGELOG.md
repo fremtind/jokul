@@ -3,91 +3,101 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 7.0.0 (2021-12-22)
 
 ### Bug Fixes
 
-- rett a11y-problemer i Hamburger ([721db9f](https://github.com/fremtind/jokul/commit/721db9f6632f523e2b38badbc0b54eddecf868bb)), closes [#2606](https://github.com/fremtind/jokul/issues/2606)
+-   rett a11y-problemer i Hamburger ([721db9f](https://github.com/fremtind/jokul/commit/721db9f6632f523e2b38badbc0b54eddecf868bb)), closes [#2606](https://github.com/fremtind/jokul/issues/2606)
 
 ### BREAKING CHANGES
 
-- - Fjernet `description`-propen. Den var en renamet `aria-label`. Bruk
-heller `aria-label`.
-- Hamburger krever nå at du gir den en ID og setter `aria-controls` med IDen
-til menyen hamburgeren styrer. Dette er for å gjøre det enklere å bygge en
-tilgjengelig hamburgermeny.
+-   -   Fjernet `description`-propen. Den var en renamet `aria-label`. Bruk
+        heller `aria-label`.
+-   Hamburger krever nå at du gir den en ID og setter `aria-controls` med IDen
+    til menyen hamburgeren styrer. Dette er for å gjøre det enklere å bygge en
+    tilgjengelig hamburgermeny.
 
 ## 6.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 5.3.0 (2021-09-27)
 
 ### Features
 
-- add better semantics to hamburger menu ([3cdb8dd](https://github.com/fremtind/jokul/commit/3cdb8dde12923d205c85b06dd6a51db9ecd21f99))
+-   add better semantics to hamburger menu ([3cdb8dd](https://github.com/fremtind/jokul/commit/3cdb8dde12923d205c85b06dd6a51db9ecd21f99))
 
 ## 5.2.6 (2021-09-21)
 
 ### Bug Fixes
 
-- rett en typefeil i Hamburger sin onClick ([9fe7e9e](https://github.com/fremtind/jokul/commit/9fe7e9e1125bfcedcadd0faa043e096ddb198d9f))
+-   rett en typefeil i Hamburger sin onClick ([9fe7e9e](https://github.com/fremtind/jokul/commit/9fe7e9e1125bfcedcadd0faa043e096ddb198d9f))
 
 ## 5.2.0 (2021-08-05)
 
 ### Bug Fixes
 
-- **hamburger-react:** fix logic for label alignment class ([a274a39](https://github.com/fremtind/jokul/commit/a274a39f1dfa845726aeb779441054ebfaf24e10))
+-   **hamburger-react:** fix logic for label alignment class ([a274a39](https://github.com/fremtind/jokul/commit/a274a39f1dfa845726aeb779441054ebfaf24e10))
 
 ### Features
 
-- add support for label placement ([bc396af](https://github.com/fremtind/jokul/commit/bc396af43385cfb6e5c08873188459184637828d))
-- **hamburger:** add control for animating label ([7369810](https://github.com/fremtind/jokul/commit/73698103d09829215b38b96b6ca36f149dab2add))
+-   add support for label placement ([bc396af](https://github.com/fremtind/jokul/commit/bc396af43385cfb6e5c08873188459184637828d))
+-   **hamburger:** add control for animating label ([7369810](https://github.com/fremtind/jokul/commit/73698103d09829215b38b96b6ca36f149dab2add))
 
 ## 5.1.0 (2021-07-13)
 
 ### Features
 
-- **hamburger:** add support for a text in the hamburger button ([512b2c6](https://github.com/fremtind/jokul/commit/512b2c6a579f85e72b7382f43eb045885ba9410c))
-- **hamburger:** make toggle-animation perhty ([0caacb9](https://github.com/fremtind/jokul/commit/0caacb92d851405652bb422ec233c922f5bd7441))
-- move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
-- second try on animating the menu text ([a9f33ee](https://github.com/fremtind/jokul/commit/a9f33ee27c1dcd7a42973b378e54938f45cade07))
+-   **hamburger:** add support for a text in the hamburger button ([512b2c6](https://github.com/fremtind/jokul/commit/512b2c6a579f85e72b7382f43eb045885ba9410c))
+-   **hamburger:** make toggle-animation perhty ([0caacb9](https://github.com/fremtind/jokul/commit/0caacb92d851405652bb422ec233c922f5bd7441))
+-   move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
+-   second try on animating the menu text ([a9f33ee](https://github.com/fremtind/jokul/commit/a9f33ee27c1dcd7a42973b378e54938f45cade07))
 
 ## 5.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 4.0.0 (2021-07-09)
 
 ### Bug Fixes
 
-- update example and portal with new hamburger component ([94e1085](https://github.com/fremtind/jokul/commit/94e108567a16bc6dc867a7c2175672a0368424ce))
+-   update example and portal with new hamburger component ([94e1085](https://github.com/fremtind/jokul/commit/94e108567a16bc6dc867a7c2175672a0368424ce))
 
 ### Features
 
-- **hamburger:** make hamburger controlled ([d9b8723](https://github.com/fremtind/jokul/commit/d9b8723a0268571c42270ba79ad2dfd0deac25df))
+-   **hamburger:** make hamburger controlled ([d9b8723](https://github.com/fremtind/jokul/commit/d9b8723a0268571c42270ba79ad2dfd0deac25df))
 
 ### BREAKING CHANGES
 
-- **hamburger:** API is changed to be controlled
+-   **hamburger:** API is changed to be controlled
 
 ## 3.0.2 (2021-07-07)
 
 ### Bug Fixes
 
-- **hamburger:** fix dark mode in dev example ([ec19b1d](https://github.com/fremtind/jokul/commit/ec19b1d1cbe5ce4273bfb572e93b6836d6048045))
+-   **hamburger:** fix dark mode in dev example ([ec19b1d](https://github.com/fremtind/jokul/commit/ec19b1d1cbe5ce4273bfb572e93b6836d6048045))
 
 ## 3.0.0 (2021-07-06)
 
