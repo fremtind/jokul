@@ -3,42 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.1.5 (2022-02-07)
+
+### Bug Fixes
+
+-   skjul ikoner fra skjermlesere ([4854caa](https://github.com/fremtind/jokul/commit/4854caaa2a4a9215d05b6a87448db89fe4acc57f)), closes [#2679](https://github.com/fremtind/jokul/issues/2679)
+
 ## 4.1.0 (2021-12-21)
 
 ### Features
 
-- eksporter typer ([0ed794e](https://github.com/fremtind/jokul/commit/0ed794e00f0c4b9d391e697860cd204782ae056c))
-- legg til className prop i animerte ikoner ([ff77555](https://github.com/fremtind/jokul/commit/ff7755574f4301bb65afc57ff1143f4d58ec8413))
+-   eksporter typer ([0ed794e](https://github.com/fremtind/jokul/commit/0ed794e00f0c4b9d391e697860cd204782ae056c))
+-   legg til className prop i animerte ikoner ([ff77555](https://github.com/fremtind/jokul/commit/ff7755574f4301bb65afc57ff1143f4d58ec8413))
 
 ## 4.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 3.0.0 (2021-07-09)
 
 ### Documentation
 
-- use new typographic scale in examples ([b442f59](https://github.com/fremtind/jokul/commit/b442f59192d257741967156b12c468a8b734fbda))
+-   use new typographic scale in examples ([b442f59](https://github.com/fremtind/jokul/commit/b442f59192d257741967156b12c468a8b734fbda))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 2.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 1.4.0 (2021-03-25)
 
