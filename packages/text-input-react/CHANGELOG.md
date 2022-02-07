@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@7.0.23...@fremtind/jkl-text-input-react@8.0.0) (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 7.0.22 (2022-02-02)
 
 ### Bug Fixes

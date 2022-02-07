@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@6.2.0...@fremtind/jkl-react-hooks@7.0.0) (2022-02-07)
+
+### Bug Fixes
+
+-   oppdater breakpoints ([c4cd9c1](https://github.com/fremtind/jokul/commit/c4cd9c1c84cca2e79d524a87160214575b9f4bf4)), closes [#2605](https://github.com/fremtind/jokul/issues/2605)
+-   sync useScreen med Sass-mixins ([9f93b49](https://github.com/fremtind/jokul/commit/9f93b49cf1cc29e365365e36ef8e393cba615cba))
+
+### BREAKING CHANGES
+
+-   -   Oppdaterte verdier for breakpoints kan gjøre at layout brekker på en dårlig måte i appen din
+-   `small`-variabelen finnes ikke lenger i `breakpoints.ts`
+-   `$breakpoint--small` finnes ikke lenger i `_breakpoints.scss`
+
 # [6.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@6.1.7...@fremtind/jkl-react-hooks@6.2.0) (2022-02-02)
 
 ### Features

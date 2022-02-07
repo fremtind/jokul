@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+-   fjern normalisering for ie ([f15329a](https://github.com/fremtind/jokul/commit/f15329aa25ca4ec0ec3f1da009bbb1879d9adced))
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+-   oppdater breakpoints ([c4cd9c1](https://github.com/fremtind/jokul/commit/c4cd9c1c84cca2e79d524a87160214575b9f4bf4)), closes [#2605](https://github.com/fremtind/jokul/issues/2605)
+-   rett syntaksfeil etter autofiks ([adf687d](https://github.com/fremtind/jokul/commit/adf687d4bd954e1ba9c20139f6f4082d091c40ed))
+
+### BREAKING CHANGES
+
+-   -   Oppdaterte verdier for breakpoints kan gjøre at layout brekker på en dårlig måte i appen din
+-   `small`-variabelen finnes ikke lenger i `breakpoints.ts`
+-   `$breakpoint--small` finnes ikke lenger i `_breakpoints.scss`
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 8.3.3 (2022-02-02)
 
 ### Bug Fixes

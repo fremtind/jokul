@@ -3,54 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 6.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 5.1.0 (2021-11-19)
 
 ### Features
 
-- **@fremtind/jkl-accordion-react:** add onClick prop to AccordionItem ([410b90d](https://github.com/fremtind/jokul/commit/410b90d8eca92b72f13fb8c896ebf03fa5230806)), closes [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515)
-- **accordion-react:** expor interfaces as types ([4949d3c](https://github.com/fremtind/jokul/commit/4949d3c95b2a2c4ffeb028c5afe701f36912bb11)), closes [#2515](https://github.com/fremtind/jokul/issues/2515)
+-   **@fremtind/jkl-accordion-react:** add onClick prop to AccordionItem ([410b90d](https://github.com/fremtind/jokul/commit/410b90d8eca92b72f13fb8c896ebf03fa5230806)), closes [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515)
+-   **accordion-react:** expor interfaces as types ([4949d3c](https://github.com/fremtind/jokul/commit/4949d3c95b2a2c4ffeb028c5afe701f36912bb11)), closes [#2515](https://github.com/fremtind/jokul/issues/2515)
 
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.0.7 (2021-09-30)
 
 ### Bug Fixes
 
-- rett et problem i samspillet Select og Accordion ([7733fd2](https://github.com/fremtind/jokul/commit/7733fd21e6eab8797ad30f3a1d59011a84276c2b)), closes [#1466](https://github.com/fremtind/jokul/issues/1466)
+-   rett et problem i samspillet Select og Accordion ([7733fd2](https://github.com/fremtind/jokul/commit/7733fd21e6eab8797ad30f3a1d59011a84276c2b)), closes [#1466](https://github.com/fremtind/jokul/issues/1466)
 
 ## 4.0.5 (2021-09-17)
 
 ### Bug Fixes
 
-- oppdater core-toggle for bugfix rundt aria-label ([54a3902](https://github.com/fremtind/jokul/commit/54a39020606f19b18808ba6ff6ecd157ed775461))
+-   oppdater core-toggle for bugfix rundt aria-label ([54a3902](https://github.com/fremtind/jokul/commit/54a39020606f19b18808ba6ff6ecd157ed775461))
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([c588ee2](https://github.com/fremtind/jokul/commit/c588ee26a9f2c7433f72d7c58d8afc115c1c5ab5))
+-   use new typographic scale ([c588ee2](https://github.com/fremtind/jokul/commit/c588ee26a9f2c7433f72d7c58d8afc115c1c5ab5))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

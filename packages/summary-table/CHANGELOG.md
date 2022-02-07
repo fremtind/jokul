@@ -3,45 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.3 (2022-02-07)
+
+### Bug Fixes
+
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
 ## 6.0.0 (2022-01-12)
 
 ### Features
 
-- makes summary-table more flexible ([374f557](https://github.com/fremtind/jokul/commit/374f5579b3ddf2de2f2bc0662583c0ac8c8b1c06)), closes [#2617](https://github.com/fremtind/jokul/issues/2617)
+-   makes summary-table more flexible ([374f557](https://github.com/fremtind/jokul/commit/374f5579b3ddf2de2f2bc0662583c0ac8c8b1c06)), closes [#2617](https://github.com/fremtind/jokul/issues/2617)
 
 ### BREAKING CHANGES
 
-- breaking: new props for summary-table
+-   breaking: new props for summary-table
 
 ## 5.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typog. scale and fix dark mode ([1b814f7](https://github.com/fremtind/jokul/commit/1b814f7c76293d1e49c73d07af8c7b3e2cb7eb3a))
+-   use new typog. scale and fix dark mode ([1b814f7](https://github.com/fremtind/jokul/commit/1b814f7c76293d1e49c73d07af8c7b3e2cb7eb3a))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

@@ -3,63 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.7 (2022-02-07)
+
+### Bug Fixes
+
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
 ## 7.1.0 (2021-12-01)
 
 ### Features
 
-- legg til en inline-variant av loader ([7b5d140](https://github.com/fremtind/jokul/commit/7b5d140b382ba563a58c4f8cc66553bdf105f359))
+-   legg til en inline-variant av loader ([7b5d140](https://github.com/fremtind/jokul/commit/7b5d140b382ba563a58c4f8cc66553bdf105f359))
 
 ## 7.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 6.0.0 (2021-10-07)
 
 ### Features
 
-- la loader ta farge fra teksten rundt ([e529255](https://github.com/fremtind/jokul/commit/e52925548dcdb8e1228bc445df18bc191bb6aaf5)), closes [#2348](https://github.com/fremtind/jokul/issues/2348)
+-   la loader ta farge fra teksten rundt ([e529255](https://github.com/fremtind/jokul/commit/e52925548dcdb8e1228bc445df18bc191bb6aaf5)), closes [#2348](https://github.com/fremtind/jokul/issues/2348)
 
 ### BREAKING CHANGES
 
-- Propen negative har ikke lenger noen effekt, og er fjernet
+-   Propen negative har ikke lenger noen effekt, og er fjernet
 
 ## 5.0.0 (2021-10-06)
 
 ### Features
 
-- redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+-   redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
 
 ### Reverts
 
-- Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
+-   Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
 
 ### BREAKING CHANGES
 
-- APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
-Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
-variant="medium".
+-   APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
+    Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
+    variant="medium".
 
 ## 4.1.0 (2021-10-06)
 
 ### Features
 
-- redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+-   redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
 
 ## 4.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 

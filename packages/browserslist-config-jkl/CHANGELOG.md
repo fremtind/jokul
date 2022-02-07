@@ -3,11 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.6.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern ie fra browserslist, sett region til no ([3804c27](https://github.com/fremtind/jokul/commit/3804c27ffe9867df363b9c662d2684daabe06b9c))
+
+### BREAKING CHANGES
+
+-   Fjerner støtte for Internet Explorer
+
 ## 0.5.0 (2020-03-16)
 
 ### Features
 
-- **browserslist-config:** add explicit support for IE11 ([2d6e6b0](https://github.com/fremtind/jokul/commit/2d6e6b0b18722674f2a3c519c8c1caab73c6e37d))
+-   **browserslist-config:** add explicit support for IE11 ([2d6e6b0](https://github.com/fremtind/jokul/commit/2d6e6b0b18722674f2a3c519c8c1caab73c6e37d))
 
 ## 0.4.0 (2019-10-09)
 

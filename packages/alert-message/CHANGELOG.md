@@ -3,31 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.10 (2022-02-07)
+
+### Bug Fixes
+
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
 ## 5.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 4.1.0 (2021-10-13)
 
 ### Features
 
-- implement new alert message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
+-   implement new alert message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
 
 ## 4.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 

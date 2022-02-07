@@ -3,31 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 7.1.0 (2021-12-01)
 
 ### Features
 
-- legg til logostempel ([318b085](https://github.com/fremtind/jokul/commit/318b08520ab6b1296f642ac4258f1f3fe08c193c))
+-   legg til logostempel ([318b085](https://github.com/fremtind/jokul/commit/318b08520ab6b1296f642ac4258f1f3fe08c193c))
 
 ## 7.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 6.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 5.0.0 (2021-07-06)
 

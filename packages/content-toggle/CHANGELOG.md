@@ -3,27 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.10 (2022-02-07)
+
+### Bug Fixes
+
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
 ## 2.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 1.2.0 (2021-07-13)
 
 ### Features
 
-- move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
+-   move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
 
 ## 1.1.0 (2021-07-09)
 
 ### Features
 
-- version bump to 1.0.0, upgrade jkl-core dependency ([4a4be9f](https://github.com/fremtind/jokul/commit/4a4be9fb06ab7ed5c2ed2c1f377d32586c8d42e1))
+-   version bump to 1.0.0, upgrade jkl-core dependency ([4a4be9f](https://github.com/fremtind/jokul/commit/4a4be9fb06ab7ed5c2ed2c1f377d32586c8d42e1))
 
 ## 0.1.0 (2021-07-06)
 
