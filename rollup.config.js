@@ -54,10 +54,12 @@ export default [
 ];
 
 function getFremtindPackageNames() {
+    const ignore = [".DS_Store"];
     const basePackagePath = path.resolve(__dirname, "packages");
     const packagesFolderNames = fs.readdirSync(basePackagePath);
 
     return packagesFolderNames
+        .filter((packageFolderName) => !ignore.includes(packageFolderName))
         .map((packageFolderName) => {
             try {
                 const packageJson = fs.readFileSync(path.resolve(basePackagePath, packageFolderName, "package.json"));

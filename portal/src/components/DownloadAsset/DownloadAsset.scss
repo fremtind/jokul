@@ -5,6 +5,7 @@
 .jkl-portal-downloadasset {
     display: inline-block;
     padding: rem(16px);
+    text-align: center;
 
     &--dark-bg {
         background-color: jkl.$color-granitt;
@@ -22,6 +23,7 @@
     &__name {
         padding: rem(16px);
         display: block;
+        color: jkl.$color-granitt;
 
         &--dark {
             color: jkl.$color-snohvit;
@@ -29,17 +31,10 @@
     }
 
     &__button {
-        background: none;
-        box-shadow: 0 0 0 transparent;
-        border: 0 solid transparent;
-        text-shadow: 0 0 0 transparent;
+        text-decoration: none;
 
         &:hover {
             cursor: pointer;
-            background: none;
-            box-shadow: 0 0 0 transparent;
-            border: 0 solid transparent;
-            text-shadow: 0 0 0 transparent;
         }
 
         &:focus {
