@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@1.2.0...@fremtind/jkl-expand-button@1.2.1) (2022-02-07)
+
+### Bug Fixes
+
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
 # [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@1.1.3...@fremtind/jkl-expand-button@1.2.0) (2022-02-02)
 
 ### Features

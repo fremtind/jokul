@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2022-02-07)
+
+### Bug Fixes
+
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
+### chore
+
+-   fjern ubrukt emoji ([23dea40](https://github.com/fremtind/jokul/commit/23dea4061330c480a2452583ba4623a71fc72879))
+
+### BREAKING CHANGES
+
+-   Om du brukte PILE_OF_POO får du legge til denne selv :D
+
 # 0.3.0 (2022-02-02)
 
 ### Features

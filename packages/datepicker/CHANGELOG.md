@@ -3,45 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 6.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 5.0.5 (2021-11-24)
 
 ### Bug Fixes
 
-- animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
+-   animasjonsfix for Safari ([39982c1](https://github.com/fremtind/jokul/commit/39982c168e7d0a5b99ad72476444055eb889651a)), closes [#2531](https://github.com/fremtind/jokul/issues/2531)
 
 ## 5.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([50b8815](https://github.com/fremtind/jokul/commit/50b8815a325be0a92302a9c033f320c53cfa941c))
+-   use new typographic scale ([50b8815](https://github.com/fremtind/jokul/commit/50b8815a325be0a92302a9c033f320c53cfa941c))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **datepicker:** add automatic dark mode ([e783a1e](https://github.com/fremtind/jokul/commit/e783a1eac35ce1b1b95fd96396ce619f9c607a78))
+-   **datepicker:** add automatic dark mode ([e783a1e](https://github.com/fremtind/jokul/commit/e783a1eac35ce1b1b95fd96396ce619f9c607a78))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.0 (2021-06-07)
 

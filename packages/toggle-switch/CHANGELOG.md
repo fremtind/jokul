@@ -3,39 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+-   rett syntaksfeil etter autofiks ([adf687d](https://github.com/fremtind/jokul/commit/adf687d4bd954e1ba9c20139f6f4082d091c40ed))
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 6.0.0 (2021-10-21)
 
 ### Features
 
-- use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
+-   use new spacing scale ([5694495](https://github.com/fremtind/jokul/commit/5694495f56d3c1f0e675433b35cfb0e693b93a82)), closes [#2382](https://github.com/fremtind/jokul/issues/2382)
 
 ### BREAKING CHANGES
 
-- new spacing scale: see migration guide for jkl-core
+-   new spacing scale: see migration guide for jkl-core
 
 ## 5.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([0edcff9](https://github.com/fremtind/jokul/commit/0edcff9e671ab7a693cdbbefb2110f72b5decc7d))
+-   use new typographic scale ([0edcff9](https://github.com/fremtind/jokul/commit/0edcff9e671ab7a693cdbbefb2110f72b5decc7d))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 4.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### Features
 
-- **toggle:** add automatic dark mode ([250d96a](https://github.com/fremtind/jokul/commit/250d96aaf2afa9e073a02cfc186b0b9d2974fd74))
+-   **toggle:** add automatic dark mode ([250d96a](https://github.com/fremtind/jokul/commit/250d96aaf2afa9e073a02cfc186b0b9d2974fd74))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 3.0.1 (2021-06-25)
 

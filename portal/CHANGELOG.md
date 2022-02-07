@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern ie-fallback fra portalen ([bda48a6](https://github.com/fremtind/jokul/commit/bda48a644eb43f30f03709295a9d2d8531b3ea38))
+-   la ie være del av Gatsby-bygget pga bug ([09964aa](https://github.com/fremtind/jokul/commit/09964aa7a6f59b1fb79009ae0b4a8f8ab12080a4))
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+-   oppdater breakpoints ([c4cd9c1](https://github.com/fremtind/jokul/commit/c4cd9c1c84cca2e79d524a87160214575b9f4bf4)), closes [#2605](https://github.com/fremtind/jokul/issues/2605)
+
+### BREAKING CHANGES
+
+-   -   Oppdaterte verdier for breakpoints kan gjøre at layout brekker på en dårlig måte i appen din
+-   `small`-variabelen finnes ikke lenger i `breakpoints.ts`
+-   `$breakpoint--small` finnes ikke lenger i `_breakpoints.scss`
+
 ## 11.0.8 (2022-02-02)
 
 ### Bug Fixes

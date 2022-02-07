@@ -3,87 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 8.0.12 (2022-01-04)
 
 ### Bug Fixes
 
-- sett korrekt aria-hidden basert på showLoader ([81c2fcc](https://github.com/fremtind/jokul/commit/81c2fcca1cdb9e8eb54ab0bbee63ffd6e04d3fd9)), closes [#2647](https://github.com/fremtind/jokul/issues/2647)
+-   sett korrekt aria-hidden basert på showLoader ([81c2fcc](https://github.com/fremtind/jokul/commit/81c2fcca1cdb9e8eb54ab0bbee63ffd6e04d3fd9)), closes [#2647](https://github.com/fremtind/jokul/issues/2647)
 
 ## 8.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 7.0.0 (2021-10-07)
 
 ### Code Refactoring
 
-- **loading-state:** fjern bruk av negative-prop i loaderen ([69f4d42](https://github.com/fremtind/jokul/commit/69f4d426a68ccd4c3295d1be80544eb10ad19e37))
+-   **loading-state:** fjern bruk av negative-prop i loaderen ([69f4d42](https://github.com/fremtind/jokul/commit/69f4d426a68ccd4c3295d1be80544eb10ad19e37))
 
 ### BREAKING CHANGES
 
-- **loading-state:** Avhenger av en versjon av loader med breaking changes
+-   **loading-state:** Avhenger av en versjon av loader med breaking changes
 
 ## 6.0.0 (2021-10-06)
 
 ### Features
 
-- redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+-   redesign knappeloader så den beholder layout ([9732d00](https://github.com/fremtind/jokul/commit/9732d007e92bb50ccb75a44d5a6fe74a641941f1)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
 
 ### Reverts
 
-- Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
-- Revert "docs: tillat default true på boolProps i eksempler" ([deaff68](https://github.com/fremtind/jokul/commit/deaff681bf795d1f434332911f287db07e5d489c))
-- Revert "chore: reset Cypress baseline for knapper" ([7dda3c1](https://github.com/fremtind/jokul/commit/7dda3c1bfcdffd86ffbd8e7e59d609d1b4f7b4af))
-- Revert "chore: update cypress snapshots [ci skip cypress]" ([438c4ef](https://github.com/fremtind/jokul/commit/438c4ef702b9fa0d8f0f9fdb40c281c13556363d))
-- Revert "docs: strukturer om dokumentasjonen av lenkeknapper" ([c42252e](https://github.com/fremtind/jokul/commit/c42252e89057d065184c013ca3aaccfeb51d8e59))
+-   Revert "feat: redesign knappeloader så den beholder layout" ([54011df](https://github.com/fremtind/jokul/commit/54011dfb1ca5bba65e45b95dfe0fec4fb9eb340d))
+-   Revert "docs: tillat default true på boolProps i eksempler" ([deaff68](https://github.com/fremtind/jokul/commit/deaff681bf795d1f434332911f287db07e5d489c))
+-   Revert "chore: reset Cypress baseline for knapper" ([7dda3c1](https://github.com/fremtind/jokul/commit/7dda3c1bfcdffd86ffbd8e7e59d609d1b4f7b4af))
+-   Revert "chore: update cypress snapshots [ci skip cypress]" ([438c4ef](https://github.com/fremtind/jokul/commit/438c4ef702b9fa0d8f0f9fdb40c281c13556363d))
+-   Revert "docs: strukturer om dokumentasjonen av lenkeknapper" ([c42252e](https://github.com/fremtind/jokul/commit/c42252e89057d065184c013ca3aaccfeb51d8e59))
 
 ### BREAKING CHANGES
 
-- APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
-Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
-variant="medium".
+-   APIet til Button endrer seg ikke, men det er en del breaking changes i CSS om du bygger HTML selv.
+    Se React-komponent for veiledning. Loader-komponenten mister inline-prop. Erstattes av
+    variant="medium".
 
 ## 5.1.0 (2021-10-06)
 
 ### Bug Fixes
 
-- legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
+-   legg til manglende CSS reset for a.jkl-button ([21972e1](https://github.com/fremtind/jokul/commit/21972e14b5320fc26addb975739734dfacb94736)), closes [#2272](https://github.com/fremtind/jokul/issues/2272)
 
 ### Features
 
-- redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
+-   redesign knappeloader så den beholder layout ([344d8d3](https://github.com/fremtind/jokul/commit/344d8d3d1710125ac44211fa7788045e2ec7a36c)), closes [#2122](https://github.com/fremtind/jokul/issues/2122)
 
 ## 5.0.1 (2021-07-13)
 
 ### Bug Fixes
 
-- changed when withLoader div shows in button ([8ea1aaa](https://github.com/fremtind/jokul/commit/8ea1aaa5793c79708062c58bdebb545d274e4f62))
+-   changed when withLoader div shows in button ([8ea1aaa](https://github.com/fremtind/jokul/commit/8ea1aaa5793c79708062c58bdebb545d274e4f62))
 
 ## 5.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([bf3da67](https://github.com/fremtind/jokul/commit/bf3da67d7ee14e36db26a03f1b0aac06780e828b))
+-   use new typographic scale ([bf3da67](https://github.com/fremtind/jokul/commit/bf3da67d7ee14e36db26a03f1b0aac06780e828b))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 4.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 3.1.1 (2021-06-29)
 

@@ -3,59 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.0.0 (2022-02-07)
+
+### Bug Fixes
+
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 ## 6.0.5 (2021-11-18)
 
 ### Bug Fixes
 
-- gi AlertMessage riktig displayName, typing ([e32bdaa](https://github.com/fremtind/jokul/commit/e32bdaa81a097b4e5b130b1447346b40774ff2f7))
+-   gi AlertMessage riktig displayName, typing ([e32bdaa](https://github.com/fremtind/jokul/commit/e32bdaa81a097b4e5b130b1447346b40774ff2f7))
 
 ## 6.0.0 (2021-10-28)
 
 ### Bug Fixes
 
-- remove inverted option from alertMessage and always light mode inside component ([9b2466c](https://github.com/fremtind/jokul/commit/9b2466cf55cd093be9fed1ea5bb2ed86b92568b1))
+-   remove inverted option from alertMessage and always light mode inside component ([9b2466c](https://github.com/fremtind/jokul/commit/9b2466cf55cd093be9fed1ea5bb2ed86b92568b1))
 
 ### BREAKING CHANGES
 
-- Removed inverted option
+-   Removed inverted option
 
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.2.3 (2021-10-20)
 
 ### Bug Fixes
 
-- always light mode inside MessageBox and AlertMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
+-   always light mode inside MessageBox and AlertMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
 
 ## 4.2.0 (2021-10-13)
 
 ### Features
 
-- implement new alert message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
+-   implement new alert message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
 
 ## 4.1.0 (2021-09-13)
 
 ### Features
 
-- prop for å styre role på MessageBox ([87646ae](https://github.com/fremtind/jokul/commit/87646ae6437cb368aa6567e637d59ab2ab923b71)), closes [#1687](https://github.com/fremtind/jokul/issues/1687)
+-   prop for å styre role på MessageBox ([87646ae](https://github.com/fremtind/jokul/commit/87646ae6437cb368aa6567e637d59ab2ab923b71)), closes [#1687](https://github.com/fremtind/jokul/issues/1687)
 
 ## 4.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
