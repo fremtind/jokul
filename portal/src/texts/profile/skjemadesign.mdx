@@ -2,6 +2,10 @@
 title: Skjemadesign
 path: /profil/skjemadesign
 order: 12
+images:
+    - skjemadesign/skjemadesign_hund.png
+    - skjemadesign/skjemavalidering_blocker.png
+    - skjemadesign/skjemavalidering_error_summary.png
 ---
 
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -29,7 +33,7 @@ Vi avgrenser seksjoner tydelig fra hverandre. Hvis seksjonene ligger på en fell
 
 <PortalImage
     className="jkl-spacing-xl--bottom"
-    src="/assets/documentation/skjemadesign/skjemadesign_hund.png"
+    src={props.images[0]}
     alt="Skjermbilde av et skjemadesign fra kjøpsflyten for hundeforsikring"
 />
 
@@ -64,7 +68,7 @@ Et unntak gjøres dersom et valg gjort i skjemaet gjør at vi vet at brukeren ik
 
 <PortalImage
     className="jkl-spacing-xl--bottom"
-    src="/assets/documentation/skjemadesign/skjemavalidering_blocker.png"
+    src={props.images[1]}
     alt="Skjermbilde av et skjema hvor vi informerer brukeren om riktig vei videre i en InfoMessageBox"
 />
 
@@ -78,7 +82,7 @@ Vi scroller automatisk opp så toppen av meldingsboksen er synlig for brukeren. 
 
 <PortalImage
     className="jkl-spacing-xl--bottom"
-    src="/assets/documentation/skjemadesign/skjemavalidering_error_summary.png"
+    src={props.images[2]}
     alt="Skjermbilde av en oppsummering av fire valideringsfeil vist i en ErrorMessageBox"
 />
 

@@ -3,6 +3,9 @@ title: AlertMessage
 react: alert-message-react
 scss: alert-message
 group: meldinger
+images:
+    - alert-message-do-1.png
+    - alert-message-dont-1.png
 ---
 
 import { AlertMessageExample, alertMessageExampleCode } from "./AlertMessageExample";
@@ -55,14 +58,10 @@ Før bruker en varselmelding er det greit å ha tatt stilling til noen spørsmå
 Varsler skal vises plassert øverst på siden og ta opp hele sidebredden. Bruk [MessageBox](/komponenter/messagebox) om du skal vise en beskjed i en annen kontekst.
 
 <Grid>
-    <DoDontExample
-        type="do"
-        description="En varselmelding plassert øverst på siden"
-        image="/assets/do-donts/alert-message-do-1.png"
-    />
+    <DoDontExample type="do" description="En varselmelding plassert øverst på siden" image={props.images[0]} />
     <DoDontExample
         type="dont"
         description="I en annen kontekst brukes meldingsboks, ikke varselmelding"
-        image="/assets/do-donts/alert-message-dont-1.png"
+        image={props.images[1]}
     />
 </Grid>

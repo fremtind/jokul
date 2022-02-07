@@ -41,6 +41,31 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
     }
 };
 
+exports.createSchemaCustomization = ({ actions }) => {
+    const { createTypes } = actions;
+    createTypes(`
+     type Mdx implements Node {
+       frontmatter: Frontmatter
+     }
+     type Frontmatter @dontInfer {
+       title: String
+       path: String
+       react: String
+       scss: String
+       group: String
+       order: String
+       author: String
+       publishDate: String
+       images: [File] @fileByRelativePath
+       tags: [String]
+       wcagRules: [String]
+       role: [String]
+       links: [[String]]
+       displayTypes: String
+     }
+   `);
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
     const { createNodeField } = actions;
 

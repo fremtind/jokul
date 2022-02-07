@@ -41,7 +41,7 @@ export const DocPageLayout: VFC<Props> = ({ location, data, pageContext }) => {
         >
             <ComponentPageHeader {...frontmatter} />
             <BlogPageHeader {...frontmatter} />
-            <MDXRenderer>{body}</MDXRenderer>
+            <MDXRenderer images={frontmatter.images}>{body}</MDXRenderer>
             {types && <APIDocumentation types={types} />}
         </motion.main>
     );
@@ -62,6 +62,11 @@ export const pageQuery = graphql`
                 author
                 publishDate
                 group
+                images {
+                    childImageSharp {
+                        gatsbyImageData
+                    }
+                }
             }
         }
     }

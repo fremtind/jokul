@@ -29,6 +29,7 @@ export interface Frontmatter {
     publishDate?: string;
     group?: string;
     path?: string;
+    images?: unknown;
 }
 
 interface RawDocumentationPage {

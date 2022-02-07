@@ -1,6 +1,5 @@
-const ignoreNonMdx = [
+const ignore = [
     "**/.*", // filer som starter med .
-    "**/*.png",
     "**/*.md",
     "**/*.scss",
     "**/*.js",
@@ -24,10 +23,6 @@ module.exports = {
         PRESERVE_FILE_DOWNLOAD_CACHE: true,
     },
     plugins: [
-        "gatsby-plugin-typescript",
-        "gatsby-plugin-image",
-        "gatsby-plugin-sharp",
-        "gatsby-transformer-sharp",
         { resolve: "gatsby-source-filesystem", options: { path: "./static/assets" } },
         {
             resolve: "gatsby-source-filesystem",
@@ -41,7 +36,7 @@ module.exports = {
             options: {
                 name: "components",
                 path: `${__dirname}/../packages`,
-                ignore: ignoreNonMdx,
+                ignore: ignore,
             },
         },
         {
@@ -49,10 +44,23 @@ module.exports = {
             options: {
                 name: "docs",
                 path: `${__dirname}/src/texts`,
-                ignore: ignoreNonMdx,
+                ignore: ignore,
             },
         },
+        "gatsby-plugin-typescript",
         "gatsby-plugin-mdx",
+        "gatsby-plugin-image",
+        {
+            resolve: "gatsby-plugin-sharp",
+            options: {
+                defaults: {
+                    quality: 70,
+                    formats: ["auto", "webp", "avif"],
+                    placeholder: "blurred",
+                },
+            },
+        },
+        "gatsby-transformer-sharp",
         {
             resolve: "gatsby-plugin-sass",
             options: { implementation: require("sass") },

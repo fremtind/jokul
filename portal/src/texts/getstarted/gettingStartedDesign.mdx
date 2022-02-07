@@ -2,6 +2,10 @@
 title: Design med Jøkul
 path: /komigang/design
 order: 3
+images:
+    - design-figma-components.png
+    - design-variants.png
+    - design-branchdiagram.png
 ---
 
 import { WarningMessageBox } from "@fremtind/jkl-message-box-react";
@@ -39,7 +43,7 @@ Vi har brukt mye tid på å gjøre biblioteket vårt avansert og funksjonelt, de
 Mye av det vi trenger for å sette sammen løsningene våre i Fremtind er bygget opp som komponenter med [Auto-Layout](https://help.figma.com/hc/en-us/articles/360040451373-Create-dynamic-designs-with-auto-layout) og [Variants](https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants). For å ivareta høy presisjon og konsistente brukeropplevelser er vi avhengige av høy innsettingsgrad fra biblioteket, slik at vi kan enkelt sørge for at komponentene holder seg oppdatert. Alle komponentene er tilgjengelig via “Assets” fanen til venstre i grensesnittet.
 
 <PortalImage
-    src="/assets/kom-i-gang/design-figma-components.png"
+    src={props.images[0]}
     caption="Innsetting: Bruk Shift + I inne i Figmafilen din, for å ta frem en hurtigmeny med søk for innsetting av nye komponenter fra designsystemet."
 />
 
@@ -49,7 +53,7 @@ Variants er en funksjon i komponenter som lar oss ha flere versjoner av en kompo
 
 <PortalImage
     className="jkl-spacing-xl--bottom"
-    src="/assets/kom-i-gang/design-variants.png"
+    src={props.images[1]}
     caption="Variants i komponenter: I stedet for å ha mange kopier av samme komponent, kan vi nå slå av og på variasjoner av samme komponent etter behov."
 />
 
@@ -80,7 +84,7 @@ Siden det er mange som bruker Figma-biblioteket vårt, er vi avhengige av å kva
 </div>
 
 <PortalImage
-    src="/assets/kom-i-gang/design-branchdiagram.png"
+    src={props.images[2]}
     caption={
         <>
             Branching: Ved å lage en kopi (<b>branch</b>) av en fil inne i seg selv, kan man enkelt eksperimentere med

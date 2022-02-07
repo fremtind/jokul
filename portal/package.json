@@ -14,7 +14,7 @@
         "classnames": "^2.2.6",
         "focus-trap-react": "^8.9.1",
         "framer-motion": "^6.2.3",
-        "gatsby": "^4.6.1",
+        "gatsby": "^4.6.2",
         "gatsby-plugin-image": "^2.6.0",
         "gatsby-plugin-layout": "^3.6.0",
         "gatsby-plugin-manifest": "^4.6.0",

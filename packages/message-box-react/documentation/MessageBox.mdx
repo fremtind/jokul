@@ -3,6 +3,8 @@ title: MessageBox
 react: message-box-react
 scss: message-box
 group: meldinger
+images:
+    - "../../alert-message-react/documentation/alert-message-dont-1.png"
 ---
 
 import { MessageBoxExample, messageBoxExampleCode } from "./MessageBoxExample";
@@ -71,9 +73,5 @@ Før du bruker en melding er det greit å ha tatt stilling til noen spørsmål:
 Om meldingen er helt selvstendig (ikke tilknyttet noe av innholdet på siden) skal vi bruke [AlertMessage](/komponenter/alertmessage).
 
 <Grid>
-    <DoDontExample
-        type="do"
-        description="Vis meldingen i kontekst av innholdet"
-        image="/assets/do-donts/alert-message-dont-1.png"
-    />
+    <DoDontExample type="do" description="Vis meldingen i kontekst av innholdet" image={props.images[0]} />
 </Grid>

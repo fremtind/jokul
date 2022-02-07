@@ -3,6 +3,8 @@ title: "Dark mode og Inverted—Hva er greia?"
 author: Pio Rasch-Halvorsen
 description: Hvordan fungerer egentlig mørkt tema i Jøkul?
 publishDate: "2020.09.21"
+images:
+    - images/dark-mode-inverted.png
 ---
 
 <Ingress>
@@ -14,7 +16,7 @@ Hvis du har sett på komponentsidene i portalen den siste tiden har du sikkert m
 
 Nøkkelen til forskjellen ligger i overskriftene: "Invertert" er en egenskap som settes på selve komponenten og kun gjelder den, mens "Dark mode" er en egenskap som settes på eksempelet og gjelder for hele området inne i eksemplet. Dette er også forskjellen på hvordan du bruker dem i utvikling.
 
-![Valgene for "Dark mode" og "Invertert" i et komponenteksempel](/assets/blog/dark-mode-inverted.png)
+<PortalImage alt='Valgene for "Dark mode" og "Invertert" i et komponenteksempel' src={props.images[0]} />
 
 ## Mørkt tema for moderne nettlesere
 
@@ -22,7 +24,9 @@ I moderne nettlesere er den beste løsningen for dark mode å benytte seg av att
 
 ```tsx
 <body data-theme="dark">
-    <InfoMessageBox title="Mørkt tema">Alle Jøkul-komponenter på denne siden vil automatisk få mørkt tema.</InfoMessageBox>
+    <InfoMessageBox title="Mørkt tema">
+        Alle Jøkul-komponenter på denne siden vil automatisk få mørkt tema.
+    </InfoMessageBox>
 </body>
 ```
 

@@ -3,6 +3,8 @@ title: "Bye, bye Internet Explorer"
 author: Kenneth Apeland
 description: Vi fjerner snart støtten for Internet Explorer
 publishDate: "2021.10.20"
+images:
+    - images/bye-ie.png
 ---
 
 <Ingress>
@@ -16,7 +18,7 @@ publishDate: "2021.10.20"
 Med mindre du har levd under en stein har du sikkert fått med deg at [støtte for IE sakte men sikkert forsvinner](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).
 Edge har vært basert på Chromium fra mars 2021 så derfor kan du også legge inn en melding om dette. Teamene må selv bestemme hva de ønsker å gjøre med Edge, men vi anbefaler alle å legge inn melding om IE. Meldingen for IE vil bli seende slik ut:
 
-![Bilde av IE-sperre](/assets/blog/bye-ie.png)
+<PortalImage alt="Bilde av IE-sperre" src={props.images[0]} />
 
 Microsoft [tilbyr funksjonalitet](https://docs.microsoft.com/en-us/microsoft-edge/web-platform/ie-to-microsoft-edge-redirection) for automatisk videresending av brukere fra IE til Edge dersom nettstedet er registrert hos Microsoft som inkompatibelt med IE.
 Vi i kundeklienter for privatmarkedet har tatt dette i bruk, men det ser av en eller annen grunn ikke ut som det fungerer. Du kan søke om å komme med på den listen, men jeg kan ikke love at det fungerer bra.

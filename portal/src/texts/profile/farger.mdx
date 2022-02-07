@@ -3,6 +3,11 @@ title: Farger
 path: /profil/farger
 scss: core
 order: 3
+images:
+    - farger/bilforsikring_detaljside.png
+    - farger/betaling_faktura.png
+    - farger/hund_feilmelding.png
+    - farger/tilganger_suksess.png
 ---
 
 import { ColorTable, PrimaryColor } from "../../components/colors";
@@ -103,14 +108,8 @@ Tekstfargene våre er snøhvit eller granitt. Se fargebeskrivelsene for å finne
 For å skape en varm og hyggelig brukeropplevelse jobber vi med lyse bakgrunnsfarger.
 
 <Grid className="jkl-spacing-xl--bottom">
-    <PortalImage
-        alt="Skjermbilde av en detaljside for en bilforsikring"
-        src="/assets/documentation/farger/bilforsikring_detaljside.png"
-    />
-    <PortalImage
-        alt="Skjermbilde av en fakturaoversikt med detaljvisning for en faktura"
-        src="/assets/documentation/farger/betaling_faktura.png"
-    />
+    <PortalImage alt="Skjermbilde av en detaljside for en bilforsikring" src={props.images[0]} />
+    <PortalImage alt="Skjermbilde av en fakturaoversikt med detaljvisning for en faktura" src={props.images[1]} />
 </Grid>
 
 Vi bruker fire meldingsfarger pluss to ekstra farger i hjelpetekster.
@@ -118,10 +117,10 @@ Vi bruker fire meldingsfarger pluss to ekstra farger i hjelpetekster.
 <Grid className="jkl-spacing-xl--bottom">
     <PortalImage
         alt="Skjermbilde av et skjema for kjøp av hundeforsikring med en valideringsfeil"
-        src="/assets/documentation/farger/hund_feilmelding.png"
+        src={props.images[2]}
     />
     <PortalImage
         alt="Skjermbilde av et skjema for tilgangsstyring med en beskjed om at en endring var vellykket"
-        src="/assets/documentation/farger/tilganger_suksess.png"
+        src={props.images[3]}
     />
 </Grid>

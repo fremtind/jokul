@@ -3,10 +3,14 @@ title: "Setting up Google Maps"
 author: Sercan Leylek
 description: Google Maps video tutorial series
 publishDate: "2021.10.27"
+images:
+    - images/google.maps.MapTypeId.ROADMAP.png
+    - images/google.maps.MapTypeId.SATELLITE.png
 ---
 
 <Ingress>
-    Let's create a comprehensive project and deliver all the secrets of Google Maps + TypeScript + React? This is the first blog of Google Maps tutorial series with a course video.
+    Let's create a comprehensive project and deliver all the secrets of Google Maps + TypeScript + React? This is the
+    first blog of Google Maps tutorial series with a course video.
 </Ingress>
 
 Coding with Google Maps is a fun, mysterious and challenging journey. If you do it with Typescript, both joy and pain get doubled.
@@ -23,17 +27,26 @@ with technical knowledge and best practices while developing their own Google Ma
 
 So, while I was working on my map component, I discovered the answers to my questions via different websites. For example:
 
-- How can I use TypeScript types from Google for my map project in React?
-- How should I load my Google Maps API script into my homepage? What could be the best practice?
-- Where should I use `useRef` to point out my Google Maps DOM element?
+-   How can I use TypeScript types from Google for my map project in React?
+-   How should I load my Google Maps API script into my homepage? What could be the best practice?
+-   Where should I use `useRef` to point out my Google Maps DOM element?
 
 Some of the answers that I found were outdated, some people were not quite sure of what they were advising, etc… You know the drill.
 
 As a result, I created a sample project on GitHub and decided to sail for a new adventure as well. For the first time, I screencast while coding. The video is 55 minutes long and you can see the whole process.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fMsAPI7de0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/fMsAPI7de0A"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+></iframe>
 
 ### Setup and Installation
+
 To kick off the project, we need to create a react application with typescript flag. Use the sample command below to start with:
 
 ```npm
@@ -70,16 +83,18 @@ While developing a Google Maps component, we need to load the script tag which w
 
 ```html
 <script
-src="https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY>&libraries=places&language=no&region=NO&v=quarterly"
-async defer>
-</script>
+    src="https://maps.googleapis.com/maps/api/js?key=<YOUR_API_KEY>&libraries=places&language=no&region=NO&v=quarterly"
+    async
+    defer
+></script>
 ```
+
 Before loading this tag into our DOM structure, we cannot run Google Maps related code pieces. Therefore, we should create a utility function under `utils/GoogleMapsUtils.ts`.
 
 ```typescript
 export const loadMapApi = () => {
     const mapsURL = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&libraries=geometry,places&language=no&region=NO&v=quarterly`;
-    const scripts = document.getElementsByTagName('script');
+    const scripts = document.getElementsByTagName("script");
     // Go through existing script tags, and return google maps api tag when found.
     for (let i = 0; i < scripts.length; i++) {
         if (scripts[i].src.indexOf(mapsURL) === 0) {
@@ -87,7 +102,7 @@ export const loadMapApi = () => {
         }
     }
 
-    const googleMapScript = document.createElement('script');
+    const googleMapScript = document.createElement("script");
     googleMapScript.src = mapsURL;
     googleMapScript.async = true;
     googleMapScript.defer = true;
@@ -112,27 +127,20 @@ This hook makes sure that Google Maps script tag is loaded successfully into the
 ```typescript
 useEffect(() => {
     const googleMapScript = loadMapApi();
-    googleMapScript.addEventListener('load', function () {
+    googleMapScript.addEventListener("load", function () {
         setScriptLoaded(true);
     });
 }, []);
 ```
 
-
 ```typescript
 return (
-    <div className="App">
-        {scriptLoaded && (
-            <Map
-              mapType={google.maps.MapTypeId.ROADMAP}
-              mapTypeControl={true}
-            />
-        )}
-    </div>
+    <div className="App">{scriptLoaded && <Map mapType={google.maps.MapTypeId.ROADMAP} mapTypeControl={true} />}</div>
 );
 ```
 
 ### Time to render the map
+
 We finally reached to the heart of the application. `Map.tsx` is the component I mentioned earlier. Let’s create its interface (`IMap`) first.
 
 ```typescript
@@ -144,10 +152,9 @@ interface IMap {
 
 I wanted to receive two basic props. mapType can have ROADMAP, SATELLITE, TERRAIN or HYBRID values. These are specific map types defined by Google.
 
-![Roadmap Example](/assets/blog/google.maps.MapTypeId.ROADMAP.png)
+<PortalImage alt="Roadmap Example" src={props.images[0]} />
 
-![Satellite Example](/assets/blog/google.maps.MapTypeId.SATELLITE.png)
-
+<PortalImage alt="Satellite Example" src={props.images[1]} />
 
 And we will use mapTypeControl prop to show/hide the control menu on the left-top corner of your map. We may extend the number of props to increase the usability of our map component, but I wanted to use only two props to illustrate my example.
 
@@ -186,10 +193,10 @@ const initMap = (zoomLevel: number, address: GoogleLatLng): void => {
                 fullscreenControl: false,
                 panControl: false,
                 zoomControl: true,
-                gestureHandling: 'cooperative',
+                gestureHandling: "cooperative",
                 mapTypeId: mapType,
-                draggableCursor: 'pointer',
-            })
+                draggableCursor: "pointer",
+            }),
         );
     }
 };
@@ -220,11 +227,13 @@ useEffect(startMap, [map]);
 Finally, `startMap` function calls `defaultMapStart()` when the map hook is not null anymore. This check is necessary because of rendering delays and typescript will complain if you do not run this check.
 
 ### Conclusion
+
 This application may not seem so impressive in terms of functionality, but you see that we had to do a lot of things just to start our map. While shooting the video, I had a problem with the API key because I did not want to screencast it via my youtube video, but when I include it, the output is as shown below:
 
-![Roadmap Example](/assets/blog/google.maps.MapTypeId.ROADMAP.png)
+<PortalImage alt="Roadmap Example" src={props.images[0]} />
 
 See you on the next tutorial/video where I will show how to add/remove markers on Google Maps. I hope you enjoyed this tutorial 🙂
-<br/>
+
+<br />
 
 (This article was previously published on [Stork's Nest](https://storksnestblog.wordpress.com/2020/08/16/setting-up-google-maps-with-react-typescript/))

@@ -3,6 +3,8 @@ title: ExpandButton
 react: expand-button-react
 scss: expand-button
 group: knapper
+images:
+    - expand-button-footer-expand-up.png
 ---
 
 import ExpandExamples, { expandExamplesProps, expandExamplesCode } from "./ExpandExamples";
@@ -30,7 +32,7 @@ Knappen bør ha en tekst som beskriver hva som skjules. Om det er tydelig fra sa
 Som hovedregel skal ekspanderingen av innhold skje i retning nedover. Et unntak er dersom du har innhold i en bunnmeny som skal ekspanderes oppover. I de tilfellene kan `ExpandButton` brukes med pila pekende i retningen innholdet kommer til å ekspandere, altså motsatt retning av det vanlige.
 
 <PortalImage
-    src="/assets/documentation/expand-button/expand-button-footer-expand-up.png"
+    src={props.images[0]}
     caption="Et eksempel på en footer med innhold som kan ekspanderes. Øverst ser vi lukket tilstand, med pil pekende oppover. Under ser vi åpen tilstand, med pilen pekende nedover."
 />
 

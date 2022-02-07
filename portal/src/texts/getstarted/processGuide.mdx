@@ -2,6 +2,10 @@
 title: Bidra til designsystemet
 path: /komigang/prosessen
 order: 1
+images:
+    - bidra-figma-components.png
+    - bidra-forslag.png
+    - bidra-discussions.png
 ---
 
 # Bidra til designsystemet
@@ -30,7 +34,7 @@ Sjansen for at behovet ditt har felles-interesser med andre er ganske stor, side
 -   Har du tatt en prat med noen fra Designsystem-teamet, eller forumet?
 
 <PortalImage
-    src="/assets/kom-i-gang/bidra-figma-components.png"
+    src={props.images[0]}
     caption="Bredde i komponentbiblioteket: Vi ønsker å dekke funksjonelle behov gjennom felles komponenter så langt det rekker, derfor er det lurt å sjekke hva som finnes før man eventuelt lager noe nytt."
 />
 
@@ -48,7 +52,7 @@ Jo mer kontekst du kan dele, jo bedre. Det meste som lanseres i Jøkul er et pro
 Av og til oppdager man bugs, feil, eller veldig åpenbare ting som bare rett og slett burde fikses, da burde det som regel gå ganske greit å hoppe bukk over de fleste stegene og [melder inn et issue](https://github.com/fremtind/jokul/issues/new?assignees=&labels=%F0%9F%90%9D+bug&template=feilmelding.md&title=Feil%3A+) direkte, så lenge du beskriver feilen/bug’en nogenlunde godt, og sjekker med noen andre.
 
 <PortalImage
-    src="/assets/kom-i-gang/bidra-forslag.png"
+    src={props.images[1]}
     caption="Detaljerte forslag: Ved å utbrodere forslaget ditt med formål, utfordringer og egen tilnærming til hvordan du vil løse utfordringen eller behovet du har støtt på, er det enklere for andre å hjelpe til."
 />
 
@@ -66,7 +70,7 @@ Nesten alt kan bli dobbelt så bra, bare du deler det med et par andre. Det mest
 </p>
 
 <PortalImage
-    src="/assets/kom-i-gang/bidra-discussions.png"
+    src={props.images[2]}
     caption="Samskaping: Ved å åpne opp forslagene våre til alle som jobber med designsystemet, kan vi trekke på bredden av kompetansen til alle i design og teknologimiljøet i organisasjonen."
 />
 

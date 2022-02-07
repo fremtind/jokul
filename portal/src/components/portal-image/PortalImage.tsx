@@ -1,4 +1,4 @@
-import React, { FC, ImgHTMLAttributes, useState, useRef } from "react";
+import React, { FC, useState, useRef } from "react";
 import cx from "classnames";
 import FocusTrap from "focus-trap-react";
 import { motion } from "framer-motion";
@@ -6,8 +6,12 @@ import { useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BlurredBackground } from "./BlurredBackground";
 import { AnimatedImage } from "./AnimatedImage";
 import "./portal-image.scss";
+import { ImageDataLike } from "gatsby-plugin-image";
 
-interface Props extends ImgHTMLAttributes<HTMLImageElement> {
+interface Props {
+    className?: string;
+    src?: ImageDataLike | string;
+    alt?: string;
     noMargin?: boolean;
     fullWidth?: boolean;
     caption?: JSX.Element;

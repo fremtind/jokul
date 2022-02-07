@@ -2,6 +2,16 @@
 title: Bildebruk
 path: /profil/bildebruk
 order: 9
+images:
+    - "../../components/Documentation/Picture/Assets/beach.jpg"
+    - "../../components/Documentation/Picture/Assets/cafe.jpg"
+    - "../../components/Documentation/Picture/Assets/kid.jpg"
+    - "../../components/Documentation/Picture/Assets/minigolf.jpg"
+    - "../../components/Documentation/Picture/Assets/mom.jpg"
+    - "../../components/Documentation/Picture/Assets/schoolkid.jpg"
+    - "../../components/Documentation/Picture/Assets/driver.jpg"
+    - "../../components/Documentation/Picture/Assets/togpendler.jpg"
+    - "../../components/Documentation/Picture/Assets/dogs.jpg"
 ---
 
 import PictureBox from "../../components/Documentation/Picture/PictureBox";
@@ -32,25 +42,25 @@ I all hovedsak:
 
 <PictureBox
     alt="Fugleperspektiv av blåturkis sjø som bryter inn mot sandstrand"
-    asset="beach.jpg"
+    src={props.images[0]}
     caption="Husk å kreditere rettighetseier"
 >
     Bruk bilder tatt rett ovenfra eller rett forfra.
 </PictureBox>
 
-<PictureBox alt="Mennesker i retromoderne og industrielt kaféinteriør" asset="cafe.jpg" rightAlign>
+<PictureBox alt="Mennesker i retromoderne og industrielt kaféinteriør" src={props.images[1]} rightAlign>
     Velg upolerte og hverdagslige bilder.
 </PictureBox>
 
-<PictureBox alt="Sommerfoto. Smilende mørkhåret jente med rosa blomster uskarpt i bakgrunnen." asset="kid.jpg">
+<PictureBox alt="Sommerfoto. Smilende mørkhåret jente med rosa blomster uskarpt i bakgrunnen." src={props.images[2]}>
     Formidle varme og følelser.
 </PictureBox>
 
-<PictureBox alt="Fargerike golfballer og golfkølle på grønt gress" asset="minigolf.jpg" rightAlign>
+<PictureBox alt="Fargerike golfballer og golfkølle på grønt gress" src={props.images[3]} rightAlign>
     Bruk foto fremfor illustrasjoner og ikoner.
 </PictureBox>
 
-<PictureBox alt="Mor og baby mot naturbakgrunn ved soloppgang" asset="mom.jpg">
+<PictureBox alt="Mor og baby mot naturbakgrunn ved soloppgang" src={props.images[4]}>
     Velg landskap eller mennesker i omgivelser folk kan kjenne seg igjen i.
 </PictureBox>
 
@@ -62,37 +72,46 @@ Når vi snakker om et konkret forsikringsprodukt, kan det være vanskelig å fin
 
 <div style={{ paddingBottom: "15vh" }} />
 
-<PictureBox alt="Interiørfoto av gutt som ser på smarttelefon foran PC og nettbrett" asset="schoolkid.jpg">
+<PictureBox alt="Interiørfoto av gutt som ser på smarttelefon foran PC og nettbrett" src={props.images[5]}>
     <b>Skadeforsikring</b>
     <br />
-    Vi viser folk og tingene deres i samspill, heller enn å ta bilde av et produkt.
+    <p>Vi viser folk og tingene deres i samspill, heller enn å ta bilde av et produkt.</p>
 </PictureBox>
 
-<PictureBox alt="Bilinteriør.Kvinne som kjører bil i by. Øynene vises i bakspeilet" asset="driver.jpg" rightAlign>
+<PictureBox alt="Bilinteriør.Kvinne som kjører bil i by. Øynene vises i bakspeilet" src={props.images[6]} rightAlign>
     <b>Bilforsikring</b>
     <br />
-    Bruk bilder av situasjoner i og rundt bilen. I trafikken, ved av- og pålessing, av folk og ting i nærheten av bilen,
-    eller når de steller bilen sin. Kan hende pakker de til ferie, henter på trening, er på handletur eller vasker
-    bilen. Situasjonen er viktigere enn bilen, bildet skal ikke oppfattes som reklame for en bestemt biltype. Vær
-    oppmerksom på at bilen skal kjøre på norske veier.
+    <p>
+        Bruk bilder av situasjoner i og rundt bilen. I trafikken, ved av- og pålessing, av folk og ting i nærheten av
+        bilen, eller når de steller bilen sin. Kan hende pakker de til ferie, henter på trening, er på handletur eller
+        vasker bilen. Situasjonen er viktigere enn bilen, bildet skal ikke oppfattes som reklame for en bestemt biltype.
+        Vær oppmerksom på at bilen skal kjøre på norske veier.
+    </p>
 </PictureBox>
 
-<PictureBox alt="Kvinne med trillekoffert foran rødt tog på jernbanestasjon" asset="togpendler.jpg">
+<PictureBox alt="Kvinne med trillekoffert foran rødt tog på jernbanestasjon" src={props.images[7]}>
     <b>Reiseforsikring</b>
     <br />
-    Når det gjelder reiseforsikring kan vi bruke bilder fra utlandet, men da gjerne i typiske situasjoner man havner i
-    som turist. Her kan vi appellere til ulike typer, for eksempel den eventyrlystne, storbyturisten, solslikkeren eller
-    den lokale turisten.
+    <p>
+        Når det gjelder reiseforsikring kan vi bruke bilder fra utlandet, men da gjerne i typiske situasjoner man havner
+        i som turist. Her kan vi appellere til ulike typer, for eksempel den eventyrlystne, storbyturisten, solslikkeren
+        eller den lokale turisten.
+    </p>
     <br />
-    <br /> Merk: Fremtind er et bærekraftig selskap og vi unngår å bruke bilder av fly, cruiseskip eller aktiviteter som
-    ødelegger natur eller lokalsamfunn.
+    <br />
+    <p>
+        Merk: Fremtind er et bærekraftig selskap og vi unngår å bruke bilder av fly, cruiseskip eller aktiviteter som
+        ødelegger natur eller lokalsamfunn.
+    </p>
 </PictureBox>
 
-<PictureBox alt="Hundevalp på et pledd i en sofa" asset="dogs.jpg" rightAlign>
+<PictureBox alt="Hundevalp på et pledd i en sofa" src={props.images[8]} rightAlign>
     <b>Dyreforsikring</b>
     <br />
-    Dyr har sin egen personlighet og de kan gjerne eie bildet alene, men det er også fint å vise samspillet mellom dyr
-    og mennesker. Dyr egner seg fint til bilder tatt “rett ovenfra”.
+    <p>
+        Dyr har sin egen personlighet og de kan gjerne eie bildet alene, men det er også fint å vise samspillet mellom
+        dyr og mennesker. Dyr egner seg fint til bilder tatt “rett ovenfra”.
+    </p>
 </PictureBox>
 
 <div style={{ paddingBottom: "15vh" }} />
@@ -105,8 +124,11 @@ Vi vil at atmosfæren i bildene skal virke inviterende og virkelighetsnær. For 
 
 <VideoBox src="/assets/video/marius-compressed.mp4" placeholder="/assets/img/marius.jpg">
     <b>Bevegelse</b>
-    <br /> For å skape ekstra liv kan man legge på enkle effekter som parallakse, uskarphet og elevasjon. Vi kan også bruke
-    animerte bilder, så lenge animasjonen tilfører noe og ikke oppleves som forstyrrende.
+    <br />
+    <p>
+        For å skape ekstra liv kan man legge på enkle effekter som parallakse, uskarphet og elevasjon. Vi kan også bruke
+        animerte bilder, så lenge animasjonen tilfører noe og ikke oppleves som forstyrrende.
+    </p>
 </VideoBox>
 
 <div style={{ paddingBottom: "15vh" }} />

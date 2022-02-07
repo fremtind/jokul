@@ -3,6 +3,9 @@ title: Buttons
 scss: button
 react: button-react
 group: knapper
+images:
+    - button-do-1.png
+    - button-dont-1.png
 ---
 
 import { Primary, primaryCode } from "./Primary";
@@ -51,8 +54,8 @@ Hvis du skal bruke lastemodus i knappen må du sørge for at `@fremtind/jkl-load
 
 Disse tre hovedknappetypene har et hierarki. Når brukeren har flere valg samtidig, skal vi kun ha én primærknapp.
 
-<DoDontExample type="do" description="Kun én primærknapp" image="/assets/do-donts/button-do-1.png" />
-<DoDontExample type="dont" description="Flere primærknapper" image="/assets/do-donts/button-dont-1.png" />
+<DoDontExample type="do" description="Kun én primærknapp" image={props.images[0]} />
+<DoDontExample type="dont" description="Flere primærknapper" image={props.images[1]} />
 
 ## Tekst på knapper
 

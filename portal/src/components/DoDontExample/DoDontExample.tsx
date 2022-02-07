@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import cx from "classnames";
+import { ImageDataLike } from "gatsby-plugin-image";
 import { PortalImage } from "../portal-image";
 import { ExampleVideo } from "../ExampleVideo";
 import "./DoDontExample.scss";
@@ -7,13 +8,13 @@ import "./DoDontExample.scss";
 interface Props {
     type: "do" | "dont";
     content?: ReactNode;
-    image?: string;
+    image?: ImageDataLike | string;
     video?: string;
     description?: string;
     fullWidth?: boolean;
 }
 
-export const DoDontExample: React.FC<Props> = ({ type, content, image = "", video, description, fullWidth }) => {
+export const DoDontExample: React.FC<Props> = ({ type, content, image, video, description, fullWidth }) => {
     const heading = type === "do" ? "Riktig" : "Feil";
     const altText = description ? `${heading}: ${description}` : `${heading} bruk`;
 
