@@ -26,6 +26,7 @@
     width: 100%;
     padding: jkl.$spacing-s;
     max-width: min(#{rem(750px)}, 50vw);
+    @include jkl.text-style("small");
 
     @include small-device {
         width: calc(100% - #{jkl.$spacing-xl});

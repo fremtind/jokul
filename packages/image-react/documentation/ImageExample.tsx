@@ -1,16 +1,22 @@
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
-import { useScreen } from "@fremtind/jkl-react-hooks";
 import React, { useState } from "react";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Image } from "../src";
-import defaultSize from "./assets/defaultSize.jpg";
-import largeSize from "./assets/largeSize.jpg";
+import dog400 from "./assets/dog-400.jpg";
+import dog800 from "./assets/dog-800.jpg";
+import dog1200 from "./assets/dog-1200.jpg";
+import dog1920 from "./assets/dog-1920.jpg";
 import thumbnail from "./assets/thumbnail.jpg";
 import "./style.scss";
 
-export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const { isSmallDevice } = useScreen();
+const responsiveImage = {
+    src: dog400,
+    srcSet: `${dog400} 400w, ${dog800} 800w, ${dog1200} 1200w, ${dog1920} 1920w`,
+    placeholder: thumbnail,
+};
+
+export const ImageExample: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
     const [show, toggleShow] = useState(false);
-    const color = choiceValues?.["Farge"] || "Default";
+    const className = choiceValues?.["Størrelsesforhold"] === "fast" ? "static" : "fluid";
 
     return (
         <div className="example-img-wrapper">
@@ -32,7 +38,7 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choi
                 , still inn komponenten og trykk på last bilde.
             </p>
             <button
-                className="jkl-spacing-xl--bottom jkl-button jkl-button--tertiary"
+                className="jkl-spacing-xl--bottom jkl-button jkl-button--secondary"
                 onClick={() => {
                     if (!show) {
                         return toggleShow(true);
@@ -43,43 +49,51 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({ boolValues, choi
                 {!show ? "Last bilde" : "Last siden på nytt"}
             </button>
             {show && (
-                <div className="jkl-spacing-xl--bottom">
-                    <p className="jkl-body">With largeSize</p>
-                    <Image
-                        className="example-class"
-                        defaultSize={defaultSize}
-                        alt="Bilde av en sort hund av typen mops, kledd opp i en skjorte av blått jeansstoff"
-                        largeSize={boolValues?.["LargeSize"] ? largeSize : undefined}
-                        thumbnail={boolValues?.["Thumbnail"] ? thumbnail : undefined}
-                        isSmallDevice={isSmallDevice}
-                        backgroundColor={boolValues?.["Bakgrunn"] && color !== "Default" ? color : undefined}
-                    />
-                </div>
+                <Image
+                    {...responsiveImage}
+                    alt="En sort hund av typen mops, kledd opp i en skjorte av blått jeansstoff"
+                    className={className}
+                />
             )}
         </div>
     );
 };
 
-export const imageExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
+export const imageExampleCode: CodeExample = ({ choiceValues }) => {
+    const className = choiceValues?.["Størrelsesforhold"] === "fast" ? "static" : "fluid";
+
+    return `
 /**
- * import { useScreen } from "@fremtind/jkl-react-hooks";
- * import defaultSize from "./assets/defaultSize.jpg";
- * import largeSize from "./assets/largeSize.jpg";
- * import thumbnail from "./assets/thumbnail.jpg";
+ * stilark:
+ * .static {
+ *     width: 100%;
+ *     aspect-ratio: 4/3;
+ * }
+ * .fluid {
+ *     width: 100%;
+ *     height: 25rem;
+ * }
  */
 
-const { isSmallDevice } = useScreen();
+import dog400 from "./assets/dog-400.jpg";
+import dog800 from "./assets/dog-800.jpg";
+import dog1200 from "./assets/dog-1200.jpg";
+import dog1920 from "./assets/dog-1920.jpg";
+import thumbnail from "./assets/thumbnail.jpg"; 
+
+// Du kan få disse verdiene automatisk ved å bruke f.eks. responsive-loader i webpack
+const imageSource = {
+    src: dog400,
+    srcSet: \`\${dog400} 400w, \${dog800} 800w, \${dog1200} 1200w, \${dog1920} 1920w\`,
+    placeholder: thumbnail,
+}
 
 return (
     <Image
+        {...imageSource}
         alt="Bilde av en sort hund av typen mops, kledd opp i en skjorte av blått jeansstoff"
-        backgroundColor=${
-            boolValues?.["Bakgrunn"] && choiceValues?.["Color"] !== "Default" ? choiceValues?.["Color"] : "{undefined}"
-        }
-        thumbnail={${boolValues?.["Thumbnail"] ? "thumbnail" : "undefined"}}
-        defaultSize={defaultSize}
-        largeSize={${boolValues?.["LargeSize"] ? "largeSize" : "undefined"}}
-        isSmallDevice={isSmallDevice}
+        className="${className}"
     />
 );
 `;
+};
