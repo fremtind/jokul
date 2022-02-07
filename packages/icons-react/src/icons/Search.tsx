@@ -2,15 +2,8 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const Search: FC<IconProps> = ({
-    className,
-    variant,
-    title = "Søk",
-    description = "Ikon av forstørrelsesglass",
-}) => (
+export const Search: FC<IconProps> = ({ className, variant }) => (
     <IconFactory
-        title={title}
-        description={description}
         className={className}
         variant={variant}
         innerSvg={
