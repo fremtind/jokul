@@ -3,6 +3,7 @@ const sass = require("gulp-sass")(require("sass"));
 const importer = require("node-sass-tilde-importer");
 const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
+const litePreset = require("cssnano-preset-lite");
 const autoprefixer = require("autoprefixer");
 const rename = require("gulp-rename");
 /* eslint-enable @typescript-eslint/no-var-requires */
@@ -17,10 +18,10 @@ module.exports = function (gulp) {
     gulp.task("build", function () {
         return gulp
             .src(scssFiles)
-            .pipe(sass({ importer }).on("error", throwSassError))
+            .pipe(sass.sync({ importer }).on("error", throwSassError))
             .pipe(postcss([autoprefixer()]))
             .pipe(gulp.dest("./"))
-            .pipe(postcss([cssnano()]))
+            .pipe(postcss([cssnano(litePreset())]))
             .pipe(rename({ suffix: ".min" }))
             .pipe(gulp.dest("./"));
     });
