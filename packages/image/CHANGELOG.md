@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image@0.6.0...@fremtind/jkl-image@2.0.0) (2022-02-07)
+
+### Features
+
+-   ny og forbedret Image-komponent ([fc6db8f](https://github.com/fremtind/jokul/commit/fc6db8fa115799b39a38150524a743805ac1771d))
+
+### BREAKING CHANGES
+
+-   Nytt API
+
 # 0.6.0 (2022-02-07)
 
 ### Bug Fixes

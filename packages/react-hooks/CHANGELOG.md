@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.0.0...@fremtind/jkl-react-hooks@7.1.0) (2022-02-07)
+
+### Features
+
+-   legg til hook for å hente dimensjoner fra et element ([0c5d123](https://github.com/fremtind/jokul/commit/0c5d123489cc3f6b0c65c0e3ed08e724309e05b9))
+
 # [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@6.2.0...@fremtind/jkl-react-hooks@7.0.0) (2022-02-07)
 
 ### Bug Fixes
