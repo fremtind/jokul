@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { ExpandSection } from "@fremtind/jkl-expand-button-react";
 import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
 import { hyphenate } from "./internal/hypenate";
 import { CodeBlock } from "./CodeBlock";
@@ -21,7 +22,7 @@ export interface Props {
 
 export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const [uid] = useState(`example-${nanoid(8)}`);
-    const [showCode, setShowCode] = useState(false);
+    const [showCodeText, setShowCodeText] = useState("Vis kode");
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
     const [choices, setChoices] = useState<Dictionary<string[]>>({});
     const [choiceValues, setChoiceValues] = useState<Dictionary<string>>({});
@@ -48,10 +49,12 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
         );
     }, [knobs]);
 
-    const setBoolValue = (key: string, value: boolean) => setBoolValues({ ...boolValues, [key]: value });
-    const setChoiceValue = (key: string, value: string) => setChoiceValues({ ...choiceValues, [key]: value });
+    const setBoolValue = (key: string, value: boolean) =>
+        setBoolValues((oldValues) => ({ ...oldValues, [key]: value }));
+    const setChoiceValue = (key: string, value: string) =>
+        setChoiceValues((oldValues) => ({ ...oldValues, [key]: value }));
 
-    const toggleCode = () => setShowCode(!showCode);
+    const toggleCodeText = (e: Event, expanded: boolean) => setShowCodeText(expanded ? "Skjul kode" : "Vis kode");
     const C = component;
 
     return (
@@ -124,20 +127,11 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                 </aside>
             </section>
             {codeExample && (
-                <div
-                    className={cx("jkl-portal-code-example", {
-                        "jkl-portal-code-example--open": !showCode,
-                    })}
-                >
-                    <button className={"jkl-button jkl-button--tertiary jkl-spacing-xs--top"} onClick={toggleCode}>
-                        {`${showCode ? "Skjul" : "Vis"} kode`}
-                    </button>
-                    {showCode && (
-                        <CodeBlock language="tsx">
-                            {typeof codeExample === "string" ? codeExample : codeExample({ boolValues, choiceValues })}
-                        </CodeBlock>
-                    )}
-                </div>
+                <ExpandSection className="jkl-spacing-m--top" title={showCodeText} onToggle={toggleCodeText}>
+                    <CodeBlock language="tsx">
+                        {typeof codeExample === "string" ? codeExample : codeExample({ boolValues, choiceValues })}
+                    </CodeBlock>
+                </ExpandSection>
             )}
         </div>
     );

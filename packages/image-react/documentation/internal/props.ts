@@ -1,9 +1,7 @@
-export const boolProps = ["Thumbnail", "LargeSize", "Bakgrunn"];
-
 export const choiceProps = [
     {
-        name: "Farge",
-        values: ["Default", "MediumSlateBlue", "lime", "deeppink", "rebeccapurple"],
+        name: "Størrelsesforhold",
+        values: ["fast", "flytende"],
         defaultValue: 0,
     },
 ];
