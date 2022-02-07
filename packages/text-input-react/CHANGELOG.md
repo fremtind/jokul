@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@8.0.0...@fremtind/jkl-text-input-react@9.0.0) (2022-02-07)
+
+### Bug Fixes
+
+-   eksporter typer på riktig måte med isolatedModules ([9e8fe19](https://github.com/fremtind/jokul/commit/9e8fe19077fd0efc8715ecbf0141b5c5b9abd758))
+-   fjern inverted-prop ([de5f8b8](https://github.com/fremtind/jokul/commit/de5f8b83ae8f025826f4c56d3aeb5e081dea66cc)), closes [#2646](https://github.com/fremtind/jokul/issues/2646)
+
+### BREAKING CHANGES
+
+-   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@7.0.23...@fremtind/jkl-text-input-react@8.0.0) (2022-02-07)
 
 ### Bug Fixes

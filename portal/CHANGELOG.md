@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.0.0...@fremtind/portal@12.0.1) (2022-02-07)
+
+### Bug Fixes
+
+-   eksporter typer på riktig måte med isolatedModules ([9e8fe19](https://github.com/fremtind/jokul/commit/9e8fe19077fd0efc8715ecbf0141b5c5b9abd758))
+-   fjern ie-fallback fra portalen ([bda48a6](https://github.com/fremtind/jokul/commit/bda48a644eb43f30f03709295a9d2d8531b3ea38))
+-   ikke slett public mellom bygg, caching ([8f4d46f](https://github.com/fremtind/jokul/commit/8f4d46fdd3139c82088147d8dd0fb503bac25c20))
+-   la ie være del av Gatsby-bygget pga bug ([09964aa](https://github.com/fremtind/jokul/commit/09964aa7a6f59b1fb79009ae0b4a8f8ab12080a4))
+-   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
+-   slett ubrukt kode ([008f29e](https://github.com/fremtind/jokul/commit/008f29e69dade8ca909e3674704c8f6331a30ea2))
+
 # 12.0.0 (2022-02-07)
 
 ### Bug Fixes
