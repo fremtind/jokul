@@ -1,6 +1,6 @@
-# Migrasjonsguide til v1.x
+# Migrasjonsguide til v2.x.x
 
-APIet til `Image`-komponenten er vesentlig forandret til versjon 1.0. Likevel er det ikke veldig store forandringer som skal til for å benytte den nye versjonen av komponenten. Her finner du en enkel oversikt over endringene som må til, og som kan gjøres for å utnytte nye funksjoner i komponenten.
+APIet til `Image`-komponenten er vesentlig forandret til versjon 2.0. Likevel er det ikke veldig store forandringer som skal til for å benytte den nye versjonen av komponenten. Her finner du en enkel oversikt over endringene som må til, og som kan gjøres for å utnytte nye funksjoner i komponenten.
 
 ## Kortversjon
 
