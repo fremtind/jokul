@@ -1,5 +1,5 @@
 import React, { useState, FC } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 import { nanoid } from "nanoid";
 import { ScreenReaderOnly } from "@fremtind/jkl-core";
 
@@ -8,8 +8,6 @@ interface Props {
     onToggle: (value: string) => void;
     defaultValue?: string;
     className?: string;
-    /** @deprecated */
-    inverted?: boolean;
     screenReaderLabel?: string;
     screenReaderSelectedLabel?: string;
 }
@@ -17,7 +15,6 @@ interface Props {
 export const ToggleSlider: FC<Props> = ({
     labels,
     className = "",
-    inverted,
     onToggle,
     defaultValue,
     children,
@@ -40,13 +37,7 @@ export const ToggleSlider: FC<Props> = ({
     };
 
     return (
-        <div
-            className={classNames(
-                "jkl-toggle-slider__wrapper",
-                { "jkl-toggle-slider__wrapper--inverted": inverted },
-                className,
-            )}
-        >
+        <div className={cn("jkl-toggle-slider__wrapper", className)}>
             <div role="region" aria-live="polite">
                 <ScreenReaderOnly>{selectedLabel}</ScreenReaderOnly>
             </div>
@@ -64,7 +55,7 @@ export const ToggleSlider: FC<Props> = ({
                 aria-checked={checked}
                 aria-labelledby={`${id}-label`}
                 onClick={handleChange}
-                className={classNames("jkl-toggle-slider", {
+                className={cn("jkl-toggle-slider", {
                     "jkl-toggle-slider--checked": checked,
                     "jkl-toggle-slider--not-checked": !checked,
                 })}

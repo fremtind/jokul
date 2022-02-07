@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
@@ -81,7 +81,6 @@
         @include jkl.text-style("body");
 
         display: block;
-        padding-top: jkl.$spacing-m;
         list-style: none;
         margin: 0;
         padding: 0;

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, forwardRef } from "react";
-import classNames from "classnames";
+import cn from "classnames";
 // @ts-ignore: wait for nrk to supply types
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -11,8 +11,6 @@ interface Props {
     hidden?: boolean;
     extended?: boolean;
     forceCompact?: boolean;
-    /** @deprecated */
-    inverted?: boolean;
     onClickDate?: (e: ChangeEvent<ChangeDate>) => void;
     currentDate?: Date;
     months?: string[];
@@ -28,7 +26,6 @@ export const Calendar = forwardRef<HTMLElement, Props>(
             hidden,
             extended,
             forceCompact,
-            inverted,
             onClickDate,
             currentDate,
             monthLabel = "Måned",
@@ -39,10 +36,9 @@ export const Calendar = forwardRef<HTMLElement, Props>(
         },
         ref,
     ) => {
-        const componentClassName = classNames("jkl-calendar", {
+        const componentClassName = cn("jkl-calendar", {
             "jkl-calendar--hidden": hidden,
             "jkl-calendar--extended": extended,
-            "jkl-calendar--inverted": inverted,
         });
 
         return (
@@ -60,7 +56,6 @@ export const Calendar = forwardRef<HTMLElement, Props>(
                     {extended && (
                         <div className="jkl-calendar__navigation">
                             <TextInput
-                                inverted={inverted}
                                 label={yearLabel}
                                 type="year"
                                 className="jkl-calendar__year-selector"
@@ -69,7 +64,6 @@ export const Calendar = forwardRef<HTMLElement, Props>(
                                 forceCompact={forceCompact}
                             />
                             <NativeSelect
-                                inverted={inverted}
                                 className="jkl-calendar__month-selector"
                                 label={monthLabel}
                                 items={[]}

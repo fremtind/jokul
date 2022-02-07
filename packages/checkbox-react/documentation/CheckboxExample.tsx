@@ -10,7 +10,6 @@ export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
 
     const helpText = boolValues?.["Med hjelpetekst"];
     const invalid = boolValues?.["Med feil"];
-    const inverted = boolValues?.["Invertert"];
     const forceCompact = boolValues?.["Compact"];
 
     return (
@@ -25,7 +24,6 @@ export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
                 value="phone"
                 checked={phone}
                 invalid={invalid}
-                inverted={inverted}
                 forceCompact={forceCompact}
                 onChange={() => setPhone(!phone)}
             >
@@ -36,7 +34,6 @@ export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
                 value="email"
                 checked={email}
                 invalid={invalid}
-                inverted={inverted}
                 forceCompact={forceCompact}
                 onChange={() => setEmail(!email)}
             >
@@ -47,7 +44,6 @@ export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
                 value="snailmail"
                 checked={snailMail}
                 invalid={invalid}
-                inverted={inverted}
                 forceCompact={forceCompact}
                 onChange={() => setSnailMail(!snailMail)}
             >
@@ -60,7 +56,6 @@ export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
 export const checkboxExampleCode: CodeExample = ({ boolValues }) => {
     const helpText = boolValues?.["Med hjelpetekst"];
     const invalid = boolValues?.["Med feil"];
-    const inverted = boolValues?.["Invertert"];
     const forceCompact = boolValues?.["Compact"];
 
     return `
@@ -74,7 +69,6 @@ export const checkboxExampleCode: CodeExample = ({ boolValues }) => {
         name="checklist"
         value="phone"
         invalid={${invalid}}
-        inverted={${inverted}}
         forceCompact={${forceCompact}}
     >
         Telefon
@@ -83,7 +77,6 @@ export const checkboxExampleCode: CodeExample = ({ boolValues }) => {
         name="checklist"
         value="email"
         invalid={${invalid}}
-        inverted={${inverted}}
         forceCompact={${forceCompact}}
     >
         E-post
@@ -92,7 +85,6 @@ export const checkboxExampleCode: CodeExample = ({ boolValues }) => {
         name="checklist"
         value="snailmail"
         invalid={${invalid}}
-        inverted={${inverted}}
         forceCompact={${forceCompact}}
     >
         Brev

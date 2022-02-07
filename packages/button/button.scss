@@ -1,9 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_screens.scss";
-@import "~@fremtind/jkl-core/mixins/_helpers.scss";
-@import "~@fremtind/jkl-core/mixins/_motion.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_screens";
+@import "~@fremtind/jkl-core/mixins/_helpers";
+@import "~@fremtind/jkl-core/mixins/_motion";
+@import "~@fremtind/jkl-core/_functions";
 
 $button-height--normal: rem(48px);
 $button-height--compact: rem(36px);
@@ -21,36 +21,22 @@ $focus-ring-width: rem(2px);
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $hover-elevation-distance: -0.25rem;
 
-$button-border-color: jkl.$color-granitt;
-$button-text-color: jkl.$color-granitt;
-$button-background-color: transparent;
-$button-focus-color: jkl.$color-granitt;
-$button-primary-text-color: jkl.$color-snohvit;
-$button-primary-background-color: jkl.$color-granitt;
-
-$button-border-color--inverted: jkl.$color-snohvit;
-$button-text-color--inverted: jkl.$color-snohvit;
-$button-background-color--inverted: transparent;
-$button-focus-color--inverted: jkl.$color-snohvit;
-$button-primary-text-color--inverted: jkl.$color-granitt;
-$button-primary-background-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --button-border-color: #{$button-border-color};
-    --button-text-color: #{$button-text-color};
-    --button-background-color: #{$button-background-color};
-    --button-focus-color: #{$button-focus-color};
-    --button-primary-text-color: #{$button-primary-text-color};
-    --button-primary-background-color: #{$button-primary-background-color};
+    --button-border-color: #{jkl.$color-granitt};
+    --button-text-color: #{jkl.$color-granitt};
+    --button-background-color: transparent;
+    --button-focus-color: #{jkl.$color-granitt};
+    --button-primary-text-color: #{jkl.$color-snohvit};
+    --button-primary-background-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --button-border-color: #{$button-border-color--inverted};
-    --button-text-color: #{$button-text-color--inverted};
-    --button-background-color: #{$button-background-color--inverted};
-    --button-focus-color: #{$button-focus-color--inverted};
-    --button-primary-text-color: #{$button-primary-text-color--inverted};
-    --button-primary-background-color: #{$button-primary-background-color--inverted};
+    --button-border-color: #{jkl.$color-snohvit};
+    --button-text-color: #{jkl.$color-snohvit};
+    --button-background-color: transparent;
+    --button-focus-color: #{jkl.$color-snohvit};
+    --button-primary-text-color: #{jkl.$color-granitt};
+    --button-primary-background-color: #{jkl.$color-snohvit};
 }
 
 a.jkl-button {
@@ -95,7 +81,7 @@ a.jkl-button {
 
     html[data-touchnavigation] &--pressed {
         transform: scale(0.95);
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
     }
 
     &__content {
@@ -120,6 +106,7 @@ a.jkl-button {
     &__slider {
         @include motion("standard", "productive");
         transition-property: transform;
+
         &--show-loader {
             transform: translateY(-51%);
         }
@@ -137,12 +124,11 @@ a.jkl-button {
 
     &--primary,
     &--secondary {
-        border: solid $button-border-width $button-border-color;
         border: solid $button-border-width var(--button-border-color);
         border-radius: 999px;
         padding: 0 $button-padding;
 
-        &:after {
+        &::after {
             border-radius: 99px;
             border: solid $focus-ring-width transparent;
             box-shadow: none;
@@ -155,7 +141,7 @@ a.jkl-button {
             top: -($button-border-width + $focus-ring-distance);
         }
 
-        &:before {
+        &::before {
             content: "";
             position: absolute;
             border-radius: 999px;
@@ -166,60 +152,50 @@ a.jkl-button {
         }
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
-            &:after {
-                box-shadow: 0 0 0 $focus-ring-width $button-focus-color;
+            &::after {
                 box-shadow: 0 0 0 $focus-ring-width var(--button-focus-color);
             }
         }
 
-        html[data-touchnavigation] &.jkl-button--pressed:before {
+        html[data-touchnavigation] &.jkl-button--pressed::before {
             animation: cubic-bezier(0, 0, 0.3, 1) 400ms flash;
         }
     }
 
     &--primary {
-        background-color: $button-primary-background-color;
         background-color: var(--button-primary-background-color);
-        color: $button-primary-text-color;
         color: var(--button-primary-text-color);
 
         &:hover,
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
         html[data-touchnavigation] &.jkl-button--pressed {
-            background-color: $button-focus-color;
             background-color: var(--button-focus-color);
-            border-color: $button-focus-color;
             border-color: var(--button-focus-color);
         }
     }
 
     &--secondary {
-        background-color: $button-background-color;
         background-color: var(--button-background-color);
-        color: $button-text-color;
         color: var(--button-text-color);
 
         &:hover,
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
         html[data-touchnavigation] &.jkl-button--pressed {
-            box-shadow: inset 0 0 0 1px $button-border-color, inset 0 0 0 1px $button-border-color;
             box-shadow: inset 0 0 0 1px var(--button-border-color), inset 0 0 0 1px var(--button-border-color);
         }
     }
 
     &--tertiary {
-        border-bottom: solid $button-border-width $button-border-color;
         border-bottom: solid $button-border-width var(--button-border-color);
         border-top: solid $button-border-width transparent;
         background-color: transparent;
-        color: $button-text-color;
         color: var(--button-text-color);
         padding: 0;
         transition: transform $animation-timing, border $animation-timing;
         min-width: unset;
 
         // Base for touch-effekt
-        &:before {
+        &::before {
             content: "";
             pointer-events: none;
             display: block;
@@ -233,7 +209,7 @@ a.jkl-button {
             background-color: transparent;
         }
 
-        &:after {
+        &::after {
             border: solid $focus-ring-width transparent;
             box-shadow: none;
             transition: box-shadow $animation-timing;
@@ -245,14 +221,14 @@ a.jkl-button {
             top: -($button-border-width);
         }
 
-        html[data-touchnavigation] &.jkl-button--pressed:before {
+        html[data-touchnavigation] &.jkl-button--pressed::before {
             animation: cubic-bezier(0, 0, 0.3, 1) 400ms tertiaryflash;
         }
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
             border: none;
-            &:after {
-                box-shadow: 0 0 0 $focus-ring-width $button-focus-color;
+
+            &::after {
                 box-shadow: 0 0 0 $focus-ring-width var(--button-focus-color);
             }
         }
@@ -260,70 +236,9 @@ a.jkl-button {
         &:hover,
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
         html[data-touchnavigation] &.jkl-button--pressed {
-            border-bottom-color: $button-focus-color;
             border-bottom-color: var(--button-focus-color);
             border-bottom-width: $focus-ring-width;
-            color: $button-focus-color;
             color: var(--button-focus-color);
-        }
-    }
-
-    &--inverted {
-        --button-focus-color: #{$button-focus-color--inverted};
-
-        &.jkl-button--primary,
-        &.jkl-button--secondary {
-            html[data-touchnavigation] &.jkl-button--pressed:before {
-                animation: cubic-bezier(0, 0, 0.3, 1) 400ms invertedflash;
-            }
-        }
-
-        &.jkl-button--primary {
-            background-color: $button-primary-background-color--inverted;
-            border-color: $button-border-color--inverted;
-            color: $button-primary-text-color--inverted;
-
-            &:hover,
-            html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
-            html[data-touchnavigation] &.jkl-button--pressed {
-                background-color: $button-focus-color--inverted;
-                border-color: $button-focus-color--inverted;
-            }
-        }
-
-        &.jkl-button--secondary {
-            background-color: $button-background-color--inverted;
-            color: $button-text-color--inverted;
-            border-color: $button-text-color--inverted;
-
-            &:hover,
-            html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
-            html[data-touchnavigation] &.jkl-button--pressed {
-                color: $button-focus-color--inverted;
-                border-color: $button-focus-color--inverted;
-            }
-        }
-
-        &.jkl-button--tertiary {
-            color: $button-text-color--inverted;
-            border-bottom-color: $button-border-color--inverted;
-
-            &:hover,
-            html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
-            html[data-touchnavigation] &.jkl-button--pressed {
-                color: $button-focus-color--inverted;
-                border-bottom-color: $button-focus-color--inverted;
-            }
-
-            html[data-touchnavigation] &.jkl-button--pressed:before {
-                animation: cubic-bezier(0, 0, 0.3, 1) 400ms invertedtertiaryflash;
-            }
-        }
-
-        html:not([data-mousenavigation]) &:focus {
-            &:after {
-                box-shadow: 0 0 0 $focus-ring-width $button-focus-color--inverted;
-            }
         }
     }
 
@@ -332,6 +247,7 @@ a.jkl-button {
         line-height: $button-height--compact;
         height: $button-height--compact;
         min-width: $button-min-width--compact;
+
         &.jkl-button--tertiary {
             min-width: unset;
         }
@@ -343,18 +259,9 @@ a.jkl-button {
         box-shadow: 0 0 0 0 var(--button-focus-color);
         opacity: 0.5;
     }
+
     100% {
         box-shadow: 0 0 0 #{rem(16px)} var(--button-focus-color);
-        opacity: 0;
-    }
-}
-@keyframes invertedflash {
-    0% {
-        box-shadow: 0 0 0 0 #{$button-focus-color--inverted};
-        opacity: 0.5;
-    }
-    100% {
-        box-shadow: 0 0 0 #{rem(16px)} #{$button-focus-color--inverted};
         opacity: 0;
     }
 }
@@ -365,21 +272,10 @@ a.jkl-button {
         background-color: var(--button-focus-color);
         opacity: 0.5;
     }
+
     100% {
         box-shadow: 0 0 0 #{rem(40px)} var(--button-focus-color);
         background-color: var(--button-focus-color);
-        opacity: 0;
-    }
-}
-@keyframes invertedtertiaryflash {
-    0% {
-        box-shadow: 0 0 0 0 #{$button-focus-color--inverted};
-        background-color: #{$button-focus-color--inverted};
-        opacity: 0.5;
-    }
-    100% {
-        box-shadow: 0 0 0 #{rem(40px)} #{$button-focus-color--inverted};
-        background-color: #{$button-focus-color--inverted};
         opacity: 0;
     }
 }

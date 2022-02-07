@@ -8,12 +8,4 @@ import { AccordionExample } from "./AccordionExample";
 import "@fremtind/jkl-accordion/accordion.css";
 
 const mountNode = document.getElementById("app");
-renderExample(
-    <DevExample
-        component={AccordionExample}
-        knobs={{
-            boolProps: ["Invertert"],
-        }}
-    />,
-    mountNode,
-);
+renderExample(<DevExample component={AccordionExample} />, mountNode);

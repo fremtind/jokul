@@ -1,7 +1,7 @@
 @use "../packages/core/jkl";
 
-@import "../packages/core/mixins/_all.scss";
-@import "../packages/core/_functions.scss";
+@import "../packages/core/mixins/_all";
+@import "../packages/core/_functions";
 
 @include jkl.helper-light-mode-variables {
     --component-example-bg: #{jkl.$color-dis};
@@ -11,13 +11,6 @@
 @include jkl.helper-dark-mode-variables {
     --component-example-bg: #{jkl.$color-skifer};
     --component-example-header-color: #{jkl.$color-svaberg};
-}
-
-.jkl-portal-responsive-example {
-    padding: jkl.$spacing-s;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
 }
 
 .jkl-portal-code-example {
@@ -55,9 +48,6 @@
             position: absolute;
             top: jkl.$spacing-s;
             left: jkl.$spacing-m;
-        }
-
-        &:before {
             content: attr(data-example-text);
         }
 
@@ -95,9 +85,11 @@
         max-width: 100%;
         min-width: initial;
         flex-direction: column;
+
         &__example-wrapper {
             width: initial;
         }
+
         &__example-options {
             padding: 0;
             padding-top: jkl.$spacing-s;

@@ -2,43 +2,25 @@
 @use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 $border-size: jkl.rem(1px);
-$border-color: jkl.$color-svaberg;
-$border-color--inverted: jkl.$color-stein;
-$hover-border-color: jkl.$color-granitt;
-$hover-border-color--inverted: jkl.$color-snohvit;
-$highlight-color: jkl.$color-hvit;
-$highlight-color--inverted: jkl.$color-svart;
 $focus-ring-width: jkl.rem(2px);
-$table-row-focus-color: jkl.$color-granitt;
-$table-row-focus-color--inverted: jkl.$color-snohvit;
 
 @include jkl.helper-light-mode-variables {
-    --table-row-border-color: #{$border-color};
-    --table-row-hover-border-color: #{$hover-border-color};
-    --table-row-highlight-color: #{$highlight-color};
+    --table-row-border-color: #{jkl.$color-svaberg};
+    --table-row-hover-border-color: #{jkl.$color-granitt};
+    --table-row-highlight-color: #{jkl.$color-hvit};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --table-row-border-color: #{$border-color--inverted};
-    --table-row-hover-border-color: #{$hover-border-color--inverted};
-    --table-row-highlight-color: #{$highlight-color--inverted};
+    --table-row-border-color: #{jkl.$color-stein};
+    --table-row-hover-border-color: #{jkl.$color-snohvit};
+    --table-row-highlight-color: #{jkl.$color-svart};
 }
 
 .jkl-table-row {
-    border-bottom: solid $border-size $border-color;
     border-bottom: solid $border-size var(--table-row-border-color);
 
-    *[data-theme="dark"] & {
-        border-color: $border-color--inverted;
-    }
-
     thead > & {
-        border-bottom: solid $border-size $hover-border-color;
         border-bottom: solid $border-size var(--table-row-hover-border-color);
-
-        *[data-theme="dark"] & {
-            border-color: $hover-border-color--inverted;
-        }
     }
 
     :not(thead) > & {
@@ -55,24 +37,13 @@ $table-row-focus-color--inverted: jkl.$color-snohvit;
             * https://stackoverflow.com/a/4096554
             * https://www.w3.org/TR/CSS2/tables.html#border-conflict-resolution
             */
-            border-top: double $border-size $hover-border-color;
             border-top: double $border-size var(--table-row-hover-border-color);
-            border-bottom: double $border-size $hover-border-color;
             border-bottom: double $border-size var(--table-row-hover-border-color);
-
-            *[data-theme="dark"] & {
-                border-color: $hover-border-color--inverted;
-            }
         }
     }
 
     @mixin responsive-table-head {
-        border-bottom: solid $border-size $border-color;
         border-bottom: solid $border-size var(--table-row-border-color);
-
-        *[data-theme="dark"] & {
-            border-color: $border-color--inverted;
-        }
     }
 
     .jkl-table--collapse-to-list > thead > & {
@@ -90,7 +61,6 @@ $table-row-focus-color--inverted: jkl.$color-snohvit;
         padding-bottom: jkl.$spacing-s;
 
         &:first-of-type {
-            border-top: solid $border-size $border-color;
             border-top: solid $border-size var(--table-row-border-color);
         }
     }
@@ -107,9 +77,7 @@ $table-row-focus-color--inverted: jkl.$color-snohvit;
 
     @mixin responsive-table-row--hover {
         /* Tilbakestill hacken som gir riktig border når tabellen ikke har display: block; */
-        border-top: solid $border-size $hover-border-color;
         border-top: solid $border-size var(--table-row-hover-border-color);
-        border-bottom: solid $border-size $hover-border-color;
         border-bottom: solid $border-size var(--table-row-hover-border-color);
     }
 
@@ -129,12 +97,9 @@ $table-row-focus-color--inverted: jkl.$color-snohvit;
         &:hover,
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
             cursor: pointer;
-            background-color: $highlight-color;
             background-color: var(--table-row-highlight-color);
 
-            border-top: double $border-size $hover-border-color;
             border-top: double $border-size var(--table-row-hover-border-color);
-            border-bottom: double $border-size $hover-border-color;
             border-bottom: double $border-size var(--table-row-hover-border-color);
         }
 
@@ -150,12 +115,7 @@ $table-row-focus-color--inverted: jkl.$color-snohvit;
     }
 
     &--clicked {
-        background-color: $highlight-color;
         background-color: var(--table-row-highlight-color);
-
-        *[data-theme="dark"] & {
-            border-color: $highlight-color--inverted;
-        }
     }
 }
 

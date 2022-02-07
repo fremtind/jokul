@@ -1,1 +1,1 @@
-module.exports = [">0.2%", "not dead", "ie 11", "not op_mini all"];
+module.exports = [">0.2% in no", "not ie <= 11", "not dead", "not op_mini all"];

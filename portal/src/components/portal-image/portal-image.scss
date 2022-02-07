@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 .jkl-portal-image {
     margin-top: jkl.$spacing-xl;
@@ -64,7 +64,7 @@
         left: 0;
         right: 0;
         padding: jkl.$spacing-2xl;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgb(0 0 0 / 70%);
         z-index: jkl.$z-index--modal;
         display: block;
     }

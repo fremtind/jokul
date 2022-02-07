@@ -2,21 +2,21 @@
 @use "~@fremtind/jkl-core/variables/colors";
 
 $farger: (
-    hvit: jkl.$color-hvit,
-    snohvit: jkl.$color-snohvit,
-    sand: jkl.$color-sand,
-    dis: jkl.$color-dis,
-    varde: jkl.$color-varde,
-    svaberg: jkl.$color-svaberg,
-    stein: jkl.$color-stein,
-    fjellgra: jkl.$color-fjellgra,
-    skifer: jkl.$color-skifer,
-    granitt: jkl.$color-granitt,
-    svart: jkl.$color-svart,
-    suksess: colors.varslingsfarge("suksess"),
-    feil: colors.varslingsfarge("feil"),
-    info: colors.varslingsfarge("info"),
-    advarsel: colors.varslingsfarge("advarsel"),
+    "hvit": jkl.$color-hvit,
+    "snohvit": jkl.$color-snohvit,
+    "sand": jkl.$color-sand,
+    "dis": jkl.$color-dis,
+    "varde": jkl.$color-varde,
+    "svaberg": jkl.$color-svaberg,
+    "stein": jkl.$color-stein,
+    "fjellgra": jkl.$color-fjellgra,
+    "skifer": jkl.$color-skifer,
+    "granitt": jkl.$color-granitt,
+    "svart": jkl.$color-svart,
+    "suksess": colors.varslingsfarge("suksess"),
+    "feil": colors.varslingsfarge("feil"),
+    "info": colors.varslingsfarge("info"),
+    "advarsel": colors.varslingsfarge("advarsel"),
 );
 
 .jkl-portal-color-swatch {
@@ -35,6 +35,7 @@ $farger: (
             stroke: jkl.$color-granitt;
         }
     }
+
     &--snohvit-stroke {
         .jkl-portal-color-swatch__diamond {
             stroke: jkl.$color-snohvit;

@@ -1,5 +1,66 @@
 # Migrasjonsguide
 
+## Til `jkl-core@9.0.0`
+
+Vårrengjøringsreleasen.
+
+tl;dr:
+
+-   Oppdaterer breakpoints
+-   Dropper IE-støtte
+-   Fjerner `inverted` og `negative`-props
+-   Renamet noen Sass-variabler og funksjoner du sannsynligvis ikke bruker
+
+### Oppdaterer breakpoints
+
+Denne oppdateringen endrer verdiene til breakpointsene i Jøkul. Vi gjør om på minsteverdien, og bytter om på semantikken bak brekkpunktene. Brekkpunktet går fra å være maksimumsverdien til størrelsen, til å bli minimumsstørrelsen (_breaking into medium_, for eksempel).
+
+Du kan fortsette å bruke de samme mixinene i Sass (`small-device`, `from-medium-device`, og så videre).
+
+Du bør gå igjennom de forskjellige sidene i appen din og sjekke at layouten fremdeles fungerer bra på ulike skjermstørrelser.
+
+Husk også at du står fritt til å definere dine egne breakpoints, hvor enn du trenger det!
+
+| Variabel            | Gammel verdi | Ny verdi |
+| ------------------- | ------------ | -------- |
+| $breakpoint--small  | 768          | Fjernet  |
+| $breakpoint--medium | 992          | 680      |
+| $breakpoint--large  | 1200         | 1200     |
+| $breakpoint--xl     | 1600         | 1600     |
+
+### Dropper IE-støtte
+
+Versjonen fjerner støtte for Internet Explorer. Alt av gammelt rusk i Sasskode er ryddet vekk.
+
+### Fjerner `inverted` og `negative`-props
+
+Propsene `inverted` og `negative` er fjernet (de var merket som deprecated for en stund siden). Bruk `data-theme="dark"` om du trenger funksjonaliteten. Se [bloggposten om temaet](https://jokul.fremtind.no/blog/darkmode/) hvis du lurer på hvordan.
+
+### Sass-endringer
+
+Noen endringer i Sass-variabelnavn og funksjoner. Om du bruker den ferdigbyggede CSSen trenger du ikke tenke på disse. Sannsynligvis vil ikke disse skape noen problemer for deg selv om du bruker Sass-filene, men de er dokumentert her likevel.
+
+Sass-funksjonen `relativeSize` har fått et nytt navn `relative-size` som følger navnekonvensjonen i Sass.
+
+```diff
+- font-size: relativeSize(30, 375, 812);
++ font-size: relative-size(30, 375, 812);
+```
+
+Sass-funksjonene `jkl--timing` og `jkl--motion` har fått navn uten dobbel `-`:
+
+```diff
+- transition-delay: jkl--timings("productive");
++ transition-delay: jkl-timings("productive");
+```
+
+Variabelen `$z-index--overflowHidden` heter nå `$z-index--overflow-hidden`:
+
+```diff
+- z-index: $z-index--overflowHidden;
++ z-index: $z-index--overflow-hidden;
+```
+
 ## Til `jkl-core@8.0.0`
 
 Denne oppdateringen fjerner skillet mellom layout og component spacing og samler disse i én ny skala. I tillegg fjernes tall-skalaen. Det er også gjort endringer på hvordan alle variabler i `@fremtind/jkl-core/variables` tas i bruk i stilark.

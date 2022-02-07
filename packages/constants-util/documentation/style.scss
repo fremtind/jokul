@@ -1,7 +1,8 @@
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/_functions";
 
 .jkl-constant-example {
     width: 100%;
+
     &__table {
         width: 100%;
         max-width: rem(500px);

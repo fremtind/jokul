@@ -1,17 +1,17 @@
 @use "variables" as vars;
 @use "mixins";
 
-@import "./normalize.scss";
-@import "./reset.scss";
+@import "./normalize";
+@import "./reset";
 
-@import "./headings.scss";
-@import "./paragraphs.scss";
-@import "./links.scss";
-@import "./labels.scss";
-@import "./spacing.scss";
+@import "./headings";
+@import "./paragraphs";
+@import "./links";
+@import "./labels";
+@import "./spacing";
 @import "./screen-reader";
-@import "./color-classes.scss";
-@import "./icons.scss";
+@import "./color-classes";
+@import "./icons";
 
 @include mixins.helper-light-mode-variables {
     --jkl-background-color: #{vars.$color-snohvit};
@@ -34,8 +34,8 @@
 
 @media screen and (prefers-reduced-motion: reduce) {
     *,
-    *:after,
-    *:before {
+    *::after,
+    *::before {
         animation-duration: 0ms !important;
         animation-delay: 0ms !important;
         transition: none !important;

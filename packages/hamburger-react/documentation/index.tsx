@@ -9,7 +9,7 @@ import "@fremtind/jkl-hamburger/hamburger.css";
 
 renderExample(
     <DevExample
-        knobs={{ boolProps: ["Invertert", "Med tekst", "Tekst før knapp", "Skaler tekst ved hover"] }}
+        knobs={{ boolProps: ["Med tekst", "Tekst før knapp", "Skaler tekst ved hover"] }}
         component={HamburgerExample}
     />,
     document.getElementById("app"),

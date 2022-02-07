@@ -17,17 +17,9 @@ export interface Props {
         choiceProps?: Array<ChoiceProp>;
     };
     codeExample?: CodeExample;
-    responsiveLayout: boolean;
 }
 
-export const ExampleBase: VFC<Props> = ({
-    responsiveLayout,
-    component,
-    knobs,
-    title = "Komponent",
-    codeExample,
-    scrollable,
-}) => {
+export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const [uid] = useState(`example-${nanoid(8)}`);
     const [showCode, setShowCode] = useState(false);
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
@@ -64,7 +56,7 @@ export const ExampleBase: VFC<Props> = ({
 
     return (
         <div className="jkl-spacing-2xl--bottom">
-            <section className={responsiveLayout ? "jkl-portal-responsive-example" : "jkl-portal-component-example"}>
+            <section className="jkl-portal-component-example">
                 <div
                     data-theme={theme}
                     data-example-text={title}

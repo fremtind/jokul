@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 .jkl-portal-full-screen-menu-item {
     display: inline-block;
@@ -12,24 +12,16 @@
         padding-left: 0;
         text-align: left;
 
-        // static font-sizes for old browsers:
-        font-size: rem(30px);
-        line-height: rem(40px);
-        // 30px/40px on iPhone X:
-        font-size: relativeSize(30, 375, 812);
-        line-height: relativeSize(40, 375, 812);
+        font-size: relative-size(30, 375, 812);
+        line-height: relative-size(40, 375, 812);
 
         // button resets:
         background-color: transparent;
         cursor: pointer;
 
         @include from-medium-device {
-            // static font-sizes for old browsers:
-            font-size: rem(35px);
-            line-height: rem(50px);
-            // dynamic font sizes
-            font-size: relativeSize(35);
-            line-height: relativeSize(50);
+            font-size: relative-size(35);
+            line-height: relative-size(50);
         }
     }
 }

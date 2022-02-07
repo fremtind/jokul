@@ -1,18 +1,18 @@
 $jkl--easings: (
-    standard: ease,
-    entrance: ease-out,
-    exit: ease-in,
-    easeInBounceOut: cubic-bezier(0, 0, 0.375, 1.17),
+    "standard": ease,
+    "entrance": ease-out,
+    "exit": ease-in,
+    "easeInBounceOut": cubic-bezier(0, 0, 0.375, 1.17),
 );
 
 $jkl--timings: (
-    energetic: 75ms,
-    productive: 150ms,
-    expressive: 250ms,
-    lazy: 400ms,
+    "energetic": 75ms,
+    "productive": 150ms,
+    "expressive": 250ms,
+    "lazy": 400ms,
 );
 
-@function jkl--motion($name, $easings: $jkl--easings) {
+@function jkl-motion($name, $easings: $jkl--easings) {
     @if map-has-key($easings, $name) {
         @return map-get($easings, $name);
     } @else {
@@ -20,7 +20,7 @@ $jkl--timings: (
     }
 }
 
-@function jkl--timing($mode, $timings: $jkl--timings) {
+@function jkl-timing($mode, $timings: $jkl--timings) {
     @if map-has-key($timings, $mode) {
         @return map-get($timings, $mode);
     } @else {
@@ -29,6 +29,6 @@ $jkl--timings: (
 }
 
 @mixin motion($name, $mode: productive) {
-    transition-timing-function: jkl--motion($name);
-    transition-duration: jkl--timing($mode);
+    transition-timing-function: jkl-motion($name);
+    transition-duration: jkl-timing($mode);
 }

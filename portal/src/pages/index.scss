@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 .jkl-portal-frontpage {
     section {
@@ -52,6 +52,7 @@
                     height: 100vh;
                     width: 100vw;
                 }
+
                 &--image {
                     background-position: center;
                 }
@@ -81,6 +82,7 @@
             h2 {
                 padding-bottom: jkl.$spacing-2xl;
             }
+
             p {
                 padding-bottom: jkl.$spacing-l;
             }
@@ -88,11 +90,10 @@
 
         &-principles {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            grid-template-areas:
-                "heading heading"
-                "diamond principle";
+            grid-template:
+                "heading heading" auto
+                "diamond principle" auto
+                / 1fr 1fr;
 
             &__principle {
                 margin-bottom: jkl.$spacing-4xl;
@@ -102,6 +103,7 @@
 
                 &--container {
                     grid-area: principle;
+
                     h1 {
                         margin-bottom: jkl.$spacing-l;
                     }
@@ -123,7 +125,7 @@
             &--heading {
                 grid-area: heading;
                 max-width: 28ch;
-                margin-bottom: calc(#{jkl.$spacing-4xl}* 1.5);
+                margin-bottom: calc(#{jkl.$spacing-4xl} * 1.5);
             }
         }
     }

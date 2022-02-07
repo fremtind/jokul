@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
@@ -14,9 +14,11 @@
     h2 {
         @include jkl.text-style("heading-1");
     }
+
     h3 {
         @include jkl.text-style("heading-3");
     }
+
     h4 {
         @include jkl.text-style("heading-4");
     }

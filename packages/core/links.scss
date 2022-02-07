@@ -21,27 +21,18 @@ $north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 $link-underline-thickness: rem(1px);
 $link-underline-thickness--hover: rem(2px);
 
-$link-color: jkl.$color-granitt;
-$link-hover-color: jkl.$color-stein;
-$link-active-color: jkl.$color-granitt;
-
-$link-color--inverted: jkl.$color-snohvit;
-$link-hover-color--inverted: jkl.$color-svaberg;
-$link-active-color--inverted: jkl.$color-snohvit;
-
 @include light-mode-variables {
-    --link-color: #{$link-color};
-    --link-hover-color: #{$link-hover-color};
-    --link-active-color: #{$link-active-color};
+    --link-color: #{jkl.$color-granitt};
+    --link-hover-color: #{jkl.$color-stein};
+    --link-active-color: #{jkl.$color-granitt};
 }
 @include dark-mode-variables {
-    --link-color: #{$link-color--inverted};
-    --link-hover-color: #{$link-hover-color--inverted};
-    --link-active-color: #{$link-active-color--inverted};
+    --link-color: #{jkl.$color-snohvit};
+    --link-hover-color: #{jkl.$color-svaberg};
+    --link-active-color: #{jkl.$color-snohvit};
 }
 
 .jkl-link {
-    color: $link-color;
     color: var(--link-color);
 
     @include underline-gradient(currentColor);
@@ -54,24 +45,19 @@ $link-active-color--inverted: jkl.$color-snohvit;
     text-decoration: none;
 
     &:hover:not(:focus) {
-        color: $link-hover-color;
         color: var(--link-hover-color);
-        @include underline-gradient($link-hover-color);
         @include underline-gradient(var(--link-hover-color));
         background-position: 0 100%;
         background-size: $link-underline-thickness--hover $link-underline-thickness--hover;
     }
 
     &:hover &:focus {
-        color: $link-color;
         color: var(--link-color);
-        @include underline-gradient($link-color);
         @include underline-gradient(var(--link-color));
     }
 
     html:not([data-mousenavigation]) &:focus {
         @include no-grow-bold;
-        @include border-gradient($link-active-color);
         @include border-gradient(var(--link-active-color));
     }
 
@@ -84,20 +70,13 @@ $link-active-color--inverted: jkl.$color-snohvit;
     in a new window or tab: */
     &[target="_blank"],
     &--external {
-        &:after {
+        &::after {
             content: $north-east-arrow;
         }
-    }
-
-    &--negative {
-        --link-color: #{$link-color--inverted};
-        --link-hover-color: #{$link-hover-color--inverted};
-        --link-active-color: #{$link-active-color--inverted};
     }
 }
 
 .jkl-nav-link {
-    color: $link-color;
     color: var(--link-color);
 
     @include reset-outline;
@@ -115,38 +94,30 @@ $link-active-color--inverted: jkl.$color-snohvit;
         transition-property: transform;
     }
 
-    &:after {
+    &::after {
         content: $right-arrow;
         padding-left: rem(2px);
     }
 
     &:hover:not(:focus) {
-        color: $link-hover-color;
         color: var(--link-hover-color);
 
-        &:after {
+        &::after {
             transform: translateX(33%);
         }
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include border-gradient($link-color);
         @include border-gradient(var(--link-color));
         @include no-grow-bold;
 
-        &:after {
+        &::after {
             transform: translateX(33%);
         }
     }
 
     &--active {
         @include no-grow-bold;
-    }
-
-    &--inverted {
-        --link-color: #{$link-color--inverted};
-        --link-hover-color: #{$link-hover-color--inverted};
-        --link-active-color: #{$link-active-color--inverted};
     }
 }
 
@@ -157,18 +128,18 @@ $link-active-color--inverted: jkl.$color-snohvit;
     padding-left: $left-arrow-focus-margin;
     margin-left: -#{$left-arrow-focus-margin};
 
-    &:after {
+    &::after {
         display: none;
     }
 
-    &:before {
+    &::before {
         content: $left-arrow;
         padding-right: rem(4px);
     }
 
     &:hover,
     html:not([data-mousenavigation]) &:focus {
-        &:before {
+        &::before {
             transform: translateX(-33%);
         }
     }

@@ -11,7 +11,7 @@ renderExample(
     <DevExample
         component={LogoExample}
         knobs={{
-            boolProps: ["Animert", "Kun symbol", "Sentrert", "Invertert"],
+            boolProps: ["Animert", "Kun symbol", "Sentrert"],
         }}
     />,
     document.getElementById("app"),

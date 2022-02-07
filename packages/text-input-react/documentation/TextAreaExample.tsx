@@ -7,7 +7,6 @@ export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, bool
     const [value, setValue] = useState("");
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value);
     const variant = choiceValues?.["Variant"] as LabelVariant;
-    const inverted = boolValues?.["Invertert"];
     const compact = boolValues?.["Compact"];
     const autoExpand = boolValues?.["Ekspanderende"];
     const medTeller = boolValues?.["Med teller"];
@@ -28,7 +27,6 @@ export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, bool
             forceCompact={compact}
             counter={medTeller ? { maxLength: 200, hideProgress: skjulProgress } : undefined}
             variant={variant}
-            inverted={inverted}
             value={value}
             onChange={handleChange}
         />
@@ -49,7 +47,5 @@ export const textAreaExampleCode = ({ choiceValues, boolValues }: ExampleCompone
         boolValues?.["Med teller"] ? `{ maxLength: 200, hideProgress: ${boolValues?.["Skjul progress"]} }` : undefined
     }}
     variant="${choiceValues?.["Variant"]}"
-    {/* NB! inverted er deprecated */}
-    inverted={${boolValues?.["Invertert"]}}
 />
 `;

@@ -17,7 +17,6 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
         <PrimaryButton
             forceCompact={!!boolValues?.["Compact"]}
-            inverted={!!boolValues?.["Invertert"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
@@ -30,7 +29,6 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues }) => {
 export const primaryCode = ({ boolValues }: ExampleComponentProps): string => `
 <PrimaryButton
     forceCompact={${!!boolValues?.["Compact"]}}
-    inverted={${!!boolValues?.["Invertert"]}}
     loader={${
         !!boolValues?.["withLoader"]
             ? `{

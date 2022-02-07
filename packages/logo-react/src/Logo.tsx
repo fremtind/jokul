@@ -13,8 +13,6 @@ export interface LogoProps {
     isSymbol?: boolean;
     /** Beskrivelse av logoen tilgjengelig for skjermlesere */
     title?: string;
-    /** @deprecated */
-    inverted?: boolean;
 }
 
 export const Logo = ({
@@ -24,7 +22,6 @@ export const Logo = ({
     isSymbol = false,
     animated = false,
     title = "Fremtind",
-    inverted,
 }: LogoProps): JSX.Element => {
     const [uniqueId] = useState(id || `jkl-logo-${nanoid(16)}`);
 
@@ -34,7 +31,6 @@ export const Logo = ({
                 "jkl-logo--animated": animated,
                 "jkl-logo--symbol-only": isSymbol,
                 "jkl-logo--centered": centered && isSymbol,
-                "jkl-logo--inverted": inverted,
             })}
             aria-labelledby={uniqueId}
             role="img"

@@ -69,16 +69,5 @@ describe("Toggle switch", () => {
 
             expect(results).toHaveNoViolations();
         });
-
-        test("inverted toggle-switch should be a11y compliant", async () => {
-            const { container } = render(
-                <ToggleSwitch inverted helpLabel="tip">
-                    Switch
-                </ToggleSwitch>,
-            );
-            const results = await axe(container);
-
-            expect(results).toHaveNoViolations();
-        });
     });
 });

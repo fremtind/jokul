@@ -4,12 +4,10 @@ import { InfoAlertMessage, ErrorAlertMessage, WarningAlertMessage, SuccessAlertM
 import { axe } from "jest-axe";
 
 const messageWithStyles = {
-    inverted: true,
     maxContentWidth: "1234px",
     paddingLeft: "1rem",
 };
 const messageWitoutStyles = {
-    inverted: true,
     maxContentWidth: undefined,
     paddingLeft: undefined,
 };

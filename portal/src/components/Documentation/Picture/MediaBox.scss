@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 :root,
 [data-theme="light"] {
@@ -60,6 +60,7 @@
             margin-left: 0;
             margin-right: 30%;
         }
+
         .jkl-portal-media-box__card {
             right: jkl.$spacing-m;
             left: initial;

@@ -21,7 +21,6 @@ export const TextInputExample: VFC<ExampleComponentProps> = ({ choiceValues, boo
               onClick: () => setValue(""),
           } as Action)
         : undefined;
-    const inverted = boolValues?.["Invertert"];
 
     if (inline) {
         return (
@@ -44,7 +43,6 @@ export const TextInputExample: VFC<ExampleComponentProps> = ({ choiceValues, boo
             forceCompact={compact}
             variant={variant}
             action={action}
-            inverted={inverted}
         />
     );
 };
@@ -78,8 +76,6 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
     }`
             : undefined
     }}
-    {/* NB! inverted er deprecated */}
-    inverted={${boolValues?.["Invertert"]}}
 />
 `;
 };

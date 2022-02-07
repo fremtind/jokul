@@ -50,35 +50,36 @@
     ```
 */
 @mixin small-device {
-    @media (min-width: 0) and (max-width: #{breakpoints.$breakpoint--small - 1px}) {
+    @media (min-width: 0) and (max-width: #{breakpoints.$breakpoint--medium - 1px}) {
         @content;
     }
 }
 
 @mixin medium-device {
-    @media (min-width: #{breakpoints.$breakpoint--small}) and (max-width: #{breakpoints.$breakpoint--medium - 1px}) {
-        @content;
-    }
-}
-@mixin from-medium-device {
-    @media (min-width: #{breakpoints.$breakpoint--small}) {
-        @content;
-    }
-}
-
-@mixin large-device {
     @media (min-width: #{breakpoints.$breakpoint--medium}) and (max-width: #{breakpoints.$breakpoint--large - 1px}) {
         @content;
     }
 }
-@mixin from-large-device {
+
+@mixin from-medium-device {
     @media (min-width: #{breakpoints.$breakpoint--medium}) {
         @content;
     }
 }
 
-@mixin xl-device {
+@mixin large-device {
+    @media (min-width: #{breakpoints.$breakpoint--large}) and (max-width: #{breakpoints.$breakpoint--xl - 1px}) {
+        @content;
+    }
+}
+@mixin from-large-device {
     @media (min-width: #{breakpoints.$breakpoint--large}) {
+        @content;
+    }
+}
+
+@mixin xl-device {
+    @media (min-width: #{breakpoints.$breakpoint--xl}) {
         @content;
     }
 }
