@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
 $smiley-size: rem(40px);
 $smileys-max-width: $smiley-size * 9; // 5 smileys med fire like store mellomrom
@@ -21,7 +21,7 @@ $max-feedback-input-width: 30rem;
 
 @keyframes show {
     from {
-        transform: translate3D(0, 0.5rem, 0);
+        transform: translate3d(0, 0.5rem, 0);
         opacity: 0;
     }
 }
@@ -41,7 +41,6 @@ $max-feedback-input-width: 30rem;
 
     &__step-counter {
         @include jkl.text-style("body");
-        color: jkl.$color-stein;
         color: var(--jkl-feedback--step-color);
         margin-bottom: jkl.$spacing-m;
     }
@@ -97,7 +96,7 @@ $max-feedback-input-width: 30rem;
         right: 0;
         bottom: 0;
         left: 0;
-        box-shadow: 0 rem(2px) rem(30px) rgba(0, 0, 0, 0.1);
+        box-shadow: 0 rem(2px) rem(30px) rgb(0 0 0 / 10%);
     }
 
     &:hover {

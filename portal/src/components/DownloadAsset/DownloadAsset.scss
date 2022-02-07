@@ -9,32 +9,39 @@
     &--dark-bg {
         background-color: jkl.$color-granitt;
     }
+
     &__image {
         width: rem(300px);
         height: auto;
+
         &:hover {
             cursor: pointer;
         }
     }
+
     &__name {
         padding: rem(16px);
         display: block;
+
         &--dark {
             color: jkl.$color-snohvit;
         }
     }
+
     &__button {
         background: none;
-        box-shadow: 0px 0px 0px transparent;
-        border: 0px solid transparent;
-        text-shadow: 0px 0px 0px transparent;
+        box-shadow: 0 0 0 transparent;
+        border: 0 solid transparent;
+        text-shadow: 0 0 0 transparent;
+
         &:hover {
             cursor: pointer;
             background: none;
-            box-shadow: 0px 0px 0px transparent;
-            border: 0px solid transparent;
-            text-shadow: 0px 0px 0px transparent;
+            box-shadow: 0 0 0 transparent;
+            border: 0 solid transparent;
+            text-shadow: 0 0 0 transparent;
         }
+
         &:focus {
             outline: 0;
         }

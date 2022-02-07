@@ -10,7 +10,6 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
         <ToggleSwitch
             pressed={isOn}
             onClick={() => setIsOn(!isOn)}
-            inverted={boolValues?.["Invertert"]}
             disabled={boolValues?.["Deaktivert"]}
             helpLabel={helpLabel}
         >
@@ -19,17 +18,12 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
     );
 };
 
-export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const ToggleSliderExample: React.FC<ExampleComponentProps> = () => {
     const [value, setValue] = useState("måned");
 
     return (
         <section style={{ width: "100%" }}>
-            <ToggleSlider
-                defaultValue="måned"
-                labels={["måned", "år"]}
-                onToggle={setValue}
-                inverted={boolValues?.["Invertert"]}
-            >
+            <ToggleSlider defaultValue="måned" labels={["måned", "år"]} onToggle={setValue}>
                 Pris per
             </ToggleSlider>
             <p className="jkl-heading-5 jkl-spacing-l--top">100 kr/{value === "år" ? value : "mnd"}</p>

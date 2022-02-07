@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/functions";
 
 .jkl-typography-table {
@@ -36,16 +36,19 @@
         &__header {
             display: none;
         }
+
         &__data {
             display: flex;
             border: none;
             position: relative;
             margin-left: rem(25px);
             padding-left: rem(125px);
+
             &:first-child {
                 padding-left: rem(20px);
                 margin-left: 0;
             }
+
             &::before {
                 @include jkl.text-style("small");
                 color: jkl.$color-stein;
@@ -55,6 +58,7 @@
                 left: 0;
             }
         }
+
         &__row {
             border-bottom: 1px solid jkl.$color-stein;
         }

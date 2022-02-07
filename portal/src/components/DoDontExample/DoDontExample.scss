@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
@@ -31,6 +31,7 @@
         width: 100%;
         max-width: rem(750px);
     }
+
     &--halfwidth {
         max-width: rem(420px);
     }

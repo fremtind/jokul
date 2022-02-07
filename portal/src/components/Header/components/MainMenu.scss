@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions.scss";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/_functions";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 @include jkl.helper-light-mode-variables {
     --full-screen-menu-bg-color: #{jkl.$color-varde};
@@ -28,6 +28,7 @@
         display: inline-block;
         height: 100%;
         color: inherit;
+
         &:not(:last-child) {
             margin-right: jkl.$spacing-xl;
         }
@@ -69,7 +70,7 @@
         left: 0;
         z-index: -1;
         overflow-x: scroll;
-        height: 0vh;
+        height: 0;
 
         background-color: var(--full-screen-menu-bg-color);
         @include motion("standard", "lazy");
@@ -98,16 +99,12 @@
         padding: 0;
         cursor: pointer;
         background-color: transparent;
-        // static font-sizes for IE11:
-        font-size: rem(30px);
-        line-height: rem(40px);
-        // 30px/40px on iPhone X:
-        font-size: relativeSize(30, 375, 812);
-        line-height: relativeSize(40, 375, 812);
+        font-size: relative-size(30, 375, 812);
+        line-height: relative-size(40, 375, 812);
         @include motion("standard");
         transition-property: transform;
 
-        &:after {
+        &::after {
             @include motion("standard");
             transition-property: transform;
         }
@@ -117,7 +114,8 @@
             color: jkl.$color-granitt;
 
             transform: translateX(-1ch);
-            &:after {
+
+            &::after {
                 transform: translateX(1ch);
             }
         }
@@ -129,13 +127,8 @@
         }
 
         @include from-medium-device {
-            // static font-sizes for IE11:
-            font-size: rem(35px);
-            line-height: rem(50px);
-            // 40px/60px on 1440x900 screen:
-            font-size: relativeSize(35);
-            line-height: relativeSize(50);
-
+            font-size: relative-size(35);
+            line-height: relative-size(50);
             position: relative;
             top: unset;
             left: unset;

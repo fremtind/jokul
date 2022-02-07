@@ -46,36 +46,43 @@
     &:not(:first-child) {
         margin-top: jkl.$spacing-2xl;
     }
+
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-l;
     }
 }
+
 .jkl-portal-heading-medium {
     @include jkl.text-style("heading-3");
 
     &:not(:first-child) {
         margin-top: jkl.$spacing-xl;
     }
+
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-s;
     }
 }
+
 .jkl-portal-heading-small {
     @include jkl.text-style("heading-4");
 
     &:not(:first-child) {
         margin-top: jkl.$spacing-xl;
     }
+
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-xs;
     }
 }
+
 .jkl-portal-heading-xs {
     @include jkl.text-style("heading-5");
 
     &:not(:first-child) {
         margin-top: jkl.$spacing-l;
     }
+
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-xs;
     }

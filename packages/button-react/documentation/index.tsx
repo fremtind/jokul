@@ -14,7 +14,7 @@ renderExample(
     <DevExample
         component={ButtonExample}
         knobs={{
-            boolProps: ["Compact", "Invertert", { prop: "withLoader", defaultValue: true }, "isLoading"],
+            boolProps: ["Compact", { prop: "withLoader", defaultValue: true }, "isLoading"],
         }}
     />,
     mountNode,

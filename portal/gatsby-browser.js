@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 import React from "react";
-import "document-register-element";
 
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-accordion/accordion.min.css";

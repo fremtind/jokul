@@ -1,30 +1,18 @@
 @use "~@fremtind/jkl-core/jkl";
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-
-$tab-text-color: jkl.$color-granitt;
-$tab-text-color--inverted: jkl.$color-snohvit;
-
-$tab-indicator-color: jkl.$color-granitt;
-$tab-indicator-color--inverted: jkl.$color-snohvit;
-
-$tab-hover-color: jkl.$color-stein;
-$tab-hover-color--inverted: jkl.$color-svaberg;
-
-$tab-focus-border-color: jkl.$color-granitt;
-$tab-focus-border-color--inverted: jkl.$color-snohvit;
+@import "~@fremtind/jkl-core/mixins/_all";
 
 @include jkl.helper-light-mode-variables {
-    --tab-text-color: #{$tab-text-color};
-    --tab-indicator-color: #{$tab-indicator-color};
-    --tab-hover-color: #{$tab-hover-color};
-    --tab-focus-border-color: #{$tab-focus-border-color};
+    --tab-text-color: #{jkl.$color-granitt};
+    --tab-indicator-color: #{jkl.$color-granitt};
+    --tab-hover-color: #{jkl.$color-stein};
+    --tab-focus-border-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --tab-text-color: #{$tab-text-color--inverted};
-    --tab-indicator-color: #{$tab-indicator-color--inverted};
-    --tab-hover-color: #{$tab-hover-color--inverted};
-    --tab-focus-border-color: #{$tab-focus-border-color--inverted};
+    --tab-text-color: #{jkl.$color-snohvit};
+    --tab-indicator-color: #{jkl.$color-snohvit};
+    --tab-hover-color: #{jkl.$color-svaberg};
+    --tab-focus-border-color: #{jkl.$color-snohvit};
 }
 
 .jkl-tablist {

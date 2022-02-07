@@ -8,23 +8,17 @@ $expand-button-border-width: jkl.rem(1px);
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $focus-ring-width: jkl.rem(2px);
 
-$expand-button-text-color: jkl.$color-granitt;
-$expand-button-focus-color: jkl.$color-granitt;
-
-$expand-button-text-color--inverted: jkl.$color-snohvit;
-$expand-button-focus-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --expand-button-text-color: #{$expand-button-text-color};
-    --expand-button-focus-color: #{$expand-button-focus-color};
+    --expand-button-text-color: #{jkl.$color-granitt};
+    --expand-button-focus-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --expand-button-text-color: #{$expand-button-text-color--inverted};
-    --expand-button-focus-color: #{$expand-button-focus-color--inverted};
+    --expand-button-text-color: #{jkl.$color-snohvit};
+    --expand-button-focus-color: #{jkl.$color-snohvit};
 }
 
-@mixin _expanded-arrow($px) {
+@mixin expanded-arrow($px) {
     .jkl-expand-button__arrow {
         transform: translateY(jkl.rem($px));
     }
@@ -43,7 +37,7 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
     min-width: unset;
     position: relative;
 
-    &:after {
+    &::after {
         border: solid $focus-ring-width transparent;
         box-shadow: none;
         transition: box-shadow $animation-timing;
@@ -57,14 +51,15 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
 
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         border: none;
-        &:after {
+
+        &::after {
             box-shadow: 0 0 0 $focus-ring-width var(--expand-button-focus-color);
         }
     }
 
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
-        @include _expanded-arrow(3px);
+        @include expanded-arrow(3px);
         color: var(--expand-button-focus-color);
     }
 
@@ -73,6 +68,7 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
 
         .jkl-expand-button__arrow {
             --jkl-icon-width: #{$arrow-width--compact};
+
             .jkl-icon--small {
                 --jkl-icon-width: #{$arrow-width--compact};
             }
@@ -80,11 +76,11 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
     }
 
     &--expanded {
-        @include _expanded-arrow(3px);
+        @include expanded-arrow(3px);
         @include mixins.no-grow-bold;
 
         &:hover {
-            @include _expanded-arrow(0px);
+            @include expanded-arrow(0);
         }
     }
 
@@ -101,6 +97,7 @@ $expand-button-focus-color--inverted: jkl.$color-snohvit;
         margin-left: jkl.$spacing-xs;
 
         --jkl-icon-width: #{$arrow-width};
+
         .jkl-icon--small {
             --jkl-icon-width: #{$arrow-width};
         }

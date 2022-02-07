@@ -1,27 +1,21 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/all";
+@import "~@fremtind/jkl-core/_functions";
 
 $bounding-touch-size: rem(48px);
 $hamburger-line-height: rem(2px);
 $hamburger-icon-width: rem(35px);
 $hamburger-line-spacing: rem(-8px);
 
-$hamburger-color: jkl.$color-granitt;
-$hamburger-focus-color: jkl.$color-stein;
-
-$hamburger-color--inverted: jkl.$color-snohvit;
-$hamburger-focus-color--inverted: jkl.$color-svaberg;
-
 @include jkl.helper-light-mode-variables {
-    --hamburger-color: #{$hamburger-color};
-    --hamburger-focus-color: #{$hamburger-focus-color};
+    --hamburger-color: #{jkl.$color-granitt};
+    --hamburger-focus-color: #{jkl.$color-stein};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --hamburger-color: #{$hamburger-color--inverted};
-    --hamburger-focus-color: #{$hamburger-focus-color--inverted};
+    --hamburger-color: #{jkl.$color-snohvit};
+    --hamburger-focus-color: #{jkl.$color-svaberg};
 }
 
 .jkl-hamburger {
@@ -39,7 +33,6 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
     align-items: center;
     position: relative;
 
-    color: $hamburger-color;
     color: var(--hamburger-color);
 
     @include jkl.text-style("body");
@@ -65,6 +58,7 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
         &::before {
             top: $hamburger-line-spacing;
         }
+
         &::after {
             bottom: $hamburger-line-spacing;
         }
@@ -100,7 +94,6 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
 
     @include keyboard-navigation {
         &:focus {
-            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color;
             box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
         }
     }
@@ -152,18 +145,11 @@ $hamburger-focus-color--inverted: jkl.$color-svaberg;
                 top: 0;
                 transform: rotate(-45deg) scale3d(1.25, 1, 1);
             }
+
             .jkl-hamburger__lines::after {
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);
             }
-        }
-    }
-
-    &--inverted {
-        color: $hamburger-color--inverted;
-
-        html:not([data-mousenavigation]) &:focus {
-            box-shadow: 0 0 0 rem(2px) $hamburger-focus-color--inverted;
         }
     }
 }

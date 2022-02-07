@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
 $header-bg-color: jkl.$color-snohvit;
 $header-bg-color--inverted: jkl.$color-granitt;
@@ -41,6 +41,7 @@ $header-padding--mobile: 0 jkl.$spacing-m;
         &:hover {
             color: jkl.$color-stein;
         }
+
         html:not([data-mousenavigation]) &:focus {
             color: jkl.$color-granitt;
             font-weight: jkl.$typography-weight-bold;

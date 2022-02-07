@@ -2,7 +2,6 @@ export const NON_BREAKING_SPACE = "\u00A0";
 export const nbsp = NON_BREAKING_SPACE;
 export const NON_BREAKING_HYPHEN = "\u2011";
 export const nbhy = NON_BREAKING_HYPHEN;
-export const PILE_OF_POO = "\uD83D\uDCA9";
 export const SOFT_HYPHEN = "\u00AD";
 export const shy = SOFT_HYPHEN;
 export const COPYRIGHT = "\u00A9";

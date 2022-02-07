@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
 
 :root,
 [data-theme="light"] {
@@ -25,15 +25,15 @@
     overflow: hidden;
     @include small-device {
         height: 90vh;
+
         &__card {
             max-width: 100%;
         }
     }
 
     &__card {
-        @include reset-outline();
+        @include reset-outline;
         cursor: pointer;
-        background-color: transparent;
         text-align: left;
         position: absolute;
         bottom: jkl.$spacing-xl;
@@ -47,9 +47,6 @@
         @include motion("standard", "expressive");
         transition-property: box-shadow;
 
-        @include small-device {
-        }
-
         &__arrow {
             @include motion("standard", "expressive");
             transition-property: color, transform;
@@ -57,6 +54,7 @@
 
         &:hover {
             box-shadow: jkl.$drop-shadow--large;
+
             .jkl-portal-hero__card__arrow {
                 color: var(--hero-hover-color);
                 transform: translateY(10px);

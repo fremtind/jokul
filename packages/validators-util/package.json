@@ -28,9 +28,7 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-button yarn build:watch",
-        "dev:js": "parcel documentation/index.html",
-        "dev": "run-p dev:*"
+        "dev": "echo \"Error: run dev from root\" && exit 1"
     },
     "repository": {
         "type": "git",

@@ -2,7 +2,7 @@ import { DataTestAutoId, Label, LabelVariant, SupportLabel } from "@fremtind/jkl
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
-import classNames from "classnames";
+import cn from "classnames";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
 import { Calendar } from "./Calendar";
 import { formatDate, getInitialDate } from "./dateFunctions";
@@ -46,8 +46,6 @@ interface Props extends DataTestAutoId {
     errorLabel?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
-    /** @deprecated */
-    inverted?: boolean;
     disableBeforeDate?: Date;
     disableAfterDate?: Date;
     width?: string;
@@ -75,7 +73,6 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             initialShow = false,
             className = "",
             forceCompact,
-            inverted,
             disableBeforeDate,
             disableAfterDate,
             variant,
@@ -109,17 +106,15 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             error: undefined,
         });
 
-        const componentClassName = classNames(
+        const componentClassName = cn(
             "jkl-datepicker",
             {
                 "jkl-datepicker--open": !state.calendarHidden,
-                "jkl-datepicker--inverted": inverted,
             },
             className,
         );
-        const inputWrapperClassName = classNames("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper", {
+        const inputWrapperClassName = cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper", {
             "jkl-text-input--compact": forceCompact,
-            "jkl-text-input--inverted": inverted,
         });
         const wrapperRef = useRef<HTMLDivElement>(null);
         const inputRef = useRef<HTMLInputElement>(null);
@@ -230,7 +225,6 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                             onClickDate={onClickCalendarDay}
                             disableDate={disableDate}
                             hidden={state.calendarHidden}
-                            inverted={inverted}
                             forceCompact={forceCompact}
                             ref={calendarRef}
                             {...calendarProps}
@@ -238,7 +232,6 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
                     </div>
                 </div>
                 <SupportLabel
-                    inverted={inverted}
                     forceCompact={forceCompact}
                     id={supportLabelId}
                     helpLabel={helpLabel}

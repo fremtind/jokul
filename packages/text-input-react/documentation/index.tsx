@@ -16,7 +16,7 @@ renderExample(
             title="TextInput"
             component={TextInputExample}
             knobs={{
-                boolProps: ["Inline", "Compact", "Invertert", "Med handling", "Med hjelpetekst", "Med feil"],
+                boolProps: ["Inline", "Compact", "Med handling", "Med hjelpetekst", "Med feil"],
                 choiceProps: [
                     {
                         name: "Variant",
@@ -30,15 +30,7 @@ renderExample(
             title="TextArea"
             component={TextAreaExample}
             knobs={{
-                boolProps: [
-                    "Compact",
-                    "Invertert",
-                    "Ekspanderende",
-                    "Med teller",
-                    "Skjul progress",
-                    "Med hjelpetekst",
-                    "Med feil",
-                ],
+                boolProps: ["Compact", "Ekspanderende", "Med teller", "Skjul progress", "Med hjelpetekst", "Med feil"],
                 choiceProps: [
                     {
                         name: "Variant",
@@ -53,7 +45,6 @@ renderExample(
             component={AutosuggestExample}
             knobs={{
                 boolProps: [
-                    "Invertert",
                     "Hjelpetekst",
                     "Feiltekst",
                     "Leadtekst",

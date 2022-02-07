@@ -3,23 +3,20 @@
 $jkl-logo-magic-origin--f: 30px 132px; /* Is connected to the viewbox of the logo, change at your own risk */
 $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
 
-$logo-color: jkl.$color-granitt;
-$logo-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --logo-color: #{$logo-color};
+    --logo-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --logo-color: #{$logo-color--inverted};
+    --logo-color: #{jkl.$color-snohvit};
 }
 
 .jkl-logo {
-    color: $logo-color;
     color: var(--logo-color);
 
     &__F {
         transform-origin: $jkl-logo-magic-origin--f;
+
         &-line {
             transform-origin: $jkl-logo-magic-origin--line;
         }
@@ -32,10 +29,12 @@ $logo-color--inverted: jkl.$color-snohvit;
     &--symbol-only {
         & .jkl-logo__F {
             transform: rotate(45deg);
+
             &-line {
                 transform: scaleX(1.5);
             }
         }
+
         & .jkl-logo__remtind {
             transition-delay: 0ms;
             opacity: 0;
@@ -47,16 +46,14 @@ $logo-color--inverted: jkl.$color-snohvit;
         & .jkl-logo__F {
             transition: transform 250ms 75ms cubic-bezier(0.5, 0, 0.62, 1);
         }
+
         & .jkl-logo__F-line {
             transition: transform 250ms ease-in;
         }
+
         & .jkl-logo__remtind {
             transition: opacity 250ms 75ms ease-in, transform 250ms ease;
         }
-    }
-
-    &--inverted {
-        color: $logo-color--inverted;
     }
 }
 

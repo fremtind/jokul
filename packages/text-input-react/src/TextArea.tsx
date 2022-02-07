@@ -31,8 +31,6 @@ export interface Props extends BaseProps {
     helpLabel?: string;
     errorLabel?: string;
     variant?: LabelVariant;
-    /** @deprecated */
-    inverted?: boolean;
     forceCompact?: boolean;
     /** Sett antall rader skjemafeltet ekspanderes til ved focus. Innholdet scroller om feltet fylles med mer innhold enn det er plass til. */
     rows?: number;
@@ -47,7 +45,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         counter,
         id,
         variant,
-        inverted,
         label,
         className,
         helpLabel,
@@ -65,7 +62,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         "jkl-text-area--start-open": startOpen,
         "jkl-text-area--with-counter": typeof counter !== "undefined",
         "jkl-text-input--compact": forceCompact,
-        "jkl-text-input--inverted": inverted,
     });
     const [uid] = useState(id || `jkl-text-area-${nanoid(8)}`);
     const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
@@ -211,7 +207,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                 </div>
             )}
             <SupportLabel
-                inverted={inverted}
                 id={supportId}
                 helpLabel={helpLabel}
                 errorLabel={errorLabel || counterLabel}

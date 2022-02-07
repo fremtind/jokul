@@ -1,0 +1,42 @@
+{
+    "name": "@fremtind/stylelint-config-jkl",
+    "version": "1.0.0",
+    "description": "Styleint configuration for Jøkul",
+    "keywords": [
+        "stylelint",
+        "jøkul",
+        "fremtind"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "homepage": "https://jokul.fremtind.no",
+    "license": "MIT",
+    "main": "index.js",
+    "files": [
+        "rules/"
+    ],
+    "scripts": {
+        "build": "npm run lint",
+        "lint": "stylelint --config=index.js 'examples/**/*.{css,scss,sass}' --cache",
+        "test": "npm run lint"
+    },
+    "dependencies": {
+        "stylelint-config-standard": "^24.0.0",
+        "stylelint-config-standard-scss": "^3.0.0",
+        "stylelint-config-prettier": "^9.0.3"
+    },
+    "peerDependencies": {
+        "stylelint": "^14.0.0"
+    },
+    "devDependencies": {
+        "stylelint": "^14.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

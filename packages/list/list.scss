@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/_functions";
 
 @function solid-diamond($color) {
     $c: jkl.helper-urlencodecolor($color);
@@ -55,19 +55,17 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
     list-style: disc var(--jkl-list-marker--default);
     padding-left: $list-padding-left;
 
-    &__item {
-        padding-left: rem(4px);
-    }
-
     & > .jkl-list__item {
         margin: $item-space-between 0;
 
         &:first-of-type {
             margin-top: 0;
         }
+
         &:last-of-type {
             margin-bottom: 0;
         }
+
         & > .jkl-list {
             margin-bottom: 0;
         }
@@ -81,6 +79,7 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
         &:first-of-type {
             margin-top: $item-space-between;
         }
+
         &:last-of-type {
             margin-bottom: $item-space-between;
         }
@@ -99,6 +98,7 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
     &__item {
         color: $list-text-color;
         color: var(--list-text-color);
+        padding-left: rem(4px);
 
         &::marker {
             color: $list-text-color;

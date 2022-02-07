@@ -1,8 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/mixins/_all.scss";
-@import "~@fremtind/jkl-core/_functions.scss";
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
 
 $dismiss-animation-duration: 500ms;
 $message-width: rem(560px);
@@ -53,7 +53,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-button {
-        @include reset-outline();
+        @include reset-outline;
         background-color: transparent;
         padding: 0;
         margin-left: auto;
@@ -69,6 +69,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         &:hover {
             color: $dismiss-hover-color;
         }
+
         &:focus {
             @include keyboard-navigation {
                 position: relative;
@@ -122,6 +123,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
+
     to {
         opacity: 0;
         transform: translate3d(0, -50%, 0);

@@ -4,24 +4,16 @@
 @import "./mixins/all";
 @import "./functions";
 
-$label-color: jkl.$color-granitt;
-$label-support-color: jkl.$color-stein;
-$label-error-color: jkl.$color-granitt;
-
-$label-color--inverted: jkl.$color-snohvit;
-$label-support-color--inverted: jkl.$color-svaberg;
-$label-error-color--inverted: jkl.$color-snohvit;
-
 @include jkl.helper-light-mode-variables {
-    --label-color: #{$label-color};
-    --label-support-color: #{$label-support-color};
-    --label-error-color: #{$label-error-color};
+    --label-color: #{jkl.$color-granitt};
+    --label-support-color: #{jkl.$color-stein};
+    --label-error-color: #{jkl.$color-granitt};
 }
 
 @include jkl.helper-dark-mode-variables {
-    --label-color: #{$label-color--inverted};
-    --label-support-color: #{$label-support-color--inverted};
-    --label-error-color: #{$label-error-color--inverted};
+    --label-color: #{jkl.$color-snohvit};
+    --label-support-color: #{jkl.$color-svaberg};
+    --label-error-color: #{jkl.$color-snohvit};
 }
 
 .jkl-dormant-form-support-label {
@@ -36,7 +28,6 @@ $label-error-color--inverted: jkl.$color-snohvit;
 
     display: block;
     margin-top: jkl.$spacing-xs;
-    color: $label-support-color;
     color: var(--label-support-color);
     transition-property: color;
     transition-delay: 150ms;
@@ -59,8 +50,8 @@ $label-error-color--inverted: jkl.$color-snohvit;
     }
 
     &--error {
-        color: $label-error-color;
         color: var(--label-error-color);
+
         .jkl-form-support-label__icon {
             animation: map.get($jkl--timings, "lazy") cubic-bezier(0, 0, 0.3, 1) map.get($jkl--timings, "expressive")
                 jkl-support-label-icon-entrance forwards;
@@ -69,14 +60,6 @@ $label-error-color--inverted: jkl.$color-snohvit;
 
     &--sr-only {
         @include screenreader-only;
-    }
-
-    &--inverted {
-        color: var(--label-support-color);
-
-        &.jkl-form-support-label--error {
-            color: $label-error-color--inverted;
-        }
     }
 }
 
@@ -90,7 +73,6 @@ $label-spacing-small--compact: jkl.$spacing-2xs;
 .jkl-label {
     display: block;
     margin-left: initial;
-    color: $label-color;
     color: var(--label-color);
 
     &--large {
@@ -118,10 +100,12 @@ $label-spacing-small--compact: jkl.$spacing-2xs;
             @include jkl.text-style("small/small-screen");
             margin-bottom: $label-spacing-small--compact;
         }
+
         &.jkl-label--medium {
             @include jkl.text-style("body/small-screen");
             margin-bottom: $label-spacing-medium--compact;
         }
+
         &.jkl-label--large {
             @include jkl.text-style("heading-2/small-screen");
             margin-bottom: $label-spacing-large--compact;
@@ -135,18 +119,23 @@ $label-spacing-small--compact: jkl.$spacing-2xs;
         opacity: 0;
         transform: scale(1);
     }
+
     30% {
         margin-right: jkl.$spacing-xs;
     }
+
     50% {
         opacity: 1;
     }
+
     70% {
         transform: scale(1.1);
     }
+
     85% {
         transform: scale(0.9);
     }
+
     100% {
         transform: scale(1);
         opacity: 1;

@@ -1,5 +1,5 @@
 @use "../functions" as func;
 
-$drop-shadow--small: 0px func.rem(4px) func.rem(8px) rgba(0, 0, 0, 0.08);
-$drop-shadow--medium: func.rem(4px) func.rem(4px) func.rem(8px) rgba(0, 0, 0, 0.08);
-$drop-shadow--large: func.rem(4px) func.rem(6px) func.rem(16px) rgba(0, 0, 0, 0.15);
+$drop-shadow--small: 0 func.rem(4px) func.rem(8px) rgb(0 0 0 / 8%);
+$drop-shadow--medium: func.rem(4px) func.rem(4px) func.rem(8px) rgb(0 0 0 / 8%);
+$drop-shadow--large: func.rem(4px) func.rem(6px) func.rem(16px) rgb(0 0 0 / 15%);

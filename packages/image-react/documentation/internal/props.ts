@@ -1,4 +1,4 @@
-export const boolProps = ["Invertert", "Thumbnail", "LargeSize", "Bakgrunn"];
+export const boolProps = ["Thumbnail", "LargeSize", "Bakgrunn"];
 
 export const choiceProps = [
     {

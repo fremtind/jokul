@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, forwardRef, ChangeEventHandler, FocusEventHandler } from "react";
-import cx from "classnames";
+import cn from "classnames";
 import { nanoid } from "nanoid";
 import { DataTestAutoId } from "@fremtind/jkl-core";
 
@@ -12,36 +12,21 @@ export interface CheckboxProps extends DataTestAutoId {
     className?: string;
     forceCompact?: boolean;
     invalid?: boolean;
-    /** @deprecated */
-    inverted?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onFocus?: FocusEventHandler<HTMLInputElement>;
     onBlur?: FocusEventHandler<HTMLInputElement>;
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-    (
-        {
-            children,
-            invalid,
-            className,
-            inline = false,
-            forceCompact,
-            inverted,
-            "data-testautoid": testAutoId,
-            ...rest
-        },
-        ref,
-    ) => {
+    ({ children, invalid, className, inline = false, forceCompact, "data-testautoid": testAutoId, ...rest }, ref) => {
         const [id] = useState(`jkl-checkbox-${nanoid(8)}`);
 
         return (
             <div
-                className={cx("jkl-checkbox", className, {
+                className={cn("jkl-checkbox", className, {
                     "jkl-checkbox--compact": forceCompact,
                     "jkl-checkbox--inline": inline,
                     "jkl-checkbox--error": invalid,
-                    "jkl-checkbox--inverted": inverted,
                 })}
             >
                 <input

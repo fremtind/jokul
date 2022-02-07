@@ -4,10 +4,12 @@
 
 .jkl-icon {
     width: var(--jkl-icon-width);
+
     &--inherit {
         height: 1em;
         width: initial;
     }
+
     &--small {
         --jkl-icon-width: 20px;
     }

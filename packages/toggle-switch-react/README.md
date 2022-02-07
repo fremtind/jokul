@@ -61,5 +61,4 @@ Komponenten tar i bruk følgende props:
 -   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
 -   `onClick`: Angir funksjon for å håndtere endring i verdi. Får en `MouseEvent` som første argument.
 -   `disabled`: Angir om bryteren er deaktivert. `boolean`
--   `inverted`: Angir om bryteren skal bruke inverterte farger (til mørke bakgrunner). `boolean`
 -   `helpLabel`: Hjelpetekst som vises under bryterne. `string`
