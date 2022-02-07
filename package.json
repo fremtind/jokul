@@ -7,7 +7,9 @@
         "clean:portal": "lerna run clean:portal --stream",
         "build": "yarn patch-package && lerna run --ignore @fremtind/browserslist-config-jkl --ignore @fremtind/portal build --stream",
         "build:quiet": "yarn patch-package && lerna run --ignore @fremtind/browserslist-config-jkl --ignore @fremtind/portal build",
-        "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/jkl-react-hooks build",
+        "build:style": "lerna run --ignore @fremtind/*-react --ignore @fremtind/*-util --ignore @fremtind/portal --ignore @fremtind/jkl-react-hooks build",
+        "build:scripts": "lerna run --ignore @fremtind/browserslist-config-jkl --ignore @fremtind/portal --ignore '@fremtind/!(*-react)' build:scripts --stream",
+        "build:types": "lerna run --ignore @fremtind/browserslist-config-jkl --ignore @fremtind/portal --ignore '@fremtind/!(*-react)' build:types --stream",
         "build:docs": "lerna run --scope @fremtind/portal build --stream",
         "commit": "git-cz",
         "predeploy:docs": "yarn run build:docs",
@@ -44,16 +46,13 @@
         "react-dom": "^17.0.1"
     },
     "devDependencies": {
-        "@babel/cli": "^7.16.8",
         "@babel/core": "^7.16.12",
-        "@babel/plugin-proposal-optional-chaining": "^7.16.7",
         "@babel/plugin-transform-runtime": "^7.16.10",
         "@babel/preset-env": "^7.16.11",
         "@babel/preset-react": "^7.16.7",
         "@babel/preset-typescript": "^7.16.7",
         "@commitlint/cli": "^16.1.0",
         "@commitlint/config-conventional": "^16.0.0",
-        "@cypress/browserify-preprocessor": "^3.0.2",
         "@parcel/config-default": "^2.2.1",
         "@parcel/transformer-sass": "^2.2.1",
         "@parcel/transformer-typescript-tsc": "^2.2.1",
@@ -72,13 +71,13 @@
         "@types/react": "^17.0.38",
         "@types/react-dom": "^17.0.11",
         "@types/sass": "^1.43.1",
-        "@types/vfile-message": "^2.0.0",
         "@typescript-eslint/eslint-plugin": "^5.10.2",
         "@typescript-eslint/parser": "^5.10.2",
         "@webcomponents/webcomponentsjs": "^2.4.4",
         "autoprefixer": "^10.4.2",
         "commitizen": "^4.1.2",
         "cssnano": "^5.0.16",
+        "cssnano-preset-lite": "^2.0.2",
         "cypress": "^9.4.1",
         "cypress-plugin-snapshots": "^1.4.4",
         "cz-lerna-changelog": "^2.0.3",
@@ -102,7 +101,6 @@
         "lerna": "^4.0.0",
         "lerna-clean-changelogs-cli": "^2.0.12",
         "lint-staged": "^12.3.2",
-        "node-notifier": "^10.0.0",
         "node-sass-tilde-importer": "^1.0.2",
         "npm-run-all": "^4.1.5",
         "parcel": "^2.2.1",
@@ -111,7 +109,6 @@
         "postinstall-postinstall": "^2.1.0",
         "prettier": "^2.5.1",
         "prompt": "^1.2.1",
-        "react-test-renderer": "^17.0.1",
         "regenerator-runtime": "^0.13.5",
         "replace-in-file": "^6.3.2",
         "rimraf": "^3.0.2",
@@ -136,6 +133,9 @@
     "lint-staged": {
         "*.{scss,css,html,json,md,mdx}": [
             "prettier --write"
+        ],
+        "!(*integration).{png,jpg,jpeg}": [
+            "node scripts/preoptimize-images"
         ],
         "*.{scss,css}": [
             "stylelint --fix --config=packages/stylelint-config-jkl/index.js"
