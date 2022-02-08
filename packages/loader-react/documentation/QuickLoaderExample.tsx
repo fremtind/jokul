@@ -22,7 +22,13 @@ const QuickLoaderExample: VFC<{ delay?: number }> = ({ delay }) => {
             */}
             <div className="jkl-card jkl-spacing-l--bottom">
                 <div style={{ minHeight: "3rem" }}>
-                    {isLoading && <Loader textDescription="Laster eksempel på rask loader" delay={delay} />}
+                    {isLoading && (
+                        <Loader
+                            role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
+                            textDescription="Laster eksempel på rask loader"
+                            delay={delay}
+                        />
+                    )}
                     {!isLoading && <p>Denne informasjonen tok {quickTime} millisekunder å hente inn</p>}
                 </div>
             </div>
