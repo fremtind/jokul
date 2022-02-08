@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.1 (2022-02-08)
+
+### Bug Fixes
+
+-   **datepicker:** use remove-inner-outer-button mixin on year-selector ([a5fde17](https://github.com/fremtind/jokul/commit/a5fde173632195e7ee40a3ba8d34de13c02f65d7)), closes [#2707](https://github.com/fremtind/jokul/issues/2707)
+
 # 6.0.0 (2022-02-07)
 
 ### Bug Fixes
