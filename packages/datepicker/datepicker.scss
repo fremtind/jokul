@@ -208,6 +208,7 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
     &__year-selector {
         max-width: 30%;
         margin-right: jkl.$spacing-xl;
+        @include remove-inner-outer-button;
     }
 
     &__month-selector {
