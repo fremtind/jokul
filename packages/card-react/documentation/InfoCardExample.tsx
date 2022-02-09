@@ -2,7 +2,8 @@ import { ExampleComponentProps } from "doc-utils";
 import React from "react";
 
 import { InfoCard } from "../src/InfoCard";
-import { SpacingStep } from "../src/types";
+import { mixedPadding } from "./cardExampleProps";
+
 import carThumbnail from "./img/car-thumbnail.jpg";
 import car400 from "./img/car-400.jpg";
 import car800 from "./img/car-800.jpg";
@@ -19,22 +20,33 @@ const imageProps = {
 
 export const InfoCardExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const image = boolValues?.["Image"] ? imageProps : undefined;
-    const padding = (choiceValues?.["Padding"] as "m" | "l" | "xl") || "l";
-    const topPadding =
-        choiceValues?.["Top Padding"] === "auto" ? undefined : (choiceValues?.["Top Padding"] as SpacingStep);
-    const bottomPadding =
-        choiceValues?.["Bottom Padding"] === "auto" ? undefined : (choiceValues?.["Bottom Padding"] as SpacingStep);
+    const paddingChoice = (choiceValues?.["Padding"] as "m" | "l" | "xl" | "blandet") || "l";
+    const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
-        <InfoCard
-            image={image}
-            padding={padding}
-            topPadding={topPadding}
-            bottomPadding={bottomPadding}
-            className="example-info-card"
-        >
+        <InfoCard image={image} padding={padding} className="example-info-card">
             <p className="jkl-heading-1">Samle forsikringer –&nbsp;få&nbsp;rabatt!</p>
             <p className="jkl-body jkl-spacing-m--top">Har du tre eller flere forsikringer får du samlerabatt</p>
         </InfoCard>
     );
+};
+
+export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+    const image = boolValues?.["Image"] ? '\n    image="car.jpg"' : "";
+    const paddingChoice = choiceValues?.["Padding"] || "l";
+    const padding =
+        paddingChoice === "blandet"
+            ? `{{
+        top: "2xl",
+        right: "xl",
+        bottom: "m",
+        left: "l",
+    }}`
+            : `"${paddingChoice}"`;
+
+    return `<InfoCard
+    padding=${padding}
+    href="#"
+    title="Behandlings- og Veterinærutgifter"${image}
+/>`;
 };

@@ -1,3 +1,5 @@
+import { PaddingShorthand } from "../src/types";
+
 export const navCardExampleProps = {
     boolProps: [
         "Image",
@@ -8,13 +10,8 @@ export const navCardExampleProps = {
     choiceProps: [
         {
             name: "Padding",
-            values: ["m", "l", "xl"],
+            values: ["m", "l", "xl", "blandet"],
             defaultValue: 1,
-        },
-        {
-            name: "Top Padding",
-            values: ["auto", "m", "l", "xl", "2xl", "3xl"],
-            defaultValue: 0,
         },
     ],
 };
@@ -23,13 +20,8 @@ export const taskCardExampleProps = {
     choiceProps: [
         {
             name: "Padding",
-            values: ["m", "l", "xl"],
+            values: ["m", "l", "xl", "blandet"],
             defaultValue: 1,
-        },
-        {
-            name: "Top Padding",
-            values: ["auto", "m", "l", "xl", "2xl", "3xl"],
-            defaultValue: 0,
         },
     ],
 };
@@ -39,18 +31,15 @@ export const infoCardExampleProps = {
     choiceProps: [
         {
             name: "Padding",
-            values: ["m", "l", "xl"],
+            values: ["m", "l", "xl", "blandet"],
             defaultValue: 1,
         },
-        {
-            name: "Top Padding",
-            values: ["auto", "m", "l", "xl", "2xl", "3xl"],
-            defaultValue: 4,
-        },
-        {
-            name: "Bottom Padding",
-            values: ["auto", "m", "l", "xl", "2xl", "3xl"],
-            defaultValue: 0,
-        },
     ],
+};
+
+export const mixedPadding: PaddingShorthand = {
+    top: "2xl",
+    right: "xl",
+    bottom: "m",
+    left: "l",
 };

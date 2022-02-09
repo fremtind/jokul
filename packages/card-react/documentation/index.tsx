@@ -12,46 +12,13 @@ import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-checkbox/checkbox.css";
 import "@fremtind/jkl-select/select.css";
 import "@fremtind/jkl-tag/tag.css";
+import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./cardExampleProps";
 
 renderExample(
     <>
-        <DevExample
-            knobs={{
-                choiceProps: [
-                    {
-                        name: "Padding",
-                        values: ["m", "l", "xl"],
-                        defaultValue: 1,
-                    },
-                    {
-                        name: "Top Padding",
-                        values: ["auto", "m", "l", "xl", "2xl", "3xl"],
-                        defaultValue: 0,
-                    },
-                ],
-            }}
-            component={InfoCardExample}
-        />
-        <DevExample
-            knobs={{
-                boolProps: ["Image", "Tag", "Description", "Ekstra info"],
-                choiceProps: [
-                    {
-                        name: "Padding",
-                        values: ["m", "l", "xl"],
-                        defaultValue: 1,
-                    },
-                    {
-                        name: "Top Padding",
-                        values: ["auto", "m", "l", "xl", "2xl", "3xl"],
-                        defaultValue: 0,
-                    },
-                ],
-            }}
-            component={NavCardExample}
-            codeExample={navCardExampleCode}
-        />
-        <DevExample component={TaskCardExample} />
+        <DevExample knobs={navCardExampleProps} component={NavCardExample} codeExample={navCardExampleCode} />
+        <DevExample knobs={infoCardExampleProps} component={InfoCardExample} />
+        <DevExample knobs={taskCardExampleProps} component={TaskCardExample} />
     </>,
     document.getElementById("app"),
 );

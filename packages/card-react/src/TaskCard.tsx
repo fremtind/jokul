@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import cn from "classnames";
 import { PaddingOptions } from "./types";
+import { getSpacingClasses } from "./utils";
 
 export interface TaskCardProps extends PaddingOptions {
     /**
@@ -20,20 +21,15 @@ export const TaskCard: FC<TaskCardProps> = ({
     bgColor = "hvit",
     shadow = false,
     padding = "l",
-    topPadding,
     children,
     className,
-}) => {
-    const spacingClass = `jkl-spacing-${padding}--all`;
-    const topSpacingClass = topPadding ? `jkl-spacing-${topPadding}--top` : "";
-    return (
-        <div
-            className={cn("jkl-task-card", className, {
-                [`jkl-task-card--${bgColor}`]: bgColor,
-                "jkl-task-card--shadow": shadow,
-            })}
-        >
-            <div className={cn("jkl-task-card__content-wrapper", spacingClass, topSpacingClass)}>{children}</div>
-        </div>
-    );
-};
+}) => (
+    <div
+        className={cn("jkl-task-card", className, {
+            [`jkl-task-card--${bgColor}`]: bgColor,
+            "jkl-task-card--shadow": shadow,
+        })}
+    >
+        <div className={cn("jkl-task-card__content-wrapper", getSpacingClasses(padding))}>{children}</div>
+    </div>
+);

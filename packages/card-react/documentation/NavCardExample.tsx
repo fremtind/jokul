@@ -1,9 +1,10 @@
 import React from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { SpacingStep } from "../src/types";
-
-import { NavCard, InfoBlock } from "../src/NavCard";
+import { NavCard } from "../src/NavCard";
+import { InfoBlock } from "../src/InfoBlock";
 import type { NavCardProps } from "../src/NavCard";
+import { mixedPadding } from "./cardExampleProps";
+
 import grassThumbnail from "./img/grass-thumbnail.jpg";
 import grass400 from "./img/grass-400.jpg";
 import grass800 from "./img/grass-800.jpg";
@@ -19,14 +20,12 @@ export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, ch
     const image = boolValues?.["Image"] ? imageProps : undefined;
     const tag = boolValues?.["Tag"] ? ({ type: "success", text: "Behandles" } as NavCardProps["tag"]) : undefined;
     const description = boolValues?.["Description"] ? "Balder" : undefined;
-    const padding = (choiceValues?.["Padding"] as "m" | "l" | "xl") || "l";
-    const topPadding =
-        choiceValues?.["Top Padding"] === "auto" ? undefined : (choiceValues?.["Top Padding"] as SpacingStep);
+    const paddingChoice = (choiceValues?.["Padding"] as "m" | "l" | "xl" | "blandet") || "l";
+    const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
         <NavCard
             padding={padding}
-            topPadding={topPadding}
             id="nav-card"
             href="#nav-card"
             image={image}
@@ -49,9 +48,16 @@ export const navCardExampleCode = ({ boolValues, choiceValues }: ExampleComponen
     const image = boolValues?.["Image"] ? '\n    image="wheat.jpg"' : "";
     const tag = boolValues?.["Tag"] ? '\n    tag={{ type: "success", text: "Behandles" }}' : "";
     const description = boolValues?.["Description"] ? '\n    description="Balder"' : "";
-    const padding = choiceValues?.["Padding"] || "l";
-    const topPadding =
-        choiceValues?.["Top Padding"] === "auto" ? "" : `\n    topPadding="${choiceValues?.["Top Padding"]}"`;
+    const paddingChoice = choiceValues?.["Padding"] || "l";
+    const padding =
+        paddingChoice === "blandet"
+            ? `{{
+        top: "2xl",
+        right: "xl",
+        bottom: "m",
+        left: "l",
+    }}`
+            : `"${paddingChoice}"`;
     const children = !boolValues?.["Ekstra info"]
         ? "/>"
         : `>
@@ -64,7 +70,7 @@ export const navCardExampleCode = ({ boolValues, choiceValues }: ExampleComponen
 `;
 
     return `<NavCard
-    padding="${padding}"${topPadding}
+    padding=${padding}
     href="#"
     title="Behandlings- og Veterinærutgifter"${description}${tag}${image}
 ${children}`;

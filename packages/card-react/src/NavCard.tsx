@@ -3,11 +3,19 @@ import cn from "classnames";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-tag-react";
 import { Image } from "@fremtind/jkl-image-react";
 import { PaddingOptions } from "./types";
+import { getSpacingClasses } from "./utils";
 
 // TODO: Eksporter typer fra Image-komponenten
 type ImageProps = React.ComponentProps<typeof Image>;
 
 export type TagType = "success" | "warning" | "info" | "error";
+
+/**
+ * Bruk denne komponenten for å legge til ekstra informasjon i NavCard.
+ * Innholdet blir rendret med skillelinje, og tekststil "small"
+ */
+export const InfoBlock: FC = ({ children }) => <div className="jkl-nav-card__info">{children}</div>;
+
 export interface NavCardProps extends PaddingOptions, HTMLAttributes<HTMLAnchorElement> {
     tag?: {
         /**
@@ -39,14 +47,13 @@ const getTag = (type?: TagType) => {
 };
 
 export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, NavCardProps>(
-    ({ padding = "l", topPadding, image, tag, title, description, children, className, ...anchorProps }, ref) => {
+    ({ padding = "l", image, tag, title, description, children, className, ...anchorProps }, ref) => {
         const CardTag = getTag(tag?.type);
-        const spacingClass = `jkl-spacing-${padding}--all`;
-        const topSpacingClass = topPadding ? `jkl-spacing-${topPadding}--top` : "";
+
         return (
             <a ref={ref} className={cn("jkl-nav-card", className)} {...anchorProps}>
                 {image && <Image className="jkl-nav-card__image" {...image} />}
-                <div className={cn("jkl-nav-card__content", spacingClass, topSpacingClass)}>
+                <div className={cn("jkl-nav-card__content", getSpacingClasses(padding))}>
                     {tag && <CardTag>{tag.text}</CardTag>}
                     <div>
                         <p className="jkl-nav-link jkl-nav-card__link">{title}</p>
@@ -59,9 +66,3 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
     },
 );
 NavCard.displayName = "NavCard";
-
-/**
- * Bruk denne for å legge til ekstra informasjon i NavCard.
- * Innholdet blir rendret med skillelinje, og tekststil "small"
- */
-export const InfoBlock: FC = ({ children }) => <div className="jkl-nav-card__info">{children}</div>;
