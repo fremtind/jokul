@@ -2,7 +2,8 @@ import React, { FC, useState } from "react";
 import cx from "classnames";
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import { ExpandableTableRowController } from "./ExpandableTableRowController";
-import { TableRowProps, TableRow } from "./TableRow";
+import type { TableRowProps } from "./TableRow";
+import { TableRow } from "./TableRow";
 
 export interface ExpandableTableRowProps extends TableRowProps {
     expandedChildren: React.ReactNode;
