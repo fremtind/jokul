@@ -124,9 +124,9 @@ $card-padding-normal: jkl.$spacing-l;
     &__link {
         @include jkl.text-style("heading-2");
 
-        .jkl-nav-card:hover &::after,
-        .jkl-nav-card:focus &::after {
-            transform: translateX(33%);
+        &:hover:focus::after,
+        &:hover:not(:focus)::after {
+            transform: translateX(0);
         }
     }
 
