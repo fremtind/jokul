@@ -200,7 +200,7 @@ $card-padding-normal: jkl.$spacing-l;
         background-color: var(--task-card-background--dis);
     }
 
-    &--shadow {
+    &--with-shadow {
         box-shadow: var(--task-card-shadow);
     }
 }

@@ -13,22 +13,23 @@ export interface TaskCardProps extends PaddingOptions {
      * Skal kortet ha skygge?
      * @default false
      */
-    shadow?: boolean;
+    withShadow?: boolean;
     className?: string;
 }
 
 export const TaskCard: FC<TaskCardProps> = ({
     bgColor = "hvit",
-    shadow = false,
+    withShadow = false,
     padding = "l",
-    children,
     className,
+    children,
+    ...rest
 }) => (
     <div
-        className={cn("jkl-task-card", className, {
-            [`jkl-task-card--${bgColor}`]: bgColor,
-            "jkl-task-card--shadow": shadow,
+        className={cn("jkl-task-card", `jkl-task-card--${bgColor}`, className, {
+            "jkl-task-card--with-shadow": withShadow,
         })}
+        {...rest}
     >
         <div className={cn("jkl-task-card__content-wrapper", getSpacingClasses(padding))}>{children}</div>
     </div>

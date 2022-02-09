@@ -18,7 +18,7 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
-        <TaskCard bgColor={selected ? "hvit" : "dis"} shadow={selected} padding={padding}>
+        <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding={padding}>
             <Checkbox name="veterinar" value="veterinar" onChange={() => setSelected((sel) => !sel)}>
                 Veterinærutgifter
             </Checkbox>
@@ -67,7 +67,7 @@ export const taskCardExampleCode = ({ choiceValues }: ExampleComponentProps) => 
 const [contentRef] = useAnimatedHeight<HTMLDivElement>(selected);
 
 return (
-    <TaskCard bgColor={selected ? "hvit" : "dis"} shadow={selected} padding=${padding}>
+    <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding=${padding}>
         <Checkbox name="veterinar" value="veterinar" onChange={() => setSelected((sel) => !sel)}>
             Veterinærutgifter
         </Checkbox>
