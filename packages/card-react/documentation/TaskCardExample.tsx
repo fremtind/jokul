@@ -19,13 +19,27 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
 
     return (
         <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding={padding}>
-            <Checkbox name="veterinar" value="veterinar" onChange={() => setSelected((sel) => !sel)}>
+            <Checkbox
+                id="veterinar-checkbox"
+                aria-controls="expanded-content"
+                aria-expanded={selected}
+                name="veterinar"
+                value="veterinar"
+                onChange={() => setSelected((sel) => !sel)}
+            >
                 Veterinærutgifter
             </Checkbox>
             <p className="jkl-body jkl-spacing-s--top">
                 Dekker veterinærutgifter og medisiner på resept, som ofte kan bli dyrt.
             </p>
-            <div className="jkl-task-card-example__content" hidden={!selected} ref={contentRef}>
+            <div
+                id="expanded-content"
+                aria-labelledby="veterinar-checkbox"
+                role="group"
+                className="jkl-task-card-example__content"
+                hidden={!selected}
+                ref={contentRef}
+            >
                 <Select
                     label="Forsikringssum"
                     name="forsikringssum"
@@ -68,13 +82,27 @@ const [contentRef] = useAnimatedHeight<HTMLDivElement>(selected);
 
 return (
     <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding=${padding}>
-        <Checkbox name="veterinar" value="veterinar" onChange={() => setSelected((sel) => !sel)}>
+        <Checkbox
+            id="veterinar-checkbox"
+            aria-controls="veterinar-expanded-content"
+            aria-expanded={selected}
+            name="veterinar"
+            value="veterinar"
+            onChange={() => setSelected((sel) => !sel)}
+        >
             Veterinærutgifter
-        </Checkbox>
+        </Checkbox>'
         <p className="jkl-body jkl-spacing-s--top">
             Dekker veterinærutgifter og medisiner på resept, som ofte kan bli dyrt.
         </p>
-        <div hidden={!selected} ref={contentRef} className="jkl-task-card-example__content">
+        <div
+            id="veterinar-expanded-content"
+            aria-labelledby="veterinar-checkbox"
+            role="group"
+            className="jkl-task-card-example__content"
+            hidden={!selected}
+            ref={contentRef}
+        >
             <Select
                 label="Forsikringssum"
                 name="forsikringssum"
