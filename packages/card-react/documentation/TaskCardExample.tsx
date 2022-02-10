@@ -91,7 +91,7 @@ return (
             onChange={() => setSelected((sel) => !sel)}
         >
             Veterinærutgifter
-        </Checkbox>'
+        </Checkbox>
         <p className="jkl-body jkl-spacing-s--top">
             Dekker veterinærutgifter og medisiner på resept, som ofte kan bli dyrt.
         </p>
