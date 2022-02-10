@@ -1,7 +1,6 @@
 import React from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { NavCard } from "../src/NavCard";
-import { InfoBlock } from "../src/InfoBlock";
+import { NavCard, InfoBlock } from "../src/NavCard";
 import type { NavCardProps } from "../src/NavCard";
 import { mixedPadding } from "./cardExampleProps";
 
