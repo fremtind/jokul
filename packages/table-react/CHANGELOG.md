@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.2.5 (2022-02-11)
+
+### Bug Fixes
+
+-   fiks en warning om en sirkulær avhengighet ([2b61703](https://github.com/fremtind/jokul/commit/2b6170378387a975a64f0dd0fe86466d689d245e))
+
 # [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.1.7...@fremtind/jkl-table-react@7.2.0) (2022-02-02)
 
 ### Bug Fixes
