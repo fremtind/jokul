@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image-react@2.0.1...@fremtind/jkl-image-react@2.0.2) (2022-02-11)
+
+### Bug Fixes
+
+-   **deps:** bruk riktig versjon av stilpakken ([23eece8](https://github.com/fremtind/jokul/commit/23eece85f222e2fcf5bde47b975775a39b36baa8))
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image-react@0.8.0...@fremtind/jkl-image-react@2.0.0) (2022-02-07)
 
 ### Features
