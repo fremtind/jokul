@@ -29,7 +29,7 @@
         "cypress:open": "cypress open --project .",
         "cypress:dev": "cypress open --project . --config baseUrl=http://localhost:8000",
         "prerelease": "yarn build",
-        "release": "lerna publish",
+        "release": "lerna publish --conventional-graduate",
         "release-gh": "lerna publish from-package",
         "dev": "lerna run --scope @fremtind/portal dev --stream",
         "start": "yarn run dev",

@@ -1,0 +1,32 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-breadcrumb {
+    a {
+        @include jkl.text-style("small");
+    }
+
+    a[aria-current] {
+        text-decoration: none;
+        color: var(--jkl-color);
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding-inline-start: 0;
+    }
+
+    &__item {
+        margin-bottom: jkl.$spacing-xs;
+        white-space: nowrap;
+    }
+
+    &__item-separator {
+        @include jkl.text-style("small");
+
+        padding-left: jkl.$spacing-xs;
+        padding-right: jkl.$spacing-xs;
+    }
+}
