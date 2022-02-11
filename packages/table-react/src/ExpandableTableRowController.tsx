@@ -1,7 +1,9 @@
 import React from "react";
 import cx from "classnames";
 import { ExpandButton } from "@fremtind/jkl-expand-button-react";
-import { TableCell, TableCellProps, useTableContext } from ".";
+import type { TableCellProps } from "./TableCell";
+import { TableCell } from "./TableCell";
+import { useTableContext } from "./tableContext";
 
 export interface ExpandableTableRowControllerProps extends TableCellProps {
     /** Settes automatisk av ExpandableTableRow */

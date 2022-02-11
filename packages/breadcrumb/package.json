@@ -1,10 +1,10 @@
 {
-    "name": "@fremtind/jkl-scaffold",
+    "name": "@fremtind/jkl-breadcrumb",
     "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul style for scaffold",
+    "description": "Jøkul style for breadcrumb",
     "homepage": "https://jokul.fremtind.no",
     "keywords": [
         "jøkul",
@@ -20,7 +20,7 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "echo \"Error: run dev from scaffold-react\" && exit 1"
+        "dev": "echo \"Error: run dev from breadcrumb-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^9.0.0"
