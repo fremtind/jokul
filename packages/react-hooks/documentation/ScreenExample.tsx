@@ -1,66 +1,71 @@
-import React, { createContext, useContext, VFC } from "react";
-import { useScreen, initialScreenState } from "../src";
+import React, { VFC } from "react";
+import { useScreen } from "../src";
+import { unicode } from "../../constants-util/src";
 
-interface State {
-    isSmallDevice: boolean;
-    isMediumDevice: boolean;
-    isLargeDevice: boolean;
-    isXlDevice: boolean;
-    isLandscape: boolean;
-    isPortrait: boolean;
-    inner: {
-        height: number;
-        width: number;
-    };
-}
-
-const ScreenContext = createContext<State>(initialScreenState);
-
-const ScreenExample: VFC = () => {
-    const {
-        isSmallDevice,
-        isMediumDevice,
-        isLargeDevice,
-        isXlDevice,
-        isLandscape,
-        isPortrait,
-        inner: { width, height },
-    } = useContext(ScreenContext);
+export const ScreenExample: VFC = () => {
+    const screen = useScreen();
 
     const getDeviceName = () => {
         switch (true) {
-            case isSmallDevice:
+            case screen.isSmallDevice:
                 return "liten";
-            case isMediumDevice:
-                return "litt større";
-            case isLargeDevice:
-                return "ganske stor";
-            case isXlDevice:
+            case screen.isMediumDevice:
+                return "medium";
+            case screen.isLargeDevice:
                 return "stor";
+            case screen.isXlDevice:
+                return "veldig stor";
+            default:
+                return "";
+        }
+    };
+
+    const getOrientation = () => {
+        switch (true) {
+            case screen.isLandscape:
+                return ` i landskaps${unicode.shy}modus`;
+            case screen.isPortrait:
+                return ` i portrett${unicode.shy}modus`;
             default:
                 return "";
         }
     };
 
     return (
-        <>
-            <p className="jkl-heading-3 jkl-spacing-xl--bottom">{`Din dings har en ${getDeviceName()} skjerm i ${
-                isLandscape ? "landskaps" : ""
-            }${isPortrait ? "portrett" : ""}modus`}</p>
-
-            <p className="jkl-body jkl-spacing-xl--bottom">{`Oppløsningen på nettleservinduet er ${width} x ${height}`}</p>
-        </>
+        <p className="jkl-heading-3 jkl-spacing-xl--bottom">{`Din dings har en ${getDeviceName()} skjerm${getOrientation()}`}</p>
     );
 };
 
-const Provider: VFC = () => {
-    const screen = useScreen();
+export const screenExampleCode = `const screen = useScreen();
 
-    return (
-        <ScreenContext.Provider value={screen}>
-            <ScreenExample />
-        </ScreenContext.Provider>
-    );
+const getDeviceName = () => {
+    switch (true) {
+        case screen.isSmallDevice:
+            return "liten";
+        case screen.isMediumDevice:
+            return "medium";
+        case screen.isLargeDevice:
+            return "stor";
+        case screen.isXlDevice:
+            return "veldig stor";
+        default:
+            return "";
+    }
 };
 
-export default Provider;
+const getOrientation = () => {
+    switch (true) {
+        case screen.isLandscape:
+            return \` i landskapsmodus\`;
+        case screen.isPortrait:
+            return \` i portrettmodus\`;
+        default:
+            return "";
+    }
+};
+
+return (
+    <p className="jkl-heading-3 jkl-spacing-xl--bottom">
+        {\`Din dings har en \${getDeviceName()} skjerm\${getOrientation()}\`}
+    </p>
+);`;
