@@ -9,6 +9,7 @@ export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, bool
     const variant = choiceValues?.["Variant"] as LabelVariant;
     const compact = boolValues?.["Compact"];
     const autoExpand = boolValues?.["Ekspanderende"];
+    const startOpen = boolValues?.["Starter åpen"];
     const medTeller = boolValues?.["Med teller"];
     const skjulProgress = boolValues?.["Skjul progress"];
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Beskriv så utfyllende som mulig" : undefined;
@@ -24,6 +25,7 @@ export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, bool
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             autoExpand={autoExpand}
+            startOpen={startOpen}
             forceCompact={compact}
             counter={medTeller ? { maxLength: 200, hideProgress: skjulProgress } : undefined}
             variant={variant}
@@ -43,6 +45,7 @@ export const textAreaExampleCode = ({ choiceValues, boolValues }: ExampleCompone
     }
     autoExpand={${boolValues?.["Ekspanderende"]}}
     forceCompact={${boolValues?.["Compact"]}}
+    startOpen={${boolValues?.["Starter åpen"]}}
     counter={${
         boolValues?.["Med teller"] ? `{ maxLength: 200, hideProgress: ${boolValues?.["Skjul progress"]} }` : undefined
     }}

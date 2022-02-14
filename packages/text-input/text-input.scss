@@ -264,6 +264,10 @@ $text-input-selection-color--inverted: color.scale(
         resize: none; // Disable textarea resize
     }
 
+    &.jkl-text-input--compact .jkl-text-input__input:empty {
+        overflow: hidden;
+    }
+
     &--with-counter {
         $progress-bar-height: rem(4px);
 
@@ -273,7 +277,6 @@ $text-input-selection-color--inverted: color.scale(
 
         .jkl-text-input__input {
             height: auto;
-            max-height: $text-input-height;
             padding-bottom: jkl.$spacing-xs;
             transition-property: max-height, box-shadow, padding-bottom;
 
@@ -374,6 +377,11 @@ $text-input-selection-color--inverted: color.scale(
                 @include jkl.text-style("body/small-screen");
                 height: calc($text-input-height - (2 * jkl.$spacing-xs));
             }
+        }
+
+        &.jkl-text-area--start-open .jkl-text-input__input {
+            background: var(--text-input-background-color);
+            padding-bottom: jkl.$spacing-xl;
         }
     }
 }
