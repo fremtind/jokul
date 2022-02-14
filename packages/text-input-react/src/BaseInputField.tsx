@@ -24,7 +24,8 @@ export interface BaseProps {
     readOnly?: boolean;
     autoComplete?: string;
     required?: boolean;
-    type?: "text" | "number" | "tel" | "password" | "email" | "year";
+    inputMode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search";
+    type?: "text" | "number" | "tel" | "password" | "email" | "year" | "search";
     name?: string;
     defaultValue?: string;
 }

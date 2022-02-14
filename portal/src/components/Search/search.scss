@@ -1,0 +1,145 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/mixins/_all" as mixins;
+
+$granitt-rgb: 27, 25, 23;
+$snohvit-rgb: 249, 249, 249;
+$sand-rgb: 244, 242, 239;
+$fjellgra-rgb: 68, 65, 65;
+
+/* Se for variabler: https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-theme-classic/ */
+:root {
+    --aa-base-unit: 16;
+    --aa-font-family: "Fremtind Grotesk", calibri, arial, sans-serif;
+    --aa-detached-modal-max-height: initial;
+    --aa-selected-color-alpha: 1;
+}
+
+@include jkl.helper-light-mode-variables {
+    --aa-text-color-rgb: #{$granitt-rgb};
+    --aa-icon-color-rgb: #{$granitt-rgb};
+    --aa-primary-color-rgb: #{$granitt-rgb};
+    --aa-input-background-color-rgb: #{$snohvit-rgb};
+    --aa-background-color-rgb: #{$snohvit-rgb};
+    --aa-selected-color-rgb: #{$sand-rgb};
+    --jkl-keyboard-hint-color: #{jkl.$color-stein};
+    --jkl-keyboard-hint-border-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.helper-dark-mode-variables {
+    --aa-text-color-rgb: #{$snohvit-rgb};
+    --aa-icon-color-rgb: #{$snohvit-rgb};
+    --aa-primary-color-rgb: #{$snohvit-rgb};
+    --aa-input-background-color-rgb: #{$granitt-rgb};
+    --aa-background-color-rgb: #{$granitt-rgb};
+    --aa-selected-color-rgb: #{$fjellgra-rgb};
+    --jkl-keyboard-hint-color: #{jkl.$color-svaberg};
+    --jkl-keyboard-hint-border-color: #{jkl.$color-stein};
+}
+
+.jkl-portal-search {
+    width: jkl.rem(240px);
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: jkl.$spacing-m jkl.$spacing-s jkl.$spacing-xs;
+        padding-left: jkl.$spacing-s;
+    }
+
+    &__shortcuts {
+        display: flex;
+        gap: jkl.$spacing-xs;
+
+        html[data-touchnavigation] & {
+            display: none;
+        }
+
+        @include mixins.small-device {
+            flex-direction: column;
+        }
+    }
+
+    &__shortcut {
+        display: inline;
+        margin-right: jkl.$spacing-xs;
+    }
+
+    &__powered-by {
+        color: var(--jkl-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: jkl.$spacing-2xs;
+    }
+
+    &__algolia-logo {
+        height: var(--aa-font-size);
+        margin-top: -2px;
+    }
+}
+
+.aa-InputWrapper {
+    position: relative;
+}
+
+.aa-InputWrapper:not(:focus-within)::after {
+    @include jkl.text-style("small");
+
+    content: "/";
+    color: var(--jkl-keyboard-hint-color);
+    border: 1px solid var(--jkl-keyboard-hint-border-color);
+    border-radius: 4px;
+
+    display: block;
+    position: absolute;
+    top: jkl.rem(8px);
+    right: jkl.rem(8px);
+    width: jkl.rem(8px);
+    padding: jkl.$spacing-3xs jkl.$spacing-xs;
+}
+
+.aa-Panel {
+    @include mixins.motion("standard");
+
+    z-index: jkl.$z-index--dropdown;
+    position: fixed;
+    transition-property: top;
+    top: jkl.rem(69px) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
+
+    @include mixins.small-device {
+        top: jkl.rem(0) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
+    }
+
+    .aa-Panel--scrollable {
+        padding: jkl.$spacing-m jkl.$spacing-l;
+
+        @include mixins.small-device {
+            padding: jkl.$spacing-xs jkl.$spacing-xs;
+        }
+    }
+
+    .aa-ItemWrapper {
+        text-decoration: none;
+        color: var(--jkl-color);
+    }
+
+    .aa-Item {
+        padding: jkl.$spacing-s jkl.$spacing-m;
+        border-bottom: 1px solid rgb(var(--aa-selected-color-rgb) 1);
+    }
+
+    .aa-Item[aria-selected="true"] {
+        @include mixins.keyboard-navigation {
+            outline: jkl.rem(2px) solid var(--jkl-color);
+        }
+    }
+
+    .aa-ItemContentTitle {
+        @include jkl.text-style("heading-5");
+    }
+
+    &--collapsed {
+        top: jkl.rem(55px) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
+    }
+}

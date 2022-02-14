@@ -9,12 +9,16 @@
         "react-docgen-typescript": "^2.2.2"
     },
     "dependencies": {
+        "@algolia/autocomplete-js": "^1.5.2",
+        "@algolia/autocomplete-theme-classic": "^1.5.2",
         "@mdx-js/mdx": "^1.6.22",
         "@mdx-js/react": "^1.6.22",
+        "algoliasearch": "^4.12.1",
         "classnames": "^2.2.6",
         "focus-trap-react": "^8.9.2",
         "framer-motion": "^6.2.6",
         "gatsby": "^4.7.2",
+        "gatsby-plugin-algolia": "^0.26.0",
         "gatsby-plugin-image": "^2.7.0",
         "gatsby-plugin-layout": "^3.7.0",
         "gatsby-plugin-manifest": "^4.7.0",

@@ -1,5 +1,5 @@
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
-import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import { navigate } from "gatsby";
 import React, { useEffect } from "react";
@@ -14,12 +14,10 @@ import { MainMenuItem } from "./MainMenuItem";
 interface MainMenuProps {
     className?: string;
     items: MenuItemList;
+    showHamburgerMenu: boolean;
 }
 
-export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
-    const screen = useScreen();
-    const isSmallScreen = screen.isSmallDevice || screen.isMediumDevice;
-
+export const MainMenu: React.FC<MainMenuProps> = ({ className, items, showHamburgerMenu }) => {
     const { isOpen, setIsOpen, currentItem, setCurrentItem, peekHistory, popHistory, pushHistory } =
         useFullscreenMenuContext();
 
@@ -67,7 +65,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
 
     return (
         <nav className={cx("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
-            {isSmallScreen && (
+            {showHamburgerMenu && (
                 <Hamburger
                     id="jkl-portal-main-menu-hamburger"
                     aria-controls="jkl-portal-main-menu-overlay"
@@ -92,7 +90,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                 })}
             >
                 <div className="jkl-portal-main-menu__menu-wrapper">
-                    {isSmallScreen && (
+                    {showHamburgerMenu && (
                         <>
                             {previousItem && (
                                 <button
@@ -127,7 +125,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                     )}
                 </div>
             </div>
-            {!isSmallScreen && (
+            {!showHamburgerMenu && (
                 <ul className="jkl-portal-main-menu__root-list">
                     {items.map((item) => (
                         <li className="jkl-portal-main-menu__root-item" key={`main-menu-${item.linkText}`}>

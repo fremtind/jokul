@@ -1,11 +1,13 @@
 import { navigate } from "gatsby";
 import cx from "classnames";
 import React, { useCallback, useRef, useEffect, VFC } from "react";
+import { useScreen } from "@fremtind/jkl-react-hooks";
 
 import { useNavigationLinks } from "./useNavigationLinks";
 import { MainMenu } from "./components/MainMenu";
 import { ContentLink } from "../ContentLink/ContentLink";
 import { MenuItemList, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+import { Search } from "../Search";
 
 import "./header.scss";
 
@@ -14,13 +16,23 @@ type Props = {
 };
 
 export const Header: VFC<Props> = ({ className }) => {
+    const { isSmallDevice, isMediumDevice } = useScreen();
+    const showHamburgerMenu = isSmallDevice || isMediumDevice;
     const headerRef = useRef<HTMLElement>(null);
     const collapseMenu = useCallback(() => {
         const shouldCollapse = window.scrollY > 96;
         if (shouldCollapse) {
             headerRef.current?.classList.add("jkl-portal-header--collapsed");
+            const algoliaPanel = document.getElementsByClassName("aa-Panel")[0];
+            if (algoliaPanel) {
+                algoliaPanel.classList.add("aa-Panel--collapsed");
+            }
         } else {
             headerRef.current?.classList.remove("jkl-portal-header--collapsed");
+            const algoliaPanel = document.getElementsByClassName("aa-Panel")[0];
+            if (algoliaPanel) {
+                algoliaPanel.classList.remove("aa-Panel--collapsed");
+            }
         }
     }, []);
     useEffect(() => {
@@ -115,7 +127,9 @@ export const Header: VFC<Props> = ({ className }) => {
             >
                 Jøkul
             </button>
-            <MainMenu className="jkl-portal-header__menu" items={menuItems} />
+            {showHamburgerMenu && <Search />}
+            <MainMenu className="jkl-portal-header__menu" items={menuItems} showHamburgerMenu={showHamburgerMenu} />
+            {!showHamburgerMenu && <Search />}
         </header>
     );
 };

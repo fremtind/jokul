@@ -117,6 +117,9 @@ jobs:
             - name: Build and deploy portal
               if: steps.changes.outputs.portal == 'true'
               env:
+                  ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+                  ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+                  ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
