@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.2 (2022-02-14)
+
+### Bug Fixes
+
+-   fjern scrollbar på tomt compact textarea ([7652abf](https://github.com/fremtind/jokul/commit/7652abf27b56c07ab15cddcc7806e8dd4f382c7b)), closes [#2634](https://github.com/fremtind/jokul/issues/2634)
+-   startOpen fungerer sammen med withCounter ([4b917ce](https://github.com/fremtind/jokul/commit/4b917ce63e7a1a143bb88ba9c859c0b0643b7c4e)), closes [#2721](https://github.com/fremtind/jokul/issues/2721)
+
 # 7.0.0 (2022-02-07)
 
 ### Bug Fixes
