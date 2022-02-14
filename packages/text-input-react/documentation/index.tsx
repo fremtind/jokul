@@ -30,7 +30,15 @@ renderExample(
             title="TextArea"
             component={TextAreaExample}
             knobs={{
-                boolProps: ["Compact", "Ekspanderende", "Med teller", "Skjul progress", "Med hjelpetekst", "Med feil"],
+                boolProps: [
+                    "Compact",
+                    "Ekspanderende",
+                    "Starter åpen",
+                    "Med teller",
+                    "Skjul progress",
+                    "Med hjelpetekst",
+                    "Med feil",
+                ],
                 choiceProps: [
                     {
                         name: "Variant",
