@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { addMediaQueryListener, getInitialMediaQueryMatch } from "../mediaQueryUtils";
 
 export type ColorScheme = "light" | "dark";
 type BrowserPreferences = {
@@ -8,21 +9,6 @@ type BrowserPreferences = {
 
 const PREFERS_REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
 const PREFERS_LIGHT_COLOR_SCHEME = "(prefers-color-scheme: light)";
-
-const getInitialMediaQueryMatch = (mediaQuery: string) => {
-    if (typeof window !== "undefined" && window.matchMedia) {
-        return window.matchMedia(mediaQuery).matches;
-    }
-    return false;
-};
-
-const addMediaQueryListener = (mq: MediaQueryList, callback: (e: MediaQueryListEvent) => void) => {
-    if (typeof mq.addEventListener !== "undefined") {
-        mq.addEventListener("change", callback);
-    } else {
-        mq.addListener(callback);
-    }
-};
 
 export const useBrowserPreferences = (): BrowserPreferences => {
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(getInitialMediaQueryMatch(PREFERS_REDUCED_MOTION));
