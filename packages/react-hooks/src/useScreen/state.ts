@@ -1,70 +1,51 @@
-import { breakpoints } from "@fremtind/jkl-core";
-
-export interface State {
+export interface ScreenState {
     isSmallDevice: boolean;
     isMediumDevice: boolean;
     isLargeDevice: boolean;
     isXlDevice: boolean;
     isLandscape: boolean;
     isPortrait: boolean;
-    inner: {
-        height: number;
-        width: number;
-    };
 }
 
-enum ActionTypes {
-    resized = "WINDOW_RESIZED",
+export enum ActionType {
+    orientation = "ORIENTATION_CHANGED",
+    deviceSize = "DEVICE_SIZE_CHANGED",
 }
 
 interface Action {
-    type: ActionTypes;
-    width: number;
-    height: number;
+    type: ActionType;
+    property: keyof ScreenState;
 }
 
-export const actionTypes = {
-    resized: ActionTypes.resized,
-};
+function setDeviceSize(orientation: keyof ScreenState): Omit<ScreenState, "isLandscape" | "isPortrait"> {
+    return {
+        isSmallDevice: orientation === "isSmallDevice",
+        isMediumDevice: orientation === "isMediumDevice",
+        isLargeDevice: orientation === "isLargeDevice",
+        isXlDevice: orientation === "isXlDevice",
+    };
+}
 
-const setDeviceSize = (width: number, height: number): State => ({
-    isSmallDevice: width < breakpoints.medium,
-    isMediumDevice: width >= breakpoints.medium && width < breakpoints.large,
-    isLargeDevice: width >= breakpoints.large && width < breakpoints.xl,
-    isXlDevice: width >= breakpoints.xl,
-    isPortrait: height >= width,
-    isLandscape: height < width,
-    inner: {
-        height,
-        width,
-    },
-});
+function setOrientation(orientation: keyof ScreenState): Pick<ScreenState, "isLandscape" | "isPortrait"> {
+    return {
+        isLandscape: orientation === "isLandscape",
+        isPortrait: orientation === "isPortrait",
+    };
+}
 
-export const initialState: State = {
-    isSmallDevice: false,
-    isMediumDevice: false,
-    isLargeDevice: false,
-    isXlDevice: false,
-    isLandscape: false,
-    isPortrait: false,
-    inner: {
-        height: 0,
-        width: 0,
-    },
-};
-
-export const init = (): State => {
-    const width = typeof window !== "undefined" ? window.innerWidth : 0;
-    const height = typeof window !== "undefined" ? window.innerHeight : 0;
-    return setDeviceSize(width, height);
-};
-
-export const reducer = (state: State, { type, width, height }: Action): State => {
-    switch (type) {
-        case actionTypes.resized:
+export const reducer = (state: ScreenState, action: Action): ScreenState => {
+    switch (action.type) {
+        case ActionType.orientation:
             return {
                 ...state,
-                ...setDeviceSize(width, height),
+                ...setOrientation(action.property),
             };
+        case ActionType.deviceSize:
+            return {
+                ...state,
+                ...setDeviceSize(action.property),
+            };
+        default:
+            return state;
     }
 };
