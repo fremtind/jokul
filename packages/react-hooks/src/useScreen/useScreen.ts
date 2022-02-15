@@ -38,7 +38,7 @@ export const useScreen = (): ScreenState => {
                 const queryList = window.matchMedia(rule);
                 const listener = createListener(key as keyof ScreenState);
                 eventListenerPairs.push([queryList, listener]);
-                addMediaQueryListener(queryList, createListener(key as keyof ScreenState));
+                addMediaQueryListener(queryList, listener);
             });
         }
 
