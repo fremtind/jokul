@@ -12,7 +12,7 @@ export enum ActionType {
     deviceSize = "DEVICE_SIZE_CHANGED",
 }
 
-interface Action {
+export interface ScreenAction {
     type: ActionType;
     property: keyof ScreenState;
 }
@@ -33,7 +33,7 @@ function setOrientation(orientation: keyof ScreenState): Pick<ScreenState, "isLa
     };
 }
 
-export const reducer = (state: ScreenState, action: Action): ScreenState => {
+export const reducer = (state: ScreenState, action: ScreenAction): ScreenState => {
     switch (action.type) {
         case ActionType.orientation:
             return {

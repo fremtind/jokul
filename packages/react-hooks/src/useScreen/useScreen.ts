@@ -1,7 +1,7 @@
-import { useEffect, useReducer } from "react";
+import { useCallback, useEffect, useMemo, useReducer } from "react";
 import { breakpoints } from "@fremtind/jkl-core";
 import { addMediaQueryListener, getInitialMediaQueryMatch } from "../mediaQueryUtils";
-import { ActionType, reducer, ScreenState } from "./state";
+import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
 
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
     isSmallDevice: `(max-width: ${breakpoints.medium - 1}px)`,
@@ -12,32 +12,40 @@ const MEDIA_RULES: Record<keyof ScreenState, string> = {
     isLandscape: "(orientation: landscape)",
 };
 
-export const useScreen = (): ScreenState => {
-    const initialState: ScreenState = Object.fromEntries(
-        Object.entries(MEDIA_RULES).map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)]),
-    ) as unknown as ScreenState;
+const createAction = (property: keyof ScreenState): ScreenAction => ({
+    type: property === "isLandscape" || property === "isPortrait" ? ActionType.orientation : ActionType.deviceSize,
+    property,
+});
 
+export const useScreen = (): ScreenState => {
+    const initialState: ScreenState = useMemo(
+        () =>
+            Object.fromEntries(
+                Object.entries(MEDIA_RULES).map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)]),
+            ) as unknown as ScreenState,
+        [],
+    );
     const [device, deviceDispatch] = useReducer(reducer, initialState);
+    const createListener = useCallback(
+        (key: keyof ScreenState) => (e: MediaQueryListEvent) => e.matches && deviceDispatch(createAction(key)),
+        [],
+    );
 
     useEffect(() => {
+        const eventListenerPairs: Array<[MediaQueryList, (e: MediaQueryListEvent) => void]> = [];
         if (typeof window !== "undefined" && window.matchMedia) {
             Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
-                if (key === "isPortrait" || key === "isLandscape") {
-                    addMediaQueryListener(
-                        window.matchMedia(rule),
-                        (e) => e.matches && deviceDispatch({ type: ActionType.orientation, property: key }),
-                    );
-                } else {
-                    addMediaQueryListener(
-                        window.matchMedia(rule),
-                        (e) =>
-                            e.matches &&
-                            deviceDispatch({ type: ActionType.deviceSize, property: key as keyof ScreenState }),
-                    );
-                }
+                const queryList = window.matchMedia(rule);
+                const listener = createListener(key as keyof ScreenState);
+                eventListenerPairs.push([queryList, listener]);
+                addMediaQueryListener(queryList, createListener(key as keyof ScreenState));
             });
         }
-    }, []);
+
+        return () => {
+            eventListenerPairs.forEach(([queryList, listener]) => queryList.removeEventListener("change", listener));
+        };
+    }, [createListener]);
 
     return { ...device };
 };
