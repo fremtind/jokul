@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-scaffold-react",
-    "version": "1.0.0",
+    "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
@@ -33,8 +33,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.16.7",
-        "@fremtind/jkl-core": "^8.0.0",
-        "@fremtind/jkl-scaffold": "^1.0.0"
+        "@fremtind/jkl-core": "^9.0.0",
+        "@fremtind/jkl-scaffold": "^1.0.0-alpha.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

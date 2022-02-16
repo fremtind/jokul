@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.2 (2022-02-14)
+
+### Bug Fixes
+
+-   autoExpand sometimes acts as startOpen ([8f23d8a](https://github.com/fremtind/jokul/commit/8f23d8ac9ec3f1f69d2b97cd167818db4318c19d)), closes [#2717](https://github.com/fremtind/jokul/issues/2717)
+
 # [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@8.0.0...@fremtind/jkl-text-input-react@9.0.0) (2022-02-07)
 
 ### Bug Fixes

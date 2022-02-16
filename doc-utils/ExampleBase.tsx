@@ -64,7 +64,7 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                 <div
                     data-theme={theme}
                     data-example-text={title}
-                    className={cx("jkl-portal-component-example__example-wrapper", {
+                    className={cx("jkl", "jkl-portal-component-example__example-wrapper", {
                         "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
                         "jkl-portal-component-example__example-wrapper--scrollable": scrollable,
                     })}

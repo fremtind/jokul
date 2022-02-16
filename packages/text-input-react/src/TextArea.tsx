@@ -139,6 +139,10 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
             : undefined;
     const hasSupportText = helpLabel || counterLabel || errorLabel;
     const describedBy = hasSupportText ? supportId : undefined;
+    const style = {
+        height: autoExpand && textAreaRef.current?.value ? "auto" : undefined,
+        overflowX: autoExpand ? "hidden" : undefined, // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
+    } as React.CSSProperties;
 
     return (
         <div data-testid="jkl-text-area" className={componentClassName}>
@@ -156,8 +160,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                     aria-describedby={describedBy}
                     placeholder={placeholder}
                     rows={autoExpand ? currentRows : undefined}
-                    // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
-                    style={autoExpand ? { height: "auto", overflowX: "hidden" } : undefined}
+                    style={style}
                     {...restProps}
                 />
             )}
@@ -178,8 +181,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             aria-invalid={Boolean(errorLabel || counterLabel)}
                             placeholder={placeholder}
                             rows={autoExpand ? currentRows : undefined}
-                            // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
-                            style={autoExpand ? { height: "auto", overflowX: "hidden" } : undefined}
+                            style={style}
                             {...restProps}
                         />
                     </div>
