@@ -20,6 +20,11 @@ export interface ChoiceProp {
 
 export type BoolProp = string | { prop: string; defaultValue: boolean };
 
+export interface ExampleKnobsProps {
+    boolProps?: Array<BoolProp>;
+    choiceProps?: Array<ChoiceProp>;
+}
+
 /**
  * Nye kodeeksempler skal være "live", altså funksjonsvarianten som tar inn ExampleComponentProps.
  */
