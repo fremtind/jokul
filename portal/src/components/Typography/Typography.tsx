@@ -50,6 +50,24 @@ export const Paragraph: React.FC = ({ children, ...rest }) => (
     </p>
 );
 
+export const Blockquote: React.FC = ({ children, ...rest }) => {
+    const child: ReactElement = React.Children.only(children) as ReactElement;
+
+    if (!child.props) {
+        return (
+            <blockquote className="jkl-portal-blockquote" {...rest}>
+                {children}
+            </blockquote>
+        );
+    }
+
+    return (
+        <blockquote className="jkl-portal-blockquote" {...rest}>
+            {child.props.children}
+        </blockquote>
+    );
+};
+
 export const InlineCode: React.FC = ({ children, ...rest }) => (
     <code className="jkl-portal-inline-code" {...rest}>
         {children}

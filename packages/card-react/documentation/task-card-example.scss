@@ -1,0 +1,8 @@
+@use "~@fremtind/jkl-core/mixins/all" as mixins;
+
+.jkl-task-card-example {
+    &__content {
+        @include mixins.motion("standard", "lazy");
+        transition-property: height;
+    }
+}

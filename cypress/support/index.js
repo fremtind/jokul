@@ -58,6 +58,11 @@ Cypress.Commands.add("setChoice", (choice, value) =>
     cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click({ multiple: true }),
 );
 
+Cypress.Commands.add("setSelectChoice", (choice, value) => {
+    cy.toggleSelectMenu(choice);
+    cy.selectValue(value);
+});
+
 const setModeFactory = (knob) => {
     Cypress.Commands.add(`set${pascalCase(knob)}`, setMode(knob, false));
     Cypress.Commands.add(`reset${pascalCase(knob)}`, setMode(knob, true));
@@ -78,20 +83,25 @@ const setModeFactory = (knob) => {
 
 Cypress.Commands.add("takeSnapshots", (options = {}) => {
     const variants = options.variants || ["__DEFAULT__"];
+    const variantsChoiceType = variants.length > 3 ? "select" : "checkbox";
 
     variants.forEach((variant) => {
-        doSnapshot(options, variant);
+        doSnapshot(options, variant, variantsChoiceType);
 
         cy.setDarkMode();
-        doSnapshot(options, variant);
+        doSnapshot(options, variant, variantsChoiceType);
         cy.resetDarkMode();
     });
 
-    function doSnapshot(options, variant) {
+    function doSnapshot(options, variant, variantsChoiceType) {
         const componentIndex = options.eq || 0;
 
         if (variant !== "__DEFAULT__") {
-            cy.setChoice("Variant", variant);
+            if (variantsChoiceType === "select") {
+                cy.setSelectChoice("Variant", variant);
+            } else {
+                cy.setChoice("Variant", variant);
+            }
         }
 
         if (typeof options.setup === "function") {
