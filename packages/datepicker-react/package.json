@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker-react",
-    "version": "9.0.4",
+    "version": "9.0.5",
     "publishConfig": {
         "access": "public"
     },
@@ -34,12 +34,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.16.7",
-        "@fremtind/jkl-core": "^9.0.1",
-        "@fremtind/jkl-datepicker": "^6.0.2",
-        "@fremtind/jkl-icon-button-react": "^0.8.10",
-        "@fremtind/jkl-react-hooks": "^7.1.1",
-        "@fremtind/jkl-select-react": "^9.0.2",
-        "@fremtind/jkl-text-input-react": "^9.0.2",
+        "@fremtind/jkl-core": "^9.1.0",
+        "@fremtind/jkl-datepicker": "^6.0.3",
+        "@fremtind/jkl-icon-button-react": "^0.8.11",
+        "@fremtind/jkl-react-hooks": "^7.1.2",
+        "@fremtind/jkl-select-react": "^9.0.3",
+        "@fremtind/jkl-text-input-react": "^9.0.3",
         "classnames": "^2.2.6",
         "nanoid": "^3.2.0"
     },

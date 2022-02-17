@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.1.0...@fremtind/portal@12.2.0) (2022-02-17)
+
+### Features
+
+-   **mdx:** legg til håndtering av blockquotes ([c4b5eb3](https://github.com/fremtind/jokul/commit/c4b5eb33868757b9f4c101b34af85616fe41fead))
+
 # 12.1.0 (2022-02-11)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.0.1...@fremtind/jkl-core@9.1.0) (2022-02-17)
+
+### Features
+
+-   **shadows:** legg til nye skyggevariabler for kort ([dda0aed](https://github.com/fremtind/jokul/commit/dda0aed45b3937226bd819a97715c058f52413d7))
+
 ## 9.0.1 (2022-02-08)
 
 ### Bug Fixes

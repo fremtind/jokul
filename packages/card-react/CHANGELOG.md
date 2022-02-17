@@ -3,25 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@5.0.20...@fremtind/jkl-card-react@5.1.0) (2022-02-17)
+
+### Bug Fixes
+
+-   rett opp feil import i et av eksemplene ([2a2053f](https://github.com/fremtind/jokul/commit/2a2053f04bc92b36a464ac13956eb2defc83cc79))
+
+### Features
+
+-   legg til InfoCard-komponent ([c4c7a1e](https://github.com/fremtind/jokul/commit/c4c7a1e2f7ae0ec20403069f2bf51a1ca9e729b1))
+-   legg til NavCard-komponent ([4335747](https://github.com/fremtind/jokul/commit/433574798fd3dc905c326d1241df5e7b842e0455))
+-   legg til TaskCard-komponent ([8c8134b](https://github.com/fremtind/jokul/commit/8c8134b9b86da16961a68a40c790665f0fe1baa6))
+-   skriv om API for padding og oppdater dokumentasjon ([f7c1fb5](https://github.com/fremtind/jokul/commit/f7c1fb56fba7c17dc60e310e22b421e3870dff02))
+
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.0.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 3.0.0 (2021-07-06)
 
