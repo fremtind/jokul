@@ -780,6 +780,44 @@ describe("Searchable select", () => {
 
         expect(searchInputElement).toBeVisible();
     });
+
+    it("should support custom filtering function", () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+
+        render(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                searchable={(filter, item) => {
+                    if (typeof item === "object") {
+                        return item.value === filter;
+                    } else {
+                        return item === filter;
+                    }
+                }}
+            />,
+        );
+
+        const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
+        const searchInputElement = screen.getByTestId("jkl-select__search-input");
+
+        act(() => {
+            userEvent.click(openDropdownButtonElement);
+        });
+
+        act(() => {
+            fireEvent.change(searchInputElement, { target: { value: "3" } });
+        });
+
+        expect(screen.getByText("baz")).toBeVisible();
+        expect(screen.getByText("foo")).not.toBeVisible();
+        expect(screen.getByText("bar")).not.toBeVisible();
+    });
 });
 
 describe("a11y", () => {
