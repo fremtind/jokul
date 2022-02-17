@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@6.0.1...@fremtind/jkl-checkbox-react@6.1.0) (2022-02-17)
+
+### Features
+
+-   legg til støtte for html-attributter på checkbox ([6f797d5](https://github.com/fremtind/jokul/commit/6f797d5f893535688bf697d4ffef33a2901693c0))
+
 # 6.0.0 (2022-02-07)
 
 ### Bug Fixes

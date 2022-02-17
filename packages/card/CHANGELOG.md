@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@5.0.11...@fremtind/jkl-card@5.1.0) (2022-02-17)
+
+### Bug Fixes
+
+-   **nav-card:** fjern animasjon av pil ved hover ([f4c57ac](https://github.com/fremtind/jokul/commit/f4c57ac969689b63594ccb6be47ac2767b6ca446))
+-   **nav-card:** justering av pil i lenke ved hover ([f868ce6](https://github.com/fremtind/jokul/commit/f868ce6988aeff8d66425f075cc67d1c1b2fb4a9))
+
+### Features
+
+-   legg til InfoCard-komponent ([c4c7a1e](https://github.com/fremtind/jokul/commit/c4c7a1e2f7ae0ec20403069f2bf51a1ca9e729b1))
+-   legg til NavCard-komponent ([4335747](https://github.com/fremtind/jokul/commit/433574798fd3dc905c326d1241df5e7b842e0455))
+-   legg til TaskCard-komponent ([8c8134b](https://github.com/fremtind/jokul/commit/8c8134b9b86da16961a68a40c790665f0fe1baa6))
+
 ## 5.0.10 (2022-02-07)
 
 ### Bug Fixes
