@@ -122,6 +122,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         });
         const selectedValueLabel = visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt;
 
+        // Update internal state if value is changed
+        useEffect(() => {
+            setSelectedValue(value);
+        }, [value, setSelectedValue]);
+
         const focusInsideRef = useRef(false);
         const [dropdownIsShown, setShown] = useState(false);
         const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
