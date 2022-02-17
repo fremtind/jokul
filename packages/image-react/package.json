@@ -40,7 +40,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.7",
+        "@babel/runtime": "^7.17.2",
         "@fremtind/jkl-image": "^2.0.2",
         "@fremtind/jkl-react-hooks": "^7.1.2",
         "classnames": "^2.2.6"
