@@ -3,6 +3,7 @@ import cx from "classnames";
 import { nanoid } from "nanoid";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import { Select } from "@fremtind/jkl-select-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { ExpandSection } from "@fremtind/jkl-expand-button-react";
 import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
@@ -92,22 +93,33 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                     )}
                     {knobs?.choiceProps && (
                         <>
-                            {Object.entries(choiceValues).map(([key, value]) => (
-                                <RadioButtonGroup
-                                    className="jkl-portal-component-example__example-options-header"
-                                    variant="small"
-                                    name={`${uid}-${hyphenate(key)}`}
-                                    key={key}
-                                    legend={key}
-                                    value={value}
-                                    labelProps={{ variant: "small" }}
-                                    onChange={(e) => setChoiceValue(key, e.target.value)}
-                                >
-                                    {choices[key]?.map((choice) => (
-                                        <RadioButton key={choice} label={choice} value={choice} />
-                                    ))}
-                                </RadioButtonGroup>
-                            ))}
+                            {Object.entries(choiceValues).map(([key, value]) =>
+                                choices[key].length < 4 ? (
+                                    <RadioButtonGroup
+                                        className="jkl-portal-component-example__example-options-header"
+                                        variant="small"
+                                        name={`${uid}-${hyphenate(key)}`}
+                                        key={key}
+                                        legend={key}
+                                        value={value}
+                                        labelProps={{ variant: "small" }}
+                                        onChange={(e) => setChoiceValue(key, e.target.value)}
+                                    >
+                                        {choices[key]?.map((choice) => (
+                                            <RadioButton key={choice} label={choice} value={choice} />
+                                        ))}
+                                    </RadioButtonGroup>
+                                ) : (
+                                    <Select
+                                        className="jkl-portal-component-example__select"
+                                        value={value}
+                                        onChange={(e) => setChoiceValue(key, e.target.value)}
+                                        label={key}
+                                        name={key}
+                                        items={choices[key]}
+                                    />
+                                ),
+                            )}
                         </>
                     )}
                     <FieldGroup
