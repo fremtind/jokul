@@ -1,6 +1,6 @@
-import React, { ReactNode, useState, forwardRef, ChangeEventHandler, FocusEventHandler, HTMLAttributes } from "react";
+import React, { ReactNode, forwardRef, ChangeEventHandler, FocusEventHandler, HTMLAttributes } from "react";
 import cn from "classnames";
-import { nanoid } from "nanoid";
+import { useId } from "@fremtind/jkl-react-hooks";
 import { DataTestAutoId } from "@fremtind/jkl-core";
 
 export interface CheckboxProps extends DataTestAutoId, HTMLAttributes<HTMLInputElement> {
@@ -19,7 +19,7 @@ export interface CheckboxProps extends DataTestAutoId, HTMLAttributes<HTMLInputE
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     ({ children, invalid, className, inline = false, forceCompact, "data-testautoid": testAutoId, ...rest }, ref) => {
-        const [id] = useState(`jkl-checkbox-${nanoid(8)}`);
+        const id = useId("jkl-checkbox");
 
         return (
             <div

@@ -1,6 +1,6 @@
 import React, { useState, FC } from "react";
 import cn from "classnames";
-import { nanoid } from "nanoid";
+import { useId } from "@fremtind/jkl-react-hooks";
 import { ScreenReaderOnly } from "@fremtind/jkl-core";
 
 interface Props {
@@ -23,7 +23,7 @@ export const ToggleSlider: FC<Props> = ({
 }) => {
     const [checked, setChecked] = useState(defaultValue !== labels[0]);
     const [currentLabel, setCurrentLabel] = useState(defaultValue || labels[0]);
-    const [id] = useState(nanoid(8));
+    const id = useId("jkl-toggle-slider");
 
     const selectedLabel = screenReaderSelectedLabel || `${currentLabel} valgt`;
     const ariaLabel = screenReaderLabel || `, ${selectedLabel}`;

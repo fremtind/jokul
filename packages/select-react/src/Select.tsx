@@ -1,11 +1,10 @@
 // @ts-ignore: wait for core-components to expose types
 import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { FocusEvent, forwardRef, useEffect, useRef, useState, KeyboardEvent, ChangeEvent } from "react";
-import { nanoid } from "nanoid";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
-import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
-import classNames from "classnames";
+import cn from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
@@ -124,7 +123,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
         const focusInsideRef = useRef(false);
         const [dropdownIsShown, setShown] = useState(false);
-        const [listId] = useState(id || `jkl-select-${nanoid(8)}`);
+        const listId = useId(id || "jkl-select", { generateSuffix: !id });
         const searchInputId = `${listId}_search-input`;
         const showSearchInputField = searchable && dropdownIsShown;
 
@@ -137,7 +136,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const [dropdownRef] = useAnimatedHeight(dropdownIsShown);
         const listRef = useListNavigation();
 
-        const componentClassName = classNames("jkl-select", className, {
+        const componentClassName = cn("jkl-select", className, {
             "jkl-select--inline": inline,
             "jkl-select--compact": forceCompact,
             "jkl-select--open": dropdownIsShown,

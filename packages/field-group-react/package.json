@@ -35,7 +35,7 @@
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "dependencies": {
-        "@babel/runtime": "^7.16.7",
+        "@babel/runtime": "^7.17.2",
         "@fremtind/jkl-field-group": "^4.0.12",
         "classnames": "^2.2.6"
     },
