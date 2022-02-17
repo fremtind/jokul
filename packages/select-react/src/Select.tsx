@@ -267,6 +267,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             className="jkl-select__search-input"
                             onBlur={handleBlur}
                             onFocus={handleFocus}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                            }}
                         />
                     )}
                     <button
