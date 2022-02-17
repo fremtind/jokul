@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2022-02-17)
+
+### chore
+
+-   legg til function-no-unknown i stylelint ([f29c7c6](https://github.com/fremtind/jokul/commit/f29c7c647618432834db2d5a89350a365895e217))
+
+### BREAKING CHANGES
+
+-   Den anbefalte regelen function-no-unknown er skrudd på, som kan gi nye lintfeil.
+
 # 1.1.0 (2022-02-07)
 
 ### Bug Fixes
