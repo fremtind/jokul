@@ -1,6 +1,6 @@
-import React, { useState, forwardRef, InputHTMLAttributes, ChangeEventHandler, ReactNode } from "react";
-import cx from "classnames";
-import { nanoid } from "nanoid";
+import React, { forwardRef, InputHTMLAttributes, ChangeEventHandler, ReactNode } from "react";
+import cn from "classnames";
+import { useId } from "@fremtind/jkl-react-hooks";
 import { useRadioGroupContext } from "./radioGroupContext";
 
 export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
@@ -14,13 +14,13 @@ export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElem
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>((props, ref) => {
     const { className, checked, label, value, ...rest } = props;
-    const [inputId] = useState(`jkl-radio-button-${nanoid(8)}`);
+    const inputId = useId("jkl-radio-button");
 
     const { name, inline, invalid, forceCompact, value: selectedValue, onChange } = useRadioGroupContext();
 
     return (
         <div
-            className={cx("jkl-radio-button", className, {
+            className={cn("jkl-radio-button", className, {
                 "jkl-radio-button--compact": forceCompact,
                 "jkl-radio-button--inline": inline,
                 "jkl-radio-button--error": invalid,

@@ -37,6 +37,7 @@
     "dependencies": {
         "@babel/runtime": "^7.16.7",
         "@fremtind/jkl-toggle-switch": "^7.0.2",
+        "@fremtind/jkl-react-hooks": "^7.1.2",
         "classnames": "^2.2.6",
         "nanoid": "^3.2.0"
     },

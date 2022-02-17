@@ -1,5 +1,5 @@
-import { nanoid } from "nanoid";
-import { useCallback, useState } from "react";
+import { useId } from "@fremtind/jkl-react-hooks";
+import { useCallback } from "react";
 import { dateIsOutsideRange } from "../dateFunctions";
 
 export const useDisableDate = (
@@ -13,7 +13,7 @@ export const useDisableDate = (
 };
 
 export const useCalendarId = (): [string, string] => {
-    const [inputId] = useState(`jkl-datepicker-${nanoid(8)}`);
+    const inputId = useId("jkl-datepicker");
     const supportLabelId = `${inputId}-label`;
 
     return [inputId, supportLabelId];

@@ -40,8 +40,7 @@
         "@fremtind/jkl-react-hooks": "^7.1.2",
         "@fremtind/jkl-select-react": "^9.0.3",
         "@fremtind/jkl-text-input-react": "^9.0.3",
-        "classnames": "^2.2.6",
-        "nanoid": "^3.2.0"
+        "classnames": "^2.2.6"
     },
     "devDependencies": {
         "@nrk/core-datepicker": "4.0.0"

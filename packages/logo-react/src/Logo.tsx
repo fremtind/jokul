@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { nanoid } from "nanoid";
-import cx from "classnames";
+import React from "react";
+import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 
 export interface LogoProps {
     className?: string;
@@ -23,11 +23,11 @@ export const Logo = ({
     animated = false,
     title = "Fremtind",
 }: LogoProps): JSX.Element => {
-    const [uniqueId] = useState(id || `jkl-logo-${nanoid(16)}`);
+    const uniqueId = useId(id || "jkl-logo", { generateSuffix: !id });
 
     return (
         <svg
-            className={cx("jkl-logo", className, {
+            className={cn("jkl-logo", className, {
                 "jkl-logo--animated": animated,
                 "jkl-logo--symbol-only": isSymbol,
                 "jkl-logo--centered": centered && isSymbol,
