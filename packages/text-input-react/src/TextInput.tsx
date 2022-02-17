@@ -1,6 +1,6 @@
-import React, { forwardRef, useState, HTMLAttributes, MouseEventHandler } from "react";
-import { nanoid } from "nanoid";
+import React, { forwardRef, HTMLAttributes, MouseEventHandler } from "react";
 import classNames from "classnames";
+import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
@@ -39,8 +39,8 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
         },
         ref,
     ) => {
-        const [uid] = useState(id || `jkl-text-input-${nanoid(8)}`);
-        const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
+        const uid = useId(id || "jkl-text-input", { generateSuffix: !id });
+        const supportId = useId("jkl-support-label");
         const hasSupportText = helpLabel || errorLabel;
         const describedBy = hasSupportText ? supportId : undefined;
         const componentClassName = classNames(
