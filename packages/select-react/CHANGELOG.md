@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.0.4...@fremtind/jkl-select-react@9.1.0) (2022-02-18)
+
+### Bug Fixes
+
+-   fix a bug where clicking the input field would close select ([627fe76](https://github.com/fremtind/jokul/commit/627fe76953de93e22190a249bf4c07f610b6671b)), closes [#2400](https://github.com/fremtind/jokul/issues/2400)
+-   handle external value control ([d8aff3b](https://github.com/fremtind/jokul/commit/d8aff3bdb073fe30b9cb82c5f9c4bf4f10d16faf)), closes [#2589](https://github.com/fremtind/jokul/issues/2589)
+
+### Features
+
+-   add custom filtering function to select ([fa24e79](https://github.com/fremtind/jokul/commit/fa24e79803f0fe808c959938c278d4c8e11f9000))
+-   add tests ([33e7690](https://github.com/fremtind/jokul/commit/33e7690071af36f513d0a2b0b300faec5d1a2a36))
+
 # 9.0.0 (2022-02-07)
 
 ### Bug Fixes
