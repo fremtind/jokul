@@ -1,7 +1,7 @@
-import React, { FocusEventHandler, ChangeEventHandler, useState, forwardRef } from "react";
-import { nanoid } from "nanoid";
+import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
+import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
-import cx from "classnames";
+import cn from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 
 export interface NativeSelectProps {
@@ -42,12 +42,12 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
         },
         ref,
     ) => {
-        const [uid] = useState(id || `jkl-select-${nanoid(8)}`);
+        const uid = useId(id || "jkl-select", { generateSuffix: !id });
 
         return (
             <div
                 data-testid="jkl-select"
-                className={cx("jkl-select", className, {
+                className={cn("jkl-select", className, {
                     "jkl-select--inline": inline,
                     "jkl-select--compact": forceCompact,
                     "jkl-select--invalid": !!errorLabel,

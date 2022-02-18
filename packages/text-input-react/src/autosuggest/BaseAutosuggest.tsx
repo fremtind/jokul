@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Downshift, { DownshiftProps } from "downshift";
 import cn from "classnames";
 import { SupportLabel } from "@fremtind/jkl-core";
+import { useId } from "@fremtind/jkl-react-hooks";
 import { CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";
-import { nanoid } from "nanoid";
 
 const KEY_ENTER = 13;
 
@@ -37,15 +37,15 @@ function BaseAutosuggest<T>({
         /* noop */
     },
 }: BaseAutosuggestProps<T>): JSX.Element {
-    const [uid] = useState(inputId || `jkl-text-input-${nanoid(8)}`);
-    const [lid] = useState(labelId || `jkl-label-${nanoid(8)}`);
+    const uid = useId(inputId || "jkl-text-input", { generateSuffix: !inputId });
+    const lid = useId(labelId || "jkl-label", { generateSuffix: !labelId });
 
     const customLabelProps = {
         inputId: uid,
         labelId: lid,
     };
 
-    const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
+    const supportId = useId("jkl-support-label");
     const hasSupportText = helpLabel || errorLabel;
     const describedBy = hasSupportText ? supportId : undefined;
 

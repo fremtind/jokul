@@ -1,5 +1,8 @@
 @use "../functions" as func;
 
+/// @deprecated
 $drop-shadow--small: 0 func.rem(4px) func.rem(8px) rgb(0 0 0 / 8%);
+/// @deprecated
 $drop-shadow--medium: func.rem(4px) func.rem(4px) func.rem(8px) rgb(0 0 0 / 8%);
+/// @deprecated
 $drop-shadow--large: func.rem(4px) func.rem(6px) func.rem(16px) rgb(0 0 0 / 15%);

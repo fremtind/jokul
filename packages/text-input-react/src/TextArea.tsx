@@ -1,6 +1,6 @@
 import React, { forwardRef, FocusEvent, useRef, useState, useEffect, RefObject } from "react";
-import classNames from "classnames";
-import { nanoid } from "nanoid";
+import cn from "classnames";
+import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
 import { BaseProps } from "./BaseInputField";
 
@@ -58,13 +58,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         ...restProps
     } = props;
 
-    const componentClassName = classNames("jkl-text-input jkl-text-area", className, {
+    const componentClassName = cn("jkl-text-input jkl-text-area", className, {
         "jkl-text-area--start-open": startOpen,
         "jkl-text-area--with-counter": typeof counter !== "undefined",
         "jkl-text-input--compact": forceCompact,
     });
-    const [uid] = useState(id || `jkl-text-area-${nanoid(8)}`);
-    const [supportId] = useState(`jkl-support-label-${nanoid(8)}`);
+    const uid = useId(id || "jkl-text-area", { generateSuffix: !id });
+    const supportId = useId("jkl-support-label");
 
     const [textAreaFocused, setTextAreaFocused] = useState(false);
     const [baseScrollHeight, setBaseScrollHeight] = useState(0);

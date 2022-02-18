@@ -4,8 +4,21 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { CardExample } from "./CardExample";
+import { InfoCardExample } from "./InfoCardExample";
+import { NavCardExample, navCardExampleCode } from "./NavCardExample";
+import { TaskCardExample } from "./TaskCardExample";
 import "@fremtind/jkl-card/card.css";
 import "@fremtind/jkl-button/button.css";
+import "@fremtind/jkl-checkbox/checkbox.css";
+import "@fremtind/jkl-select/select.css";
+import "@fremtind/jkl-tag/tag.css";
+import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./cardExampleProps";
 
-renderExample(<DevExample component={CardExample} />, document.getElementById("app"));
+renderExample(
+    <>
+        <DevExample knobs={navCardExampleProps} component={NavCardExample} codeExample={navCardExampleCode} />
+        <DevExample knobs={infoCardExampleProps} component={InfoCardExample} />
+        <DevExample knobs={taskCardExampleProps} component={TaskCardExample} />
+    </>,
+    document.getElementById("app"),
+);

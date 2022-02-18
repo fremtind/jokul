@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.1.2...@fremtind/jkl-react-hooks@7.2.0) (2022-02-17)
+
+### Features
+
+-   legg til valg om å skru av suffixgenerering ([0fcdc5c](https://github.com/fremtind/jokul/commit/0fcdc5cec8e24876770b2f139c8ce8c0fd59b98e))
+
 # [7.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.0.0...@fremtind/jkl-react-hooks@7.1.0) (2022-02-07)
 
 ### Features

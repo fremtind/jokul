@@ -5,6 +5,58 @@ scss: card
 group: layout
 ---
 
-import { CardExample } from "./CardExample";
+import { NavCardExample, navCardExampleCode } from "./NavCardExample";
+import { TaskCardExample, taskCardExampleCode } from "./TaskCardExample";
+import { InfoCardExample, infoCardExampleCode } from "./InfoCardExample";
+import { TopExample, topExampleCode } from "./TopExample";
+import { navCardExampleProps, infoCardExampleProps, taskCardExampleProps } from "./cardExampleProps";
 
-<CardExample />
+<Ingress>
+    Kortkomponentene lar oss løfte frem informasjon eller oppgaver som hører sammen. Det finnes tre varianter av kort,
+    hver med sitt bruksområde og utseende.
+</Ingress>
+
+<ComponentExample title="Card" component={TopExample} codeExample={topExampleCode} />
+
+De tre kortkomponentene i Jøkul er **navigasjonskort**, **oppgavekort** og **infokort**. Alle tre har ulike bruksområder, og er derfor utformet på forskjellig måte. Velg varianten som løser ditt problem på best måte.
+
+## Navigasjonskort
+
+> Du ender opp på riktig sted
+
+<ComponentExample
+    title="NavCard"
+    component={NavCardExample}
+    knobs={navCardExampleProps}
+    codeExample={navCardExampleCode}
+/>
+
+Navigasjonskort er klikkbare, og tar brukeren videre til et annet skjermbilde i løsningen. Kortet inneholder alltid en tittel i form av en `NavLink`, og kan i tillegg ha bilde, undertittel, tag, og ekstra informasjon. Siden hele kortet er klikkbart skal det _ikke_ inneholde interaktive elementer.
+
+## Oppgavekort
+
+> Du får gjort det du skulle
+
+<ComponentExample
+    title="TaskCard"
+    component={TaskCardExample}
+    knobs={taskCardExampleProps}
+    codeExample={taskCardExampleCode}
+/>
+
+I oppgavekortet kan du samle handlinger som hører sammen med annen informasjon. Eksempler på dette kan være valg for tilpasning av en tilleggsdekning, muligheter for videre behandling av en åpen skadesak, eller visning av forsikringsdetaljer med mulighet for endring.
+
+Du kan velge mellom noen fastsatte bakgrunner, og velge å fremheve kortet med skygge, ellers bestemmer du selv innholdet i kortet. Siden kortet i seg selv ikke er klikkbart kan du bruke interaktivt innhold som lenker, knapper og skjemaelementer.
+
+## Infokort
+
+> Du finner det du lurer på
+
+<ComponentExample
+    title="InfoCard"
+    component={InfoCardExample}
+    knobs={infoCardExampleProps}
+    codeExample={infoCardExampleCode}
+/>
+
+Infokortet brukes til ren informasjon. Det kan ha et bilde, og bør ellers inneholde en tittel sammen med eventuell ekstra informasjon. Kortet skal ikke ha knapper eller lenker, og du setter selv en bakgrunnsfarge som passer til bruken i din løsning.

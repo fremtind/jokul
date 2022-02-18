@@ -1,6 +1,5 @@
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
-import cx from "classnames";
-import { nanoid } from "nanoid";
+import { useId, useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 import React, { useRef, useState } from "react";
 
 export interface LogoStampProps {
@@ -21,7 +20,7 @@ export const LogoStamp = ({
     animated = false,
     title = "Fremtind, fra SpareBank 1 og DNB",
 }: LogoStampProps): JSX.Element => {
-    const [uniqueId] = useState(id || `jkl-logo-stamp-${nanoid(16)}`);
+    const uniqueId = useId(id || "jkl-logo-stamp", { generateSuffix: !id });
 
     const stampRef = useRef<SVGSVGElement>(null);
     const [hasAnimated, setHasAnimated] = useState(false);
@@ -45,7 +44,7 @@ export const LogoStamp = ({
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
             aria-labelledby={uniqueId}
-            className={cx("jkl-logo-stamp", className, {
+            className={cn("jkl-logo-stamp", className, {
                 "jkl-logo-stamp--animated": animated,
                 "jkl-logo-stamp--rotate": animated && (visible || hasAnimated),
             })}

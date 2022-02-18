@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@7.0.1...@fremtind/jkl-select@7.0.2) (2022-02-17)
+
+### Bug Fixes
+
+-   **select:** make sure Select stays within 100% width ([b142853](https://github.com/fremtind/jokul/commit/b1428535234131a3b02be7895f1b2ccf5de9d99b))
+
 # 7.0.0 (2022-02-07)
 
 ### Bug Fixes

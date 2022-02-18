@@ -94,6 +94,7 @@ $select-search-input-selection-color--inverted: color.scale(
         position: relative;
         width: 15rem;
         min-width: 7rem;
+        max-width: 100%;
     }
 
     &__search-input {
