@@ -40,7 +40,7 @@ export interface SelectProps extends DataTestAutoId {
     /**
      * @default false
      */
-    searchable?: boolean;
+    searchable?: boolean | ((searchValue: string, searchItem: string | ValuePair) => boolean);
     forceCompact?: boolean;
     width?: string;
     onChange?: ChangeEventHandler;
@@ -114,18 +114,36 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const [selectedValue, setSelectedValue] = useState(value);
         const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
 
+        const isSearchable = !!searchable;
+
+        const searchFn = (item: ValuePair) => {
+            if (item.label.toLowerCase().includes(searchValue.toLowerCase())) {
+                return true;
+            }
+
+            if (typeof searchable === "function") {
+                return searchable(searchValue, item);
+            }
+
+            return false;
+        };
+
         const visibleItems = items.map(getValuePair).map((item) => {
-            const visible =
-                !searchable || searchValue === "" || item.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
+            const visible = !isSearchable || searchValue === "" || searchFn(item);
             return { ...item, visible };
         });
         const selectedValueLabel = visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt;
+
+        // Update internal state if value is changed
+        useEffect(() => {
+            setSelectedValue(value);
+        }, [value, setSelectedValue]);
 
         const focusInsideRef = useRef(false);
         const [dropdownIsShown, setShown] = useState(false);
         const listId = useId(id || "jkl-select", { generateSuffix: !id });
         const searchInputId = `${listId}_search-input`;
-        const showSearchInputField = searchable && dropdownIsShown;
+        const showSearchInputField = isSearchable && dropdownIsShown;
 
         // Element references:
         const componentRootElementRef = useRef<HTMLDivElement>(null);
@@ -230,8 +248,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         return (
             <div data-testid="jkl-select" className={componentClassName} ref={componentRootElementRef} {...rest}>
                 <Label
-                    standAlone={searchable} // Use <label> as the element when searchAble=true for accessibility
-                    htmlFor={searchable ? searchInputId : undefined}
+                    standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
+                    htmlFor={isSearchable ? searchInputId : undefined}
                     variant={variant}
                     forceCompact={forceCompact}
                     srOnly={inline}
@@ -249,7 +267,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     <option value={selectedValue}>{toItemLabel(selectedValue, items)}</option>
                 </select>
                 <div className="jkl-select__outer-wrapper" style={{ width }}>
-                    {searchable && (
+                    {isSearchable && (
                         <input
                             id={searchInputId}
                             hidden={!showSearchInputField}
@@ -261,6 +279,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             className="jkl-select__search-input"
                             onBlur={handleBlur}
                             onFocus={handleFocus}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                            }}
                         />
                     )}
                     <button

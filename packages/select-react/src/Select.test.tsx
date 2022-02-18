@@ -216,6 +216,33 @@ describe("Select", () => {
 
         expect(screen.getByTestId("jkl-select__button")).toBeVisible();
     });
+
+    it("supports controlled value state", () => {
+        const TestControlledSelect = () => {
+            const items = [
+                { label: "Item 1", value: "1" },
+                { label: "Item 2", value: "2" },
+                { label: "Item 3", value: "3" },
+            ];
+
+            const [value, setValue] = useState("");
+
+            return (
+                <>
+                    <button onClick={() => setValue(items[1].value)}>Click</button>
+                    <Select name="items" items={items} label="Ting" value={value} />
+                </>
+            );
+        };
+
+        render(<TestControlledSelect />);
+
+        act(() => {
+            userEvent.click(screen.getByText("Click"));
+        });
+
+        expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("Item 2");
+    });
 });
 
 describe("Searchable select", () => {
@@ -727,6 +754,69 @@ describe("Searchable select", () => {
         });
 
         expect(screen.getByTestId("jkl-select__search-input")).toBeVisible();
+    });
+
+    it("should not close the Select when clicking the input field", () => {
+        const items = [
+            { label: "Item 1", value: "1" },
+            { label: "Item 2", value: "2" },
+            { label: "Item 3", value: "3" },
+        ];
+
+        render(<Select name="items" items={items} label="Ting" searchable />);
+
+        const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
+        const searchInputElement = screen.getByTestId("jkl-select__search-input");
+
+        act(() => {
+            userEvent.click(openDropdownButtonElement);
+        });
+
+        expect(searchInputElement).toBeVisible();
+
+        act(() => {
+            userEvent.click(searchInputElement);
+        });
+
+        expect(searchInputElement).toBeVisible();
+    });
+
+    it("should support custom filtering function", () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+
+        render(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                searchable={(filter, item) => {
+                    if (typeof item === "object") {
+                        return item.value === filter;
+                    } else {
+                        return item === filter;
+                    }
+                }}
+            />,
+        );
+
+        const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
+        const searchInputElement = screen.getByTestId("jkl-select__search-input");
+
+        act(() => {
+            userEvent.click(openDropdownButtonElement);
+        });
+
+        act(() => {
+            fireEvent.change(searchInputElement, { target: { value: "3" } });
+        });
+
+        expect(screen.getByText("baz")).toBeVisible();
+        expect(screen.getByText("foo")).not.toBeVisible();
+        expect(screen.getByText("bar")).not.toBeVisible();
     });
 });
 

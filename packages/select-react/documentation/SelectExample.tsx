@@ -7,15 +7,15 @@ export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceVa
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
-        { value: "apple", label: "Apple" },
-        { value: "samsung", label: "Samsung" },
-        { value: "google", label: "Google og utvalgte partnere" },
-        { value: "LG", label: "LG" },
+        { value: "1", label: "Apple" },
+        { value: "2", label: "Samsung" },
+        { value: "3", label: "Google og utvalgte partnere" },
+        { value: "4", label: "LG" },
     ];
     const [value, setValue] = useState<string>();
 
     const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
-    const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Hjelpsom beskjed" : undefined;
+    const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Prøv å søke på et tall" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
     const searchAble = boolValues && boolValues["Med søk"];
 
@@ -34,7 +34,17 @@ export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceVa
                 setValue(event.target.value);
                 console.log("Change: ", event);
             }}
-            searchable={searchAble}
+            searchable={
+                searchAble
+                    ? (filter, item) => {
+                          if (typeof item === "object") {
+                              return item.value.includes(filter);
+                          } else {
+                              return item.includes(item);
+                          }
+                      }
+                    : undefined
+            }
             onFocus={(event) => {
                 console.log("Focus: ", event);
             }}
