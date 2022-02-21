@@ -41,7 +41,7 @@ $fjellgra-rgb: 68, 65, 65;
 
     &__footer {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         padding: jkl.$spacing-m jkl.$spacing-s jkl.$spacing-xs;
         padding-left: jkl.$spacing-s;

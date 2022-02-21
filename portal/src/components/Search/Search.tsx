@@ -1,6 +1,5 @@
 import { autocomplete, getAlgoliaResults } from "@algolia/autocomplete-js";
 import "@algolia/autocomplete-theme-classic";
-import { Tag } from "@fremtind/jkl-tag-react";
 import React, { createElement, Fragment, useEffect, useRef } from "react";
 import { Link, navigate } from "gatsby";
 import { render } from "react-dom";
@@ -111,35 +110,6 @@ export function Search() {
                             footer() {
                                 return (
                                     <div className="jkl-portal-search__footer">
-                                        <div className="jkl-portal-search__shortcuts">
-                                            <div aria-label="Trykk Enter for å velge et resultat fra listen">
-                                                <div className="jkl-portal-search__shortcut">
-                                                    <Tag>
-                                                        <kbd>↵</kbd>
-                                                    </Tag>
-                                                </div>
-                                                <span className="jkl-small">for å velge</span>
-                                            </div>
-                                            <div aria-label="Trykk opp og ned med piltastene for å flytte markøren">
-                                                <div className="jkl-portal-search__shortcut">
-                                                    <Tag className="jkl-spacing-xs--right">
-                                                        <kbd>↓</kbd>
-                                                    </Tag>
-                                                    <Tag>
-                                                        <kbd>↑</kbd>
-                                                    </Tag>
-                                                </div>
-                                                <span className="jkl-small">for å navigere</span>
-                                            </div>
-                                            <div aria-label="Trykk Escape for å lukke søkeboksen">
-                                                <div className="jkl-portal-search__shortcut">
-                                                    <Tag>
-                                                        <kbd>esc</kbd>
-                                                    </Tag>
-                                                </div>
-                                                <span className="jkl-small">for å lukke</span>
-                                            </div>
-                                        </div>
                                         <div>
                                             <a
                                                 href="https://www.algolia.com/?utm_campaign=poweredby"
