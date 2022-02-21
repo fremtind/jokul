@@ -1,5 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/mixins/_all" as mixins;
+@use "~@fremtind/jkl-text-input/text-input" as text-input;
 
 $granitt-rgb: 27, 25, 23;
 $snohvit-rgb: 249, 249, 249;
@@ -79,24 +80,51 @@ $fjellgra-rgb: 68, 65, 65;
     }
 }
 
+.aa-Form {
+    border: none;
+    background: none;
+    -webkit-appearance: none;
+
+    @include mixins.reset-outline;
+    @include mixins.motion("standard");
+    @include jkl.text-style("body/large-screen");
+
+    border-radius: jkl.rem(3px);
+    box-sizing: border-box;
+    height: text-input.$text-input-height;
+    padding: text-input.$text-input-padding;
+    padding-right: 0;
+
+    background-color: transparent;
+    box-shadow: inset 0 0 0 jkl.rem(1px) var(--text-input-border-color), 0 0 0 jkl.rem(1px) transparent;
+
+    transition-property: color, box-shadow, background-color;
+
+    &:hover {
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--text-input-focus-color),
+            0 0 0 jkl.rem(1px) var(--text-input-focus-color);
+        border-color: var(--text-input-focus-color);
+    }
+
+    &:focus,
+    &:focus-within {
+        background-color: var(--text-input-background-color);
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--text-input-focus-color),
+            0 0 0 jkl.rem(1px) var(--text-input-focus-color);
+        border-color: var(--text-input-focus-color);
+    }
+}
+
 .aa-InputWrapper {
     position: relative;
 }
 
-.aa-InputWrapper:not(:focus-within)::after {
-    @include jkl.text-style("small");
+.aa-InputWrapperPrefix {
+    order: 4; // vi har handlinger etter inputen
+}
 
-    content: "/";
-    color: var(--jkl-keyboard-hint-color);
-    border: 1px solid var(--jkl-keyboard-hint-border-color);
-    border-radius: 4px;
-
-    display: block;
-    position: absolute;
-    top: jkl.rem(8px);
-    right: jkl.rem(8px);
-    width: jkl.rem(8px);
-    padding: jkl.$spacing-3xs jkl.$spacing-xs;
+.aa-InputWrapperSuffix {
+    display: none; // Unngå to handlinger på høyresiden
 }
 
 .aa-Panel {
