@@ -3,7 +3,8 @@ import "@algolia/autocomplete-theme-classic";
 import React, { createElement, Fragment, useEffect, useRef } from "react";
 import { Link, navigate } from "gatsby";
 import { render } from "react-dom";
-import { debouncedSearch, IndexItem, searchClient } from "./search-utils";
+import { Tag } from "@fremtind/jkl-tag-react";
+import { debouncedSearch, IndexItem, searchClient, getCategory } from "./search-utils";
 import "./search.scss";
 
 export function Search() {
@@ -98,6 +99,7 @@ export function Search() {
                                             <div className="aa-ItemContentBody">
                                                 <div className="aa-ItemContentTitle">
                                                     <components.Highlight hit={item} attribute="title" />
+                                                    <Tag className="jkl-spacing-s--left">{getCategory(item.path)}</Tag>
                                                 </div>
                                                 <div className="aa-ItemContentDescription">
                                                     <components.Snippet hit={item} attribute="excerpt" />

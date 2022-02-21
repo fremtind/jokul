@@ -21,6 +21,24 @@ export type IndexItem = {
 
 type Source = Array<AutocompleteSource<IndexItem>>;
 
+export function getCategory(path: string): string {
+    // Ekstremt enkelt sortering i kategorier ut fra path
+    switch (true) {
+        case /\/komponenter\//.test(path):
+            return "Komponent";
+        case /\/blog\//.test(path):
+            return "Bloggpost";
+        case /\/uu\//.test(path):
+        case /\/universell-utforming\//.test(path):
+            return "UU";
+        case /\/profil\//.test(path):
+            return "Profil";
+
+        default:
+            return "Artikkel";
+    }
+}
+
 function debounceSearch(fn: (items: Source) => Promise<Source>) {
     let timerId: number | undefined = undefined;
 

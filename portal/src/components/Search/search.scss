@@ -6,6 +6,7 @@ $granitt-rgb: 27, 25, 23;
 $snohvit-rgb: 249, 249, 249;
 $sand-rgb: 244, 242, 239;
 $fjellgra-rgb: 68, 65, 65;
+$advarsel-rgb: 253, 234, 185;
 
 /* Se for variabler: https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-theme-classic/ */
 :root {
@@ -16,6 +17,9 @@ $fjellgra-rgb: 68, 65, 65;
 }
 
 @include jkl.helper-light-mode-variables {
+    /* Bruk profilfarge for highlights i light mode (blir for dårlig kontrast i dark mode) */
+    --aa-description-highlight-background-color-rgb: #{$advarsel-rgb};
+    --aa-description-highlight-background-color-alpha: 1;
     --aa-text-color-rgb: #{$granitt-rgb};
     --aa-icon-color-rgb: #{$granitt-rgb};
     --aa-primary-color-rgb: #{$granitt-rgb};
@@ -128,12 +132,14 @@ $fjellgra-rgb: 68, 65, 65;
 }
 
 .aa-Panel {
-    @include mixins.motion("standard");
+    @include mixins.motion("standard", "lazy");
 
     z-index: jkl.$z-index--dropdown;
     position: fixed;
     transition-property: top;
-    top: jkl.rem(69px) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
+    top: jkl.rem(72px) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
+    margin-top: jkl.rem(1px); // Gir plass til fokus-state på inputfeltet
+    max-width: 50rem;
 
     @include mixins.small-device {
         top: jkl.rem(0) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
@@ -141,6 +147,8 @@ $fjellgra-rgb: 68, 65, 65;
 
     .aa-Panel--scrollable {
         padding: jkl.$spacing-m jkl.$spacing-l;
+        scrollbar-color: unset;
+        scrollbar-width: unset;
 
         @include mixins.small-device {
             padding: jkl.$spacing-xs jkl.$spacing-xs;
@@ -167,7 +175,11 @@ $fjellgra-rgb: 68, 65, 65;
         @include jkl.text-style("heading-5");
     }
 
+    .aa-ItemContentDescription {
+        @include jkl.text-style("small");
+    }
+
     &--collapsed {
-        top: jkl.rem(55px) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
+        top: jkl.rem(57px) !important; // Biblioteket setter inline styles, men feiler på scrolling. Override.
     }
 }
