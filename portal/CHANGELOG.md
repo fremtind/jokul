@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.3.0 (2022-02-22)
+
+### Bug Fixes
+
+-   fjern side om blogging fra listen med bloggposter ([6454d5d](https://github.com/fremtind/jokul/commit/6454d5d3f5e18b3e4817fa530cc218caae3baff1))
+
+### Features
+
+-   gjør om leaf nodes i menytreet til anchors ([d60cfa5](https://github.com/fremtind/jokul/commit/d60cfa5d7ddd4a1ecd929f779781f9650e1a20ce))
+-   legg til en RSS-feed i portalen ([cb3823d](https://github.com/fremtind/jokul/commit/cb3823d8e240832533873f639ed5ed271c604e8b))
+
 # [12.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.1.0...@fremtind/portal@12.2.0) (2022-02-17)
 
 ### Features
