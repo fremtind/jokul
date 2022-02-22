@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.2.0 (2022-02-22)
+
+### Features
+
+-   legg til forceCompact ([81dfe9b](https://github.com/fremtind/jokul/commit/81dfe9be2fa9dc5f0d8eb341c4d74959a3874f33)), closes [#1480](https://github.com/fremtind/jokul/issues/1480)
+
 ## 5.1.4 (2022-02-07)
 
 ### Bug Fixes
