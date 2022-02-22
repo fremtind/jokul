@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.3.0 (2022-02-22)
+
+### Features
+
+-   legg til validator for kredittkortnummer ([1c876b6](https://github.com/fremtind/jokul/commit/1c876b60bea04337616a83b5c206616af9a7eccb))
+
 ## 2.2.2 (2022-02-01)
 
 ### Bug Fixes
