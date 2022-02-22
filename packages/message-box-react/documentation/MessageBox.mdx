@@ -5,7 +5,7 @@ scss: message-box
 group: meldinger
 ---
 
-import { MessageBoxExample, messageBoxExampleCode } from "./MessageBoxExample";
+import { MessageBoxExample, messageBoxExampleKnobs, messageBoxExampleCode } from "./MessageBoxExample";
 import { FormErrorMessageBoxExample, formErrorMessageBoxExampleCode } from "./FormErrorMessageBoxExample";
 
 <Ingress>
@@ -15,16 +15,7 @@ import { FormErrorMessageBoxExample, formErrorMessageBoxExampleCode } from "./Fo
 <ComponentExample
     title="MessageBox"
     component={MessageBoxExample}
-    knobs={{
-        boolProps: ["Full width", "Dismissable"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["Info", "Success", "Warning", "Error"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={messageBoxExampleKnobs}
     codeExample={messageBoxExampleCode}
 />
 
@@ -49,7 +40,7 @@ Som beskrevet i [Skjemavalidering](/profil/skjemadesign#skjemavalidering) bruker
     title="FormErrorMessageBox"
     component={FormErrorMessageBoxExample}
     knobs={{
-        boolProps: ["Full width", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
+        boolProps: ["Full width", "Compact", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
     }}
     codeExample={formErrorMessageBoxExampleCode}
 />
