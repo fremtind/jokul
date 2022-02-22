@@ -9,11 +9,11 @@ context("Portal", () => {
             // eslint-disable-next-line cypress/no-unnecessary-waiting
             cy.wait(1000); // Må vente til hamburgeren blir interaktiv
 
-            cy.get("button#jkl-portal-main-menu-hamburger").click();
+            cy.get("#jkl-portal-main-menu-hamburger").click();
 
-            cy.get("button.jkl-portal-full-screen-menu-item__link").eq(0).click();
+            cy.get(".jkl-portal-full-screen-menu-item__link").eq(0).click();
 
-            cy.get("button.jkl-portal-full-screen-menu-item__link").eq(1).click();
+            cy.get(".jkl-portal-full-screen-menu-item__link").eq(1).click();
 
             cy.get("h1").should("contain", "Bygg med Jøkul");
         });
@@ -23,9 +23,9 @@ context("Portal", () => {
         it("passes a basic smoketest", () => {
             cy.visit("/");
 
-            cy.get("button.jkl-portal-main-menu__root-link").eq(0).click();
+            cy.get(".jkl-portal-main-menu__root-link").eq(0).click();
 
-            cy.get("button.jkl-portal-full-screen-menu-item__link").eq(1).click();
+            cy.get(".jkl-portal-full-screen-menu-item__link").eq(1).click();
 
             cy.get("h1").should("contain", "Bygg med Jøkul");
         });
