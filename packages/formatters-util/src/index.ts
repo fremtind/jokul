@@ -3,6 +3,7 @@ export { formatNumber } from "./util/formatNumber";
 export { parseNumber } from "./util/parseNumber";
 export type { Formatter } from "./util/registerWithMask";
 export {
+    registerWithMasks,
     registerWithFodselsnummerMask,
     registerWithKontonummerMask,
     registerWithKortnummerMask,
