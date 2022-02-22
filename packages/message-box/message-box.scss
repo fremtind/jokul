@@ -6,6 +6,7 @@
 
 $dismiss-animation-duration: 500ms;
 $message-width: rem(560px);
+$message-width--compact: rem(440px);
 
 $dismiss-focus-border-color: jkl.$color-granitt;
 $dismiss-hover-color: jkl.$color-stein;
@@ -37,10 +38,15 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__content {
+        & > :not(.jkl-message-box__title) {
+            margin-top: -#{jkl.$spacing-3xs};
+        }
+
         & > * + * {
             margin-top: jkl.$spacing-xs;
         }
 
+        /* Hvis Dismissable, gi plass mellom tekst og Lukk-knapp. */
         &:not(:last-child) {
             margin-right: jkl.$spacing-m;
         }
@@ -57,7 +63,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         background-color: transparent;
         padding: 0;
         margin-left: auto;
-        margin-top: jkl.$spacing-2xs;
+        margin-top: jkl.$spacing-3xs;
         color: inherit;
         cursor: pointer;
         width: rem(20px);
@@ -84,6 +90,35 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
                     box-shadow: 0 0 0 rem(2px) $dismiss-focus-border-color;
                 }
             }
+        }
+    }
+
+    &--compact {
+        padding: jkl.$spacing-m;
+        padding-left: rem(48px);
+        max-width: $message-width--compact;
+
+        .jkl-message-box__content {
+            @include jkl.text-style("small");
+
+            & > :not(.jkl-message-box__title) {
+                margin-top: 0;
+            }
+
+            /* Hvis Dismissable, gi plass mellom tekst og Lukk-knapp. */
+            &:not(:last-child) {
+                margin-right: jkl.$spacing-s;
+            }
+        }
+
+        .jkl-message-box__icon {
+            left: jkl.$spacing-s;
+        }
+
+        .jkl-message-box__title {
+            margin-bottom: jkl.$spacing-3xs;
+
+            @include jkl.text-style("heading-5");
         }
     }
 

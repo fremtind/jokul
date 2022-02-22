@@ -7,6 +7,7 @@ export interface MessageBoxProps {
     children: ReactNode;
     title?: string;
     fullWidth?: boolean;
+    forceCompact?: boolean;
     className?: string;
     dismissed?: boolean;
     dismissAction?: {
@@ -77,7 +78,7 @@ const getIcon = (messageType: messageTypes) => {
                 <svg
                     className="jkl-message-box__icon"
                     aria-hidden
-                    viewBox="0 0 24 24"
+                    viewBox="2 3 20 18"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -111,6 +112,7 @@ function messageFactory(messageType: messageTypes) {
     const MessageBox: React.FC<MessageBoxProps> = ({
         title,
         fullWidth,
+        forceCompact,
         className = "",
         dismissed,
         dismissAction,
@@ -119,6 +121,7 @@ function messageFactory(messageType: messageTypes) {
     }) => {
         const componentClassName = classNames("jkl-message-box", "jkl-message-box--" + messageType, className, {
             "jkl-message-box--full": fullWidth,
+            "jkl-message-box--compact": forceCompact,
             "jkl-message-box--dismissed": dismissed,
         });
 

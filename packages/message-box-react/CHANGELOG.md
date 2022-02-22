@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 6.3.0 (2022-02-22)
+
+### Features
+
+-   legg til forceCompact ([81dfe9b](https://github.com/fremtind/jokul/commit/81dfe9be2fa9dc5f0d8eb341c4d74959a3874f33)), closes [#1480](https://github.com/fremtind/jokul/issues/1480)
+
 ## 6.2.6 (2022-02-02)
 
 ### Bug Fixes

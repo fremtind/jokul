@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.2.0 (2022-02-22)
+
+### Features
+
+-   la brukere overstyre komponenten brukt av NavCard ([afd53da](https://github.com/fremtind/jokul/commit/afd53da8a65223fdfb5fe295277014b996991bf4))
+
 # [5.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@5.0.20...@fremtind/jkl-card-react@5.1.0) (2022-02-17)
 
 ### Bug Fixes
