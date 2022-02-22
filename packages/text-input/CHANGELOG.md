@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.5 (2022-02-22)
+
+### Bug Fixes
+
+-   add correct max-height to textarea with counter ([c736b18](https://github.com/fremtind/jokul/commit/c736b1842758e303a176d0a58de10be86294148d))
+
 ## 7.0.2 (2022-02-14)
 
 ### Bug Fixes
