@@ -113,10 +113,10 @@
         &:focus {
             color: jkl.$color-granitt;
 
-            transform: translateX(-1ch);
+            transform: translateX(jkl.rem(-2px));
 
             &::after {
-                transform: translateX(1ch);
+                transform: translateX(jkl.rem(2px));
             }
         }
 
