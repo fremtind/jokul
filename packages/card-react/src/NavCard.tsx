@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from "react";
+import React, { ElementType, FC, HTMLAttributes } from "react";
 import cn from "classnames";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-tag-react";
 import { Image } from "@fremtind/jkl-image-react";
@@ -25,10 +25,16 @@ export interface NavCardProps extends PaddingOptions, HTMLAttributes<HTMLAnchorE
         text: string;
     };
     title: string;
-    href: string;
+    href?: string;
+    to?: string;
     description?: string;
     image?: Omit<ImageProps, "className">;
     className?: string;
+    /**
+     * Overstyr hvilken komponent som skal brukes, for eksempel hvis du har en Link-komponent fra en router.
+     * @default "a"
+     */
+    component?: ElementType;
 }
 
 const getTag = (type?: TagType) => {
@@ -47,11 +53,11 @@ const getTag = (type?: TagType) => {
 };
 
 export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, NavCardProps>(
-    ({ padding = "l", image, tag, title, description, children, className, ...anchorProps }, ref) => {
+    ({ component = "a", padding = "l", image, tag, title, description, children, className, ...anchorProps }, ref) => {
         const CardTag = getTag(tag?.type);
-
+        const Component = component;
         return (
-            <a ref={ref} className={cn("jkl-nav-card", className)} {...anchorProps}>
+            <Component ref={ref} className={cn("jkl-nav-card", className)} {...anchorProps}>
                 {image && <Image className="jkl-nav-card__image" {...image} />}
                 <div className={cn("jkl-nav-card__content", getSpacingClasses(padding))}>
                     {tag && <CardTag>{tag.text}</CardTag>}
@@ -61,7 +67,7 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
                     </div>
                     {children}
                 </div>
-            </a>
+            </Component>
         );
     },
 );
