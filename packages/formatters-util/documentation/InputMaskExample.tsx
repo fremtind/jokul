@@ -6,12 +6,7 @@ import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../../pa
 import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 
 import "./input-mask-example.scss";
-import {
-    registerWithFodselsnummerMask,
-    registerWithKontonummerMask,
-    registerWithKortnummerMask,
-    registerWithTelefonnummerMask,
-} from "../src";
+import { registerWithMasks } from "../src";
 
 interface Skjema {
     telefonnummer: string;
@@ -24,6 +19,13 @@ export const InputMaskExample: VFC<ExampleComponentProps> = () => {
     const form = useForm<Skjema>();
     const [formData, setFormData] = useState<Skjema>();
 
+    const {
+        registerWithFodselsnummerMask,
+        registerWithKontonummerMask,
+        registerWithKortnummerMask,
+        registerWithTelefonnummerMask,
+    } = registerWithMasks(form);
+
     return (
         <>
             <form className="input-mask-example-form" onSubmit={form.handleSubmit(setFormData)}>
@@ -31,18 +33,14 @@ export const InputMaskExample: VFC<ExampleComponentProps> = () => {
                     label="Telefonnummer"
                     // Husk å gi plass til mellomrommene som settes inn!
                     maxLength={11}
-                    {...registerWithTelefonnummerMask(form, "telefonnummer", {
+                    {...registerWithTelefonnummerMask("telefonnummer", {
                         required: "Du må fylle inn telefonnummeret ditt",
                     })}
                     errorLabel={form.formState.errors.telefonnummer?.message}
                 />
-                <TextInput
-                    label="Fødselsnummer"
-                    maxLength={12}
-                    {...registerWithFodselsnummerMask(form, "fodselsnummer")}
-                />
-                <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask(form, "kortnummer")} />
-                <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask(form, "kontonummer")} />
+                <TextInput label="Fødselsnummer" maxLength={12} {...registerWithFodselsnummerMask("fodselsnummer")} />
+                <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask("kortnummer")} />
+                <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonummer")} />
                 <PrimaryButton type="submit">Send inn</PrimaryButton>
                 {formData && (
                     <>
@@ -65,15 +63,17 @@ export const InputMaskExample: VFC<ExampleComponentProps> = () => {
 export default InputMaskExample;
 
 export const inputMaskExampleCode: CodeExample = `
-import {
+import { registerWithMasks } from "@fremtind/jkl-formatters-util";
+
+const form = useForm<Skjema>();
+const [formData, setFormData] = useState<Skjema>();
+
+const {
     registerWithFodselsnummerMask,
     registerWithKontonummerMask,
     registerWithKortnummerMask,
     registerWithTelefonnummerMask,
-} from "@fremtind/jkl-formatters-util";
-
-const form = useForm<Skjema>();
-const [formData, setFormData] = useState<Skjema>();
+} = registerWithMasks(form);
 
 return (
     <>
@@ -82,7 +82,7 @@ return (
                 label="Telefonnummer"
                 // Husk å gi plass til mellomrommene som settes inn!
                 maxLength={11}
-                {...registerWithTelefonnummerMask(form, "telefonnummer", {
+                {...registerWithTelefonnummerMask("telefonnummer", {
                     required: "Du må fylle inn telefonnummeret ditt",
                 })}
                 errorLabel={form.formState.errors.telefonnummer?.message}
@@ -90,10 +90,10 @@ return (
             <TextInput
                 label="Fødselsnummer"
                 maxLength={12}
-                {...registerWithFodselsnummerMask(form, "fodselsnummer")}
+                {...registerWithFodselsnummerMask("fodselsnummer")}
             />
-            <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask(form, "kortnummer")} />
-            <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask(form, "kontonummer")} />
+            <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask("kortnummer")} />
+            <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonummer")} />
             <PrimaryButton type="submit">Send inn</PrimaryButton>
         </form>
         {formData && (
