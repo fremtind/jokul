@@ -1,0 +1,13 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.input-mask-example-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: jkl.$spacing-l;
+    align-items: flex-start;
+
+    & > [type="submit"] {
+        margin-top: jkl.$spacing-m;
+    }
+}
