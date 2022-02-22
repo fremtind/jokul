@@ -1,0 +1,53 @@
+{
+    "name": "@fremtind/jkl-formatters-util",
+    "version": "1.0.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Formatters for common data formats in Jøkul",
+    "homepage": "https://jokul.fremtind.no",
+    "keywords": [
+        "jøkul",
+        "fremtind"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/browser/index.js",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build": "run-s build:*",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel documentation/index.html"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.17.2",
+        "@fremtind/jkl-constants-util": "^0.4.1",
+        "@fremtind/jkl-core": "^9.1.1"
+    },
+    "devDependencies": {
+        "react-hook-form": "^7.22.5"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0",
+        "react": "^16.8.6 || ^17.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.4 (2022-02-22)
+
+### Bug Fixes
+
+-   plasser lukk-knapp på linje med tittel og ikon ([224b0dc](https://github.com/fremtind/jokul/commit/224b0dc9828a8fa4c7b6ed6ce9b2db0bd371c2c2)), closes [#2623](https://github.com/fremtind/jokul/issues/2623)
+
 # 7.0.0 (2022-02-07)
 
 ### Bug Fixes

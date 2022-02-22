@@ -4,22 +4,10 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { MessageBoxExample } from "./MessageBoxExample";
+import { MessageBoxExample, messageBoxExampleKnobs } from "./MessageBoxExample";
 import "@fremtind/jkl-message-box/message-box.css";
 
 renderExample(
-    <DevExample
-        component={MessageBoxExample}
-        knobs={{
-            boolProps: ["Full bredde", "Avvisbar"],
-            choiceProps: [
-                {
-                    name: "Type",
-                    values: ["Infomelding", "Suksessmelding", "Advarselsmelding", "Feilmelding"],
-                    defaultValue: 0,
-                },
-            ],
-        }}
-    />,
+    <DevExample component={MessageBoxExample} knobs={messageBoxExampleKnobs} />,
     document.getElementById("app"),
 );
