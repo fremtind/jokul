@@ -1,7 +1,6 @@
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
-import { navigate } from "gatsby";
 import React, { useEffect } from "react";
 
 import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
@@ -110,7 +109,6 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                                         <FullScreenMenuItem
                                             onClick={(evt) => {
                                                 if (isLeafItem(item)) {
-                                                    navigate(item.content);
                                                     setIsOpen(false);
                                                 } else {
                                                     onNavigateForward(item, evt);
@@ -149,7 +147,6 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                                     <FullScreenMenuItem
                                         onClick={(evt) => {
                                             if (isLeafItem(itm)) {
-                                                navigate(itm.content);
                                                 setIsOpen(false);
                                             } else {
                                                 onNavigateForward(itm, evt);
