@@ -4,7 +4,7 @@ import { Link } from "@fremtind/jkl-core";
 import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import { ComponentExample } from "../../../../doc-utils";
-import { InfoMessageBox } from "@fremtind/jkl-message-box-react";
+import { InfoMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
 import {
     Table,
     TableBody,
@@ -81,6 +81,7 @@ const components = {
     ExampleVideo,
     Experimental,
     InfoMessageBox,
+    WarningMessageBox,
     CodeDemo,
     PortalImage,
 };
