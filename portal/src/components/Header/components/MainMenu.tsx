@@ -31,8 +31,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
     };
     const previousItem = peekHistory();
 
-    const onNavigateForward = (newItem: RootItem, evt: React.MouseEvent) => {
-        evt.preventDefault(); // prevent CoreToggle from closing menu
+    const onNavigateForward = (newItem: RootItem) => {
         if (currentItem) {
             pushHistory(currentItem);
         } else {
@@ -41,8 +40,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
         setCurrentItem(newItem);
     };
 
-    const onNavigateBackward = (evt: React.MouseEvent) => {
-        evt.preventDefault(); // prevent CoreToggle from closing menu
+    const onNavigateBackward = () => {
         const previousItem = popHistory();
         if (previousItem) {
             setCurrentItem(previousItem);
@@ -70,8 +68,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                 <Hamburger
                     id="jkl-portal-main-menu-hamburger"
                     aria-controls="jkl-portal-main-menu-overlay"
-                    onClick={(evt) => {
-                        evt.preventDefault();
+                    onClick={() => {
                         if (!currentItem) {
                             setCurrentItem(rootItem);
                         }
@@ -107,11 +104,11 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                                 {currentItem &&
                                     currentItem.content.map((item, idx) => (
                                         <FullScreenMenuItem
-                                            onClick={(evt) => {
+                                            onClick={() => {
                                                 if (isLeafItem(item)) {
                                                     setIsOpen(false);
                                                 } else {
-                                                    onNavigateForward(item, evt);
+                                                    onNavigateForward(item);
                                                 }
                                             }}
                                             item={item}
@@ -133,23 +130,23 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                                 isActive={currentItem?.basePath === item.basePath}
                                 isOpen={isOpen && currentItem?.basePath === item.basePath}
                                 label={item.linkText}
-                                onClick={(e) => {
+                                onClick={() => {
                                     if (!isOpen) {
                                         setIsOpen(true);
                                     } else if (currentItem?.basePath === item.basePath) {
                                         // Toggle open state on repeat click
                                         setIsOpen(false);
                                     }
-                                    onNavigateForward(item as RootItem, e);
+                                    onNavigateForward(item as RootItem);
                                 }}
                             >
                                 {(currentItem || (item as RootItem)).content.map((itm, idx) => (
                                     <FullScreenMenuItem
-                                        onClick={(evt) => {
+                                        onClick={() => {
                                             if (isLeafItem(itm)) {
                                                 setIsOpen(false);
                                             } else {
-                                                onNavigateForward(itm, evt);
+                                                onNavigateForward(itm);
                                             }
                                         }}
                                         item={itm}

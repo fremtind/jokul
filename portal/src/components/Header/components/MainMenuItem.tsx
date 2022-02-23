@@ -1,8 +1,7 @@
-// @ts-ignore: wait for nrk to supply types
-import CoreToggle from "@nrk/core-toggle/jsx";
-import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import React from "react";
+
 interface Props {
     label: string;
     isOpen: boolean;
@@ -11,7 +10,9 @@ interface Props {
 }
 
 export const MainMenuItem: React.FC<Props> = ({ children, label, isActive, isOpen, onClick }) => {
-    const [menuRef] = useAnimatedHeight(isOpen);
+    const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
+    const buttonId = useId("jkl-portal-main-menu-button");
+    const overlayId = useId("jkl-portal-main-menu-overlay");
 
     return (
         <>
@@ -21,16 +22,20 @@ export const MainMenuItem: React.FC<Props> = ({ children, label, isActive, isOpe
                 })}
                 aria-haspopup="menu"
                 aria-expanded={isOpen ? "true" : undefined}
+                aria-controls={overlayId}
+                id={buttonId}
                 onClick={onClick}
             >
                 {label}
             </button>
-            <CoreToggle
+            <div
                 ref={menuRef}
                 className={cx("jkl-portal-main-menu__overlay", {
                     "jkl-portal-main-menu__overlay--open": isOpen,
                 })}
-                popup={true}
+                aria-describedby={buttonId}
+                role="group"
+                id={overlayId}
                 hidden={!isOpen}
             >
                 <div className="jkl-portal-main-menu__menu-wrapper">
@@ -38,7 +43,7 @@ export const MainMenuItem: React.FC<Props> = ({ children, label, isActive, isOpe
                         {children}
                     </ul>
                 </div>
-            </CoreToggle>
+            </div>
         </>
     );
 };
