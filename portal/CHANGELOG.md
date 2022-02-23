@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.3.1 (2022-02-23)
+
+### Bug Fixes
+
+-   klikk mellom menypunkter fjerner ikke innholdet lenger ([194f0c5](https://github.com/fremtind/jokul/commit/194f0c5c4346535f868f15d2a767080dd4af7e56)), closes [#2496](https://github.com/fremtind/jokul/issues/2496)
+
 # 12.3.0 (2022-02-22)
 
 ### Bug Fixes
