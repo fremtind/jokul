@@ -35,7 +35,7 @@
         "@fremtind/jkl-core": "^9.1.1"
     },
     "devDependencies": {
-        "react-hook-form": "^7.22.5"
+        "react-hook-form": "^7.27.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
