@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const sass = require("gulp-sass")(require("sass"));
+const sass = require("gulp-sass/legacy")(require("sass"));
 const importer = require("node-sass-tilde-importer");
 const postcss = require("gulp-postcss");
 const cssnano = require("cssnano");
