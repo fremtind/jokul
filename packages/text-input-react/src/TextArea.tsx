@@ -60,6 +60,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
 
     const componentClassName = cn("jkl-text-input jkl-text-area", className, {
         "jkl-text-area--start-open": startOpen,
+        "jkl-text-area--auto-expand": autoExpand,
         "jkl-text-area--with-counter": typeof counter !== "undefined",
         "jkl-text-input--compact": forceCompact,
     });
@@ -67,41 +68,25 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
     const supportId = useId("jkl-support-label");
 
     const [textAreaFocused, setTextAreaFocused] = useState(false);
-    const [baseScrollHeight, setBaseScrollHeight] = useState(0);
-    const [currentRows, setCurrentRows] = useState(1);
     const internalRef = useRef<HTMLTextAreaElement>(null);
     const textAreaRef = (ref as RefObject<HTMLTextAreaElement>) || internalRef;
 
     useEffect(() => {
         const textAreaElement = textAreaRef.current;
-        if (autoExpand && textAreaElement) {
-            const savedValue = textAreaElement.value;
-            const savedPlaceholder = textAreaElement.placeholder;
-            const savedRows = textAreaElement.rows;
-            // BaseScrollHeight must be calculated from an empty textarea and empty placeholder.
-            textAreaElement.value = "";
-            textAreaElement.placeholder = "";
-            textAreaElement.rows = 1;
-            setBaseScrollHeight(textAreaElement.scrollHeight);
-            textAreaElement.value = savedValue;
-            textAreaElement.placeholder = savedPlaceholder;
-            textAreaElement.rows = savedRows;
-        }
-    }, [textAreaRef, autoExpand]);
-
-    useEffect(() => {
-        const textAreaElement = textAreaRef.current;
-        const minimumRows = rows;
-
         if (textAreaElement) {
-            const calculatedRows = calculateRows(textAreaElement, baseScrollHeight);
+            if (!autoExpand) {
+                textAreaElement.style.height = "";
+                return;
+            }
+
             if (textAreaFocused || restProps.value) {
-                setCurrentRows(Math.max(minimumRows, calculatedRows));
+                textAreaElement.style.height = "auto"; // Sett til auto før scrollhøyden leses, sånn at redusering av høyde ved sletting av tekst fungerer
+                textAreaElement.style.height = `${textAreaElement.scrollHeight}px`;
             } else {
-                setCurrentRows(calculatedRows);
+                textAreaElement.style.height = "";
             }
         }
-    }, [textAreaRef, restProps.value, textAreaFocused, baseScrollHeight, rows]);
+    }, [autoExpand, textAreaRef, restProps.value, textAreaFocused]);
 
     function onFocus(e: FocusEvent<HTMLTextAreaElement>) {
         setTextAreaFocused(true);
@@ -111,17 +96,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
     function onBlur(e: FocusEvent<HTMLTextAreaElement>) {
         setTextAreaFocused(false);
         restProps.onBlur && restProps.onBlur(e);
-    }
-
-    function calculateRows(textAreaElement: HTMLTextAreaElement, baseScrollHeight: number) {
-        const lineHeightWithPx = window ? window.getComputedStyle(textAreaElement).lineHeight : "16px"; // Default to 16px
-        const lineHeight = parseInt(lineHeightWithPx.replace("px", ""));
-        const savedRows = textAreaElement.rows;
-        // We need to set rows to 1 to shrink the textarea when removing characters.
-        textAreaElement.rows = 1;
-        const calculatedRows = Math.ceil((textAreaElement.scrollHeight - baseScrollHeight) / lineHeight) + 1;
-        textAreaElement.rows = savedRows;
-        return calculatedRows;
     }
 
     const counterCurrent: number = textAreaRef.current?.value.length || 0;
@@ -140,7 +114,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
     const hasSupportText = helpLabel || counterLabel || errorLabel;
     const describedBy = hasSupportText ? supportId : undefined;
     const style = {
-        height: autoExpand && textAreaRef.current?.value ? "auto" : undefined,
         overflowX: autoExpand ? "hidden" : undefined, // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
     } as React.CSSProperties;
 
@@ -159,7 +132,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                     aria-invalid={!!errorLabel}
                     aria-describedby={describedBy}
                     placeholder={placeholder}
-                    rows={autoExpand ? currentRows : undefined}
                     style={style}
                     {...restProps}
                 />
@@ -170,6 +142,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                         className="jkl-text-input__input"
                         aria-invalid={Boolean(errorLabel || counterLabel)}
                         data-has-content={counterCurrent > 0}
+                        style={style}
                     >
                         <textarea
                             id={uid}
@@ -180,7 +153,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             aria-describedby={describedBy}
                             aria-invalid={Boolean(errorLabel || counterLabel)}
                             placeholder={placeholder}
-                            rows={autoExpand ? currentRows : undefined}
                             style={style}
                             {...restProps}
                         />

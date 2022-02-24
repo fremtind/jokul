@@ -253,7 +253,15 @@ $text-input-selection-color--inverted: color.scale(
 
 .jkl-text-area {
     height: auto;
+    min-width: rem(280px); // For å unngå "jank" med ekspanderende textarea med teller på små bredder
     width: 100%;
+
+    &--auto-expand {
+        .jkl-text-input__input,
+        .jkl-text-area__text-area {
+            overflow: hidden; // Skjul scrollbar når høyden autojusteres
+        }
+    }
 
     & .jkl-text-input__input {
         @include motion("standard");
@@ -262,10 +270,6 @@ $text-input-selection-color--inverted: color.scale(
         font-weight: normal;
         width: 100%;
         resize: none; // Disable textarea resize
-    }
-
-    &.jkl-text-input--compact .jkl-text-input__input:empty {
-        overflow: hidden;
     }
 
     &--with-counter {
