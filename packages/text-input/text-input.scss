@@ -393,12 +393,12 @@ $text-input-selection-color--inverted: color.scale(
 
 /* Utility classes for number of rows */
 @for $num from 3 through 10 {
+    $height: $text-input-line-height * $num + jkl.$spacing-xs * 2;
+    $small-height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
+
     .jkl-text-input__input--#{$num}-rows:focus,
     .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
     .jkl-text-area--start-open .jkl-text-input__input--#{$num}-rows {
-        $height: $text-input-line-height * $num + jkl.$spacing-xs * 2;
-        $small-height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
-
         /**
          * (#2751) Ekspanderende får inline style med height auto,
          *         som gir et "hopp" dersom det er en teller og vi
@@ -417,5 +417,10 @@ $text-input-selection-color--inverted: color.scale(
             height: $small-height;
             min-height: $small-height; // (#2751)
         }
+    }
+
+    .jkl-text-area--start-open.jkl-text-input--compact .jkl-text-input__input--#{$num}-rows {
+        height: $small-height;
+        min-height: $small-height; // (#2751)
     }
 }
