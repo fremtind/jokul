@@ -381,7 +381,6 @@ $text-input-selection-color--inverted: color.scale(
         }
 
         &.jkl-text-area--start-open .jkl-text-input__input {
-            background: var(--text-input-background-color);
             max-height: none;
             padding-bottom: jkl.$spacing-xl;
         }
