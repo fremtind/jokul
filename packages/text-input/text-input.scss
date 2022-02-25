@@ -323,15 +323,15 @@ $text-input-selection-color--inverted: color.scale(
             height: calc($text-input-height - (2 * jkl.$spacing-xs));
             padding: 0;
 
-            .jkl-text-input__input[data-has-content="true"] &,
-            &:focus {
-                padding-right: jkl.$spacing-xs;
-                padding-top: jkl.$spacing-xs;
-            }
-
             transition-property: height;
 
             @include shared-error-styles;
+        }
+
+        .jkl-text-input__input[data-has-content="true"] .jkl-text-area__text-area,
+        .jkl-text-area__text-area:focus {
+            padding-right: jkl.$spacing-xs;
+            padding-top: jkl.$spacing-xs;
         }
 
         .jkl-text-area__counter {
