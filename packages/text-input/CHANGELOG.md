@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.6 (2022-02-25)
+
+### Bug Fixes
+
+-   fikser feil med høyde på ekspanderende textarea m teller ([54cc419](https://github.com/fremtind/jokul/commit/54cc41935e9a01e1554ee706cc4940d453a7be71)), closes [#2751](https://github.com/fremtind/jokul/issues/2751)
+-   høydefeil ved kompakt og start åpen ([f4f4b8b](https://github.com/fremtind/jokul/commit/f4f4b8ba960601970ed9dd79542b99758dc5a234))
+-   scrollbarforbedringer ([24ddcb0](https://github.com/fremtind/jokul/commit/24ddcb0858b33aa9bdad0d21d7107a196e961d2c))
+-   scrollbarposisjon flyttet pga start åpen med teller ([139a545](https://github.com/fremtind/jokul/commit/139a545745f9afb74c00534eecaefedec3f40506))
+-   sett bakgrunnsfarge først ved fokus ([aba58ac](https://github.com/fremtind/jokul/commit/aba58acf4582b9fb7e5d7c252f561ba273fad160))
+-   skriv om beregningen av høyde ved autoekspandering ([2b318ef](https://github.com/fremtind/jokul/commit/2b318efb0b7a60a5be1200db836d005ddeb9ca2a)), closes [#2752](https://github.com/fremtind/jokul/issues/2752)
+-   topp padding med teller og innhold uten fokus ([92a65d2](https://github.com/fremtind/jokul/commit/92a65d25ea1beeb62586bb60759f5f2b49827237))
+
 ## 7.0.5 (2022-02-22)
 
 ### Bug Fixes
