@@ -253,7 +253,6 @@ $text-input-selection-color--inverted: color.scale(
 
 .jkl-text-area {
     height: auto;
-    min-width: rem(280px); // For å unngå "jank" med ekspanderende textarea med teller på små bredder
     width: 100%;
 
     &--auto-expand {
