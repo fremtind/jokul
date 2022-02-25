@@ -290,7 +290,6 @@ $text-input-selection-color--inverted: color.scale(
 
             &[data-has-content="true"],
             &:focus-within {
-                padding-top: jkl.rem(1px);
                 padding-right: jkl.rem(1px);
                 max-height: 100%;
                 background: var(--text-input-background-color);
@@ -331,7 +330,6 @@ $text-input-selection-color--inverted: color.scale(
         .jkl-text-input__input[data-has-content="true"] .jkl-text-area__text-area,
         .jkl-text-area__text-area:focus {
             padding-right: jkl.$spacing-xs;
-            padding-top: jkl.$spacing-xs;
         }
 
         .jkl-text-area__counter {
