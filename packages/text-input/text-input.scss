@@ -263,6 +263,10 @@ $text-input-selection-color--inverted: color.scale(
         }
     }
 
+    &.jkl-text-input--compact .jkl-text-input__input:empty {
+        overflow: hidden;
+    }
+
     & .jkl-text-input__input {
         @include motion("standard");
 
@@ -287,6 +291,8 @@ $text-input-selection-color--inverted: color.scale(
 
             &[data-has-content="true"],
             &:focus-within {
+                padding-top: jkl.rem(1px);
+                padding-right: jkl.rem(1px);
                 max-height: 100%;
                 background: var(--text-input-background-color);
                 padding-bottom: jkl.$spacing-xl;
@@ -307,6 +313,9 @@ $text-input-selection-color--inverted: color.scale(
             @include reset-outline;
             @include shared-input-styles;
 
+            display: block;
+            box-sizing: border-box;
+
             background: transparent;
             font-weight: normal;
             resize: none; // Disable textarea resize
@@ -314,6 +323,12 @@ $text-input-selection-color--inverted: color.scale(
 
             height: calc($text-input-height - (2 * jkl.$spacing-xs));
             padding: 0;
+
+            .jkl-text-input__input[data-has-content="true"] &,
+            &:focus {
+                padding-right: jkl.$spacing-xs;
+                padding-top: jkl.$spacing-xs;
+            }
 
             transition-property: height;
 
