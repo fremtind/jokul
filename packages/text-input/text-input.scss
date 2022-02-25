@@ -255,6 +255,17 @@ $text-input-selection-color--inverted: color.scale(
     height: auto;
     width: 100%;
 
+    &--auto-expand {
+        .jkl-text-input__input,
+        .jkl-text-area__text-area {
+            overflow: hidden; // Skjul scrollbar når høyden autojusteres
+        }
+    }
+
+    &.jkl-text-input--compact .jkl-text-input__input:empty {
+        overflow: hidden;
+    }
+
     & .jkl-text-input__input {
         @include motion("standard");
 
@@ -262,10 +273,6 @@ $text-input-selection-color--inverted: color.scale(
         font-weight: normal;
         width: 100%;
         resize: none; // Disable textarea resize
-    }
-
-    &.jkl-text-input--compact .jkl-text-input__input:empty {
-        overflow: hidden;
     }
 
     &--with-counter {
@@ -283,6 +290,7 @@ $text-input-selection-color--inverted: color.scale(
 
             &[data-has-content="true"],
             &:focus-within {
+                padding-right: jkl.rem(1px);
                 max-height: 100%;
                 background: var(--text-input-background-color);
                 padding-bottom: jkl.$spacing-xl;
@@ -303,6 +311,9 @@ $text-input-selection-color--inverted: color.scale(
             @include reset-outline;
             @include shared-input-styles;
 
+            display: block;
+            box-sizing: border-box;
+
             background: transparent;
             font-weight: normal;
             resize: none; // Disable textarea resize
@@ -314,6 +325,11 @@ $text-input-selection-color--inverted: color.scale(
             transition-property: height;
 
             @include shared-error-styles;
+        }
+
+        .jkl-text-input__input[data-has-content="true"] .jkl-text-area__text-area,
+        .jkl-text-area__text-area:focus {
+            padding-right: jkl.$spacing-xs;
         }
 
         .jkl-text-area__counter {
@@ -381,7 +397,6 @@ $text-input-selection-color--inverted: color.scale(
         }
 
         &.jkl-text-area--start-open .jkl-text-input__input {
-            background: var(--text-input-background-color);
             max-height: none;
             padding-bottom: jkl.$spacing-xl;
         }
@@ -390,17 +405,34 @@ $text-input-selection-color--inverted: color.scale(
 
 /* Utility classes for number of rows */
 @for $num from 3 through 10 {
+    $height: $text-input-line-height * $num + jkl.$spacing-xs * 2;
+    $small-height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
+
     .jkl-text-input__input--#{$num}-rows:focus,
     .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
     .jkl-text-area--start-open .jkl-text-input__input--#{$num}-rows {
+        /**
+         * (#2751) Ekspanderende får inline style med height auto,
+         *         som gir et "hopp" dersom det er en teller og vi
+         *         ikke har en minimumshøyde.
+         */
+        min-height: $height; // (#2751)
+        height: $height;
         max-height: 100%;
-        height: $text-input-line-height * $num + jkl.$spacing-xs * 2;
+
         @include small-device {
-            height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
+            height: $small-height;
+            min-height: $small-height; // (#2751)
         }
 
         .jkl-text-input--compact & {
-            height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
+            height: $small-height;
+            min-height: $small-height; // (#2751)
         }
+    }
+
+    .jkl-text-area--start-open.jkl-text-input--compact .jkl-text-input__input--#{$num}-rows {
+        height: $small-height;
+        min-height: $small-height; // (#2751)
     }
 }
