@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.6 (2022-02-25)
+
+### Bug Fixes
+
+-   skriv om beregningen av høyde ved autoekspandering ([2b318ef](https://github.com/fremtind/jokul/commit/2b318efb0b7a60a5be1200db836d005ddeb9ca2a)), closes [#2752](https://github.com/fremtind/jokul/issues/2752)
+
 ## 9.0.2 (2022-02-14)
 
 ### Bug Fixes
