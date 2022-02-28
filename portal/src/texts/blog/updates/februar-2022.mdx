@@ -23,6 +23,7 @@ Det har skjedd en hel del i Jøkul i februar! Noen høydepunkter:
 -   Unicode-tegnet [ZERO_WIDTH_SPACE](https://github.com/fremtind/jokul/pull/2696/files) har blitt lagt til i `constants-util`. Bruk det til ordbryting!
 -   Bloggen har fått RSS
 -   I toppmenyen her i portalen har sidetitler blitt til _lenker_ (de var _knapper_), som betyr at du lettere kan åpne i nye faner
+-   Select har fått støtte for custom søk
 
 ## Figma
 
@@ -107,6 +108,10 @@ Du skal kunne peke RSS-leseren din på [jokul.fremtind.no](https://jokul.fremtin
     <a href="https://giphy.com/gifs/nasa-nasareactions-J5k8XuTKXiaMye1row">via GIPHY</a>
 </p>
 
+## Custom søk i Select
+
+Select har fått utvided sin `searchable` prop til å kunne ta en funksjon som filtrer en string eller et `ValuePair` mot en string. Dette kan brukes til å for eksempel søke etter organisasjonsnummer i en select som egentlig bare vise navn på bedrifter.
+
 ## Bugfikser
 
 -   Fjernet unødvendige marginer i ExpandButton ([#2737](https://github.com/fremtind/jokul/issues/2737))
@@ -122,7 +127,7 @@ Takk til alle bidragsytere, både på GitHub og i Figma!
 
 -   BjorneOmaFremtind
 -   hjellek
--   joms
+-   JoMs
 -   kennidenni
 -   Murstam
 -   SercanSercan
