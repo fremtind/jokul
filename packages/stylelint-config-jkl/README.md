@@ -1,4 +1,4 @@
-# stylelint-config-jkl
+# @fremtind/stylelint-config-jkl
 
 Jøkul config for [stylelint](https://github.com/stylelint/stylelint).
 
@@ -10,15 +10,15 @@ Based on the following rulesets:
 ## Usage
 
 ```bash
-$ npm i --save stylelint stylelint-config-kfp
-$ yarn add -D stylelint stylelint-config-kfp
+$ npm i --save stylelint @fremtind/stylelint-config-jkl
+$ yarn add -D stylelint @fremtind/stylelint-config-jkl
 ```
 
 Create a file `stylelint.config.js` in the same directory as your `package.json`, and extend this config:
 
 ```javascript
 module.exports = {
-    extends: "stylelint-config-jkl",
+    extends: "@fremtind/stylelint-config-jkl",
 };
 ```
 
