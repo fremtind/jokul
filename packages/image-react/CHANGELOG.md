@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.5 (2022-03-01)
+
+### Bug Fixes
+
+-   exporter type for ImageProps ([c5dc5d5](https://github.com/fremtind/jokul/commit/c5dc5d50801bd36601c341e9b7d4b01d78bd6328))
+
 ## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image-react@2.0.1...@fremtind/jkl-image-react@2.0.2) (2022-02-11)
 
 ### Bug Fixes
