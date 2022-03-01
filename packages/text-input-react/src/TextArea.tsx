@@ -55,7 +55,10 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         autoExpand = false,
         startOpen = false,
         forceCompact = false,
-        ...restProps
+        value,
+        onBlur,
+        onFocus,
+        ...rest
     } = props;
 
     const componentClassName = cn("jkl-text-input jkl-text-area", className, {
@@ -79,23 +82,27 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                 return;
             }
 
-            if (textAreaFocused || restProps.value) {
+            if (textAreaFocused || value) {
                 textAreaElement.style.height = "auto"; // Sett til auto før scrollhøyden leses, sånn at redusering av høyde ved sletting av tekst fungerer
                 textAreaElement.style.height = `${textAreaElement.scrollHeight}px`;
             } else {
                 textAreaElement.style.height = "";
             }
         }
-    }, [autoExpand, textAreaRef, restProps.value, textAreaFocused]);
+    }, [autoExpand, textAreaRef, value, textAreaFocused]);
 
-    function onFocus(e: FocusEvent<HTMLTextAreaElement>) {
+    function handleOnFocus(e: FocusEvent<HTMLTextAreaElement>) {
         setTextAreaFocused(true);
-        restProps.onFocus && restProps.onFocus(e);
+        if (onFocus) {
+            onFocus(e);
+        }
     }
 
-    function onBlur(e: FocusEvent<HTMLTextAreaElement>) {
+    function handleOnBlur(e: FocusEvent<HTMLTextAreaElement>) {
         setTextAreaFocused(false);
-        restProps.onBlur && restProps.onBlur(e);
+        if (onBlur) {
+            onBlur(e);
+        }
     }
 
     const counterCurrent: number = textAreaRef.current?.value.length || 0;
@@ -127,13 +134,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                     id={uid}
                     ref={textAreaRef}
                     className={`jkl-text-input__input jkl-text-input__input--${rows}-rows`}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
+                    onFocus={handleOnFocus}
+                    onBlur={handleOnBlur}
                     aria-invalid={!!errorLabel}
                     aria-describedby={describedBy}
                     placeholder={placeholder}
                     style={style}
-                    {...restProps}
+                    value={value}
+                    {...rest}
                 />
             )}
             {counter && (
@@ -148,13 +156,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             id={uid}
                             ref={textAreaRef}
                             className={`jkl-text-area__text-area jkl-text-input__input--${rows}-rows`}
-                            onFocus={onFocus}
-                            onBlur={onBlur}
+                            onFocus={handleOnFocus}
+                            onBlur={handleOnBlur}
                             aria-describedby={describedBy}
                             aria-invalid={Boolean(errorLabel || counterLabel)}
                             placeholder={placeholder}
                             style={style}
-                            {...restProps}
+                            value={value}
+                            {...rest}
                         />
                     </div>
                     <div
