@@ -9,7 +9,7 @@
         "react-docgen-typescript": "^2.2.2"
     },
     "dependencies": {
-        "@mdx-js/mdx": "^1.6.22",
+        "@mdx-js/mdx": "^2.0.0",
         "@mdx-js/react": "^1.6.22",
         "classnames": "^2.2.6",
         "focus-trap-react": "^8.9.2",
