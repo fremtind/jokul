@@ -9,6 +9,7 @@ export const TELEFONNUMMER_REGEX = {
 
 type FormatTelefonnummerOptions = {
     partial?: boolean;
+    countryCode?: string;
 };
 
 export function formatTelefonnummer(input: string, options?: FormatTelefonnummerOptions) {
@@ -22,5 +23,7 @@ export function formatTelefonnummer(input: string, options?: FormatTelefonnummer
         return input;
     }
 
-    return match.slice(1).filter(Boolean).join(unicode.NON_BREAKING_SPACE);
+    return [options?.countryCode ? `+${options.countryCode}` : undefined, ...match.slice(1)] // build array of number elements
+        .filter(Boolean) // ensure all elements are valid
+        .join(unicode.NON_BREAKING_SPACE); // build formattet string
 }

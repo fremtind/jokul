@@ -35,6 +35,17 @@ describe("formatTelefonnummer", () => {
         expect(formatTelefonnummer("224386dsf5")).toEqual(`224386dsf5`);
         expect(formatTelefonnummer("2 243 sdf 45")).toEqual(`2 243 sdf 45`);
     });
+
+    it("formats number with country code", () => {
+        expect(formatTelefonnummer("81549300", { countryCode: "47" })).toEqual(`+47${nbsp}815${nbsp}49${nbsp}300`);
+        expect(formatTelefonnummer("22438634", { countryCode: "47" })).toEqual(
+            `+47${nbsp}22${nbsp}43${nbsp}86${nbsp}34`,
+        );
+        expect(formatTelefonnummer("81549300", { countryCode: "354" })).toEqual(`+354${nbsp}815${nbsp}49${nbsp}300`);
+        expect(formatTelefonnummer("22438634", { countryCode: "354" })).toEqual(
+            `+354${nbsp}22${nbsp}43${nbsp}86${nbsp}34`,
+        );
+    });
 });
 
 describe("formatTelefonnumer with partial option", () => {

@@ -25,6 +25,9 @@ export const FormattersExample: FC<ExampleComponentProps> = () => (
         <DescriptionDetail>{formatTelefonnummer("98651731")}</DescriptionDetail>
         <DescriptionDetail>{formatTelefonnummer("22438634")}</DescriptionDetail>
         <DescriptionDetail>{formatTelefonnummer("81549300")}</DescriptionDetail>
+        <DescriptionDetail>{formatTelefonnummer("98651731", { countryCode: "47" })}</DescriptionDetail>
+        <DescriptionDetail>{formatTelefonnummer("22438634", { countryCode: "47" })}</DescriptionDetail>
+        <DescriptionDetail>{formatTelefonnummer("81549300", { countryCode: "47" })}</DescriptionDetail>
         <DescriptionTerm>Avstand</DescriptionTerm>
         <DescriptionDetail>{formatAvstand("12000")}</DescriptionDetail>
         <DescriptionDetail>{formatAvstand("8000", { suffix: " per år" })}</DescriptionDetail>
