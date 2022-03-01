@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.41 (2022-03-01)
+
+### Bug Fixes
+
+-   child keys on SmileyQuestion ([20d45bf](https://github.com/fremtind/jokul/commit/20d45bfb41219f0ba49f69f0c5922a709c7557c7))
+
 ## [12.0.30](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@12.0.29...@fremtind/jkl-feedback-react@12.0.30) (2022-02-07)
 
 ### Bug Fixes
