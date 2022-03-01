@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useMemo } from "react";
+import React, { Fragment, ChangeEventHandler, useMemo } from "react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
@@ -42,11 +42,10 @@ export const SmileyQuestion: React.VFC<QuestionProps> = ({
         <FieldGroup labelProps={{ variant: "large" }} legend={label} helpLabel={helpLabel}>
             <div className="jkl-feedback-smileys">
                 {options.map((option) => (
-                    <>
+                    <Fragment key={option.value}>
                         <input
                             className="jkl-sr-only"
                             id={`${name}-${option.value}`}
-                            key={option.value}
                             name={name}
                             type="radio"
                             value={option.value}
@@ -57,7 +56,7 @@ export const SmileyQuestion: React.VFC<QuestionProps> = ({
                             <span className="jkl-sr-only">{option.label}</span>
                             {getSmiley(Number(option.value))}
                         </label>
-                    </>
+                    </Fragment>
                 ))}
             </div>
         </FieldGroup>
