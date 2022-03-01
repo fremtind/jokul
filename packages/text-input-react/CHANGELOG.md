@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.7 (2022-03-01)
+
+### Bug Fixes
+
+-   intern tilstand oppdateres selv med onBlur ([1e9b0bd](https://github.com/fremtind/jokul/commit/1e9b0bd27f7f4920a9dc20737a5e59b0ef4465ab)), closes [#2770](https://github.com/fremtind/jokul/issues/2770)
+
 ## 9.0.6 (2022-02-25)
 
 ### Bug Fixes
