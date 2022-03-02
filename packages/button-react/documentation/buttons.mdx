@@ -9,6 +9,7 @@ import { Primary, primaryCode } from "./Primary";
 import { Secondary, secondaryCode } from "./Secondary";
 import { Tertiary, tertiaryCode } from "./Tertiary";
 import { Anchors, AnchorsCode } from "./Anchors";
+import { buttonExampleKnobs } from "./ButtonExample";
 
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
@@ -21,7 +22,7 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 <ComponentExample
     title="PrimaryButton"
     component={Primary}
-    knobs={{ boolProps: ["Compact", "withLoader", "isLoading"] }}
+    knobs={buttonExampleKnobs}
     codeExample={primaryCode}
 />
 
@@ -30,7 +31,7 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 <ComponentExample
     title="SecondaryButton"
     component={Secondary}
-    knobs={{ boolProps: ["Compact", "withLoader", "isLoading"] }}
+    knobs={buttonExampleKnobs}
     codeExample={secondaryCode}
 />
 
@@ -39,7 +40,7 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 <ComponentExample
     title="TertiaryButton"
     component={Tertiary}
-    knobs={{ boolProps: ["Compact", "withLoader", "isLoading"] }}
+    knobs={buttonExampleKnobs}
     codeExample={tertiaryCode}
 />
 

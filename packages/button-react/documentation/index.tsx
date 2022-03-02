@@ -4,18 +4,10 @@ import React from "react";
 import { renderExample, DevExample } from "../../../doc-utils";
 
 // Import actual example and component stylesheet (specific for this component):
-import { ButtonExample } from "./ButtonExample";
+import { ButtonExample, buttonExampleKnobs } from "./ButtonExample";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-loader/loader.css";
 
 const mountNode = document.getElementById("app");
 
-renderExample(
-    <DevExample
-        component={ButtonExample}
-        knobs={{
-            boolProps: ["Compact", { prop: "withLoader", defaultValue: true }, "isLoading"],
-        }}
-    />,
-    mountNode,
-);
+renderExample(<DevExample component={ButtonExample} knobs={buttonExampleKnobs} />, mountNode);
