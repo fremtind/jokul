@@ -12,7 +12,7 @@
         },
         "build:docs": {
             "dependsOn": ["build", "$PREVIEW_PATH"],
-            "outputs": ["public/**"]
+            "outputs": ["public/**", ".cache/**"]
         },
         "serve": {
             "outputs": [],
