@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "5.1.20",
+    "version": "5.1.21",
     "publishConfig": {
         "access": "public"
     },
@@ -39,7 +39,7 @@
         "@fremtind/jkl-list-react": "^6.1.11",
         "@fremtind/jkl-react-hooks": "^7.2.0",
         "classnames": "^2.2.6",
-        "react-hook-form": "^7.27.0"
+        "react-hook-form": "^7.27.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
