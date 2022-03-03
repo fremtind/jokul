@@ -156,7 +156,7 @@ jobs:
             - name: Run Cypress
               uses: cypress-io/github-action@v2
               with:
-                  install-command: yarn ci:install
+                  install-command: yarn ci:install-cypress
                   browser: chrome
                   headless: true
                   start: yarn serve
