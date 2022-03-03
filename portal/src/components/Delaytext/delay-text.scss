@@ -1,6 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
 @import "~@fremtind/jkl-core/mixins/_motion";
 
 .jkl-portal-delay-text {
@@ -19,8 +18,8 @@
         width: 100%;
 
         &::after {
+            @include jkl.decorative($content: "_");
             opacity: 1;
-            content: "_";
         }
 
         &--done {

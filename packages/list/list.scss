@@ -1,7 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
-
 @function solid-diamond($color) {
     $c: jkl.helper-urlencodecolor($color);
 
@@ -124,13 +122,13 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
         }
 
         &--check::before {
-            content: "\2713";
+            @include jkl.decorative($content: "\2713");
             background-image: check($list-check-color, $list-text-color--inverted);
             background-image: var(--jkl-list-marker--check);
         }
 
         &--cross::before {
-            content: "\274C";
+            @include jkl.decorative($content: "\274C");
             background-image: cross($list-cross-color);
             background-image: var(--jkl-list-marker--cross);
         }

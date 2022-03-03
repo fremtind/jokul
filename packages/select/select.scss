@@ -215,7 +215,7 @@ $select-search-input-selection-color--inverted: color.scale(
             color: var(--select-focus-color);
 
             &::before {
-                content: "→ ";
+                @include jkl.decorative($content: "→ ");
                 padding-right: jkl.$spacing-xs;
             }
         }
