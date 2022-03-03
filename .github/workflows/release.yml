@@ -31,18 +31,11 @@ jobs:
                   git config --global user.email 'fremtind-bot@users.noreply.github.com'
                   git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
 
-            - name: Get yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "::set-output name=dir::$(yarn cache dir)"
-
-            - name: Cache yarn directory
-              uses: actions/cache@v2
-              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+            - name: Setup Node
+              uses: actions/setup-node@v3
               with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
+                  node-version: "lts/*"
+                  cache: "yarn"
 
             - name: Install Packages
               run: yarn install --frozen-lockfile
@@ -52,9 +45,9 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: node_modules/.cache/turbo
-                  key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+                  key: turbo-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.job }}-${{ github.ref_name }}-
+                      turbo-
 
             - name: Authenticate with Registry
               run: |

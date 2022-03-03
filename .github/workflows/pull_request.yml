@@ -67,9 +67,9 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: node_modules/.cache/turbo
-                  key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+                  key: turbo-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.job }}-${{ github.ref_name }}-
+                      turbo-
 
             - name: Install dependencies
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
