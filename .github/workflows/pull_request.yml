@@ -32,7 +32,7 @@ jobs:
         steps:
             - name: Checkout
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Check for changes that require extra verification
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
@@ -111,7 +111,7 @@ jobs:
             contents: read
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Setup Node
               uses: actions/setup-node@v2
@@ -146,7 +146,7 @@ jobs:
             contents: read
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
             - name: Setup Node
               uses: actions/setup-node@v2
@@ -230,7 +230,7 @@ jobs:
             contents: write
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
@@ -288,7 +288,7 @@ jobs:
             PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
