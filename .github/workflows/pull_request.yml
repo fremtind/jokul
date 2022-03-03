@@ -6,18 +6,18 @@ on:
             - main
 ##
 # Sjekker først om det er endringer som krever grundigere test.
-# Bygger i så fall pakkene og laster dem opp som en artifact.
-# Bygger så portalen og laster siten opp som en artifact dersom
-# det er visuelle endringer.
-# Artifactene lastes ned av to jobber: testlint og cypress.
+# Bygger i så fall pakkene og cacher dem via turborepo.
+# Bygger så portalen dersom det er visuelle endringer og cacher på samme måte.
+# Cachen lastes ned av tre jobber: testlint, cypress og preview.
 # Førstnevnte kjører enhetstester, ESLint, og TypeScript typesjekk.
-# Site-artifacten lastes ned av N instanser av cypress-jobben.
+# N instanser av cypress-jobben spinner opp og kjører deler av testene fordelt mellom seg.
 # Cypressjobben server den ferdigbyggede siten og kjører et utvalg
-# av testene. Om en jobb feiler blir de andre avbrutt. Om en jobb
-# har nye snapshots lastes disse opp som en artifact. Til slutt
-# sjekker en jobb om nye snapshots har blitt generert av en eller
+# av testene. Om en jobb  har nye snapshots lastes disse opp som en artifact.
+# Til slutt  sjekker en jobb om nye snapshots har blitt generert av en eller
 # flere av cypressjobbene. I så fall samles disse i én commit
 # som pushes til branchen som testes.
+# Preview-jobben er en bygg og deploy av portalen, med en path prefix lik branchnavnet.
+# Brukes som "staging".
 ##
 
 jobs:
@@ -71,45 +71,13 @@ jobs:
                   restore-keys: |
                       turbo-
 
-            - name: Install dependencies
+            - name: Install dependencies and build packages
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               run: yarn ci:install
-
-            - name: Build packages
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
-              run: yarn build
-
-            - name: Upload built packages
-              uses: actions/upload-artifact@v2
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
-              with:
-                  name: built-packages
-                  path: |
-                      packages/**/build/**
-                      packages/**/*.css
-
-            - name: Caching Gatsby
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-              uses: actions/cache@v2
-              with:
-                  path: |
-                      portal/public
-                      portal/.cache
-                  key: ${{ runner.os }}-gatsby-build-${{ github.head_ref }}
-                  restore-keys: |
-                      ${{ runner.os }}-gatsby-build-
 
             - name: Build site
               if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               run: yarn build:docs
-
-            - name: Upload built site
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-              uses: actions/upload-artifact@v2
-              with:
-                  name: built-site
-                  path: |
-                      portal/public/
 
     testlint:
         needs: [build]
@@ -128,14 +96,17 @@ jobs:
                   node-version: "lts/*"
                   cache: "yarn"
 
+            - name: Turbo Cache
+              id: turbo-cache
+              uses: actions/cache@v2
+              with:
+                  path: node_modules/.cache/turbo
+                  key: turbo-${{ github.sha }}
+                  restore-keys: |
+                      turbo-
+
             - name: Install dependencies
               run: yarn ci:install
-
-            - name: Download built packages
-              uses: actions/download-artifact@v2
-              with:
-                  name: built-packages
-                  path: packages/
 
             - name: Lint and test
               run: yarn ci:test
@@ -163,17 +134,14 @@ jobs:
                   node-version: "lts/*"
                   cache: "yarn"
 
-            - name: Download built packages
-              uses: actions/download-artifact@v2
+            - name: Turbo Cache
+              id: turbo-cache
+              uses: actions/cache@v2
               with:
-                  name: built-packages
-                  path: packages/
-
-            - name: Download built site
-              uses: actions/download-artifact@v2
-              with:
-                  name: built-site
-                  path: portal/public/
+                  path: node_modules/.cache/turbo
+                  key: turbo-${{ github.sha }}
+                  restore-keys: |
+                      turbo-
 
             - name: Calculate which tests to run
               id: parallel
@@ -188,6 +156,7 @@ jobs:
             - name: Run Cypress
               uses: cypress-io/github-action@v2
               with:
+                  install-command: yarn ci:install
                   browser: chrome
                   headless: true
                   start: yarn serve
@@ -308,14 +277,17 @@ jobs:
                   node-version: "lts/*"
                   cache: "yarn"
 
+            - name: Turbo Cache
+              id: turbo-cache
+              uses: actions/cache@v2
+              with:
+                  path: node_modules/.cache/turbo
+                  key: turbo-${{ github.sha }}
+                  restore-keys: |
+                      turbo-
+
             - name: Install dependencies
               run: yarn ci:install
-
-            - name: Download built packages
-              uses: actions/download-artifact@v2
-              with:
-                  name: built-packages
-                  path: packages/
 
             - name: Build site with path prefix
               env:

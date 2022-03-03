@@ -16,7 +16,7 @@
         "lint:stylelint": "stylelint --config=packages/stylelint-config-jkl/index.js '**/*.scss'",
         "lint:fix": "yarn run lint:eslint --fix && yarn run lint:stylelint --fix",
         "ci:test": "run-p test lint:eslint lint:stylelint typecheck",
-        "ci:install": "yarn install --frozen-lockfile && yarn patch-package",
+        "ci:install": "yarn install --frozen-lockfile && yarn patch-package && yarn build",
         "test": "yarn run test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
         "test:watch": "jest -c './jest/jest.unit.js' --watch",
