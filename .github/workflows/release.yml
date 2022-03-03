@@ -17,7 +17,7 @@ jobs:
             deployments: write
         steps:
             - name: Checkout branch
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
               with:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   fetch-depth: "0" # fetch entire git history
@@ -90,7 +90,7 @@ jobs:
 
             - name: Switch registry
               if: steps.lerna_changed.outcome == 'success'
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@v3
               with:
                   registry-url: "https://npm.pkg.github.com"
                   # Defaults to the user or organization that owns the workflow file

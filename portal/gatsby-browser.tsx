@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 import React from "react";
+import { GatsbyBrowser } from "gatsby";
 
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-accordion/accordion.min.css";
@@ -44,7 +45,7 @@ import { A11yContextProvider } from "./src/contexts/a11yContext";
 
 initTabListener();
 
-export const wrapRootElement = ({ element }) => {
+export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({ element }) => {
     return (
         <A11yContextProvider>
             <LocationContextProvider>
