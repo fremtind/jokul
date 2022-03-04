@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icon-button-react",
-    "version": "0.8.12",
+    "version": "0.8.13",
     "publishConfig": {
         "access": "public"
     },
@@ -37,11 +37,11 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-icon-button": "^0.5.13"
+        "@fremtind/jkl-icon-button": "^0.5.14"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.6.0",
-        "@fremtind/jkl-toggle-switch-react": "^7.0.3"
+        "@fremtind/jkl-toggle-switch-react": "^7.0.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
