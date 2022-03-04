@@ -41,7 +41,7 @@ export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProp
     }}
     onClick={simulateLoading}
     className="jkl-spacing-l--right"
-    ${choiceValues?.["pil"] === "uten" ? "" : `arrow="${choiceValues?.["pil"]}"`}
+    ${choiceValues?.["Pil"] === "uten" ? "" : `arrow="${choiceValues?.["Pil"]}"`}
 >
     Lagre
 </SecondaryButton>

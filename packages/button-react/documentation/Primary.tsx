@@ -41,7 +41,7 @@ export const primaryCode = ({ boolValues, choiceValues }: ExampleComponentProps)
     }}
     onClick={simulateLoading}
     className="jkl-spacing-l--right"
-    ${choiceValues?.["pil"] === "uten" ? "" : `arrow="${choiceValues?.["pil"]}"`}
+    ${choiceValues?.["Pil"] === "uten" ? "" : `arrow="${choiceValues?.["Pil"]}"`}
 >
     Lagre og send inn
 </PrimaryButton>
