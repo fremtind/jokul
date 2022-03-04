@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.7 (2022-03-04)
+
+### Bug Fixes
+
+-   ikke vis error state bare fordi :invalid matcher ([1677202](https://github.com/fremtind/jokul/commit/167720203bf9fd3f9756cfb8f6d7a46bdea07674))
+
 ## 7.0.6 (2022-02-25)
 
 ### Bug Fixes

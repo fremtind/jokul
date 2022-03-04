@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.8 (2022-03-04)
+
+### Bug Fixes
+
+-   rett opp feil bruk av aria-label ([9c0b73f](https://github.com/fremtind/jokul/commit/9c0b73fac789b3ceab8dfef63b939f7468764270)), closes [#2780](https://github.com/fremtind/jokul/issues/2780)
+
 ## 9.0.7 (2022-03-01)
 
 ### Bug Fixes
