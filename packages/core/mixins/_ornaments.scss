@@ -10,3 +10,10 @@
     border-bottom: $weight solid $color;
     transition: transform 400ms ease; // TODO: use motion library when implemented
 }
+
+@mixin decorative($content) {
+    // Detaljer finnes her: https://github.com/fremtind/jokul/issues/2774#issuecomment-1056575107
+    content: $content; // Fallback for nettlesere som ikke støtter ny syntaks (Firefox, Safari)
+    content: $content / ""; // Tom alternativ tekst
+    alt: ""; // WebKit-alternativ, fases ut når varianten fra speccen er støttet
+}

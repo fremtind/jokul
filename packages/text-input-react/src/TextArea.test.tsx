@@ -25,4 +25,11 @@ describe("a11y", () => {
 
         expect(results).toHaveNoViolations();
     });
+
+    test("text-area with counter should be a11y compliant", async () => {
+        const { container } = render(<TextArea label="testing" helpLabel="tips" counter={{ maxLength: 200 }} />);
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
 });

@@ -6,7 +6,7 @@
 
     &__link {
         &::after {
-            content: "\2197";
+            @include jkl.decorative($content: "\2197");
         }
 
         &:not(:last-child) {
