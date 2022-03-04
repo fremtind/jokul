@@ -166,11 +166,10 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             {...rest}
                         />
                     </div>
-                    <div
-                        className="jkl-text-area__counter"
-                        aria-live="polite"
-                        aria-label={`${counterCurrent} av ${counterTotal} tegn brukt`}
-                    >
+                    <div className="jkl-text-area__counter">
+                        <span className="jkl-sr-only" aria-live="polite">
+                            {counterCurrent} av ${counterTotal} tegn brukt
+                        </span>
                         <div className="jkl-text-area__counter-count" aria-hidden="true">
                             {counterCurrent}&nbsp;/&nbsp;{counterTotal}
                         </div>

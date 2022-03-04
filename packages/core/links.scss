@@ -1,7 +1,5 @@
 @use "./jkl";
-
-@import "./mixins/all";
-@import "./functions";
+@use "./mixins/all" as mixins;
 
 @mixin underline-gradient($color) {
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
@@ -18,15 +16,15 @@ $right-arrow: "\2192"; // unicode right arrow
 $left-arrow: "\2190"; // unicode left arrow
 $north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 
-$link-underline-thickness: rem(1px);
-$link-underline-thickness--hover: rem(2px);
+$link-underline-thickness: jkl.rem(1px);
+$link-underline-thickness--hover: jkl.rem(2px);
 
-@include light-mode-variables {
+@include mixins.light-mode-variables {
     --link-color: #{jkl.$color-granitt};
     --link-hover-color: #{jkl.$color-stein};
     --link-active-color: #{jkl.$color-granitt};
 }
-@include dark-mode-variables {
+@include mixins.dark-mode-variables {
     --link-color: #{jkl.$color-snohvit};
     --link-hover-color: #{jkl.$color-svaberg};
     --link-active-color: #{jkl.$color-snohvit};
@@ -39,7 +37,7 @@ $link-underline-thickness--hover: rem(2px);
     background-position: 0 calc(100% - (#{$link-underline-thickness--hover} - #{$link-underline-thickness}));
     background-size: $link-underline-thickness $link-underline-thickness;
     background-repeat: repeat-x;
-    @include motion("standard", "energetic");
+    @include mixins.motion("standard", "energetic");
     transition-property: background-size, background-position, color;
     outline: none;
     text-decoration: none;
@@ -57,7 +55,7 @@ $link-underline-thickness--hover: rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include no-grow-bold;
+        @include mixins.no-grow-bold;
         @include border-gradient(var(--link-active-color));
     }
 
@@ -71,7 +69,7 @@ $link-underline-thickness--hover: rem(2px);
     &[target="_blank"],
     &--external {
         &::after {
-            content: $north-east-arrow;
+            @include mixins.decorative($content: $north-east-arrow);
         }
     }
 }
@@ -79,7 +77,7 @@ $link-underline-thickness--hover: rem(2px);
 .jkl-nav-link {
     color: var(--link-color);
 
-    @include reset-outline;
+    @include mixins.reset-outline;
     box-sizing: border-box;
     font-weight: jkl.$typography-weight-normal;
     text-decoration: none;
@@ -90,13 +88,13 @@ $link-underline-thickness--hover: rem(2px);
     &::before {
         display: inline-block;
         transform: translateX(0);
-        @include motion("standard");
+        @include mixins.motion("standard");
         transition-property: transform;
     }
 
     &::after {
-        content: $right-arrow;
-        padding-left: rem(2px);
+        @include mixins.decorative($content: $right-arrow);
+        padding-left: jkl.rem(2px);
     }
 
     &:hover:not(:focus) {
@@ -109,7 +107,7 @@ $link-underline-thickness--hover: rem(2px);
 
     html:not([data-mousenavigation]) &:focus {
         @include border-gradient(var(--link-color));
-        @include no-grow-bold;
+        @include mixins.no-grow-bold;
 
         &::after {
             transform: translateX(33%);
@@ -117,7 +115,7 @@ $link-underline-thickness--hover: rem(2px);
     }
 
     &--active {
-        @include no-grow-bold;
+        @include mixins.no-grow-bold;
     }
 }
 
@@ -133,8 +131,8 @@ $link-underline-thickness--hover: rem(2px);
     }
 
     &::before {
-        content: $left-arrow;
-        padding-right: rem(4px);
+        @include mixins.decorative($content: $left-arrow);
+        padding-right: jkl.rem(4px);
     }
 
     &:hover,

@@ -44,8 +44,7 @@ $autosuggest-item-font-size: rem(18px);
         }
     }
 
-    &__input-group > input[aria-invalid="true"],
-    &__input-group > input:invalid {
+    &__input-group > input[aria-invalid="true"] {
         & ~ .jkl-autosuggest__controller-button {
             color: var(--autosuggest-error-placeholder-color);
 

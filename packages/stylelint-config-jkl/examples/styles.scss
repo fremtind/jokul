@@ -72,6 +72,6 @@
     /* Flush nested single line comment */
     .selector::after {
         background-image: url("x.svg");
-        content: "→";
+        content: "→" / "";
     }
 }
