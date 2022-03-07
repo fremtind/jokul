@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@1.2.2...@fremtind/jkl-formatters-util@2.0.0) (2022-03-07)
+
+### Features
+
+-   make parseNumber less naive and including ([dce2392](https://github.com/fremtind/jokul/commit/dce2392061bc8a7f59fc54241187e624d5ed4036))
+
+### BREAKING CHANGES
+
+-   number parsing is more strict
+
 # 1.2.0 (2022-03-01)
 
 ### Features
