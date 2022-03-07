@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@10.0.4...@fremtind/jkl-button-react@10.1.0) (2022-03-07)
+
+### Bug Fixes
+
+-   fixed code example for arrow in button ([2cf93d9](https://github.com/fremtind/jokul/commit/2cf93d998d37caaf205db5c18c946345d756f22c))
+-   ikke ha withLoader som default, forventes ikke av Cypress ([b12391b](https://github.com/fremtind/jokul/commit/b12391bff46dbc5367eac7c4dd7d6d5eea8b1522))
+
+### Features
+
+-   added optional arrows to buttons ([5880bfb](https://github.com/fremtind/jokul/commit/5880bfbc9da3bdea12664157b5ea8dfae2c5167e)), closes [#2772](https://github.com/fremtind/jokul/issues/2772)
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@9.0.0...@fremtind/jkl-button-react@10.0.0) (2022-02-07)
 
 ### Bug Fixes
