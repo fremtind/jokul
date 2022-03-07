@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "8.0.5",
+    "version": "8.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
     "module": "./build/esm/index.js",
     "browser": "./build/browser/index.js",
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -34,10 +34,10 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-content-toggle": "^2.0.14",
-        "@fremtind/jkl-content-toggle-react": "^2.0.17",
-        "@fremtind/jkl-hamburger": "^9.0.4",
-        "@fremtind/jkl-react-hooks": "^7.2.1"
+        "@fremtind/jkl-content-toggle": "^2.0.15",
+        "@fremtind/jkl-content-toggle-react": "^2.0.18",
+        "@fremtind/jkl-hamburger": "^9.0.5",
+        "@fremtind/jkl-react-hooks": "^7.2.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
@@ -51,6 +51,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    }
 }

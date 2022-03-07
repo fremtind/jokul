@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icons-react",
-    "version": "4.1.10",
+    "version": "4.1.11",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-icons": "^4.0.14",
+        "@fremtind/jkl-icons": "^4.0.15",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

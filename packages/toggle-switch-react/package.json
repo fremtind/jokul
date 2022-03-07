@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "7.0.4",
+    "version": "7.0.5",
     "description": "Jøkul react toggle switch component",
     "homepage": "https://jokul.fremtind.no",
     "keywords": [
@@ -25,7 +25,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -36,12 +36,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-react-hooks": "^7.2.1",
-        "@fremtind/jkl-toggle-switch": "^7.0.4",
+        "@fremtind/jkl-react-hooks": "^7.2.2",
+        "@fremtind/jkl-toggle-switch": "^7.0.5",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^9.1.2"
+        "@fremtind/jkl-core": "^9.1.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
@@ -55,6 +55,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    }
 }

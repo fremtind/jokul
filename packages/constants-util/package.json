@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "publishConfig": {
         "access": "public"
     },
     "description": "Common constant values shared across all Jøkul projects",
-    "homepage": "https://github.com/fremtind/jokul#readme",
+    "homepage": "https://jokul.fremtind.no",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
@@ -18,7 +18,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",

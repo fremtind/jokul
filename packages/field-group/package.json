@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group",
-    "version": "4.0.14",
+    "version": "4.0.15",
     "publishConfig": {
         "access": "public"
     },
@@ -16,14 +16,14 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "dev": "parcel example/index.html",
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.1.2"
+        "@fremtind/jkl-core": "^9.1.3"
     },
     "repository": {
         "type": "git",
@@ -31,6 +31,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    }
 }

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list-react",
-    "version": "6.1.12",
+    "version": "6.1.13",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-list": "^6.0.14",
+        "@fremtind/jkl-list": "^6.0.15",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
@@ -51,6 +51,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    }
 }

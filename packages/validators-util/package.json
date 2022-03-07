@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-validators-util",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",

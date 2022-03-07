@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/stylelint-config-jkl",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Styleint configuration for Jøkul",
     "keywords": [
         "stylelint",
@@ -17,6 +17,7 @@
         "rules/"
     ],
     "scripts": {
+        "clean": "rimraf .turbo/ node_modules/ .stylelintcache",
         "build": "npm run lint",
         "lint": "stylelint --config=index.js 'examples/**/*.{css,scss,sass}' --cache",
         "test": "npm run lint"

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "7.0.5",
+    "version": "7.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -35,12 +35,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-alert-message": "^5.0.14",
-        "@fremtind/jkl-icon-button-react": "^0.8.13",
+        "@fremtind/jkl-alert-message": "^5.0.15",
+        "@fremtind/jkl-icon-button-react": "^0.8.14",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^9.1.2"
+        "@fremtind/jkl-core": "^9.1.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
@@ -54,6 +54,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "25529f650eabe8ab4e21b4d08aeb2caae97feecf"
+    }
 }
