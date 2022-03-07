@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-summary-table-react@6.0.9...@fremtind/jkl-summary-table-react@6.0.10) (2022-03-07)
+
+### Bug Fixes
+
+-   makes header and content props of SummaryTableRow more flexible ([783c2de](https://github.com/fremtind/jokul/commit/783c2dec4acef7356e77587e6b1b035750d265dd))
+
 ## 6.0.1 (2022-01-21)
 
 ### Bug Fixes
