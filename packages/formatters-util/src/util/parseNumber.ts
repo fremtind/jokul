@@ -1,18 +1,43 @@
+const replaceAllButLastOccurence = (input: string | string[], search: string) => {
+    const arrInput = Array.isArray(input) ? input : input.split("");
+    const indexOfSearch = arrInput.lastIndexOf(search);
+
+    return (
+        arrInput
+            // remove all instances of the notator except the last one
+            .filter((f, i) => {
+                if (f !== search) {
+                    return true;
+                }
+
+                return i === indexOfSearch;
+            })
+            .join("")
+    );
+};
+
 export function parseNumber(input: string | number) {
     if (typeof input === "number") {
         return input;
     }
 
-    // fjern tegn som ikke kan tolkes som tall og erstatt kommadesimal
-    const strippedInput = input
-        .replace(/[^\d.,-]/g, "")
-        .replace(/[.,](\d{3})/g, "$1")
-        .replace(/,/g, ".");
-    const parsedNumber = Number.parseFloat(strippedInput);
+    // remove all spaces from number
+    const arrNumber = input.replaceAll(" ", "").split("");
 
-    if (Number.isNaN(parsedNumber) || typeof parsedNumber !== "number") {
-        return null;
+    // find what separator is used for decimal notation
+    const decimalNotator = arrNumber.reduce<"." | "," | null>((notator, currentItem) => {
+        if (currentItem === "," || currentItem === ".") {
+            return currentItem;
+        }
+
+        return notator;
+    }, null);
+
+    if (decimalNotator === ".") {
+        return Number(replaceAllButLastOccurence(arrNumber, ".").replace(",", ""));
+    } else if (decimalNotator === ",") {
+        return Number(replaceAllButLastOccurence(arrNumber, ",").replace(".", "").replace(",", "."));
+    } else {
+        return Number(arrNumber.join(""));
     }
-
-    return parsedNumber;
 }
