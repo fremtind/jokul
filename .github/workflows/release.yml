@@ -38,7 +38,9 @@ jobs:
                   cache: "yarn"
 
             - name: Install Packages
-              run: yarn install --frozen-lockfile
+              run: |
+                  yarn install --frozen-lockfile
+                  yarn patch
 
             - name: Turbo Cache
               id: turbo-cache
