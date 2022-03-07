@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import cx from "classnames";
 import { ExpandButton } from "@fremtind/jkl-expand-button-react";
 import type { TableCellProps } from "./TableCell";
@@ -11,52 +11,57 @@ export interface ExpandableTableRowControllerProps extends TableCellProps {
     onClick?: () => void;
 }
 
-export const ExpandableTableRowController: React.FC<ExpandableTableRowControllerProps> = ({
-    isOpen,
-    onClick,
-    children,
-    className,
-    id,
-    "aria-controls": ariaControls,
-    ...rest
-}) => {
-    if (isOpen === undefined || typeof onClick !== "function") {
-        throw new Error("ExpandableTableRowController must have ExpandableTableRow as parent");
-    }
+const ExpandableTableRowController = forwardRef<HTMLTableCellElement, ExpandableTableRowControllerProps>(
+    ({ isOpen, onClick, children, className, id, "aria-controls": ariaControls, ...rest }, ref) => {
+        if (isOpen === undefined || typeof onClick !== "function") {
+            throw new Error("ExpandableTableRowController must have ExpandableTableRow as parent");
+        }
 
-    const { compact, collapseToList } = useTableContext();
+        const { compact, collapseToList } = useTableContext();
 
-    // pick text from data-th if possible, but only if it's a list
-    const showTextFromTh: string | undefined = collapseToList ? (rest as Record<string, string>)["data-th"] : undefined;
+        // pick text from data-th if possible, but only if it's a list
+        const showTextFromTh: string | undefined = collapseToList
+            ? (rest as Record<string, string>)["data-th"]
+            : undefined;
 
-    return (
-        <TableCell
-            className={cx("jkl-table-cell--expand", { ["jkl-table-cell--expand-without-text"]: !children }, className)}
-            {...rest}
-        >
-            <ExpandButton
-                className={cx("jkl-table-row-expand-button", {
-                    ["jkl-table-row-expand-button--expanded"]: isOpen,
-                })}
-                id={id}
-                forceCompact={compact}
-                isExpanded={isOpen}
-                aria-controls={ariaControls}
-                onClick={(e) => {
-                    e.stopPropagation();
-                    onClick();
-                }}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        onClick();
-                    }
-                }}
+        return (
+            <TableCell
+                className={cx(
+                    "jkl-table-cell--expand",
+                    { ["jkl-table-cell--expand-without-text"]: !children },
+                    className,
+                )}
+                {...rest}
+                ref={ref}
             >
-                {/* show children. or try to use data-th if children is undefined */}
-                {children ?? showTextFromTh}
-            </ExpandButton>
-        </TableCell>
-    );
-};
+                <ExpandButton
+                    className={cx("jkl-table-row-expand-button", {
+                        ["jkl-table-row-expand-button--expanded"]: isOpen,
+                    })}
+                    id={id}
+                    forceCompact={compact}
+                    isExpanded={isOpen}
+                    aria-controls={ariaControls}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onClick();
+                    }}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            onClick();
+                        }
+                    }}
+                >
+                    {/* show children. or try to use data-th if children is undefined */}
+                    {children ?? showTextFromTh}
+                </ExpandButton>
+            </TableCell>
+        );
+    },
+);
+
+ExpandableTableRowController.displayName = "ExpandableTableRowController";
+
+export { ExpandableTableRowController };

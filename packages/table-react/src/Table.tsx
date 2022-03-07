@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
 import { TableContextProvider } from "./tableContext";
 
 export interface TableProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
@@ -10,22 +10,23 @@ export interface TableProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableEl
     fullWidth?: boolean;
 }
 
-export const Table: FC<TableProps> = ({
-    className,
-    compact = false,
-    collapseToList = false,
-    fullWidth = false,
-    ...rest
-}) => {
-    return (
-        <TableContextProvider state={{ compact, collapseToList }}>
-            <table
-                className={cx("jkl-table", className, {
-                    ["jkl-table--full-width"]: fullWidth,
-                    ["jkl-table--collapse-to-list"]: collapseToList,
-                })}
-                {...rest}
-            />
-        </TableContextProvider>
-    );
-};
+const Table = forwardRef<HTMLTableElement, TableProps>(
+    ({ className, compact = false, collapseToList = false, fullWidth = false, ...rest }, ref) => {
+        return (
+            <TableContextProvider state={{ compact, collapseToList }}>
+                <table
+                    className={cx("jkl-table", className, {
+                        ["jkl-table--full-width"]: fullWidth,
+                        ["jkl-table--collapse-to-list"]: collapseToList,
+                    })}
+                    {...rest}
+                    ref={ref}
+                />
+            </TableContextProvider>
+        );
+    },
+);
+
+Table.displayName = "Table";
+
+export { Table };

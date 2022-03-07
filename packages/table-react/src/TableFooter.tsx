@@ -1,13 +1,17 @@
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
 export interface TableFooterProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement> {}
 
-export const TableFooter: FC<TableFooterProps> = (props) => {
+const TableFooter = forwardRef<HTMLTableSectionElement, TableFooterProps>((props, ref) => {
     return (
         <TableSectionContextProvider state={{ isTableHead: false, isTableBody: false, isTableFooter: true }}>
-            <tfoot {...props} />
+            <tfoot {...props} ref={ref} />
         </TableSectionContextProvider>
     );
-};
+});
+
+TableFooter.displayName = "TableFooter";
+
+export { TableFooter };

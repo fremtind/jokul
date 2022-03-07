@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
 
 export interface TableCaptionProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLTableCaptionElement>, HTMLTableCaptionElement> {
@@ -7,6 +7,12 @@ export interface TableCaptionProps
     srOnly?: boolean;
 }
 
-export const TableCaption: FC<TableCaptionProps> = ({ srOnly = true, ...rest }) => {
-    return <caption className={cx("jkl-table-caption", { ["jkl-table-caption--sr-only"]: srOnly })} {...rest} />;
-};
+const TableCaption = forwardRef<HTMLTableCaptionElement, TableCaptionProps>(({ srOnly = true, ...rest }, ref) => {
+    return (
+        <caption className={cx("jkl-table-caption", { ["jkl-table-caption--sr-only"]: srOnly })} {...rest} ref={ref} />
+    );
+});
+
+TableCaption.displayName = "TableCaption";
+
+export { TableCaption };

@@ -1,7 +1,11 @@
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
 
 export interface TableColumnProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableColElement>, HTMLTableColElement> {}
 
-export const TableColumn: FC<TableColumnProps> = (props) => {
-    return <col {...props} />;
-};
+const TableColumn = forwardRef<HTMLTableColElement, TableColumnProps>((props, ref) => {
+    return <col {...props} ref={ref} />;
+});
+
+TableColumn.displayName = "TableColumn";
+
+export { TableColumn };

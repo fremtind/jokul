@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, HTMLAttributes, useState } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes, useState } from "react";
 import { useTableContext } from "./tableContext";
 import { useTableSectionContext } from "./tableSectionContext";
 
@@ -17,7 +17,7 @@ export interface TableRowProps extends DetailedHTMLProps<HTMLAttributes<HTMLTabl
     clickable?: ClickableRowProps;
 }
 
-export const TableRow: FC<TableRowProps> = ({ className, clickable, children, ...rest }) => {
+const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, clickable, children, ...rest }, ref) => {
     const { compact } = useTableContext();
     const { isTableBody } = useTableSectionContext();
 
@@ -45,6 +45,7 @@ export const TableRow: FC<TableRowProps> = ({ className, clickable, children, ..
                 aria-pressed={clickable?.markClickedRows ? (clicked ? "true" : "false") : undefined}
                 tabIndex={0}
                 {...rest}
+                ref={ref}
             >
                 {children}
             </tr>
@@ -57,8 +58,13 @@ export const TableRow: FC<TableRowProps> = ({ className, clickable, children, ..
                 ["jkl-table-row--compact"]: compact,
             })}
             {...rest}
+            ref={ref}
         >
             {children}
         </tr>
     );
-};
+});
+
+TableRow.displayName = "TableRow";
+
+export { TableRow };
