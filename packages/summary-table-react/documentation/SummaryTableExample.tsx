@@ -34,7 +34,7 @@ export const summaryTableExampleCode: CodeExample = `
     footer={
         <>
             <SummaryTableRow header="Total sum" content="693,50 kr/mnd" />
-            <SummaryTableRow header="" content="8322,50 kr/mnd" />
+            <SummaryTableRow header={<span className="jkl-sr-only">Total sum per år</span>} content="8322,50 kr/år" />
         </>
     }
 />
