@@ -1,0 +1,33 @@
+{
+    "$schema": "https://turborepo.org/schema.json",
+    "baseBranch": "origin/main",
+    "pipeline": {
+        "clean": {
+            "outputs": [],
+            "cache": false
+        },
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": ["build/**", "*.css"]
+        },
+        "build:docs": {
+            "dependsOn": ["build", "$PREVIEW_PATH"],
+            "outputs": ["public/**", ".cache/**"]
+        },
+        "serve": {
+            "outputs": [],
+            "cache": false
+        },
+        "dev": {
+            "outputs": [],
+            "cache": false
+        }
+    },
+    "globalDependencies": [
+        "yarn.lock",
+        "gulpfile.js",
+        "rollup.config.js",
+        "tsconfig-for-declarations.json",
+        "tsconfig.json"
+    ]
+}

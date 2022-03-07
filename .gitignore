@@ -16,3 +16,4 @@ dist/
 cypress/videos
 .yarnrc
 .stylelintcache
+.turbo
