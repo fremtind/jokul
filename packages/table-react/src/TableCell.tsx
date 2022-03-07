@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, TdHTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, TdHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
 export interface TableCellProps
@@ -17,22 +17,23 @@ export interface TableCellProps
     verticalAlign?: "center" | "top";
 }
 
-export const TableCell: FC<TableCellProps> = ({
-    align = "left",
-    verticalAlign = "top",
-    className,
-    compact,
-    ...rest
-}) => {
-    const { compact: contextCompact } = useTableContext();
-    return (
-        <td
-            className={cx("jkl-table-cell", className, {
-                ["jkl-table-cell--compact"]: typeof compact === "undefined" ? contextCompact : compact,
-                ["jkl-table-cell--align-right"]: align === "right",
-                ["jkl-table-cell--align-center"]: verticalAlign === "center",
-            })}
-            {...rest}
-        />
-    );
-};
+const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
+    ({ align = "left", verticalAlign = "top", className, compact, ...rest }, ref) => {
+        const { compact: contextCompact } = useTableContext();
+        return (
+            <td
+                className={cx("jkl-table-cell", className, {
+                    ["jkl-table-cell--compact"]: typeof compact === "undefined" ? contextCompact : compact,
+                    ["jkl-table-cell--align-right"]: align === "right",
+                    ["jkl-table-cell--align-center"]: verticalAlign === "center",
+                })}
+                {...rest}
+                ref={ref}
+            />
+        );
+    },
+);
+
+TableCell.displayName = "TableCell";
+
+export { TableCell };

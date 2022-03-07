@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
 export interface TableHeaderProps
@@ -14,24 +14,24 @@ export interface TableHeaderProps
     srOnly?: boolean;
 }
 
-export const TableHeader: FC<TableHeaderProps> = ({
-    bold = true,
-    compact,
-    className,
-    scope = "col",
-    srOnly,
-    ...rest
-}) => {
-    const { compact: contextCompact } = useTableContext();
-    return (
-        <th
-            className={cx("jkl-table-header", className, {
-                ["jkl-table-header--bold"]: bold,
-                ["jkl-table-header--compact"]: typeof compact === "undefined" ? contextCompact : compact,
-                ["jkl-table-header--sr-only"]: srOnly,
-            })}
-            scope={scope}
-            {...rest}
-        />
-    );
-};
+const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
+    ({ bold = true, compact, className, scope = "col", srOnly, ...rest }, ref) => {
+        const { compact: contextCompact } = useTableContext();
+        return (
+            <th
+                className={cx("jkl-table-header", className, {
+                    ["jkl-table-header--bold"]: bold,
+                    ["jkl-table-header--compact"]: typeof compact === "undefined" ? contextCompact : compact,
+                    ["jkl-table-header--sr-only"]: srOnly,
+                })}
+                scope={scope}
+                {...rest}
+                ref={ref}
+            />
+        );
+    },
+);
+
+TableHeader.displayName = "TableHeader";
+
+export { TableHeader };
