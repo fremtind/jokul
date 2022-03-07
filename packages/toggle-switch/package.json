@@ -20,7 +20,7 @@
         "*.scss"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
@@ -35,6 +35,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    }
 }

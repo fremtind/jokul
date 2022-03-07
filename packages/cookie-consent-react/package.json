@@ -23,7 +23,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
@@ -41,6 +41,9 @@
         "classnames": "^2.2.6",
         "react-hook-form": "^7.27.1"
     },
+    "devDependencies": {
+        "@nrk/core-dialog": "4.0.0"
+    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0",
@@ -53,9 +56,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb",
-    "devDependencies": {
-        "@nrk/core-dialog": "4.0.0"
     }
 }

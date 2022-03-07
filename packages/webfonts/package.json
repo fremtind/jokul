@@ -19,7 +19,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "clean": "rimraf .turbo/ **/*.css",
         "build": "gulp build"
     },
     "repository": {
@@ -28,6 +28,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "6e8cfc145a406bc8e38ffe53ad9600bb73ea4ff8"
+    }
 }
