@@ -1,9 +1,9 @@
-import React, { VFC } from "react";
+import React, { VFC, ReactNode } from "react";
 
 export interface SummaryTableRowProps {
     className?: string;
-    header: string;
-    content: string;
+    header: string | ReactNode;
+    content: string | ReactNode;
 }
 
 export const SummaryTableRow: VFC<SummaryTableRowProps> = ({ className, header, content }) => {
