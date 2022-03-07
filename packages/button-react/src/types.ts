@@ -7,6 +7,7 @@ export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, 
         showLoader: boolean;
         textDescription: string;
     };
+    arrow?: "left" | "right";
 }
 
 export type ValidButtons = "primary" | "secondary" | "tertiary";
