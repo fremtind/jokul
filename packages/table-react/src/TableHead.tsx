@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
 export interface TableHeadProps
@@ -7,7 +7,7 @@ export interface TableHeadProps
     srOnly?: boolean;
 }
 
-export const TableHead: FC<TableHeadProps> = ({ className, srOnly, ...rest }) => {
+const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(({ className, srOnly, ...rest }, ref) => {
     return (
         <TableSectionContextProvider state={{ isTableHead: true, isTableBody: false, isTableFooter: false }}>
             <thead
@@ -15,7 +15,12 @@ export const TableHead: FC<TableHeadProps> = ({ className, srOnly, ...rest }) =>
                     ["jkl-table-head--sr-only"]: srOnly,
                 })}
                 {...rest}
+                ref={ref}
             />
         </TableSectionContextProvider>
     );
-};
+});
+
+TableHead.displayName = "TableHead";
+
+export { TableHead };

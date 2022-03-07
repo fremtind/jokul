@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.2.9...@fremtind/jkl-table-react@7.3.0) (2022-03-07)
+
+### Features
+
+-   add ref support to Table components ([779b28d](https://github.com/fremtind/jokul/commit/779b28d8b0234ab6b235d652a57d9c6dd27d0be9))
+
 ## 7.2.5 (2022-02-11)
 
 ### Bug Fixes
