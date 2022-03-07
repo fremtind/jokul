@@ -7,7 +7,8 @@
         "lib": [                                  /* Specify library files to be included in the compilation. */
             "dom",                                /* We have a browser environment */
             "ESNext.Array",                        /* We like flat arrays */
-            "ES2019.Object"
+            "ES2019.Object",
+            "ES2021"
         ],
         "module": "esnext"                        /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
         // "allowJs": true,                       /* Allow javascript files to be compiled. */

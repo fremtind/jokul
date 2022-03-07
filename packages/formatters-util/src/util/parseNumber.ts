@@ -1,8 +1,6 @@
 const replaceAllButLastOccurence = (input: string | string[], search: string) => {
-    // indexOf returns the first index, so flip the input to find the
-    // notator furthest back
-    const arrInput = Array.isArray(input) ? input.reverse() : input.split("").reverse();
-    const indexOfSearch = arrInput.indexOf(search);
+    const arrInput = Array.isArray(input) ? input : input.split("");
+    const indexOfSearch = arrInput.lastIndexOf(search);
 
     return (
         arrInput
@@ -14,8 +12,6 @@ const replaceAllButLastOccurence = (input: string | string[], search: string) =>
 
                 return i === indexOfSearch;
             })
-            // flip back and return as string
-            .reverse()
             .join("")
     );
 };
@@ -26,7 +22,7 @@ export function parseNumber(input: string | number) {
     }
 
     // remove all spaces from number
-    const arrNumber = input.split("").filter((n) => n !== " ");
+    const arrNumber = input.replaceAll(" ", "").split("");
 
     // find what separator is used for decimal notation
     const decimalNotator = arrNumber.reduce<"." | "," | null>((notator, currentItem) => {
