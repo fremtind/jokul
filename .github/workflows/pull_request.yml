@@ -63,8 +63,9 @@ jobs:
                   cache: "yarn"
 
             - name: Turbo Cache
-              id: turbo-cache
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               uses: actions/cache@v2
+              id: turbo-cache
               with:
                   path: node_modules/.cache/turbo
                   key: turbo-${{ github.sha }}
