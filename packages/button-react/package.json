@@ -38,6 +38,7 @@
     "dependencies": {
         "@babel/runtime": "^7.17.2",
         "@fremtind/jkl-button": "^7.0.4",
+        "@fremtind/jkl-constants-util": "^0.4.1",
         "@fremtind/jkl-loader-react": "^7.1.12",
         "classnames": "^2.2.6"
     },

@@ -1,12 +1,12 @@
 import React, { forwardRef, TouchEvent } from "react";
 import classNames from "classnames";
 import { Loader } from "@fremtind/jkl-loader-react";
+import { unicode } from "@fremtind/jkl-constants-util";
 import { Props, ValidButtons } from "./types";
 import { BaseButton } from "./BaseButton";
-
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const Button = forwardRef<HTMLButtonElement, Props>(
-        ({ children, className, forceCompact, onClick, onTouchStart, loader, ...rest }, ref) => {
+        ({ children, className, forceCompact, onClick, onTouchStart, loader, arrow, ...rest }, ref) => {
             const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
                 "jkl-button--compact": forceCompact,
             });
@@ -45,7 +45,10 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                                 "jkl-button__slider--show-loader": !!loader?.showLoader,
                             })}
                         >
+                            {arrow === "left" && <span aria-hidden>{unicode.LEFTWARDS_ARROW} </span>}
                             {children}
+                            {arrow === "right" && <span aria-hidden> {unicode.RIGHTWARDS_ARROW}</span>}
+
                             {loader && (
                                 <div className="jkl-button__loader">
                                     <Loader
