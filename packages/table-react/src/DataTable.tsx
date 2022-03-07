@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, HTMLAttributes, VFC } from "react";
+import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
 import { TableHeader } from "./TableHeader";
 import { TableHead } from "./TableHead";
 import { Table } from "./Table";
@@ -22,35 +22,41 @@ export interface DataTableProps extends DetailedHTMLProps<HTMLAttributes<HTMLTab
     verticalAlign?: "center" | "top";
 }
 
-export const DataTable: VFC<DataTableProps> = ({ caption, columns, emptyTableText, rows, verticalAlign, ...rest }) => {
-    return (
-        <Table fullWidth={true} {...rest}>
-            {caption && <TableCaption srOnly>{caption}</TableCaption>}
-            <TableHead>
-                <TableRow>
-                    {columns.map((column, index) => (
-                        <TableHeader key={index} compact bold>
-                            {column}
-                        </TableHeader>
-                    ))}
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {rows.length === 0 && emptyTableText && (
+const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
+    ({ caption, columns, emptyTableText, rows, verticalAlign, ...rest }, ref) => {
+        return (
+            <Table fullWidth={true} {...rest} ref={ref}>
+                {caption && <TableCaption srOnly>{caption}</TableCaption>}
+                <TableHead>
                     <TableRow>
-                        <TableCell colSpan={columns.length}>{emptyTableText}</TableCell>
-                    </TableRow>
-                )}
-                {rows.map((row, rowIndex) => (
-                    <TableRow key={rowIndex}>
-                        {row.map((cell, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={columns[cellIndex]} verticalAlign={verticalAlign}>
-                                {cell}
-                            </TableCell>
+                        {columns.map((column, index) => (
+                            <TableHeader key={index} compact bold>
+                                {column}
+                            </TableHeader>
                         ))}
                     </TableRow>
-                ))}
-            </TableBody>
-        </Table>
-    );
-};
+                </TableHead>
+                <TableBody>
+                    {rows.length === 0 && emptyTableText && (
+                        <TableRow>
+                            <TableCell colSpan={columns.length}>{emptyTableText}</TableCell>
+                        </TableRow>
+                    )}
+                    {rows.map((row, rowIndex) => (
+                        <TableRow key={rowIndex}>
+                            {row.map((cell, cellIndex) => (
+                                <TableCell key={cellIndex} data-th={columns[cellIndex]} verticalAlign={verticalAlign}>
+                                    {cell}
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        );
+    },
+);
+
+DataTable.displayName = "DataTable";
+
+export { DataTable };
