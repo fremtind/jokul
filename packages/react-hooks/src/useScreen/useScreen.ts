@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { breakpoints } from "@fremtind/jkl-core";
 import { addMediaQueryListener, getInitialMediaQueryMatch } from "../mediaQueryUtils";
 import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
@@ -17,15 +17,23 @@ const createAction = (property: keyof ScreenState): ScreenAction => ({
     property,
 });
 
-export const useScreen = (): Readonly<ScreenState> => {
-    const initialState: ScreenState = useMemo(
+export const useScreen = (): ScreenState => {
+    const [device, deviceDispatch] = useReducer(
+        reducer,
+        {
+            isSmallDevice: false,
+            isMediumDevice: false,
+            isLargeDevice: false,
+            isXlDevice: false,
+            isLandscape: false,
+            isPortrait: false,
+        },
         () =>
             Object.fromEntries(
                 Object.entries(MEDIA_RULES).map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)]),
             ) as unknown as ScreenState,
-        [],
     );
-    const [device, deviceDispatch] = useReducer(reducer, initialState);
+
     const createListener = useCallback(
         (key: keyof ScreenState) => (e: MediaQueryListEvent) => e.matches && deviceDispatch(createAction(key)),
         [],
@@ -47,5 +55,5 @@ export const useScreen = (): Readonly<ScreenState> => {
         };
     }, [createListener]);
 
-    return Object.freeze(device);
+    return { ...device };
 };
