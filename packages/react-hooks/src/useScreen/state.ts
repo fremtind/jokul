@@ -17,12 +17,12 @@ export interface ScreenAction {
     property: keyof ScreenState;
 }
 
-function setDeviceSize(orientation: keyof ScreenState): Omit<ScreenState, "isLandscape" | "isPortrait"> {
+function setDeviceSize(deviceSize: keyof ScreenState): Omit<ScreenState, "isLandscape" | "isPortrait"> {
     return {
-        isSmallDevice: orientation === "isSmallDevice",
-        isMediumDevice: orientation === "isMediumDevice",
-        isLargeDevice: orientation === "isLargeDevice",
-        isXlDevice: orientation === "isXlDevice",
+        isSmallDevice: deviceSize === "isSmallDevice",
+        isMediumDevice: deviceSize === "isMediumDevice",
+        isLargeDevice: deviceSize === "isLargeDevice",
+        isXlDevice: deviceSize === "isXlDevice",
     };
 }
 
