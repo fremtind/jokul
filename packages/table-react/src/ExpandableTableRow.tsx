@@ -12,12 +12,23 @@ export interface ExpandableTableRowProps extends TableRowProps {
      * @default 100
      */
     colSpan?: number;
+    onToggle?: (isOpen: boolean) => void;
 }
 
 const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowProps>(
-    ({ className, clickable, children, expandedChildren, colSpan = 100, ...rest }, ref) => {
+    ({ className, clickable, children, expandedChildren, onToggle, colSpan = 100, ...rest }, ref) => {
         const [isOpen, setIsOpen] = useState(false);
         const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
+
+        const toggleOpen = () => {
+            const newIsOpen = !isOpen;
+
+            if (onToggle) {
+                onToggle(newIsOpen);
+            }
+
+            setIsOpen(newIsOpen);
+        };
 
         const tableRowClassName = cx("jkl-table-row--expandable", className, {
             ["jkl-table-row--expanded"]: isOpen,
@@ -36,7 +47,7 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
                     className={tableRowClassName}
                     clickable={
                         clickable ?? {
-                            onClick: () => setIsOpen(!isOpen),
+                            onClick: () => toggleOpen(),
                         }
                     }
                     {...rest}
@@ -46,7 +57,7 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
                         if (React.isValidElement(child) && child.type == ExpandableTableRowController) {
                             return React.cloneElement(child, {
                                 isOpen,
-                                onClick: () => setIsOpen(!isOpen),
+                                onClick: () => toggleOpen(),
                                 "aria-controls": tableRowId,
                                 id: expandableTableRowControllerId,
                             });

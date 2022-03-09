@@ -15,6 +15,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
     const compact = boolValues?.["Kompakt"];
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
+    const extraText = boolValues?.["Tekst i ekspandérknapp"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
 
@@ -36,6 +37,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                     <ExpandableTableRow
                         key={rowIndex}
                         clickable={markClickedRows ? { onClick: (e) => console.log(e), markClickedRows } : undefined}
+                        onToggle={(isOpen) => console.log({ isOpen })}
                         expandedChildren={
                             <Table fullWidth>
                                 <TableHead srOnly>
@@ -71,7 +73,9 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                             data-th="Mer informasjon"
                             verticalAlign="center"
                             compact={compact}
-                        />
+                        >
+                            {extraText ? "Mer informasjon" : null}
+                        </ExpandableTableRowController>
                     </ExpandableTableRow>
                 ))}
             </TableBody>
@@ -126,7 +130,11 @@ export const expandableTableExampleCode = ({ choiceValues, boolValues }: Example
                         {cell}
                     </TableCell>
                 ))}
-                <ExpandableTableRowController data-th="Mer informasjon" verticalAlign="center" />
+                ${
+                    boolValues?.["Tekst i ekspandérknapp"]
+                        ? '<ExpandableTableRowController data-th="Mer informasjon" verticalAlign="center" />'
+                        : '<ExpandableTableRowController data-th="Mer informasjon" verticalAlign="center">Mer informasjon</ExpandableTableRowController>'
+                }
             </ExpandableTableRow>
         ))}
     </TableBody>
