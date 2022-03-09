@@ -9,7 +9,6 @@ export type { ScreenState } from "./useScreen/state";
 export { useScreen } from "./useScreen/useScreen";
 export type { ScrollIntoViewProps } from "./useScrollIntoView/useScrollIntoView";
 export { useScrollIntoView } from "./useScrollIntoView/useScrollIntoView";
-export { useReducedMotion } from "./useReducedMotion/useReducedMotion";
 export type { ColorScheme } from ".//useBrowserPreferences/useBrowserPreferences";
 export { useBrowserPreferences } from ".//useBrowserPreferences/useBrowserPreferences";
 export type { ProgressiveImageProps } from "./useProgressiveImg/useProgressiveImg";
