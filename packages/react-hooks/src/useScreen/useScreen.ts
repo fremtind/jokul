@@ -35,7 +35,13 @@ export const useScreen = (): ScreenState => {
     );
 
     const createListener = useCallback(
-        (key: keyof ScreenState) => (e: MediaQueryListEvent) => e.matches && deviceDispatch(createAction(key)),
+        (key: keyof ScreenState) => (e: MediaQueryListEvent) => {
+            requestAnimationFrame(() => {
+                if (e.matches) {
+                    deviceDispatch(createAction(key));
+                }
+            });
+        },
         [],
     );
 
