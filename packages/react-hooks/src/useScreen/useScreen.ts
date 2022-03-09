@@ -17,7 +17,7 @@ const createAction = (property: keyof ScreenState): ScreenAction => ({
     property,
 });
 
-export const useScreen = (): ScreenState => {
+export const useScreen = (): Readonly<ScreenState> => {
     const initialState: ScreenState = useMemo(
         () =>
             Object.fromEntries(
@@ -47,5 +47,5 @@ export const useScreen = (): ScreenState => {
         };
     }, [createListener]);
 
-    return { ...device };
+    return Object.freeze(device);
 };
