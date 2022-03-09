@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@9.0.12...@fremtind/jkl-datepicker-react@9.0.13) (2022-03-09)
+
+### Bug Fixes
+
+-   annonser endring av kalenderåret i datovelger ([436f4f3](https://github.com/fremtind/jokul/commit/436f4f3d61346cae53851e8d1b0fd37e3b0feead)), closes [#2750](https://github.com/fremtind/jokul/issues/2750)
+
 # [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@8.0.27...@fremtind/jkl-datepicker-react@9.0.0) (2022-02-07)
 
 ### Bug Fixes
