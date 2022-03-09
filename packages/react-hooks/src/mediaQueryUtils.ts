@@ -19,5 +19,7 @@ export function getInitialMediaQueryMatch(mediaQuery: string): boolean {
 export function addMediaQueryListener(queryList: MediaQueryList, callback: (e: MediaQueryListEvent) => void) {
     if (typeof queryList.addEventListener !== "undefined") {
         queryList.addEventListener("change", callback);
+    } else {
+        queryList.addListener(callback);
     }
 }
