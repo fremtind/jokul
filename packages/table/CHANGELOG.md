@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.7 (2022-03-09)
+
+### Bug Fixes
+
+-   fix a bug where arrow wouldn't align to text ([a56dbf8](https://github.com/fremtind/jokul/commit/a56dbf8953ffb5e2f67943a3749185db269ffe08))
+
 ## [5.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.2.0...@fremtind/jkl-table@5.2.1) (2022-02-07)
 
 ### Bug Fixes

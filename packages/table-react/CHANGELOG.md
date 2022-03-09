@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.4.0 (2022-03-09)
+
+### Features
+
+-   add support for a callback when open state changes ([03e4ccf](https://github.com/fremtind/jokul/commit/03e4ccfb7a0b475f7f127045e6491d939d8f5b52))
+-   change to a better prop name ([d0cec19](https://github.com/fremtind/jokul/commit/d0cec1987c35422a2181b4ded900a376864a455e))
+
 # [7.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.2.9...@fremtind/jkl-table-react@7.3.0) (2022-03-07)
 
 ### Features
