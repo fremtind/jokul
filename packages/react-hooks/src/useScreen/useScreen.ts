@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useReducer } from "react";
 import { breakpoints } from "@fremtind/jkl-core";
-import { addMediaQueryListener, getInitialMediaQueryMatch } from "../mediaQueryUtils";
+import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
 import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
 
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
@@ -57,7 +57,7 @@ export const useScreen = (): ScreenState => {
         }
 
         return () => {
-            eventListenerPairs.forEach(([queryList, listener]) => queryList.removeEventListener("change", listener));
+            eventListenerPairs.forEach(([queryList, listener]) => removeMediaQueryListener(queryList, listener));
         };
     }, [createListener]);
 
