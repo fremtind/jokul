@@ -12,19 +12,19 @@ export interface ExpandableTableRowProps extends TableRowProps {
      * @default 100
      */
     colSpan?: number;
-    onOpenStateChange?: (isOpen: boolean) => void;
+    onToggle?: (isOpen: boolean) => void;
 }
 
 const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowProps>(
-    ({ className, clickable, children, expandedChildren, onOpenStateChange, colSpan = 100, ...rest }, ref) => {
+    ({ className, clickable, children, expandedChildren, onToggle, colSpan = 100, ...rest }, ref) => {
         const [isOpen, setIsOpen] = useState(false);
         const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
 
         const toggleOpen = () => {
             const newIsOpen = !isOpen;
 
-            if (onOpenStateChange) {
-                onOpenStateChange(newIsOpen);
+            if (onToggle) {
+                onToggle(newIsOpen);
             }
 
             setIsOpen(newIsOpen);

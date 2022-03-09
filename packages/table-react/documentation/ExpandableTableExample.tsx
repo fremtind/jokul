@@ -37,7 +37,7 @@ const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choice
                     <ExpandableTableRow
                         key={rowIndex}
                         clickable={markClickedRows ? { onClick: (e) => console.log(e), markClickedRows } : undefined}
-                        onOpenStateChange={(isOpen) => console.log({ isOpen })}
+                        onToggle={(isOpen) => console.log({ isOpen })}
                         expandedChildren={
                             <Table fullWidth>
                                 <TableHead srOnly>
