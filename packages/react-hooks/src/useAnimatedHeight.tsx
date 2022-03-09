@@ -1,5 +1,5 @@
 import { MutableRefObject, useEffect, useRef, RefObject, useCallback, useLayoutEffect } from "react";
-import { useReducedMotion } from "./useReducedMotion/useReducedMotion";
+import { useBrowserPreferences } from "./useBrowserPreferences/useBrowserPreferences";
 
 interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
@@ -18,7 +18,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     const raf2 = useRef<number>();
     const elementRef = useRef<T>(null);
     const firstRender = useRef<boolean>(true);
-    const prefersReducedMotion = useReducedMotion();
+    const { prefersReducedMotion } = useBrowserPreferences();
 
     function handleTransitionEnd(event: TransitionEvent) {
         const element = getElement(elementRef);
