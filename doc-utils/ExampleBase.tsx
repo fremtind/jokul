@@ -82,7 +82,7 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                         >
                             {Object.entries(boolValues).map(([key, value]) => (
                                 <Checkbox
-                                    key={key}
+                                    key={`${uid}-${hyphenate(key)}`}
                                     name={`${uid}-${hyphenate(key)}`}
                                     value={key}
                                     checked={value}
@@ -101,7 +101,7 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                                         className="jkl-portal-component-example__example-options-header"
                                         variant="small"
                                         name={`${uid}-${hyphenate(key)}`}
-                                        key={key}
+                                        key={`${uid}-${hyphenate(key)}`}
                                         legend={key}
                                         value={value}
                                         labelProps={{ variant: "small" }}
@@ -117,7 +117,8 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                                         value={value}
                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                         label={key}
-                                        name={key}
+                                        key={`${uid}-${hyphenate(key)}`}
+                                        name={`${uid}-${hyphenate(key)}`}
                                         items={choices[key]}
                                     />
                                 ),
