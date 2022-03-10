@@ -121,10 +121,11 @@ $focus-ring-width: jkl.rem(2px);
 
 .jkl-expandable-table-row__expanded-row {
     display: none;
-    @include mixins.motion("standard", "expressive");
+    @include mixins.motion("exit", "expressive");
     transition-property: height;
 
     &--expanded {
+        @include mixins.motion("entrance", "lazy");
         display: block;
     }
 }
