@@ -1,4 +1,4 @@
-import React, { useState, useEffect, VFC, FC } from "react";
+import React, { useState, VFC, FC, useMemo } from "react";
 import cn from "classnames";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
@@ -24,31 +24,29 @@ export interface Props {
 export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const uid = useId("example");
     const [showCodeText, setShowCodeText] = useState("Vis kode");
-    const [boolValues, setBoolValues] = useState<Dictionary<boolean>>({});
-    const [choices, setChoices] = useState<Dictionary<string[]>>({});
-    const [choiceValues, setChoiceValues] = useState<Dictionary<string>>({});
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
-    useEffect(() => {
-        setBoolValues(
-            knobs?.boolProps?.reduce((acc, boolProp) => {
-                if (typeof boolProp === "string") {
-                    return { ...acc, [boolProp]: false };
-                }
-                return { ...acc, [boolProp.prop]: boolProp.defaultValue };
-            }, {}) || {},
-        );
-        setChoices(knobs?.choiceProps?.reduce((acc, { name, values }) => ({ ...acc, [name]: values }), {}) || {});
-        setChoiceValues(
-            knobs?.choiceProps?.reduce(
-                (acc, { name, values, defaultValue }) => ({
-                    ...acc,
-                    [name]: values[defaultValue],
-                }),
-                {},
-            ) || {},
-        );
-    }, [knobs]);
+    const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
+        knobs?.boolProps?.reduce((acc, boolProp) => {
+            if (typeof boolProp === "string") {
+                return { ...acc, [boolProp]: false };
+            }
+            return { ...acc, [boolProp.prop]: boolProp.defaultValue };
+        }, {}) || {},
+    );
+
+    const [choiceValues, setChoiceValues] = useState<Dictionary<string>>(
+        knobs?.choiceProps?.reduce(
+            (acc, { name, values, defaultValue }) => ({
+                ...acc,
+                [name]: values[defaultValue],
+            }),
+            {},
+        ) || {},
+    );
+
+    const choices: Dictionary<string[]> =
+        knobs?.choiceProps?.reduce((acc, { name, values }) => ({ ...acc, [name]: values }), {}) || {};
 
     const setBoolValue = (key: string, value: boolean) =>
         setBoolValues((oldValues) => ({ ...oldValues, [key]: value }));
@@ -56,7 +54,11 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
         setChoiceValues((oldValues) => ({ ...oldValues, [key]: value }));
 
     const toggleCodeText = (e: Event, expanded: boolean) => setShowCodeText(expanded ? "Skjul kode" : "Vis kode");
-    const C = component;
+
+    const example = useMemo(() => {
+        const C = component;
+        return <C boolValues={boolValues} choiceValues={choiceValues} />;
+    }, [component, boolValues, choiceValues]);
 
     return (
         <div className="jkl-spacing-2xl--bottom">
@@ -69,7 +71,7 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                         "jkl-portal-component-example__example-wrapper--scrollable": scrollable,
                     })}
                 >
-                    <C boolValues={boolValues} choiceValues={choiceValues} />
+                    {example}
                 </div>
                 <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
                     {knobs?.boolProps && (
@@ -80,7 +82,7 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                         >
                             {Object.entries(boolValues).map(([key, value]) => (
                                 <Checkbox
-                                    key={key}
+                                    key={`${uid}-${hyphenate(key)}`}
                                     name={`${uid}-${hyphenate(key)}`}
                                     value={key}
                                     checked={value}
@@ -99,7 +101,7 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                                         className="jkl-portal-component-example__example-options-header"
                                         variant="small"
                                         name={`${uid}-${hyphenate(key)}`}
-                                        key={key}
+                                        key={`${uid}-${hyphenate(key)}`}
                                         legend={key}
                                         value={value}
                                         labelProps={{ variant: "small" }}
@@ -115,7 +117,8 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                                         value={value}
                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                         label={key}
-                                        name={key}
+                                        key={`${uid}-${hyphenate(key)}`}
+                                        name={`${uid}-${hyphenate(key)}`}
                                         items={choices[key]}
                                     />
                                 ),

@@ -23,3 +23,17 @@ export function addMediaQueryListener(queryList: MediaQueryList, callback: (e: M
         queryList.addListener(callback);
     }
 }
+
+/**
+ * Fjern en lytter fra en MediaQueryList
+ *
+ * @param queryList en MediaQueryList initiert med `window.matchMedia(<CSS Media Query>)`
+ * @param callback lytter som skal fjernes
+ */
+export function removeMediaQueryListener(queryList: MediaQueryList, callback: (e: MediaQueryListEvent) => void) {
+    if (typeof queryList.removeEventListener !== "undefined") {
+        queryList.removeEventListener("change", callback);
+    } else {
+        queryList.removeListener(callback);
+    }
+}

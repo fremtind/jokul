@@ -19,7 +19,7 @@ const AnimationExample: VFC = () => {
             <button className="jkl-button jkl-button--secondary" onClick={() => setIsOpen((isOpen) => !isOpen)}>
                 Animate {isOpen ? "Out" : "In"}
             </button>
-            <div className={`lorem-text-wrapper ${isOpen ? "" : "lorem-text-wrapper--hidden"}`} ref={animationRef}>
+            <div ref={animationRef}>
                 <div className="lorem-text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, aperiam asperiores aut
                     beatae consequuntur cumque delectus dolore doloremque ea fugit inventore ipsam libero magnam
@@ -41,7 +41,7 @@ return (
         <button className="jkl-button jkl-button--secondary" onClick={() => setIsOpen((isOpen) => !isOpen)}>
             Animate {isOpen ? "Out" : "In"}
         </button>
-        <div className={\`lorem-text-wrapper \${isOpen ? "" : "lorem-text-wrapper--hidden"}\`} ref={animationRef}>
+        <div ref={animationRef}>
             <div className="lorem-text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, aperiam asperiores aut
                 beatae consequuntur cumque delectus dolore doloremque ea fugit inventore ipsam libero magnam

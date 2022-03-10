@@ -132,7 +132,7 @@ $select-search-input-selection-color--inverted: color.scale(
         text-align: left;
         width: 100%;
 
-        @include motion("standard");
+        @include motion;
         transition-property: color, border-color, box-shadow;
 
         &:focus {
@@ -163,7 +163,7 @@ $select-search-input-selection-color--inverted: color.scale(
 
     /* The wrapper for the dropdown list */
     &__options-menu {
-        @include motion("standard");
+        @include motion;
         transition-property: height;
         position: absolute;
         left: rem(-1px);
@@ -201,7 +201,7 @@ $select-search-input-selection-color--inverted: color.scale(
         background-color: inherit;
         min-height: rem(48px);
         text-align: left;
-        @include motion("standard");
+        @include motion;
         transition-property: color, background-color;
         position: relative;
         padding: $select-padding;
@@ -313,7 +313,7 @@ $select-search-input-selection-color--inverted: color.scale(
 
     pointer-events: none;
 
-    @include motion("standard");
+    @include motion;
     transition-property: transform, color;
 
     &__up,
@@ -325,7 +325,7 @@ $select-search-input-selection-color--inverted: color.scale(
         left: 0;
         height: $arrow-height;
         width: $arrow-width;
-        @include motion("standard");
+        @include motion;
         transition-property: transform;
     }
 

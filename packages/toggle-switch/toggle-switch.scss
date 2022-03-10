@@ -107,7 +107,7 @@ $disabled-color: jkl.$color-stein;
             border-radius: 99rem;
             width: $toggle-width + rem(4px);
             box-shadow: 0 0 0 rem(2px) transparent;
-            @include motion("standard");
+            @include motion;
             transition-property: box-shadow;
         }
     }
