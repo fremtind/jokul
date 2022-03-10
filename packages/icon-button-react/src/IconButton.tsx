@@ -1,11 +1,11 @@
-import React, { HTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import { IconSearch } from "./Icons/IconSearch";
 import { IconClear } from "./Icons/IconClear";
 import { IconCalendar } from "./Icons/IconCalendar";
 
 export type IconVariant = "clear" | "search" | "calendar";
 
-export interface IconButtonProps extends Exclude<HTMLAttributes<HTMLButtonElement>, "disabled"> {
+export interface IconButtonProps extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     iconType?: IconVariant;
     buttonTitle: string;
 }
