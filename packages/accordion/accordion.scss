@@ -53,7 +53,7 @@
         text-align: left;
         width: 100%;
 
-        @include motion("standard");
+        @include motion;
         transition-property: transform, color;
 
         /* Remove button styles */
@@ -110,7 +110,7 @@
     }
 
     &__content-wrapper {
-        @include motion("standard");
+        @include motion;
 
         transition-property: height;
     }
@@ -135,7 +135,7 @@
 
     pointer-events: none;
 
-    @include motion("standard");
+    @include motion;
 
     transition-property: transform;
 
@@ -148,7 +148,7 @@
         left: 0;
         height: $arrow-height;
         width: $arrow-width;
-        @include motion("standard");
+        @include motion;
 
         transition-property: transform;
     }

@@ -64,7 +64,7 @@ a.jkl-button {
     outline: none;
     position: relative;
 
-    @include motion("standard", "productive");
+    @include motion;
     transform-origin: 50% 90%;
     transition-property: transform, background-color;
 
@@ -104,7 +104,7 @@ a.jkl-button {
     }
 
     &__slider {
-        @include motion("standard", "productive");
+        @include motion;
         transition-property: transform;
 
         &--show-loader {

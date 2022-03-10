@@ -15,7 +15,7 @@
 }
 
 .jkl-portal {
-    @include motion("standard");
+    @include motion;
     transition-property: color;
     transition-delay: 150ms;
 
