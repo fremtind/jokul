@@ -68,6 +68,10 @@ export function useAnimatedHeight<T extends HTMLElement>(
         options?.onTransitionStart?.(isOpen);
 
         if (prefersReducedMotion) {
+            const element = getElement(elementRef);
+            if (element) {
+                element.removeAttribute("style");
+            }
             options?.onTransitionEnd?.(isOpen); // make sure to call callback when animation is off
             return;
         }
