@@ -25,7 +25,7 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
                 aria-expanded={selected}
                 name="veterinar"
                 value="veterinar"
-                onChange={() => setSelected((sel) => !sel)}
+                onChange={() => setSelected((selected) => !selected)}
             >
                 Veterinærutgifter
             </Checkbox>
@@ -88,7 +88,7 @@ return (
             aria-expanded={selected}
             name="veterinar"
             value="veterinar"
-            onChange={() => setSelected((sel) => !sel)}
+            onChange={() => setSelected((selected) => !selected)}
         >
             Veterinærutgifter
         </Checkbox>
