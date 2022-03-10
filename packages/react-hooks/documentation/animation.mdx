@@ -12,14 +12,4 @@ import AnimationExample, { animationExampleCode } from "./AnimationExample";
 
 <ComponentExample title="useAnimatedHeight" component={AnimationExample} codeExample={animationExampleCode} />
 
-Du må legge til noe minimal CSS selv på elementet som animeres ut og inn. Fra eksempelet over:
-
-```scss
-.lorem-text-wrapper {
-    transition: 200ms height ease-in-out;
-
-    &--hidden {
-        display: none;
-    }
-}
-```
+Hooken tar seg av all CSS for animasjonen selv. Du kan overstyre animasjonen om du trenger en annen timing eller easing-funksjon.
