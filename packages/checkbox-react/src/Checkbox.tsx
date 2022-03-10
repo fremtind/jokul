@@ -18,8 +18,11 @@ export interface CheckboxProps extends DataTestAutoId, InputHTMLAttributes<HTMLI
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-    ({ children, invalid, className, inline = false, forceCompact, "data-testautoid": testAutoId, ...rest }, ref) => {
-        const id = useId("jkl-checkbox");
+    (
+        { id, children, invalid, className, inline = false, forceCompact, "data-testautoid": testAutoId, ...rest },
+        ref,
+    ) => {
+        const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
 
         return (
             <div
@@ -30,7 +33,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 })}
             >
                 <input
-                    id={id}
+                    id={inputId}
                     ref={ref}
                     className="jkl-checkbox__input"
                     data-testid="jkl-checkbox-input"
@@ -39,7 +42,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     data-testautoid={testAutoId}
                     {...rest}
                 />
-                <label htmlFor={id} className="jkl-checkbox__label">
+                <label htmlFor={inputId} className="jkl-checkbox__label">
                     <span className="jkl-checkbox__check-mark" />
                     <span className="jkl-checkbox__check-text">{children}</span>
                 </label>
