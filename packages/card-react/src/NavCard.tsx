@@ -1,4 +1,4 @@
-import React, { ElementType, FC, HTMLAttributes } from "react";
+import React, { ElementType, FC, AnchorHTMLAttributes } from "react";
 import cn from "classnames";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-tag-react";
 import { Image } from "@fremtind/jkl-image-react";
@@ -16,7 +16,7 @@ export type TagType = "success" | "warning" | "info" | "error";
  */
 export const InfoBlock: FC = ({ children }) => <div className="jkl-nav-card__info">{children}</div>;
 
-export interface NavCardProps extends PaddingOptions, HTMLAttributes<HTMLAnchorElement> {
+export interface NavCardProps extends PaddingOptions, AnchorHTMLAttributes<HTMLAnchorElement> {
     tag?: {
         /**
          * @default <none> Rendres som nøytral tag

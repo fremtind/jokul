@@ -8,6 +8,7 @@ import { useTableContext } from "./tableContext";
 export interface ExpandableTableRowControllerProps extends TableCellProps {
     /** Settes automatisk av ExpandableTableRow */
     isOpen?: boolean;
+    /** Settes automatisk av ExpandableTableRow */
     onClick?: () => void;
 }
 

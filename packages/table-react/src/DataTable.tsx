@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, TableHTMLAttributes } from "react";
 import { TableHeader } from "./TableHeader";
 import { TableHead } from "./TableHead";
 import { Table } from "./Table";
@@ -7,7 +7,7 @@ import { TableCell } from "./TableCell";
 import { TableBody } from "./TableBody";
 import { TableCaption } from "./TableCaption";
 
-export interface DataTableProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+export interface DataTableProps extends DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */
     caption?: string;
     compact?: boolean;

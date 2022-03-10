@@ -1,9 +1,9 @@
-import React, { FC, ReactNode, HTMLAttributes } from "react";
+import React, { FC, ReactNode, FieldsetHTMLAttributes } from "react";
 import type { LabelProps } from "@fremtind/jkl-core";
 import { Label, SupportLabel, LabelVariant, DataTestAutoId } from "@fremtind/jkl-core";
 import classNames from "classnames";
 
-export interface FieldGroupProps extends DataTestAutoId, HTMLAttributes<HTMLFieldSetElement> {
+export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<HTMLFieldSetElement> {
     legend: string;
     labelProps?: LabelProps;
     children?: ReactNode;

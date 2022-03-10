@@ -1,6 +1,7 @@
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, ColHTMLAttributes } from "react";
 
-export interface TableColumnProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableColElement>, HTMLTableColElement> {}
+export interface TableColumnProps
+    extends DetailedHTMLProps<ColHTMLAttributes<HTMLTableColElement>, HTMLTableColElement> {}
 
 const TableColumn = forwardRef<HTMLTableColElement, TableColumnProps>((props, ref) => {
     return <col {...props} ref={ref} />;
