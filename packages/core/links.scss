@@ -88,7 +88,7 @@ $link-underline-thickness--hover: jkl.rem(2px);
     &::before {
         display: inline-block;
         transform: translateX(0);
-        @include mixins.motion("standard");
+        @include mixins.motion;
         transition-property: transform;
     }
 
