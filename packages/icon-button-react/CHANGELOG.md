@@ -3,31 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.8.15 (2022-03-10)
+
+### Bug Fixes
+
+-   bruk den riktige genericen per type ([a8e8802](https://github.com/fremtind/jokul/commit/a8e88028c66379c3fac2cd10ae0478aadd1d5392))
+
 ## 0.8.0 (2021-12-14)
 
 ### Features
 
-- eksporter typer for ikonknappkomponenten ([270778e](https://github.com/fremtind/jokul/commit/270778e3b6f7bc97ac7b465b683ae5323e5e4b17))
+-   eksporter typer for ikonknappkomponenten ([270778e](https://github.com/fremtind/jokul/commit/270778e3b6f7bc97ac7b465b683ae5323e5e4b17))
 
 ## 0.7.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 0.6.0 (2021-07-09)
 
 ### chore
 
-- bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
+-   bump major version ([255a776](https://github.com/fremtind/jokul/commit/255a776d45a068645124499b870ecefec9d87f0e))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core-version with breaking changes
+-   Depends on jkl-core-version with breaking changes
 
 ## 0.5.0 (2021-07-06)
 

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.4.1...@fremtind/jkl-table-react@7.4.2) (2022-03-10)
+
+### Bug Fixes
+
+-   bruk den riktige genericen per type ([a8e8802](https://github.com/fremtind/jokul/commit/a8e88028c66379c3fac2cd10ae0478aadd1d5392))
+
 # 7.4.0 (2022-03-09)
 
 ### Features
