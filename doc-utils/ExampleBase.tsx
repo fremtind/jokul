@@ -118,7 +118,7 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                         label={key}
                                         key={`${uid}-${hyphenate(key)}`}
-                                        name={`${uid}-${hyphenate(key)}`}
+                                        name={key}
                                         items={choices[key]}
                                     />
                                 ),
