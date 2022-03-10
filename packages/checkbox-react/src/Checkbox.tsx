@@ -1,9 +1,9 @@
-import React, { ReactNode, forwardRef, ChangeEventHandler, FocusEventHandler, HTMLAttributes } from "react";
+import React, { ReactNode, forwardRef, ChangeEventHandler, FocusEventHandler, InputHTMLAttributes } from "react";
 import cn from "classnames";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { DataTestAutoId } from "@fremtind/jkl-core";
 
-export interface CheckboxProps extends DataTestAutoId, HTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends DataTestAutoId, InputHTMLAttributes<HTMLInputElement> {
     children: ReactNode;
     name: string;
     value: string;

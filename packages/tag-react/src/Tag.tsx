@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import cx from "classnames";
 
-type Props = React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
+export interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {}
 
 type Variant = "info" | "error" | "warning" | "success";
 
@@ -21,7 +21,7 @@ function getDisplayName(variant?: Variant) {
 }
 
 function tagFactory(variant?: Variant) {
-    const Tag: FC<Props> = ({ className, ...rest }) => (
+    const Tag: FC<TagProps> = ({ className, ...rest }) => (
         <span
             className={cx(
                 "jkl-tag",

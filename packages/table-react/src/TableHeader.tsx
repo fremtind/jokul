@@ -1,9 +1,9 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, forwardRef, ThHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
 export interface TableHeaderProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
+    extends DetailedHTMLProps<ThHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
     bold?: boolean;
     compact?: boolean;
     /**
