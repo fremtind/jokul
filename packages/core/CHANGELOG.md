@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.1.3...@fremtind/jkl-core@9.2.0) (2022-03-11)
+
+### Features
+
+-   eksponer easing og timing fra Sass i TypeScript ([58515c8](https://github.com/fremtind/jokul/commit/58515c857be6ed9d598e3147a6e6600fbb766d2a))
+-   sett defaultverdi for motion-mixin til "standard" ([99fa497](https://github.com/fremtind/jokul/commit/99fa49705db63e030d958b8539eaa27f4a8246a3))
+
 ## 9.1.2 (2022-03-04)
 
 ### Bug Fixes

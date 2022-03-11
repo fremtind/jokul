@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.2.2...@fremtind/jkl-react-hooks@8.0.0) (2022-03-11)
+
+### Bug Fixes
+
+-   bruk rAF som den gamle useScreen ([3a42560](https://github.com/fremtind/jokul/commit/3a42560cbbd16973674b354e92db26e0df241c1d))
+-   gi muligheten til å skru throttling helt av ([cac8ceb](https://github.com/fremtind/jokul/commit/cac8ceb13605d4dc100e242e0fba5f9e39afa7ea))
+-   ikke returner nytt objekt for hvert kall ([e80adf3](https://github.com/fremtind/jokul/commit/e80adf3430b003e447edaa9e56d00dcf71645c0e))
+-   legg tilbake bruk av deprecated addListener ([78fa7e2](https://github.com/fremtind/jokul/commit/78fa7e256f42ac7cfe19d3d114cc484c119ebcbb))
+-   støtt kombinasjonen core-toggle og prefersReducedMotion ([8d0c9ef](https://github.com/fremtind/jokul/commit/8d0c9efb0feea692450cd601d00b91645c9b2c8f))
+-   **useScreen:** bruk lagret event listener for å sikre opprydding ved unmount ([bb66ab6](https://github.com/fremtind/jokul/commit/bb66ab6e60547a99c50e1c3fa6d86536827f20e6))
+-   **useScreen:** rydd opp event listeners ([f6dd1a2](https://github.com/fremtind/jokul/commit/f6dd1a28303e1b703b6f1984f949ff13364071e0))
+
+### chore
+
+-   slett useReducedMotion ([623cf6c](https://github.com/fremtind/jokul/commit/623cf6c2a0e14576ffca61d73ec1cef460ee9d41))
+
+### Features
+
+-   useAnimatedHeight trenger ikke lenger hjelp fra CSS ([3a304a8](https://github.com/fremtind/jokul/commit/3a304a848f79d45bdcf287d293ac5eb95843f9c5))
+-   **useScreen:** skriv om useScreen til å bruke media queries ([bbe2f67](https://github.com/fremtind/jokul/commit/bbe2f674142ef1a9e4f659fd99e63ac69a4b5235))
+
+### BREAKING CHANGES
+
+-   useReducedMotion erstattes av useBrowserPreferences, som returnerer et objekt med blant annet
+    prefersReducedMotion
+-   **useScreen:** useScreen returnerer ikke lenger informasjon om skjermstørrelse i piksler
+
 # [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.1.2...@fremtind/jkl-react-hooks@7.2.0) (2022-02-17)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@6.1.4...@fremtind/jkl-checkbox-react@6.1.5) (2022-03-11)
+
+### Bug Fixes
+
+-   retter en regresjon hvis Checkbox ikke fungerte om den ble gitt en ID ([b3c5c3c](https://github.com/fremtind/jokul/commit/b3c5c3cf7be89fbfc4808a6d7e683a359e017883))
+
 ## 6.1.4 (2022-03-10)
 
 ### Bug Fixes
