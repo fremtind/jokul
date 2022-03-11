@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.1.2...@fremtind/jkl-select-react@9.1.3) (2022-03-11)
+
+### Bug Fixes
+
+-   gjør React keys unike ([54c4a57](https://github.com/fremtind/jokul/commit/54c4a5784df21dc4cf71f3f3e377e4fd72a1e57e))
+
 # [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.0.4...@fremtind/jkl-select-react@9.1.0) (2022-02-18)
 
 ### Bug Fixes
