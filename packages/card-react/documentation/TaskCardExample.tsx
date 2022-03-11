@@ -20,7 +20,6 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
     return (
         <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding={padding}>
             <Checkbox
-                id="veterinar-checkbox"
                 aria-controls="expanded-content"
                 aria-expanded={selected}
                 name="veterinar"
