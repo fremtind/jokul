@@ -11,7 +11,6 @@ import IntersectionObserverExample from "./IntersectionObserverExample";
 import KeyListenerExample from "./KeyListenerExample";
 import MutationObserverExample from "./MutationObserverExample";
 import ScrollIntoViewExample from "./ScrollIntoViewExample";
-import ReducedMotionExample from "./ReducedMotionExample";
 import { UseIdExample } from "./UseIdExample";
 import "@fremtind/jkl-button/button.css";
 import "@fremtind/jkl-card/card.css";
@@ -25,7 +24,6 @@ renderExample(
         <DevExample component={MutationObserverExample} />
         <DevExample component={IntersectionObserverExample} />
         <DevExample component={ScrollIntoViewExample} />
-        <DevExample component={ReducedMotionExample} />
         <DevExample component={UseIdExample} />
     </>,
     document.getElementById("app"),

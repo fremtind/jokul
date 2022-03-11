@@ -16,7 +16,7 @@
         "lint:stylelint": "stylelint --config=packages/stylelint-config-jkl/index.js '**/*.scss'",
         "lint:fix": "yarn run lint:eslint --fix && yarn run lint:stylelint --fix",
         "ci:test": "run-p test lint:eslint lint:stylelint typecheck",
-        "ci:install": "yarn install --frozen-lockfile && yarn patch-package && yarn build",
+        "ci:install": "yarn install --frozen-lockfile && yarn build",
         "ci:install-cypress": "yarn ci:install && yarn build:docs",
         "test": "yarn run test:unit",
         "test:unit": "jest -c './jest/jest.unit.js'",
@@ -32,7 +32,8 @@
         "start": "yarn run dev",
         "serve": "turbo run serve --scope=@fremtind/portal",
         "patch": "yarn patch-package",
-        "boot": "yarn install --force && yarn patch && yarn build",
+        "postinstall": "yarn patch",
+        "boot": "yarn install --force && yarn build",
         "reboot": "yarn clean && yarn boot",
         "prepare": "husky install",
         "scaffold": "node './scripts/scaffold'"

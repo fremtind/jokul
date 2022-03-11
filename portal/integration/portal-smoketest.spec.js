@@ -7,7 +7,7 @@ context("Portal", () => {
             cy.visit("/");
 
             // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(1000); // Må vente til hamburgeren blir interaktiv
+            cy.wait(1000); // Må vente til siden blir interaktiv
 
             cy.get("#jkl-portal-main-menu-hamburger").click();
 
@@ -22,6 +22,9 @@ context("Portal", () => {
     describe("when on a large device", { viewportWidth: 1280 }, () => {
         it("passes a basic smoketest", () => {
             cy.visit("/");
+
+            // eslint-disable-next-line cypress/no-unnecessary-waiting
+            cy.wait(1000); // Må vente til siden blir interaktiv
 
             cy.get(".jkl-portal-main-menu__root-link").eq(0).click();
 

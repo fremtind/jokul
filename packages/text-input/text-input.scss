@@ -63,7 +63,7 @@ $text-input-selection-color--inverted: color.scale(
 
     @include reset-outline;
     @include jkl.text-style("body/large-screen");
-    @include motion("standard");
+    @include motion;
 
     color: var(--text-input-text-color);
     background-color: transparent;
@@ -265,7 +265,7 @@ $text-input-selection-color--inverted: color.scale(
     }
 
     & .jkl-text-input__input {
-        @include motion("standard");
+        @include motion;
 
         transition-property: height, box-shadow;
         font-weight: normal;
@@ -331,7 +331,7 @@ $text-input-selection-color--inverted: color.scale(
         }
 
         .jkl-text-area__counter {
-            @include motion("standard");
+            @include motion;
             transition-property: opacity;
             opacity: 0;
 

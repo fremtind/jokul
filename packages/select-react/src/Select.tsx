@@ -316,7 +316,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             ref={listRef}
                         >
                             {visibleItems.map((item, i) => (
-                                <li key={item.value} hidden={!item.visible}>
+                                <li key={`${listId}-${item.value}`} hidden={!item.visible}>
                                     <button
                                         type="button"
                                         id={`${listId}__${toLower(item.value)}`}

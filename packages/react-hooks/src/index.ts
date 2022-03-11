@@ -1,15 +1,14 @@
-export type { UseAnimatedHeightOptions } from "./animation";
-export { useAnimatedHeight } from "./animation";
+export type { UseAnimatedHeightOptions } from "./useAnimatedHeight";
+export { useAnimatedHeight } from "./useAnimatedHeight";
 export { useClickOutside } from "./useClickOutside";
 export { useFocusOutside } from "./useFocusOutside";
 export { useKeyListener } from "./useKeyListener";
 export { useMutationObserver } from "./useMutationObserver/useMutationObserver";
 export { useIntersectionObserver } from "./useIntersectionObserver/useIntersectionObserver";
+export type { ScreenState } from "./useScreen/state";
 export { useScreen } from "./useScreen/useScreen";
 export type { ScrollIntoViewProps } from "./useScrollIntoView/useScrollIntoView";
 export { useScrollIntoView } from "./useScrollIntoView/useScrollIntoView";
-export { initialState as initialScreenState } from "./useScreen/state";
-export { useReducedMotion } from "./useReducedMotion/useReducedMotion";
 export type { ColorScheme } from ".//useBrowserPreferences/useBrowserPreferences";
 export { useBrowserPreferences } from ".//useBrowserPreferences/useBrowserPreferences";
 export type { ProgressiveImageProps } from "./useProgressiveImg/useProgressiveImg";

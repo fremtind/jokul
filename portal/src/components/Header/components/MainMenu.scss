@@ -46,7 +46,7 @@
         align-items: center;
         text-decoration: none;
 
-        @include motion("standard");
+        @include motion;
         transition-property: box-shadow;
 
         html:not([data-mousenavigation]) &:focus {
@@ -101,11 +101,11 @@
         background-color: transparent;
         font-size: relative-size(30, 375, 812);
         line-height: relative-size(40, 375, 812);
-        @include motion("standard");
+        @include motion;
         transition-property: transform;
 
         &::after {
-            @include motion("standard");
+            @include motion;
             transition-property: transform;
         }
 

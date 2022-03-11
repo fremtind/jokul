@@ -1,24 +1,65 @@
-import { useEffect, useReducer } from "react";
-import { reducer, initialState, init, actionTypes, State } from "./state";
+import { useCallback, useEffect, useReducer } from "react";
+import { breakpoints } from "@fremtind/jkl-core";
+import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
+import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
 
-export const useScreen = (): State => {
-    const [device, deviceDispatch] = useReducer(reducer, initialState, init);
+const MEDIA_RULES: Record<keyof ScreenState, string> = {
+    isSmallDevice: `(max-width: ${breakpoints.medium - 1}px)`,
+    isMediumDevice: `(min-width: ${breakpoints.medium}px) and (max-width: ${breakpoints.large - 1}px)`,
+    isLargeDevice: `(min-width: ${breakpoints.large}px) and (max-width: ${breakpoints.xl - 1}px)`,
+    isXlDevice: `(min-width: ${breakpoints.xl}px)`,
+    isPortrait: "(orientation: portrait)",
+    isLandscape: "(orientation: landscape)",
+};
 
-    const handleScreenChange = () =>
-        requestAnimationFrame(() =>
-            deviceDispatch({ type: actionTypes.resized, width: window.innerWidth, height: window.innerHeight }),
-        );
+const createAction = (property: keyof ScreenState): ScreenAction => ({
+    type: property === "isLandscape" || property === "isPortrait" ? ActionType.orientation : ActionType.deviceSize,
+    property,
+});
+
+export const useScreen = (): ScreenState => {
+    const [device, deviceDispatch] = useReducer(
+        reducer,
+        {
+            isSmallDevice: false,
+            isMediumDevice: false,
+            isLargeDevice: false,
+            isXlDevice: false,
+            isLandscape: false,
+            isPortrait: false,
+        },
+        () =>
+            Object.fromEntries(
+                Object.entries(MEDIA_RULES).map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)]),
+            ) as unknown as ScreenState,
+    );
+
+    const createListener = useCallback(
+        (key: keyof ScreenState) => (e: MediaQueryListEvent) => {
+            requestAnimationFrame(() => {
+                if (e.matches) {
+                    deviceDispatch(createAction(key));
+                }
+            });
+        },
+        [],
+    );
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.addEventListener("resize", handleScreenChange);
+        const eventListenerPairs: Array<[MediaQueryList, (e: MediaQueryListEvent) => void]> = [];
+        if (typeof window !== "undefined" && window.matchMedia) {
+            Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
+                const queryList = window.matchMedia(rule);
+                const listener = createListener(key as keyof ScreenState);
+                eventListenerPairs.push([queryList, listener]);
+                addMediaQueryListener(queryList, listener);
+            });
         }
+
         return () => {
-            if (typeof window !== "undefined") {
-                window.removeEventListener("resize", handleScreenChange);
-            }
+            eventListenerPairs.forEach(([queryList, listener]) => removeMediaQueryListener(queryList, listener));
         };
-    }, []);
+    }, [createListener]);
 
     return { ...device };
 };

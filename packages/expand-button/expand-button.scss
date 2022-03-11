@@ -91,7 +91,7 @@ $focus-ring-width: jkl.rem(2px);
     }
 
     &__arrow {
-        @include mixins.motion("standard");
+        @include mixins.motion;
 
         display: inline-block;
         margin-left: jkl.$spacing-xs;
@@ -106,7 +106,7 @@ $focus-ring-width: jkl.rem(2px);
 
 .jkl-expand-section {
     &__content-wrapper {
-        @include mixins.motion("standard");
+        @include mixins.motion;
         transition-property: height;
     }
 
