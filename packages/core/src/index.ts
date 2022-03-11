@@ -1,4 +1,5 @@
-export { initTabListener, getValuePair, breakpoints } from "./utils";
+export type { Easing, Timing } from "./utils";
+export { initTabListener, getValuePair, breakpoints, timings, easings } from "./utils";
 export type { LabelProps, LinkProps, NavLinkProps, ScreenReaderOnlyProps, SupportLabelProps } from "./components";
 export { Label, Link, NavLink, ScreenReaderOnly, SupportLabel } from "./components";
 

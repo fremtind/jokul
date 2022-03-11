@@ -69,7 +69,7 @@ $max-feedback-input-width: 30rem;
     color: var(--jkl-feedback-smiley-color);
     transform: translate3d(0, 0, 0);
 
-    @include motion("standard");
+    @include motion;
     transition-property: transform, color;
 
     &::before,
@@ -79,7 +79,7 @@ $max-feedback-input-width: 30rem;
         border-radius: 50%;
         opacity: 0;
 
-        @include motion("standard");
+        @include motion;
         transition-property: opacity;
     }
 

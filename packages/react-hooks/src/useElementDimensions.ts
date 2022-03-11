@@ -9,10 +9,13 @@ function throttle<R, A extends any[]>(fn: (...args: A) => R, delay: number) {
         if (wait) return undefined;
 
         const result = fn(...args);
-        wait = true;
-        window.setTimeout(() => {
-            wait = false;
-        }, delay);
+
+        if (delay !== 0) {
+            wait = true;
+            window.setTimeout(() => {
+                wait = false;
+            }, delay);
+        }
 
         return result;
     };

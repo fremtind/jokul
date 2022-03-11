@@ -1,49 +1,84 @@
 import { MutableRefObject, useEffect, useRef, RefObject, useCallback, useLayoutEffect } from "react";
-import { useReducedMotion } from "./useReducedMotion/useReducedMotion";
+import type { Easing, Timing } from "@fremtind/jkl-core";
+import { easings, timings } from "@fremtind/jkl-core";
+import { useBrowserPreferences } from "./useBrowserPreferences/useBrowserPreferences";
 
 interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
 export interface UseAnimatedHeightOptions {
+    /**
+     * Overstyr standard easingfunksjon
+     * @default "standard"
+     */
+    easing?: Easing;
+    /**
+     * Overstyr standard timing
+     * @default "productive"
+     */
+    timing?: Timing;
     onTransitionStart?: (isOpening: boolean) => void;
     onTransitionEnd?: (isOpen: boolean) => void;
 }
+
+const defaultEasing = easings.standard;
+const defaultTiming = timings.productive;
 
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
     options?: UseAnimatedHeightOptions,
 ): [RefObject<T>, () => void] {
+    const easing = options?.easing || defaultEasing;
+    const timing = options?.timing || defaultTiming;
+    const transition = `${timing} height ${easing}`;
+
+    const { prefersReducedMotion } = useBrowserPreferences();
+
     const raf1 = useRef<number>();
     const raf2 = useRef<number>();
     const elementRef = useRef<T>(null);
     const firstRender = useRef<boolean>(true);
-    const prefersReducedMotion = useReducedMotion();
 
     function handleTransitionEnd(event: TransitionEvent) {
         const element = getElement(elementRef);
 
         // Ignore bubbling transitions from within container
         if (element && event.target === element) {
-            element.removeAttribute("style");
+            if (isOpen) {
+                element.removeAttribute("style");
+            } else {
+                element.removeAttribute("style");
+                element.style.display = "none";
+            }
             options?.onTransitionEnd?.(isOpen);
         }
     }
 
     const runAnimation = useCallback(() => {
         if (firstRender.current) {
+            const element = getElement(elementRef);
+            if (element && !isOpen) {
+                element.style.display = "none";
+            }
+
             return; // Do not play animation on first render
         }
 
         options?.onTransitionStart?.(isOpen);
 
         if (prefersReducedMotion) {
+            const element = getElement(elementRef);
+            if (element) {
+                element.removeAttribute("style");
+            }
             options?.onTransitionEnd?.(isOpen); // make sure to call callback when animation is off
             return;
         }
 
         const element = getElement(elementRef);
         if (element) {
+            element.style.transition = transition;
             element.style.display = "block";
             element.style.overflow = "hidden";
             if (isOpen) {
@@ -67,7 +102,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 });
             }
         }
-    }, [isOpen, options, prefersReducedMotion]);
+    }, [isOpen, options, transition, prefersReducedMotion]);
 
     useLayoutEffect(() => {
         runAnimation();

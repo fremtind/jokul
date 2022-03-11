@@ -22,7 +22,7 @@ $card-padding-normal: jkl.$spacing-l;
     padding: $card-padding-normal;
     text-align: inherit;
     transition-property: box-shadow, transform;
-    @include motion("standard");
+    @include motion;
 
     &__title {
         margin-bottom: jkl.$spacing-l;
@@ -106,7 +106,7 @@ $card-padding-normal: jkl.$spacing-l;
     box-shadow: var(--nav-card-shadow);
     background-color: var(--nav-card-background);
 
-    @include motion("standard");
+    @include motion;
     transition-property: box-shadow, transform;
 
     &__image {
@@ -180,7 +180,7 @@ $card-padding-normal: jkl.$spacing-l;
     flex-direction: column;
     border-radius: func.rem(4px);
 
-    @include motion("standard");
+    @include motion;
     transition-property: background-color;
 
     &__content-wrapper {

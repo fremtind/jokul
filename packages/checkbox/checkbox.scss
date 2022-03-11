@@ -139,7 +139,7 @@ $checkbox-line-height--compact: rem(28px);
         margin: (($checkbox-height - $checkbox-line-height) * 0.5) 0;
         transform: translate3d(0, rem(1px), 0);
 
-        @include motion("standard");
+        @include motion;
         transition-property: color;
     }
 
@@ -158,7 +158,7 @@ $checkbox-line-height--compact: rem(28px);
         border-radius: 0; // fixes rounded corners in iOS Safari
         box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
 
-        @include motion("standard");
+        @include motion;
         transition-property: background-color, box-shadow;
 
         // This is the check mark itself:
@@ -180,7 +180,7 @@ $checkbox-line-height--compact: rem(28px);
             border-top-width: 0;
 
             opacity: 0;
-            @include motion("standard");
+            @include motion;
             transition-property: opacity, border-color;
         }
 
