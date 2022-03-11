@@ -5,11 +5,11 @@ scss: scaffold
 group: edit me!
 ---
 
-import ScaffoldExample, { scaffoldExampleCode } from "./ScaffoldExample";
+import ScaffoldExample, { scaffoldExampleCode, scaffoldExampleKnobs } from "./ScaffoldExample";
 
 <Ingress>Ingress med kort beskrivelse av komponenten</Ingress>
 
-<ComponentExample component={ScaffoldExample} codeExample={scaffoldExampleCode} />
+<ComponentExample component={ScaffoldExample} codeExample={scaffoldExampleCode} knobs={scaffoldExampleKnobs} />
 
 Første eksempel må være synlig uten å scrolle og skal ha et kodeeksempel som oppdateres til å matche valgte parametere.
 

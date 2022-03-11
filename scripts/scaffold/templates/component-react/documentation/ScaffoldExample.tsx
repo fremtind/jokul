@@ -1,6 +1,8 @@
 import React, { FC } from "react";
-import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { Scaffold } from "../src";
+
+export const scaffoldExampleKnobs: ExampleKnobsProps = {};
 
 export const ScaffoldExample: FC<ExampleComponentProps> = () => {
     return <Scaffold>Edit me!</Scaffold>;
