@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.3.1...@fremtind/jkl-table@5.4.0) (2022-03-14)
+
+### Bug Fixes
+
+-   fix hover color for expanded table row ([d8b0885](https://github.com/fremtind/jokul/commit/d8b0885fe148fc32b911afd776b3e5db5c79f46f))
+
+### Features
+
+-   make expand row more appealing on mobile ([97a6b32](https://github.com/fremtind/jokul/commit/97a6b328dbcf181a113df36fa2fe51b913e936a6))
+
 # [5.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.2.7...@fremtind/jkl-table@5.3.0) (2022-03-10)
 
 ### Features
