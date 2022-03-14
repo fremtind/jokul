@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.2.0...@fremtind/jkl-core@9.3.0) (2022-03-14)
+
+### Features
+
+-   eksporter screens-mixins via jkl ([d067215](https://github.com/fremtind/jokul/commit/d067215a80fb5a356fe72b5aba9f5767a1e15b1a))
+
 # [9.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.1.3...@fremtind/jkl-core@9.2.0) (2022-03-11)
 
 ### Features
