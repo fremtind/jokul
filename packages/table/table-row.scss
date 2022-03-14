@@ -91,6 +91,10 @@ $focus-ring-width: jkl.rem(2px);
 
         &:hover + tr {
             background-color: var(--table-row-highlight-color);
+
+            .jkl-table-row {
+                border-bottom-color: var(--table-row-hover-border-color);
+            }
         }
 
         /* stylelint-disable-next-line selector-max-specificity -- selector needs to nest itself to select sub tables with the same properties */
