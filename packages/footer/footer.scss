@@ -1,0 +1,81 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/mixins";
+
+@include jkl.helper-light-mode-variables {
+    --jkl-footer-background-color: #{jkl.$color-svart};
+    --jkl-footer-text-color: #{jkl.$color-snohvit};
+}
+@include jkl.helper-dark-mode-variables {
+    --jkl-footer-background-color: #{jkl.$color-hvit};
+    --jkl-footer-text-color: #{jkl.$color-granitt};
+}
+
+@mixin -footer-height($padding) {
+    min-height: calc(jkl.rem(174px) - $padding);
+}
+
+.jkl-footer {
+    --logo-color: var(--jkl-footer-text-color);
+    --link-color: var(--jkl-footer-text-color);
+
+    background-color: var(--jkl-footer-background-color);
+    color: var(--jkl-footer-text-color);
+
+    display: flex;
+    gap: jkl.$spacing-l;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: jkl.$spacing-l;
+
+    @include -footer-height(jkl.$spacing-l);
+
+    :not(*[data-compactlayout]) > & {
+        @include mixins.from-medium-device {
+            gap: jkl.$spacing-xl;
+            padding: jkl.$spacing-xl;
+            @include -footer-height(jkl.$spacing-xl);
+        }
+
+        @include mixins.from-large-device {
+            flex-direction: row;
+        }
+    }
+
+    &__logo {
+        $logo-width: jkl.rem(200px);
+        min-width: $logo-width;
+        width: $logo-width;
+        color: inherit;
+    }
+
+    &__address {
+        @include jkl.text-style("body");
+        font-style: normal; // address får vanligvis italic font
+        margin-top: jkl.$spacing-l;
+    }
+
+    &__links {
+        @include jkl.text-style("body");
+
+        color: inherit;
+
+        & ul {
+            display: block;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        & ul li {
+            display: block;
+            margin-bottom: jkl.$spacing-m;
+
+            :not(*[data-compactlayout]) > .jkl-footer > & {
+                @include mixins.from-medium-device {
+                    display: inline-block;
+                    margin-right: jkl.$spacing-l;
+                }
+            }
+        }
+    }
+}
