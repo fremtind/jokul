@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, VFC, HTMLAttributes, FC, ElementType } from "react";
+import React, { DetailedHTMLProps, VFC, HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
 import cn from "classnames";
 import { DataTestAutoId, Link } from "@fremtind/jkl-core";
 import { formatNumber } from "@fremtind/jkl-formatters-util";
@@ -19,7 +19,7 @@ export interface FooterAddress {
     organizationNumber?: string;
 }
 
-export interface FooterLink {
+export interface FooterLink<T = HTMLAnchorElement> {
     title: string;
     href?: string;
     to?: string;
@@ -29,6 +29,7 @@ export interface FooterLink {
      * @default "a"
      */
     component?: ElementType;
+    onClick?: MouseEventHandler<T>;
 }
 
 export interface FooterProps extends DataTestAutoId, DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
