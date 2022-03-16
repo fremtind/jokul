@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "publishConfig": {
         "access": "public"
     },
@@ -30,12 +30,12 @@
         "dev": "parcel documentation/index.html"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-constants-util": "^0.4.2",
-        "@fremtind/jkl-core": "^9.3.0"
+        "@babel/runtime": "^7.17.7",
+        "@fremtind/jkl-constants-util": "^0.4.3",
+        "@fremtind/jkl-core": "^9.3.1"
     },
     "devDependencies": {
-        "react-hook-form": "^7.27.1"
+        "react-hook-form": "^7.28.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",

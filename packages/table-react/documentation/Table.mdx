@@ -231,6 +231,8 @@ Som regel skal innholdet i cellene være venstrejustert, med noen unntak som hø
 -   Tall og valuta
 -   Knapper
 
+I sånne tilfeller skal også headeren følge innholdet og høyrestilles.
+
 Vanligvis skal innholdet være toppjustert i tabellraden på grunn av lesbarhet på smalere skjermer. I enkelte tilfeller, for eksempel om raden har én eller flere knapper, kan sentrering brukes i stedet.
 
 <Grid className="jkl-spacing-l--bottom">
@@ -243,7 +245,7 @@ Vanligvis skal innholdet være toppjustert i tabellraden på grunn av lesbarhet 
                 <TableHead>
                     <TableRow>
                         <TableHeader>Produkt</TableHeader>
-                        <TableHeader>Pris</TableHeader>
+                        <TableHeader align="right">Pris</TableHeader>
                     </TableRow>
                 </TableHead>
                 <TableBody>

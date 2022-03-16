@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "7.4.5",
+    "version": "7.5.1",
     "publishConfig": {
         "access": "public"
     },
@@ -32,11 +32,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-core": "^9.3.0",
-        "@fremtind/jkl-expand-button-react": "^1.2.10",
-        "@fremtind/jkl-react-hooks": "^8.0.1",
-        "@fremtind/jkl-table": "^5.4.1"
+        "@babel/runtime": "^7.17.7",
+        "@fremtind/jkl-core": "^9.3.1",
+        "@fremtind/jkl-expand-button-react": "^1.2.11",
+        "@fremtind/jkl-react-hooks": "^8.0.2",
+        "@fremtind/jkl-table": "^5.5.1"
     },
     "devDependencies": {
         "npm-run-all": "^4.1.5"

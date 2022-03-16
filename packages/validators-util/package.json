@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-validators-util",
-    "version": "2.3.1",
+    "version": "2.3.2",
     "publishConfig": {
         "access": "public"
     },
@@ -38,6 +38,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.2"
+        "@babel/runtime": "^7.17.7"
     }
 }

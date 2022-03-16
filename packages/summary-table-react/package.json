@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-summary-table-react",
-    "version": "6.0.12",
+    "version": "6.0.13",
     "publishConfig": {
         "access": "public"
     },
@@ -33,9 +33,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.2",
-        "@fremtind/jkl-core": "^9.3.0",
-        "@fremtind/jkl-summary-table": "^6.0.10",
+        "@babel/runtime": "^7.17.7",
+        "@fremtind/jkl-core": "^9.3.1",
+        "@fremtind/jkl-summary-table": "^6.0.11",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
