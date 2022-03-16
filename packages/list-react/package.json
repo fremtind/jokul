@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list-react",
-    "version": "6.1.15",
+    "version": "6.1.16",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.7",
-        "@fremtind/jkl-list": "^6.0.17",
+        "@fremtind/jkl-list": "^6.0.18",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
