@@ -35,6 +35,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.2"
+        "@babel/runtime": "^7.17.7"
     }
 }
