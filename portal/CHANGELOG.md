@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.3.16](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.15...@fremtind/portal@12.3.16) (2022-03-16)
+
+### Bug Fixes
+
+-   begrens bredden til bilder i DoDont til boksens bredde ([66a077e](https://github.com/fremtind/jokul/commit/66a077ee7aedf9e8dbf48dac66d64756a7be2a4d))
+
 ## [12.3.5](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.4...@fremtind/portal@12.3.5) (2022-03-04)
 
 ### Bug Fixes
