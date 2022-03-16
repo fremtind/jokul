@@ -35,7 +35,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.2",
+        "@babel/runtime": "^7.17.7",
         "@fremtind/jkl-list": "^6.0.17",
         "classnames": "^2.2.6"
     },
