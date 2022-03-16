@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.4.5...@fremtind/jkl-table-react@7.5.0) (2022-03-16)
+
+### Features
+
+-   add support for left/right aligning table header ([1b57ee7](https://github.com/fremtind/jokul/commit/1b57ee7c6d413d848a87724d51ede79bae131684))
+
 ## [7.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.4.1...@fremtind/jkl-table-react@7.4.2) (2022-03-10)
 
 ### Bug Fixes
