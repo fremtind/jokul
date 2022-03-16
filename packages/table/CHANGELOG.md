@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.4.1...@fremtind/jkl-table@5.5.0) (2022-03-16)
+
+### Features
+
+-   add support for left/right aligning table header ([1b57ee7](https://github.com/fremtind/jokul/commit/1b57ee7c6d413d848a87724d51ede79bae131684))
+
 # [5.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.3.1...@fremtind/jkl-table@5.4.0) (2022-03-14)
 
 ### Bug Fixes
