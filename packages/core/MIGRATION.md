@@ -7,6 +7,7 @@
 Endringene i denne versjonen, kort oppsummert:
 
 -   ✨ _Alle_ variabler, mixins og funksjoner i `core` er tilgjengelige via `@fremtind/jkl-core/jkl`
+-   ✨ Alle Sass-pakker har fått en `_index.scss` på rotnivå, så du kan for eksempel `@use "@fremtind/jkl-button";`
 -   🛑 Mixins som har hatt prefixet `helper-` har fått dette fjernet
 -   🛑 `jkl-motion`-funksjonen (_ikke_ mixinen `motion`) er renamet til `easing`
 -   🛑 `jkl-timing`-funksjonen er renamet til `timing`
@@ -26,7 +27,7 @@ Har du egne `@use` for mixins, funksjoner eller variabler så bør disse fjernes
 NB: du må fremdeles hente _styles_ separat. Dette gjør du typisk én gang der du bygger opp stylesheeten din med alle avhengigheter.
 
 ```scss
-@use "@fremtind/jkl-core/core";
+@use "@fremtind/jkl-core";
 ```
 
 ### Navneendringer
