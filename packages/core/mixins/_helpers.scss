@@ -1,5 +1,4 @@
 @use "sass:string";
-@use "sass:color";
 @use "../variables/typography";
 
 @mixin light-mode-variables {
@@ -24,17 +23,6 @@
     [data-theme="dark"] {
         @content;
     }
-}
-
-@function urlencodecolor($color) {
-    @if type-of($color) == "color" and str-index(#{$color}, "#") == 1 {
-        $hex: string.slice(color.ie-hex-str($color), 4);
-        $converted-color: string.unquote("#{$hex}");
-
-        @return "%23" + $converted-color;
-    }
-
-    @return $color;
 }
 
 @mixin flex($align-items: center, $justify-content: center) {

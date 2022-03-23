@@ -1,0 +1,16 @@
+@use "sass:map";
+
+$_timings: (
+    "energetic": 75ms,
+    "productive": 150ms,
+    "expressive": 250ms,
+    "lazy": 400ms,
+);
+
+@function timing($mode, $timings: $_timings) {
+    @if map.has-key($timings, $mode) {
+        @return map.get($timings, $mode);
+    } @else {
+        @error 'Unable to find a mode for #{$mode}';
+    }
+}

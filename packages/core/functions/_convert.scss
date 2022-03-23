@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "sass:map";
 @use "sass:math";
 @use "sass:string";
@@ -86,4 +87,15 @@
     }
 
     @return $value * map.get($units, $unit);
+}
+
+@function urlencodecolor($color) {
+    @if type-of($color) == "color" and str-index(#{$color}, "#") == 1 {
+        $hex: string.slice(color.ie-hex-str($color), 4);
+        $converted-color: string.unquote("#{$hex}");
+
+        @return "%23" + $converted-color;
+    }
+
+    @return $color;
 }

@@ -1,4 +1,3 @@
-@use "sass:map";
 @use "../jkl";
 
 @include jkl.light-mode-variables {
@@ -50,8 +49,8 @@
         color: var(--label-error-color);
 
         .jkl-form-support-label__icon {
-            animation: map.get(jkl.$jkl--timings, "lazy") cubic-bezier(0, 0, 0.3, 1)
-                map.get(jkl.$jkl--timings, "expressive") jkl-support-label-icon-entrance forwards;
+            animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive")
+                jkl-support-label-icon-entrance forwards;
         }
     }
 
