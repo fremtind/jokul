@@ -1,5 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-button/button";
+@use "~@fremtind/jkl-button";
 
 $card-bg-color: jkl.$color-snohvit;
 $card-corner-radius: jkl.rem(2px);
