@@ -1,60 +1,63 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@function solid-diamond($color) {
+@function _solid-diamond($color) {
     $c: jkl.urlencodecolor($color);
 
     @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' fill='#{$c}' width='9px' height='9px'%3E%3Cpath d='M4.01 0l4.002 4.002L4.01 8.004.008 4.002z'/%3E%3C/svg%3E");
 }
-@function outline-diamond($color) {
+
+@function _outline-diamond($color) {
     $c: jkl.urlencodecolor($color);
 
     @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='#{$c}' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
 }
-@function cross($color) {
+
+@function _cross($color) {
     $c: jkl.urlencodecolor($color);
 
     @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='8.75' stroke='#{$c}' stroke-width='1.5'/%3E%3Cpath fill='#{$c}' d='M5.54 12.68l7.14-7.1.84.85-7.13 7.09z'/%3E%3Cpath fill='#{$c}' d='M12.67 13.47l-7.13-7.1.85-.83 7.13 7.1z'/%3E%3C/svg%3E%0A");
 }
-@function check($color1, $color2) {
+
+@function _check($color1, $color2) {
     $c1: jkl.urlencodecolor($color1);
     $c2: jkl.urlencodecolor($color2);
 
     @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='#{$c1}'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='#{$c2}' stroke-width='1.5'/%3E%3C/svg%3E%0A");
 }
 
-$item-space-between: jkl.$spacing-xs;
-$list-padding-left: jkl.$spacing-l;
+$_item-space-between: jkl.$spacing-xs;
+$_list-padding-left: jkl.$spacing-l;
 
-$list-text-color: jkl.$color-granitt;
-$list-text-color--inverted: jkl.$color-snohvit;
-$list-cross-color: jkl.$color-feil;
-$list-cross-color--inverted: jkl.$color-feil--darkbg;
-$list-check-color: jkl.$color-suksess;
-$list-check-color--inverted: jkl.$color-suksess--darkbg;
+$_list-text-color: jkl.$color-granitt;
+$_list-text-color--inverted: jkl.$color-snohvit;
+$_list-cross-color: jkl.$color-feil;
+$_list-cross-color--inverted: jkl.$color-feil--darkbg;
+$_list-check-color: jkl.$color-suksess;
+$_list-check-color--inverted: jkl.$color-suksess--darkbg;
 
 @include jkl.light-mode-variables {
-    --jkl-list-marker--default: #{solid-diamond($list-text-color)};
-    --jkl-list-marker--secondary: #{outline-diamond($list-text-color)};
-    --jkl-list-marker--cross: #{cross($list-cross-color)};
-    --jkl-list-marker--check: #{check($list-check-color, $list-text-color--inverted)};
-    --list-text-color: #{$list-text-color};
+    --jkl-list-marker--default: #{_solid-diamond($_list-text-color)};
+    --jkl-list-marker--secondary: #{_outline-diamond($_list-text-color)};
+    --jkl-list-marker--cross: #{_cross($_list-cross-color)};
+    --jkl-list-marker--check: #{_check($_list-check-color, $_list-text-color--inverted)};
+    --list-text-color: #{$_list-text-color};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-list-marker--default: #{solid-diamond($list-text-color--inverted)};
-    --jkl-list-marker--secondary: #{outline-diamond($list-text-color--inverted)};
-    --jkl-list-marker--cross: #{cross($list-cross-color--inverted)};
-    --jkl-list-marker--check: #{check($list-check-color--inverted, $list-text-color)};
-    --list-text-color: #{$list-text-color--inverted};
+    --jkl-list-marker--default: #{_solid-diamond($_list-text-color--inverted)};
+    --jkl-list-marker--secondary: #{_outline-diamond($_list-text-color--inverted)};
+    --jkl-list-marker--cross: #{_cross($_list-cross-color--inverted)};
+    --jkl-list-marker--check: #{_check($_list-check-color--inverted, $_list-text-color)};
+    --list-text-color: #{$_list-text-color--inverted};
 }
 
 .jkl-list {
-    list-style: disc solid-diamond($list-text-color);
+    list-style: disc _solid-diamond($_list-text-color);
     list-style: disc var(--jkl-list-marker--default);
-    padding-left: $list-padding-left;
+    padding-left: $_list-padding-left;
 
     & > .jkl-list__item {
-        margin: $item-space-between 0;
+        margin: $_item-space-between 0;
 
         &:first-of-type {
             margin-top: 0;
@@ -70,16 +73,16 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
     }
 
     & & > .jkl-list__item {
-        list-style: disc outline-diamond($list-text-color);
+        list-style: disc _outline-diamond($_list-text-color);
         list-style: disc var(--jkl-list-marker--secondary);
         margin: 0;
 
         &:first-of-type {
-            margin-top: $item-space-between;
+            margin-top: $_item-space-between;
         }
 
         &:last-of-type {
-            margin-bottom: $item-space-between;
+            margin-bottom: $_item-space-between;
         }
     }
 
@@ -94,12 +97,12 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
     }
 
     &__item {
-        color: $list-text-color;
+        color: $_list-text-color;
         color: var(--list-text-color);
         padding-left: jkl.rem(4px);
 
         &::marker {
-            color: $list-text-color;
+            color: $_list-text-color;
             color: var(--list-text-color);
         }
 
@@ -122,13 +125,13 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
 
         &--check::before {
             @include jkl.decorative($content: "\2713");
-            background-image: check($list-check-color, $list-text-color--inverted);
+            background-image: _check($_list-check-color, $_list-text-color--inverted);
             background-image: var(--jkl-list-marker--check);
         }
 
         &--cross::before {
             @include jkl.decorative($content: "\274C");
-            background-image: cross($list-cross-color);
+            background-image: _cross($_list-cross-color);
             background-image: var(--jkl-list-marker--cross);
         }
     }

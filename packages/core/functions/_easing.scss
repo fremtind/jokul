@@ -7,6 +7,13 @@ $_easings: (
     "easeInBounceOut": cubic-bezier(0, 0, 0.375, 1.17),
 );
 
+///
+/// Hent en easing til bruk i animasjoner. Se også `timing`-funksjonen og `motion`-mixinen.
+///
+/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut"} $name - Navn på easingen du ønsker verdien til
+///
+/// @return {string} - easingverdi til bruk i animasjoner
+///
 @function easing($name, $easings: $_easings) {
     @if map.has-key($easings, $name) {
         @return map.get($easings, $name);

@@ -9,16 +9,16 @@
     border-radius: jkl.rem(4px);
 }
 
-.jlk-intersection-example {
-    transition: 200ms background-color ease-in-out;
+.jkl-intersection-example {
+    transition: jkl.timing("expressive") background-color ease-in-out;
     border-radius: jkl.rem(4px);
 }
 
-.jlk-intersection-example--visible {
+.jkl-intersection-example--visible {
     background-color: jkl.$color-stein;
 }
 
-.jlk-intersection-example--not-visible {
+.jkl-intersection-example--not-visible {
     background-color: jkl.$color-varde;
 }
 

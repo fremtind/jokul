@@ -1,0 +1,127 @@
+---
+title: Stilguide for Sass
+path: /stilguide/sass
+order: 1
+---
+
+# Stilguide for Sass
+
+Lurer du på hvordan du skal begynne med Sass-kode i Jøkul?
+
+## Moduler
+
+I Jøkul bruker vi bare [modul-syntaks](https://sass-lang.com/blog/the-module-system-is-launched) med [@use](https://sass-lang.com/documentation/at-rules/use) og [@forward](https://sass-lang.com/documentation/at-rules/forward), ikke `@import`. Hver fil er en modul, på samme måte som du kanskje kjenner til fra [TypeScript](/stilguide/react).
+
+Moduler bør holdes til ett tema. Et tema kan for eksempel være CSSen for en komponent, mixins som har å gjøre med skjermstørrelser, eller funksjoner for konvertering av data.
+
+Vi bruker [partials](https://sass-lang.com/guide#topic-4) (filer hvor navnet starter med `_`) for alle filer som ikke skal kompileres direkte til CSS. Eksempler er moduler som består utelukkende av variabler, funksjoner og mixins. Det kan også være en modul med CSS for en komponent, men hvor alt skal samles opp i én enkelt CSS-fil til slutt (se for eksempel [packages/table](https://github.com/fremtind/jokul/tree/main/packages/table)).
+
+Hver mappe med Sass skal ha en `_index.scss` hvor det listes opp `@forward` for alle filer i mappa. Et unntak er på rotnivå i pakkene (for eksempel `packages/table/_index.scss`). Her skal det være én `@forward` som peker på hovedfila (`table.scss` i dette tilfellet), og så har _den_ fila ansvaret for å hente inn alt som skal være med. Det gjør vi for at Sass skal finne alle avhengighetene til `table.scss` når den kompileres til `table.css`.
+
+Mappenavn og filnavn er _ikke_ en del av APIet til en pakke og kan endres, med unntak av:
+
+-   Filnavnet som matcher pakkens navn, for eksempel `core.scss` og `table.scss`. Disse navnene brukes av prosjekter som importerer CSS.
+-   `packages/core/_jkl.scss`, som vi ser på som "hovedinngangen" til Sass-verktøy som mixins, funksjoner og variabler i `core`
+
+## BEM
+
+Vi bruker metodikken [Block Element Modifier](https://css-tricks.com/bem-101/) (BEM) i Jøkul.
+
+Nøsting og [parent selector](https://sass-lang.com/documentation/style-rules/parent-selector) i Sass gjør det enklere å skrive CSS på denne måten.
+
+Dersom du er i ferd med å skrive en `block__element__another-element`-selector, stopp og tenk om `element` egentlig er en _annen_ `block`.
+
+```scss
+.block {
+    /* ... */
+    &__element {
+        /* ... */
+        &--element-modifier {
+            /* ... */
+        }
+    }
+
+    &--block-modifier {
+        /* ... */
+    }
+}
+```
+
+## Variabler
+
+Med unntak av i `packages/core` skal variabler som regel være _private_. Private variabler kan ikke brukes av andre moduler. Varibler er _private_ om navnet starter med `_` (underscore).
+
+Variabler som er definert utenfor en CSS selector anses som _globale_ innenfor sin modul. Globale variabler bør være definert øverst i fila, under `@use`-statements.
+
+Variabler som er _public_ er en del av pakkens API. For eksempel endringer i navn vil være en _breaking change_. En variabel er _public_ dersom navnet _ikke_ starter med `_` og variabelen er definert i det globale scopet.
+
+Variabler bør som regel være definert nærmest mulig der den brukes. Hvis en variabel bare er relevant innefor én selector, definer den der.
+
+```scss
+/* $_example-padding er brukt av to selectors, og hører hjemme som en global variabel */
+$_example-padding: jkl.$spacing-l;
+$_code-padding: jkl.$spacing-s;
+
+/* Variabler som ikke starter med _ og som er definert i globalt scope er en del av pakkens API og kan brukes av andre */
+$i-am-public: "Hello, world!";
+
+.jkl-example-1 {
+  padding: $_example-padding;
+
+  &__design {
+    $_design-padding: jkl.$spacing-s;
+    padding: $_design-padding;
+  }
+}
+
+.jkl-example-2 {
+  padding: $_example-padding;
+
+  &__code {
+    /* $_code-padding er bare brukt her, og burde vært definert her, slik som $_design-padding */
+    padding: $_code-padding: jkl.$spacing-s;
+  }
+}
+```
+
+## Mixins
+
+Med unntak av i `packages/core` skal mixins som regel være _private_. Private mixins kan ikke brukes av andre moduler. Mixins er _private_ om navnet starter med `_` (underscore).
+
+Mixins som er _public_ skal dokumenteres med [SassDoc](http://sassdoc.com/annotations/#description). Se `packages/core/mixins/` for eksempler.
+
+I public mixins er endring i _navnet_ på parametere å anse som en _breaking change_. Det er fordi utviklere kan ha brukt [keyword arguments](https://sass-lang.com/documentation/at-rules/mixin#keyword-arguments). Om du vil endre navnet på en bakoverkompatibel måte kan du beholdet det gamle navnet som et [optional argument](https://sass-lang.com/documentation/at-rules/mixin#optional-arguments) og håndtere begge parametere internt i mixinen.
+
+## Funksjoner
+
+Med unntak av i `packages/core` skal funksjoner som regel være _private_. Private funksjoner kan ikke brukes av andre moduler. Funksjoner er _private_ om navnet starter med `_` (underscore).
+
+Funksjoner som er _public_ skal dokumenteres med [SassDoc](http://sassdoc.com/annotations/#description). Se `packages/core/functions/` for eksempler.
+
+I public funksjoner er endring i _navnet_ på parametere å anse som en _breaking change_. Det er fordi utviklere kan ha brukt [keyword arguments](https://sass-lang.com/documentation/at-rules/function#keyword-arguments). Om du vil endre navnet på en bakoverkompatibel måte kan du beholdet det gamle navnet som et [optional argument](https://sass-lang.com/documentation/at-rules/function#optional-arguments) og håndtere begge parametere internt i funksjonen.
+
+## Animasjoner
+
+Animasjoner definert med `@keyframes` er _ikke namespacet_. Det vil si at alle animasjonsnavn må være unike både på tvers av Jøkul _og_ på tvers av prosjektene som _bruker_ Jøkul. Det stiller noen krav til navngiving av animasjoner i Jøkul.
+
+Vi bruker et [mønster basert på _interpolation_](https://sass-lang.com/documentation/interpolation#in-sassscript) og [string.unique-id()](https://sass-lang.com/documentation/modules/string#unique-id) for å få garantert unike IDer.
+
+```scss
+$_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
+
+.jkl-alert-message {
+    /* ... */
+    animation: $_dismiss-animation-name jkl.timing("lazy") jkl.easing("exit") forwards;
+    /* ... */
+}
+
+@keyframes #{$_dismiss-animation-name} {
+    from {
+        /* ... */
+    }
+
+    to {
+        /* ... */
+    }
+}
+```

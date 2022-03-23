@@ -43,11 +43,11 @@
 
 /// CALENDAR STYLES
 
-$date-width: jkl.rem(40px);
-$date-spacing: jkl.rem(4px);
-$calendar-padding: jkl.$spacing-l;
-$calendar-padding--compact: jkl.$spacing-xs;
-$calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 2);
+$_date-width: jkl.rem(40px);
+$_date-spacing: jkl.rem(4px);
+$_calendar-padding: jkl.$spacing-l;
+$_calendar-padding--compact: jkl.$spacing-xs;
+$_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-padding * 2);
 
 @include jkl.light-mode-variables {
     --calendar-text-color: #{jkl.$color-granitt};
@@ -81,7 +81,7 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
 
     justify-content: center;
     flex-direction: column;
-    width: $calendar-width;
+    width: $_calendar-width;
     background-color: var(--calendar-background-color);
     color: var(--calendar-text-color);
     border-radius: 3px;
@@ -117,13 +117,13 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
     }
 
     &__padding {
-        padding: $calendar-padding;
+        padding: $_calendar-padding;
         box-sizing: border-box;
     }
 
     @include jkl.small-device {
         &__padding {
-            padding: $calendar-padding $calendar-padding--compact;
+            padding: $_calendar-padding $_calendar-padding--compact;
         }
     }
 
@@ -262,8 +262,8 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        height: $date-width;
-        width: $date-width;
+        height: $_date-width;
+        width: $_date-width;
         border-radius: 50%;
         background-color: transparent;
         color: var(--calendar-text-color);

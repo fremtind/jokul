@@ -1,19 +1,21 @@
+@use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-$dismiss-animation-duration: 500ms;
-$dismiss-focus-border-color: jkl.$color-granitt;
-$dismiss-hover-color: jkl.$color-stein;
+$_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
+$_dismiss-animation-duration: jkl.timing("lazy");
+$_dismiss-focus-border-color: jkl.$color-granitt;
+$_dismiss-hover-color: jkl.$color-stein;
 
-$bg-color--default: jkl.$color-snohvit;
-$bg-color--suksess: colors.varslingsfarge("suksess");
-$bg-color--feil: colors.varslingsfarge("feil");
-$bg-color--info: colors.varslingsfarge("info");
-$bg-color--advarsel: colors.varslingsfarge("advarsel");
+$_bg-color--default: jkl.$color-snohvit;
+$_bg-color--suksess: colors.varslingsfarge("suksess");
+$_bg-color--feil: colors.varslingsfarge("feil");
+$_bg-color--info: colors.varslingsfarge("info");
+$_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
 .jkl-alert-message {
     width: 100%;
-    background-color: $bg-color--default;
+    background-color: $_bg-color--default;
     color: jkl.$color-granitt;
     box-sizing: border-box;
 
@@ -52,7 +54,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         flex-shrink: 0;
 
         &:hover {
-            color: $dismiss-hover-color;
+            color: $_dismiss-hover-color;
         }
 
         &:focus {
@@ -66,7 +68,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
                     right: jkl.rem(-2px);
                     bottom: jkl.rem(-2px);
                     left: jkl.rem(-2px);
-                    box-shadow: 0 0 0 jkl.rem(2px) $dismiss-focus-border-color;
+                    box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
                 }
             }
         }
@@ -78,29 +80,29 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &--dismissed {
-        animation: dismiss-animation $dismiss-animation-duration ease-in-out forwards;
-        transition: visibility 0ms $dismiss-animation-duration;
+        animation: $_dismiss-animation-name jkl.timing("lazy") jkl.easing("exit") forwards;
+        transition: visibility 0ms jkl.timing("lazy");
         visibility: hidden;
     }
 
     &--info {
-        background-color: $bg-color--info;
+        background-color: $_bg-color--info;
     }
 
     &--warning {
-        background-color: $bg-color--advarsel;
+        background-color: $_bg-color--advarsel;
     }
 
     &--error {
-        background-color: $bg-color--feil;
+        background-color: $_bg-color--feil;
     }
 
     &--success {
-        background-color: $bg-color--suksess;
+        background-color: $_bg-color--suksess;
     }
 }
 
-@keyframes dismiss-animation {
+@keyframes #{$_dismiss-animation-name} {
     from {
         opacity: 1;
         transform: translate3d(0, 0, 0);

@@ -1,5 +1,12 @@
 @use "../functions";
 
+///
+/// Setter transition-timing-function og transition-duration, for bruk i animasjoner.
+/// Se også `timing`- og `easing`-funksjonene.
+///
+/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut"} $name [standard] - Navn på easingen du ønsker verdien til
+/// @param {"energetic" | "productive" | "expressive" | "lazy"} $mode [productive] - Navn på timingen du ønsker verdien til
+///
 @mixin motion($name: "standard", $mode: "productive") {
     transition-timing-function: functions.easing($name);
     transition-duration: functions.timing($mode);

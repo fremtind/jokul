@@ -7,7 +7,6 @@
 /// Casts a string into a number
 /// https://hugogiraudel.com/2014/01/15/sass-string-to-number/
 /// @author Hugo Giraudel
-/// @access private
 /// @param {String | Number} $value - Value to be parsed
 ///
 /// @return {Number}
@@ -89,6 +88,13 @@
     @return $value * map.get($units, $unit);
 }
 
+///
+/// Gjør en fargeverdi URL-safe, for eksempel til bruk i inline SVG
+///
+/// @param {Color} $color - Sass fargetype. Kan være HEX, hsl, hsla, rgb eller rgba.
+///
+/// @return {String} - input konvertert til en URL-safe HEX-verdi
+///
 @function urlencodecolor($color) {
     @if type-of($color) == "color" and str-index(#{$color}, "#") == 1 {
         $hex: string.slice(color.ie-hex-str($color), 4);

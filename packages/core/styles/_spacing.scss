@@ -1,13 +1,13 @@
 @use "../variables/spacing";
 
-$positions: top, bottom, left, right;
+$_positions: (top, bottom, left, right);
 
 @each $name, $spacing in spacing.$spacing-new {
     .jkl-spacing-#{$name} {
         &--all {
             margin: $spacing;
         }
-        @each $position in $positions {
+        @each $position in $_positions {
             &--#{$position} {
                 margin-#{$position}: $spacing;
             }

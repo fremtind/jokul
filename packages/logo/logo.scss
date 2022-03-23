@@ -44,15 +44,16 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
 
     &--animated {
         & .jkl-logo__F {
-            transition: transform 250ms 75ms cubic-bezier(0.5, 0, 0.62, 1);
+            transition: transform jkl.timing("expressive") jkl.timing("energetic") cubic-bezier(0.5, 0, 0.62, 1);
         }
 
         & .jkl-logo__F-line {
-            transition: transform 250ms ease-in;
+            transition: transform jkl.timing("expressive") ease-in;
         }
 
         & .jkl-logo__remtind {
-            transition: opacity 250ms 75ms ease-in, transform 250ms ease;
+            transition: opacity jkl.timing("expressive") jkl.timing("energetic") ease-in,
+                transform jkl.timing("expressive") ease;
         }
     }
 }
@@ -70,7 +71,7 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
         .jkl-logo-stamp__text {
             transform-origin: 256px 256px;
             transition-timing-function: cubic-bezier(0.75, 0, 0, 1);
-            transition-duration: 150ms;
+            transition-duration: jkl.timing("productive");
             transition-property: transform;
         }
 

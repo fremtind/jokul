@@ -1,8 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 
-$card-corner-radius: jkl.rem(2px);
-$container-width: jkl.rem(660px);
-$container-width--compact: jkl.rem(320px);
+$_card-corner-radius: jkl.rem(2px);
+$_container-width: jkl.rem(660px);
+$_container-width--compact: jkl.rem(320px);
 
 .jkl-cookie-consent-modal + backdrop {
     position: fixed;
@@ -35,8 +35,8 @@ $container-width--compact: jkl.rem(320px);
     right: 0;
     width: 100%;
     padding: jkl.$spacing-xl jkl.$spacing-xl jkl.rem(30px) jkl.$spacing-xl;
-    min-width: $container-width--compact;
-    max-width: $container-width;
+    min-width: $_container-width--compact;
+    max-width: $_container-width;
     background-color: var(--jkl-background-color);
     box-shadow: jkl.$drop-shadow--large;
     transition: 0.2s;

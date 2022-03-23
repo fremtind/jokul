@@ -1,7 +1,7 @@
 /* autoprefixer grid: autoplace */
 @use "~@fremtind/jkl-core/jkl";
 
-@mixin horizontal-list {
+@mixin _horizontal-list {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-columns: fit-content(40%) 1fr;
@@ -51,6 +51,6 @@
     }
 
     @include jkl.from-medium-device {
-        @include horizontal-list;
+        @include _horizontal-list;
     }
 }

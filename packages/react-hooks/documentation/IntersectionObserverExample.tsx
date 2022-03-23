@@ -16,8 +16,8 @@ const IntersectionObserverExample: VFC = () => {
 
     return (
         <div
-            className={`jlk-intersection-example ${
-                isInViewport ? "jlk-intersection-example--visible" : "jlk-intersection-example--not-visible"
+            className={`jkl-intersection-example ${
+                isInViewport ? "jkl-intersection-example--visible" : "jkl-intersection-example--not-visible"
             }`}
         >
             <p className="jkl-body jkl-spacing-xl--all" style={{ height: "100vh" }}>

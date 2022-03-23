@@ -9,7 +9,7 @@
     --jkl-footer-text-color: #{jkl.$color-granitt};
 }
 
-@mixin -footer-height($padding) {
+@mixin _footer-height($padding) {
     min-height: calc(jkl.rem(174px) - $padding);
 }
 
@@ -26,13 +26,13 @@
     justify-content: space-between;
     padding: jkl.$spacing-l;
 
-    @include -footer-height(jkl.$spacing-l);
+    @include _footer-height(jkl.$spacing-l);
 
     :not(*[data-compactlayout]) > & {
         @include jkl.from-medium-device {
             gap: jkl.$spacing-xl;
             padding: jkl.$spacing-xl;
-            @include -footer-height(jkl.$spacing-xl);
+            @include _footer-height(jkl.$spacing-xl);
         }
 
         @include jkl.from-large-device {

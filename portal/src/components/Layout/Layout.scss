@@ -13,7 +13,7 @@
 .jkl-portal {
     @include jkl.motion;
     transition-property: color;
-    transition-delay: 150ms;
+    transition-delay: jkl.timing("productive");
     color: var(--portal-text-color);
 
     &__sidebar {

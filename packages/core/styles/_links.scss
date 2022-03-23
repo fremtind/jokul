@@ -1,22 +1,22 @@
 @use "./jkl";
 
-@mixin underline-gradient($color) {
+@mixin _underline-gradient($color) {
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
-@mixin border-gradient($color) {
-    border-width: #{$link-underline-thickness};
+@mixin _border-gradient($color) {
+    border-width: #{$_link-underline-thickness};
     border-style: solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
-$right-arrow: "\2192"; // unicode right arrow
-$left-arrow: "\2190"; // unicode left arrow
-$north-east-arrow: "\2197"; // unicode north east arrow (up/right)
+$_right-arrow: "\2192"; // unicode right arrow
+$_left-arrow: "\2190"; // unicode left arrow
+$_north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 
-$link-underline-thickness: jkl.rem(1px);
-$link-underline-thickness--hover: jkl.rem(2px);
+$_link-underline-thickness: jkl.rem(1px);
+$_link-underline-thickness--hover: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
     --link-color: #{jkl.$color-granitt};
@@ -32,9 +32,9 @@ $link-underline-thickness--hover: jkl.rem(2px);
 .jkl-link {
     color: var(--link-color);
 
-    @include underline-gradient(currentColor);
-    background-position: 0 calc(100% - (#{$link-underline-thickness--hover} - #{$link-underline-thickness}));
-    background-size: $link-underline-thickness $link-underline-thickness;
+    @include _underline-gradient(currentColor);
+    background-position: 0 calc(100% - (#{$_link-underline-thickness--hover} - #{$_link-underline-thickness}));
+    background-size: $_link-underline-thickness $_link-underline-thickness;
     background-repeat: repeat-x;
     @include jkl.motion("standard", "energetic");
     transition-property: background-size, background-position, color;
@@ -43,24 +43,24 @@ $link-underline-thickness--hover: jkl.rem(2px);
 
     &:hover:not(:focus) {
         color: var(--link-hover-color);
-        @include underline-gradient(var(--link-hover-color));
+        @include _underline-gradient(var(--link-hover-color));
         background-position: 0 100%;
-        background-size: $link-underline-thickness--hover $link-underline-thickness--hover;
+        background-size: $_link-underline-thickness--hover $_link-underline-thickness--hover;
     }
 
     &:hover &:focus {
         color: var(--link-color);
-        @include underline-gradient(var(--link-color));
+        @include _underline-gradient(var(--link-color));
     }
 
     html:not([data-mousenavigation]) &:focus {
         @include jkl.no-grow-bold;
-        @include border-gradient(var(--link-active-color));
+        @include _border-gradient(var(--link-active-color));
     }
 
     &:active {
-        background-position: 0 calc(100% - (#{$link-underline-thickness--hover} - #{$link-underline-thickness}));
-        background-size: $link-underline-thickness $link-underline-thickness;
+        background-position: 0 calc(100% - (#{$_link-underline-thickness--hover} - #{$_link-underline-thickness}));
+        background-size: $_link-underline-thickness $_link-underline-thickness;
     }
 
     /* Show arrow after external links, or links opening
@@ -68,7 +68,7 @@ $link-underline-thickness--hover: jkl.rem(2px);
     &[target="_blank"],
     &--external {
         &::after {
-            @include jkl.decorative($content: $north-east-arrow);
+            @include jkl.decorative($content: $_north-east-arrow);
         }
     }
 }
@@ -92,7 +92,7 @@ $link-underline-thickness--hover: jkl.rem(2px);
     }
 
     &::after {
-        @include jkl.decorative($content: $right-arrow);
+        @include jkl.decorative($content: $_right-arrow);
         padding-left: jkl.rem(2px);
     }
 
@@ -105,7 +105,7 @@ $link-underline-thickness--hover: jkl.rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include border-gradient(var(--link-color));
+        @include _border-gradient(var(--link-color));
         @include jkl.no-grow-bold;
 
         &::after {
@@ -130,7 +130,7 @@ $link-underline-thickness--hover: jkl.rem(2px);
     }
 
     &::before {
-        @include jkl.decorative($content: $left-arrow);
+        @include jkl.decorative($content: $_left-arrow);
         padding-right: jkl.rem(4px);
     }
 

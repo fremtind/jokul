@@ -1,9 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 
-$bounding-touch-size: jkl.rem(48px);
-$hamburger-line-height: jkl.rem(2px);
-$hamburger-icon-width: jkl.rem(35px);
-$hamburger-line-spacing: jkl.rem(-8px);
+$_bounding-touch-size: jkl.rem(48px);
+$_hamburger-line-height: jkl.rem(2px);
+$_hamburger-icon-width: jkl.rem(35px);
+$_hamburger-line-spacing: jkl.rem(-8px);
 
 @include jkl.light-mode-variables {
     --hamburger-color: #{jkl.$color-granitt};
@@ -21,8 +21,8 @@ $hamburger-line-spacing: jkl.rem(-8px);
     outline: none;
     cursor: pointer;
     background-color: transparent;
-    height: $bounding-touch-size;
-    min-width: $bounding-touch-size;
+    height: $_bounding-touch-size;
+    min-width: $_bounding-touch-size;
     display: flex;
     flex-direction: row;
     padding: 0;
@@ -53,19 +53,19 @@ $hamburger-line-spacing: jkl.rem(-8px);
         }
 
         &::before {
-            top: $hamburger-line-spacing;
+            top: $_hamburger-line-spacing;
         }
 
         &::after {
-            bottom: $hamburger-line-spacing;
+            bottom: $_hamburger-line-spacing;
         }
     }
 
     &__lines,
     &__lines::before,
     &__lines::after {
-        width: $hamburger-icon-width;
-        height: $hamburger-line-height;
+        width: $_hamburger-icon-width;
+        height: $_hamburger-line-height;
         background-color: currentColor;
 
         transition-property: background-color, transform, top, bottom;
@@ -76,11 +76,11 @@ $hamburger-line-spacing: jkl.rem(-8px);
     &:hover {
         .jkl-hamburger__lines {
             &::before {
-                top: calc(#{$hamburger-line-spacing} * 1.5);
+                top: calc(#{$_hamburger-line-spacing} * 1.5);
             }
 
             &::after {
-                bottom: calc(#{$hamburger-line-spacing} * 1.5);
+                bottom: calc(#{$_hamburger-line-spacing} * 1.5);
             }
         }
 
@@ -124,7 +124,7 @@ $hamburger-line-spacing: jkl.rem(-8px);
 
         & .jkl-hamburger__lines::before,
         & .jkl-hamburger__lines::after {
-            width: calc(#{$hamburger-icon-width} - 3px);
+            width: calc(#{$_hamburger-icon-width} - 3px);
         }
 
         & .jkl-hamburger__lines::before {

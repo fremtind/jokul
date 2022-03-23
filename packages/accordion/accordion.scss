@@ -21,7 +21,7 @@
 .jkl-accordion-item {
     @include jkl.reset-outline;
 
-    $title-padding: jkl.$spacing-m;
+    $_title-padding: jkl.$spacing-m;
 
     &:nth-child(n) {
         border-top: jkl.rem(1px) solid var(--accordion-border);
@@ -46,7 +46,7 @@
     &__title {
         background-color: transparent;
         position: relative;
-        padding: $title-padding;
+        padding: $_title-padding;
         text-align: left;
         width: 100%;
 
@@ -122,11 +122,11 @@
 }
 
 .jkl-expand-arrow {
-    $arrow-height: jkl.rem(16px);
-    $arrow-width: jkl.rem(13px);
+    $_arrow-height: jkl.rem(16px);
+    $_arrow-width: jkl.rem(13px);
 
-    height: $arrow-height;
-    width: $arrow-width;
+    height: $_arrow-height;
+    width: $_arrow-width;
     clip: rect(auto, auto, auto, auto);
     clip-path: inset(0 0 0 0);
 
@@ -143,8 +143,8 @@
         display: inline-block;
         position: absolute;
         left: 0;
-        height: $arrow-height;
-        width: $arrow-width;
+        height: $_arrow-height;
+        width: $_arrow-width;
         @include jkl.motion;
 
         transition-property: transform;

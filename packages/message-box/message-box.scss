@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-$dismiss-animation-duration: 500ms;
+$dismiss-animation-duration: jkl.timing("lazy");
 $message-width: jkl.rem(560px);
 $message-width--compact: jkl.rem(440px);
 
