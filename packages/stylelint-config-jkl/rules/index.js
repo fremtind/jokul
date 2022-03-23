@@ -5,6 +5,7 @@ const color = require("./color");
 const customProperty = require("./custom-property");
 const declaration = require("./declaration");
 const fontFamily = require("./font-family");
+const keyframes = require("./keyframes");
 const property = require("./property");
 const scss = require("./scss");
 const selector = require("./selector");
@@ -20,6 +21,7 @@ module.exports = Object.assign(
     customProperty,
     declaration,
     fontFamily,
+    keyframes,
     property,
     scss,
     selector,
