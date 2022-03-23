@@ -1,9 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/_functions";
-@import "~@fremtind/jkl-core/mixins/_all";
-
 $dismiss-animation-duration: 500ms;
 $dismiss-focus-border-color: jkl.$color-granitt;
 $dismiss-hover-color: jkl.$color-stein;
@@ -33,7 +30,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         padding-right: jkl.$spacing-m;
         align-self: flex-start;
         padding-top: jkl.$spacing-3xs;
-        height: rem(24px);
+        height: jkl.rem(24px);
     }
 
     &__message {
@@ -41,15 +38,15 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-button {
-        @include reset-outline;
+        @include jkl.reset-outline;
         background-color: transparent;
         padding: 0;
         margin-left: auto;
         margin-top: jkl.$spacing-2xs;
         color: inherit;
         cursor: pointer;
-        width: rem(20px);
-        height: rem(20px);
+        width: jkl.rem(20px);
+        height: jkl.rem(20px);
 
         align-self: flex-start;
         flex-shrink: 0;
@@ -59,17 +56,17 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         }
 
         &:focus {
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 position: relative;
 
                 &::after {
                     content: "";
                     position: absolute;
-                    top: rem(-2px);
-                    right: rem(-2px);
-                    bottom: rem(-2px);
-                    left: rem(-2px);
-                    box-shadow: 0 0 0 rem(2px) $dismiss-focus-border-color;
+                    top: jkl.rem(-2px);
+                    right: jkl.rem(-2px);
+                    bottom: jkl.rem(-2px);
+                    left: jkl.rem(-2px);
+                    box-shadow: 0 0 0 jkl.rem(2px) $dismiss-focus-border-color;
                 }
             }
         }

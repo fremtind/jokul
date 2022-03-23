@@ -1,15 +1,15 @@
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --external-prop-header-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --external-prop-header-color: #{jkl.$color-svaberg};
 }
 
 @function opposite($side) {
-    @if  $side == "right" {
+    @if $side == "right" {
         @return "left";
     } @else {
         @return "right";

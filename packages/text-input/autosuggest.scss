@@ -1,14 +1,11 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
 $controller-button-padding: jkl.$spacing-s;
 
-$autosuggest-item-height: rem(28px);
-$autosuggest-item-font-size: rem(18px);
+$autosuggest-item-height: jkl.rem(28px);
+$autosuggest-item-font-size: jkl.rem(18px);
 
-@include light-mode-variables {
+@include jkl.light-mode-variables {
     --autosuggest-text-color: #{jkl.$color-granitt};
     --autosuggest-menu-background-color: #{jkl.$color-hvit};
     --autosuggest-focus-color: #{jkl.$color-granitt};
@@ -16,7 +13,7 @@ $autosuggest-item-font-size: rem(18px);
     --autosuggest-error-placeholder-color: #{jkl.$color-stein};
 }
 
-@include dark-mode-variables {
+@include jkl.dark-mode-variables {
     --autosuggest-text-color: #{jkl.$color-snohvit};
     --autosuggest-menu-background-color: #{jkl.$color-svart};
     --autosuggest-focus-color: #{jkl.$color-snohvit};
@@ -39,7 +36,7 @@ $autosuggest-item-font-size: rem(18px);
 
         &--open {
             > input {
-                border-radius: rem(3px) rem(3px) 0 0;
+                border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
             }
         }
     }
@@ -52,9 +49,9 @@ $autosuggest-item-font-size: rem(18px);
                 color: var(--autosuggest-error-text-color);
             }
 
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 &:focus::after {
-                    box-shadow: inset 0 0 0 rem(2px) var(--autosuggest-error-text-color);
+                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--autosuggest-error-text-color);
                 }
             }
         }
@@ -65,7 +62,7 @@ $autosuggest-item-font-size: rem(18px);
     }
 
     &__controller-button {
-        @include reset-outline;
+        @include jkl.reset-outline;
         align-items: flex-start;
         justify-content: center;
         background: transparent;
@@ -80,15 +77,15 @@ $autosuggest-item-font-size: rem(18px);
         color: var(--autosuggest-text-color);
 
         &:focus {
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 &::after {
                     content: "";
                     position: absolute;
-                    top: rem(8px);
-                    right: rem(8px);
-                    bottom: rem(8px);
-                    left: rem(8px);
-                    box-shadow: inset 0 0 0 rem(2px) var(--autosuggest-focus-color);
+                    top: jkl.rem(8px);
+                    right: jkl.rem(8px);
+                    bottom: jkl.rem(8px);
+                    left: jkl.rem(8px);
+                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--autosuggest-focus-color);
                 }
             }
         }
@@ -96,16 +93,16 @@ $autosuggest-item-font-size: rem(18px);
 
     &__menu {
         background-color: var(--autosuggest-menu-background-color);
-        border: rem(2px) solid var(--autosuggest-focus-color);
+        border: jkl.rem(2px) solid var(--autosuggest-focus-color);
         border-top: none;
-        border-radius: 0 0 rem(3px) rem(3px);
+        border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
         box-sizing: border-box;
         color: var(--autosuggest-text-color);
         list-style-type: none;
         position: absolute;
         top: 0;
-        left: -#{rem(1px)};
-        right: -#{rem(1px)};
+        left: -#{jkl.rem(1px)};
+        right: -#{jkl.rem(1px)};
         margin: 0;
         max-height: 60vh;
         overflow-y: auto;
@@ -123,7 +120,7 @@ $autosuggest-item-font-size: rem(18px);
         margin-bottom: jkl.$spacing-m;
 
         &--active {
-            @include no-grow-bold;
+            @include jkl.no-grow-bold;
         }
     }
 }

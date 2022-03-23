@@ -1,24 +1,23 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/functions";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --inline-code-bg-color: #{jkl.$color-sand};
     --blockquote-color: #{jkl.$color-stein};
     --blockquote-line-color: #{jkl.$color-dis};
 }
-@include jkl.helper-dark-mode-variables {
+
+@include jkl.dark-mode-variables {
     --inline-code-bg-color: #{jkl.$color-skifer};
     --blockquote-color: #{jkl.$color-svaberg};
     --blockquote-line-color: #{jkl.$color-skifer};
 }
 
 .jkl-portal-list-item {
-    max-width: rem(750px);
+    max-width: jkl.rem(750px);
 }
 
 .jkl-portal-paragraph {
-    max-width: rem(750px);
+    max-width: jkl.rem(750px);
 
     @include jkl.text-style("body");
 
@@ -28,7 +27,7 @@
 }
 
 .jkl-portal-blockquote {
-    max-width: rem(750px);
+    max-width: jkl.rem(750px);
 
     @include jkl.text-style("heading-3") {
         font-weight: jkl.$typography-weight-normal;
@@ -37,7 +36,7 @@
     color: var(--blockquote-color);
     margin: 0;
     padding-left: jkl.$spacing-l;
-    border-left: rem(5px) solid var(--blockquote-line-color);
+    border-left: jkl.rem(5px) solid var(--blockquote-line-color);
 
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-xl;
@@ -49,7 +48,7 @@
 }
 
 .jkl-portal-article-lead {
-    max-width: rem(850px);
+    max-width: jkl.rem(850px);
 
     @include jkl.text-style("heading-2");
 
@@ -59,7 +58,7 @@
 }
 
 .jkl-portal-page-title {
-    max-width: rem(850px);
+    max-width: jkl.rem(850px);
     margin-bottom: jkl.$spacing-xl;
 
     @include jkl.text-style("title");
@@ -118,5 +117,5 @@
     background-color: var(--inline-code-bg-color);
     font-size: 0.8em;
     padding: 0 jkl.$spacing-xs;
-    border-radius: rem(2px);
+    border-radius: jkl.rem(2px);
 }

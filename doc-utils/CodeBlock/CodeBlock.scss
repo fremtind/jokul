@@ -1,17 +1,13 @@
 @use "../../packages/core/jkl";
 
-@import "../../packages/core/_functions";
-@import "../../packages/core/mixins/_all";
-@import "../../packages/core/variables/_all";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --code-block-bg-color: #{jkl.$color-hvit};
     --code-block-focus-color: #{jkl.$color-granitt};
     --language-tag-bg-color: #{jkl.$color-svart};
     --language-tag-text-color: #{jkl.$color-snohvit};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --code-block-bg-color: #{jkl.$color-svart};
     --code-block-focus-color: #{jkl.$color-snohvit};
     --language-tag-bg-color: #{jkl.$color-stein};
@@ -22,13 +18,13 @@
     position: relative;
     background-color: var(--code-block-bg-color);
     box-sizing: border-box;
-    border-radius: rem(2px);
+    border-radius: jkl.rem(2px);
     width: 100%;
     padding: jkl.$spacing-s;
-    max-width: min(#{rem(750px)}, 50vw);
+    max-width: min(#{jkl.rem(750px)}, 50vw);
     @include jkl.text-style("small");
 
-    @include small-device {
+    @include jkl.small-device {
         width: calc(100% - #{jkl.$spacing-xl});
         max-width: 100%;
         min-width: initial;
@@ -53,6 +49,6 @@
     }
 
     html:not([data-mousenavigation]) &:focus-within {
-        box-shadow: 0 0 0 rem(2px) var(--code-block-focus-color);
+        box-shadow: 0 0 0 jkl.rem(2px) var(--code-block-focus-color);
     }
 }

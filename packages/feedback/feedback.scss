@@ -1,19 +1,16 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
-$smiley-size: rem(40px);
+$smiley-size: jkl.rem(40px);
 $smileys-max-width: $smiley-size * 9; // 5 smileys med fire like store mellomrom
 $max-feedback-input-width: 30rem;
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --jkl-feedback--step-color: #{jkl.$color-stein};
     --jkl-feedback-smiley-color: #{jkl.$color-stein};
     --jkl-feedback-smiley-color--hover: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --jkl-feedback--step-color: #{jkl.$color-svaberg};
     --jkl-feedback-smiley-color: #{jkl.$color-svaberg};
     --jkl-feedback-smiley-color--hover: #{jkl.$color-snohvit};
@@ -27,12 +24,12 @@ $max-feedback-input-width: 30rem;
 }
 
 .jkl-feedback {
-    max-width: rem(550px);
+    max-width: jkl.rem(550px);
 
     &__submit-wrapper {
         width: 100%;
         transition-property: height;
-        @include motion(standard, expressive);
+        @include jkl.motion(standard, expressive);
 
         &--hidden {
             display: none;
@@ -69,7 +66,7 @@ $max-feedback-input-width: 30rem;
     color: var(--jkl-feedback-smiley-color);
     transform: translate3d(0, 0, 0);
 
-    @include motion;
+    @include jkl.motion;
     transition-property: transform, color;
 
     &::before,
@@ -79,16 +76,16 @@ $max-feedback-input-width: 30rem;
         border-radius: 50%;
         opacity: 0;
 
-        @include motion;
+        @include jkl.motion;
         transition-property: opacity;
     }
 
     &::after {
-        top: rem(-2px);
-        right: rem(-2px);
-        bottom: rem(-2px);
-        left: rem(-2px);
-        box-shadow: 0 0 0 rem(2px) currentColor;
+        top: jkl.rem(-2px);
+        right: jkl.rem(-2px);
+        bottom: jkl.rem(-2px);
+        left: jkl.rem(-2px);
+        box-shadow: 0 0 0 jkl.rem(2px) currentColor;
     }
 
     &::before {
@@ -96,7 +93,7 @@ $max-feedback-input-width: 30rem;
         right: 0;
         bottom: 0;
         left: 0;
-        box-shadow: 0 rem(2px) rem(30px) rgb(0 0 0 / 10%);
+        box-shadow: 0 jkl.rem(2px) jkl.rem(30px) rgb(0 0 0 / 10%);
     }
 
     &:hover {
@@ -113,7 +110,7 @@ $max-feedback-input-width: 30rem;
     }
 
     input:focus + &::after {
-        @include keyboard-navigation {
+        @include jkl.keyboard-navigation {
             opacity: 1;
         }
     }

@@ -1,5 +1,5 @@
-@import "~@fremtind/jkl-core/mixins/helpers";
+@use "~@fremtind/jkl-core/jkl";
 
 .jkl-field-group {
-    @include reset-outline;
+    @include jkl.reset-outline;
 }

@@ -1,5 +1,97 @@
 # Migrasjonsguide
 
+## Til `jkl-core@10.0.0`
+
+ℹ️ Kun Sass-endringer. Om du bare bruker React-kode og CSS-importer i prosjektet ditt er det _ingen breaking changes_ i denne versjonen av Jøkul! ℹ️
+
+Endringene i denne versjonen, kort oppsummert:
+
+-   ✨ _Alle_ variabler, mixins og funksjoner i `core` er tilgjengelige via `@fremtind/jkl-core/jkl`
+-   🛑 Mixins som har hatt prefixet `helper-` har fått dette fjernet
+-   🛑 `jkl-motion`-funksjonen (_ikke_ mixinen `motion`) er renamet til `easing`
+-   🛑 `jkl-timing`-funksjonen er renamet til `timing`
+-   🛑 `$jkl--timings` og `$jkl--easings` er fjernet. Bruk `jkl.timing("timing-navn")` og `jkl.easing("easing-navn")` for å slå opp verdier.
+-   💅 Ny Sass modulsyntaks brukt internt – bruk den du også!
+
+### Alle mixins, variabler, og funksjoner tilgjengelige via `jkl`
+
+Dette skal være alt du trenger:
+
+```scss
+@use "@fremtind/jkl-core/jkl";
+```
+
+Har du egne `@use` for mixins, funksjoner eller variabler så bør disse fjernes. **Bare `@use "@fremtind/jkl-core/jkl";` er ansett som et stabilt API.**
+
+NB: du må fremdeles hente _styles_ separat. Dette gjør du typisk én gang der du bygger opp stylesheeten din med alle avhengigheter.
+
+```scss
+@use "@fremtind/jkl-core/core";
+```
+
+### Navneendringer
+
+Om du ikke bruker `helper-` prefikset til egen kode bør det holde med en _search & replace_ her. Ertsatt `helper-` med tom string:
+
+```diff
+-   @include jkl.helper-light-mode-variables {
++   @include jkl.light-mode-variables {
+        /* ... */
+    }
+
+-   @include jkl.helper-dark-mode-variables {
++   @include jkl.dark-mode-variables {
+        /* ... */
+    }
+```
+
+Funksjonen `jkl-motion` har fått navnet `easing` for å skille den fra `motion`-mixinen og unngå "dobbel Jøkul" i navnet ved bruk av ny modulsyntaks.
+
+Funksjonen `jkl-timing` er nå bare `timing` for å unngå "dobbel Jøkul" i navnet ved bruk av ny modulsyntaks.
+
+Hvis du har brukt `$jkl--timings` eller `$jkl--easings` direkte for å hente verdier, bruk funksjonene over i stedet.
+
+### Modulsyntaks
+
+Med denne releasen tar Jøkul i bruk Sass Modules (`@use` og `@forward`). Det **anbefales sterkt** at prosjektet ditt går over til den samme modulsyntaksen, men det vil fungere å `@import`ere som før i en periode.
+
+Den gamle `@import`-syntaksen til Sass "frigjøres" til å bli en helt vanlig CSS-import. Med andre ord vil `@import` på sikt slutte å fungere som før. Det er planlagt at [Sass sin støtte for `@import` for å importere Sass fjernes senest 1. oktober 2022](https://github.com/sass/sass/blob/main/accepted/module-system.md#timeline).
+
+Grunnen til at den nye syntaksen ikke er en _drop-in replacement_ [kan du lese mer om i for eksempel denne bloggposten](https://www.oddbird.net/2019/10/02/sass-modules/). Kort fortalt:
+
+-   alle importer blir eksplisitte – vi får ikke lenger uventede variabler, mixins og funksjoner "med på kjøpet"
+-   alle moduler namespaces, så vi unngår navnekolisjoner
+-   private variabler, funksjoner og mixins blir en feature støttet av selve rammeverket, ikke bare gjennom konvensjoner som `_`-prefix
+
+Om du foretrekker video er [denne YouTube-gjennomgangen](https://www.youtube.com/watch?v=dOnYNEXv9BM) fin.
+
+#### Hvordan forenkle migreringen
+
+Test om du kan bruke [sass-migrator](https://sass-lang.com/documentation/cli/migrator#module), `npx sass-migrator --migrate-deps module style.scss` hvor `style.scss` er "rot-stilarket" ditt. Verktøyet støtter dessverre ikke custom importers, men gi det et forsøk og se hva som skjer.
+
+Om du må manuelt til verks kan disse stegene hjelpe, basert på erfaringen med å migrere internt i Jøkul:
+
+-   Begynn med å fjerne alt av `@import` og erstatt med én `@use "@fremtind/jkl-core/jkl";`
+-   Bruk _search and replace_ for alt det er verdt:
+    -   ` rem(` erstattes av ` jkl.rem(`
+    -   `#{rem` erstattes av `#{jkl.rem`
+    -   `@include light-mode-variables` erstattes av `@include jkl.light-mode-variables`
+    -   `@include dark-mode-variables` erstattes av `@include jkl.dark-mode-variables`
+    -   `@include motion` erstattes av `@include jkl.motion`
+    -   `@include text-style` erstattes av `@include jkl.text-style`
+    -   `@include screenreader-only` erstattes av `@include jkl.screenreader-only`
+    -   `@include no-grow-bold` erstattes av `@include jkl.no-grow-bold`
+    -   `@include small-device` erstattes av `@include jkl.small-device`
+    -   `@include medium-device` erstattes av `@include jkl.medium-device`
+    -   `@include from-medium-device` erstattes av `@include jkl.from-medium-device`
+    -   `@include large-device` erstattes av `@include jkl.large-device`
+    -   `@include from-large-device` erstattes av `@include jkl.from-large-device`
+    -   `@include xl-device` erstattes av `@include jkl.xl-device`
+    -   `@include reset-outline` erstattes av `@include jkl.reset-outline`
+    -   `@include keyboard-navigation` erstattes av `@include jkl.keyboard-navigation`
+
+**NB**: Det at Sass kompilerer betyr _ikke_ at alt er i orden. Særlig funksjonskall som `rem()` kan behandles som _strings_ hvis funksjonen ikke blir funnet. Da ender du opp med CSS som ser ut som `font-size: rem(20px);` sendt rett til nettleseren, som ikke funker. Vær ekstra nøye med funksjoner, og test i en nettleser.
+
 ## Til `jkl-core@9.0.0`
 
 Vårrengjøringsreleasen.

@@ -1,5 +1,4 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 .jkl-table-header {
     @include jkl.text-style("body");
@@ -22,7 +21,7 @@
     }
 
     &--sr-only {
-        @include mixins.screenreader-only;
+        @include jkl.screenreader-only;
     }
 
     *[data-compactlayout] &,
@@ -43,7 +42,7 @@
     }
 
     .jkl-table--collapse-to-list & {
-        @include mixins.small-device {
+        @include jkl.small-device {
             @include responsive-table-header;
         }
     }

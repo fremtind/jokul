@@ -1,5 +1,4 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/all" as mixins;
 
 .jkl-portal-blog {
     &__post-list {
@@ -13,7 +12,7 @@
         max-width: jkl.rem(750px);
         width: 100%;
 
-        @include mixins.from-medium-device {
+        @include jkl.from-medium-device {
             margin-bottom: jkl.$spacing-xl;
         }
     }

@@ -1,10 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
-
-$loader-dot-size--large: rem(18px);
-$loader-dot-size--medium: rem(7px);
-$loader-dot-size--small: rem(5px);
+$loader-dot-size--large: jkl.rem(18px);
+$loader-dot-size--medium: jkl.rem(7px);
+$loader-dot-size--small: jkl.rem(5px);
 
 $loader-spacing--large: jkl.$spacing-xl;
 $loader-spacing--medium: jkl.$spacing-s;

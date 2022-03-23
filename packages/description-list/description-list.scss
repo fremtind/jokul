@@ -1,6 +1,5 @@
 /* autoprefixer grid: autoplace */
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
 
 @mixin horizontal-list {
     display: grid;
@@ -51,7 +50,7 @@
         margin-top: jkl.$spacing-2xs;
     }
 
-    @include mix.from-medium-device {
+    @include jkl.from-medium-device {
         @include horizontal-list;
     }
 }

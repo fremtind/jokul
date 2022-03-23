@@ -1,9 +1,7 @@
 @use "@fremtind/jkl-core/jkl";
-@use "@fremtind/jkl-core/variables/colors";
-@use "@fremtind/jkl-core/variables/typography";
 
-$indicator-background-color: colors.$varde;
-$indicator-text-color: colors.$granitt;
+$indicator-background-color: jkl.$color-varde;
+$indicator-text-color: jkl.$color-granitt;
 $indicator-size: jkl.$spacing-xs;
 
 .jkl-portal-form-field-anatomy {
@@ -15,8 +13,8 @@ $indicator-size: jkl.$spacing-xs;
         color: $indicator-text-color;
         height: $indicator-size;
         left: -#{jkl.rem(50px)};
-        font-size: typography.$font-size-1;
-        font-weight: typography.$weight-bold;
+        font-size: jkl.$typography-font-size-1;
+        font-weight: jkl.$typography-weight-bold;
 
         line-height: $indicator-size;
         padding: $indicator-size;

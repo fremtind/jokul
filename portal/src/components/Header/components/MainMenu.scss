@@ -1,13 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
-@import "~@fremtind/jkl-core/mixins/_all";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --full-screen-menu-bg-color: #{jkl.$color-varde};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --full-screen-menu-bg-color: #{jkl.$color-skifer};
 }
 
@@ -35,7 +32,7 @@
     }
 
     &__root-link {
-        @include reset-outline;
+        @include jkl.reset-outline;
         background-color: transparent;
         color: inherit;
         cursor: pointer;
@@ -46,21 +43,21 @@
         align-items: center;
         text-decoration: none;
 
-        @include motion;
+        @include jkl.motion;
         transition-property: box-shadow;
 
         html:not([data-mousenavigation]) &:focus {
-            @include no-grow-bold;
+            @include jkl.no-grow-bold;
         }
 
         &:hover,
         html:not([data-mousenavigation]) &:focus,
         &--active {
-            box-shadow: inset 0 rem(-4px) 0 0 currentColor;
+            box-shadow: inset 0 jkl.rem(-4px) 0 0 currentColor;
         }
 
         &--active {
-            @include no-grow-bold;
+            @include jkl.no-grow-bold;
         }
     }
 
@@ -73,12 +70,12 @@
         height: 0;
 
         background-color: var(--full-screen-menu-bg-color);
-        @include motion("standard", "lazy");
+        @include jkl.motion("standard", "lazy");
         transition-property: height;
 
         &--open {
             height: 100vh;
-            @include motion("entrance", "lazy");
+            @include jkl.motion("entrance", "lazy");
         }
     }
 
@@ -89,23 +86,23 @@
         max-height: 100vh;
         width: 100vw;
 
-        @include from-medium-device {
+        @include jkl.from-medium-device {
             padding: 25vh jkl.$spacing-3xl 15vh;
         }
     }
 
     &__back-button {
-        @include reset-outline;
+        @include jkl.reset-outline;
         padding: 0;
         cursor: pointer;
         background-color: transparent;
         font-size: relative-size(30, 375, 812);
         line-height: relative-size(40, 375, 812);
-        @include motion;
+        @include jkl.motion;
         transition-property: transform;
 
         &::after {
-            @include motion;
+            @include jkl.motion;
             transition-property: transform;
         }
 
@@ -120,13 +117,13 @@
             }
         }
 
-        @include small-device {
+        @include jkl.small-device {
             position: sticky;
             top: 15vh;
             margin-left: -1.5em;
         }
 
-        @include from-medium-device {
+        @include jkl.from-medium-device {
             font-size: relative-size(35);
             line-height: relative-size(50);
             position: relative;
@@ -158,7 +155,7 @@
         display: flex;
         flex-direction: column;
 
-        @include from-medium-device {
+        @include jkl.from-medium-device {
             height: 100%;
             flex-wrap: wrap;
             padding: 0;

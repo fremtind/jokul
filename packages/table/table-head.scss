@@ -1,7 +1,7 @@
-@import "~@fremtind/jkl-core/mixins/_all";
+@use "~@fremtind/jkl-core/jkl";
 
 .jkl-table-head {
     &--sr-only {
-        @include screenreader-only;
+        @include jkl.screenreader-only;
     }
 }

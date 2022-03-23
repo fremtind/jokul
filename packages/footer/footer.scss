@@ -1,11 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins";
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --jkl-footer-background-color: #{jkl.$color-svart};
     --jkl-footer-text-color: #{jkl.$color-snohvit};
 }
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --jkl-footer-background-color: #{jkl.$color-hvit};
     --jkl-footer-text-color: #{jkl.$color-granitt};
 }
@@ -30,13 +29,13 @@
     @include -footer-height(jkl.$spacing-l);
 
     :not(*[data-compactlayout]) > & {
-        @include mixins.from-medium-device {
+        @include jkl.from-medium-device {
             gap: jkl.$spacing-xl;
             padding: jkl.$spacing-xl;
             @include -footer-height(jkl.$spacing-xl);
         }
 
-        @include mixins.from-large-device {
+        @include jkl.from-large-device {
             flex-direction: row;
         }
     }
@@ -71,7 +70,7 @@
             margin-bottom: jkl.$spacing-m;
 
             :not(*[data-compactlayout]) > .jkl-footer > & {
-                @include mixins.from-medium-device {
+                @include jkl.from-medium-device {
                     display: inline-block;
                     margin-right: jkl.$spacing-l;
                 }

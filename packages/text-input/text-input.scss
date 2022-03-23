@@ -1,22 +1,18 @@
 @use "sass:color";
-@use "sass:map";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/_functions";
-@import "~@fremtind/jkl-core/mixins/_all";
+@use "./autosuggest";
 
-@import "./autosuggest";
-
-$text-input-height: rem(48px);
-$text-input-height--compact: rem(40px);
-$text-input-button-width: rem(48px);
+$text-input-height: jkl.rem(48px);
+$text-input-height--compact: jkl.rem(40px);
+$text-input-button-width: jkl.rem(48px);
 $text-input-padding: jkl.$spacing-xs jkl.$spacing-s;
 
 // These are used to calculate textarea height,
 // and MUST equal the line height in the text style used
-$text-input-line-height: rem(32px);
-$text-input-line-height--compact: rem(28px);
+$text-input-line-height: jkl.rem(32px);
+$text-input-line-height--compact: jkl.rem(28px);
 
 $text-input-focus-color: jkl.$color-granitt;
 $text-input-selection-color: color.scale(
@@ -30,7 +26,7 @@ $text-input-selection-color--inverted: color.scale(
     $alpha: -75%,
 );
 
-@include light-mode-variables {
+@include jkl.light-mode-variables {
     --text-input-border-color: #{jkl.$color-stein};
     --text-input-text-color: #{jkl.$color-granitt};
     --text-input-placeholder-color: #{jkl.$color-stein};
@@ -43,7 +39,7 @@ $text-input-selection-color--inverted: color.scale(
     --text-input-error-selection-color-color: #{$text-input-selection-color};
 }
 
-@include dark-mode-variables {
+@include jkl.dark-mode-variables {
     --text-input-border-color: #{jkl.$color-svaberg};
     --text-input-text-color: #{jkl.$color-snohvit};
     --text-input-placeholder-color: #{jkl.$color-svaberg};
@@ -61,9 +57,9 @@ $text-input-selection-color--inverted: color.scale(
     background: none;
     -webkit-appearance: none;
 
-    @include reset-outline;
+    @include jkl.reset-outline;
     @include jkl.text-style("body/large-screen");
-    @include motion;
+    @include jkl.motion;
 
     color: var(--text-input-text-color);
     background-color: transparent;
@@ -105,9 +101,9 @@ $text-input-selection-color--inverted: color.scale(
             }
 
             &:focus {
-                @include keyboard-navigation {
+                @include jkl.keyboard-navigation {
                     &::after {
-                        box-shadow: inset 0 0 0 rem(2px) var(--text-input-error-text-color);
+                        box-shadow: inset 0 0 0 jkl.rem(2px) var(--text-input-error-text-color);
                     }
                 }
             }
@@ -129,7 +125,7 @@ $text-input-selection-color--inverted: color.scale(
 }
 
 .jkl-text-input {
-    @include reset-outline;
+    @include jkl.reset-outline;
 
     &__input-wrapper {
         display: inline-flex;
@@ -140,7 +136,7 @@ $text-input-selection-color--inverted: color.scale(
     &__input {
         @include shared-input-styles;
 
-        border-radius: rem(3px);
+        border-radius: jkl.rem(3px);
         box-sizing: border-box;
         height: $text-input-height;
         padding: $text-input-padding;
@@ -148,19 +144,21 @@ $text-input-selection-color--inverted: color.scale(
         width: 100%;
 
         background-color: transparent;
-        box-shadow: inset 0 0 0 rem(1px) var(--text-input-border-color), 0 0 0 rem(1px) transparent;
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--text-input-border-color), 0 0 0 jkl.rem(1px) transparent;
 
         transition-property: color, box-shadow, background-color;
 
         &:hover {
-            box-shadow: inset 0 0 0 rem(1px) var(--text-input-focus-color), 0 0 0 rem(1px) var(--text-input-focus-color);
+            box-shadow: inset 0 0 0 jkl.rem(1px) var(--text-input-focus-color),
+                0 0 0 jkl.rem(1px) var(--text-input-focus-color);
             border-color: var(--text-input-focus-color);
         }
 
         &:focus,
         &:focus-within {
             background-color: var(--text-input-background-color);
-            box-shadow: inset 0 0 0 rem(1px) var(--text-input-focus-color), 0 0 0 rem(1px) var(--text-input-focus-color);
+            box-shadow: inset 0 0 0 jkl.rem(1px) var(--text-input-focus-color),
+                0 0 0 jkl.rem(1px) var(--text-input-focus-color);
             border-color: var(--text-input-focus-color);
         }
 
@@ -179,7 +177,7 @@ $text-input-selection-color--inverted: color.scale(
         padding: jkl.$spacing-xs 0;
         height: $text-input-button-width;
         width: $text-input-height;
-        margin-left: rem(-48px);
+        margin-left: jkl.rem(-48px);
         color: var(--text-input-border-color);
 
         &:hover {
@@ -187,17 +185,17 @@ $text-input-selection-color--inverted: color.scale(
         }
 
         &:focus {
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 position: relative;
 
                 &::after {
                     content: "";
                     position: absolute;
-                    top: rem(8px);
-                    right: rem(8px);
-                    bottom: rem(8px);
-                    left: rem(8px);
-                    box-shadow: inset 0 0 0 rem(2px) var(--text-input-focus-color);
+                    top: jkl.rem(8px);
+                    right: jkl.rem(8px);
+                    bottom: jkl.rem(8px);
+                    left: jkl.rem(8px);
+                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--text-input-focus-color);
                 }
             }
         }
@@ -206,7 +204,7 @@ $text-input-selection-color--inverted: color.scale(
     /* Modifications for inline version */
     &--inline {
         display: inline-block;
-        margin: rem(-2px) rem(4px);
+        margin: jkl.rem(-2px) jkl.rem(4px);
     }
 
     /* Modifications for input with action */
@@ -230,7 +228,7 @@ $text-input-selection-color--inverted: color.scale(
         }
 
         .jkl-text-input__action-icon {
-            width: rem(18px);
+            width: jkl.rem(18px);
         }
     }
 }
@@ -265,7 +263,7 @@ $text-input-selection-color--inverted: color.scale(
     }
 
     & .jkl-text-input__input {
-        @include motion;
+        @include jkl.motion;
 
         transition-property: height, box-shadow;
         font-weight: normal;
@@ -274,7 +272,7 @@ $text-input-selection-color--inverted: color.scale(
     }
 
     &--with-counter {
-        $progress-bar-height: rem(4px);
+        $progress-bar-height: jkl.rem(4px);
 
         .jkl-text-area__content {
             position: relative;
@@ -306,7 +304,7 @@ $text-input-selection-color--inverted: color.scale(
          * får fonter, farger, og høyden den skal.
          */
         .jkl-text-area__text-area {
-            @include reset-outline;
+            @include jkl.reset-outline;
             @include shared-input-styles;
 
             display: block;
@@ -331,7 +329,7 @@ $text-input-selection-color--inverted: color.scale(
         }
 
         .jkl-text-area__counter {
-            @include motion;
+            @include jkl.motion;
             transition-property: opacity;
             opacity: 0;
 
@@ -359,14 +357,14 @@ $text-input-selection-color--inverted: color.scale(
                     height: $progress-bar-height;
                     background-color: var(--jkl-color);
                     transition-property: width;
-                    @include motion("standard", "lazy");
+                    @include jkl.motion("standard", "lazy");
                 }
             }
         }
 
         &:focus-within .jkl-text-area__counter {
             opacity: 1;
-            transition-delay: map.get($jkl--timings, "productive"); // Fade in once field is expanded
+            transition-delay: jkl.timing("productive"); // Fade in once field is expanded
         }
 
         [aria-invalid="true"] ~ .jkl-text-area__counter {
@@ -418,7 +416,7 @@ $text-input-selection-color--inverted: color.scale(
         height: $height;
         max-height: 100%;
 
-        @include small-device {
+        @include jkl.small-device {
             height: $small-height;
             min-height: $small-height; // (#2751)
         }

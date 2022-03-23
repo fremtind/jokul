@@ -1,7 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-
 .jkl-portal-theme-bg {
     z-index: jkl.$z-index--hidden;
     width: 100vw;
@@ -12,7 +10,7 @@
     left: 0;
     background-color: jkl.$color-svart;
 
-    @include motion("standard", "lazy");
+    @include jkl.motion("standard", "lazy");
     transition-property: height;
 
     *[data-theme="dark"] & {

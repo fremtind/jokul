@@ -1,18 +1,15 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+$checkbox-height: jkl.rem(48px);
+$checkbox-box-size: jkl.rem(24px);
+$checkbox-line-height: jkl.rem(32px);
 
-$checkbox-height: rem(48px);
-$checkbox-box-size: rem(24px);
-$checkbox-line-height: rem(32px);
+$checkbox-height--compact: jkl.rem(40px);
+$checkbox-box-size--compact: jkl.rem(18px);
+$checkbox-line-height--compact: jkl.rem(28px);
 
-$checkbox-height--compact: rem(40px);
-$checkbox-box-size--compact: rem(18px);
-$checkbox-line-height--compact: rem(28px);
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --checkbox-color: #{jkl.$color-granitt};
     --checkbox-background-color: #{jkl.$color-snohvit};
     --checkbox-focus-color: #{jkl.$color-granitt};
@@ -23,7 +20,7 @@ $checkbox-line-height--compact: rem(28px);
     --checkbox-box-default-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --checkbox-color: #{jkl.$color-snohvit};
     --checkbox-background-color: transparent;
     --checkbox-focus-color: #{jkl.$color-snohvit};
@@ -92,7 +89,7 @@ $checkbox-line-height--compact: rem(28px);
             color: var(--checkbox-focus-color);
 
             & > .jkl-checkbox__check-mark::before {
-                box-shadow: 0 0 0 rem(2px) var(--checkbox-focus-color);
+                box-shadow: 0 0 0 jkl.rem(2px) var(--checkbox-focus-color);
             }
 
             & > .jkl-checkbox__check-mark {
@@ -105,7 +102,7 @@ $checkbox-line-height--compact: rem(28px);
             color: var(--checkbox-disabled-color);
 
             &:hover .jkl-checkbox__check-mark {
-                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
+                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
             }
         }
     }
@@ -121,7 +118,7 @@ $checkbox-line-height--compact: rem(28px);
             color: var(--checkbox-focus-color);
 
             .jkl-checkbox__check-mark {
-                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
+                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) currentColor;
             }
         }
 
@@ -129,7 +126,7 @@ $checkbox-line-height--compact: rem(28px);
             color: var(--checkbox-color);
 
             .jkl-checkbox__check-mark {
-                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
+                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
                 background-color: var(--checkbox-focus-background-color);
             }
         }
@@ -137,9 +134,9 @@ $checkbox-line-height--compact: rem(28px);
 
     &__check-text {
         margin: (($checkbox-height - $checkbox-line-height) * 0.5) 0;
-        transform: translate3d(0, rem(1px), 0);
+        transform: translate3d(0, jkl.rem(1px), 0);
 
-        @include motion;
+        @include jkl.motion;
         transition-property: color;
     }
 
@@ -156,9 +153,9 @@ $checkbox-line-height--compact: rem(28px);
 
         outline: none;
         border-radius: 0; // fixes rounded corners in iOS Safari
-        box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
+        box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
 
-        @include motion;
+        @include jkl.motion;
         transition-property: background-color, box-shadow;
 
         // This is the check mark itself:
@@ -174,13 +171,13 @@ $checkbox-line-height--compact: rem(28px);
             height: 58%;
             transform: rotate(45deg);
 
-            border: solid rem(2px);
+            border: solid jkl.rem(2px);
             border-color: currentColor;
             border-left-width: 0;
             border-top-width: 0;
 
             opacity: 0;
-            @include motion;
+            @include jkl.motion;
             transition-property: opacity, border-color;
         }
 
@@ -188,10 +185,10 @@ $checkbox-line-height--compact: rem(28px);
         &::before {
             content: "";
             position: absolute;
-            top: rem(-2px);
-            right: rem(-2px);
-            bottom: rem(-2px);
-            left: rem(-2px);
+            top: jkl.rem(-2px);
+            right: jkl.rem(-2px);
+            bottom: jkl.rem(-2px);
+            left: jkl.rem(-2px);
         }
     }
 
@@ -219,12 +216,12 @@ $checkbox-line-height--compact: rem(28px);
         }
     }
 
-    @include compact-mode {
+    @include jkl.compact-mode {
         @include jkl.text-style("body/small-screen");
         @include compact-design;
     }
 
-    @include small-device {
+    @include jkl.small-device {
         @include compact-design;
     }
 }

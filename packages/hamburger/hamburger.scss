@@ -1,25 +1,22 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/all";
-@import "~@fremtind/jkl-core/_functions";
+$bounding-touch-size: jkl.rem(48px);
+$hamburger-line-height: jkl.rem(2px);
+$hamburger-icon-width: jkl.rem(35px);
+$hamburger-line-spacing: jkl.rem(-8px);
 
-$bounding-touch-size: rem(48px);
-$hamburger-line-height: rem(2px);
-$hamburger-icon-width: rem(35px);
-$hamburger-line-spacing: rem(-8px);
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --hamburger-color: #{jkl.$color-granitt};
     --hamburger-focus-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --hamburger-color: #{jkl.$color-snohvit};
     --hamburger-focus-color: #{jkl.$color-svaberg};
 }
 
 .jkl-hamburger {
-    @include reset-outline;
+    @include jkl.reset-outline;
     border: none;
     outline: none;
     cursor: pointer;
@@ -38,8 +35,8 @@ $hamburger-line-spacing: rem(-8px);
     @include jkl.text-style("body");
 
     &__label.jkl-content-toggle {
-        height: rem(32px);
-        @include motion(standard, expressive);
+        height: jkl.rem(32px);
+        @include jkl.motion(standard, expressive);
         transform-origin: left;
     }
 
@@ -73,7 +70,7 @@ $hamburger-line-spacing: rem(-8px);
 
         transition-property: background-color, transform, top, bottom;
 
-        @include motion(standard, expressive);
+        @include jkl.motion(standard, expressive);
     }
 
     &:hover {
@@ -92,9 +89,9 @@ $hamburger-line-spacing: rem(-8px);
         }
     }
 
-    @include keyboard-navigation {
+    @include jkl.keyboard-navigation {
         &:focus {
-            box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
+            box-shadow: 0 0 0 jkl.rem(2px) var(--hamburger-focus-color);
         }
     }
 

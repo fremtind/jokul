@@ -1,15 +1,12 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/functions";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --do-dont-example-bg: #{jkl.$color-dis};
     --do-dont-example-do-color: #{jkl.$color-suksess};
     --do-dont-example-dont-color: #{jkl.$color-feil};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --do-dont-example-bg: #{jkl.$color-skifer};
     --do-dont-example-do-color: #{jkl.$color-suksess--darkbg};
     --do-dont-example-dont-color: #{jkl.$color-feil--darkbg};
@@ -29,11 +26,11 @@
 
     &--fullwidth {
         width: 100%;
-        max-width: rem(750px);
+        max-width: jkl.rem(750px);
     }
 
     &--halfwidth {
-        max-width: rem(420px);
+        max-width: jkl.rem(420px);
     }
 
     &__content {
@@ -61,7 +58,7 @@
         @include jkl.text-style("body");
     }
 
-    @include small-device {
+    @include jkl.small-device {
         max-width: 75vw;
     }
 

@@ -1,5 +1,4 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 @mixin expanded-arrow($px) {
     .jkl-expand-button__arrow {
@@ -25,7 +24,7 @@
     }
 
     .jkl-table--collapse-to-list &--align-right {
-        @include mixins.small-device {
+        @include jkl.small-device {
             text-align: unset;
         }
     }
@@ -53,7 +52,7 @@
     .jkl-table--collapse-to-list &[data-th]:not(.jkl-table-cell--expand-without-text)::before {
         display: none;
 
-        @include mixins.small-device {
+        @include jkl.small-device {
             @include responsive-table-header;
         }
     }
@@ -63,7 +62,7 @@
     }
 
     .jkl-table--collapse-to-list:not([data-collapse]) &--expand-without-text .jkl-expand-button__text {
-        @include mixins.from-medium-device {
+        @include jkl.from-medium-device {
             display: none;
         }
     }

@@ -1,17 +1,16 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 $border-size: jkl.rem(1px);
 $focus-ring-width: jkl.rem(2px);
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --table-row-border-color: #{jkl.$color-svaberg};
     --table-row-border-none-color: #{rgba(jkl.$color-svaberg, 0)};
     --table-row-hover-border-color: #{jkl.$color-granitt};
     --table-row-highlight-color: #{jkl.$color-hvit};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --table-row-border-color: #{jkl.$color-stein};
     --table-row-border-none-color: #{rgba(jkl.$color-stein, 0)};
     --table-row-hover-border-color: #{jkl.$color-snohvit};
@@ -49,7 +48,7 @@ $focus-ring-width: jkl.rem(2px);
     }
 
     .jkl-table--collapse-to-list > thead > & {
-        @include mixins.small-device {
+        @include jkl.small-device {
             @include responsive-table-head;
         }
     }
@@ -68,7 +67,7 @@ $focus-ring-width: jkl.rem(2px);
     }
 
     .jkl-table--collapse-to-list :not(thead) > & {
-        @include mixins.small-device {
+        @include jkl.small-device {
             @include responsive-table-row;
         }
     }
@@ -79,7 +78,7 @@ $focus-ring-width: jkl.rem(2px);
 
     .jkl-table--collapse-to-list[data-collapse] :not(thead) > &.jkl-table-row--expandable {
         transition-property: border, padding;
-        @include mixins.motion;
+        @include jkl.motion;
 
         &.jkl-table-row--expanded {
             border-bottom-color: var(--table-row-border-none-color);
@@ -100,7 +99,7 @@ $focus-ring-width: jkl.rem(2px);
         /* stylelint-disable-next-line selector-max-specificity -- selector needs to nest itself to select sub tables with the same properties */
         & + tr & {
             transition-property: border;
-            @include mixins.motion;
+            @include jkl.motion;
         }
 
         & + [aria-hidden="false"] {
@@ -117,7 +116,7 @@ $focus-ring-width: jkl.rem(2px);
     }
 
     .jkl-table--collapse-to-list :not(thead) > &:hover {
-        @include mixins.small-device {
+        @include jkl.small-device {
             @include responsive-table-row--hover;
         }
     }
@@ -139,7 +138,7 @@ $focus-ring-width: jkl.rem(2px);
         }
 
         .jkl-table--collapse-to-list :not(thead) > &:hover {
-            @include mixins.small-device {
+            @include jkl.small-device {
                 @include responsive-table-row--hover;
             }
         }
@@ -160,11 +159,11 @@ $focus-ring-width: jkl.rem(2px);
 
 .jkl-expandable-table-row__expanded-row {
     display: none;
-    @include mixins.motion("exit", "expressive");
+    @include jkl.motion("exit", "expressive");
     transition-property: height;
 
     &--expanded {
-        @include mixins.motion("entrance", "lazy");
+        @include jkl.motion("entrance", "lazy");
         display: block;
     }
 }

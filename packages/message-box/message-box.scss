@@ -1,12 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
 $dismiss-animation-duration: 500ms;
-$message-width: rem(560px);
-$message-width--compact: rem(440px);
+$message-width: jkl.rem(560px);
+$message-width--compact: jkl.rem(440px);
 
 $dismiss-focus-border-color: jkl.$color-granitt;
 $dismiss-hover-color: jkl.$color-stein;
@@ -23,10 +20,10 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     width: 100%;
     max-width: $message-width;
     padding: jkl.$spacing-l;
-    padding-left: rem(56px);
+    padding-left: jkl.rem(56px);
     background-color: $bg-color--default;
     color: $text-color;
-    border-radius: rem(4px);
+    border-radius: jkl.rem(4px);
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -34,7 +31,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     &__icon {
         position: absolute;
         left: jkl.$spacing-m;
-        height: rem(24px);
+        height: jkl.rem(24px);
     }
 
     &__content {
@@ -59,15 +56,15 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-button {
-        @include reset-outline;
+        @include jkl.reset-outline;
         background-color: transparent;
         padding: 0;
         margin-left: auto;
         margin-top: jkl.$spacing-3xs;
         color: inherit;
         cursor: pointer;
-        width: rem(20px);
-        height: rem(20px);
+        width: jkl.rem(20px);
+        height: jkl.rem(20px);
 
         align-self: flex-start;
         flex-shrink: 0;
@@ -77,17 +74,17 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         }
 
         &:focus {
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 position: relative;
 
                 &::after {
                     content: "";
                     position: absolute;
-                    top: rem(-2px);
-                    right: rem(-2px);
-                    bottom: rem(-2px);
-                    left: rem(-2px);
-                    box-shadow: 0 0 0 rem(2px) $dismiss-focus-border-color;
+                    top: jkl.rem(-2px);
+                    right: jkl.rem(-2px);
+                    bottom: jkl.rem(-2px);
+                    left: jkl.rem(-2px);
+                    box-shadow: 0 0 0 jkl.rem(2px) $dismiss-focus-border-color;
                 }
             }
         }
@@ -95,7 +92,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &--compact {
         padding: jkl.$spacing-m;
-        padding-left: rem(48px);
+        padding-left: jkl.rem(48px);
         max-width: $message-width--compact;
 
         .jkl-message-box__content {
@@ -148,7 +145,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         visibility: hidden;
     }
 
-    @include small-device {
+    @include jkl.small-device {
         width: 100%;
     }
 }

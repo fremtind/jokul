@@ -1,8 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
-@import "~@fremtind/jkl-core/mixins/_all";
-
 .jkl-portal-full-screen-menu-item {
     display: inline-block;
     position: relative;
@@ -12,16 +9,16 @@
         padding-left: 0;
         text-align: left;
 
-        font-size: relative-size(30, 375, 812);
-        line-height: relative-size(40, 375, 812);
+        font-size: jkl.relative-size(30, 375, 812);
+        line-height: jkl.relative-size(40, 375, 812);
 
         // button resets:
         background-color: transparent;
         cursor: pointer;
 
-        @include from-medium-device {
-            font-size: relative-size(35);
-            line-height: relative-size(50);
+        @include jkl.from-medium-device {
+            font-size: jkl.relative-size(35);
+            line-height: jkl.relative-size(50);
         }
     }
 }

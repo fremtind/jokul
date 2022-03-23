@@ -1,10 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --card-background: #{jkl.$color-svart};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --card-background: #{jkl.$color-skifer};
 }
 

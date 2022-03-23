@@ -1,4 +1,4 @@
-@import "~@fremtind/jkl-core/mixins/_all";
+@use "~@fremtind/jkl-core/jkl";
 
 $animation-duration: 300ms;
 $half-animation-duration: calc(#{$animation-duration} / 2);
@@ -36,7 +36,7 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
         .jkl-content-toggle--flip > & {
             display: flex;
             flex-direction: column;
-            @include motion(standard, expressive);
+            @include jkl.motion(standard, expressive);
             transition-property: transform;
 
             &[data-show="first"] {

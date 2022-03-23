@@ -3,11 +3,11 @@
 $jkl-logo-magic-origin--f: 30px 132px; /* Is connected to the viewbox of the logo, change at your own risk */
 $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --logo-color: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --logo-color: #{jkl.$color-snohvit};
 }
 

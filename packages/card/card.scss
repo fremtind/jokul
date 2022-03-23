@@ -1,16 +1,13 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/functions" as func;
-
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-button/button";
+@use "~@fremtind/jkl-button/button";
 
 $card-bg-color: jkl.$color-snohvit;
-$card-corner-radius: func.rem(2px);
+$card-corner-radius: jkl.rem(2px);
 $card-padding-normal: jkl.$spacing-l;
 
 /// @deprecated Bruk heller .jkl-nav-card, .jkl-task-card eller .jkl-info-card
 .jkl-card {
-    @include reset-outline;
+    @include jkl.reset-outline;
     position: relative;
     overflow: hidden;
     display: block;
@@ -22,7 +19,7 @@ $card-padding-normal: jkl.$spacing-l;
     padding: $card-padding-normal;
     text-align: inherit;
     transition-property: box-shadow, transform;
-    @include motion;
+    @include jkl.motion;
 
     &__title {
         margin-bottom: jkl.$spacing-l;
@@ -54,8 +51,8 @@ $card-padding-normal: jkl.$spacing-l;
     }
 
     &--clickable:focus-within {
-        @include keyboard-navigation {
-            box-shadow: 0 0 0 func.rem(2px) jkl.$color-focus-color;
+        @include jkl.keyboard-navigation {
+            box-shadow: 0 0 0 jkl.rem(2px) jkl.$color-focus-color;
         }
     }
 
@@ -78,14 +75,14 @@ $card-padding-normal: jkl.$spacing-l;
     }
 }
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --nav-card-background: #{jkl.$color-hvit};
     --nav-card-shadow: #{jkl.$shadow-navigation};
     --nav-card-shadow--hover: #{jkl.$shadow-navigation--hover};
     --nav-card-info-border-color: #{jkl.$color-svaberg};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --nav-card-background: #{jkl.$color-svart};
     --nav-card-shadow: none;
     --nav-card-shadow--hover: none;
@@ -101,12 +98,12 @@ $card-padding-normal: jkl.$spacing-l;
     color: var(--jkl-color);
     outline: 0;
 
-    border-radius: func.rem(4px);
+    border-radius: jkl.rem(4px);
     overflow: hidden;
     box-shadow: var(--nav-card-shadow);
     background-color: var(--nav-card-background);
 
-    @include motion;
+    @include jkl.motion;
     transition-property: box-shadow, transform;
 
     &__image {
@@ -140,7 +137,7 @@ $card-padding-normal: jkl.$spacing-l;
     }
 
     &__info {
-        border-top: func.rem(1px) solid var(--nav-card-info-border-color);
+        border-top: jkl.rem(1px) solid var(--nav-card-info-border-color);
         padding-top: jkl.$spacing-l;
         @include jkl.text-style("small");
         width: 100%;
@@ -148,17 +145,17 @@ $card-padding-normal: jkl.$spacing-l;
 
     &:hover {
         box-shadow: var(--nav-card-shadow--hover);
-        transform: translate3d(0, func.rem(-4px), 0);
+        transform: translate3d(0, jkl.rem(-4px), 0);
     }
 
-    @include keyboard-navigation {
+    @include jkl.keyboard-navigation {
         &:focus {
-            outline: func.rem(2px) solid var(--jkl-color);
+            outline: jkl.rem(2px) solid var(--jkl-color);
         }
     }
 }
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --task-card-background--hvit: #{jkl.$color-hvit};
     --task-card-background--snohvit: #{jkl.$color-snohvit};
     --task-card-background--sand: #{jkl.$color-sand};
@@ -166,7 +163,7 @@ $card-padding-normal: jkl.$spacing-l;
     --task-card-shadow: #{jkl.$shadow-task-card};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --task-card-background--hvit: #{jkl.$color-svart};
     --task-card-background--snohvit: #{jkl.$color-granitt};
     --task-card-background--sand: #{jkl.$color-skifer};
@@ -178,9 +175,9 @@ $card-padding-normal: jkl.$spacing-l;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    border-radius: func.rem(4px);
+    border-radius: jkl.rem(4px);
 
-    @include motion;
+    @include jkl.motion;
     transition-property: background-color;
 
     &__content-wrapper {

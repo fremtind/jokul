@@ -1,19 +1,18 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 .jkl-portal-primary-color {
     width: 100%;
     max-width: jkl.rem(768px);
     margin-top: jkl.$spacing-3xl;
 
-    @include mixins.small-device {
+    @include jkl.small-device {
         &__title,
         &__swatch {
             margin-bottom: jkl.$spacing-xl;
         }
     }
 
-    @include mixins.from-medium-device {
+    @include jkl.from-medium-device {
         display: grid;
         grid-template-columns: jkl.rem(340px) 1fr;
         grid-template-rows: jkl.rem(22px) 1fr;

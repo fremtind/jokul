@@ -1,10 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --custom-row-text-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --custom-row-text-color: #{jkl.$color-svaberg};
 }
 

@@ -1,11 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/all";
-@import "~@fremtind/jkl-core/functions";
-
-$card-corner-radius: rem(2px);
-$container-width: rem(660px);
-$container-width--compact: rem(320px);
+$card-corner-radius: jkl.rem(2px);
+$container-width: jkl.rem(660px);
+$container-width--compact: jkl.rem(320px);
 
 .jkl-cookie-consent-modal + backdrop {
     position: fixed;
@@ -37,7 +34,7 @@ $container-width--compact: rem(320px);
     left: 0;
     right: 0;
     width: 100%;
-    padding: jkl.$spacing-xl jkl.$spacing-xl rem(30px) jkl.$spacing-xl;
+    padding: jkl.$spacing-xl jkl.$spacing-xl jkl.rem(30px) jkl.$spacing-xl;
     min-width: $container-width--compact;
     max-width: $container-width;
     background-color: var(--jkl-background-color);
@@ -72,7 +69,7 @@ $container-width--compact: rem(320px);
         }
     }
 
-    @include small-device {
+    @include jkl.small-device {
         top: jkl.$spacing-xl;
         margin: jkl.$spacing-l;
         max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});

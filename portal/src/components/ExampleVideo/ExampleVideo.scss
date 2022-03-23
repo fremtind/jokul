@@ -1,7 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/navigation";
-
 .example-video {
     position: relative;
 
@@ -16,7 +14,7 @@
 
         &:focus {
             outline: none;
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 box-shadow: 0 0 0 2px jkl.$color-granitt;
             }
         }

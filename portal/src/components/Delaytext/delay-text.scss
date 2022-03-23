@@ -1,7 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_motion";
-
 .jkl-portal-delay-text {
     font-size: 12vw;
     display: flex;
@@ -24,7 +22,7 @@
 
         &--done {
             &::after {
-                @include motion("exit");
+                @include jkl.motion("exit");
                 transition-property: opacity;
                 opacity: 0;
             }

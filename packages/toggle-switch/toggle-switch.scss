@@ -1,24 +1,21 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+@use "./toggle-slider";
 
-@import "./toggle-slider";
-
-$toggle-width: rem(48px);
-$toggle-height: rem(24px);
-$toggle-dot-white-line-inset: rem(5px);
-$line-left-right-margin: rem(8px);
+$toggle-width: jkl.rem(48px);
+$toggle-height: jkl.rem(24px);
+$toggle-dot-white-line-inset: jkl.rem(5px);
+$line-left-right-margin: jkl.rem(8px);
 $disabled-color: jkl.$color-stein;
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --toggle-focus-outline-color: #{jkl.$color-focus-color};
     --main-slider-color: #{jkl.$color-granitt};
     --main-slider-background-color: #{jkl.$color-snohvit};
     --expanding-pill-background-color: #{jkl.$color-varde};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --toggle-focus-outline-color: #{jkl.$color-snohvit};
     --main-slider-color: #{jkl.$color-snohvit};
     --main-slider-background-color: #{jkl.$color-granitt};
@@ -26,7 +23,7 @@ $disabled-color: jkl.$color-stein;
 }
 
 .jkl-toggle-switch {
-    @include reset-outline;
+    @include jkl.reset-outline;
     cursor: pointer;
     position: relative;
     display: flex;
@@ -70,7 +67,7 @@ $disabled-color: jkl.$color-stein;
         /* Sliding dot */
         &::after {
             box-shadow: inset 0 0 0 $toggle-dot-white-line-inset var(--main-slider-color),
-                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) var(--main-slider-background-color);
+                inset 0 0 0 $toggle-dot-white-line-inset + jkl.rem(2px) var(--main-slider-background-color);
             content: "";
             border-radius: 99rem;
             position: absolute;
@@ -105,9 +102,9 @@ $disabled-color: jkl.$color-stein;
             right: -3px;
             background-color: transparent;
             border-radius: 99rem;
-            width: $toggle-width + rem(4px);
-            box-shadow: 0 0 0 rem(2px) transparent;
-            @include motion;
+            width: $toggle-width + jkl.rem(4px);
+            box-shadow: 0 0 0 jkl.rem(2px) transparent;
+            @include jkl.motion;
             transition-property: box-shadow;
         }
     }
@@ -126,7 +123,7 @@ $disabled-color: jkl.$color-stein;
             &::after {
                 background-color: $disabled-color;
                 box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
-                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) jkl.$color-hvit;
+                    inset 0 0 0 $toggle-dot-white-line-inset + jkl.rem(2px) jkl.$color-hvit;
             }
 
             & .jkl-toggle-switch__expanding-pill {
@@ -155,6 +152,6 @@ $disabled-color: jkl.$color-stein;
 
     /* Keyboard focused state */
     html:not([data-mousenavigation]) &:focus > &__slider > &__expanding-pill::after {
-        box-shadow: 0 0 0 rem(2px) var(--toggle-focus-outline-color);
+        box-shadow: 0 0 0 jkl.rem(2px) var(--toggle-focus-outline-color);
     }
 }

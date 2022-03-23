@@ -1,5 +1,4 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 $arrow-width: jkl.rem(16px);
 $arrow-width--compact: jkl.rem(14px);
@@ -8,12 +7,12 @@ $expand-button-border-width: jkl.rem(1px);
 $animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $focus-ring-width: jkl.rem(2px);
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --expand-button-text-color: #{jkl.$color-granitt};
     --expand-button-focus-color: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --expand-button-text-color: #{jkl.$color-snohvit};
     --expand-button-focus-color: #{jkl.$color-snohvit};
 }
@@ -25,7 +24,7 @@ $focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-expand-button {
-    @include mixins.reset-outline;
+    @include jkl.reset-outline;
     @include jkl.text-style("body");
 
     background-color: transparent;
@@ -77,7 +76,7 @@ $focus-ring-width: jkl.rem(2px);
 
     &--expanded {
         @include expanded-arrow(3px);
-        @include mixins.no-grow-bold;
+        @include jkl.no-grow-bold;
 
         &:hover {
             @include expanded-arrow(0);
@@ -91,7 +90,7 @@ $focus-ring-width: jkl.rem(2px);
     }
 
     &__arrow {
-        @include mixins.motion;
+        @include jkl.motion;
 
         display: inline-block;
         margin-left: jkl.$spacing-xs;
@@ -106,7 +105,7 @@ $focus-ring-width: jkl.rem(2px);
 
 .jkl-expand-section {
     &__content-wrapper {
-        @include mixins.motion;
+        @include jkl.motion;
         transition-property: height;
     }
 

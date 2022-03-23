@@ -1,23 +1,20 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
-:root,
-[data-theme="light"] {
+@include jkl.light-mode-variables {
     --portal-bg: #{jkl.$color-snohvit};
     --portal-text-color: #{jkl.$color-granitt};
 }
 
-[data-theme="dark"] {
+@include jkl.dark-mode-variables {
     --portal-bg: #{jkl.$color-granitt};
     --portal-text-color: #{jkl.$color-snohvit};
 }
 
 .jkl-portal {
-    @include motion;
+    @include jkl.motion;
     transition-property: color;
     transition-delay: 150ms;
+    color: var(--portal-text-color);
 
     &__sidebar {
         display: none;
@@ -28,7 +25,7 @@
         padding-top: jkl.$spacing-2xl;
     }
 
-    @include medium-device {
+    @include jkl.medium-device {
         &__main {
             padding-top: jkl.$spacing-2xl;
             padding-right: jkl.$spacing-3xl;
@@ -36,7 +33,7 @@
         }
     }
 
-    @include small-device {
+    @include jkl.small-device {
         &__main {
             > h1 {
                 overflow: hidden;
@@ -45,12 +42,12 @@
         }
     }
 
-    @include from-large-device {
+    @include jkl.from-large-device {
         display: grid;
         grid-template:
             "header header header" 96px
             "sidebar main main" minmax(calc(100vh - 96px), auto)
-            "footer footer footer" auto / rem(375px) 1fr;
+            "footer footer footer" auto / jkl.rem(375px) 1fr;
 
         &__header {
             grid-area: header;
@@ -76,7 +73,7 @@
     .jkl-portal-footer {
         padding-top: jkl.$spacing-l;
 
-        @include from-large-device {
+        @include jkl.from-large-device {
             grid-area: footer;
         }
 
@@ -87,18 +84,18 @@
             padding: jkl.$spacing-l;
 
             .jkl-feedback {
-                max-width: rem(640px);
+                max-width: jkl.rem(640px);
             }
 
             .jkl-message-box {
                 max-width: initial;
             }
 
-            @include medium-device {
+            @include jkl.medium-device {
                 padding: jkl.$spacing-xl;
             }
 
-            @include from-large-device {
+            @include jkl.from-large-device {
                 flex-direction: row;
                 padding: jkl.$spacing-2xl jkl.$spacing-4xl;
             }
@@ -106,12 +103,12 @@
 
         &__stamp {
             margin-top: -#{jkl.$spacing-l};
-            width: rem(185px);
-            height: rem(185px);
+            width: jkl.rem(185px);
+            height: jkl.rem(185px);
             opacity: 1;
             display: none;
 
-            @include from-large-device {
+            @include jkl.from-large-device {
                 display: block;
             }
         }
@@ -121,15 +118,11 @@
         padding-top: 0;
         padding-right: 0;
         padding-bottom: 0;
-        @include small-device {
+        @include jkl.small-device {
             padding-left: 0;
         }
-        @include medium-device {
+        @include jkl.medium-device {
             padding-left: 0;
         }
-    }
-
-    &[data-theme="dark"] {
-        color: jkl.$color-snohvit;
     }
 }
