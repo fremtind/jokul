@@ -1,16 +1,13 @@
 @use "sass:map";
-@use "jkl";
+@use "../jkl";
 
-@import "./mixins/all";
-@import "./functions";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --label-color: #{jkl.$color-granitt};
     --label-support-color: #{jkl.$color-stein};
     --label-error-color: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --label-color: #{jkl.$color-snohvit};
     --label-support-color: #{jkl.$color-svaberg};
     --label-error-color: #{jkl.$color-snohvit};
@@ -24,7 +21,7 @@
 
 .jkl-form-support-label {
     @include jkl.text-style("small");
-    @include motion("standard", "lazy");
+    @include jkl.motion("standard", "lazy");
 
     display: block;
     margin-top: jkl.$spacing-xs;
@@ -53,13 +50,13 @@
         color: var(--label-error-color);
 
         .jkl-form-support-label__icon {
-            animation: map.get($jkl--timings, "lazy") cubic-bezier(0, 0, 0.3, 1) map.get($jkl--timings, "expressive")
-                jkl-support-label-icon-entrance forwards;
+            animation: map.get(jkl.$jkl--timings, "lazy") cubic-bezier(0, 0, 0.3, 1)
+                map.get(jkl.$jkl--timings, "expressive") jkl-support-label-icon-entrance forwards;
         }
     }
 
     &--sr-only {
-        @include screenreader-only;
+        @include jkl.screenreader-only;
     }
 }
 
@@ -92,10 +89,10 @@ $label-spacing-small--compact: jkl.$spacing-2xs;
     }
 
     &--sr-only {
-        @include screenreader-only;
+        @include jkl.screenreader-only;
     }
 
-    @include compact-mode {
+    @include jkl.compact-mode {
         &.jkl-label--small {
             @include jkl.text-style("small/small-screen");
             margin-bottom: $label-spacing-small--compact;

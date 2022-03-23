@@ -39,8 +39,7 @@ $focus-color--darkbg: $snohvit;
 
 /// Varslingsfarger / Meldingsfarger.
 /// Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
-/// @access private
-$varslingsfarger: (
+$_varslingsfarger: (
     "suksess": #c8ecd2,
     "feil": #ffc9b2,
     "info": #d9ddff,
@@ -50,5 +49,5 @@ $varslingsfarger: (
 );
 
 @function varslingsfarge($farge) {
-    @return map.get($varslingsfarger, $farge);
+    @return map.get($_varslingsfarger, $farge);
 }

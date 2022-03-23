@@ -2,19 +2,6 @@
 @use "sass:math";
 @use "sass:string";
 
-/**
- * Function for converting a px size to rem;
- */
-
-@function rem($px-size) {
-    @if $px-size == 0 {
-        @return 0;
-    }
-    $rem-size: math.div($px-size, 16px);
-    // Default font size on html element is 100%, equivalent to 16px;
-    @return to-number(#{$rem-size}rem);
-}
-
 ///
 /// Casts a string into a number
 /// https://hugogiraudel.com/2014/01/15/sass-string-to-number/
@@ -99,22 +86,4 @@
     }
 
     @return $value * map.get($units, $unit);
-}
-
-///
-/// Calculate a responsive size value relative to a given screen size
-/// Will return a CSS rule that corresponds to the given pixel size at
-/// the given screen size and scales with changes in screen size
-///
-/// @param {Number} $px-size - Size to calculate from, in px without unit
-/// @param {Number} $screen-width - Screen width to calculate from, in px without unit, default 1400
-/// @param {Number} $screen-height - Screen height to calculate from, in px without unit, default 900
-///
-/// @return `$px-size` expressed as a responsive value
-///
-@function relative-size($px-size, $screen-width: 1400, $screen-height: 900) {
-    $hor-size: math.div($px-size, $screen-width) * 100 * 1vw;
-    $ver-size: math.div($px-size, $screen-height) * 100 * 1vh;
-
-    @return min(#{$hor-size}, #{$ver-size});
 }

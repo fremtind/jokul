@@ -7,7 +7,7 @@
     Usage:
     ```css
     .class {
-        @include screen-between(42px, 420px) {
+        @include jkl.screen-between(42px, 420px) {
             display: none;
         }
     }
@@ -25,7 +25,7 @@
     Usage:
     ```css
     .class {
-        @include screen-from(42px) {
+        @include jkl.screen-from(42px) {
             display: none;
         }
     }
@@ -43,7 +43,7 @@
     Usage:
     ```css
     .class {
-        @include small-device {
+        @include jkl.small-device {
             display: none;
         }
     }

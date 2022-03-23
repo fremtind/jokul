@@ -1,15 +1,12 @@
 @use "../../jkl";
 
-@import "../../mixins/navigation";
-@import "../../mixins/helpers";
-
 .keyboard-demo {
-    @include reset-outline;
+    @include jkl.reset-outline;
 
     padding: 24px 48px;
 
     &:hover {
-        @include keyboard-navigation {
+        @include jkl.keyboard-navigation {
             box-shadow: 0 0 0 2px jkl.$color-stein;
         }
     }

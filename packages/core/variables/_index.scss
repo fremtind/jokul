@@ -2,6 +2,6 @@
 @forward "colors" as color-* hide $varslingsfarger, varslingsfarge;
 @forward "shadow";
 @forward "shadows" as shadow-*;
-@forward "spacing" hide $spacing-new;
+@forward "spacing" hide $spacing;
 @forward "typography" as typography-*;
 @forward "z-index";

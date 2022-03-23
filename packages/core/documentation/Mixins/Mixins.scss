@@ -1,7 +1,5 @@
 @use "../../jkl";
 
-@import "../../functions";
-
 .jkl-mixin-example-table {
     border: 0;
     width: 100%;
@@ -13,19 +11,19 @@
         @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
-        border-bottom: rem(1px) solid;
+        border-bottom: jkl.rem(1px) solid;
         box-sizing: border-box;
     }
 
     &__header {
         font-weight: jkl.$typography-weight-bold;
         border-bottom-color: jkl.$color-granitt;
-        min-height: rem(48px);
+        min-height: jkl.rem(48px);
     }
 
     &__data {
         border-bottom-color: jkl.$color-stein;
         padding-bottom: jkl.$spacing-m;
-        min-height: rem(64px);
+        min-height: jkl.rem(64px);
     }
 }
