@@ -64,7 +64,7 @@ jobs:
 
             - name: Turbo Cache
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               id: turbo-cache
               with:
                   path: node_modules/.cache/turbo
@@ -99,7 +99,7 @@ jobs:
 
             - name: Turbo Cache
               id: turbo-cache
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: node_modules/.cache/turbo
                   key: turbo-${{ github.sha }}
@@ -137,7 +137,7 @@ jobs:
 
             - name: Turbo Cache
               id: turbo-cache
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: node_modules/.cache/turbo
                   key: turbo-${{ github.sha }}
@@ -280,7 +280,7 @@ jobs:
 
             - name: Turbo Cache
               id: turbo-cache
-              uses: actions/cache@v2
+              uses: actions/cache@v3
               with:
                   path: node_modules/.cache/turbo
                   key: turbo-${{ github.sha }}
