@@ -34,6 +34,8 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         align-self: flex-start;
         padding-top: jkl.$spacing-3xs;
         height: rem(24px);
+
+        @include jkl.helper-forced-colors-svg-fallback($color: CanvasText);
     }
 
     &__message {
@@ -46,16 +48,19 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         padding: 0;
         margin-left: auto;
         margin-top: jkl.$spacing-2xs;
-        color: inherit;
         cursor: pointer;
         width: rem(20px);
         height: rem(20px);
+
+        color: inherit;
+        @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
 
         align-self: flex-start;
         flex-shrink: 0;
 
         &:hover {
             color: $dismiss-hover-color;
+            @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
         }
 
         &:focus {
