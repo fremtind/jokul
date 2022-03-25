@@ -168,4 +168,6 @@
             transform: translate(0, -100%);
         }
     }
+
+    @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
 }
