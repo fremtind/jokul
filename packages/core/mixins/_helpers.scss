@@ -1,5 +1,6 @@
 @use "sass:string";
 @use "sass:color";
+@use "sass:list";
 @use "../variables/typography";
 
 @mixin light-mode-variables {
@@ -23,6 +24,39 @@
 
     [data-theme="dark"] {
         @content;
+    }
+}
+
+///
+/// Brukes til å overstyre stiler for bruk i Forced Colors-modus.
+/// Her vil du typisk legge til fallbacks for manglende box-shadow,
+/// og eventuelle andre problemer som oppstår for brukere av høykontrasttemaer.
+/// Se https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
+/// og https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/
+///
+/// @content Innholdet plasseres i et media query som matcher hvis høykontrasttema er i bruk
+///
+@mixin forced-colors-mode {
+    @media screen and (forced-colors: active) {
+        @content;
+    }
+}
+
+$_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "GrayText");
+///
+/// Hjelper for å sette riktig farge på SVGer i Chrome for brukere med Forced Color-modus.
+/// Se https://melanie-richards.com/blog/currentcolor-svg-hcm/ for detaljer
+///
+/// @param {"LinkText" | "ButtonText" | "CanvasText" | "GrayText"} $color - Definer hvilken systemfarge som skal brukes. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
+///
+@mixin forced-colors-svg-fallback($color) {
+    @if not list.index($_valid-forced-colors-text-values, $color) {
+        @error "#{$color} will not be used in Forced Color mode. Valid options are: #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
+    }
+
+    @media screen and (forced-colors: active) {
+        stroke: $color;
+        fill: $color;
     }
 }
 
