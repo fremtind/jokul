@@ -14,7 +14,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 ## [Kom i gang](https://jokul.fremtind.no/komigang/utvikling)
 
 1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
-2. Installer avhengigheter og bygg pakkene med `yarn boot`
+2. Installer avhengigheter og bygg pakkene med `yarn boot` [^windows]
 3. Start portalen lokalt med `yarn dev` og åpne [localhost på port 8000](http://localhost:8000/)
 
 **NB!** Når du sjekker ut en ny branch bør du bygge på nytt for å hindre at gammel bygget kode blir med når du kjører opp eksempler eller portalen. Kommandoen `yarn reboot` sletter alle bygde filer, installerer avhengigheter, og bygger pakkene på nytt.
@@ -148,3 +148,5 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!
+
+[^windows]: På grunn av en bug i patch-package på Windows vil denne kommandoen feile. Enten må du sjekke ut repoet med _UNIX-style line endings_, eller så må du først gjøre `yarn install` (som vil feile på `postinstall`), så manuelt legge til [denne endringen](https://github.com/ds300/patch-package/pull/301/files) i `node_modules/patch-package/dist/patch/parse.js` på linje 53. Deretter kan du kjøre `yarn postinstall` igjen, og så `yarn build`.
