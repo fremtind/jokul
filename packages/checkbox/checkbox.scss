@@ -214,7 +214,7 @@ $checkbox-line-height--compact: rem(28px);
         }
 
         @include jkl.helper-forced-colors-mode {
-            outline: unset;
+            outline: revert;
             border: 1px solid ButtonText;
         }
     }
