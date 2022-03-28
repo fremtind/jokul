@@ -72,6 +72,10 @@ $hamburger-line-spacing: rem(-8px);
         transition-property: background-color, transform, top, bottom;
 
         @include motion(standard, expressive);
+
+        @include jkl.helper-forced-colors-mode {
+            background-color: ButtonText;
+        }
     }
 
     &:hover {
