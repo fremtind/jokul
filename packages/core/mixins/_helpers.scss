@@ -30,7 +30,7 @@
 ///
 /// Brukes til å overstyre stiler for bruk i Forced Colors-modus.
 /// Her vil du typisk legge til fallbacks for manglende box-shadow,
-/// som for eksempel `outline: unset;` og `border: unset;`,
+/// som for eksempel `outline: revert;` og `border: revert;`,
 /// og eventuelle andre problemer som oppstår for brukere av høykontrasttemaer.
 /// Se https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
 /// og https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/
@@ -159,17 +159,17 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "Gra
     // Reset alt som er gjort over hvis brukeren har på forced-colors.
     // Da mister vi box-shadow og er avhengig av at borders og outlines synes.
     @include forced-colors-mode {
-        outline: unset;
-        border-style: unset;
-        outline-style: unset;
+        outline: revert;
+        border-style: revert;
+        outline-style: revert;
 
         &:active,
         &:hover,
         &:focus,
         &:link,
         &:visited {
-            outline: unset !important;
-            outline-style: unset;
+            outline: revert !important;
+            outline-style: revert;
         }
 
         /* Remove the inner border and padding in Firefox */
@@ -177,7 +177,7 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "Gra
         [type="button"]::-moz-focus-inner,
         [type="reset"]::-moz-focus-inner,
         [type="submit"]::-moz-focus-inner {
-            border-style: unset;
+            border-style: revert;
         }
 
         /* Remove dotted lines around object, especially for firefox */
@@ -186,25 +186,25 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "Gra
         a:focus,
         a:link,
         a:visited {
-            outline: unset !important;
-            outline-style: unset;
+            outline: revert !important;
+            outline-style: revert;
         }
 
         button,
         object,
         embed {
-            outline: unset;
+            outline: revert;
         }
 
         /* All Input elements */
         input::-moz-focus-inner {
-            outline: unset;
+            outline: revert;
         }
 
         /* Or more specifically */
         input[type="submit"]::-moz-focus-inner,
         input[type="button"]::-moz-focus-inner {
-            outline: unset;
+            outline: revert;
         }
     }
 }
