@@ -196,5 +196,5 @@
         }
     }
 
-    @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
+    @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
 }

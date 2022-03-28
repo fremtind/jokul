@@ -48,21 +48,16 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "ButtonFace", "Can
 /// Hjelper for å sette riktig farge på SVGer i Chrome for brukere med Forced Color-modus.
 /// Se https://melanie-richards.com/blog/currentcolor-svg-hcm/ for detaljer
 ///
-/// @param {"LinkText" | "ButtonText" | "ButtonFace" | "CanvasText" | "GrayText"} $color - Definer hvilken systemfarge som skal brukes. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
-/// @param {"LinkText" | "ButtonText" | "ButtonFace" | "CanvasText" | "GrayText"} $fill [$color - Hvis du trenger ulik fill og stroke. Bruker default $color.
-/// @param {"LinkText" | "ButtonText" | "ButtonFace" | "CanvasText" | "GrayText"} $stroke [$color] - Hvis du trenger ulik fill og stroke. Bruker default $color.
+/// @param {"LinkText" | "ButtonText" | "ButtonFace" | "CanvasText" | "GrayText"} $stroke - Definer hvilken systemfarge som skal brukes til stroke. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
+/// @param {"LinkText" | "ButtonText" | "ButtonFace" | "CanvasText" | "GrayText"} $fill [null] - Som $stroke, bare for fill. Valgfri.
 ///
-@mixin forced-colors-svg-fallback($color, $fill: $color, $stroke: $color) {
-    @if not list.index($_valid-forced-colors-text-values, $color) {
-        @error "#{$color} will not be used in Forced Color mode. Valid options are: #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
-    }
-
+@mixin forced-colors-svg-fallback($stroke, $fill: null) {
     @if not list.index($_valid-forced-colors-text-values, $stroke) {
-        @error "#{$stroke} will not be used in Forced Color mode. Valid options are: #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
+        @error "#{$stroke} will not be used for stroke in Forced Color mode. Valid options are: #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
     }
 
-    @if not list.index($_valid-forced-colors-text-values, $fill) {
-        @error "#{$fill} will not be used in Forced Color mode. Valid options are: #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
+    @if $fill and not list.index($_valid-forced-colors-text-values, $fill) {
+        @error "#{$fill} will not be used for fill in Forced Color mode. Valid options are: null, #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
     }
 
     @media screen and (forced-colors: active) {

@@ -35,7 +35,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         padding-top: jkl.$spacing-3xs;
         height: rem(24px);
 
-        @include jkl.helper-forced-colors-svg-fallback($color: CanvasText);
+        @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__message {
@@ -53,7 +53,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         height: rem(20px);
 
         color: inherit;
-        @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
+        @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
         @include jkl.helper-forced-colors-mode {
             background-color: ButtonFace;
             margin-top: rem(-1px);
@@ -67,7 +67,7 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
 
         &:hover {
             color: $dismiss-hover-color;
-            @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
+            @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
         }
 
         &:focus {

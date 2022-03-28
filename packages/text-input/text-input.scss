@@ -210,7 +210,7 @@ $text-input-selection-color--inverted: color.scale(
             background-color: revert;
         }
 
-        @include forced-colors-svg-fallback($color: ButtonText);
+        @include forced-colors-svg-fallback($stroke: ButtonText);
     }
 
     /* Modifications for inline version */

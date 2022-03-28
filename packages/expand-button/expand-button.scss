@@ -102,7 +102,7 @@ $focus-ring-width: jkl.rem(2px);
             --jkl-icon-width: #{$arrow-width};
         }
 
-        @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
+        @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
     }
 
     @include jkl.helper-forced-colors-mode {

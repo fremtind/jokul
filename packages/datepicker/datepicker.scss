@@ -24,7 +24,7 @@
     }
 
     & .jkl-text-input__action-button {
-        @include jkl.helper-forced-colors-svg-fallback($color: ButtonText, $fill: ButtonFace);
+        @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);
     }
 
     &__calendar-wrapper {
