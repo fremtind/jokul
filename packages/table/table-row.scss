@@ -150,6 +150,11 @@ $focus-ring-width: jkl.rem(2px);
 
         @include jkl.helper-forced-colors-mode {
             outline: revert;
+            color: ButtonText;
+
+            &:hover {
+                background-color: ButtonFace;
+            }
         }
     }
 
@@ -158,6 +163,10 @@ $focus-ring-width: jkl.rem(2px);
 
         &.jkl-table-row--expandable + [aria-hidden="false"] {
             background-color: var(--table-row-highlight-color);
+        }
+
+        @include jkl.helper-forced-colors-mode {
+            background-color: ButtonFace;
         }
     }
 }
