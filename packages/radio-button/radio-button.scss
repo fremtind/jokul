@@ -60,6 +60,10 @@ $radio-button-dot-padding--compact: rem(3px);
             + .jkl-radio-button__label > .jkl-radio-button__dot::after {
                 animation: dot-in 150ms ease;
                 background-color: currentColor;
+
+                @include jkl.helper-forced-colors-mode {
+                    background-color: Highlight;
+                }
             }
 
             .jkl-radio-button--error & + .jkl-radio-button__label > .jkl-radio-button__dot::after {
@@ -74,6 +78,10 @@ $radio-button-dot-padding--compact: rem(3px);
 
                 & > .jkl-radio-button__dot::before {
                     box-shadow: 0 0 0 rem(2px) var(--radio-button-focus-color);
+
+                    @include jkl.helper-forced-colors-mode {
+                        border: 4px double ButtonText;
+                    }
                 }
             }
         }
@@ -91,6 +99,17 @@ $radio-button-dot-padding--compact: rem(3px);
 
             & > .jkl-radio-button__dot {
                 box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
+
+                @include jkl.helper-forced-colors-mode {
+                    &::before {
+                        border: 2px solid ButtonText;
+                        position: absolute;
+                        top: rem(-1px);
+                        right: rem(-1px);
+                        bottom: rem(-1px);
+                        left: rem(-1px);
+                    }
+                }
             }
         }
 
@@ -139,6 +158,11 @@ $radio-button-dot-padding--compact: rem(3px);
 
             @include motion;
             transition-property: transform;
+
+            @include jkl.helper-forced-colors-mode {
+                top: rem(3px);
+                left: rem(3px);
+            }
         }
 
         // Focus ring
@@ -152,6 +176,11 @@ $radio-button-dot-padding--compact: rem(3px);
             border-radius: 50%;
 
             box-shadow: 0 0 0 rem(1px) transparent;
+        }
+
+        @include jkl.helper-forced-colors-mode {
+            outline: unset;
+            border: 1px solid ButtonText;
         }
     }
 
@@ -193,6 +222,11 @@ $radio-button-dot-padding--compact: rem(3px);
                 top: $radio-button-dot-padding--compact;
                 height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
                 width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+
+                @include jkl.helper-forced-colors-mode {
+                    top: rem(2.35px);
+                    left: rem(2px);
+                }
             }
         }
     }
@@ -216,6 +250,11 @@ $radio-button-dot-padding--compact: rem(3px);
                 top: $radio-button-dot-padding--compact;
                 height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
                 width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+
+                @include jkl.helper-forced-colors-mode {
+                    top: rem(2.35px);
+                    left: rem(2px);
+                }
             }
         }
     }
