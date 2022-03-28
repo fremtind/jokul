@@ -54,6 +54,13 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
 
         color: inherit;
         @include jkl.helper-forced-colors-svg-fallback($color: ButtonText);
+        @include jkl.helper-forced-colors-mode {
+            background-color: ButtonFace;
+            margin-top: rem(-1px);
+            width: rem(32px);
+            height: rem(32px);
+            padding: rem(4px);
+        }
 
         align-self: flex-start;
         flex-shrink: 0;
@@ -105,6 +112,22 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &--success {
         background-color: $bg-color--suksess;
+    }
+
+    @include jkl.helper-forced-colors-mode {
+        border: 4px solid CanvasText;
+
+        &--info {
+            border-style: dotted;
+        }
+
+        &--warning {
+            border-style: dashed;
+        }
+
+        &--error {
+            border-style: double;
+        }
     }
 }
 
