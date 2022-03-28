@@ -93,6 +93,10 @@ $checkbox-line-height--compact: rem(28px);
 
             & > .jkl-checkbox__check-mark::before {
                 box-shadow: 0 0 0 rem(2px) var(--checkbox-focus-color);
+
+                @include jkl.helper-forced-colors-mode {
+                    border: 4px double CanvasText;
+                }
             }
 
             & > .jkl-checkbox__check-mark {
@@ -122,6 +126,17 @@ $checkbox-line-height--compact: rem(28px);
 
             .jkl-checkbox__check-mark {
                 box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
+
+                @include jkl.helper-forced-colors-mode {
+                    &::before {
+                        border: 2px solid CanvasText;
+                        position: absolute;
+                        top: rem(-1px);
+                        right: rem(-1px);
+                        bottom: rem(-1px);
+                        left: rem(-1px);
+                    }
+                }
             }
         }
 
@@ -196,6 +211,7 @@ $checkbox-line-height--compact: rem(28px);
 
         @include jkl.helper-forced-colors-mode {
             outline: unset;
+            border: 1px solid CanvasText;
         }
     }
 
