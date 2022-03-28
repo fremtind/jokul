@@ -23,6 +23,10 @@
         padding-top: rem(10px);
     }
 
+    & .jkl-text-input__action-button {
+        @include jkl.helper-forced-colors-svg-fallback($color: ButtonText, $fill: ButtonFace);
+    }
+
     &__calendar-wrapper {
         position: absolute;
         top: calc(100% + #{rem(14px)});
