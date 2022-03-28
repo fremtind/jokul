@@ -31,6 +31,14 @@
         @include motion("standard", "lazy");
         transition-property: left, width;
         will-change: left, width;
+
+        @include jkl.helper-forced-colors-mode {
+            background-color: Highlight;
+        }
+    }
+
+    @include jkl.helper-forced-colors-mode {
+        border-color: GreyText;
     }
 }
 
@@ -54,9 +62,5 @@
 
     &[aria-selected="true"] {
         @include no-grow-bold;
-    }
-
-    @include jkl.helper-forced-colors-mode {
-        border: revert;
     }
 }
