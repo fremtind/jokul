@@ -58,6 +58,12 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "Gra
     @media screen and (forced-colors: active) {
         stroke: $color;
         fill: $color;
+
+        & svg,
+        & path {
+            stroke: $color;
+            fill: $color;
+        }
     }
 }
 
