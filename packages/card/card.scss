@@ -155,6 +155,11 @@ $card-padding-normal: jkl.$spacing-l;
             outline: func.rem(2px) solid var(--jkl-color);
         }
     }
+
+    @include jkl.helper-forced-colors-mode {
+        outline: unset;
+        border: rem(2px) solid LinkText;
+    }
 }
 
 @include jkl.helper-light-mode-variables {
@@ -207,6 +212,10 @@ $card-padding-normal: jkl.$spacing-l;
     &--with-shadow {
         box-shadow: var(--task-card-shadow);
     }
+
+    @include jkl.helper-forced-colors-mode {
+        border: rem(2px) solid CanvasText;
+    }
 }
 
 .jkl-info-card {
@@ -223,5 +232,9 @@ $card-padding-normal: jkl.$spacing-l;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    @include jkl.helper-forced-colors-mode {
+        border: rem(2px) solid CanvasText;
     }
 }
