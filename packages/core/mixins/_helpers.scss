@@ -30,6 +30,7 @@
 ///
 /// Brukes til å overstyre stiler for bruk i Forced Colors-modus.
 /// Her vil du typisk legge til fallbacks for manglende box-shadow,
+/// som for eksempel `outline: unset;` og `border: unset;`,
 /// og eventuelle andre problemer som oppstår for brukere av høykontrasttemaer.
 /// Se https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
 /// og https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/
