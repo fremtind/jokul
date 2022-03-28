@@ -197,6 +197,10 @@ $checkbox-line-height--compact: rem(28px);
             opacity: 0;
             @include motion;
             transition-property: opacity, border-color;
+
+            @include jkl.helper-forced-colors-mode {
+                border-color: Highlight;
+            }
         }
 
         // This is the basis of the focus ring
