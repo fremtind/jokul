@@ -21,6 +21,14 @@
             }
         }
 
+        @include jkl.helper-forced-colors-mode {
+            border: unset;
+
+            &:focus {
+                outline: unset;
+            }
+        }
+
         &--play {
             background: url("./F_Play_Knapp.svg") no-repeat center;
         }

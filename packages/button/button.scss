@@ -56,13 +56,10 @@ a.jkl-button {
     cursor: pointer;
     user-select: none;
     overflow: visible;
+    position: relative;
 
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
-
-    border: none;
-    outline: none;
-    position: relative;
 
     @include motion;
     transform-origin: 50% 90%;
@@ -230,6 +227,10 @@ a.jkl-button {
 
             &::after {
                 box-shadow: 0 0 0 $focus-ring-width var(--button-focus-color);
+            }
+
+            @include jkl.helper-forced-colors-mode {
+                border: unset;
             }
         }
 

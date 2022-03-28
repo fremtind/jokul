@@ -20,8 +20,6 @@ $hamburger-line-spacing: rem(-8px);
 
 .jkl-hamburger {
     @include reset-outline;
-    border: none;
-    outline: none;
     cursor: pointer;
     background-color: transparent;
     height: $bounding-touch-size;

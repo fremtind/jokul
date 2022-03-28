@@ -55,4 +55,8 @@
     &[aria-selected="true"] {
         @include no-grow-bold;
     }
+
+    @include jkl.helper-forced-colors-mode {
+        border: unset;
+    }
 }

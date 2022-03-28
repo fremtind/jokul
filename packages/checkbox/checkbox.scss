@@ -193,6 +193,10 @@ $checkbox-line-height--compact: rem(28px);
             bottom: rem(-2px);
             left: rem(-2px);
         }
+
+        @include jkl.helper-forced-colors-mode {
+            outline: unset;
+        }
     }
 
     &--inline {

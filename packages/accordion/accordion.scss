@@ -81,6 +81,11 @@
         html:not([data-mousenavigation]) &:focus {
             box-shadow: inset 0 0 0 2px var(--accordion-focus);
         }
+
+        @include jkl.helper-forced-colors-mode {
+            border: unset;
+            outline: unset;
+        }
     }
 
     &--expanded {

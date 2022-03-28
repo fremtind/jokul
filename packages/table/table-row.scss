@@ -147,6 +147,10 @@ $focus-ring-width: jkl.rem(2px);
         .jkl-table--collapse-to-list[data-collapse] :not(thead) > &:hover {
             @include responsive-table-row--hover;
         }
+
+        @include jkl.helper-forced-colors-mode {
+            outline: unset;
+        }
     }
 
     &--clicked {

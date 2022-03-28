@@ -156,7 +156,6 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
         align-items: center;
         background-color: transparent;
         color: var(--calendar-text-color);
-        border: none;
         width: rem(32px);
         border-radius: 50%;
         @include jkl.text-style("body/large-screen");
@@ -257,8 +256,6 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
     td button {
         @include reset-outline;
         appearance: none;
-        border: 0;
-        outline: none;
         position: relative;
 
         box-sizing: border-box;
