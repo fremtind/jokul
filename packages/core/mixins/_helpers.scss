@@ -158,17 +158,17 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "Gra
     // Reset alt som er gjort over hvis brukeren har på forced-colors.
     // Da mister vi box-shadow og er avhengig av at borders og outlines synes.
     @include forced-colors-mode {
-        outline: initial;
-        border-style: initial;
-        outline-style: initial;
+        outline: unset;
+        border-style: unset;
+        outline-style: unset;
 
         &:active,
         &:hover,
         &:focus,
         &:link,
         &:visited {
-            outline: initial !important;
-            outline-style: initial;
+            outline: unset !important;
+            outline-style: unset;
         }
 
         /* Remove the inner border and padding in Firefox */
@@ -176,7 +176,7 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "Gra
         [type="button"]::-moz-focus-inner,
         [type="reset"]::-moz-focus-inner,
         [type="submit"]::-moz-focus-inner {
-            border-style: initial;
+            border-style: unset;
         }
 
         /* Remove dotted lines around object, especially for firefox */
@@ -185,25 +185,25 @@ $_valid-forced-colors-text-values: ("LinkText", "ButtonText", "CanvasText", "Gra
         a:focus,
         a:link,
         a:visited {
-            outline: initial !important;
-            outline-style: initial;
+            outline: unset !important;
+            outline-style: unset;
         }
 
         button,
         object,
         embed {
-            outline: initial;
+            outline: unset;
         }
 
         /* All Input elements */
         input::-moz-focus-inner {
-            outline: initial;
+            outline: unset;
         }
 
         /* Or more specifically */
         input[type="submit"]::-moz-focus-inner,
         input[type="button"]::-moz-focus-inner {
-            outline: initial;
+            outline: unset;
         }
     }
 }
