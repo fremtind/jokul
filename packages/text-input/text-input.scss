@@ -202,7 +202,8 @@ $text-input-selection-color--inverted: color.scale(
         }
 
         @include jkl.helper-forced-colors-mode {
-            border: unset;
+            border: revert;
+            backgroun-color: revert;
         }
     }
 

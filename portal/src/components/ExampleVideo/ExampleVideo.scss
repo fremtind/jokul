@@ -22,10 +22,10 @@
         }
 
         @include jkl.helper-forced-colors-mode {
-            border: unset;
+            border: revert;
 
             &:focus {
-                outline: unset;
+                outline: revert;
             }
         }
 

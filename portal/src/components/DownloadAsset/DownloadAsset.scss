@@ -41,7 +41,7 @@
             outline: 0;
 
             @include jkl.helper-forced-colors-mode {
-                outline: unset;
+                outline: revert;
             }
         }
     }

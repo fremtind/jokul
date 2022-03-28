@@ -157,7 +157,7 @@ $card-padding-normal: jkl.$spacing-l;
     }
 
     @include jkl.helper-forced-colors-mode {
-        outline: unset;
+        outline: revert;
         border: rem(2px) solid LinkText;
     }
 }

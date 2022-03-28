@@ -230,7 +230,7 @@ a.jkl-button {
             }
 
             @include jkl.helper-forced-colors-mode {
-                border: unset;
+                border: revert;
             }
         }
 

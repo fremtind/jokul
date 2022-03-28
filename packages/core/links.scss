@@ -74,7 +74,7 @@ $link-underline-thickness--hover: jkl.rem(2px);
     }
 
     @include jkl.helper-forced-colors-mode {
-        outline: unset;
+        outline: revert;
     }
 }
 
