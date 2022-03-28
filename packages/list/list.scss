@@ -126,4 +126,24 @@ $list-check-color--inverted: jkl.$color-suksess--darkbg;
             background-image: var(--jkl-list-marker--cross);
         }
     }
+
+    @include jkl.helper-forced-colors-mode {
+        &:not(.jkl-list--ordered) > .jkl-list__item:not(.jkl-list__item--iconed) {
+            list-style: disc solid-diamond(CanvasText);
+        }
+
+        & &:not(.jkl-list--ordered, .jkl-list--iconed) > .jkl-list__item:not(.jkl-list__item--iconed) {
+            list-style: disc outline-diamond(CanvasText);
+        }
+
+        & .jkl-list__item {
+            &--check::before {
+                background-image: check(CanvasText, Canvas);
+            }
+
+            &--cross::before {
+                background-image: cross(CanvasText);
+            }
+        }
+    }
 }
