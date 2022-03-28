@@ -72,6 +72,8 @@ $max-feedback-input-width: 30rem;
     @include motion;
     transition-property: transform, color;
 
+    @include jkl.helper-forced-colors-svg-fallback($color: ButtonFace, $fill: ButtonText);
+
     &::before,
     &::after {
         content: "";
