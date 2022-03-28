@@ -81,11 +81,6 @@
         html:not([data-mousenavigation]) &:focus {
             box-shadow: inset 0 0 0 2px var(--accordion-focus);
         }
-
-        @include jkl.helper-forced-colors-mode {
-            border: unset;
-            outline: unset;
-        }
     }
 
     &--expanded {
@@ -126,6 +121,33 @@
         height: auto;
         padding: jkl.$spacing-m jkl.$spacing-l jkl.$spacing-xl jkl.$spacing-l;
         color: inherit; // Make content same color as rest of page text
+    }
+
+    @include jkl.helper-forced-colors-mode {
+        &:nth-child(n) {
+            border-top: rem(2px) solid ButtonText;
+
+            &:hover {
+                border-top: rem(2px) solid ButtonText;
+
+                + .jkl-accordion-item {
+                    border-top: rem(2px) solid ButtonText;
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: rem(2px) solid ButtonText;
+
+            &:hover {
+                border-bottom: rem(2px) solid ButtonText;
+            }
+        }
+
+        &__title {
+            background-color: ButtonFace;
+            outline: revert;
+        }
     }
 }
 
