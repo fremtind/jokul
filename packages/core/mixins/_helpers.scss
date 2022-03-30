@@ -43,13 +43,22 @@
     }
 }
 
-$_valid-forced-colors-text-values: ("LinkText", "ButtonText", "ButtonFace", "CanvasText", "GrayText");
+$_valid-forced-colors-text-values: (
+    "Canvas",
+    "CanvasText",
+    "LinkText",
+    "GrayText",
+    "Highlight",
+    "HighlightText",
+    "ButtonFace",
+    "ButtonText"
+);
 ///
 /// Hjelper for å sette riktig farge på SVGer i Chrome for brukere med Forced Color-modus.
 /// Se https://melanie-richards.com/blog/currentcolor-svg-hcm/ for detaljer
 ///
-/// @param {"LinkText" | "ButtonText" | "ButtonFace" | "CanvasText" | "GrayText"} $stroke - Definer hvilken systemfarge som skal brukes til stroke. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
-/// @param {"LinkText" | "ButtonText" | "ButtonFace" | "CanvasText" | "GrayText"} $fill [null] - Som $stroke, bare for fill. Valgfri.
+/// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $stroke - Definer hvilken systemfarge som skal brukes til stroke. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
+/// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $fill [null] - Som $stroke, bare for fill. Valgfri.
 ///
 @mixin forced-colors-svg-fallback($stroke, $fill: null) {
     @if not list.index($_valid-forced-colors-text-values, $stroke) {
