@@ -33,7 +33,10 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
     const remValue = pxValue !== "N/A" ? parseInt(pxValue) / baseFontSize : pxValue;
 
     // Bruker ikke useBrowserPreferences her pga sirkulær avhengighet. Ikke følg dette eksempelet!
-    const forcedColors = window && window.matchMedia ? window.matchMedia("(forced-colors: active)").matches : false;
+    const forcedColors =
+        typeof window !== "undefined" && window.matchMedia
+            ? window.matchMedia("(forced-colors: active)").matches
+            : false;
 
     return (
         <tr className="jkl-portal-spacing-example-table__row">
