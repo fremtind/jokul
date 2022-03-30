@@ -84,9 +84,15 @@ const setModeFactory = (knob) => {
 Cypress.Commands.add("takeSnapshots", (options = {}) => {
     const variants = options.variants || ["__DEFAULT__"];
     const variantsChoiceType = variants.length > 3 ? "select" : "checkbox";
+    const forcedColorsActive = window.matchMedia("(forced-colors: active)").matches;
 
     variants.forEach((variant) => {
         doSnapshot(options, variant, variantsChoiceType);
+
+        if (forcedColorsActive) {
+            // forced-colors har ikke noe konsept om lyst eller mørkt tema – bare brukerens valgte farger
+            return;
+        }
 
         cy.setDarkMode();
         doSnapshot(options, variant, variantsChoiceType);
@@ -108,10 +114,14 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
             options.setup();
         }
 
+        const snapshotConfig = {
+            separator: forcedColorsActive ? ` in high contrast #` : undefined,
+        };
+
         if (typeof options.customSelector === "function") {
-            options.customSelector().toMatchImageSnapshot();
+            options.customSelector().toMatchImageSnapshot(snapshotConfig);
         } else {
-            cy.getComponent().eq(componentIndex).toMatchImageSnapshot();
+            cy.getComponent().eq(componentIndex).toMatchImageSnapshot(snapshotConfig);
         }
 
         if (typeof options.teardown === "function") {
