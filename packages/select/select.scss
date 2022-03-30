@@ -345,8 +345,6 @@ $select-search-input-selection-color--inverted: color.scale(
     @include motion;
     transition-property: transform, color;
 
-    @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText);
-
     &__up,
     &__down {
         margin: 0;
@@ -374,5 +372,9 @@ $select-search-input-selection-color--inverted: color.scale(
             @include motion("standard", "expressive");
             transform: translate(0, -100%);
         }
+    }
+
+    .jkl-select & {
+        @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 }
