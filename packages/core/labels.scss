@@ -39,7 +39,7 @@
         margin-bottom: -#{jkl.rem(6px)};
         margin-right: -#{$icon-width};
 
-        @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText);
+        @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText, $fill: Canvas);
     }
 
     &--compact {
