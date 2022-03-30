@@ -19,6 +19,13 @@ export interface UseAnimatedHeightOptions {
      */
     timing?: Timing;
     onTransitionStart?: (isOpening: boolean) => void;
+    /**
+     * Kalles rett etter at elementet har fått display: block; i stedet for hidden;
+     * Nyttig om du må flytte fokus inn i elementet og ikke vil vente til animasjonen er ferdig.
+     * Her er ikke innholdet _visuelt_ synlig ennå, men det er "synlig" for DOM i den
+     * forstand at det _ikke_ er display: hidden;
+     */
+    onFirstVisible?: () => void;
     onTransitionEnd?: (isOpen: boolean) => void;
 }
 
@@ -72,6 +79,9 @@ export function useAnimatedHeight<T extends HTMLElement>(
             if (element) {
                 element.removeAttribute("style");
             }
+            if (isOpen) {
+                options?.onFirstVisible?.();
+            }
             options?.onTransitionEnd?.(isOpen); // make sure to call callback when animation is off
             return;
         }
@@ -82,6 +92,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
             element.style.display = "block";
             element.style.overflow = "hidden";
             if (isOpen) {
+                options?.onFirstVisible?.();
                 element.style.height = "0";
                 element.style.height = `${element.scrollHeight}px`;
             } else {
