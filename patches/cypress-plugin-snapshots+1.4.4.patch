@@ -1,12 +1,44 @@
 diff --git a/node_modules/cypress-plugin-snapshots/plugin.js b/node_modules/cypress-plugin-snapshots/plugin.js
-index 2a60a90..66b0913 100644
+index 2a60a90..09d82cf 100644
 --- a/node_modules/cypress-plugin-snapshots/plugin.js
 +++ b/node_modules/cypress-plugin-snapshots/plugin.js
-@@ -26,6 +26,7 @@ function initPlugin(on, globalConfig = {
+@@ -26,6 +26,11 @@ function initPlugin(on, globalConfig = {
        args.push('--font-render-hinting=medium');
        args.push('--enable-font-antialiasing');
        args.push('--disable-gpu');
 +      args.push("--force-prefers-reduced-motion");
++
++      if (process.env.CYPRESS_FORCED_COLORS === true || process.env.CYPRESS_FORCED_COLORS === "true") {
++        args.push("--force-high-contrast");
++      }
      }
- 
+
      return launchOptions;
+diff --git a/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js b/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js
+index 500b491..0a02a61 100644
+--- a/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js
++++ b/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js
+@@ -15,9 +15,7 @@ async function matchImageSnapshot(data = {}) {
+     dataType,
+     image,
+     options,
+-    snapshotTitle,
+     subject,
+-    testFile,
+   } = data;
+   if (!image) {
+     throw new Error(`'image' not defined`);
+@@ -25,6 +23,13 @@ async function matchImageSnapshot(data = {}) {
+     throw new Error(`'image.devicePixelRatio' not defined`);
+   }
+
++  let testFile = data.testFile;
++  let snapshotTitle = data.snapshotTitle;
++  if (process.env.CYPRESS_FORCED_COLORS === true || process.env.CYPRESS_FORCED_COLORS === "true") {
++    testFile = `HighContrast_${testFile}`;
++    snapshotTitle = `HighContrast_${snapshotTitle}`;
++  }
++
+   const actualFilename = getSnapshotFilename(testFile, snapshotTitle, IMAGE_TYPE_ACTUAL);
+   const diffFilename = getSnapshotFilename(testFile, snapshotTitle, IMAGE_TYPE_DIFF);
+   const config = merge({}, cloneDeep(getConfig()), options);

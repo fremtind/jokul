@@ -120,8 +120,9 @@ jobs:
             fail-fast: false
             matrix:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
-                group: [1, 2, 3, 4, 5]
-                groups: [5]
+                group: [1, 2, 3, 4]
+                groups: [4]
+                forced-colors: [true, false]
         permissions:
             actions: write
             contents: read
@@ -164,12 +165,14 @@ jobs:
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 280
                   spec: ${{ steps.parallel.outputs.tests }}
+              env:
+                  CYPRESS_FORCED_COLORS: ${{ matrix.forced-colors }}
 
             - name: Upload screenshots
               uses: actions/upload-artifact@v2
               if: failure()
               with:
-                  name: cypress-screenshots-${{ matrix.group }}
+                  name: cypress-screenshots-${{ matrix.forced-colors }}-${{ matrix.group }}
                   path: |
                       cypress/screenshots
                       packages/**/integration/**/*.actual.png
@@ -192,7 +195,7 @@ jobs:
               uses: actions/upload-artifact@v2
               if: steps.verify-changed-files.outputs.files_changed == 'true'
               with:
-                  name: cypress-snapshots-${{ matrix.group }}
+                  name: cypress-snapshots-${{ matrix.forced-colors }}-${{ matrix.group }}
                   # Inkluder en fil fra rotnivå for å beholde hele mappestrukturen i artefakten
                   # siden vi aldri vet hvilke mapper som ellers blir "rot" (hvilken pakke som
                   # får nye snapshots).
@@ -221,31 +224,49 @@ jobs:
               # bygget markeres som grønt.
               continue-on-error: true
               with:
-                  name: cypress-snapshots-1
+                  name: cypress-snapshots-false-1
 
             - name: Download snapshots
               uses: actions/download-artifact@v2
               continue-on-error: true
               with:
-                  name: cypress-snapshots-2
+                  name: cypress-snapshots-false-2
 
             - name: Download snapshots
               uses: actions/download-artifact@v2
               continue-on-error: true
               with:
-                  name: cypress-snapshots-3
+                  name: cypress-snapshots-false-3
 
             - name: Download snapshots
               uses: actions/download-artifact@v2
               continue-on-error: true
               with:
-                  name: cypress-snapshots-4
+                  name: cypress-snapshots-false-4
 
             - name: Download snapshots
               uses: actions/download-artifact@v2
               continue-on-error: true
               with:
-                  name: cypress-snapshots-5
+                  name: cypress-snapshots-true-1
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-true-2
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-true-3
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v2
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-true-4
 
             - name: Commit snapshots
               run: |
