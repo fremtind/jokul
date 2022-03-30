@@ -15,7 +15,7 @@ index 2a60a90..09d82cf 100644
 
      return launchOptions;
 diff --git a/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js b/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js
-index 500b491..0a02a61 100644
+index 500b491..4677b53 100644
 --- a/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js
 +++ b/node_modules/cypress-plugin-snapshots/src/tasks/matchImageSnapshot.js
 @@ -15,9 +15,7 @@ async function matchImageSnapshot(data = {}) {
@@ -35,8 +35,8 @@ index 500b491..0a02a61 100644
 +  let testFile = data.testFile;
 +  let snapshotTitle = data.snapshotTitle;
 +  if (process.env.CYPRESS_FORCED_COLORS === true || process.env.CYPRESS_FORCED_COLORS === "true") {
-+    testFile = `HighContrast_${testFile}`;
-+    snapshotTitle = `HighContrast_${snapshotTitle}`;
++    testFile = `HighContrast ${testFile}`;
++    snapshotTitle = `HighContrast ${snapshotTitle}`;
 +  }
 +
    const actualFilename = getSnapshotFilename(testFile, snapshotTitle, IMAGE_TYPE_ACTUAL);
