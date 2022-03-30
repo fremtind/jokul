@@ -120,8 +120,8 @@ jobs:
             fail-fast: false
             matrix:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
-                group: [1, 2, 3, 4]
-                groups: [4]
+                group: [1, 2, 3]
+                groups: [3]
                 forced-colors: [true, false]
         permissions:
             actions: write
@@ -200,7 +200,7 @@ jobs:
                   # siden vi aldri vet hvilke mapper som ellers blir "rot" (hvilken pakke som
                   # får nye snapshots).
                   path: |
-                      .cypress.json
+                      cypress.json
                       ${{ steps.verify-changed-files.outputs.changed_files }}
 
     snapshots:
@@ -242,12 +242,6 @@ jobs:
               uses: actions/download-artifact@v2
               continue-on-error: true
               with:
-                  name: cypress-snapshots-false-4
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v2
-              continue-on-error: true
-              with:
                   name: cypress-snapshots-true-1
 
             - name: Download snapshots
@@ -261,12 +255,6 @@ jobs:
               continue-on-error: true
               with:
                   name: cypress-snapshots-true-3
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v2
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true-4
 
             - name: Commit snapshots
               run: |
