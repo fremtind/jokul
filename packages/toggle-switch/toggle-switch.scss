@@ -173,6 +173,7 @@ $disabled-color: jkl.$color-stein;
             &::before {
                 background-color: GrayText;
             }
+
             &::after {
                 background-color: ButtonText;
             }
@@ -187,6 +188,7 @@ $disabled-color: jkl.$color-stein;
                 &::before {
                     background-color: GrayText;
                 }
+
                 &::after {
                     background-color: ButtonFace;
                 }
