@@ -31,13 +31,21 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
     };
     const baseFontSize = 16; // 1rem = 16px
     const remValue = pxValue !== "N/A" ? parseInt(pxValue) / baseFontSize : pxValue;
+
+    // Bruker ikke useBrowserPreferences her pga sirkulær avhengighet. Ikke følg dette eksempelet!
+    const forcedColors = window && window.matchMedia ? window.matchMedia("(forced-colors: active)").matches : false;
+
     return (
         <tr className="jkl-portal-spacing-example-table__row">
             <td data-header="Spacing:" className="jkl-portal-spacing-example-table__data">
                 <div className={`jkl-${spacing}--top`} style={{ display: "none" }} ref={ref} />
                 <div
                     aria-label={`${spacing},  ${pxValue}`}
-                    style={{ backgroundColor: "currentColor", width: `${remValue}rem`, height: `${remValue}rem` }}
+                    style={{
+                        backgroundColor: forcedColors ? "CanvasText" : "currentColor",
+                        width: `${remValue}rem`,
+                        height: `${remValue}rem`,
+                    }}
                 />
             </td>
             <td data-header="Variabel:" className="jkl-portal-spacing-example-table__data">
