@@ -82,6 +82,7 @@ const setModeFactory = (knob) => {
 ].map((knob) => setModeFactory(knob));
 
 Cypress.Commands.add("takeSnapshots", (options = {}) => {
+    const pause = options.pause || false;
     const variants = options.variants || ["__DEFAULT__"];
     const variantsChoiceType = variants.length > 3 ? "select" : "checkbox";
     const forcedColorsActive = window.matchMedia("(forced-colors: active)").matches;
@@ -122,6 +123,10 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
             options.customSelector().toMatchImageSnapshot(snapshotConfig);
         } else {
             cy.getComponent().eq(componentIndex).toMatchImageSnapshot(snapshotConfig);
+        }
+
+        if (pause) {
+            cy.pause();
         }
 
         if (typeof options.teardown === "function") {

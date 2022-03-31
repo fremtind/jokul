@@ -55,6 +55,15 @@ declare namespace Cypress {
 
     type TakeSnapshotsOptions<Subject> = {
         /**
+         * Kjører cy.pause() etter snapshots blir tatt, én gang per variant og tema,
+         * så du kan inspisere tilstanden selv. Legg til flere pauser i support/index.js
+         * om du trenger.
+         *
+         * Om du vil feilsøke noe inne i setup/teardown må du legge til cy.pause() selv
+         * i testen din.
+         */
+        pause?: boolean;
+        /**
          * Gjør det du trenger for å gjøre klart eksempelet for snapshot.
          *
          * Funksjon som kalles før hver snapshot (altså to ganger per `takeSnapshot`).
