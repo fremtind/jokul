@@ -40,6 +40,9 @@ describe("Select", () => {
             setup: () => {
                 cy.toggleSelectMenu("produsent").selectValue("3");
             },
+            teardown: () => {
+                cy.toggleSelectMenu("produsent");
+            },
         });
 
         cy.takeSnapshots({

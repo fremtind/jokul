@@ -24,15 +24,16 @@ Cypress.Commands.add("uncheckInput", (inputName) => {
 });
 
 Cypress.Commands.add("toggleSelectMenu", (inputName) => {
-    cy.get(`button[name=${inputName}-btn]`).first().click().wait(300);
+    cy.get(`button[name=${inputName}-btn]`).first().click();
+    cy.wait(100);
 });
 
 Cypress.Commands.add("selectValue", (value) => {
-    cy.get(`button[value=${value}]`).first().click();
+    cy.get(`button[role="option"][value=${value}]`).first().click();
 });
 
 Cypress.Commands.add("focusSelectValue", (value) => {
-    cy.get(`button[value=${value}]`).first().focus();
+    cy.get(`button[role="option"][value=${value}]`).first().focus();
 });
 
 Cypress.Commands.add("focusInput", (inputName) => {
