@@ -160,7 +160,6 @@ jobs:
               with:
                   install-command: yarn ci:install-cypress
                   browser: chrome
-                  headless: true
                   start: yarn serve
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 280
