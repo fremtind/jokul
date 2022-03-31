@@ -24,7 +24,7 @@ Cypress.Commands.add("uncheckInput", (inputName) => {
 });
 
 Cypress.Commands.add("toggleSelectMenu", (inputName) => {
-    cy.get(`button[name=${inputName}-btn]`).first().click();
+    cy.get(`button[name=${inputName}-btn]`).first().click().wait(300);
 });
 
 Cypress.Commands.add("selectValue", (value) => {
