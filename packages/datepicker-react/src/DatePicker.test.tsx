@@ -2,7 +2,6 @@ import { act, render, screen, cleanup, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-
 import { DatePicker } from ".";
 
 describe("Datepicker", () => {
@@ -241,7 +240,7 @@ describe("Datepicker", () => {
         const openCalendarButtonElement = screen.getByText("Åpne kalender");
 
         await act(async () => {
-            await userEvent.click(openCalendarButtonElement);
+            await userEvent.click(openCalendarButtonElement, { skipHover: true });
         });
         jest.runAllTimers();
 
@@ -267,8 +266,8 @@ describe("Datepicker", () => {
         expect(input).toHaveValue("01.09.2020");
 
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement); // Close calendar
-            await userEvent.click(toggleCalendarButtonElement); // Open calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Close calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Open calendar
         });
 
         expect(input).toHaveValue("");
@@ -289,8 +288,8 @@ describe("Datepicker", () => {
         expect(input).toHaveValue("01.09.2020");
 
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement); // Close calendar
-            await userEvent.click(toggleCalendarButtonElement); // Open calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Close calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Open calendar
         });
 
         expect(input).toHaveValue("01.09.2020");
@@ -311,8 +310,8 @@ describe("Datepicker", () => {
         expect(input).toHaveValue("01.09.2020");
 
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement); // Close calendar
-            await userEvent.click(toggleCalendarButtonElement); // Open calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Close calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Open calendar
         });
 
         expect(input).toHaveValue("01.09.2020");
@@ -333,8 +332,8 @@ describe("Datepicker", () => {
         expect(input).toHaveValue("02.09.2020");
 
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement); // Close calendar
-            await userEvent.click(toggleCalendarButtonElement); // Open calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Close calendar
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Open calendar
         });
 
         expect(input).toHaveValue("");
@@ -349,8 +348,8 @@ describe("Datepicker", () => {
         const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
 
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement);
-            await userEvent.click(screen.getByText("31"));
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true });
+            await userEvent.click(screen.getByText("31"), { skipHover: true });
         });
 
         expect(onChangeFn).toHaveBeenCalledWith(new Date(2019, 9, 31), undefined, {
@@ -425,7 +424,7 @@ describe("Datepicker", () => {
         const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
 
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement);
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true });
         });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
@@ -458,7 +457,7 @@ describe("Datepicker", () => {
 
         const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement);
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true });
             await userEvent.click(screen.getByText("Click"));
         });
 
@@ -479,21 +478,21 @@ describe("Datepicker", () => {
         const input = screen.getByLabelText("Velg dato");
         const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
         await act(async () => {
-            await userEvent.click(input);
-            await userEvent.click(toggleCalendarButtonElement); // Close calendar
+            await userEvent.click(input, { skipHover: true });
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Close calendar
         });
 
         expect(onBlur).toHaveBeenCalledTimes(0);
 
         await act(async () => {
-            await userEvent.click(toggleCalendarButtonElement); // Open calendar
-            await userEvent.click(screen.getByText("21"));
+            await userEvent.click(toggleCalendarButtonElement, { skipHover: true }); // Open calendar
+            await userEvent.click(screen.getByText("21"), { skipHover: true });
         });
 
         expect(onBlur).toHaveBeenCalledTimes(0);
 
         await act(async () => {
-            await userEvent.click(screen.getByText("Click")); // Click button outside component
+            await userEvent.click(screen.getByText("Click"), { skipHover: true }); // Click button outside component
         });
 
         expect(onBlur).toHaveBeenCalledWith(new Date(2019, 9, 21), expect.anything());
