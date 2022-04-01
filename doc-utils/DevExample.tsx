@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { StrictMode, FC } from "react";
 import { ComponentExample, Props as ComponentExampleProps } from "./ComponentExample";
 
 interface Props extends ComponentExampleProps {
@@ -8,8 +8,10 @@ interface Props extends ComponentExampleProps {
 
 export const DevExample: FC<Props> = ({ title, knobs, component, scrollable }) => {
     return (
-        <div className="jkl-dev-example">
-            <ComponentExample title={title} knobs={knobs} component={component} scrollable={scrollable} />
-        </div>
+        <StrictMode>
+            <div className="jkl-dev-example">
+                <ComponentExample title={title} knobs={knobs} component={component} scrollable={scrollable} />
+            </div>
+        </StrictMode>
     );
 };
