@@ -1,6 +1,12 @@
 import { DataTestAutoId, Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
+import {
+    useAnimatedHeight,
+    useClickOutside,
+    useFocusOutside,
+    useKeyListener,
+    usePreviousValue,
+} from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
@@ -120,7 +126,6 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         const inputRef = useRef<HTMLInputElement>(null);
         const textboxRef = (ref as RefObject<HTMLInputElement>) || inputRef;
         const [calendarRef] = useAnimatedHeight(!state.calendarHidden);
-        const isFirstRenderRef = useRef(true);
 
         const onClickCalendarDay = (e: ChangeEvent<ChangeDate>) => {
             dispatch({ type: "SELECT_DATE_IN_CALENDAR", payload: e.target.date });
@@ -160,22 +165,31 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             textboxRef.current && textboxRef.current.focus();
         });
 
+        const previousDate = usePreviousValue(state.date);
+        const previousDateString = usePreviousValue(state.dateString);
+        const previousError = usePreviousValue(state.error);
         useEffect(() => {
-            if (!isFirstRenderRef.current && onChange) {
+            if (!onChange) {
+                return;
+            }
+
+            const dateHasChanged = (previousDate || state.date) && state.date !== previousDate;
+            const dateStringHasChanged =
+                (previousDateString || state.dateString) && state.dateString !== previousDateString;
+            const errorHasChanged = (previousError || state.error) && state.error !== previousError;
+
+            if (dateHasChanged || dateStringHasChanged || errorHasChanged) {
                 onChange(state.date, undefined, { error: state.error, value: state.dateString });
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [state.date, state.dateString, state.error]);
+        }, [state.date, state.dateString, state.error, previousDate, previousDateString, previousError]);
 
+        const previousValue = usePreviousValue(value);
         useEffect(() => {
-            if (!isFirstRenderRef.current) {
+            if (value !== previousValue) {
                 dispatch({ type: "VALUE_PROP_CHANGED", payload: value });
             }
-        }, [value]);
-
-        useEffect(() => {
-            isFirstRenderRef.current = false;
-        }, []);
+        }, [value, previousValue]);
 
         return (
             <div className={componentClassName}>
