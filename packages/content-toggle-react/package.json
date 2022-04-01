@@ -38,10 +38,10 @@
         "@fremtind/jkl-content-toggle": "^2.0.18"
     },
     "peerDependencies": {
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-dom": "^16.8.6 || ^17.0.0",
-        "react": "^16.8.6 || ^17.0.0",
-        "react-dom": "^16.8.6 || ^17.0.0"
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     },
     "repository": {
         "type": "git",

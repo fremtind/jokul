@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 import { initTabListener } from "../packages/core/src";
 
@@ -13,7 +13,13 @@ import "../packages/checkbox/checkbox.min.css";
 import "./dev-example.scss";
 
 export const renderExample = (content: ReactElement, node: HTMLElement | null): void => {
+    if (!node) {
+        console.error("Fikk ikke et HTML-element å rendre eksempelet i. Har du en skrivefeil i selectoren din?");
+        return;
+    }
+
     initTabListener();
 
-    ReactDOM.render(content, node);
+    const root = createRoot(node);
+    root.render(content);
 };

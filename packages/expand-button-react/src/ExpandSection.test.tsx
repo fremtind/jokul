@@ -40,12 +40,12 @@ describe("Expand", () => {
         expect(contentToggle).toHaveProperty("hidden", true);
     });
 
-    it("should trigger onClick handler on click and expand the content", () => {
+    it("should trigger onClick handler on click and expand the content", async () => {
         render(<ExpandSectionExample />);
 
         const button = screen.getByRole("button");
-        act(() => {
-            userEvent.click(button);
+        await act(async () => {
+            await userEvent.click(button);
         });
 
         expect(onClickSpy).toHaveBeenCalledTimes(1);
@@ -62,8 +62,8 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
 
         const button = screen.getByRole("button");
-        act(() => {
-            userEvent.click(button);
+        await act(async () => {
+            await userEvent.click(button);
         });
 
         results = await axe(container);
