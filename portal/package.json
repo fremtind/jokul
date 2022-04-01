@@ -44,7 +44,7 @@
         "@fremtind/jkl-toggle-switch-react": "^7.0.8",
         "@fremtind/jkl-validators-util": "^2.3.2",
         "@fremtind/jkl-webfonts": "^1.1.9",
-        "@mdx-js/mdx": "^1.6.22",
+        "@mdx-js/mdx": "^2.1.1",
         "@mdx-js/react": "^1.6.22",
         "classnames": "^2.2.6",
         "focus-trap-react": "^8.9.2",
