@@ -420,8 +420,8 @@ describe("Searchable select", () => {
         expect(screen.getByText("Item 25")).toBeVisible();
         expect(screen.getByText("Item 26")).toBeVisible();
 
-        await act(async () => {
-            await fireEvent.change(searchInputElement, { target: { value: "1" } });
+        act(() => {
+            fireEvent.change(searchInputElement, { target: { value: "1" } });
         });
 
         expect(screen.getByText("Item 11")).toBeVisible();
@@ -467,8 +467,8 @@ describe("Searchable select", () => {
 
         expect(searchInputElement).toHaveAttribute("value", "");
 
-        await act(async () => {
-            await fireEvent.change(searchInputElement, { target: { value: "Item 11" } });
+        act(() => {
+            fireEvent.change(searchInputElement, { target: { value: "Item 11" } });
         });
 
         expect(searchInputElement).toHaveAttribute("value", "Item 11");
@@ -810,8 +810,8 @@ describe("Searchable select", () => {
             await userEvent.click(openDropdownButtonElement);
         });
 
-        await act(async () => {
-            await fireEvent.change(searchInputElement, { target: { value: "3" } });
+        act(() => {
+            fireEvent.change(searchInputElement, { target: { value: "3" } });
         });
 
         expect(screen.getByText("baz")).toBeVisible();

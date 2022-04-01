@@ -1,6 +1,7 @@
 import React, { ChangeEventHandler } from "react";
 import { axe } from "jest-axe";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 import { RadioButton, RadioButtonGroup } from "./";
 
@@ -48,7 +49,7 @@ describe("RadioButtons", () => {
         expect(screen.getByLabelText("Nei")).not.toHaveAttribute("checked");
     });
 
-    it("calls onChange function as expected", () => {
+    it("calls onChange function as expected", async () => {
         let value = "n";
         const onChange = jest.fn(((e) => {
             value = e.target.value;
@@ -59,7 +60,9 @@ describe("RadioButtons", () => {
                 <RadioButton label="Nei" value="n" />
             </RadioButtonGroup>,
         );
-        fireEvent.click(screen.getByLabelText("Ja"));
+        await act(async () => {
+            await userEvent.click(screen.getByLabelText("Ja"));
+        });
         expect(onChange).toHaveBeenCalledWith(expect.any(Object));
         expect(value).toBe("y");
     });

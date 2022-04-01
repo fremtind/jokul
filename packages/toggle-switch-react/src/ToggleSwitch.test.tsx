@@ -1,10 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { ToggleSwitch } from ".";
 import { axe } from "jest-axe";
 
 describe("Toggle switch", () => {
-    it("should be pressed after clicking the button", () => {
+    it("should be pressed after clicking the button", async () => {
         const TestToggleSwitch = () => {
             const [pressed, toggle] = React.useState(false);
             return (
@@ -19,7 +20,9 @@ describe("Toggle switch", () => {
 
         expect(input).toHaveAttribute("aria-pressed", "false");
 
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
 
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
@@ -52,12 +55,14 @@ describe("Toggle switch", () => {
         expect(input).toHaveAttribute("aria-pressed", "true");
     });
 
-    it("should call the passed onClick method when clicked", () => {
+    it("should call the passed onClick method when clicked", async () => {
         const onClick = jest.fn();
         render(<ToggleSwitch onClick={onClick}>Switch me!</ToggleSwitch>);
 
         const input = screen.getByText("Switch me!");
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
 
         expect(onClick).toHaveBeenCalled();
     });
