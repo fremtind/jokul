@@ -30,12 +30,12 @@
         "dev": "parcel documentation/index.html"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.7",
+        "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-constants-util": "^0.4.3",
         "@fremtind/jkl-core": "^9.3.1"
     },
     "devDependencies": {
-        "react-hook-form": "^7.28.0"
+        "react-hook-form": "^7.29.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0",
