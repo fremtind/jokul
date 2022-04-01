@@ -16,9 +16,7 @@
         "noImplicitReturns": true,
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "baseUrl": "./",
-        "typeRoots": ["./types"],
-        "types": ["react/next", "react-dom/next"]
+        "baseUrl": "./"
     },
     "exclude": ["**/build/**"],
     "include": ["./packages/**/*", "./jest/setupTests.ts", "portal", "./node_modules/jest"]

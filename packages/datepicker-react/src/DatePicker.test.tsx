@@ -147,7 +147,7 @@ describe("Datepicker", () => {
 
         const inputId = input.getAttribute("id");
 
-        const idPattern = /jkl-datepicker-[A-Za-z0-9\-_]{8}/;
+        const idPattern = /jkl-datepicker-.+/;
         expect(inputId?.match(idPattern)).toHaveLength(1);
         expect(label.getAttribute("id")).toEqual(inputId + "-label");
     });
