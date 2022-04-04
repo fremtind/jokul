@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import { Footer } from "@fremtind/jkl-footer-react";
@@ -20,7 +20,12 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children, location, pageContext }) => {
-    const { setLocation, isFrontPage, isCypress } = useLocation();
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    const { setLocation, isFrontPage } = useLocation();
     const screen = useScreen();
 
     const { site } = useStaticQuery(
@@ -38,21 +43,16 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
 
     useEffect(() => setLocation(location), [location, setLocation]);
 
-    if (isCypress) {
-        return (
-            <div className="jkl">
-                <FormatProvider>{children}</FormatProvider>
-            </div>
-        );
-    }
-
     const metaDescription = site.siteMetadata.description;
     const siteTitle = site.siteMetadata.title;
     const pageTitle = pageContext.title;
     const shouldShowSidebar = !isFrontPage && pageTitle && !(screen.isSmallDevice || screen.isMediumDevice);
 
     return (
-        <div className="jkl jkl-portal">
+        <div
+            className="jkl jkl-portal"
+            data-cypress={hasMounted && window.location.search === "?cypress" ? "true" : undefined}
+        >
             <Helmet
                 htmlAttributes={{
                     lang: "no",
@@ -91,7 +91,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
                 ]}
             />
             <ThemeBG />
-            <Header className="jkl-portal__header" />
+            <Header />
             <AnimatePresence>{shouldShowSidebar && <Sidebar />}</AnimatePresence>
             <FormatProvider>
                 <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>

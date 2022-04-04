@@ -19,7 +19,7 @@
     transition-property: color;
     transition-delay: 150ms;
 
-    &__sidebar {
+    .jkl-portal-sidebar-menu {
         display: none;
     }
 
@@ -52,11 +52,11 @@
             "sidebar main main" minmax(calc(100vh - 96px), auto)
             "footer footer footer" auto / rem(375px) 1fr;
 
-        &__header {
+        .jkl-portal-header {
             grid-area: header;
         }
 
-        &__sidebar {
+        .jkl-portal-sidebar-menu {
             grid-area: sidebar;
             display: unset;
         }
@@ -131,5 +131,13 @@
 
     &[data-theme="dark"] {
         color: jkl.$color-snohvit;
+    }
+
+    &[data-cypress] {
+        .jkl-portal-sidebar-menu,
+        .jkl-portal-header,
+        .jkl-portal-footer {
+            display: none !important;
+        }
     }
 }

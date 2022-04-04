@@ -7,7 +7,6 @@ interface LocationContext {
     currentSection: string;
     sectionHasChanged?: boolean;
     isFrontPage?: boolean;
-    isCypress?: boolean;
     setLocation: (location: GatsbyLocation) => void;
 }
 
@@ -26,7 +25,6 @@ interface LocationState {
     currentSection: string;
     isFrontPage: boolean;
     sectionHasChanged: boolean;
-    isCypress: boolean;
 }
 
 interface LocationAction {
@@ -62,7 +60,6 @@ export const LocationContextProvider: FC = ({ children }) => {
         currentSection: "",
         isFrontPage: gatsbyLocation.pathname === "/",
         sectionHasChanged: true,
-        isCypress: gatsbyLocation.search === "?cypress",
     };
     const [locationState, dispatch] = useReducer(reducer, initialState);
 
