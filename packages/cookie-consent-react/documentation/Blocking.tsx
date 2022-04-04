@@ -1,4 +1,4 @@
-import React, { useEffect, VFC } from "react";
+import React, { useEffect, useState, VFC } from "react";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
@@ -51,7 +51,12 @@ const Example: VFC<{ functional?: boolean; statistics?: boolean; marketing?: boo
 };
 
 export const Blocking: VFC<ExampleComponentProps> = ({ boolValues }) => {
-    if (typeof window === "undefined") {
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
+    if (!hasMounted) {
         return null;
     }
 
