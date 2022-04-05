@@ -29,8 +29,9 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-content-toggle yarn build:watch",
-        "dev:js": "parcel documentation/index.html",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:server": "node ./dist/server.js",
+        "predev": "node ./esbuild.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {

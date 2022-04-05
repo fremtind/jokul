@@ -21,7 +21,8 @@
         "clean": "rimraf .turbo **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
-        "test": "echo \"Error: run tests from root\" && exit 1"
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo \"Error: run dev from logo-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^9.3.1"

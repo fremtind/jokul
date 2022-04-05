@@ -5,22 +5,14 @@ react: icon-button-react
 group: knapper
 ---
 
-import { IconButtonExample, iconButtonExampleCode } from "./IconButtonExample";
+import { IconButtonExample, iconButtonExampleKnobs, iconButtonExampleCode } from "./IconButtonExample";
 
 <Ingress>Ikonknapper er klikkbare varianter av ikoner for vanlige handlinger.</Ingress>
 
 <ComponentExample
     title="IconButton"
     component={IconButtonExample}
-    knobs={{
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["clear", "search", "calendar"],
-                defaultValue: 1,
-            },
-        ],
-    }}
+    knobs={iconButtonExampleKnobs}
     codeExample={iconButtonExampleCode}
 />
 
