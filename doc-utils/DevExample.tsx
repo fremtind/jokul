@@ -1,5 +1,6 @@
 import React, { StrictMode, FC } from "react";
 import { ComponentExample, Props as ComponentExampleProps } from "./ComponentExample";
+import "./dev-example.scss";
 
 interface Props extends ComponentExampleProps {
     title?: string;

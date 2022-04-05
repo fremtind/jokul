@@ -6,7 +6,6 @@ import "../packages/webfonts/documentation/internal.scss";
 import "../packages/radio-button/radio-button.scss";
 import "../packages/checkbox/checkbox.scss";
 import "../packages/select/select.scss";
-import "./dev-example.scss";
 
 export type HydrateClientOptions = {
     rootId: string;
