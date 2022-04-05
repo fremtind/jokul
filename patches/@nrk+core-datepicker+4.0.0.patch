@@ -1,5 +1,5 @@
 diff --git a/node_modules/@nrk/core-datepicker/jsx.js b/node_modules/@nrk/core-datepicker/jsx.js
-index f1b5c26..2232247 100644
+index f1b5c26..fb0d2e6 100644
 --- a/node_modules/@nrk/core-datepicker/jsx.js
 +++ b/node_modules/@nrk/core-datepicker/jsx.js
 @@ -351,6 +351,35 @@ var index_min = {exports: {}};
@@ -76,7 +76,7 @@ index f1b5c26..2232247 100644
  }
  
  function setupInput(self, el) {
-@@ -623,20 +661,45 @@ function setupTable(self, table) {
+@@ -623,18 +661,34 @@ function setupTable(self, table) {
  function setupSelect(self, select) {
    if (!select.firstElementChild) {
      select._autofill = true;
@@ -111,29 +111,17 @@ index f1b5c26..2232247 100644
 +
  var version = "4.0.0";
  
-+/**
-+* getUUID
-+* @return {String} A generated unique ID
-+*/
-+
-+function getUUID() {
-+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 5)
-+}
-+
  /**
- * closest
- * @param {Element} el Element to traverse up from
-@@ -669,7 +732,8 @@ var closest = function () {
+@@ -669,7 +723,7 @@ var closest = function () {
  
  function customElementToReact(elementClass, options) {
    if (options === void 0) options = {};
 -  var name = elementClass.name || String(elementClass).match(/function ([^(]+)/)[1]; // String match for IE11
-+  var suppliedName = options.name || elementClass.name || String(elementClass).match(/function ([^(]+)/)[1] // String match for IE11
-+  var name = suppliedName + "-" + getUUID();
++  var name = options.name || elementClass.name || String(elementClass).match(/function ([^(]+)/)[1] // String match for IE11
  
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -786,10 +850,8 @@ function customElementToReact(elementClass, options) {
+@@ -786,10 +840,8 @@ function customElementToReact(elementClass, options) {
    }(React__default["default"].Component);
  }
  
