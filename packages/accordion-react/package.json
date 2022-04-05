@@ -30,16 +30,24 @@
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:style": "lerna exec --scope=@fremtind/jkl-accordion yarn build:watch",
         "dev:js": "parcel documentation/index.html",
-        "dev": "run-p dev:*"
+        "dev": "run-p dev:*",
+        "build:ssr": "yarn run client:build && yarn run server:build",
+        "client:build": "node ./esbuild-client.mjs",
+        "server:build": "node ./esbuild-server.mjs",
+        "start": "node dist/server.js"
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-accordion": "^6.0.8",
         "@fremtind/jkl-react-hooks": "^8.0.2",
+        "@types/express": "4.17.13",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@nrk/core-toggle": "3.2.0"
+        "@nrk/core-toggle": "3.2.0",
+        "express": "^4.16.3",
+        "esbuild": "0.14.31",
+        "esbuild-sass-plugin": "2.2.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
