@@ -1,9 +1,5 @@
-/* There are no types for core-toggle, so we have to use ts-ignore
-Hopefully someone (us?) will write types for it sometime soon */
-// @ts-ignore: wait for nrk to supply types
-import CoreToggle from "@nrk/core-toggle/jsx";
 import React, { FC, ReactNode, useState } from "react";
-import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import classNames from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 
@@ -22,42 +18,44 @@ export const AccordionItem: FC<AccordionItemProps> = ({
     startExpanded = false,
     onClick,
 }) => {
+    const buttonId = useId("title");
+    const contentId = useId("content");
     const [isOpen, setIsOpen] = useState(startExpanded);
-    const [elementRef] = useAnimatedHeight(isOpen);
+    const [elementRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
     const componentClassName = classNames("jkl-accordion-item", className, {
         "jkl-accordion-item--expanded": isOpen,
     });
 
-    const onToggle = (e: Event) => {
-        if (e.defaultPrevented) {
-            return;
-        }
-        setIsOpen(!isOpen);
-    };
-
     return (
         <div data-testid="jkl-accordion-item" className={componentClassName}>
             <button
+                id={buttonId}
                 className="jkl-accordion-item__title"
                 type="button"
+                aria-expanded={isOpen}
+                aria-controls={contentId}
                 onClick={(e) => {
+                    const nextValue = !isOpen;
+                    setIsOpen(nextValue);
                     if (onClick) {
-                        onClick(e, !isOpen);
+                        onClick(e, nextValue);
                     }
                 }}
             >
                 <span className="jkl-accordion-item__title-text">{title}</span>
                 <ExpandArrow className="jkl-accordion-item__title__arrow" expanded={isOpen} />
             </button>
-            <CoreToggle
+            <div
+                id={contentId}
                 ref={elementRef}
                 data-testid="jkl-accordion-item__content-wrapper"
                 className="jkl-accordion-item__content-wrapper"
+                role="group"
+                aria-labelledby={buttonId}
                 hidden={!isOpen}
-                onToggle={onToggle}
             >
                 <div className="jkl-accordion-item__content">{children}</div>
-            </CoreToggle>
+            </div>
         </div>
     );
 };
