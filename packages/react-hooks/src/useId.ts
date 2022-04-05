@@ -3,6 +3,7 @@ import { useState, useId as useReactId } from "react";
 import { nanoid } from "nanoid";
 
 export interface UseIdOptions {
+    /** @default true */
     generateSuffix?: boolean;
 }
 
