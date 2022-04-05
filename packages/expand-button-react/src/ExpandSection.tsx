@@ -60,6 +60,7 @@ export const ExpandSection = ({
                 {title}
             </ExpandButton>
             <div
+                id={contentId}
                 ref={elementRef}
                 data-testid="jkl-expand-section__content-wrapper"
                 className="jkl-expand-section__content-wrapper"
