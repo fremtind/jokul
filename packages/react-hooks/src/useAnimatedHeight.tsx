@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef, RefObject, useCallback, useLayoutEffect } from "react";
+import { MutableRefObject, useEffect, useRef, RefObject, useCallback } from "react";
 import type { Easing, Timing } from "@fremtind/jkl-core";
 import { easings, timings } from "@fremtind/jkl-core";
 import { useBrowserPreferences } from "./useBrowserPreferences/useBrowserPreferences";
@@ -118,7 +118,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
         }
     }, [isOpen, options, wasOpen, transition, prefersReducedMotion]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         runAnimation();
     }, [isOpen, runAnimation]);
 
