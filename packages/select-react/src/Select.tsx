@@ -162,7 +162,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             if (dropdownIsShown && !isSearchable) {
                 const listElement = listRef.current;
                 if (listElement) {
-                    focusSelected(listElement, listId, selectedValue);
+                    focusSelected(listElement, selectedValue);
                 }
             } else if (dropdownIsShown) {
                 if (searchFieldRef.current) {
@@ -173,7 +173,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     buttonRef.current.focus();
                 }
             }
-        }, [dropdownIsShown, isSearchable, listId, selectedValue, listRef]);
+        }, [dropdownIsShown, isSearchable, selectedValue, listRef]);
 
         const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(dropdownIsShown, {
             onFirstVisible: handleFocusPlacement,
