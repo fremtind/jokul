@@ -5,26 +5,18 @@ scss: datepicker
 group: skjema
 ---
 
-import { DatepickerExample, datepickerCode } from "./DatepickerExample";
+import { DatepickerExample, datepickerExampleKnobs, datepickerExampleCode } from "./DatepickerExample";
 
 <Ingress>
     Vi bruker datovelgeren til å gi brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver
     hvilken dato brukeren skal fylle inn, for eksempel: "Oppgi datoen da skaden skjedde".
 </Ingress>
+
 <ComponentExample
     title="DatePicker"
     component={DatepickerExample}
-    knobs={{
-        boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["small", "medium", "large"],
-                defaultValue: 0,
-            },
-        ],
-    }}
-    codeExample={datepickerCode}
+    knobs={datepickerExampleKnobs}
+    codeExample={datepickerExampleCode}
 />
 
 ## Typer og bruk
