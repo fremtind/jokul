@@ -7,11 +7,11 @@ interface Props extends ComponentExampleProps {
     scrollable?: boolean;
 }
 
-export const DevExample: FC<Props> = ({ title, knobs, component, scrollable }) => {
+export const DevExample: FC<Props> = (props) => {
     return (
         <StrictMode>
             <div className="jkl-dev-example">
-                <ComponentExample title={title} knobs={knobs} component={component} scrollable={scrollable} />
+                <ComponentExample {...props} />
             </div>
         </StrictMode>
     );
