@@ -35,8 +35,8 @@ export async function createServer(rootComponent: React.ReactElement, options = 
               <script src="${opts.scriptSrc}" async defer></script>
               <link href="${opts.styleHref}" rel="stylesheet"></link>
           </head>
-          <body style="height: 100%; display: flex; align-items: center; justify-content: center">
-              <div class="jkl" id="${opts.rootId}">${app}</div>
+          <body class="jkl" style="height: 100%; display: flex; align-items: center; justify-content: center">
+              <div id="${opts.rootId}">${app}</div>
           </body>
           </html>
       `;
