@@ -165,24 +165,29 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
             textboxRef.current && textboxRef.current.focus();
         });
 
-        const previousDate = usePreviousValue(state.date);
-        const previousDateString = usePreviousValue(state.dateString);
-        const previousError = usePreviousValue(state.error);
+        const previousState = usePreviousValue(state);
         useEffect(() => {
             if (!onChange) {
                 return;
             }
 
-            const dateHasChanged = (previousDate || state.date) && state.date !== previousDate;
+            const dateHasChanged = (previousState?.date || state.date) && state.date !== previousState?.date;
             const dateStringHasChanged =
-                (previousDateString || state.dateString) && state.dateString !== previousDateString;
-            const errorHasChanged = (previousError || state.error) && state.error !== previousError;
+                (previousState?.dateString || state.dateString) && state.dateString !== previousState?.dateString;
+            const errorHasChanged = (previousState?.error || state.error) && state.error !== previousState?.error;
 
             if (dateHasChanged || dateStringHasChanged || errorHasChanged) {
                 onChange(state.date, undefined, { error: state.error, value: state.dateString });
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [state.date, state.dateString, state.error, previousDate, previousDateString, previousError]);
+        }, [
+            state.date,
+            state.dateString,
+            state.error,
+            previousState?.date,
+            previousState?.dateString,
+            previousState?.error,
+        ]);
 
         const previousValue = usePreviousValue(value);
         useEffect(() => {
