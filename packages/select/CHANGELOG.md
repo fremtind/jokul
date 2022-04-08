@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.9 (2022-04-08)
+
+### Bug Fixes
+
+-   fjern core-toggle fra Select ([0decc92](https://github.com/fremtind/jokul/commit/0decc921d57d7f9ebc9f879a051b7dfb45e8c32b))
+
 ## 7.0.4 (2022-03-04)
 
 ### Bug Fixes

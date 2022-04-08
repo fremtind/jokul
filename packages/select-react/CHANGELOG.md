@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.1.6 (2022-04-08)
+
+### Bug Fixes
+
+-   fjern bruk av ID i selector etter React 18 ([058e389](https://github.com/fremtind/jokul/commit/058e3893d1794e4efeea93648ce6749985205627))
+-   fjern core-toggle fra Select ([0decc92](https://github.com/fremtind/jokul/commit/0decc921d57d7f9ebc9f879a051b7dfb45e8c32b))
+
 ## [9.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.1.2...@fremtind/jkl-select-react@9.1.3) (2022-03-11)
 
 ### Bug Fixes

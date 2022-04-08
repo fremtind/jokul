@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.3.21](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.20...@fremtind/portal@12.3.21) (2022-04-08)
+
+### Bug Fixes
+
+-   bruk rette avhengigheter for å fikse caching ([51b0841](https://github.com/fremtind/jokul/commit/51b0841899d2332b3cfbd5fa37bb2e9ba6265228))
+-   hydrering av portalen i Cypress ([d36e07f](https://github.com/fremtind/jokul/commit/d36e07fb2e244930e11f37be0b9c7cd3f8b7afb1))
+-   oppdater condition for animasjon etter rename ([731dcf1](https://github.com/fremtind/jokul/commit/731dcf16d6e68284e31e12ceffe97b1edb3cc2fb))
+-   skru av transition hvis Cypress ([859a75d](https://github.com/fremtind/jokul/commit/859a75dd332522b0db8f2fe44d81cab30f6e18f5))
+
 ## [12.3.16](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.15...@fremtind/portal@12.3.16) (2022-03-16)
 
 ### Bug Fixes
