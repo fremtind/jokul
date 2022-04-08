@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button-react",
-    "version": "6.1.15",
+    "version": "6.1.16",
     "publishConfig": {
         "access": "public"
     },
@@ -37,9 +37,9 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-field-group-react": "^5.0.9",
-        "@fremtind/jkl-radio-button": "^6.0.8",
-        "@fremtind/jkl-react-hooks": "^8.0.2",
+        "@fremtind/jkl-field-group-react": "^5.0.10",
+        "@fremtind/jkl-radio-button": "^6.0.9",
+        "@fremtind/jkl-react-hooks": "^8.1.0",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
