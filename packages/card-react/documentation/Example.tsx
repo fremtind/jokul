@@ -13,7 +13,7 @@ import "../../tag/tag.scss";
 import "./info-card-example.scss";
 import "./task-card-example.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <>
             <DevExample knobs={navCardExampleProps} component={NavCardExample} codeExample={navCardExampleCode} />

@@ -3,6 +3,6 @@ import { DevExample } from "../../../doc-utils";
 import { SummaryTableExample } from "./SummaryTableExample";
 import "../../summary-table/summary-table.scss";
 
-export default function Client() {
+export default function Example() {
     return <DevExample component={SummaryTableExample} />;
 }

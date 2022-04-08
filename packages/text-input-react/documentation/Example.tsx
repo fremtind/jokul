@@ -7,7 +7,7 @@ import "../../text-input/text-input.scss";
 import "../../icon-button/icon-button.scss";
 import "./index.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <>
             <DevExample

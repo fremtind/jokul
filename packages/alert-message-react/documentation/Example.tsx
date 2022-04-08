@@ -3,7 +3,7 @@ import { DevExample } from "../../../doc-utils";
 import { AlertMessageExample } from "./AlertMessageExample";
 import "../../alert-message/alert-message.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <DevExample
             component={AlertMessageExample}

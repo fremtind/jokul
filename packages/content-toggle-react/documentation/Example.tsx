@@ -3,7 +3,7 @@ import { DevExample } from "../../../doc-utils";
 import { ContentToggleExample } from "./ContentToggleExample";
 import "../../content-toggle/content-toggle.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <DevExample
             knobs={{

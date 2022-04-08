@@ -3,6 +3,6 @@ import { DevExample } from "../../../doc-utils";
 import { LoaderExample } from "./LoaderExample";
 import "../../loader/loader.scss";
 
-export default function Client() {
+export default function Example() {
     return <DevExample component={LoaderExample} />;
 }

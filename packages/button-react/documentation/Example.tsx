@@ -5,6 +5,6 @@ import "../../button/button.scss";
 import "../../loader/loader.scss";
 import "./style.scss";
 
-export default function Client() {
+export default function Example() {
     return <DevExample component={ButtonExample} knobs={buttonExampleKnobs} />;
 }

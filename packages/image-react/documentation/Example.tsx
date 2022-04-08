@@ -7,6 +7,6 @@ import "../../button/button.scss";
 import "../../icons/animated-icons.scss";
 import "../../text-input/text-input.scss";
 
-export default function Client() {
+export default function Example() {
     return <DevExample component={ImageExample} knobs={{ choiceProps }} />;
 }

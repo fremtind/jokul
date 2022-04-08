@@ -7,7 +7,7 @@ import "../../icon-button/icon-button.scss";
 import "../../text-input/text-input.scss";
 import "../../select/select.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <DevExample
             title="DatePicker"

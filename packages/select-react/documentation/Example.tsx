@@ -3,6 +3,6 @@ import { DevExample } from "../../../doc-utils";
 import { SelectExample, selectExampleKnobs } from "./SelectExample";
 import "../../select/select.scss";
 
-export default function Client() {
+export default function Example() {
     return <DevExample component={SelectExample} knobs={selectExampleKnobs} />;
 }

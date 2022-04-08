@@ -3,7 +3,7 @@ import { DevExample } from "../../../doc-utils";
 import { FieldGroupExample } from "./FieldGroupExample";
 import "../../field-group/field-group.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <DevExample
             component={FieldGroupExample}

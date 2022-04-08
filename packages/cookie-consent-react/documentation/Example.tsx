@@ -5,6 +5,6 @@ import "../../cookie-consent/cookie-consent.scss";
 import "../../button/button.scss";
 import "../../list/list.scss";
 
-export default function Client() {
+export default function Example() {
     return <DevExample component={CookieConsentExample} />;
 }

@@ -7,6 +7,6 @@ import "../../button/button.scss";
 import "../../text-input/text-input.scss";
 import "../../message-box/message-box.scss";
 
-export default function Client() {
+export default function Example() {
     return <DevExample component={FeedbackExample} knobs={feedbackExampleProps} />;
 }

@@ -12,7 +12,7 @@ import "../../button/button.scss";
 import "../../card/card.scss";
 import "./index.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <>
             <DevExample component={AnimationExample} />

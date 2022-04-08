@@ -6,7 +6,7 @@ import "../../icons/animated-icons.scss";
 import "../../text-input/text-input.scss";
 import "../../button/button.scss";
 
-export default function Client() {
+export default function Example() {
     return (
         <>
             <div>
