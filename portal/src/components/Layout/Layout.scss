@@ -19,7 +19,7 @@
     transition-property: color;
     transition-delay: 150ms;
 
-    .jkl-portal-sidebar-menu {
+    &__sidebar {
         display: none;
     }
 
@@ -52,11 +52,11 @@
             "sidebar main main" minmax(calc(100vh - 96px), auto)
             "footer footer footer" auto / rem(375px) 1fr;
 
-        .jkl-portal-header {
+        &__header {
             grid-area: header;
         }
 
-        .jkl-portal-sidebar-menu {
+        &__sidebar {
             grid-area: sidebar;
             display: unset;
         }
@@ -69,50 +69,6 @@
 
             &--frontpage {
                 grid-column: sidebar / span 2;
-            }
-        }
-    }
-
-    .jkl-portal-footer {
-        padding-top: jkl.$spacing-l;
-
-        @include from-large-device {
-            grid-area: footer;
-        }
-
-        &__feedback {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: jkl.$spacing-l;
-
-            .jkl-feedback {
-                max-width: rem(640px);
-            }
-
-            .jkl-message-box {
-                max-width: initial;
-            }
-
-            @include medium-device {
-                padding: jkl.$spacing-xl;
-            }
-
-            @include from-large-device {
-                flex-direction: row;
-                padding: jkl.$spacing-2xl jkl.$spacing-4xl;
-            }
-        }
-
-        &__stamp {
-            margin-top: -#{jkl.$spacing-l};
-            width: rem(185px);
-            height: rem(185px);
-            opacity: 1;
-            display: none;
-
-            @include from-large-device {
-                display: block;
             }
         }
     }
@@ -134,9 +90,9 @@
     }
 
     &[data-test-mode="e2e"] {
-        .jkl-portal-sidebar-menu,
-        .jkl-portal-header,
-        .jkl-portal-footer {
+        .jkl-portal__sidebar,
+        .jkl-portal__header,
+        .jkl-portal__footer {
             display: none !important;
         }
     }

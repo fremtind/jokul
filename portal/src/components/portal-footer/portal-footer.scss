@@ -1,0 +1,48 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/_functions";
+
+.jkl-portal-footer {
+    padding-top: jkl.$spacing-l;
+
+    @include from-large-device {
+        grid-area: footer;
+    }
+
+    &__feedback {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: jkl.$spacing-l;
+
+        .jkl-feedback {
+            max-width: rem(640px);
+        }
+
+        .jkl-message-box {
+            max-width: initial;
+        }
+
+        @include medium-device {
+            padding: jkl.$spacing-xl;
+        }
+
+        @include from-large-device {
+            flex-direction: row;
+            padding: jkl.$spacing-2xl jkl.$spacing-4xl;
+        }
+    }
+
+    &__stamp {
+        margin-top: -#{jkl.$spacing-l};
+        width: rem(185px);
+        height: rem(185px);
+        opacity: 1;
+        display: none;
+
+        @include from-large-device {
+            display: block;
+        }
+    }
+}
