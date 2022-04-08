@@ -133,7 +133,7 @@
         color: jkl.$color-snohvit;
     }
 
-    &[data-cypress] {
+    &[data-test-mode="e2e"] {
         .jkl-portal-sidebar-menu,
         .jkl-portal-header,
         .jkl-portal-footer {

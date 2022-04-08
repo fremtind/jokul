@@ -51,7 +51,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
     return (
         <div
             className="jkl jkl-portal"
-            data-cypress={hasMounted && window.location.search === "?cypress" ? "true" : undefined}
+            data-test-mode={hasMounted && window.location.search === "?mode=e2e" ? "e2e" : undefined}
         >
             <Helmet
                 htmlAttributes={{
