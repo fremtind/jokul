@@ -1,7 +1,11 @@
 import React, { VFC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Logo } from "../src";
 import "./LogoExample.scss";
+
+export const logoExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Animert", "Kun symbol", "Sentrert"],
+};
 
 export const LogoExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
     <Logo

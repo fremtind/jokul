@@ -1,5 +1,6 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { ToggleSlider } from ".";
 import { axe } from "jest-axe";
 
@@ -9,7 +10,7 @@ describe("ToggleSlider", () => {
     beforeEach(() => {
         jest.resetAllMocks();
     });
-    it("should be pressed after clicking the button", () => {
+    it("should be pressed after clicking the button", async () => {
         render(
             <ToggleSlider defaultValue="av" labels={["av", "på"]} onToggle={fn}>
                 Skru
@@ -19,7 +20,9 @@ describe("ToggleSlider", () => {
         const input = screen.getByTestId("jkl-toggle-slider");
 
         expect(input).toHaveAttribute("aria-checked", "false");
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
         expect(input).toHaveAttribute("aria-checked", "true");
     });
 
@@ -33,7 +36,7 @@ describe("ToggleSlider", () => {
         expect(screen.getByTestId("jkl-toggle-slider")).toHaveAttribute("aria-checked", "true");
     });
 
-    it("should fire onToggle function on toggle", () => {
+    it("should fire onToggle function on toggle", async () => {
         render(
             <ToggleSlider defaultValue="på" labels={["av", "på"]} onToggle={fn}>
                 Skru
@@ -42,10 +45,14 @@ describe("ToggleSlider", () => {
 
         const input = screen.getByTestId("jkl-toggle-slider");
 
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
         expect(fn).toBeCalledTimes(1);
         expect(fn).toBeCalledWith("av");
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
         expect(fn).toBeCalledTimes(2);
         expect(fn).toBeCalledWith("på");
     });

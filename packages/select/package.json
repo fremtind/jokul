@@ -22,8 +22,8 @@
         "clean": "rimraf .turbo **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
-        "dev": "parcel example/index.html",
-        "test": "echo \"Error: run tests from root\" && exit 1"
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo \"Error: run dev from select-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^9.3.1"

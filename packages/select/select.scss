@@ -226,7 +226,7 @@ $select-search-input-selection-color--inverted: color.scale(
 
         &[aria-selected="true"]:not(:focus) {
             &::after {
-                $mask-image-url: url('data:image/svg+xml; utf8, <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.52632L4.6 12L16 1" stroke="black"/></svg>');
+                $mask-image-url: url("data:image/svg+xml,%3Csvg width='17' height='13' viewBox='0 0 17 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8.52632L4.6 12L16 1' stroke='currentColor'/%3E%3C/svg%3E");
                 background-color: var(--select-focus-color);
                 content: "";
 

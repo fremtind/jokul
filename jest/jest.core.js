@@ -19,7 +19,7 @@ module.exports = {
     // TODO: Remove when using unpatched versions again
     // see https://github.com/fremtind/jokul/issues/1215
     transformIgnorePatterns: [
-        "node_modules/(?!(@nrk/core-toggle|@nrk/core-datepicker)/)"
+        "node_modules/(?!(@nrk/core-datepicker)/)"
     ]
 };
 /* eslint-enable */

@@ -32,7 +32,7 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev": "echo \"Error: run dev from description-list-react\" && exit 1"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

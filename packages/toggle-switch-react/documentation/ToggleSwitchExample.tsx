@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
 import { ToggleSlider, ToggleSwitch } from "../src";
+
+export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Deaktivert", "Med hjelpetekst"],
+};
 
 export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOn, setIsOn] = useState(false);

@@ -1,5 +1,6 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Card } from ".";
 import { axe } from "jest-axe";
 
@@ -64,13 +65,15 @@ describe("Card", () => {
         expect(component).toHaveClass("jkl-button--tertiary");
     });
 
-    it("executes the onclick function on button", () => {
+    it("executes the onclick function on button", async () => {
         const clickHandler = jest.fn();
         render(<Card title="Test" action={{ type: "primary", name: "Click me", onClick: clickHandler }} />);
 
         const button = screen.getByText("Click me");
 
-        fireEvent.click(button);
+        await act(async () => {
+            await userEvent.click(button);
+        });
 
         expect(clickHandler).toHaveBeenCalled();
     });

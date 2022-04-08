@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Hamburger } from ".";
 import { axe } from "jest-axe";
 
@@ -24,11 +25,13 @@ describe("Hamburger", () => {
         expect(component).toHaveAttribute("aria-controls", menuid);
     });
 
-    it("should render call onClick", () => {
+    it("should render call onClick", async () => {
         const fn = jest.fn();
         render(<Hamburger id="jkl-hamburger" aria-controls="nothing" isOpen={false} onClick={fn} />);
         const burger = screen.getByTestId("jkl-hamburger");
-        fireEvent.click(burger);
+        await act(async () => {
+            await userEvent.click(burger);
+        });
 
         expect(fn).toHaveBeenCalledTimes(1);
     });
@@ -125,7 +128,9 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
 
         const burger = screen.getByTestId("jkl-hamburger");
-        fireEvent.click(burger);
+        await act(async () => {
+            await userEvent.click(burger);
+        });
 
         results = await axe(screen.getByTestId("jkl-hamburger-example"));
         expect(results).toHaveNoViolations();

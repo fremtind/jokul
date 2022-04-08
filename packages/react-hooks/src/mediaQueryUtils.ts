@@ -5,10 +5,11 @@
  * @returns om det er match på queryen
  */
 export function getInitialMediaQueryMatch(mediaQuery: string): boolean {
-    if (typeof window !== "undefined" && window.matchMedia) {
-        return window.matchMedia(mediaQuery).matches;
+    if (!window.matchMedia) {
+        // Enhetstester
+        return false;
     }
-    return false;
+    return window.matchMedia(mediaQuery).matches;
 }
 /**
  * Lytt på endringer i match mot et CSS Media Query

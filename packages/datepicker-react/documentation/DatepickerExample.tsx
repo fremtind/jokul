@@ -1,7 +1,18 @@
 import React, { useState, VFC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { DatePicker } from "../src";
+
+export const datepickerExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst"],
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["small", "medium", "large"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 const monthsIsh = (num: number) => {
     const raw = 1000 * 60 * 60 * 24 * (num * 30 - 5);
@@ -48,20 +59,29 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
     );
 };
 
-export const datepickerCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const datepickerExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
 <DatePicker
     label="Velg startdato for forsikringen"
-    extended={${!!boolValues?.["Utvidet velger"]}}
-    forceCompact={${!!boolValues?.["Compact"]}}
-    variant="${choiceValues?.["Variant"]}"
-    errorLabel=${boolValues?.["Med feil"] ? `"Du kan ikke velge en dato som har vært"` : `{undefined}`}
-    helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Du vil være forsikret fra denne datoen"` : `{undefined}`}
-    disableBeforeDate={new Date(Date.now() - monthsIsh(2))}
-    disableAfterDate={new Date(Date.now() + monthsIsh(5))}
-    onFocus={(date) => console.log("hello from onFocus", date)}
-    onBlur={(date) => console.log("hello from onBlur", date)}
-    onChange={(date, _, meta) => {
-        console.log("hello from onChange", date, meta);
-    }}
+    variant="${choiceValues?.["Variant"] || "small"}"${
+    boolValues?.["Med feil"]
+        ? `
+    errorLabel="Du kan ikke velge en dato som har vært"`
+        : ""
+}${
+    boolValues?.["Med hjelpetekst"]
+        ? `
+    helpLabel="Du vil være forsikret fra denne datoen"`
+        : ""
+}${
+    boolValues?.["Utvidet velger"]
+        ? `
+    extended`
+        : ""
+}${
+    boolValues?.["Compact"]
+        ? `
+    forceCompact`
+        : ""
+}
 />
 `;

@@ -5,7 +5,7 @@ scss: radio-button
 group: skjema
 ---
 
-import { RadioButtonExample, radioButtonExampleCode } from "./RadioButtonExample";
+import { RadioButtonExample, radioButtonExampleKnobs, radioButtonExampleCode } from "./RadioButtonExample";
 import {
     RadioButtonInputRequiredExample,
     radioButtonInputRequiredExampleCode,
@@ -20,16 +20,7 @@ import { RadioButtonPreselectedExample, radioButtonPreselectedExampleCode } from
 <ComponentExample
     title="RadioButton"
     component={RadioButtonExample}
-    knobs={{
-        boolProps: ["Compact", "Med feil"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["small", "medium", "large"],
-                defaultValue: 1,
-            },
-        ],
-    }}
+    knobs={radioButtonExampleKnobs}
     codeExample={radioButtonExampleCode}
 />
 
