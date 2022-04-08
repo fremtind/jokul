@@ -1,11 +1,11 @@
 diff --git a/node_modules/@nrk/core-datepicker/jsx.js b/node_modules/@nrk/core-datepicker/jsx.js
-index f1b5c26..fb0d2e6 100644
+index f1b5c26..c3c1957 100644
 --- a/node_modules/@nrk/core-datepicker/jsx.js
 +++ b/node_modules/@nrk/core-datepicker/jsx.js
 @@ -351,6 +351,35 @@ var index_min = {exports: {}};
- 
+
  var _parse = index_min.exports;
- 
+
 +var FILL = {
 +  month: function month(self, value) {
 +    if (!self.disabled(value)) {
@@ -66,15 +66,15 @@ index f1b5c26..fb0d2e6 100644
        } else if (event.type === 'keydown') {
          var _table = closest$1(event.target, 'table');
 @@ -570,7 +606,9 @@ function setupButton(self, el) {
- 
+
    el.type = 'button'; // Ensure forms are not submitted by datepicker-buttons
- 
+
 -  el.disabled = self.disabled(el.value);
 +  var match = el.value.match(new RegExp(Object.keys(DISABLED).filter(key => key !== "null").join("\|")));
 +  var disabledMethod = match && match[0];
 +  el.disabled = DISABLED[disabledMethod](self, el.value);
  }
- 
+
  function setupInput(self, el) {
 @@ -623,18 +661,34 @@ function setupTable(self, table) {
  function setupSelect(self, select) {
@@ -85,7 +85,7 @@ index f1b5c26..fb0d2e6 100644
        return "<option value=\"y-".concat(month + 1, "-d\"></option>");
      }).join('');
    }
- 
+
 +  var disabled = DISABLED[select.getAttribute('data-fill')];
    queryAll(select.children).forEach(function (option, month) {
      if (select._autofill) option.textContent = self.months[month];
@@ -94,7 +94,7 @@ index f1b5c26..fb0d2e6 100644
      option.selected = !self.diff(option.value);
    });
  }
- 
+
 +function daysInMonth(dateInMonth) {
 +  var date = new Date(dateInMonth);
 +  date.setDate(1);
@@ -110,21 +110,22 @@ index f1b5c26..fb0d2e6 100644
 +}
 +
  var version = "4.0.0";
- 
+
  /**
-@@ -669,7 +723,7 @@ var closest = function () {
- 
+@@ -669,7 +723,8 @@ var closest = function () {
+
  function customElementToReact(elementClass, options) {
    if (options === void 0) options = {};
 -  var name = elementClass.name || String(elementClass).match(/function ([^(]+)/)[1]; // String match for IE11
-+  var name = options.name || elementClass.name || String(elementClass).match(/function ([^(]+)/)[1] // String match for IE11
- 
++  var suppliedName = options.name || elementClass.name || String(elementClass).match(/function ([^(]+)/)[1] // String match for IE11
++  var name = suppliedName + "-20220408104436"; // datetime-ish value that is unique between core-components and versions, but stable for React SSR+hydration.
+
    var dashCase = name.replace(/.[A-Z]/g, function (ref) {
      var a = ref[0];
-@@ -786,10 +840,8 @@ function customElementToReact(elementClass, options) {
+@@ -786,10 +841,8 @@ function customElementToReact(elementClass, options) {
    }(React__default["default"].Component);
  }
- 
+
 -var coreDatepicker = customElementToReact(CoreDatepicker, {
 +export default customElementToReact(CoreDatepicker, {
    props: ['disabled'],
