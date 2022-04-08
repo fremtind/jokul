@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { AccordionItem } from ".";
 import { axe } from "jest-axe";
 import { act } from "react-dom/test-utils";
-import userEvent from "@testing-library/user-event/dist";
+import userEvent from "@testing-library/user-event";
 
 describe("AccordionItem", () => {
     it("should render without exploding", () => {

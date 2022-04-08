@@ -1,11 +1,20 @@
-// @ts-ignore: wait for core-components to expose types
-import CoreToggle from "@nrk/core-toggle/jsx";
-import React, { FocusEvent, forwardRef, useEffect, useRef, useState, KeyboardEvent, ChangeEvent } from "react";
+import React, {
+    FocusEvent,
+    forwardRef,
+    useEffect,
+    useRef,
+    useState,
+    KeyboardEvent,
+    ChangeEvent,
+    useCallback,
+    useMemo,
+} from "react";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import cn from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
+import { toLower, toItemLabel, focusSelected } from "./select-utils";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
     /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */
@@ -18,6 +27,12 @@ interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>
 }
 
 type ChangeEventHandler = (event: PartialChangeEvent) => void;
+
+interface Option {
+    visible: boolean;
+    value: string;
+    label: string;
+}
 
 export interface SelectProps extends DataTestAutoId {
     id?: string;
@@ -48,44 +63,6 @@ export interface SelectProps extends DataTestAutoId {
     onFocus?: ChangeEventHandler;
 }
 
-interface CoreToggleSelectTarget extends EventTarget {
-    hidden: boolean;
-    button: HTMLButtonElement;
-    value: { textContent: string };
-}
-
-interface CoreToggleSelectEvent extends Event {
-    detail: { textContent: string; value: string };
-    target: CoreToggleSelectTarget;
-}
-
-function toLower(str = "") {
-    return str.toLowerCase().replace(/[\W_]+/g, ""); // strip all non-alphanumeric chars
-}
-
-function toItemLabel(value: string | undefined, items: Array<string | ValuePair>): string {
-    if (!value) {
-        return "";
-    }
-    const item = items.find((i) => (typeof i === "string" ? i === value : i.value === value));
-    if (!item) {
-        return value;
-    }
-    return typeof item === "string" ? item : item.label;
-}
-
-function focusSelected(listEl: HTMLElement, listId: string, selected: string | undefined) {
-    let focusedItem: HTMLElement | null;
-    if (selected !== undefined) {
-        // move focus to selected option
-        focusedItem = listEl.querySelector(`#${listId}__${toLower(selected)}`);
-    } else {
-        // move focus to first option
-        focusedItem = listEl.querySelector('[role="option"]');
-    }
-    focusedItem && focusedItem.focus();
-}
-
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     (
         {
@@ -110,39 +87,48 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         },
         ref,
     ) => {
-        const [searchValue, setSearchValue] = useState("");
-        const [selectedValue, setSelectedValue] = useState(value);
-        const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+        const listId = useId(id || "jkl-select", { generateSuffix: !id });
+        const buttonId = `${listId}_button`;
+        const searchInputId = `${listId}_search-input`;
 
         const isSearchable = !!searchable;
+        const [searchValue, setSearchValue] = useState("");
+        const searchFn = useCallback(
+            (item: ValuePair) => {
+                if (item.label.toLowerCase().includes(searchValue.toLowerCase())) {
+                    return true;
+                }
 
-        const searchFn = (item: ValuePair) => {
-            if (item.label.toLowerCase().includes(searchValue.toLowerCase())) {
-                return true;
-            }
+                if (typeof searchable === "function") {
+                    return searchable(searchValue, item);
+                }
 
-            if (typeof searchable === "function") {
-                return searchable(searchValue, item);
-            }
+                return false;
+            },
+            [searchable, searchValue],
+        );
+        const visibleItems: Option[] = useMemo(
+            () =>
+                items.map(getValuePair).map((item) => {
+                    const visible = !isSearchable || searchValue === "" || searchFn(item);
+                    return { ...item, visible };
+                }),
+            [items, isSearchable, searchValue, searchFn],
+        );
 
-            return false;
-        };
-
-        const visibleItems = items.map(getValuePair).map((item) => {
-            const visible = !isSearchable || searchValue === "" || searchFn(item);
-            return { ...item, visible };
-        });
-        const selectedValueLabel = visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt;
+        const [selectedValue, setSelectedValue] = useState(value);
+        const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+        const selectedValueLabel = useMemo(
+            () => visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt,
+            [visibleItems, selectedValue, defaultPrompt],
+        );
 
         // Update internal state if value is changed
         useEffect(() => {
             setSelectedValue(value);
         }, [value, setSelectedValue]);
 
-        const focusInsideRef = useRef(false);
         const [dropdownIsShown, setShown] = useState(false);
-        const listId = useId(id || "jkl-select", { generateSuffix: !id });
-        const searchInputId = `${listId}_search-input`;
         const showSearchInputField = isSearchable && dropdownIsShown;
 
         // Element references:
@@ -151,42 +137,48 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const selectRef = ref && typeof ref !== "function" ? ref : internalSelectRef;
         const buttonRef = useRef<HTMLButtonElement>(null);
         const searchFieldRef = useRef<HTMLInputElement>(null);
-        const [dropdownRef] = useAnimatedHeight(dropdownIsShown);
         const listRef = useListNavigation();
 
-        const componentClassName = cn("jkl-select", className, {
-            "jkl-select--inline": inline,
-            "jkl-select--compact": forceCompact,
-            "jkl-select--open": dropdownIsShown,
-            "jkl-select--no-value": !hasSelectedValue,
-            "jkl-select--invalid": !!errorLabel,
-        });
-
-        function onToggle(e: CoreToggleSelectEvent) {
-            e.preventDefault();
-            const opening = !dropdownIsShown;
+        function toggleListVisibility() {
             setShown(!dropdownIsShown);
-            if (opening && !searchable) {
+        }
+
+        function selectOption(item: Option) {
+            const nextValue = item.value;
+            setSearchValue("");
+            setSelectedValue(nextValue);
+            if (onChange) {
+                onChange({ type: "change", target: { name: name, value: nextValue } });
+            }
+            if (selectRef.current) {
+                selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
+            }
+            toggleListVisibility();
+        }
+
+        const focusInsideRef = useRef(false);
+
+        const handleFocusPlacement = useCallback(() => {
+            if (dropdownIsShown && !isSearchable) {
                 const listElement = listRef.current;
-                listElement && focusSelected(listElement, listId, selectedValue);
-            } else if (opening) {
+                if (listElement) {
+                    focusSelected(listElement, selectedValue);
+                }
+            } else if (dropdownIsShown) {
                 if (searchFieldRef.current) {
                     searchFieldRef.current.focus();
                 }
+            } else {
+                if (focusInsideRef.current && buttonRef.current) {
+                    buttonRef.current.focus();
+                }
             }
-        }
+        }, [dropdownIsShown, isSearchable, selectedValue, listRef]);
 
-        function onToggleSelect(e: CoreToggleSelectEvent) {
-            e.preventDefault();
-            const nextValue = e.detail.value;
-            setSearchValue("");
-            setSelectedValue(nextValue);
-            onChange && onChange({ type: "change", target: { name: name, value: nextValue } });
-            e.target.value = e.detail;
-            selectRef.current && selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
-            e.target.hidden = true;
-            e.target.button.focus();
-        }
+        const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(dropdownIsShown, {
+            onFirstVisible: handleFocusPlacement,
+            onTransitionEnd: handleFocusPlacement,
+        });
 
         function handleBlur(e: FocusEvent<HTMLButtonElement | HTMLInputElement>) {
             const componentRootElement = componentRootElementRef.current;
@@ -195,10 +187,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             // This might be fixed in react 17. Se issue above.
             const nextFocusIsInsideComponent =
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
-            if (!nextFocusIsInsideComponent && onBlur) {
-                onBlur({ type: "blur", target: { name: name, value: selectedValue || "" } });
-                selectRef.current && selectRef.current.dispatchEvent(new Event("focusout", { bubbles: true }));
+            if (!nextFocusIsInsideComponent) {
+                if (onBlur) {
+                    onBlur({ type: "blur", target: { name: name, value: selectedValue || "" } });
+                    selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
+                }
                 focusInsideRef.current = false;
+                setShown(false);
             }
         }
 
@@ -206,15 +201,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             if (onFocus && !focusInsideRef.current) {
                 onFocus({ type: "change", target: { name: name, value: selectedValue || "" } });
                 focusInsideRef.current = true;
-            }
-        }
-
-        // add support for opening dropdown with arrowkey down as expected from native select
-        function handleArrowDown(e: KeyboardEvent<HTMLButtonElement>) {
-            e.preventDefault();
-            if (e.key === "ArrowDown" && !dropdownIsShown) {
-                e.stopPropagation();
-                buttonRef.current?.click();
             }
         }
 
@@ -245,8 +231,48 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             };
         }, [ref, selectRef, showSearchInputField]);
 
+        // add support for opening dropdown with arrowkey down as expected from native select
+        function handleOnKeyDown(e: KeyboardEvent<HTMLButtonElement>) {
+            e.preventDefault();
+            if ((e.key === "ArrowDown" || e.key === " ") && !dropdownIsShown) {
+                e.stopPropagation();
+                setShown(true);
+            }
+            if (e.key === "Escape") {
+                setShown(false);
+            }
+        }
+
+        // Add support for closing the dropdown with Escape like native select. Unfortunately, Escape does not trigger the button onKeyDown.
+        useEffect(() => {
+            const handleEscape = (e: globalThis.KeyboardEvent) => {
+                if (e.key === "Escape" && dropdownIsShown) {
+                    setShown(false);
+                }
+            };
+            if (typeof window !== "undefined" && dropdownIsShown) {
+                window.addEventListener("keydown", handleEscape);
+            }
+            return () => {
+                if (typeof window !== "undefined") {
+                    window.removeEventListener("keydown", handleEscape);
+                }
+            };
+        }, [dropdownIsShown]);
+
         return (
-            <div data-testid="jkl-select" className={componentClassName} ref={componentRootElementRef} {...rest}>
+            <div
+                data-testid="jkl-select"
+                className={cn("jkl-select", className, {
+                    "jkl-select--inline": inline,
+                    "jkl-select--compact": forceCompact,
+                    "jkl-select--open": dropdownIsShown,
+                    "jkl-select--no-value": !hasSelectedValue,
+                    "jkl-select--invalid": !!errorLabel,
+                })}
+                ref={componentRootElementRef}
+                {...rest}
+            >
                 <Label
                     standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
                     htmlFor={isSearchable ? searchInputId : undefined}
@@ -285,34 +311,42 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                         />
                     )}
                     <button
+                        id={buttonId}
                         ref={buttonRef}
                         hidden={showSearchInputField}
                         type="button"
                         name={`${name}-btn`}
                         className="jkl-select__button"
                         data-testid="jkl-select__button"
-                        aria-haspopup="listbox"
+                        aria-label={`${selectedValueLabel || "Velg"},${label}`}
+                        aria-expanded={dropdownIsShown}
+                        aria-controls={listId}
                         onBlur={handleBlur}
                         onFocus={handleFocus}
-                        onKeyUp={handleArrowDown}
+                        onKeyUp={handleOnKeyDown}
+                        onClick={toggleListVisibility}
+                        onMouseDown={(e) => {
+                            // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
+                            // https://twitter.com/MilesSorce/status/1278762360669265925
+                            e.preventDefault();
+                            buttonRef.current?.focus();
+                        }}
                     >
                         {selectedValueLabel}
                     </button>
-                    <CoreToggle
+                    <div
                         id={listId}
                         ref={dropdownRef}
-                        role="listbox"
+                        role="group"
                         className="jkl-select__options-menu"
-                        popup={label}
                         hidden={!dropdownIsShown}
-                        onToggle={onToggle}
-                        onToggleSelect={onToggleSelect}
-                        aria-activedescendant={hasSelectedValue && `${listId}__${toLower(selectedValue)}`}
+                        aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
+                        aria-labelledby={buttonId}
+                        tabIndex={-1}
                     >
                         <ul
                             className="jkl-select__option-wrapper"
                             data-testid="jkl-select__option-wrapper"
-                            tabIndex={-1}
                             ref={listRef}
                         >
                             {visibleItems.map((item, i) => (
@@ -328,13 +362,17 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                         data-testautoid={`jkl-select__option-${i}`}
                                         onBlur={handleBlur}
                                         onFocus={handleFocus}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            selectOption(item);
+                                        }}
                                     >
                                         <span className="jkl-select__option-label">{item.label}</span>
                                     </button>
                                 </li>
                             ))}
                         </ul>
-                    </CoreToggle>
+                    </div>
                     <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
                 </div>
                 <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />

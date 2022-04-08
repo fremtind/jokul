@@ -4,7 +4,6 @@ import cn from "classnames";
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
-
 import { ChangeDate } from "./DatePicker";
 
 interface Props {
@@ -51,7 +50,7 @@ export const Calendar = forwardRef<HTMLElement, Props>(
         return (
             <>
                 <CoreDatepicker
-                    date={date}
+                    date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
                     months={months}
                     days={days}
                     onDatepickerClickDay={onClickDate}

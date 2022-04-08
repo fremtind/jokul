@@ -1,7 +1,6 @@
 export { ComponentExample } from "./ComponentExample";
 export { DevExample } from "./DevExample";
 export { ExampleContext } from "./ExampleContext";
-export { renderExample } from "./renderExample";
 
 export interface Dictionary<T> {
     [key: string]: T;

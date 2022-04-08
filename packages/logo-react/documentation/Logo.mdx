@@ -5,7 +5,7 @@ scss: logo
 group: annet
 ---
 
-import { LogoExample, logoExampleCode } from "./LogoExample";
+import { LogoExample, logoExampleKnobs, logoExampleCode } from "./LogoExample";
 import { LogoStampExample, logoStampExampleCode } from "./LogoStampExample";
 
 <Ingress>
@@ -13,14 +13,7 @@ import { LogoStampExample, logoStampExampleCode } from "./LogoStampExample";
     løsninger der Fremtind skal være synlig.
 </Ingress>
 
-<ComponentExample
-    title="Logo"
-    component={LogoExample}
-    knobs={{
-        boolProps: ["Animert", "Kun symbol", "Sentrert"],
-    }}
-    codeExample={logoExampleCode}
-/>
+<ComponentExample title="Logo" component={LogoExample} knobs={logoExampleKnobs} codeExample={logoExampleCode} />
 
 Logoen og logosymbolet skal ikke stå synlige sammen. Vi kan animere mellom dem, slik at vi ser at det skifter mellom logo og logosymbol. Velg _Animert_ og så _Kun symbol_ i eksempelet over for å se effekten.
 

@@ -23,26 +23,26 @@ describe("Select", () => {
         expect(dropdown).toHaveClass("jkl-select--inline");
     });
 
-    it("should open when clicked", () => {
+    it("should open when clicked", async () => {
         render(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
         const button = screen.getByTestId("jkl-select__button");
 
-        act(() => {
-            userEvent.click(button);
+        await act(async () => {
+            await userEvent.click(button);
         });
         expect(screen.getByText("drop")).toBeVisible();
     });
 
-    it("should open when arrow down is pressed", () => {
+    it("should open when arrow down is pressed", async () => {
         // Testen produserer en tom DOMException. Undersøkelser i jsdom ga ikke noe hint om årsak.
 
         render(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
         const button = screen.getByTestId("jkl-select__button");
 
-        act(() => {
-            userEvent.type(button, "{arrowdown}");
+        await act(async () => {
+            await userEvent.type(button, "{arrowdown}");
         });
         expect(screen.getByText("drop")).toBeVisible();
     });
@@ -88,7 +88,7 @@ describe("Select", () => {
         expect(screen.getByTestId("jkl-select__button").innerHTML).toBe("Fin lesbar tekst");
     });
 
-    it("should call onFocus when clicking on select dropdown", () => {
+    it("should call onFocus when clicking on select dropdown", async () => {
         const onFocus = jest.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>();
@@ -113,14 +113,14 @@ describe("Select", () => {
 
         const dropdownButtonElement = screen.getByText("Velg");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
     });
 
-    it("should call onBlur when clicking on something outside Select", () => {
+    it("should call onBlur when clicking on something outside Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>();
@@ -149,18 +149,18 @@ describe("Select", () => {
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
-        act(() => {
-            userEvent.click(outsideSelectButtonElement);
+        await act(async () => {
+            await userEvent.click(outsideSelectButtonElement);
         });
 
         expect(onBlur).toHaveBeenCalledTimes(1);
     });
 
-    it("should not call onBlur when clicking on a dropdown item", () => {
+    it("should not call onBlur when clicking on a dropdown item", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>();
@@ -189,18 +189,18 @@ describe("Select", () => {
         const dropdownButtonElement = screen.getByText("Velg");
         const firstItemButton = screen.getByText("Item 1");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
-        act(() => {
-            userEvent.click(firstItemButton);
+        await act(async () => {
+            await userEvent.click(firstItemButton);
         });
 
         expect(onBlur).not.toHaveBeenCalled();
     });
 
-    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", async () => {
         render(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
@@ -209,15 +209,15 @@ describe("Select", () => {
             </Accordion>,
         );
 
-        act(() => {
+        await act(async () => {
             const button = screen.getByTestId("jkl-select__button");
-            userEvent.click(button);
+            await userEvent.click(button);
         });
 
         expect(screen.getByTestId("jkl-select__button")).toBeVisible();
     });
 
-    it("supports controlled value state", () => {
+    it("supports controlled value state", async () => {
         const TestControlledSelect = () => {
             const items = [
                 { label: "Item 1", value: "1" },
@@ -237,8 +237,8 @@ describe("Select", () => {
 
         render(<TestControlledSelect />);
 
-        act(() => {
-            userEvent.click(screen.getByText("Click"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Click"));
         });
 
         expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("Item 2");
@@ -294,13 +294,13 @@ describe("Searchable select", () => {
         render(<WrappedSelect />);
         const openDropdownButtonElement = screen.getByText("Velg");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
         const selectOption1Element = screen.getByText("Item 1");
 
-        act(() => {
-            userEvent.click(selectOption1Element);
+        await act(async () => {
+            await userEvent.click(selectOption1Element);
         });
         expect(openDropdownButtonElement.textContent).toBe("Item 1");
     });
@@ -332,8 +332,8 @@ describe("Searchable select", () => {
 
         expect(searchInputElement).not.toBeVisible();
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
 
         expect(searchInputElement).toBeVisible();
@@ -367,8 +367,8 @@ describe("Searchable select", () => {
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
 
         expect(searchInputElement).toHaveAttribute("value", "");
@@ -408,8 +408,8 @@ describe("Searchable select", () => {
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
 
         expect(searchInputElement).toHaveAttribute("value", "");
@@ -461,8 +461,8 @@ describe("Searchable select", () => {
         const searchInputElement = screen.getByLabelText("List of items");
         const firstOptionElement = screen.getByText("Item 11");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
 
         expect(searchInputElement).toHaveAttribute("value", "");
@@ -473,19 +473,19 @@ describe("Searchable select", () => {
 
         expect(searchInputElement).toHaveAttribute("value", "Item 11");
 
-        act(() => {
-            userEvent.click(firstOptionElement);
+        await act(async () => {
+            await userEvent.click(firstOptionElement);
         });
 
         expect(openDropdownButtonElement.textContent).toBe("Item 11");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
         expect(searchInputElement).toHaveAttribute("value", "");
     });
 
-    it("should have a case insensitive search", () => {
+    it("should have a case insensitive search", async () => {
         function WrappedSelect() {
             const [state, setState] = useState<string>();
 
@@ -513,8 +513,8 @@ describe("Searchable select", () => {
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
 
         act(() => {
@@ -542,7 +542,7 @@ describe("Searchable select", () => {
         expect(screen.getByText("Item 6")).toBeVisible();
     });
 
-    it("should focus search input field when clicking dropdown button", () => {
+    it("should focus search input field when clicking dropdown button", async () => {
         function WrappedSelect() {
             const [state, setState] = useState<string>();
 
@@ -566,14 +566,14 @@ describe("Searchable select", () => {
 
         const dropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items");
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
         expect(document.activeElement).toBe(searchInputElement);
     });
 
-    it("should call onFocus when select button is clicked in searchable Select", () => {
+    it("should call onFocus when select button is clicked in searchable Select", async () => {
         const onFocus = jest.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>();
@@ -599,14 +599,14 @@ describe("Searchable select", () => {
 
         const dropdownButtonElement = screen.getByText("Velg");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
         expect(onFocus).toBeCalledTimes(1);
     });
 
-    it("should not call onBlur when clicking on a searchable Select", () => {
+    it("should not call onBlur when clicking on a searchable Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>();
@@ -632,14 +632,14 @@ describe("Searchable select", () => {
 
         const dropdownButtonElement = screen.getByText("Velg");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
         expect(onBlur).not.toHaveBeenCalled();
     });
 
-    it("should call onBlur when clicking on something outside searchable Select", () => {
+    it("should call onBlur when clicking on something outside searchable Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>();
@@ -669,20 +669,20 @@ describe("Searchable select", () => {
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
         expect(onBlur).toHaveBeenCalledTimes(0);
 
-        act(() => {
-            userEvent.click(outsideSelectButtonElement);
+        await act(async () => {
+            await userEvent.click(outsideSelectButtonElement);
         });
 
         expect(onBlur).toHaveBeenCalledTimes(1);
     });
 
-    it("should call onFocus only once when performing multiple actions and focus shifts inside the searchable Select", () => {
+    it("should call onFocus only once when performing multiple actions and focus shifts inside the searchable Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>();
@@ -714,32 +714,32 @@ describe("Searchable select", () => {
         const searchInputElement = screen.getByLabelText("List of items");
         const firstItemButtonElement = screen.getByText("Item 1");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
-        act(() => {
-            userEvent.type(searchInputElement, "item 1");
+        await act(async () => {
+            await userEvent.type(searchInputElement, "item 1");
         });
 
         expect(onBlur).toHaveBeenCalledTimes(0);
 
-        act(() => {
+        await act(async () => {
             // userEvent.click(firstItemButtonElement); THIS SHOULD WORK BUT DOESN'T FOR SOME REASON. JSDOM BUG?
             firstItemButtonElement.focus();
-            userEvent.click(firstItemButtonElement);
+            await userEvent.click(firstItemButtonElement);
         });
 
         expect(onBlur).toHaveBeenCalledTimes(0);
 
-        act(() => {
-            userEvent.click(outsideSelectButtonElement);
+        await act(async () => {
+            await userEvent.click(outsideSelectButtonElement);
         });
 
         expect(onBlur).toHaveBeenCalledTimes(1);
     });
 
-    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", async () => {
         render(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
@@ -748,15 +748,15 @@ describe("Searchable select", () => {
             </Accordion>,
         );
 
-        act(() => {
+        await act(async () => {
             const button = screen.getByTestId("jkl-select__button");
-            userEvent.click(button);
+            await userEvent.click(button);
         });
 
         expect(screen.getByTestId("jkl-select__search-input")).toBeVisible();
     });
 
-    it("should not close the Select when clicking the input field", () => {
+    it("should not close the Select when clicking the input field", async () => {
         const items = [
             { label: "Item 1", value: "1" },
             { label: "Item 2", value: "2" },
@@ -768,20 +768,20 @@ describe("Searchable select", () => {
         const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
         const searchInputElement = screen.getByTestId("jkl-select__search-input");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
 
         expect(searchInputElement).toBeVisible();
 
-        act(() => {
-            userEvent.click(searchInputElement);
+        await act(async () => {
+            await userEvent.click(searchInputElement);
         });
 
         expect(searchInputElement).toBeVisible();
     });
 
-    it("should support custom filtering function", () => {
+    it("should support custom filtering function", async () => {
         const items = [
             { label: "foo", value: "1" },
             { label: "bar", value: "2" },
@@ -806,8 +806,8 @@ describe("Searchable select", () => {
         const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
         const searchInputElement = screen.getByTestId("jkl-select__search-input");
 
-        act(() => {
-            userEvent.click(openDropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
         });
 
         act(() => {
@@ -878,12 +878,12 @@ describe("a11y", () => {
         const dropdownButtonElement = screen.getByText("Velg");
         const firstItemButton = screen.getByText("Apple");
 
-        act(() => {
-            userEvent.click(dropdownButtonElement);
+        await act(async () => {
+            await userEvent.click(dropdownButtonElement);
         });
 
-        act(() => {
-            userEvent.click(firstItemButton);
+        await act(async () => {
+            await userEvent.click(firstItemButton);
         });
 
         expect(onChange).toHaveBeenCalled();

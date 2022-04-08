@@ -1,5 +1,6 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Tabs, Tab, TabList, TabPanel } from ".";
 import { axe } from "jest-axe";
 
@@ -26,7 +27,9 @@ describe("Tabs", () => {
         screen.getByText("Tabpanel 1");
         expect(screen.queryByText("Tabpanel 2")).toBeNull();
 
-        fireEvent.click(screen.getByText("Tab 2"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Tab 2"));
+        });
 
         screen.getByText("Tabpanel 2");
         expect(screen.queryByText("Tabpanel 1")).toBeNull();
@@ -39,7 +42,9 @@ describe("Tabs", () => {
 
         expect(onChange).not.toHaveBeenCalled();
 
-        fireEvent.click(screen.getByText("Tab 2"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Tab 2"));
+        });
 
         expect(onChange).toHaveBeenCalledWith(1);
     });

@@ -6,7 +6,6 @@ import type { ComponentDoc } from "react-docgen-typescript";
 import { Frontmatter } from "../components/Header/useNavigationLinks";
 import { BlogPageHeader, ComponentPageHeader } from "../components/Layout/components";
 import { a11yContext } from "../contexts/a11yContext";
-import { useLocation } from "../contexts/locationContext";
 import { APIDocumentation } from "../components";
 
 interface Props {
@@ -23,17 +22,17 @@ interface Props {
 
 export const DocPageLayout: VFC<Props> = ({ location, data, pageContext }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
-    const { isCypress } = useLocation();
 
     const { body, frontmatter } = data.page; // Fra pageQuery
     const { types } = pageContext; // Fra context i gatsby-node
+    const isE2e = typeof window !== "undefined" ? window.location.search === "?mode=e2e" : false;
 
     return (
         <motion.main
             initial={{ y: prefersReducedMotion ? 0 : 10, opacity: 0 }}
             animate={{ y: prefersReducedMotion ? 0 : 0, opacity: 1 }}
             exit={{ y: prefersReducedMotion ? 0 : -20, opacity: 0 }}
-            transition={{ duration: isCypress ? 0 : 0.35 }}
+            transition={{ duration: prefersReducedMotion || isE2e ? 0 : 0.35 }}
             className={`jkl-portal__main ${
                 location.pathname === "/profil/bildebruk" ? "jkl-portal__main--no-margin" : ""
             }`}

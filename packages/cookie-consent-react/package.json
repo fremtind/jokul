@@ -28,27 +28,28 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-cookie-consent yarn build:watch",
-        "dev:js": "parcel documentation/index.html",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:server": "node ./dist/server.js",
+        "predev": "node ./esbuild.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.7",
+        "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-button-react": "^10.1.4",
         "@fremtind/jkl-cookie-consent": "^6.0.8",
         "@fremtind/jkl-list-react": "^6.1.16",
         "@fremtind/jkl-react-hooks": "^8.0.2",
         "classnames": "^2.2.6",
-        "react-hook-form": "^7.28.0"
+        "react-hook-form": "^7.29.0"
     },
     "devDependencies": {
         "@nrk/core-dialog": "4.0.0"
     },
     "peerDependencies": {
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-dom": "^16.8.6 || ^17.0.0",
-        "react": "^16.8.6 || ^17.0.0",
-        "react-dom": "^16.8.6 || ^17.0.0"
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     },
     "repository": {
         "type": "git",
