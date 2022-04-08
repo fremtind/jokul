@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2022-04-08)
+
+### Bug Fixes
+
+-   småtrøbbel med test og typesjekk ([b1b1bc3](https://github.com/fremtind/jokul/commit/b1b1bc3eeb0fade11f8c19d9c1d6170ad808ef6d))
+
+### chore
+
+-   skriv vekk fra core-components ([09117c8](https://github.com/fremtind/jokul/commit/09117c8364fadc9dc9f489d7a6ab47e76a14065b))
+
+### BREAKING CHANGES
+
+-   ExpandSection: onToggle og expandButtonProps.id fjernet. Ingen endring i ExpandButton.
+
 # [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button-react@1.1.6...@fremtind/jkl-expand-button-react@1.2.0) (2022-02-02)
 
 ### Bug Fixes

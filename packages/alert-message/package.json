@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message",
-    "version": "5.0.18",
+    "version": "5.0.19",
     "publishConfig": {
         "access": "public"
     },
@@ -23,10 +23,10 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev": "echo \"Error: run dev from alert-message-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.3.1"
+        "@fremtind/jkl-core": "^9.3.2"
     },
     "repository": {
         "type": "git",

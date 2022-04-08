@@ -1,6 +1,16 @@
 import React, { VFC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { IconButton, IconVariant } from "../src";
+
+export const iconButtonExampleKnobs: ExampleKnobsProps = {
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["clear", "search", "calendar"],
+            defaultValue: 1,
+        },
+    ],
+};
 
 function onClick() {
     console.log("Button Clicked!");

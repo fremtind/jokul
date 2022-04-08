@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.1.0 (2022-04-08)
+
+### Bug Fixes
+
+-   bruk et pattern som funker med hydrering ([8fc9b35](https://github.com/fremtind/jokul/commit/8fc9b35876fe89c56aab2eb5d3f28765181af8bb))
+-   bruk useId fra React der vi kan for å fikse hydrering ([4845325](https://github.com/fremtind/jokul/commit/4845325b962224e012335fcfff568da3d9cab7ed))
+-   fjern all bruk av useLayoutEffect ([18ddc3f](https://github.com/fremtind/jokul/commit/18ddc3ffe0ee92eaf23237d0235a4ef52bf5ad51))
+-   ikke baser animasjon på antall renders ([1941cd8](https://github.com/fremtind/jokul/commit/1941cd8eae3e180915e7371755610c34098414e1))
+
+### Features
+
+-   legg til en ny hook i useAnimatedHeight ([665ab46](https://github.com/fremtind/jokul/commit/665ab46b742b4130fe385b15fde6adbd07ac4f0c))
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.2.2...@fremtind/jkl-react-hooks@8.0.0) (2022-03-11)
 
 ### Bug Fixes

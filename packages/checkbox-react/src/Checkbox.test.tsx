@@ -1,10 +1,11 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Checkbox } from ".";
 import { axe } from "jest-axe";
 
 describe("checkbox", () => {
-    it("should be checked after clicking the label", () => {
+    it("should be checked after clicking the label", async () => {
         render(
             <Checkbox value="iamgroot" name="iamgroot">
                 I am groot!
@@ -16,12 +17,14 @@ describe("checkbox", () => {
 
         expect(input.checked).toBe(false);
 
-        fireEvent.click(label);
+        await act(async () => {
+            await userEvent.click(label);
+        });
 
         expect(input.checked).toBe(true);
     });
 
-    it("should be checked after clicking the input ", function () {
+    it("should be checked after clicking the input ", async () => {
         render(
             <Checkbox value="iamgroot" name="iamgroot">
                 I am groot!
@@ -32,12 +35,14 @@ describe("checkbox", () => {
 
         expect(input.checked).toBe(false);
 
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
 
         expect(input.checked).toBe(true);
     });
 
-    it("should be checked if checked is true", function () {
+    it("should be checked if checked is true", () => {
         render(
             <Checkbox value="iamgroot" name="iamgroot" checked={true} onChange={() => {}}>
                 I am groot!
@@ -50,7 +55,7 @@ describe("checkbox", () => {
         expect(input.checked).toBe(true);
     });
 
-    it("should be unchecked if checked is true and input is clicked", function () {
+    it("should be unchecked if checked is true and input is clicked", async () => {
         const TestCheckbox = () => {
             const [checked, toggle] = React.useState(true);
             return (
@@ -66,12 +71,14 @@ describe("checkbox", () => {
 
         expect(input.checked).toBe(true);
 
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
 
         expect(input.checked).toBe(false);
     });
 
-    it("should call the passed onChange method when clicked", () => {
+    it("should call the passed onChange method when clicked", async () => {
         const onChange = jest.fn();
         render(
             <Checkbox value="switchme" name="switchme" onChange={onChange}>
@@ -80,7 +87,9 @@ describe("checkbox", () => {
         );
 
         const input = screen.getByLabelText("Switch me!");
-        fireEvent.click(input);
+        await act(async () => {
+            await userEvent.click(input);
+        });
 
         expect(onChange).toHaveBeenCalled();
     });

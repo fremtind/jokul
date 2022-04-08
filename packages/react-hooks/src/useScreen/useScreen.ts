@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer } from "react";
+import { useCallback, useEffect, useReducer, useState } from "react";
 import { breakpoints } from "@fremtind/jkl-core";
 import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
 import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
@@ -18,21 +18,27 @@ const createAction = (property: keyof ScreenState): ScreenAction => ({
 });
 
 export const useScreen = (): ScreenState => {
-    const [device, deviceDispatch] = useReducer(
-        reducer,
-        {
-            isSmallDevice: false,
-            isMediumDevice: false,
-            isLargeDevice: false,
-            isXlDevice: false,
-            isLandscape: false,
-            isPortrait: false,
-        },
-        () =>
-            Object.fromEntries(
-                Object.entries(MEDIA_RULES).map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)]),
-            ) as unknown as ScreenState,
-    );
+    const [hasMounted, setHasMounted] = useState(false);
+
+    const [device, deviceDispatch] = useReducer(reducer, {
+        isSmallDevice: false,
+        isMediumDevice: false,
+        isLargeDevice: false,
+        isXlDevice: false,
+        isLandscape: false,
+        isPortrait: false,
+    });
+
+    useEffect(() => {
+        setHasMounted(true);
+        Object.entries(MEDIA_RULES)
+            .map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)])
+            .forEach(([key, value]) => {
+                if (value) {
+                    deviceDispatch(createAction(key as keyof ScreenState));
+                }
+            });
+    }, []);
 
     const createListener = useCallback(
         (key: keyof ScreenState) => (e: MediaQueryListEvent) => {
@@ -46,20 +52,22 @@ export const useScreen = (): ScreenState => {
     );
 
     useEffect(() => {
-        const eventListenerPairs: Array<[MediaQueryList, (e: MediaQueryListEvent) => void]> = [];
-        if (typeof window !== "undefined" && window.matchMedia) {
-            Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
-                const queryList = window.matchMedia(rule);
-                const listener = createListener(key as keyof ScreenState);
-                eventListenerPairs.push([queryList, listener]);
-                addMediaQueryListener(queryList, listener);
-            });
+        if (!hasMounted || !window.matchMedia) {
+            return;
         }
+        const eventListenerPairs: Array<[MediaQueryList, (e: MediaQueryListEvent) => void]> = [];
+
+        Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
+            const queryList = window.matchMedia(rule);
+            const listener = createListener(key as keyof ScreenState);
+            eventListenerPairs.push([queryList, listener]);
+            addMediaQueryListener(queryList, listener);
+        });
 
         return () => {
             eventListenerPairs.forEach(([queryList, listener]) => removeMediaQueryListener(queryList, listener));
         };
-    }, [createListener]);
+    }, [createListener, hasMounted]);
 
     return { ...device };
 };

@@ -5,6 +5,7 @@ import { axe } from "jest-axe";
 
 import { FollowupQuestion } from "./types";
 import { Feedback, PRESETS } from "./";
+import { act } from "react-dom/test-utils";
 
 const mockFn = jest.fn();
 
@@ -41,8 +42,10 @@ describe("Feedback", () => {
     it("calls onSubmit function with feedback value", async () => {
         render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         // use findBy to wait until element appears
         // https://testing-library.com/docs/dom-testing-library/api-async#findby-queries
@@ -55,9 +58,11 @@ describe("Feedback", () => {
     it("calls onSubmit function with feedback value and message", async () => {
         render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         await screen.findByRole("status");
 
@@ -68,21 +73,24 @@ describe("Feedback", () => {
     it("calls onSubmit function with feedback value and message with changes", async () => {
         render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
-        userEvent.click(screen.getByText("Nei"));
-        userEvent.click(screen.getByText("Send"));
-
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+            await userEvent.click(screen.getByText("Nei"));
+            await userEvent.click(screen.getByText("Send"));
+        });
         await screen.findByRole("status");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "nei", message: "This is very nice" });
     });
 
-    it("calls onSubmit function if the component is unmounted", () => {
+    it("calls onSubmit function if the component is unmounted", async () => {
         const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
 
-        userEvent.click(screen.getByText("Ja"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+        });
         unmount();
 
         expect(mockFn).toBeCalledTimes(1);
@@ -91,10 +99,11 @@ describe("Feedback", () => {
     it("does not call onSubmit on unmount if feedback already is submitted", async () => {
         const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
-        userEvent.click(screen.getByText("Send"));
-
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+            await userEvent.click(screen.getByText("Send"));
+        });
         await screen.findByRole("status");
 
         expect(mockFn).toBeCalledTimes(1);
@@ -113,12 +122,16 @@ describe("Feedback", () => {
             />,
         );
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         await screen.findByText("Jeg har tid!");
 
-        userEvent.click(screen.getByText("Jeg har tid!"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Jeg har tid!"));
+        });
 
         unmount();
 
@@ -133,15 +146,22 @@ describe("Feedback", () => {
                 onSubmit={() => null}
             />,
         );
-
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         await screen.findByText("Jeg har tid!");
 
-        userEvent.click(screen.getByText("Jeg har tid!"));
-        userEvent.click(screen.getByText("Tungvindt"));
-        userEvent.click(screen.getByText("Neste"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Jeg har tid!"));
+        });
+        await act(async () => {
+            await userEvent.click(screen.getByText("Tungvindt"));
+        });
+        await act(async () => {
+            await userEvent.click(screen.getByText("Neste"));
+        });
 
         unmount();
 
@@ -158,20 +178,27 @@ describe("Feedback", () => {
             />,
         );
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         await screen.findByText("Jeg har tid!");
 
-        userEvent.click(screen.getByText("Jeg har tid!"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Jeg har tid!"));
+        });
+        await act(async () => {
+            await userEvent.click(screen.getByText("Tungvindt"));
+            await userEvent.click(screen.getByText("Neste"));
+        });
 
-        userEvent.click(screen.getByText("Tungvindt"));
-        userEvent.click(screen.getByText("Neste"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("God informasjon"));
+            await userEvent.click(screen.getByText("At det ser fint ut"));
 
-        userEvent.click(screen.getByText("God informasjon"));
-        userEvent.click(screen.getByText("At det ser fint ut"));
-
-        userEvent.click(screen.getByText("Send inn"));
+            await userEvent.click(screen.getByText("Send inn"));
+        });
 
         await screen.findByText("Takk, igjen!");
 
@@ -189,14 +216,22 @@ describe("Feedback", () => {
             />,
         );
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         await screen.findByText("Jeg har tid!");
 
-        userEvent.click(screen.getByText("Jeg har tid!"));
-        userEvent.click(screen.getByText("Neste"));
-        userEvent.click(screen.getByText("Send inn"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Jeg har tid!"));
+        });
+        await act(async () => {
+            await userEvent.click(screen.getByText("Neste"));
+        });
+        await act(async () => {
+            await userEvent.click(screen.getByText("Send inn"));
+        });
 
         await screen.findByText("Takk, igjen!");
 
@@ -217,14 +252,18 @@ describe("Feedback", () => {
         const email = "test@test.com";
         const phone = "48484848";
 
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         await screen.findByText("E-post");
 
-        userEvent.type(screen.getByLabelText("E-post"), email);
-        userEvent.type(screen.getByLabelText("Telefonnummer"), phone);
-        userEvent.click(screen.getByText("Sett meg på lista!"));
+        await act(async () => {
+            await userEvent.type(screen.getByLabelText("E-post"), email);
+            await userEvent.type(screen.getByLabelText("Telefonnummer"), phone);
+            await userEvent.click(screen.getByText("Sett meg på lista!"));
+        });
 
         expect(mockFn).toBeCalledWith({ email, phone });
     });
@@ -243,22 +282,30 @@ describe("Feedback", () => {
         let results = await axe(container);
         expect(results).toHaveNoViolations();
 
-        // test followup invitation
-        userEvent.click(screen.getByText("Ja"));
-        userEvent.click(screen.getByText("Send"));
+        await act(async () => {
+            // test followup invitation
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
 
         results = await axe(container);
         expect(results).toHaveNoViolations();
 
-        // test followup question
-        userEvent.click(screen.getByText("Jeg har tid!"));
+        await act(async () => {
+            // test followup question
+            await userEvent.click(screen.getByText("Jeg har tid!"));
+        });
 
         results = await axe(container);
         expect(results).toHaveNoViolations();
 
-        // test contact question
-        userEvent.click(screen.getByText("Neste"));
-        userEvent.click(screen.getByText("Send inn"));
+        await act(async () => {
+            // test contact question
+            await userEvent.click(screen.getByText("Neste"));
+        });
+        await act(async () => {
+            await userEvent.click(screen.getByText("Send inn"));
+        });
 
         results = await axe(container);
         expect(results).toHaveNoViolations();

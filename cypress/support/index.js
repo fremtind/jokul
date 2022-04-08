@@ -11,7 +11,7 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    cy.visit(`/komponenter/${component}?cypress`);
+    cy.visit(`/komponenter/${component}?mode=e2e`);
     cy.getComponent().should("be.visible").as("componentIsVisible");
 });
 

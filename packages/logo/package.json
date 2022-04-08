@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "7.0.8",
+    "version": "7.0.9",
     "publishConfig": {
         "access": "public"
     },
@@ -21,10 +21,11 @@
         "clean": "rimraf .turbo **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
-        "test": "echo \"Error: run tests from root\" && exit 1"
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo \"Error: run dev from logo-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.3.1"
+        "@fremtind/jkl-core": "^9.3.2"
     },
     "repository": {
         "type": "git",

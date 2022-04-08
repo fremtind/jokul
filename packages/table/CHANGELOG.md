@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.5.2 (2022-04-08)
+
+### Bug Fixes
+
+-   bruk rett venstre og høyrepadding i tabellceller ([01645ad](https://github.com/fremtind/jokul/commit/01645ade760a461b5b89cfb8d26c17b3f1e9b823)), closes [#2826](https://github.com/fremtind/jokul/issues/2826)
+
 # [5.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.4.1...@fremtind/jkl-table@5.5.0) (2022-03-16)
 
 ### Features

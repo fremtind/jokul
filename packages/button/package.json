@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button",
-    "version": "7.0.8",
+    "version": "7.0.9",
     "publishConfig": {
         "access": "public"
     },
@@ -25,10 +25,10 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev": "echo \"Error: run dev from button-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.3.1"
+        "@fremtind/jkl-core": "^9.3.2"
     },
     "repository": {
         "type": "git",

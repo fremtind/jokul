@@ -1,4 +1,4 @@
-import { Reducer, useEffect, useReducer } from "react";
+import { Reducer, useEffect, useReducer, useState } from "react";
 import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
 
 export type ColorScheme = "light" | "dark";
@@ -61,22 +61,25 @@ const reducer: Reducer<BrowserPreferences, Action> = (state, action) => {
     }
 };
 
-const initializer: (initialState: BrowserPreferences) => BrowserPreferences = () => {
-    const prefersReducedMotion = getInitialMediaQueryMatch(PREFERS_REDUCED_MOTION);
-    const prefersColorScheme = getInitialMediaQueryMatch(PREFERS_LIGHT_COLOR_SCHEME) ? "light" : "dark";
-    const forcedColors = getInitialMediaQueryMatch(FORCED_COLORS);
-
-    return {
-        prefersColorScheme,
-        prefersReducedMotion,
-        forcedColors,
-    };
-};
-
 export const useBrowserPreferences = (): BrowserPreferences => {
-    const [state, dispatch] = useReducer(reducer, initialState, initializer);
+    const [hasMounted, setHasMounted] = useState(false);
+
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
+        setHasMounted(true);
+        const prefersReducedMotion = getInitialMediaQueryMatch(PREFERS_REDUCED_MOTION);
+        const prefersColorScheme = getInitialMediaQueryMatch(PREFERS_LIGHT_COLOR_SCHEME) ? "light" : "dark";
+        const forcedColors = getInitialMediaQueryMatch(FORCED_COLORS);
+        dispatch({ type: ActionType.PrefersReducedMotion, value: prefersReducedMotion });
+        dispatch({ type: ActionType.PrefersColorScheme, value: prefersColorScheme });
+        dispatch({ type: ActionType.ForcedColors, value: forcedColors });
+    }, []);
+
+    useEffect(() => {
+        if (!hasMounted || !window.matchMedia) {
+            return;
+        }
         const onPrefersReducedMotionChange = (e: MediaQueryListEvent) => {
             dispatch({ type: ActionType.PrefersReducedMotion, value: e.matches });
         };
@@ -87,20 +90,16 @@ export const useBrowserPreferences = (): BrowserPreferences => {
             dispatch({ type: ActionType.ForcedColors, value: e.matches });
         };
 
-        if (typeof window !== "undefined" && window.matchMedia) {
-            addMediaQueryListener(window.matchMedia(PREFERS_REDUCED_MOTION), onPrefersReducedMotionChange);
-            addMediaQueryListener(window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME), onPrefersColorSchemeChange);
-            addMediaQueryListener(window.matchMedia(FORCED_COLORS), onForcedColorsChange);
-        }
+        addMediaQueryListener(window.matchMedia(PREFERS_REDUCED_MOTION), onPrefersReducedMotionChange);
+        addMediaQueryListener(window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME), onPrefersColorSchemeChange);
+        addMediaQueryListener(window.matchMedia(FORCED_COLORS), onForcedColorsChange);
 
         return () => {
-            if (typeof window !== "undefined" && window.matchMedia) {
-                removeMediaQueryListener(window.matchMedia(PREFERS_REDUCED_MOTION), onPrefersReducedMotionChange);
-                removeMediaQueryListener(window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME), onPrefersColorSchemeChange);
-                removeMediaQueryListener(window.matchMedia(FORCED_COLORS), onForcedColorsChange);
-            }
+            removeMediaQueryListener(window.matchMedia(PREFERS_REDUCED_MOTION), onPrefersReducedMotionChange);
+            removeMediaQueryListener(window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME), onPrefersColorSchemeChange);
+            removeMediaQueryListener(window.matchMedia(FORCED_COLORS), onForcedColorsChange);
         };
-    }, []);
+    }, [hasMounted]);
 
     return { ...state };
 };

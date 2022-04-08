@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.18 (2022-04-08)
+
+### Bug Fixes
+
+-   bruk et format som er likt på server og klient ([cf5719b](https://github.com/fremtind/jokul/commit/cf5719bc3c142fcb524adf3ed1bc2b0213a7573e))
+-   bruk useId fra React der vi kan for å fikse hydrering ([4845325](https://github.com/fremtind/jokul/commit/4845325b962224e012335fcfff568da3d9cab7ed))
+-   fjern kodeeksempel som skapte problemer med hydrering ([5a1474f](https://github.com/fremtind/jokul/commit/5a1474fc466e1820a8b4875929802099330efe8b))
+-   gjør DatePicker idempotent ([4e8ef6a](https://github.com/fremtind/jokul/commit/4e8ef6ad8edb284061fe990cd5272eab2226a02e))
+-   skru av hover i simulerte klikk ([0fb4778](https://github.com/fremtind/jokul/commit/0fb47782c9a3d80ef9e776cc6332b0e65a24b921))
+-   småtrøbbel med test og typesjekk ([b1b1bc3](https://github.com/fremtind/jokul/commit/b1b1bc3eeb0fade11f8c19d9c1d6170ad808ef6d))
+
 ## [9.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@9.0.12...@fremtind/jkl-datepicker-react@9.0.13) (2022-03-09)
 
 ### Bug Fixes

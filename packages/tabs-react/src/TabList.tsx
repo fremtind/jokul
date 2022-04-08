@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import cx from "classnames";
 
 interface Props {
@@ -29,9 +29,13 @@ export const TabList = ({ children, ...injected }: Props) => {
     const tabsRef = useRef<HTMLDivElement>(null);
     const activeRef = useRef<HTMLButtonElement>(null);
 
-    useLayoutEffect(() => {
-        setTabsRect(tabsRef.current?.getBoundingClientRect());
-        setActiveRect(activeRef.current?.getBoundingClientRect());
+    useEffect(() => {
+        if (tabsRef.current) {
+            setTabsRect(tabsRef.current.getBoundingClientRect());
+        }
+        if (activeRef.current) {
+            setActiveRect(activeRef.current.getBoundingClientRect());
+        }
     }, [activeIndex]);
 
     const keyDownHandler = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {

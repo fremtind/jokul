@@ -5,36 +5,27 @@ scss: datepicker
 group: skjema
 ---
 
-import { DatepickerExample, datepickerCode } from "./DatepickerExample";
+import { DatePicker } from "../src";
+import { DatepickerExample, datepickerExampleKnobs, datepickerExampleCode } from "./DatepickerExample";
 
 <Ingress>
-    Vi bruker datovelgeren til å gi brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver
-    hvilken dato brukeren skal fylle inn, for eksempel: "Oppgi datoen da skaden skjedde".
+    Datovelgeren gir brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver hvilken dato brukeren
+    skal fylle inn. To datovelgere kan brukes sammen for å angi perioder.
 </Ingress>
+
 <ComponentExample
     title="DatePicker"
     component={DatepickerExample}
-    knobs={{
-        boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["small", "medium", "large"],
-                defaultValue: 0,
-            },
-        ],
-    }}
-    codeExample={datepickerCode}
+    knobs={datepickerExampleKnobs}
+    codeExample={datepickerExampleCode}
 />
 
 ## Typer og bruk
 
-**Enkel datovelger:** Når brukeren skal velge en dato, som er nær dagens dato.
+-   Enkel datovelger, til når brukeren skal velge en dato som er nær dagens dato
+-   Utvidet datovelger, til når brukeren skal velge en dato som ligger mer enn ett år frem eller tilbake i tid
 
-**Utvidet datovelger:** Når brukeren skal velge en dato som ligger mer enn ett år frem eller tilbake i tid.
-
-Vi kan også bruke to datovelgere, når vi vil at brukeren skal angi en periode med fra- og tildato.
-Eksempel: "Hvor lenge var du syk da du var på ferie? Velg dato fra og til".
+Vi kan også bruke to datovelgere, når vi vil at brukeren skal angi en periode med fra- og tildato. For eksempel "Hvor lenge var du syk da du var på ferie? Velg dato fra og til".
 
 ## Tekst og validering
 
@@ -42,6 +33,15 @@ Velg størrelse på ledeteksten etter prinsippene for skjemadesign. Bruk en kort
 
 Hvis datovelgeren ikke validerer, vises en feilmelding, som forteller hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
 
-Eksempel:
-Hjelpetekst for første kalender i en periode:
-"Velg datoen da du først ble syk". Feilmelding: "Du må velge datoen da du først ble syk."
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Hjelpetekst i feilmelding"
+        content={<DatePicker label="Fra dato" errorLabel="Du må velge datoen da du først ble syk" />}
+    />
+    <DoDontExample
+        type="dont"
+        description="Feilmelding uten hjelp"
+        content={<DatePicker label="Fra dato" errorLabel="Du må velge dato" />}
+    />
+</Grid>

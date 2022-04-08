@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useClickOutside } from "./useClickOutside";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 interface Props {
     fn: () => void;
@@ -20,18 +21,21 @@ function Test({ fn }: Props) {
 }
 
 describe("useClickOutside", () => {
-    test("should not fire function when click is inside the ref", () => {
+    test("should not fire function when click is inside the ref", async () => {
         const fn = jest.fn();
         render(<Test fn={fn} />);
-        fireEvent.click(screen.getByTestId("withRef"));
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("withRef"));
+        });
 
         expect(fn).toHaveBeenCalledTimes(0);
     });
-    test("should fire function when click is outside the ref", () => {
+    test("should fire function when click is outside the ref", async () => {
         const fn = jest.fn();
         render(<Test fn={fn} />);
-        fireEvent.click(screen.getByTestId("withoutRef"));
-
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("withoutRef"));
+        });
         expect(fn).toHaveBeenCalledTimes(1);
     });
 });

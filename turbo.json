@@ -28,6 +28,7 @@
         "gulpfile.js",
         "rollup.config.js",
         "tsconfig-for-declarations.json",
-        "tsconfig.json"
+        "tsconfig.json",
+        "patches/**"
     ]
 }
