@@ -2,12 +2,12 @@ import { build } from "../../esbuild.mjs";
 
 await build([
     {
-        entryPoints: ["documentation/server.tsx"],
+        entryPoints: ["documentation/DevServer.tsx"],
         outfile: "dist/server.js",
         platform: "node",
     },
     {
-        entryPoints: ["documentation/client.tsx"],
+        entryPoints: ["documentation/DevClient.tsx"],
         outfile: "dist/client.js",
     },
 ]);
