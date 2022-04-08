@@ -119,6 +119,7 @@
         "extends @fremtind/browserslist-config-jkl"
     ],
     "workspaces": [
+        "actions/*",
         "packages/*",
         "portal"
     ],

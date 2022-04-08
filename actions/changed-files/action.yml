@@ -1,0 +1,16 @@
+name: "Changed files"
+description: "Find files that were changed during the run of the action, using simple-git, with an option to upload the files as an artifact"
+author: "Fremtind"
+inputs:
+    patterns:
+        required: true
+        description: "A micromatch-compatible pattern, optionally a multiline string with several patterns. Refer to the micromatch documentation for advanced pattern examples."
+    ignore:
+        required: false
+        description: "Patterns to ignore. See the micromatch docs for details."
+    output:
+        required: false
+        description: "Set to array if you want a JSON array rather than a multiline string"
+runs:
+    using: "node16"
+    main: "build/main.js"
