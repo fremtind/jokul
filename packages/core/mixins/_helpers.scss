@@ -127,53 +127,11 @@ $_valid-forced-colors-text-values: (
     border-style: none;
     outline-style: none;
 
-    &::-moz-focus-inner {
-        border-style: none;
-        outline: 0;
-    }
-
     &:active,
     &:hover,
-    &:focus,
-    &:link,
-    &:visited {
-        outline: 0 !important;
+    &:focus {
+        outline: 0;
         outline-style: none;
-    }
-
-    /* Remove the inner border and padding in Firefox */
-    button::-moz-focus-inner,
-    [type="button"]::-moz-focus-inner,
-    [type="reset"]::-moz-focus-inner,
-    [type="submit"]::-moz-focus-inner {
-        border-style: none;
-    }
-
-    /* Remove dotted lines around object, especially for firefox */
-    a:hover,
-    a:active,
-    a:focus,
-    a:link,
-    a:visited {
-        outline: 0 !important;
-        outline-style: none;
-    }
-
-    button,
-    object,
-    embed {
-        outline: 0;
-    }
-
-    /* All Input elements */
-    input::-moz-focus-inner {
-        outline: 0;
-    }
-
-    /* Or more specifically */
-    input[type="submit"]::-moz-focus-inner,
-    input[type="button"]::-moz-focus-inner {
-        outline: 0;
     }
 
     // Reset alt som er gjort over hvis brukeren har på forced-colors.
@@ -185,46 +143,9 @@ $_valid-forced-colors-text-values: (
 
         &:active,
         &:hover,
-        &:focus,
-        &:link,
-        &:visited {
-            outline: revert !important;
+        &:focus {
+            outline: revert;
             outline-style: revert;
-        }
-
-        /* Remove the inner border and padding in Firefox */
-        button::-moz-focus-inner,
-        [type="button"]::-moz-focus-inner,
-        [type="reset"]::-moz-focus-inner,
-        [type="submit"]::-moz-focus-inner {
-            border-style: revert;
-        }
-
-        /* Remove dotted lines around object, especially for firefox */
-        a:hover,
-        a:active,
-        a:focus,
-        a:link,
-        a:visited {
-            outline: revert !important;
-            outline-style: revert;
-        }
-
-        button,
-        object,
-        embed {
-            outline: revert;
-        }
-
-        /* All Input elements */
-        input::-moz-focus-inner {
-            outline: revert;
-        }
-
-        /* Or more specifically */
-        input[type="submit"]::-moz-focus-inner,
-        input[type="button"]::-moz-focus-inner {
-            outline: revert;
         }
     }
 }
