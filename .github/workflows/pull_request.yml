@@ -215,7 +215,7 @@ jobs:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               # Sannsynligvis lastet ikke alle jobbene opp nye snapshots
               # Dette gjør at vi får noen errors i oppsummeringen, men selve
               # bygget markeres som grønt.
@@ -224,25 +224,25 @@ jobs:
                   name: cypress-snapshots-1
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-2
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-3
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-4
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-5
