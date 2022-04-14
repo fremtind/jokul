@@ -166,7 +166,7 @@ jobs:
                   spec: ${{ steps.parallel.outputs.tests }}
 
             - name: Upload screenshots
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               if: failure()
               with:
                   name: cypress-screenshots-${{ matrix.group }}
@@ -189,7 +189,7 @@ jobs:
                       __image_snapshots__
 
             - name: Upload snapshots
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               if: steps.verify-changed-files.outputs.files_changed == 'true'
               with:
                   name: cypress-snapshots-${{ matrix.group }}
