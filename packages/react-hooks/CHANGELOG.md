@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.1.0...@fremtind/jkl-react-hooks@8.1.1) (2022-04-19)
+
+### Bug Fixes
+
+-   using React default export to avoid warnings when using react below v18 ([7b5f0fa](https://github.com/fremtind/jokul/commit/7b5f0fa5f32ec048edb76104331211afb72090f6))
+
 # 8.1.0 (2022-04-08)
 
 ### Bug Fixes

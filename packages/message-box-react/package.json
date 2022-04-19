@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "6.3.8",
+    "version": "6.3.9",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-icon-button-react": "^0.8.19",
+        "@fremtind/jkl-icon-button-react": "^0.8.20",
         "@fremtind/jkl-message-box": "^5.2.6",
         "classnames": "^2.2.6",
         "framer-motion": "^6.2.8"
