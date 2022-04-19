@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@7.0.9...@fremtind/jkl-select@7.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   fjern core-toggle fra Select ([3d7acc4](https://github.com/fremtind/jokul/commit/3d7acc459f64a491c8786ac1f76785971c9d0e1a))
+-   fyll piler med farge og jobb rundt navnekollisjon ([f056ef8](https://github.com/fremtind/jokul/commit/f056ef89ac784e180d74abb07691055364363b43))
+-   select i forced-colors ([66a6d37](https://github.com/fremtind/jokul/commit/66a6d37a827fbcd49be02cea543a196117066014))
+
 ## 7.0.9 (2022-04-08)
 
 ### Bug Fixes

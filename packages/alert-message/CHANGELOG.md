@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message@5.0.19...@fremtind/jkl-alert-message@5.0.20) (2022-04-19)
+
+### Bug Fixes
+
+-   bruk fallbackfarger for AlertMessage SVGer ([5ce4131](https://github.com/fremtind/jokul/commit/5ce41314d369a57c5a0f878812918e3b97fd51fc))
+-   gjør alert-message tilgjengelig i forced-colors ([85d84e1](https://github.com/fremtind/jokul/commit/85d84e171ec72e9fdb80e361dedb5f04467c7124))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+-   tag i forced-colors ([d67839d](https://github.com/fremtind/jokul/commit/d67839d13b5966c17241126c5f943bc0c7eeed15))
+
 ## 5.0.10 (2022-02-07)
 
 ### Bug Fixes

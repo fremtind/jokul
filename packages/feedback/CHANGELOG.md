@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback@9.0.9...@fremtind/jkl-feedback@9.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   feedback i forced-colors ([087365f](https://github.com/fremtind/jokul/commit/087365f79f39d8aaceb611de7c0bc51406ce448f))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+
 # 9.0.0 (2022-02-07)
 
 ### Bug Fixes

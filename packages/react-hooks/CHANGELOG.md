@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.1.1...@fremtind/jkl-react-hooks@8.2.0) (2022-04-19)
+
+### Features
+
+-   legg til en ny hook i useAnimatedHeight ([4294839](https://github.com/fremtind/jokul/commit/4294839e5dc62b5e327bef08bb03407e9c49bcf2))
+-   useBrowserPreferences har en verdi for høykontrasttema ([f2f8275](https://github.com/fremtind/jokul/commit/f2f82754b6844288d42ddbc2300ba659e1e467ab))
+
 ## [8.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.1.0...@fremtind/jkl-react-hooks@8.1.1) (2022-04-19)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@7.1.16...@fremtind/jkl-loader@7.1.17) (2022-04-19)
+
+### Bug Fixes
+
+-   loader med forced-colors ([97cd6a8](https://github.com/fremtind/jokul/commit/97cd6a8ab66b10b6a26e5fd1f353aa5391a4d504))
+
 ## 7.1.7 (2022-02-07)
 
 ### Bug Fixes

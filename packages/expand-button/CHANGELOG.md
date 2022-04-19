@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@1.2.10...@fremtind/jkl-expand-button@1.2.11) (2022-04-19)
+
+### Bug Fixes
+
+-   expandbutton i forced-colors ([e672db6](https://github.com/fremtind/jokul/commit/e672db64774d32f6709e9e3edcab580fd75dfe65))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+
 ## [1.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@1.2.0...@fremtind/jkl-expand-button@1.2.1) (2022-02-07)
 
 ### Bug Fixes

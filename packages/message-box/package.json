@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box",
-    "version": "5.2.6",
+    "version": "5.2.7",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "dev": "echo \"Error: run dev from message-box-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.3.2"
+        "@fremtind/jkl-core": "^9.4.0"
     },
     "repository": {
         "type": "git",

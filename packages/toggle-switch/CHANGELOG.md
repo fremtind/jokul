@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@7.0.9...@fremtind/jkl-toggle-switch@7.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   toggle lint ([58666ea](https://github.com/fremtind/jokul/commit/58666ea02cc0b257d4dc9ca1bc7f88af368f0c73))
+-   toggles i forced-color ([2b3ca54](https://github.com/fremtind/jokul/commit/2b3ca54b859c427124fbe49148651aab9cfca6b7))
+
 # 7.0.0 (2022-02-07)
 
 ### Bug Fixes

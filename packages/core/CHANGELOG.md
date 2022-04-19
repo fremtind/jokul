@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.3.2...@fremtind/jkl-core@9.4.0) (2022-04-19)
+
+### Bug Fixes
+
+-   alt i Safari må ha et mellomrom for å fungere ([936e98b](https://github.com/fremtind/jokul/commit/936e98b0c0f2f8100996ced0897e52ca73eb75f1))
+-   bruk revert i stedet for unset ([300e808](https://github.com/fremtind/jokul/commit/300e8086b4a88e37407dadaf747d714d69919cdd))
+-   bruk revert som keyword i reset-outline ([f89b524](https://github.com/fremtind/jokul/commit/f89b524c071bc023785ae5c00afc2793d7211a4d))
+-   bruk unset i stedet for initial ([5091fcd](https://github.com/fremtind/jokul/commit/5091fcd5103f8a5d022162033dcc06a005a3dd59))
+-   checkbox og supportlabelikon i forced-colors ([0501475](https://github.com/fremtind/jokul/commit/0501475d815d56031e969020907102d48cddb12b))
+-   feedback i forced-colors ([087365f](https://github.com/fremtind/jokul/commit/087365f79f39d8aaceb611de7c0bc51406ce448f))
+-   gi feilikon en fill for kontrast ([793ba36](https://github.com/fremtind/jokul/commit/793ba36b9504607a0d109eacbc4e37491a2a0ea2))
+-   gjør så reset-outline rydder opp etter seg i forced-colors ([a20f4ae](https://github.com/fremtind/jokul/commit/a20f4aef0707ca791dcc47c50cf889c1ecbc8114))
+-   la vanlige lenker få understrek ([91b0402](https://github.com/fremtind/jokul/commit/91b040228e5779868bec1d5cdf39847b7d6c6859))
+-   overstyr svg og path med svg fallback, ikke bare klassen ([f7feb4f](https://github.com/fremtind/jokul/commit/f7feb4f0f511b4cdf2134434460f84627552717c))
+-   rett opp guard mot manglende window for Gatsby ([94c64c2](https://github.com/fremtind/jokul/commit/94c64c2aa406c4b7d55d96971d4a8de9206649a3))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+-   spacingskala-eksempel ([b415d77](https://github.com/fremtind/jokul/commit/b415d77c40e8fb411de0bcb8492a6e256e198b13))
+-   tillat alle systemfargene i helperen ([0510917](https://github.com/fremtind/jokul/commit/05109175cf9efe7673ccb3a4118c317203492878))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
+### Features
+
+-   legg til hjelpere for forced-color-mode ([0ffc43d](https://github.com/fremtind/jokul/commit/0ffc43db2ae9b41d5bb29795a25bcca751d65c5d))
+
 # [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.2.0...@fremtind/jkl-core@9.3.0) (2022-03-14)
 
 ### Features
