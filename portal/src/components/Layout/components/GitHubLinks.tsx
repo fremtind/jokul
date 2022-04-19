@@ -1,8 +1,9 @@
-import React, { FC, VFC } from "react";
+import React, { FC, ReactNode, VFC } from "react";
 
 import "./GitHubLinks.scss";
 
 interface LinkProps {
+    children?: ReactNode;
     href: string;
 }
 const ExternalLink: FC<LinkProps> = ({ href, children }) => (

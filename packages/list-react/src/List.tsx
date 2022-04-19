@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import cx from "classnames";
 
 export interface ListProps {
     className?: string;
+    children?: ReactNode;
 }
 
 type ValidLists = "unordered" | "ordered";

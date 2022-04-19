@@ -1,8 +1,9 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 import "./icons-example-grid.scss";
 
 interface IconsExampleGridProps {
     columns: "two" | "four";
+    children?: ReactNode;
     color?: string;
     style?: CSSProperties;
 }

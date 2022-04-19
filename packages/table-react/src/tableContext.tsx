@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, ReactNode, useContext } from "react";
 
 type TableContext = {
     compact: boolean;
@@ -14,6 +14,7 @@ export const useTableContext = (): TableContext => useContext(tableContext);
 
 export interface TableContextProviderProps {
     state: TableContext;
+    children?: ReactNode;
 }
 
 export const TableContextProvider: React.FC<TableContextProviderProps> = ({ state, children }) => (

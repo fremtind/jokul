@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "@fremtind/jkl-core";
 import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
@@ -86,6 +86,10 @@ const components = {
     PortalImage,
 };
 
-export const FormatProvider: FC = ({ children }) => {
+interface FormatProviderProps {
+    children?: ReactNode;
+}
+
+export const FormatProvider: FC<FormatProviderProps> = ({ children }) => {
     return <MDXProvider components={components}>{children}</MDXProvider>;
 };

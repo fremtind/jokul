@@ -5,6 +5,7 @@ export const ContentToggle: FC<{
     /** @default "polite" */
     "aria-live"?: "polite" | "assertive" | "off";
     className?: string;
+    children?: ReactNode;
     showSecondary: boolean;
     secondary: ReactNode;
     /** @default "flip" */

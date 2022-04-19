@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { FeedbackOption } from "../types";
 
 export const defaultOptions: FeedbackOption<number>[] = [
@@ -29,7 +29,11 @@ export const defaultOptions: FeedbackOption<number>[] = [
     },
 ];
 
-const Smiley: FC = ({ children }) => (
+interface SmileyProps {
+    children: ReactNode;
+}
+
+const Smiley: FC<SmileyProps> = ({ children }) => (
     <svg
         className="jkl-feedback-smiley-option__icon"
         aria-hidden

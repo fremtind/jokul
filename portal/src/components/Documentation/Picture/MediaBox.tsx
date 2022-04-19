@@ -6,6 +6,7 @@ import { a11yContext } from "../../../contexts/a11yContext";
 import "./MediaBox.scss";
 
 interface Props {
+    children?: ReactNode;
     media: ReactNode;
     rightAlign?: boolean;
     caption?: string;

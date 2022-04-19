@@ -1,9 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { navigate } from "gatsby";
 import { unicode } from "@fremtind/jkl-constants-util";
 import "./card.scss";
 
 interface Props {
+    children?: ReactNode;
     heading: string;
     link: string;
 }

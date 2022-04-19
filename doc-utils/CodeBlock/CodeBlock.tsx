@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
@@ -12,7 +12,12 @@ import fremtindThemeDark from "./fremtindThemeDark";
 
 import "./CodeBlock.scss";
 
-export const CodeBlock: React.FC<{ language: string }> = ({ language, children }) => {
+export interface CodeBlockProps {
+    children?: ReactNode;
+    language: string;
+}
+
+export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
     const { prefersColorScheme } = useBrowserPreferences();
     const [style, setStyle] = useState(fremtindTheme);
 

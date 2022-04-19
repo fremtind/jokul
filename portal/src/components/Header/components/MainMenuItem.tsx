@@ -1,8 +1,9 @@
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface Props {
+    children?: ReactNode;
     label: string;
     isOpen: boolean;
     isActive: boolean;

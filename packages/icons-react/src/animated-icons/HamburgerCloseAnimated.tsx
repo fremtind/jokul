@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import cx from "classnames";
 import { Hamburger } from "../icons/Hamburger";
 import { Close } from "../icons/Close";
@@ -14,6 +14,7 @@ export interface HamburgerCloseAnimatedProps {
 
 interface ShowProps {
     when: boolean;
+    children: ReactNode;
 }
 
 const Show: FC<ShowProps> = ({ when, children }) => (

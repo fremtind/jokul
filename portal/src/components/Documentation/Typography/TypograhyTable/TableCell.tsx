@@ -1,6 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface Props {
+    children?: ReactNode;
     title?: string;
 }
 

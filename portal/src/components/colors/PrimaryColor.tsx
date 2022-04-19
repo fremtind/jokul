@@ -1,10 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import cx from "classnames";
 import { ColorInfo, Color } from "./";
 import "./primary-color.scss";
 
 interface PrimaryColorProps extends Color {
     className?: string;
+    children?: ReactNode;
     title: string;
 }
 

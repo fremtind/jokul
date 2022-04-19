@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import { FormatProvider } from "../Typography";
@@ -11,6 +11,7 @@ import { PortalFooter } from "../portal-footer";
 import "./Layout.scss";
 
 interface Props {
+    children?: ReactNode;
     location: Location;
     pageContext: {
         title?: string;

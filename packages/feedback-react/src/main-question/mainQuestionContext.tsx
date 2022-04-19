@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, ReactNode, useContext } from "react";
 import { FeedbackState } from "../types";
 
 const mainQuestionContext = createContext<FeedbackState | undefined>(undefined);
@@ -7,6 +7,7 @@ export const useMainQuestionContext = (): FeedbackState | undefined => useContex
 
 interface Props {
     state: FeedbackState;
+    children?: ReactNode;
 }
 
 export const MainQuestionContextProvider: React.FC<Props> = ({ state, children }) => (

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import cn from "classnames";
 import { PaddingOptions } from "./types";
 import { getSpacingClasses } from "./utils";
@@ -15,6 +15,7 @@ export interface TaskCardProps extends PaddingOptions {
      */
     withShadow?: boolean;
     className?: string;
+    children?: ReactNode;
 }
 
 export const TaskCard: FC<TaskCardProps> = ({

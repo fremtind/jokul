@@ -1,8 +1,9 @@
 import classnames from "classnames";
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
 export interface DescriptionListProps {
     className?: string;
+    children?: ReactNode;
 }
 
 export const DescriptionList: FC<DescriptionListProps> = ({ children, className }) => {
@@ -11,6 +12,7 @@ export const DescriptionList: FC<DescriptionListProps> = ({ children, className 
 
 export interface DescriptionTermProps {
     className?: string;
+    children?: ReactNode;
 }
 
 export const DescriptionTerm: FC<DescriptionTermProps> = ({ children, className }) => {
@@ -19,6 +21,7 @@ export const DescriptionTerm: FC<DescriptionTermProps> = ({ children, className 
 
 export interface DescriptionDetailProps {
     className?: string;
+    children?: ReactNode;
 }
 
 export const DescriptionDetail: FC<DescriptionDetailProps> = ({ children, className }) => {

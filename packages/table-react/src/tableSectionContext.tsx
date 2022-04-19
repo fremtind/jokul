@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, ReactNode, useContext } from "react";
 
 type TableSectionContext = {
     isTableHead: boolean;
@@ -16,6 +16,7 @@ export const useTableSectionContext = (): TableSectionContext => useContext(tabl
 
 export interface TableSectionContextProviderProps {
     state: TableSectionContext;
+    children?: ReactNode;
 }
 
 export const TableSectionContextProvider: React.FC<TableSectionContextProviderProps> = ({ state, children }) => (

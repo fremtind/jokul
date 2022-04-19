@@ -1,9 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 import "./HeroImage.scss";
 
 interface Props {
+    children?: ReactNode;
     title: string;
 }
 

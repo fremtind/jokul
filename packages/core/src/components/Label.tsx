@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import { LabelVariant } from "../index";
 import classNames from "classnames";
 
 export interface LabelProps {
+    children?: ReactNode;
     variant?: LabelVariant;
     forceCompact?: boolean;
     srOnly?: boolean;

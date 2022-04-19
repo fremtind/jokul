@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, VFC, HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
+import React, { DetailedHTMLProps, VFC, HTMLAttributes, FC, ElementType, MouseEventHandler, ReactNode } from "react";
 import cn from "classnames";
 import { DataTestAutoId, Link } from "@fremtind/jkl-core";
 import { formatNumber } from "@fremtind/jkl-formatters-util";
@@ -37,7 +37,11 @@ export interface FooterProps extends DataTestAutoId, DetailedHTMLProps<HTMLAttri
     address?: FooterAddress;
 }
 
-const AddressLine: FC = ({ children }) => (
+interface AddressLineProps {
+    children?: ReactNode;
+}
+
+const AddressLine: FC<AddressLineProps> = ({ children }) => (
     <>
         {children}
         <br />

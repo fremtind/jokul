@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import cx from "classnames";
 
 export interface ListItemProps {
     className?: string;
+    children?: ReactNode;
 }
 
 type ValidListItems = "normal" | "check" | "cross";

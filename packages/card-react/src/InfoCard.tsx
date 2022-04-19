@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import cn from "classnames";
 import { Image } from "@fremtind/jkl-image-react";
 import { PaddingOptions, SpacingStep } from "./types";
@@ -8,6 +8,7 @@ import { getSpacingClasses } from "./utils";
 type ImageProps = React.ComponentProps<typeof Image>;
 
 export interface InfoCardProps extends PaddingOptions {
+    children?: ReactNode;
     className?: string;
     image?: Omit<ImageProps, "className">;
     /**

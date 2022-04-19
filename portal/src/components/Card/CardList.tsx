@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import classNames from "classnames";
 import "./card-list.scss";
 
 interface Props {
+    children?: ReactNode;
     vertical?: boolean;
 }
 

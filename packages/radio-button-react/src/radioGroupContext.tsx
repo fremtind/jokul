@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ChangeEventHandler } from "react";
+import React, { createContext, useContext, ChangeEventHandler, ReactNode } from "react";
 
 type RadioGroupContext = {
     name: string | undefined;
@@ -24,6 +24,7 @@ export const useRadioGroupContext = (): RadioGroupContext => useContext(radioGro
 
 type Props = {
     state: RadioGroupContext;
+    children?: ReactNode;
 };
 
 export const RadioGroupContextProvider: React.FC<Props> = ({ state, children }) => (
