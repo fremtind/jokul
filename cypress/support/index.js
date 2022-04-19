@@ -11,7 +11,7 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    cy.visit(`/komponenter/${component}?mode=e2e`);
+    cy.visit(`/komponenter/${component}?mode=e2e`).wait(300); // vent på Reacts hydrering
     cy.getComponent().should("be.visible").as("componentIsVisible");
 });
 
@@ -24,15 +24,15 @@ Cypress.Commands.add("uncheckInput", (inputName) => {
 });
 
 Cypress.Commands.add("toggleSelectMenu", (inputName) => {
-    cy.get(`button[name=${inputName}-btn]`).first().click();
+    cy.get(`button[name=${inputName}-btn]`).first().focus().type(" ");
 });
 
 Cypress.Commands.add("selectValue", (value) => {
-    cy.get(`button[value=${value}]`).first().click();
+    cy.get(`button[role="option"][value=${value}]`).first().click();
 });
 
 Cypress.Commands.add("focusSelectValue", (value) => {
-    cy.get(`button[value=${value}]`).first().focus();
+    cy.get(`button[role="option"][value=${value}]`).first().focus();
 });
 
 Cypress.Commands.add("focusInput", (inputName) => {
@@ -82,11 +82,18 @@ const setModeFactory = (knob) => {
 ].map((knob) => setModeFactory(knob));
 
 Cypress.Commands.add("takeSnapshots", (options = {}) => {
+    const pause = options.pause || false;
     const variants = options.variants || ["__DEFAULT__"];
     const variantsChoiceType = variants.length > 3 ? "select" : "checkbox";
+    const forcedColorsActive = window.matchMedia("(forced-colors: active)").matches;
 
     variants.forEach((variant) => {
         doSnapshot(options, variant, variantsChoiceType);
+
+        if (forcedColorsActive) {
+            // forced-colors har ikke noe konsept om lyst eller mørkt tema – bare brukerens valgte farger
+            return;
+        }
 
         cy.setDarkMode();
         doSnapshot(options, variant, variantsChoiceType);
@@ -108,10 +115,18 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
             options.setup();
         }
 
+        const snapshotConfig = {
+            separator: forcedColorsActive ? ` in high contrast #` : undefined,
+        };
+
         if (typeof options.customSelector === "function") {
-            options.customSelector().toMatchImageSnapshot();
+            options.customSelector().toMatchImageSnapshot(snapshotConfig);
         } else {
-            cy.getComponent().eq(componentIndex).toMatchImageSnapshot();
+            cy.getComponent().eq(componentIndex).toMatchImageSnapshot(snapshotConfig);
+        }
+
+        if (pause) {
+            cy.pause();
         }
 
         if (typeof options.teardown === "function") {

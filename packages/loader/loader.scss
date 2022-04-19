@@ -40,6 +40,9 @@ $loader-animation-properties: 2500ms linear infinite;
         &--right {
             animation-name: spin-right;
         }
+        @include jkl.helper-forced-colors-mode {
+            background-color: CanvasText;
+        }
     }
 
     &--medium > .jkl-loader__dot {

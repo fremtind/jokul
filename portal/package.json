@@ -83,7 +83,7 @@
         "clean:portal": "gatsby clean",
         "build:docs": "gatsby build",
         "build:test": "gatsby build && gatsby serve",
-        "dev": "GATSBY_HOT_LOADER=fast-refresh gatsby develop --host 0.0.0.0",
+        "dev": "gatsby develop --host 0.0.0.0",
         "start": "yarn dev",
         "serve": "gatsby serve"
     },

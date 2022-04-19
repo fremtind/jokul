@@ -72,6 +72,11 @@ $link-underline-thickness--hover: jkl.rem(2px);
             @include mixins.decorative($content: $north-east-arrow);
         }
     }
+
+    @include jkl.helper-forced-colors-mode {
+        outline: revert;
+        text-decoration: revert;
+    }
 }
 
 .jkl-nav-link {

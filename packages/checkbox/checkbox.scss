@@ -93,6 +93,10 @@ $checkbox-line-height--compact: rem(28px);
 
             & > .jkl-checkbox__check-mark::before {
                 box-shadow: 0 0 0 rem(2px) var(--checkbox-focus-color);
+
+                @include jkl.helper-forced-colors-mode {
+                    border: 4px double ButtonText;
+                }
             }
 
             & > .jkl-checkbox__check-mark {
@@ -122,6 +126,17 @@ $checkbox-line-height--compact: rem(28px);
 
             .jkl-checkbox__check-mark {
                 box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
+
+                @include jkl.helper-forced-colors-mode {
+                    &::before {
+                        border: 2px solid ButtonText;
+                        position: absolute;
+                        top: rem(-1px);
+                        right: rem(-1px);
+                        bottom: rem(-1px);
+                        left: rem(-1px);
+                    }
+                }
             }
         }
 
@@ -182,6 +197,10 @@ $checkbox-line-height--compact: rem(28px);
             opacity: 0;
             @include motion;
             transition-property: opacity, border-color;
+
+            @include jkl.helper-forced-colors-mode {
+                border-color: Highlight;
+            }
         }
 
         // This is the basis of the focus ring
@@ -192,6 +211,11 @@ $checkbox-line-height--compact: rem(28px);
             right: rem(-2px);
             bottom: rem(-2px);
             left: rem(-2px);
+        }
+
+        @include jkl.helper-forced-colors-mode {
+            outline: revert;
+            border: 1px solid ButtonText;
         }
     }
 

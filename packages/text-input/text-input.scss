@@ -57,7 +57,6 @@ $text-input-selection-color--inverted: color.scale(
 }
 
 @mixin shared-input-styles {
-    border: none;
     background: none;
     -webkit-appearance: none;
 
@@ -184,6 +183,10 @@ $text-input-selection-color--inverted: color.scale(
 
         &:hover {
             color: var(--text-input-focus-color);
+
+            @include jkl.helper-forced-colors-mode {
+                border: rem(2px) inset ButtonText;
+            }
         }
 
         &:focus {
@@ -201,6 +204,13 @@ $text-input-selection-color--inverted: color.scale(
                 }
             }
         }
+
+        @include jkl.helper-forced-colors-mode {
+            border: revert;
+            background-color: revert;
+        }
+
+        @include forced-colors-svg-fallback($stroke: ButtonText);
     }
 
     /* Modifications for inline version */
@@ -295,6 +305,16 @@ $text-input-selection-color--inverted: color.scale(
             }
 
             @include shared-error-styles;
+
+            @include jkl.helper-forced-colors-mode {
+                // Fordi all styling med box-shadow er ut vinduet i forced-colors
+                // så er det igjen textarea som har en border. Da er det _den_
+                // som må ha padding, og her unngår vi å få dobbelt opp.
+                // Det gjør at telleren havner under textarea, men siden vi
+                // heller ikke har noen progress-bar synlig i denne modusen
+                // så er det _godt nok_.
+                padding: 0;
+            }
         }
 
         /*
@@ -323,6 +343,10 @@ $text-input-selection-color--inverted: color.scale(
             transition-property: height;
 
             @include shared-error-styles;
+
+            @include jkl.helper-forced-colors-mode {
+                padding: $text-input-padding;
+            }
         }
 
         .jkl-text-input__input[data-has-content="true"] .jkl-text-area__text-area,

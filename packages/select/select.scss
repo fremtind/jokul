@@ -303,6 +303,35 @@ $select-search-input-selection-color--inverted: color.scale(
             min-height: rem(40px);
         }
     }
+
+    @include jkl.helper-forced-colors-mode {
+        // Vi er en button (hvis ikke native) og får ButtonText, men vi later som vi er en select, og den har CanvasText
+        & .jkl-select__button,
+        & .jkl-select__search-input {
+            color: CanvasText;
+            border: 2px solid ButtonText;
+            background-color: Canvas;
+            outline: revert;
+
+            &:hover {
+                border-color: Highlight;
+            }
+        }
+
+        & .jkl-select__option {
+            color: CanvasText;
+
+            border-top: 1px solid Canvas;
+            border-bottom: 1px solid Canvas;
+
+            &:hover,
+            &:focus {
+                @include no-grow-bold;
+                border-top: 1px solid Highlight;
+                border-bottom: 1px solid Highlight;
+            }
+        }
+    }
 }
 
 .jkl-expand-arrow {
@@ -343,5 +372,9 @@ $select-search-input-selection-color--inverted: color.scale(
             @include motion("standard", "expressive");
             transform: translate(0, -100%);
         }
+    }
+
+    .jkl-select & {
+        @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 }

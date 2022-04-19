@@ -19,7 +19,7 @@ const IndexPage: React.FC = () => {
         setPrincipleState(state);
     };
 
-    const { prefersColorScheme } = useBrowserPreferences();
+    const { prefersColorScheme, forcedColors } = useBrowserPreferences();
 
     const onLeave = (state: number) => {
         if (state === principleState) {
@@ -104,6 +104,7 @@ const IndexPage: React.FC = () => {
                                 minScale={minScale}
                                 maxScale={maxScale}
                                 colorScheme={prefersColorScheme}
+                                forcedColors={forcedColors}
                                 type="diamond"
                             />
                             <PrincipleDiamond
@@ -111,6 +112,7 @@ const IndexPage: React.FC = () => {
                                 minScale={minScale}
                                 maxScale={maxScale}
                                 colorScheme={prefersColorScheme}
+                                forcedColors={forcedColors}
                                 type="shadow"
                             />
                         </div>
