@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@6.0.9...@fremtind/jkl-checkbox@6.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   bruk Highlight på samme måte som radio ([56a10ed](https://github.com/fremtind/jokul/commit/56a10ed517f126a673b0f61e8468935079a93f66))
+-   checkbox fixup skjemafelter skal ha buttontext outline ([f4b05f1](https://github.com/fremtind/jokul/commit/f4b05f16c925c417e0a77c54926658460d99c18f))
+-   checkbox og supportlabelikon i forced-colors ([0501475](https://github.com/fremtind/jokul/commit/0501475d815d56031e969020907102d48cddb12b))
+-   select i forced-colors ([66a6d37](https://github.com/fremtind/jokul/commit/66a6d37a827fbcd49be02cea543a196117066014))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
 # 6.0.0 (2022-02-07)
 
 ### Bug Fixes

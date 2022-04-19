@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.5.2...@fremtind/jkl-table@5.5.3) (2022-04-19)
+
+### Bug Fixes
+
+-   bruk revert i stedet for unset ([300e808](https://github.com/fremtind/jokul/commit/300e8086b4a88e37407dadaf747d714d69919cdd))
+-   tabellrader som er knapper ([3aa1ac4](https://github.com/fremtind/jokul/commit/3aa1ac41f8f4ffc4cea20a17db83ed0beb7c74e3))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
 ## 5.5.2 (2022-04-08)
 
 ### Bug Fixes

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.3.23](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.22...@fremtind/portal@12.3.23) (2022-04-19)
+
+### Bug Fixes
+
+-   bruk revert i stedet for unset ([300e808](https://github.com/fremtind/jokul/commit/300e8086b4a88e37407dadaf747d714d69919cdd))
+-   knappefarger for animasjonsvideoer ([d10838b](https://github.com/fremtind/jokul/commit/d10838b892cd6a053d41c34200c10278fcc15c9a))
+-   legg til støtte for utvikling på Windows ([e063849](https://github.com/fremtind/jokul/commit/e063849a6fdf40f21124b8b0e1ee036aecb430a3))
+-   portal a11y-context ([d1d0815](https://github.com/fremtind/jokul/commit/d1d0815f8ca074d6d5c56b27844fc4afa94f3c91))
+-   rydd vekk en linkvariant vi ikke skal ha ([e607fa8](https://github.com/fremtind/jokul/commit/e607fa8b56afe467fe02f127940c260778fdf7c5))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+-   vis diamant i CanvasText ([445b9f9](https://github.com/fremtind/jokul/commit/445b9f9f7b95925cd769c2251e33e24e6a952ee2))
+
 ## [12.3.21](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.20...@fremtind/portal@12.3.21) (2022-04-08)
 
 ### Bug Fixes

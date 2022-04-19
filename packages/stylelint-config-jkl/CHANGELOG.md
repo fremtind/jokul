@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/fremtind/jokul/compare/@fremtind/stylelint-config-jkl@2.0.5...@fremtind/stylelint-config-jkl@2.0.6) (2022-04-19)
+
+### Bug Fixes
+
+-   konfigurer stylelint til ikke å klage på systemfarger ([bfb9ad9](https://github.com/fremtind/jokul/commit/bfb9ad9ebdbfa50b9605a421127d595651dab9c1))
+
 ## 2.0.2 (2022-03-04)
 
 ### Bug Fixes

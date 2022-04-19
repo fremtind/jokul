@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent@6.0.9...@fremtind/jkl-cookie-consent@6.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   gi modal en border for økt kontrast ([82a1258](https://github.com/fremtind/jokul/commit/82a1258f21bfbda643b4ed3abac8c0ff239bf710))
+
 # 6.0.0 (2022-02-07)
 
 ### Bug Fixes

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@6.0.9...@fremtind/jkl-accordion@6.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   accordion bugs med forced-colors ([7d5bfc0](https://github.com/fremtind/jokul/commit/7d5bfc09d91238ea1e34fd32dbdcf765088fffea))
+-   bruk ButtonText for AccordionItem sin pil i forced-colors ([2606294](https://github.com/fremtind/jokul/commit/2606294a67e0dbd6f6a2a54c2b67c310c4fbcd5b))
+-   fyll piler med farge og jobb rundt navnekollisjon ([f056ef8](https://github.com/fremtind/jokul/commit/f056ef89ac784e180d74abb07691055364363b43))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
 # 6.0.0 (2022-02-07)
 
 ### Bug Fixes

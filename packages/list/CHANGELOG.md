@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@6.0.19...@fremtind/jkl-list@6.0.20) (2022-04-19)
+
+### Bug Fixes
+
+-   lister i forced-colors ([d1e975a](https://github.com/fremtind/jokul/commit/d1e975affabba6cd903203745e63070722c7cd27))
+
 ## 6.0.14 (2022-03-04)
 
 ### Bug Fixes

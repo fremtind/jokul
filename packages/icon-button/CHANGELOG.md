@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@0.5.19...@fremtind/jkl-icon-button@0.5.20) (2022-04-19)
+
+### Bug Fixes
+
+-   iconbutton textinput og textarea i forced-colors ([c605f0d](https://github.com/fremtind/jokul/commit/c605f0d174d726757975a39112fbda11af914b8e))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+
 ## 0.5.10 (2022-02-07)
 
 ### Bug Fixes

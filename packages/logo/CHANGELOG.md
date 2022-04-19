@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo@7.0.9...@fremtind/jkl-logo@7.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   logo fixup etter helper refactor ([7793a42](https://github.com/fremtind/jokul/commit/7793a421c105de873acbdff1981d1641b29840a6))
+-   logo i forced-colors ([277b6b7](https://github.com/fremtind/jokul/commit/277b6b742611096845f940f079a416113bfe7189))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+
 # 7.0.0 (2022-02-07)
 
 ### Bug Fixes
