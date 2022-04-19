@@ -35,6 +35,8 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         position: absolute;
         left: jkl.$spacing-m;
         height: rem(24px);
+
+        @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__content {
@@ -72,8 +74,18 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         align-self: flex-start;
         flex-shrink: 0;
 
+        @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
+        @include jkl.helper-forced-colors-mode {
+            background-color: ButtonFace;
+            margin-top: rem(-1px);
+            width: rem(32px);
+            height: rem(32px);
+            padding: rem(4px);
+        }
+
         &:hover {
             color: $dismiss-hover-color;
+            @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
         }
 
         &:focus {
@@ -146,6 +158,23 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         animation: dismiss-animation $dismiss-animation-duration ease-in-out forwards;
         transition: visibility 0ms $dismiss-animation-duration;
         visibility: hidden;
+    }
+
+    @include jkl.helper-forced-colors-mode {
+        border: 2px solid CanvasText;
+
+        &--info {
+            border-style: dotted;
+        }
+
+        &--warning {
+            border-style: dashed;
+        }
+
+        &--error {
+            border-style: double;
+            border-width: 4px;
+        }
     }
 
     @include small-device {

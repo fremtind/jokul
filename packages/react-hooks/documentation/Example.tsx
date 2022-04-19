@@ -7,6 +7,7 @@ import IntersectionObserverExample from "./IntersectionObserverExample";
 import KeyListenerExample from "./KeyListenerExample";
 import MutationObserverExample from "./MutationObserverExample";
 import ScrollIntoViewExample from "./ScrollIntoViewExample";
+import BrowserPreferencesExample from "./BrowserPreferencesExample";
 import { UseIdExample } from "./UseIdExample";
 import "../../button/button.scss";
 import "../../card/card.scss";
@@ -23,6 +24,7 @@ export default function Example() {
             <DevExample component={IntersectionObserverExample} />
             <DevExample component={ScrollIntoViewExample} />
             <DevExample component={UseIdExample} />
+            <DevExample component={BrowserPreferencesExample} />
         </>
     );
 }

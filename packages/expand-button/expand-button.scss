@@ -101,6 +101,17 @@ $focus-ring-width: jkl.rem(2px);
         .jkl-icon--small {
             --jkl-icon-width: #{$arrow-width};
         }
+
+        @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
+    }
+
+    @include jkl.helper-forced-colors-mode {
+        &,
+        &::after {
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+        }
     }
 }
 

@@ -157,4 +157,42 @@ $disabled-color: jkl.$color-stein;
     html:not([data-mousenavigation]) &:focus > &__slider > &__expanding-pill::after {
         box-shadow: 0 0 0 rem(2px) var(--toggle-focus-outline-color);
     }
+
+    @include jkl.helper-forced-colors-mode {
+        border: none; // Ett av få tilfeller hvor vi faktisk ikke vil ha noen border, selv i denne modusen
+        outline: revert;
+
+        overflow: hidden;
+        border-radius: 99rem;
+
+        & .jkl-toggle-switch__expanding-pill {
+            background-color: Highlight;
+        }
+
+        & .jkl-toggle-switch__slider {
+            &::before {
+                background-color: GrayText;
+            }
+
+            &::after {
+                background-color: ButtonText;
+            }
+        }
+
+        &:disabled {
+            .jkl-toggle-switch__expanding-pill {
+                background-color: GrayText;
+            }
+
+            .jkl-toggle-switch__slider {
+                &::before {
+                    background-color: GrayText;
+                }
+
+                &::after {
+                    background-color: ButtonFace;
+                }
+            }
+        }
+    }
 }
