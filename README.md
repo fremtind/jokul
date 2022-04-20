@@ -11,7 +11,7 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 -   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
 -   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
 
-## [Kom i gang](https://jokul.fremtind.no/komigang/utvikling)
+## [Kom i gang](https://jokul.fremtind.no/kom-i-gang/)
 
 1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
 2. Installer avhengigheter og bygg pakkene med `yarn boot` [^windows]
@@ -53,7 +53,7 @@ import "@fremtind/jkl-button/button.min.css";
 
 På [https://jokul.fremtind.no/](https://jokul.fremtind.no/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
 
-## Bidra
+## Endre Jøkul
 
 Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsninger. Det skal være enkelt og lett å vedlikeholde og de ferdige løsningene skal føles like, selv om de er spesifikke for ulike fagområder i Fremtind eller ulike kundebehov. All utvikling skjer åpent på GitHub. Det gjør at alle interesserte kan følge med, påvirke retningen vi går i og være med på å videreutvikle designsystemet.
 
@@ -61,7 +61,7 @@ Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsni
 
 Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/komigang/utvikling) vår.
+Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/endre/hvordan-endre-jokul) vår.
 
 ### Oppførsel
 
