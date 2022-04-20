@@ -126,8 +126,10 @@ export function useNavigationLinks(): NavigationLinks {
     const uuDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("/universell-utforming/"))
         .sort(sortByOrder);
+    const endreDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("/endre/"))
+        .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/komponenter/"));
-    const endreDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/endre/"));
     const componentGroup = allMdx.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/blog/")).sort(sortByDate);
