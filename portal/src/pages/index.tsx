@@ -86,7 +86,7 @@ const IndexPage: React.FC = () => {
                             <Card heading="For designere" link="/kom-i-gang/design">
                                 Her får du vite det mest grunnleggende før du setter i gang å bruke Jøkul.
                             </Card>
-                            <Card heading="Endre" link="/endre/hvordan-endre-jokul">
+                            <Card heading="Endre" link="/guider/hvordan-endre-jokul">
                                 Hvordan du kan endre designsystemet.
                             </Card>
                         </CardList>

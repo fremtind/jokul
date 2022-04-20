@@ -61,7 +61,7 @@ Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsni
 
 Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/endre/hvordan-endre-jokul) vår.
+Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/guider/hvordan-endre-jokul) vår.
 
 ### Oppførsel
 

@@ -49,7 +49,7 @@ enum PageType {
     PROFIL = "profil",
     KOMPONENTER = "komponenter",
     UU = "universell-utforming",
-    ENDRE = "endre",
+    GUIDER = "guider",
     BLOG = "blog",
 }
 
@@ -59,7 +59,7 @@ type NavigationLinks = {
     componentDocPages: DocumentationPageInfo[];
     componentGroup: string[];
     uuDocPages: DocumentationPageInfo[];
-    endreDocPages: DocumentationPageInfo[];
+    guiderDocPages: DocumentationPageInfo[];
     blogPages: DocumentationPageInfo[];
     PageType: typeof PageType;
 };
@@ -126,8 +126,8 @@ export function useNavigationLinks(): NavigationLinks {
     const uuDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("/universell-utforming/"))
         .sort(sortByOrder);
-    const endreDocPages = pages
-        .filter((page: DocumentationPageInfo) => page.path.includes("/endre/"))
+    const guiderDocPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("/guider/"))
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/komponenter/"));
     const componentGroup = allMdx.distinct;
@@ -137,7 +137,7 @@ export function useNavigationLinks(): NavigationLinks {
     return {
         profileDocPages,
         getStartedDocPages,
-        endreDocPages,
+        guiderDocPages,
         componentDocPages,
         componentGroup,
         uuDocPages,

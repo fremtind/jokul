@@ -14,7 +14,7 @@ assignees: ""
 
 ## 🎯 Sjekkliste
 
-Gjør deg kjent med [huskelista for nye bidrag](https://jokul.fremtind.no/endre/hvordan-endre-jokul#klar-for-%C3%A5-lansere-huskelista-hjelper-deg-), i tillegg til minstekravene for dokumentasjon i [Figma](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=3795%3A5927), i [portalen og på GitHub](https://github.com/fremtind/jokul/blob/main/CONTRIBUTING.md).
+Gjør deg kjent med [huskelista for nye bidrag](https://jokul.fremtind.no/guider/hvordan-endre-jokul#klar-for-%C3%A5-lansere-huskelista-hjelper-deg-), i tillegg til minstekravene for dokumentasjon i [Figma](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=3795%3A5927), i [portalen og på GitHub](https://github.com/fremtind/jokul/blob/main/CONTRIBUTING.md).
 
 ### 🎨 For designere
 

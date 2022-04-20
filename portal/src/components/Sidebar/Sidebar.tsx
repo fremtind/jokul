@@ -16,7 +16,7 @@ export const Sidebar: VFC<SidebarProps> = ({ className }) => {
         getStartedDocPages,
         componentDocPages,
         uuDocPages,
-        endreDocPages,
+        guiderDocPages,
         blogPages,
         PageType,
         componentGroup,
@@ -42,8 +42,8 @@ export const Sidebar: VFC<SidebarProps> = ({ className }) => {
         case PageType.UU:
             links = uuDocPages;
             break;
-        case PageType.ENDRE:
-            links = endreDocPages;
+        case PageType.GUIDER:
+            links = guiderDocPages;
             break;
         case PageType.BLOG:
             links = blogPages;

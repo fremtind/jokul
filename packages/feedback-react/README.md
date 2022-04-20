@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/feedb
 
 ## Kom i gang
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/endre/utvikling/)
+[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/guider/utvikling/)
 
 ## Bruk av React-pakken
 
