@@ -11,8 +11,16 @@ export interface SidebarProps {
 }
 
 export const Sidebar: VFC<SidebarProps> = ({ className }) => {
-    const { profileDocPages, getStartedDocPages, componentDocPages, uuDocPages, blogPages, PageType, componentGroup } =
-        useNavigationLinks();
+    const {
+        profileDocPages,
+        getStartedDocPages,
+        componentDocPages,
+        uuDocPages,
+        endreDocPages,
+        blogPages,
+        PageType,
+        componentGroup,
+    } = useNavigationLinks();
 
     const { currentSection } = useLocation();
 
@@ -33,6 +41,9 @@ export const Sidebar: VFC<SidebarProps> = ({ className }) => {
             break;
         case PageType.UU:
             links = uuDocPages;
+            break;
+        case PageType.ENDRE:
+            links = endreDocPages;
             break;
         case PageType.BLOG:
             links = blogPages;

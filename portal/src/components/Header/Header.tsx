@@ -27,7 +27,7 @@ export const Header: VFC<Props> = ({ className }) => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
-    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, uuDocPages, PageType } =
+    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, endreDocPages, uuDocPages, PageType } =
         useNavigationLinks();
     const { setIsOpen, setCurrentItem } = useFullscreenMenuContext();
 
@@ -88,6 +88,17 @@ export const Header: VFC<Props> = ({ className }) => {
                 })),
             ],
             basePath: PageType.UU,
+        },
+        {
+            linkText: "Endre",
+            content: [
+                ...endreDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.ENDRE,
+                })),
+            ],
+            basePath: PageType.ENDRE,
         },
         {
             linkText: "Blogg",

@@ -45,11 +45,12 @@ export interface DocumentationPageInfo extends Frontmatter {
 }
 
 enum PageType {
-    PROFIL = "profil",
     KOMIGANG = "komigang",
+    PROFIL = "profil",
     KOMPONENTER = "komponenter",
-    BLOG = "blog",
     UU = "universell-utforming",
+    ENDRE = "endre",
+    BLOG = "blog",
 }
 
 type NavigationLinks = {
@@ -58,6 +59,7 @@ type NavigationLinks = {
     componentDocPages: DocumentationPageInfo[];
     componentGroup: string[];
     uuDocPages: DocumentationPageInfo[];
+    endreDocPages: DocumentationPageInfo[];
     blogPages: DocumentationPageInfo[];
     PageType: typeof PageType;
 };
@@ -125,9 +127,19 @@ export function useNavigationLinks(): NavigationLinks {
         .filter((page: DocumentationPageInfo) => page.path.includes("/universell-utforming/"))
         .sort(sortByOrder);
     const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/komponenter/"));
+    const endreDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/endre/"));
     const componentGroup = allMdx.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/blog/")).sort(sortByDate);
 
-    return { profileDocPages, getStartedDocPages, componentDocPages, componentGroup, uuDocPages, blogPages, PageType };
+    return {
+        profileDocPages,
+        getStartedDocPages,
+        endreDocPages,
+        componentDocPages,
+        componentGroup,
+        uuDocPages,
+        blogPages,
+        PageType,
+    };
 }
