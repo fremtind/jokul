@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect, useReducer, FC } from "react";
 import { withPrefix } from "gatsby";
+import { WithChildren } from "@fremtind/jkl-core";
 
 type GatsbyLocation = Location & { state?: Record<string, string> };
 interface LocationContext {
@@ -52,7 +53,7 @@ const reducer = (state: LocationState, action: LocationAction): LocationState =>
     }
 };
 
-export const LocationContextProvider: FC = ({ children }) => {
+export const LocationContextProvider: FC<WithChildren> = ({ children }) => {
     const [gatsbyLocation, setLocation] = useState<GatsbyLocation>(window ? window.location : new Location());
 
     const initialState: LocationState = {

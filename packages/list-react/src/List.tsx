@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import cx from "classnames";
 
-export interface ListProps {
+export interface ListProps extends WithChildren {
     className?: string;
-    children?: ReactNode;
 }
 
 type ValidLists = "unordered" | "ordered";

@@ -1,9 +1,9 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { CSSProperties } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import "./icons-example-grid.scss";
 
-interface IconsExampleGridProps {
+interface IconsExampleGridProps extends WithChildren {
     columns: "two" | "four";
-    children?: ReactNode;
     color?: string;
     style?: CSSProperties;
 }

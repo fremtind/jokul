@@ -1,9 +1,10 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 import cn from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 import { PaddingOptions } from "./types";
 import { getSpacingClasses } from "./utils";
 
-export interface TaskCardProps extends PaddingOptions {
+export interface TaskCardProps extends PaddingOptions, WithChildren {
     /**
      * Bakgrunnsfargen til kortet
      * @default "hvit"
@@ -15,7 +16,6 @@ export interface TaskCardProps extends PaddingOptions {
      */
     withShadow?: boolean;
     className?: string;
-    children?: ReactNode;
 }
 
 export const TaskCard: FC<TaskCardProps> = ({

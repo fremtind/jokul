@@ -1,9 +1,8 @@
-import React, { ReactNode, MouseEventHandler, FC } from "react";
-import { SupportLabel } from "@fremtind/jkl-core";
+import React, { MouseEventHandler, FC } from "react";
+import { SupportLabel, WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 
-interface Props {
-    children: ReactNode;
+interface ToggleSwitchProps extends WithChildren {
     pressed?: boolean;
     className?: string;
     onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -11,7 +10,7 @@ interface Props {
     helpLabel?: string;
 }
 
-export const ToggleSwitch: FC<Props> = ({ children, pressed, onClick, className, disabled, helpLabel }) => {
+export const ToggleSwitch: FC<ToggleSwitchProps> = ({ children, pressed, onClick, className, disabled, helpLabel }) => {
     return (
         <div className="jkl-toggle-switch__container">
             <button

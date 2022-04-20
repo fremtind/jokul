@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import classNames from "classnames";
 import "./card-list.scss";
 
-interface Props {
-    children?: ReactNode;
+interface Props extends WithChildren {
     vertical?: boolean;
 }
 

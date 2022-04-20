@@ -1,10 +1,9 @@
-import React, { useState, FC, ReactNode } from "react";
+import React, { useState, FC } from "react";
 import cn from "classnames";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { ScreenReaderOnly } from "@fremtind/jkl-core";
+import { ScreenReaderOnly, WithOptionalChildren } from "@fremtind/jkl-core";
 
-interface Props {
-    children?: ReactNode;
+interface Props extends WithOptionalChildren {
     labels: [string, string];
     onToggle: (value: string) => void;
     defaultValue?: string;

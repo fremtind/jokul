@@ -1,11 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import { WarningMessageBox } from "@fremtind/jkl-message-box-react";
 
-interface ExperimentalProps {
-    children?: ReactNode;
-}
-
-export const Experimental: React.FC<ExperimentalProps> = ({ children }) => {
+export const Experimental: React.FC<WithChildren> = ({ children }) => {
     return (
         <WarningMessageBox
             className="jkl-portal-paragraph jkl-spacing-xl--top jkl-spacing-xl--bottom"

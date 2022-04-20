@@ -1,8 +1,8 @@
-import React, { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import cx from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 
-interface Props {
-    children: ReactNode;
+export interface TabListProps extends WithChildren {
     "aria-label": string;
     className?: string;
 }
@@ -19,9 +19,9 @@ interface InjectedProps {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const TabList = ({ children, ...injected }: Props) => {
+export const TabList = ({ children, ...injected }: TabListProps) => {
     // props injected by Tabs
-    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...props } = injected as Props & InjectedProps;
+    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...props } = injected as TabListProps & InjectedProps;
 
     const [tabsRect, setTabsRect] = useState<DOMRect>();
     const [activeRect, setActiveRect] = useState<DOMRect>();

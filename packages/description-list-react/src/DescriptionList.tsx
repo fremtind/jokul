@@ -1,27 +1,25 @@
+import React, { FC } from "react";
 import classnames from "classnames";
-import React, { FC, ReactNode } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 
-export interface DescriptionListProps {
+export interface DescriptionListProps extends WithChildren {
     className?: string;
-    children?: ReactNode;
 }
 
 export const DescriptionList: FC<DescriptionListProps> = ({ children, className }) => {
     return <dl className={classnames("jkl-description-list", className)}>{children}</dl>;
 };
 
-export interface DescriptionTermProps {
+export interface DescriptionTermProps extends WithChildren {
     className?: string;
-    children?: ReactNode;
 }
 
 export const DescriptionTerm: FC<DescriptionTermProps> = ({ children, className }) => {
     return <dt className={classnames("jkl-description-list__term", className)}>{children}</dt>;
 };
 
-export interface DescriptionDetailProps {
+export interface DescriptionDetailProps extends WithChildren {
     className?: string;
-    children?: ReactNode;
 }
 
 export const DescriptionDetail: FC<DescriptionDetailProps> = ({ children, className }) => {

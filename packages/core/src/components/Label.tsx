@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
+import { WithChildren } from "../types";
 import { LabelVariant } from "../index";
 import classNames from "classnames";
 
-export interface LabelProps {
-    children?: ReactNode;
+export interface LabelProps extends WithChildren {
     variant?: LabelVariant;
     forceCompact?: boolean;
     srOnly?: boolean;

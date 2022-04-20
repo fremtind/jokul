@@ -1,4 +1,5 @@
-import React, { createContext, ReactNode, useContext } from "react";
+import React, { createContext, useContext } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 
 type TableSectionContext = {
     isTableHead: boolean;
@@ -14,9 +15,8 @@ const tableSectionContext = createContext<TableSectionContext>({
 
 export const useTableSectionContext = (): TableSectionContext => useContext(tableSectionContext);
 
-export interface TableSectionContextProviderProps {
+export interface TableSectionContextProviderProps extends WithChildren {
     state: TableSectionContext;
-    children?: ReactNode;
 }
 
 export const TableSectionContextProvider: React.FC<TableSectionContextProviderProps> = ({ state, children }) => (

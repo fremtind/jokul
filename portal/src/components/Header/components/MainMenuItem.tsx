@@ -1,9 +1,9 @@
-import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
+import React from "react";
 import cx from "classnames";
-import React, { ReactNode } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
+import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 
-interface Props {
-    children?: ReactNode;
+interface Props extends WithChildren {
     label: string;
     isOpen: boolean;
     isActive: boolean;

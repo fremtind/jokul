@@ -1,10 +1,10 @@
-import React, { useState, useCallback, useEffect, ReactNode } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
+import { WithChildren } from "@fremtind/jkl-core";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 
-interface Props {
-    children: ReactNode;
+export interface TabsProps extends WithChildren {
     className?: string;
     onChange?: (tabIndex: number) => void;
 }
@@ -15,7 +15,7 @@ interface Props {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, ...props }: Props) => {
+export const Tabs = ({ onChange, ...props }: TabsProps) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const previousTabIndex = usePreviousValue(activeIndex);

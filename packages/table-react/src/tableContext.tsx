@@ -1,4 +1,5 @@
-import React, { createContext, ReactNode, useContext } from "react";
+import React, { createContext, useContext } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 
 type TableContext = {
     compact: boolean;
@@ -12,9 +13,8 @@ const tableContext = createContext<TableContext>({
 
 export const useTableContext = (): TableContext => useContext(tableContext);
 
-export interface TableContextProviderProps {
+export interface TableContextProviderProps extends WithChildren {
     state: TableContext;
-    children?: ReactNode;
 }
 
 export const TableContextProvider: React.FC<TableContextProviderProps> = ({ state, children }) => (

@@ -1,13 +1,13 @@
-import React, { createContext, ReactNode, useContext } from "react";
+import React, { createContext, useContext } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import { FollowupState } from "../types";
 
 const followUpContext = createContext<FollowupState | undefined>(undefined);
 
 export const useFollowUpContext = (): FollowupState | undefined => useContext(followUpContext);
 
-interface FollowupContextProviderProps {
+interface FollowupContextProviderProps extends WithChildren {
     state: FollowupState;
-    children?: ReactNode;
 }
 
 export const FollowUpProvider: React.FC<FollowupContextProviderProps> = ({ state, children }) => (

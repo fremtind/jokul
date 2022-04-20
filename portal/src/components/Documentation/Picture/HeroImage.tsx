@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import { StaticImage } from "gatsby-plugin-image";
 
 import "./HeroImage.scss";
 
-interface Props {
-    children?: ReactNode;
+interface Props extends WithChildren {
     title: string;
 }
 

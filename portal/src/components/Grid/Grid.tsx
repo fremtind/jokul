@@ -1,11 +1,10 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import classNames from "classnames";
-
+import { WithChildren } from "@fremtind/jkl-core";
 import "./Grid.scss";
 
-interface Props {
+interface Props extends WithChildren {
     className?: string;
-    children: ReactNode;
     size?: "medium" | "responsive";
 }
 

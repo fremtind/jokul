@@ -1,4 +1,5 @@
-import React, { createContext, useContext, FC, ReactNode } from "react";
+import React, { createContext, useContext, FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 
 interface FeedbackContext {
     feedbackSubmitted: boolean;
@@ -26,9 +27,8 @@ const feedbackContext = createContext(initialState);
 
 export const useFeedbackContext = (): FeedbackContext => useContext(feedbackContext);
 
-interface FeedbackContextProviderProps {
+interface FeedbackContextProviderProps extends WithChildren {
     value: FeedbackContext;
-    children?: ReactNode;
 }
 
 export const FeedbackContextProvider: FC<FeedbackContextProviderProps> = ({ value, children }) => (

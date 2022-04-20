@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import cx from "classnames";
 import { ColorInfo, Color } from "./";
 import "./primary-color.scss";
 
-interface PrimaryColorProps extends Color {
+interface PrimaryColorProps extends Color, WithChildren {
     className?: string;
-    children?: ReactNode;
     title: string;
 }
 
