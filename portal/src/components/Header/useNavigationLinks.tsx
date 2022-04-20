@@ -45,7 +45,7 @@ export interface DocumentationPageInfo extends Frontmatter {
 }
 
 enum PageType {
-    KOMIGANG = "komigang",
+    KOMIGANG = "kom-i-gang",
     PROFIL = "profil",
     KOMPONENTER = "komponenter",
     UU = "universell-utforming",
@@ -121,7 +121,7 @@ export function useNavigationLinks(): NavigationLinks {
         .filter((page: DocumentationPageInfo) => page.path.includes("/profil/"))
         .sort(sortByOrder);
     const getStartedDocPages = pages
-        .filter((page: DocumentationPageInfo) => page.path.includes("/komigang/"))
+        .filter((page: DocumentationPageInfo) => page.path.includes("/kom-i-gang/"))
         .sort(sortByOrder);
     const uuDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("/universell-utforming/"))
