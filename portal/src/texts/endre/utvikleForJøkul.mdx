@@ -1,7 +1,7 @@
 ---
 title: Utvikle for Jøkul
 path: /endre/utvikling
-order: 4
+order: 2
 ---
 
 # Slik skriver du kode til Jøkul
@@ -97,6 +97,14 @@ I vårt tilfelle er det ingen visuell endring, så vi hopper over dette steget.
         </p>
     </InfoMessageBox>
 </aside>
+
+#### Kort om enhetstester
+
+I dette eksempelet hopper vi over enhetstester, men for en endring som fikser en bug eller legger til funksjonalitet ville vi ha skrevet noen. Enhetstester skal ligge sammen med komponenten, med filnavn på formen `<MinKomponent>.test.tsx` eller `<minFunksjon>.test.ts`.
+
+Enhetstestene skal sikre at nøkkelfunksjonaliteten til komponenten virker. For eksempel kan testene for en knapp sjekke at den blir rendret til DOM, og at den kaller riktig funksjon når man klikker på den.
+
+Vi bruker [Jest](https://jestjs.io/) som test runner og [React testing library](https://testing-library.com/docs/react-testing-library/intro) for å håndtere React-komponenter.
 
 ### Lag en commit
 
