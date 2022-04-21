@@ -4,4 +4,69 @@ path: /kom-i-gang/slik-er-jokul-satt-sammen
 order: 4
 ---
 
+import { Link } from "gatsby";
+
 # Slik er Jøkul satt sammen
+
+<Ingress>
+    Siden et system er summen av dets deler i samspill, så er det greit å ha en samlet oversikt over alle delene på ett
+    sted. Portalen er det stedet.
+</Ingress>
+
+<PortalImage src="/assets/kom-i-gang/systemet.svg" alt="" disableFullscreen />
+
+## Portalen
+
+All informasjon som er felles for designsystemet skal ligge i portalen (denne siden), slik at vi har ett sted å gå til for å finne informasjon om vi lurer på noe. Se på dette området som et slags oppslagsverk for hele designsystemet. I portalen skal du finne alt du trenger av eksempler, råd og regler for bruk av komponenter og merkevaren vår.
+
+I tillegg til portalen lever Jøkul i det daglige på to forskjellige områder: Figma for design, og Github for kode. Felles dokumentasjon finner du i portalen.
+
+<Grid className="jkl-portal-paragraph">
+    <NavCard
+        href="https://github.com/fremtind/jokul"
+        title="Kode"
+        description="Vi samler koden og dokumentasjonen vår på GitHub som åpen kildekode."
+    />
+    <NavCard
+        href="https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/?node-id=0%3A1"
+        title="Design"
+        description="Vi designer løsningene våre i Figma, der vil du finne deler av Jøkul tilgjengelig som et bibliotek."
+    />
+</Grid>
+
+## Slik lages Jøkul
+
+Designsystemet forandres og utvikles på mange forskjellige måter, men i korte trekk er det fire steg som skal til for å mekke på systemet:
+
+1. Du oppdager et behov for å endre noe, eller finner en bug som må fikses
+2. Du fikser et kjapt forslag i en Figma-branch eller en Pull Request på GitHub
+3. Du deler forslaget ditt med noen, enten i Teams, på GitHub, eller i et møte
+4. Vi samarbeider om å sjekke at alt funker som det skal, så legges tingen inn i Jøkul
+
+Det er noen detaljer underveis, men de er det lett å få hjelp til av en kollega i teamet ditt eller fra noen i kjerneteamet, om du måtte behøve det.
+
+<NavCard
+    href="https://github.com/fremtind/jokul/discussions/new?category=ideer"
+    title="Vil du endre på noe?"
+    description="Jøkul er under konstant endring, og vi ønsker oss feedback fra alle som bruker Jøkul."
+    style={{ maxWidth: "26rem" }}
+/>
+
+## Praktiske tips og triks
+
+Til slutt har vi en samling med verktøy og ekstra ressurser som vil gjøre hverdagen din enklere som bruker av verktøyene våre.
+
+<Grid className="jkl-portal-paragraph">
+    <NavCard
+        component={Link}
+        to="/kom-i-gang/utvikling"
+        title="For utviklere"
+        description="Det er nyttig å ha et forhold til flyten fra design til kode i Jøkul, videre til kode i teamets egne apper."
+    />
+    <NavCard
+        component={Link}
+        to="/kom-i-gang/design"
+        title="For designere"
+        description="Branching, Variants, Auto-Layout, breakpoints, praktiske plugins, “uskrevne regler” og mer."
+    />
+</Grid>
