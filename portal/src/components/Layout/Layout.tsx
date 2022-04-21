@@ -23,7 +23,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
         setHasMounted(true);
     }, []);
 
-    const { setLocation, isFrontPage } = useLocation();
+    const { setLocation, isFrontPage, currentSection } = useLocation();
     const screen = useScreen();
 
     const { site } = useStaticQuery(
@@ -44,7 +44,9 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
     const metaDescription = site.siteMetadata.description;
     const siteTitle = site.siteMetadata.title;
     const pageTitle = pageContext.title;
-    const shouldShowSidebar = !isFrontPage && pageTitle && !(screen.isSmallDevice || screen.isMediumDevice);
+    const isGettingStarted = currentSection === "kom-i-gang"; // Disse sidene overstyrer tittel
+    const shouldShowSidebar =
+        !isFrontPage && (pageTitle || isGettingStarted) && !(screen.isSmallDevice || screen.isMediumDevice);
 
     return (
         <div

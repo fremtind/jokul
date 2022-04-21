@@ -3,6 +3,7 @@ import React, { VFC } from "react";
 import { motion } from "framer-motion";
 import { InfoBlock, NavCard } from "@fremtind/jkl-card-react";
 import "./blog.scss";
+import { Helmet } from "react-helmet";
 
 const IndexPage: VFC<PageProps<PageData>> = ({ data }) => {
     const posts = data.allMdx.nodes;
@@ -15,6 +16,9 @@ const IndexPage: VFC<PageProps<PageData>> = ({ data }) => {
             transition={{ duration: 0.35 }}
             className="jkl-portal__main"
         >
+            <Helmet>
+                <title>Blogg | Jøkul Designsystem</title>
+            </Helmet>
             <h1 className="jkl-title jkl-spacing-2xl--bottom">Blogg</h1>
             <p className="jkl-portal-paragraph">Velkommen til Jøkul — design­systemet til Fremtind.</p>
             <h2 className="jkl-heading-1 jkl-spacing-xl--top jkl-spacing-l--bottom">Alt fra bloggen</h2>

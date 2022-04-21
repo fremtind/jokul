@@ -33,7 +33,7 @@ import {
     Paragraph,
     InlineCode,
     CodeBlock,
-    ArticleLead as Ingress,
+    Ingress,
     ListItem,
 } from "../Typography";
 import { Blockquote } from "./Typography";

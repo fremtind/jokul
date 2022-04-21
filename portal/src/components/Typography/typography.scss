@@ -59,7 +59,7 @@ $_paragraph-max-width: rem(750px);
     }
 }
 
-.jkl-portal-article-lead {
+.jkl-portal-ingress {
     max-width: $_title-max-width;
 
     @include jkl.text-style("heading-2");

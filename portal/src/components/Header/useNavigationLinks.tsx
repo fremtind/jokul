@@ -120,9 +120,6 @@ export function useNavigationLinks(): NavigationLinks {
     const profileDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("/profil/"))
         .sort(sortByOrder);
-    const getStartedDocPages = pages
-        .filter((page: DocumentationPageInfo) => page.path.includes("/kom-i-gang/"))
-        .sort(sortByOrder);
     const uuDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("/universell-utforming/"))
         .sort(sortByOrder);
@@ -133,6 +130,33 @@ export function useNavigationLinks(): NavigationLinks {
     const componentGroup = allMdx.distinct;
 
     const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/blog/")).sort(sortByDate);
+
+    const getStartedDocPages = [
+        {
+            path: "/kom-i-gang/hva-er-jokul",
+            title: "Hva er Jøkul?",
+        },
+        {
+            path: "/kom-i-gang/deg-og-jokul",
+            title: "Deg og Jøkul",
+        },
+        {
+            path: "/kom-i-gang/hjelp",
+            title: "Hvor kan jeg få hjelp?",
+        },
+        {
+            path: "/kom-i-gang/slik-er-jokul-satt-sammen",
+            title: "Slik er Jøkul satt sammen",
+        },
+        {
+            path: "/kom-i-gang/design",
+            title: "For Designere",
+        },
+        {
+            path: "/kom-i-gang/utvikling",
+            title: "For Utviklere",
+        },
+    ];
 
     return {
         profileDocPages,

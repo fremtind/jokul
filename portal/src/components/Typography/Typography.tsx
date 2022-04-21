@@ -38,13 +38,13 @@ export const HeadingXS: React.FC = ({ children, ...rest }) => (
     </h5>
 );
 
-export const ArticleLead: React.FC = ({ children, ...rest }) => (
-    <p className="jkl-portal-article-lead" {...rest}>
+export const Ingress: React.FC = ({ children, ...rest }) => (
+    <p className="jkl-portal-ingress" {...rest}>
         {children}
     </p>
 );
 
-export const Paragraph: React.FC = ({ children, ...rest }) => (
+export const Paragraph: React.FC<{ className?: string }> = ({ children, ...rest }) => (
     <p className="jkl-portal-paragraph" {...rest}>
         {children}
     </p>
@@ -72,6 +72,12 @@ export const InlineCode: React.FC = ({ children, ...rest }) => (
     <code className="jkl-portal-inline-code" {...rest}>
         {children}
     </code>
+);
+
+export const Strong: React.FC = ({ children, ...rest }) => (
+    <strong className="jkl-bold" {...rest}>
+        {children}
+    </strong>
 );
 
 interface CodeBlockProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement> {
