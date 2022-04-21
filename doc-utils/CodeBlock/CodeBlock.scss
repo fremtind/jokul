@@ -34,7 +34,7 @@
         min-width: initial;
     }
 
-    &::before {
+    &[data-language]::before {
         position: absolute;
         top: 0;
         right: 0;
