@@ -50,6 +50,7 @@ export const PortalImage: FC<Props> = ({
                         "jkl-portal-paragraph": !fullWidth && !isFullscreen,
                     })}
                     disabled={disableFullscreen}
+                    role={disableFullscreen ? "none presentation" : undefined}
                 >
                     <AnimatedImage src={src} alt={alt} />
                     {!disableFullscreen && !isFullscreen && !noMargin && (
