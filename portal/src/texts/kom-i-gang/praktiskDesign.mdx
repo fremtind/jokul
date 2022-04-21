@@ -4,6 +4,7 @@ path: /kom-i-gang/design
 order: 5
 ---
 
+import { Link } from "gatsby";
 import { FigmaLogo } from "../../components/figma-logo";
 
 # Praktisk i designhverdagen
@@ -39,7 +40,8 @@ Det er mange som bruker Figma-biblioteket, derfor må vi kvalitetssikre endringe
         description="Aldri brukt branching i Figma før? Ta en kikk på introduksjonen fra Figma."
     />
     <NavCard
-        href="/guider/hvordan-endre-jokul#klar-for-å-lansere-huskelista-hjelper-deg-"
+        to="/guider/hvordan-endre-jokul#klar-for-å-lansere-huskelista-hjelper-deg-"
+        component={Link}
         title="Endre på Jøkul"
         description="Det er et par ting å huske på, så ta en kikk på tipsene vi har skrevet."
     />
@@ -100,3 +102,11 @@ Takket være masse flinke folk på internett så finnes det et trucklass med plu
 -   Søk etter komponenter (⇧I)
 -   macOS “spotlight-style” kommandosøk (⌘P)
 -   Show Layout Grid (⌃G)
+
+<NavCard
+    to="/profil/designprinsipper"
+    component={Link}
+    title="Neste: Profil"
+    description="Nå som du kjenner til det praktiske er det på tide å bli kjent med profilen"
+    style={{ maxWidth: "25rem" }}
+/>

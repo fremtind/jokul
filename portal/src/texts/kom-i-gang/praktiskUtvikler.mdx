@@ -4,7 +4,8 @@ path: /kom-i-gang/utvikling
 order: 6
 ---
 
-import { TagExample, tagExampleKnobs } from "../../../../packages/tag-react/documentation/TagExample";
+import { Link } from "gatsby";
+import { TagExample, tagExampleCode } from "../../../../packages/tag-react/documentation/TagExample";
 
 # Praktisk info for utviklere
 
@@ -23,11 +24,13 @@ Jøkul oppfører seg som alle andre eksterne avhengigheter du har i prosjektet d
 
 ## Se hvilke pakker som finnes
 
-Jøkuls kode er delt inn i [mange pakker](https://github.com/orgs/fremtind/packages?repo_name=jokul), typisk to pakker per komponent.
+Jøkuls kode er delt inn i [mange pakker](https://github.com/orgs/fremtind/packages?repo_name=jokul), to pakker per komponent. Vi skiller på CSS-pakker og React-pakker i Jøkul for å kunne bruke stilene selv om prosjektet ikke bruker React, selv om det er sterkt anbefalt.
 
-Hvorfor to?
+Når du bruker React-komponenten blir stilpakken automatisk installert som en avhengighet. Du trenger med andre ord **ikke** både React- og stilpakken i `package.json`.
 
-Vi skiller på CSS-pakker og React-pakker i Jøkul. Du kan bruke komponentene i Jøkul som rene stilark dersom prosjektet ditt ikke bruker React, selv om det er sterkt anbefalt. Når du bruker React-komponenten blir stilpakken automatisk installert som en avhengighet. Du trenger med andre ord **ikke** både React- og stilpakken i `package.json`.
+## Hvordan er flyten for å få publisert kode?
+
+Det er en forventning at du er med på utviklingen av Jøkul, så det er lurt å ha et forhold til hvordan kode kommer fra din egen maskin ut i publiserte pakker. Vi har skrevet en egen [guide om det her](/guider/hvordan-endre-jokul).
 
 ## Brekkpunkter
 
@@ -107,3 +110,11 @@ Vi har også flere [verktøytips for test av universell utforming](/universell-u
 **Andre verktøy**
 
 -   [Node Version Manager](https://github.com/nvm-sh/nvm)
+
+<NavCard
+    to="/profil/designprinsipper"
+    component={Link}
+    title="Neste: Profil"
+    description="Nå som du kjenner til det praktiske er det på tide å bli kjent med profilen"
+    style={{ maxWidth: "25rem" }}
+/>
