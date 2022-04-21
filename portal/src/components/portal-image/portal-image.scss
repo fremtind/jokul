@@ -5,10 +5,12 @@
 
 .jkl-portal-image {
     margin-top: jkl.$spacing-xl;
+    margin-bottom: jkl.$spacing-xl;
     width: 100%;
 
     &--no-margin {
         margin-top: 0;
+        margin-bottom: 0;
     }
 
     &__content {
