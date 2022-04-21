@@ -4,9 +4,6 @@ path: /kom-i-gang/hva-er-jokul
 order: 1
 ---
 
-import { Link } from "gatsby";
-import { NavCard } from "@fremtind/jkl-card-react";
-
 <h1 className="jkl-portal-huge-title">
     Jøkul
     <br />
@@ -32,8 +29,9 @@ Jøkul har mange bevegelige deler, og det er mye man kan fordype seg i. På de n
 -   Tips og triks for deg som designer og utvikler
 
 <NavCard
-    to="/kom-i-gang/deg-og-jokul"
+    href="/kom-i-gang/deg-og-jokul"
     component={Link}
     title="Neste: Deg og Jøkul"
     description="Vi starter med det essensielle; hvordan du skal forholde deg til designsystemet."
+    style={{ maxWidth: "25rem" }}
 />

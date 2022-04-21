@@ -4,41 +4,53 @@ path: /kom-i-gang/deg-og-jokul
 order: 2
 ---
 
-import { NavCard } from "@fremtind/jkl-card-react";
-
 # Deg og Jøkul
 
 <Ingress>
-    Med et designsystem kommer det en litt annen måte å tenke på enn man kanskje er vant med dersom man aldri har jobbet
-    med det før. Det viktigste du trenger å vite er at du er både brukeren og skaperen av Jøkul. Designsystemet blir
-    bedre fordi du deltar i det.
+    Med et designsystem følger det med et litt annerledes tankesett som kan virke uvant, dersom man ikke har jobbet med
+    det før.
 </Ingress>
+
+## Jøkul eies av alle
+
+Litt som et samvirkelag, er Jøkul et produkt av en større felles innsats fra alle som bruker systemet. Siden du er både brukeren og skaperen av Jøkul, blir designsystemet så bra som du gjør det til selv, ved at du deltar i utviklingen. Det betyr også at hvis du ser noe som er feil eller kan forbedres, så er det opp til deg å gjennomføre den endringen.
+
+<PortalImage src="/assets/kom-i-gang/samvirke.svg" alt="" disableFullscreen />
 
 ## Diskusjoner på GitHub
 
 Når vi ikke er fysisk samlet deler vi idéer, forslag til nye funksjoner, endringer og bugs på GitHub. Ved å samle alt på ett sted gjør vi det enklere for alle å delta, og for kjerneteamet å holde oversikt. Innleggene stammer som regel fra behov og diskusjoner ute i teamene, eller forumet. GitHub er ofte startpunktet hvis du vil påvirke designsystemet.
 
-<Grid>
-    <NavCard className="jkl-portal-nav-card" href="https://github.com/fremtind/jokul/discussions" title="Discussions">
-        Del dine idéer, eller diskuter Jøkul med andre designere og utviklere i Fremtind.
-    </NavCard>
+<PortalImage
+    src="/assets/kom-i-gang/github-discussions.png"
+    alt="Skjermbilde som viser oversikten du finner når du først kommer til Jøkuls GitHub Discussions"
+/>
+
+<Grid className="jkl-portal-paragraph">
     <NavCard
-        className="jkl-portal-nav-card"
+        href="https://github.com/fremtind/jokul/discussions"
+        title="Discussions"
+        description="Del dine idéer, eller diskuter Jøkul med andre designere og utviklere i Fremtind."
+    />
+    <NavCard
         href="https://www.figma.com/file/HOmcpKHfjHnS9f8397hfxU/Kurs%3A-Github-for-Designere"
         title="Lynkurs"
-    >
-        Ny på GitHub? Vi tar deg gjennom de viktigste elementene av plattformen som vi bruker.
-    </NavCard>
+        description="Ny på GitHub? Vi tar deg gjennom de viktigste elementene av plattformen."
+    />
 </Grid>
 
 ## Designsystemforum
 
-Hver uke samles vi for å dele og drøfte hva som skjer i designsystemet. Forumet har ‘åpen mikk’ og hvem som helst kan stille opp med et tema de vil sparre med andre på. Ofte deler vi forumet i to, med en presentasjonsdel først, og en arbeidsdel etterpå hvor man kan sparre på ting sammen, på tvers av team.
+Vi samles ukentlig for å dele og drøfte hva som skjer i designsystemet. Forumet har ‘åpen mikk’ og hvem som helst kan stille opp med et tema de vil sparre med andre på, agendaen er basert på en [tråd fra teams som kommer ut i forkant](https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0). Ofte deler vi forumet i to, med en presentasjonsdel først, og en arbeidsdel hvor man kan sparre på tvers av team og fag.
+
+<PortalImage
+    src="/assets/kom-i-gang/forum.png"
+    alt="Bilde som viser en gruppe Fremtindere rundt et langbord under et designsystemforum. En person snakker, og de andre rundt bordet følger med på personen. En storskjerm viser deltagere som er med på møtet gjennom Teams."
+/>
 
 <NavCard
-    className="jkl-portal-nav-card"
-    href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0"
-    title="Åpen agenda"
->
-    Det legges ut en tråd på teams i forkant hvor alle kan melde inn teamer de vil drøfte.
-</NavCard>
+    href="/kom-i-gang/hjelp"
+    title="Neste: Hvor kan du få hjelp?"
+    description="Vi har mange ressurser og arenaer å trekke på for å hjelpe hverandre med Jøkul i hverdagen."
+    style={{ maxWidth: "29rem" }}
+/>
