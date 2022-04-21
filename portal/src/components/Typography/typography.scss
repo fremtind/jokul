@@ -1,5 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/functions";
 
 @include jkl.helper-light-mode-variables {
@@ -55,6 +56,22 @@
 
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-2xl;
+    }
+}
+
+.jkl-portal-huge-title {
+    font-weight: 400;
+    font-style: normal;
+
+    line-height: rem(84px);
+    font-size: rem(64px);
+    max-width: rem(850px);
+    margin-bottom: jkl.$spacing-l;
+
+    @include from-medium-device {
+        line-height: rem(130px);
+        font-size: rem(104px);
+        max-width: rem(860px);
     }
 }
 
