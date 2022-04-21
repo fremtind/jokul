@@ -4,6 +4,10 @@ path: /kom-i-gang/hjelp
 order: 3
 ---
 
+import { Link } from "gatsby";
+import { NavCard } from "@fremtind/jkl-card-react";
+import { PortraitGallery, Portrait } from "../../components/portrait-gallery";
+
 # Hvor kan jeg få hjelp?
 
 <Ingress>
@@ -26,7 +30,16 @@ Selv om designsystemet er laget av alle, er det et par ildsjeler som jobber ekst
 -   Vi er superbrukere av verktøyene for designsystemet
 -   Vi sparrer med deg på design og utvikling med og av Jøkul
 
-<span className="jkl-small">
+<PortraitGallery>
+    <Portrait name="William" title="Utvikler" image="portrett-william" />
+    <Portrait name="Mona" title="Designer" image="portrett-mona" />
+    <Portrait name="Pio" title="Utvikler" image="portrett-pio" />
+    <Portrait name="Glenn" title="Maskot" image="portrett-glenn" />
+    <Portrait name="Lou" title="Designer" image="portrett-lou" />
+    <Portrait name="Øyvind" title="Designer" image="portrett-oyvind" />
+</PortraitGallery>
+
+<p className="jkl-small" style={{ maxWidth: "45rem" }}>
     Du finner oss i 7. etasje i H2 (av og til), og på Teams i{" "}
     <a
         href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0"
@@ -34,9 +47,19 @@ Selv om designsystemet er laget av alle, er det et par ildsjeler som jobber ekst
     >
         Support Designsystem-kanalen
     </a>
-    . Vi driver også med god gammeldags mail på:
-    <a href="mailto:fremtind.designsystem@fremtind.no" className="jkl-link">
+    . Vi driver også med god gammeldags mail på: <a
+        href="mailto:fremtind.designsystem@fremtind.no"
+        className="jkl-link"
+    >
         fremtind.designsystem@fremtind.no
-    </a>
-    .
-</span>
+    </a>.
+</p>
+
+<NavCard
+    className="jkl-spacing-xl--top"
+    style={{ maxWidth: "35rem" }}
+    to="/kom-i-gang/slik-er-jokul-satt-sammen"
+    component={Link}
+    title="Neste: Slik er Jøkul satt sammen"
+    description="Et system er summen av dets deler i samspill, ofte er det greit å ha en samlet oversikt over delene på ett sted."
+/>
