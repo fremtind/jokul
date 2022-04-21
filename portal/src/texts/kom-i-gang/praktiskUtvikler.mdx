@@ -4,6 +4,8 @@ path: /kom-i-gang/utvikling
 order: 6
 ---
 
+import { TagExample, tagExampleKnobs } from "../../../../packages/tag-react/documentation/TagExample";
+
 # Praktisk info for utviklere
 
 <Ingress>
@@ -31,19 +33,46 @@ Vi skiller på CSS-pakker og React-pakker i Jøkul. Du kan bruke komponentene i 
 
 Jøkul har tre brekkpunkter: medium, large, extra large. Disse punktene blir brukt innad i Jøkul, men begrenser ikke hva du kan bruke i din egen app. Det vil si at typografi og spacing i komponenter vil forandre seg ved disse verdiene, samtidig som du står fritt til å bruke egne brekkpunkter for å tilpasse layouten i prosjektet ditt etter egne behov.
 
-TODO: tabell med brekkpunkter
+<div className="jkl-portal-paragraph">
+    <table className="jkl-table--full-width">
+        <thead>
+            <tr>
+                <th>Størrelse</th>
+                <th>Verdi</th>
+                <th>Benevnelse</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Medium</td>
+                <td>680px</td>
+                <td>md</td>
+            </tr>
+            <tr>
+                <td>Large</td>
+                <td>1200px</td>
+                <td>l</td>
+            </tr>
+            <tr>
+                <td>Extra Large</td>
+                <td>1600px</td>
+                <td>xl</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ## Dokumentasjon rett i editoren
 
 Jøkul er skrevet i TypeScript og kommer med typedefinisjoner som en del av pakka. Editors med god TypeScript-støtte som Visual Studio Code hjelper deg med autoutfylling av propnavn og viser deg dokumentasjon i kontekst av det du jobber med.
 
-TODO: eksempel fra VSCode
+![Skjermbilde som viser et eksempel på dokumentasjon vist i Visual Studio Code](/static/assets/kom-i-gang/solarized-light.png)
 
 ## Kodeeksempler i portalen
 
-Alle [komponentene](/komponenter/accordion) har flere eksempler på hvordan du bruker dem, inkludert kodeeksempler. Bruk Vis kode-knappen for å se hvordan du kan lage eksemplet du ser på. Du finner også en oversikt over alle propsene til komponentene nederst på siden.
+Alle [komponentene](/komponenter/accordion) har ett eller flere eksempler av typen du ser under. De viser hvordan du bruker dem, inkludert kodeeksempler. Bruk Vis kode-knappen for å se hvordan du kan lage eksemplet du ser på. Du finner også en oversikt over alle propsene til komponentene nederst på siden.
 
-TODO: embed et eksempel her
+<ComponentExample title="Tag" component={TagExample} codeExample={tagExampleCode} />
 
 ## Endringslogger og annet snadder
 
@@ -60,17 +89,21 @@ Til slutt kommer det månedlige oppsummeringer på bloggen som det er verdt å f
 
 Du har kanskje noen favoritter selv, men ta gjerne en titt på disse verktøyene når du jobber i eget prosjekt.
 
-TODO: lenker, samle folk sine favoritter
+Vi har også flere [verktøytips for test av universell utforming](/universell-utforming/verktoy).
 
--   VS Code plugins
-    -   Live Share
-    -   ESLint
-    -   Prettier
-    -   SCSS IntelliSense
--   Simulering av forced-colors i Chrome devtools (lenk til UU-seksjonen)
--   Jøkuls valgte verktøy for linting og testing
-    -   ESLint
-    -   Stylelint
-    -   Jest med axe-core via jest-axe
-    -   Cypress
--   Node Version Manager
+**Visual Studio Code extensions**
+
+-   [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) gjør det mulig å dele editoren med én eller flere kolleger i sanntid
+-   [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss) gjør det enklere å se verdiene bak Sass-variabler
+-   [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for å få formatering ved lagring
+
+**Linting og testing**
+
+-   [ESLint](https://eslint.org) og tilhørende [extension til VS Code](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+-   [Stylelint](https://stylelint.io)
+-   [Jest](https://jestjs.io) med axe-core via [jest-axe](https://github.com/nickcolley/jest-axe#readme)
+-   [Cypress](https://www.cypress.io) for ende-til-ende og visuelle regresjonstester via [cypress-plugin-snapshots](https://github.com/meinaart/cypress-plugin-snapshots)
+
+**Andre verktøy**
+
+-   [Node Version Manager](https://github.com/nvm-sh/nvm)
