@@ -11,9 +11,18 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     noMargin?: boolean;
     fullWidth?: boolean;
     caption?: JSX.Element;
+    disableFullscreen?: boolean;
 }
 
-export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, fullWidth = false, caption }) => {
+export const PortalImage: FC<Props> = ({
+    className,
+    src,
+    alt,
+    noMargin = false,
+    fullWidth = false,
+    caption,
+    disableFullscreen,
+}) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
@@ -40,9 +49,10 @@ export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, 
                         "jkl-portal-image__content--fullscreen": isFullscreen,
                         "jkl-portal-paragraph": !fullWidth && !isFullscreen,
                     })}
+                    disabled={disableFullscreen}
                 >
                     <AnimatedImage src={src} alt={alt} />
-                    {!isFullscreen && !noMargin && (
+                    {!disableFullscreen && !isFullscreen && !noMargin && (
                         <p className="jkl jkl-small">
                             {caption && caption} Klikk for å se større{caption && "."}
                         </p>

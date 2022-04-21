@@ -1,6 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @import "~@fremtind/jkl-core/mixins/_all";
+@import "~@fremtind/jkl-core/functions";
 
 .jkl-portal-image {
     margin-top: jkl.$spacing-xl;
@@ -14,8 +15,11 @@
         @include reset-outline;
 
         background-color: transparent;
-        cursor: pointer;
         padding: 0;
+
+        &:not(:disabled) {
+            cursor: pointer;
+        }
 
         &:focus {
             @include keyboard-navigation {
@@ -50,6 +54,10 @@
     }
 
     &__img {
+        max-width: rem(750px);
+    }
+
+    &__content--fullscreen .jkl-portal-image__img {
         max-width: 100vw;
         max-height: 100vh;
         object-fit: contain;
