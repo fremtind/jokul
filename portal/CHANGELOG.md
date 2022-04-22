@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.24...@fremtind/portal@12.4.0) (2022-04-22)
+
+### Bug Fixes
+
+-   align Feedback med innhold, skjul på forside ([0894920](https://github.com/fremtind/jokul/commit/08949207c9223ee0481de28db224af1a9dad40aa))
+-   annonser PortalImage uten fullskjerm som et bilde ([db2723f](https://github.com/fremtind/jokul/commit/db2723f37f03728b1d14ac92d3569f9bae2940f6))
+-   aspect-ratio for portretter ([5ec7959](https://github.com/fremtind/jokul/commit/5ec7959cc9dd1a512d6a7ad2fc5101dbc4d8c788))
+-   fjern maksbredde ([ccdb8e3](https://github.com/fremtind/jokul/commit/ccdb8e3cbe9ebb633e59b5e973eb272c3cd03a90))
+-   gi bilder i portalen en bunnmargin ([d2b0f3f](https://github.com/fremtind/jokul/commit/d2b0f3f0c45fecf7c33b8fbc5f86f28d196aea35))
+-   gjør language optional og komponenten dummyproof ([15be101](https://github.com/fremtind/jokul/commit/15be1017c628529b8336c20080774c6a57c174ee))
+-   good-enough grid for navkort ([eaef5a3](https://github.com/fremtind/jokul/commit/eaef5a3c6e97da2f8ca5c377900b115f9ec8371b))
+-   hack rundt statebasert highlight av toppmeny ([885cf0a](https://github.com/fremtind/jokul/commit/885cf0aa909363389b03d5185d753f6053c80041))
+-   hydreringsbug med skjuling av feedback ([fa1a426](https://github.com/fremtind/jokul/commit/fa1a426592cf7abcd92dbf66ab9162c1fa66b213))
+-   lenker og imports ([b091b80](https://github.com/fremtind/jokul/commit/b091b80c23b3bc4b8592770a425425e7d8c9c704))
+-   redesign kodeblokker i lyst tema ([872fc00](https://github.com/fremtind/jokul/commit/872fc0060a4f6ecf088a543e435fd2300c167e54))
+-   senk grid gap ([e5428b7](https://github.com/fremtind/jokul/commit/e5428b79361d030ad4e4ccfa540889999c0a2dbf))
+-   utvid formatprovider med støtte for bedre spacing ([569e049](https://github.com/fremtind/jokul/commit/569e049c09b956c8c8185593403a3df503fcf97d))
+
+### Features
+
+-   gjør mulig å skru av fullskjerm for PortalImage ([7226610](https://github.com/fremtind/jokul/commit/7226610f257ccea39b1f1d807bafc139c5db141b))
+-   legg til huge-title som one-off for portalen ([a06ec28](https://github.com/fremtind/jokul/commit/a06ec28a8ebe489abd98e55d5e4ad9e4d8874c45))
+
 ## [12.3.23](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.22...@fremtind/portal@12.3.23) (2022-04-19)
 
 ### Bug Fixes
