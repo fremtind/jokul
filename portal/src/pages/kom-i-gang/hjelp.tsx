@@ -61,22 +61,46 @@ const DegOgJokul: FC = () => (
         </UnorderedList>
         <PortraitGallery>
             <Portrait name="William" title="Utvikler">
-                <StaticImage src="../../../static/assets/kom-i-gang/portrett-william.jpg" alt="" />
+                <StaticImage
+                    className="jkl-portal-portrait__image"
+                    src="../../../static/assets/kom-i-gang/portrett-william.jpg"
+                    alt=""
+                />
             </Portrait>
             <Portrait name="Mona" title="Designer">
-                <StaticImage src="../../../static/assets/kom-i-gang/portrett-mona.jpg" alt="" />
+                <StaticImage
+                    className="jkl-portal-portrait__image"
+                    src="../../../static/assets/kom-i-gang/portrett-mona.jpg"
+                    alt=""
+                />
             </Portrait>
             <Portrait name="Pio" title="Utvikler">
-                <StaticImage src="../../../static/assets/kom-i-gang/portrett-pio.jpg" alt="" />
+                <StaticImage
+                    className="jkl-portal-portrait__image"
+                    src="../../../static/assets/kom-i-gang/portrett-pio.jpg"
+                    alt=""
+                />
             </Portrait>
             <Portrait name="Glenn" title="Maskot">
-                <StaticImage src="../../../static/assets/kom-i-gang/portrett-glenn.jpg" alt="" />
+                <StaticImage
+                    className="jkl-portal-portrait__image"
+                    src="../../../static/assets/kom-i-gang/portrett-glenn.jpg"
+                    alt=""
+                />
             </Portrait>
             <Portrait name="Lou" title="Designer">
-                <StaticImage src="../../../static/assets/kom-i-gang/portrett-lou.jpg" alt="" />
+                <StaticImage
+                    className="jkl-portal-portrait__image"
+                    src="../../../static/assets/kom-i-gang/portrett-lou.jpg"
+                    alt=""
+                />
             </Portrait>
             <Portrait name="Øyvind" title="Designer">
-                <StaticImage src="../../../static/assets/kom-i-gang/portrett-oyvind.jpg" alt="" />
+                <StaticImage
+                    className="jkl-portal-portrait__image"
+                    src="../../../static/assets/kom-i-gang/portrett-oyvind.jpg"
+                    alt=""
+                />
             </Portrait>
         </PortraitGallery>
         <p className="jkl-small" style={{ maxWidth: "45rem" }}>
