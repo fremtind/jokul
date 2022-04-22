@@ -3,6 +3,8 @@
 @import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/_functions";
 
+$_sidebar-width: rem(375px);
+
 .jkl-portal-footer {
     padding-top: jkl.$spacing-l;
 
@@ -30,7 +32,8 @@
 
         @include from-large-device {
             flex-direction: row;
-            padding: jkl.$spacing-2xl jkl.$spacing-4xl;
+            padding: jkl.$spacing-2xl;
+            padding-left: calc($_sidebar-width + jkl.$spacing-xl);
         }
     }
 
@@ -41,7 +44,7 @@
         opacity: 1;
         display: none;
 
-        @include from-large-device {
+        @include xl-device {
             display: block;
         }
     }
