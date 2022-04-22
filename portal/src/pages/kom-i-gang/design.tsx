@@ -64,7 +64,7 @@ const PraktiskDesignhverdagen: FC = () => (
             biblioteket og gjør endringer, før du deretter sender forslaget ditt tilbake til biblioteket via en merge
             request.
         </Paragraph>
-        <Grid className="jkl-portal-paragraph">
+        <Grid className="jkl-portal-paragraph" stackSmall>
             <NavCard
                 href="https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes"
                 title="Branching"

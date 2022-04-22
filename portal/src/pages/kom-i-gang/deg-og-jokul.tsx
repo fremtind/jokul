@@ -52,7 +52,7 @@ const DegOgJokul: FC = () => (
                 alt="Skjermbilde som viser oversikten du finner når du først kommer til Jøkuls GitHub Discussions"
             />
         </Image>
-        <Grid className="jkl-portal-paragraph">
+        <Grid className="jkl-portal-paragraph" stackSmall>
             <NavCard
                 href="https://github.com/fremtind/jokul/discussions"
                 title="Discussions"

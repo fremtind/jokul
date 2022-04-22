@@ -1,5 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@import "~@fremtind/jkl-core/mixins/_all";
 @import "~@fremtind/jkl-core/functions";
 
 .jkl-portal-grid {
@@ -20,6 +21,17 @@
 
         &:last-child {
             margin-right: 0;
+        }
+    }
+
+    &--stack-small {
+        @include small-device {
+            flex-direction: column;
+
+            .jkl-portal-grid__col {
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
     }
 }
