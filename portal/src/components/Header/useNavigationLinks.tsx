@@ -142,7 +142,7 @@ export function useNavigationLinks(): NavigationLinks {
         },
         {
             path: "/kom-i-gang/hjelp",
-            title: "Hvor kan jeg få hjelp?",
+            title: "Hvor kan du få hjelp?",
         },
         {
             path: "/kom-i-gang/slik-er-jokul-satt-sammen",

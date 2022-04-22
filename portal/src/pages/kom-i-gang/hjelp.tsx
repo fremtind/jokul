@@ -4,12 +4,12 @@ import { Link as GatsbyLink } from "gatsby";
 import { Link } from "@fremtind/jkl-core";
 import { NavCard } from "@fremtind/jkl-card-react";
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
+import { HeadingLarge, PageTitle, Paragraph } from "../../components/Typography";
 import { Portrait, PortraitGallery } from "../../components/portrait-gallery";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
 
-const pageTitle = "Hvor kan jeg få hjelp?";
+const pageTitle = "Hvor kan du få hjelp?";
 
 const DegOgJokul: FC = () => (
     <motion.main
@@ -23,10 +23,10 @@ const DegOgJokul: FC = () => (
             <title>{pageTitle} | Jøkul Designsystem</title>
         </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
-        <Ingress>
+        <Paragraph>
             Alle som bruker Jøkul er ansvarlig for å utvikle og forvalte systemet, men av og til trenger vi alle litt
             ekstra hjelp.
-        </Ingress>
+        </Paragraph>
         <Paragraph>
             Sjansen for at noen har støtt på samme utfordring som deg tidligere er nok ganske stor, derfor kan det være
             lurt å svinge innom disse sjekkpunktene om du lurer på noe:
@@ -81,7 +81,7 @@ const DegOgJokul: FC = () => (
                     alt=""
                 />
             </Portrait>
-            <Portrait name="Glenn" title="Maskot">
+            <Portrait name="Glenn" title="Teamleder">
                 <StaticImage
                     className="jkl-portal-portrait__image"
                     src="../../../static/assets/kom-i-gang/portrett-glenn.jpg"
