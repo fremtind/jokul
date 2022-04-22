@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import { WithChildren } from "@fremtind/jkl-core";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import { FormatProvider } from "../Typography";
 import { Header, Sidebar } from "..";
@@ -10,7 +11,7 @@ import { useLocation } from "../../contexts/locationContext";
 import { PortalFooter } from "../portal-footer";
 import "./Layout.scss";
 
-interface Props {
+interface Props extends WithChildren {
     location: Location;
     pageContext: {
         title?: string;

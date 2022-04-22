@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import cn from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 import { Image } from "@fremtind/jkl-image-react";
 import { PaddingOptions, SpacingStep } from "./types";
 import { getSpacingClasses } from "./utils";
@@ -7,7 +8,7 @@ import { getSpacingClasses } from "./utils";
 // TODO: Eksporter typer fra Image-komponenten
 type ImageProps = React.ComponentProps<typeof Image>;
 
-export interface InfoCardProps extends PaddingOptions {
+export interface InfoCardProps extends PaddingOptions, WithChildren {
     className?: string;
     image?: Omit<ImageProps, "className">;
     /**

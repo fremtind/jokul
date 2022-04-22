@@ -1,12 +1,10 @@
 import React, { ElementType, FC, AnchorHTMLAttributes } from "react";
 import cn from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-tag-react";
-import { Image } from "@fremtind/jkl-image-react";
+import { Image, ImageProps } from "@fremtind/jkl-image-react";
 import { PaddingOptions } from "./types";
 import { getSpacingClasses } from "./utils";
-
-// TODO: Eksporter typer fra Image-komponenten
-type ImageProps = React.ComponentProps<typeof Image>;
 
 export type TagType = "success" | "warning" | "info" | "error";
 
@@ -14,7 +12,7 @@ export type TagType = "success" | "warning" | "info" | "error";
  * Bruk denne komponenten for å legge til ekstra informasjon i NavCard.
  * Innholdet blir rendret med skillelinje, og tekststil "small"
  */
-export const InfoBlock: FC = ({ children }) => <div className="jkl-nav-card__info">{children}</div>;
+export const InfoBlock: FC<WithChildren> = ({ children }) => <div className="jkl-nav-card__info">{children}</div>;
 
 export interface NavCardProps extends PaddingOptions, AnchorHTMLAttributes<HTMLAnchorElement> {
     tag?: {

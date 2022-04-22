@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
+import { WithChildren } from "../types";
 
-export interface ScreenReaderOnlyProps {
-    children: ReactNode;
+export interface ScreenReaderOnlyProps extends WithChildren {
     showOnFocus?: boolean;
 }
 

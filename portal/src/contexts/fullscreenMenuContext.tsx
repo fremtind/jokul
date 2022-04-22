@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 
 export type MenuItemList = Array<MenuItem>;
 
@@ -54,7 +55,7 @@ export function useFullscreenMenuContext(): FullScreenMenuContext {
     return useContext(fullscreenMenuContext);
 }
 
-export const FSMenuContextProvider: FC = ({ children }) => {
+export const FSMenuContextProvider: FC<WithChildren> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [currentItem, setCurrentItem] = useState<RootItem | null>(null);
 

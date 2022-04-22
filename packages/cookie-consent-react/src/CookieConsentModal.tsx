@@ -1,6 +1,7 @@
-import React, { ReactNode, VFC } from "react";
+import React, { FC } from "react";
 // @ts-ignore: wait for nrk to supply types
 import CoreDialog from "@nrk/core-dialog/jsx";
+import { WithChildren } from "@fremtind/jkl-core";
 import { CheckListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
@@ -15,10 +16,9 @@ interface FormValues {
     statistics?: boolean;
 }
 
-interface RequirementCheckboxProps {
+interface RequirementCheckboxProps extends WithChildren {
     name: "functional" | "marketing" | "statistics";
     label: string;
-    children: ReactNode;
 }
 
 const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps) => {
@@ -34,7 +34,7 @@ const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps
     );
 };
 
-export const CookieConsentModal: VFC<ConsentComponentBaseProps> = ({ onAccept }) => {
+export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept }) => {
     const { consent, dispatch, isOpen, requirement, showSettings } = useCookieConsentState();
     const formMethods = useForm<FormValues>({
         defaultValues: convertConsentObjectToBooleans(consent),

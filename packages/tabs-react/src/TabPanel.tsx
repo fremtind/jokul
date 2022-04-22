@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import cx from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 
-interface Props {
-    children: ReactNode;
+export interface TabPanelProps extends WithChildren {
     className?: string;
 }
 
@@ -11,7 +11,7 @@ interface Props {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const TabPanel = ({ children, ...props }: Props) => {
+export const TabPanel = ({ children, ...props }: TabPanelProps) => {
     const classes = cx("jkl-tabpanel", props.className);
 
     return (

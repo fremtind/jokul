@@ -1,7 +1,8 @@
 import React, { ReactNode, FC, useState, useEffect } from "react";
 import cn from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 
-export const ContentToggle: FC<{
+export interface ContentToggleProps extends WithChildren {
     /** @default "polite" */
     "aria-live"?: "polite" | "assertive" | "off";
     className?: string;
@@ -9,7 +10,16 @@ export const ContentToggle: FC<{
     secondary: ReactNode;
     /** @default "flip" */
     variant?: "flip" | "fade";
-}> = ({ "aria-live": ariaLive = "polite", showSecondary, secondary, children, className, variant = "flip" }) => {
+}
+
+export const ContentToggle: FC<ContentToggleProps> = ({
+    "aria-live": ariaLive = "polite",
+    showSecondary,
+    secondary,
+    children,
+    className,
+    variant = "flip",
+}) => {
     // this mechanism is to be able to prevent animating keyframes on the initial render.
     // looking for actual change and then enable animating prevents initial blinking and premature animations
     const [initialShowSecondary] = useState(showSecondary);
