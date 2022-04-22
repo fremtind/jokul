@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { MenuItemList } from "../../contexts/fullscreenMenuContext";
 
 export interface FrontmatterTypeProp {
     name?: string;
@@ -62,6 +63,7 @@ type NavigationLinks = {
     guiderDocPages: DocumentationPageInfo[];
     blogPages: DocumentationPageInfo[];
     PageType: typeof PageType;
+    menuItems: MenuItemList;
 };
 
 export function useNavigationLinks(): NavigationLinks {
@@ -158,6 +160,85 @@ export function useNavigationLinks(): NavigationLinks {
         },
     ];
 
+    const menuItems: MenuItemList = [
+        {
+            linkText: "Kom i gang",
+            content: [
+                ...getStartedDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.KOMIGANG,
+                })),
+            ],
+            basePath: PageType.KOMIGANG,
+        },
+        {
+            linkText: "Profil",
+            content: profileDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.PROFIL,
+            })),
+            basePath: PageType.PROFIL,
+        },
+        {
+            linkText: "Komponenter",
+            content: [
+                ...componentDocPages
+                    .filter((page) => page.group !== "hooks")
+                    .map((page) => ({
+                        linkText: page.title,
+                        content: page.path,
+                        basePath: PageType.KOMPONENTER,
+                    })),
+                {
+                    linkText: "React Hooks",
+                    content: componentDocPages
+                        .filter((page) => page.group === "hooks")
+                        .map((page) => ({
+                            linkText: page.title,
+                            content: page.path,
+                            basePath: PageType.KOMPONENTER,
+                        })),
+                    basePath: PageType.KOMPONENTER,
+                },
+            ],
+            basePath: PageType.KOMPONENTER,
+        },
+        {
+            linkText: "Universell utforming",
+            content: [
+                ...uuDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.UU,
+                })),
+            ],
+            basePath: PageType.UU,
+        },
+        {
+            linkText: "Guider",
+            content: [
+                ...guiderDocPages.map((page) => ({
+                    linkText: page.title,
+                    content: page.path,
+                    basePath: PageType.GUIDER,
+                })),
+            ],
+            basePath: PageType.GUIDER,
+        },
+        {
+            linkText: "Blogg",
+            content: blogPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.BLOG,
+            })),
+
+            basePath: PageType.BLOG,
+        },
+    ];
+
     return {
         profileDocPages,
         getStartedDocPages,
@@ -167,5 +248,6 @@ export function useNavigationLinks(): NavigationLinks {
         uuDocPages,
         blogPages,
         PageType,
+        menuItems,
     };
 }

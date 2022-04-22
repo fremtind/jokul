@@ -5,7 +5,7 @@ import React, { useCallback, useRef, useEffect, VFC } from "react";
 import { useNavigationLinks } from "./useNavigationLinks";
 import { MainMenu } from "./components/MainMenu";
 import { ContentLink } from "../ContentLink/ContentLink";
-import { MenuItemList, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+import { useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
 
 import "./header.scss";
 
@@ -27,90 +27,10 @@ export const Header: VFC<Props> = ({ className }) => {
         window && window.addEventListener("scroll", collapseMenu);
         return () => window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
-    const { profileDocPages, getStartedDocPages, componentDocPages, blogPages, guiderDocPages, uuDocPages, PageType } =
-        useNavigationLinks();
+    const { menuItems } = useNavigationLinks();
     const { setIsOpen, setCurrentItem } = useFullscreenMenuContext();
 
     const componentClassName = cx("jkl-portal-header", className);
-
-    const menuItems: MenuItemList = [
-        {
-            linkText: "Kom i gang",
-            content: [
-                ...getStartedDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.KOMIGANG,
-                })),
-            ],
-            basePath: PageType.KOMIGANG,
-        },
-        {
-            linkText: "Profil",
-            content: profileDocPages.map((page) => ({
-                linkText: page.title,
-                content: page.path,
-                basePath: PageType.PROFIL,
-            })),
-            basePath: PageType.PROFIL,
-        },
-        {
-            linkText: "Komponenter",
-            content: [
-                ...componentDocPages
-                    .filter((page) => page.group !== "hooks")
-                    .map((page) => ({
-                        linkText: page.title,
-                        content: page.path,
-                        basePath: PageType.KOMPONENTER,
-                    })),
-                {
-                    linkText: "React Hooks",
-                    content: componentDocPages
-                        .filter((page) => page.group === "hooks")
-                        .map((page) => ({
-                            linkText: page.title,
-                            content: page.path,
-                            basePath: PageType.KOMPONENTER,
-                        })),
-                    basePath: PageType.KOMPONENTER,
-                },
-            ],
-            basePath: PageType.KOMPONENTER,
-        },
-        {
-            linkText: "Universell utforming",
-            content: [
-                ...uuDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.UU,
-                })),
-            ],
-            basePath: PageType.UU,
-        },
-        {
-            linkText: "Guider",
-            content: [
-                ...guiderDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.GUIDER,
-                })),
-            ],
-            basePath: PageType.GUIDER,
-        },
-        {
-            linkText: "Blogg",
-            content: blogPages.map((page) => ({
-                linkText: page.title,
-                content: page.path,
-                basePath: PageType.BLOG,
-            })),
-
-            basePath: PageType.BLOG,
-        },
-    ];
 
     return (
         <header ref={headerRef} className={componentClassName}>
