@@ -6,7 +6,6 @@ import { NavCard } from "@fremtind/jkl-card-react";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 import { Image } from "../../components/image";
 import { Grid } from "../../components/Grid";
-import { Samvirke } from "../../components/illustrations/Samvirke";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
 
@@ -36,9 +35,9 @@ const DegOgJokul: FC = () => (
             deltar i utviklingen. Det betyr også at hvis du ser noe som er feil eller kan forbedres, så er det opp til
             deg å gjennomføre den endringen.
         </Paragraph>
-        <Paragraph>
-            <Samvirke />
-        </Paragraph>
+        <Image disableFullscreen>
+            <StaticImage src="../../../static/assets/kom-i-gang/samvirke.png" alt="" />
+        </Image>
 
         <HeadingLarge>Diskusjoner på GitHub</HeadingLarge>
         <Paragraph>

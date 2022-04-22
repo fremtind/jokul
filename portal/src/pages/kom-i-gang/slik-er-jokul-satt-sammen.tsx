@@ -4,9 +4,10 @@ import { Link as GatsbyLink } from "gatsby";
 import { NavCard } from "@fremtind/jkl-card-react";
 import { ListItem, OrderedList } from "@fremtind/jkl-list-react";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
-import { Systemet } from "../../components/illustrations/Systemet";
+import { Image } from "../../components/image";
 import { Grid } from "../../components/Grid";
 import { Helmet } from "react-helmet";
+import { StaticImage } from "gatsby-plugin-image";
 
 const pageTitle = "Slik er Jøkul satt sammen";
 
@@ -26,9 +27,9 @@ const SlikErJokulSattSammen: FC = () => (
             Siden et system er summen av dets deler i samspill, så er det greit å ha en samlet oversikt over alle delene
             på ett sted. Portalen er det stedet.
         </Ingress>
-        <Paragraph>
-            <Systemet />
-        </Paragraph>
+        <Image disableFullscreen>
+            <StaticImage src="../../../static/assets/kom-i-gang/systemet.png" alt="" />
+        </Image>
 
         <HeadingLarge>Portalen</HeadingLarge>
         <Paragraph>
