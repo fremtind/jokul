@@ -47,6 +47,7 @@ interface ImageProps {
  * ```
  *
  * @see PortalImage
+ * @see https://www.gatsbyjs.com/blog/mdx-embedded-gatsby-image/
  */
 export const Image: FC<ImageProps> = ({ className, children, caption, disableFullscreen }) => {
     const [isFullscreen, setFullscreen] = useState(false);

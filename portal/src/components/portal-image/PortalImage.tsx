@@ -14,6 +14,13 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     disableFullscreen?: boolean;
 }
 
+/**
+ * Brukes for å embedde bilder fra MDX. Lider av ytelsesproblemer,
+ * men de kan ikke kommes rundt så lenge innholdet er MDX i stedet
+ * for TSX.
+ *
+ * @see https://www.gatsbyjs.com/blog/mdx-embedded-gatsby-image/
+ */
 export const PortalImage: FC<Props> = ({
     className,
     src,
