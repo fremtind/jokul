@@ -146,7 +146,9 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                     onClick={(e, expanded) => setShowCodeText(expanded ? "Skjul kode" : "Vis kode")}
                 >
                     <CodeBlock language="tsx">
-                        {typeof codeExample === "string" ? codeExample : codeExample({ boolValues, choiceValues })}
+                        {typeof codeExample === "string"
+                            ? codeExample.trim()
+                            : codeExample({ boolValues, choiceValues }).trim()}
                     </CodeBlock>
                 </ExpandSection>
             )}
