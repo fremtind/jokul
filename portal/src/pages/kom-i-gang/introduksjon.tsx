@@ -25,7 +25,7 @@ const Introduksjon: FC = () => (
         </h1>
         <Paragraph>
             Designsystemet vårt hjelper oss med å opprettholde en felles forståelse for hvordan vi gjør ting sammen. Det
-            er mange gode grunner til å ha et designsystem, her i Fremtind gir det oss en god del fordeler, som for
+            er mange gode grunner til å ha et designsystem. I Fremtind gir det oss en god del fordeler, som for
             eksempel:
         </Paragraph>
         <UnorderedList>
@@ -44,14 +44,14 @@ const Introduksjon: FC = () => (
 
         <HeadingLarge>De viktigste tingene</HeadingLarge>
         <Paragraph>
-            Jøkul har mange bevegelige deler, og det er mye man kan fordype seg i. På de neste sidene vil du få en kort
+            Jøkul har mange bevegelige deler og det er mye man kan fordype seg i. På de neste sidene vil du få en kort
             innføring (cirka 15 minutter) i de viktigste temaene vi forventer at du kjenner til, så du har gode
             forutsetninger for å bli en superbruker.
         </Paragraph>
         <UnorderedList>
             <ListItem>Hvordan du forholder deg til Jøkul</ListItem>
-            <ListItem>Hvor du kan finnehjelp</ListItem>
-            <ListItem>Hvordan er systemet satt sammen</ListItem>
+            <ListItem>Hvor du kan finne hjelp</ListItem>
+            <ListItem>Hvordan systemet er satt sammen</ListItem>
             <ListItem>Tips og triks for deg som designer og utvikler</ListItem>
         </UnorderedList>
 
