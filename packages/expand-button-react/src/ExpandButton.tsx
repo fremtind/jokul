@@ -1,16 +1,15 @@
 import cx from "classnames";
-import React, { ReactNode } from "react";
-import { ScreenReaderOnly } from "@fremtind/jkl-core";
+import React from "react";
+import { ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 
 export type ExpandDirection = "up" | "down";
 
-export interface ExpandButtonProps {
+export interface ExpandButtonProps extends WithChildren {
     /** Må settes dersom du ikke bruker CoreToggle. Verdien skal være IDen til innholdet du ekspanderer. */
     "aria-controls"?: string;
     /** Må settes dersom du ikke bruker CoreToggle. IDen her skal brukes som verdien til aria-labelledby på innholdet du ekspanderer. */
     id?: string;
-    children: ReactNode;
     className?: string;
     onClick?: React.MouseEventHandler<HTMLButtonElement>;
     onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import type { Consent, ConsentRequirement } from "./types";
 import { shouldShowConsentDialog, getConsentCookie } from "./cookieConsentUtils";
 
@@ -72,7 +73,11 @@ const cookieConsentReducer = (state: State, action: Action): State => {
     }
 };
 
-const CookieConsentProvider: React.FC<{ cookieAdapter?: () => Consent | undefined } & Partial<ConsentRequirement>> = ({
+export interface CookieConsentProviderProps extends Partial<ConsentRequirement>, WithChildren {
+    cookieAdapter?: () => Consent | undefined;
+}
+
+const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     children,
     cookieAdapter,
     marketing,

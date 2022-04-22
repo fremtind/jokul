@@ -1,11 +1,11 @@
-import React, { FC, ReactNode, useState } from "react";
+import React, { FC, useState } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import classNames from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 
-export interface AccordionItemProps {
+export interface AccordionItemProps extends WithChildren {
     title: string;
-    children: ReactNode;
     startExpanded?: boolean;
     className?: string;
     onClick?: (e: React.MouseEvent, isOpen: boolean) => void;

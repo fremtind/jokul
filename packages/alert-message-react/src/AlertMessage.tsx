@@ -1,12 +1,12 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import classNames from "classnames";
-import { MessageIcon } from "./common/MessageIcon";
+import { WithChildren } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { MessageIcon } from "./common/MessageIcon";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
-interface Props {
-    children: ReactNode;
+interface Props extends WithChildren {
     className?: string;
     maxContentWidth?: string;
     paddingLeft?: string;

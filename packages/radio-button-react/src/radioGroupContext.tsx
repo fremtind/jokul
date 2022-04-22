@@ -1,4 +1,5 @@
 import React, { createContext, useContext, ChangeEventHandler } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 
 type RadioGroupContext = {
     name: string | undefined;
@@ -22,9 +23,9 @@ const radioGroupContext = createContext<RadioGroupContext>({
 
 export const useRadioGroupContext = (): RadioGroupContext => useContext(radioGroupContext);
 
-type Props = {
+interface Props extends WithChildren {
     state: RadioGroupContext;
-};
+}
 
 export const RadioGroupContextProvider: React.FC<Props> = ({ state, children }) => (
     <radioGroupContext.Provider value={state}>{children}</radioGroupContext.Provider>
