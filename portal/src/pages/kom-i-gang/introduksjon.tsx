@@ -7,7 +7,7 @@ import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { HeadingLarge, Paragraph } from "../../components/Typography";
 import { Helmet } from "react-helmet";
 
-const HvaErJokul: FC = () => (
+const Introduksjon: FC = () => (
     <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -16,7 +16,7 @@ const HvaErJokul: FC = () => (
         className="jkl-portal__main"
     >
         <Helmet>
-            <title>Hva er Jøkul? | Jøkul Designsystem</title>
+            <title>Introduksjon | Jøkul Designsystem</title>
         </Helmet>
         <h1 className="jkl-portal-huge-title">
             Jøkul
@@ -65,4 +65,4 @@ const HvaErJokul: FC = () => (
     </motion.main>
 );
 
-export default HvaErJokul;
+export default Introduksjon;

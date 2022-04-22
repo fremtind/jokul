@@ -133,8 +133,8 @@ export function useNavigationLinks(): NavigationLinks {
 
     const getStartedDocPages = [
         {
-            path: "/kom-i-gang/hva-er-jokul",
-            title: "Hva er Jøkul?",
+            path: "/kom-i-gang/introduksjon",
+            title: "Introduksjon",
         },
         {
             path: "/kom-i-gang/deg-og-jokul",
