@@ -97,7 +97,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             <FormatProvider>
                 <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
             </FormatProvider>
-            <PortalFooter className="jkl-portal__footer" showFeedback={!isFrontPage} />
+            <PortalFooter className="jkl-portal__footer" />
         </div>
     );
 };

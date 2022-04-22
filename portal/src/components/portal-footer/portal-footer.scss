@@ -18,6 +18,10 @@ $_sidebar-width: rem(375px);
         justify-content: space-between;
         padding: jkl.$spacing-l;
 
+        &-spacer {
+            display: none;
+        }
+
         .jkl-feedback {
             max-width: rem(640px);
         }
@@ -47,5 +51,15 @@ $_sidebar-width: rem(375px);
         @include xl-device {
             display: block;
         }
+    }
+}
+
+.jkl-portal__main--frontpage ~ .jkl-portal-footer {
+    .jkl-feedback {
+        display: none;
+    }
+
+    .jkl-portal-footer__feedback-spacer {
+        display: block;
     }
 }
