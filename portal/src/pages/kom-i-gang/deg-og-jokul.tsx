@@ -25,8 +25,8 @@ const DegOgJokul: FC = () => (
         </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
-            Med et designsystem følger det med et litt annerledes tankesett som kan virke uvant, dersom man ikke har
-            jobbet med det før.
+            Med et designsystem følger det et litt annerledes tankesett som kan virke uvant dersom man ikke har et
+            forhold til det fra før.
         </Ingress>
 
         <HeadingLarge>Jøkul eies av alle</HeadingLarge>
