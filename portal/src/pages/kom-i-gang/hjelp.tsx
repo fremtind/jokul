@@ -4,7 +4,7 @@ import { Link as GatsbyLink } from "gatsby";
 import { Link } from "@fremtind/jkl-core";
 import { NavCard } from "@fremtind/jkl-card-react";
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import { HeadingLarge, PageTitle, Paragraph } from "../../components/Typography";
+import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 import { Portrait, PortraitGallery } from "../../components/portrait-gallery";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
@@ -23,10 +23,11 @@ const DegOgJokul: FC = () => (
             <title>{pageTitle} | Jøkul Designsystem</title>
         </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
-        <Paragraph>
+        <Ingress>
             Alle som bruker Jøkul er ansvarlig for å utvikle og forvalte systemet, men av og til trenger vi alle litt
             ekstra hjelp.
-        </Paragraph>
+        </Ingress>
+        <HeadingLarge>Hvor du kan spørre</HeadingLarge>
         <Paragraph>
             Sjansen for at noen har støtt på samme utfordring som deg tidligere er nok ganske stor, derfor kan det være
             lurt å svinge innom disse sjekkpunktene om du lurer på noe:
