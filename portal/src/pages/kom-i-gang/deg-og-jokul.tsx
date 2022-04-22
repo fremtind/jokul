@@ -31,9 +31,9 @@ const DegOgJokul: FC = () => (
         <HeadingLarge>Jøkul eies av alle</HeadingLarge>
         <Paragraph>
             Litt som et samvirkelag, er Jøkul et produkt av en større felles innsats fra alle som bruker systemet. Siden
-            du er både brukeren og skaperen av Jøkul, blir designsystemet så bra som du gjør det til selv, ved at du
-            deltar i utviklingen. Det betyr også at hvis du ser noe som er feil eller kan forbedres, så er det opp til
-            deg å gjennomføre den endringen.
+            du er både brukeren og skaperen av Jøkul, blir designsystemet så bra som du gjør det til selv,ved at du
+            deltar i utviklingen. Det betyr også at hvis du ser noe som er feil eller som kan forbedres, så er det opp
+            til deg å gjennomføre den endringen.
         </Paragraph>
         <Image disableFullscreen>
             <StaticImage src="../../../static/assets/kom-i-gang/samvirke.png" alt="" />
@@ -41,7 +41,7 @@ const DegOgJokul: FC = () => (
 
         <HeadingLarge>Diskusjoner på GitHub</HeadingLarge>
         <Paragraph>
-            Når vi ikke er fysisk samlet deler vi idéer, forslag til nye funksjoner, endringer og bugs på GitHub. Ved å
+            Når vi ikke er fysisk samlet, deler vi idéer, forslag til nye funksjoner, endringer og bugs på GitHub. Ved å
             samle alt på ett sted gjør vi det enklere for alle å delta, og for kjerneteamet å holde oversikt. Innleggene
             stammer som regel fra behov og diskusjoner ute i teamene, eller forumet. GitHub er ofte startpunktet hvis du
             vil påvirke designsystemet.
@@ -56,7 +56,7 @@ const DegOgJokul: FC = () => (
             <NavCard
                 href="https://github.com/fremtind/jokul/discussions"
                 title="Discussions"
-                description="Del dine idéer, eller diskuter Jøkul med andre designere og utviklere i Fremtind."
+                description="Del dine idéer eller diskuter Jøkul med andre designere og utviklere i Fremtind."
             />
             <NavCard
                 href="https://www.figma.com/file/HOmcpKHfjHnS9f8397hfxU/Kurs%3A-Github-for-Designere"
