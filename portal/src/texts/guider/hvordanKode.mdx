@@ -1,7 +1,7 @@
 ---
-title: Utvikle for Jøkul
-path: /komigang/utvikling
-order: 4
+title: Hvordan kode i Jøkul
+path: /guider/utvikling
+order: 2
 ---
 
 # Slik skriver du kode til Jøkul
@@ -12,7 +12,7 @@ Jøkul er et fellesprosjekt for alle i Fremtind. Det vil si at det også er _dit
 
 Å programmere i Jøkul er ganske likt annen frontendprogrammering. Forskjellen fra når du lager en _app_ er at vi lager _bibliotek_ som brukes i apper. I praksis vil du sjeldent merke noen stor forskjell, med mindre du skal lage helt nye pakker eller jobbe med infrastrukturen i Jøkul.
 
-Før du setter i gang er det lurt å ha sett på [Bidra til designsystemet](/komigang/prosessen).
+Før du setter i gang er det lurt å ha sett på [Bidra til designsystemet](/guider/hvordan-endre-jokul).
 
 Om du er usikker på noe eller står fast er det kort vei til å få hjelp på [Discussions](https://github.com/fremtind/jokul/discussions/categories/spørsmål-og-svar), Support Designsystem på Teams, eller ved å spørre noen på designsystemforum.
 
@@ -97,6 +97,14 @@ I vårt tilfelle er det ingen visuell endring, så vi hopper over dette steget.
         </p>
     </InfoMessageBox>
 </aside>
+
+#### Kort om enhetstester
+
+I dette eksempelet hopper vi over enhetstester, men for en endring som fikser en bug eller legger til funksjonalitet ville vi ha skrevet noen. Enhetstester skal ligge sammen med komponenten, med filnavn på formen `<MinKomponent>.test.tsx` eller `<minFunksjon>.test.ts`.
+
+Enhetstestene skal sikre at nøkkelfunksjonaliteten til komponenten virker. For eksempel kan testene for en knapp sjekke at den blir rendret til DOM, og at den kaller riktig funksjon når man klikker på den.
+
+Vi bruker [Jest](https://jestjs.io/) som test runner og [React testing library](https://testing-library.com/docs/react-testing-library/intro) for å håndtere React-komponenter.
 
 ### Lag en commit
 
@@ -203,8 +211,3 @@ Hvis du vil legge til en pakke i en annen, kan du fra hvor som helst i prosjekte
 Det finnes avhengigheter på ulike nivåer i Jøkul. Globale avhengigheter, for eksempel de som trengs til å kjøre en byggejobb, ligger på rotnivå. Du kan legge til en ny pakke på rotnivå, med kommandoen `yarn add pakke -W`. For å legge til som en utviklingsavhengighet bruker du `-DW`.
 
 Lokale avhengigheter, som trengs for at en pakke skal fungere i bruk, legger vi vanligvis på pakkenivå. Se "Slik lenker du pakker sammen". Bruk kommandoen `yarn add` for å legge til pakker som ikke er en del av Jøkul. Alternativt kan du bruke [`lerna add`](https://github.com/lerna/lerna/tree/main/commands/add#readme). Før du gjør det, er det lurt å tenke på om de skal sendes med komponenten eller om brukeren av komponenten har ansvaret for å ha avhengigheten i sitt prosjekt. React bør for eksempel være en `peerDependency`, slik at brukeren ikke ender opp med flere utgaver av React i sin pakke.
-
-## Les mer
-
--   Tester: [Kom i gang med tester](/komigang/tester)
--   Portalen: [Dokumentasjon til portalen](/komigang/portalen)

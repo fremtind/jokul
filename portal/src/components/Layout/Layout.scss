@@ -14,6 +14,8 @@
     --portal-text-color: #{jkl.$color-snohvit};
 }
 
+$_sidebar-width: rem(375px);
+
 .jkl-portal {
     @include motion;
     transition-property: color;
@@ -50,7 +52,7 @@
         grid-template:
             "header header header" 96px
             "sidebar main main" minmax(calc(100vh - 96px), auto)
-            "footer footer footer" auto / rem(375px) 1fr;
+            "footer footer footer" auto / $_sidebar-width 1fr;
 
         &__header {
             grid-area: header;

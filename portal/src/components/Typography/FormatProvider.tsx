@@ -4,6 +4,7 @@ import { Link, WithChildren } from "@fremtind/jkl-core";
 import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import { ComponentExample } from "../../../../doc-utils";
+import { NavCard } from "@fremtind/jkl-card-react";
 import { InfoMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
 import {
     Table,
@@ -32,10 +33,11 @@ import {
     Paragraph,
     InlineCode,
     CodeBlock,
-    ArticleLead as Ingress,
+    Ingress,
     ListItem,
 } from "../Typography";
 import { Blockquote } from "./Typography";
+import cn from "classnames";
 
 /** Don't add class jkl-link to <a /> if it's styled as a button */
 const Anchor: FC<{ className?: string }> = (props) => {
@@ -46,6 +48,17 @@ const Anchor: FC<{ className?: string }> = (props) => {
     return <Link {...props} />;
 };
 
+interface WithClassNameProps {
+    className?: string;
+}
+
+function withClassName<T extends WithClassNameProps>(component: React.FC<T>, wrapperClassName: string): React.FC<T> {
+    const C = component;
+    const wrapped = (props: T) => <C {...props} className={cn(props.className, wrapperClassName)} />;
+    wrapped.displayName = component.displayName;
+    return wrapped;
+}
+
 const components = {
     h1: PageTitle,
     h2: HeadingLarge,
@@ -53,8 +66,8 @@ const components = {
     h4: HeadingSmall,
     h5: HeadingXS,
     p: Paragraph,
-    ul: UnorderedList as FC,
-    ol: OrderedList as FC,
+    ul: withClassName(UnorderedList, "jkl-portal-ul"),
+    ol: withClassName(OrderedList, "jkl-portal-ol"),
     li: ListItem as FC,
     img: PortalImage,
     a: Anchor as FC,
@@ -84,6 +97,7 @@ const components = {
     WarningMessageBox,
     CodeDemo,
     PortalImage,
+    NavCard: withClassName(NavCard, "jkl-portal-nav-card"),
 };
 
 export const FormatProvider: FC<WithChildren> = ({ children }) => {

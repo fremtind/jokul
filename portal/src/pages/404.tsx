@@ -23,7 +23,7 @@ const NotFoundPage: VFC = () => (
                 </li>
                 <li>
                     rette feilen selv? Sjekk ut{" "}
-                    <InternalLink to="/komigang/utvikling" className="jkl-link">
+                    <InternalLink to="/guider/utvikling" className="jkl-link">
                         kom i gang guiden
                     </InternalLink>{" "}
                     her i portalen!

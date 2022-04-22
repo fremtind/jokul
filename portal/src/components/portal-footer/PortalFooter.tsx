@@ -13,6 +13,7 @@ export const PortalFooter: React.VFC<PortalFooterProps> = ({ className }) => {
     return (
         <div className={cn("jkl-portal-footer", className)}>
             <div className="jkl-portal-footer__feedback">
+                <div className="jkl-portal-footer__feedback-spacer"></div>
                 <Feedback
                     type="radio"
                     label="Fant du det du lette etter?"

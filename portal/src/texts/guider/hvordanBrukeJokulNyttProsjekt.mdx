@@ -1,10 +1,20 @@
 ---
-title: Bygg med Jøkul
-path: /komigang/bygg
-order: 2
+title: Hvordan lage et nytt prosjekt med Jøkul
+path: /guider/utvikler-nytt-prosjekt
+order: 5
 ---
 
-# Bygg med Jøkul
+# Hvordan lage et nytt prosjekt med Jøkul
+
+Når du skal bruke Jøkul i et nytt prosjekt er det en del å huske på.
+
+## Designer som skal lage et nytt prosjekt?
+
+Nye skisser i Figma trenger bare sørge for at Jøkul sitt komponentbibliotek er i bruk under Assets. Etter det blir Jøkul tilgjengelig i skissene dine.
+
+Resten av denne guiden retter seg mot utviklere.
+
+## Pakker
 
 Om du skal bygge et nytt prosjekt med Jøkul er det noen grunnleggende pakker du alltid må ha installert:
 
@@ -14,7 +24,7 @@ Om du skal bygge et nytt prosjekt med Jøkul er det noen grunnleggende pakker du
 
 I tillegg har vi [pakker for mange ulike komponenter](https://github.com/orgs/fremtind/packages?repo_name=jokul), og noen pakker med hjelpefunksjoner for [validering](https://github.com/fremtind/jokul/packages/994095), [formatering](https://github.com/fremtind/jokul/packages/1267242), og nyttige [React hooks](https://github.com/fremtind/jokul/packages/1011338). Det er lettere å få oversikt over komponentene og hva de gjør under [Komponenter](/komponenter/accordion).
 
-## Installer avhengigheter
+### Installer avhengigheter
 
 For å installere det grunnleggende:
 
@@ -194,7 +204,7 @@ export default HouseDetailsForm;
 ```
 
 Enkelte komponenter kan likevel trenge `Controller` i en overgangsperiode. Om du kommer over en komponent som fortsatt krever
-`Controller` må du gjerne [lage et issue på GitHub](https://github.com/fremtind/jokul/issues), og veldig gjerne [komme med en pull request](/komigang/pullrequests)!
+`Controller` må du gjerne [lage et issue på GitHub](https://github.com/fremtind/jokul/issues), og veldig gjerne [komme med en pull request](/guider/utvikling#pull-requests)!
 
 ```tsx
 import React, { VFC } from "react";

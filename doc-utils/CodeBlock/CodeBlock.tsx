@@ -14,7 +14,7 @@ import fremtindThemeDark from "./fremtindThemeDark";
 import "./CodeBlock.scss";
 
 export interface CodeBlockProps extends WithChildren {
-    language: string;
+    language?: string;
 }
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
@@ -29,7 +29,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
             style={style}
             codeTagProps={{ style: {}, className: "jkl-portal-code-block__code", tabIndex: 0 }}
             language={language}
-            data-language={language}
+            data-language={language || undefined}
         >
             {children}
         </SyntaxHighlighter>

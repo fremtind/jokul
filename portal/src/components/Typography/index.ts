@@ -4,7 +4,7 @@ export {
     HeadingMedium,
     HeadingSmall,
     HeadingXS,
-    ArticleLead,
+    Ingress,
     PageTitle,
     InlineCode,
     CodeBlock,
