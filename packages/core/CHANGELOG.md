@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.4.0...@fremtind/jkl-core@9.5.0) (2022-04-22)
+
+### Features
+
+-   core eksporterer to interfaces for children ([f213598](https://github.com/fremtind/jokul/commit/f21359802590123bf2ac5b135949f19a3e03360b))
+
 # [9.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.3.2...@fremtind/jkl-core@9.4.0) (2022-04-19)
 
 ### Bug Fixes
