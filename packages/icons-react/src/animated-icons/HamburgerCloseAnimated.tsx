@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import cx from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 import { Hamburger } from "../icons/Hamburger";
 import { Close } from "../icons/Close";
 import { IconVariant } from "../icons/types";
@@ -12,7 +13,7 @@ export interface HamburgerCloseAnimatedProps {
     closeTitle?: string;
 }
 
-interface ShowProps {
+interface ShowProps extends WithChildren {
     when: boolean;
 }
 

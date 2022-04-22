@@ -1,6 +1,7 @@
 import React from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 
-interface Props {
+interface Props extends WithChildren {
     title?: string;
 }
 

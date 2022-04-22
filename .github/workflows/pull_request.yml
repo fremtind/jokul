@@ -168,7 +168,7 @@ jobs:
                   FORCED_COLORS: ${{ matrix.forced-colors }}
 
             - name: Upload screenshots
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               if: failure()
               with:
                   name: cypress-screenshots-${{ matrix.forced-colors }}-${{ matrix.group }}
@@ -191,7 +191,7 @@ jobs:
                       **/__image_snapshots__/*
 
             - name: Upload snapshots
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               if: steps.lfcf.outputs.has_changed_files == 'true'
               with:
                   name: cypress-snapshots-${{ matrix.forced-colors }}-${{ matrix.group }}
@@ -218,7 +218,7 @@ jobs:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               # Sannsynligvis lastet ikke alle jobbene opp nye snapshots
               # Dette gjør at vi får noen errors i oppsummeringen, men selve
               # bygget markeres som grønt.
@@ -233,25 +233,25 @@ jobs:
                   name: cypress-snapshots-false-2
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-false-3
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-true-1
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-true-2
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
                   name: cypress-snapshots-true-3

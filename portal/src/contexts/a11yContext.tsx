@@ -1,4 +1,5 @@
 import React, { createContext } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 
 export const a11yContext = createContext<ReturnType<typeof useBrowserPreferences>>({
@@ -7,7 +8,7 @@ export const a11yContext = createContext<ReturnType<typeof useBrowserPreferences
     forcedColors: false,
 });
 
-export const A11yContextProvider: React.FC = ({ children }) => {
+export const A11yContextProvider: React.FC<WithChildren> = ({ children }) => {
     const { prefersColorScheme, prefersReducedMotion, forcedColors } = useBrowserPreferences();
 
     return (

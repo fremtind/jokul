@@ -1,8 +1,9 @@
 import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import classNames from "classnames";
 import "./card-list.scss";
 
-interface Props {
+interface Props extends WithChildren {
     vertical?: boolean;
 }
 

@@ -1,11 +1,12 @@
 import React, { useState, useRef, ReactNode, useContext, useEffect } from "react";
+import { WithOptionalChildren } from "@fremtind/jkl-core";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 import { a11yContext } from "../../../contexts/a11yContext";
 
 import "./MediaBox.scss";
 
-interface Props {
+interface Props extends WithOptionalChildren {
     media: ReactNode;
     rightAlign?: boolean;
     caption?: string;

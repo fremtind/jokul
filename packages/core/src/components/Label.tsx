@@ -1,8 +1,9 @@
 import React, { FC } from "react";
+import { WithChildren } from "../types";
 import { LabelVariant } from "../index";
 import classNames from "classnames";
 
-export interface LabelProps {
+export interface LabelProps extends WithChildren {
     variant?: LabelVariant;
     forceCompact?: boolean;
     srOnly?: boolean;
