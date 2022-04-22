@@ -100,7 +100,7 @@ const DegOgJokul: FC = () => (
             to="/kom-i-gang/slik-er-jokul-satt-sammen"
             component={GatsbyLink}
             title="Neste: Slik er Jøkul satt sammen"
-            description="Et system er summen av dets deler i samspill, ofte er det greit å ha en samlet oversikt over delene på ett sted."
+            description="Et system er summen av dets deler i samspill. Ofte er det greit å ha en samlet oversikt over delene på ett sted."
         />
     </motion.main>
 );
