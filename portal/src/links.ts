@@ -57,7 +57,7 @@ const profile = (rawPages: GeneralDocPages): Pages => ({
 });
 const developer = (rawPages: GeneralDocPages): Pages => ({
     pages: rawPages.edges
-        .filter(by(/^\/komigang/))
+        .filter(by(/^\/kom-i-gang/))
         .sort((a, b) => parseInt(a.node.frontmatter.order) - parseInt(b.node.frontmatter.order))
         .map(edgeToPage),
     sectionTitle: "Kom i gang",

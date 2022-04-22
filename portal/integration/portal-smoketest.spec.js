@@ -13,9 +13,9 @@ context("Portal", () => {
 
             cy.get(".jkl-portal-full-screen-menu-item__link").eq(0).click();
 
-            cy.get(".jkl-portal-full-screen-menu-item__link").eq(1).click();
+            cy.get(".jkl-portal-full-screen-menu-item__link").eq(0).click();
 
-            cy.get("h1").should("contain", "Bygg med Jøkul");
+            cy.get("h1").should("contain", "Jøkul");
         });
     });
 
@@ -28,9 +28,9 @@ context("Portal", () => {
 
             cy.get(".jkl-portal-main-menu__root-link").eq(0).click();
 
-            cy.get(".jkl-portal-full-screen-menu-item__link").eq(1).click();
+            cy.get(".jkl-portal-full-screen-menu-item__link").eq(0).click();
 
-            cy.get("h1").should("contain", "Bygg med Jøkul");
+            cy.get("h1").should("contain", "Design­system");
         });
     });
 });
