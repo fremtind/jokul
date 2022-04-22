@@ -51,7 +51,7 @@ const SlikErJokulSattSammen: FC = () => (
             <NavCard
                 href="https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/?node-id=0%3A1"
                 title="Design"
-                description="Vi designer løsningene våre i Figma, der vil du finne deler av Jøkul tilgjengelig som et bibliotek."
+                description="Komponentene, fargene og typografi-skalaen vår er tilgjengelig i Figma."
             />
         </Grid>
 
@@ -60,14 +60,14 @@ const SlikErJokulSattSammen: FC = () => (
             Designsystemet forandres og utvikles på mange forskjellige måter, men i korte trekk er det fire steg som
             skal til for å mekke på systemet:
         </Paragraph>
-        <OrderedList>
-            <ListItem>Du oppdager et behov for å endre noe, eller finner en bug som må fikses</ListItem>
-            <ListItem>Du fikser et kjapt forslag i en Figma-branch eller en Pull Request på GitHub</ListItem>
-            <ListItem>Du deler forslaget ditt med noen, enten i Teams, på GitHub, eller i et møte</ListItem>
-            <ListItem>Vi samarbeider om å sjekke at alt funker som det skal, så legges tingen inn i Jøkul</ListItem>
+        <OrderedList className="jkl-portal-ol">
+            <ListItem>Du oppdager en bug eller noe annet du vil endre på</ListItem>
+            <ListItem>Du fikser et forslag i Figma eller på GitHub</ListItem>
+            <ListItem>Du deler forslaget ditt med oss eller noen andre</ListItem>
+            <ListItem>Noen kameratsjekker deg, før det legges inn i Jøkul</ListItem>
         </OrderedList>
         <Paragraph>
-            Det er noen detaljer underveis, men de er det lett å få hjelp til av en kollega i teamet ditt eller fra noen
+            Det er noen detaljer underveis, men de er det lett å få hjelp med av en kollega i teamet ditt eller fra noen
             i kjerneteamet, om du måtte behøve det.
         </Paragraph>
         <NavCard
@@ -87,7 +87,7 @@ const SlikErJokulSattSammen: FC = () => (
                 component={GatsbyLink}
                 to="/kom-i-gang/utvikling"
                 title="For utviklere"
-                description="Det er nyttig å ha et forhold til flyten fra design til kode i Jøkul, videre til kode i teamets egne apper."
+                description="Om pakker, steder å finne kodeeksempler og dokumentasjon, nyttige verktøy og mer."
             />
             <NavCard
                 component={GatsbyLink}

@@ -81,6 +81,12 @@ export const Strong: React.FC<WithChildren> = ({ children, ...rest }) => (
     </strong>
 );
 
+export const KeyboardShortcut: React.FC<WithChildren> = ({ children, ...rest }) => (
+    <kbd className="jkl-portal-kbd" {...rest}>
+        {children}
+    </kbd>
+);
+
 interface CodeBlockProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement> {
     language?: string;
 }

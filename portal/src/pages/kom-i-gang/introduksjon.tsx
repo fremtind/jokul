@@ -28,7 +28,7 @@ const Introduksjon: FC = () => (
             er mange gode grunner til å ha et designsystem. I Fremtind gir det oss en god del fordeler, som for
             eksempel:
         </Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>Det gir oss økt fart og bedre forutsetninger for innovasjon</ListItem>
             <ListItem>Det gir oss mer tid til å fokusere på andre ting</ListItem>
             <ListItem>Det gir oss et felles språk på tvers av produkter og tjenester</ListItem>
@@ -48,7 +48,7 @@ const Introduksjon: FC = () => (
             innføring (cirka 15 minutter) i de viktigste temaene vi forventer at du kjenner til, så du har gode
             forutsetninger for å bli en superbruker.
         </Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>Hvordan du forholder deg til Jøkul</ListItem>
             <ListItem>Hvor du kan finne hjelp</ListItem>
             <ListItem>Hvordan systemet er satt sammen</ListItem>

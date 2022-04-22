@@ -67,7 +67,7 @@ const DegOgJokul: FC = () => (
 
         <HeadingLarge>Designsystemforum</HeadingLarge>
         <Paragraph>
-            Vi samles ukentlig for å dele og drøfte hva som skjer i designsystemet. Forumet har ‘åpen mikk’ og hvem som
+            Vi samles ukentlig for å dele og drøfte hva som skjer i designsystemet. Forumet har “åpen mikk” og hvem som
             helst kan stille opp med et tema de vil sparre med andre på, agendaen er basert på en{" "}
             <Link href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0">
                 tråd fra teams som kommer ut i forkant

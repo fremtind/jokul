@@ -65,7 +65,7 @@ const PraktiskInfoUtviklere: FC = () => (
             layouten i prosjektet ditt etter egne behov.
         </Paragraph>
         <div className="jkl-portal-paragraph">
-            <Table fullWidth>
+            <Table fullWidth compact>
                 <TableHead>
                     <TableRow>
                         <TableHeader>Størrelse</TableHeader>
@@ -123,7 +123,7 @@ const PraktiskInfoUtviklere: FC = () => (
             Du finner endringslogger og mer teknisk dokumentasjon i hver enkelt pakke på GitHub. Det er spesielt tre
             filer det verdt å vite om, her eksemplifisert gjennom pakken <InlineCode>@fremtind/jkl-core</InlineCode>:
         </Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>
                 <Link href="https://github.com/fremtind/jokul/blob/main/packages/core/README.md">README</Link> for hjelp
                 til installering og import
@@ -153,16 +153,9 @@ const PraktiskInfoUtviklere: FC = () => (
             Du har kanskje noen favoritter selv, men ta gjerne en titt på disse verktøyene når du jobber i eget
             prosjekt.
         </Paragraph>
-        <Paragraph>
-            Vi har også flere{" "}
-            <GatsbyLink className="jkl-link" to="/universell-utforming/verktoy">
-                verktøytips for test av universell utforming
-            </GatsbyLink>
-            .
-        </Paragraph>
 
         <Paragraph className="jkl-bold">Visual Studio Code extensions</Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>
                 <Link href="https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare">
                     Live Share
@@ -186,7 +179,7 @@ const PraktiskInfoUtviklere: FC = () => (
         </UnorderedList>
 
         <Paragraph className="jkl-bold">Linting og testing</Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>
                 <Link href="https://eslint.org">ESLint</Link> og tilhørende{" "}
                 <Link href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">
@@ -207,9 +200,16 @@ const PraktiskInfoUtviklere: FC = () => (
         </UnorderedList>
 
         <Paragraph className="jkl-bold">Andre verktøy</Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>
-                <Link href="https://github.com/nvm-sh/nvm">Node Version Manager</Link>
+                Vi har flere{" "}
+                <GatsbyLink className="jkl-link" to="/universell-utforming/verktoy">
+                    verktøytips for test av universell utforming
+                </GatsbyLink>
+                .
+            </ListItem>
+            <ListItem>
+                <Link href="https://github.com/nvm-sh/nvm">Node Version Manager</Link> hjelper med håndtering av Node
             </ListItem>
         </UnorderedList>
 

@@ -10,6 +10,7 @@ import { NavCard } from "@fremtind/jkl-card-react";
 import { FigmaLogo } from "../../components/figma-logo";
 import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { Helmet } from "react-helmet";
+import { KeyboardShortcut } from "../../components/Typography/Typography";
 
 const pageTitle = "Praktisk i designhverdagen";
 
@@ -36,10 +37,10 @@ const PraktiskDesignhverdagen: FC = () => (
         <HeadingLarge>Komponentbibliotek</HeadingLarge>
         <Paragraph>
             Alle Jøkul-komponenter fra kodebasen er også tilgjengelig i Figma. Komponentene er satt opp etter alle
-            kunstens regler, med
+            kunstens regler, med{" "}
             <Link href="https://help.figma.com/hc/en-us/articles/360040451373-Create-dynamic-designs-with-auto-layout">
                 Auto-Layout
-            </Link>
+            </Link>{" "}
             og{" "}
             <Link href="https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants">Variants</Link>.
             Hver komponent kommer med states ut av boksen, så du slipper å finne opp hjulet på nytt hver gang du skal
@@ -95,48 +96,56 @@ const PraktiskDesignhverdagen: FC = () => (
             Takket være masse flinke folk på internett så finnes det et trucklass med plugins, tips og triks for å gjøre
             Figma-hverdagen enklere. Vi har samlet våre beste tips nedenfor:
         </Paragraph>
-        <ul>
-            <li>
+        <UnorderedList className="jkl-portal-ul">
+            <ListItem>
                 Endre “Big Nudge...” innstillingen i Figma fra 10pt til 8pt, da hele spacingskalaen vår går opp i
                 åttegangeren. (<FigmaLogo /> → Preferences → Nudge amount...)
-            </li>
-            <li>
-                <a className="jkl-link" href="https://www.figma.com/community/plugin/732603254453395948/Stark">
+            </ListItem>
+            <ListItem>
+                <Link className="jkl-link" href="https://www.figma.com/community/plugin/732603254453395948/Stark">
                     Stark
-                </a>{" "}
+                </Link>{" "}
                 er en Figma-plugin for å sjekke kontraster og enkle UU krav raskt
-            </li>
-            <li>
-                <a
+            </ListItem>
+            <ListItem>
+                <Link
                     className="jkl-link"
                     href="https://chrome.google.com/webstore/detail/figma-github/bieeiojdjdkkacfckmaamnbinloppgjf"
                 >
                     Figma-Github
-                </a>{" "}
+                </Link>{" "}
                 lar deg se skisser direkte rett i GitHub kommentarer (Chrome-plugin)
-            </li>
-            <li>
-                <a
+            </ListItem>
+            <ListItem>
+                <Link
                     className="jkl-link"
                     href="https://www.figma.com/community/plugin/741895659787979282/Instance-Finder"
                 >
                     Instance Finder
-                </a>{" "}
+                </Link>{" "}
                 hjelper deg med å finne brukte instanser
-            </li>
-            <li>
-                <a className="jkl-link" href="https://www.figma.com/community/plugin/973621811122426089/Figma-Tips">
+            </ListItem>
+            <ListItem>
+                <Link className="jkl-link" href="https://www.figma.com/community/plugin/973621811122426089/Figma-Tips">
                     Figma-Tips
-                </a>{" "}
+                </Link>{" "}
                 samler alt du måtte lure på av hvordan ting funker i Figma inni et søkbart vindu
-            </li>
-        </ul>
+            </ListItem>
+        </UnorderedList>
         <Paragraph className="jkl-bold">Kjerneteamets favoritthurtigtaster i Figma</Paragraph>
-        <UnorderedList>
-            <ListItem>Auto-Layout (⇧A), Frame (⌥⌘G)</ListItem>
-            <ListItem>Søk etter komponenter (⇧I)</ListItem>
-            <ListItem>macOS “spotlight-style” kommandosøk (⌘P)</ListItem>
-            <ListItem>Show Layout Grid (⌃G)</ListItem>
+        <UnorderedList className="jkl-portal-ul">
+            <ListItem>
+                Auto-Layout (<KeyboardShortcut>⇧A</KeyboardShortcut>), Frame (<KeyboardShortcut>⌥⌘G</KeyboardShortcut>)
+            </ListItem>
+            <ListItem>
+                Søk etter komponenter (<KeyboardShortcut>⇧I</KeyboardShortcut>)
+            </ListItem>
+            <ListItem>
+                macOS “spotlight-style” kommandosøk (<KeyboardShortcut>⌘P</KeyboardShortcut>)
+            </ListItem>
+            <ListItem>
+                Show Layout Grid (<KeyboardShortcut>⌃G</KeyboardShortcut>)
+            </ListItem>
         </UnorderedList>
 
         <NavCard

@@ -31,7 +31,7 @@ const DegOgJokul: FC = () => (
             Sjansen for at noen har støtt på samme utfordring som deg tidligere er nok ganske stor, derfor kan det være
             lurt å svinge innom disse sjekkpunktene om du lurer på noe:
         </Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>Har du lett i portalen? Står det noe på GitHub?</ListItem>
             <ListItem>
                 Hvis det ikke står noe på GitHub, har du{" "}
@@ -53,7 +53,7 @@ const DegOgJokul: FC = () => (
             skinner i kulissene—blant annet ved å vise deg hvordan du fikser feil i systemet selv. Her er noen eksempler
             på ting kjerneteamet sørger for:
         </Paragraph>
-        <UnorderedList>
+        <UnorderedList className="jkl-portal-ul">
             <ListItem>Vi viser deg hvordan du går fram for å selv lage komponenter og fikse bugs</ListItem>
             <ListItem>Vi er eksperter på designsystemet</ListItem>
             <ListItem>Vi er superbrukere av verktøyene for designsystemet</ListItem>

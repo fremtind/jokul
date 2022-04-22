@@ -17,7 +17,8 @@
 $_title-max-width: rem(850px);
 $_paragraph-max-width: rem(750px);
 
-.jkl-portal-list-item,
+.jkl-portal-ul,
+.jkl-portal-ol,
 .jkl-portal-paragraph {
     max-width: $_paragraph-max-width;
 
@@ -146,4 +147,8 @@ $_paragraph-max-width: rem(750px);
     font-size: 0.8em;
     padding: 0 jkl.$spacing-xs;
     border-radius: rem(2px);
+}
+
+.jkl-portal-kbd {
+    font-family: -apple-system, BlinkMacSystemFont, "Fremtind Grotesk Mono", monospace;
 }
