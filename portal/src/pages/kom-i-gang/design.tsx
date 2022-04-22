@@ -93,7 +93,7 @@ const PraktiskDesignhverdagen: FC = () => (
         <HeadingLarge>Praktiske plugins og tips</HeadingLarge>
         <Paragraph>
             Takket være masse flinke folk på internett så finnes det et trucklass med plugins, tips og triks for å gjøre
-            Figma-hverdagen enklere, vi har samlet våre beste tips nedenfor:
+            Figma-hverdagen enklere. Vi har samlet våre beste tips nedenfor:
         </Paragraph>
         <ul>
             <li>
