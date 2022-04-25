@@ -71,7 +71,7 @@ const DegOgJokul: FC = () => (
             <Portrait name="Mona" title="Designer">
                 <StaticImage
                     className="jkl-portal-portrait__image"
-                    src="../../../static/assets/kom-i-gang/portrett-mona.png"
+                    src="../../../static/assets/kom-i-gang/portrett-mona.jpg"
                     alt=""
                 />
             </Portrait>
