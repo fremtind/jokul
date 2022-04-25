@@ -29,7 +29,7 @@ const DegOgJokul: FC = () => (
         </Ingress>
         <HeadingLarge>Hvor du kan spørre</HeadingLarge>
         <Paragraph>
-            Sjansen for at noen har støtt på samme utfordring som deg tidligere er nok ganske stor, derfor kan det være
+            Sjansen for at noen har støtt på samme utfordring som deg tidligere er nok ganske stor. Derfor kan det være
             lurt å svinge innom disse sjekkpunktene om du lurer på noe:
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
