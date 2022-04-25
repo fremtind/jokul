@@ -78,16 +78,25 @@ const IndexPage: React.FC = () => {
                             />
                         </div>
                         <CardList vertical>
-                            <NavCard title="Introduksjon" to="/kom-i-gang/introduksjon" component={Link}>
-                                Start her om Jøkul er nytt for deg.
-                            </NavCard>
-                            <NavCard title="For designere" to="/kom-i-gang/design" component={Link}>
-                                Branching, Variants, Auto-Layout, breakpoints, praktiske plugins, “uskrevne regler” og
-                                mer.
-                            </NavCard>
-                            <NavCard title="For utviklere" to="/kom-i-gang/utvikling" component={Link}>
-                                Om pakker, steder å finne kodeeksempler og dokumentasjon, nyttige verktøy og mer.
-                            </NavCard>
+                            <NavCard
+                                title="Introduksjon"
+                                to="/kom-i-gang/introduksjon"
+                                component={Link}
+                                description="Start her om Jøkul er nytt for deg."
+                            />
+                            <NavCard
+                                title="For designere"
+                                to="/kom-i-gang/design"
+                                component={Link}
+                                description="Branching, Variants, Auto-Layout, breakpoints, praktiske plugins, “uskrevne regler” og
+                                mer."
+                            />
+                            <NavCard
+                                title="For utviklere"
+                                to="/kom-i-gang/utvikling"
+                                component={Link}
+                                description="Om pakker, steder å finne kodeeksempler og dokumentasjon, nyttige verktøy og mer."
+                            />
                         </CardList>
                     </div>
                 </section>
