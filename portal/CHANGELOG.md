@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.0...@fremtind/portal@12.4.1) (2022-04-25)
+
+### Bug Fixes
+
+-   rar artefakt på mobil ([ea2e7af](https://github.com/fremtind/jokul/commit/ea2e7af76e432f6d91495d108f97aa261ad5d96a))
+
 # [12.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.24...@fremtind/portal@12.4.0) (2022-04-22)
 
 ### Bug Fixes
