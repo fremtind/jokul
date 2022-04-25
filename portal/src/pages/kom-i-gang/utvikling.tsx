@@ -140,7 +140,7 @@ const PraktiskInfoUtviklere: FC = () => {
                 </ListItem>
                 <ListItem>
                     <Link href="https://github.com/fremtind/jokul/blob/main/packages/core/MIGRATION.md">MIGRATION</Link>{" "}
-                    for hjelp ved _breaking changes_
+                    for hjelp ved <i>breaking changes</i>
                 </ListItem>
                 <ListItem>
                     Om du skal lage et helt nytt prosjekt med Jøkul har vi{" "}
