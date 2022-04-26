@@ -42,6 +42,9 @@ $_loader-right-animation-name: jkl-loader-right-spin-#{string.unique-id()};
         &--right {
             animation-name: $_loader-right-animation-name;
         }
+        @include jkl.forced-colors-mode {
+            background-color: CanvasText;
+        }
     }
 
     &--medium > .jkl-loader__dot {

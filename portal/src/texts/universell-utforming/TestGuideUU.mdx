@@ -20,9 +20,25 @@ Noen er avhengig av å endre tekststørrelsen på et nettsted for å kunne bruke
 
 ## Farger og kontrast
 
-For hvordan omfattende teste farge, kontrast, dark mode, inverted mode, high contrast mode og andre lignende moduser, se [a11yproject sin guide om temaet](https://www.a11yproject.com/posts/2020-01-23-operating-system-and-browser-accessibility-display-modes/).
+Se [a11yproject sin guide](https://www.a11yproject.com/posts/2020-01-23-operating-system-and-browser-accessibility-display-modes/) for hvordan omfattende teste:
+
+-   farge og kontrast
+-   dark mode
+-   høykontrastmodus (også: [Eric Bailey for Smashing Magazine](https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/))
+-   inverted mode
+-   og andre lignende moduser
 
 Kan du fortsatt se elementer som for eksempel lenker dersom alt er gråskala? Husk at farger aldri skal være eneste virkemiddel for å formidle informasjon.
+
+### Høykontrastmodus
+
+Høykontrastmodus er best støttet på Windows, men kan også [simuleres i Chromium-baserte nettlesere](https://developer.chrome.com/blog/new-in-devtools-98/#forced-colors). Sjekk at det du lager fortsatt er synlig i denne modusen, i alle states:
+
+-   uten fokus
+-   ved hover
+-   tastaturfokus
+
+Husk at brukeren velger sine egne farger i denne modusen. Sjekk spesielt at SVGer får fargen sin fra temaet, ikke fra oss.
 
 ## Zoom i nettleser
 

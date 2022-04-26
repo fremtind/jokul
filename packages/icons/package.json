@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icons",
-    "version": "4.0.18",
+    "version": "4.0.21",
     "publishConfig": {
         "access": "public"
     },
@@ -24,10 +24,10 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "echo 'noop'"
+        "dev": "echo \"Error: run dev from icons-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.3.1"
+        "@fremtind/jkl-core": "^9.5.0"
     },
     "repository": {
         "type": "git",

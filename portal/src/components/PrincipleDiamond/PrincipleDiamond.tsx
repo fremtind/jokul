@@ -15,6 +15,7 @@ interface Props {
     minScale: number;
     maxScale: number;
     colorScheme: ColorScheme;
+    forcedColors: boolean;
     principleState?: number;
     type?: string;
     tiles: number;
@@ -105,7 +106,11 @@ export class PrincipleDiamond extends React.Component<Props> {
 
         if (ctx) {
             ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = this.props.colorScheme === "dark" ? "#fff" : "#000";
+            if (this.props.forcedColors) {
+                ctx.fillStyle = "CanvasText";
+            } else {
+                ctx.fillStyle = this.props.colorScheme === "dark" ? "#fff" : "#000";
+            }
         }
 
         const time = Date.now();

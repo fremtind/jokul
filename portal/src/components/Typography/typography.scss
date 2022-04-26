@@ -12,27 +12,43 @@
     --blockquote-line-color: #{jkl.$color-skifer};
 }
 
+$_title-max-width: jkl.rem(850px);
+$_paragraph-max-width: jkl.rem(750px);
+
 .jkl-portal-list-item {
     max-width: jkl.rem(750px);
 }
 
+.jkl-portal-ul,
+.jkl-portal-ol,
 .jkl-portal-paragraph {
-    max-width: jkl.rem(750px);
+    max-width: $_paragraph-max-width;
 
     @include jkl.text-style("body");
+}
 
+.jkl-portal-ul,
+.jkl-portal-ol {
+    &:not(:last-child) {
+        margin-bottom: jkl.$spacing-xl;
+    }
+}
+
+.jkl-portal-nav-card,
+.jkl-portal-paragraph {
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-l;
     }
 }
 
 .jkl-portal-blockquote {
-    max-width: jkl.rem(750px);
+    max-width: $_paragraph-max-width;
 
     @include jkl.text-style("heading-3") {
         font-weight: jkl.$typography-weight-normal;
         font-style: italic;
     }
+
     color: var(--blockquote-color);
     margin: 0;
     padding-left: jkl.$spacing-l;
@@ -47,8 +63,8 @@
     }
 }
 
-.jkl-portal-article-lead {
-    max-width: jkl.rem(850px);
+.jkl-portal-ingress {
+    max-width: $_title-max-width;
 
     @include jkl.text-style("heading-2");
 
@@ -57,8 +73,24 @@
     }
 }
 
+.jkl-portal-huge-title {
+    font-weight: 400;
+    font-style: normal;
+
+    line-height: jkl.rem(84px);
+    font-size: jkl.rem(64px);
+    max-width: $_title-max-width;
+    margin-bottom: jkl.$spacing-l;
+
+    @include jkl.from-medium-device {
+        line-height: jkl.rem(130px);
+        font-size: jkl.rem(104px);
+        max-width: jkl.rem(860px);
+    }
+}
+
 .jkl-portal-page-title {
-    max-width: jkl.rem(850px);
+    max-width: $_title-max-width;
     margin-bottom: jkl.$spacing-xl;
 
     @include jkl.text-style("title");
@@ -118,4 +150,8 @@
     font-size: 0.8em;
     padding: 0 jkl.$spacing-xs;
     border-radius: jkl.rem(2px);
+}
+
+.jkl-portal-kbd {
+    font-family: -apple-system, BlinkMacSystemFont, "Fremtind Grotesk Mono", monospace;
 }

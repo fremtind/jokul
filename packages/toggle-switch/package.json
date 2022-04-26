@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "7.0.8",
+    "version": "7.0.11",
     "description": "Jøkul style for toggle switch",
     "homepage": "https://jokul.fremtind.no",
     "keywords": [
@@ -24,10 +24,10 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "parcel example/index.html"
+        "dev": "echo \"Error: run dev from toggle-switch-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.3.1"
+        "@fremtind/jkl-core": "^9.5.0"
     },
     "repository": {
         "type": "git",

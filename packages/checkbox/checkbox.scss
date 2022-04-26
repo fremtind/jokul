@@ -93,6 +93,10 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 
             & > .jkl-checkbox__check-mark::before {
                 box-shadow: 0 0 0 jkl.rem(2px) var(--checkbox-focus-color);
+
+                @include jkl.forced-colors-mode {
+                    border: 4px double ButtonText;
+                }
             }
 
             & > .jkl-checkbox__check-mark {
@@ -122,6 +126,17 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 
             .jkl-checkbox__check-mark {
                 box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) currentColor;
+
+                @include jkl.forced-colors-mode {
+                    &::before {
+                        border: 2px solid ButtonText;
+                        position: absolute;
+                        top: jkl.rem(-1px);
+                        right: jkl.rem(-1px);
+                        bottom: jkl.rem(-1px);
+                        left: jkl.rem(-1px);
+                    }
+                }
             }
         }
 
@@ -182,6 +197,10 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
             opacity: 0;
             @include jkl.motion;
             transition-property: opacity, border-color;
+
+            @include jkl.forced-colors-mode {
+                border-color: Highlight;
+            }
         }
 
         // This is the basis of the focus ring
@@ -192,6 +211,11 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
             right: jkl.rem(-2px);
             bottom: jkl.rem(-2px);
             left: jkl.rem(-2px);
+        }
+
+        @include jkl.forced-colors-mode {
+            outline: revert;
+            border: 1px solid ButtonText;
         }
     }
 

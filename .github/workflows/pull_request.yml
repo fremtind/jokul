@@ -120,8 +120,9 @@ jobs:
             fail-fast: false
             matrix:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
-                group: [1, 2, 3, 4, 5]
-                groups: [5]
+                group: [1, 2, 3]
+                groups: [3]
+                forced-colors: [true, false]
         permissions:
             actions: write
             contents: read
@@ -159,17 +160,18 @@ jobs:
               with:
                   install-command: yarn ci:install-cypress
                   browser: chrome
-                  headless: true
                   start: yarn serve
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 280
                   spec: ${{ steps.parallel.outputs.tests }}
+              env:
+                  FORCED_COLORS: ${{ matrix.forced-colors }}
 
             - name: Upload screenshots
-              uses: actions/upload-artifact@v2
+              uses: actions/upload-artifact@v3
               if: failure()
               with:
-                  name: cypress-screenshots-${{ matrix.group }}
+                  name: cypress-screenshots-${{ matrix.forced-colors }}-${{ matrix.group }}
                   path: |
                       cypress/screenshots
                       packages/**/integration/**/*.actual.png
@@ -181,24 +183,25 @@ jobs:
 
             - name: Look for new snapshots
               if: success()
-              # Bruk en fork av tj-actions/verify-changed-files med støtte for multiline output (for actions/upload-artifact)
-              uses: wkillerud/verify-changed-files@2d6b141c6b098870f74026ea6392f6202188d281
-              id: verify-changed-files
+              uses: ./actions/changed-files
+              id: lfcf
               with:
-                  files: |
-                      __image_snapshots__
+                  # See the micromatch docs for more examples: https://github.com/micromatch/micromatch#matching-features
+                  patterns: |
+                      **/__image_snapshots__/*
 
             - name: Upload snapshots
-              uses: actions/upload-artifact@v2
-              if: steps.verify-changed-files.outputs.files_changed == 'true'
+              uses: actions/upload-artifact@v3
+              if: steps.lfcf.outputs.has_changed_files == 'true'
               with:
-                  name: cypress-snapshots-${{ matrix.group }}
-                  # Inkluder en fil fra rotnivå for å beholde hele mappestrukturen i artefakten
-                  # siden vi aldri vet hvilke mapper som ellers blir "rot" (hvilken pakke som
-                  # får nye snapshots).
+                  name: cypress-snapshots-${{ matrix.forced-colors }}-${{ matrix.group }}
+                  # GitHub will find the lowest common folder to reduce the number of folders
+                  # in the uploaded artifact. If you want to preserve the same folder structure
+                  # as in your repository when downloading the artifact, include a file from
+                  # the root of your repository.
                   path: |
-                      .cypress.json
-                      ${{ steps.verify-changed-files.outputs.changed_files }}
+                      cypress.json
+                      ${{ steps.lfcf.outputs.changed_files }}
 
     snapshots:
         needs: [cypress]
@@ -215,37 +218,43 @@ jobs:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               # Sannsynligvis lastet ikke alle jobbene opp nye snapshots
               # Dette gjør at vi får noen errors i oppsummeringen, men selve
               # bygget markeres som grønt.
               continue-on-error: true
               with:
-                  name: cypress-snapshots-1
+                  name: cypress-snapshots-false-1
 
             - name: Download snapshots
               uses: actions/download-artifact@v2
               continue-on-error: true
               with:
-                  name: cypress-snapshots-2
+                  name: cypress-snapshots-false-2
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
-                  name: cypress-snapshots-3
+                  name: cypress-snapshots-false-3
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
-                  name: cypress-snapshots-4
+                  name: cypress-snapshots-true-1
 
             - name: Download snapshots
-              uses: actions/download-artifact@v2
+              uses: actions/download-artifact@v3
               continue-on-error: true
               with:
-                  name: cypress-snapshots-5
+                  name: cypress-snapshots-true-2
+
+            - name: Download snapshots
+              uses: actions/download-artifact@v3
+              continue-on-error: true
+              with:
+                  name: cypress-snapshots-true-3
 
             - name: Commit snapshots
               run: |

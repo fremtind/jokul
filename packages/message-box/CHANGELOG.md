@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box@5.2.6...@fremtind/jkl-message-box@5.2.7) (2022-04-19)
+
+### Bug Fixes
+
+-   messagebox i forced-colors ([ad29075](https://github.com/fremtind/jokul/commit/ad29075d5981c5438d1e712c9a9768504d6989a0))
+-   tag i forced-colors ([d67839d](https://github.com/fremtind/jokul/commit/d67839d13b5966c17241126c5f943bc0c7eeed15))
+
 # 5.2.0 (2022-02-22)
 
 ### Features

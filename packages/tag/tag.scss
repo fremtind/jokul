@@ -33,4 +33,26 @@ $tag-background-color--warning: colors.varslingsfarge("advarsel");
     &--success {
         background-color: $tag-background-color--success;
     }
+
+    @include jkl.forced-colors-mode {
+        border: 2px none CanvasText;
+        border-bottom-style: dotted;
+
+        &--info {
+            border-style: dotted;
+        }
+
+        &--warning {
+            border-style: dashed;
+        }
+
+        &--error {
+            border-style: double;
+            border-width: 4px;
+        }
+
+        &--success {
+            border-style: solid;
+        }
+    }
 }

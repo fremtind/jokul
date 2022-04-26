@@ -6,6 +6,8 @@
     cursor: pointer;
     color: inherit;
 
+    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
     &__icon {
         display: inline-block;
         width: jkl.rem(20px);

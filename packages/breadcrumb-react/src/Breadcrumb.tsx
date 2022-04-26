@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import cn from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 
-export interface BreadcrumbProps {
+export interface BreadcrumbProps extends WithChildren {
     className?: string;
-    children: ReactNode;
 }
 
 export const Breadcrumb = ({ className, children, ...rest }: BreadcrumbProps): JSX.Element => {

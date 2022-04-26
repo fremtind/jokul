@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger@9.0.9...@fremtind/jkl-hamburger@9.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   oh my lord it's a hamburger ([b871433](https://github.com/fremtind/jokul/commit/b87143300db48c511ea4276f8136c479a0c2ac0a))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
 # 9.0.0 (2022-02-07)
 
 ### Bug Fixes

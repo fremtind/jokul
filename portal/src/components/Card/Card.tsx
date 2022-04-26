@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import { navigate } from "gatsby";
+import { WithChildren } from "@fremtind/jkl-core";
 import { unicode } from "@fremtind/jkl-constants-util";
 import "./card.scss";
 
-interface Props {
+interface Props extends WithChildren {
     heading: string;
     link: string;
 }

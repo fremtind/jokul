@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image",
-    "version": "2.0.8",
+    "version": "2.0.11",
     "description": "Jøkul style for image",
     "publishConfig": {
         "access": "public"
@@ -23,10 +23,10 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "echo 'noop'"
+        "dev": "echo \"Error: run dev from image-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.3.1"
+        "@fremtind/jkl-core": "^9.5.0"
     },
     "repository": {
         "type": "git",

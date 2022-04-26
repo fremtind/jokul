@@ -20,6 +20,10 @@
         padding-top: jkl.rem(10px);
     }
 
+    & .jkl-text-input__action-button {
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);
+    }
+
     &__calendar-wrapper {
         position: absolute;
         top: calc(100% + #{jkl.rem(14px)});
@@ -119,6 +123,10 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     &__padding {
         padding: $_calendar-padding;
         box-sizing: border-box;
+
+        @include jkl.forced-colors-mode {
+            border: 1px solid CanvasText;
+        }
     }
 
     @include jkl.small-device {
@@ -153,7 +161,6 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         align-items: center;
         background-color: transparent;
         color: var(--calendar-text-color);
-        border: none;
         width: jkl.rem(32px);
         border-radius: 50%;
         @include jkl.text-style("body/large-screen");
@@ -254,8 +261,6 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     td button {
         @include jkl.reset-outline;
         appearance: none;
-        border: 0;
-        outline: none;
         position: relative;
 
         box-sizing: border-box;

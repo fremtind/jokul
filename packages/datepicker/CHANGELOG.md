@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@6.0.12...@fremtind/jkl-datepicker@6.0.13) (2022-04-19)
+
+### Bug Fixes
+
+-   bruk den nye mixinen til å forbedre kalenderikonet ([e946395](https://github.com/fremtind/jokul/commit/e94639590516dede979fbf6774fa591e170080ea))
+-   bruk revert i stedet for unset ([300e808](https://github.com/fremtind/jokul/commit/300e8086b4a88e37407dadaf747d714d69919cdd))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
 ## 6.0.1 (2022-02-08)
 
 ### Bug Fixes

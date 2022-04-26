@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@7.0.9...@fremtind/jkl-button@7.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   bruk revert i stedet for unset ([300e808](https://github.com/fremtind/jokul/commit/300e8086b4a88e37407dadaf747d714d69919cdd))
+-   button når forced-colors er på ([205f594](https://github.com/fremtind/jokul/commit/205f594001fa247cf8352ac396f9edb275218daa))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
 # 7.0.0 (2022-02-07)
 
 ### Bug Fixes

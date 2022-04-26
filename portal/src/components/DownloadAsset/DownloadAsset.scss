@@ -37,6 +37,10 @@
 
         &:focus {
             outline: 0;
+
+            @include jkl.forced-colors-mode {
+                outline: revert;
+            }
         }
     }
 }

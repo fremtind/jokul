@@ -8,7 +8,7 @@
 
 .jkl-table-cell {
     @include jkl.text-style("body");
-    padding: jkl.$spacing-s jkl.$spacing-2xs;
+    padding: jkl.$spacing-s jkl.$spacing-xs;
     padding-top: jkl.$spacing-s - jkl.rem(1px);
     padding-bottom: jkl.$spacing-s - jkl.rem(1px);
     position: relative;
@@ -36,7 +36,7 @@
     *[data-compactlayout] &,
     &--compact {
         @include jkl.text-style("small");
-        padding: jkl.$spacing-2xs;
+        padding: jkl.$spacing-xs;
         padding-top: jkl.$spacing-xs - jkl.rem(1px);
         padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
     }

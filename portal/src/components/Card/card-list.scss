@@ -17,4 +17,8 @@
             margin-bottom: jkl.$spacing-xl;
         }
     }
+
+    .jkl-nav-card {
+        max-width: jkl.rem(360px);
+    }
 }

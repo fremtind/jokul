@@ -127,5 +127,13 @@ $jkl-slider-focus-ring-width: jkl.rem(2px);
                 }
             }
         }
+
+        @include jkl.forced-colors-mode {
+            background-color: Canvas;
+
+            & .jkl-toggle-slider__pill {
+                background-color: ButtonFace;
+            }
+        }
     }
 }

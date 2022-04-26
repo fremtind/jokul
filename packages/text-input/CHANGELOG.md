@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@7.0.12...@fremtind/jkl-text-input@7.0.13) (2022-04-19)
+
+### Bug Fixes
+
+-   autosuggest i forced-colors ([1d86dd9](https://github.com/fremtind/jokul/commit/1d86dd9253535c68924f8c8a8d427b0f372bdfd0))
+-   bruk revert i stedet for unset ([300e808](https://github.com/fremtind/jokul/commit/300e8086b4a88e37407dadaf747d714d69919cdd))
+-   iconbutton textinput og textarea i forced-colors ([c605f0d](https://github.com/fremtind/jokul/commit/c605f0d174d726757975a39112fbda11af914b8e))
+-   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
+-   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
+
 ## 7.0.7 (2022-03-04)
 
 ### Bug Fixes

@@ -1,5 +1,6 @@
 import React from "react";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { WithChildren } from "@fremtind/jkl-core";
+import { renderHook, act } from "@testing-library/react";
 import { CookieConsentProvider, useCookieConsentState } from "./CookieConsentContext";
 import { ConsentRequirement, ConsentState, Consent } from "./types";
 
@@ -53,7 +54,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
     });
 
     it("consent is shown when no consent cookie is set", () => {
-        const wrapper: React.FC = ({ children }) => (
+        const wrapper: React.FC<WithChildren> = ({ children }) => (
             <CookieConsentProvider marketing functional statistics>
                 {children}
             </CookieConsentProvider>
@@ -70,7 +71,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
         setDocumentCookieState([
             ["fremtind-cookie-consent", JSON.stringify({ ...generateConsent(null, "accepted", "denied") })],
         ]);
-        const wrapper: React.FC = ({ children }) => (
+        const wrapper: React.FC<WithChildren> = ({ children }) => (
             <CookieConsentProvider marketing functional statistics>
                 {children}
             </CookieConsentProvider>
@@ -87,7 +88,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
         setDocumentCookieState([
             ["fremtind-cookie-consent", JSON.stringify({ ...generateConsent("accepted", "accepted", null) })],
         ]);
-        const wrapper: React.FC = ({ children }) => (
+        const wrapper: React.FC<WithChildren> = ({ children }) => (
             <CookieConsentProvider marketing functional>
                 {children}
             </CookieConsentProvider>
@@ -104,7 +105,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
         setDocumentCookieState([
             ["fremtind-cookie-consent", JSON.stringify({ ...generateConsent("denied", "accepted", null) })],
         ]);
-        const wrapper: React.FC = ({ children }) => (
+        const wrapper: React.FC<WithChildren> = ({ children }) => (
             <CookieConsentProvider marketing functional>
                 {children}
             </CookieConsentProvider>
@@ -161,7 +162,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
         setDocumentCookieState([
             ["fremtind-cookie-consent", JSON.stringify({ ...generateConsent("denied", "accepted", null) })],
         ]);
-        const wrapper: React.FC = ({ children }) => (
+        const wrapper: React.FC<WithChildren> = ({ children }) => (
             <CookieConsentProvider marketing functional>
                 {children}
             </CookieConsentProvider>

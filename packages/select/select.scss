@@ -223,7 +223,7 @@ $select-search-input-selection-color--inverted: color.scale(
 
         &[aria-selected="true"]:not(:focus) {
             &::after {
-                $mask-image-url: url('data:image/svg+xml; utf8, <svg width="17" height="13" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8.52632L4.6 12L16 1" stroke="black"/></svg>');
+                $mask-image-url: url("data:image/svg+xml,%3Csvg width='17' height='13' viewBox='0 0 17 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8.52632L4.6 12L16 1' stroke='currentColor'/%3E%3C/svg%3E");
                 background-color: var(--select-focus-color);
                 content: "";
 
@@ -300,6 +300,35 @@ $select-search-input-selection-color--inverted: color.scale(
             min-height: jkl.rem(40px);
         }
     }
+
+    @include jkl.forced-colors-mode {
+        // Vi er en button (hvis ikke native) og får ButtonText, men vi later som vi er en select, og den har CanvasText
+        & .jkl-select__button,
+        & .jkl-select__search-input {
+            color: CanvasText;
+            border: 2px solid ButtonText;
+            background-color: Canvas;
+            outline: revert;
+
+            &:hover {
+                border-color: Highlight;
+            }
+        }
+
+        & .jkl-select__option {
+            color: CanvasText;
+
+            border-top: 1px solid Canvas;
+            border-bottom: 1px solid Canvas;
+
+            &:hover,
+            &:focus {
+                @include jkl.no-grow-bold;
+                border-top: 1px solid Highlight;
+                border-bottom: 1px solid Highlight;
+            }
+        }
+    }
 }
 
 .jkl-expand-arrow {
@@ -340,5 +369,9 @@ $select-search-input-selection-color--inverted: color.scale(
             @include jkl.motion("standard", "expressive");
             transform: translate(0, -100%);
         }
+    }
+
+    .jkl-select & {
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 }

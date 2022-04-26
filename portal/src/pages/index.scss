@@ -36,18 +36,12 @@
 
                 .jkl-portal__card-list {
                     margin-left: jkl.$spacing-3xl;
-
-                    a {
-                        text-decoration: none;
-                        color: jkl.$color-granitt;
-                    }
                 }
             }
 
             @include jkl.small-device {
                 &--image-container {
                     position: absolute;
-                    height: 100vh;
                     width: 100vw;
                 }
 
@@ -59,6 +53,8 @@
                     position: relative;
                     display: block;
                     margin-left: -#{jkl.$spacing-m};
+                    overflow: hidden;
+                    padding-bottom: jkl.$spacing-2xl;
 
                     .jkl-portal__card-list {
                         position: relative;

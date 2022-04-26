@@ -1,14 +1,26 @@
 import React, { VFC } from "react";
+import cn from "classnames";
 import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { useLocation } from "../../contexts/locationContext";
 import { SidebarMenu } from "./SidebarMenu";
 import { ContentLink } from "../ContentLink/ContentLink";
-
 import "./Sidebar.scss";
 
-export const Sidebar: VFC = () => {
-    const { profileDocPages, getStartedDocPages, componentDocPages, uuDocPages, blogPages, PageType, componentGroup } =
-        useNavigationLinks();
+export interface SidebarProps {
+    className?: string;
+}
+
+export const Sidebar: VFC<SidebarProps> = ({ className }) => {
+    const {
+        profileDocPages,
+        getStartedDocPages,
+        componentDocPages,
+        uuDocPages,
+        guiderDocPages,
+        blogPages,
+        PageType,
+        componentGroup,
+    } = useNavigationLinks();
 
     const { currentSection } = useLocation();
 
@@ -30,6 +42,9 @@ export const Sidebar: VFC = () => {
         case PageType.UU:
             links = uuDocPages;
             break;
+        case PageType.GUIDER:
+            links = guiderDocPages;
+            break;
         case PageType.BLOG:
             links = blogPages;
             break;
@@ -39,7 +54,7 @@ export const Sidebar: VFC = () => {
     }
 
     return (
-        <nav className="jkl-portal-sidebar-menu" aria-label="Sidemeny">
+        <nav className={cn("jkl-portal-sidebar-menu", className)} aria-label="Sidemeny">
             <ContentLink>Hopp over sidemeny til innhold</ContentLink>
             <SidebarMenu
                 links={links}

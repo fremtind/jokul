@@ -10,6 +10,8 @@
     --portal-text-color: #{jkl.$color-snohvit};
 }
 
+$_sidebar-width: jkl.rem(375px);
+
 .jkl-portal {
     @include jkl.motion;
     transition-property: color;
@@ -47,7 +49,7 @@
         grid-template:
             "header header header" 96px
             "sidebar main main" minmax(calc(100vh - 96px), auto)
-            "footer footer footer" auto / jkl.rem(375px) 1fr;
+            "footer footer footer" auto / $_sidebar-width 1fr;
 
         &__header {
             grid-area: header;
@@ -70,50 +72,6 @@
         }
     }
 
-    .jkl-portal-footer {
-        padding-top: jkl.$spacing-l;
-
-        @include jkl.from-large-device {
-            grid-area: footer;
-        }
-
-        &__feedback {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: jkl.$spacing-l;
-
-            .jkl-feedback {
-                max-width: jkl.rem(640px);
-            }
-
-            .jkl-message-box {
-                max-width: initial;
-            }
-
-            @include jkl.medium-device {
-                padding: jkl.$spacing-xl;
-            }
-
-            @include jkl.from-large-device {
-                flex-direction: row;
-                padding: jkl.$spacing-2xl jkl.$spacing-4xl;
-            }
-        }
-
-        &__stamp {
-            margin-top: -#{jkl.$spacing-l};
-            width: jkl.rem(185px);
-            height: jkl.rem(185px);
-            opacity: 1;
-            display: none;
-
-            @include jkl.from-large-device {
-                display: block;
-            }
-        }
-    }
-
     &__main--no-margin {
         padding-top: 0;
         padding-right: 0;
@@ -123,6 +81,18 @@
         }
         @include jkl.medium-device {
             padding-left: 0;
+        }
+    }
+
+    &[data-theme="dark"] {
+        color: jkl.$color-snohvit;
+    }
+
+    &[data-test-mode="e2e"] {
+        .jkl-portal__sidebar,
+        .jkl-portal__header,
+        .jkl-portal__footer {
+            display: none !important;
         }
     }
 }

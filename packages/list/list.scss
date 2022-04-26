@@ -52,7 +52,6 @@ $_list-check-color--inverted: jkl.$color-suksess--darkbg;
 }
 
 .jkl-list {
-    list-style: disc _solid-diamond($_list-text-color);
     list-style: disc var(--jkl-list-marker--default);
     padding-left: $_list-padding-left;
 
@@ -73,7 +72,6 @@ $_list-check-color--inverted: jkl.$color-suksess--darkbg;
     }
 
     & & > .jkl-list__item {
-        list-style: disc _outline-diamond($_list-text-color);
         list-style: disc var(--jkl-list-marker--secondary);
         margin: 0;
 
@@ -97,12 +95,10 @@ $_list-check-color--inverted: jkl.$color-suksess--darkbg;
     }
 
     &__item {
-        color: $_list-text-color;
         color: var(--list-text-color);
         padding-left: jkl.rem(4px);
 
         &::marker {
-            color: $_list-text-color;
             color: var(--list-text-color);
         }
 
@@ -125,14 +121,32 @@ $_list-check-color--inverted: jkl.$color-suksess--darkbg;
 
         &--check::before {
             @include jkl.decorative($content: "\2713");
-            background-image: _check($_list-check-color, $_list-text-color--inverted);
             background-image: var(--jkl-list-marker--check);
         }
 
         &--cross::before {
             @include jkl.decorative($content: "\274C");
-            background-image: _cross($_list-cross-color);
             background-image: var(--jkl-list-marker--cross);
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        &:not(.jkl-list--ordered) > .jkl-list__item:not(.jkl-list__item--iconed) {
+            list-style: disc _solid-diamond(CanvasText);
+        }
+
+        & &:not(.jkl-list--ordered, .jkl-list--iconed) > .jkl-list__item:not(.jkl-list__item--iconed) {
+            list-style: disc _outline-diamond(CanvasText);
+        }
+
+        & .jkl-list__item {
+            &--check::before {
+                background-image: _check(CanvasText, Canvas);
+            }
+
+            &--cross::before {
+                background-image: _cross(CanvasText);
+            }
         }
     }
 }

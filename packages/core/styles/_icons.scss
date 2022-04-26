@@ -1,3 +1,5 @@
+@use "jkl";
+
 :root {
     --jkl-icon-width: 20px;
 }
@@ -21,4 +23,6 @@
     &--large {
         --jkl-icon-width: 40px;
     }
+
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
 }

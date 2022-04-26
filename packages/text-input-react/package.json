@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "9.0.13",
+    "version": "9.0.17",
     "publishConfig": {
         "access": "public"
     },
@@ -32,16 +32,17 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-text-input yarn build:watch",
-        "dev:js": "parcel documentation/index.html",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:server": "node ./dist/server.js",
+        "predev": "node ./esbuild.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.7",
-        "@fremtind/jkl-icon-button-react": "^0.8.18",
-        "@fremtind/jkl-icons-react": "^4.1.14",
-        "@fremtind/jkl-react-hooks": "^8.0.2",
-        "@fremtind/jkl-text-input": "^7.0.11",
+        "@babel/runtime": "^7.17.8",
+        "@fremtind/jkl-icon-button-react": "^0.8.22",
+        "@fremtind/jkl-icons-react": "^4.1.17",
+        "@fremtind/jkl-react-hooks": "^8.2.1",
+        "@fremtind/jkl-text-input": "^7.0.14",
         "classnames": "^2.2.6",
         "downshift": "^6.0.5",
         "match-sorter": "^6.3.0"
@@ -50,10 +51,10 @@
         "@types/match-sorter": "^6.0.0"
     },
     "peerDependencies": {
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-dom": "^16.8.6 || ^17.0.0",
-        "react": "^16.8.6 || ^17.0.0",
-        "react-dom": "^16.8.6 || ^17.0.0"
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     },
     "repository": {
         "type": "git",

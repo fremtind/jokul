@@ -1,8 +1,8 @@
-import React, { FC, VFC } from "react";
-
+import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import "./GitHubLinks.scss";
 
-interface LinkProps {
+interface LinkProps extends WithChildren {
     href: string;
 }
 const ExternalLink: FC<LinkProps> = ({ href, children }) => (
@@ -16,7 +16,7 @@ interface Props {
     scss?: string;
 }
 
-export const GitHubLinks: VFC<Props> = ({ react, scss }) => {
+export const GitHubLinks: FC<Props> = ({ react, scss }) => {
     if (!react && !scss) {
         return null;
     }

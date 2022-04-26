@@ -1,4 +1,6 @@
 @use "sass:string";
+@use "sass:color";
+@use "sass:list";
 @use "../variables/typography";
 
 ///
@@ -34,6 +36,60 @@
 
     [data-theme="dark"] {
         @content;
+    }
+}
+
+/// Brukes til å overstyre stiler for bruk i Forced Colors-modus.
+/// Her vil du typisk legge til fallbacks for manglende box-shadow,
+/// som for eksempel `outline: revert;` og `border: revert;`,
+/// og eventuelle andre problemer som oppstår for brukere av høykontrasttemaer.
+/// Se https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
+/// og https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/
+///
+/// @content Innholdet plasseres i et media query som matcher hvis høykontrasttema er i bruk
+///
+@mixin forced-colors-mode {
+    @media screen and (forced-colors: active) {
+        @content;
+    }
+}
+
+$_valid-forced-colors-text-values: (
+    "Canvas",
+    "CanvasText",
+    "LinkText",
+    "GrayText",
+    "Highlight",
+    "HighlightText",
+    "ButtonFace",
+    "ButtonText"
+);
+
+///
+/// Hjelper for å sette riktig farge på SVGer i Chrome for brukere med Forced Color-modus.
+/// Se https://melanie-richards.com/blog/currentcolor-svg-hcm/ for detaljer
+///
+/// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $stroke - Definer hvilken systemfarge som skal brukes til stroke. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
+/// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $fill [null] - Som $stroke, bare for fill. Valgfri.
+///
+@mixin forced-colors-svg-fallback($stroke, $fill: null) {
+    @if not list.index($_valid-forced-colors-text-values, $stroke) {
+        @error "#{$stroke} will not be used for stroke in Forced Color mode. Valid options are: #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
+    }
+
+    @if $fill and not list.index($_valid-forced-colors-text-values, $fill) {
+        @error "#{$fill} will not be used for fill in Forced Color mode. Valid options are: null, #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
+    }
+
+    @media screen and (forced-colors: active) {
+        stroke: $stroke;
+        fill: $fill;
+
+        & svg,
+        & path {
+            stroke: $stroke;
+            fill: $fill;
+        }
     }
 }
 
@@ -95,53 +151,26 @@
     border-style: none;
     outline-style: none;
 
-    &::-moz-focus-inner {
-        border-style: none;
-        outline: 0;
-    }
-
     &:active,
     &:hover,
-    &:focus,
-    &:link,
-    &:visited {
-        outline: 0 !important;
+    &:focus {
+        outline: 0;
         outline-style: none;
     }
 
-    /* Remove the inner border and padding in Firefox */
-    button::-moz-focus-inner,
-    [type="button"]::-moz-focus-inner,
-    [type="reset"]::-moz-focus-inner,
-    [type="submit"]::-moz-focus-inner {
-        border-style: none;
-    }
+    // Reset alt som er gjort over hvis brukeren har på forced-colors.
+    // Da mister vi box-shadow og er avhengig av at borders og outlines synes.
+    @include forced-colors-mode {
+        outline: revert;
+        border-style: revert;
+        outline-style: revert;
 
-    /* Remove dotted lines around object, especially for firefox */
-    a:hover,
-    a:active,
-    a:focus,
-    a:link,
-    a:visited {
-        outline: 0 !important;
-        outline-style: none;
-    }
-
-    button,
-    object,
-    embed {
-        outline: 0;
-    }
-
-    /* All Input elements */
-    input::-moz-focus-inner {
-        outline: 0;
-    }
-
-    /* Or more specifically */
-    input[type="submit"]::-moz-focus-inner,
-    input[type="button"]::-moz-focus-inner {
-        outline: 0;
+        &:active,
+        &:hover,
+        &:focus {
+            outline: revert;
+            outline-style: revert;
+        }
     }
 }
 

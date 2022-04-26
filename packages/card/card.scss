@@ -11,7 +11,6 @@ $_card-padding-normal: jkl.$spacing-l;
     position: relative;
     overflow: hidden;
     display: block;
-    border: none;
     max-width: 60ch; // TODO: find out if we want this
     background-color: $_card-bg-color;
     border-radius: $_card-corner-radius;
@@ -153,6 +152,11 @@ $_card-padding-normal: jkl.$spacing-l;
             outline: jkl.rem(2px) solid var(--jkl-color);
         }
     }
+
+    @include jkl.forced-colors-mode {
+        outline: revert;
+        border: rem(2px) solid LinkText;
+    }
 }
 
 @include jkl.light-mode-variables {
@@ -205,6 +209,10 @@ $_card-padding-normal: jkl.$spacing-l;
     &--with-shadow {
         box-shadow: var(--task-card-shadow);
     }
+
+    @include jkl.forced-colors-mode {
+        border: rem(2px) solid CanvasText;
+    }
 }
 
 .jkl-info-card {
@@ -221,5 +229,9 @@ $_card-padding-normal: jkl.$spacing-l;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    @include jkl.forced-colors-mode {
+        border: rem(2px) solid CanvasText;
     }
 }

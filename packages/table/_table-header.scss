@@ -4,8 +4,8 @@
     @include jkl.text-style("body");
     text-align: left;
     white-space: nowrap;
-    padding-left: jkl.$spacing-2xs;
-    padding-right: jkl.$spacing-2xs;
+    padding-left: jkl.$spacing-xs;
+    padding-right: jkl.$spacing-xs;
     padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
     position: sticky;
     top: 0;
@@ -27,8 +27,8 @@
     *[data-compactlayout] &,
     &--compact {
         @include jkl.text-style("small");
-        padding-left: jkl.$spacing-2xs;
-        padding-right: jkl.$spacing-2xs;
+        padding-left: jkl.$spacing-xs;
+        padding-right: jkl.$spacing-xs;
         padding-bottom: jkl.$spacing-2xs - jkl.rem(1px);
     }
 

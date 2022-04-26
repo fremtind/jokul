@@ -11,10 +11,10 @@ Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-d
 -   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
 -   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
 
-## [Kom i gang](https://jokul.fremtind.no/komigang/utvikling)
+## [Kom i gang](https://jokul.fremtind.no/kom-i-gang/)
 
 1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
-2. Installer avhengigheter og bygg pakkene med `yarn boot`
+2. Installer avhengigheter og bygg pakkene med `yarn boot` [^windows]
 3. Start portalen lokalt med `yarn dev` og åpne [localhost på port 8000](http://localhost:8000/)
 
 **NB!** Når du sjekker ut en ny branch bør du bygge på nytt for å hindre at gammel bygget kode blir med når du kjører opp eksempler eller portalen. Kommandoen `yarn reboot` sletter alle bygde filer, installerer avhengigheter, og bygger pakkene på nytt.
@@ -53,7 +53,7 @@ import "@fremtind/jkl-button/button.min.css";
 
 På [https://jokul.fremtind.no/](https://jokul.fremtind.no/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
 
-## Bidra
+## Endre Jøkul
 
 Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsninger. Det skal være enkelt og lett å vedlikeholde og de ferdige løsningene skal føles like, selv om de er spesifikke for ulike fagområder i Fremtind eller ulike kundebehov. All utvikling skjer åpent på GitHub. Det gjør at alle interesserte kan følge med, påvirke retningen vi går i og være med på å videreutvikle designsystemet.
 
@@ -61,7 +61,7 @@ Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsni
 
 Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
 
-Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/komigang/utvikling) vår.
+Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/guider/hvordan-endre-jokul) vår.
 
 ### Oppførsel
 
@@ -138,7 +138,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="https://github.com/karimarkhus"><img src="https://avatars.githubusercontent.com/u/91268511?v=4?s=100" width="100px;" alt=""/><br /><sub><b>karimarkhus</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Akarimarkhus" title="Bug reports">🐛</a> <a href="#design-karimarkhus" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/HavardPede"><img src="https://avatars.githubusercontent.com/u/30959515?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Håvard Pedersen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3AHavardPede" title="Bug reports">🐛</a> <a href="https://github.com/fremtind/jokul/commits?author=HavardPede" title="Code">💻</a> <a href="https://github.com/fremtind/jokul/pulls?q=is%3Apr+reviewed-by%3AHavardPede" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://oyvind.co"><img src="https://avatars.githubusercontent.com/u/4263132?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Øyvind Nordbø</b></sub></a><br /><a href="#design-onordbo" title="Design">🎨</a></td>
-    <td align="center"><a href="https://github.com/daa1"><img src="https://avatars.githubusercontent.com/u/353737?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David Aasterud</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Adaa1" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/daa1"><img src="https://avatars.githubusercontent.com/u/353737?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David Aasterud</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Adaa1" title="Bug reports">🐛</a> <a href="https://github.com/fremtind/jokul/commits?author=daa1" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -148,3 +148,5 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!
+
+[^windows]: På grunn av en bug i patch-package på Windows vil denne kommandoen feile. Enten må du sjekke ut repoet med _UNIX-style line endings_, eller så må du først gjøre `yarn install` (som vil feile på `postinstall`), så manuelt legge til [denne endringen](https://github.com/ds300/patch-package/pull/301/files) i `node_modules/patch-package/dist/patch/parse.js` på linje 53. Deretter kan du kjøre `yarn postinstall` igjen, og så `yarn build`.

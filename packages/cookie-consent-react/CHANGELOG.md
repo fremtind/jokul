@@ -3,55 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.1.28 (2022-04-08)
+
+### Bug Fixes
+
+-   bruk et pattern som funker med hydrering ([8fc9b35](https://github.com/fremtind/jokul/commit/8fc9b35876fe89c56aab2eb5d3f28765181af8bb))
+
 ## 5.1.0 (2021-12-03)
 
 ### Features
 
-- eksporter typer ([7f0e50e](https://github.com/fremtind/jokul/commit/7f0e50ef491fc0ad9c3234cc12d992ebc6c8bce2))
+-   eksporter typer ([7f0e50e](https://github.com/fremtind/jokul/commit/7f0e50ef491fc0ad9c3234cc12d992ebc6c8bce2))
 
 ## 5.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 4.0.0 (2021-07-09)
 
 ### Features
 
-- use new typographic scale ([4678e44](https://github.com/fremtind/jokul/commit/4678e4443e7009c5fcde2bfeb977d119aed6895f))
+-   use new typographic scale ([4678e44](https://github.com/fremtind/jokul/commit/4678e4443e7009c5fcde2bfeb977d119aed6895f))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 3.0.3 (2021-07-07)
 
 ### Bug Fixes
 
-- **cookie-consent:** upgrade react-hook-form syntax ([9dc4003](https://github.com/fremtind/jokul/commit/9dc40034c233af8024d6f5e1467cc88d5fb69428))
-- upgrade react-hook-form syntax in cookie-consent ([8c998fc](https://github.com/fremtind/jokul/commit/8c998fce89979fd4864b5b46b27b957adb4e0e2a))
+-   **cookie-consent:** upgrade react-hook-form syntax ([9dc4003](https://github.com/fremtind/jokul/commit/9dc40034c233af8024d6f5e1467cc88d5fb69428))
+-   upgrade react-hook-form syntax in cookie-consent ([8c998fc](https://github.com/fremtind/jokul/commit/8c998fce89979fd4864b5b46b27b957adb4e0e2a))
 
 ## 3.0.1 (2021-07-06)
 
 ### Bug Fixes
 
-- fix typo ([9895c82](https://github.com/fremtind/jokul/commit/9895c82e9383b3c2a24440727d920c9ab9408b96))
-- hurr durr sentence length ([fdd205d](https://github.com/fremtind/jokul/commit/fdd205d179a03765a37828a98b424ffff35f2742))
+-   fix typo ([9895c82](https://github.com/fremtind/jokul/commit/9895c82e9383b3c2a24440727d920c9ab9408b96))
+-   hurr durr sentence length ([fdd205d](https://github.com/fremtind/jokul/commit/fdd205d179a03765a37828a98b424ffff35f2742))
 
 ## 3.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 2.0.1 (2021-06-29)
 

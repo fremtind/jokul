@@ -16,7 +16,7 @@ describe("Accordion", () => {
 
         expect(screen.getByText("Hello")).toBeInTheDocument();
     });
-    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", () => {
+    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", async () => {
         render(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
@@ -25,9 +25,9 @@ describe("Accordion", () => {
             </Accordion>,
         );
 
-        act(() => {
+        await act(async () => {
             const button = screen.getByTestId("jkl-select__button");
-            userEvent.click(button);
+            await userEvent.click(button);
         });
 
         expect(screen.getByTestId("jkl-select__button")).toBeVisible();

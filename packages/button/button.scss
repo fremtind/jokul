@@ -54,13 +54,10 @@ a.jkl-button {
     cursor: pointer;
     user-select: none;
     overflow: visible;
+    position: relative;
 
     -moz-osx-font-smoothing: auto;
     -webkit-font-smoothing: auto;
-
-    border: none;
-    outline: none;
-    position: relative;
 
     @include jkl.motion;
     transform-origin: 50% 90%;
@@ -229,6 +226,10 @@ a.jkl-button {
             &::after {
                 box-shadow: 0 0 0 $_focus-ring-width var(--button-focus-color);
             }
+
+            @include jkl.forced-colors-mode {
+                border: revert;
+            }
         }
 
         &:hover,
@@ -248,6 +249,38 @@ a.jkl-button {
 
         &.jkl-button--tertiary {
             min-width: unset;
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        &.jkl-button--primary:not(a),
+        &.jkl-button--secondary:not(a),
+        &.jkl-button--primary:hover:not(a),
+        &.jkl-button--secondary:hover:not(a),
+        &.jkl-button--primary:focus:not(a),
+        &.jkl-button--secondary:focus:not(a) {
+            border-color: ButtonText;
+        }
+
+        & .jkl-loader__dot {
+            background-color: ButtonText;
+        }
+
+        &.jkl-button--secondary::after {
+            // Selve knappen har en border, men med to borders er secondary for lik primary uten farger.
+            // Gjør så secondary har _en_ border for å differensiere visuelt i forced-colors-modus.
+            border: none;
+        }
+
+        &.jkl-button--tertiary {
+            outline-offset: jkl.$spacing-3xs;
+        }
+
+        &.jkl-button--tertiary,
+        &.jkl-button--tertiary::after {
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
         }
     }
 }

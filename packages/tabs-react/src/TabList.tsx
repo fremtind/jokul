@@ -1,8 +1,8 @@
-import React, { ReactNode, useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import cx from "classnames";
+import { WithChildren } from "@fremtind/jkl-core";
 
-interface Props {
-    children: ReactNode;
+export interface TabListProps extends WithChildren {
     "aria-label": string;
     className?: string;
 }
@@ -19,9 +19,9 @@ interface InjectedProps {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const TabList = ({ children, ...injected }: Props) => {
+export const TabList = ({ children, ...injected }: TabListProps) => {
     // props injected by Tabs
-    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...props } = injected as Props & InjectedProps;
+    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...props } = injected as TabListProps & InjectedProps;
 
     const [tabsRect, setTabsRect] = useState<DOMRect>();
     const [activeRect, setActiveRect] = useState<DOMRect>();
@@ -29,9 +29,13 @@ export const TabList = ({ children, ...injected }: Props) => {
     const tabsRef = useRef<HTMLDivElement>(null);
     const activeRef = useRef<HTMLButtonElement>(null);
 
-    useLayoutEffect(() => {
-        setTabsRect(tabsRef.current?.getBoundingClientRect());
-        setActiveRect(activeRef.current?.getBoundingClientRect());
+    useEffect(() => {
+        if (tabsRef.current) {
+            setTabsRect(tabsRef.current.getBoundingClientRect());
+        }
+        if (activeRef.current) {
+            setActiveRect(activeRef.current.getBoundingClientRect());
+        }
     }, [activeIndex]);
 
     const keyDownHandler = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {

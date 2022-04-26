@@ -89,6 +89,16 @@ $autosuggest-item-font-size: jkl.rem(18px);
                 }
             }
         }
+
+        @include jkl.forced-colors-mode {
+            color: ButtonText;
+
+            & .jkl-icon,
+            & .jkl-icon path,
+            & .jkl-icon svg {
+                stroke: ButtonText;
+            }
+        }
     }
 
     &__menu {
@@ -121,6 +131,19 @@ $autosuggest-item-font-size: jkl.rem(18px);
 
         &--active {
             @include jkl.no-grow-bold;
+        }
+
+        @include jkl.forced-colors-mode {
+            border-top: 1px solid Canvas;
+            border-bottom: 1px solid Canvas;
+
+            &--active,
+            &:hover,
+            &:focus {
+                @include jkl.no-grow-bold;
+                border-top: 1px solid Highlight;
+                border-bottom: 1px solid Highlight;
+            }
         }
     }
 }

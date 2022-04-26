@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-footer-react",
-    "version": "1.0.1",
+    "version": "1.0.5",
     "publishConfig": {
         "access": "public"
     },
@@ -27,22 +27,23 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-footer yarn build:watch",
-        "dev:js": "parcel documentation/index.html",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:server": "node ./dist/server.js",
+        "predev": "node ./esbuild.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.7",
-        "@fremtind/jkl-core": "^9.3.1",
-        "@fremtind/jkl-footer": "^1.0.1",
-        "@fremtind/jkl-formatters-util": "^2.0.4",
-        "@fremtind/jkl-logo-react": "^8.0.9"
+        "@babel/runtime": "^7.17.8",
+        "@fremtind/jkl-core": "^9.5.0",
+        "@fremtind/jkl-footer": "^1.0.4",
+        "@fremtind/jkl-formatters-util": "^2.0.7",
+        "@fremtind/jkl-logo-react": "^8.0.13"
     },
     "peerDependencies": {
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-dom": "^16.8.6 || ^17.0.0",
-        "react": "^16.8.6 || ^17.0.0",
-        "react-dom": "^16.8.6 || ^17.0.0"
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     },
     "repository": {
         "type": "git",

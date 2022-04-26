@@ -1,4 +1,4 @@
-import React, { useRef, VFC, useEffect } from "react";
+import React, { useRef, FC, useEffect } from "react";
 import type { ComponentDoc, PropItem } from "react-docgen-typescript";
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { DataTable } from "@fremtind/jkl-table-react";
@@ -10,7 +10,7 @@ interface PropsTableProps {
     props: PropItem[];
 }
 
-const PropsTable: VFC<PropsTableProps> = ({ props }) => {
+const PropsTable: FC<PropsTableProps> = ({ props }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -61,7 +61,7 @@ interface APIDocumentationProps {
     };
 }
 
-export const APIDocumentation: VFC<APIDocumentationProps> = ({ types }) => {
+export const APIDocumentation: FC<APIDocumentationProps> = ({ types }) => {
     return (
         <section className="jkl-spacing-3xl--bottom jkl-portal-paragraph">
             <h2 className="jkl-heading-1 jkl-spacing-3xl--top">React API</h2>

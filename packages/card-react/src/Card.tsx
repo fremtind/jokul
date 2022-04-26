@@ -1,4 +1,5 @@
-import React, { ReactNode, MouseEventHandler, FC } from "react";
+import React, { MouseEventHandler, FC } from "react";
+import { WithOptionalChildren } from "@fremtind/jkl-core";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import classNames from "classnames";
 
@@ -20,9 +21,8 @@ type Clickable = {
     onClick?: MouseEventHandler<HTMLAnchorElement>;
 };
 
-interface Props {
+interface Props extends WithOptionalChildren {
     title?: string;
-    children?: ReactNode;
     className?: string;
     media?: Media;
     action?: Action;

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@6.0.9...@fremtind/jkl-radio-button@6.0.10) (2022-04-19)
+
+### Bug Fixes
+
+-   radio-button i forced-colors ([fffd916](https://github.com/fremtind/jokul/commit/fffd91606ca7e17831973d60d3abb76b69aa984c))
+-   select i forced-colors ([66a6d37](https://github.com/fremtind/jokul/commit/66a6d37a827fbcd49be02cea543a196117066014))
+
 # 6.0.0 (2022-02-07)
 
 ### Bug Fixes

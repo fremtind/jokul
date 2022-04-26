@@ -53,8 +53,6 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
     const setChoiceValue = (key: string, value: string) =>
         setChoiceValues((oldValues) => ({ ...oldValues, [key]: value }));
 
-    const toggleCodeText = (e: Event, expanded: boolean) => setShowCodeText(expanded ? "Skjul kode" : "Vis kode");
-
     const example = useMemo(() => {
         const C = component;
         return <C boolValues={boolValues} choiceValues={choiceValues} />;
@@ -142,9 +140,15 @@ export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent",
                 </aside>
             </section>
             {codeExample && (
-                <ExpandSection className="jkl-spacing-m--top" title={showCodeText} onToggle={toggleCodeText}>
+                <ExpandSection
+                    className="jkl-spacing-m--top"
+                    title={showCodeText}
+                    onClick={(e, expanded) => setShowCodeText(expanded ? "Skjul kode" : "Vis kode")}
+                >
                     <CodeBlock language="tsx">
-                        {typeof codeExample === "string" ? codeExample : codeExample({ boolValues, choiceValues })}
+                        {typeof codeExample === "string"
+                            ? codeExample.trim()
+                            : codeExample({ boolValues, choiceValues }).trim()}
                     </CodeBlock>
                 </ExpandSection>
             )}

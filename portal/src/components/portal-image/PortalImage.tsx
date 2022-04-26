@@ -11,9 +11,25 @@ interface Props extends ImgHTMLAttributes<HTMLImageElement> {
     noMargin?: boolean;
     fullWidth?: boolean;
     caption?: JSX.Element;
+    disableFullscreen?: boolean;
 }
 
-export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, fullWidth = false, caption }) => {
+/**
+ * Brukes for å embedde bilder fra MDX. Lider av ytelsesproblemer,
+ * men de kan ikke kommes rundt så lenge innholdet er MDX i stedet
+ * for TSX.
+ *
+ * @see https://www.gatsbyjs.com/blog/mdx-embedded-gatsby-image/
+ */
+export const PortalImage: FC<Props> = ({
+    className,
+    src,
+    alt,
+    noMargin = false,
+    fullWidth = false,
+    caption,
+    disableFullscreen,
+}) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
@@ -40,9 +56,11 @@ export const PortalImage: FC<Props> = ({ className, src, alt, noMargin = false, 
                         "jkl-portal-image__content--fullscreen": isFullscreen,
                         "jkl-portal-paragraph": !fullWidth && !isFullscreen,
                     })}
+                    disabled={disableFullscreen}
+                    role={disableFullscreen ? "none presentation" : undefined}
                 >
                     <AnimatedImage src={src} alt={alt} />
-                    {!isFullscreen && !noMargin && (
+                    {!disableFullscreen && !isFullscreen && !noMargin && (
                         <p className="jkl jkl-small">
                             {caption && caption} Klikk for å se større{caption && "."}
                         </p>

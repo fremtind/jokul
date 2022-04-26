@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-feedback-react",
-    "version": "12.0.50",
+    "version": "12.0.54",
     "publishConfig": {
         "access": "public"
     },
@@ -28,28 +28,29 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:js": "parcel documentation/index.html",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-feedback yarn build:watch",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:server": "node ./dist/server.js",
+        "predev": "node ./esbuild.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.7",
-        "@fremtind/jkl-button-react": "^10.1.4",
-        "@fremtind/jkl-checkbox-react": "^6.1.7",
-        "@fremtind/jkl-core": "^9.3.1",
-        "@fremtind/jkl-feedback": "^9.0.8",
-        "@fremtind/jkl-message-box-react": "^6.3.7",
-        "@fremtind/jkl-radio-button-react": "^6.1.15",
-        "@fremtind/jkl-react-hooks": "^8.0.2",
-        "@fremtind/jkl-text-input-react": "^9.0.13",
-        "@fremtind/jkl-validators-util": "^2.3.2",
+        "@babel/runtime": "^7.17.8",
+        "@fremtind/jkl-button-react": "^10.1.8",
+        "@fremtind/jkl-checkbox-react": "^6.1.11",
+        "@fremtind/jkl-core": "^9.5.0",
+        "@fremtind/jkl-feedback": "^9.0.11",
+        "@fremtind/jkl-message-box-react": "^6.3.11",
+        "@fremtind/jkl-radio-button-react": "^6.1.19",
+        "@fremtind/jkl-react-hooks": "^8.2.1",
+        "@fremtind/jkl-text-input-react": "^9.0.17",
+        "@fremtind/jkl-validators-util": "^2.3.3",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-dom": "^16.8.6 || ^17.0.0",
-        "react": "^16.8.6 || ^17.0.0",
-        "react-dom": "^16.8.6 || ^17.0.0"
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     },
     "repository": {
         "type": "git",

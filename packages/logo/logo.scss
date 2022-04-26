@@ -14,6 +14,9 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
 .jkl-logo {
     color: var(--logo-color);
 
+    // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
+
     &__F {
         transform-origin: $jkl-logo-magic-origin--f;
 
@@ -66,6 +69,9 @@ $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin,
 
 .jkl-logo-stamp {
     color: var(--logo-stamp-color);
+
+    // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
 
     &--animated {
         .jkl-logo-stamp__text {

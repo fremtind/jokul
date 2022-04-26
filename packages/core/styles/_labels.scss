@@ -37,6 +37,8 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         height: $icon-width;
         margin-bottom: -#{jkl.rem(6px)};
         margin-right: -#{$icon-width};
+
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: Canvas);
     }
 
     &--compact {

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect, useReducer, FC } from "react";
 import { withPrefix } from "gatsby";
+import { WithChildren } from "@fremtind/jkl-core";
 
 type GatsbyLocation = Location & { state?: Record<string, string> };
 interface LocationContext {
@@ -7,7 +8,6 @@ interface LocationContext {
     currentSection: string;
     sectionHasChanged?: boolean;
     isFrontPage?: boolean;
-    isCypress?: boolean;
     setLocation: (location: GatsbyLocation) => void;
 }
 
@@ -26,7 +26,6 @@ interface LocationState {
     currentSection: string;
     isFrontPage: boolean;
     sectionHasChanged: boolean;
-    isCypress: boolean;
 }
 
 interface LocationAction {
@@ -54,7 +53,7 @@ const reducer = (state: LocationState, action: LocationAction): LocationState =>
     }
 };
 
-export const LocationContextProvider: FC = ({ children }) => {
+export const LocationContextProvider: FC<WithChildren> = ({ children }) => {
     const [gatsbyLocation, setLocation] = useState<GatsbyLocation>(window ? window.location : new Location());
 
     const initialState: LocationState = {
@@ -62,7 +61,6 @@ export const LocationContextProvider: FC = ({ children }) => {
         currentSection: "",
         isFrontPage: gatsbyLocation.pathname === "/",
         sectionHasChanged: true,
-        isCypress: gatsbyLocation.search === "?cypress",
     };
     const [locationState, dispatch] = useReducer(reducer, initialState);
 

@@ -75,4 +75,8 @@ $_container-width--compact: jkl.rem(320px);
         max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});
         padding: jkl.$spacing-l;
     }
+
+    @include jkl.forced-colors-mode {
+        border: 2px solid CanvasText;
+    }
 }

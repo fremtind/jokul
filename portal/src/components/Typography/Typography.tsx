@@ -1,14 +1,15 @@
 import React, { ReactElement } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
 import { ListItem as JklListItem } from "@fremtind/jkl-list-react";
 import { CodeBlock as FTCodeBlock } from "../../../../doc-utils/CodeBlock";
 
-export const PageTitle: React.FC = ({ children, ...rest }) => (
+export const PageTitle: React.FC<WithChildren> = ({ children, ...rest }) => (
     <h1 className="jkl-portal-page-title" {...rest}>
         {children}
     </h1>
 );
 
-export const HeadingLarge: React.FC = ({ children, ...rest }) => {
+export const HeadingLarge: React.FC<WithChildren> = ({ children, ...rest }) => {
     const id = typeof children === "string" ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-") : undefined;
     return (
         <h2 className="jkl-portal-heading-large" id={id} {...rest}>
@@ -17,7 +18,7 @@ export const HeadingLarge: React.FC = ({ children, ...rest }) => {
     );
 };
 
-export const HeadingMedium: React.FC = ({ children, ...rest }) => {
+export const HeadingMedium: React.FC<WithChildren> = ({ children, ...rest }) => {
     const id = typeof children === "string" ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-") : undefined;
     return (
         <h3 className="jkl-portal-heading-medium" id={id} {...rest}>
@@ -26,31 +27,31 @@ export const HeadingMedium: React.FC = ({ children, ...rest }) => {
     );
 };
 
-export const HeadingSmall: React.FC = ({ children, ...rest }) => (
+export const HeadingSmall: React.FC<WithChildren> = ({ children, ...rest }) => (
     <h4 className="jkl-portal-heading-small" {...rest}>
         {children}
     </h4>
 );
 
-export const HeadingXS: React.FC = ({ children, ...rest }) => (
+export const HeadingXS: React.FC<WithChildren> = ({ children, ...rest }) => (
     <h5 className="jkl-portal-heading-xs" {...rest}>
         {children}
     </h5>
 );
 
-export const ArticleLead: React.FC = ({ children, ...rest }) => (
-    <p className="jkl-portal-article-lead" {...rest}>
+export const Ingress: React.FC<WithChildren> = ({ children, ...rest }) => (
+    <p className="jkl-portal-ingress" {...rest}>
         {children}
     </p>
 );
 
-export const Paragraph: React.FC = ({ children, ...rest }) => (
+export const Paragraph: React.FC<{ className?: string } & WithChildren> = ({ children, ...rest }) => (
     <p className="jkl-portal-paragraph" {...rest}>
         {children}
     </p>
 );
 
-export const Blockquote: React.FC = ({ children, ...rest }) => {
+export const Blockquote: React.FC<WithChildren> = ({ children, ...rest }) => {
     const child: ReactElement = React.Children.only(children) as ReactElement;
 
     if (!child.props) {
@@ -68,10 +69,22 @@ export const Blockquote: React.FC = ({ children, ...rest }) => {
     );
 };
 
-export const InlineCode: React.FC = ({ children, ...rest }) => (
+export const InlineCode: React.FC<WithChildren> = ({ children, ...rest }) => (
     <code className="jkl-portal-inline-code" {...rest}>
         {children}
     </code>
+);
+
+export const Strong: React.FC<WithChildren> = ({ children, ...rest }) => (
+    <strong className="jkl-bold" {...rest}>
+        {children}
+    </strong>
+);
+
+export const KeyboardShortcut: React.FC<WithChildren> = ({ children, ...rest }) => (
+    <kbd className="jkl-portal-kbd" {...rest}>
+        {children}
+    </kbd>
 );
 
 interface CodeBlockProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement> {
@@ -89,6 +102,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children, language, ...res
     return <FTCodeBlock language={displayLanguage}>{child.props.children}</FTCodeBlock>;
 };
 
-export const ListItem: React.FC = ({ children }) => (
+export const ListItem: React.FC<WithChildren> = ({ children }) => (
     <JklListItem className="jkl-portal-list-item">{children}</JklListItem>
 );

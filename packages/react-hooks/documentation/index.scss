@@ -16,10 +16,14 @@
 
 .jkl-intersection-example--visible {
     background-color: jkl.$color-stein;
+
+    @include jkl.forced-colors-mode {
+        background-color: Highlight;
+    }
 }
 
-.jkl-intersection-example--not-visible {
-    background-color: jkl.$color-varde;
+.jlk-intersection-example--not-visible {
+    background-color: Canvas;
 }
 
 .focus-outside-example {

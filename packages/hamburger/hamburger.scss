@@ -17,8 +17,6 @@ $_hamburger-line-spacing: jkl.rem(-8px);
 
 .jkl-hamburger {
     @include jkl.reset-outline;
-    border: none;
-    outline: none;
     cursor: pointer;
     background-color: transparent;
     height: $_bounding-touch-size;
@@ -71,6 +69,10 @@ $_hamburger-line-spacing: jkl.rem(-8px);
         transition-property: background-color, transform, top, bottom;
 
         @include jkl.motion(standard, expressive);
+
+        @include jkl.forced-colors-mode {
+            background-color: ButtonText;
+        }
     }
 
     &:hover {

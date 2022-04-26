@@ -1,9 +1,9 @@
 import React, { useState, FC } from "react";
 import cn from "classnames";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { ScreenReaderOnly } from "@fremtind/jkl-core";
+import { ScreenReaderOnly, WithOptionalChildren } from "@fremtind/jkl-core";
 
-interface Props {
+interface Props extends WithOptionalChildren {
     labels: [string, string];
     onToggle: (value: string) => void;
     defaultValue?: string;

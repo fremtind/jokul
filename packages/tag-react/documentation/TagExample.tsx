@@ -2,7 +2,7 @@ import React, { VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../src";
 
-const TagExample: VFC<ExampleComponentProps> = () => {
+export const TagExample: VFC<ExampleComponentProps> = () => {
     return (
         <div>
             <Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Emne</Tag>
@@ -13,8 +13,6 @@ const TagExample: VFC<ExampleComponentProps> = () => {
         </div>
     );
 };
-
-export default TagExample;
 
 export const tagExampleCode = `
     <Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Emne</Tag>

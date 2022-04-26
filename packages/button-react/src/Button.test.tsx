@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { render, screen, fireEvent, act } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 import { axe } from "jest-axe";
-import userEvent from "@testing-library/user-event";
 
 const buttonVariants = [
     { name: "primary", component: PrimaryButton },
@@ -24,13 +24,15 @@ describe("Button", () => {
         });
     });
 
-    it("calls the onClick handler when clicked", () => {
+    it("calls the onClick handler when clicked", async () => {
         const clickHandler = jest.fn();
         render(<PrimaryButton onClick={clickHandler}>I am groot!</PrimaryButton>);
 
         const button = screen.getByText("I am groot!");
 
-        fireEvent.click(button);
+        await act(async () => {
+            await userEvent.click(button);
+        });
 
         expect(clickHandler).toHaveBeenCalled();
     });
@@ -89,8 +91,8 @@ describe("Button", () => {
         render(<MyComp onClick={x} />);
         const submitFormButtonElement = screen.getByText("Submit form"); // <- Get a reference to the dom element
 
-        act(() => {
-            userEvent.click(screen.getByText("Increment")); // <-- Triggering av state change will cause component to rerender. <PrimaryButton> should not be unmounted and remounted
+        await act(async () => {
+            await userEvent.click(screen.getByText("Increment")); // <-- Triggering av state change will cause component to rerender. <PrimaryButton> should not be unmounted and remounted
         });
 
         await act(async () => {

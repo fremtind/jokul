@@ -1,13 +1,14 @@
 import React, { useState, useMemo } from "react";
-import { withPrefix } from "gatsby";
+import { Link, withPrefix } from "gatsby";
 import { motion } from "framer-motion";
 import { useScreen, useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import { DelayText } from "../components/Delaytext";
-import { CardList, Card } from "../components/Card";
+import { CardList } from "../components/Card";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
 import "./style.scss";
 import "./index.scss";
+import { NavCard } from "@fremtind/jkl-card-react";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
@@ -19,7 +20,7 @@ const IndexPage: React.FC = () => {
         setPrincipleState(state);
     };
 
-    const { prefersColorScheme } = useBrowserPreferences();
+    const { prefersColorScheme, forcedColors } = useBrowserPreferences();
 
     const onLeave = (state: number) => {
         if (state === principleState) {
@@ -77,18 +78,25 @@ const IndexPage: React.FC = () => {
                             />
                         </div>
                         <CardList vertical>
-                            <Card heading="Universell utforming" link="/universell-utforming/guide">
-                                Få hjelp til å komme i gang med Universell utforming.
-                            </Card>
-                            <Card heading="For utviklere" link="/komigang/bygg">
-                                Her får du vite det mest grunnleggende før du setter i gang å bruke Jøkul.
-                            </Card>
-                            <Card heading="For designere" link="/komigang/design">
-                                Her får du vite det mest grunnleggende før du setter i gang å bruke Jøkul.
-                            </Card>
-                            <Card heading="Bidra" link="/komigang/prosessen">
-                                Hvordan du kan bidra til designsystemet.
-                            </Card>
+                            <NavCard
+                                title="Introduksjon"
+                                to="/kom-i-gang/introduksjon"
+                                component={Link}
+                                description="Start her om Jøkul er nytt for deg."
+                            />
+                            <NavCard
+                                title="For designere"
+                                to="/kom-i-gang/design"
+                                component={Link}
+                                description="Branching, Variants, Auto-Layout, breakpoints, praktiske plugins, “uskrevne regler” og
+                                mer."
+                            />
+                            <NavCard
+                                title="For utviklere"
+                                to="/kom-i-gang/utvikling"
+                                component={Link}
+                                description="Om pakker, steder å finne kodeeksempler og dokumentasjon, nyttige verktøy og mer."
+                            />
                         </CardList>
                     </div>
                 </section>
@@ -104,6 +112,7 @@ const IndexPage: React.FC = () => {
                                 minScale={minScale}
                                 maxScale={maxScale}
                                 colorScheme={prefersColorScheme}
+                                forcedColors={forcedColors}
                                 type="diamond"
                             />
                             <PrincipleDiamond
@@ -111,6 +120,7 @@ const IndexPage: React.FC = () => {
                                 minScale={minScale}
                                 maxScale={maxScale}
                                 colorScheme={prefersColorScheme}
+                                forcedColors={forcedColors}
                                 type="shadow"
                             />
                         </div>

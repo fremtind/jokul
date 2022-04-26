@@ -1,23 +1,26 @@
 @use "../../packages/core/jkl";
 
 @include jkl.light-mode-variables {
-    --code-block-bg-color: #{jkl.$color-hvit};
+    --code-block-border-color: #{jkl.$color-svaberg};
+    --code-block-bg-color: #{jkl.$color-sand};
     --code-block-focus-color: #{jkl.$color-granitt};
-    --language-tag-bg-color: #{jkl.$color-svart};
-    --language-tag-text-color: #{jkl.$color-snohvit};
+    --language-tag-bg-color: #{jkl.$color-varde};
+    --language-tag-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
+    --code-block-border-color: #{jkl.$color-stein};
     --code-block-bg-color: #{jkl.$color-svart};
     --code-block-focus-color: #{jkl.$color-snohvit};
-    --language-tag-bg-color: #{jkl.$color-stein};
-    --language-tag-text-color: #{jkl.$color-granitt};
+    --language-tag-bg-color: #{jkl.$color-fjellgra};
+    --language-tag-text-color: #{jkl.$color-snohvit};
 }
 
 .jkl-portal-code-block {
     position: relative;
     background-color: var(--code-block-bg-color);
     box-sizing: border-box;
+    border: 1px solid var(--code-block-border-color);
     border-radius: jkl.rem(2px);
     width: 100%;
     padding: jkl.$spacing-s;
@@ -30,13 +33,14 @@
         min-width: initial;
     }
 
-    &::before {
+    &[data-language]::before {
         position: absolute;
         top: 0;
         right: 0;
         padding: jkl.$spacing-xs;
         background-color: var(--language-tag-bg-color);
-        color: jkl.$color-snohvit;
+        color: var(--language-tag-text-color);
+        font-family: "Fremtind Grotesk", Calibri, Arial, sans-serif;
         @include jkl.text-style("small");
         text-transform: uppercase;
         content: attr(data-language);

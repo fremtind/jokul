@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "9.3.1",
+    "version": "9.5.0",
     "publishConfig": {
         "access": "public"
     },
@@ -37,8 +37,9 @@
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "gulp build:watch",
-        "dev:js": "parcel documentation/index.html",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:server": "node ./dist/server.js",
+        "predev": "node ./esbuild.mjs",
         "dev": "run-p dev:*"
     },
     "repository": {
@@ -49,13 +50,13 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.7",
+        "@babel/runtime": "^7.17.8",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
-        "@types/react": "^16.8.6 || ^17.0.0",
-        "@types/react-dom": "^16.8.6 || ^17.0.0",
-        "react": "^16.8.6 || ^17.0.0",
-        "react-dom": "^16.8.6 || ^17.0.0"
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     }
 }

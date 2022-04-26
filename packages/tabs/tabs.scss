@@ -30,6 +30,14 @@
         @include jkl.motion("standard", "lazy");
         transition-property: left, width;
         will-change: left, width;
+
+        @include jkl.forced-colors-mode {
+            background-color: Highlight;
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        border-color: GrayText;
     }
 }
 
