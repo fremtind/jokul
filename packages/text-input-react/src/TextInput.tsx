@@ -1,7 +1,7 @@
 import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler } from "react";
 import classNames from "classnames";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
+import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
@@ -13,8 +13,10 @@ export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>,
 
 export interface Props extends BaseProps {
     label: string;
+    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
     helpLabel?: string;
     errorLabel?: string;
+    /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     "data-testautoid"?: string;
     forceCompact?: boolean;
@@ -28,6 +30,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             id,
             className,
             label,
+            labelProps,
             helpLabel,
             errorLabel,
             variant,
@@ -54,7 +57,14 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
         );
         return (
             <div data-testid="jkl-text-input" className={componentClassName}>
-                <Label forceCompact={forceCompact} standAlone srOnly={inline} htmlFor={uid} variant={variant}>
+                <Label
+                    variant={variant}
+                    {...labelProps}
+                    srOnly={inline || labelProps?.srOnly}
+                    standAlone
+                    forceCompact={forceCompact}
+                    htmlFor={uid}
+                >
                     {label}
                 </Label>
                 <div className="jkl-text-input__input-wrapper">

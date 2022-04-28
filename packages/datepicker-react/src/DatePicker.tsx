@@ -1,4 +1,4 @@
-import { DataTestAutoId, Label, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
+import { DataTestAutoId, Label, LabelProps, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import {
     useAnimatedHeight,
@@ -35,6 +35,7 @@ type onKeyDownEventHandler = (date?: Date, e?: React.KeyboardEvent<HTMLInputElem
 interface Props extends DataTestAutoId {
     name?: string;
     label?: string;
+    labelProps?: Omit<LabelProps, "children" | "forceCompact">;
     monthLabel?: string;
     yearLabel?: string;
     placeholder?: string;
@@ -50,6 +51,7 @@ interface Props extends DataTestAutoId {
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
+    /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     forceCompact?: boolean;
     disableBeforeDate?: Date;
@@ -66,6 +68,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
         {
             name,
             label = "Velg dato",
+            labelProps,
             placeholder = "dd.mm.åååå",
             calendarButtonTitle,
             showCalendarLabel = calendarButtonTitle || "Åpne kalender",
@@ -198,7 +201,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>(
 
         return (
             <div className={componentClassName}>
-                <Label standAlone htmlFor={inputId} variant={variant} forceCompact={forceCompact}>
+                <Label standAlone variant={variant} {...labelProps} forceCompact={forceCompact} htmlFor={inputId}>
                     {label}
                 </Label>
                 <div className={inputWrapperClassName} ref={wrapperRef} data-testid="jkl-datepicker__input-wrapper">

@@ -9,6 +9,7 @@ export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
+    /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     forceCompact?: boolean;
 }
@@ -29,7 +30,7 @@ export const FieldGroup: FC<FieldGroupProps> = ({
     return (
         <fieldset className={componentClassName} data-testautoid={testAutoId} {...rest}>
             <legend className="jkl-field-group__legend">
-                <Label variant={variant} forceCompact={forceCompact} {...labelProps}>
+                <Label variant={variant} {...labelProps} forceCompact={forceCompact}>
                     {legend}
                 </Label>
             </legend>

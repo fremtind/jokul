@@ -112,6 +112,13 @@ describe("TextInput", () => {
             expect(component).toHaveClass("jkl-text-input--inline");
         });
     });
+
+    it("supports labels only for screen readers", () => {
+        render(<TextInput label="testing" labelProps={{ srOnly: true }} />);
+
+        const label = screen.getByText("testing");
+        expect(label).toHaveClass("jkl-label--sr-only");
+    });
 });
 
 describe("a11y", () => {

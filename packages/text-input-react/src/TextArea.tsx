@@ -1,7 +1,7 @@
 import React, { forwardRef, FocusEvent, useRef, useState, useEffect, RefObject } from "react";
 import cn from "classnames";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { Label, SupportLabel, LabelVariant } from "@fremtind/jkl-core";
+import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
 import { BaseProps } from "./BaseInputField";
 
 type Counter = {
@@ -28,8 +28,10 @@ export interface Props extends BaseProps {
     /** @deprecated Foretrekk counter-propen sin maxLength for å la brukerne fullføre en tankerekke før de redigerer seg innenfor maksgrensen */
     maxLength?: number;
     label: string;
+    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
     helpLabel?: string;
     errorLabel?: string;
+    /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     forceCompact?: boolean;
     /** Sett antall rader skjemafeltet ekspanderes til ved focus. Innholdet scroller om feltet fylles med mer innhold enn det er plass til. */
@@ -46,6 +48,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         id,
         variant,
         label,
+        labelProps,
         className,
         helpLabel,
         errorLabel,
@@ -126,7 +129,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
 
     return (
         <div data-testid="jkl-text-area" className={componentClassName}>
-            <Label standAlone htmlFor={uid} srOnly={inline} variant={variant} forceCompact={forceCompact}>
+            <Label
+                variant={variant}
+                {...labelProps}
+                standAlone
+                srOnly={inline || labelProps?.srOnly}
+                forceCompact={forceCompact}
+                htmlFor={uid}
+            >
                 {label}
             </Label>
             {!counter && (

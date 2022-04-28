@@ -1,3 +1,4 @@
+import { LabelProps } from "@fremtind/jkl-core";
 import { StateChangeOptions } from "downshift";
 import React, { ReactNode, useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest";
@@ -6,11 +7,13 @@ import { filter } from "./utils";
 export type CommonProps = (
     | {
           label: string;
+          labelProps?: Omit<LabelProps, "children" | "standAlone">;
           inputId?: null;
           labelId?: null;
       }
     | {
           label?: null;
+          labelProps?: null;
           inputId: string;
           labelId: string;
       }
