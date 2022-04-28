@@ -4,16 +4,18 @@ import { useId } from "@fremtind/jkl-react-hooks";
 import { useRadioGroupContext } from "./radioGroupContext";
 
 export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
-    label: ReactNode;
+    children?: ReactNode;
     value: string;
     /** Kan også settes på RadioButtonGroup, men settes på RadioButton f. eks. av react-hook-form */
     name?: string;
     /** Kan også settes på RadioButtonGroup, men settes på RadioButton f. eks. av react-hook-form */
     onChange?: ChangeEventHandler<HTMLInputElement>;
+    /** @deprecated Bruk children */
+    label?: ReactNode;
 }
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>((props, ref) => {
-    const { className, checked, label, value, ...rest } = props;
+    const { className, checked, children, label, value, ...rest } = props;
     const inputId = useId("jkl-radio-button");
 
     const { name, inline, invalid, forceCompact, value: selectedValue, onChange } = useRadioGroupContext();
@@ -45,7 +47,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>((props
             />
             <label data-testid="jkl-radio-button__label-tag" htmlFor={inputId} className="jkl-radio-button__label">
                 <span aria-hidden className="jkl-radio-button__dot" />
-                <span className="jkl-radio-button__text">{label}</span>
+                <span className="jkl-radio-button__text">{label || children}</span>
             </label>
         </div>
     );
