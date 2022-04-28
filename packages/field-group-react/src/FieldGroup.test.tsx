@@ -9,6 +9,12 @@ describe("FieldGroup", () => {
 
         expect(screen.getByText("Hello")).toBeInTheDocument;
     });
+    it("supports legend only for screen readers", () => {
+        render(<FieldGroup legend="Hello" labelProps={{ srOnly: true }}></FieldGroup>);
+
+        const label = screen.getByText("Hello");
+        expect(label).toHaveClass("jkl-label--sr-only");
+    });
     it("should render the correct help text", () => {
         render(<FieldGroup legend="Hello" helpLabel="Helpful text"></FieldGroup>);
 

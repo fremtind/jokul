@@ -1,9 +1,9 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
 
-export const RadioButtonInputRequiredExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const RadioButtonInputRequiredExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [selectedValue, setSelectedValue] = React.useState("");
     const variant = choiceValues && choiceValues["Variant"] ? (choiceValues["Variant"] as LabelVariant) : "medium";
 
@@ -17,8 +17,8 @@ export const RadioButtonInputRequiredExample: VFC<ExampleComponentProps> = ({ bo
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
         >
-            <RadioButton label="Ja" value="y" />
-            <RadioButton label="Nei" value="n" />
+            <RadioButton value="y">Ja</RadioButton>
+            <RadioButton value="n">Nei</RadioButton>
         </RadioButtonGroup>
     );
 };
@@ -33,7 +33,7 @@ export const radioButtonInputRequiredExampleCode = ({ boolValues, choiceValues }
     value={selectedValue}
     onChange={(e) => setSelectedValue(e.target.value)}
 >
-    <RadioButton label="Ja" value="y" />
-    <RadioButton label="Nei" value="n" />
+    <RadioButton value="y">Ja</RadioButton>
+    <RadioButton value="n">Nei</RadioButton>
 </RadioButtonGroup>
 `;

@@ -1,33 +1,29 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 
-import { Autosuggest } from "./Autosuggest";
+import { Autosuggest, AutosuggestProps } from "./Autosuggest";
 
-interface Props {
-    onChange?: (item: string) => void;
-    allItems?: string[];
-    maxNumberOfHits?: number;
-}
-
-const defaultProps = {
-    label: "Velg land",
-    onChange: () => null,
-    allItems: [
-        "Afghanistan",
-        "Aland Islands",
-        "Algeria",
-        "Australia",
-        "Austria",
-        "Bahrain",
-        "Bangladesh",
-        "Benin",
-        "Bermuda",
-        "Bhutan",
-    ],
-    value: "",
-};
-
-const renderMount = (props?: Props) => render(<Autosuggest {...defaultProps} {...props} />);
+const renderMount = (props?: Partial<AutosuggestProps>) =>
+    render(
+        <Autosuggest
+            label="Velg land"
+            onChange={() => null}
+            allItems={[
+                "Afghanistan",
+                "Aland Islands",
+                "Algeria",
+                "Australia",
+                "Austria",
+                "Bahrain",
+                "Bangladesh",
+                "Benin",
+                "Bermuda",
+                "Bhutan",
+            ]}
+            value=""
+            {...(props as unknown)}
+        />,
+    );
 
 describe("Autosuggest", () => {
     it("renders with menu closed by default", () => {
@@ -74,5 +70,12 @@ describe("Autosuggest", () => {
         expect(items[1]).toHaveTextContent("argentina");
         // 3. Starts with
         expect(items[2]).toHaveTextContent("Argentina the country");
+    });
+
+    it("supports labels only for screen readers", () => {
+        const { getByText } = renderMount({ labelProps: { srOnly: true } });
+
+        const label = getByText("Velg land");
+        expect(label).toHaveClass("jkl-label--sr-only");
     });
 });

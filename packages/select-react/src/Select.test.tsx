@@ -243,6 +243,13 @@ describe("Select", () => {
 
         expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("Item 2");
     });
+
+    it("supports labels only for screen readers", () => {
+        render(<Select name="count" items={["1", "2"]} label="test" labelProps={{ srOnly: true }} />);
+
+        const label = screen.getByText("test");
+        expect(label).toHaveClass("jkl-label--sr-only");
+    });
 });
 
 describe("Searchable select", () => {

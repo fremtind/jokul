@@ -16,6 +16,13 @@ describe("TextArea", () => {
         const component = screen.getByTestId("jkl-text-area");
         expect(component).toHaveClass("test-class");
     });
+
+    it("supports labels only for screen readers", () => {
+        render(<TextArea label="testing" labelProps={{ srOnly: true }} />);
+
+        const label = screen.getByText("testing");
+        expect(label).toHaveClass("jkl-label--sr-only");
+    });
 });
 
 describe("a11y", () => {
