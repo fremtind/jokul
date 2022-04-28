@@ -35,7 +35,9 @@ export const RadioButtonExample: VFC<ExampleComponentProps> = ({ boolValues, cho
             onChange={(e) => setSelectedValue(e.target.value)}
         >
             {choices.map((value) => (
-                <RadioButton key={value} label={value} value={value} />
+                <RadioButton key={value} value={value}>
+                    {value}
+                </RadioButton>
             ))}
         </RadioButtonGroup>
     );
@@ -57,7 +59,9 @@ export const radioButtonExampleCode = ({ boolValues, choiceValues }: ExampleComp
     onChange={(e) => setSelectedValue(e.target.value)}
 >
     {choices.map((value) => (
-        <RadioButton key={value} label={value} value={value} />
+        <RadioButton key={value} value={value}>
+            {value}
+        </RadioButton>
     ))}
 </RadioButtonGroup>
 `;

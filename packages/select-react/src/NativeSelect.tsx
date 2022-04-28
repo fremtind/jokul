@@ -1,6 +1,6 @@
 import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps } from "@fremtind/jkl-core";
 import cn from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 
@@ -8,11 +8,13 @@ export interface NativeSelectProps {
     id?: string;
     name?: string;
     label: string;
+    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
     items: Array<string | ValuePair>;
     className?: string;
     inline?: boolean;
     helpLabel?: string;
     errorLabel?: string;
+    /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     placeholder?: string;
     value?: string;
@@ -28,6 +30,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
         {
             id,
             label,
+            labelProps,
             items,
             className = "",
             inline = false,
@@ -53,7 +56,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     "jkl-select--invalid": !!errorLabel,
                 })}
             >
-                <Label standAlone htmlFor={uid} variant={variant} forceCompact={forceCompact}>
+                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} forceCompact={forceCompact}>
                     {label}
                 </Label>
                 <div className="jkl-select__outer-wrapper" style={{ width }}>

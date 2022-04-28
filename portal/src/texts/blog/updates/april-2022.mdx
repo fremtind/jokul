@@ -15,6 +15,7 @@ import { Link } from "gatsby";
     -   TextInput og TextArea er responsive igjen
     -   Ditto navigasjonskort
 -   Støtte for React 18 og server-side rendering
+-   Mulig å skjule _labels_ for alle skjemafelter visuelt
 
 Ellers pågår det en viktig diskusjon om [compact og mobil i Figma-skisser](https://github.com/fremtind/jokul/discussions/2843). Om du har vært frustrert med tingenes tilstand er **nå** tiden for å si ifra.
 
@@ -87,6 +88,14 @@ Sitter du inne med noen _hvordan kan jeg_-spørsmål som kunne trengt en guide? 
 React 18 ble [lansert 29. mars](https://reactjs.org/blog/2022/03/29/react-v18.html), og Jøkul ble ferdig migrert 8. april. I forbindelse med oppgraderingen, nå som Reacts egen `useId` er tilgjengelig i versjon 18, har Jøkul fått støtte for _server-side rendering_ og hydrering i klienten. Om du for eksempel vil bruke Jøkul i Remix skal det være mulig.
 
 Jøkul støtter fortsatt React 17. Om du skulle støte på noen problemer med å bruke Jøkul på versjon 17 så si ifra!
+
+## Skjule labels visuelt
+
+Nå er det mulig å gjøre så labels på skjemafelter bare dukker opp for skjermlesere. Alle skjemafelter har fått propen `labelProps`, som du kan bruke til å sette `labelProps.srOnly`.
+
+```tsx
+<TextInput label="Godt navn" labelProps={{ srOnly: true }} />
+```
 
 ## Diverse bugfikser
 

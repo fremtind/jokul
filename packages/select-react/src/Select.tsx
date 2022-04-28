@@ -9,7 +9,15 @@ import React, {
     useCallback,
     useMemo,
 } from "react";
-import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, DataTestAutoId } from "@fremtind/jkl-core";
+import {
+    Label,
+    LabelVariant,
+    SupportLabel,
+    ValuePair,
+    getValuePair,
+    DataTestAutoId,
+    LabelProps,
+} from "@fremtind/jkl-core";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import cn from "classnames";
@@ -38,6 +46,7 @@ export interface SelectProps extends DataTestAutoId {
     id?: string;
     name: string;
     label: string;
+    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
     items: Array<string | ValuePair>;
     /**
      * @default false
@@ -51,6 +60,7 @@ export interface SelectProps extends DataTestAutoId {
     value?: string;
     helpLabel?: string;
     errorLabel?: string;
+    /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     /**
      * @default false
@@ -71,6 +81,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             items,
             value,
             label,
+            labelProps,
             onChange,
             onBlur,
             onFocus,
@@ -274,11 +285,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 {...rest}
             >
                 <Label
-                    standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
-                    htmlFor={isSearchable ? searchInputId : undefined}
                     variant={variant}
+                    {...labelProps}
+                    standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
+                    htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
+                    srOnly={inline || labelProps?.srOnly}
                     forceCompact={forceCompact}
-                    srOnly={inline}
                 >
                     {label}
                 </Label>

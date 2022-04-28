@@ -509,6 +509,14 @@ describe("Datepicker", () => {
         const testAutoId = input.getAttribute("data-testautoid");
         expect(testAutoId).toEqual("jkl-datepicker__testautoid");
     });
+
+    it("supports label only for screen readers", () => {
+        const thePast = new Date(2019, 11, 24);
+        render(<DatePicker initialDate={thePast} label="Hello" labelProps={{ srOnly: true }} />);
+
+        const label = screen.getByText("Hello");
+        expect(label).toHaveClass("jkl-label--sr-only");
+    });
 });
 
 describe("after user types string", () => {
