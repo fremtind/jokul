@@ -28,7 +28,7 @@ const defaultOptions: FormatValutaOptions = {
  */
 export function formatValuta(input: string | number, options?: FormatValutaOptions) {
     const number = parseNumber(input);
-    if (!number) {
+    if (isNaN(number)) {
         return input.toString();
     }
 
