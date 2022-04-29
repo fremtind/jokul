@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@2.0.8...@fremtind/jkl-formatters-util@2.0.9) (2022-04-29)
+
+### Bug Fixes
+
+-   fiks en bug hvor verdi 0 fikk formatValuta til å feile ([e84802b](https://github.com/fremtind/jokul/commit/e84802b433bf5ca0c177ea98a9f08d4225c4bef8))
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@1.2.2...@fremtind/jkl-formatters-util@2.0.0) (2022-03-07)
 
 ### Features
