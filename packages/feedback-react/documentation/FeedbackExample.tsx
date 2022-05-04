@@ -63,6 +63,7 @@ export const FeedbackExample: VFC<ExampleComponentProps> = ({ boolValues, choice
             onSubmit={console.log}
             followup={followup}
             contactQuestion={contact}
+            maxLength={250}
         />
     );
 };
