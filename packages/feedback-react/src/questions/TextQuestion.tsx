@@ -11,6 +11,7 @@ export const TextQuestion: React.VFC<QuestionProps> = ({
     name,
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
     autoFocus = false,
+    maxLength,
 }) => {
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
@@ -57,6 +58,7 @@ export const TextQuestion: React.VFC<QuestionProps> = ({
             value={currentValue}
             onChange={handleChange}
             helpLabel={helpLabel}
+            maxLength={maxLength}
         />
     );
 };

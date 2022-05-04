@@ -32,9 +32,17 @@ interface Props {
 
     followup?: FollowupProps;
     contactQuestion?: ContactQuestionProps;
+    /** Begrenser tekstlengde i TextArea **/
+    maxLength?: number;
 }
 
-export const Feedback = ({ className, followup, contactQuestion, ...mainQuestionProps }: Props): ReactElement => {
+export const Feedback = ({
+    className,
+    followup,
+    contactQuestion,
+    maxLength,
+    ...mainQuestionProps
+}: Props): ReactElement => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
     const [followupStarted, setFollowupStarted] = useState(false);
     const [followupSubmitted, setFollowupSubmitted] = useState(false);
@@ -54,8 +62,8 @@ export const Feedback = ({ className, followup, contactQuestion, ...mainQuestion
                     setContactSubmitted,
                 }}
             >
-                {!followupStarted && <MainQuestion {...mainQuestionProps} />}
-                {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
+                {!followupStarted && <MainQuestion maxLength={maxLength} {...mainQuestionProps} />}
+                {feedbackSubmitted && !contactSubmitted && followup && <Followup maxLength={maxLength} {...followup} />}
                 {/* Show contact question after followup, or after feedback if no followup */}
                 {((!followup && feedbackSubmitted) || followupSubmitted) && contactQuestion && (
                     <ContactQuestion {...contactQuestion} />

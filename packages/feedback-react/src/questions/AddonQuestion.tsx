@@ -5,11 +5,13 @@ import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 
 interface Props {
     label: string;
+    maxLength?: number;
     helpLabel?: string;
 }
 
 export const AddonQuestion: React.VFC<Props> = ({
     label,
+    maxLength,
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
 }) => {
     const context = useMainQuestionContext();
@@ -42,6 +44,7 @@ export const AddonQuestion: React.VFC<Props> = ({
             helpLabel={helpLabel}
             value={message || ""}
             onChange={handleChange}
+            maxLength={maxLength}
         />
     );
 };

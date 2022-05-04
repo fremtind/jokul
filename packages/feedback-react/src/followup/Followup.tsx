@@ -14,7 +14,7 @@ const defaultSuccessMessage = {
 };
 
 interface Props {
-    /** Spørsmålet/ene som skal stilles. Kan være av typen radio, chackbox eller text */
+    /** Spørsmålet/ene som skal stilles. Kan være av typen radio, checkbox eller text */
     questions: FollowupQuestion[];
     /** Lar deg tilpasse meldingen som kommer når brukeren har svart på spørsmålene.  */
     successMessage?: {
@@ -22,9 +22,10 @@ interface Props {
         children: ReactNode;
     };
     onSubmit: (values: FeedbackAnswer[]) => void;
+    maxLength?: number;
 }
 
-export const Followup: VFC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit }) => {
+export const Followup: VFC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit, maxLength }) => {
     const [noThanks, setNoThanks] = useState(false);
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);
@@ -71,7 +72,7 @@ export const Followup: VFC<Props> = ({ questions, successMessage = defaultSucces
                         Steg {step.number + 1} av {questions.length}
                     </p>
                     {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-                    <QuestionComponent {...questions[step.number]} autoFocus />
+                    <QuestionComponent {...questions[step.number]} autoFocus maxLength={maxLength} />
                     <div className="jkl-spacing-xl--top" aria-live="off">
                         <Button type="submit">{step.isLast ? "Send inn" : "Neste"}</Button>
                         <TertiaryButton onClick={handleAbort} className="jkl-spacing-xl--left">

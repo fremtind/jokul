@@ -30,6 +30,7 @@ interface Props {
         children: ReactNode;
     };
     onSubmit: (value: FeedbackType) => void;
+    maxLength?: number;
 }
 
 export const MainQuestion: VFC<Props> = ({
@@ -39,6 +40,7 @@ export const MainQuestion: VFC<Props> = ({
     addOnQuestion,
     successMessage = defaultSuccessMessage,
     onSubmit,
+    maxLength,
 }) => {
     const mainQuestionState = useMainQuestion(onSubmit);
 
@@ -64,7 +66,7 @@ export const MainQuestion: VFC<Props> = ({
                             "jkl-feedback__submit-wrapper--hidden": currentValue === undefined,
                         })}
                     >
-                        {addOnQuestion && <AddonQuestion {...addOnQuestion} />}
+                        {addOnQuestion && <AddonQuestion maxLength={maxLength} {...addOnQuestion} />}
                         <div className="jkl-spacing-xl--top">
                             <PrimaryButton onClick={handleSubmit} className="jkl-spacing-xl--right">
                                 Send
