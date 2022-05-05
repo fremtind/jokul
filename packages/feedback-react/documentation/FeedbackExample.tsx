@@ -118,5 +118,6 @@ import { Feedback, PRESETS } from "@fremtind/jkl-feedback-react";
     }`
             : undefined
     }}
+    maxLength={250}
 />
 `;
