@@ -5,6 +5,7 @@ import { QuestionProps } from "../types";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { FeedbackAnswer } from "../types";
+import { useFeedbackContext } from "../feedbackContext";
 
 export const TextQuestion: React.VFC<QuestionProps> = ({
     label,
@@ -12,6 +13,7 @@ export const TextQuestion: React.VFC<QuestionProps> = ({
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
     autoFocus = false,
 }) => {
+    const { maxLength } = useFeedbackContext();
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
@@ -57,6 +59,7 @@ export const TextQuestion: React.VFC<QuestionProps> = ({
             value={currentValue}
             onChange={handleChange}
             helpLabel={helpLabel}
+            maxLength={maxLength}
         />
     );
 };
