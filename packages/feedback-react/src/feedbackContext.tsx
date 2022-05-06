@@ -6,6 +6,7 @@ interface FeedbackContext {
     followupStarted: boolean;
     followupSubmitted: boolean;
     contactSubmitted: boolean;
+    maxLength?: number;
     setFeedbackSubmitted: (state: boolean) => void;
     setFollowupStarted: (state: boolean) => void;
     setFollowupSubmitted: (state: boolean) => void;

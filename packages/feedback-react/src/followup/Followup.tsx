@@ -22,10 +22,9 @@ interface Props {
         children: ReactNode;
     };
     onSubmit: (values: FeedbackAnswer[]) => void;
-    maxLength?: number;
 }
 
-export const Followup: VFC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit, maxLength }) => {
+export const Followup: VFC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit }) => {
     const [noThanks, setNoThanks] = useState(false);
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);
@@ -72,7 +71,7 @@ export const Followup: VFC<Props> = ({ questions, successMessage = defaultSucces
                         Steg {step.number + 1} av {questions.length}
                     </p>
                     {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-                    <QuestionComponent {...questions[step.number]} autoFocus maxLength={maxLength} />
+                    <QuestionComponent {...questions[step.number]} autoFocus />
                     <div className="jkl-spacing-xl--top" aria-live="off">
                         <Button type="submit">{step.isLast ? "Send inn" : "Neste"}</Button>
                         <TertiaryButton onClick={handleAbort} className="jkl-spacing-xl--left">

@@ -95,5 +95,4 @@ export interface QuestionProps {
     helpLabel?: string;
     options?: FeedbackOption[];
     autoFocus?: boolean;
-    maxLength?: number;
 }

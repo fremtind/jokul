@@ -56,14 +56,15 @@ export const Feedback = ({
                     followupStarted,
                     followupSubmitted,
                     contactSubmitted,
+                    maxLength,
                     setFeedbackSubmitted,
                     setFollowupStarted,
                     setFollowupSubmitted,
                     setContactSubmitted,
                 }}
             >
-                {!followupStarted && <MainQuestion maxLength={maxLength} {...mainQuestionProps} />}
-                {feedbackSubmitted && !contactSubmitted && followup && <Followup maxLength={maxLength} {...followup} />}
+                {!followupStarted && <MainQuestion {...mainQuestionProps} />}
+                {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
                 {/* Show contact question after followup, or after feedback if no followup */}
                 {((!followup && feedbackSubmitted) || followupSubmitted) && contactQuestion && (
                     <ContactQuestion {...contactQuestion} />
