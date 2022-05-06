@@ -102,25 +102,20 @@ $_text-styles: (
     ),
 );
 
-///
 /// Gir deg responsive font-size, line-height og font-weight basert på navnet på typografien.
 /// Du kan overstyre standardverdier ved å bruke `@content`. Dette er ment som en "escape hatch".
 /// Ikke tukle med typografiskalaen med mindre du har en god grunn til det.
-///
 /// @content Plasseres alltid etter mixinen har satt sine verdier, slik at du kan velge å overstyre deler av dem.
-///
 /// @example
 ///     .class {
 ///         @include jkl.text-style("body");
 ///     }
-///
 /// @example
 ///     .bold {
 ///         @include jkl.text-style("body") {
 ///             font-weight: jkl.$typography-weight-bold;
 ///         }
 ///     }
-///
 @mixin text-style($style-name) {
     // Separate style/variant into style and variant variables:
     $start-index: string.index($style-name, "/") or 0;

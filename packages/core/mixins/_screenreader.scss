@@ -1,9 +1,6 @@
-///
 /// Improved screen reader only CSS class
-///
 /// @author Gaël Poupard
 /// @licence https://codepen.io/ffoodd/pen/gwKZyq/license
-///
 /// @note Based on Yahoo!'s technique
 /// @author Thierry Koblentz
 /// @see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
@@ -28,7 +25,6 @@
 /// @note Obviously you wanna hide something
 /// @author Harry Roberts
 /// @see https://csswizardry.com/2016/05/the-importance-of-important/
-///
 @mixin screenreader-only {
     border: 0 !important;
     clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
@@ -42,7 +38,6 @@
     white-space: nowrap !important; /* 3 */
 }
 
-///
 /// Use in conjunction with .sr-only to only display content when it's focused.
 /// @note Useful for skip links
 /// @see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
@@ -50,7 +45,6 @@
 /// @note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
 /// @author Sylvain Pigeard
 /// @see https://github.com/twbs/bootstrap/issues/20732
-///
 @mixin screenreader-only-focusable {
     &:focus,
     &:active {

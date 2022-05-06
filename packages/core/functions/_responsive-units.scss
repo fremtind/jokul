@@ -1,16 +1,11 @@
 @use "sass:math";
 @use "convert";
 
-///
 /// Kalkuler riktig rem-verdi basert på en gitt pixelverdi
-///
 /// @param {string} $px-size - Pixelverdi, helst med unit.
-///
 /// @return {string} - timingverdi til bruk i animasjoner
-///
 /// @example
 ///     jkl.rem(16px);
-///
 @function rem($px-size) {
     @if $px-size == 0 {
         @return 0;
@@ -20,17 +15,13 @@
     @return convert.to-number(#{$rem-size}rem);
 }
 
-///
 /// Calculate a responsive size value relative to a given screen size
 /// Will return a CSS rule that corresponds to the given pixel size at
 /// the given screen size and scales with changes in screen size
-///
 /// @param {Number} $px-size - Size to calculate from, in px without unit
 /// @param {Number} $screen-width - Screen width to calculate from, in px without unit, default 1400
 /// @param {Number} $screen-height - Screen height to calculate from, in px without unit, default 900
-///
 /// @return `$px-size` expressed as a responsive value
-///
 @function relative-size($px-size, $screen-width: 1400, $screen-height: 900) {
     $hor-size: math.div($px-size, $screen-width) * 100 * 1vw;
     $ver-size: math.div($px-size, $screen-height) * 100 * 1vh;
