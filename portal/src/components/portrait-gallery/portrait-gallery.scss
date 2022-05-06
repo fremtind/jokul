@@ -1,12 +1,11 @@
 @use "~@fremtind/jkl-core/jkl";
-@import "~@fremtind/jkl-core/functions";
 
 .jkl-portal-portrait-gallery {
     display: flex;
     flex-wrap: wrap;
     column-gap: jkl.$spacing-m;
     row-gap: jkl.$spacing-l;
-    max-width: rem(750px);
+    max-width: jkl.rem(750px);
 
     margin-top: jkl.$spacing-l;
     margin-bottom: jkl.$spacing-xl;

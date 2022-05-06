@@ -1,15 +1,12 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/functions";
-
 .jkl-portal-image {
     margin-top: jkl.$spacing-xl;
     margin-bottom: jkl.$spacing-xl;
     width: 100%;
 
     &__content {
-        @include reset-outline;
+        @include jkl.reset-outline;
 
         background-color: transparent;
         padding: 0;
@@ -19,7 +16,7 @@
         }
 
         &:focus {
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 box-shadow: 0 0 0 2px jkl.$color-granitt;
             }
         }
@@ -38,7 +35,7 @@
             z-index: jkl.$z-index--modal;
 
             &:focus {
-                @include keyboard-navigation {
+                @include jkl.keyboard-navigation {
                     box-shadow: none;
                 }
             }
@@ -51,7 +48,7 @@
     }
 
     &__img {
-        max-width: rem(750px);
+        max-width: jkl.rem(750px);
     }
 
     &__content--fullscreen .jkl-portal-image__img {
