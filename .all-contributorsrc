@@ -464,6 +464,15 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "matssom",
+      "name": "Mats Sommervold",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26466585?v=4",
+      "profile": "https://matssom.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
