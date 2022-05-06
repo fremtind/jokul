@@ -1,34 +1,46 @@
 ---
 title: Hvordan skrive React i Jøkul
 path: /guider/react
-order: 2
+order: 21
 ---
 
 # Stilguide for React
 
-Lurer du på hvordan du skal begynne med React-kode i Jøkul?
+<Ingress>Lurer du på hvordan du skal begynne med React-kode i Jøkul?</Ingress>
 
-## Komponenter
+## Funksjonelle komponenter
 
 Vi skriver funksjonelle komponenter med [hooks](https://reactjs.org/docs/hooks-intro.html), ikke _class components_. Hver komponent skrives som regel i sin egen fil, med noen få unntak.
 
-Når man lager komplekse komponenter vil man måtte vurdere om det er riktig med én komponent som tar inn mange props, eller om man skal bryte opp i flere komponenter. Det vil variere fra gang til gang hva som gir mening. Som regel vil det å bryte opp i flere komponenter gi en _større fleksibilitet_, men det gjør også at komponenten får _mindre kontroll_. Det er for eksempel enklere for en skjemakomponent å sørge for at en utvikler gir en `label` dersom dette er en _prop_, i stedet for at vi har en egen `<Label>`-komponent som kanskje eller kanskje ikke blir brukt. Med et moderne uvtiklingsverktøy vil _props_ ofte dukke opp i editoren til utviklere og hjelpe med å oppdage og bruke features i komponenten. Hverken verktøy eller utviklere kan bruke komponenter de ikke vet finnes.
+### Props eller _composite components_?
 
-I pakker hvor vi har _flere komponenter_ som jobber sammen, for eksempel i [packages/table](https://github.com/fremtind/jokul/tree/main/packages/table), kan det skje at en _parent component_ ønsker å sette props på noen av sine _children_. I disse tilfellene skal det brukes [Context](https://reactjs.org/docs/context.html). Det skal _ikke_ finnes props i en komponent sin typedefinisjon som settes automatisk av en annen komponent over den i komponenttreet. Dette er for å unngå forvirring hvor en utvikler setter en sånn prop til noe i sin kode, men opplever at den overskrives av Jøkul.
+Når man lager komplekse komponenter vil man måtte vurdere om det er riktig med én komponent som tar inn mange props, eller om man skal bryte opp i flere komponenter.
 
-Alle komponenter skal eksporteres fra pakkens `main`, typisk `index.ts` på rotnivå i pakken.
+Det vil variere fra gang til gang hva som gir mening. Som regel vil det å bryte opp i flere komponenter gi en _større fleksibilitet_, men det gjør også at komponenten får _mindre kontroll_.
 
-```ts
-export { DataTable } from "./DataTable";
-export { Table } from "./Table";
-/* Og så videre */
-```
+Hvis du er usikker, foretrekk én komponent med props.
 
-## Typedefinisjoner
+#### Kontroll versus fleksibilitet
+
+Det er for eksempel enklere for en skjemakomponent å sørge for at en utvikler gir en `label` dersom dette er en _prop_, i stedet for at vi har en egen `<Label>`-komponent som kanskje eller kanskje ikke blir brukt.
+
+#### Props enklere å oppdage
+
+Med et moderne uvtiklingsverktøy vil _props_ ofte dukke opp i editoren til utviklere og hjelpe med å oppdage og bruke features i komponenten. Hverken verktøy eller utviklere kan bruke komponenter de ikke vet finnes.
+
+### Context over drilling
+
+I pakker hvor vi har flere komponenter som jobber sammen, for eksempel i [packages/table](https://github.com/fremtind/jokul/tree/main/packages/table), kan det skje at en _parent component_ ønsker å sette props på noen av sine _children_. I disse tilfellene skal det brukes [Context](https://reactjs.org/docs/context.html).
+
+Det **skal ikke** finnes props i en komponent sin typedefinisjon som settes automatisk av en annen komponent over den i komponenttreet. Dette er for å unngå forvirring hvor en utvikler setter en sånn prop til noe i sin kode, men opplever at den overskrives av Jøkul.
+
+### Typedefinisjoner
 
 I Jøkul bruker vi TypeScript for å kode komponenter og støtteverktøy. Alle komponenter og funksjoner skal være typet.
 
-Komponenter sine props skal være definert som et `interface`. Interfacenavnet er etter mønsteret `KomponentnavnProps`. Interfacet skal eksporteres, så det er tilgjengelig for brukerne av komponenten. Ofte lager prosjekter små wrappere rundt komponenter, og dette blir enklere om de kan arve fra Jøkuls typer. Eventuelle egne typer skal også eksporteres. Alle typer starter med stor forbokstav.
+Komponenter sine props skal være definert som et `interface`. Interfacenavnet er etter mønsteret `KomponentnavnProps`.
+
+Interfacet skal eksporteres, så det er tilgjengelig for brukerne av komponenten. Eventuelle egne typer skal også eksporteres. Alle typer starter med stor forbokstav.
 
 ```tsx
 export type LoaderVariant = "small" | "medium" | "large";
@@ -47,11 +59,15 @@ export const Loader = (props: LoaderProps): JSX.Element  => (
 );
 ```
 
-Alle typer skal eksporteres fra pakkens `main`, typisk `index.ts` på rotnivå i pakken.
+### Eksporter fra pakkens index
+
+Alle komponenter og typer skal eksporteres fra pakkens `main`, typisk `index.ts` på rotnivå i pakken.
 
 ```ts
 export type { DataTableProps } from "./DataTable";
+export { DataTable } from "./DataTable";
 export type { TableProps } from "./Table";
+export { Table } from "./Table";
 /* Og så videre */
 ```
 
