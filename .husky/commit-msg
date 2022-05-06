@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn commitlint --edit $1
+# TODO: Fix this for commit msg later (added in FD-2)
+# yarn commitlint --edit $1

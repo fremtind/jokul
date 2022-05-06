@@ -55,17 +55,17 @@ const main = async () => {
 
         copyAndReplace(
             path.resolve(__dirname, "templates", "component"),
-            path.resolve(process.cwd(), "packages", componentName),
+            path.resolve(process.cwd(), "packages", `${componentName}-fr`),
         );
 
         copyAndReplace(
             path.resolve(__dirname, "templates", "component-react"),
-            path.resolve(process.cwd(), "packages", `${componentName}-react`),
+            path.resolve(process.cwd(), "packages", `${componentName}-react-fr`),
         );
 
         spawnSync("yarn", ["install"], { stdio: "inherit" });
 
-        spawnSync("yarn", ["lerna", "run", "--scope", `@fremtind/jkl-${componentName}`, "build"], { stdio: "inherit" });
+        spawnSync("yarn", ["lerna", "run", "--scope", `@forbrukerradet/fr-${componentName}`, "build"], { stdio: "inherit" });
     } catch (error) {
         console.error(error);
         process.exit(1);
