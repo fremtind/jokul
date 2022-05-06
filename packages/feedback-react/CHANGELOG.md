@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@12.0.56...@fremtind/jkl-feedback-react@12.1.0) (2022-05-06)
+
+### Features
+
+-   add maxLength to Feedback component ([7cb24fb](https://github.com/fremtind/jokul/commit/7cb24fbaf59e5cf2ee0c8e41e7161a7ae364f548)), closes [#2861](https://github.com/fremtind/jokul/issues/2861)
+
 ## 12.0.41 (2022-03-01)
 
 ### Bug Fixes
