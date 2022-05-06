@@ -14,6 +14,7 @@ import fremtindThemeDark from "./fremtindThemeDark";
 import "./CodeBlock.scss";
 
 export interface CodeBlockProps extends WithChildren {
+    children: string | string[];
     language?: string;
 }
 
