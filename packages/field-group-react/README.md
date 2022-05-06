@@ -1,4 +1,4 @@
-# [`@fremtind/field-group-react`](https://jokul.fremtind.no/komponenter/fieldgroup)
+# [`@fremtind/jkl-field-group-react`](https://jokul.fremtind.no/komponenter/fieldgroup)
 
 ## Beskrivelse
 
