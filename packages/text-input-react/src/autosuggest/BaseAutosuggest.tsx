@@ -1,7 +1,7 @@
 import React from "react";
 import Downshift, { DownshiftProps } from "downshift";
 import cn from "classnames";
-import { SupportLabel } from "@fremtind/jkl-core";
+import { Label, SupportLabel } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
@@ -20,6 +20,7 @@ type BaseAutosuggestProps<T> = CommonProps & {
 function BaseAutosuggest<T>({
     className = "",
     label,
+    labelProps,
     inputId,
     labelId,
     leadText,
@@ -65,14 +66,16 @@ function BaseAutosuggest<T>({
                 return (
                     <div className={`jkl-autosuggest ${className}`}>
                         {label && (
-                            <label
+                            <Label
+                                variant={variant}
+                                {...labelProps}
                                 {...getLabelProps({
                                     id: lid,
-                                    className: `jkl-label jkl-label--${variant}`,
                                 })}
+                                standAlone
                             >
                                 {label}
-                            </label>
+                            </Label>
                         )}
                         {leadText && <p className="jkl-body jkl-spacing-l--bottom">{leadText}</p>}
                         <div

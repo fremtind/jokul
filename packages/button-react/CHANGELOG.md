@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.1.10 (2022-05-06)
+
+### Bug Fixes
+
+-   children is no longer optional ([8684f8a](https://github.com/fremtind/jokul/commit/8684f8a76b9eb0125be0501b8db75e4653b4ac45))
+
 # [10.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@10.0.4...@fremtind/jkl-button-react@10.1.0) (2022-03-07)
 
 ### Bug Fixes

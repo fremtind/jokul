@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 6.2.0 (2022-04-28)
+
+### Features
+
+-   bruk children som label i RadioButton ([4841a25](https://github.com/fremtind/jokul/commit/4841a2564afb84b80b9ce88e231379868b742227))
+
 ## 6.1.5 (2022-02-02)
 
 ### Bug Fixes

@@ -234,7 +234,7 @@ describe("Datepicker", () => {
     });
 
     it("should should move focus to calendar button when opening datepicker with button", async () => {
-        jest.useFakeTimers("modern").setSystemTime(new Date(2019, 9, 20));
+        jest.useFakeTimers().setSystemTime(new Date(2019, 9, 20));
 
         render(<DatePicker label="Some datepicker" />);
         const openCalendarButtonElement = screen.getByText("Åpne kalender");
@@ -340,7 +340,7 @@ describe("Datepicker", () => {
     });
 
     it("should call onChange once when selecting a date in the date picker", async () => {
-        jest.useFakeTimers("modern").setSystemTime(new Date(2019, 9, 20));
+        jest.useFakeTimers().setSystemTime(new Date(2019, 9, 20));
 
         const onChangeFn = jest.fn();
         render(<DatePicker onChange={onChangeFn} />);
@@ -466,7 +466,7 @@ describe("Datepicker", () => {
 
     it("should not call onBlur when focus changes inside the component and be called once when focus leaves component", async () => {
         const onBlur = jest.fn();
-        jest.useFakeTimers("modern").setSystemTime(new Date(2019, 9, 20));
+        jest.useFakeTimers().setSystemTime(new Date(2019, 9, 20));
 
         render(
             <div>
@@ -508,6 +508,14 @@ describe("Datepicker", () => {
         const input = screen.getByTestId("jkl-datepicker__input");
         const testAutoId = input.getAttribute("data-testautoid");
         expect(testAutoId).toEqual("jkl-datepicker__testautoid");
+    });
+
+    it("supports label only for screen readers", () => {
+        const thePast = new Date(2019, 11, 24);
+        render(<DatePicker initialDate={thePast} label="Hello" labelProps={{ srOnly: true }} />);
+
+        const label = screen.getByText("Hello");
+        expect(label).toHaveClass("jkl-label--sr-only");
     });
 });
 

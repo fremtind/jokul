@@ -47,6 +47,13 @@ describe("NativeSelect", () => {
 
         expect(screen.getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
     });
+
+    it("supports labels only for screen readers", () => {
+        render(<NativeSelect name="count" items={["1", "2"]} label="test" labelProps={{ srOnly: true }} />);
+
+        const label = screen.getByText("test");
+        expect(label).toHaveClass("jkl-label--sr-only");
+    });
 });
 
 describe("a11y", () => {

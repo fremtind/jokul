@@ -9,8 +9,8 @@ describe("RadioButtons", () => {
     it("renders a legend with the correct value", () => {
         render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy">
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         expect(screen.getByText("Er du fornøyd?")).toBeInTheDocument();
@@ -19,8 +19,8 @@ describe("RadioButtons", () => {
     it("renders radio buttons for each choice", () => {
         render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy">
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         expect(screen.getByLabelText("Ja")).toBeInTheDocument();
@@ -31,8 +31,8 @@ describe("RadioButtons", () => {
         const onChange = jest.fn();
         render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy" value="n" onChange={onChange}>
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         expect(screen.getByLabelText("Nei")).toHaveAttribute("checked");
@@ -41,8 +41,8 @@ describe("RadioButtons", () => {
     it("does not preselect a value if empty", () => {
         render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy">
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         expect(screen.getByLabelText("Ja")).not.toHaveAttribute("checked");
@@ -56,8 +56,8 @@ describe("RadioButtons", () => {
         }) as ChangeEventHandler<HTMLInputElement>);
         render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy" value={value} onChange={onChange}>
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         await act(async () => {
@@ -75,8 +75,8 @@ describe("RadioButtons", () => {
                 data-testid="jkl-radio-button-group"
                 data-testautoid="jkl-radio-button-group__testautoid"
             >
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         const component = await screen.findByTestId("jkl-radio-button-group");
@@ -88,8 +88,8 @@ describe("a11y", () => {
     test("radio buttons should be a11y compliant", async () => {
         const { container } = render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy">
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         const results = await axe(container);
@@ -99,8 +99,8 @@ describe("a11y", () => {
     test("inline radio buttons should be a11y compliant", async () => {
         const { container } = render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy" inline>
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         const results = await axe(container);
@@ -111,8 +111,8 @@ describe("a11y", () => {
     test("compact radio buttons should be a11y compliant", async () => {
         const { container } = render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy" forceCompact>
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         const results = await axe(container);
@@ -130,8 +130,8 @@ describe("a11y", () => {
                 value="n"
                 onChange={onChange}
             >
-                <RadioButton label="Ja" value="y" />
-                <RadioButton label="Nei" value="n" />
+                <RadioButton value="y">Ja</RadioButton>
+                <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
         );
         const results = await axe(container);
