@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     forceCompact?: boolean;
@@ -8,6 +8,7 @@ export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, 
         textDescription: string;
     };
     arrow?: "left" | "right";
+    children: ReactNode;
 }
 
 export type ValidButtons = "primary" | "secondary" | "tertiary";
