@@ -1,4 +1,3 @@
-/* eslint-disable */
 module.exports = {
     coverageDirectory: "coverage",
     coverageReporters: ["text", "clover"],
@@ -12,14 +11,18 @@ module.exports = {
     },
 
     moduleFileExtensions: ["ts", "tsx", "js"],
-    roots: ["../packages", "../portal"],
+    moduleNameMapper: {
+        "^nanoid$": require.resolve("nanoid"),
+    },
+    roots: ["./packages", "./portal"],
     testEnvironment: "jsdom",
 
     // Transpile patched NRK components
     // TODO: Remove when using unpatched versions again
     // see https://github.com/fremtind/jokul/issues/1215
-    transformIgnorePatterns: [
-        "node_modules/(?!(@nrk/core-datepicker)/)"
-    ]
+    transformIgnorePatterns: ["node_modules/(?!(@nrk/core-datepicker)/)"],
+
+    testMatch: ["**/*.test.+(ts|tsx|js)"],
+    setupFilesAfterEnv: ["./jest/setupTests.ts"],
+    watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
 };
-/* eslint-enable */
