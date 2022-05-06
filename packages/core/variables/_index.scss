@@ -1,5 +1,5 @@
 @forward "breakpoints";
-@forward "colors" as color-* hide $varslingsfarger, varslingsfarge;
+@forward "colors" as color-* hide varslingsfarge;
 @forward "shadow";
 @forward "shadows" as shadow-*;
 @forward "spacing" hide $spacing;

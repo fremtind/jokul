@@ -1,44 +1,90 @@
 @use "sass:map";
 
 // Hovedfarger
+
+/// @type Color
 $svart: #000;
+
+/// @type Color
 $granitt: #1b1917;
+
+/// @type Color
 $skifer: #313030;
+
+/// @type Color
 $fjellgra: #444141;
+
+/// @type Color
 $stein: #636060;
+
+/// @type Color
 $svaberg: #c8c5c3;
+
+/// @type Color
 $varde: #e0dbd4;
+
+/// @type Color
 $dis: #ece9e5;
+
+/// @type Color
 $sand: #f4f2ef;
+
+/// @type Color
 $snohvit: #f9f9f9;
+
+/// @type Color
 $hvit: #fff;
 
+// Gamle varslingsfarger/meldingsfarger
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $suksess: #287e68;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $info: #000afa;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $advarsel: #fbb15b;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $feil: #aa1f23;
 
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $suksess--darkbg: #5effa0;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $info--darkbg: #00faff;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $advarsel--darkbg: #fec97b;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $feil--darkbg: #ff8b79;
 
 // Farger knyttet til bruksområde
+
+/// @type Color
 $error-color: $feil;
+
+/// @type Color
 $focus-color: $granitt;
+
+/// @type Color
 $error-color--darkbg: $feil--darkbg;
+
+/// @type Color
 $focus-color--darkbg: $snohvit;
 
-/// Varslingsfarger / Meldingsfarger.
-/// Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
+// Varslingsfarger / Meldingsfarger.
+// Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
 $_varslingsfarger: (
     "suksess": #c8ecd2,
     "feil": #ffc9b2,
@@ -48,6 +94,10 @@ $_varslingsfarger: (
     "feil--alt": #ff9a7a,
 );
 
+/// Hent fargekoden til en navngitt varslingsfarge
+/// @param {"suksess" | "feil" | "info" | "advarsel" | "suksess--alt" | "feil--alt"} $farge - Navn på fargen du ønsker verdien til
+/// @return {Color} - fargekoden til den ønskede fargen
+/// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
 @function varslingsfarge($farge) {
     @return map.get($_varslingsfarger, $farge);
 }

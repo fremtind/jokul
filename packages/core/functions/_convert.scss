@@ -7,7 +7,7 @@
 /// https://hugogiraudel.com/2014/01/15/sass-string-to-number/
 /// @author Hugo Giraudel
 /// @param {String | Number} $value - Value to be parsed
-/// @return {Number}
+/// @return {Number} - $value converted to a number
 @function to-number($value) {
     @if type-of($value) == "number" {
         @return $value;

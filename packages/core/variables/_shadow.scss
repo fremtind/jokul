@@ -1,8 +1,13 @@
 @use "../functions" as func;
 
-/// @deprecated
+/// @type List
+/// @deprecated Se tilgjengelige skygger i _shadows.scss
 $drop-shadow--small: 0 func.rem(4px) func.rem(8px) rgb(0 0 0 / 8%);
-/// @deprecated
+
+/// @type List
+/// @deprecated Se tilgjengelige skygger i _shadows.scss
 $drop-shadow--medium: func.rem(4px) func.rem(4px) func.rem(8px) rgb(0 0 0 / 8%);
-/// @deprecated
+
+/// @type List
+/// @deprecated Se tilgjengelige skygger i _shadows.scss
 $drop-shadow--large: func.rem(4px) func.rem(6px) func.rem(16px) rgb(0 0 0 / 15%);

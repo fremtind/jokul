@@ -2,8 +2,8 @@
 @use "convert";
 
 /// Kalkuler riktig rem-verdi basert på en gitt pixelverdi
-/// @param {string} $px-size - Pixelverdi, helst med unit.
-/// @return {string} - timingverdi til bruk i animasjoner
+/// @param {String} $px-size - Pixelverdi, helst med unit.
+/// @return {String} - timingverdi til bruk i animasjoner
 /// @example
 ///     jkl.rem(16px);
 @function rem($px-size) {
