@@ -1,6 +1,6 @@
-import { configure } from '@testing-library/react';
-import prettier from 'prettier';
+import { configure } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import prettier from "prettier";
 import { toHaveNoViolations } from "jest-axe";
 
 // @ts-ignore https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#configuring-your-testing-environment
@@ -24,12 +24,12 @@ configure({
             [
                 message,
                 prettier.format(container.innerHTML, {
-                    parser: 'html',
-                    htmlWhitespaceSensitivity: 'ignore',
+                    parser: "html",
+                    htmlWhitespaceSensitivity: "ignore",
                 }),
             ]
                 .filter(Boolean)
-                .join('\n\n')
+                .join("\n\n")
         );
     },
 });
