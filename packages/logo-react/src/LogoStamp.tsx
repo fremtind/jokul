@@ -7,18 +7,19 @@ import { logoStampTextPaths } from "./logoStampTextPaths";
 export interface LogoStampProps {
     className?: string;
     id?: string;
-    /** Roterer teksten rundt logostempelet første gangen stempelet kommer til syne */
-    animated?: boolean;
-    /**
-     * Beskrivelse av logostempelet tilgjengelig for skjermlesere.
-     * Teksten i logostempelet er en path, og ikke tilgjengelig for skjermlesere.
-     */
-    title?: string;
     /**
      * Velger hva som står i teksten rundt logostemplet. Se portalen eller Figma for oversikt.
      * @default "fraSB1ogDNB"
      */
     variant?: keyof typeof logoStampTextPaths;
+    /**
+     * Beskrivelse av logostempelet tilgjengelig for skjermlesere.
+     * Teksten i logostempelet er en path, og ikke tilgjengelig for skjermlesere.
+     * @default Tekst tilsvarende teksten i stempelvarianten du har valgt
+     */
+    title?: string;
+    /** Roterer teksten rundt logostempelet første gangen stempelet kommer til syne */
+    animated?: boolean;
 }
 
 export const LogoStamp = ({
