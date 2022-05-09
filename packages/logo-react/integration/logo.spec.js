@@ -22,6 +22,14 @@ context("Logo", () => {
         });
 
         cy.takeSnapshots({
+            variants: [
+                "fraSB1ogDNB",
+                "forsikringLevertAvFremtind",
+                "vartForsikringsselskap",
+                "innovasjonFraFremtind",
+                "teknologiFraFremtind",
+                "vartEgetForsikringsselskap",
+            ],
             eq: logostempel,
         });
     });
