@@ -1,8 +1,8 @@
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/functions" as func;
+@use "~@forbrukerradet/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/functions" as func;
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-button/button";
+@import "~@forbrukerradet/jkl-core/mixins/_all";
+@import "~@forbrukerradet/jkl-button/button";
 
 $card-bg-color: jkl.$color-snohvit;
 $card-corner-radius: func.rem(2px);

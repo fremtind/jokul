@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-footer-react",
+    "name": "@forbrukerradet/jkl-footer-react",
     "version": "1.0.7",
     "publishConfig": {
         "access": "public"
@@ -34,10 +34,10 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.6.0",
-        "@fremtind/jkl-footer": "^1.0.5",
-        "@fremtind/jkl-formatters-util": "^2.0.9",
-        "@fremtind/jkl-logo-react": "^8.0.14"
+        "@forbrukerradet/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-footer": "^1.0.5",
+        "@forbrukerradet/jkl-formatters-util": "^2.0.9",
+        "@forbrukerradet/jkl-logo-react": "^8.0.14"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
@@ -47,7 +47,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

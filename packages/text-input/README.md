@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-text-input`](https://jokul.fremtind.no/komponenter/textinput)
+# [`@forbrukerradet/jkl-text-input`](https://jokul.fremtind.no/komponenter/textinput)
 
 # Tekstfelt
 

@@ -1,5 +1,5 @@
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
+@use "~@forbrukerradet/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/mixins/_all.scss" as mixins;
 
 $arrow-width: jkl.rem(16px);
 $arrow-width--compact: jkl.rem(14px);

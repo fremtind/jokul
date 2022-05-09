@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-radio-button`](https://jokul.fremtind.no/komponenter/radiobutton)
+# [`@forbrukerradet/jkl-radio-button`](https://jokul.fremtind.no/komponenter/radiobutton)
 
 ## Radioknapper
 

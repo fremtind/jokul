@@ -39,7 +39,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   autoExpand sometimes acts as startOpen ([8f23d8a](https://github.com/fremtind/jokul/commit/8f23d8ac9ec3f1f69d2b97cd167818db4318c19d)), closes [#2717](https://github.com/fremtind/jokul/issues/2717)
 
-# [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@8.0.0...@fremtind/jkl-text-input-react@9.0.0) (2022-02-07)
+# [9.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-text-input-react@8.0.0...@forbrukerradet/jkl-text-input-react@9.0.0) (2022-02-07)
 
 ### Bug Fixes
 
@@ -50,7 +50,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   Fjernet `inverted`-prop. Bruk `data-theme="dark"` om du trenger overstyre temaet.
 
-# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@7.0.23...@fremtind/jkl-text-input-react@8.0.0) (2022-02-07)
+# [8.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-text-input-react@7.0.23...@forbrukerradet/jkl-text-input-react@8.0.0) (2022-02-07)
 
 ### Bug Fixes
 

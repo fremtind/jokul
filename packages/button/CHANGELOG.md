@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@7.0.9...@fremtind/jkl-button@7.0.10) (2022-04-19)
+## [7.0.10](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-button@7.0.9...@forbrukerradet/jkl-button@7.0.10) (2022-04-19)
 
 ### Bug Fixes
 
@@ -114,7 +114,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   **@fremtind/jkl-button:** fixes clipped focus-bug in button ([ad6d1aa](https://github.com/fremtind/jokul/commit/ad6d1aa685de2cb8f6081fef20df1aad12d9579b)), closes [#1704](https://github.com/fremtind/jokul/issues/1704)
+-   **@forbrukerradet/jkl-button:** fixes clipped focus-bug in button ([ad6d1aa](https://github.com/fremtind/jokul/commit/ad6d1aa685de2cb8f6081fef20df1aad12d9579b)), closes [#1704](https://github.com/fremtind/jokul/issues/1704)
 
 ## 1.8.1 (2020-11-26)
 

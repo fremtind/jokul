@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-datepicker",
+    "name": "@forbrukerradet/jkl-datepicker",
     "version": "6.0.15",
     "publishConfig": {
         "access": "public"
@@ -25,13 +25,13 @@
         "dev": "echo \"Error: run dev from datepicker-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.0",
-        "@fremtind/jkl-select": "^7.0.12",
-        "@fremtind/jkl-text-input": "^7.0.15"
+        "@forbrukerradet/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-select": "^7.0.12",
+        "@forbrukerradet/jkl-text-input": "^7.0.15"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

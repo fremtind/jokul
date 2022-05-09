@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.5.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@0.5.19...@fremtind/jkl-icon-button@0.5.20) (2022-04-19)
+## [0.5.20](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-icon-button@0.5.19...@forbrukerradet/jkl-icon-button@0.5.20) (2022-04-19)
 
 ### Bug Fixes
 

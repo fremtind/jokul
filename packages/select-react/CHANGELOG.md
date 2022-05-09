@@ -16,13 +16,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   fjern bruk av ID i selector etter React 18 ([058e389](https://github.com/fremtind/jokul/commit/058e3893d1794e4efeea93648ce6749985205627))
 -   fjern core-toggle fra Select ([0decc92](https://github.com/fremtind/jokul/commit/0decc921d57d7f9ebc9f879a051b7dfb45e8c32b))
 
-## [9.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.1.2...@fremtind/jkl-select-react@9.1.3) (2022-03-11)
+## [9.1.3](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-select-react@9.1.2...@forbrukerradet/jkl-select-react@9.1.3) (2022-03-11)
 
 ### Bug Fixes
 
 -   gjør React keys unike ([54c4a57](https://github.com/fremtind/jokul/commit/54c4a5784df21dc4cf71f3f3e377e4fd72a1e57e))
 
-# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.0.4...@fremtind/jkl-select-react@9.1.0) (2022-02-18)
+# [9.1.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-select-react@9.0.4...@forbrukerradet/jkl-select-react@9.1.0) (2022-02-18)
 
 ### Bug Fixes
 

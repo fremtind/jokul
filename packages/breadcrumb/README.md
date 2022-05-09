@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-breadcrumb`](https://jokul.fremtind.no/komponenter/breadcrumb)
+# [`@forbrukerradet/jkl-breadcrumb`](https://jokul.fremtind.no/komponenter/breadcrumb)
 
 ## Beskrivelse
 

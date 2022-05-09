@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
-import { Link } from "@fremtind/jkl-core";
-import { NavCard } from "@fremtind/jkl-card-react";
+import { Link } from "@forbrukerradet/jkl-core";
+import { NavCard } from "@forbrukerradet/jkl-card-react";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 import { Image } from "../../components/image";
 import { Grid } from "../../components/Grid";

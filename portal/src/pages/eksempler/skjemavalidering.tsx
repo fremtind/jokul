@@ -1,15 +1,15 @@
 import React, { useRef, VFC } from "react";
 import { motion } from "framer-motion";
 import { Controller, useForm } from "react-hook-form";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker } from "@fremtind/jkl-datepicker-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
-import { Select } from "@fremtind/jkl-select-react";
-import { TextInput } from "@fremtind/jkl-text-input-react";
-import { PrimaryButton } from "@fremtind/jkl-button-react";
-import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
-import { FormErrorMessageBox } from "@fremtind/jkl-message-box-react";
+import { Checkbox } from "@forbrukerradet/jkl-checkbox-react";
+import { DatePicker } from "@forbrukerradet/jkl-datepicker-react";
+import { FieldGroup } from "@forbrukerradet/jkl-field-group-react";
+import { RadioButton, RadioButtonGroup } from "@forbrukerradet/jkl-radio-button-react";
+import { Select } from "@forbrukerradet/jkl-select-react";
+import { TextInput } from "@forbrukerradet/jkl-text-input-react";
+import { PrimaryButton } from "@forbrukerradet/jkl-button-react";
+import { useScrollIntoView } from "@forbrukerradet/jkl-react-hooks";
+import { FormErrorMessageBox } from "@forbrukerradet/jkl-message-box-react";
 
 type FormValues = {
     u23: undefined | string;

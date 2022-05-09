@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-icon-button-react",
+    "name": "@forbrukerradet/jkl-icon-button-react",
     "version": "0.8.23",
     "publishConfig": {
         "access": "public"
@@ -38,11 +38,11 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-icon-button": "^0.5.22"
+        "@forbrukerradet/jkl-icon-button": "^0.5.22"
     },
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "^0.6.1",
-        "@fremtind/jkl-toggle-switch-react": "^7.0.13"
+        "@forbrukerradet/browserslist-config-jkl": "^0.6.1",
+        "@forbrukerradet/jkl-toggle-switch-react": "^7.0.13"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
@@ -52,7 +52,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

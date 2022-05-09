@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-message-box-react",
+    "name": "@forbrukerradet/jkl-message-box-react",
     "version": "6.3.12",
     "publishConfig": {
         "access": "public"
@@ -36,13 +36,13 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-icon-button-react": "^0.8.23",
-        "@fremtind/jkl-message-box": "^5.2.9",
+        "@forbrukerradet/jkl-icon-button-react": "^0.8.23",
+        "@forbrukerradet/jkl-message-box": "^5.2.9",
         "classnames": "^2.2.6",
         "framer-motion": "^6.2.8"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
@@ -52,7 +52,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

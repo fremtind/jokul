@@ -1,4 +1,4 @@
-import { unicode } from "@fremtind/jkl-constants-util";
+import { unicode } from "@forbrukerradet/jkl-constants-util";
 
 export const FODSELSNUMMER_REGEX = {
     full: /^(\d{6})(\d{5})$/,

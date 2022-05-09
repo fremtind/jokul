@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 
 export interface BreadcrumbProps extends WithChildren {
     className?: string;

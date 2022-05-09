@@ -1,4 +1,4 @@
-@use "@fremtind/jkl-core/jkl";
+@use "@forbrukerradet/jkl-core/jkl";
 
 .jkl-portal-figma-logo {
     @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText);

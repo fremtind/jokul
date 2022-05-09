@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React from "react";
-import { ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
-import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
+import { ScreenReaderOnly, WithChildren } from "@forbrukerradet/jkl-core";
+import { ArrowVerticalAnimated } from "@forbrukerradet/jkl-icons-react";
 
 export type ExpandDirection = "up" | "down";
 

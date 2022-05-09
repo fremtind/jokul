@@ -19,7 +19,7 @@ import {
     Warning,
     Success,
     Info,
-} from "@fremtind/jkl-icons-react";
+} from "@forbrukerradet/jkl-icons-react";
 
 const icons = [
     {

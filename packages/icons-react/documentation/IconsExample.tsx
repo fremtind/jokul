@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
-import { TextInput } from "@fremtind/jkl-text-input-react";
+import { TextInput } from "@forbrukerradet/jkl-text-input-react";
 import {
     Close,
     CheckMark,

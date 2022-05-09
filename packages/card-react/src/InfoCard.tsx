@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import cn from "classnames";
-import { WithChildren } from "@fremtind/jkl-core";
-import { Image } from "@fremtind/jkl-image-react";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { Image } from "@forbrukerradet/jkl-image-react";
 import { PaddingOptions, SpacingStep } from "./types";
 import { getSpacingClasses } from "./utils";
 

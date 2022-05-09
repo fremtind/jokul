@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-icons`](https://jokul.fremtind.no/komponenter/icons)
+# [`@forbrukerradet/jkl-icons`](https://jokul.fremtind.no/komponenter/icons)
 
 # Ikoner
 

@@ -1,7 +1,7 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+@import "~@forbrukerradet/jkl-core/mixins/_all";
+@import "~@forbrukerradet/jkl-core/_functions";
 
 @include jkl.helper-light-mode-variables {
     --accordion-border: #{jkl.$color-svaberg};

@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import cx from "classnames";
 import { nanoid } from "nanoid";
-import { WithChildren } from "@fremtind/jkl-core";
-import { usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { usePreviousValue } from "@forbrukerradet/jkl-react-hooks";
 
 export interface TabsProps extends WithChildren {
     className?: string;

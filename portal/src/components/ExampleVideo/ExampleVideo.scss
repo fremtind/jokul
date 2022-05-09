@@ -1,6 +1,6 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/navigation";
+@import "~@forbrukerradet/jkl-core/mixins/navigation";
 
 @function play($color) {
     $c: jkl.helper-urlencodecolor($color);

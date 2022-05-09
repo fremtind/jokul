@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-loader-react`](https://jokul.fremtind.no/komponenter/loader)
+# [`@forbrukerradet/jkl-loader-react`](https://jokul.fremtind.no/komponenter/loader)
 
 ## Beskrivelse
 
@@ -12,13 +12,13 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/loade
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-loader-react` eller `npm i @fremtind/jkl-loader-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-loader-react` eller `npm i @forbrukerradet/jkl-loader-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { Loader } from "@fremtind/jkl-loader-react";
-import "@fremtind/jkl-loader/loader.min.css";
+import { Loader } from "@forbrukerradet/jkl-loader-react";
+import "@forbrukerradet/jkl-loader/loader.min.css";
 ```
 
 ### Bruk

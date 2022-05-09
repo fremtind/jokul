@@ -1,5 +1,5 @@
 import React, { VFC } from "react";
-import { DataTable } from "@fremtind/jkl-table-react";
+import { DataTable } from "@forbrukerradet/jkl-table-react";
 import { unicode } from "../src";
 import "./style.scss";
 

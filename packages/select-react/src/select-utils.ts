@@ -1,4 +1,4 @@
-import type { ValuePair } from "@fremtind/jkl-core";
+import type { ValuePair } from "@forbrukerradet/jkl-core";
 
 export function toLower(str = "") {
     return str.toLowerCase().replace(/[\W_]+/g, ""); // strip all non-alphanumeric chars

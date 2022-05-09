@@ -1,8 +1,8 @@
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+@import "~@forbrukerradet/jkl-core/mixins/_all";
+@import "~@forbrukerradet/jkl-core/_functions";
 
 $webfonts-dir: "../../static/fonts";
-@import "~@fremtind/jkl-webfonts/webfonts";
+@import "~@forbrukerradet/jkl-webfonts/webfonts";
 
 $header-height: rem(96px);
 

@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-webfonts",
+    "name": "@forbrukerradet/jkl-webfonts",
     "version": "1.1.10",
     "publishConfig": {
         "access": "public"
@@ -25,7 +25,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

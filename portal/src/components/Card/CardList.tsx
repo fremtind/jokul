@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import classNames from "classnames";
 import "./card-list.scss";
 

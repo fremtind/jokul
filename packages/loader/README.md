@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-loader`](https://jokul.fremtind.no/komponenter/loader)
+# [`@forbrukerradet/jkl-loader`](https://jokul.fremtind.no/komponenter/loader)
 
 # Lasteindikator
 

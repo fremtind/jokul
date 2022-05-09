@@ -1,6 +1,6 @@
 import React, { useState, VFC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@forbrukerradet/jkl-core";
 import { DatePicker } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {

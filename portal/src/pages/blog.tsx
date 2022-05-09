@@ -1,7 +1,7 @@
 import { graphql, Link, PageProps } from "gatsby";
 import React, { VFC } from "react";
 import { motion } from "framer-motion";
-import { InfoBlock, NavCard } from "@fremtind/jkl-card-react";
+import { InfoBlock, NavCard } from "@forbrukerradet/jkl-card-react";
 import "./blog.scss";
 import { Helmet } from "react-helmet";
 

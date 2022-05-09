@@ -1,8 +1,8 @@
 import React, { ElementType, FC, AnchorHTMLAttributes } from "react";
 import cn from "classnames";
-import { WithChildren } from "@fremtind/jkl-core";
-import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-tag-react";
-import { Image, ImageProps } from "@fremtind/jkl-image-react";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@forbrukerradet/jkl-tag-react";
+import { Image, ImageProps } from "@forbrukerradet/jkl-image-react";
 import { PaddingOptions } from "./types";
 import { getSpacingClasses } from "./utils";
 

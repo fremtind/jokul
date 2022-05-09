@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-image-react",
+    "name": "@forbrukerradet/jkl-image-react",
     "version": "2.0.15",
     "publishConfig": {
         "access": "public"
@@ -27,7 +27,7 @@
     "browser": "./build/browser/index.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "scripts": {
         "clean": "rimraf .turbo/ build/ node_modules/",
@@ -42,8 +42,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-image": "^2.0.12",
-        "@fremtind/jkl-react-hooks": "^8.2.2",
+        "@forbrukerradet/jkl-image": "^2.0.12",
+        "@forbrukerradet/jkl-react-hooks": "^8.2.2",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

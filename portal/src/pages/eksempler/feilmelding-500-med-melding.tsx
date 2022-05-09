@@ -1,4 +1,4 @@
-import { ErrorMessageBox } from "@fremtind/jkl-message-box-react";
+import { ErrorMessageBox } from "@forbrukerradet/jkl-message-box-react";
 import React, { VFC } from "react";
 import { motion } from "framer-motion";
 import { Link as InternalLink } from "gatsby";

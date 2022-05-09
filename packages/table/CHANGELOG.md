@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [5.5.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.5.2...@fremtind/jkl-table@5.5.3) (2022-04-19)
+## [5.5.3](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table@5.5.2...@forbrukerradet/jkl-table@5.5.3) (2022-04-19)
 
 ### Bug Fixes
 
@@ -17,13 +17,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   bruk rett venstre og høyrepadding i tabellceller ([01645ad](https://github.com/fremtind/jokul/commit/01645ade760a461b5b89cfb8d26c17b3f1e9b823)), closes [#2826](https://github.com/fremtind/jokul/issues/2826)
 
-# [5.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.4.1...@fremtind/jkl-table@5.5.0) (2022-03-16)
+# [5.5.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table@5.4.1...@forbrukerradet/jkl-table@5.5.0) (2022-03-16)
 
 ### Features
 
 -   add support for left/right aligning table header ([1b57ee7](https://github.com/fremtind/jokul/commit/1b57ee7c6d413d848a87724d51ede79bae131684))
 
-# [5.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.3.1...@fremtind/jkl-table@5.4.0) (2022-03-14)
+# [5.4.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table@5.3.1...@forbrukerradet/jkl-table@5.4.0) (2022-03-14)
 
 ### Bug Fixes
 
@@ -33,7 +33,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   make expand row more appealing on mobile ([97a6b32](https://github.com/fremtind/jokul/commit/97a6b328dbcf181a113df36fa2fe51b913e936a6))
 
-# [5.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.2.7...@fremtind/jkl-table@5.3.0) (2022-03-10)
+# [5.3.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table@5.2.7...@forbrukerradet/jkl-table@5.3.0) (2022-03-10)
 
 ### Features
 
@@ -45,13 +45,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   fix a bug where arrow wouldn't align to text ([a56dbf8](https://github.com/fremtind/jokul/commit/a56dbf8953ffb5e2f67943a3749185db269ffe08))
 
-## [5.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.2.0...@fremtind/jkl-table@5.2.1) (2022-02-07)
+## [5.2.1](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table@5.2.0...@forbrukerradet/jkl-table@5.2.1) (2022-02-07)
 
 ### Bug Fixes
 
 -   manuell delinting sans descending specificity ([20de1c8](https://github.com/fremtind/jokul/commit/20de1c8811596b054867352177225fd197c70797))
 
-# [5.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.1.10...@fremtind/jkl-table@5.2.0) (2022-02-02)
+# [5.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table@5.1.10...@forbrukerradet/jkl-table@5.2.0) (2022-02-02)
 
 ### Bug Fixes
 

@@ -1,4 +1,4 @@
-import { LabelProps } from "@fremtind/jkl-core";
+import { LabelProps } from "@forbrukerradet/jkl-core";
 import { StateChangeOptions } from "downshift";
 import React, { ReactNode, useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest";

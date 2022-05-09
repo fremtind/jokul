@@ -1,1 +1,1 @@
-# [`@fremtind/jkl-summary-table`](https://jokul.fremtind.no/komponenter/summarytable)
+# [`@forbrukerradet/jkl-summary-table`](https://jokul.fremtind.no/komponenter/summarytable)

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-image`](https://jokul.fremtind.no/komponenter/image)
+# [`@forbrukerradet/jkl-image`](https://jokul.fremtind.no/komponenter/image)
 
 # Image
 

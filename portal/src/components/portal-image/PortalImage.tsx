@@ -2,7 +2,7 @@ import React, { FC, ImgHTMLAttributes, useState, useRef } from "react";
 import cx from "classnames";
 import FocusTrap from "focus-trap-react";
 import { motion } from "framer-motion";
-import { useKeyListener } from "@fremtind/jkl-react-hooks";
+import { useKeyListener } from "@forbrukerradet/jkl-react-hooks";
 import { BlurredBackground } from "./BlurredBackground";
 import { AnimatedImage } from "./AnimatedImage";
 import "./portal-image.scss";

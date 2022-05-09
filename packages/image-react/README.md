@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-image-react`](https://jokul.fremtind.no/komponenter/image)
+# [`@forbrukerradet/jkl-image-react`](https://jokul.fremtind.no/komponenter/image)
 
 ## Beskrivelse
 
@@ -12,11 +12,11 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/image
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-image-react` eller `npm i @fremtind/jkl-image-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-image-react` eller `npm i @forbrukerradet/jkl-image-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { Image } from "@fremtind/jkl-image-react";
+import { Image } from "@forbrukerradet/jkl-image-react";
 ```
 
 ### Bruk

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-alert-message-react`](https://jokul.fremtind.no/komponenter/alert-message)
+# [`@forbrukerradet/jkl-alert-message-react`](https://jokul.fremtind.no/komponenter/alert-message)
 
 ## Beskrivelse
 
@@ -12,7 +12,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/alert
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-alert-message-react` eller `npm i @fremtind/jkl-alert-message-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-alert-message-react` eller `npm i @forbrukerradet/jkl-alert-message-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
@@ -22,8 +22,8 @@ import {
     ErrorAlertMessage,
     WarningAlertMessage,
     SuccessAlertMessage,
-} from "@fremtind/jkl-alert-message-react";
-import "@fremtind/jkl-alert-message/alert-message.min.css";
+} from "@forbrukerradet/jkl-alert-message-react";
+import "@forbrukerradet/jkl-alert-message/alert-message.min.css";
 ```
 
 ### Bruk

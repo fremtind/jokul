@@ -4,11 +4,11 @@ Dette dokumentet inneholder teknisk dokumentasjon av endringer fra siste stabile
 
 ## BulletList
 
-Pakkene `@fremtind/jkl-bullet-list` og `@fremtind/jkl-bullet-list-react` finnes ikke lenger, og er erstattet av `@fremtind/jkl-list` og `@fremtind/jkl-list-react`. Der du tidligere har brukt komponenten `<BulletList>` skal du nå bruke `<UnorderedList>`. Det er i tillegg lagt til en `<OrderedList>`-komponent. Listene brukes ellers på samme måte som tidligere.
+Pakkene `@forbrukerradet/jkl-bullet-list` og `@forbrukerradet/jkl-bullet-list-react` finnes ikke lenger, og er erstattet av `@forbrukerradet/jkl-list` og `@forbrukerradet/jkl-list-react`. Der du tidligere har brukt komponenten `<BulletList>` skal du nå bruke `<UnorderedList>`. Det er i tillegg lagt til en `<OrderedList>`-komponent. Listene brukes ellers på samme måte som tidligere.
 
 ## Dropdown/Select
 
-Pakkene `@fremtind/jkl-dropdown` og `@fremtind/jkl-dropdown-react` finnes ikke lenger, og er erstattet av `@fremtind/jkl-select` og `@fremtind/jkl-select-react`. Komponenten `<Select>` erstatter `<Dropdown>`. Om du tidligere har brukt `<Select>` for å få ut et vanlig `<select>` HTML-element må du nå bruke `<NativeSelect>`.
+Pakkene `@forbrukerradet/jkl-dropdown` og `@forbrukerradet/jkl-dropdown-react` finnes ikke lenger, og er erstattet av `@forbrukerradet/jkl-select` og `@forbrukerradet/jkl-select-react`. Komponenten `<Select>` erstatter `<Dropdown>`. Om du tidligere har brukt `<Select>` for å få ut et vanlig `<select>` HTML-element må du nå bruke `<NativeSelect>`.
 
 Prop-en `initialInputValue` er tatt vekk og erstattet med `value`, slik at komponenten kan brukes kontrollert. Dette sikrer også lik bruk i `<Select>` og `<NativeSelect>`.
 

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo@7.0.9...@fremtind/jkl-logo@7.0.10) (2022-04-19)
+## [7.0.10](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-logo@7.0.9...@forbrukerradet/jkl-logo@7.0.10) (2022-04-19)
 
 ### Bug Fixes
 

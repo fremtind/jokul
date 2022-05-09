@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-radio-button-react`](hhttps://jokul.fremtind.no/komponenter/radiobutton)
+# [`@forbrukerradet/jkl-radio-button-react`](hhttps://jokul.fremtind.no/komponenter/radiobutton)
 
 ## Beskrivelse
 
@@ -10,12 +10,12 @@ Se portalen for [bruk og prinsipper](hhttps://jokul.fremtind.no/komponenter/radi
 
 ## Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-radio-button-react` eller `npm i @fremtind/jkl-radio-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-radio-button-react` eller `npm i @forbrukerradet/jkl-radio-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { RadioButtonGroup, RadioButton } from "@fremtind/jkl-radio-button-react";
-import "@fremtind/jkl-radio-button/radio-button.min.css";
+import { RadioButtonGroup, RadioButton } from "@forbrukerradet/jkl-radio-button-react";
+import "@forbrukerradet/jkl-radio-button/radio-button.min.css";
 ```
 
 ## Bruk

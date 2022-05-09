@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [6.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@6.0.9...@fremtind/jkl-checkbox@6.0.10) (2022-04-19)
+## [6.0.10](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-checkbox@6.0.9...@forbrukerradet/jkl-checkbox@6.0.10) (2022-04-19)
 
 ### Bug Fixes
 

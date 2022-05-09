@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classnames from "classnames";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 
 export interface DescriptionListProps extends WithChildren {
     className?: string;

@@ -10,12 +10,12 @@
 
 `useScreen` leverer ikke lenger dimensjonene til nettleservinduet i piksler, og det eksporteres ingen `initialState` siden denne nå regnes ut ved første render. Resten av APIet fungerer som tidligere.
 
-Hvis du vil bruke `useScreen` i en `context`, og vil initialisere med fallback-verdier for skjermstørrelse (f.eks. for bruk i server side rendering), kan du lage et eget objekt med `ScreenState`-typen som eksporteres fra `@fremtind/jkl-react-hooks`:
+Hvis du vil bruke `useScreen` i en `context`, og vil initialisere med fallback-verdier for skjermstørrelse (f.eks. for bruk i server side rendering), kan du lage et eget objekt med `ScreenState`-typen som eksporteres fra `@forbrukerradet/jkl-react-hooks`:
 
 ```tsx
 import { createContext, FC } from "react";
-import { useScreen } from "@fremtind/jkl-react-hooks";
-import type { ScreenState } from "@fremtind/jkl-react-hooks";
+import { useScreen } from "@forbrukerradet/jkl-react-hooks";
+import type { ScreenState } from "@forbrukerradet/jkl-react-hooks";
 
 const myInitialScreenState: ScreenState = {
     isSmallDevice: false,

@@ -9,13 +9,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   eksponer labelProps i skjemakomponenter ([db27e30](https://github.com/fremtind/jokul/commit/db27e309a8a72913d8761b2967e940113c47b779))
 
-# [9.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.4.0...@fremtind/jkl-core@9.5.0) (2022-04-22)
+# [9.5.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-core@9.4.0...@forbrukerradet/jkl-core@9.5.0) (2022-04-22)
 
 ### Features
 
 -   core eksporterer to interfaces for children ([f213598](https://github.com/fremtind/jokul/commit/f21359802590123bf2ac5b135949f19a3e03360b))
 
-# [9.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.3.2...@fremtind/jkl-core@9.4.0) (2022-04-19)
+# [9.4.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-core@9.3.2...@forbrukerradet/jkl-core@9.4.0) (2022-04-19)
 
 ### Bug Fixes
 
@@ -39,13 +39,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   legg til hjelpere for forced-color-mode ([0ffc43d](https://github.com/fremtind/jokul/commit/0ffc43db2ae9b41d5bb29795a25bcca751d65c5d))
 
-# [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.2.0...@fremtind/jkl-core@9.3.0) (2022-03-14)
+# [9.3.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-core@9.2.0...@forbrukerradet/jkl-core@9.3.0) (2022-03-14)
 
 ### Features
 
 -   eksporter screens-mixins via jkl ([d067215](https://github.com/fremtind/jokul/commit/d067215a80fb5a356fe72b5aba9f5767a1e15b1a))
 
-# [9.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.1.3...@fremtind/jkl-core@9.2.0) (2022-03-11)
+# [9.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-core@9.1.3...@forbrukerradet/jkl-core@9.2.0) (2022-03-11)
 
 ### Features
 
@@ -58,7 +58,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   skjul dekorativt CSS-innhold fra skjermlesere ([5976cf9](https://github.com/fremtind/jokul/commit/5976cf93234ab2d189dfd2de888fa45a88480c55)), closes [#2774](https://github.com/fremtind/jokul/issues/2774)
 
-# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.0.1...@fremtind/jkl-core@9.1.0) (2022-02-17)
+# [9.1.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-core@9.0.1...@forbrukerradet/jkl-core@9.1.0) (2022-02-17)
 
 ### Features
 

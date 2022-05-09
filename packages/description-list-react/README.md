@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-description-list-react`](https://jokul.fremtind.no/komponenter/descriptionlist)
+# [`@forbrukerradet/jkl-description-list-react`](https://jokul.fremtind.no/komponenter/descriptionlist)
 
 ## Beskrivelse
 
@@ -10,12 +10,12 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/descr
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-description-list-react` eller `npm i @fremtind/jkl-description-list-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-description-list-react` eller `npm i @forbrukerradet/jkl-description-list-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer React-pakken (velg komponenten(e) du trenger):
 
 ```js
-import { DescriptionList, DescriptionTerm, DescriptionDetail } from "@fremtind/jkl-description-list-react";
+import { DescriptionList, DescriptionTerm, DescriptionDetail } from "@forbrukerradet/jkl-description-list-react";
 ```
 
 ### Bruk

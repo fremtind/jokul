@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
-import { ListItem as JklListItem } from "@fremtind/jkl-list-react";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { ListItem as JklListItem } from "@forbrukerradet/jkl-list-react";
 import { CodeBlock as FTCodeBlock } from "../../../../doc-utils/CodeBlock";
 
 export const PageTitle: React.FC<WithChildren> = ({ children, ...rest }) => (

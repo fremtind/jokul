@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [6.1.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@6.1.4...@fremtind/jkl-checkbox-react@6.1.5) (2022-03-11)
+## [6.1.5](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-checkbox-react@6.1.4...@forbrukerradet/jkl-checkbox-react@6.1.5) (2022-03-11)
 
 ### Bug Fixes
 
@@ -15,7 +15,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   bruk den riktige genericen per type ([a8e8802](https://github.com/fremtind/jokul/commit/a8e88028c66379c3fac2cd10ae0478aadd1d5392))
 
-# [6.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@6.0.1...@fremtind/jkl-checkbox-react@6.1.0) (2022-02-17)
+# [6.1.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-checkbox-react@6.0.1...@forbrukerradet/jkl-checkbox-react@6.1.0) (2022-02-17)
 
 ### Features
 

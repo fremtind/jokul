@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/browserslist-config-jkl",
+    "name": "@forbrukerradet/browserslist-config-jkl",
     "version": "0.6.1",
     "description": "Browserlist configuration for jøkul",
     "keywords": [
@@ -22,7 +22,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

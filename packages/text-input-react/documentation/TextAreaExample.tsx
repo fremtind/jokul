@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, VFC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@forbrukerradet/jkl-core";
 import { TextArea } from "../src";
 
 export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {

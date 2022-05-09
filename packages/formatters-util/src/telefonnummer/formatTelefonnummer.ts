@@ -1,4 +1,4 @@
-import { unicode } from "@fremtind/jkl-constants-util";
+import { unicode } from "@forbrukerradet/jkl-constants-util";
 
 export const TELEFONNUMMER_REGEX = {
     mobil: /^([4|9|8]\d{2})(\d{2})(\d{3})$/,

@@ -1,7 +1,7 @@
 import React, { useRef, FC, useEffect } from "react";
 import type { ComponentDoc, PropItem } from "react-docgen-typescript";
-import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import { DataTable } from "@fremtind/jkl-table-react";
+import { Accordion, AccordionItem } from "@forbrukerradet/jkl-accordion-react";
+import { DataTable } from "@forbrukerradet/jkl-table-react";
 
 import { getRows, handleScroll, isExternalProp, isOwnProp, setScrollShadows } from "./utils";
 import "./APIDocumentation.scss";

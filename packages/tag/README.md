@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-tag`](https://jokul.fremtind.no/komponenter/tag)
+# [`@forbrukerradet/jkl-tag`](https://jokul.fremtind.no/komponenter/tag)
 
 ## Beskrivelse
 

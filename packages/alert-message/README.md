@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-message-box`](https://jokul.fremtind.no/komponenter/alert-message)
+# [`@forbrukerradet/jkl-message-box`](https://jokul.fremtind.no/komponenter/alert-message)
 
 # Meldinger
 

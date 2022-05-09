@@ -1,4 +1,4 @@
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { FieldGroup } from "@forbrukerradet/jkl-field-group-react";
 import React, { VFC } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Checkbox } from "../src";

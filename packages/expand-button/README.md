@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-expand-button`](https://jokul.fremtind.no/komponenter/expandbutton)
+# [`@forbrukerradet/jkl-expand-button`](https://jokul.fremtind.no/komponenter/expandbutton)
 
 ## Beskrivelse
 

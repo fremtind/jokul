@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-list-react`](https://jokul.fremtind.no/komponenter/list)
+# [`@forbrukerradet/jkl-list-react`](https://jokul.fremtind.no/komponenter/list)
 
 ## Beskrivelse
 
@@ -12,12 +12,12 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/list)
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-list-react` eller `npm i @fremtind/jkl-list-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-list-react` eller `npm i @forbrukerradet/jkl-list-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { UnorderedList, OrderedList, ListItem } from "@fremtind/jkl-list-react";
-import "@fremtind/jkl-list/list.min.css";
+import { UnorderedList, OrderedList, ListItem } from "@forbrukerradet/jkl-list-react";
+import "@forbrukerradet/jkl-list/list.min.css";
 ```
 
 ### Bruk

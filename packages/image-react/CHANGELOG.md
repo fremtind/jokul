@@ -9,13 +9,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   exporter type for ImageProps ([c5dc5d5](https://github.com/fremtind/jokul/commit/c5dc5d50801bd36601c341e9b7d4b01d78bd6328))
 
-## [2.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image-react@2.0.1...@fremtind/jkl-image-react@2.0.2) (2022-02-11)
+## [2.0.2](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-image-react@2.0.1...@forbrukerradet/jkl-image-react@2.0.2) (2022-02-11)
 
 ### Bug Fixes
 
 -   **deps:** bruk riktig versjon av stilpakken ([23eece8](https://github.com/fremtind/jokul/commit/23eece85f222e2fcf5bde47b975775a39b36baa8))
 
-# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image-react@0.8.0...@fremtind/jkl-image-react@2.0.0) (2022-02-07)
+# [2.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-image-react@0.8.0...@forbrukerradet/jkl-image-react@2.0.0) (2022-02-07)
 
 ### Features
 

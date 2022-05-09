@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-description-list",
+    "name": "@forbrukerradet/jkl-description-list",
     "version": "4.0.22",
     "description": "The description list component is a container whose children is a key-value pair consisting of terms and details.",
     "keywords": [
@@ -22,10 +22,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "scripts": {
         "clean": "rimraf .turbo **/*.css",

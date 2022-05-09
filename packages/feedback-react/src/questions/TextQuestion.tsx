@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
-import { TextArea } from "@fremtind/jkl-text-input-react";
+import { TextArea } from "@forbrukerradet/jkl-text-input-react";
 
 import { QuestionProps } from "../types";
 import { useFollowUpContext } from "../followup/followupContext";

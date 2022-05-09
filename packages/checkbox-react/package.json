@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-checkbox-react",
+    "name": "@forbrukerradet/jkl-checkbox-react",
     "version": "6.1.12",
     "publishConfig": {
         "access": "public"
@@ -36,9 +36,9 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-checkbox": "^6.0.12",
-        "@fremtind/jkl-core": "^9.6.0",
-        "@fremtind/jkl-react-hooks": "^8.2.2",
+        "@forbrukerradet/jkl-checkbox": "^6.0.12",
+        "@forbrukerradet/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-react-hooks": "^8.2.2",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
@@ -49,7 +49,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

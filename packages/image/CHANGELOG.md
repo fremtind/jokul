@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image@0.6.0...@fremtind/jkl-image@2.0.0) (2022-02-07)
+# [2.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-image@0.6.0...@forbrukerradet/jkl-image@2.0.0) (2022-02-07)
 
 ### Features
 

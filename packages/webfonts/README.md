@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-webfonts`](https://jokul.fremtind.no/komponenter/typography)
+# [`@forbrukerradet/jkl-webfonts`](https://jokul.fremtind.no/komponenter/typography)
 
 Denne pakken inneholder skrifttypene våre til bruk i nettløsninger (disse kan ikke installeres lokalt på datamaskinen). Disse må gjøres tilgjengelige i løsningen ved at du legger fontfilene i en mappe som blir eksportert med app-en din, f.eks. `/build`, `/dist` eller lignende.
 
@@ -15,21 +15,21 @@ Om du bruker Sass-stilark i prosjektet ditt er dette den enkleste måten. I rot-
 Med use syntax:
 
 ```scss
-@use "~@fremtind/jkl-webfonts/webfonts.scss" with ($webfonts-dir: "../relative/path/to/node_modules/@fremtind/jkl-webfonts/fonts");
+@use "~@forbrukerradet/jkl-webfonts/webfonts.scss" with ($webfonts-dir: "../relative/path/to/node_modules/@forbrukerradet/jkl-webfonts/fonts");
 ```
 
 Med import syntax:
 
 ```scss
-$webfonts-dir: "../relative/path/to/node_modules/@fremtind/jkl-webfonts/fonts";
-@import "~@fremtind/jkl-webfonts/webfonts.scss"; // NB! bruk riktig import for din sass-loader
+$webfonts-dir: "../relative/path/to/node_modules/@forbrukerradet/jkl-webfonts/fonts";
+@import "~@forbrukerradet/jkl-webfonts/webfonts.scss"; // NB! bruk riktig import for din sass-loader
 ```
 
 Variabelen `$webfonts-dir` angir hvor filene ligger. Hvis den ikke spesifiseres vil stilarket se etter fontfilene i mappen `/fonts`.
 
 ### Bruk av `.css`-versjon
 
-Om du ikke bruker Sass kan du benytte deg av den rene `.css`-versjonen. Denne versjonen ser kun etter fontfilene i mappen `/fonts`. Om du vil legge fontfilene et annet sted må du kopiere CSS-filen `node_modules/@fremtind/jkl-webfonts/webfonts.css` og legge den inn i prosjektet ditt. Deretter må du endre url-en i hver `@font-face`-definisjon manuelt så det stemmer med hvor fontfilene dine ligger:
+Om du ikke bruker Sass kan du benytte deg av den rene `.css`-versjonen. Denne versjonen ser kun etter fontfilene i mappen `/fonts`. Om du vil legge fontfilene et annet sted må du kopiere CSS-filen `node_modules/@forbrukerradet/jkl-webfonts/webfonts.css` og legge den inn i prosjektet ditt. Deretter må du endre url-en i hver `@font-face`-definisjon manuelt så det stemmer med hvor fontfilene dine ligger:
 
 ```css
 @font-face {

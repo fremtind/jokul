@@ -258,7 +258,7 @@ jobs:
 
             - name: Commit snapshots
               run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.email "fremtind.designsystem@forbrukerradet.no"
                   git config user.name "fremtind-bot"
                   git add . || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
@@ -308,7 +308,7 @@ jobs:
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.email "fremtind.designsystem@forbrukerradet.no"
                   git config user.name "fremtind-bot"
                   git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
                   yarn gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"

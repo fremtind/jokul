@@ -1,10 +1,10 @@
 import React, { useContext, useState, ChangeEvent } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
-import { TextInput } from "@fremtind/jkl-text-input-react";
+import { TextInput } from "@forbrukerradet/jkl-text-input-react";
 import { SidebarMenuItem } from "./SidebarMenuItem";
-import { Link } from "@fremtind/jkl-core";
+import { Link } from "@forbrukerradet/jkl-core";
 import { DocumentationPageInfo } from "../Header/useNavigationLinks";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import { RadioButton, RadioButtonGroup } from "@forbrukerradet/jkl-radio-button-react";
 import { a11yContext } from "../../contexts/a11yContext";
 
 interface Props {

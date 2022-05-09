@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-message-box",
+    "name": "@forbrukerradet/jkl-message-box",
     "version": "5.2.9",
     "publishConfig": {
         "access": "public"
@@ -24,11 +24,11 @@
         "dev": "echo \"Error: run dev from message-box-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

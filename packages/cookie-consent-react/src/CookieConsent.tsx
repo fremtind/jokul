@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { usePreviousValue } from "@forbrukerradet/jkl-react-hooks";
 import { AcceptConsentCallback, Consent } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";
 import { CookieConsentModal } from "./CookieConsentModal";

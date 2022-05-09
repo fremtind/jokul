@@ -1,4 +1,4 @@
-# `@fremtind/jkl-core`
+# `@forbrukerradet/jkl-core`
 
 -   Stil
     -   Bruk av stilark
@@ -19,17 +19,17 @@ Inneholder grunnstilen til designsystemet Jøkul i form av CSS, minifisert CSS o
 For å ta i bruk grunnstilen anbefaler vi å importere det minifiserte stilarket på denne måten:
 
 ```js
-import "@fremtind/jkl-core/core.min.css";
+import "@forbrukerradet/jkl-core/core.min.css";
 ```
 
 Dette stilarket inneholder all grunnstilen du trenger for å bruke Jøkul videre, inkludert stiler for avsnitt, etiketter, hjelpetekster og overskrifter.
 
 ### Bruk av variabler og mixins
 
-Når du skal utvikle egne komponenter basert på Jøkul anbefaler vi at du tar inn `@fremtind/jkl-core` som en avhengighet, og benytter deg av variablene for farger, avstand etc. Slik sørger du for at designet holder seg oppdatert og følger retningslinjene. Variablene, og mixins som letter bruken av dem, får du tilgang til gjennom egne `.scss`-filer:
+Når du skal utvikle egne komponenter basert på Jøkul anbefaler vi at du tar inn `@forbrukerradet/jkl-core` som en avhengighet, og benytter deg av variablene for farger, avstand etc. Slik sørger du for at designet holder seg oppdatert og følger retningslinjene. Variablene, og mixins som letter bruken av dem, får du tilgang til gjennom egne `.scss`-filer:
 
 ```
-@fremtind/jkl-core
+@forbrukerradet/jkl-core
   |
   |- variables/
   |   |
@@ -100,7 +100,7 @@ Pakken inneholder også noen nyttige funksjoner som brukes av flere komponenter,
 Av tilgjengelighetshensyn viser vi fokusomriss på interaktive elementer når man navigerer en løsning ved hjelp av tastaturet. Normalt blir disse omrissene også vist når man bruker musen for navigasjon, noe vi ikke ønsker. Hjelpefunksjonen `initTabListener()` sørger for å sette et flagg på `<body>` når man navigerer med musen, som skjuler omrissene. Importer og kall funksjonen på rot i prosjektet ditt (der siden rendres):
 
 ```js
-import { initTabListener } from "@fremtind/jkl-core";
+import { initTabListener } from "@forbrukerradet/jkl-core";
 
 initTabListener();
 ```
@@ -110,7 +110,7 @@ initTabListener();
 Noen komponenter, som `Select` og `RadioButtons`, kan ta inn verdier enten som en streng eller som et `ValuePair`-objekt med en `value` og et `label`. Hjelpefunksjonen `getValuePair` konstruerer et `ValuePair` fra en `string`, for å sikre enkel implementasjon av disse komponentene. Funksjonen sender gjennom `ValuePair`-objekter uendret:
 
 ```js
-import { getValuePair } from "@fremtind/jkl-core";
+import { getValuePair } from "@forbrukerradet/jkl-core";
 
 getValuePair("En verdi"); // { label: "En verdi", value: "En verdi" }
 

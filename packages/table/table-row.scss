@@ -1,5 +1,5 @@
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
+@use "~@forbrukerradet/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/mixins/_all.scss" as mixins;
 
 $border-size: jkl.rem(1px);
 $focus-ring-width: jkl.rem(2px);

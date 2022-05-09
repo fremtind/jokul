@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import type { Consent, ConsentRequirement } from "./types";
 import { shouldShowConsentDialog, getConsentCookie } from "./cookieConsentUtils";
 

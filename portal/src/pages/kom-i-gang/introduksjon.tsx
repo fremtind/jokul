@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
-import { Link } from "@fremtind/jkl-core";
-import { NavCard } from "@fremtind/jkl-card-react";
-import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import { Link } from "@forbrukerradet/jkl-core";
+import { NavCard } from "@forbrukerradet/jkl-card-react";
+import { UnorderedList, ListItem } from "@forbrukerradet/jkl-list-react";
 import { HeadingLarge, Paragraph } from "../../components/Typography";
 import { Helmet } from "react-helmet";
 

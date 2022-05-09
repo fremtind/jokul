@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
-import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { useBrowserPreferences } from "@forbrukerradet/jkl-react-hooks";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
 import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";

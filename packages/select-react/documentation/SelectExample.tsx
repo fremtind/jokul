@@ -1,7 +1,7 @@
 import React, { useState, VFC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@forbrukerradet/jkl-core";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Native", "Compact", "Med hjelpetekst", "Med feil", "Med søk"],

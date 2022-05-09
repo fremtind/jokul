@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-button-react`](https://jokul.fremtind.no/komponenter/buttons)
+# [`@forbrukerradet/jkl-button-react`](https://jokul.fremtind.no/komponenter/buttons)
 
 ## Beskrivelse
 
@@ -12,14 +12,14 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/butto
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-button-react` eller `npm i @fremtind/jkl-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-button-react` eller `npm i @forbrukerradet/jkl-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-button/button.min.css";
-import "@fremtind/jkl-loader/loader.min.css"; // stil for å bruke loader i knappen
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "@forbrukerradet/jkl-button-react";
+import "@forbrukerradet/jkl-button/button.min.css";
+import "@forbrukerradet/jkl-loader/loader.min.css"; // stil for å bruke loader i knappen
 ```
 
 ### Bruk

@@ -1,4 +1,4 @@
-import { useId } from "@fremtind/jkl-react-hooks";
+import { useId } from "@forbrukerradet/jkl-react-hooks";
 import { useCallback } from "react";
 import { dateIsOutsideRange } from "../dateFunctions";
 

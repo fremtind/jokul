@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-select`](https://jokul.fremtind.no/komponenter/select)
+# [`@forbrukerradet/jkl-select`](https://jokul.fremtind.no/komponenter/select)
 
 # Nedtrekksliste
 

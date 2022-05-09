@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [7.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@7.0.12...@fremtind/jkl-text-input@7.0.13) (2022-04-19)
+## [7.0.13](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-text-input@7.0.12...@forbrukerradet/jkl-text-input@7.0.13) (2022-04-19)
 
 ### Bug Fixes
 

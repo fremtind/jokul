@@ -3,7 +3,7 @@ import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Accordion, AccordionItem } from ".";
-import { Select } from "@fremtind/jkl-select-react";
+import { Select } from "@forbrukerradet/jkl-select-react";
 
 describe("Accordion", () => {
     it("should render without exploding", () => {

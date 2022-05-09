@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-button-react",
+    "name": "@forbrukerradet/jkl-button-react",
     "version": "10.1.10",
     "publishConfig": {
         "access": "public"
@@ -38,13 +38,13 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-button": "^7.0.12",
-        "@fremtind/jkl-constants-util": "^0.4.4",
-        "@fremtind/jkl-loader-react": "^7.1.20",
+        "@forbrukerradet/jkl-button": "^7.0.12",
+        "@forbrukerradet/jkl-constants-util": "^0.4.4",
+        "@forbrukerradet/jkl-loader-react": "^7.1.20",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-toggle-switch-react": "^7.0.13"
+        "@forbrukerradet/jkl-toggle-switch-react": "^7.0.13"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
@@ -54,7 +54,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

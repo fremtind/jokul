@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-message-box-react`](https://jokul.fremtind.no/komponenter/messagebox)
+# [`@forbrukerradet/jkl-message-box-react`](https://jokul.fremtind.no/komponenter/messagebox)
 
 ## Beskrivelse
 
@@ -12,13 +12,13 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/messa
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-message-box-react` eller `npm i @fremtind/jkl-message-box-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-message-box-react` eller `npm i @forbrukerradet/jkl-message-box-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { InfoMessageBox, ErrorMessageBox, WarningMessageBox, SuccessMessageBox } from "@fremtind/jkl-message-box-react";
-import "@fremtind/jkl-message-box/message-box.min.css";
+import { InfoMessageBox, ErrorMessageBox, WarningMessageBox, SuccessMessageBox } from "@forbrukerradet/jkl-message-box-react";
+import "@forbrukerradet/jkl-message-box/message-box.min.css";
 ```
 
 ### Bruk

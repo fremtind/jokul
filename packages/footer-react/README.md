@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-footer-react`](https://jokul.fremtind.no/komponenter/footer)
+# [`@forbrukerradet/jkl-footer-react`](https://jokul.fremtind.no/komponenter/footer)
 
 ## Beskrivelse
 
@@ -12,12 +12,12 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/foote
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-footer-react` eller `npm i @fremtind/jkl-footer-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-footer-react` eller `npm i @forbrukerradet/jkl-footer-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ### Bruk
 
 ```js
-import { Footer } from "@fremtind/jkl-footer-react";
-import "@fremtind/jkl-footer/footer.min.css";
+import { Footer } from "@forbrukerradet/jkl-footer-react";
+import "@forbrukerradet/jkl-footer/footer.min.css";
 ```

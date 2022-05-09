@@ -1,5 +1,5 @@
 import React, { VFC } from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@forbrukerradet/jkl-core";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
 

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-summary-table-react`](https://jokul.fremtind.no/komponenter/summarytable)
+# [`@forbrukerradet/jkl-summary-table-react`](https://jokul.fremtind.no/komponenter/summarytable)
 
 ## Beskrivelse
 
@@ -12,12 +12,12 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/summa
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-summary-table-react` eller `npm i @fremtind/jkl-summary-table-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-summary-table-react` eller `npm i @forbrukerradet/jkl-summary-table-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer React-pakken (velg komponenten(e) du trenger):
 
 ```js
-import { SummaryTable } from "@fremtind/jkl-summary-table-react";
+import { SummaryTable } from "@forbrukerradet/jkl-summary-table-react";
 ```
 
 ### Bruk

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.0.6](https://github.com/fremtind/jokul/compare/@fremtind/stylelint-config-jkl@2.0.5...@fremtind/stylelint-config-jkl@2.0.6) (2022-04-19)
+## [2.0.6](https://github.com/fremtind/jokul/compare/@forbrukerradet/stylelint-config-jkl@2.0.5...@forbrukerradet/stylelint-config-jkl@2.0.6) (2022-04-19)
 
 ### Bug Fixes
 

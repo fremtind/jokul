@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import { RadioButton, RadioButtonGroup } from "@forbrukerradet/jkl-radio-button-react";
 import { QuestionProps } from "../types";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";

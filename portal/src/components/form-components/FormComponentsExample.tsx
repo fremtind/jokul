@@ -1,11 +1,11 @@
 import React, { VFC } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker } from "@fremtind/jkl-datepicker-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
-import { Select } from "@fremtind/jkl-select-react";
-import { TextInput } from "@fremtind/jkl-text-input-react";
+import { Checkbox } from "@forbrukerradet/jkl-checkbox-react";
+import { DatePicker } from "@forbrukerradet/jkl-datepicker-react";
+import { FieldGroup } from "@forbrukerradet/jkl-field-group-react";
+import { RadioButton, RadioButtonGroup } from "@forbrukerradet/jkl-radio-button-react";
+import { Select } from "@forbrukerradet/jkl-select-react";
+import { TextInput } from "@forbrukerradet/jkl-text-input-react";
 import { BoolProp, ExampleComponentProps } from "../../../../doc-utils";
 
 export const formComponentsExampleBoolProps: BoolProp[] = [

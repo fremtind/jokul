@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-table-react`](https://jokul.fremtind.no/komponenter/table)
+# [`@forbrukerradet/jkl-table-react`](https://jokul.fremtind.no/komponenter/table)
 
 ## Beskrivelse
 
@@ -14,14 +14,14 @@ Se gjerne [bloggposten om tabellkomponentene](https://jokul.fremtind.no/blog/tab
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-table-react` eller `npm i @fremtind/jkl-table-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-table-react` eller `npm i @forbrukerradet/jkl-table-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ### Datatabeller
 
 ```js
-import { DataTable } from "@fremtind/jkl-table-react";
-import "@fremtind/jkl-table/table.min.css";
+import { DataTable } from "@forbrukerradet/jkl-table-react";
+import "@forbrukerradet/jkl-table/table.min.css";
 ```
 
 Den enkleste tabellen benyttes som en tom komponent, som tar inn kolonner og rader som props. Kolonnene (`columns`) er et array av `string`-verdier, mens radene (`rows`) er et array av `string`-arrayer:

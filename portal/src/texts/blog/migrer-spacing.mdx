@@ -10,7 +10,7 @@ publishDate: "2021.10.26"
     Her er noen tips som kan gjøre den litt lettere!
 </Ingress>
 
-Det er et par ting som bør gjøres når du tar i bruk den nye spacing-skalaen. For det første må du bytte om til de nye navnene både der du har brukt hjelpeklasser og der du har brukt variablene i Sass. I tillegg bør du sørge for å importere Sass-variablene fra `@fremtind/jkl-core/jkl`. Med litt smart bruk av regex og søk-og-erstatt kan vi få til dette litt enklere enn man skulle tro.
+Det er et par ting som bør gjøres når du tar i bruk den nye spacing-skalaen. For det første må du bytte om til de nye navnene både der du har brukt hjelpeklasser og der du har brukt variablene i Sass. I tillegg bør du sørge for å importere Sass-variablene fra `@forbrukerradet/jkl-core/jkl`. Med litt smart bruk av regex og søk-og-erstatt kan vi få til dette litt enklere enn man skulle tro.
 
 Siden vi har endret navngivingen i skalaen kan man ikke bruke _ett_ magisk regex-uttrykk for å refaktorere til de nye verdiene, men ved å ta et par små mellomsteg kan vi i hvert fall redusere det manuelle arbeidet ganske mye.
 
@@ -47,4 +47,4 @@ Gratulerer! Du har nå oversatt alle gamle varianter av spacing med de nyeste! �
 
 Dette steget er foreløpig strengt tatt valgfritt, men vi anbefaler alle å gå over til den nye importen av Jøkul-variablene i Sass ved hjelp av `@use`. NB! Dette krever at man bruker nyeste versjon av Sass i prosjektet sitt, noe vi også anbefaler at man gjør.
 
-Her har vi dessverre ingen magisk regex, siden det vil kunne variere fra prosjekt til prosjekt, men man ønsker å endre importen til `@use '~@fremtind/jkl-core/jkl';` og prefikse alle variablene med `jkl`. Dette lar seg også i stor grad løse med søk-og-erstatt, du vet best hva du må lete etter i ditt prosjekt!
+Her har vi dessverre ingen magisk regex, siden det vil kunne variere fra prosjekt til prosjekt, men man ønsker å endre importen til `@use '~@forbrukerradet/jkl-core/jkl';` og prefikse alle variablene med `jkl`. Dette lar seg også i stor grad løse med søk-og-erstatt, du vet best hva du må lete etter i ditt prosjekt!

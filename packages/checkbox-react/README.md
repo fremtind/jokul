@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-checkbox-react`](https://jokul.fremtind.no/komponenter/checkbox)
+# [`@forbrukerradet/jkl-checkbox-react`](https://jokul.fremtind.no/komponenter/checkbox)
 
 ## Beskrivelse
 
@@ -12,12 +12,12 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/check
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-checkbox-react` eller `npm i @fremtind/jkl-checkbox-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-checkbox-react` eller `npm i @forbrukerradet/jkl-checkbox-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import "@fremtind/jkl-checkbox/checkbox.min.css";
+import { Checkbox } from "@forbrukerradet/jkl-checkbox-react";
+import "@forbrukerradet/jkl-checkbox/checkbox.min.css";
 ```
 
 ### Bruk

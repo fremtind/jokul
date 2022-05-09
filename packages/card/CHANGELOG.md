@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [5.1.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@5.1.7...@fremtind/jkl-card@5.1.8) (2022-04-19)
+## [5.1.8](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-card@5.1.7...@forbrukerradet/jkl-card@5.1.8) (2022-04-19)
 
 ### Bug Fixes
 
@@ -11,7 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   legg til border rundt kort i forced-colors ([597d396](https://github.com/fremtind/jokul/commit/597d3967cb787e4708da663cf1324330523b9b89))
 -   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
 
-# [5.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@5.0.11...@fremtind/jkl-card@5.1.0) (2022-02-17)
+# [5.1.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-card@5.0.11...@forbrukerradet/jkl-card@5.1.0) (2022-02-17)
 
 ### Bug Fixes
 

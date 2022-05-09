@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [5.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message@5.0.19...@fremtind/jkl-alert-message@5.0.20) (2022-04-19)
+## [5.0.20](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-alert-message@5.0.19...@forbrukerradet/jkl-alert-message@5.0.20) (2022-04-19)
 
 ### Bug Fixes
 

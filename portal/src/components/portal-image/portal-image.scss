@@ -1,7 +1,7 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/functions";
+@import "~@forbrukerradet/jkl-core/mixins/_all";
+@import "~@forbrukerradet/jkl-core/functions";
 
 .jkl-portal-image {
     margin-top: jkl.$spacing-xl;

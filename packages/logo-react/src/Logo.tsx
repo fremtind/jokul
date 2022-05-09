@@ -1,5 +1,5 @@
 import React from "react";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { useId } from "@forbrukerradet/jkl-react-hooks";
 import cn from "classnames";
 
 export interface LogoProps {

@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-table-react",
+    "name": "@forbrukerradet/jkl-table-react",
     "version": "7.5.6",
     "publishConfig": {
         "access": "public"
@@ -34,10 +34,10 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.6.0",
-        "@fremtind/jkl-expand-button-react": "^2.0.4",
-        "@fremtind/jkl-react-hooks": "^8.2.2",
-        "@fremtind/jkl-table": "^5.5.5"
+        "@forbrukerradet/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-expand-button-react": "^2.0.4",
+        "@forbrukerradet/jkl-react-hooks": "^8.2.2",
+        "@forbrukerradet/jkl-table": "^5.5.5"
     },
     "devDependencies": {
         "npm-run-all": "^4.1.5"
@@ -50,7 +50,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

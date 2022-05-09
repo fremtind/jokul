@@ -1,5 +1,5 @@
 import React, { useEffect, useState, VFC } from "react";
-import { TertiaryButton } from "@fremtind/jkl-button-react";
+import { TertiaryButton } from "@forbrukerradet/jkl-button-react";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { setConsentCookie } from "../src/cookieConsentUtils";

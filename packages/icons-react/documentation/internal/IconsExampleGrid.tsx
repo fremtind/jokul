@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import "./icons-example-grid.scss";
 
 interface IconsExampleGridProps extends WithChildren {

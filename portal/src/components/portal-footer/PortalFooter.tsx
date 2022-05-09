@@ -1,8 +1,8 @@
 import React from "react";
 import cn from "classnames";
-import { Footer } from "@fremtind/jkl-footer-react";
-import { Feedback } from "@fremtind/jkl-feedback-react";
-import { LogoStamp } from "@fremtind/jkl-logo-react";
+import { Footer } from "@forbrukerradet/jkl-footer-react";
+import { Feedback } from "@forbrukerradet/jkl-feedback-react";
+import { LogoStamp } from "@forbrukerradet/jkl-logo-react";
 import "./portal-footer.scss";
 
 export interface PortalFooterProps {

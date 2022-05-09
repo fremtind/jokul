@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-feedback-react",
+    "name": "@forbrukerradet/jkl-feedback-react",
     "version": "12.1.0",
     "publishConfig": {
         "access": "public"
@@ -35,15 +35,15 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-button-react": "^10.1.10",
-        "@fremtind/jkl-checkbox-react": "^6.1.12",
-        "@fremtind/jkl-core": "^9.6.0",
-        "@fremtind/jkl-feedback": "^9.0.12",
-        "@fremtind/jkl-message-box-react": "^6.3.12",
-        "@fremtind/jkl-radio-button-react": "^6.2.0",
-        "@fremtind/jkl-react-hooks": "^8.2.2",
-        "@fremtind/jkl-text-input-react": "^9.1.0",
-        "@fremtind/jkl-validators-util": "^2.3.3",
+        "@forbrukerradet/jkl-button-react": "^10.1.10",
+        "@forbrukerradet/jkl-checkbox-react": "^6.1.12",
+        "@forbrukerradet/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-feedback": "^9.0.12",
+        "@forbrukerradet/jkl-message-box-react": "^6.3.12",
+        "@forbrukerradet/jkl-radio-button-react": "^6.2.0",
+        "@forbrukerradet/jkl-react-hooks": "^8.2.2",
+        "@forbrukerradet/jkl-text-input-react": "^9.1.0",
+        "@forbrukerradet/jkl-validators-util": "^2.3.3",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
@@ -54,7 +54,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

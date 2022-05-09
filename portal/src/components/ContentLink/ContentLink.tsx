@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
-import { Link } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { Link } from "@forbrukerradet/jkl-core";
 import "./style.scss";
 
 export const ContentLink: FC<WithChildren> = ({ children }) => (

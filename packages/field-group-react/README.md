@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-field-group-react`](https://jokul.fremtind.no/komponenter/fieldgroup)
+# [`@forbrukerradet/jkl-field-group-react`](https://jokul.fremtind.no/komponenter/fieldgroup)
 
 ## Beskrivelse
 
@@ -12,12 +12,12 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/field
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-field-group-react` eller `npm i @fremtind/jkl-field-group-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-field-group-react` eller `npm i @forbrukerradet/jkl-field-group-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import "@fremtind/jkl-field-group/field-group.min.css";
+import { FieldGroup } from "@forbrukerradet/jkl-field-group-react";
+import "@forbrukerradet/jkl-field-group/field-group.min.css";
 ```
 
 ### Bruk

@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, useEffect, useState } from "react";
-import { TextArea } from "@fremtind/jkl-text-input-react";
+import { TextArea } from "@forbrukerradet/jkl-text-input-react";
 
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { useFeedbackContext } from "../feedbackContext";

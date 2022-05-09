@@ -27,13 +27,13 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-scaffold yarn build:watch",
+        "dev:style": "lerna exec --scope=@forbrukerradet/jkl-scaffold yarn build:watch",
         "dev:js": "parcel documentation/index.html",
         "dev": "run-p dev:*"
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.0.0",
+        "@forbrukerradet/jkl-core": "^9.0.0",
         "@forbrukerradet/fr-scaffold": "^0.0.1-alpha.0"
     },
     "peerDependencies": {
@@ -44,7 +44,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

@@ -1,6 +1,6 @@
 import React from "react";
-import { WithChildren } from "@fremtind/jkl-core";
-import { WarningMessageBox } from "@fremtind/jkl-message-box-react";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { WarningMessageBox } from "@forbrukerradet/jkl-message-box-react";
 
 export const Experimental: React.FC<WithChildren> = ({ children }) => {
     return (

@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from "react";
 import { Link, withPrefix } from "gatsby";
 import { motion } from "framer-motion";
-import { useScreen, useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { useScreen, useBrowserPreferences } from "@forbrukerradet/jkl-react-hooks";
 import { DelayText } from "../components/Delaytext";
 import { CardList } from "../components/Card";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { VisibleDetector } from "../components/VisibleDetector";
 import "./style.scss";
 import "./index.scss";
-import { NavCard } from "@fremtind/jkl-card-react";
+import { NavCard } from "@forbrukerradet/jkl-card-react";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done

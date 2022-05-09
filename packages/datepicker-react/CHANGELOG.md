@@ -20,13 +20,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   skru av hover i simulerte klikk ([0fb4778](https://github.com/fremtind/jokul/commit/0fb47782c9a3d80ef9e776cc6332b0e65a24b921))
 -   småtrøbbel med test og typesjekk ([b1b1bc3](https://github.com/fremtind/jokul/commit/b1b1bc3eeb0fade11f8c19d9c1d6170ad808ef6d))
 
-## [9.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@9.0.12...@fremtind/jkl-datepicker-react@9.0.13) (2022-03-09)
+## [9.0.13](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-datepicker-react@9.0.12...@forbrukerradet/jkl-datepicker-react@9.0.13) (2022-03-09)
 
 ### Bug Fixes
 
 -   annonser endring av kalenderåret i datovelger ([436f4f3](https://github.com/fremtind/jokul/commit/436f4f3d61346cae53851e8d1b0fd37e3b0feead)), closes [#2750](https://github.com/fremtind/jokul/issues/2750)
 
-# [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@8.0.27...@fremtind/jkl-datepicker-react@9.0.0) (2022-02-07)
+# [9.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-datepicker-react@8.0.27...@forbrukerradet/jkl-datepicker-react@9.0.0) (2022-02-07)
 
 ### Bug Fixes
 

@@ -50,13 +50,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **@fremtind/jkl-validators-util:** adds validator for dog-id to validator-utils ([3a81afd](https://github.com/fremtind/jokul/commit/3a81afdfa9f095fac59ca51f02ff3b2fcd8d2ded)), closes [#1508](https://github.com/fremtind/jokul/issues/1508)
+-   **@forbrukerradet/jkl-validators-util:** adds validator for dog-id to validator-utils ([3a81afd](https://github.com/fremtind/jokul/commit/3a81afdfa9f095fac59ca51f02ff3b2fcd8d2ded)), closes [#1508](https://github.com/fremtind/jokul/issues/1508)
 
 ## 1.2.19 (2020-11-02)
 
 ### Bug Fixes
 
--   **@fremtind/jkl-validators-util:** renames package-folder-name from validations-util to validators- ([78d95d4](https://github.com/fremtind/jokul/commit/78d95d4f05e0ad14f406fdf0d8b5183f8d573b93)), closes [#1472](https://github.com/fremtind/jokul/issues/1472)
+-   **@forbrukerradet/jkl-validators-util:** renames package-folder-name from validations-util to validators- ([78d95d4](https://github.com/fremtind/jokul/commit/78d95d4f05e0ad14f406fdf0d8b5183f8d573b93)), closes [#1472](https://github.com/fremtind/jokul/issues/1472)
 
 ## 1.2.0 (2020-07-29)
 

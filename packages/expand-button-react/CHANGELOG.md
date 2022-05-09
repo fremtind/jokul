@@ -17,7 +17,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   ExpandSection: onToggle og expandButtonProps.id fjernet. Ingen endring i ExpandButton.
 
-# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button-react@1.1.6...@fremtind/jkl-expand-button-react@1.2.0) (2022-02-02)
+# [1.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-expand-button-react@1.1.6...@forbrukerradet/jkl-expand-button-react@1.2.0) (2022-02-02)
 
 ### Bug Fixes
 

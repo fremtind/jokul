@@ -1,6 +1,6 @@
 import React, { VFC } from "react";
 import { motion } from "framer-motion";
-import { Link } from "@fremtind/jkl-core";
+import { Link } from "@forbrukerradet/jkl-core";
 import { Link as InternalLink } from "gatsby";
 
 const NotFoundPage: VFC = () => (

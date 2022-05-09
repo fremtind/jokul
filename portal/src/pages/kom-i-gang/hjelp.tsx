@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
-import { Link } from "@fremtind/jkl-core";
-import { NavCard } from "@fremtind/jkl-card-react";
-import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import { Link } from "@forbrukerradet/jkl-core";
+import { NavCard } from "@forbrukerradet/jkl-card-react";
+import { UnorderedList, ListItem } from "@forbrukerradet/jkl-list-react";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 import { Portrait, PortraitGallery } from "../../components/portrait-gallery";
 import { StaticImage } from "gatsby-plugin-image";
@@ -113,8 +113,8 @@ const DegOgJokul: FC = () => (
                 Support Designsystem-kanalen
             </a>
             . Vi driver også med god gammeldags mail på:{" "}
-            <a href="mailto:fremtind.designsystem@fremtind.no" className="jkl-link">
-                fremtind.designsystem@fremtind.no
+            <a href="mailto:fremtind.designsystem@forbrukerradet.no" className="jkl-link">
+                fremtind.designsystem@forbrukerradet.no
             </a>
             .
         </p>

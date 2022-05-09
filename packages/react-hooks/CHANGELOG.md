@@ -3,14 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [8.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.1.1...@fremtind/jkl-react-hooks@8.2.0) (2022-04-19)
+# [8.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-react-hooks@8.1.1...@forbrukerradet/jkl-react-hooks@8.2.0) (2022-04-19)
 
 ### Features
 
 -   legg til en ny hook i useAnimatedHeight ([4294839](https://github.com/fremtind/jokul/commit/4294839e5dc62b5e327bef08bb03407e9c49bcf2))
 -   useBrowserPreferences har en verdi for høykontrasttema ([f2f8275](https://github.com/fremtind/jokul/commit/f2f82754b6844288d42ddbc2300ba659e1e467ab))
 
-## [8.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.1.0...@fremtind/jkl-react-hooks@8.1.1) (2022-04-19)
+## [8.1.1](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-react-hooks@8.1.0...@forbrukerradet/jkl-react-hooks@8.1.1) (2022-04-19)
 
 ### Bug Fixes
 
@@ -29,7 +29,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   legg til en ny hook i useAnimatedHeight ([665ab46](https://github.com/fremtind/jokul/commit/665ab46b742b4130fe385b15fde6adbd07ac4f0c))
 
-# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.2.2...@fremtind/jkl-react-hooks@8.0.0) (2022-03-11)
+# [8.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-react-hooks@7.2.2...@forbrukerradet/jkl-react-hooks@8.0.0) (2022-03-11)
 
 ### Bug Fixes
 
@@ -56,19 +56,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
     prefersReducedMotion
 -   **useScreen:** useScreen returnerer ikke lenger informasjon om skjermstørrelse i piksler
 
-# [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.1.2...@fremtind/jkl-react-hooks@7.2.0) (2022-02-17)
+# [7.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-react-hooks@7.1.2...@forbrukerradet/jkl-react-hooks@7.2.0) (2022-02-17)
 
 ### Features
 
 -   legg til valg om å skru av suffixgenerering ([0fcdc5c](https://github.com/fremtind/jokul/commit/0fcdc5cec8e24876770b2f139c8ce8c0fd59b98e))
 
-# [7.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@7.0.0...@fremtind/jkl-react-hooks@7.1.0) (2022-02-07)
+# [7.1.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-react-hooks@7.0.0...@forbrukerradet/jkl-react-hooks@7.1.0) (2022-02-07)
 
 ### Features
 
 -   legg til hook for å hente dimensjoner fra et element ([0c5d123](https://github.com/fremtind/jokul/commit/0c5d123489cc3f6b0c65c0e3ed08e724309e05b9))
 
-# [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@6.2.0...@fremtind/jkl-react-hooks@7.0.0) (2022-02-07)
+# [7.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-react-hooks@6.2.0...@forbrukerradet/jkl-react-hooks@7.0.0) (2022-02-07)
 
 ### Bug Fixes
 
@@ -81,7 +81,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   `small`-variabelen finnes ikke lenger i `breakpoints.ts`
 -   `$breakpoint--small` finnes ikke lenger i `_breakpoints.scss`
 
-# [6.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@6.1.7...@fremtind/jkl-react-hooks@6.2.0) (2022-02-02)
+# [6.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-react-hooks@6.1.7...@forbrukerradet/jkl-react-hooks@6.2.0) (2022-02-02)
 
 ### Features
 

@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-loader-react",
+    "name": "@forbrukerradet/jkl-loader-react",
     "version": "7.1.20",
     "publishConfig": {
         "access": "public"
@@ -35,7 +35,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-loader": "^7.1.19",
+        "@forbrukerradet/jkl-loader": "^7.1.19",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
@@ -46,7 +46,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

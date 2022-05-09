@@ -1,5 +1,5 @@
-import { Hamburger } from "@fremtind/jkl-hamburger-react";
-import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
+import { Hamburger } from "@forbrukerradet/jkl-hamburger-react";
+import { useAnimatedHeight, useScreen } from "@forbrukerradet/jkl-react-hooks";
 import cx from "classnames";
 import React, { useEffect } from "react";
 

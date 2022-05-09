@@ -63,19 +63,19 @@ Variabelen `$z-index--overflowHidden` heter nå `$z-index--overflow-hidden`:
 
 ## Til `jkl-core@8.0.0`
 
-Denne oppdateringen fjerner skillet mellom layout og component spacing og samler disse i én ny skala. I tillegg fjernes tall-skalaen. Det er også gjort endringer på hvordan alle variabler i `@fremtind/jkl-core/variables` tas i bruk i stilark.
+Denne oppdateringen fjerner skillet mellom layout og component spacing og samler disse i én ny skala. I tillegg fjernes tall-skalaen. Det er også gjort endringer på hvordan alle variabler i `@forbrukerradet/jkl-core/variables` tas i bruk i stilark.
 
 ### Sass-mixin
 
 Sass-mixinen har fått et nytt navn, og et litt annet API.
 Den importeres også fra den nye `jkl`-eksporten i `jkl-core` på samme måte som de nye fargeverdiene fra v5.0.0. \
-Alle variabler i `@fremtind/jkl-core/variables` blir nå videresendt via `@fremtind/jkl-core/jkl`.\
+Alle variabler i `@forbrukerradet/jkl-core/variables` blir nå videresendt via `@forbrukerradet/jkl-core/jkl`.\
 I denne oppdateringen er det følgende som blir videresendt: `breakpoints`, `shadow`, `spacing` og `z-index`.
 
 Under ser du et eksempel:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
+@use "~@forbrukerradet/jkl-core/jkl"; // får automatisk namespace jkl.
 
 .min-komponent {
     box-shadow: jkl.$drop-shadow--medium; //shadow
@@ -209,7 +209,7 @@ For å ta i bruk fontskalaen i en løsning kan man fortsatt bruke nytteklasser e
 Sass-mixinen har fått et nytt navn, og et litt annet API. Den importeres også fra den nye `jkl`-eksporten i `jkl-core` på samme måte som de nye fargeverdiene fra v5.0.0. Alle typografi-elementer som eksporteres fra denne filen har prefix `typography-`.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
+@use "~@forbrukerradet/jkl-core/jkl"; // får automatisk namespace jkl.
 
 .min-komponent {
     // automatisk bytte for stor/liten skjerm:
@@ -236,7 +236,7 @@ Hvis du trenger å overstyre fontvekt eller linjehøyde på tekststilen kan du l
 Variabler for fontvekt eksporteres også fra den nye `jkl`-eksporten, også de med prefix `typography-`.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/jkl";
 
 jkl.$typography-weight-normal; // normal fontvekt
 jkl.$typography-weight-bold; // fet fontvekt
@@ -255,7 +255,7 @@ Alle nytteklasser (unntatt `jkl-body` og `jkl-small`) må byttes ut med riktig n
 Sørg for at du importerer `jkl` i alle stilark der du bruker typografi fra Jøkul:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/jkl";
 ```
 
 | Der du før brukte...                              | ...bruk nå                                       |
@@ -325,9 +325,9 @@ Ta gjerne en titt på componentene i portalen eller ta kontakt i Support Designs
 
 ### Hvordan bruke de nye fargestilene i CSS/Sass
 
-Vi har laget en ny eksport fil med `color-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "~@fremtind/jkl-core/jkl";` og skriver `jkl.$color-snovhit` for å bruke den i din stil-fil.
+Vi har laget en ny eksport fil med `color-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "~@forbrukerradet/jkl-core/jkl";` og skriver `jkl.$color-snovhit` for å bruke den i din stil-fil.
 Dette ble gjort slik at det skal bli likt når typografi endringen kommer (skal også få prefix);
-Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "~@fremtind/jkl-core/variables/_colors.scss";`.
+Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "~@forbrukerradet/jkl-core/variables/_colors.scss";`.
 
 Dersom du har brukt de gamle valørene som bakgrunnsfarge eller lignende, kan du bruke denne tabellen som et cheat sheet når du tar i bruk `jkl-core@5.0.0`.
 
@@ -484,7 +484,7 @@ For å erstatte de "responsive" mixin-ene anbefaler vi mønstret vi selv bruker 
 
 ## Typografielementer
 
-I forbindelse med endringen av tekststilene utgår React-komponentene for typografi i pakken `@fremtind/jkl-typography-react`. De er fortsatt tilgjengelige for bruk i `v2.x.x` av den pakken, men vil bli tatt helt vekk i `v3.0.0`.
+I forbindelse med endringen av tekststilene utgår React-komponentene for typografi i pakken `@forbrukerradet/jkl-typography-react`. De er fortsatt tilgjengelige for bruk i `v2.x.x` av den pakken, men vil bli tatt helt vekk i `v3.0.0`.
 
 Vi anbefaler at du allerede nå refaktorerer til å bruke semantisk riktige html-elementer med riktig hjelpeklasse fra `jkl-core`:
 

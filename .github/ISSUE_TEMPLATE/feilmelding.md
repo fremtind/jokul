@@ -24,7 +24,7 @@ Dersom feilen ikke kan gjenskapes på https://jokul.fremtind.no
 er det til stor hjelp om du lager en CodeSandbox (https://codesandbox.io)
 som demonstrerer feilen. Du kan logge inn med GitHub-kontoen din, trykke
 Create Sandbox, og søke opp Jøkul-malen for å få et minimumseksempel
-med @fremtind/jkl-core og @fremtind/jkl-webfonts ferdig satt opp. Derfra
+med @forbrukerradet/jkl-core og @forbrukerradet/jkl-webfonts ferdig satt opp. Derfra
 kan du installere Jøkul-pakkene du trenger for å demonstrere feilen.
 Lim inn lenken til sandboxen din som en del av Steg for å reprodusere.
 -->

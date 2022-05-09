@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant } from "@forbrukerradet/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
 

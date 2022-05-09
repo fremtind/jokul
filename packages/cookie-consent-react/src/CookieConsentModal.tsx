@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 // @ts-ignore: wait for nrk to supply types
 import CoreDialog from "@nrk/core-dialog/jsx";
-import { WithChildren } from "@fremtind/jkl-core";
-import { CheckListItem, UnorderedList } from "@fremtind/jkl-list-react";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { CheckListItem, UnorderedList } from "@forbrukerradet/jkl-list-react";
+import { Checkbox } from "@forbrukerradet/jkl-checkbox-react";
+import { PrimaryButton, TertiaryButton } from "@forbrukerradet/jkl-button-react";
 import { useForm, useFormContext, FormProvider } from "react-hook-form";
 import { Consent, ConsentComponentBaseProps } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";

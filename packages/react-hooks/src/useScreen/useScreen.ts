@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useReducer, useState } from "react";
-import { breakpoints } from "@fremtind/jkl-core";
+import { breakpoints } from "@forbrukerradet/jkl-core";
 import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
 import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
 

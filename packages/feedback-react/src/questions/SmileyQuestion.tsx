@@ -1,5 +1,5 @@
 import React, { Fragment, ChangeEventHandler, useMemo } from "react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { FieldGroup } from "@forbrukerradet/jkl-field-group-react";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { FeedbackOption, QuestionProps } from "../types";

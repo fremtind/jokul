@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-checkbox`](https://jokul.fremtind.no/komponenter/checkbox)
+# [`@forbrukerradet/jkl-checkbox`](https://jokul.fremtind.no/komponenter/checkbox)
 
 # Avmerkingsbokser
 

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-footer`](https://jokul.fremtind.no/komponenter/footer)
+# [`@forbrukerradet/jkl-footer`](https://jokul.fremtind.no/komponenter/footer)
 
 ## Beskrivelse
 

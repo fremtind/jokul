@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-field-group",
+    "name": "@forbrukerradet/jkl-field-group",
     "version": "4.0.22",
     "publishConfig": {
         "access": "public"
@@ -23,11 +23,11 @@
         "dev": "echo \"Error: run dev from field-group-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

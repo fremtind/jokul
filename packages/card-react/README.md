@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-card-react`](https://jokul.fremtind.no/komponenter/card)
+# [`@forbrukerradet/jkl-card-react`](https://jokul.fremtind.no/komponenter/card)
 
 ## Beskrivelse
 
@@ -12,13 +12,13 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/card)
 
 ### Installasjon
 
-1. Installèr pakken med `yarn add @fremtind/jkl-card-react` eller `npm i @fremtind/jkl-card-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installèr pakken med `yarn add @forbrukerradet/jkl-card-react` eller `npm i @forbrukerradet/jkl-card-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { Card } from "@fremtind/jkl-card-react";
-import "@fremtind/jkl-card/card.min.css";
+import { Card } from "@forbrukerradet/jkl-card-react";
+import "@forbrukerradet/jkl-card/card.min.css";
 ```
 
 ## Bruk

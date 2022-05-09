@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { Link, WithChildren } from "@fremtind/jkl-core";
-import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
-import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
+import { Link, WithChildren } from "@forbrukerradet/jkl-core";
+import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@forbrukerradet/jkl-description-list-react";
+import { OrderedList, UnorderedList } from "@forbrukerradet/jkl-list-react";
 import { ComponentExample } from "../../../../doc-utils";
-import { NavCard } from "@fremtind/jkl-card-react";
-import { InfoMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
+import { NavCard } from "@forbrukerradet/jkl-card-react";
+import { InfoMessageBox, WarningMessageBox } from "@forbrukerradet/jkl-message-box-react";
 import {
     Table,
     TableBody,
@@ -17,7 +17,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@fremtind/jkl-table-react";
+} from "@forbrukerradet/jkl-table-react";
 import { PortalImage } from "../portal-image";
 import { Grid } from "../Grid";
 import { Experimental } from "../Experimental/Experimental";

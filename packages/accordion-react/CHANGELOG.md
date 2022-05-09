@@ -17,7 +17,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **@fremtind/jkl-accordion-react:** add onClick prop to AccordionItem ([410b90d](https://github.com/fremtind/jokul/commit/410b90d8eca92b72f13fb8c896ebf03fa5230806)), closes [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515)
+-   **@forbrukerradet/jkl-accordion-react:** add onClick prop to AccordionItem ([410b90d](https://github.com/fremtind/jokul/commit/410b90d8eca92b72f13fb8c896ebf03fa5230806)), closes [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515) [#2515](https://github.com/fremtind/jokul/issues/2515)
 -   **accordion-react:** expor interfaces as types ([4949d3c](https://github.com/fremtind/jokul/commit/4949d3c95b2a2c4ffeb028c5afe701f36912bb11)), closes [#2515](https://github.com/fremtind/jokul/issues/2515)
 
 ## 5.0.0 (2021-10-21)

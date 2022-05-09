@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import { Image } from ".";
 
-jest.mock("@fremtind/jkl-react-hooks", () => ({
+jest.mock("@forbrukerradet/jkl-react-hooks", () => ({
     useElementDimensions: () => [() => {}, { width: 600, height: 400 }],
     useImageLoadingStatus: () => [() => {}, true],
 }));

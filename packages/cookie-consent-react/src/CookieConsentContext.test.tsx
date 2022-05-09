@@ -1,5 +1,5 @@
 import React from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import { renderHook, act } from "@testing-library/react";
 import { CookieConsentProvider, useCookieConsentState } from "./CookieConsentContext";
 import { ConsentRequirement, ConsentState, Consent } from "./types";

@@ -53,7 +53,7 @@ Våre prosjektansvarlige kan definere og avklare nærmere hva det vil si å repr
 ## Slik følger vi opp reglene
 
 Du kan rapportere krenkende, trakasserende eller annen uakseptabel oppførsel til
-glenn.andreas.brownlee@fremtind.no.
+glenn.andreas.brownlee@forbrukerradet.no.
 
 Vi
 

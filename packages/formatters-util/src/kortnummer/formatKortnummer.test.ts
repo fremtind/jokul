@@ -1,4 +1,4 @@
-import { unicode } from "@fremtind/jkl-constants-util";
+import { unicode } from "@forbrukerradet/jkl-constants-util";
 import { formatKortnummer } from "./formatKortnummer";
 
 const { nbsp } = unicode;

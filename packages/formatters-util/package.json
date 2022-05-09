@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-formatters-util",
+    "name": "@forbrukerradet/jkl-formatters-util",
     "version": "2.0.9",
     "publishConfig": {
         "access": "public"
@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-constants-util": "^0.4.4",
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-constants-util": "^0.4.4",
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "devDependencies": {
         "react-hook-form": "^7.29.0"
@@ -48,7 +48,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

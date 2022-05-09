@@ -1,7 +1,7 @@
-# [`@fremtind/jkl-list`](https://jokul.fremtind.no/komponenter/list)
+# [`@forbrukerradet/jkl-list`](https://jokul.fremtind.no/komponenter/list)
 
--   **Utgått:** Denne komponenten er utgått, og erstattet av `@fremtind/jkl-list`
--   **Deprecated:** This component is deprecated, and replaced by `@fremtind/jkl-list`
+-   **Utgått:** Denne komponenten er utgått, og erstattet av `@forbrukerradet/jkl-list`
+-   **Deprecated:** This component is deprecated, and replaced by `@forbrukerradet/jkl-list`
 
 ## Om lister
 

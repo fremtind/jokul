@@ -1,4 +1,4 @@
-import { useId, useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useId, useIntersectionObserver } from "@forbrukerradet/jkl-react-hooks";
 import cn from "classnames";
 import React, { useRef, useState } from "react";
 

@@ -14,8 +14,8 @@ selv med de nye komponentene. Vi har et ferdig eksempel i `documentation/Clickab
 Vi anbefaler at du gir en `caption` til `DataTable`.
 
 ```diff
-- import { Table } from "@fremtind/jkl-table-react";
-+ import { DataTable } from "@fremtind/jkl-table-react";
+- import { Table } from "@forbrukerradet/jkl-table-react";
++ import { DataTable } from "@forbrukerradet/jkl-table-react";
 
   const cols = ["Dato", "Saksnummer", "Kundenummer"]
   const rows = [
@@ -29,4 +29,4 @@ Vi anbefaler at du gir en `caption` til `DataTable`.
 
 ## Til `jkl-table-react@5.0.0`
 
-Oppgrader til `@fremtind/jkl-core@^8.0.0`
+Oppgrader til `@forbrukerradet/jkl-core@^8.0.0`

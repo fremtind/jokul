@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-footer",
+    "name": "@forbrukerradet/jkl-footer",
     "version": "1.0.5",
     "publishConfig": {
         "access": "public"
@@ -23,11 +23,11 @@
         "dev": "echo \"Error: run dev from footer-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-logo`](https://jokul.fremtind.no/komponenter/logo)
+# [`@forbrukerradet/jkl-logo`](https://jokul.fremtind.no/komponenter/logo)
 
 # Logo, logosymbol og stempel
 

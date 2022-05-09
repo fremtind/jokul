@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-hamburger`](https://jokul.fremtind.no/komponenter/hamburger)
+# [`@forbrukerradet/jkl-hamburger`](https://jokul.fremtind.no/komponenter/hamburger)
 
 ## Om hamburgermenyen
 

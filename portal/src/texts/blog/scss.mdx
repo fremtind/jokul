@@ -12,7 +12,7 @@ publishDate: "2021.02.12"
 La meg starte med en viktig poeng, dette er nytt, vi har ikke dårlig tid på oss å få fikset dette, men er greit å ta tak i det når det passer. Det er ikke alle implementasjoner av Sass som har full støtte for dette enda, men om du bruker `sass` eller `dart-sass` kan du migrere nå. `node-sass` har ikke støtte per i dag, men om du bruker den bør du vurdere å migrere til referanse implementasjonen `sass`. Det viktige endringen for oss er at `@import` syntaxen gies tilbake til CSS. Per i dag er det måten vi har hentet funksjonalitet og stiler mellom ulike filer, det erstattes nå av `@use` og `@forward`. Dette gjelder kun ved importer av `.scss` filer i `.scss` filer, det påvirker ikke importen til JavaScript eller import av våre bydge `.css` filer.
 
 ```scss
-@import '~@fremtind/jkl-core/_functions.scss';
+@import '~@forbrukerradet/jkl-core/_functions.scss';
 
 .my-class {
     height: rem(300px);
@@ -22,7 +22,7 @@ La meg starte med en viktig poeng, dette er nytt, vi har ikke dårlig tid på os
 
 Dette blir nå:
 ```scss
-@use '~@fremtind/jkl-core/_functions.scss';
+@use '~@forbrukerradet/jkl-core/_functions.scss';
 
 .my-class {
     height: functions.rem(300px);
@@ -33,7 +33,7 @@ Dette blir nå:
 Import blir byttet ut med use, men importen er nå scopet til et namespace, så for å finne funksjonen må den kalles fra namespace. Du kan også sette det namespacet selv om du ønsker.
 
 ```scss
-@use '~@fremtind/jkl-core/mixins/_all.scss' as mix;
+@use '~@forbrukerradet/jkl-core/mixins/_all.scss' as mix;
 
 .my-class {
     @include mix.small-device {
@@ -47,12 +47,12 @@ Med nye syntaxen har ikke lengre den importete filen tilgang til variablene satt
 
 ```scss
 $webfonts-dir: "/relative/path/to/font/files";
-@import "~@fremtind/jkl-webfonts/webfonts.scss";
+@import "~@forbrukerradet/jkl-webfonts/webfonts.scss";
 ```
 
 blir til
 ```scss
-@use '~@fremtind/jkl-webfonts/webfonts.scss' with (
+@use '~@forbrukerradet/jkl-webfonts/webfonts.scss' with (
     $webfonts-dir: "/privat/forsikring/open/fonts"
 );
 ```

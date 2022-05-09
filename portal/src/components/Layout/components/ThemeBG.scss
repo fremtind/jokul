@@ -1,6 +1,6 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@forbrukerradet/jkl-core/mixins/_all";
 
 .jkl-portal-theme-bg {
     z-index: jkl.$z-index--hidden;

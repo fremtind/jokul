@@ -1,4 +1,4 @@
-# [`@fremtind/browserslist-config-jkl`](https://jokul.fremtind.no)
+# [`@forbrukerradet/browserslist-config-jkl`](https://jokul.fremtind.no)
 
 Inneholder browserslist-konfigurasjonen til Jøkul. Det er en god idé å basere seg på Jøkul sin browserslist i ditt eget prosjekt.
 
@@ -11,8 +11,8 @@ Legges til i `package.json`:
 ```json
 {
     "devDependencies": {
-        "@fremtind/browserslist-config-jkl": "<versjonsnummer>"
+        "@forbrukerradet/browserslist-config-jkl": "<versjonsnummer>"
     },
-    "browserslist": ["extends @fremtind/browserslist-config-jkl"]
+    "browserslist": ["extends @forbrukerradet/browserslist-config-jkl"]
 }
 ```

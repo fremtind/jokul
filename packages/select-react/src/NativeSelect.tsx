@@ -1,6 +1,6 @@
 import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
-import { useId } from "@fremtind/jkl-react-hooks";
-import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps } from "@fremtind/jkl-core";
+import { useId } from "@forbrukerradet/jkl-react-hooks";
+import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps } from "@forbrukerradet/jkl-core";
 import cn from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 

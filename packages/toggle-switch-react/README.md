@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-toggle-switch-react`](https://jokul.fremtind.no/komponenter/toggleswitch)
+# [`@forbrukerradet/jkl-toggle-switch-react`](https://jokul.fremtind.no/komponenter/toggleswitch)
 
 ## Beskrivelse
 
@@ -12,13 +12,13 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/toggl
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-toggle-switch-react` eller `npm i @fremtind/jkl-toggle-switch-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-toggle-switch-react` eller `npm i @forbrukerradet/jkl-toggle-switch-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
-import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
+import { ToggleSwitch } from "@forbrukerradet/jkl-toggle-switch-react";
+import "@forbrukerradet/jkl-toggle-switch/toggle-switch.min.css";
 ```
 
 ### Bruk

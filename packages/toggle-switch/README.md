@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-toggle-switch`](https://jokul.fremtind.no/komponenter/toggleswitch)
+# [`@forbrukerradet/jkl-toggle-switch`](https://jokul.fremtind.no/komponenter/toggleswitch)
 
 # Veksleknapp (toggle switch)
 

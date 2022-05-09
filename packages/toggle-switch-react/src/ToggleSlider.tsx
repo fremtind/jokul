@@ -1,7 +1,7 @@
 import React, { useState, FC } from "react";
 import cn from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
-import { ScreenReaderOnly, WithOptionalChildren } from "@fremtind/jkl-core";
+import { useId } from "@forbrukerradet/jkl-react-hooks";
+import { ScreenReaderOnly, WithOptionalChildren } from "@forbrukerradet/jkl-core";
 
 interface Props extends WithOptionalChildren {
     labels: [string, string];

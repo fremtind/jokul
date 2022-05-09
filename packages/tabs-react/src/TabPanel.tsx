@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 
 export interface TabPanelProps extends WithChildren {
     className?: string;

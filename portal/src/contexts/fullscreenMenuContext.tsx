@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, FC } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 
 export type MenuItemList = Array<MenuItem>;
 

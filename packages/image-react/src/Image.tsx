@@ -1,6 +1,6 @@
 import React, { VFC } from "react";
 import cn from "classnames";
-import { useElementDimensions } from "@fremtind/jkl-react-hooks";
+import { useElementDimensions } from "@forbrukerradet/jkl-react-hooks";
 import { useImageLoadingStatus } from "./useImageLoadingStatus";
 
 export interface ImageProps {

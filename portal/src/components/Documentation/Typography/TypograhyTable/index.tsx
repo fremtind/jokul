@@ -1,5 +1,5 @@
 import React, { VFC, useState } from "react";
-import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import { ToggleSwitch } from "@forbrukerradet/jkl-toggle-switch-react";
 import "./TypographyTable.scss";
 import { TableHeader } from "./TableHeader";
 import { ExampleRow, TypographyLevels } from "./ExampleRow";

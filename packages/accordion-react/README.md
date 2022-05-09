@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-accordion-react`](https://jokul.fremtind.no/komponenter/accordion)
+# [`@forbrukerradet/jkl-accordion-react`](https://jokul.fremtind.no/komponenter/accordion)
 
 ## Beskrivelse
 
@@ -12,13 +12,13 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/accor
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-accordion-react` eller `npm i @fremtind/jkl-accordion-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-accordion-react` eller `npm i @forbrukerradet/jkl-accordion-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import "@fremtind/jkl-accordion/accordion.min.css";
+import { Accordion, AccordionItem } from "@forbrukerradet/jkl-accordion-react";
+import "@forbrukerradet/jkl-accordion/accordion.min.css";
 ```
 
 ### Bruk

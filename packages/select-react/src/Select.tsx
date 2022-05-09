@@ -17,8 +17,8 @@ import {
     getValuePair,
     DataTestAutoId,
     LabelProps,
-} from "@fremtind/jkl-core";
-import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+} from "@forbrukerradet/jkl-core";
+import { useId, useAnimatedHeight } from "@forbrukerradet/jkl-react-hooks";
 import { useListNavigation } from "./useListNavigation";
 import cn from "classnames";
 import { ExpandArrow } from "./ExpandArrow";

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-icon-button-react`](https://jokul.fremtind.no/komponenter/iconbutton)
+# [`@forbrukerradet/jkl-icon-button-react`](https://jokul.fremtind.no/komponenter/iconbutton)
 
 ## Beskrivelse
 
@@ -12,13 +12,13 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/iconb
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-icon-button-react` eller `npm i @fremtind/jkl-icon-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-icon-button-react` eller `npm i @forbrukerradet/jkl-icon-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import "@fremtind/jkl-icon-button/icon-button.min.css";
+import { IconButton } from "@forbrukerradet/jkl-icon-button-react";
+import "@forbrukerradet/jkl-icon-button/icon-button.min.css";
 ```
 
 ### Bruk

@@ -7,4 +7,4 @@ Vi prøver så langt det er mulig å release nødvendige sikkerhetsoppdateringer
 
 ## Rapporter sikkerhetshull
 
-Hvis du oppdager et hull i vårt system ønsker vi at du tar kontakt med oss på fremtind.designsystem@fremtind.no
+Hvis du oppdager et hull i vårt system ønsker vi at du tar kontakt med oss på fremtind.designsystem@forbrukerradet.no

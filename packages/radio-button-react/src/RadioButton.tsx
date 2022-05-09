@@ -1,6 +1,6 @@
 import React, { forwardRef, InputHTMLAttributes, ChangeEventHandler, ReactNode } from "react";
 import cn from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { useId } from "@forbrukerradet/jkl-react-hooks";
 import { useRadioGroupContext } from "./radioGroupContext";
 
 export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {

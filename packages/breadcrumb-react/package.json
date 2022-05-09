@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-breadcrumb-react",
+    "name": "@forbrukerradet/jkl-breadcrumb-react",
     "version": "1.0.11",
     "publishConfig": {
         "access": "public"
@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-breadcrumb": "^1.0.11",
-        "@fremtind/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-breadcrumb": "^1.0.11",
+        "@forbrukerradet/jkl-core": "^9.6.0",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
@@ -46,7 +46,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

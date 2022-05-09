@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-image",
+    "name": "@forbrukerradet/jkl-image",
     "version": "2.0.12",
     "description": "Jøkul style for image",
     "publishConfig": {
@@ -26,11 +26,11 @@
         "dev": "echo \"Error: run dev from image-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

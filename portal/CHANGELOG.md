@@ -3,19 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [12.4.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.1...@fremtind/portal@12.4.2) (2022-04-25)
+## [12.4.2](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.4.1...@forbrukerradet/portal@12.4.2) (2022-04-25)
 
 ### Bug Fixes
 
 -   navcards on frontpage now shows correct color on text ([064fa19](https://github.com/fremtind/jokul/commit/064fa1905df2468befdd74aed3afb7c803470e63))
 
-## [12.4.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.0...@fremtind/portal@12.4.1) (2022-04-25)
+## [12.4.1](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.4.0...@forbrukerradet/portal@12.4.1) (2022-04-25)
 
 ### Bug Fixes
 
 -   rar artefakt på mobil ([ea2e7af](https://github.com/fremtind/jokul/commit/ea2e7af76e432f6d91495d108f97aa261ad5d96a))
 
-# [12.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.24...@fremtind/portal@12.4.0) (2022-04-22)
+# [12.4.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.3.24...@forbrukerradet/portal@12.4.0) (2022-04-22)
 
 ### Bug Fixes
 
@@ -38,7 +38,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   gjør mulig å skru av fullskjerm for PortalImage ([7226610](https://github.com/fremtind/jokul/commit/7226610f257ccea39b1f1d807bafc139c5db141b))
 -   legg til huge-title som one-off for portalen ([a06ec28](https://github.com/fremtind/jokul/commit/a06ec28a8ebe489abd98e55d5e4ad9e4d8874c45))
 
-## [12.3.23](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.22...@fremtind/portal@12.3.23) (2022-04-19)
+## [12.3.23](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.3.22...@forbrukerradet/portal@12.3.23) (2022-04-19)
 
 ### Bug Fixes
 
@@ -50,7 +50,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   unset border og outline i forced-colors ([648c7cd](https://github.com/fremtind/jokul/commit/648c7cdd30805dc6e6dc74b3e12d7b20b2ff5cec))
 -   vis diamant i CanvasText ([445b9f9](https://github.com/fremtind/jokul/commit/445b9f9f7b95925cd769c2251e33e24e6a952ee2))
 
-## [12.3.21](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.20...@fremtind/portal@12.3.21) (2022-04-08)
+## [12.3.21](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.3.20...@forbrukerradet/portal@12.3.21) (2022-04-08)
 
 ### Bug Fixes
 
@@ -59,13 +59,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   oppdater condition for animasjon etter rename ([731dcf1](https://github.com/fremtind/jokul/commit/731dcf16d6e68284e31e12ceffe97b1edb3cc2fb))
 -   skru av transition hvis Cypress ([859a75d](https://github.com/fremtind/jokul/commit/859a75dd332522b0db8f2fe44d81cab30f6e18f5))
 
-## [12.3.16](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.15...@fremtind/portal@12.3.16) (2022-03-16)
+## [12.3.16](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.3.15...@forbrukerradet/portal@12.3.16) (2022-03-16)
 
 ### Bug Fixes
 
 -   begrens bredden til bilder i DoDont til boksens bredde ([66a077e](https://github.com/fremtind/jokul/commit/66a077ee7aedf9e8dbf48dac66d64756a7be2a4d))
 
-## [12.3.5](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.3.4...@fremtind/portal@12.3.5) (2022-03-04)
+## [12.3.5](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.3.4...@forbrukerradet/portal@12.3.5) (2022-03-04)
 
 ### Bug Fixes
 
@@ -88,7 +88,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   gjør om leaf nodes i menytreet til anchors ([d60cfa5](https://github.com/fremtind/jokul/commit/d60cfa5d7ddd4a1ecd929f779781f9650e1a20ce))
 -   legg til en RSS-feed i portalen ([cb3823d](https://github.com/fremtind/jokul/commit/cb3823d8e240832533873f639ed5ed271c604e8b))
 
-# [12.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.1.0...@fremtind/portal@12.2.0) (2022-02-17)
+# [12.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.1.0...@forbrukerradet/portal@12.2.0) (2022-02-17)
 
 ### Features
 
@@ -100,7 +100,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   legg til en routernøytral brødsmulesti ([5ea8cee](https://github.com/fremtind/jokul/commit/5ea8cee12498ef94d19875ae13d4bc79876bd9db))
 
-## [12.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.0.0...@fremtind/portal@12.0.1) (2022-02-07)
+## [12.0.1](https://github.com/fremtind/jokul/compare/@forbrukerradet/portal@12.0.0...@forbrukerradet/portal@12.0.1) (2022-02-07)
 
 ### Bug Fixes
 
@@ -406,7 +406,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **@fremtind/jkl-description-list @fremtind/jkl-description-list-react:** new component: Descriptio ([6006c1e](https://github.com/fremtind/jokul/commit/6006c1e89cfa1a5ef016a5f4385cae6df97d9a62))
+-   **@forbrukerradet/jkl-description-list @forbrukerradet/jkl-description-list-react:** new component: Descriptio ([6006c1e](https://github.com/fremtind/jokul/commit/6006c1e89cfa1a5ef016a5f4385cae6df97d9a62))
 
 ## 4.0.0 (2021-06-07)
 
@@ -528,7 +528,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **@fremtind/jkl-summary-table:** a simple table with two columns ([db1bc55](https://github.com/fremtind/jokul/commit/db1bc55ff4df3a42ab9efa2a7df39c6775185e8b)), closes [#1484](https://github.com/fremtind/jokul/issues/1484)
+-   **@forbrukerradet/jkl-summary-table:** a simple table with two columns ([db1bc55](https://github.com/fremtind/jokul/commit/db1bc55ff4df3a42ab9efa2a7df39c6775185e8b)), closes [#1484](https://github.com/fremtind/jokul/issues/1484)
 
 ## 3.22.0 (2020-11-04)
 
@@ -676,7 +676,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   ta i bruk @fremtind/browserslist-config-jkl ([b75a518](https://github.com/fremtind/jokul/commit/b75a5185bb27ae548e8f2b144cad14e66cbf4e32))
+-   ta i bruk @forbrukerradet/browserslist-config-jkl ([b75a518](https://github.com/fremtind/jokul/commit/b75a5185bb27ae548e8f2b144cad14e66cbf4e32))
 
 ### Features
 

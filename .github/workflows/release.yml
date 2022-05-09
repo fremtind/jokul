@@ -27,7 +27,7 @@ jobs:
 
             - name: Configure CI Git User
               run: |
-                  git config --global user.name '@fremtind-bot'
+                  git config --global user.name '@forbrukerradet-bot'
                   git config --global user.email 'fremtind-bot@users.noreply.github.com'
                   git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
 
@@ -98,7 +98,7 @@ jobs:
               with:
                   registry-url: "https://npm.pkg.github.com"
                   # Defaults to the user or organization that owns the workflow file
-                  scope: "@fremtind"
+                  scope: "@forbrukerradet"
 
             - name: Publish packages to GitHub Packages
               if: steps.lerna_changed.outcome == 'success'
@@ -123,7 +123,7 @@ jobs:
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.email "fremtind.designsystem@forbrukerradet.no"
                   git config user.name "fremtind-bot"
                   git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
                   yarn deploy:docs

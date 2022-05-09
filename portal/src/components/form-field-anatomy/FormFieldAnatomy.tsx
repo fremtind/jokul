@@ -1,7 +1,7 @@
 import React, { VFC } from "react";
-import { OrderedList, ListItem } from "@fremtind/jkl-list-react";
-import { NativeSelect } from "@fremtind/jkl-select-react";
-import { TextInput } from "@fremtind/jkl-text-input-react";
+import { OrderedList, ListItem } from "@forbrukerradet/jkl-list-react";
+import { NativeSelect } from "@forbrukerradet/jkl-select-react";
+import { TextInput } from "@forbrukerradet/jkl-text-input-react";
 import "./form-field-anatomy.scss";
 
 export const FormFieldAnatomy: VFC = () => {

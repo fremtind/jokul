@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-scaffold`](https://jokul.fremtind.no/komponenter/scaffold)
+# [`@forbrukerradet/jkl-scaffold`](https://jokul.fremtind.no/komponenter/scaffold)
 
 ## Beskrivelse
 

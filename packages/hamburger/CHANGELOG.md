@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [9.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger@9.0.9...@fremtind/jkl-hamburger@9.0.10) (2022-04-19)
+## [9.0.10](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-hamburger@9.0.9...@forbrukerradet/jkl-hamburger@9.0.10) (2022-04-19)
 
 ### Bug Fixes
 

@@ -1,4 +1,4 @@
-#  [`@fremtind/jkl-cookie-consent`](https://jokul.fremtind.no/komponenter/cookie-consent)
+#  [`@forbrukerradet/jkl-cookie-consent`](https://jokul.fremtind.no/komponenter/cookie-consent)
 
 # Cookie consent
 

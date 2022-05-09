@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-select",
+    "name": "@forbrukerradet/jkl-select",
     "version": "7.0.12",
     "publishConfig": {
         "access": "public"
@@ -26,11 +26,11 @@
         "dev": "echo \"Error: run dev from select-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.0"
+        "@forbrukerradet/jkl-core": "^9.6.0"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

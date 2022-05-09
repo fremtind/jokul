@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-text-input-react",
+    "name": "@forbrukerradet/jkl-text-input-react",
     "version": "9.1.0",
     "publishConfig": {
         "access": "public"
@@ -39,10 +39,10 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-icon-button-react": "^0.8.23",
-        "@fremtind/jkl-icons-react": "^4.1.18",
-        "@fremtind/jkl-react-hooks": "^8.2.2",
-        "@fremtind/jkl-text-input": "^7.0.15",
+        "@forbrukerradet/jkl-icon-button-react": "^0.8.23",
+        "@forbrukerradet/jkl-icons-react": "^4.1.18",
+        "@forbrukerradet/jkl-react-hooks": "^8.2.2",
+        "@forbrukerradet/jkl-text-input": "^7.0.15",
         "classnames": "^2.2.6",
         "downshift": "^6.0.5",
         "match-sorter": "^6.3.0"
@@ -58,7 +58,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

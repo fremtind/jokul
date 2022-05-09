@@ -1,5 +1,5 @@
 import React from "react";
-import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
+import { ContentToggle } from "@forbrukerradet/jkl-content-toggle-react";
 import classnames from "classnames";
 
 export interface HamburgerProps {

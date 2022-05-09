@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-text-input-react`](https://jokul.fremtind.no/komponenter/textinput)
+# [`@forbrukerradet/jkl-text-input-react`](https://jokul.fremtind.no/komponenter/textinput)
 
 ## Beskrivelse
 
@@ -12,14 +12,14 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/texti
 
 ### Installasjon
 
-1. Installèr pakken med `yarn add @fremtind/jkl-text-input-react` eller `npm i @fremtind/jkl-text-input-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installèr pakken med `yarn add @forbrukerradet/jkl-text-input-react` eller `npm i @forbrukerradet/jkl-text-input-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { TextInput, TextArea, BaseInputField } from "@fremtind/jkl-text-input-react";
-import "@fremtind/jkl-text-input/text-input.min.css";
-import "@fremtind/jkl-icon-button/icon-button.min.css";
+import { TextInput, TextArea, BaseInputField } from "@forbrukerradet/jkl-text-input-react";
+import "@forbrukerradet/jkl-text-input/text-input.min.css";
+import "@forbrukerradet/jkl-icon-button/icon-button.min.css";
 ```
 
 Legg merke til at vi også importerer stilen fra `jkl-icon-button`. Denne pakken blir automatisk installert som en avhengighet, og brukes til å vise eventuelle handlinger i tekstfeltet (se under).
@@ -53,7 +53,7 @@ Husk å sette `label` til en fornuftig beskrivelse av handlingen (f.eks. "nullst
 #### BaseInputField
 
 Denne er kun eksponert for å dekke spesielle behov og anbefales ikke å brukes.
-Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremtind/jkl-core`](https://jokul.fremtind.no/komponenter/Typography) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
+Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@forbrukerradet/jkl-core`](https://jokul.fremtind.no/komponenter/Typography) hvor `standAlone` og `htmlFor` skal være spesifisert. Eksempel på hvordan denne kan brukes:
 
 ```tsx
 <Label standAlone htmlFor="complicatedquestion">

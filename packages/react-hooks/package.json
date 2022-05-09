@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-react-hooks",
+    "name": "@forbrukerradet/jkl-react-hooks",
     "version": "8.2.2",
     "publishConfig": {
         "access": "public"
@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-core": "^9.6.0",
         "nanoid": "^3.3.2"
     },
     "peerDependencies": {
@@ -47,7 +47,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"

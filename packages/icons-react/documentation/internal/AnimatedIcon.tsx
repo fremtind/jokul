@@ -1,5 +1,5 @@
 import React from "react";
-import { SecondaryButton } from "@fremtind/jkl-button-react";
+import { SecondaryButton } from "@forbrukerradet/jkl-button-react";
 
 interface AnimatedIconProps {
     renderIcon: (arg0: boolean) => React.ReactNode;

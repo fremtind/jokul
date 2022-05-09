@@ -1,8 +1,8 @@
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/variables/colors";
+@use "~@forbrukerradet/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/_functions";
-@import "~@fremtind/jkl-core/mixins/_all";
+@import "~@forbrukerradet/jkl-core/_functions";
+@import "~@forbrukerradet/jkl-core/mixins/_all";
 
 $dismiss-animation-duration: 500ms;
 $dismiss-focus-border-color: jkl.$color-granitt;

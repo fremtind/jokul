@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import "./GitHubLinks.scss";
 
 interface LinkProps extends WithChildren {
@@ -20,7 +20,7 @@ export const GitHubLinks: FC<Props> = ({ react, scss }) => {
     if (!react && !scss) {
         return null;
     }
-    const pkgLink = (pkgName: string) => `https://github.com/fremtind/jokul/tree/main/packages/${pkgName}`;
+    const pkgLink = (pkgName: string) => `https://github.com/Forbrukerradet/designsystem/tree/main/packages/${pkgName}`;
 
     return (
         <p className="jkl-portal-github-links">

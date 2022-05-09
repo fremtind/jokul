@@ -1,4 +1,4 @@
-@use "@fremtind/jkl-core/jkl";
+@use "@forbrukerradet/jkl-core/jkl";
 
 @include jkl.helper-light-mode-variables {
     --external-prop-header-color: #{jkl.$color-stein};

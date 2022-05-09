@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-formatters-util`](https://jokul.fremtind.no/komponenter/formatters)
+# [`@forbrukerradet/jkl-formatters-util`](https://jokul.fremtind.no/komponenter/formatters)
 
 ## Beskrivelse
 
@@ -12,7 +12,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/forma
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-formatters-util` eller `npm i @fremtind/jkl-formatters-util`.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-formatters-util` eller `npm i @forbrukerradet/jkl-formatters-util`.
 2. Importér pakken i prosjektet ditt:
 
 ### Bruk
@@ -26,7 +26,7 @@ import {
     formatTelefonnummer,
     formatAvstand,
     formatValuta,
-} from "@fremtind/jkl-formatters-util";
+} from "@forbrukerradet/jkl-formatters-util";
 
 const formatertTelefonnummer = formatTelefonnummer("81549300");
 ```

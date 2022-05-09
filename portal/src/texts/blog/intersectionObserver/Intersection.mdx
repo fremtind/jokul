@@ -5,7 +5,7 @@ author: Leiv Fredrik Berge
 publishDate: "2020.08.21"
 ---
 
-Use the intersection observer api to unlock cool UX features in your web application. Fremtind provides a thin wrapper hook in the `@fremtind/jkl-react-hooks` package, to make it easier to use intersection observers in React.
+Use the intersection observer api to unlock cool UX features in your web application. Fremtind provides a thin wrapper hook in the `@forbrukerradet/jkl-react-hooks` package, to make it easier to use intersection observers in React.
 
 ## The obvious
 
@@ -25,7 +25,7 @@ Lets look a bit closer at how `useIntersectionObsever` work.
 
 ```tsx
 import React from "react";
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@forbrukerradet/jkl-react-hooks";
 
 const MyComponent = () => {
     useIntersectionObserver(targetRef, onIntersect, fallback, options);
@@ -38,7 +38,7 @@ Load the hook into you React component and follow the [rules of hooks](https://r
 
 ```tsx
 import React, { useRef } from "react";
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@forbrukerradet/jkl-react-hooks";
 
 const MyComponent = () => {
     const targetRef = useRef(null);
@@ -52,7 +52,7 @@ Like that, we've loaded the `useRef` hook from React, and applied that reference
 
 ```tsx
 import React, { useRef } from "react";
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@forbrukerradet/jkl-react-hooks";
 
 const MyComponent = () => {
     const targetRef = useRef(null);
@@ -70,7 +70,7 @@ The buisness end of the hook is the onIntersect callback. This is a function whe
 
 ```tsx
 import React, { useRef } from "react";
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@forbrukerradet/jkl-react-hooks";
 
 const MyComponent = () => {
     const targetRef = useRef(null);
@@ -89,7 +89,7 @@ Browser support for the intersection observer api is pretty strong, but lets get
 
 ```tsx
 import React, { useRef } from "react";
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@forbrukerradet/jkl-react-hooks";
 
 const MyComponent = () => {
     const targetRef = useRef(null);
@@ -120,7 +120,7 @@ The magic here is to play with the rootMargins. By setting it to -98% of the bot
 ```tsx
 // IntersectionComponent.jsx
 import React, { useRef, useState } from "react";
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@forbrukerradet/jkl-react-hooks";
 
 export const IntersectionComponent = ({ children }) => {
     const [isIntersecting, setIsIntersecting] = useState(false);

@@ -1,5 +1,5 @@
 import React from "react";
-import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import { UnorderedList, ListItem } from "@forbrukerradet/jkl-list-react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Accordion, AccordionItem } from "../src";
 

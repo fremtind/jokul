@@ -1,7 +1,7 @@
-import { NavCard } from "@fremtind/jkl-card-react";
-import { Link } from "@fremtind/jkl-core";
-import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
+import { NavCard } from "@forbrukerradet/jkl-card-react";
+import { Link } from "@forbrukerradet/jkl-core";
+import { ListItem, UnorderedList } from "@forbrukerradet/jkl-list-react";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@forbrukerradet/jkl-table-react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
@@ -38,7 +38,7 @@ const PraktiskInfoUtviklere: FC = () => {
                 React. Du installerer og oppgraderer Jøkul-pakker på akkurat samme måte. Jøkul er open source og
                 offentlig tilgjengelig, så du trenger ikke sette opp noe eget for å få tilgang – det bare funker.
             </Paragraph>
-            <CodeBlock>~ $ yarn add @fremtind/jkl-core @fremtind/jkl-webfonts</CodeBlock>
+            <CodeBlock>~ $ yarn add @forbrukerradet/jkl-core @forbrukerradet/jkl-webfonts</CodeBlock>
 
             <HeadingLarge>Se hvilke pakker som finnes</HeadingLarge>
             <Paragraph>
@@ -126,7 +126,7 @@ const PraktiskInfoUtviklere: FC = () => {
             <HeadingLarge>Endringslogger og annet snadder</HeadingLarge>
             <Paragraph>
                 Du finner endringslogger og mer teknisk dokumentasjon i hver enkelt pakke på GitHub. Det er spesielt tre
-                filer det verdt å vite om, her eksemplifisert gjennom pakken <InlineCode>@fremtind/jkl-core</InlineCode>
+                filer det verdt å vite om, her eksemplifisert gjennom pakken <InlineCode>@forbrukerradet/jkl-core</InlineCode>
                 :
             </Paragraph>
             <UnorderedList className="jkl-portal-ul">

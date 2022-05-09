@@ -1,4 +1,4 @@
-# [`@fremtind/field-group`](https://jokul.fremtind.no/komponenter/fieldgroup)
+# [`@forbrukerradet/field-group`](https://jokul.fremtind.no/komponenter/fieldgroup)
 
 # Feltsett
 

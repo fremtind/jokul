@@ -1,5 +1,5 @@
 import React from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import cn from "classnames";
 
 export interface BreadcrumbItemProps extends WithChildren {

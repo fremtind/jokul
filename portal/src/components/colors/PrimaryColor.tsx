@@ -1,5 +1,5 @@
 import React from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import cx from "classnames";
 import { ColorInfo, Color } from "./";
 import "./primary-color.scss";

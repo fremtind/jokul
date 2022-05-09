@@ -1,5 +1,5 @@
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
+@use "~@forbrukerradet/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/mixins/_all.scss" as mixins;
 
 .jkl-table-header {
     @include jkl.text-style("body");

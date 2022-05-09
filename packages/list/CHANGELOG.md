@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [6.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@6.0.19...@fremtind/jkl-list@6.0.20) (2022-04-19)
+## [6.0.20](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-list@6.0.19...@forbrukerradet/jkl-list@6.0.20) (2022-04-19)
 
 ### Bug Fixes
 

@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-accordion`](https://jokul.fremtind.no/komponenter/accordion)
+# [`@forbrukerradet/jkl-accordion`](https://jokul.fremtind.no/komponenter/accordion)
 
 # Trekkspillister
 

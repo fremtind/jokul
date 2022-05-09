@@ -22,7 +22,7 @@ jobs:
               # Ikke alle pull requests har laget noen preview. Ignorer om det feiler.
               continue-on-error: true
               run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.email "fremtind.designsystem@forbrukerradet.no"
                   git config user.name "fremtind-bot"
                   git rm -r ${{ env.PREVIEW_PATH }}
                   git commit -m "docs: remove preview #${{ github.event.number }}" --no-verify

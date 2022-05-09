@@ -63,7 +63,7 @@ export const InputMaskExample: VFC<ExampleComponentProps> = () => {
 export default InputMaskExample;
 
 export const inputMaskExampleCode: CodeExample = `
-import { registerWithMasks } from "@fremtind/jkl-formatters-util";
+import { registerWithMasks } from "@forbrukerradet/jkl-formatters-util";
 
 const form = useForm<Skjema>();
 const [formData, setFormData] = useState<Skjema>();

@@ -4,7 +4,7 @@ Fra `jkl-text-input-react@2.x.x` til `jkl-text-input-react@3.x.x`
 
 ## Oversikt over endringer
 
-I versjon `3.0.0` av `@fremtind/jkl-text-input-react` har vi endret navn på komponenten til å matche pakkenavnet, og kombinert funksjonaliteten i flere komponenter til én komponent for tekstfelter.
+I versjon `3.0.0` av `@forbrukerradet/jkl-text-input-react` har vi endret navn på komponenten til å matche pakkenavnet, og kombinert funksjonaliteten i flere komponenter til én komponent for tekstfelter.
 
 Dette innebærer at komponenten `TextField` endrer navn til `TextInput`. Komponentene `ActionTextField` og `InlineTextInput` eksisterer ikke lenger, og funksjonaliteten deres er tilgjengelig i `TextInput`.
 

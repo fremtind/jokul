@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
-import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { useBrowserPreferences } from "@forbrukerradet/jkl-react-hooks";
 
 export const a11yContext = createContext<ReturnType<typeof useBrowserPreferences>>({
     prefersReducedMotion: false,

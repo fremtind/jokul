@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-logo-react`](https://jokul.fremtind.no/komponenter/logo)
+# [`@forbrukerradet/jkl-logo-react`](https://jokul.fremtind.no/komponenter/logo)
 
 ## Beskrivelse
 
@@ -12,7 +12,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/logo)
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-logo-react` eller `npm i @fremtind/jkl-logo-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-logo-react` eller `npm i @forbrukerradet/jkl-logo-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
@@ -23,8 +23,8 @@ import {
     LogoStampInnovation,
     LogoStampInsurance,
     LogoStampTechnology,
-} from "@fremtind/jkl-logo-react";
-import "@fremtind/jkl-logo/logo.min.css";
+} from "@forbrukerradet/jkl-logo-react";
+import "@forbrukerradet/jkl-logo/logo.min.css";
 ```
 
 ### Bruk

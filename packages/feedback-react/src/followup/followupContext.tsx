@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 import { FollowupState } from "../types";
 
 const followUpContext = createContext<FollowupState | undefined>(undefined);

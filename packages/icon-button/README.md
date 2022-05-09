@@ -1,4 +1,4 @@
-#  [`@fremtind/jkl-button`](https://jokul.fremtind.no/komponenter/buttons)
+#  [`@forbrukerradet/jkl-button`](https://jokul.fremtind.no/komponenter/buttons)
 
 # Knapper
 

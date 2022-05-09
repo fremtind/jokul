@@ -1,5 +1,5 @@
-@use "~@fremtind/jkl-core/jkl";
-@import "~@fremtind/jkl-core/mixins/_all";
+@use "~@forbrukerradet/jkl-core/jkl";
+@import "~@forbrukerradet/jkl-core/mixins/_all";
 
 @include jkl.helper-light-mode-variables {
     --tab-text-color: #{jkl.$color-granitt};

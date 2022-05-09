@@ -1,6 +1,6 @@
-import { NavCard } from "@fremtind/jkl-card-react";
-import { Link } from "@fremtind/jkl-core";
-import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
+import { NavCard } from "@forbrukerradet/jkl-card-react";
+import { Link } from "@forbrukerradet/jkl-core";
+import { ListItem, UnorderedList } from "@forbrukerradet/jkl-list-react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";

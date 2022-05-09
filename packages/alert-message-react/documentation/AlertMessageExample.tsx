@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "@fremtind/jkl-core";
+import { NavLink } from "@forbrukerradet/jkl-core";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
 

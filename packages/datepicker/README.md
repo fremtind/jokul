@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-datepicker`](https://jokul.fremtind.no/komponenter/datepicker)
+# [`@forbrukerradet/jkl-datepicker`](https://jokul.fremtind.no/komponenter/datepicker)
 
 # Datovelger
 

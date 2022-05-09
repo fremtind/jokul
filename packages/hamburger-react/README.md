@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-hamburger-react`](https://jokul.fremtind.no/komponenter/hamburger)
+# [`@forbrukerradet/jkl-hamburger-react`](https://jokul.fremtind.no/komponenter/hamburger)
 
 ## Beskrivelse
 
@@ -12,12 +12,12 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/hambu
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-hamburger-react` eller `npm i @fremtind/jkl-hamburger-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-hamburger-react` eller `npm i @forbrukerradet/jkl-hamburger-react`. Stil-pakken blir automatisk installert som en avhengighet.
 2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
 
 ```js
-import { Hamburger } from "@fremtind/jkl-hamburger-react";
-import "@fremtind/jkl-hamburger/hamburger.min.css";
+import { Hamburger } from "@forbrukerradet/jkl-hamburger-react";
+import "@forbrukerradet/jkl-hamburger/hamburger.min.css";
 ```
 
 ### Bruk

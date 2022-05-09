@@ -3,13 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [7.5.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.4.5...@fremtind/jkl-table-react@7.5.0) (2022-03-16)
+# [7.5.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table-react@7.4.5...@forbrukerradet/jkl-table-react@7.5.0) (2022-03-16)
 
 ### Features
 
 -   add support for left/right aligning table header ([1b57ee7](https://github.com/fremtind/jokul/commit/1b57ee7c6d413d848a87724d51ede79bae131684))
 
-## [7.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.4.1...@fremtind/jkl-table-react@7.4.2) (2022-03-10)
+## [7.4.2](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table-react@7.4.1...@forbrukerradet/jkl-table-react@7.4.2) (2022-03-10)
 
 ### Bug Fixes
 
@@ -22,7 +22,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 -   add support for a callback when open state changes ([03e4ccf](https://github.com/fremtind/jokul/commit/03e4ccfb7a0b475f7f127045e6491d939d8f5b52))
 -   change to a better prop name ([d0cec19](https://github.com/fremtind/jokul/commit/d0cec1987c35422a2181b4ded900a376864a455e))
 
-# [7.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.2.9...@fremtind/jkl-table-react@7.3.0) (2022-03-07)
+# [7.3.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table-react@7.2.9...@forbrukerradet/jkl-table-react@7.3.0) (2022-03-07)
 
 ### Features
 
@@ -34,7 +34,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   fiks en warning om en sirkulær avhengighet ([2b61703](https://github.com/fremtind/jokul/commit/2b6170378387a975a64f0dd0fe86466d689d245e))
 
-# [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@7.1.7...@fremtind/jkl-table-react@7.2.0) (2022-02-02)
+# [7.2.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-table-react@7.1.7...@forbrukerradet/jkl-table-react@7.2.0) (2022-02-02)
 
 ### Bug Fixes
 

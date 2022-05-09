@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useRef, useState, VFC } from "react";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "@forbrukerradet/jkl-button-react";
 import { FeedbackAnswer, FollowupQuestion } from "../types";
 import { useFollowup } from "./useFollowup";
 import { FollowUpProvider } from "./followupContext";

@@ -1,13 +1,13 @@
-import { DataTestAutoId, Label, LabelProps, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { DataTestAutoId, Label, LabelProps, LabelVariant, SupportLabel } from "@forbrukerradet/jkl-core";
+import { IconButton } from "@forbrukerradet/jkl-icon-button-react";
 import {
     useAnimatedHeight,
     useClickOutside,
     useFocusOutside,
     useKeyListener,
     usePreviousValue,
-} from "@fremtind/jkl-react-hooks";
-import { BaseInputField } from "@fremtind/jkl-text-input-react";
+} from "@forbrukerradet/jkl-react-hooks";
+import { BaseInputField } from "@forbrukerradet/jkl-text-input-react";
 import cn from "classnames";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
 import { Calendar } from "./Calendar";

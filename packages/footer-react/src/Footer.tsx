@@ -1,8 +1,8 @@
 import React, { DetailedHTMLProps, VFC, HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
 import cn from "classnames";
-import { DataTestAutoId, Link, WithChildren } from "@fremtind/jkl-core";
-import { formatNumber } from "@fremtind/jkl-formatters-util";
-import { Logo } from "@fremtind/jkl-logo-react";
+import { DataTestAutoId, Link, WithChildren } from "@forbrukerradet/jkl-core";
+import { formatNumber } from "@forbrukerradet/jkl-formatters-util";
+import { Logo } from "@forbrukerradet/jkl-logo-react";
 
 export interface FooterAddress {
     /** @example "Postboks 778 Sentrum" */

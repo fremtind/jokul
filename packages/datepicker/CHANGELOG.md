@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [6.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@6.0.12...@fremtind/jkl-datepicker@6.0.13) (2022-04-19)
+## [6.0.13](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-datepicker@6.0.12...@forbrukerradet/jkl-datepicker@6.0.13) (2022-04-19)
 
 ### Bug Fixes
 

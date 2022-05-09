@@ -1,7 +1,7 @@
 import React, { forwardRef, TouchEvent } from "react";
 import classNames from "classnames";
-import { Loader } from "@fremtind/jkl-loader-react";
-import { unicode } from "@fremtind/jkl-constants-util";
+import { Loader } from "@forbrukerradet/jkl-loader-react";
+import { unicode } from "@forbrukerradet/jkl-constants-util";
 import { Props, ValidButtons } from "./types";
 import { BaseButton } from "./BaseButton";
 const makeButtonComponent = (buttonType: ValidButtons) => {

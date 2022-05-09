@@ -9,7 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   children is no longer optional ([8684f8a](https://github.com/fremtind/jokul/commit/8684f8a76b9eb0125be0501b8db75e4653b4ac45))
 
-# [10.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@10.0.4...@fremtind/jkl-button-react@10.1.0) (2022-03-07)
+# [10.1.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-button-react@10.0.4...@forbrukerradet/jkl-button-react@10.1.0) (2022-03-07)
 
 ### Bug Fixes
 
@@ -20,7 +20,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   added optional arrows to buttons ([5880bfb](https://github.com/fremtind/jokul/commit/5880bfbc9da3bdea12664157b5ea8dfae2c5167e)), closes [#2772](https://github.com/fremtind/jokul/issues/2772)
 
-# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@9.0.0...@fremtind/jkl-button-react@10.0.0) (2022-02-07)
+# [10.0.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-button-react@9.0.0...@forbrukerradet/jkl-button-react@10.0.0) (2022-02-07)
 
 ### Bug Fixes
 
@@ -165,7 +165,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   **@fremtind/jkl-button:** fixes clipped focus-bug in button ([ad6d1aa](https://github.com/fremtind/jokul/commit/ad6d1aa685de2cb8f6081fef20df1aad12d9579b)), closes [#1704](https://github.com/fremtind/jokul/issues/1704)
+-   **@forbrukerradet/jkl-button:** fixes clipped focus-bug in button ([ad6d1aa](https://github.com/fremtind/jokul/commit/ad6d1aa685de2cb8f6081fef20df1aad12d9579b)), closes [#1704](https://github.com/fremtind/jokul/issues/1704)
 
 ## 2.5.1 (2020-12-16)
 

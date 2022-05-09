@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@7.0.9...@fremtind/jkl-toggle-switch@7.0.10) (2022-04-19)
+## [7.0.10](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-toggle-switch@7.0.9...@forbrukerradet/jkl-toggle-switch@7.0.10) (2022-04-19)
 
 ### Bug Fixes
 
@@ -76,7 +76,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   **@fremtind/jkl-toggle-switch:** design adjustments on ToggleSlider ([d83426e](https://github.com/fremtind/jokul/commit/d83426eb23faf0c4dae0a49bf5689e7dc5fd0a64))
+-   **@forbrukerradet/jkl-toggle-switch:** design adjustments on ToggleSlider ([d83426e](https://github.com/fremtind/jokul/commit/d83426eb23faf0c4dae0a49bf5689e7dc5fd0a64))
 
 ## 2.2.0 (2020-11-04)
 

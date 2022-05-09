@@ -1,4 +1,4 @@
-import { unicode } from "@fremtind/jkl-constants-util";
+import { unicode } from "@forbrukerradet/jkl-constants-util";
 
 export const KONTONUMMER_REGEX = {
     full: /^(\d{4})(\d{2})(\d{5})$/,

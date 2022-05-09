@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, FC } from "react";
-import { SupportLabel, WithChildren } from "@fremtind/jkl-core";
+import { SupportLabel, WithChildren } from "@forbrukerradet/jkl-core";
 import cn from "classnames";
 
 interface ToggleSwitchProps extends WithChildren {

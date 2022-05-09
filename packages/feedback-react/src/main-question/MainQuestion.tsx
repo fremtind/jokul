@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, VFC } from "react";
 import cn from "classnames";
-import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { PrimaryButton, TertiaryButton } from "@forbrukerradet/jkl-button-react";
+import { useAnimatedHeight } from "@forbrukerradet/jkl-react-hooks";
 
 import { FeedbackOption, FeedbackType } from "../types";
 import { useMainQuestion } from "./useMainQuestion";

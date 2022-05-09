@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
-import { WithChildren } from "@fremtind/jkl-core";
-import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { useAnimatedHeight, useId } from "@forbrukerradet/jkl-react-hooks";
 
 interface Props extends WithChildren {
     label: string;

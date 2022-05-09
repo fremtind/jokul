@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@forbrukerradet/jkl-core";
 
 type TableContext = {
     compact: boolean;

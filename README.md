@@ -2,7 +2,7 @@
 
 ![lint-test-typecheck](https://img.shields.io/github/workflow/status/fremtind/jokul/lint-test-typecheck)
 ![Visual regression tests](https://img.shields.io/github/workflow/status/fremtind/jokul/Visual%20regression%20tests?label=cypress)
-[![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
+[![NPM](https://img.shields.io/npm/l/@forbrukerradet/jkl-core.svg?style=popout)](#Lisens)
 [![All Contributors](https://img.shields.io/badge/all_contributors-18-green.svg?style=flat-rounded)](#contributors)
 
 Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) som er utviklet av [Fremtind](https://fremtind.no).
@@ -27,11 +27,11 @@ Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan 
 
 ### React-pakker
 
-`yarn add @fremtind/jkl-button-react`
+`yarn add @forbrukerradet/jkl-button-react`
 
 ```tsx
-import { PrimaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
+import { PrimaryButton } from "@forbrukerradet/jkl-button-react";
+import "@forbrukerradet/jkl-button/button.min.css"; // husk å importere stilarket
 ...
 <PrimaryButton onClick={doStuff}>Cool</PrimaryButton>
 ...
@@ -40,10 +40,10 @@ import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
 ### Stilark-pakker
 
 Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mixins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
-`yarn add @fremtind/jkl-button`
+`yarn add @forbrukerradet/jkl-button`
 
 ```tsx
-import "@fremtind/jkl-button/button.min.css";
+import "@forbrukerradet/jkl-button/button.min.css";
 ...
 <button classname="jkl-button--primary" onClick={doStuff}>Cool</button>
 ...

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [12.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@12.0.56...@fremtind/jkl-feedback-react@12.1.0) (2022-05-06)
+# [12.1.0](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-feedback-react@12.0.56...@forbrukerradet/jkl-feedback-react@12.1.0) (2022-05-06)
 
 ### Features
 
@@ -15,7 +15,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   child keys on SmileyQuestion ([20d45bf](https://github.com/fremtind/jokul/commit/20d45bfb41219f0ba49f69f0c5922a709c7557c7))
 
-## [12.0.30](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@12.0.29...@fremtind/jkl-feedback-react@12.0.30) (2022-02-07)
+## [12.0.30](https://github.com/fremtind/jokul/compare/@forbrukerradet/jkl-feedback-react@12.0.29...@forbrukerradet/jkl-feedback-react@12.0.30) (2022-02-07)
 
 ### Bug Fixes
 
@@ -176,11 +176,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   **@fremtind/jkl-feedback-react:** fixes a11y-issues on the feedback module ([1f11a68](https://github.com/fremtind/jokul/commit/1f11a68f69dc9e66c84f67fd7e7b2dbc99710f20)), closes [#1749](https://github.com/fremtind/jokul/issues/1749)
+-   **@forbrukerradet/jkl-feedback-react:** fixes a11y-issues on the feedback module ([1f11a68](https://github.com/fremtind/jokul/commit/1f11a68f69dc9e66c84f67fd7e7b2dbc99710f20)), closes [#1749](https://github.com/fremtind/jokul/issues/1749)
 
 ### BREAKING CHANGES
 
--   **@fremtind/jkl-feedback-react:** The prop "description" is now required | The prop feedbackOptions has a new interface
+-   **@forbrukerradet/jkl-feedback-react:** The prop "description" is now required | The prop feedbackOptions has a new interface
 
 ## 3.0.0 (2021-03-12)
 

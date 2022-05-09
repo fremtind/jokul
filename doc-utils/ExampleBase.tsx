@@ -1,11 +1,11 @@
 import React, { useState, VFC, FC, useMemo } from "react";
 import cn from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
-import { Select } from "@fremtind/jkl-select-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { ExpandSection } from "@fremtind/jkl-expand-button-react";
+import { useId } from "@forbrukerradet/jkl-react-hooks";
+import { Checkbox } from "@forbrukerradet/jkl-checkbox-react";
+import { RadioButton, RadioButtonGroup } from "@forbrukerradet/jkl-radio-button-react";
+import { Select } from "@forbrukerradet/jkl-select-react";
+import { FieldGroup } from "@forbrukerradet/jkl-field-group-react";
+import { ExpandSection } from "@forbrukerradet/jkl-expand-button-react";
 import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
 import { hyphenate } from "./internal/hypenate";
 import { CodeBlock } from "./CodeBlock";

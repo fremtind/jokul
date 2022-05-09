@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
-import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
+import { WithChildren } from "@forbrukerradet/jkl-core";
+import { useAnimatedHeight, useId } from "@forbrukerradet/jkl-react-hooks";
 import classNames from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 

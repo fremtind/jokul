@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-select-react`](https://jokul.fremtind.no/komponenter/select)
+# [`@forbrukerradet/jkl-select-react`](https://jokul.fremtind.no/komponenter/select)
 
 ## Beskrivelse
 
@@ -12,13 +12,13 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/selec
 
 ### Installasjon
 
-1. Installér pakken med `yarn add @fremtind/jkl-select-react` eller `npm i @fremtind/jkl-select-react`. Stil-pakken blir automatisk installert som en avhengighet.
+1. Installér pakken med `yarn add @forbrukerradet/jkl-select-react` eller `npm i @forbrukerradet/jkl-select-react`. Stil-pakken blir automatisk installert som en avhengighet.
 
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js
-import { Select, NativeSelect } from "@fremtind/jkl-select-react";
-import "@fremtind/jkl-select/select.min.css";
+import { Select, NativeSelect } from "@forbrukerradet/jkl-select-react";
+import "@forbrukerradet/jkl-select/select.min.css";
 ```
 
 ### Bruk

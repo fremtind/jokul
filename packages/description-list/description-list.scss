@@ -1,6 +1,6 @@
 /* autoprefixer grid: autoplace */
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mix;
+@use "~@forbrukerradet/jkl-core/jkl";
+@use "~@forbrukerradet/jkl-core/mixins/_all.scss" as mix;
 
 @mixin horizontal-list {
     display: grid;

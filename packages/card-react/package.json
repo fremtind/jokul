@@ -1,5 +1,5 @@
 {
-    "name": "@fremtind/jkl-card-react",
+    "name": "@forbrukerradet/jkl-card-react",
     "version": "5.2.14",
     "publishConfig": {
         "access": "public"
@@ -33,11 +33,11 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-button-react": "^10.1.10",
-        "@fremtind/jkl-card": "^5.1.10",
-        "@fremtind/jkl-core": "^9.6.0",
-        "@fremtind/jkl-image-react": "^2.0.15",
-        "@fremtind/jkl-tag-react": "^1.1.25",
+        "@forbrukerradet/jkl-button-react": "^10.1.10",
+        "@forbrukerradet/jkl-card": "^5.1.10",
+        "@forbrukerradet/jkl-core": "^9.6.0",
+        "@forbrukerradet/jkl-image-react": "^2.0.15",
+        "@forbrukerradet/jkl-tag-react": "^1.1.25",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
@@ -48,7 +48,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fremtind/jokul.git"
+        "url": "git+https://github.com/Forbrukerradet/designsystem.git"
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
