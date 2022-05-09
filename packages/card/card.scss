@@ -1,19 +1,16 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-button";
 
-$_card-bg-color: jkl.$color-snohvit;
-$_card-corner-radius: jkl.rem(2px);
-$_card-padding-normal: jkl.$spacing-l;
-
 /// @deprecated Bruk heller .jkl-nav-card, .jkl-task-card eller .jkl-info-card
 .jkl-card {
     @include jkl.reset-outline;
+    $_card-padding-normal: jkl.$spacing-l;
     position: relative;
     overflow: hidden;
     display: block;
     max-width: 60ch; // TODO: find out if we want this
-    background-color: $_card-bg-color;
-    border-radius: $_card-corner-radius;
+    background-color: jkl.$color-snohvit;
+    border-radius: jkl.rem(2px);
     box-shadow: jkl.$drop-shadow--medium;
     padding: $_card-padding-normal;
     text-align: inherit;

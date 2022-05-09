@@ -3,7 +3,6 @@
 
 $_smiley-size: jkl.rem(40px);
 $_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
-$_max-feedback-input-width: 30rem;
 $_show-animation-name: jkl-show-#{string.unique-id()};
 
 @include jkl.light-mode-variables {

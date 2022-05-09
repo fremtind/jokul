@@ -1,11 +1,12 @@
 @use "sass:color";
 @use "~@fremtind/jkl-core/jkl";
 
-$jkl-slider-offset: 3px;
-$jkl-slider-width: 170px;
-$jkl-slider-pill-offset--left: calc(#{$jkl-slider-offset} + 1px);
-$jkl-slider-pill-offset--right: calc(calc(#{$jkl-slider-width} / 2) - #{$jkl-slider-offset});
-$jkl-slider-rounded: jkl.rem(100px);
+$_slider-offset: 3px;
+$_slider-width: 170px;
+$_slider-pill-offset--left: calc(#{$_slider-offset} + 1px);
+$_slider-pill-offset--right: calc(calc(#{$_slider-width} / 2) - #{$_slider-offset});
+$_slider-rounded: jkl.rem(100px);
+$_slider-focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
     --jkl-slider-bg: #{jkl.$color-varde};
@@ -25,8 +26,6 @@ $jkl-slider-rounded: jkl.rem(100px);
     --jkl-slider-hover-color: #{jkl.$color-svaberg};
 }
 
-$jkl-slider-focus-ring-width: jkl.rem(2px);
-
 .jkl-toggle-slider__wrapper {
     display: flex;
     align-items: center;
@@ -36,10 +35,10 @@ $jkl-slider-focus-ring-width: jkl.rem(2px);
         @include jkl.reset-outline;
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
-            box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
+            box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-slider-focus-color);
 
             .jkl-toggle-slider__pill {
-                box-shadow: 0 0 0 $jkl-slider-focus-ring-width var(--jkl-slider-focus-color);
+                box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-slider-focus-color);
             }
         }
 
@@ -47,25 +46,25 @@ $jkl-slider-focus-ring-width: jkl.rem(2px);
         background-color: var(--jkl-slider-bg);
         padding: jkl.$spacing-xs 0;
         position: relative;
-        border-radius: $jkl-slider-rounded;
+        border-radius: $_slider-rounded;
         overflow: hidden;
         display: flex;
         justify-content: space-between;
-        max-width: $jkl-slider-width;
+        max-width: $_slider-width;
         width: 100%;
         user-select: none;
 
         &__pill {
             width: 50%;
-            height: calc(100% - #{$jkl-slider-offset} - #{$jkl-slider-offset});
+            height: calc(100% - #{$_slider-offset} - #{$_slider-offset});
             background-color: var(--jkl-slider-pill);
             display: block;
             position: absolute;
-            top: $jkl-slider-offset;
-            transform: translateX($jkl-slider-pill-offset--right);
+            top: $_slider-offset;
+            transform: translateX($_slider-pill-offset--right);
             transition-property: transform;
             @include jkl.motion(standard, expressive);
-            border-radius: $jkl-slider-rounded;
+            border-radius: $_slider-rounded;
             box-shadow: 0 0 jkl.rem(4px) color.scale(jkl.$color-svart, $alpha: -15%);
         }
 
@@ -81,11 +80,11 @@ $jkl-slider-focus-ring-width: jkl.rem(2px);
         }
 
         &--left {
-            margin-left: calc(#{$jkl-slider-offset} * 2);
+            margin-left: calc(#{$_slider-offset} * 2);
         }
 
         &--right {
-            margin-right: calc(#{$jkl-slider-offset} * 2);
+            margin-right: calc(#{$_slider-offset} * 2);
         }
 
         &--left,
@@ -112,7 +111,7 @@ $jkl-slider-focus-ring-width: jkl.rem(2px);
 
         &--not-checked {
             & > .jkl-toggle-slider__pill {
-                transform: translateX($jkl-slider-pill-offset--left);
+                transform: translateX($_slider-pill-offset--left);
             }
 
             & > .jkl-toggle-slider--left {

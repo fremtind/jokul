@@ -3,7 +3,6 @@
 $_arrow-width: jkl.rem(16px);
 $_arrow-width--compact: jkl.rem(14px);
 
-$_expand-button-border-width: jkl.rem(1px);
 $_animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $_focus-ring-width: jkl.rem(2px);
 
@@ -37,6 +36,7 @@ $_focus-ring-width: jkl.rem(2px);
     position: relative;
 
     &::after {
+        $_expand-button-border-width: jkl.rem(1px);
         border: solid $_focus-ring-width transparent;
         box-shadow: none;
         transition: box-shadow $_animation-timing;

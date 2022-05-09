@@ -26,34 +26,26 @@
 }
 
 $_item-space-between: jkl.$spacing-xs;
-$_list-padding-left: jkl.$spacing-l;
-
-$_list-text-color: jkl.$color-granitt;
-$_list-text-color--inverted: jkl.$color-snohvit;
-$_list-cross-color: jkl.$color-feil;
-$_list-cross-color--inverted: jkl.$color-feil--darkbg;
-$_list-check-color: jkl.$color-suksess;
-$_list-check-color--inverted: jkl.$color-suksess--darkbg;
 
 @include jkl.light-mode-variables {
-    --jkl-list-marker--default: #{_solid-diamond($_list-text-color)};
-    --jkl-list-marker--secondary: #{_outline-diamond($_list-text-color)};
-    --jkl-list-marker--cross: #{_cross($_list-cross-color)};
-    --jkl-list-marker--check: #{_check($_list-check-color, $_list-text-color--inverted)};
-    --jkl-list-text-color: #{$_list-text-color};
+    --jkl-list-marker--default: #{_solid-diamond(jkl.$color-granitt)};
+    --jkl-list-marker--secondary: #{_outline-diamond(jkl.$color-granitt)};
+    --jkl-list-marker--cross: #{_cross(jkl.$color-feil)};
+    --jkl-list-marker--check: #{_check(jkl.$color-suksess, jkl.$color-snohvit)};
+    --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-list-marker--default: #{_solid-diamond($_list-text-color--inverted)};
-    --jkl-list-marker--secondary: #{_outline-diamond($_list-text-color--inverted)};
-    --jkl-list-marker--cross: #{_cross($_list-cross-color--inverted)};
-    --jkl-list-marker--check: #{_check($_list-check-color--inverted, $_list-text-color)};
-    --jkl-list-text-color: #{$_list-text-color--inverted};
+    --jkl-list-marker--default: #{_solid-diamond(jkl.$color-snohvit)};
+    --jkl-list-marker--secondary: #{_outline-diamond(jkl.$color-snohvit)};
+    --jkl-list-marker--cross: #{_cross(jkl.$color-feil--darkbg)};
+    --jkl-list-marker--check: #{_check(jkl.$color-suksess--darkbg, jkl.$color-granitt)};
+    --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 
 .jkl-list {
     list-style: disc var(--jkl-list-marker--default);
-    padding-left: $_list-padding-left;
+    padding-left: jkl.$spacing-l;
 
     & > .jkl-list__item {
         margin: $_item-space-between 0;

@@ -41,9 +41,9 @@
     }
 
     &__logo {
-        $logo-width: jkl.rem(200px);
-        min-width: $logo-width;
-        width: $logo-width;
+        $_logo-width: jkl.rem(200px);
+        min-width: $_logo-width;
+        width: $_logo-width;
         color: inherit;
     }
 

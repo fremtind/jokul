@@ -85,13 +85,15 @@ Vi starter med CSS-variabler.
 
 Vi bruker CSS-variabler for verdier som kan tenkes å endres når brukeren ser på siden. Det vanligste er å bruke CSS-variabler for farger, siden de kan endres hvis brukeren bytter tema.
 
-For å synliggjøre at en variabel kommer fra Jøkul, og for å unngå navnekollisjoner, skal alle CSS-variabler prefixes med `jkl` på lik linje som klassenavn.
+Alle CSS-variabler prefixes med `jkl` for å synliggjøre at en variabel kommer fra Jøkul og for å unngå navnekollisjoner.
 
 ### Sass-variabler
 
 Sass-variabler behandler vi som konstanter som har en fast verdi. Denne verdien kan gi mening å skille ut i en variabel for å unngå duplisering, eller for å tydeliggjøre en relasjon mellom verdier.
 
 Med unntak av i `packages/core` skal variabler som regel være _private_. Private variabler kan ikke brukes av andre moduler. Varibler er _private_ om navnet starter med `_` (underscore).
+
+I motsetning til CSS-variabler skal public variabler _ikke_ prefikses med `jkl`. Vi bruker Sass sitt modulsystem til å unngå navnekollisjoner.
 
 Variabler bør som regel være definert nærmest mulig der den brukes. Hvis en variabel bare er relevant innefor én selector, definer den der.
 

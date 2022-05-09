@@ -21,8 +21,6 @@
 .jkl-accordion-item {
     @include jkl.reset-outline;
 
-    $_title-padding: jkl.$spacing-m;
-
     &:nth-child(n) {
         border-top: jkl.rem(1px) solid var(--jkl-accordion-border);
 
@@ -46,7 +44,7 @@
     &__title {
         background-color: transparent;
         position: relative;
-        padding: $_title-padding;
+        padding: jkl.$spacing-m;
         text-align: left;
         width: 100%;
 

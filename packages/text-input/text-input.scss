@@ -4,25 +4,25 @@
 
 @use "./autosuggest";
 
-$text-input-height: jkl.rem(48px);
-$text-input-height--compact: jkl.rem(40px);
-$text-input-button-width: jkl.rem(48px);
-$text-input-padding: jkl.$spacing-xs jkl.$spacing-s;
+$_text-input-height: jkl.rem(48px);
+$_text-input-height--compact: jkl.rem(40px);
+$_text-input-button-width: jkl.rem(48px);
+$_text-input-padding: jkl.$spacing-xs jkl.$spacing-s;
 
 // These are used to calculate textarea height,
 // and MUST equal the line height in the text style used
-$text-input-line-height: jkl.rem(32px);
-$text-input-line-height--compact: jkl.rem(28px);
+$_text-input-line-height: jkl.rem(32px);
+$_text-input-line-height--compact: jkl.rem(28px);
 
-$text-input-focus-color: jkl.$color-granitt;
-$text-input-selection-color: color.scale(
-    $color: $text-input-focus-color,
+$_text-input-focus-color: jkl.$color-granitt;
+$_text-input-selection-color: color.scale(
+    $color: $_text-input-focus-color,
     $alpha: -80%,
 );
 
-$text-input-focus-color--inverted: jkl.$color-snohvit;
-$text-input-selection-color--inverted: color.scale(
-    $color: $text-input-focus-color--inverted,
+$_text-input-focus-color--inverted: jkl.$color-snohvit;
+$_text-input-selection-color--inverted: color.scale(
+    $color: $_text-input-focus-color--inverted,
     $alpha: -75%,
 );
 
@@ -31,12 +31,12 @@ $text-input-selection-color--inverted: color.scale(
     --jkl-text-input-text-color: #{jkl.$color-granitt};
     --jkl-text-input-placeholder-color: #{jkl.$color-stein};
     --jkl-text-input-background-color: #{jkl.$color-hvit};
-    --jkl-text-input-focus-color: #{$text-input-focus-color};
+    --jkl-text-input-focus-color: #{$_text-input-focus-color};
     --jkl-text-input-error-background-color: #{colors.varslingsfarge("feil")};
     --jkl-text-input-error-text-color: #{jkl.$color-granitt};
     --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
-    --jkl-text-input-selection-color: #{$text-input-selection-color};
-    --jkl-text-input-error-selection-color-color: #{$text-input-selection-color};
+    --jkl-text-input-selection-color: #{$_text-input-selection-color};
+    --jkl-text-input-error-selection-color-color: #{$_text-input-selection-color};
 }
 
 @include jkl.dark-mode-variables {
@@ -44,12 +44,12 @@ $text-input-selection-color--inverted: color.scale(
     --jkl-text-input-text-color: #{jkl.$color-snohvit};
     --jkl-text-input-placeholder-color: #{jkl.$color-svaberg};
     --jkl-text-input-background-color: #{jkl.$color-svart};
-    --jkl-text-input-focus-color: #{$text-input-focus-color--inverted};
-    --jkl-text-input-selection-color: #{$text-input-selection-color--inverted};
+    --jkl-text-input-focus-color: #{$_text-input-focus-color--inverted};
+    --jkl-text-input-selection-color: #{$_text-input-selection-color--inverted};
     --jkl-text-input-error-background-color: #{colors.varslingsfarge("feil")};
     --jkl-text-input-error-text-color: #{jkl.$color-granitt};
     --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
-    --jkl-text-input-error-selection-color-color: #{$text-input-selection-color};
+    --jkl-text-input-error-selection-color-color: #{$_text-input-selection-color};
 }
 
 @mixin shared-input-styles {
@@ -137,8 +137,8 @@ $text-input-selection-color--inverted: color.scale(
 
         border-radius: jkl.rem(3px);
         box-sizing: border-box;
-        height: $text-input-height;
-        padding: $text-input-padding;
+        height: $_text-input-height;
+        padding: $_text-input-padding;
         max-width: 100%;
         width: 100%;
 
@@ -174,8 +174,8 @@ $text-input-selection-color--inverted: color.scale(
         cursor: pointer;
         padding: 0;
         padding: jkl.$spacing-xs 0;
-        height: $text-input-button-width;
-        width: $text-input-height;
+        height: $_text-input-button-width;
+        width: $_text-input-height;
         margin-left: jkl.rem(-48px);
         color: var(--jkl-text-input-border-color);
 
@@ -220,7 +220,7 @@ $text-input-selection-color--inverted: color.scale(
     /* Modifications for input with action */
     &--action {
         .jkl-text-input__input {
-            padding-right: $text-input-height;
+            padding-right: $_text-input-height;
         }
     }
 
@@ -230,11 +230,11 @@ $text-input-selection-color--inverted: color.scale(
     &--inline {
         .jkl-text-input__input {
             @include jkl.text-style("body/small-screen");
-            height: $text-input-height--compact;
+            height: $_text-input-height--compact;
         }
 
         .jkl-text-input__action-button {
-            height: $text-input-height--compact;
+            height: $_text-input-height--compact;
         }
 
         .jkl-text-input__action-icon {
@@ -245,7 +245,7 @@ $text-input-selection-color--inverted: color.scale(
 
 .jkl-text-input:not(.jkl-text-area) {
     .jkl-text-input__input {
-        line-height: $text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+        line-height: $_text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
     }
 }
 
@@ -253,7 +253,7 @@ $text-input-selection-color--inverted: color.scale(
 .jkl-text-input--compact:not(.jkl-text-area),
 .jkl-text-input--inline:not(.jkl-text-area) {
     .jkl-text-input__input {
-        line-height: $text-input-height--compact; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+        line-height: $_text-input-height--compact; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
     }
 }
 
@@ -290,7 +290,7 @@ $text-input-selection-color--inverted: color.scale(
 
         .jkl-text-input__input {
             height: auto;
-            max-height: $text-input-height;
+            max-height: $_text-input-height;
             padding-bottom: jkl.$spacing-xs;
             transition-property: max-height, box-shadow, padding-bottom;
 
@@ -335,7 +335,7 @@ $text-input-selection-color--inverted: color.scale(
             resize: none; // Disable textarea resize
             width: 100%;
 
-            height: calc($text-input-height - (2 * jkl.$spacing-xs));
+            height: calc($_text-input-height - (2 * jkl.$spacing-xs));
             padding: 0;
 
             transition-property: height;
@@ -343,7 +343,7 @@ $text-input-selection-color--inverted: color.scale(
             @include shared-error-styles;
 
             @include jkl.forced-colors-mode {
-                padding: $text-input-padding;
+                padding: $_text-input-padding;
             }
         }
 
@@ -399,7 +399,7 @@ $text-input-selection-color--inverted: color.scale(
         &.jkl-text-input--compact,
         &.jkl-text-input--inline {
             .jkl-text-input__input {
-                max-height: $text-input-height--compact;
+                max-height: $_text-input-height--compact;
 
                 &[data-has-content="true"] {
                     max-height: 100%;
@@ -412,7 +412,7 @@ $text-input-selection-color--inverted: color.scale(
 
             .jkl-text-area__text-area {
                 @include jkl.text-style("body/small-screen");
-                height: calc($text-input-height - (2 * jkl.$spacing-xs));
+                height: calc($_text-input-height - (2 * jkl.$spacing-xs));
             }
         }
 
@@ -425,8 +425,8 @@ $text-input-selection-color--inverted: color.scale(
 
 /* Utility classes for number of rows */
 @for $num from 3 through 10 {
-    $height: $text-input-line-height * $num + jkl.$spacing-xs * 2;
-    $small-height: $text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
+    $height: $_text-input-line-height * $num + jkl.$spacing-xs * 2;
+    $small-height: $_text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
 
     .jkl-text-input__input--#{$num}-rows:focus,
     .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
