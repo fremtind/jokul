@@ -9,11 +9,6 @@ export interface LogoStampProps extends WithChildren {
     className?: string;
     id?: string;
     /**
-     * Velger hva som står i teksten rundt logostemplet. Se portalen eller Figma for oversikt.
-     * @default "fraSB1ogDNB"
-     */
-    // variant?: keyof typeof logoStampTextPaths;
-    /**
      * Beskrivelse av logostempelet tilgjengelig for skjermlesere.
      * Teksten i logostempelet er en path, og ikke tilgjengelig for skjermlesere.
      * @default "Forsikring levert av Fremtind"
