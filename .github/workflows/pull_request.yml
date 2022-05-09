@@ -324,6 +324,7 @@ jobs:
             - name: Add a comment with a link to the preview
               uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
               with:
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
                   header: preview
                   message: |
                       <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}
