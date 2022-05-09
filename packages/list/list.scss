@@ -28,23 +28,23 @@
 $_item-space-between: jkl.$spacing-xs;
 
 @include jkl.light-mode-variables {
-    --jkl-list-marker--default: #{_solid-diamond(jkl.$color-granitt)};
-    --jkl-list-marker--secondary: #{_outline-diamond(jkl.$color-granitt)};
-    --jkl-list-marker--cross: #{_cross(jkl.$color-feil)};
-    --jkl-list-marker--check: #{_check(jkl.$color-suksess, jkl.$color-snohvit)};
+    --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
+    --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-feil)};
+    --jkl-list-marker-check: #{_check(jkl.$color-suksess, jkl.$color-snohvit)};
     --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-list-marker--default: #{_solid-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker--secondary: #{_outline-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker--cross: #{_cross(jkl.$color-feil--darkbg)};
-    --jkl-list-marker--check: #{_check(jkl.$color-suksess--darkbg, jkl.$color-granitt)};
+    --jkl-list-marker-default: #{_solid-diamond(jkl.$color-snohvit)};
+    --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-snohvit)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-feil--darkbg)};
+    --jkl-list-marker-check: #{_check(jkl.$color-suksess--darkbg, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 
 .jkl-list {
-    list-style: disc var(--jkl-list-marker--default);
+    list-style: disc var(--jkl-list-marker-default);
     padding-left: jkl.$spacing-l;
 
     & > .jkl-list__item {
@@ -64,7 +64,7 @@ $_item-space-between: jkl.$spacing-xs;
     }
 
     & & > .jkl-list__item {
-        list-style: disc var(--jkl-list-marker--secondary);
+        list-style: disc var(--jkl-list-marker-secondary);
         margin: 0;
 
         &:first-of-type {
@@ -113,12 +113,12 @@ $_item-space-between: jkl.$spacing-xs;
 
         &--check::before {
             @include jkl.decorative($content: "\2713");
-            background-image: var(--jkl-list-marker--check);
+            background-image: var(--jkl-list-marker-check);
         }
 
         &--cross::before {
             @include jkl.decorative($content: "\274C");
-            background-image: var(--jkl-list-marker--cross);
+            background-image: var(--jkl-list-marker-cross);
         }
     }
 

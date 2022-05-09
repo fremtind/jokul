@@ -9,21 +9,21 @@ $_slider-rounded: jkl.rem(100px);
 $_slider-focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
-    --jkl-slider-bg: #{jkl.$color-varde};
-    --jkl-slider-pill: #{jkl.$color-snohvit};
-    --jkl-slider-pill-text: #{jkl.$color-granitt};
-    --jkl-slider-pill-text--active: #{jkl.$color-granitt};
-    --jkl-slider-focus-color: #{jkl.$color-svart};
-    --jkl-slider-hover-color: #{jkl.$color-stein};
+    --jkl-toggle-slider-bg: #{jkl.$color-varde};
+    --jkl-toggle-slider-pill: #{jkl.$color-snohvit};
+    --jkl-toggle-slider-pill-text: #{jkl.$color-granitt};
+    --jkl-toggle-slider-pill-text-active: #{jkl.$color-granitt};
+    --jkl-toggle-slider-focus-color: #{jkl.$color-svart};
+    --jkl-toggle-slider-hover-color: #{jkl.$color-stein};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-slider-bg: #{jkl.$color-fjellgra};
-    --jkl-slider-pill: #{jkl.$color-granitt};
-    --jkl-slider-pill-text: #{jkl.$color-snohvit};
-    --jkl-slider-pill-text--active: #{jkl.$color-snohvit};
-    --jkl-slider-focus-color: #{jkl.$color-svaberg};
-    --jkl-slider-hover-color: #{jkl.$color-svaberg};
+    --jkl-toggle-slider-bg: #{jkl.$color-fjellgra};
+    --jkl-toggle-slider-pill: #{jkl.$color-granitt};
+    --jkl-toggle-slider-pill-text: #{jkl.$color-snohvit};
+    --jkl-toggle-slider-pill-text-active: #{jkl.$color-snohvit};
+    --jkl-toggle-slider-focus-color: #{jkl.$color-svaberg};
+    --jkl-toggle-slider-hover-color: #{jkl.$color-svaberg};
 }
 
 .jkl-toggle-slider__wrapper {
@@ -35,15 +35,15 @@ $_slider-focus-ring-width: jkl.rem(2px);
         @include jkl.reset-outline;
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
-            box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-slider-focus-color);
+            box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-toggle-slider-focus-color);
 
             .jkl-toggle-slider__pill {
-                box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-slider-focus-color);
+                box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-toggle-slider-focus-color);
             }
         }
 
         cursor: pointer;
-        background-color: var(--jkl-slider-bg);
+        background-color: var(--jkl-toggle-slider-bg);
         padding: jkl.$spacing-xs 0;
         position: relative;
         border-radius: $_slider-rounded;
@@ -57,7 +57,7 @@ $_slider-focus-ring-width: jkl.rem(2px);
         &__pill {
             width: 50%;
             height: calc(100% - #{$_slider-offset} - #{$_slider-offset});
-            background-color: var(--jkl-slider-pill);
+            background-color: var(--jkl-toggle-slider-pill);
             display: block;
             position: absolute;
             top: $_slider-offset;
@@ -74,7 +74,7 @@ $_slider-focus-ring-width: jkl.rem(2px);
             display: block;
             width: 50%;
             text-align: center;
-            color: var(--jkl-slider-pill-text);
+            color: var(--jkl-toggle-slider-pill-text);
             transition-property: color;
             @include jkl.motion(standard, expressive);
         }
@@ -97,13 +97,13 @@ $_slider-focus-ring-width: jkl.rem(2px);
 
         &--checked {
             & > .jkl-toggle-slider--right {
-                color: var(--jkl-slider-pill-text--active);
+                color: var(--jkl-toggle-slider-pill-text-active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--left {
-                        color: var(--jkl-slider-hover-color);
+                        color: var(--jkl-toggle-slider-hover-color);
                     }
                 }
             }
@@ -115,13 +115,13 @@ $_slider-focus-ring-width: jkl.rem(2px);
             }
 
             & > .jkl-toggle-slider--left {
-                color: var(--jkl-slider-pill-text--active);
+                color: var(--jkl-toggle-slider-pill-text-active);
             }
 
             @media (hover: hover) {
                 &:hover {
                     & > .jkl-toggle-slider--right {
-                        color: var(--jkl-slider-hover-color);
+                        color: var(--jkl-toggle-slider-hover-color);
                     }
                 }
             }

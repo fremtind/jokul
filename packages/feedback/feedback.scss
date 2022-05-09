@@ -6,15 +6,15 @@ $_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomr
 $_show-animation-name: jkl-show-#{string.unique-id()};
 
 @include jkl.light-mode-variables {
-    --jkl-feedback--step-color: #{jkl.$color-stein};
+    --jkl-feedback-step-color: #{jkl.$color-stein};
     --jkl-feedback-smiley-color: #{jkl.$color-stein};
-    --jkl-feedback-smiley-color--hover: #{jkl.$color-granitt};
+    --jkl-feedback-smiley-color-hover: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-feedback--step-color: #{jkl.$color-svaberg};
+    --jkl-feedback-step-color: #{jkl.$color-svaberg};
     --jkl-feedback-smiley-color: #{jkl.$color-svaberg};
-    --jkl-feedback-smiley-color--hover: #{jkl.$color-snohvit};
+    --jkl-feedback-smiley-color-hover: #{jkl.$color-snohvit};
 }
 
 @keyframes #{$_show-animation-name} {
@@ -39,7 +39,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
 
     &__step-counter {
         @include jkl.text-style("body");
-        color: var(--jkl-feedback--step-color);
+        color: var(--jkl-feedback-step-color);
         margin-bottom: jkl.$spacing-m;
     }
 
@@ -100,11 +100,11 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &:hover {
-        color: var(--jkl-feedback-smiley-color--hover);
+        color: var(--jkl-feedback-smiley-color-hover);
     }
 
     input:checked + & {
-        color: var(--jkl-feedback-smiley-color--hover);
+        color: var(--jkl-feedback-smiley-color-hover);
         transform: translate3d(0, -20%, 0);
 
         &::before {
