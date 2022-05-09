@@ -1,4 +1,4 @@
-@use "mixins";
+@use "../mixins";
 
 .jkl-body {
     @include mixins.text-style("body");

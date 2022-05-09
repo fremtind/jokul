@@ -1,4 +1,4 @@
-@use "./jkl";
+@use "../jkl";
 
 @mixin _underline-gradient($color) {
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);

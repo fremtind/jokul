@@ -1,4 +1,4 @@
-@use "mixins";
+@use "../mixins";
 
 .jkl-title {
     @include mixins.text-style("title");
