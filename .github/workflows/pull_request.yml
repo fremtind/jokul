@@ -271,7 +271,7 @@ jobs:
         permissions:
             actions: write
             contents: write
-            issues: write
+            pull-requests: write
         env:
             PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
         steps:
