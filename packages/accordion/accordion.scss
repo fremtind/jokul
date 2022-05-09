@@ -122,22 +122,22 @@
 
     @include jkl.forced-colors-mode {
         &:nth-child(n) {
-            border-top: rem(2px) solid ButtonText;
+            border-top: jkl.rem(2px) solid ButtonText;
 
             &:hover {
-                border-top: rem(2px) solid ButtonText;
+                border-top: jkl.rem(2px) solid ButtonText;
 
                 + .jkl-accordion-item {
-                    border-top: rem(2px) solid ButtonText;
+                    border-top: jkl.rem(2px) solid ButtonText;
                 }
             }
         }
 
         &:last-child {
-            border-bottom: rem(2px) solid ButtonText;
+            border-bottom: jkl.rem(2px) solid ButtonText;
 
             &:hover {
-                border-bottom: rem(2px) solid ButtonText;
+                border-bottom: jkl.rem(2px) solid ButtonText;
             }
         }
 

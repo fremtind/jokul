@@ -155,7 +155,7 @@ $_card-padding-normal: jkl.$spacing-l;
 
     @include jkl.forced-colors-mode {
         outline: revert;
-        border: rem(2px) solid LinkText;
+        border: jkl.rem(2px) solid LinkText;
     }
 }
 
@@ -211,7 +211,7 @@ $_card-padding-normal: jkl.$spacing-l;
     }
 
     @include jkl.forced-colors-mode {
-        border: rem(2px) solid CanvasText;
+        border: jkl.rem(2px) solid CanvasText;
     }
 }
 
@@ -232,6 +232,6 @@ $_card-padding-normal: jkl.$spacing-l;
     }
 
     @include jkl.forced-colors-mode {
-        border: rem(2px) solid CanvasText;
+        border: jkl.rem(2px) solid CanvasText;
     }
 }
