@@ -23,12 +23,12 @@ context("Logo", () => {
 
         cy.takeSnapshots({
             variants: [
-                "fraSB1ogDNB",
-                "forsikringLevertAvFremtind",
-                "vartForsikringsselskap",
-                "innovasjonFraFremtind",
-                "teknologiFraFremtind",
-                "vartEgetForsikringsselskap",
+                "FraSB1ogDNB",
+                "ForsikringLevertAvFremtind",
+                "VartForsikringsselskap",
+                "InnovasjonFraFremtind",
+                "TeknologiFraFremtind",
+                "VartEgetForsikringsselskap",
             ],
             eq: logostempel,
         });

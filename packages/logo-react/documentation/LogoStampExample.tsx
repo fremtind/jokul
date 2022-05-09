@@ -1,22 +1,33 @@
 import React from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { LogoStamp } from "../src";
-import { logoStampTextPaths } from "../src/logoStampTextPaths";
+import * as logoStampTextPaths from "../src/text-paths";
 import "./LogoExample.scss";
 
-export const LogoStampExample = ({ boolValues, choiceValues }: ExampleComponentProps) => (
-    <LogoStamp
-        className="logo-example"
-        animated={boolValues?.["Animert"]}
-        variant={choiceValues?.["Variant"] as keyof typeof logoStampTextPaths}
-    />
-);
+export const LogoStampExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+    const variant = choiceValues?.["Variant"] as keyof typeof logoStampTextPaths;
+    const TextPath = logoStampTextPaths[variant];
 
-export const logoStampExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
+    return (
+        <LogoStamp className="logo-stamp-example" animated={boolValues?.["Animert"]} title={TextPath.displayName}>
+            <TextPath />
+        </LogoStamp>
+    );
+};
+
+export const logoStampExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
+    const variant = choiceValues?.["Variant"] as keyof typeof logoStampTextPaths;
+
+    return `
+import { LogoStamp, ${variant} } from "@fremtind/jkl-logo-react";
+
 <LogoStamp
     animated={${boolValues?.["Animert"]}}
-    variant="${choiceValues?.["Variant"]}"
-/>`;
+    title={${variant}.displayName}
+>
+    <${variant} />
+</LogoStamp>`;
+};
 
 export const logoStampExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Animert"],
@@ -24,12 +35,12 @@ export const logoStampExampleKnobs: ExampleKnobsProps = {
         {
             name: "Variant",
             values: [
-                "fraSB1ogDNB",
-                "forsikringLevertAvFremtind",
-                "vartForsikringsselskap",
-                "innovasjonFraFremtind",
-                "teknologiFraFremtind",
-                "vartEgetForsikringsselskap",
+                "FraSB1ogDNB",
+                "ForsikringLevertAvFremtind",
+                "VartForsikringsselskap",
+                "InnovasjonFraFremtind",
+                "TeknologiFraFremtind",
+                "VartEgetForsikringsselskap",
             ],
             defaultValue: 0,
         },
