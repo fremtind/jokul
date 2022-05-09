@@ -6,19 +6,19 @@ $autosuggest-item-height: jkl.rem(28px);
 $autosuggest-item-font-size: jkl.rem(18px);
 
 @include jkl.light-mode-variables {
-    --autosuggest-text-color: #{jkl.$color-granitt};
-    --autosuggest-menu-background-color: #{jkl.$color-hvit};
-    --autosuggest-focus-color: #{jkl.$color-granitt};
-    --autosuggest-error-text-color: #{jkl.$color-granitt};
-    --autosuggest-error-placeholder-color: #{jkl.$color-stein};
+    --jkl-autosuggest-text-color: #{jkl.$color-granitt};
+    --jkl-autosuggest-menu-background-color: #{jkl.$color-hvit};
+    --jkl-autosuggest-focus-color: #{jkl.$color-granitt};
+    --jkl-autosuggest-error-text-color: #{jkl.$color-granitt};
+    --jkl-autosuggest-error-placeholder-color: #{jkl.$color-stein};
 }
 
 @include jkl.dark-mode-variables {
-    --autosuggest-text-color: #{jkl.$color-snohvit};
-    --autosuggest-menu-background-color: #{jkl.$color-svart};
-    --autosuggest-focus-color: #{jkl.$color-snohvit};
-    --autosuggest-error-text-color: #{jkl.$color-granitt};
-    --autosuggest-error-placeholder-color: #{jkl.$color-stein};
+    --jkl-autosuggest-text-color: #{jkl.$color-snohvit};
+    --jkl-autosuggest-menu-background-color: #{jkl.$color-svart};
+    --jkl-autosuggest-focus-color: #{jkl.$color-snohvit};
+    --jkl-autosuggest-error-text-color: #{jkl.$color-granitt};
+    --jkl-autosuggest-error-placeholder-color: #{jkl.$color-stein};
 }
 
 .jkl-autosuggest {
@@ -43,15 +43,15 @@ $autosuggest-item-font-size: jkl.rem(18px);
 
     &__input-group > input[aria-invalid="true"] {
         & ~ .jkl-autosuggest__controller-button {
-            color: var(--autosuggest-error-placeholder-color);
+            color: var(--jkl-autosuggest-error-placeholder-color);
 
             &:hover {
-                color: var(--autosuggest-error-text-color);
+                color: var(--jkl-autosuggest-error-text-color);
             }
 
             @include jkl.keyboard-navigation {
                 &:focus::after {
-                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--autosuggest-error-text-color);
+                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-autosuggest-error-text-color);
                 }
             }
         }
@@ -74,7 +74,7 @@ $autosuggest-item-font-size: jkl.rem(18px);
         position: absolute;
         right: 0;
         top: 0;
-        color: var(--autosuggest-text-color);
+        color: var(--jkl-autosuggest-text-color);
 
         &:focus {
             @include jkl.keyboard-navigation {
@@ -85,7 +85,7 @@ $autosuggest-item-font-size: jkl.rem(18px);
                     right: jkl.rem(8px);
                     bottom: jkl.rem(8px);
                     left: jkl.rem(8px);
-                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--autosuggest-focus-color);
+                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-autosuggest-focus-color);
                 }
             }
         }
@@ -102,12 +102,12 @@ $autosuggest-item-font-size: jkl.rem(18px);
     }
 
     &__menu {
-        background-color: var(--autosuggest-menu-background-color);
-        border: jkl.rem(2px) solid var(--autosuggest-focus-color);
+        background-color: var(--jkl-autosuggest-menu-background-color);
+        border: jkl.rem(2px) solid var(--jkl-autosuggest-focus-color);
         border-top: none;
         border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
         box-sizing: border-box;
-        color: var(--autosuggest-text-color);
+        color: var(--jkl-autosuggest-text-color);
         list-style-type: none;
         position: absolute;
         top: 0;

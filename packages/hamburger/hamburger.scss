@@ -6,13 +6,13 @@ $_hamburger-icon-width: jkl.rem(35px);
 $_hamburger-line-spacing: jkl.rem(-8px);
 
 @include jkl.light-mode-variables {
-    --hamburger-color: #{jkl.$color-granitt};
-    --hamburger-focus-color: #{jkl.$color-stein};
+    --jkl-hamburger-color: #{jkl.$color-granitt};
+    --jkl-hamburger-focus-color: #{jkl.$color-stein};
 }
 
 @include jkl.dark-mode-variables {
-    --hamburger-color: #{jkl.$color-snohvit};
-    --hamburger-focus-color: #{jkl.$color-svaberg};
+    --jkl-hamburger-color: #{jkl.$color-snohvit};
+    --jkl-hamburger-focus-color: #{jkl.$color-svaberg};
 }
 
 .jkl-hamburger {
@@ -28,7 +28,7 @@ $_hamburger-line-spacing: jkl.rem(-8px);
     align-items: center;
     position: relative;
 
-    color: var(--hamburger-color);
+    color: var(--jkl-hamburger-color);
 
     @include jkl.text-style("body");
 
@@ -93,7 +93,7 @@ $_hamburger-line-spacing: jkl.rem(-8px);
 
     @include jkl.keyboard-navigation {
         &:focus {
-            box-shadow: 0 0 0 jkl.rem(2px) var(--hamburger-focus-color);
+            box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-hamburger-focus-color);
         }
     }
 

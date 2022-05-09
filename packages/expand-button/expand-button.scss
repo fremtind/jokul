@@ -8,13 +8,13 @@ $_animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
 $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
-    --expand-button-text-color: #{jkl.$color-granitt};
-    --expand-button-focus-color: #{jkl.$color-granitt};
+    --jkl-expand-button-text-color: #{jkl.$color-granitt};
+    --jkl-expand-button-focus-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
-    --expand-button-text-color: #{jkl.$color-snohvit};
-    --expand-button-focus-color: #{jkl.$color-snohvit};
+    --jkl-expand-button-text-color: #{jkl.$color-snohvit};
+    --jkl-expand-button-focus-color: #{jkl.$color-snohvit};
 }
 
 @mixin _expanded-arrow($px) {
@@ -29,7 +29,7 @@ $_focus-ring-width: jkl.rem(2px);
 
     background-color: transparent;
     cursor: pointer;
-    color: var(--expand-button-text-color);
+    color: var(--jkl-expand-button-text-color);
     display: inline-block;
     padding: 0;
     transition: transform $_animation-timing, border $_animation-timing;
@@ -52,14 +52,14 @@ $_focus-ring-width: jkl.rem(2px);
         border: none;
 
         &::after {
-            box-shadow: 0 0 0 $_focus-ring-width var(--expand-button-focus-color);
+            box-shadow: 0 0 0 $_focus-ring-width var(--jkl-expand-button-focus-color);
         }
     }
 
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         @include _expanded-arrow(3px);
-        color: var(--expand-button-focus-color);
+        color: var(--jkl-expand-button-focus-color);
     }
 
     &--compact {

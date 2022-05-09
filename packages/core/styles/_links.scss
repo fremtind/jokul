@@ -19,18 +19,18 @@ $_link-underline-thickness: jkl.rem(1px);
 $_link-underline-thickness--hover: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
-    --link-color: #{jkl.$color-granitt};
-    --link-hover-color: #{jkl.$color-stein};
-    --link-active-color: #{jkl.$color-granitt};
+    --jkl-link-color: #{jkl.$color-granitt};
+    --jkl-link-hover-color: #{jkl.$color-stein};
+    --jkl-link-active-color: #{jkl.$color-granitt};
 }
 @include jkl.dark-mode-variables {
-    --link-color: #{jkl.$color-snohvit};
-    --link-hover-color: #{jkl.$color-svaberg};
-    --link-active-color: #{jkl.$color-snohvit};
+    --jkl-link-color: #{jkl.$color-snohvit};
+    --jkl-link-hover-color: #{jkl.$color-svaberg};
+    --jkl-link-active-color: #{jkl.$color-snohvit};
 }
 
 .jkl-link {
-    color: var(--link-color);
+    color: var(--jkl-link-color);
 
     @include _underline-gradient(currentColor);
     background-position: 0 calc(100% - (#{$_link-underline-thickness--hover} - #{$_link-underline-thickness}));
@@ -42,20 +42,20 @@ $_link-underline-thickness--hover: jkl.rem(2px);
     text-decoration: none;
 
     &:hover:not(:focus) {
-        color: var(--link-hover-color);
-        @include _underline-gradient(var(--link-hover-color));
+        color: var(--jkl-link-hover-color);
+        @include _underline-gradient(var(--jkl-link-hover-color));
         background-position: 0 100%;
         background-size: $_link-underline-thickness--hover $_link-underline-thickness--hover;
     }
 
     &:hover &:focus {
-        color: var(--link-color);
-        @include _underline-gradient(var(--link-color));
+        color: var(--jkl-link-color);
+        @include _underline-gradient(var(--jkl-link-color));
     }
 
     html:not([data-mousenavigation]) &:focus {
         @include jkl.no-grow-bold;
-        @include _border-gradient(var(--link-active-color));
+        @include _border-gradient(var(--jkl-link-active-color));
     }
 
     &:active {
@@ -79,7 +79,7 @@ $_link-underline-thickness--hover: jkl.rem(2px);
 }
 
 .jkl-nav-link {
-    color: var(--link-color);
+    color: var(--jkl-link-color);
 
     @include jkl.reset-outline;
     box-sizing: border-box;
@@ -102,7 +102,7 @@ $_link-underline-thickness--hover: jkl.rem(2px);
     }
 
     &:hover:not(:focus) {
-        color: var(--link-hover-color);
+        color: var(--jkl-link-hover-color);
 
         &::after {
             transform: translateX(33%);
@@ -110,7 +110,7 @@ $_link-underline-thickness--hover: jkl.rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include _border-gradient(var(--link-color));
+        @include _border-gradient(var(--jkl-link-color));
         @include jkl.no-grow-bold;
 
         &::after {

@@ -40,7 +40,7 @@ $_list-check-color--inverted: jkl.$color-suksess--darkbg;
     --jkl-list-marker--secondary: #{_outline-diamond($_list-text-color)};
     --jkl-list-marker--cross: #{_cross($_list-cross-color)};
     --jkl-list-marker--check: #{_check($_list-check-color, $_list-text-color--inverted)};
-    --list-text-color: #{$_list-text-color};
+    --jkl-list-text-color: #{$_list-text-color};
 }
 
 @include jkl.dark-mode-variables {
@@ -48,7 +48,7 @@ $_list-check-color--inverted: jkl.$color-suksess--darkbg;
     --jkl-list-marker--secondary: #{_outline-diamond($_list-text-color--inverted)};
     --jkl-list-marker--cross: #{_cross($_list-cross-color--inverted)};
     --jkl-list-marker--check: #{_check($_list-check-color--inverted, $_list-text-color)};
-    --list-text-color: #{$_list-text-color--inverted};
+    --jkl-list-text-color: #{$_list-text-color--inverted};
 }
 
 .jkl-list {
@@ -95,11 +95,11 @@ $_list-check-color--inverted: jkl.$color-suksess--darkbg;
     }
 
     &__item {
-        color: var(--list-text-color);
+        color: var(--jkl-list-text-color);
         padding-left: jkl.rem(4px);
 
         &::marker {
-            color: var(--list-text-color);
+            color: var(--jkl-list-text-color);
         }
 
         &--iconed {

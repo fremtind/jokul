@@ -25,31 +25,31 @@ $select-search-input-selection-color--inverted: color.scale(
 );
 
 @include jkl.light-mode-variables {
-    --select-border-color: #{jkl.$color-stein};
-    --select-text-color: #{jkl.$color-granitt};
-    --select-text-disabled-color: #{jkl.$color-stein};
-    --select-background-color: transparent;
-    --select-open-background-color: #{jkl.$color-hvit};
-    --select-focus-color: #{$select-focus-color};
-    --select-error-background-color: #{colors.varslingsfarge("feil")};
-    --select-error-text-color: #{jkl.$color-granitt};
-    --select-hover-option-color: #{jkl.$color-stein};
-    --select-search-input-selection-color: #{$select-search-input-selection-color};
-    --select-search-input-error-selection-color: #{$select-search-input-selection-color};
+    --jkl-select-border-color: #{jkl.$color-stein};
+    --jkl-select-text-color: #{jkl.$color-granitt};
+    --jkl-select-text-disabled-color: #{jkl.$color-stein};
+    --jkl-select-background-color: transparent;
+    --jkl-select-open-background-color: #{jkl.$color-hvit};
+    --jkl-select-focus-color: #{$select-focus-color};
+    --jkl-select-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-select-error-text-color: #{jkl.$color-granitt};
+    --jkl-select-hover-option-color: #{jkl.$color-stein};
+    --jkl-select-search-input-selection-color: #{$select-search-input-selection-color};
+    --jkl-select-search-input-error-selection-color: #{$select-search-input-selection-color};
 }
 
 @include jkl.dark-mode-variables {
-    --select-border-color: #{jkl.$color-svaberg};
-    --select-text-color: #{jkl.$color-snohvit};
-    --select-text-disabled-color: #{jkl.$color-svaberg};
-    --select-background-color: transparent;
-    --select-open-background-color: #{jkl.$color-svart};
-    --select-focus-color: #{$select-focus-color--inverted};
-    --select-error-background-color: #{jkl.$color-feil--darkbg};
-    --select-error-text-color: #{jkl.$color-granitt};
-    --select-hover-option-color: #{jkl.$color-svaberg};
-    --select-search-input-selection-color: #{$select-search-input-selection-color--inverted};
-    --select-search-input-error-selection-color: #{$select-search-input-selection-color};
+    --jkl-select-border-color: #{jkl.$color-svaberg};
+    --jkl-select-text-color: #{jkl.$color-snohvit};
+    --jkl-select-text-disabled-color: #{jkl.$color-svaberg};
+    --jkl-select-background-color: transparent;
+    --jkl-select-open-background-color: #{jkl.$color-svart};
+    --jkl-select-focus-color: #{$select-focus-color--inverted};
+    --jkl-select-error-background-color: #{jkl.$color-feil--darkbg};
+    --jkl-select-error-text-color: #{jkl.$color-granitt};
+    --jkl-select-hover-option-color: #{jkl.$color-svaberg};
+    --jkl-select-search-input-selection-color: #{$select-search-input-selection-color--inverted};
+    --jkl-select-search-input-error-selection-color: #{$select-search-input-selection-color};
 }
 
 .jkl-select {
@@ -71,16 +71,16 @@ $select-search-input-selection-color--inverted: color.scale(
 
         &:-moz-focusring {
             color: transparent;
-            text-shadow: 0 0 0 var(--select-text-color);
+            text-shadow: 0 0 0 var(--jkl-select-text-color);
         }
 
         & option {
             font-weight: normal;
             font-family: sans-serif;
-            color: var(--select-text-color);
+            color: var(--jkl-select-text-color);
 
             &:disabled {
-                color: var(--select-text-disabled-color);
+                color: var(--jkl-select-text-disabled-color);
             }
         }
     }
@@ -96,14 +96,14 @@ $select-search-input-selection-color--inverted: color.scale(
 
     &__search-input {
         box-sizing: border-box;
-        color: var(--select-text-color);
+        color: var(--jkl-select-text-color);
 
         /* Color of text selection */
         &::selection {
-            background-color: var(--select-search-input-selection-color);
+            background-color: var(--jkl-select-search-input-selection-color);
 
             [data-theme="dark"] & {
-                background-color: var(--select-search-input-selection-color);
+                background-color: var(--jkl-select-search-input-selection-color);
             }
         }
     }
@@ -115,13 +115,13 @@ $select-search-input-selection-color--inverted: color.scale(
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        background-color: var(--select-background-color);
-        color: var(--select-text-color);
+        background-color: var(--jkl-select-background-color);
+        color: var(--jkl-select-text-color);
         cursor: pointer;
 
         height: jkl.rem(48px);
         border-radius: jkl.rem(3px);
-        border: jkl.rem(1px) solid var(--select-border-color);
+        border: jkl.rem(1px) solid var(--jkl-select-border-color);
         box-shadow: 0 0 0 jkl.rem(1px) transparent;
 
         padding: $select-padding;
@@ -133,15 +133,15 @@ $select-search-input-selection-color--inverted: color.scale(
         transition-property: color, border-color, box-shadow;
 
         &:focus {
-            border-color: var(--select-focus-color);
-            color: var(--select-focus-color);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--select-focus-color);
-            background-color: var(--select-open-background-color);
+            border-color: var(--jkl-select-focus-color);
+            color: var(--jkl-select-focus-color);
+            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-select-focus-color);
+            background-color: var(--jkl-select-open-background-color);
         }
 
         &:hover {
-            border-color: var(--select-focus-color);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--select-focus-color);
+            border-color: var(--jkl-select-focus-color);
+            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-select-focus-color);
 
             & ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(3px)}));
@@ -168,8 +168,8 @@ $select-search-input-selection-color--inverted: color.scale(
         top: 100%;
         z-index: jkl.$z-index--dropdown;
 
-        background-color: var(--select-open-background-color);
-        border: jkl.rem(2px) solid var(--select-focus-color);
+        background-color: var(--jkl-select-open-background-color);
+        border: jkl.rem(2px) solid var(--jkl-select-focus-color);
         border-top: none;
         border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
         box-sizing: border-box;
@@ -209,7 +209,7 @@ $select-search-input-selection-color--inverted: color.scale(
         }
 
         &:focus {
-            color: var(--select-focus-color);
+            color: var(--jkl-select-focus-color);
 
             &::before {
                 @include jkl.decorative($content: "→ ");
@@ -218,13 +218,13 @@ $select-search-input-selection-color--inverted: color.scale(
         }
 
         &:hover {
-            color: var(--select-hover-option-color);
+            color: var(--jkl-select-hover-option-color);
         }
 
         &[aria-selected="true"]:not(:focus) {
             &::after {
                 $mask-image-url: url("data:image/svg+xml,%3Csvg width='17' height='13' viewBox='0 0 17 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8.52632L4.6 12L16 1' stroke='currentColor'/%3E%3C/svg%3E");
-                background-color: var(--select-focus-color);
+                background-color: var(--jkl-select-focus-color);
                 content: "";
 
                 /* autoprefixer with Browserlist="Chrome >= 70" will not generate
@@ -256,9 +256,9 @@ $select-search-input-selection-color--inverted: color.scale(
         .jkl-select__button {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-            border-color: var(--select-focus-color);
-            background-color: var(--select-open-background-color);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--select-focus-color);
+            border-color: var(--jkl-select-focus-color);
+            background-color: var(--jkl-select-open-background-color);
+            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-select-focus-color);
 
             &:hover ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
@@ -269,18 +269,18 @@ $select-search-input-selection-color--inverted: color.scale(
     &--invalid {
         .jkl-select__search-input,
         .jkl-select__button {
-            background-color: var(--select-error-background-color);
+            background-color: var(--jkl-select-error-background-color);
         }
 
         .jkl-select__search-input,
         .jkl-select__button,
         .jkl-select__arrow {
-            color: var(--select-error-text-color);
+            color: var(--jkl-select-error-text-color);
         }
 
         /* Color of text selection */
         .jkl-select__search-input::selection {
-            background-color: var(--select-search-input-error-selection-color);
+            background-color: var(--jkl-select-search-input-error-selection-color);
         }
     }
 

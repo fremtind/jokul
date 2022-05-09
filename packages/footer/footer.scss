@@ -14,8 +14,8 @@
 }
 
 .jkl-footer {
-    --logo-color: var(--jkl-footer-text-color);
-    --link-color: var(--jkl-footer-text-color);
+    --jkl-logo-color: var(--jkl-footer-text-color);
+    --jkl-link-color: var(--jkl-footer-text-color);
 
     background-color: var(--jkl-footer-background-color);
     color: var(--jkl-footer-text-color);

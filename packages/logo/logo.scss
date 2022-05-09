@@ -4,15 +4,15 @@ $jkl-logo-magic-origin--f: 30px 132px; /* Is connected to the viewbox of the log
 $jkl-logo-magic-origin--line: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
 
 @include jkl.light-mode-variables {
-    --logo-color: #{jkl.$color-granitt};
+    --jkl-logo-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
-    --logo-color: #{jkl.$color-snohvit};
+    --jkl-logo-color: #{jkl.$color-snohvit};
 }
 
 .jkl-logo {
-    color: var(--logo-color);
+    color: var(--jkl-logo-color);
 
     // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
     @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);

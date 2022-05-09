@@ -8,7 +8,7 @@ order: 22
 
 <Ingress>Lurer du på hvordan du skal begynne med Sass-kode i Jøkul?</Ingress>
 
-## SCSS
+## Sass
 
 Det er [to syntakser i Sass](https://sass-lang.com/documentation/syntax)-verden:
 
@@ -26,7 +26,7 @@ Vi bruker metodikken [Block Element Modifier](https://css-tricks.com/bem-101/) (
 Nøsting og [parent selector](https://sass-lang.com/documentation/style-rules/parent-selector) i Sass gjør det enklere å skrive CSS på denne måten.
 
 ```scss
-.block {
+.jkl-block {
     /* ... */
     &__element {
         /* ... */
@@ -44,6 +44,10 @@ Nøsting og [parent selector](https://sass-lang.com/documentation/style-rules/pa
 ### Flere elementnivåer
 
 Dersom du er i ferd med å skrive en `block__element__another-element`-selector, stopp og tenk om `element` egentlig er en _annen_ `block`.
+
+### Namespacing
+
+Alle klassenavn i Jøkul skal starte med `jkl` for å synliggjøre hvor CSSen kommer fra og unngå navnekollisjoner.
 
 ## Moduler
 
@@ -70,6 +74,23 @@ Mappenavn og filnavn er **ikke** en del av APIet til en pakke og kan endres uten
 
 ## Variabler
 
+Det er to typer variabler du må forholde deg til:
+
+-   Sass-variabler som er tilgjengelige _build time_
+-   CSS-variabler som er tilgjengelige _run time_
+
+Vi starter med CSS-variabler.
+
+### CSS-variabler
+
+Vi bruker CSS-variabler for verdier som kan tenkes å endres når brukeren ser på siden. Det vanligste er å bruke CSS-variabler for farger, siden de kan endres hvis brukeren bytter tema.
+
+For å synliggjøre at en variabel kommer fra Jøkul, og for å unngå navnekollisjoner, skal alle CSS-variabler prefixes med `jkl` på lik linje som klassenavn.
+
+### Sass-variabler
+
+Sass-variabler behandler vi som konstanter som har en fast verdi. Denne verdien kan gi mening å skille ut i en variabel for å unngå duplisering, eller for å tydeliggjøre en relasjon mellom verdier.
+
 Med unntak av i `packages/core` skal variabler som regel være _private_. Private variabler kan ikke brukes av andre moduler. Varibler er _private_ om navnet starter med `_` (underscore).
 
 Variabler bør som regel være definert nærmest mulig der den brukes. Hvis en variabel bare er relevant innefor én selector, definer den der.
@@ -78,11 +99,11 @@ Variabler som er definert utenfor en CSS selector anses som _globale_ innenfor s
 
 ### Offentlig API
 
-Variabler som er _public_ er en del av pakkens API. En variabel er public dersom navnet _ikke_ starter med `_` (underscore) og variabelen er definert i det globale scopet (utenfor en CSS selector).
+Sass-variabler som er _public_ er en del av pakkens API. En variabel er public dersom navnet _ikke_ starter med `_` (underscore) og variabelen er definert i det globale scopet (utenfor en CSS selector).
 
-Variabler som er public skal dokumenteres med [SassDoc](#sassdoc).
+Sass-variabler som er public skal dokumenteres med [SassDoc](#sassdoc).
 
-Navnet til variabelen og [typen verdi](https://sass-lang.com/documentation/values/) (for eksempel `String`) er å anse som stabilt.
+Navnet til CSS- og Sass-variabelen og [typen verdi](https://sass-lang.com/documentation/values/) (for eksempel `String`) er å anse som stabilt.
 
 ```scss
 /* $_example-padding er brukt av to selectors, og hører hjemme som en global variabel */
