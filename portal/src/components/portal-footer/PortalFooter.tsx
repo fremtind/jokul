@@ -2,14 +2,14 @@ import React from "react";
 import cn from "classnames";
 import { Footer } from "@fremtind/jkl-footer-react";
 import { Feedback } from "@fremtind/jkl-feedback-react";
-import { LogoStamp } from "@fremtind/jkl-logo-react";
+import { LogoStamp, TeknologiFraFremtind } from "@fremtind/jkl-logo-react";
 import "./portal-footer.scss";
 
 export interface PortalFooterProps {
     className?: string;
 }
 
-export const PortalFooter: React.VFC<PortalFooterProps> = ({ className }) => {
+export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
     return (
         <div className={cn("jkl-portal-footer", className)}>
             <div className="jkl-portal-footer__feedback">
@@ -64,7 +64,9 @@ Side: ${window.location.href}`;
                         window.location.href = mailto;
                     }}
                 />
-                <LogoStamp className="jkl-portal-footer__stamp" animated />
+                <LogoStamp className="jkl-portal-footer__stamp" animated title={TeknologiFraFremtind.displayName}>
+                    <TeknologiFraFremtind />
+                </LogoStamp>
             </div>
             <Footer
                 links={[
