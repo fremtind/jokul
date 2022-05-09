@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
@@ -5,6 +6,7 @@ $_dismiss-animation-duration: jkl.timing("lazy");
 $_message-width: jkl.rem(560px);
 $_message-width--compact: jkl.rem(440px);
 
+$_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-focus-border-color: jkl.$color-granitt;
 $_dismiss-hover-color: jkl.$color-stein;
 
@@ -152,7 +154,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &--dismissed {
-        animation: dismiss-animation $_dismiss-animation-duration ease-in-out forwards;
+        animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
         transition: visibility 0ms $_dismiss-animation-duration;
         visibility: hidden;
     }
@@ -179,7 +181,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 }
 
-@keyframes dismiss-animation {
+@keyframes #{$_dismiss-animation-name} {
     from {
         opacity: 1;
         transform: translate3d(0, 0, 0);
