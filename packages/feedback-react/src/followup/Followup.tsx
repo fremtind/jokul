@@ -14,7 +14,7 @@ const defaultSuccessMessage = {
 };
 
 interface Props {
-    /** Spørsmålet/ene som skal stilles. Kan være av typen radio, chackbox eller text */
+    /** Spørsmålet/ene som skal stilles. Kan være av typen radio, checkbox eller text */
     questions: FollowupQuestion[];
     /** Lar deg tilpasse meldingen som kommer når brukeren har svart på spørsmålene.  */
     successMessage?: {

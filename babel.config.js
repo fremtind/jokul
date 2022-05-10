@@ -19,9 +19,9 @@ module.exports = function (api) {
     return {
         plugins,
         presets: [
+            ["@babel/preset-env", { bugfixes: true, targets, modules }],
             "@babel/preset-typescript",
             "@babel/preset-react",
-            ["@babel/preset-env", { bugfixes: true, targets, modules }],
         ],
     };
 };
