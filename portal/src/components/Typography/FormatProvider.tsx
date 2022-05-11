@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { Link, WithChildren } from "@fremtind/jkl-core";
+import { WithChildren } from "@fremtind/jkl-core";
 import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import { ComponentExample } from "../../../../doc-utils";
@@ -35,18 +35,10 @@ import {
     CodeBlock,
     Ingress,
     ListItem,
+    Anchor,
+    Blockquote,
 } from "../Typography";
-import { Blockquote } from "./Typography";
 import cn from "classnames";
-
-/** Don't add class jkl-link to <a /> if it's styled as a button */
-const Anchor: FC<{ className?: string }> = (props) => {
-    if (props.className && props.className.includes("jkl-button")) {
-        // eslint-disable-next-line jsx-a11y/anchor-has-content
-        return <a {...props} />;
-    }
-    return <Link {...props} />;
-};
 
 interface WithClassNameProps {
     className?: string;
@@ -70,7 +62,7 @@ const components = {
     ol: withClassName(OrderedList, "jkl-portal-ol"),
     li: ListItem as FC,
     img: PortalImage,
-    a: Anchor as FC,
+    a: Anchor,
     blockquote: Blockquote,
     table: Table,
     thead: TableHead,
