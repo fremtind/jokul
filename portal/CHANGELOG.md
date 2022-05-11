@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.10](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.9...@fremtind/portal@12.4.10) (2022-05-11)
+
+### Bug Fixes
+
+-   gjør FormatProvider litt smartere med lenker ([cd87693](https://github.com/fremtind/jokul/commit/cd87693f2ebd5f364b69efd5b6dba0b757119dd0))
+
 ## [12.4.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.1...@fremtind/portal@12.4.2) (2022-04-25)
 
 ### Bug Fixes
