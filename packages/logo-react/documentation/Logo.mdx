@@ -6,7 +6,7 @@ group: annet
 ---
 
 import { LogoExample, logoExampleKnobs, logoExampleCode } from "./LogoExample";
-import { LogoStampExample, logoStampExampleCode } from "./LogoStampExample";
+import { LogoStampExample, logoStampExampleKnobs, logoStampExampleCode } from "./LogoStampExample";
 
 <Ingress>
     Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger, eller i andre
@@ -20,9 +20,7 @@ Logoen og logosymbolet skal ikke stå synlige sammen. Vi kan animere mellom dem,
 <ComponentExample
     title="LogoStamp"
     component={LogoStampExample}
-    knobs={{
-        boolProps: ["Animert"],
-    }}
+    knobs={logoStampExampleKnobs}
     codeExample={logoStampExampleCode}
 />
 

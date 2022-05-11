@@ -1,12 +1,48 @@
-import React, { VFC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import React from "react";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { LogoStamp } from "../src";
+import * as logoStampTextPaths from "../src/text-paths";
 import "./LogoExample.scss";
 
-export const LogoStampExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
-    <LogoStamp className="logo-example" animated={boolValues?.["Animert"]} />
-);
+export const LogoStampExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+    const variant = choiceValues?.["Variant"] as keyof typeof logoStampTextPaths;
+    const TextPath = logoStampTextPaths[variant];
 
-export const logoStampExampleCode: CodeExample = ({ boolValues }) => `
-<LogoStamp animated={${boolValues?.["Animert"]}} />
-`;
+    return (
+        <LogoStamp className="logo-stamp-example" animated={boolValues?.["Animert"]} title={TextPath.displayName}>
+            <TextPath />
+        </LogoStamp>
+    );
+};
+
+export const logoStampExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
+    const variant = choiceValues?.["Variant"] as keyof typeof logoStampTextPaths;
+
+    return `
+import { LogoStamp, ${variant} } from "@fremtind/jkl-logo-react";
+
+<LogoStamp
+    animated={${boolValues?.["Animert"]}}
+    title={${variant}.displayName}
+>
+    <${variant} />
+</LogoStamp>`;
+};
+
+export const logoStampExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Animert"],
+    choiceProps: [
+        {
+            name: "Variant",
+            values: [
+                "FraSB1ogDNB",
+                "ForsikringLevertAvFremtind",
+                "VartForsikringsselskap",
+                "InnovasjonFraFremtind",
+                "TeknologiFraFremtind",
+                "VartEgetForsikringsselskap",
+            ],
+            defaultValue: 0,
+        },
+    ],
+};
