@@ -9,5 +9,7 @@ export {
     InlineCode,
     CodeBlock,
     ListItem,
+    Anchor,
+    Blockquote,
 } from "./Typography";
 export { FormatProvider } from "./FormatProvider";
