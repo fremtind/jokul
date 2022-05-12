@@ -1,6 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@mixin expanded-arrow($px) {
+@mixin _expanded-arrow($px) {
     .jkl-expand-button__arrow {
         transform: translateY(jkl.rem($px));
     }
@@ -41,7 +41,7 @@
         padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
     }
 
-    @mixin responsive-table-header {
+    @mixin _responsive-table-header {
         @include jkl.text-style("heading-5");
         content: attr(data-th);
         display: block;
@@ -53,12 +53,12 @@
         display: none;
 
         @include jkl.small-device {
-            @include responsive-table-header;
+            @include _responsive-table-header;
         }
     }
 
     .jkl-table--collapse-to-list[data-collapse] &:not(.jkl-table-cell--expand-without-text)::before {
-        @include responsive-table-header;
+        @include _responsive-table-header;
     }
 
     .jkl-table--collapse-to-list:not([data-collapse]) &--expand-without-text .jkl-expand-button__text {
@@ -77,11 +77,11 @@
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         .jkl-table-row-expand-button {
-            @include expanded-arrow(3px);
+            @include _expanded-arrow(3px);
             color: var(--expand-button-focus-color);
 
             &--expanded {
-                @include expanded-arrow(0);
+                @include _expanded-arrow(0);
             }
         }
     }

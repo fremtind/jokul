@@ -10,6 +10,8 @@ $_easings: (
 /// Hent en easing til bruk i animasjoner. Se også `timing`-funksjonen og `motion`-mixinen.
 /// @param {"standard" | "entrance" | "exit" | "easeInBounceOut"} $name - Navn på easingen du ønsker verdien til
 /// @return {String} - easingverdi til bruk i animasjoner
+/// @see timing
+/// @see motion
 @function easing($name, $easings: $_easings) {
     @if map.has-key($easings, $name) {
         @return map.get($easings, $name);

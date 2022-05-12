@@ -1,6 +1,6 @@
 @use "../jkl";
 
-@mixin demo-box($size, $color: jkl.$color-fjellgra) {
+@mixin _demo-box($size, $color: jkl.$color-fjellgra) {
     width: $size;
     height: $size;
     background-color: $color;
@@ -13,41 +13,41 @@
 }
 
 .demo-spacing--1 {
-    @include demo-box(jkl.$spacing-3xs);
+    @include _demo-box(jkl.$spacing-3xs);
 }
 
 .demo-spacing--2 {
-    @include demo-box(jkl.$spacing-2xs);
+    @include _demo-box(jkl.$spacing-2xs);
 }
 
 .demo-spacing--3 {
-    @include demo-box(jkl.$spacing-xs);
+    @include _demo-box(jkl.$spacing-xs);
 }
 
 .demo-spacing--4 {
-    @include demo-box(jkl.$spacing-s);
+    @include _demo-box(jkl.$spacing-s);
 }
 
 .demo-spacing--5 {
-    @include demo-box(jkl.$spacing-m);
+    @include _demo-box(jkl.$spacing-m);
 }
 
 .demo-spacing--6 {
-    @include demo-box(jkl.$spacing-l);
+    @include _demo-box(jkl.$spacing-l);
 }
 
 .demo-spacing--7 {
-    @include demo-box(jkl.$spacing-xl);
+    @include _demo-box(jkl.$spacing-xl);
 }
 
 .demo-spacing--8 {
-    @include demo-box(jkl.$spacing-2xl);
+    @include _demo-box(jkl.$spacing-2xl);
 }
 
 .demo-spacing--9 {
-    @include demo-box(jkl.$spacing-3xl);
+    @include _demo-box(jkl.$spacing-3xl);
 }
 
 .demo-spacing--10 {
-    @include demo-box(jkl.$spacing-4xl);
+    @include _demo-box(jkl.$spacing-4xl);
 }

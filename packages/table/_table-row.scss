@@ -43,21 +43,21 @@ $_focus-ring-width: jkl.rem(2px);
         }
     }
 
-    @mixin responsive-table-head {
+    @mixin _responsive-table-head {
         border-bottom: solid $_border-size var(--jkl-table-row-border-color);
     }
 
     .jkl-table--collapse-to-list > thead > & {
         @include jkl.small-device {
-            @include responsive-table-head;
+            @include _responsive-table-head;
         }
     }
 
     .jkl-table--collapse-to-list[data-collapse] > thead > & {
-        @include responsive-table-head;
+        @include _responsive-table-head;
     }
 
-    @mixin responsive-table-row {
+    @mixin _responsive-table-row {
         padding-top: jkl.$spacing-s;
         padding-bottom: jkl.$spacing-s;
 
@@ -68,12 +68,12 @@ $_focus-ring-width: jkl.rem(2px);
 
     .jkl-table--collapse-to-list :not(thead) > & {
         @include jkl.small-device {
-            @include responsive-table-row;
+            @include _responsive-table-row;
         }
     }
 
     .jkl-table--collapse-to-list[data-collapse] :not(thead) > & {
-        @include responsive-table-row;
+        @include _responsive-table-row;
     }
 
     .jkl-table--collapse-to-list[data-collapse] :not(thead) > &.jkl-table-row--expandable {
@@ -109,7 +109,7 @@ $_focus-ring-width: jkl.rem(2px);
         }
     }
 
-    @mixin responsive-table-row--hover {
+    @mixin _responsive-table-row--hover {
         /* Tilbakestill hacken som gir riktig border når tabellen ikke har display: block; */
         border-top: solid $_border-size var(--jkl-table-row-hover-border-color);
         border-bottom: solid $_border-size var(--jkl-table-row-hover-border-color);
@@ -117,12 +117,12 @@ $_focus-ring-width: jkl.rem(2px);
 
     .jkl-table--collapse-to-list :not(thead) > &:hover {
         @include jkl.small-device {
-            @include responsive-table-row--hover;
+            @include _responsive-table-row--hover;
         }
     }
 
     .jkl-table--collapse-to-list[data-collapse] :not(thead) > &:hover {
-        @include responsive-table-row--hover;
+        @include _responsive-table-row--hover;
     }
 
     &--clickable {
@@ -139,12 +139,12 @@ $_focus-ring-width: jkl.rem(2px);
 
         .jkl-table--collapse-to-list :not(thead) > &:hover {
             @include jkl.small-device {
-                @include responsive-table-row--hover;
+                @include _responsive-table-row--hover;
             }
         }
 
         .jkl-table--collapse-to-list[data-collapse] :not(thead) > &:hover {
-            @include responsive-table-row--hover;
+            @include _responsive-table-row--hover;
         }
 
         @include jkl.forced-colors-mode {

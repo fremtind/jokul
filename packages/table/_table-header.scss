@@ -37,17 +37,17 @@
         @include jkl.text-style("heading-5");
     }
 
-    @mixin responsive-table-header {
+    @mixin _responsive-table-header {
         display: none;
     }
 
     .jkl-table--collapse-to-list & {
         @include jkl.small-device {
-            @include responsive-table-header;
+            @include _responsive-table-header;
         }
     }
 
     .jkl-table--collapse-to-list[data-collapse] & {
-        @include responsive-table-header;
+        @include _responsive-table-header;
     }
 }

@@ -52,7 +52,7 @@ $_text-input-selection-color--inverted: color.scale(
     --jkl-text-input-error-selection-color-color: #{$_text-input-selection-color};
 }
 
-@mixin shared-input-styles {
+@mixin _shared-input-styles {
     background: none;
     -webkit-appearance: none;
 
@@ -110,7 +110,7 @@ $_text-input-selection-color--inverted: color.scale(
     }
 }
 
-@mixin shared-error-styles {
+@mixin _shared-error-styles {
     /*  Invalid state */
     &[aria-invalid="true"] {
         background-color: var(--jkl-text-input-error-background-color);
@@ -133,7 +133,7 @@ $_text-input-selection-color--inverted: color.scale(
     }
 
     &__input {
-        @include shared-input-styles;
+        @include _shared-input-styles;
 
         border-radius: jkl.rem(3px);
         box-sizing: border-box;
@@ -161,7 +161,7 @@ $_text-input-selection-color--inverted: color.scale(
             border-color: var(--jkl-text-input-focus-color);
         }
 
-        @include shared-error-styles;
+        @include _shared-error-styles;
     }
 
     &__action-button {
@@ -302,7 +302,7 @@ $_text-input-selection-color--inverted: color.scale(
                 padding-bottom: jkl.$spacing-xl;
             }
 
-            @include shared-error-styles;
+            @include _shared-error-styles;
 
             @include jkl.forced-colors-mode {
                 // Fordi all styling med box-shadow er ut vinduet i forced-colors
@@ -325,7 +325,7 @@ $_text-input-selection-color--inverted: color.scale(
          */
         .jkl-text-area__text-area {
             @include jkl.reset-outline;
-            @include shared-input-styles;
+            @include _shared-input-styles;
 
             display: block;
             box-sizing: border-box;
@@ -340,7 +340,7 @@ $_text-input-selection-color--inverted: color.scale(
 
             transition-property: height;
 
-            @include shared-error-styles;
+            @include _shared-error-styles;
 
             @include jkl.forced-colors-mode {
                 padding: $_text-input-padding;

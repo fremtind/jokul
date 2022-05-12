@@ -45,7 +45,7 @@
     }
 }
 
-/// CALENDAR STYLES
+// CALENDAR STYLES
 
 $_date-width: jkl.rem(40px);
 $_date-spacing: jkl.rem(4px);
@@ -135,8 +135,8 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         }
     }
 
-    /// Navigation in normal (compact) mode
-    /// ===================================
+    // Navigation in normal (compact) mode
+    // ===================================
 
     &__month-navigation {
         border: 0;
@@ -199,8 +199,8 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         }
     }
 
-    /// Navigation in extended mode
-    /// ===========================
+    // Navigation in extended mode
+    // ===========================
 
     &__navigation {
         display: flex;
@@ -225,8 +225,8 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         text-transform: capitalize;
     }
 
-    /// Calendar table caption (month and year)
-    /// =======================================
+    // Calendar table caption (month and year)
+    // =======================================
 
     caption {
         @include jkl.text-style("body/large-screen");
@@ -234,16 +234,16 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         text-transform: capitalize;
     }
 
-    /// Calendar table heading (weekday names)
-    /// ======================================
+    // Calendar table heading (weekday names)
+    // ======================================
 
     th {
         @include jkl.text-style("small/large-screen");
         padding-bottom: jkl.$spacing-xs;
     }
 
-    /// Calendar table styles
-    /// =====================
+    // Calendar table styles
+    // =====================
 
     td {
         text-align: center;

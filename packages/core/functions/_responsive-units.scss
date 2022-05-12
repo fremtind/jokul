@@ -2,8 +2,8 @@
 @use "convert";
 
 /// Kalkuler riktig rem-verdi basert på en gitt pixelverdi
-/// @param {String} $px-size - Pixelverdi, helst med unit.
-/// @return {String} - timingverdi til bruk i animasjoner
+/// @param {Number} $px-size - Pixelverdi, helst med unit
+/// @return {Number} - Pixelverdien konvertert til rem
 /// @example
 ///     jkl.rem(16px);
 @function rem($px-size) {
@@ -21,7 +21,7 @@
 /// @param {Number} $px-size - Size to calculate from, in px without unit
 /// @param {Number} $screen-width - Screen width to calculate from, in px without unit, default 1400
 /// @param {Number} $screen-height - Screen height to calculate from, in px without unit, default 900
-/// @return `$px-size` expressed as a responsive value
+/// @return {Number} - Input expressed as a responsive value
 @function relative-size($px-size, $screen-width: 1400, $screen-height: 900) {
     $hor-size: math.div($px-size, $screen-width) * 100 * 1vw;
     $ver-size: math.div($px-size, $screen-height) * 100 * 1vh;
