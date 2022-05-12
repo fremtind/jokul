@@ -78,7 +78,7 @@
             transition-property: transform;
         }
 
-        &.jkl-logo-stamp--rotate {
+        &[data-rotate="true"] {
             .jkl-logo-stamp__text {
                 transition-duration: 1500ms;
                 transform: rotate(360deg);

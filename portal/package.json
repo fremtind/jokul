@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "12.4.9",
+    "version": "12.4.11",
     "devDependencies": {
         "@types/react-helmet": "^6.1.5",
         "@types/react-syntax-highlighter": "^15.5.1",
@@ -24,7 +24,7 @@
         "@fremtind/jkl-expand-button-react": "^2.0.4",
         "@fremtind/jkl-feedback-react": "^12.1.0",
         "@fremtind/jkl-field-group-react": "^5.1.0",
-        "@fremtind/jkl-footer-react": "^1.0.7",
+        "@fremtind/jkl-footer-react": "^1.0.8",
         "@fremtind/jkl-formatters-util": "^2.0.9",
         "@fremtind/jkl-hamburger-react": "^8.0.14",
         "@fremtind/jkl-icon-button-react": "^0.8.23",
