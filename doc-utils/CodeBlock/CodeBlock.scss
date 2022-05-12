@@ -49,7 +49,7 @@
     &__code {
         display: block;
         padding: jkl.$spacing-l jkl.$spacing-m;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     html:not([data-mousenavigation]) &:focus-within {
