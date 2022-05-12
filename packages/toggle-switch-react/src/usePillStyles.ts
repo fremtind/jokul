@@ -33,7 +33,7 @@ export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform:
         }
     }, [ref, shouldTransform]);
 
-    const throttledSetStyles = useMemo(() => throttle(() => setStyles()), [setStyles]);
+    const throttledSetStyles = useMemo(() => throttle(setStyles), [setStyles]);
 
     useEffect(() => {
         setStyles();
