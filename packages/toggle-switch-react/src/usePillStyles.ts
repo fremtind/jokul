@@ -1,4 +1,21 @@
-import { RefObject, useCallback, useEffect, useState } from "react";
+import { RefObject, useCallback, useEffect, useMemo, useState } from "react";
+
+function throttle<R, A extends any[]>(fn: (...args: A) => R) {
+    let wait = false;
+
+    return (...args: A) => {
+        if (wait) return undefined;
+
+        const result = fn(...args);
+
+        wait = true;
+        window.setTimeout(() => {
+            wait = false;
+        }, 200);
+
+        return result;
+    };
+}
 
 export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform: boolean) => {
     const [width, setWidth] = useState(0);
@@ -16,13 +33,15 @@ export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform:
         }
     }, [ref, shouldTransform]);
 
+    const throttledSetStyles = useMemo(() => throttle(() => setStyles()), [setStyles]);
+
     useEffect(() => {
         setStyles();
-        window.addEventListener("resize", setStyles);
+        typeof window !== "undefined" && window.addEventListener("resize", throttledSetStyles);
         return () => {
-            window.removeEventListener("resize", setStyles);
+            typeof window !== "undefined" && window.removeEventListener("resize", throttledSetStyles);
         };
-    }, [setStyles]);
+    }, [setStyles, throttledSetStyles]);
 
     return {
         width,
