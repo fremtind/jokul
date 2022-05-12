@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import shellSession from "react-syntax-highlighter/dist/esm/languages/prism/shell-session";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
 import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";
+import sass from "react-syntax-highlighter/dist/esm/languages/prism/sass";
 
-SyntaxHighlighter.registerLanguage("tsx", tsx);
+SyntaxHighlighter.registerLanguage("sass", sass);
 SyntaxHighlighter.registerLanguage("scss", scss);
+SyntaxHighlighter.registerLanguage("shell-session", shellSession);
+SyntaxHighlighter.registerLanguage("tsx", tsx);
 
 import fremtindTheme from "./fremtindTheme";
 import fremtindThemeDark from "./fremtindThemeDark";
