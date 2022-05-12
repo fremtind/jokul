@@ -1,7 +1,6 @@
-export const SPACING_STEPS = ["m", "l", "xl", "2xl", "3xl", "4xl"] as const;
-type SpacingSteps = typeof SPACING_STEPS;
-export type BasePadding = SpacingSteps[0 | 1 | 2];
-export type SpacingStep = SpacingSteps[number];
+import { SpacingStep, SpacingSteps } from "@fremtind/jkl-core";
+
+export type BasePadding = SpacingSteps[1 | 2 | 3];
 
 export interface PaddingShorthand {
     /**

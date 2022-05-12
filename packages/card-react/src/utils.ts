@@ -1,5 +1,6 @@
-import { SPACING_STEPS } from "./types";
-import type { BasePadding, PaddingShorthand, SpacingStep } from "./types";
+import { SPACING_STEPS } from "@fremtind/jkl-core";
+import type { SpacingStep } from "@fremtind/jkl-core";
+import type { BasePadding, PaddingShorthand } from "./types";
 
 function getSpacingIndex(spacingStep?: SpacingStep, fallback: SpacingStep = "l") {
     return SPACING_STEPS.indexOf(spacingStep || fallback);
