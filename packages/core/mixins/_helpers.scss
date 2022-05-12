@@ -81,6 +81,16 @@ $_valid-forced-colors-text-values: (
     }
 }
 
+/// Jøkul har en automatisk overstyring av animasjoner og transitions i denne modusen,
+/// men om du trenger å gjøre noe ekstra for brukere som ønsker redusert bevegelse
+/// kan du bruke denne mixinen for å plassere CSS inni riktig media query.
+/// @content Innholdet plasseres i et media query som matcher hvis brukeren foretrekker redusert bevegelse
+@mixin prefers-reduced-motion {
+    @media screen and (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}
+
 @function urlencodecolor($color) {
     @if type-of($color) == "color" and str-index(#{$color}, "#") == 1 {
         $hex: string.slice(color.ie-hex-str($color), 4);

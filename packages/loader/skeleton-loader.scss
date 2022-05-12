@@ -37,6 +37,12 @@
         width: jkl.rem(150px);
     }
 
+    @include mixins.prefers-reduced-motion {
+        &::after {
+            background: none; // Skjul gradienten som nå ikke beveger seg
+        }
+    }
+
     @include mixins.forced-colors-mode {
         &::after {
             // Vi kan ikke bruke "gradient-trikset" for å skape den samme effekten,

@@ -32,7 +32,7 @@
     color: var(--jkl-color);
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
+@include mixins.helper-prefers-reduced-motion {
     *,
     *::after,
     *::before {
