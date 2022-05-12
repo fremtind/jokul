@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.1.0 (2022-05-11)
+
+### Features
+
+-   legg til flere varianter av logostemplet ([271fc88](https://github.com/fremtind/jokul/commit/271fc88f657aaaa5f6d9cb72768b44349080b299))
+
 ## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-logo@7.0.9...@fremtind/jkl-logo@7.0.10) (2022-04-19)
 
 ### Bug Fixes

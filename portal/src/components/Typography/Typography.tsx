@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
-import { WithChildren } from "@fremtind/jkl-core";
+import { Link as GatsbyLink } from "gatsby";
+import { Link, WithChildren } from "@fremtind/jkl-core";
 import { ListItem as JklListItem } from "@fremtind/jkl-list-react";
 import { CodeBlock as FTCodeBlock } from "../../../../doc-utils/CodeBlock";
 
@@ -105,3 +106,19 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ children, language, ...res
 export const ListItem: React.FC<WithChildren> = ({ children }) => (
     <JklListItem className="jkl-portal-list-item">{children}</JklListItem>
 );
+
+export const Anchor: React.FC<{ children: React.ReactNode; className?: string; href: string }> = (props) => {
+    /** Don't add class jkl-link to <a /> if it's styled as a button */
+    if (props.className && props.className.includes("jkl-button")) {
+        // eslint-disable-next-line jsx-a11y/anchor-has-content
+        return <a {...props} />;
+    }
+
+    /** Use GatsbyLink for internal links */
+    if (props.href.startsWith("/")) {
+        const { href, ...restProps } = props;
+        return <GatsbyLink to={href} className="jkl-link" {...restProps} />;
+    }
+
+    return <Link {...props} />;
+};

@@ -2,6 +2,7 @@ import React, { ChangeEventHandler, useEffect, useState } from "react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
+import { useFeedbackContext } from "../feedbackContext";
 
 interface Props {
     label: string;
@@ -12,6 +13,7 @@ export const AddonQuestion: React.VFC<Props> = ({
     label,
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
 }) => {
+    const { maxLength } = useFeedbackContext();
     const context = useMainQuestionContext();
     const [dynamicLabel, setDynamicLabel] = useState(label);
 
@@ -42,6 +44,7 @@ export const AddonQuestion: React.VFC<Props> = ({
             helpLabel={helpLabel}
             value={message || ""}
             onChange={handleChange}
+            maxLength={maxLength}
         />
     );
 };
