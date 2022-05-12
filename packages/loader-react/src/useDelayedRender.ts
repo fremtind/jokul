@@ -12,5 +12,5 @@ export function useDelayedRender(delayMilliseconds: number) {
         return () => clearTimeout(timeout);
     }, [delayMilliseconds, setRenderComponent]);
 
-    return [renderComponent];
+    return renderComponent;
 }

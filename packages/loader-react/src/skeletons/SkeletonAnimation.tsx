@@ -1,8 +1,8 @@
-import React, { AriaRole, ReactNode } from "react";
+import React, { AriaRole, HTMLProps, ReactNode } from "react";
 import cn from "classnames";
 import { useDelayedRender } from "../useDelayedRender";
 
-export interface SkeletonAnimationProps {
+export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     children: ReactNode;
     forceCompact?: boolean;
@@ -25,7 +25,7 @@ export const SkeletonAnimation = ({
     textDescription = "Vennligst vent",
     ...rest
 }: SkeletonAnimationProps) => {
-    const [renderComponent] = useDelayedRender(delay);
+    const renderComponent = useDelayedRender(delay);
 
     if (delay && !renderComponent) {
         return null;

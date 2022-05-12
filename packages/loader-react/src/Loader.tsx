@@ -29,7 +29,7 @@ export const Loader = ({
     inline = false,
     ...rest
 }: LoaderProps): JSX.Element | null => {
-    const [renderComponent] = useDelayedRender(delay);
+    const renderComponent = useDelayedRender(delay);
 
     if (delay && !renderComponent) {
         return null;

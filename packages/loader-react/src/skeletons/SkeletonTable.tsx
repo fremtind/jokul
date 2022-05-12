@@ -1,18 +1,20 @@
-import React, { ReactNode } from "react";
+import React, { HTMLProps, ReactNode } from "react";
 import cn from "classnames";
 
-export interface SkeletonTableProps {
+export interface SkeletonTableProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     children: ReactNode;
     forceCompact?: boolean;
+    width?: number;
 }
 
-export const SkeletonTable = ({ className, forceCompact, ...rest }: SkeletonTableProps) => {
+export const SkeletonTable = ({ className, forceCompact, width, style, ...rest }: SkeletonTableProps) => {
     return (
         <div
             className={cn("jkl-skeleton-table", className, {
                 "jkl-skeleton-table--compact": forceCompact,
             })}
+            style={{ width, ...style }}
             {...rest}
         />
     );
