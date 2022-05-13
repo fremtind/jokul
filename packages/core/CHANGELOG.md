@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.6.1 (2022-05-13)
+
+### Bug Fixes
+
+-   skjul gradienten om animasjonen ikke kjører ([08b7fe2](https://github.com/fremtind/jokul/commit/08b7fe2f2e716e9ba86419309e88efea3754c1fb))
+
 # 9.6.0 (2022-04-28)
 
 ### Features

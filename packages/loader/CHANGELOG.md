@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.2.0 (2022-05-13)
+
+### Bug Fixes
+
+-   skjul gradienten om animasjonen ikke kjører ([08b7fe2](https://github.com/fremtind/jokul/commit/08b7fe2f2e716e9ba86419309e88efea3754c1fb))
+
+### Features
+
+-   legg til komponenter for skeleton loaders ([ffe80ed](https://github.com/fremtind/jokul/commit/ffe80ed6350d1445af9f3c3eaeb36ed04d23cfc0))
+
 ## [7.1.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@7.1.16...@fremtind/jkl-loader@7.1.17) (2022-04-19)
 
 ### Bug Fixes
