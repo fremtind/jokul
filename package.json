@@ -5,6 +5,7 @@
     "scripts": {
         "clean": "turbo run clean && rimraf node_modules/",
         "clean:portal": "turbo run clean:portal",
+        "esbuild": "node ./esbuildbuild.mjs",
         "build": "turbo run build --scope=\"!@fremtind/*-config-jkl\" --cache-dir=\"node_modules/.cache/turbo\"",
         "build:docs": "turbo run build:docs --scope=\"@fremtind/portal\" --include-dependencies --cache-dir=\"node_modules/.cache/turbo\"",
         "commit": "git-cz",
@@ -78,7 +79,7 @@
         "cypress": "^9.5.3",
         "cypress-plugin-snapshots": "^1.4.4",
         "cz-lerna-changelog": "^2.0.3",
-        "esbuild": "^0.14.31",
+        "esbuild": "^0.14.39",
         "esbuild-sass-plugin": "^2.2.6",
         "eslint": "^8.12.0",
         "eslint-config-prettier": "^8.5.0",
