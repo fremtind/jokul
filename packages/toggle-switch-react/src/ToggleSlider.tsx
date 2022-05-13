@@ -1,69 +1,85 @@
-import React, { useState, FC } from "react";
+import React, { useState, Fragment, useRef, FC } from "react";
 import cn from "classnames";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { ScreenReaderOnly, WithOptionalChildren } from "@fremtind/jkl-core";
+import { usePillStyles } from "./usePillStyles";
+import { WithChildren } from "@fremtind/jkl-core";
 
-interface Props extends WithOptionalChildren {
+interface Props extends WithChildren {
     labels: [string, string];
     onToggle: (value: string) => void;
     defaultValue?: string;
     className?: string;
-    screenReaderLabel?: string;
-    screenReaderSelectedLabel?: string;
+    hideLegend?: boolean;
 }
 
 export const ToggleSlider: FC<Props> = ({
+    children,
     labels,
     className = "",
     onToggle,
     defaultValue,
-    children,
-    screenReaderLabel,
-    screenReaderSelectedLabel,
+    hideLegend = false,
 }) => {
-    const [checked, setChecked] = useState(defaultValue !== labels[0]);
     const [currentLabel, setCurrentLabel] = useState(defaultValue || labels[0]);
     const id = useId("jkl-toggle-slider");
+    const legendId = useId("jkl-toggle-slider-legend");
+    const activeRef = useRef<HTMLLabelElement>(null);
 
-    const selectedLabel = screenReaderSelectedLabel || `${currentLabel} valgt`;
-    const ariaLabel = screenReaderLabel || `, ${selectedLabel}`;
+    const shouldTransform = currentLabel === labels[1];
+    const pillStyles = usePillStyles(activeRef, shouldTransform);
 
-    const handleChange = () => {
-        const nextValue = !checked;
-        const nextLabel = labels[nextValue ? 1 : 0];
-        setChecked(nextValue);
-        setCurrentLabel(nextLabel);
-        return onToggle(nextLabel);
+    const handleChange = (value: string) => {
+        setCurrentLabel(value);
+        return onToggle(value);
+    };
+
+    const toggle = (clickedLabel: string) => {
+        const nextLabel = labels.find((label) => label !== clickedLabel && clickedLabel === currentLabel);
+        if (nextLabel) {
+            handleChange(nextLabel);
+        }
     };
 
     return (
-        <div className={cn("jkl-toggle-slider__wrapper", className)}>
-            <div role="region" aria-live="polite">
-                <ScreenReaderOnly>{selectedLabel}</ScreenReaderOnly>
-            </div>
-
-            <label id={`${id}-label`} htmlFor={id} className="jkl-toggle-slider__label jkl-spacing-s--right">
-                {children}
-                <ScreenReaderOnly>{ariaLabel}</ScreenReaderOnly>
-            </label>
-
-            <button
-                id={id}
-                data-testid="jkl-toggle-slider"
-                type="button"
-                role="switch"
-                aria-checked={checked}
-                aria-labelledby={`${id}-label`}
-                onClick={handleChange}
-                className={cn("jkl-toggle-slider", {
-                    "jkl-toggle-slider--checked": checked,
-                    "jkl-toggle-slider--not-checked": !checked,
+        <fieldset
+            className={cn("jkl-toggle-slider", className)}
+            aria-labelledby={legendId}
+            data-testid="jkl-toggle-slider"
+        >
+            <div
+                id={legendId}
+                className={cn("jkl-toggle-slider__legend", {
+                    "jkl-toggle-slider__legend--sr-only": hideLegend,
                 })}
             >
-                <span className="jkl-toggle-slider__pill" aria-hidden />
-                <span className="jkl-toggle-slider--left">{labels[0]}</span>
-                <span className="jkl-toggle-slider--right">{labels[1]}</span>
-            </button>
-        </div>
+                {children}
+            </div>
+            <div className="jkl-toggle-slider__inputs">
+                {labels.map((label) => (
+                    <Fragment key={label}>
+                        <input
+                            className="jkl-toggle-slider__input"
+                            type="radio"
+                            value={label}
+                            checked={label === currentLabel}
+                            name={id}
+                            id={`${label}-${id}`}
+                            onClick={() => toggle(label)}
+                            onChange={(e) => handleChange(e.target.value)}
+                        />
+                        <label
+                            className={cn("jkl-toggle-slider__label", {
+                                "jkl-toggle-slider__label--selected": label === currentLabel,
+                            })}
+                            ref={label === currentLabel ? activeRef : undefined}
+                            htmlFor={`${label}-${id}`}
+                        >
+                            {label}
+                        </label>
+                    </Fragment>
+                ))}
+                <span className="jkl-toggle-slider__pill" style={pillStyles} aria-hidden />
+            </div>
+        </fieldset>
     );
 };

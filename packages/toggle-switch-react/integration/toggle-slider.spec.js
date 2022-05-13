@@ -30,14 +30,14 @@ describe("ToggleSwitch", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.getByTestid("jkl-toggle-slider").first().focus();
+                cy.getByTestid("jkl-toggle-slider").find("input").first().focus();
             },
             eq: toggleSlider,
         });
 
         cy.takeSnapshots({
             setup: () => {
-                cy.getByTestid("jkl-toggle-slider").first().click();
+                cy.getByTestid("jkl-toggle-slider").find("label").first().click();
             },
             eq: toggleSlider,
         });

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-05-11)
+
+### Bug Fixes
+
+-   fjern utkommentert ubrukt prop ([f5df1fc](https://github.com/fremtind/jokul/commit/f5df1fc97d71e3402d81ee9490e9a8ed802ce234))
+
+### Features
+
+-   bedre håndtering av tittel for stemplene ([6521cc2](https://github.com/fremtind/jokul/commit/6521cc220b954c5aa8c0f3128dd8dbd1c99406b2))
+-   legg til flere varianter av logostemplet ([271fc88](https://github.com/fremtind/jokul/commit/271fc88f657aaaa5f6d9cb72768b44349080b299))
+-   legg til hook for snurrende logostempel ([90c46e2](https://github.com/fremtind/jokul/commit/90c46e2f64c387336bbff6eb014ad76babf357bb))
+-   refaktorer LogoStamp til å være composite ([383f330](https://github.com/fremtind/jokul/commit/383f330ebca3a4f69ae87eb12a1c7a27e2527670))
+
+### BREAKING CHANGES
+
+-   LogoStamp tar ikke lenger propen variant, og må nå ha children i form av en av tekstkomponentene.
+
 # 8.0.0 (2022-02-07)
 
 ### Bug Fixes

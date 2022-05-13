@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.4.11](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.10...@fremtind/portal@12.4.11) (2022-05-11)
+
+### Bug Fixes
+
+-   bruk nytt API for LogoStamp i footer ([98aa0e2](https://github.com/fremtind/jokul/commit/98aa0e2a7e0c2b374726c16f09b2ff85193ef87a))
+
 ## [12.4.10](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.9...@fremtind/portal@12.4.10) (2022-05-11)
 
 ### Bug Fixes
