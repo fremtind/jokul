@@ -66,7 +66,9 @@ export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = () => 
 };
 
 export const ToggleSliderWrongExamples: React.FC<ExampleComponentProps> = () => (
-    <ToggleSlider defaultValue="Pris per måned" labels={["Pris per måned", "Pris per år"]} onToggle={console.log} />
+    <ToggleSlider defaultValue="Pris per måned" labels={["Pris per måned", "Pris per år"]} onToggle={console.log}>
+        Vis pris per
+    </ToggleSlider>
 );
 
 export const ToggleSwitchExamples: React.FC<ExampleComponentProps> = (props) => (
