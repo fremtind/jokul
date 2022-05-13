@@ -11,7 +11,8 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    cy.visit(`/komponenter/${component}?mode=e2e`).wait(300); // vent på Reacts hydrering
+    const forcedColorsActive = window.matchMedia("(forced-colors: active)").matches;
+    cy.visit(`/komponenter/${component}?mode=e2e`).wait(forcedColorsActive ? 500 : 300); // vent på Reacts hydrering
     cy.getComponent().should("be.visible").as("componentIsVisible");
 });
 

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { AriaRole } from "react";
 import classNames from "classnames";
+import { useDelayedRender } from "./useDelayedRender";
 
 export type LoaderVariant = "small" | "medium" | "large";
 
@@ -9,27 +10,13 @@ export interface LoaderProps {
     className?: string;
     dataTestAutoId?: string;
     politeness?: "polite" | "assertive";
+    role?: AriaRole;
     inline?: boolean;
     /**
      * Antall millisekunder komponenten vil vente før den rendrer
      * @default 0
      */
     delay?: number;
-}
-
-function useDelayedRender(delayMilliseconds: number) {
-    const [renderComponent, setRenderComponent] = useState(delayMilliseconds === 0 ? true : false);
-
-    useEffect(() => {
-        if (delayMilliseconds === 0) {
-            return;
-        }
-
-        const timeout = setTimeout(() => setRenderComponent(true), delayMilliseconds);
-        return () => clearTimeout(timeout);
-    }, [delayMilliseconds, setRenderComponent]);
-
-    return [renderComponent];
 }
 
 export const Loader = ({
@@ -42,7 +29,7 @@ export const Loader = ({
     inline = false,
     ...rest
 }: LoaderProps): JSX.Element | null => {
-    const [renderComponent] = useDelayedRender(delay);
+    const renderComponent = useDelayedRender(delay);
 
     if (delay && !renderComponent) {
         return null;

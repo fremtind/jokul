@@ -19,6 +19,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/loade
 ```js
 import { Loader } from "@fremtind/jkl-loader-react";
 import "@fremtind/jkl-loader/loader.min.css";
+import "@fremtind/jkl-loader/skeleton-loader.min.css"; // dersom du skal bruke Skeleton-komponenter
 ```
 
 ### Bruk
