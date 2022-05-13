@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@7.0.13...@fremtind/jkl-toggle-switch-react@8.0.0) (2022-05-13)
+
+### Bug Fixes
+
+-   add throttle to resize events ([a71c49e](https://github.com/fremtind/jokul/commit/a71c49e7f06edfe28c7d21881af0507849f1af83))
+-   fix cypress tests and reset snapshots ([c44e9e8](https://github.com/fremtind/jokul/commit/c44e9e83f1c0c4241ab08fd56dfab43165e65b57))
+-   removed anynomous function wrapping from throttle ([cea81aa](https://github.com/fremtind/jokul/commit/cea81aaaeb019675bf716371e593f05dc656370f))
+
+### Features
+
+-   semantic refactoring and new design ([8c255de](https://github.com/fremtind/jokul/commit/8c255dee301ff2f4dbf2f0cde288fd8562c20e80)), closes [#2037](https://github.com/fremtind/jokul/issues/2037) [#2823](https://github.com/fremtind/jokul/issues/2823)
+
+### BREAKING CHANGES
+
+-   -   removed prop screenReaderLabel
+-   removed prop screenREaderSelectedLabel
+
 # 7.0.0 (2022-02-07)
 
 ### Bug Fixes
