@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@7.0.12...@fremtind/jkl-toggle-switch@8.0.0) (2022-05-13)
+
+### Bug Fixes
+
+-   fix cypress tests and reset snapshots ([c44e9e8](https://github.com/fremtind/jokul/commit/c44e9e83f1c0c4241ab08fd56dfab43165e65b57))
+
+### Features
+
+-   semantic refactoring and new design ([8c255de](https://github.com/fremtind/jokul/commit/8c255dee301ff2f4dbf2f0cde288fd8562c20e80)), closes [#2037](https://github.com/fremtind/jokul/issues/2037) [#2823](https://github.com/fremtind/jokul/issues/2823)
+
+### BREAKING CHANGES
+
+-   -   removed prop screenReaderLabel
+-   removed prop screenREaderSelectedLabel
+
 ## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch@7.0.9...@fremtind/jkl-toggle-switch@7.0.10) (2022-04-19)
 
 ### Bug Fixes
