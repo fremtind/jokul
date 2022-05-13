@@ -21,6 +21,7 @@ import "@fremtind/jkl-hamburger/hamburger.min.css";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
 import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-loader/loader.min.css";
+import "@fremtind/jkl-loader/skeleton-loader.min.css";
 import "@fremtind/jkl-logo/logo.min.css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
