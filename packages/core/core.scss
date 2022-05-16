@@ -20,7 +20,7 @@
     color: var(--jkl-color);
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
+@include jkl.prefers-reduced-motion {
     *,
     *::after,
     *::before {

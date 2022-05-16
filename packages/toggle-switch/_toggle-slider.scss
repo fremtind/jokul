@@ -1,138 +1,116 @@
 @use "sass:color";
 @use "~@fremtind/jkl-core/jkl";
 
-$_slider-offset: 3px;
-$_slider-width: 170px;
-$_slider-pill-offset--left: calc(#{$_slider-offset} + 1px);
-$_slider-pill-offset--right: calc(calc(#{$_slider-width} / 2) - #{$_slider-offset});
 $_slider-rounded: jkl.rem(100px);
-$_slider-focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
-    --jkl-toggle-slider-bg: #{jkl.$color-varde};
-    --jkl-toggle-slider-pill: #{jkl.$color-snohvit};
-    --jkl-toggle-slider-pill-text: #{jkl.$color-granitt};
-    --jkl-toggle-slider-pill-text-active: #{jkl.$color-granitt};
-    --jkl-toggle-slider-focus-color: #{jkl.$color-svart};
-    --jkl-toggle-slider-hover-color: #{jkl.$color-stein};
+    --jkl-slider-bg: #{jkl.$color-varde};
+    --jkl-slider-pill: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text: #{jkl.$color-granitt};
+    --jkl-slider-pill-text--active: #{jkl.$color-svart};
+    --jkl-slider-focus-color: #{jkl.$color-svart};
+    --jkl-slider-hover-color: #{jkl.$color-svart};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-toggle-slider-bg: #{jkl.$color-fjellgra};
-    --jkl-toggle-slider-pill: #{jkl.$color-granitt};
-    --jkl-toggle-slider-pill-text: #{jkl.$color-snohvit};
-    --jkl-toggle-slider-pill-text-active: #{jkl.$color-snohvit};
-    --jkl-toggle-slider-focus-color: #{jkl.$color-svaberg};
-    --jkl-toggle-slider-hover-color: #{jkl.$color-svaberg};
+    --jkl-slider-bg: #{jkl.$color-fjellgra};
+    --jkl-slider-pill: #{jkl.$color-granitt};
+    --jkl-slider-pill-text: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text--active: #{jkl.$color-hvit};
+    --jkl-slider-focus-color: #{jkl.$color-svaberg};
+    --jkl-slider-hover-color: #{jkl.$color-hvit};
 }
 
-.jkl-toggle-slider__wrapper {
+.jkl-toggle-slider {
+    position: relative;
+    overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
+    flex-direction: column;
 
-    .jkl-toggle-slider {
-        @include jkl.reset-outline;
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
+        .jkl-toggle-slider__pill {
+            box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-slider-focus-color);
+        }
+    }
 
-        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
-            box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-toggle-slider-focus-color);
-
-            .jkl-toggle-slider__pill {
-                box-shadow: 0 0 0 $_slider-focus-ring-width var(--jkl-toggle-slider-focus-color);
-            }
+    &__legend {
+        margin-bottom: jkl.$spacing-xs;
+        @include jkl.text-style("small") {
+            font-weight: jkl.$typography-weight-bold;
         }
 
-        cursor: pointer;
-        background-color: var(--jkl-toggle-slider-bg);
-        padding: jkl.$spacing-xs 0;
-        position: relative;
-        border-radius: $_slider-rounded;
-        overflow: hidden;
+        &--sr-only {
+            @include jkl.screenreader-only;
+        }
+    }
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+        align-items: center;
+
+        &__legend {
+            margin-bottom: 0;
+            margin-right: jkl.$spacing-l;
+        }
+    }
+
+    &__inputs {
+        $_slider-offset: 4px;
         display: flex;
-        justify-content: space-between;
-        max-width: $_slider-width;
-        width: 100%;
-        user-select: none;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--jkl-slider-bg);
+        border-radius: $_slider-rounded;
+        border: $_slider-offset solid var(--jkl-slider-bg);
+    }
 
-        &__pill {
-            width: 50%;
-            height: calc(100% - #{$_slider-offset} - #{$_slider-offset});
-            background-color: var(--jkl-toggle-slider-pill);
-            display: block;
-            position: absolute;
-            top: $_slider-offset;
-            transform: translateX($_slider-pill-offset--right);
-            transition-property: transform;
-            @include jkl.motion(standard, expressive);
-            border-radius: $_slider-rounded;
-            box-shadow: 0 0 jkl.rem(4px) color.scale(jkl.$color-svart, $alpha: -15%);
+    &__input {
+        position: absolute;
+        opacity: 0;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        cursor: pointer;
+        padding: jkl.$spacing-2xs jkl.$spacing-m;
+        color: var(--jkl-slider-pill-text);
+
+        /* Prevent really short labels to look like circles */
+        min-width: 30px;
+        @include jkl.text-style("small");
+
+        &:hover {
+            color: var(--jkl-slider-hover-color);
         }
 
-        &--left,
-        &--right {
-            z-index: 1;
-            display: block;
-            width: 50%;
-            text-align: center;
-            color: var(--jkl-toggle-slider-pill-text);
-            transition-property: color;
-            @include jkl.motion(standard, expressive);
+        &--selected {
+            font-weight: 700;
+            letter-spacing: -0.014em;
+            color: var(--jkl-slider-pill-text--active);
         }
+    }
 
-        &--left {
-            margin-left: calc(#{$_slider-offset} * 2);
-        }
+    &__pill {
+        height: 100%;
+        background-color: var(--jkl-slider-pill);
+        position: absolute;
+        transition-property: width, transform;
+        border-radius: $_slider-rounded;
+        @include jkl.motion(standard, expressive);
+    }
 
-        &--right {
-            margin-right: calc(#{$_slider-offset} * 2);
-        }
-
-        &--left,
-        &--right,
-        &__label {
-            @include jkl.text-style("small") {
-                font-weight: jkl.$typography-weight-bold;
-            }
-        }
-
-        &--checked {
-            & > .jkl-toggle-slider--right {
-                color: var(--jkl-toggle-slider-pill-text-active);
-            }
-
-            @media (hover: hover) {
-                &:hover {
-                    & > .jkl-toggle-slider--left {
-                        color: var(--jkl-toggle-slider-hover-color);
-                    }
-                }
-            }
-        }
-
-        &--not-checked {
-            & > .jkl-toggle-slider__pill {
-                transform: translateX($_slider-pill-offset--left);
-            }
-
-            & > .jkl-toggle-slider--left {
-                color: var(--jkl-toggle-slider-pill-text-active);
-            }
-
-            @media (hover: hover) {
-                &:hover {
-                    & > .jkl-toggle-slider--right {
-                        color: var(--jkl-toggle-slider-hover-color);
-                    }
-                }
-            }
-        }
-
-        @include jkl.forced-colors-mode {
+    @include jkl.forced-colors-mode {
+        & .jkl-toggle-slider__inputs {
             background-color: Canvas;
+        }
 
-            & .jkl-toggle-slider__pill {
-                background-color: ButtonFace;
-            }
+        & .jkl-toggle-slider__pill {
+            background-color: ButtonFace;
         }
     }
 }

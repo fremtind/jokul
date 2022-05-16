@@ -8,6 +8,7 @@ export const LoaderExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
         <div className="jkl-loader-example">
             <div>
                 <Loader
+                    role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
                     variant={String(choiceValues?.["Variant"]).toLowerCase() as LoaderVariant}
                     textDescription="Eksempelbeskrivelse for en loader"
                 />

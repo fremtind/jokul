@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.5.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.12...@fremtind/portal@12.5.0) (2022-05-13)
+
+### Features
+
+-   legg til komponenter for skeleton loaders ([ffe80ed](https://github.com/fremtind/jokul/commit/ffe80ed6350d1445af9f3c3eaeb36ed04d23cfc0))
+
 ## [12.4.11](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.10...@fremtind/portal@12.4.11) (2022-05-11)
 
 ### Bug Fixes

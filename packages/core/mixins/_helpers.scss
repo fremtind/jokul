@@ -90,6 +90,16 @@ $_valid-forced-colors-text-values: (
     }
 }
 
+/// Jøkul har en automatisk overstyring av animasjoner og transitions i denne modusen,
+/// men om du trenger å gjøre noe ekstra for brukere som ønsker redusert bevegelse
+/// kan du bruke denne mixinen for å plassere CSS inni riktig media query.
+/// @content Innholdet plasseres i et media query som matcher hvis brukeren foretrekker redusert bevegelse
+@mixin prefers-reduced-motion {
+    @media screen and (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}
+
 /// Gjør flexbox litt mindre verbos. Setter display: flex; med gitt align-items og justify-content.
 /// @param {String} $align-items [center] – settes på align-items
 /// @param {String} $justify-content [center] – settes på justify-content
