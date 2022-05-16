@@ -1,55 +1,55 @@
 @use "../functions";
 
 /// @type Number
-$weight-normal: 400;
+$typography-weight-normal: 400;
 
 /// @type Number
-$weight-bold: 700;
+$typography-weight-bold: 700;
 
 /// @type Number
-$font-size-1: functions.rem(16px);
+$typography-font-size-1: functions.rem(16px);
 
 /// @type Number
-$font-size-2: functions.rem(18px);
+$typography-font-size-2: functions.rem(18px);
 
 /// @type Number
-$font-size-3: functions.rem(20px);
+$typography-font-size-3: functions.rem(20px);
 
 /// @type Number
-$font-size-4: functions.rem(21px);
+$typography-font-size-4: functions.rem(21px);
 
 /// @type Number
-$font-size-5: functions.rem(23px);
+$typography-font-size-5: functions.rem(23px);
 
 /// @type Number
-$font-size-6: functions.rem(25px);
+$typography-font-size-6: functions.rem(25px);
 
 /// @type Number
-$font-size-7: functions.rem(26px);
+$typography-font-size-7: functions.rem(26px);
 
 /// @type Number
-$font-size-8: functions.rem(28px);
+$typography-font-size-8: functions.rem(28px);
 
 /// @type Number
-$font-size-9: functions.rem(36px);
+$typography-font-size-9: functions.rem(36px);
 
 /// @type Number
-$font-size-10: functions.rem(56px);
+$typography-font-size-10: functions.rem(56px);
 
 /// @type Number
-$line-height-1: functions.rem(24px);
+$typography-line-height-1: functions.rem(24px);
 
 /// @type Number
-$line-height-2: functions.rem(28px);
+$typography-line-height-2: functions.rem(28px);
 
 /// @type Number
-$line-height-3: functions.rem(32px);
+$typography-line-height-3: functions.rem(32px);
 
 /// @type Number
-$line-height-4: functions.rem(40px);
+$typography-line-height-4: functions.rem(40px);
 
 /// @type Number
-$line-height-5: functions.rem(44px);
+$typography-line-height-5: functions.rem(44px);
 
 /// @type Number
-$line-height-6: functions.rem(64px);
+$typography-line-height-6: functions.rem(64px);

@@ -3,85 +3,85 @@
 // Hovedfarger
 
 /// @type Color
-$svart: #000;
+$color-svart: #000;
 
 /// @type Color
-$granitt: #1b1917;
+$color-granitt: #1b1917;
 
 /// @type Color
-$skifer: #313030;
+$color-skifer: #313030;
 
 /// @type Color
-$fjellgra: #444141;
+$color-fjellgra: #444141;
 
 /// @type Color
-$stein: #636060;
+$color-stein: #636060;
 
 /// @type Color
-$svaberg: #c8c5c3;
+$color-svaberg: #c8c5c3;
 
 /// @type Color
-$varde: #e0dbd4;
+$color-varde: #e0dbd4;
 
 /// @type Color
-$dis: #ece9e5;
+$color-dis: #ece9e5;
 
 /// @type Color
-$sand: #f4f2ef;
+$color-sand: #f4f2ef;
 
 /// @type Color
-$snohvit: #f9f9f9;
+$color-snohvit: #f9f9f9;
 
 /// @type Color
-$hvit: #fff;
+$color-hvit: #fff;
 
 // Gamle varslingsfarger/meldingsfarger
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$suksess: #287e68;
+$color-suksess: #287e68;
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$info: #000afa;
+$color-info: #000afa;
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$advarsel: #fbb15b;
+$color-advarsel: #fbb15b;
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$feil: #aa1f23;
+$color-feil: #aa1f23;
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$suksess--darkbg: #5effa0;
+$color-suksess--darkbg: #5effa0;
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$info--darkbg: #00faff;
+$color-info--darkbg: #00faff;
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$advarsel--darkbg: #fec97b;
+$color-advarsel--darkbg: #fec97b;
 
 /// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$feil--darkbg: #ff8b79;
+$color-feil--darkbg: #ff8b79;
 
 // Farger knyttet til bruksområde
 
 /// @type Color
-$error-color: $feil;
+$color-error-color: $color-feil;
 
 /// @type Color
-$focus-color: $granitt;
+$color-focus-color: $color-granitt;
 
 /// @type Color
-$error-color--darkbg: $feil--darkbg;
+$color-error-color--darkbg: $color-feil--darkbg;
 
 /// @type Color
-$focus-color--darkbg: $snohvit;
+$color-focus-color--darkbg: $color-snohvit;
 
 // Varslingsfarger / Meldingsfarger.
 // Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.

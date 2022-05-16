@@ -1,7 +1,7 @@
 @use "sass:string";
 @use "sass:color";
 @use "sass:list";
-@use "../variables/typography";
+@use "../variables";
 
 /// Brukes til å sette CSS-variabler for bruk i lyst tema, typisk tekst- og
 /// bakgrunnsfarge. Se også dark-mode-variables.
@@ -117,7 +117,7 @@ $_valid-forced-colors-text-values: (
 /// Makes text bold without changing the space it takes up on screen.
 /// Not perfect for all lengths of text, but close enough!
 @mixin no-grow-bold {
-    font-weight: typography.$weight-bold;
+    font-weight: variables.$typography-weight-bold;
     letter-spacing: -0.014em;
 }
 
