@@ -243,7 +243,7 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(openCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
+                advanceTimers: jest.advanceTimersByTime,
             });
         });
         jest.runAllTimers();
@@ -272,11 +272,9 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Close calendar
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Open calendar
         });
 
@@ -300,11 +298,9 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Close calendar
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Open calendar
         });
 
@@ -328,11 +324,9 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Close calendar
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Open calendar
         });
 
@@ -356,11 +350,9 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Close calendar
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             }); // Open calendar
         });
 
@@ -378,11 +370,11 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
+                advanceTimers: jest.advanceTimersByTime,
             });
             await userEvent.click(screen.getByText("31"), {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
+                advanceTimers: jest.advanceTimersByTime,
             });
         });
 
@@ -460,7 +452,6 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             });
         });
 
@@ -496,7 +487,6 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
             });
             await userEvent.click(screen.getByText("Click"));
         });
@@ -518,10 +508,10 @@ describe("Datepicker", () => {
         const input = screen.getByLabelText("Velg dato");
         const toggleCalendarButtonElement = screen.getByTitle("Åpne kalender");
         await act(async () => {
-            await userEvent.click(input, { skipHover: true, advanceTimers: () => jest.advanceTimersByTime(0) });
+            await userEvent.click(input, { skipHover: true, advanceTimers: jest.advanceTimersByTime });
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
+                advanceTimers: jest.advanceTimersByTime,
             }); // Close calendar
         });
 
@@ -530,11 +520,11 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(toggleCalendarButtonElement, {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
+                advanceTimers: jest.advanceTimersByTime,
             }); // Open calendar
             await userEvent.click(screen.getByText("21"), {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
+                advanceTimers: jest.advanceTimersByTime,
             });
         });
 
@@ -543,7 +533,7 @@ describe("Datepicker", () => {
         await act(async () => {
             await userEvent.click(screen.getByText("Click"), {
                 skipHover: true,
-                advanceTimers: () => jest.advanceTimersByTime(0),
+                advanceTimers: jest.advanceTimersByTime,
             }); // Click button outside component
         });
 

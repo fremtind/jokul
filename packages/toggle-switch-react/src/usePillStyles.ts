@@ -1,5 +1,6 @@
 import { RefObject, useCallback, useEffect, useMemo, useState } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function throttle<R, A extends any[]>(fn: (...args: A) => R) {
     let wait = false;
 
