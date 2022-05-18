@@ -1,9 +1,8 @@
-import React, { VFC } from "react";
-
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../../doc-utils";
 import { NavLink } from "../../src";
 
-export const NavLinkExample: VFC<ExampleComponentProps> = ({ boolValues }) => (
+export const NavLinkExample: FC<ExampleComponentProps> = ({ boolValues }) => (
     <div>
         <NavLink
             className={boolValues?.["Compact"] ? "jkl-small" : "jkl-body"}

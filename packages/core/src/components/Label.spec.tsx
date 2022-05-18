@@ -1,7 +1,7 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { Label } from "./Label";
+import React from "react";
 import { LabelVariant } from "../types";
+import { Label } from "./Label";
 
 describe("Label", () => {
     const variants: LabelVariant[] = ["small", "medium", "large"];

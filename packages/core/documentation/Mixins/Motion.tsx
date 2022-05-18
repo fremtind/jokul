@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 
 import "./Mixins.scss";
 
-export const EasingTable: VFC = () => (
+export const EasingTable: FC = () => (
     <table className="jkl-mixin-example-table jkl-spacing-2xl--bottom">
         <tr>
             <th className="jkl-mixin-example-table__header">Navn på kurve</th>
@@ -59,7 +59,7 @@ export const EasingTable: VFC = () => (
     </table>
 );
 
-export const TimingTable: VFC = () => (
+export const TimingTable: FC = () => (
     <table className="jkl-mixin-example-table">
         <tr>
             <th className="jkl-mixin-example-table__header">Navn på varighet</th>

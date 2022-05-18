@@ -1,5 +1,5 @@
-import React, { AnchorHTMLAttributes, FC } from "react";
 import cn from "classnames";
+import React, { AnchorHTMLAttributes, FC } from "react";
 
 export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
     active?: boolean;

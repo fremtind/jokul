@@ -1,5 +1,5 @@
-import { getValuePair } from "./getValuePair";
 import { ValuePair } from "../index";
+import { getValuePair } from "./getValuePair";
 
 describe("getValuePair", () => {
     it("should convert a string to the correct ValuePair", () => {
