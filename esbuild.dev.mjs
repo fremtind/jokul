@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Felles håndtering av vanlige plugins og loaders.
  * Importeres av de enkelte pakkenes byggscript.
