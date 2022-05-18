@@ -9,5 +9,5 @@
         "skipLibCheck": true
     },
     "--EXCLUDE-COMMENT--": "Ignore all test- and storybook files. We don't want to emit type definitions for those in our packages",
-    "exclude": ["**/*.test.tsx", "**/*.test.ts", "**/*.spec.tsx", "**/*.spec.ts", "**/*.spec.js"]
+    "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist", "**/documentation", "**/*.test.tsx", "**/*.test.ts", "**/*.spec.tsx", "**/*.spec.ts", "**/*.spec.js"]
 }

@@ -18,6 +18,6 @@
         "esModuleInterop": true,
         "baseUrl": "./"
     },
-    "exclude": ["**/build/**"],
+    "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"],
     "include": ["./packages/**/*", "./jest/setupTests.ts", "portal", "./node_modules/jest"]
 }
