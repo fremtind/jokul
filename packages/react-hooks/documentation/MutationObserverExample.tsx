@@ -1,7 +1,7 @@
-import React, { useState, useRef, VFC } from "react";
+import React, { useState, useRef, FC } from "react";
 import { useMutationObserver } from "../src";
 
-const MutationObserverExample: VFC = () => {
+const MutationObserverExample: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [listOfMutations, appendToMutationList] = useState<string[]>([]);
     const mutationTargetRef = useRef(null);

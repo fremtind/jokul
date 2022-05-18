@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import { useClickOutside } from "./useClickOutside";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import React, { useRef } from "react";
+import { useClickOutside } from "./useClickOutside";
 
 interface Props {
     fn: () => void;

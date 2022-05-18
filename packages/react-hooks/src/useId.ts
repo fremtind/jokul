@@ -1,5 +1,5 @@
-import React from "react";
 import { nanoid } from "nanoid";
+import React from "react";
 
 export interface UseIdOptions {
     /** @default true */

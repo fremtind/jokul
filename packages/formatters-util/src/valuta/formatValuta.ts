@@ -1,5 +1,4 @@
 import { unicode } from "@fremtind/jkl-constants-util";
-
 import { formatNumber, FormatNumberOptions } from "../util/formatNumber";
 import { parseNumber } from "../util/parseNumber";
 

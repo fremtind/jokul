@@ -1,4 +1,4 @@
-import React, { createContext, VFC, useContext } from "react";
+import React, { createContext, FC, useContext } from "react";
 import { useBrowserPreferences } from "../src";
 
 const ScreenContext = createContext<ReturnType<typeof useBrowserPreferences>>({
@@ -7,7 +7,7 @@ const ScreenContext = createContext<ReturnType<typeof useBrowserPreferences>>({
     forcedColors: false,
 });
 
-const BrowserPreferencesExample: VFC = () => {
+const BrowserPreferencesExample: FC = () => {
     const { prefersReducedMotion, prefersColorScheme, forcedColors } = useContext(ScreenContext);
 
     return (
@@ -25,7 +25,7 @@ const BrowserPreferencesExample: VFC = () => {
     );
 };
 
-const Provider: VFC = () => {
+const Provider: FC = () => {
     const { prefersColorScheme, prefersReducedMotion, forcedColors } = useBrowserPreferences();
 
     return (

@@ -1,8 +1,8 @@
 import type { ChangeEvent } from "react";
 import type { Path, PathValue, RegisterOptions, UnpackNestedValue, UseFormReturn } from "react-hook-form";
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
-import { formatKortnummer } from "../kortnummer/formatKortnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
+import { formatKortnummer } from "../kortnummer/formatKortnummer";
 import { formatTelefonnummer } from "../telefonnummer/formatTelefonnummer";
 
 const formatters = {
