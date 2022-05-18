@@ -9,6 +9,7 @@ yarn-error.log
 .yarn/
 build/
 *.css
+*.map
 dist/
 .idea/
 .iml
