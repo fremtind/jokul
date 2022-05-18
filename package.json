@@ -5,7 +5,6 @@
     "scripts": {
         "clean": "turbo run clean && rimraf node_modules/",
         "clean:portal": "turbo run clean:portal",
-        "esbuild": "node ./esbuildbuild.mjs",
         "build": "turbo run build --scope=\"!@fremtind/*-config-jkl\" --cache-dir=\"node_modules/.cache/turbo\"",
         "build:docs": "turbo run build:docs --scope=\"@fremtind/portal\" --include-dependencies --cache-dir=\"node_modules/.cache/turbo\"",
         "commit": "git-cz",
