@@ -35,9 +35,9 @@
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "node ./dist/server.js",
-        "predev": "node ./esbuild.mjs",
+        "predev": "node ./esbuild.dev.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {
