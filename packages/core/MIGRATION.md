@@ -2,21 +2,34 @@
 
 ## Til `jkl-core@10.0.0`
 
-ℹ️ Kun Sass-endringer. Om du bare bruker React-kode og CSS-importer i prosjektet ditt er det _ingen breaking changes_ i denne versjonen av Jøkul! ℹ️
+**NB:** Denne versjonen av core gjør bare navneendringer i Sass-kode, CSS-variabler, og CSS-animasjoner.
+
+Hvis du:
+
+-   Bare importerer CSS eller Sass-_stilark_ (for eksempel `@fremtind/jkl-core/core`)
+-   Ikke bruker CSS-variabler fra Jøkul
+-   Ikke bruker CSS-animasjoner fra Jøkul
+
+så er det _ingen breaking change_ for deg og du kan bare oppgradere.
 
 Endringene i denne versjonen, kort oppsummert:
 
--   ✨ _Alle_ variabler, mixins og funksjoner i `core` er tilgjengelige via `@fremtind/jkl-core/jkl`
--   ✨ Alle Sass-pakker har fått en `_index.scss` på rotnivå, så du kan for eksempel `@use "@fremtind/jkl-button";`
--   🛑 Mixins som har hatt prefixet `helper-` har fått dette fjernet
--   🛑 `jkl-motion`-funksjonen (_ikke_ mixinen `motion`) er renamet til `easing`
--   🛑 `jkl-timing`-funksjonen er renamet til `timing`
+-   ✨ _Alle_ variabler, mixins og funksjoner i `core` er tilgjengelige via `@fremtind/jkl-core/jkl`.
+-   🛑 Mixins som har hatt prefixet `helper-` har fått dette fjernet.
+-   🛑 `jkl-motion`-funksjonen (_ikke_ mixinen `motion`) er renamet til `easing`.
+-   🛑 `jkl-timing`-funksjonen er renamet til `timing`.
 -   🛑 `$jkl--timings` og `$jkl--easings` er fjernet. Bruk `jkl.timing("timing-navn")` og `jkl.easing("easing-navn")` for å slå opp verdier.
--   💅 Ny Sass modulsyntaks brukt internt – bruk den du også!
+-   🛑 Variabler, funksjoner og mixins fra pakker _annet enn `core`_ er gjort private.
+-   🛑 CSS-animasjoner er gjort private. Rop ut om du brukte dem, så kan vi finne på noe lurt sammen.
+-   🛑 CSS-variabler som mangler `jkl-` prefix har nå fått dette. Legg til prefix om du brukte dem.
+-   📚 Alle funksjoner og mixins i core har blitt dokumentert med SassDoc.
+-   👷‍♂️ Ny Sass modulsyntaks brukt internt.
+
+Se [Hvordan forenkle migreringen](#hvordan-forenkle-migreringen) for noen tips og triks til når du skal oppgradere.
 
 ### Alle mixins, variabler, og funksjoner tilgjengelige via `jkl`
 
-Dette skal være alt du trenger:
+Dette skal være alt du trenger fra nå for å bruke mixins, funksjoner og variabler fra Jøkul:
 
 ```scss
 @use "@fremtind/jkl-core/jkl";
@@ -27,7 +40,7 @@ Har du egne `@use` for mixins, funksjoner eller variabler så bør disse fjernes
 NB: du må fremdeles hente _styles_ separat. Dette gjør du typisk én gang der du bygger opp stylesheeten din med alle avhengigheter.
 
 ```scss
-@use "@fremtind/jkl-core";
+@use "@fremtind/jkl-core/core";
 ```
 
 ### Navneendringer
@@ -51,6 +64,8 @@ Funksjonen `jkl-motion` har fått navnet `easing` for å skille den fra `motion`
 Funksjonen `jkl-timing` er nå bare `timing` for å unngå "dobbel Jøkul" i navnet ved bruk av ny modulsyntaks.
 
 Hvis du har brukt `$jkl--timings` eller `$jkl--easings` direkte for å hente verdier, bruk funksjonene over i stedet.
+
+CSS-variabler som blir definert i Jøkul har nå alltid et `jkl-` prefix. Dette manglet en del steder (se commitene for fullstendig oversikt: [prefix](https://github.com/fremtind/jokul/pull/2868/commits/500ee0e1050de94d8cda07fb423c33837fbf2faa), [namespacing](https://github.com/fremtind/jokul/pull/2868/commits/83fea35f6076ba908378cbc3c834de559e83c1d5)), så hvis du har egen kode som leser eller overstyrer disse variablene må du legge til dette prefixet også.
 
 ### Modulsyntaks
 
@@ -92,6 +107,10 @@ Om du må manuelt til verks kan disse stegene hjelpe, basert på erfaringen med 
     -   `@include keyboard-navigation` erstattes av `@include jkl.keyboard-navigation`
 
 **NB**: Det at Sass kompilerer betyr _ikke_ at alt er i orden. Særlig funksjonskall som `rem()` kan behandles som _strings_ hvis funksjonen ikke blir funnet. Da ender du opp med CSS som ser ut som `font-size: rem(20px);` sendt rett til nettleseren, som ikke funker. Vær ekstra nøye med funksjoner, og test i en nettleser.
+
+### SassDoc
+
+Funksjoner, mixins, og en del variabler i `core` er dokumentert med [SassDoc]. Hvis du bruker extensionen [Some Sass](https://marketplace.visualstudio.com/items?itemName=SomewhatStationery.some-sass) (erstatter SCSS IntelliSense) kan du få denne dokumentasjonen opp i editoren.
 
 ## Til `jkl-core@9.0.0`
 

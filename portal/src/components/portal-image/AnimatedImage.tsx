@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
 import "./portal-image.scss";
 
-export const AnimatedImage: FC<{ src: string; alt?: string }> = ({ src, alt }) => {
+export const AnimatedImage: FC<{ src: string; alt?: string }> = ({ src, alt, ...rest }) => {
     const data = useStaticQuery(graphql`
         query {
             allImageSharp {
@@ -29,12 +29,12 @@ export const AnimatedImage: FC<{ src: string; alt?: string }> = ({ src, alt }) =
         if (src?.startsWith("/")) {
             imgSrc = withPrefix(src);
         }
-        return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt={alt || ""} />;
+        return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt={alt || ""} {...rest} />;
     }
 
     return (
         <motion.div layout className="jkl-portal-image__img">
-            <GatsbyImage image={image.gatsbyImageData} alt={alt || ""} />
+            <GatsbyImage image={image.gatsbyImageData} alt={alt || ""} {...rest} />
         </motion.div>
     );
 };
