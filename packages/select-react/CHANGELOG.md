@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.2.1...@fremtind/jkl-select-react@9.2.2) (2022-05-18)
+
+### Bug Fixes
+
+-   bruk riktig feilfarge i dark mode ([610232d](https://github.com/fremtind/jokul/commit/610232d65902820804dde8843970d642bc82e8f3)), closes [#2874](https://github.com/fremtind/jokul/issues/2874)
+
 # 9.2.0 (2022-04-28)
 
 ### Features
