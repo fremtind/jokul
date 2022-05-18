@@ -1,12 +1,12 @@
 #!/usr/bin/node
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const fs = require("fs-extra");
+const { spawnSync } = require("child_process");
 const path = require("path");
+const fs = require("fs-extra");
+const glob = require("glob");
 const prompt = require("prompt");
 const replace = require("replace-in-file");
-const glob = require("glob");
-const { spawnSync } = require("child_process");
 
 const main = async () => {
     try {
