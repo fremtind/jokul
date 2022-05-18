@@ -1,8 +1,14 @@
+// @ts-check
 import esbuild from "esbuild";
 import path from "path";
-import { fileURLToPath } from "url";
 
-const createConfig = (entryPoints, format, target, outdir = format) => {
+/**
+ *
+ * @param {string} outbase
+ * @param {"esm" | "cjs" | "browser"} format
+ * @returns
+ */
+const createConfig = (outbase, format) => {
     const nonMinified = {
         minify: false,
     };
@@ -12,24 +18,23 @@ const createConfig = (entryPoints, format, target, outdir = format) => {
         outExtension: { ".js": ".min.js" },
     };
 
-    const outbase = path.join(fileURLToPath(import.meta.url), "..", "lib", outdir);
-
     const base = {
-        entryPoints,
         bundle: true,
-        outdir: outbase,
-        format,
-        target,
+        outdir: path.join(outbase, format),
+        sourcemap: true,
+        format: format !== "browser" ? format : undefined,
+        target: format === "esm" ? ["esnext"] : undefined,
         external: [
             "react",
             "downshift",
             "match-sorter",
             "nanoid",
             /* /@nrk\/core/, */ "classnames",
-            /@babel\/runtime/,
+            "@babel/runtime",
             "@fremtind/jkl-*",
         ],
     };
+
     return [
         {
             ...base,
@@ -42,12 +47,40 @@ const createConfig = (entryPoints, format, target, outdir = format) => {
     ];
 };
 
-const options = [
-    ...createConfig(["packages/message-box-react/src/index.ts"], "esm", ["esnext"]),
-    ...createConfig(["packages/message-box-react/src/index.ts"], "cjs", undefined),
-    ...createConfig(["packages/message-box-react/src/index.ts"], undefined, undefined, "browser"),
-];
-
-options.forEach((opt) => {
-    esbuild.build(opt).catch(() => process.exit(1));
-});
+/**
+ * @param {{ entryPoints: string[], outdir: string } | Array<{ entryPoints: string[], outdir: string }>} options - Send entrypoints til esbuild
+ * @example
+ *  await build({
+ *    entryPoints: ["src/index.ts"],
+ *    outdir: "dist",
+ *  });
+ */
+export async function build(options) {
+    const opts = Array.isArray(options) ? options : [options];
+    try {
+        await Promise.all(
+            opts.flatMap((o) => [
+                createConfig(o.outdir, "esm").flatMap((esm) =>
+                    esbuild.build({
+                        ...o,
+                        ...esm,
+                    }),
+                ),
+                createConfig(o.outdir, "cjs").flatMap((cjs) =>
+                    esbuild.build({
+                        ...o,
+                        ...cjs,
+                    }),
+                ),
+                createConfig(o.outdir, "browser").flatMap((br) =>
+                    esbuild.build({
+                        ...o,
+                        ...br,
+                    }),
+                ),
+            ]),
+        );
+    } catch (e) {
+        process.exit(1);
+    }
+}

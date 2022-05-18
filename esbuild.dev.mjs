@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Felles håndtering av vanlige plugins og loaders.
  * Importeres av de enkelte pakkenes byggscript.
@@ -5,12 +6,16 @@
 import esbuild from "esbuild";
 import { sassPlugin } from "esbuild-sass-plugin";
 
+/**
+ * @param {{ entryPoints: string[], outdir: string } | Array<{ entryPoints: string[], outdir: string }>} options - Send entrypoints til esbuild
+ * @example
+ *  await build({
+ *    entryPoints: ["src/index.ts"],
+ *    outdir: "dist",
+ *  });
+ */
 export async function build(options) {
-    let opts = options;
-    if (!Array.isArray(options)) {
-        opts = [opts];
-    }
-
+    const opts = Array.isArray(options) ? options : [options];
     await Promise.all(
         opts.map((o) =>
             esbuild.build({
