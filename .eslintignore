@@ -7,3 +7,4 @@ dist/
 public/
 .cache/
 node_modules/
+scripts/scaffold/templates/

@@ -1,14 +1,14 @@
-import React, { useState, VFC, FC, useMemo } from "react";
-import cn from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
-import { Select } from "@fremtind/jkl-select-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { ExpandSection } from "@fremtind/jkl-expand-button-react";
-import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
-import { hyphenate } from "./internal/hypenate";
+import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import { useId } from "@fremtind/jkl-react-hooks";
+import { Select } from "@fremtind/jkl-select-react";
+import cn from "classnames";
+import React, { useState, FC, useMemo } from "react";
 import { CodeBlock } from "./CodeBlock";
+import { hyphenate } from "./internal/hypenate";
+import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
@@ -21,7 +21,7 @@ export interface Props {
     codeExample?: CodeExample;
 }
 
-export const ExampleBase: VFC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
+export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const uid = useId("example");
     const [showCodeText, setShowCodeText] = useState("Vis kode");
     const [theme, setTheme] = useState<"light" | "dark">("light");

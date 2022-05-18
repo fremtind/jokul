@@ -1,9 +1,9 @@
-import { nodeResolve } from "@rollup/plugin-node-resolve";
-import { babel } from "@rollup/plugin-babel";
-import commonjs from "@rollup/plugin-commonjs";
-import { terser } from "rollup-plugin-terser";
 import fs from "fs";
 import path from "path";
+import { babel } from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import { terser } from "rollup-plugin-terser";
 
 const extensions = [".js", ".ts", ".tsx"];
 const outputFolder = "build";

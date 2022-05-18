@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import React, { useEffect, useState } from "react";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import sass from "react-syntax-highlighter/dist/esm/languages/prism/sass";
+import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";
 import shellSession from "react-syntax-highlighter/dist/esm/languages/prism/shell-session";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
-import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";
-import sass from "react-syntax-highlighter/dist/esm/languages/prism/sass";
+import fremtindTheme from "./fremtindTheme";
+import fremtindThemeDark from "./fremtindThemeDark";
+import "./CodeBlock.scss";
 
 SyntaxHighlighter.registerLanguage("sass", sass);
 SyntaxHighlighter.registerLanguage("scss", scss);
 SyntaxHighlighter.registerLanguage("shell-session", shellSession);
 SyntaxHighlighter.registerLanguage("tsx", tsx);
-
-import fremtindTheme from "./fremtindTheme";
-import fremtindThemeDark from "./fremtindThemeDark";
-
-import "./CodeBlock.scss";
 
 export interface CodeBlockProps extends WithChildren {
     children: string | string[];
