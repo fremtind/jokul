@@ -1,10 +1,10 @@
-import React, { VFC } from "react";
+import { motion } from "framer-motion";
 import { graphql, useStaticQuery, withPrefix } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { motion } from "framer-motion";
+import React, { FC } from "react";
 import "./portal-image.scss";
 
-export const AnimatedImage: VFC<{ src: string; alt?: string }> = ({ src, alt }) => {
+export const AnimatedImage: FC<{ src: string; alt?: string }> = ({ src, alt }) => {
     const data = useStaticQuery(graphql`
         query {
             allImageSharp {

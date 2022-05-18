@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
 import { motion } from "framer-motion";
 import { Link as InternalLink } from "gatsby";
+import React, { FC } from "react";
 
-const NotFoundPage: VFC = () => (
+const NotFoundPage: FC = () => (
     <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

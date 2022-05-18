@@ -1,11 +1,11 @@
-import React, { useContext, useState, ChangeEvent } from "react";
-import { AnimatePresence, motion, useAnimation } from "framer-motion";
-import { TextInput } from "@fremtind/jkl-text-input-react";
-import { SidebarMenuItem } from "./SidebarMenuItem";
 import { Link } from "@fremtind/jkl-core";
-import { DocumentationPageInfo } from "../Header/useNavigationLinks";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import { TextInput } from "@fremtind/jkl-text-input-react";
+import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import React, { useContext, useState, ChangeEvent } from "react";
 import { a11yContext } from "../../contexts/a11yContext";
+import { DocumentationPageInfo } from "../Header/useNavigationLinks";
+import { SidebarMenuItem } from "./SidebarMenuItem";
 
 interface Props {
     links: DocumentationPageInfo[];

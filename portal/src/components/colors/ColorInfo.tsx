@@ -1,5 +1,5 @@
-import React, { VFC, useState } from "react";
 import cx from "classnames";
+import React, { FC, useState } from "react";
 import { ColorSwatch, rgbToHex } from "./";
 import "./color-info.scss";
 
@@ -14,7 +14,7 @@ interface ColorInfoProps extends Color {
     className?: string;
 }
 
-export const ColorInfo: VFC<ColorInfoProps> = ({ colorVariable, cmyk, pantone, vertical, className }) => {
+export const ColorInfo: FC<ColorInfoProps> = ({ colorVariable, cmyk, pantone, vertical, className }) => {
     const [color, setColor] = useState<number[]>();
     return (
         <article

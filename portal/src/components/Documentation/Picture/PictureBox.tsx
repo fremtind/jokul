@@ -1,6 +1,6 @@
-import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
 import MediaBox from "./MediaBox";
 
 interface Props {

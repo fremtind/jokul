@@ -1,8 +1,8 @@
-import React, { FC, useState, useRef, ReactNode } from "react";
-import cn from "classnames";
-import { AnimatePresence, motion } from "framer-motion";
-import FocusTrap from "focus-trap-react";
 import { useKeyListener } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
+import FocusTrap from "focus-trap-react";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { FC, useState, useRef, ReactNode } from "react";
 import "./image.scss";
 
 interface ImageProps {

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
 import classNames from "classnames";
+import React, { FC } from "react";
 import "./card-list.scss";
 
 interface Props extends WithChildren {

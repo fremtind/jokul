@@ -1,13 +1,13 @@
-import React, { FC } from "react";
+import { NavCard } from "@fremtind/jkl-card-react";
+import { Link } from "@fremtind/jkl-core";
+import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
-import { Link } from "@fremtind/jkl-core";
-import { NavCard } from "@fremtind/jkl-card-react";
-import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
-import { Portrait, PortraitGallery } from "../../components/portrait-gallery";
 import { StaticImage } from "gatsby-plugin-image";
+import React, { FC } from "react";
 import { Helmet } from "react-helmet";
+import { Portrait, PortraitGallery } from "../../components/portrait-gallery";
+import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 
 const pageTitle = "Hvor kan du få hjelp?";
 

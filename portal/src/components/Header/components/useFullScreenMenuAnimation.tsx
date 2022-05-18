@@ -1,5 +1,5 @@
-import { useEffect, useCallback, useContext, useMemo } from "react";
 import { AnimationControls, useAnimation } from "framer-motion";
+import { useEffect, useCallback, useContext, useMemo } from "react";
 import { a11yContext } from "../../../contexts/a11yContext";
 
 interface Props {

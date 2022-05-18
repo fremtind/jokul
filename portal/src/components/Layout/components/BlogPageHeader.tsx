@@ -1,7 +1,7 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { Frontmatter } from "../../Header/useNavigationLinks";
 
-export const BlogPageHeader: VFC<Frontmatter> = ({ title, author, publishDate }) => {
+export const BlogPageHeader: FC<Frontmatter> = ({ title, author, publishDate }) => {
     if (!author) {
         return null;
     }

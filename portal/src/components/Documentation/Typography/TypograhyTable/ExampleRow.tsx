@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { TableCell } from "./TableCell";
 import { getComputedProperty } from "../../../../utils/getComputedProperty";
+import { TableCell } from "./TableCell";
 
 export type TypographyLevels =
     | "Title"

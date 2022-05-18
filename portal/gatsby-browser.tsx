@@ -3,9 +3,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import React from "react";
+import { initTabListener } from "@fremtind/jkl-core";
 import { GatsbyBrowser } from "gatsby";
-
+import React from "react";
+import { A11yContextProvider } from "./src/contexts/a11yContext";
+import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
+import { LocationContextProvider } from "./src/contexts/locationContext";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-accordion/accordion.min.css";
 import "@fremtind/jkl-alert-message/alert-message.min.css";
@@ -37,13 +40,7 @@ import "@fremtind/jkl-content-toggle/content-toggle.min.css";
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 import "@fremtind/jkl-footer/footer.min.css";
-
-import { initTabListener } from "@fremtind/jkl-core";
-
 import "./src/components/Typography/typography.scss";
-import { FSMenuContextProvider } from "./src/contexts/fullscreenMenuContext";
-import { LocationContextProvider } from "./src/contexts/locationContext";
-import { A11yContextProvider } from "./src/contexts/a11yContext";
 
 initTabListener();
 

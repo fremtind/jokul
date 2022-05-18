@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const ts = require("typescript");
-const docgen = require("react-docgen-typescript");
 const { createFilePath } = require("gatsby-source-filesystem");
+const docgen = require("react-docgen-typescript");
+const ts = require("typescript");
 
 const docgenOptions = {
     savePropValueAsString: true,

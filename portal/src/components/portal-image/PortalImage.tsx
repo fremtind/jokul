@@ -1,10 +1,10 @@
-import React, { FC, ImgHTMLAttributes, useState, useRef } from "react";
+import { useKeyListener } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import FocusTrap from "focus-trap-react";
 import { motion } from "framer-motion";
-import { useKeyListener } from "@fremtind/jkl-react-hooks";
-import { BlurredBackground } from "./BlurredBackground";
+import React, { FC, ImgHTMLAttributes, useState, useRef } from "react";
 import { AnimatedImage } from "./AnimatedImage";
+import { BlurredBackground } from "./BlurredBackground";
 import "./portal-image.scss";
 
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {

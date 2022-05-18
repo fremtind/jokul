@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ColorTableRow } from "./";
 import "./color-table.scss";
 
@@ -6,7 +6,7 @@ interface ColorTableProps {
     colorNames: string[];
 }
 
-export const ColorTable: VFC<ColorTableProps> = ({ colorNames }) => {
+export const ColorTable: FC<ColorTableProps> = ({ colorNames }) => {
     const colors = colorNames.map((readableName) => {
         switch (readableName) {
             case "Suksess":

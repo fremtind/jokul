@@ -1,16 +1,16 @@
-import React, { VFC } from "react";
 import cn from "classnames";
-import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
+import React, { FC } from "react";
 import { useLocation } from "../../contexts/locationContext";
-import { SidebarMenu } from "./SidebarMenu";
 import { ContentLink } from "../ContentLink/ContentLink";
+import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
+import { SidebarMenu } from "./SidebarMenu";
 import "./Sidebar.scss";
 
 export interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar: VFC<SidebarProps> = ({ className }) => {
+export const Sidebar: FC<SidebarProps> = ({ className }) => {
     const {
         profileDocPages,
         getStartedDocPages,

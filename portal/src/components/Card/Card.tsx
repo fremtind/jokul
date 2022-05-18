@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { navigate } from "gatsby";
-import { WithChildren } from "@fremtind/jkl-core";
 import { unicode } from "@fremtind/jkl-constants-util";
+import { WithChildren } from "@fremtind/jkl-core";
+import { navigate } from "gatsby";
+import React, { FC } from "react";
 import "./card.scss";
 
 interface Props extends WithChildren {

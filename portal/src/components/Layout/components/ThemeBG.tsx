@@ -1,6 +1,6 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import "./ThemeBG.scss";
 
-export const ThemeBG: VFC = () => {
+export const ThemeBG: FC = () => {
     return <div className="jkl-portal-theme-bg" />;
 };

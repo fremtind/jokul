@@ -1,10 +1,7 @@
-import React, { FC } from "react";
-import { MDXProvider } from "@mdx-js/react";
+import { NavCard } from "@fremtind/jkl-card-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
-import { ComponentExample } from "../../../../doc-utils";
-import { NavCard } from "@fremtind/jkl-card-react";
 import { InfoMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
 import {
     Table,
@@ -18,12 +15,16 @@ import {
     TableHeader,
     TableRow,
 } from "@fremtind/jkl-table-react";
-import { PortalImage } from "../portal-image";
-import { Grid } from "../Grid";
-import { Experimental } from "../Experimental/Experimental";
+import { MDXProvider } from "@mdx-js/react";
+import cn from "classnames";
+import React, { FC } from "react";
+import { ComponentExample } from "../../../../doc-utils";
 import { CodeDemo } from "../CodeDemo/CodeDemo";
 import { DoDontExample } from "../DoDontExample";
 import { ExampleVideo } from "../ExampleVideo";
+import { Experimental } from "../Experimental/Experimental";
+import { Grid } from "../Grid";
+import { PortalImage } from "../portal-image";
 import {
     PageTitle,
     HeadingLarge,
@@ -38,7 +39,6 @@ import {
     Anchor,
     Blockquote,
 } from "../Typography";
-import cn from "classnames";
 
 interface WithClassNameProps {
     className?: string;

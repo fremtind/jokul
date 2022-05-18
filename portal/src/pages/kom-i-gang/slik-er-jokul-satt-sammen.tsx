@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { motion } from "framer-motion";
-import { Link as GatsbyLink } from "gatsby";
 import { NavCard } from "@fremtind/jkl-card-react";
 import { ListItem, OrderedList } from "@fremtind/jkl-list-react";
-import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
-import { Image } from "../../components/image";
-import { Grid } from "../../components/Grid";
-import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
+import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import React, { FC } from "react";
+import { Helmet } from "react-helmet";
+import { Grid } from "../../components/Grid";
+import { Image } from "../../components/image";
+import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 
 const pageTitle = "Slik er Jøkul satt sammen";
 
