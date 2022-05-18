@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@7.0.13...@fremtind/jkl-select@7.0.14) (2022-05-18)
+
+### Bug Fixes
+
+-   bruk riktig feilfarge i dark mode ([610232d](https://github.com/fremtind/jokul/commit/610232d65902820804dde8843970d642bc82e8f3)), closes [#2874](https://github.com/fremtind/jokul/issues/2874)
+
 ## [7.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@7.0.9...@fremtind/jkl-select@7.0.10) (2022-04-19)
 
 ### Bug Fixes
