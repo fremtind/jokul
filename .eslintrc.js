@@ -14,10 +14,13 @@ module.exports = {
         },
     },
     parser: "@typescript-eslint/parser",
-    plugins: ["prettier", "jsx-a11y", "react-hooks"],
+    plugins: ["prettier", "jsx-a11y", "react-hooks", "import"],
     extends: [
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
         "prettier",
         "plugin:jsx-a11y/recommended",
     ],
@@ -48,6 +51,16 @@ module.exports = {
         // note you must disable the base rule as it can report incorrect errors
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": ["error"],
+        "import/order": [
+            "error",
+            {
+                alphabetize: {
+                    order: "asc",
+                    caseInsensitive: true,
+                },
+                "newlines-between": "never",
+            },
+        ],
     },
     overrides: [
         {
