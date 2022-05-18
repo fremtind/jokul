@@ -1,6 +1,6 @@
-import { expect, test } from "@jest/globals";
 import fs from "fs";
 import path from "path";
+import { expect, test } from "@jest/globals";
 import { findChangedFiles } from "../src/git";
 
 beforeAll(() => {

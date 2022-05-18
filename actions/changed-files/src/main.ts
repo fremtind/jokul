@@ -1,6 +1,6 @@
 import * as core from "@actions/core";
-import { toList, validateOutputInput, validatePatternsInput } from "./input-validation";
 import { findChangedFiles } from "./git";
+import { toList, validateOutputInput, validatePatternsInput } from "./input-validation";
 
 async function run(): Promise<void> {
     try {
