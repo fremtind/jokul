@@ -1,8 +1,8 @@
-import React from "react";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Tabs, Tab, TabList, TabPanel } from ".";
 import { axe } from "jest-axe";
+import React from "react";
+import { Tabs, Tab, TabList, TabPanel } from ".";
 
 const renderComponent = (onChange?: () => void) =>
     render(

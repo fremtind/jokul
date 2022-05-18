@@ -1,7 +1,7 @@
-import React, { MouseEventHandler, FC } from "react";
-import { WithOptionalChildren } from "@fremtind/jkl-core";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import { WithOptionalChildren } from "@fremtind/jkl-core";
 import classNames from "classnames";
+import React, { MouseEventHandler, FC } from "react";
 
 type validButtons = "primary" | "secondary" | "tertiary";
 

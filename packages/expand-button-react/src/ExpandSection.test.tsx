@@ -1,12 +1,12 @@
-import React, { useState, VFC } from "react";
-import { axe } from "jest-axe";
-import userEvent from "@testing-library/user-event";
 import { act, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import React, { useState, FC } from "react";
 import { ExpandSection } from "./ExpandSection";
 
 const onClickSpy = jest.fn();
 
-const ExpandSectionExample: VFC = () => {
+const ExpandSectionExample: FC = () => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (

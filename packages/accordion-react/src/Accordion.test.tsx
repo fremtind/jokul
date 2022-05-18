@@ -1,9 +1,8 @@
-import React from "react";
+import { Select } from "@fremtind/jkl-select-react";
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
+import React from "react";
 import { Accordion, AccordionItem } from ".";
-import { Select } from "@fremtind/jkl-select-react";
 
 describe("Accordion", () => {
     it("should render without exploding", () => {

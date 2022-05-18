@@ -1,8 +1,8 @@
-import React, { useState, Fragment, useRef, FC } from "react";
-import cn from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
-import { usePillStyles } from "./usePillStyles";
 import { WithChildren } from "@fremtind/jkl-core";
+import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
+import React, { useState, Fragment, useRef, FC } from "react";
+import { usePillStyles } from "./usePillStyles";
 
 interface Props extends WithChildren {
     labels: [string, string];

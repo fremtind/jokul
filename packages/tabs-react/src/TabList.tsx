@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import cx from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
+import cx from "classnames";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 export interface TabListProps extends WithChildren {
     "aria-label": string;

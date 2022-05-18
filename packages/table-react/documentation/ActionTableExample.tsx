@@ -1,6 +1,6 @@
-import { SecondaryButton } from "../../button-react/src";
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
+import { SecondaryButton } from "../../button-react/src";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato", "Avsetning", "Prosesser"];
@@ -11,7 +11,7 @@ const rows = [
     ["32312", "H", "PR", "2.2.0", "12.11.2021", "1332", "Siden"],
 ];
 
-const ActionTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const ActionTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];

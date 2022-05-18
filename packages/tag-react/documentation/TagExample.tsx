@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../src";
 
-export const TagExample: VFC<ExampleComponentProps> = () => {
+export const TagExample: FC<ExampleComponentProps> = () => {
     return (
         <div>
             <Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Emne</Tag>

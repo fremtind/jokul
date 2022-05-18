@@ -1,7 +1,7 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { InfoAlertMessage, ErrorAlertMessage, WarningAlertMessage, SuccessAlertMessage } from ".";
 import { axe } from "jest-axe";
+import React from "react";
+import { InfoAlertMessage, ErrorAlertMessage, WarningAlertMessage, SuccessAlertMessage } from ".";
 
 const messageWithStyles = {
     maxContentWidth: "1234px",

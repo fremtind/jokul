@@ -1,7 +1,6 @@
+import { UseAnimatedHeightOptions, useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import React, { ReactNode, useState } from "react";
-import { UseAnimatedHeightOptions, useId } from "@fremtind/jkl-react-hooks";
-import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import type { ExpandButtonProps } from "./ExpandButton";
 import { ExpandButton } from "./ExpandButton";
 

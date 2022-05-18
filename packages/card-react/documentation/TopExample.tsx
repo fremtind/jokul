@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
-import { ExampleComponentProps } from "doc-utils";
+import React, { FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoBlock, NavCard } from "../src";
 
-export const TopExample: VFC<ExampleComponentProps> = () => {
+export const TopExample: FC<ExampleComponentProps> = () => {
     return (
         <>
             <p className="jkl-heading-1 jkl-spacing-xl--bottom">Åpne skadesaker</p>

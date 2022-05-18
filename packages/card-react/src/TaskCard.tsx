@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import cn from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
+import cn from "classnames";
+import React, { FC } from "react";
 import { PaddingOptions } from "./types";
 import { getSpacingClasses } from "./utils";
 

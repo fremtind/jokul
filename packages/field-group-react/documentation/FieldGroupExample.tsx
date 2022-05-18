@@ -1,9 +1,9 @@
-import React, { VFC } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
+import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
 
-export const FieldGroupExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const FieldGroupExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     return (
         <FieldGroup
             legend="Samleoverskrift for feltene"

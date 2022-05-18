@@ -1,5 +1,5 @@
-import { ExampleComponentProps } from "doc-utils";
-import React, { VFC } from "react";
+import React, { FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
@@ -10,7 +10,7 @@ const rows = [
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
 ];
 
-const HeadlessTableExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+const HeadlessTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues ? choiceValues["Mobilvisning"] : "";
     const props = type === "Liste" ? { "data-collapse": "true", compact: true, collapseToList: true } : {};
     return (

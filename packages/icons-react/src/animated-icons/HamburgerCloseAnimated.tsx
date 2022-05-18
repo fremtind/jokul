@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import cx from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
-import { Hamburger } from "../icons/Hamburger";
+import cx from "classnames";
+import React, { FC } from "react";
 import { Close } from "../icons/Close";
+import { Hamburger } from "../icons/Hamburger";
 import { IconVariant } from "../icons/types";
 
 export interface HamburgerCloseAnimatedProps {

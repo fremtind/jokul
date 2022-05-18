@@ -1,7 +1,7 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { InfoMessageBox, ErrorMessageBox, SuccessMessageBox, WarningMessageBox } from ".";
 import { axe } from "jest-axe";
+import React from "react";
+import { InfoMessageBox, ErrorMessageBox, SuccessMessageBox, WarningMessageBox } from ".";
 
 describe("Message boxes", () => {
     [true, false].map((fullWidth) => {

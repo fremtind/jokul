@@ -1,15 +1,14 @@
-import React, { ReactNode, useEffect, VFC } from "react";
-import cn from "classnames";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-
-import { FeedbackOption, FeedbackType } from "../types";
-import { useMainQuestion } from "./useMainQuestion";
-import { getQuestionFromType } from "../utils";
-import { MainQuestionContextProvider } from "./mainQuestionContext";
-import { AddonQuestion } from "../questions";
+import cn from "classnames";
+import React, { ReactNode, useEffect, FC } from "react";
 import { useFeedbackContext } from "../feedbackContext";
 import { FeedbackSuccess } from "../FeedbackSuccess";
+import { AddonQuestion } from "../questions";
+import { FeedbackOption, FeedbackType } from "../types";
+import { getQuestionFromType } from "../utils";
+import { MainQuestionContextProvider } from "./mainQuestionContext";
+import { useMainQuestion } from "./useMainQuestion";
 
 const defaultSuccessMessage = {
     title: "Takk for tilbakemeldingen!",
@@ -32,7 +31,7 @@ interface Props {
     onSubmit: (value: FeedbackType) => void;
 }
 
-export const MainQuestion: VFC<Props> = ({
+export const MainQuestion: FC<Props> = ({
     label,
     options,
     type,

@@ -1,8 +1,8 @@
-import React, { VFC, useState } from "react";
+import React, { FC, useState } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Hamburger } from "../src";
 
-export const HamburgerExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const HamburgerExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (

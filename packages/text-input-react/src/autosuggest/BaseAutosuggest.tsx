@@ -1,8 +1,8 @@
-import React from "react";
-import Downshift, { DownshiftProps } from "downshift";
-import cn from "classnames";
 import { Label, SupportLabel } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
+import Downshift, { DownshiftProps } from "downshift";
+import React from "react";
 import { CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";

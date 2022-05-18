@@ -1,6 +1,6 @@
-import React from "react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { renderHook, act } from "@testing-library/react";
+import React from "react";
 import { CookieConsentProvider, useCookieConsentState } from "./CookieConsentContext";
 import { ConsentRequirement, ConsentState, Consent } from "./types";
 

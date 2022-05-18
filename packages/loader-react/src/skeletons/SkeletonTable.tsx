@@ -1,5 +1,5 @@
-import React, { HTMLProps, ReactNode } from "react";
 import cn from "classnames";
+import React, { HTMLProps, ReactNode } from "react";
 
 export interface SkeletonTableProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;

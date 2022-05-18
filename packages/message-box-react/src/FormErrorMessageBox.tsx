@@ -1,6 +1,6 @@
-import React, { forwardRef, useEffect, useRef } from "react";
 import cx from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
+import React, { forwardRef, useEffect, useRef } from "react";
 import { MessageBoxProps, ErrorMessageBox } from "./MessageBox";
 
 export interface FormErrorMessageBoxProps {

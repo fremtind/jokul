@@ -1,9 +1,9 @@
-import React, { useState, ChangeEvent, VFC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
+import React, { useState, ChangeEvent, FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { TextArea } from "../src";
 
-export const TextAreaExample: VFC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
+export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const [value, setValue] = useState("");
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value);
     const variant = choiceValues?.["Variant"] as LabelVariant;

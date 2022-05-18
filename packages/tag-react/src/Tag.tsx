@@ -1,5 +1,5 @@
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import cx from "classnames";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
 export interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {}
 

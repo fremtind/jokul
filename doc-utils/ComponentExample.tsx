@@ -1,4 +1,4 @@
-import React, { FC, FC } from "react";
+import React, { FC } from "react";
 import { ExampleBase } from "./ExampleBase";
 import { ExampleComponentProps, ChoiceProp, BoolProp, CodeExample } from "./";
 

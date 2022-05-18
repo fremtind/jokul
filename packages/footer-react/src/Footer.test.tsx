@@ -1,7 +1,7 @@
-import React from "react";
 import { render, screen, cleanup } from "@testing-library/react";
-import { Footer } from ".";
 import { axe } from "jest-axe";
+import React from "react";
+import { Footer } from ".";
 
 describe("Footer", () => {
     it("should render", () => {

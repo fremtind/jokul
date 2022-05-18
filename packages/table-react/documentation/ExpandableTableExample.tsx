@@ -1,7 +1,16 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { Table, TableCaption, TableHead, TableRow, TableHeader, TableBody, TableCell } from "../src";
-import { ExpandableTableRowController, ExpandableTableRow } from "../src/";
+import {
+    Table,
+    TableCaption,
+    TableHead,
+    TableRow,
+    TableHeader,
+    TableBody,
+    TableCell,
+    ExpandableTableRowController,
+    ExpandableTableRow,
+} from "../src";
 
 const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato"];
 
@@ -11,7 +20,7 @@ const rows = [
     ["32312", "H", "PR", "2.2.0", "12.11.2021"],
 ];
 
-const ExpandableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const compact = boolValues?.["Kompakt"];
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];

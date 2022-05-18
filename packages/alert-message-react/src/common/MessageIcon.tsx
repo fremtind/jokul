@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 
 type MessageTypes = "info" | "error" | "success" | "warning";
 
@@ -6,7 +6,7 @@ type Props = {
     messageType: MessageTypes;
 };
 
-export const MessageIcon: VFC<Props> = ({ messageType }) => {
+export const MessageIcon: FC<Props> = ({ messageType }) => {
     switch (messageType) {
         case "error":
             return (

@@ -1,8 +1,8 @@
-import React, { DetailedHTMLProps, VFC, HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
-import cn from "classnames";
 import { DataTestAutoId, Link, WithChildren } from "@fremtind/jkl-core";
 import { formatNumber } from "@fremtind/jkl-formatters-util";
 import { Logo } from "@fremtind/jkl-logo-react";
+import cn from "classnames";
+import React, { DetailedHTMLProps, HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
 
 export interface FooterAddress {
     /** @example "Postboks 778 Sentrum" */
@@ -44,7 +44,7 @@ const AddressLine: FC<WithChildren> = ({ children }) => (
     </>
 );
 
-export const Footer: VFC<FooterProps> = ({ className, address, links, ...rest }) => {
+export const Footer: FC<FooterProps> = ({ className, address, links, ...rest }) => {
     return (
         <footer className={cn("jkl-footer", className)} {...rest}>
             <div>

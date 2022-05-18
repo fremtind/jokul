@@ -1,6 +1,6 @@
-import React, { FC } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
 import cx from "classnames";
+import React, { FC } from "react";
 
 export interface ListItemProps extends WithChildren {
     className?: string;

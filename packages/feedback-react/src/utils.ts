@@ -1,4 +1,4 @@
-import React, { JSXElementConstructor, VFC } from "react";
+import React, { JSXElementConstructor, FC } from "react";
 import { CheckboxQuestion, RadioQuestion, TextQuestion, SmileyQuestion } from "./questions";
 import { QuestionProps, QuestionType } from "./types";
 
@@ -27,7 +27,7 @@ export const getTypeFromComponent = (component: React.ReactElement): QuestionTyp
     }
 };
 
-export const getQuestionFromType = (type: QuestionType): VFC<QuestionProps> => {
+export const getQuestionFromType = (type: QuestionType): FC<QuestionProps> => {
     switch (type) {
         case "radio":
             return RadioQuestion;

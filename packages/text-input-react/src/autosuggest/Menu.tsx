@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
-import { PropGetters } from "downshift";
 import cn from "classnames";
+import { PropGetters } from "downshift";
+import React, { ReactNode } from "react";
 
 interface MenuProps<T> {
     downshiftProps: Pick<PropGetters<T>, "getMenuProps" | "getItemProps">;

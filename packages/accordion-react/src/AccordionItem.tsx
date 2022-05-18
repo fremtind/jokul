@@ -1,7 +1,7 @@
-import React, { FC, useState } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import classNames from "classnames";
+import React, { FC, useState } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 
 export interface AccordionItemProps extends WithChildren {

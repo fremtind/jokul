@@ -1,8 +1,7 @@
+import { WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import { WithChildren } from "@fremtind/jkl-core";
 import React, { useRef } from "react";
-
 import { useTextSpinner } from "./useTextSpinner";
 
 export interface LogoStampProps extends WithChildren {

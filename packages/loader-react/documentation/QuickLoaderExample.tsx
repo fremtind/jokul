@@ -1,10 +1,10 @@
-import React, { useEffect, useState, VFC } from "react";
+import React, { useEffect, useState, FC } from "react";
 import { Loader } from "../src";
 import "./styles.scss";
 
 const quickTime = 250;
 
-const QuickLoaderExample: VFC<{ delay?: number }> = ({ delay }) => {
+const QuickLoaderExample: FC<{ delay?: number }> = ({ delay }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -53,10 +53,10 @@ const QuickLoaderExample: VFC<{ delay?: number }> = ({ delay }) => {
     );
 };
 
-export const QuickLoaderExampleDo: VFC = () => {
+export const QuickLoaderExampleDo: FC = () => {
     return <QuickLoaderExample delay={1000} />;
 };
 
-export const QuickLoaderExampleDont: VFC = () => {
+export const QuickLoaderExampleDont: FC = () => {
     return <QuickLoaderExample delay={0} />;
 };

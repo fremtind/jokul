@@ -1,7 +1,7 @@
-import React from "react";
 import { screen, render } from "@testing-library/react";
-import { ContentToggle } from "./ContentToggle";
 import { axe } from "jest-axe";
+import React from "react";
+import { ContentToggle } from "./ContentToggle";
 
 test("should render to the DOM", () => {
     render(

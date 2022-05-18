@@ -1,7 +1,7 @@
-import React, { useState, VFC } from "react";
+import { LabelVariant } from "@fremtind/jkl-core";
+import React, { useState, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
-import { LabelVariant } from "@fremtind/jkl-core";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Native", "Compact", "Med hjelpetekst", "Med feil", "Med søk"],
@@ -14,7 +14,7 @@ export const selectExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const SelectExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [

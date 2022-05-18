@@ -1,5 +1,5 @@
-import React, { Fragment, ChangeEventHandler, useMemo } from "react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import React, { Fragment, ChangeEventHandler, useMemo } from "react";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { FeedbackOption, QuestionProps } from "../types";
@@ -8,7 +8,7 @@ import { defaultOptions, getSmiley } from "./smileyUtils";
 const isNotInScale = (option: FeedbackOption) =>
     typeof option.value !== "number" || ![1, 2, 3, 4, 5].includes(option.value);
 
-export const SmileyQuestion: React.VFC<QuestionProps> = ({
+export const SmileyQuestion: React.FC<QuestionProps> = ({
     label,
     name = "smiley",
     helpLabel,

@@ -1,12 +1,11 @@
-import React, { ChangeEventHandler, useEffect, useRef } from "react";
-
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
+import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import React, { ChangeEventHandler, useEffect, useRef } from "react";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { FeedbackOption, QuestionProps } from "../types";
 
-export const CheckboxQuestion: React.VFC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
+export const CheckboxQuestion: React.FC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;

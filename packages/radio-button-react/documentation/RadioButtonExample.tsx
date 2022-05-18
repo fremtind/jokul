@@ -1,5 +1,5 @@
-import React, { VFC } from "react";
 import { LabelVariant } from "@fremtind/jkl-core";
+import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
 
@@ -14,7 +14,7 @@ export const radioButtonExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const RadioButtonExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const RadioButtonExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const choices = ["Send en e-post", "Ring meg", "Send et brev til folkeregistrert adresse"];
     const [selectedValue, setSelectedValue] = React.useState("Yes");
     const errorLabel =

@@ -1,9 +1,9 @@
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Checkbox } from "../src";
 
-export const CheckboxExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [phone, setPhone] = React.useState(false);
     const [email, setEmail] = React.useState(false);
     const [snailMail, setSnailMail] = React.useState(false);

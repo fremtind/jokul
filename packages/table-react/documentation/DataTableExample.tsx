@@ -1,6 +1,6 @@
-import React, { VFC } from "react";
-import { DataTable } from "../src";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
+import { DataTable } from "../src";
 
 const columns = ["Dato", "Kundenavn", "Milepæl", "Følger saken"];
 
@@ -10,7 +10,7 @@ const rows = [
     ["31.07.2017", "Kari Nordkvinne", "Opprettet", "Per Persen"],
 ];
 
-const DataTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const DataTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const compact = boolValues?.["Compact"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};

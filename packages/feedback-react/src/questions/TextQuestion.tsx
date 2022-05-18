@@ -1,13 +1,11 @@
-import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
-
-import { QuestionProps } from "../types";
+import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
+import { useFeedbackContext } from "../feedbackContext";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
-import { FeedbackAnswer } from "../types";
-import { useFeedbackContext } from "../feedbackContext";
+import { QuestionProps, FeedbackAnswer } from "../types";
 
-export const TextQuestion: React.VFC<QuestionProps> = ({
+export const TextQuestion: React.FC<QuestionProps> = ({
     label,
     name,
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",

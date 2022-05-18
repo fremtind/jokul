@@ -1,5 +1,5 @@
-import React, { AriaRole, HTMLProps, ReactNode } from "react";
 import cn from "classnames";
+import React, { AriaRole, HTMLProps, ReactNode } from "react";
 import { useDelayedRender } from "../useDelayedRender";
 
 export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {

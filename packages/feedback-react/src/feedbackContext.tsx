@@ -1,5 +1,5 @@
-import React, { createContext, useContext, FC } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
+import React, { createContext, useContext, FC } from "react";
 
 interface FeedbackContext {
     feedbackSubmitted: boolean;

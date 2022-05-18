@@ -1,9 +1,9 @@
-import React, { useEffect, useState, VFC } from "react";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
-import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
+import React, { useEffect, useState, FC } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
-import { setConsentCookie } from "../src/cookieConsentUtils";
+import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { useCookieConsentState } from "../src/CookieConsentContext";
+import { setConsentCookie } from "../src/cookieConsentUtils";
 
 function clearConsentCookie() {
     setConsentCookie(
@@ -15,7 +15,7 @@ function clearConsentCookie() {
         -1,
     );
 }
-const Example: VFC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
+const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
     functional = false,
     statistics = false,
     marketing = false,
@@ -50,7 +50,7 @@ const Example: VFC<{ functional?: boolean; statistics?: boolean; marketing?: boo
     );
 };
 
-export const Blocking: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const Blocking: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
         setHasMounted(true);

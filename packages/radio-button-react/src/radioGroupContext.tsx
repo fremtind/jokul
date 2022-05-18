@@ -1,5 +1,5 @@
-import React, { createContext, useContext, ChangeEventHandler } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
+import React, { createContext, useContext, ChangeEventHandler } from "react";
 
 type RadioGroupContext = {
     name: string | undefined;

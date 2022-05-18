@@ -1,10 +1,10 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import DataTableExample from "./DataTableExample";
-import ClickableTableExample from "./ClickableTableExample";
 import ActionTableExample from "./ActionTableExample";
-import MobileListTableExample from "./MobileListTableExample";
+import ClickableTableExample from "./ClickableTableExample";
+import DataTableExample from "./DataTableExample";
 import ExpandableTableExample from "./ExpandableTableExample";
+import MobileListTableExample from "./MobileListTableExample";
 import "../../table/table.scss";
 import "../../button/button.scss";
 import "../../icons/animated-icons.scss";

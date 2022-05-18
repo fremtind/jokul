@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
-import type { Consent, ConsentRequirement } from "./types";
+import React, { useEffect, useMemo } from "react";
 import { shouldShowConsentDialog, getConsentCookie } from "./cookieConsentUtils";
+import type { Consent, ConsentRequirement } from "./types";
 
 // https://kentcdodds.com/blog/how-to-use-react-context-effectively
 

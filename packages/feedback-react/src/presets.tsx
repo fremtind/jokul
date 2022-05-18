@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
-import { Feedback } from "./";
 import { defaultOptions as smileyOptions } from "./questions/smileyUtils";
+import { Feedback } from "./";
 
 type FeedbackProps = ComponentProps<typeof Feedback>;
 type PresetProperties = Pick<FeedbackProps, "label" | "type" | "options" | "addOnQuestion">;

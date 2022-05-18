@@ -1,9 +1,9 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
+import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./cardExampleProps";
 import { InfoCardExample } from "./InfoCardExample";
 import { NavCardExample, navCardExampleCode } from "./NavCardExample";
 import { TaskCardExample } from "./TaskCardExample";
-import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./cardExampleProps";
 import "../../card/card.scss";
 import "../../button/button.scss";
 import "../../checkbox/checkbox.scss";

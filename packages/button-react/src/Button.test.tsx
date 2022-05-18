@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 import { axe } from "jest-axe";
+import React, { useState } from "react";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
 
 const buttonVariants = [
     { name: "primary", component: PrimaryButton },

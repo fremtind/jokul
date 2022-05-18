@@ -1,8 +1,8 @@
-import { CodeExample, ExampleComponentProps } from "doc-utils";
-import React, { VFC } from "react";
+import React, { FC } from "react";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
 
-const Ordered: VFC = () => (
+const Ordered: FC = () => (
     <OrderedList>
         <ListItem>Steg 1</ListItem>
         <ListItem>
@@ -32,7 +32,7 @@ const orderedCodeExample = `
 </OrderedList>
 `;
 
-const Unordered: VFC = () => (
+const Unordered: FC = () => (
     <UnorderedList>
         <ListItem>Element 1</ListItem>
         <ListItem>
@@ -62,7 +62,7 @@ const unorderedCodeExample = `
 </UnorderedList>
 `;
 
-const CoverageList: VFC = () => (
+const CoverageList: FC = () => (
     <List>
         <CheckListItem>Dekkes</CheckListItem>
         <CheckListItem>Dekkes også</CheckListItem>
@@ -90,7 +90,7 @@ export const listExamplesProps = {
     ],
 };
 
-export const ListExamples: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+export const ListExamples: FC<ExampleComponentProps> = ({ choiceValues }) => {
     let C = Ordered;
     if (choiceValues?.["Variant"] === "Unordered") {
         C = Unordered;

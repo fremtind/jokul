@@ -1,9 +1,9 @@
-import React, { ChangeEvent, forwardRef, useCallback, useState } from "react";
-import cn from "classnames";
+import { NativeSelect } from "@fremtind/jkl-select-react";
+import { TextInput } from "@fremtind/jkl-text-input-react";
 // @ts-ignore: wait for nrk to supply types
 import CoreDatepicker from "@nrk/core-datepicker/jsx";
-import { TextInput } from "@fremtind/jkl-text-input-react";
-import { NativeSelect } from "@fremtind/jkl-select-react";
+import cn from "classnames";
+import React, { ChangeEvent, forwardRef, useCallback, useState } from "react";
 import { ChangeDate } from "./DatePicker";
 
 interface Props {
