@@ -23,7 +23,7 @@
     "scripts": {
         "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
-        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
