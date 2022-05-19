@@ -1,6 +1,9 @@
 // @ts-check
+import browserslist from "browserslist";
 import esbuild from "esbuild";
+import { esbuildPluginBrowserslist } from "esbuild-plugin-browserslist";
 import path from "path";
+import browserListConfig from "./packages/browserslist-config-jkl/index.js";
 
 /**
  *
@@ -23,15 +26,11 @@ const createConfig = (outbase, format) => {
         outdir: path.join(outbase, format),
         sourcemap: true,
         format: format !== "browser" ? format : undefined,
-        target: format === "esm" ? ["esnext"] : undefined,
-        external: [
-            "react",
-            "downshift",
-            "match-sorter",
-            "nanoid",
-            /* /@nrk\/core/, */ "classnames",
-            "@babel/runtime",
-            "@fremtind/jkl-*",
+        external: ["react", "downshift", "match-sorter", "nanoid", /* /@nrk\/core/, */ "classnames", "@fremtind/jkl-*"],
+        plugins: [
+            esbuildPluginBrowserslist(browserslist(browserListConfig), {
+                printUnknownTargets: false,
+            }),
         ],
     };
 

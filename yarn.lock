@@ -8908,6 +8908,14 @@ esbuild-openbsd-64@0.14.39:
   resolved "https://registry.yarnpkg.com/esbuild-openbsd-64/-/esbuild-openbsd-64-0.14.39.tgz#935ec143f75ce10bd9cdb1c87fee00287eb0edbc"
   integrity sha512-secQU+EpgUPpYjJe3OecoeGKVvRMLeKUxSMGHnK+aK5uQM3n1FPXNJzyz1LHFOo0WOyw+uoCxBYdM4O10oaCAA==
 
+esbuild-plugin-browserslist@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/esbuild-plugin-browserslist/-/esbuild-plugin-browserslist-0.4.9.tgz#6c8baea81f8d23be020496022082da80c9f46d1a"
+  integrity sha512-PMB9eVoAvilMR+VzorCFusuO4jDYaqWE8jFePWFQ27oyL1hrTYQo39CBA0cv5AHh9cgGAWpFR7AzCTw9crq+DA==
+  dependencies:
+    debug "^4.3.4"
+    zod "^3.14.4"
+
 esbuild-sass-plugin@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/esbuild-sass-plugin/-/esbuild-sass-plugin-2.2.6.tgz#9010efbd1ee4b899a335e80cbacf3cfee4a6b75a"
@@ -21427,6 +21435,11 @@ yurnalist@^2.1.0:
     is-ci "^2.0.0"
     read "^1.0.7"
     strip-ansi "^5.2.0"
+
+zod@^3.14.4:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.16.0.tgz#edfdbf77fcc9a5af13a2630a44bdda5b90e759b7"
+  integrity sha512-szrIkryADbTM+xBt2a1KoS2CJQXec4f9xG78bj5MJeEH/XqmmHpnO+fG3IE115AKBJak+2HrbxLZkc9mhdbDKA==
 
 zwitch@^1.0.0:
   version "1.0.5"
