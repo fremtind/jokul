@@ -24,7 +24,10 @@
         "dev": "echo \"Error: run dev from message-box-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.1"
+        "@fremtind/jkl-core": "^9.6.1",
+        "glob": "^8.0.3",
+        "glob-fs": "^0.1.7",
+        "sass-embedded": "^1.51.0"
     },
     "repository": {
         "type": "git",
