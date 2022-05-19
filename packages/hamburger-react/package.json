@@ -34,7 +34,6 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-content-toggle": "^2.0.23",
         "@fremtind/jkl-content-toggle-react": "^2.0.26",
         "@fremtind/jkl-hamburger": "^9.0.13",

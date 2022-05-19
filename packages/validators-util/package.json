@@ -36,8 +36,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "dependencies": {
-        "@babel/runtime": "^7.17.8"
     }
 }

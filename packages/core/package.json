@@ -50,7 +50,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.8",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

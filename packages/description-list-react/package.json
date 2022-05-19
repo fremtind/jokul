@@ -44,7 +44,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-core": "^9.6.1",
         "@fremtind/jkl-description-list": "^4.0.23",
         "classnames": "^2.2.6"

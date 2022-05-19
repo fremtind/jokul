@@ -35,7 +35,6 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-core": "^9.6.1",
         "@fremtind/jkl-tag": "^1.1.23"
     },
