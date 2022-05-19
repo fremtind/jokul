@@ -8,7 +8,7 @@ import browserListConfig from "./packages/browserslist-config-jkl/index.js";
 /**
  *
  * @param {string} outbase
- * @param {"esm" | "cjs" | "browser"} format
+ * @param {"esm" | "cjs"} format
  * @returns
  */
 const createConfig = (outbase, format) => {
@@ -25,7 +25,7 @@ const createConfig = (outbase, format) => {
         bundle: true,
         outdir: path.join(outbase, format),
         sourcemap: true,
-        format: format !== "browser" ? format : undefined,
+        format,
         external: ["react", "downshift", "match-sorter", "nanoid", /* /@nrk\/core/, */ "classnames", "@fremtind/jkl-*"],
         plugins: [
             esbuildPluginBrowserslist(browserslist(browserListConfig), {
@@ -69,12 +69,6 @@ export async function build(options) {
                     esbuild.build({
                         ...o,
                         ...cjs,
-                    }),
-                ),
-                createConfig(o.outdir, "browser").flatMap((br) =>
-                    esbuild.build({
-                        ...o,
-                        ...br,
                     }),
                 ),
             ]),

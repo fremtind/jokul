@@ -24,7 +24,7 @@
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
     "module": "./build/esm/index.js",
-    "browser": "./build/browser/index.js",
+    "browser": "./build/esm/index.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
