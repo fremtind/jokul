@@ -3,6 +3,7 @@ import cn from "classnames";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { useCalendar, UseCalendarProps } from "./use-calendar";
+import { Dates } from "./Dates";
 
 // TODO: lån kode fra arrow-keys-react
 // ArrowKeysReact.config({
@@ -139,37 +140,7 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                                     <div key={`${calendar.month}${calendar.year}${weekday}`}>{weekday}</div>
                                 ))}
                             </div>
-                            <div data-testid="jkl-datepicker-dates">
-                                {calendar.weeks.map((week, weekIndex) =>
-                                    week.map((dateInfo, index) => {
-                                        const key = `${calendar.month}${calendar.year}${weekIndex}${index}`;
-                                        if (typeof dateInfo === "string") {
-                                            return (
-                                                <div className="jkl-calendar__date jkl-calendar__date--empty" key={key}>
-                                                    {dateInfo}
-                                                </div>
-                                            );
-                                        }
-                                        const { date, selected, selectable, today, prevMonth, nextMonth } = dateInfo;
-                                        return (
-                                            <button
-                                                key={key}
-                                                {...getDateProps({
-                                                    dateObj: dateInfo,
-                                                })}
-                                                className={cn("jkl-calendar__date", {
-                                                    "jkl-calendar__date--today": today,
-                                                    "jkl-calendar__date--selected": selected,
-                                                    "jkl-calendar__date--adjacent": prevMonth || nextMonth,
-                                                })}
-                                                disabled={!selectable}
-                                            >
-                                                {date.getDate()}
-                                            </button>
-                                        );
-                                    }),
-                                )}
-                            </div>
+                            <Dates calendar={calendar} getDateProps={getDateProps} />
                         </div>
                     ))}
                 </div>

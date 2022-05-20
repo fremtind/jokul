@@ -31,25 +31,33 @@ import {
     isForwardDisabled,
     getCalendars,
     DateInfo,
-    Calendars,
+    CalendarMonth,
 } from "./utils";
 
 function isOffsetControlled(propOffset: number | undefined): boolean {
     return propOffset !== undefined;
 }
 
-function getOffset(prop: number, state: number) {
+function getOffset(prop: number, state: number): number {
     return isOffsetControlled(prop) ? prop : state;
 }
 
-type OnDateSelected = (dateInfo: DateInfo, event: React.MouseEvent) => void;
+type BoundGetDateProps = (dateInfo: DateInfo, event: React.MouseEvent) => void;
 
-interface GetDateProps {
-    dateObj: DateInfo;
+type GetDateProps = {
     onClick?: React.MouseEventHandler;
-}
+    dateObj: DateInfo;
+};
 
-function getDateProps<T extends GetDateProps>(onDateSelected: OnDateSelected, { onClick, dateObj, ...rest }: T) {
+type GetDatePropsResult = {
+    onClick: React.MouseEventHandler;
+    disabled: boolean;
+    "aria-label": string;
+    "aria-pressed": boolean;
+    role: "button";
+};
+
+function getDateProps(onDateSelected: BoundGetDateProps, { onClick, dateObj }: GetDateProps): GetDatePropsResult {
     return {
         onClick: composeEventHandlers(onClick, (event) => {
             onDateSelected(dateObj, event);
@@ -58,7 +66,6 @@ function getDateProps<T extends GetDateProps>(onDateSelected: OnDateSelected, { 
         "aria-label": dateObj.date.toDateString(),
         "aria-pressed": dateObj.selected,
         role: "button",
-        ...rest,
     };
 }
 
@@ -68,16 +75,23 @@ type BoundGetBackProps = {
     minDate?: Date;
 };
 
-interface GetBackProps {
+type GetBackProps = {
     onClick?: React.MouseEventHandler;
     offset?: number;
-    calendars: Calendars;
-}
+    calendars: CalendarMonth[];
+};
 
-function getBackProps<T extends GetBackProps>(
+type GetBackPropsResult = {
+    onClick: React.MouseEventHandler;
+    disabled: boolean;
+    "aria-label": string;
+    title: string;
+};
+
+function getBackProps(
     { minDate, offsetMonth, handleOffsetChanged }: BoundGetBackProps,
-    { onClick, offset = 1, calendars, ...rest }: T,
-) {
+    { onClick, offset = 1, calendars }: GetBackProps,
+): GetBackPropsResult {
     const label = `Gå tilbake ${offset} måned${offset === 1 ? "" : "er"}`;
     return {
         onClick: composeEventHandlers(onClick, () => {
@@ -86,7 +100,6 @@ function getBackProps<T extends GetBackProps>(
         disabled: isBackDisabled({ calendars, minDate }),
         "aria-label": label,
         title: label,
-        ...rest,
     };
 }
 
@@ -96,16 +109,23 @@ type BoundGetForwardProps = {
     maxDate?: Date;
 };
 
-interface GetForwardProps {
+type GetForwardProps = {
     onClick?: React.MouseEventHandler;
     offset?: number;
-    calendars: Calendars;
-}
+    calendars: CalendarMonth[];
+};
 
-function getForwardProps<T extends GetForwardProps>(
+type GetForwardPropsResult = {
+    onClick: React.MouseEventHandler;
+    disabled: boolean;
+    "aria-label": string;
+    title: string;
+};
+
+function getForwardProps(
     { maxDate, offsetMonth, handleOffsetChanged }: BoundGetForwardProps,
-    { onClick, offset = 1, calendars, ...rest }: T,
-) {
+    { onClick, offset = 1, calendars }: GetForwardProps,
+): GetForwardPropsResult {
     const label = `Gå frem ${offset} måned${offset === 1 ? "" : "er"}`;
     return {
         onClick: composeEventHandlers(onClick, () => {
@@ -114,7 +134,6 @@ function getForwardProps<T extends GetForwardProps>(
         disabled: isForwardDisabled({ calendars, maxDate }),
         "aria-label": label,
         title: label,
-        ...rest,
     };
 }
 
@@ -131,6 +150,17 @@ export interface UseCalendarProps {
     selected?: Date | Date[];
 }
 
+export type GetDatePropsFunc = (props: GetDateProps) => GetDatePropsResult;
+export type GetBackPropsFunc = (props: GetBackProps) => GetBackPropsResult;
+export type GetForwardPropsFunc = (props: GetForwardProps) => GetForwardPropsResult;
+
+export type UseCalendarResult = {
+    calendars: CalendarMonth[];
+    getDateProps: GetDatePropsFunc;
+    getBackProps: GetBackPropsFunc;
+    getForwardProps: GetForwardPropsFunc;
+};
+
 export function useCalendar({
     date = new Date(),
     maxDate,
@@ -142,7 +172,7 @@ export function useCalendar({
     onDateSelected,
     onOffsetChanged,
     selected,
-}: UseCalendarProps) {
+}: UseCalendarProps): UseCalendarResult {
     const [stateOffset, setStateOffset] = useState(0);
     const offsetMonth = getOffset(offset, stateOffset);
 

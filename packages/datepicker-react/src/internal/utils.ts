@@ -133,8 +133,6 @@ export function isForwardDisabled({ calendars, maxDate }: { calendars: Calendars
     return false;
 }
 
-export type Calendars = ReturnType<typeof getCalendars>;
-
 type GetCalendarProps = {
     /**  The date to start the calendar at */
     date: Date;
@@ -177,8 +175,8 @@ export function getCalendars({
     maxDate,
     firstDayOfWeek,
     showOutsideDays,
-}: GetCalendarProps) {
-    const months = [];
+}: GetCalendarProps): CalendarMonth[] {
+    const months: CalendarMonth[] = [];
     const startDate = getStartDate(date, minDate, maxDate);
     for (let i = 0; i < monthsToDisplay; i++) {
         const calendarDates = getMonths({
@@ -237,6 +235,18 @@ type GetMonthsProps = {
     showOutsideDays: boolean;
 };
 
+export type CalendarMonth = {
+    firstDayOfMonth: Date;
+    lastDayOfMonth: Date;
+    month: number;
+    year: number;
+    weeks: CalendarWeek[];
+};
+
+export type CalendarWeek = CalendarDay[];
+
+export type CalendarDay = DateInfo | string;
+
 /**
  * Figures what week/day data to return for the given month
  * and year. Adds flags to day data if found in the given selectedDates,
@@ -251,7 +261,15 @@ type GetMonthsProps = {
  * @param {Bool} param.showOutsideDays Flag to fill front and back weeks with dates from adjacent months
  * @returns {Object} The data for the selected month/year
  */
-function getMonths({ month, year, selectedDates, minDate, maxDate, firstDayOfWeek, showOutsideDays }: GetMonthsProps) {
+function getMonths({
+    month,
+    year,
+    selectedDates,
+    minDate,
+    maxDate,
+    firstDayOfWeek,
+    showOutsideDays,
+}: GetMonthsProps): CalendarMonth {
     // Get the normalized month and year, along with days in the month.
     const daysMonthYear = getNumDaysMonthYear(month, year);
     const daysInMonth = daysMonthYear.daysInMonth;
@@ -343,8 +361,8 @@ function fillFrontWeek({
     selectedDates,
     firstDayOfWeek,
     showOutsideDays,
-}: FillFrontWeekProps): Array<DateInfo | string> {
-    const dates: Array<DateInfo | string> = [];
+}: FillFrontWeekProps): CalendarWeek {
+    const dates: CalendarWeek = [];
     let firstDay = (firstDayOfMonth.getDay() + 7 - firstDayOfWeek) % 7;
 
     if (showOutsideDays) {
@@ -423,8 +441,8 @@ function fillBackWeek({
     selectedDates,
     firstDayOfWeek,
     showOutsideDays,
-}: FillBackWeekProps): Array<DateInfo | string> {
-    const dates: Array<DateInfo | string> = [];
+}: FillBackWeekProps): CalendarWeek {
+    const dates: CalendarWeek = [];
     let lastDay = (lastDayOfMonth.getDay() + 7 - firstDayOfWeek) % 7;
 
     if (showOutsideDays) {
@@ -491,9 +509,9 @@ function getNumDaysMonthYear(month: number, year: number): { daysInMonth: number
  * @param {Array.<Object>} dates An array of dates
  * @returns {Array} The weeks as a multi dimensional array
  */
-function getWeeks(dates: Array<DateInfo | string>): Array<Array<DateInfo | string>> {
+function getWeeks(dates: CalendarWeek): Array<CalendarWeek> {
     const weeksLength = Math.ceil(dates.length / 7);
-    const weeks: Array<Array<DateInfo | string>> = [];
+    const weeks: Array<CalendarWeek> = [];
     for (let i = 0; i < weeksLength; i++) {
         weeks[i] = [];
         for (let x = 0; x < 7; x++) {
