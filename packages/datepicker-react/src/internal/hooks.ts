@@ -1,6 +1,6 @@
 import { useId } from "@fremtind/jkl-react-hooks";
 import { useCallback } from "react";
-import { dateIsOutsideRange } from "../dateFunctions";
+import { dateIsOutsideRange } from "./utils";
 
 export const useDisableDate = (
     disableBeforeDate: Date | undefined,

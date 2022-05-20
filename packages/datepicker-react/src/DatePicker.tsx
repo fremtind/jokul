@@ -10,11 +10,10 @@ import {
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
-import { Calendar } from "./Calendar";
-import { formatDate, getInitialDate } from "./dateFunctions";
+import { Calendar } from "./internal/Calendar";
 import { useCalendarId, useDisableDate } from "./internal/hooks";
 import { createReducer, DateValidationError } from "./internal/reducer";
-import { DateInfo } from "./internal/utils";
+import { formatDate, getInitialDate, DateInfo } from "./internal/utils";
 
 export interface ChangeDate {
     date: Date;

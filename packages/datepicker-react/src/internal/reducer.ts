@@ -1,5 +1,5 @@
 import { Reducer } from "react";
-import { formatDate, isSameDay, parseDateString } from "../dateFunctions";
+import { formatDate, isSameDay, parseDateString } from "./utils";
 
 interface InputChangeAction {
     type: "INPUT_CHANGE";

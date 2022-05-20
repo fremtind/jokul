@@ -1,11 +1,4 @@
-import {
-    formatDate,
-    parseDateString,
-    isSameDay,
-    dateHasChanged,
-    dateIsOutsideRange,
-    getInitialDate,
-} from "./dateFunctions";
+import { formatDate, parseDateString, isSameDay, dateHasChanged, dateIsOutsideRange, getInitialDate } from "./utils";
 
 describe("formatDate", () => {
     it("renders the given date correctly", () => {

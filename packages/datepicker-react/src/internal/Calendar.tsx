@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useEffect, useState } from "react";
 import cn from "classnames";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
-import { useCalendar, UseCalendarProps } from "./internal/use-calendar";
+import { useCalendar, UseCalendarProps } from "./use-calendar";
 
 // TODO: lån kode fra arrow-keys-react
 // ArrowKeysReact.config({
