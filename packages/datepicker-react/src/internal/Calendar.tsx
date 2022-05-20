@@ -3,37 +3,7 @@ import cn from "classnames";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { useCalendar, UseCalendarProps } from "./use-calendar";
-import { Dates } from "./Dates";
-
-// TODO: lån kode fra arrow-keys-react
-// ArrowKeysReact.config({
-// left: () => {
-//     this.getKeyOffset(-1);
-// },
-// right: () => {
-//     this.getKeyOffset(1);
-// },
-// up: () => {
-//     this.getKeyOffset(-7);
-// },
-// down: () => {
-//     this.getKeyOffset(7);
-// }
-// });
-// getKeyOffset(number) {
-//     const e = document.activeElement;
-//     let buttons = document.querySelectorAll('button'); // TODO: gi datoknapper et data-attribut å selecte i stedet
-//     buttons.forEach((el, i) => {
-//       const newNodeKey = i + number;
-//       if (el == e) {
-//         if (newNodeKey <= buttons.length - 1 && newNodeKey >= 0) {
-//           buttons[newNodeKey].focus();
-//         } else {
-//           buttons[0].focus();
-//         }
-//       }
-//     });
-//   }
+import { useId } from "@fremtind/jkl-react-hooks";
 
 interface Props extends Omit<UseCalendarProps, "onOffsetChanged" | "offset" | "firstDayOfWeek"> {
     hidden?: boolean;
@@ -58,6 +28,7 @@ const monthNames = [
 const weekdayNames = ["man", "tir", "ons", "fre", "lør", "søn"];
 
 export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, forceCompact, date, ...rest }, ref) => {
+    const id = useId("jkl-calendar");
     const [offset, setOffset] = useState(0);
     useEffect(() => {
         // Reset offset when date changes
@@ -69,6 +40,46 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
             setOffset(newOffset);
         },
         [setOffset],
+    );
+
+    const doFocusChange = useCallback(
+        (offsetDiff: number) => {
+            const e = document.activeElement;
+            const buttons = document.querySelectorAll(`#${id} button.jkl-calendar__date`);
+            buttons.forEach((el, i) => {
+                const newNodeKey = i + offsetDiff;
+                if (el == e) {
+                    if (newNodeKey <= buttons.length - 1 && newNodeKey >= 0) {
+                        (buttons[newNodeKey] as HTMLButtonElement).focus();
+                    } else {
+                        (buttons[0] as HTMLButtonElement).focus();
+                    }
+                }
+            });
+        },
+        [id],
+    );
+
+    const onArrowNavigation = useCallback(
+        (event: React.KeyboardEvent) => {
+            switch (event.key) {
+                case "ArrowUp":
+                    doFocusChange(-7);
+                    break;
+                case "ArrowRight":
+                    doFocusChange(1);
+                    break;
+                case "ArrowDown":
+                    doFocusChange(7);
+                    break;
+                case "ArrowLeft":
+                    doFocusChange(-1);
+                    break;
+                default:
+                    break;
+            }
+        },
+        [doFocusChange],
     );
 
     const { calendars, getBackProps, getDateProps, getForwardProps } = useCalendar({
@@ -91,6 +102,7 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                     "jkl-calendar--hidden": hidden,
                     "jkl-calendar--extended": extended,
                 })}
+                id={id}
             >
                 <div className="jkl-calendar__padding">
                     {extended && (
@@ -140,7 +152,42 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                                     <div key={`${calendar.month}${calendar.year}${weekday}`}>{weekday}</div>
                                 ))}
                             </div>
-                            <Dates calendar={calendar} getDateProps={getDateProps} />
+                            <div
+                                data-testid="jkl-datepicker-dates"
+                                onKeyDown={onArrowNavigation}
+                                role="grid"
+                                tabIndex={0}
+                            >
+                                {calendar.weeks.map((week, weekIndex) =>
+                                    week.map((dateInfo, index) => {
+                                        const key = `${calendar.month}${calendar.year}${weekIndex}${index}`;
+                                        if (typeof dateInfo === "string") {
+                                            return (
+                                                <div className="jkl-calendar__date jkl-calendar__date--empty" key={key}>
+                                                    {dateInfo}
+                                                </div>
+                                            );
+                                        }
+                                        const { date, selected, selectable, today, prevMonth, nextMonth } = dateInfo;
+                                        return (
+                                            <button
+                                                key={key}
+                                                {...getDateProps({
+                                                    dateObj: dateInfo,
+                                                })}
+                                                className={cn("jkl-calendar__date", {
+                                                    "jkl-calendar__date--today": today,
+                                                    "jkl-calendar__date--selected": selected,
+                                                    "jkl-calendar__date--adjacent": prevMonth || nextMonth,
+                                                })}
+                                                disabled={!selectable}
+                                            >
+                                                {date.getDate()}
+                                            </button>
+                                        );
+                                    }),
+                                )}
+                            </div>
                         </div>
                     ))}
                 </div>
