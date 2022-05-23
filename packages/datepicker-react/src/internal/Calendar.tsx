@@ -25,7 +25,7 @@ const monthNames = [
     "November",
     "Desember",
 ];
-const weekdayNames = ["man", "tir", "ons", "fre", "lør", "søn"];
+const weekdayNames = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 
 export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, forceCompact, date, ...rest }, ref) => {
     const id = useId("jkl-calendar");
@@ -62,7 +62,7 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                 }
             });
         },
-        [id, ref],
+        [calendarPaddingRef],
     );
 
     const onArrowNavigation = useCallback(
@@ -157,49 +157,58 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                         </fieldset>
                     )}
                     {calendars.map((calendar) => (
-                        <div key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
-                            <div data-testid="jkl-datepicker-month-year">
+                        <table key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
+                            <caption>
                                 {monthNames[calendar.month]} {calendar.year}
-                            </div>
-                            <div data-testid="jkl-datepicker-weekdays">
-                                {weekdayNames.map((weekday) => (
-                                    <div key={`${calendar.month}${calendar.year}${weekday}`}>{weekday}</div>
-                                ))}
-                            </div>
+                            </caption>
+                            <thead>
+                                <tr>
+                                    {weekdayNames.map((weekday) => (
+                                        <th key={`${calendar.month}${calendar.year}${weekday}`}>{weekday}</th>
+                                    ))}
+                                </tr>
+                            </thead>
                             {/* The <div> element handles keyboard events that bubble up from <button> elements inside */}
-                            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-                            <div data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
-                                {calendar.weeks.map((week, weekIndex) =>
-                                    week.map((dateInfo, index) => {
-                                        const key = `${calendar.month}${calendar.year}${weekIndex}${index}`;
-                                        if (typeof dateInfo === "string") {
+                            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions */}
+                            <tbody data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
+                                {calendar.weeks.map((week, weekIndex) => (
+                                    <tr key={`${calendar.month}${calendar.year}${weekIndex}`}>
+                                        {week.map((dateInfo, index) => {
+                                            const key = `${calendar.month}${calendar.year}${weekIndex}${index}`;
+                                            if (typeof dateInfo === "string") {
+                                                return (
+                                                    <td
+                                                        className="jkl-calendar__date jkl-calendar__date--empty"
+                                                        key={key}
+                                                    >
+                                                        {dateInfo}
+                                                    </td>
+                                                );
+                                            }
+                                            const { date, selected, selectable, today, prevMonth, nextMonth } =
+                                                dateInfo;
                                             return (
-                                                <div className="jkl-calendar__date jkl-calendar__date--empty" key={key}>
-                                                    {dateInfo}
-                                                </div>
+                                                <td key={key}>
+                                                    <button
+                                                        {...getDateProps({
+                                                            dateObj: dateInfo,
+                                                        })}
+                                                        className={cn("jkl-calendar__date", {
+                                                            "jkl-calendar__date--today": today,
+                                                            "jkl-calendar__date--selected": selected,
+                                                            "jkl-calendar__date--adjacent": prevMonth || nextMonth,
+                                                        })}
+                                                        disabled={!selectable}
+                                                    >
+                                                        {date.getDate()}
+                                                    </button>
+                                                </td>
                                             );
-                                        }
-                                        const { date, selected, selectable, today, prevMonth, nextMonth } = dateInfo;
-                                        return (
-                                            <button
-                                                key={key}
-                                                {...getDateProps({
-                                                    dateObj: dateInfo,
-                                                })}
-                                                className={cn("jkl-calendar__date", {
-                                                    "jkl-calendar__date--today": today,
-                                                    "jkl-calendar__date--selected": selected,
-                                                    "jkl-calendar__date--adjacent": prevMonth || nextMonth,
-                                                })}
-                                                disabled={!selectable}
-                                            >
-                                                {date.getDate()}
-                                            </button>
-                                        );
-                                    }),
-                                )}
-                            </div>
-                        </div>
+                                        })}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     ))}
                 </div>
             </div>
