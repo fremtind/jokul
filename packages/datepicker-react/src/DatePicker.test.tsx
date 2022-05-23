@@ -622,8 +622,6 @@ describe("after user types string", () => {
                 helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
                 extended /* extended for å vise inputfelt i kalenderen, som også skal være kompakte */
                 forceCompact
-                yearLabel="År" /* i tilfelle default endrer seg – den biten er ikke vesentlig */
-                monthLabel="Måned" /* i tilfelle default endrer seg – den biten er ikke vesentlig */
             />,
         );
 

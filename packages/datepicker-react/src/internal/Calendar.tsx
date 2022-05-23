@@ -152,12 +152,9 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                                     <div key={`${calendar.month}${calendar.year}${weekday}`}>{weekday}</div>
                                 ))}
                             </div>
-                            <div
-                                data-testid="jkl-datepicker-dates"
-                                onKeyDown={onArrowNavigation}
-                                role="grid"
-                                tabIndex={0}
-                            >
+                            {/* The <div> element handles keyboard events that bubble up from <button> elements inside */}
+                            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+                            <div data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
                                 {calendar.weeks.map((week, weekIndex) =>
                                     week.map((dateInfo, index) => {
                                         const key = `${calendar.month}${calendar.year}${weekIndex}${index}`;

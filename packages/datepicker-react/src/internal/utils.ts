@@ -51,7 +51,7 @@ export function subtractMonth({
     offset,
     minDate,
 }: {
-    calendars: Calendars;
+    calendars: CalendarMonth[];
     offset: number;
     minDate?: Date;
 }): number {
@@ -79,7 +79,7 @@ export function addMonth({
     offset,
     maxDate,
 }: {
-    calendars: Calendars;
+    calendars: CalendarMonth[];
     offset: number;
     maxDate?: Date;
 }): number {
@@ -101,7 +101,7 @@ export function addMonth({
  * @param {Date} param.minDate The earliest date available
  * @returns {Boolean} Whether the back button should be disabled.
  */
-export function isBackDisabled({ calendars, minDate }: { calendars: Calendars; minDate?: Date }): boolean {
+export function isBackDisabled({ calendars, minDate }: { calendars: CalendarMonth[]; minDate?: Date }): boolean {
     if (!minDate) {
         return false;
     }
@@ -121,7 +121,7 @@ export function isBackDisabled({ calendars, minDate }: { calendars: Calendars; m
  * @param {Date} param.maxDate The furthest date available
  * @returns {Boolean} Whether the forward button should be disabled.
  */
-export function isForwardDisabled({ calendars, maxDate }: { calendars: Calendars; maxDate?: Date }): boolean {
+export function isForwardDisabled({ calendars, maxDate }: { calendars: CalendarMonth[]; maxDate?: Date }): boolean {
     if (!maxDate) {
         return false;
     }
