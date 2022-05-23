@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
@@ -42,10 +42,15 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
         [setOffset],
     );
 
+    const calendarPaddingRef = useRef<HTMLDivElement>(null);
     const doFocusChange = useCallback(
         (offsetDiff: number) => {
+            if (!calendarPaddingRef.current) {
+                return;
+            }
+
             const e = document.activeElement;
-            const buttons = document.querySelectorAll(`#${id} button.jkl-calendar__date`);
+            const buttons = calendarPaddingRef.current.querySelectorAll("button.jkl-calendar__date");
             buttons.forEach((el, i) => {
                 const newNodeKey = i + offsetDiff;
                 if (el == e) {
@@ -57,7 +62,7 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                 }
             });
         },
-        [id],
+        [id, ref],
     );
 
     const onArrowNavigation = useCallback(
@@ -91,7 +96,16 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
     });
 
     if (!calendars.length) {
-        return null;
+        return (
+            <div
+                ref={ref}
+                className={cn("jkl-calendar", {
+                    "jkl-calendar--hidden": hidden,
+                    "jkl-calendar--extended": extended,
+                })}
+                id={id}
+            />
+        );
     }
 
     return (
@@ -104,7 +118,7 @@ export const Calendar = forwardRef<HTMLDivElement, Props>(({ hidden, extended, f
                 })}
                 id={id}
             >
-                <div className="jkl-calendar__padding">
+                <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
                     {extended && (
                         <div className="jkl-calendar__navigation">
                             {/* TODO: oppdater offset ved endring til gyldig dato */}
