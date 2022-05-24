@@ -591,11 +591,15 @@ export function formatDate(date: Date): string {
  * @param dateString date as string with format dd.mm.yyyy
  * @return a Date object representing the given date
  */
-export function parseDateString(dateString: string): Date | undefined {
+export function parseDateString(dateString?: string): Date | undefined {
+    if (!dateString) {
+        return undefined;
+    }
+
     const match = dayMonthYearRegex.exec(dateString);
 
     if (!match) {
-        return;
+        return undefined;
     }
 
     const currentTwoDigitYear = parseInt(new Date().toLocaleString("no-NB", { year: "2-digit" }));
@@ -640,14 +644,15 @@ export function dateIsOutsideRange(date: Date, rangeStart: Date | undefined, ran
  * @param disableDate Function for checking whether the date should be disabled
  */
 export function getInitialDate(
-    value: Date | undefined,
+    value: string | undefined,
     initialDate: Date | undefined,
     disableDate: (date: Date) => boolean | undefined,
 ): Date | undefined {
-    if (!!value) {
-        return !disableDate(value) ? value : undefined;
+    const valueAsDate = parseDateString(value);
+    if (valueAsDate) {
+        return !disableDate(valueAsDate) ? valueAsDate : undefined;
     }
-    if (!!initialDate) {
+    if (initialDate) {
         return !disableDate(initialDate) ? initialDate : undefined;
     }
     return undefined;

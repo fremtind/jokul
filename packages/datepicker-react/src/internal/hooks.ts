@@ -14,6 +14,7 @@ export const useDisableDate = (
 
 export const useCalendarId = (): [string, string] => {
     const inputId = useId("jkl-datepicker");
+
     const supportLabelId = `${inputId}-label`;
 
     return [inputId, supportLabelId];

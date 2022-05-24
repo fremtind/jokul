@@ -1,4 +1,5 @@
 import { Reducer } from "react";
+import { DateValidationError } from "../types";
 import { formatDate, isSameDay, parseDateString } from "./utils";
 
 interface InputChangeAction {
@@ -16,15 +17,13 @@ interface SelectDateInCalendarAction {
 }
 interface ValuePropChangedAction {
     type: "VALUE_PROP_CHANGED";
-    payload: Date | undefined;
+    payload: string;
 }
 
 interface SetValueOnBlur {
     type: "SET_VALUE_ON_BLUR";
     payload: string;
 }
-
-export type DateValidationError = "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND";
 
 export type Action =
     | InputChangeAction
@@ -134,16 +133,13 @@ export function createReducer(
             case "VALUE_PROP_CHANGED":
                 if (state.date === undefined && action.payload === undefined) {
                     return state;
-                } else if (state.date && action.payload && isSameDay(state.date, action.payload)) {
-                    return state;
                 }
 
-                const dateString = action.payload ? formatDate(action.payload) : "";
                 return {
                     ...state,
-                    date: action.payload,
-                    dateString,
-                    error: getValidationError(dateString),
+                    date: parseDateString(action.payload),
+                    dateString: action.payload,
+                    error: getValidationError(action.payload),
                 };
 
             default:

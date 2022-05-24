@@ -30,9 +30,9 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
     return (
         <DatePicker
             label="Velg startdato for forsikringen"
+            labelProps={{ variant }}
             extended={boolValues && boolValues["Utvidet velger"]}
             forceCompact={boolValues && boolValues["Compact"]}
-            variant={variant}
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}
