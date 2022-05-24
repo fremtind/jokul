@@ -21,6 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import startOfDay from "date-fns/startOfDay";
 import React, { useState } from "react";
 
 import {
@@ -164,7 +165,7 @@ export type UseCalendarResult = {
 };
 
 export function useCalendar({
-    date = new Date(),
+    date = startOfDay(new Date()),
     maxDate,
     minDate,
     monthsToDisplay = 1,

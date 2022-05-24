@@ -95,13 +95,6 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
     box-shadow: inset 0 0 0 rem(1px) var(--calendar-border-color), 0 0 0 rem(1px) var(--calendar-border-color),
         rem(2px) rem(4px) rem(16px) rgb(0 0 0 / 24%);
 
-    @include motion;
-    transition-property: height;
-
-    &--hidden {
-        display: none;
-    }
-
     &--extended {
         caption {
             // Hide table caption (month name) in extended mode
@@ -314,7 +307,7 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
         }
 
         // Selected date
-        &[autofocus] {
+        &[aria-pressed="true"] {
             background-color: var(--calendar-selected-date-background-color);
             color: var(--calendar-active-day-color);
             cursor: pointer;

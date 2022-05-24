@@ -9,7 +9,9 @@ import {
 } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
+import startOfDay from "date-fns/startOfDay";
 import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
+import { flushSync } from "react-dom";
 import { Calendar } from "./internal/Calendar";
 import { useCalendarId, useDisableDate } from "./internal/hooks";
 import { createReducer, DateValidationError } from "./internal/reducer";
@@ -40,7 +42,12 @@ interface Props extends DataTestAutoId {
      */
     placeholder?: string;
     labelProps?: Omit<LabelProps, "children" | "forceCompact">;
-    initialDate?: Date;
+    defaultValue?: Date;
+    /**
+     * Lar deg styre hvilken dato som skal være forhåndsvalgt i kalendervisningen dersom det ikke er valgt en dato.
+     * NB! Dette setter _ikke_ noen verdi på datovelgeren. Om du vil ha en standard dato, se `defaultValue`.
+     */
+    defaultSelected?: Date;
     value?: Date;
     extended?: boolean;
     initialShow?: boolean;
@@ -65,7 +72,8 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
         label = "Velg dato",
         labelProps,
         placeholder = "dd.mm.åååå",
-        initialDate,
+        defaultValue,
+        defaultSelected = startOfDay(new Date()),
         value,
         onChange,
         onBlur,
@@ -92,7 +100,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
     );
 
     const disableDate = useDisableDate(disableBeforeDate, disableAfterDate);
-    const initialDateState = getInitialDate(value, initialDate, disableDate);
+    const initialDateState = getInitialDate(value, defaultValue, disableDate);
 
     const [state, dispatch] = useReducer(reducer, {
         date: initialDateState,
@@ -117,7 +125,9 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
     const [calendarRef] = useAnimatedHeight<HTMLDivElement>(!state.calendarHidden);
 
     const onClickCalendarDay = ({ date }: DateInfo) => {
-        dispatch({ type: "SELECT_DATE_IN_CALENDAR", payload: date });
+        flushSync(() => {
+            dispatch({ type: "SELECT_DATE_IN_CALENDAR", payload: date });
+        });
         textboxRef.current && textboxRef.current.focus();
     };
 
@@ -215,29 +225,33 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
                     iconType="calendar"
                     buttonTitle={state.calendarHidden ? "Vis kalender" : "Skjul kalender"}
                     onClick={() => {
-                        dispatch({ type: "TOGGLE" });
                         const wasHidden = state.calendarHidden;
+                        flushSync(() => {
+                            dispatch({ type: "TOGGLE" });
+                        });
                         if (wasHidden) {
                             const calendarEl = calendarRef.current;
-                            const button = calendarEl && (calendarEl.querySelector("[autofocus]") as HTMLButtonElement);
+                            const button =
+                                calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
                             button && setTimeout(() => button.focus(), 100);
                         }
                     }}
                     onFocus={handleFocusChange(onFocus)}
                     onBlur={handleFocusChange(onBlur)}
                 />
-                <div className="jkl-datepicker__calendar-wrapper">
-                    <Calendar
-                        date={state.date}
-                        selected={state.date}
-                        minDate={disableBeforeDate}
-                        maxDate={disableAfterDate}
-                        onDateSelected={onClickCalendarDay}
-                        hidden={state.calendarHidden}
-                        forceCompact={forceCompact}
-                        ref={calendarRef}
-                        {...calendarProps}
-                    />
+                <div className="jkl-datepicker__calendar-wrapper" ref={calendarRef}>
+                    {!state.calendarHidden && (
+                        <Calendar
+                            date={state.date || defaultSelected}
+                            selected={state.date || defaultSelected}
+                            minDate={disableBeforeDate}
+                            maxDate={disableAfterDate}
+                            onDateSelected={onClickCalendarDay}
+                            hidden={state.calendarHidden}
+                            forceCompact={forceCompact}
+                            {...calendarProps}
+                        />
+                    )}
                 </div>
             </div>
             <SupportLabel
