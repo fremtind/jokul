@@ -229,6 +229,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar
                         date={state.date}
+                        selected={state.date}
                         minDate={disableBeforeDate}
                         maxDate={disableAfterDate}
                         onDateSelected={onClickCalendarDay}

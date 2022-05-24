@@ -153,12 +153,14 @@ export interface UseCalendarProps {
 export type GetDatePropsFunc = (props: GetDateProps) => GetDatePropsResult;
 export type GetBackPropsFunc = (props: GetBackProps) => GetBackPropsResult;
 export type GetForwardPropsFunc = (props: GetForwardProps) => GetForwardPropsResult;
+export type HandleOffsetFunc = (newOffset: number) => void;
 
 export type UseCalendarResult = {
     calendars: CalendarMonth[];
     getDateProps: GetDatePropsFunc;
     getBackProps: GetBackPropsFunc;
     getForwardProps: GetForwardPropsFunc;
+    handleOffsetChanged: HandleOffsetFunc;
 };
 
 export function useCalendar({
@@ -167,7 +169,7 @@ export function useCalendar({
     minDate,
     monthsToDisplay = 1,
     firstDayOfWeek = 0,
-    showOutsideDays = false,
+    showOutsideDays = true,
     offset,
     onDateSelected,
     onOffsetChanged,
@@ -206,5 +208,6 @@ export function useCalendar({
             offsetMonth,
             handleOffsetChanged,
         }),
+        handleOffsetChanged,
     };
 }
