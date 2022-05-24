@@ -181,7 +181,8 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
             return;
         }
 
-        const dateHasChanged = (previousState?.date || state.date) && state.date !== previousState?.date;
+        const dateHasChanged =
+            (previousState?.date || state.date) && state.date?.getTime() !== previousState?.date?.getTime();
         const dateStringHasChanged =
             (previousState?.dateString || state.dateString) && state.dateString !== previousState?.dateString;
         const errorHasChanged = (previousState?.error || state.error) && state.error !== previousState?.error;
