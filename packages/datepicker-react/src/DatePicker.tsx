@@ -46,11 +46,16 @@ interface Props extends DataTestAutoId {
     /**
      * Lar deg styre hvilken dato som skal være forhåndsvalgt i kalendervisningen dersom det ikke er valgt en dato.
      * NB! Dette setter _ikke_ noen verdi på datovelgeren. Om du vil ha en standard dato, se `defaultValue`.
+     * @default startOfDay(new Date())
      */
     defaultSelected?: Date;
+    /**
+     * Styr om du vil at kalenderen skal starte åpen
+     * @default false
+     */
+    defaultShow?: boolean;
     value?: Date;
     extended?: boolean;
-    initialShow?: boolean;
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
@@ -79,7 +84,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
         onBlur,
         onFocus,
         onKeyDown,
-        initialShow = false,
+        defaultShow: initialShow = false,
         className = "",
         forceCompact,
         disableBeforeDate,
@@ -122,7 +127,13 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const textboxRef = (ref as RefObject<HTMLInputElement>) || inputRef;
-    const [calendarRef] = useAnimatedHeight<HTMLDivElement>(!state.calendarHidden);
+    const [calendarRef] = useAnimatedHeight<HTMLDivElement>(!state.calendarHidden, {
+        onFirstVisible: () => {
+            const calendarEl = calendarRef.current;
+            const button = calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
+            button && button.focus();
+        },
+    });
 
     const onClickCalendarDay = ({ date }: DateInfo) => {
         flushSync(() => {
@@ -225,33 +236,22 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
                     iconType="calendar"
                     buttonTitle={state.calendarHidden ? "Vis kalender" : "Skjul kalender"}
                     onClick={() => {
-                        const wasHidden = state.calendarHidden;
-                        flushSync(() => {
-                            dispatch({ type: "TOGGLE" });
-                        });
-                        if (wasHidden) {
-                            const calendarEl = calendarRef.current;
-                            const button =
-                                calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
-                            button && setTimeout(() => button.focus(), 100);
-                        }
+                        dispatch({ type: "TOGGLE" });
                     }}
                     onFocus={handleFocusChange(onFocus)}
                     onBlur={handleFocusChange(onBlur)}
                 />
-                <div className="jkl-datepicker__calendar-wrapper" ref={calendarRef}>
-                    {!state.calendarHidden && (
-                        <Calendar
-                            date={state.date || defaultSelected}
-                            selected={state.date || defaultSelected}
-                            minDate={disableBeforeDate}
-                            maxDate={disableAfterDate}
-                            onDateSelected={onClickCalendarDay}
-                            hidden={state.calendarHidden}
-                            forceCompact={forceCompact}
-                            {...calendarProps}
-                        />
-                    )}
+                <div className="jkl-datepicker__calendar-wrapper">
+                    <Calendar
+                        ref={calendarRef}
+                        date={state.date || defaultSelected}
+                        selected={state.date || defaultSelected}
+                        minDate={disableBeforeDate}
+                        maxDate={disableAfterDate}
+                        onDateSelected={onClickCalendarDay}
+                        forceCompact={forceCompact}
+                        {...calendarProps}
+                    />
                 </div>
             </div>
             <SupportLabel
