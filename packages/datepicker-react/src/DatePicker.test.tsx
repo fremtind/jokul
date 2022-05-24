@@ -646,14 +646,14 @@ describe("after user types string", () => {
 
 describe("a11y", () => {
     it("default datepicker should be a11y compliant", async () => {
-        const { container } = render(<DatePicker initialShow />);
+        const { container } = render(<DatePicker defaultShow />);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
     it("extended datepicker should be a11y compliant", async () => {
-        const { container } = render(<DatePicker extended initialShow />);
+        const { container } = render(<DatePicker extended defaultShow />);
         const results = await axe(container, {
             rules: {
                 "form-field-multiple-labels": { enabled: false },

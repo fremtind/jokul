@@ -137,6 +137,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
 
     const onClickCalendarDay = ({ date }: DateInfo) => {
         flushSync(() => {
+            dispatch({ type: "TOGGLE" });
             dispatch({ type: "SELECT_DATE_IN_CALENDAR", payload: date });
         });
         textboxRef.current && textboxRef.current.focus();
@@ -247,6 +248,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
                         ref={calendarRef}
                         date={state.date || defaultSelected}
                         selected={state.date || defaultSelected}
+                        hidden={state.calendarHidden}
                         minDate={disableBeforeDate}
                         maxDate={disableAfterDate}
                         onDateSelected={onClickCalendarDay}

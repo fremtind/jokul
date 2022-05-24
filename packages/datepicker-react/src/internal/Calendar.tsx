@@ -8,6 +8,7 @@ import { addMonth, subtractMonth } from "./utils";
 import { flushSync } from "react-dom";
 
 interface CalendarProps extends Omit<UseCalendarProps, "onOffsetChanged" | "offset" | "firstDayOfWeek"> {
+    hidden?: boolean;
     extended?: boolean;
     forceCompact?: boolean;
 }
@@ -30,7 +31,7 @@ const monthNames = [
 const weekdayNames = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
-    ({ extended, forceCompact, date, minDate, maxDate, ...rest }, ref) => {
+    ({ extended, forceCompact, hidden, date, minDate, maxDate, ...rest }, ref) => {
         const id = useId("jkl-calendar");
         const [offset, setOffset] = useState(0);
         useEffect(() => {
@@ -142,6 +143,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                     ref={ref}
                     id={id}
                     className={cn("jkl-calendar", {
+                        "jkl-calendar--hidden": hidden,
                         "jkl-calendar--extended": extended,
                     })}
                 >
