@@ -201,11 +201,14 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
     /// Navigation in extended mode
     /// ===========================
 
+    &__navigation-fieldset {
+        margin-bottom: jkl.$spacing-l;
+    }
+
     &__navigation {
         display: flex;
         justify-content: center;
         align-content: center;
-        margin-bottom: jkl.$spacing-l;
     }
 
     &__year-selector {

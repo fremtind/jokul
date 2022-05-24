@@ -4,10 +4,14 @@ import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { useCalendar, UseCalendarProps } from "./useCalendar";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./utils";
+import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled, formatDate } from "./utils";
 import { flushSync } from "react-dom";
+import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import isBefore from "date-fns/isBefore";
+import isAfter from "date-fns/isAfter";
 
-interface CalendarProps extends Omit<UseCalendarProps, "onOffsetChanged" | "offset" | "firstDayOfWeek"> {
+interface CalendarProps extends Omit<UseCalendarProps, "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
+    defaultSelected?: Date;
     hidden?: boolean;
     extended?: boolean;
     forceCompact?: boolean;
@@ -31,13 +35,15 @@ const monthNames = [
 const weekdayNames = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
-    ({ extended, forceCompact, hidden, date, minDate, maxDate, ...rest }, ref) => {
+    ({ extended, forceCompact, hidden, date, defaultSelected, minDate, maxDate, ...rest }, ref) => {
         const id = useId("jkl-calendar");
+
         const [offset, setOffset] = useState(0);
+        const [selected, setSelected] = useState(date || defaultSelected);
         useEffect(() => {
-            // Reset offset when date changes
             setOffset(0);
-        }, [setOffset, date]);
+            setSelected(date || defaultSelected);
+        }, [setOffset, date, defaultSelected]);
 
         const onOffsetChanged = useCallback(
             (newOffset: number) => {
@@ -47,7 +53,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         );
 
         const { calendars, getBackProps, getDateProps, getForwardProps, handleOffsetChanged } = useCalendar({
-            date,
+            date: selected,
+            selected,
             minDate,
             maxDate,
             offset,
@@ -145,6 +152,87 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             [doFocusChange],
         );
 
+        const [extendedYear, setExtendedYear] = useState(String((selected || date || new Date()).getFullYear()));
+        const [extendedMonth, setExtendedMonth] = useState(String((selected || date || new Date()).getMonth()));
+        const [extendedError, setExtendedError] = useState("");
+
+        const handleYearChange = useCallback(
+            (e: React.ChangeEvent<HTMLInputElement>) => {
+                setExtendedError("");
+                setExtendedYear(e.target.value);
+
+                if (e.target.value.length !== 4) {
+                    return;
+                }
+
+                const year: number = Number.parseInt(e.target.value);
+                if (Number.isNaN(year)) {
+                    return;
+                }
+
+                const currentlySelected = new Date(selected || date || new Date());
+                const nextDate = new Date(currentlySelected);
+                nextDate.setFullYear(year);
+
+                const withinLowerBound = !minDate || isBefore(minDate, nextDate);
+                if (!withinLowerBound) {
+                    setExtendedError(`Minimum ${formatDate(minDate)}`);
+                    return;
+                }
+
+                const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
+                if (!withinUpperBound) {
+                    setExtendedError(`Maksimum ${formatDate(maxDate)}`);
+                    return;
+                }
+
+                setSelected(nextDate);
+            },
+            [selected, date, minDate, maxDate, setSelected, setExtendedYear, setExtendedError],
+        );
+
+        const handleYearBlur = useCallback(() => {
+            if (extendedError && selected) {
+                setExtendedYear(String(selected.getFullYear()));
+            }
+        }, [extendedError, setExtendedError, selected]);
+
+        const handleMonthChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
+            (e) => {
+                setExtendedError("");
+                setExtendedMonth(e.target.value);
+
+                if (!selected && !date) {
+                    return;
+                }
+
+                const currentlySelected = new Date(selected || date || new Date());
+                const nextDate = new Date(currentlySelected);
+                nextDate.setMonth(Number.parseInt(e.target.value));
+
+                const withinLowerBound = !minDate || isBefore(minDate, nextDate);
+                if (!withinLowerBound) {
+                    setExtendedError(`Minimum ${formatDate(minDate)}`);
+                    return;
+                }
+
+                const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
+                if (!withinUpperBound) {
+                    setExtendedError(`Maksimum ${formatDate(maxDate)}`);
+                    return;
+                }
+
+                setSelected(nextDate);
+            },
+            [offset, selected, date, minDate, maxDate, setSelected, setExtendedMonth, setExtendedError],
+        );
+
+        const handleMonthBlur = useCallback(() => {
+            if (extendedError && selected) {
+                setExtendedMonth(String(selected.getMonth()));
+            }
+        }, [extendedError, setExtendedError, selected]);
+
         return (
             <>
                 <div
@@ -157,28 +245,43 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 >
                     <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
                         {extended && (
-                            <div className="jkl-calendar__navigation">
-                                {/* TODO: oppdater offset ved endring til gyldig dato */}
-                                {/* TODO: refactor ut i egen komponent så vi ikke re-rendrer hele kalenderen ved input change */}
-                                <TextInput
-                                    label="År"
-                                    type="year"
-                                    className="jkl-calendar__year-selector"
-                                    width="5rem"
-                                    variant="small"
-                                    forceCompact={forceCompact}
-                                />
-                                {/* TODO: hvorfor er dette en nativeselect? */}
-                                {/* TODO: oppdater offset ved valg */}
-                                <NativeSelect
-                                    className="jkl-calendar__month-selector"
-                                    label="Måned"
-                                    items={[]}
-                                    variant="small"
-                                    forceCompact={forceCompact}
-                                    width="auto"
-                                />
-                            </div>
+                            <FieldGroup
+                                className="jkl-calendar__navigation-fieldset"
+                                legend="År og måned"
+                                errorLabel={extendedError}
+                            >
+                                <div className="jkl-calendar__navigation">
+                                    <TextInput
+                                        label="År"
+                                        labelProps={{ srOnly: true }}
+                                        type="year"
+                                        className="jkl-calendar__year-selector"
+                                        width="5rem"
+                                        variant="small"
+                                        onChange={handleYearChange}
+                                        onBlur={handleYearBlur}
+                                        value={extendedYear}
+                                        forceCompact={forceCompact}
+                                        invalid={Boolean(extendedError)}
+                                    />
+                                    <NativeSelect
+                                        className="jkl-calendar__month-selector"
+                                        label="Måned"
+                                        labelProps={{ srOnly: true }}
+                                        items={monthNames.map((name: string, i: number) => ({
+                                            value: String(i),
+                                            label: name,
+                                        }))}
+                                        variant="small"
+                                        value={extendedMonth}
+                                        onChange={handleMonthChange}
+                                        onBlur={handleMonthBlur}
+                                        forceCompact={forceCompact}
+                                        invalid={Boolean(extendedError)}
+                                        width="auto"
+                                    />
+                                </div>
+                            </FieldGroup>
                         )}
                         {!extended && (
                             <fieldset className="jkl-calendar__month-navigation">

@@ -252,8 +252,8 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar
                         ref={calendarRef}
-                        date={state.date || defaultSelected}
-                        selected={state.date || defaultSelected}
+                        date={state.date}
+                        defaultSelected={defaultSelected}
                         hidden={state.calendarHidden}
                         minDate={disableBeforeDate}
                         maxDate={disableAfterDate}
