@@ -9,6 +9,7 @@ import { flushSync } from "react-dom";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import isBefore from "date-fns/isBefore";
 import isAfter from "date-fns/isAfter";
+import { SupportLabel } from "@fremtind/jkl-core";
 
 interface CalendarProps extends Omit<UseCalendarProps, "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
     defaultSelected?: Date;
@@ -37,6 +38,7 @@ const weekdayNames = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
     ({ extended, forceCompact, hidden, date, defaultSelected, minDate, maxDate, ...rest }, ref) => {
         const id = useId("jkl-calendar");
+        const extendedSupportLabelId = useId("jkl-calendar-error-label");
 
         const [offset, setOffset] = useState(0);
         const [selected, setSelected] = useState(date || defaultSelected);
@@ -135,15 +137,19 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 switch (event.key) {
                     case "ArrowUp":
                         doFocusChange(-7);
+                        event.preventDefault();
                         break;
                     case "ArrowRight":
                         doFocusChange(1);
+                        event.preventDefault();
                         break;
                     case "ArrowDown":
                         doFocusChange(7);
+                        event.preventDefault();
                         break;
                     case "ArrowLeft":
                         doFocusChange(-1);
+                        event.preventDefault();
                         break;
                     default:
                         break;
@@ -234,127 +240,128 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         }, [extendedError, setExtendedError, selected]);
 
         return (
-            <>
-                <div
-                    ref={ref}
-                    id={id}
-                    className={cn("jkl-calendar", {
-                        "jkl-calendar--hidden": hidden,
-                        "jkl-calendar--extended": extended,
-                    })}
-                >
-                    <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
-                        {extended && (
-                            <FieldGroup
-                                className="jkl-calendar__navigation-fieldset"
-                                legend="År og måned"
+            <div
+                ref={ref}
+                id={id}
+                className={cn("jkl-calendar", {
+                    "jkl-calendar--hidden": hidden,
+                    "jkl-calendar--extended": extended,
+                })}
+            >
+                <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
+                    {extended && (
+                        <FieldGroup className="jkl-calendar__navigation-fieldset" legend="År og måned">
+                            <div className="jkl-calendar__navigation">
+                                <TextInput
+                                    label="År"
+                                    labelProps={{ srOnly: true }}
+                                    type="year"
+                                    className="jkl-calendar__year-selector"
+                                    width="5rem"
+                                    variant="small"
+                                    onChange={handleYearChange}
+                                    onBlur={handleYearBlur}
+                                    value={extendedYear}
+                                    forceCompact={forceCompact}
+                                    aria-describedby={extendedError ? extendedSupportLabelId : undefined}
+                                    invalid={Boolean(extendedError)}
+                                />
+                                <NativeSelect
+                                    className="jkl-calendar__month-selector"
+                                    label="Måned"
+                                    labelProps={{ srOnly: true }}
+                                    items={monthNames.map((name: string, i: number) => ({
+                                        value: String(i),
+                                        label: name,
+                                    }))}
+                                    variant="small"
+                                    value={extendedMonth}
+                                    onChange={handleMonthChange}
+                                    onBlur={handleMonthBlur}
+                                    forceCompact={forceCompact}
+                                    aria-describedby={extendedError ? extendedSupportLabelId : undefined}
+                                    invalid={Boolean(extendedError)}
+                                    width="auto"
+                                />
+                            </div>
+                            <SupportLabel
+                                id={extendedSupportLabelId}
+                                forceCompact={forceCompact}
                                 errorLabel={extendedError}
+                            />
+                        </FieldGroup>
+                    )}
+                    {!extended && (
+                        <fieldset className="jkl-calendar__month-navigation">
+                            <button {...getBackProps({ calendars })} className="jkl-calendar__month-button">
+                                ←
+                            </button>
+                            <button
+                                {...getForwardProps({ calendars })}
+                                className="jkl-calendar__month-button jkl-calendar__month-button--right"
                             >
-                                <div className="jkl-calendar__navigation">
-                                    <TextInput
-                                        label="År"
-                                        labelProps={{ srOnly: true }}
-                                        type="year"
-                                        className="jkl-calendar__year-selector"
-                                        width="5rem"
-                                        variant="small"
-                                        onChange={handleYearChange}
-                                        onBlur={handleYearBlur}
-                                        value={extendedYear}
-                                        forceCompact={forceCompact}
-                                        invalid={Boolean(extendedError)}
-                                    />
-                                    <NativeSelect
-                                        className="jkl-calendar__month-selector"
-                                        label="Måned"
-                                        labelProps={{ srOnly: true }}
-                                        items={monthNames.map((name: string, i: number) => ({
-                                            value: String(i),
-                                            label: name,
-                                        }))}
-                                        variant="small"
-                                        value={extendedMonth}
-                                        onChange={handleMonthChange}
-                                        onBlur={handleMonthBlur}
-                                        forceCompact={forceCompact}
-                                        invalid={Boolean(extendedError)}
-                                        width="auto"
-                                    />
-                                </div>
-                            </FieldGroup>
-                        )}
-                        {!extended && (
-                            <fieldset className="jkl-calendar__month-navigation">
-                                <button {...getBackProps({ calendars })} className="jkl-calendar__month-button">
-                                    ←
-                                </button>
-                                <button
-                                    {...getForwardProps({ calendars })}
-                                    className="jkl-calendar__month-button jkl-calendar__month-button--right"
-                                >
-                                    →
-                                </button>
-                            </fieldset>
-                        )}
-                        {calendars.map((calendar) => (
-                            <table key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
-                                <caption>
-                                    {monthNames[calendar.month]} {calendar.year}
-                                </caption>
-                                <thead>
-                                    <tr>
-                                        {weekdayNames.map((weekday) => (
-                                            <th key={`${calendar.month}${calendar.year}${weekday}`}>{weekday}</th>
-                                        ))}
-                                    </tr>
-                                </thead>
-                                {/* The <div> element handles keyboard events that bubble up from <button> elements inside */}
-                                {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions */}
-                                <tbody data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
-                                    {calendar.weeks.map((week, weekIndex) => (
-                                        <tr key={`${calendar.month}${calendar.year}${weekIndex}`}>
-                                            {week.map((dateInfo, index) => {
-                                                const key = `${calendar.month}${calendar.year}${weekIndex}${index}`;
-                                                if (typeof dateInfo === "string") {
-                                                    return (
-                                                        <td
-                                                            className="jkl-calendar__date jkl-calendar__date--empty"
-                                                            key={key}
-                                                        >
-                                                            {dateInfo}
-                                                        </td>
-                                                    );
-                                                }
-                                                const { date, selected, selectable, today, prevMonth, nextMonth } =
-                                                    dateInfo;
+                                →
+                            </button>
+                        </fieldset>
+                    )}
+                    {calendars.map((calendar) => (
+                        <table key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
+                            <caption>
+                                {monthNames[calendar.month]}, {calendar.year}
+                            </caption>
+                            <thead>
+                                <tr>
+                                    {weekdayNames.map((weekday) => (
+                                        <th key={`${calendar.month}${calendar.year}${weekday}`}>{weekday}</th>
+                                    ))}
+                                </tr>
+                            </thead>
+                            {/* The <div> element handles keyboard events that bubble up from <button> elements inside */}
+                            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions */}
+                            <tbody data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
+                                {calendar.weeks.map((week, weekIndex) => (
+                                    <tr key={`${calendar.month}${calendar.year}${weekIndex}`}>
+                                        {week.map((dateInfo, index) => {
+                                            const key = `${calendar.month}${calendar.year}${weekIndex}${index}`;
+                                            if (typeof dateInfo === "string") {
                                                 return (
-                                                    <td key={key}>
-                                                        <button
-                                                            {...getDateProps({
-                                                                dateObj: dateInfo,
-                                                            })}
-                                                            className="jkl-calendar__date"
-                                                            tabIndex={selected ? 0 : -1}
-                                                            aria-current={today ? "date" : undefined}
-                                                            data-adjacent={prevMonth || nextMonth ? "true" : undefined}
-                                                            disabled={!selectable || prevMonth || nextMonth}
-                                                        >
-                                                            {date.getDate()}
-                                                        </button>
+                                                    <td
+                                                        className="jkl-calendar__date jkl-calendar__date--empty"
+                                                        key={key}
+                                                    >
+                                                        {dateInfo}
                                                     </td>
                                                 );
-                                            })}
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        ))}
-                    </div>
+                                            }
+                                            const { date, selected, selectable, today, prevMonth, nextMonth } =
+                                                dateInfo;
+                                            return (
+                                                <td key={key}>
+                                                    <button
+                                                        {...getDateProps({
+                                                            dateObj: dateInfo,
+                                                        })}
+                                                        className="jkl-calendar__date"
+                                                        tabIndex={selected ? 0 : -1}
+                                                        aria-label={`${date.getDate()}. ${monthNames[
+                                                            date.getMonth()
+                                                        ].toLowerCase()}`}
+                                                        aria-current={today ? "date" : undefined}
+                                                        data-adjacent={prevMonth || nextMonth ? "true" : undefined}
+                                                        disabled={!selectable || prevMonth || nextMonth}
+                                                    >
+                                                        <span aria-hidden="true">{date.getDate()}</span>
+                                                    </button>
+                                                </td>
+                                            );
+                                        })}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ))}
                 </div>
-                <span className="jkl-sr-only" aria-live="polite" aria-atomic="true">
-                    {date ? date.getFullYear() : ""}
-                </span>
-            </>
+            </div>
         );
     },
 );

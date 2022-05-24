@@ -53,7 +53,6 @@ type GetDateProps = {
 type GetDatePropsResult = {
     onClick: React.MouseEventHandler;
     disabled: boolean;
-    "aria-label": string;
     "aria-pressed": boolean;
     role: "button";
 };
@@ -64,7 +63,6 @@ function getDateProps(onDateSelected: BoundGetDateProps, { onClick, dateObj }: G
             onDateSelected(dateObj, event);
         }),
         disabled: !dateObj.selectable,
-        "aria-label": dateObj.date.toDateString(),
         "aria-pressed": dateObj.selected,
         role: "button",
     };
