@@ -23,6 +23,11 @@ export interface NativeSelectProps {
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
     onBlur?: FocusEventHandler<HTMLSelectElement>;
+    /**
+     * Merk som ugyldig uten å sende inn en errorLabel.
+     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+     */
+    invalid?: boolean;
 }
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
@@ -36,6 +41,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             inline = false,
             helpLabel,
             errorLabel,
+            invalid,
             variant,
             placeholder,
             value,
@@ -53,7 +59,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 className={cn("jkl-select", className, {
                     "jkl-select--inline": inline,
                     "jkl-select--compact": forceCompact,
-                    "jkl-select--invalid": !!errorLabel,
+                    "jkl-select--invalid": !!errorLabel || invalid,
                 })}
             >
                 <Label variant={variant} {...labelProps} standAlone htmlFor={uid} forceCompact={forceCompact}>

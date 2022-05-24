@@ -69,6 +69,11 @@ interface Props extends DataTestAutoId {
     onFocus?: onFocusEventHandler;
     onBlur?: onBlurEventHandler;
     onKeyDown?: onKeyDownEventHandler;
+    /**
+     * Merk som ugyldig uten å sende inn en errorLabel.
+     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+     */
+    invalid?: boolean;
 }
 
 export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
@@ -92,6 +97,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
         variant,
         helpLabel,
         errorLabel,
+        invalid,
         width = "11.5rem",
         "data-testautoid": testAutoId,
         ...calendarProps
@@ -219,7 +225,7 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
                     ref={textboxRef}
                     name={name}
                     describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
-                    invalid={!!errorLabel}
+                    invalid={!!errorLabel || invalid}
                     className="jkl-datepicker__input jkl-text-input__input"
                     data-testid="jkl-datepicker__input"
                     value={state.dateString}

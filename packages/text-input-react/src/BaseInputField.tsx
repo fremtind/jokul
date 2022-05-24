@@ -27,6 +27,11 @@ export interface BaseProps {
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     name?: string;
     defaultValue?: string;
+    /**
+     * Merk som ugyldig uten å sende inn en errorLabel.
+     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+     */
+    invalid?: boolean;
 }
 
 export interface Props extends BaseProps {
