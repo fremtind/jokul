@@ -4,7 +4,7 @@ import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { useCalendar, UseCalendarProps } from "./useCalendar";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { addMonth, subtractMonth } from "./utils";
+import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./utils";
 import { flushSync } from "react-dom";
 
 interface CalendarProps extends Omit<UseCalendarProps, "onOffsetChanged" | "offset" | "firstDayOfWeek"> {
@@ -74,6 +74,10 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                         if (newNodeKey <= buttons.length - 1 && newNodeKey >= 0) {
                             (buttons[newNodeKey] as HTMLButtonElement).focus();
                         } else if (offsetDiff < 0) {
+                            if (isBackDisabled({ calendars, minDate })) {
+                                return;
+                            }
+
                             // Hvis newNodeKey er utenfor samlingen med knapper så har vi prøvd å gå til
                             // en dag utenfor måneden. Er offsetDiff negativ så har vi gått tilbake en
                             // måned.
@@ -91,6 +95,10 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                 newButtons[newButtons.length + newNodeKey].focus();
                             }
                         } else {
+                            if (isForwardDisabled({ calendars, maxDate })) {
+                                return;
+                            }
+
                             // Hvis newNodeKey er utenfor samlingen med knapper så har vi prøvd å gå til
                             // en dag utenfor måneden. Er offsetDiff positiv så har vi gått frem en
                             // måned.
