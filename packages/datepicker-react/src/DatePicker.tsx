@@ -44,12 +44,6 @@ interface Props extends DataTestAutoId {
     labelProps?: Omit<LabelProps, "children" | "forceCompact">;
     defaultValue?: Date;
     /**
-     * Lar deg styre hvilken dato som skal være forhåndsvalgt i kalendervisningen dersom det ikke er valgt en dato.
-     * NB! Dette setter _ikke_ noen verdi på datovelgeren. Om du vil ha en standard dato, se `defaultValue`.
-     * @default startOfDay(new Date())
-     */
-    defaultSelected?: Date;
-    /**
      * Styr om du vil at kalenderen skal starte åpen
      * @default false
      */
@@ -83,7 +77,6 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
         labelProps,
         placeholder = "dd.mm.åååå",
         defaultValue,
-        defaultSelected = startOfDay(new Date()),
         value,
         onChange,
         onBlur,
@@ -105,13 +98,13 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
 
     const [inputId, supportLabelId] = useCalendarId();
 
-    const reducer = useMemo(
-        () => createReducer(disableBeforeDate, disableAfterDate),
-        [disableBeforeDate, disableAfterDate],
-    );
+    const minDate = disableBeforeDate ? startOfDay(disableBeforeDate) : undefined;
+    const maxDate = disableAfterDate ? startOfDay(disableAfterDate) : undefined;
+    const reducer = useMemo(() => createReducer(minDate, maxDate), [minDate, maxDate]);
 
-    const disableDate = useDisableDate(disableBeforeDate, disableAfterDate);
+    const disableDate = useDisableDate(minDate, maxDate);
     const initialDateState = getInitialDate(value, defaultValue, disableDate);
+    const defaultSelected = startOfDay(new Date());
 
     const [state, dispatch] = useReducer(reducer, {
         date: initialDateState,
@@ -255,8 +248,8 @@ export const DatePicker = forwardRef<HTMLElement, Props>((props, ref) => {
                         date={state.date}
                         defaultSelected={defaultSelected}
                         hidden={state.calendarHidden}
-                        minDate={disableBeforeDate}
-                        maxDate={disableAfterDate}
+                        minDate={minDate}
+                        maxDate={maxDate}
                         onDateSelected={onClickCalendarDay}
                         forceCompact={forceCompact}
                         {...calendarProps}
