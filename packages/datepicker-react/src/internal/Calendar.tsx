@@ -247,6 +247,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                     "jkl-calendar--hidden": hidden,
                     "jkl-calendar--extended": extended,
                 })}
+                data-testid="jkl-calendar"
             >
                 <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
                     {extended && (

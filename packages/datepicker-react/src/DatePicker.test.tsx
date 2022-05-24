@@ -12,7 +12,7 @@ describe("Datepicker", () => {
 
     it("renders with the correct format", () => {
         const thePast = new Date(2019, 11, 24);
-        render(<DatePicker initialDate={thePast} />);
+        render(<DatePicker defaultValue={thePast} />);
 
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "24.12.2019");
@@ -122,8 +122,8 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "12.09.2019");
     });
 
-    it("resets initialDate if it's outside scope", () => {
-        render(<DatePicker initialDate={new Date("07.10.1992")} disableBeforeDate={new Date("09.12.2019")} />);
+    it("resets defaultValue if it's outside scope", () => {
+        render(<DatePicker defaultValue={new Date("07.10.1992")} disableBeforeDate={new Date("09.12.2019")} />);
 
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
@@ -157,28 +157,28 @@ describe("Datepicker", () => {
         render(<DatePicker label="Some datepicker" />);
         const input = screen.getByLabelText("Some datepicker");
 
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
 
         await act(async () => {
             await userEvent.click(input);
         });
 
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).not.toHaveClass("jkl-calendar--hidden");
     });
 
     it("should close the datepicker when clicking outside the date picker", async () => {
         render(<DatePicker label="Some datepicker" />);
         const input = screen.getByLabelText("Some datepicker");
 
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
         await act(async () => {
             await userEvent.click(input);
         });
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).not.toHaveClass("jkl-calendar--hidden");
         await act(async () => {
             await userEvent.click(document.body);
         });
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
     });
 
     it("should close the datepicker when tab-navigating outside the date picker", async () => {
@@ -190,11 +190,11 @@ describe("Datepicker", () => {
         );
         const input = screen.getByLabelText("Some datepicker");
 
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
         await act(async () => {
             await userEvent.click(input);
         });
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).not.toHaveClass("jkl-calendar--hidden");
 
         // Run userEvent.tab() 5 times to navigate out of datepicker. Progresses into the <button> element rendered above.
         await act(async () => {
@@ -204,23 +204,23 @@ describe("Datepicker", () => {
             await userEvent.tab();
             await userEvent.tab();
         });
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
     });
 
     it("should close the calendar when a valid date is entered in the field", async () => {
         render(<DatePicker label="Some datepicker" />);
         const input = screen.getByLabelText("Some datepicker");
 
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
         await act(async () => {
             await userEvent.click(input);
         });
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).not.toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).not.toHaveClass("jkl-calendar--hidden");
         await act(async () => {
             // Enter a valid date into the field
             await userEvent.type(input, "14.10.1986", { delay: 5 });
         });
-        expect(screen.getByTestId("jkl-calendar__core-datepicker")).toHaveClass("jkl-calendar--hidden");
+        expect(screen.getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
     });
 
     it("should keep focus on input field when clicking on the input field", async () => {
@@ -555,7 +555,7 @@ describe("Datepicker", () => {
 
     it("should have data-testautoid", () => {
         const thePast = new Date(2019, 11, 24);
-        render(<DatePicker initialDate={thePast} data-testautoid="jkl-datepicker__testautoid" />);
+        render(<DatePicker defaultValue={thePast} data-testautoid="jkl-datepicker__testautoid" />);
 
         const input = screen.getByTestId("jkl-datepicker__input");
         const testAutoId = input.getAttribute("data-testautoid");
@@ -564,7 +564,7 @@ describe("Datepicker", () => {
 
     it("supports label only for screen readers", () => {
         const thePast = new Date(2019, 11, 24);
-        render(<DatePicker initialDate={thePast} label="Hello" labelProps={{ srOnly: true }} />);
+        render(<DatePicker defaultValue={thePast} label="Hello" labelProps={{ srOnly: true }} />);
 
         const label = screen.getByText("Hello");
         expect(label).toHaveClass("jkl-label--sr-only");
@@ -617,7 +617,7 @@ describe("after user types string", () => {
         const thePast = new Date(2019, 11, 24);
         render(
             <DatePicker
-                initialDate={thePast}
+                defaultValue={thePast}
                 label="Hva er tid?" /* label skal være kompakt */
                 helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
                 extended /* extended for å vise inputfelt i kalenderen, som også skal være kompakte */
