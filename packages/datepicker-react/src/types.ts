@@ -20,7 +20,7 @@ export type DatePickerKeyDownEventHandler =
     | ((e: KeyboardEvent<HTMLInputElement>, date: Date | null, meta: DatePickerMetadata) => void);
 
 export type DatePickerMetadata = {
-    error: DateValidationError | undefined;
+    error: DateValidationError | null;
     /** Samme som event.target.value */
     value: string;
 };

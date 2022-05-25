@@ -11,7 +11,9 @@ import isBefore from "date-fns/isBefore";
 import isAfter from "date-fns/isAfter";
 import { SupportLabel } from "@fremtind/jkl-core";
 
-interface CalendarProps extends Omit<UseCalendarProps, "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
+interface CalendarProps
+    extends Omit<UseCalendarProps, "date" | "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
+    date: Date | null;
     defaultSelected?: Date;
     hidden?: boolean;
     extended?: boolean;
@@ -40,6 +42,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         const id = useId("jkl-calendar");
         const extendedSupportLabelId = useId("jkl-calendar-error-label");
 
+        /// Calendar state
+
         const [offset, setOffset] = useState(0);
         const [selected, setSelected] = useState(date || defaultSelected);
         useEffect(() => {
@@ -64,6 +68,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             firstDayOfWeek: 1,
             ...rest,
         });
+
+        /// Calendar keyboard navigation
 
         const calendarPaddingRef = useRef<HTMLDivElement>(null);
         const doFocusChange = useCallback(
@@ -129,7 +135,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                     }
                 });
             },
-            [calendarPaddingRef, offset, calendars, maxDate, minDate],
+            [handleOffsetChanged, calendarPaddingRef, offset, calendars, maxDate, minDate],
         );
 
         const onArrowNavigation = useCallback(
@@ -158,9 +164,13 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             [doFocusChange],
         );
 
+        /// Extended variant state
+
         const [extendedYear, setExtendedYear] = useState(String((selected || date || new Date()).getFullYear()));
         const [extendedMonth, setExtendedMonth] = useState(String((selected || date || new Date()).getMonth()));
         const [extendedError, setExtendedError] = useState("");
+
+        /// Extended variant events
 
         const handleYearChange = useCallback(
             (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -194,14 +204,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
                 setSelected(nextDate);
             },
-            [selected, date, minDate, maxDate, setSelected, setExtendedYear, setExtendedError],
+            [setSelected, setExtendedYear, setExtendedError, selected, date, minDate, maxDate],
         );
 
         const handleYearBlur = useCallback(() => {
             if (extendedError && selected) {
+                // Reset to current selection since the calendar refuses to update to the given input
                 setExtendedYear(String(selected.getFullYear()));
             }
-        }, [extendedError, setExtendedError, selected]);
+        }, [setExtendedYear, extendedError, selected]);
 
         const handleMonthChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
             (e) => {
@@ -230,14 +241,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
                 setSelected(nextDate);
             },
-            [offset, selected, date, minDate, maxDate, setSelected, setExtendedMonth, setExtendedError],
+            [setSelected, setExtendedMonth, setExtendedError, selected, date, minDate, maxDate],
         );
 
         const handleMonthBlur = useCallback(() => {
             if (extendedError && selected) {
+                // Reset to current selection since the calendar refuses to update to the given input
                 setExtendedMonth(String(selected.getMonth()));
             }
-        }, [extendedError, setExtendedError, selected]);
+        }, [setExtendedMonth, extendedError, selected]);
 
         return (
             <div

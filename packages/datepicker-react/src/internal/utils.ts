@@ -645,15 +645,17 @@ export function dateIsOutsideRange(date: Date, rangeStart: Date | undefined, ran
  */
 export function getInitialDate(
     value: string | undefined,
-    initialDate: Date | undefined,
-    disableDate: (date: Date) => boolean | undefined,
-): Date | undefined {
+    defaultValue: string | undefined,
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+): Date | null {
     const valueAsDate = parseDateString(value);
+    const defaultValueAsDate = parseDateString(defaultValue);
     if (valueAsDate) {
-        return !disableDate(valueAsDate) ? valueAsDate : undefined;
+        return !dateIsOutsideRange(valueAsDate, minDate, maxDate) ? valueAsDate : null;
     }
-    if (initialDate) {
-        return !disableDate(initialDate) ? initialDate : undefined;
+    if (defaultValueAsDate) {
+        return !dateIsOutsideRange(defaultValueAsDate, minDate, maxDate) ? defaultValueAsDate : null;
     }
-    return undefined;
+    return null;
 }

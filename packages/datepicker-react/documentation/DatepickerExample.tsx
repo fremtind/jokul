@@ -25,7 +25,7 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
-    const [value, setValue] = useState<Date | undefined>(undefined);
+    const [value, setValue] = useState<string | undefined>();
 
     return (
         <DatePicker
@@ -39,21 +39,34 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
             disableBeforeDate={new Date(Date.now() - monthsIsh(14))}
             disableAfterDate={new Date(Date.now() + monthsIsh(14))}
             value={value}
-            onFocus={(date) => {
-                console.log("hello from onFocus", date);
-                setValue(date);
+            onFocus={(e, date, meta) => {
+                console.log("onFocus", {
+                    event: e,
+                    date,
+                    meta,
+                });
             }}
-            onBlur={(date) => {
-                console.log("hello from onBlur", date);
-                setValue(date);
+            onBlur={(e, date, meta) => {
+                console.log("onBlur", {
+                    event: e,
+                    date,
+                    meta,
+                });
             }}
-            onChange={(date, _, meta) => {
-                console.log("hello from onChange", date, _, meta);
-                setValue(date);
+            onChange={(e, date, meta) => {
+                setValue(e.target.value);
+                console.log("onChange", {
+                    event: e,
+                    date,
+                    meta,
+                });
             }}
-            onKeyDown={(date, _) => {
-                console.log("hello from onKeyDown", date, _);
-                setValue(date);
+            onKeyDown={(e, date, meta) => {
+                console.log("onKeyDown", {
+                    event: e,
+                    date,
+                    meta,
+                });
             }}
         />
     );
