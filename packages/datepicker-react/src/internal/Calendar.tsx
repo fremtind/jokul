@@ -307,12 +307,17 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                     )}
                     {!extended && (
                         <fieldset className="jkl-calendar__month-navigation">
-                            <button {...getBackProps({ calendars })} className="jkl-calendar__month-button">
+                            <button
+                                {...getBackProps({ calendars })}
+                                className="jkl-calendar__month-button"
+                                type="button"
+                            >
                                 ←
                             </button>
                             <button
                                 {...getForwardProps({ calendars })}
                                 className="jkl-calendar__month-button jkl-calendar__month-button--right"
+                                type="button"
                             >
                                 →
                             </button>
@@ -355,6 +360,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                                         {...getDateProps({
                                                             dateObj: dateInfo,
                                                         })}
+                                                        type="button"
                                                         className="jkl-calendar__date"
                                                         tabIndex={selected ? 0 : -1}
                                                         aria-label={`${date.getDate()}. ${monthNames[

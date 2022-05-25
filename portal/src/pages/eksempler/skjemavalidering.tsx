@@ -25,6 +25,9 @@ type FormValues = {
 const Skjemavalideringseksempel: VFC = () => {
     const { formState, handleSubmit, register } = useForm<FormValues>({
         shouldFocusError: false,
+        defaultValues: {
+            fodselsdato: "24.10.1990",
+        },
     });
 
     /** Gjør klar props til oppsummeringen */
@@ -103,7 +106,11 @@ const Skjemavalideringseksempel: VFC = () => {
                 errorLabel={formState.errors.fodselsdato?.message}
                 label="Fødselsdato"
                 {...register("fodselsdato", {
-                    required: "Du må fylle ut eierens etternavn",
+                    required: "Du må fylle ut fødselsdato",
+                    validate: (...args) => {
+                        console.log(...args);
+                        return true;
+                    },
                     onChange: (...args) => {
                         console.log(...args);
                     },
