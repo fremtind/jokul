@@ -55,7 +55,7 @@ describe("Datepicker", () => {
     it("fires onChange method on edit input with date outside lower bound", async () => {
         const changeHandler = jest.fn();
         const lowerBound = new Date(2021, 8, 20);
-        render(<DatePicker onChange={changeHandler} disableBeforeDate={lowerBound} />);
+        render(<DatePicker onChange={changeHandler} disableBefore={lowerBound} />);
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
 
@@ -73,7 +73,7 @@ describe("Datepicker", () => {
     it("fires onChange method on edit input with date outside upper bound", async () => {
         const changeHandler = jest.fn();
         const upperBound = new Date(2021, 8, 20);
-        render(<DatePicker onChange={changeHandler} disableAfterDate={upperBound} />);
+        render(<DatePicker onChange={changeHandler} disableAfter={upperBound} />);
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
 
@@ -123,14 +123,14 @@ describe("Datepicker", () => {
     });
 
     it("resets defaultValue if it's outside scope", () => {
-        render(<DatePicker defaultValue={new Date("07.10.1992")} disableBeforeDate={new Date("09.12.2019")} />);
+        render(<DatePicker defaultValue={new Date("07.10.1992")} disableBefore={new Date("09.12.2019")} />);
 
         const input = screen.getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
     });
 
     it("resets value when opening calendar, if it is set outside scope from input field", async () => {
-        render(<DatePicker disableBeforeDate={new Date("09.12.2020")} />);
+        render(<DatePicker disableBefore={new Date("09.12.2020")} />);
         const input = screen.getByTestId("jkl-datepicker__input");
 
         await act(async () => {
@@ -255,7 +255,7 @@ describe("Datepicker", () => {
     });
 
     it("should reset date if day before 'disableBeforeDate' date is manually typed", async () => {
-        render(<DatePicker disableBeforeDate={new Date(2020, 8, 2)} label="Some datepicker" />);
+        render(<DatePicker disableBefore={new Date(2020, 8, 2)} label="Some datepicker" />);
 
         const input = screen.getByLabelText("Some datepicker");
         const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
@@ -284,7 +284,7 @@ describe("Datepicker", () => {
     });
 
     it("should not reset date if 'disableBeforeDate' date is manually typed", async () => {
-        render(<DatePicker disableBeforeDate={new Date(2020, 8, 1)} label="Some datepicker" />);
+        render(<DatePicker disableBefore={new Date(2020, 8, 1)} label="Some datepicker" />);
 
         const input = screen.getByLabelText("Some datepicker");
         const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
@@ -312,7 +312,7 @@ describe("Datepicker", () => {
     });
 
     it("should not reset date if 'disableAfterDate' date is manually typed", async () => {
-        render(<DatePicker disableAfterDate={new Date(2020, 8, 1)} label="Some datepicker" />);
+        render(<DatePicker disableAfter={new Date(2020, 8, 1)} label="Some datepicker" />);
 
         const input = screen.getByLabelText("Some datepicker");
         const toggleCalendarButtonElement = screen.getByText("Åpne kalender");
@@ -340,7 +340,7 @@ describe("Datepicker", () => {
     });
 
     it("should reset date if day after 'disableAfterDate' is manually typed", async () => {
-        render(<DatePicker disableAfterDate={new Date(2020, 8, 1)} label="Some datepicker" />);
+        render(<DatePicker disableAfter={new Date(2020, 8, 1)} label="Some datepicker" />);
 
         const input = screen.getByLabelText("Some datepicker");
         const toggleCalendarButtonElement = screen.getByText("Åpne kalender");

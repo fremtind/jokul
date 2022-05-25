@@ -1,10 +1,11 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import cn from "classnames";
+import { formatDate } from "@fremtind/jkl-formatters-util";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { useCalendar, UseCalendarProps } from "./useCalendar";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled, formatDate } from "./utils";
+import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./utils";
 import { flushSync } from "react-dom";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import isBefore from "date-fns/isBefore";

@@ -36,8 +36,8 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}
-            disableBeforeDate={new Date(Date.now() - monthsIsh(14))}
-            disableAfterDate={new Date(Date.now() + monthsIsh(14))}
+            disableBefore={new Date(Date.now() - monthsIsh(14))}
+            disableAfter={new Date(Date.now() + monthsIsh(14))}
             value={value}
             onFocus={(e, date, meta) => {
                 console.log("onFocus", {

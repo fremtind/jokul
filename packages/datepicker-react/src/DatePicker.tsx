@@ -1,5 +1,6 @@
 import { DataTestAutoId, Label, LabelProps, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { formatDate } from "@fremtind/jkl-formatters-util";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useId, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
@@ -14,7 +15,7 @@ import {
     DatePickerKeyDownEventHandler,
     DateValidationError,
 } from "./types";
-import { getInitialDate, DateInfo, formatDate, parseDateString } from "./internal/utils";
+import { getInitialDate, DateInfo, parseDateString } from "./internal/utils";
 
 interface Props extends DataTestAutoId {
     /** Settes på rotnivå. */
@@ -30,7 +31,10 @@ interface Props extends DataTestAutoId {
      */
     labelProps?: Omit<LabelProps, "children" | "forceCompact">;
     /**
+     * dd.mm.åååå
+     *
      * Dersom komponenten ikke er _controlled_, send inn ønsket standardverdi her (hvis noen).
+     *
      * @default undefined // tomt skjemafelt
      */
     defaultValue?: string;
@@ -40,19 +44,25 @@ interface Props extends DataTestAutoId {
      */
     defaultShow?: boolean;
     /**
+     * dd.mm.åååå
+     *
      * Verdien til inputfeltet.
      */
     value?: string;
     /**
+     * dd.mm.åååå
+     *
      * Skru av knapper i kalenderen før denne datoen,
      * og gi valideringsfeil om dato som har blitt skrevet inn er utenfor.
      */
-    disableBeforeDate?: Date;
+    disableBefore?: string;
     /**
+     * dd.mm.åååå
+     *
      * Skru av knapper i kalenderen etter denne datoen,
      * og gi valideringsfeil om dato som har blitt skrevet inn er utenfor.
      */
-    disableAfterDate?: Date;
+    disableAfter?: string;
     /**
      * Settes på inputfeltet.
      */
@@ -148,8 +158,8 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
         defaultValue,
         defaultShow = false,
         value,
-        disableBeforeDate,
-        disableAfterDate,
+        disableBefore,
+        disableAfter,
         name,
         helpLabel,
         errorLabel,
@@ -172,9 +182,11 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
     }
 
     /// Input state
-
+    const disableBeforeDate = parseDateString(disableBefore);
     const minDate = disableBeforeDate ? startOfDay(disableBeforeDate) : undefined;
+    const disableAfterDate = parseDateString(disableAfter);
     const maxDate = disableAfterDate ? startOfDay(disableAfterDate) : undefined;
+
     const [dateString, setDateString] = useState(value || defaultValue || "");
     const [date, setDate] = useState(getInitialDate(value, defaultValue, minDate, maxDate));
     const [error, setError] = useState<DateValidationError | null>(null);
