@@ -26,7 +26,7 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
-    const [value, setValue] = useState<string | undefined>();
+    const [value, setValue] = useState<string>("");
 
     return (
         <DatePicker

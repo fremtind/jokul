@@ -26,7 +26,7 @@ const Skjemavalideringseksempel: VFC = () => {
     const { formState, handleSubmit, register } = useForm<FormValues>({
         shouldFocusError: false,
         defaultValues: {
-            fodselsdato: "24.10.1990",
+            // fodselsdato: "24.10.1990",
         },
     });
 
@@ -106,11 +106,13 @@ const Skjemavalideringseksempel: VFC = () => {
                 errorLabel={formState.errors.fodselsdato?.message}
                 label="Fødselsdato"
                 {...register("fodselsdato", {
-                    pattern: /\d{2}.\d{2}.\d{4}/,
                     required: "Du må fylle ut fødselsdato",
                     validate: {
-                        isCorrectFormat,
-                        withinUpperBound: (v) => isWithinUpperBound(v, new Date()),
+                        isCorrectFormat: (v) =>
+                            isCorrectFormat(v) ||
+                            `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,
+                        withinUpperBound: (v) =>
+                            isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,
                     },
                 })}
             />

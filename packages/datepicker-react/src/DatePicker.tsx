@@ -1,12 +1,10 @@
 import { DataTestAutoId, Label, LabelProps, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { formatDate } from "@fremtind/jkl-formatters-util";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useId, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import startOfDay from "date-fns/startOfDay";
-import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useCallback, useRef, useState } from "react";
-import { flushSync } from "react-dom";
+import React, { ChangeEvent, FocusEvent, forwardRef, useCallback, useRef, useState } from "react";
 import { Calendar } from "./internal/Calendar";
 import {
     DatePickerBlurEventHandler,
@@ -18,6 +16,7 @@ import {
 import { getInitialDate, DateInfo } from "./internal/utils";
 import { parseDateString } from "./utils";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation";
+import { formatDate } from "@fremtind/jkl-formatters-util";
 
 interface Props extends DataTestAutoId {
     /** Settes på rotnivå. */
@@ -189,7 +188,6 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
     const disableAfterDate = parseDateString(disableAfter);
     const maxDate = disableAfterDate ? startOfDay(disableAfterDate) : undefined;
 
-    const [dateString, setDateString] = useState(value || defaultValue || "");
     const [date, setDate] = useState(getInitialDate(value, defaultValue, minDate, maxDate));
     const [error, setError] = useState<DateValidationError | null>(null);
 
@@ -198,8 +196,22 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
 
     /// Input events
 
-    const defaultInputRef = useRef<HTMLInputElement>(null);
-    const inputRef = (forwardedInputRef as RefObject<HTMLInputElement>) || defaultInputRef;
+    const inputRef = useRef<HTMLInputElement | null>(null);
+
+    // Hjelper for å gjøre det enklere å både forwarde refen men også bruke den selv internt
+    const unifiedInputRef = useCallback(
+        (instance: HTMLInputElement | null) => {
+            inputRef.current = instance;
+            if (forwardedInputRef) {
+                if (typeof forwardedInputRef === "function") {
+                    forwardedInputRef(instance);
+                } else {
+                    forwardedInputRef.current = instance;
+                }
+            }
+        },
+        [inputRef, forwardedInputRef],
+    );
 
     const inputWrapperRef = useRef<HTMLDivElement>(null);
     const handleFocus = useCallback(
@@ -240,8 +252,6 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
 
     const handleChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
-            setDateString(e.target.value);
-
             let nextDate: Date | null = null;
             let nextError: DateValidationError | null = null;
 
@@ -265,7 +275,7 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
                 onChange(e, nextDate, { error: nextError, value: e.target.value });
             }
         },
-        [onChange, setError, setDate, setDateString, minDate, maxDate],
+        [onChange, setError, setDate, minDate, maxDate],
     );
 
     /// Calendar state
@@ -293,14 +303,33 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
 
     const handleClickCalendarDay = useCallback(
         ({ date }: DateInfo) => {
-            flushSync(() => {
-                setShowCalendar(false);
-                setDate(date);
-                setDateString(formatDate(date));
-            });
-            inputRef.current && inputRef.current.focus();
+            setShowCalendar(false);
+            setDate(date);
+
+            if (inputRef.current) {
+                const node = inputRef.current;
+
+                node.value = formatDate(date);
+
+                // Simulér et change-event så APIet blir så likt som mulig en endring av inputfeltet
+                const event = document.createEvent("HTMLEvents");
+                event.initEvent("input", true, false);
+                node.dispatchEvent(event);
+
+                node.focus();
+
+                if (onChange) {
+                    // Det er ikke helt sant at dette er et React.SyntheticEvent, men it's fine – probably?
+                    // Den har tingene man kan forvente, men hvis du gjør serdeles fancy ting med events
+                    // så kan det hende du må utvide denne for å dekke behovet ditt.
+                    onChange(event as unknown as ChangeEvent<HTMLInputElement>, date, {
+                        error: null,
+                        value: node.value,
+                    });
+                }
+            }
         },
-        [setShowCalendar, setDate, setDateString, inputRef],
+        [setShowCalendar, setDate, inputRef.current],
     );
 
     useClickOutside(inputWrapperRef, hideCalendar);
@@ -329,7 +358,7 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
                 })}
             >
                 <BaseInputField
-                    ref={inputRef}
+                    ref={unifiedInputRef}
                     data-testid="jkl-datepicker__input"
                     data-testautoid={testAutoId}
                     className="jkl-datepicker__input jkl-text-input__input"
@@ -337,7 +366,8 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
                     name={name}
                     describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
                     invalid={!!errorLabel || invalid}
-                    value={dateString}
+                    defaultValue={defaultValue}
+                    value={value}
                     type="text"
                     placeholder={placeholder}
                     width={width}
