@@ -1,0 +1,89 @@
+---
+title: Høydepunkter fra mai 2022
+author: William Killerud
+publishDate: "2022.05.27"
+---
+
+<Ingress>
+    Mai er som kjent krydret med røde dager og inneklemte fredager, men det har ikke stoppet Jøkul fra å få
+    feilrettinger og nye features.
+</Ingress>
+
+-   Accordion har fått kompaktversjon igjen i Figma
+-   Logostempelet skalerer riktig i Figma
+-   Alle varianter av [logostempelet](/komponenter/logo) fra Figma finnes nå i kode
+-   Kode for [skeleton loaders](/komponenter/loader#skeleton-loader) er publisert
+-   [ToggleSlider](/komponenter/toggleswitch) tåler lengre tekster
+-   Ny [utvikler-guide](/guider/hvordan-teste-endringer-eget-prosjekt) for å teste Jøkul-endringer i eget prosjekt
+-   Kommende _breaking changes_ i DatePicker, Core
+
+Ellers jobber kjerneteamet tett med Flyt/ASK og SAM som en fortsettelse av diskusjonen rundt compact og mobil i Figma-skisser. Vi er ikke helt i mål, men er i gang med å teste et sett med nye kompaktvarianter.
+
+Kjør detaljer! 👇
+
+## Skeleton loaders
+
+BM demonstrerte et konsept for _skeleton loaders_ for en stund siden. Nå har kode for dette blitt tilgjengelig i [Loaders](/komponenter/loader#skeleton-loader)-pakka. Ta en titt på komponentdokumentasjonen for et mer omfattende eksempel, og noen ting som er kjekt å vite for utviklere.
+
+![](/assets/blog/updates/mai-2022/skeleton-demo.gif)
+
+## Varianter av LogoStamp
+
+Det har vært en del varianter av teksten i logostempelet i Figma, men i kode har det en stundt bare vært én mulighet. Pio har ordnet så alle varianter fra Figma er [tilgjengelig i kode](/komponenter/logo).
+
+For øvrig har en skaleringsfeil i denne komponenten blitt fikset i Figma. Nå skal innholdet skalere riktig om du endrer størrelse.
+
+![](/assets/blog/updates/mai-2022/logostamp-demo.png)
+
+Dette var en _breaking change_. Ta en titt på [migrasjonsguiden](https://github.com/fremtind/jokul/blob/main/packages/logo-react/MIGRATION.md#til-jkl-logo-react900) om du ikke har oppgradert ennå.
+
+## ToggleSlider tåler lengre tekster
+
+Espen har bygget opp [ToggleSlider](/komponenter/toggleswitch) på nytt fra bunnen av. Nå tåler den litt lengre tekster enn før uten å se rar ut, men husk at tekster uansett [bør holdes noenlunde korte](/komponenter/toggleswitch#bruk).
+
+![](/assets/blog/updates/mai-2022/toggleslider-demo.gif)
+
+## For utviklere
+
+### Guide for å teste Jøkul-endringer i eget prosjekt
+
+Følg [denne guiden](/guider/hvordan-teste-endringer-eget-prosjekt) om du skal gjøre endringer i Jøkul-kode og vil teste endringene dine på localhost i kontekst av ditt eget prosjekt.
+
+### Kommende breaking changes
+
+#### Snart ny kode for DatePicker
+
+Det pågår en designjobb for å fornye DatePicker, men i mellomtiden har dagens versjon blitt så buggy at vi ser oss nødt til å erstatte den med en ny implementasjon.
+
+Det blir en breaking change for DatePicker sannsynligvis allerede neste uke (uke 22). Om du er nysgjerrig så ligger endringene så langt på branchen [fix/datepicker](https://github.com/fremtind/jokul/tree/fix/datepicker/packages/datepicker-react/src). Det gjenstår blant annet å fikse enhetstester og migrasjonsguide, men APIet har stabilisert seg.
+
+#### Fremtidig major-versjon av core
+
+Det ligger i kortene at det kommer en _breaking change_ i `@fremtind/jkl-core` for de av dere som bruker Sass-kode fra den pakka.
+
+Det [etableres et tydelig API og en stilguide for Sass](https://github.com/fremtind/jokul/pull/2868). Det vil bli lagt ut en migreringsguide, og for det meste er det snakk om å følge eksemplene på _search and replace_ for å oppgradere.
+
+Planen er å merge dette uke 23 (7. til 10. juni).
+
+Siden det er en _breaking change_ i core vil alle pakker få en ny majorversjon. Det er ingen breaking changes i pakkene ellers.
+
+## Diverse bugfikser
+
+-   Accordion har fått kompaktversjon igjen i Figma
+-   Sercan la til muligheten for maxLength på Feedback sine tekstfelter ([#2863](https://github.com/fremtind/jokul/pull/2863))
+-   JoMs fikset en bug i formatering av valuta hvis den var `0` ([#2848](https://github.com/fremtind/jokul/pull/2848))
+-   kennidenni gjorde så typedefinisjonen til knapper er strengere ([#2857](https://github.com/fremtind/jokul/pull/2857))
+-   Select i dark mode får nå riktig rødfarge ved valideringsfeil ([#2877](https://github.com/fremtind/jokul/pull/2877))
+-   matssom fikset en feil i dokumentasjonen for FieldGroup ([#2864](https://github.com/fremtind/jokul/pull/2864))
+
+## Takk
+
+Takk til alle bidragsytere, både på GitHub og i Figma!
+
+-   espkva
+-   JoMs
+-   kennidenni
+-   matssom
+-   SercanSercan
+
+En stor takk også til alle som er med på designsystemforum!
