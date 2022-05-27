@@ -16,6 +16,7 @@ import {
     DateValidationError,
 } from "./types";
 import { getInitialDate, DateInfo, parseDateString } from "./internal/utils";
+import { isWithinLowerBound, isWithinUpperBound } from "./validation";
 
 interface Props extends DataTestAutoId {
     /** Settes på rotnivå. */
@@ -247,9 +248,9 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
                 const val = parseDateString(e.target.value);
                 if (!val) {
                     nextError = "WRONG_FORMAT";
-                } else if (minDate && val < minDate) {
+                } else if (minDate && !isWithinLowerBound(val, minDate)) {
                     nextError = "OUTSIDE_LOWER_BOUND";
-                } else if (maxDate && val > maxDate) {
+                } else if (maxDate && !isWithinUpperBound(val, maxDate)) {
                     nextError = "OUTSIDE_UPPER_BOUND";
                 } else {
                     nextDate = val;
