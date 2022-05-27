@@ -15,7 +15,8 @@ import {
     DatePickerKeyDownEventHandler,
     DateValidationError,
 } from "./types";
-import { getInitialDate, DateInfo, parseDateString } from "./internal/utils";
+import { getInitialDate, DateInfo } from "./internal/utils";
+import { parseDateString } from "./utils";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation";
 
 interface Props extends DataTestAutoId {

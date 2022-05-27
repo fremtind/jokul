@@ -1,4 +1,4 @@
-import { parseDateString } from "./internal/utils";
+import { parseDateString } from "./utils";
 
 export function isCorrectFormat(value: string | undefined): boolean {
     if (!value) {

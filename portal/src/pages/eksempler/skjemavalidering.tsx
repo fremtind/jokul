@@ -2,7 +2,7 @@ import React, { useRef, VFC } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker } from "@fremtind/jkl-datepicker-react";
+import { DatePicker, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { Select } from "@fremtind/jkl-select-react";
@@ -106,13 +106,11 @@ const Skjemavalideringseksempel: VFC = () => {
                 errorLabel={formState.errors.fodselsdato?.message}
                 label="Fødselsdato"
                 {...register("fodselsdato", {
+                    pattern: /\d{2}.\d{2}.\d{4}/,
                     required: "Du må fylle ut fødselsdato",
-                    validate: (...args) => {
-                        console.log(...args);
-                        return true;
-                    },
-                    onChange: (...args) => {
-                        console.log(...args);
+                    validate: {
+                        isCorrectFormat,
+                        withinUpperBound: (v) => isWithinUpperBound(v, new Date()),
                     },
                 })}
             />
