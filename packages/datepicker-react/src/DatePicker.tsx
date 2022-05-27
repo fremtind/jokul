@@ -4,7 +4,17 @@ import { useAnimatedHeight, useClickOutside, useFocusOutside, useId, useKeyListe
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import startOfDay from "date-fns/startOfDay";
-import React, { ChangeEvent, FocusEvent, forwardRef, useCallback, useRef, useState } from "react";
+import React, {
+    ButtonHTMLAttributes,
+    ChangeEvent,
+    FocusEvent,
+    KeyboardEvent,
+    MouseEvent,
+    forwardRef,
+    useCallback,
+    useRef,
+    useState,
+} from "react";
 import { Calendar } from "./internal/Calendar";
 import {
     DatePickerBlurEventHandler,
@@ -18,7 +28,7 @@ import { parseDateString } from "./utils";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation";
 import { formatDate } from "@fremtind/jkl-formatters-util";
 
-interface Props extends DataTestAutoId {
+export interface DatePickerProps extends DataTestAutoId {
     /** Settes på rotnivå. */
     id?: string;
     /** Settes på rotnivå. */
@@ -29,6 +39,13 @@ interface Props extends DataTestAutoId {
     label?: string;
     /**
      * Bruk labelProps for å sette props som `variant` og `srOnly`.
+     *
+     * @example
+     *  ```tsx
+     *  <DatePicker
+     *      labelProps={{ srOnly: true }}
+     *  />
+     *  ```
      */
     labelProps?: Omit<LabelProps, "children" | "forceCompact">;
     /**
@@ -103,15 +120,17 @@ interface Props extends DataTestAutoId {
      */
     width?: string;
     /**
-     * Kalles ved change-event fra datovelgerens inputfelt.
+     * Kalles ved change-event fra datovelgerens inputfelt. Verdien fra selve eventet vil
+     * alltid være teksten fra inputfeltet.
      *
-     * Verdien fra selve eventet vil alltid være teksten fra inputfeltet.
      * Det er _ikke_ garantert at verdien fra `event.target.value` er en
-     * gyldig dato, eller i datoformat.
+     * gyldig dato, eller i datoformat. Andre parameter vil enten være en gyldig
+     * `Date` eller `null`. Tredje parameter har informasjon om validering,
+     * men du kan også gjøre validering selv rett på `event.target.value`
+     * med utility-funksjoner som eksporteres fra pakka (se eksempel lenger ned).
      *
-     * Kalles når brukeren velger en dato fra kalendervisningen. Kallet kommer
-     * i form av et programatisk trigget change-event, så du vil ikke se noen
-     * forskjell.
+     * Kalles også når brukeren velger en dato fra kalendervisningen. Kallet
+     * prøver å simulere et vanlig change-event så nært som mulig.
      *
      * Bruk meta-objektet for å se om det er valideringsfeil, og i så fal hvilken type feil:
      *
@@ -120,22 +139,105 @@ interface Props extends DataTestAutoId {
      *  - dato utenfor maksimum tillatte dato (satt med `disableAfterDate`)
      *
      * @example
-     *  // TODO
+     *
+     *  ```tsx
+     *  <DatePicker
+     *      value={value}
+     *      onChange={(e, date, meta) => {
+     *          setValue(e.target.value);
+     *
+     *          console.log("onChange", {
+     *              event: e,
+     *              date,
+     *              meta,
+     *          });
+     *      }}
+     *  />
+     *  ```
+     *
+     * @example
+     *
+     *  ```tsx
+     *  import {
+     *      DatePicker,
+     *      isCorrectFormat,
+     *      isWithinUpperBound,
+     *      isWithinLowerBound,
+     *      parseDateString
+     *  } from "@fremtind/jkl-datepicker-react";
+     *  import { formatDate } from "@fremtind/jkl-formatters-util";
+     *
+     *  <DatePicker
+     *      label="Fødselsdato"
+     *      errorLabel={formState.errors.fodselsdato?.message}
+     *      disableBefore="01.01.1970"
+     *      disableAfter={formatDate(new Date())}
+     *      {...register("fodselsdato", {
+     *          required: "Du må fylle ut fødselsdato",
+     *          validate: {
+     *              isCorrectFormat: (v) =>
+     *                  isCorrectFormat(v) ||
+     *                  `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,
+     *              withinLowerBound: (v) =>
+     *                  isWithinLowerBound(v, parseDateString("01.01.1970") || "Datoen må være før 01.01.1970"",
+     *              withinUpperBound: (v) =>
+     *                  isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,
+     *          },
+     *      })}
+     *  />
+     *  ```
      */
     onChange?: DatePickerChangeEventHandler;
     /**
      * Kalles ved focus-event fra datovelgerens inputfelt.
      *
      * @example
-     *  // TODO
+     *  ```tsx
+     *  <DatePicker
+     *      onFocus={(e, date, meta) => {
+     *          console.log("onFocus", {
+     *              event: e,
+     *              date,
+     *              meta,
+     *          });
+     *      }}
+     *  />
+     *  ```
      */
     onFocus?: DatePickerFocusEventHandler;
     /**
      * Kalles ved blur-event fra datovelgerens inputfelt, og kommer når fokus flyttes ut
      * av skjemaelementet.
      *
+     * **NB!** Dette inkluderer når fokus flyttes inn i kalenderen, eller til kalenderknappen!
+     *
+     * Om du ønsker å gjøre ting når brukeren går videre fra hele DatePicker:
+     *   1. Ha en onBlur på DatePicker, men ignorere events når fokus er inni DatePicker
+     *   2. Ha en onBlur på DatePicker sin action-prop (kalenderknappen), og gjøre det samme
+     *
+     * Hjelpefunksjonen isBlurTargetOutside hjelper med detaljene.
+     *
      * @example
-     *  // TODO
+     *  ```tsx
+     *  import { DatePicker, isBlurTargetOutside } from "@fremtind/jkl-datepicker-react";
+     *
+     *  <DatePicker
+     *      onBlur={(e, date, meta) => {
+     *          // Ignorer blurs som går til kalenderknapper
+     *          if (isBlurTargetOutside(e)) {
+     *              console.log("onBlur");
+     *          }
+     *      }}
+     *      action={{
+     *          onBlur: (e) => {
+     *              // Ignorer blurs som går tilbake til inputfeltet
+     *              if (isBlurTargetOutside(e)) {
+     *                  console.log("action.onBlur");
+     *              }
+     *          },
+     *      }}
+     *  />
+     *  ```
      */
     onBlur?: DatePickerBlurEventHandler;
     /**
@@ -147,9 +249,15 @@ interface Props extends DataTestAutoId {
      * få tilbakemelding ved tastetrykk i inputfeltet. Foretrekk onChange for ny kode.
      */
     onKeyDown?: DatePickerKeyDownEventHandler;
+    /**
+     * Lar deg sette lyttere på kalenderknappen i skjemafeltet.
+     */
+    action?: DatePickerAction;
 }
 
-export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedInputRef) => {
+export interface DatePickerAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {}
+
+export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, forwardedInputRef) => {
     const {
         "data-testautoid": testAutoId,
         id,
@@ -173,6 +281,7 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
         onBlur,
         onFocus,
         onKeyDown,
+        action,
         ...rest
     } = props;
 
@@ -196,6 +305,7 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
 
     /// Input events
 
+    const iconButtonRef = useRef<HTMLButtonElement | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     // Hjelper for å gjøre det enklere å både forwarde refen men også bruke den selv internt
@@ -291,7 +401,17 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
         },
     });
 
-    const toggleCalendar = useCallback(() => {
+    const clickCalendar = useCallback(
+        (e: MouseEvent<HTMLButtonElement>) => {
+            setShowCalendar(!showCalendar);
+            if (action?.onClick) {
+                action.onClick(e);
+            }
+        },
+        [showCalendar, setShowCalendar, action?.onClick],
+    );
+
+    const clickInput = useCallback(() => {
         setShowCalendar(!showCalendar);
     }, [showCalendar, setShowCalendar]);
 
@@ -330,6 +450,15 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
             }
         },
         [setShowCalendar, setDate, inputRef.current],
+    );
+
+    const handleTabOutsideCalendar = useCallback(
+        (e: KeyboardEvent) => {
+            e.preventDefault();
+            setShowCalendar(false);
+            iconButtonRef.current && iconButtonRef.current.focus();
+        },
+        [setShowCalendar],
     );
 
     useClickOutside(inputWrapperRef, hideCalendar);
@@ -374,14 +503,16 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     onKeyDown={handleKeyDown}
-                    onClick={toggleCalendar}
+                    onClick={clickInput}
                     onChange={handleChange}
                 />
                 <IconButton
-                    className="jkl-text-input__action-button"
+                    ref={iconButtonRef}
+                    className="jkl-datepicker__action-button jkl-text-input__action-button"
                     iconType="calendar"
                     buttonTitle={showCalendar ? "Skjul kalender" : "Vis kalender"}
-                    onClick={toggleCalendar}
+                    {...action}
+                    onClick={clickCalendar}
                 />
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar
@@ -394,6 +525,7 @@ export const DatePicker = forwardRef<HTMLInputElement, Props>((props, forwardedI
                         extended={extended}
                         forceCompact={forceCompact}
                         onDateSelected={handleClickCalendarDay}
+                        onTabOutside={handleTabOutsideCalendar}
                     />
                 </div>
             </div>

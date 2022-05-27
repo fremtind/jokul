@@ -2,7 +2,7 @@ import React, { useState, VFC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
 import { formatDate } from "@fremtind/jkl-formatters-util";
-import { DatePicker } from "../src";
+import { DatePicker, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst"],
@@ -48,11 +48,14 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
                 });
             }}
             onBlur={(e, date, meta) => {
-                console.log("onBlur", {
-                    event: e,
-                    date,
-                    meta,
-                });
+                // Ignorer blurs som går til kalenderknapper
+                if (isBlurTargetOutside(e)) {
+                    console.log("onBlur", {
+                        event: e,
+                        date,
+                        meta,
+                    });
+                }
             }}
             onChange={(e, date, meta) => {
                 setValue(e.target.value);
@@ -68,6 +71,21 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
                     date,
                     meta,
                 });
+            }}
+            action={{
+                onBlur: (e) => {
+                    // Ignorer blurs som går tilbake til inputfeltet
+                    if (isBlurTargetOutside(e)) {
+                        console.log("action.onBlur", {
+                            event: e,
+                        });
+                    }
+                },
+                onClick: (e) => {
+                    console.log("action.onClick", {
+                        event: e,
+                    });
+                },
             }}
         />
     );

@@ -19,6 +19,7 @@ interface CalendarProps
     hidden?: boolean;
     extended?: boolean;
     forceCompact?: boolean;
+    onTabOutside: React.KeyboardEventHandler;
 }
 
 const monthNames = [
@@ -39,7 +40,7 @@ const monthNames = [
 const weekdayNames = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
-    ({ extended, forceCompact, hidden, date, defaultSelected, minDate, maxDate, ...rest }, ref) => {
+    ({ extended, forceCompact, hidden, date, defaultSelected, minDate, maxDate, onTabOutside, ...rest }, ref) => {
         const id = useId("jkl-calendar");
         const extendedSupportLabelId = useId("jkl-calendar-error-label");
 
@@ -163,6 +164,19 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 }
             },
             [doFocusChange],
+        );
+
+        const handleTabOutside = useCallback(
+            (event: React.KeyboardEvent) => {
+                // Shift + Tab flytter fokus til månedsvelger, noe vi ikke bryr oss om
+                if (event.shiftKey) {
+                    return;
+                }
+                // Når brukeren trykker på Tab fra en fokusert dato ønsker vi å lukke kalenderen
+                // og flytte fokus tilbake til IconButton
+                onTabOutside(event);
+            },
+            [onTabOutside],
         );
 
         /// Extended variant state
@@ -369,6 +383,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                                         aria-current={today ? "date" : undefined}
                                                         data-adjacent={prevMonth || nextMonth ? "true" : undefined}
                                                         disabled={!selectable || prevMonth || nextMonth}
+                                                        onKeyDown={handleTabOutside}
                                                     >
                                                         <span aria-hidden="true">{date.getDate()}</span>
                                                     </button>
