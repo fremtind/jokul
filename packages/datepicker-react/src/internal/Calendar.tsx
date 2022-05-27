@@ -168,13 +168,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
         const handleTabOutside = useCallback(
             (event: React.KeyboardEvent) => {
-                // Shift + Tab flytter fokus til månedsvelger, noe vi ikke bryr oss om
-                if (event.shiftKey) {
-                    return;
+                if (event.key === "Tab") {
+                    // Shift + Tab flytter fokus til månedsvelger, noe vi ikke bryr oss om
+                    if (event.shiftKey) {
+                        return;
+                    }
+                    // Når brukeren trykker på Tab fra en fokusert dato ønsker vi å lukke kalenderen
+                    // og flytte fokus tilbake til IconButton
+                    onTabOutside(event);
                 }
-                // Når brukeren trykker på Tab fra en fokusert dato ønsker vi å lukke kalenderen
-                // og flytte fokus tilbake til IconButton
-                onTabOutside(event);
             },
             [onTabOutside],
         );

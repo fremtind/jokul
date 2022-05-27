@@ -292,6 +292,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     }
 
     /// Input state
+
     const disableBeforeDate = parseDateString(disableBefore);
     const minDate = disableBeforeDate ? startOfDay(disableBeforeDate) : undefined;
     const disableAfterDate = parseDateString(disableAfter);
@@ -302,6 +303,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
 
     const inputId = useId("jkl-datepicker");
     const supportLabelId = useId("jkl-datepicker-label");
+
+    /// Calendar state
+
+    const defaultSelectedInCalendar = startOfDay(new Date());
+
+    const [showCalendar, setShowCalendar] = useState(defaultShow);
+    const [calendarRef] = useAnimatedHeight<HTMLDivElement>(showCalendar);
 
     /// Input events
 
@@ -374,8 +382,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 } else if (maxDate && !isWithinUpperBound(val, maxDate)) {
                     nextError = "OUTSIDE_UPPER_BOUND";
                 } else {
-                    nextDate = val;
+                    setShowCalendar(false);
                 }
+                nextDate = val || null;
             }
 
             setError(nextError);
@@ -385,25 +394,19 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 onChange(e, nextDate, { error: nextError, value: e.target.value });
             }
         },
-        [onChange, setError, setDate, minDate, maxDate],
+        [onChange, setError, setDate, setShowCalendar, minDate, maxDate],
     );
 
-    /// Calendar state
-
-    const defaultSelectedInCalendar = startOfDay(new Date());
-
-    const [showCalendar, setShowCalendar] = useState(defaultShow);
-    const [calendarRef] = useAnimatedHeight<HTMLDivElement>(showCalendar, {
-        onFirstVisible: () => {
-            const calendarEl = calendarRef.current;
-            const button = calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
-            button && button.focus();
-        },
-    });
+    /// Calendar events
 
     const clickCalendar = useCallback(
         (e: MouseEvent<HTMLButtonElement>) => {
             setShowCalendar(!showCalendar);
+
+            const calendarEl = calendarRef.current;
+            const button = calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
+            button && button.focus();
+
             if (action?.onClick) {
                 action.onClick(e);
             }
@@ -418,8 +421,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     const hideCalendar = useCallback(() => {
         setShowCalendar(false);
     }, [setShowCalendar]);
-
-    /// Calendar events
 
     const handleClickCalendarDay = useCallback(
         ({ date }: DateInfo) => {
@@ -510,7 +511,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     ref={iconButtonRef}
                     className="jkl-datepicker__action-button jkl-text-input__action-button"
                     iconType="calendar"
-                    buttonTitle={showCalendar ? "Skjul kalender" : "Vis kalender"}
+                    buttonTitle={showCalendar ? "Lukk kalender" : "Åpne kalender"}
                     {...action}
                     onClick={clickCalendar}
                 />
