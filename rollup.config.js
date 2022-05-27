@@ -31,6 +31,7 @@ function config(plugins) {
         // @nrk packages should be marked as external once patches are no longer necessary (see https://github.com/fremtind/jokul/issues/1215)
         external: [
             "react",
+            "react-dom",
             "downshift",
             "match-sorter",
             "nanoid",
