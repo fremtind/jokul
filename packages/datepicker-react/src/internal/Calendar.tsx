@@ -210,12 +210,18 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 const withinLowerBound = !minDate || isBefore(minDate, nextDate);
                 if (!withinLowerBound) {
                     setExtendedError(`Minimum ${formatDate(minDate)}`);
+                    setSelected(minDate);
+                    setExtendedYear(String(minDate.getFullYear()));
+                    setExtendedMonth(String(minDate.getMonth()));
                     return;
                 }
 
                 const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
                 if (!withinUpperBound) {
+                    setSelected(maxDate);
                     setExtendedError(`Maksimum ${formatDate(maxDate)}`);
+                    setExtendedYear(String(maxDate.getFullYear()));
+                    setExtendedMonth(String(maxDate.getMonth()));
                     return;
                 }
 
@@ -246,13 +252,19 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
                 const withinLowerBound = !minDate || isBefore(minDate, nextDate);
                 if (!withinLowerBound) {
+                    setSelected(minDate);
                     setExtendedError(`Minimum ${formatDate(minDate)}`);
+                    setExtendedYear(String(minDate.getFullYear()));
+                    setExtendedMonth(String(minDate.getMonth()));
                     return;
                 }
 
                 const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
                 if (!withinUpperBound) {
+                    setSelected(maxDate);
                     setExtendedError(`Maksimum ${formatDate(maxDate)}`);
+                    setExtendedYear(String(maxDate.getFullYear()));
+                    setExtendedMonth(String(maxDate.getMonth()));
                     return;
                 }
 
@@ -294,7 +306,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                     value={extendedYear}
                                     forceCompact={forceCompact}
                                     aria-describedby={extendedError ? extendedSupportLabelId : undefined}
-                                    invalid={Boolean(extendedError)}
                                 />
                                 <NativeSelect
                                     className="jkl-calendar__month-selector"
@@ -310,14 +321,13 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                     onBlur={handleMonthBlur}
                                     forceCompact={forceCompact}
                                     aria-describedby={extendedError ? extendedSupportLabelId : undefined}
-                                    invalid={Boolean(extendedError)}
                                     width="auto"
                                 />
                             </div>
                             <SupportLabel
                                 id={extendedSupportLabelId}
                                 forceCompact={forceCompact}
-                                errorLabel={extendedError}
+                                helpLabel={extendedError}
                             />
                         </FieldGroup>
                     )}
