@@ -411,12 +411,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 action.onClick(e);
             }
         },
-        [showCalendar, setShowCalendar, action?.onClick],
+        [setShowCalendar, showCalendar, action, calendarRef],
     );
 
     const clickInput = useCallback(() => {
         setShowCalendar(!showCalendar);
-    }, [showCalendar, setShowCalendar]);
+    }, [setShowCalendar, showCalendar]);
 
     const hideCalendar = useCallback(() => {
         setShowCalendar(false);
@@ -450,7 +450,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 }
             }
         },
-        [setShowCalendar, setDate, inputRef.current],
+        [setShowCalendar, setDate, onChange],
     );
 
     const handleTabOutsideCalendar = useCallback(
