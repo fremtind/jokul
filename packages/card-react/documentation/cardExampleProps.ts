@@ -27,7 +27,7 @@ export const taskCardExampleProps = {
 };
 
 export const infoCardExampleProps = {
-    boolProps: ["Image"],
+    boolProps: ["Image", { prop: "Title", defaultValue: true }],
     choiceProps: [
         {
             name: "Padding",
