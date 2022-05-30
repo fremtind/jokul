@@ -24,9 +24,8 @@ import {
     DateValidationError,
 } from "./types";
 import { getInitialDate, DateInfo } from "./internal/utils";
-import { parseDateString } from "./utils";
+import { formatInput, parseDateString } from "./utils";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation";
-import { formatDate } from "@fremtind/jkl-formatters-util";
 import { flushSync } from "react-dom";
 
 export interface DatePickerProps extends DataTestAutoId {
@@ -74,14 +73,14 @@ export interface DatePickerProps extends DataTestAutoId {
      * Skru av knapper i kalenderen før denne datoen,
      * og gi valideringsfeil om dato som har blitt skrevet inn er utenfor.
      */
-    disableBefore?: string;
+    disableBeforeDate?: string;
     /**
      * dd.mm.åååå
      *
      * Skru av knapper i kalenderen etter denne datoen,
      * og gi valideringsfeil om dato som har blitt skrevet inn er utenfor.
      */
-    disableAfter?: string;
+    disableAfterDate?: string;
     /**
      * Settes på inputfeltet.
      */
@@ -110,6 +109,24 @@ export interface DatePickerProps extends DataTestAutoId {
      * @default false
      */
     extended?: boolean;
+    /**
+     * Om du ønsker andre labels for ukedagene kan du gi de her.
+     */
+    days?: string[];
+    /**
+     * Om du ønsker andre labels for måneder kan du gi de her.
+     */
+    months?: string[];
+    /**
+     * Overstyr hvordan vi omtaler "Måned".
+     * @default "Måned"
+     */
+    monthLabel?: string;
+    /**
+     * Overstyr hvordan vi omtaler "År".
+     * @default "År"
+     */
+    yearLabel?: string;
     /**
      * Vises i inputfeltet hvis det ikke har noen input, som hint for datoformat.
      * @default "dd.mm.åååå"
@@ -161,6 +178,7 @@ export interface DatePickerProps extends DataTestAutoId {
      *  ```tsx
      *  import {
      *      DatePicker,
+     *      formatInput,
      *      isCorrectFormat,
      *      isWithinUpperBound,
      *      isWithinLowerBound,
@@ -172,7 +190,7 @@ export interface DatePickerProps extends DataTestAutoId {
      *      label="Fødselsdato"
      *      errorLabel={formState.errors.fodselsdato?.message}
      *      disableBefore="01.01.1970"
-     *      disableAfter={formatDate(new Date())}
+     *      disableAfter={formatInput(new Date())}
      *      {...register("fodselsdato", {
      *          required: "Du må fylle ut fødselsdato",
      *          validate: {
@@ -254,6 +272,8 @@ export interface DatePickerProps extends DataTestAutoId {
      * Lar deg sette lyttere på kalenderknappen i skjemafeltet.
      */
     action?: DatePickerAction;
+    showCalendarLabel?: string;
+    hideCalendarLabel?: string;
 }
 
 export interface DatePickerAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {}
@@ -268,14 +288,18 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         defaultValue,
         defaultShow = false,
         value,
-        disableBefore,
-        disableAfter,
+        disableBeforeDate: disableBefore,
+        disableAfterDate: disableAfter,
         name,
         helpLabel,
         errorLabel,
         invalid,
         forceCompact,
         extended,
+        days,
+        months,
+        monthLabel,
+        yearLabel,
         placeholder = "dd.mm.åååå",
         width = "11.5rem",
         onChange,
@@ -283,6 +307,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         onFocus,
         onKeyDown,
         action,
+        showCalendarLabel = "Åpne kalender",
+        hideCalendarLabel = "Lukk kalender",
         ...rest
     } = props;
 
@@ -433,7 +459,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             if (inputRef.current) {
                 const node = inputRef.current;
 
-                node.value = formatDate(date);
+                node.value = formatInput(date);
 
                 // Simulér et change-event så APIet blir så likt som mulig en endring av inputfeltet
                 const event = document.createEvent("HTMLEvents");
@@ -514,7 +540,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     ref={iconButtonRef}
                     className="jkl-datepicker__action-button jkl-text-input__action-button"
                     iconType="calendar"
-                    buttonTitle={showCalendar ? "Lukk kalender" : "Åpne kalender"}
+                    buttonTitle={showCalendar ? hideCalendarLabel : showCalendarLabel}
                     {...action}
                     onClick={clickCalendar}
                 />
@@ -525,6 +551,10 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         date={date}
                         minDate={minDate}
                         maxDate={maxDate}
+                        days={days}
+                        months={months}
+                        monthLabel={monthLabel}
+                        yearLabel={yearLabel}
                         hidden={!showCalendar}
                         extended={extended}
                         forceCompact={forceCompact}

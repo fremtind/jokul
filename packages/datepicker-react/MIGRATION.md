@@ -28,18 +28,16 @@ return (
 
 Alle inputs som før tok `Date`-objekter tar nå `string`, siden det underliggende skjemafeltet er et tekstfelt. Formatet på `string` inputs er `dd.mm.yyyy`.
 
-Du kan bruke `formatDate` fra `@fremtind/jkl-formatters` for å få datoer på dette formatet.
-
-/// Note to self: kan vi eksponere den samme formateringsfunksjonen fra `DatePicker`? Den har med programmatisk input å gjøre, ikke output for sluttbrukere.
+Du kan bruke `formatInput` fra `@fremtind/jkl-datepicker-react` for å få datoer på dette formatet.
 
 Om resten av koden din fungerer best med `Date` så er dette den minimale endringen du trenger å gjøre for å få satt riktig `value`:
 
 ```diff
-+ import { formatDate } from "@fremtind/jkl-formatters-util";
++ import { DatePicker, formatInput } from "@fremtind/jkl-datepicker-react";
 
   <DatePicker
 -    value={value}
-+    value={formatDate(value)}
++    value={formatInput(value)}
   />
 ```
 
@@ -51,7 +49,7 @@ Om resten av koden din fungerer best med `Date` så er dette den minimale endrin
 
 ```diff
   <DatePicker
-    value={formatDate(value)}
+    value={formatInput(value)}
 -   onChange={(date, event, meta) => {
 +   onChange={(event, date, meta) => {
       setValue(date);
@@ -103,24 +101,11 @@ Men, en bruker kan åpne kalenderen. Da vil `onBlur` skje på kalenderknappen, m
 
 `DatePicker` er kodet sånn at fokus alltid flyttes tilbake til enten inputfeltet eller kalenderknappen etter at kalenderen har vært aktiv. På den måten får vi alltid minst ett `blur`-event hvis brukeren har vært innom `DatePicker`.
 
-/// Note to self. Kan vi gjøre dette automatisk behind the scenes? Dette virker tullete.
+Grunnen til at vi ikke ønsker å samle disse to handlerene under samme `onBlur` er at det er uventet for de fleste å motta to `onBlur`-events i den samme handleren, fra ulike kilder.
 
 ### Andre breaking changes
 
-Disse propsene er fjernet
-
-/// Note to self: må de fjernes?
-
--   `days`, `months`, `monthLabel` og `yearLabel`
--   `calendarButtonTitle`, `showCalendarLabel` og `hideCalendarLabel`
-
-Disse propsene har nytt navn:
-
+-   `disableBeforeDate` og `disableAfterDate` tar en string i samme format som `value`
 -   `variant` som var merket `@deprecated` er nå flyttet til `labelProps`, for eksempel `labelProps={{ variant }}`
-
-/// Note to self: må de renames?
-
--   `disableBeforeDate` er nå bare `disableBefore`
--   `disableAfterDate` er nå bare `disableAfter`
-
-Propen `onKeyDown` er merket `@deprecated` fordi `onChange` nå kalles hver gang inputfeltet endres.
+-   `calendarButtonTitle` som var merket `@deprecated` er fjernet. Bruk `showCalendarLabel` og `hideCalendarLabel` om du vil overstyre standardtekster.
+-   Ikke breaking ennå, men propen `onKeyDown` er merket `@deprecated` fordi `onChange` nå kalles hver gang inputfeltet endres.

@@ -3,6 +3,18 @@ import React from "react";
 export const dayMonthYearRegex = /^(\d\d?)[\.-](\d\d?)[\.-](\d{4}|\d{2})$/;
 
 /**
+ * Format a Date object as a string in the format DatePicker expects.
+ *
+ * @param date the Date object to format
+ * @return returns a date string with "dd.mm.yyyy"-format
+ */
+export function formatInput(date: Date): string {
+    const day = `${date.getDate()}`.padStart(2, "0");
+    const month = `${date.getMonth() + 1}`.padStart(2, "0");
+    return `${day}.${month}.${date.getFullYear()}`;
+}
+
+/**
  * Convert a date string to a Date object
  *
  * @param dateString date as string with format dd.mm.yyyy

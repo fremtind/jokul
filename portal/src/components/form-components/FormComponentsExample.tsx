@@ -1,7 +1,7 @@
 import React, { VFC } from "react";
 import { useForm } from "react-hook-form";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
+import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { formatDate } from "@fremtind/jkl-formatters-util";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
@@ -84,7 +84,7 @@ export const FormComponentsExample: VFC<ExampleComponentProps> = ({ boolValues }
             {datePickers && (
                 <DatePicker
                     className="jkl-spacing-l--bottom"
-                    disableAfter={formatDate(new Date())}
+                    disableAfter={formatInput(new Date())}
                     errorLabel={formState.errors.fodselsdato?.message}
                     label="Fødselsdato"
                     {...register("fodselsdato", {

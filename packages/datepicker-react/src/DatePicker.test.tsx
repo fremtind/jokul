@@ -1,10 +1,9 @@
-import { formatDate } from "@fremtind/jkl-formatters-util";
 import { jest } from "@jest/globals";
 import { act, render, cleanup, within, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { DatePicker } from ".";
+import { DatePicker, formatInput } from ".";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -75,7 +74,7 @@ describe("Datepicker", () => {
         const changeHandler = jest.fn();
         const lowerBound = new Date(2021, 8, 20);
         const { user, getByTestId } = setup(
-            <DatePicker onChange={changeHandler} disableBefore={formatDate(lowerBound)} />,
+            <DatePicker onChange={changeHandler} disableBeforeDate={formatInput(lowerBound)} />,
         );
         const input = getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");
@@ -95,7 +94,7 @@ describe("Datepicker", () => {
         const changeHandler = jest.fn();
         const upperBound = new Date(2021, 8, 20);
         const { user, getByTestId } = setup(
-            <DatePicker onChange={changeHandler} disableAfter={formatDate(upperBound)} />,
+            <DatePicker onChange={changeHandler} disableAfterDate={formatInput(upperBound)} />,
         );
         const input = getByTestId("jkl-datepicker__input");
         expect(input).toHaveProperty("value", "");

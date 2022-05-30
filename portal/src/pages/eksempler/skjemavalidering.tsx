@@ -2,7 +2,7 @@ import React, { useRef, VFC } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
+import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { Select } from "@fremtind/jkl-select-react";
@@ -102,7 +102,7 @@ const Skjemavalideringseksempel: VFC = () => {
             />
             <DatePicker
                 className="jkl-spacing-l--bottom"
-                disableAfter={formatDate(new Date())}
+                disableAfter={formatInput(new Date())}
                 errorLabel={formState.errors.fodselsdato?.message}
                 label="Fødselsdato"
                 {...register("fodselsdato", {

@@ -1,8 +1,7 @@
 import React, { useState, VFC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
-import { formatDate } from "@fremtind/jkl-formatters-util";
-import { DatePicker, isBlurTargetOutside } from "../src";
+import { DatePicker, formatInput, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst"],
@@ -37,8 +36,8 @@ export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choi
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}
-            disableBefore={formatDate(new Date(Date.now() - monthsIsh(14)))}
-            disableAfter={formatDate(new Date(Date.now() + monthsIsh(14)))}
+            disableBeforeDate={formatInput(new Date(Date.now() - monthsIsh(14)))}
+            disableAfterDate={formatInput(new Date(Date.now() + monthsIsh(14)))}
             value={value}
             onFocus={(e, date, meta) => {
                 console.log("onFocus", {
