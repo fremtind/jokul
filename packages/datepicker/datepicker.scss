@@ -45,6 +45,12 @@
             }
         }
     }
+
+    @include jkl.small-device {
+        &__calendar-wrapper {
+            left: -#{rem(68px)};
+        }
+    }
 }
 
 /// CALENDAR STYLES
@@ -87,7 +93,7 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
 
     justify-content: center;
     flex-direction: column;
-    width: $calendar-width;
+    max-width: $calendar-width;
     background-color: var(--calendar-background-color);
     color: var(--calendar-text-color);
     border-radius: 3px;
