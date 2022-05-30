@@ -27,6 +27,7 @@ import { getInitialDate, DateInfo } from "./internal/utils";
 import { parseDateString } from "./utils";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation";
 import { formatDate } from "@fremtind/jkl-formatters-util";
+import { flushSync } from "react-dom";
 
 export interface DatePickerProps extends DataTestAutoId {
     /** Settes på rotnivå. */
@@ -401,7 +402,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
 
     const clickCalendar = useCallback(
         (e: MouseEvent<HTMLButtonElement>) => {
-            setShowCalendar(!showCalendar);
+            flushSync(() => {
+                setShowCalendar(!showCalendar);
+            });
 
             const calendarEl = calendarRef.current;
             const button = calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
