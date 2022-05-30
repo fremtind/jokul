@@ -34,6 +34,7 @@ function config(plugins) {
             "downshift",
             "match-sorter",
             "nanoid",
+            "framer-motion",
             /* /@nrk\/core/, */ "classnames",
             /@babel\/runtime/,
             ...allFremtindPackagesNames,
@@ -48,7 +49,7 @@ function configWithOutput(config, output) {
 export default [
     configWithOutput(config(defaultPlugins), { file: `${outputFolder}/cjs/index.js`, format: "commonjs" }),
     configWithOutput(config(defaultPlugins), { file: `${outputFolder}/esm/index.js`, format: "esm" }),
-    configWithOutput(config(defaultPlugins), { file: `${outputFolder}/browser/index.js`, format: "esm" }),
+    configWithOutput(config(defaultPlugins), { dir: `${outputFolder}/browser`, format: "esm", preserveModules: true }),
     configWithOutput(config(uglifiedPlugins), { file: `${outputFolder}/esm/index.min.js`, format: "esm" }),
     configWithOutput(config(uglifiedPlugins), { file: `${outputFolder}/browser/index.min.js`, format: "esm" }),
 ];
