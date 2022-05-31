@@ -12,9 +12,7 @@ export function useClickOutside(ref: RefObject<HTMLElement> | null, fn: () => vo
             document && document.addEventListener("click", handleClickOutside);
         }
         return () => {
-            if (ref) {
-                document && document.removeEventListener("click", handleClickOutside);
-            }
+            document && document.removeEventListener("click", handleClickOutside);
         };
     });
 }
