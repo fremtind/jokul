@@ -125,8 +125,25 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         [onBlur, date, error],
     );
 
+    const handleKeyDownAction = useCallback(
+        (e: React.KeyboardEvent<HTMLButtonElement>) => {
+            if (e.key === "Escape") {
+                setShowCalendar(false);
+            }
+
+            if (action?.onKeyDown) {
+                action.onKeyDown(e);
+            }
+        },
+        [setShowCalendar, action?.onKeyDown],
+    );
+
     const handleKeyDown = useCallback(
         (e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === "Escape") {
+                setShowCalendar(false);
+            }
+
             if (onKeyDown) {
                 let nextValue = e.currentTarget.value;
                 if (/[\d.]/.test(e.key)) {
@@ -135,7 +152,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 onKeyDown(e, date, { error, value: nextValue });
             }
         },
-        [onKeyDown, date, error],
+        [onKeyDown, setShowCalendar, date, error],
     );
 
     const handleChange = useCallback(
@@ -286,6 +303,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     buttonTitle={showCalendar ? hideCalendarLabel : showCalendarLabel}
                     {...action}
                     onClick={clickCalendar}
+                    onKeyDown={handleKeyDownAction}
                 />
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar
