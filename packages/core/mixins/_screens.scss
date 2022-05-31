@@ -38,6 +38,24 @@
 }
 
 /*
+    Mixin to simplify media queries
+
+    Usage:
+    ```css
+    .class {
+        @include screen-to(42px) {
+            display: none;
+        }
+    }
+    ```
+*/
+@mixin screen-to($max) {
+    @media (min-width: 0) and (max-width: #{$max - 1px}) {
+        @content;
+    }
+}
+
+/*
     Mixins to simplify media queries
 
     Usage:
