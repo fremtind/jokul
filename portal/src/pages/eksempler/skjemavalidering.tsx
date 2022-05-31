@@ -102,7 +102,7 @@ const Skjemavalideringseksempel: VFC = () => {
             />
             <DatePicker
                 className="jkl-spacing-l--bottom"
-                disableAfter={formatInput(new Date())}
+                disableAfterDate={formatInput(new Date())}
                 errorLabel={formState.errors.fodselsdato?.message}
                 label="Fødselsdato"
                 {...register("fodselsdato", {

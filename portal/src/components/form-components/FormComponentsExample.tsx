@@ -84,7 +84,7 @@ export const FormComponentsExample: VFC<ExampleComponentProps> = ({ boolValues }
             {datePickers && (
                 <DatePicker
                     className="jkl-spacing-l--bottom"
-                    disableAfter={formatInput(new Date())}
+                    disableAfterDate={formatInput(new Date())}
                     errorLabel={formState.errors.fodselsdato?.message}
                     label="Fødselsdato"
                     {...register("fodselsdato", {
