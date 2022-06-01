@@ -12,6 +12,7 @@ displayTypes: |
 import { TextInput, TextArea } from "../src";
 import { TextInputExample, textInputExampleCode } from "./TextInputExample";
 import { TextAreaExample, textAreaExampleCode } from "./TextAreaExample";
+import { InputMaskExample, inputMaskExampleCode } from "../../formatters-util/documentation/InputMaskExample";
 
 <Ingress>
     Vi bruker tekstfelt og tekstområder når vi vil at brukerne skal legge inn informasjon som tekst eller tall hvor vi
@@ -72,6 +73,14 @@ Vanligvis starter tekstområdet minimert og likner et vanlig tekstfelt. Når det
 Du kan velge om feltet alltid skal ekspanderes til å vise alt innhold. Eventuell scrolling flyttes da til siden. Innhold under skjemafeltet vil dyttes nedover.
 
 Dersom du har begrensninger på antall tegn kan du velge å vise en teller. Telleren vil ha en standard hjelpetekst om feltet går over grensen. Teksten kan overstyres. Det er ingen blokkering som hindrer brukeren å gå over grensen. Brukeren skal få fullføre tankerekken sin før hen redigerer teksten til å være innenfor grensen. Dersom feltet har en teller vises som standard en _progress bar_ som krymper etter hvert som teksten blir lenger. Denne kan du velge å skru av og bare vise telleren.
+
+**Maskert input:** Brukes til å håndtere lange tall som kan være vanskelige å lese.
+
+Eksempler på tilfeller hvor en maskert input kan være nyttig er når brukeren skal skrive inn fødselsnummer, kortnummer, kontonummer eller andre lange tall. Dette gjør at tallene blir enklere å lese, og gjør det lettere for brukeren å være sikre på at de har skrevet inn riktig informasjon.
+
+<ComponentExample title="Bruk med formaterer" component={InputMaskExample} codeExample={inputMaskExampleCode} />
+
+[Les mer om formattering og maskering av input](/komponenter/formatters#maskering-av-skjemafelter)
 
 ## Bruk
 
