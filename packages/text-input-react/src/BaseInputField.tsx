@@ -6,6 +6,7 @@ import React, {
     KeyboardEventHandler,
     MouseEventHandler,
 } from "react";
+import cn from "classnames";
 
 export interface BaseProps {
     id?: string;
@@ -27,6 +28,10 @@ export interface BaseProps {
     type?: "text" | "number" | "tel" | "password" | "email" | "year";
     name?: string;
     defaultValue?: string;
+    /**
+     * @default "left"
+     */
+    align?: "left" | "right";
 }
 
 export interface Props extends BaseProps {
@@ -51,11 +56,13 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
 }
 
 export const BaseInputField = forwardRef<HTMLInputElement, Props>(
-    ({ id, describedBy, invalid, maxLength, width, type = "text", className = "", ...rest }, ref) => (
+    ({ id, describedBy, invalid, maxLength, width, type = "text", align = "left", className = "", ...rest }, ref) => (
         <input
             ref={ref}
             id={id}
-            className={`jkl-text-input__input ${className}`}
+            className={cn("jkl-text-input__input", className, {
+                "jkl-text-input__input--align-right": align === "right",
+            })}
             style={getWidthAsStyle(width, maxLength)}
             aria-describedby={describedBy}
             aria-invalid={invalid}
