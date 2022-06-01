@@ -12,36 +12,18 @@ import browserListConfig from "./packages/browserslist-config-jkl/index.js";
  * @returns
  */
 const createConfig = (outbase, format) => {
-    const nonMinified = {
-        minify: false,
-    };
-
-    const minified = {
-        minify: true,
-        outExtension: { ".js": ".min.js" },
-    };
-
-    const base = {
-        bundle: true,
-        outdir: path.join(outbase, format),
-        sourcemap: true,
-        format,
-        external: ["react", "downshift", "match-sorter", "nanoid", /* /@nrk\/core/, */ "classnames", "@fremtind/jkl-*"],
-        plugins: [
-            esbuildPluginBrowserslist(browserslist(browserListConfig), {
-                printUnknownTargets: false,
-            }),
-        ],
-    };
-
     return [
         {
-            ...base,
-            ...nonMinified,
-        },
-        {
-            ...base,
-            ...minified,
+            bundle: false,
+            minify: false,
+            outdir: path.join(outbase, format),
+            sourcemap: true,
+            format,
+            plugins: [
+                esbuildPluginBrowserslist(browserslist(browserListConfig), {
+                    printUnknownTargets: false,
+                }),
+            ],
         },
     ];
 };

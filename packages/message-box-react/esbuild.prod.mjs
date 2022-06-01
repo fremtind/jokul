@@ -1,6 +1,7 @@
+import glob from "glob";
 import { build } from "../../esbuild.prod.mjs";
 
 await build({
-    entryPoints: ["src/index.ts"],
+    entryPoints: glob.sync("src/**/*.@(ts|tsx)", { ignore: "src/**/*.test.@(ts|tsx)" }),
     outdir: "build",
 });

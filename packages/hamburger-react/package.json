@@ -22,6 +22,7 @@
     "main": "./build/cjs/index.js",
     "module": "./build/esm/index.js",
     "browser": "./build/esm/index.js",
+    "sideEffects": false,
     "scripts": {
         "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",

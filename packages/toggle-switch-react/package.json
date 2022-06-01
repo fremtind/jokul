@@ -18,6 +18,7 @@
     "main": "./build/cjs/index.js",
     "module": "./build/esm/index.js",
     "browser": "./build/esm/index.js",
+    "sideEffects": false,
     "directories": {
         "lib": "build"
     },
