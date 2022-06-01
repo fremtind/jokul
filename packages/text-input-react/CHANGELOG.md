@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.2.0 (2022-06-01)
+
+### Features
+
+-   ny prop align for valutainputs ([47919e2](https://github.com/fremtind/jokul/commit/47919e2cd01485221d2e5e89469d05aed6cc06f8))
+
 # 9.1.0 (2022-04-28)
 
 ### Features

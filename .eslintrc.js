@@ -44,7 +44,7 @@ module.exports = {
         "prettier/prettier": "error",
         // check for correct use of react hooks:
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/exhaustive-deps": "error",
         // note you must disable the base rule as it can report incorrect errors
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": ["error"],
