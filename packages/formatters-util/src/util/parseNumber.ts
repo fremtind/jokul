@@ -22,7 +22,8 @@ export function parseNumber(input: string | number) {
     }
 
     // remove all spaces from number
-    const arrNumber = input.replaceAll(" ", "").split("");
+    const spaceRegex = /\s/g;
+    const arrNumber = input.replaceAll(spaceRegex, "").split("");
 
     // find what separator is used for decimal notation
     const decimalNotator = arrNumber.reduce<"." | "," | null>((notator, currentItem) => {
