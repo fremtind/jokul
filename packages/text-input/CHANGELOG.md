@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.1.0 (2022-06-01)
+
+### Features
+
+-   ny modifier --align-right til valuta-inputs ([4cdf2e0](https://github.com/fremtind/jokul/commit/4cdf2e064200a1aeaa1a8e63fa3b9d160d9f0c03))
+
 ## [7.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@7.0.12...@fremtind/jkl-text-input@7.0.13) (2022-04-19)
 
 ### Bug Fixes
