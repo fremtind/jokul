@@ -4,12 +4,14 @@ import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
 import { formatKortnummer } from "../kortnummer/formatKortnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
 import { formatTelefonnummer } from "../telefonnummer/formatTelefonnummer";
+import { formatNumber } from "./formatNumber";
 
 const formatters = {
     fodselsnummer: formatFodselsnummer,
     kortnummer: formatKortnummer,
     kontonummer: formatKontonummer,
     telefonnummer: formatTelefonnummer,
+    number: formatNumber,
 };
 export type Formatter = keyof typeof formatters;
 
@@ -47,4 +49,6 @@ export const registerWithMasks = <T>(form: UseFormReturn<T>) => ({
         registerWithMask("kontonummer")(form, name, options),
     registerWithTelefonnummerMask: (name: keyof T, options?: RegisterOptions<T>) =>
         registerWithMask("telefonnummer")(form, name, options),
+    registerWithNumber: (name: keyof T, options?: RegisterOptions<T>) =>
+        registerWithMask("number")(form, name, options),
 });
