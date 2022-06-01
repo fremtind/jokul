@@ -2,14 +2,14 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "12.5.4",
+    "version": "12.5.5",
     "devDependencies": {
         "@types/react-helmet": "^6.1.5",
         "@types/react-syntax-highlighter": "^15.5.1",
         "react-docgen-typescript": "^2.2.2"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion-react": "^6.0.15",
+        "@fremtind/jkl-accordion-react": "^6.0.16",
         "@fremtind/jkl-alert-message-react": "^7.0.17",
         "@fremtind/jkl-breadcrumb-react": "^1.0.12",
         "@fremtind/jkl-button-react": "^10.1.12",
