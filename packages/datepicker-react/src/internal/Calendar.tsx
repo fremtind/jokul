@@ -367,7 +367,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                     ].toLowerCase()}`}
                                                     aria-current={today ? "date" : undefined}
                                                     data-adjacent={prevMonth || nextMonth ? "true" : undefined}
-                                                    disabled={!selectable || prevMonth || nextMonth}
+                                                    disabled={!selectable}
                                                     onKeyDown={handleTabOutside}
                                                 >
                                                     <span aria-hidden="true">{date.getDate()}</span>
