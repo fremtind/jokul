@@ -87,26 +87,23 @@ $link-underline-thickness--hover: jkl.rem(2px);
     font-weight: jkl.$typography-weight-normal;
     text-decoration: none;
     position: relative;
-    padding-right: 0.3em;
-
-    &::after,
-    &::before {
-        display: inline-block;
-        transform: translateX(0);
-        @include mixins.motion;
-        transition-property: transform;
-    }
 
     &::after {
         @include mixins.decorative($content: $right-arrow);
-        padding-left: jkl.rem(2px);
+        @include mixins.motion;
+        transition-property: padding-left, padding-right;
+        display: inline;
+        margin-left: -0.2em;
+        padding-left: 0.35em;
+        padding-right: 0.35em;
     }
 
     &:hover:not(:focus) {
         color: var(--link-hover-color);
 
         &::after {
-            transform: translateX(33%);
+            padding-left: 0.7em;
+            padding-right: 0;
         }
     }
 
@@ -115,7 +112,8 @@ $link-underline-thickness--hover: jkl.rem(2px);
         @include mixins.no-grow-bold;
 
         &::after {
-            transform: translateX(33%);
+            padding-left: 0.7em;
+            padding-right: 0;
         }
     }
 
@@ -137,6 +135,10 @@ $link-underline-thickness--hover: jkl.rem(2px);
 
     &::before {
         @include mixins.decorative($content: $left-arrow);
+        @include mixins.motion;
+        transform: translateX(0);
+        transition-property: transform;
+        display: inline-block;
         padding-right: jkl.rem(4px);
     }
 

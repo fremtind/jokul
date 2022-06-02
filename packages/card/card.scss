@@ -125,7 +125,8 @@ $card-padding-normal: jkl.$spacing-l;
 
         .jkl-nav-card:hover:focus &::after,
         .jkl-nav-card:hover:not(:focus) &::after {
-            transform: translateX(33%);
+            padding-left: 0.7em;
+            padding-right: 0;
         }
 
         &:hover:not(:focus),
