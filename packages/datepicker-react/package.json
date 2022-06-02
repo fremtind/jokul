@@ -40,9 +40,8 @@
         "@fremtind/jkl-icon-button-react": "^0.8.25",
         "@fremtind/jkl-react-hooks": "^8.2.3",
         "@fremtind/jkl-select-react": "^9.2.2",
-        "@fremtind/jkl-text-input-react": "^9.1.2",
-        "classnames": "^2.2.6",
-        "date-fns": "^2.28.0"
+        "@fremtind/jkl-text-input-react": "^9.2.0",
+        "classnames": "^2.2.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
