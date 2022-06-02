@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button",
-    "version": "6.0.13",
+    "version": "6.0.14",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
         "dev": "echo \"Error: run dev from radio-button-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.1"
+        "@fremtind/jkl-core": "^9.6.2"
     },
     "repository": {
         "type": "git",
