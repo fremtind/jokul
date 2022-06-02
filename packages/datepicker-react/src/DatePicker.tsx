@@ -101,14 +101,14 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         [inputRef, forwardedInputRef],
     );
 
-    const inputWrapperRef = useRef<HTMLDivElement>(null);
+    const datepickerRef = useRef<HTMLDivElement>(null);
     const handleFocus = useCallback(
         (e: FocusEvent<HTMLInputElement>) => {
-            if (!onFocus || !inputWrapperRef.current) {
+            if (!onFocus || !datepickerRef.current) {
                 return;
             }
 
-            const nextFocusIsInside = inputWrapperRef.current.contains(e.relatedTarget as Node);
+            const nextFocusIsInside = datepickerRef.current.contains(e.relatedTarget as Node);
             if (!nextFocusIsInside) {
                 onFocus(e, date, { error, value: e.target.value });
             }
@@ -251,8 +251,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         [setShowCalendar],
     );
 
-    useClickOutside(inputWrapperRef, hideCalendar);
-    useFocusOutside(inputWrapperRef, hideCalendar);
+    useClickOutside(datepickerRef, hideCalendar);
+    useFocusOutside(datepickerRef, hideCalendar);
     useKeyListener(calendarRef, ["Escape"], () => {
         setShowCalendar(false);
         inputRef.current && inputRef.current.focus();
@@ -265,12 +265,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 "jkl-datepicker--open": showCalendar,
             })}
             {...rest}
+            ref={datepickerRef}
         >
             <Label standAlone {...labelProps} forceCompact={forceCompact} htmlFor={inputId}>
                 {label}
             </Label>
             <div
-                ref={inputWrapperRef}
                 data-testid="jkl-datepicker__input-wrapper"
                 className={cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper", {
                     "jkl-text-input--compact": forceCompact,
