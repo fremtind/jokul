@@ -135,7 +135,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 action.onKeyDown(e);
             }
         },
-        [setShowCalendar, action?.onKeyDown],
+        [setShowCalendar, action],
     );
 
     const handleKeyDown = useCallback(
