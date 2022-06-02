@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2022-06-01)
+
+### Bug Fixes
+
+-   add support for nbsp ([6653bd4](https://github.com/fremtind/jokul/commit/6653bd4b5a4e1a1e37dbf0f801542312e955bd63))
+-   sett automatisk align prop ved bruk av tallmaske ([0dd5061](https://github.com/fremtind/jokul/commit/0dd506173f542c05513f21983e1ed1085fc26b00))
+-   støtt samme namesyntaks som hook-form ([16997dd](https://github.com/fremtind/jokul/commit/16997dda64425e5a0c8643dab350096039cfdf2b))
+
+### Features
+
+-   add masked input for numbers ([d0414e5](https://github.com/fremtind/jokul/commit/d0414e545d12b1b1c8483a2110f43f34525e1157))
+
 # 2.1.0 (2022-06-01)
 
 ### Bug Fixes
