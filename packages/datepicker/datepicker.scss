@@ -31,7 +31,6 @@
         position: absolute;
         top: calc(100% + #{rem(14px)});
         left: 0;
-        right: 0;
         z-index: jkl.$z-index--dropdown;
     }
 
@@ -44,6 +43,19 @@
                 box-shadow: inset 0 0 0 rem(1px) var(--datepicker-focus-color),
                     0 0 0 rem(1px) var(--datepicker-focus-color);
             }
+        }
+    }
+
+    @include jkl.small-device {
+        &__calendar-wrapper {
+            left: -1.15rem;
+        }
+    }
+
+    // Custom tweaks for iPhone SE
+    @include jkl.screen-to(375px) {
+        &__calendar-wrapper {
+            left: -2.5rem;
         }
     }
 }
@@ -88,15 +100,12 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
 
     justify-content: center;
     flex-direction: column;
-    width: $calendar-width;
+    max-width: $calendar-width;
     background-color: var(--calendar-background-color);
     color: var(--calendar-text-color);
     border-radius: 3px;
     box-shadow: inset 0 0 0 rem(1px) var(--calendar-border-color), 0 0 0 rem(1px) var(--calendar-border-color),
         rem(2px) rem(4px) rem(16px) rgb(0 0 0 / 24%);
-
-    @include motion;
-    transition-property: height;
 
     &--hidden {
         display: none;
@@ -136,6 +145,11 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
         &__padding {
             padding: $calendar-padding $calendar-padding--compact;
         }
+    }
+
+    // Custom tweaks for iPhone SE
+    @include jkl.screen-to(375px) {
+        max-width: 19.5rem;
     }
 
     /// Navigation in normal (compact) mode
@@ -206,10 +220,10 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
     /// ===========================
 
     &__navigation {
+        margin-bottom: jkl.$spacing-l;
         display: flex;
         justify-content: center;
         align-content: center;
-        margin-bottom: jkl.$spacing-l;
     }
 
     &__year-selector {
@@ -314,7 +328,7 @@ $calendar-width: ($date-width * 7) + ($date-spacing * 6) + ($calendar-padding * 
         }
 
         // Selected date
-        &[autofocus] {
+        &[aria-pressed="true"] {
             background-color: var(--calendar-selected-date-background-color);
             color: var(--calendar-active-day-color);
             cursor: pointer;

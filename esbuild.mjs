@@ -15,6 +15,7 @@ export async function build(options) {
         opts.map((o) =>
             esbuild.build({
                 bundle: true,
+                sourcemap: true,
                 watch: process.env.ESBUILD_WATCH === "true",
                 loader: { ".woff": "file", ".woff2": "file", ".jpg": "file", ".png": "file" },
                 plugins: [sassPlugin()],

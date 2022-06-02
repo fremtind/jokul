@@ -1,11 +1,6 @@
-import {
-    formatDate,
-    parseDateString,
-    isSameDay,
-    dateHasChanged,
-    dateIsOutsideRange,
-    getInitialDate,
-} from "./dateFunctions";
+import { formatDate } from "../../../formatters-util/src";
+import { parseDateString } from "../utils";
+import { isSameDay, dateHasChanged, dateIsOutsideRange, getInitialDate } from "./utils";
 
 describe("formatDate", () => {
     it("renders the given date correctly", () => {
@@ -111,23 +106,26 @@ describe("dateIsOutsideRange", () => {
 });
 
 describe("getInitialDate", () => {
-    const value = new Date("2001-10-14");
-    const initialDate = new Date("2001-10-01");
-    const disableDate = (value: Date) => dateIsOutsideRange(value, new Date("2001-09-14"), new Date("2001-11-14"));
+    const value = "14.10.2001";
+    const initialDate = "01.10.2001";
+    const minDate = new Date(2001, 8, 14);
+    const maxDate = new Date(2001, 10, 14);
+    const expectedValue = new Date(2001, 9, 14);
+    const expectedInitialDate = new Date(2001, 9, 1);
 
-    it("returns undefined if value is undefined and initialDate is outside range", () => {
-        expect(getInitialDate(undefined, new Date("1986-10-14"), disableDate)).toBeUndefined();
+    it("returns null if value is undefined and initialDate is outside range", () => {
+        expect(getInitialDate(undefined, "1986-10-14", minDate, maxDate)).toBeNull();
     });
 
     it("returns initialDate if value is undefined and initialDate is inside range", () => {
-        expect(getInitialDate(undefined, initialDate, disableDate)).toEqual(initialDate);
+        expect(getInitialDate(undefined, initialDate, minDate, maxDate)).toEqual(expectedInitialDate);
     });
 
     it("returns value if initialDate is undefined and value is inside range", () => {
-        expect(getInitialDate(value, undefined, disableDate)).toEqual(value);
+        expect(getInitialDate(value, undefined, minDate, maxDate)).toEqual(expectedValue);
     });
 
     it("returns value if both is defined and inside range", () => {
-        expect(getInitialDate(value, initialDate, disableDate)).toEqual(value);
+        expect(getInitialDate(value, initialDate, minDate, maxDate)).toEqual(expectedValue);
     });
 });

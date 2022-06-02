@@ -3607,11 +3607,6 @@
     node-gyp "^8.4.1"
     read-package-json-fast "^2.0.3"
 
-"@nrk/core-datepicker@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@nrk/core-datepicker/-/core-datepicker-4.0.0.tgz#3bb7185d7ce99a0849806a6c13bc9de2be7d5cb8"
-  integrity sha512-zVCdQ1NULPdXy8jusqPsgXzrHaQG8ZbmRIT9krXKEjipOg7ce7XJp10Lor9Hb4u7O/OHLx+g0CyqDf0laps6HQ==
-
 "@nrk/core-dialog@4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@nrk/core-dialog/-/core-dialog-4.0.0.tgz#b1784aa8cb2da5d0d9d3e21fe372613b9688fe34"

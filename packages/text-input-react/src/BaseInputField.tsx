@@ -29,6 +29,12 @@ export interface BaseProps {
     name?: string;
     defaultValue?: string;
     /**
+     * Merk som ugyldig uten å sende inn en errorLabel.
+     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+     */
+    invalid?: boolean;
+    /**
+     * Brukes til inputfelter hvor det brukes maskering, for formatering av store tall. Brukes typisk bare til valuta.
      * @default "left"
      */
     align?: "left" | "right";
