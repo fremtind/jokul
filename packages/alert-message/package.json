@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message",
-    "version": "5.0.24",
+    "version": "5.0.25",
     "publishConfig": {
         "access": "public"
     },
@@ -26,7 +26,7 @@
         "dev": "echo \"Error: run dev from alert-message-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.2"
+        "@fremtind/jkl-core": "^9.7.0"
     },
     "repository": {
         "type": "git",

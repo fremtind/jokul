@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.5.7...@fremtind/portal@13.0.0) (2022-06-02)
+
+### Bug Fixes
+
+-   fokusbug i Safari med reach router via Gatsby ([2a15977](https://github.com/fremtind/jokul/commit/2a159778510f971d425a32bd1bb7ae6fe34cf2dc))
+-   form example ([dadea13](https://github.com/fremtind/jokul/commit/dadea13444e45512f463857ef594e62fdaa104c9))
+-   onChange ved klikk på kalender ([5f5862c](https://github.com/fremtind/jokul/commit/5f5862cff61af967c9efef72d2efb926ae026f64))
+-   stable portalgriden på små skjermer ([06d4337](https://github.com/fremtind/jokul/commit/06d4337e6b9e3b60675ae9b3ede3a2e167b10b57))
+-   typefeil i portaleksempler ([7d7022e](https://github.com/fremtind/jokul/commit/7d7022e60f6e842df105fa8a3ca1e4b7858eba8f))
+-   wip hooks form example ([373c973](https://github.com/fremtind/jokul/commit/373c9734b94d1bbbd421f365acf59dd39c6a47cd))
+
+### chore
+
+-   datepicker har breaking changes ([b9cb939](https://github.com/fremtind/jokul/commit/b9cb93934964de02cb28c90dff5ec261097f3613))
+
+### Features
+
+-   eksponer parsingfunksjon ([28b08dd](https://github.com/fremtind/jokul/commit/28b08dd5e587bafbcce98455924be4d65260cac7))
+
+### BREAKING CHANGES
+
+-   Se MIGRATION.md i datepicker-react.
+
 # [12.5.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.4.12...@fremtind/portal@12.5.0) (2022-05-13)
 
 ### Features

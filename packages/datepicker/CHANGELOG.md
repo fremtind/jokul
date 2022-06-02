@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@6.0.19...@fremtind/jkl-datepicker@7.0.0) (2022-06-02)
+
+### Bug Fixes
+
+-   dobbel åpneanimasjon ([7236363](https://github.com/fremtind/jokul/commit/72363634033422b176026a1b4a0fd698f76a56be))
+-   extended ([060203e](https://github.com/fremtind/jokul/commit/060203e2ddf1d2e7ad294df144233f33b96ee75b))
+-   fokus ved åpning av kalender igjen, etter ny måned ([7a705a9](https://github.com/fremtind/jokul/commit/7a705a938bcf2b0d428f3ba66b2dabe2b284d55b))
+-   legg tilbake hidden pga animasjonsbug ([58ec5da](https://github.com/fremtind/jokul/commit/58ec5da444784a74d3d1bab7ac11faf8aa84b849))
+-   tilpass plasseringen av kalenderpoup på flere steder ([b3eae1e](https://github.com/fremtind/jokul/commit/b3eae1e71a955e51da4d9ec1acdcce8bb8f9f651))
+-   tweak plassering på mobil så vi ikke lager horisontal scroll ([4152b74](https://github.com/fremtind/jokul/commit/4152b74e70a0ae5df00ea76f38d5d11ad7a83b4b))
+
+### chore
+
+-   datepicker har breaking changes ([b9cb939](https://github.com/fremtind/jokul/commit/b9cb93934964de02cb28c90dff5ec261097f3613))
+
+### BREAKING CHANGES
+
+-   Se MIGRATION.md i datepicker-react.
+
 ## [6.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@6.0.12...@fremtind/jkl-datepicker@6.0.13) (2022-04-19)
 
 ### Bug Fixes
