@@ -35,12 +35,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.6.1",
+        "@fremtind/jkl-core": "^9.6.2",
         "@fremtind/jkl-datepicker": "^7.0.0-alpha.0",
-        "@fremtind/jkl-icon-button-react": "^0.8.25",
-        "@fremtind/jkl-react-hooks": "^8.2.3",
-        "@fremtind/jkl-select-react": "^9.2.2",
-        "@fremtind/jkl-text-input-react": "^9.2.0",
+        "@fremtind/jkl-icon-button-react": "^0.8.26",
+        "@fremtind/jkl-react-hooks": "^8.2.4",
+        "@fremtind/jkl-select-react": "^9.2.3",
+        "@fremtind/jkl-text-input-react": "^9.2.1",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
