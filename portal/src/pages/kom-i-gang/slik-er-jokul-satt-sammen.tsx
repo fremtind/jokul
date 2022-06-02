@@ -42,7 +42,7 @@ const SlikErJokulSattSammen: FC = () => (
             I tillegg til portalen lever Jøkul i det daglige på to forskjellige områder: Figma for design, og Github for
             kode. Felles dokumentasjon finner du i portalen.
         </Paragraph>
-        <Grid className="jkl-portal-paragraph" stackSmall>
+        <Grid className="jkl-portal-paragraph">
             <NavCard
                 href="https://github.com/fremtind/jokul"
                 title="Kode"
@@ -82,7 +82,7 @@ const SlikErJokulSattSammen: FC = () => (
             Til slutt har vi en samling med verktøy og ekstra ressurser som vil gjøre hverdagen din enklere som bruker
             av verktøyene våre.
         </Paragraph>
-        <Grid className="jkl-portal-paragraph" stackSmall>
+        <Grid className="jkl-portal-paragraph">
             <NavCard
                 component={GatsbyLink}
                 to="/kom-i-gang/utvikling"

@@ -4,6 +4,7 @@ import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../descr
 
 import {
     formatAvstand,
+    formatDate,
     formatFodselsnummer,
     formatKontonummer,
     formatKortnummer,
@@ -43,6 +44,8 @@ export const FormattersExample: FC<ExampleComponentProps> = () => (
         <DescriptionDetail>{formatNumber("12345")}</DescriptionDetail>
         <DescriptionDetail>{formatNumber("1234567")}</DescriptionDetail>
         <DescriptionDetail>{formatNumber("12345,67")}</DescriptionDetail>
+        <DescriptionTerm>Dato</DescriptionTerm>
+        <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>
     </DescriptionList>
 );
 
@@ -76,5 +79,7 @@ export const formattersExampleCode: CodeExample = `
     <DescriptionDetail>{formatNumber("12345")}</DescriptionDetail>
     <DescriptionDetail>{formatNumber("1234567")}</DescriptionDetail>
     <DescriptionDetail>{formatNumber("12345,67")}</DescriptionDetail>
+    <DescriptionTerm>Dato</DescriptionTerm>
+    <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>
 </DescriptionList>
 `;

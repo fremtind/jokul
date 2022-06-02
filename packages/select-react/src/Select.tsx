@@ -71,6 +71,11 @@ export interface SelectProps extends DataTestAutoId {
     onChange?: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
     onFocus?: ChangeEventHandler;
+    /**
+     * Merk som ugyldig uten å sende inn en errorLabel.
+     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+     */
+    invalid?: boolean;
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
@@ -88,6 +93,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             className,
             helpLabel,
             errorLabel,
+            invalid,
             searchable = false,
             inline = false,
             defaultPrompt = "Velg",
@@ -279,7 +285,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     "jkl-select--compact": forceCompact,
                     "jkl-select--open": dropdownIsShown,
                     "jkl-select--no-value": !hasSelectedValue,
-                    "jkl-select--invalid": !!errorLabel,
+                    "jkl-select--invalid": !!errorLabel || invalid,
                 })}
                 ref={componentRootElementRef}
                 {...rest}

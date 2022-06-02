@@ -1,8 +1,9 @@
 import React, { VFC } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker } from "@fremtind/jkl-datepicker-react";
+import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { formatDate } from "@fremtind/jkl-formatters-util";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -32,7 +33,7 @@ export const FormComponentsExample: VFC<ExampleComponentProps> = ({ boolValues }
     const checkboxes = boolValues?.["Avmerkingsbokser"];
     const select = boolValues?.["Nedtrekksfelt"];
 
-    const { control, formState, handleSubmit, register, watch } = useForm<FormValues>();
+    const { formState, handleSubmit, register, watch } = useForm<FormValues>();
     const formData = watch();
     console.table(formData);
 
@@ -81,20 +82,21 @@ export const FormComponentsExample: VFC<ExampleComponentProps> = ({ boolValues }
                 </>
             )}
             {datePickers && (
-                <Controller
-                    control={control}
-                    name="fodselsdato"
-                    rules={{ required: "Du må fylle ut eierens fødselsdato" }}
-                    render={({ field }) => (
-                        <DatePicker
-                            className="jkl-spacing-l--bottom"
-                            disableAfterDate={new Date()}
-                            errorLabel={formState.errors.fodselsdato?.message}
-                            label="Fødselsdato"
-                            {...field}
-                            value={field.value ? new Date(field.value) : undefined}
-                        />
-                    )}
+                <DatePicker
+                    className="jkl-spacing-l--bottom"
+                    disableAfterDate={formatInput(new Date())}
+                    errorLabel={formState.errors.fodselsdato?.message}
+                    label="Fødselsdato"
+                    {...register("fodselsdato", {
+                        required: "Du må fylle ut fødselsdato",
+                        validate: {
+                            isCorrectFormat: (v) =>
+                                isCorrectFormat(v) ||
+                                `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,
+                            withinUpperBound: (v) =>
+                                isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,
+                        },
+                    })}
                 />
             )}
             {select && (
