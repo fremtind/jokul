@@ -80,6 +80,24 @@ Nå skal du kunne teste endringer du har gjort i kontekst av din egen app. Start
 
 Når du er fornøyd med endringene dine bør du [rydde opp](#rydd-opp-etter-deg) slik at du ikke ender opp i en rar tilstand senere.
 
+#### Konfigurasjon av Webpack
+
+For dere som bruker Webpack kan dere oppleve at bygget feiler på grunn av en krasj i React, for eksempel "Cannot read properties of null (reading 'useState')". Det skjer fordi Webpack blir forvirret av Jøkuls versjon av React på disk, som ligger nærmere den linkede koden.
+
+For å fikse problemet må du peke Webpack eksplisit til din versjon av React og React DOM:
+
+```js
+const config = {
+    resolve: {
+        alias: {
+            // Path her antar at webpack.config.js ligger i samme mappe som node_modules/
+            react$: path.resolve(__dirname, "node_modules/react/index.js"),
+            "react-dom$": path.resolve(__dirname, "node_modules/react-dom/index.js"),
+        },
+    },
+};
+```
+
 #### Endringene mine dukker ikke opp selv om node_modules er lenket opp riktig
 
 Ikke alle byggverktøy ser etter endringer i `node_modules`. Om du ser at filene peker riktig på disk, prøv å restart devserveren din.
