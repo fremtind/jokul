@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@2.2.1...@fremtind/jkl-formatters-util@2.3.0) (2022-06-02)
+
+### Features
+
+-   legg til datoformatereren fra DatePicker ([d809647](https://github.com/fremtind/jokul/commit/d8096475fe5c2516d158e7bfa682d8f8cff2e5fb))
+
 # 2.2.0 (2022-06-01)
 
 ### Bug Fixes

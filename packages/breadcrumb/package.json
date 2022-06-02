@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-breadcrumb",
-    "version": "1.0.13",
+    "version": "1.0.14",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from breadcrumb-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.2"
+        "@fremtind/jkl-core": "^9.7.0"
     },
     "repository": {
         "type": "git",

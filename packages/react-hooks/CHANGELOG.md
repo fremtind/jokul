@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.2.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.2.4...@fremtind/jkl-react-hooks@8.2.5) (2022-06-02)
+
+### Bug Fixes
+
+-   vi trenger ikke en ref for å fjerne en lytter ([73c01d7](https://github.com/fremtind/jokul/commit/73c01d7a5f512acd5bcb0575b85e4df4b4b317e1))
+
 # [8.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.1.1...@fremtind/jkl-react-hooks@8.2.0) (2022-04-19)
 
 ### Features

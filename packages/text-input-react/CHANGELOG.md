@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@9.2.1...@fremtind/jkl-text-input-react@9.3.0) (2022-06-02)
+
+### Features
+
+-   åpne for å merke skjemafelter som ugyldige uten errorLabel ([3c722ec](https://github.com/fremtind/jokul/commit/3c722ec34321789c37fe45b30d6bf975576489ee))
+
 # 9.2.0 (2022-06-01)
 
 ### Features

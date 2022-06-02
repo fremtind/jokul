@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@9.1.5...@fremtind/jkl-datepicker-react@10.0.0) (2022-06-02)
+
+### Bug Fixes
+
+-   animasjonsbug hvis man traff label-elementet, som er bredt ([1f58576](https://github.com/fremtind/jokul/commit/1f58576507562441eef910b4731650a3fa1e1d93))
+-   break all the things ([6b4e03c](https://github.com/fremtind/jokul/commit/6b4e03c5cd1b681951587fb5e8cf5d7f3b1ffa28))
+-   bruk riktig type på inputfelt for å få pil opp og ned ([f34d185](https://github.com/fremtind/jokul/commit/f34d18503b5974f00e3ae1048f8c9bbe6e9b67cd))
+-   dobbel åpneanimasjon ([7236363](https://github.com/fremtind/jokul/commit/72363634033422b176026a1b4a0fd698f76a56be))
+-   escape for å lukke kalender utenfra ([1a9e759](https://github.com/fremtind/jokul/commit/1a9e7598333e721262381a080c87259d4222f344))
+-   extended ([060203e](https://github.com/fremtind/jokul/commit/060203e2ddf1d2e7ad294df144233f33b96ee75b))
+-   flush DOM før vi leter etter neste fokus ([93404e8](https://github.com/fremtind/jokul/commit/93404e81391d678200d98092e65a4895ef0d9e6a))
+-   flytt fokus tilbake til iconbutton ved tab, docs ([ff605b5](https://github.com/fremtind/jokul/commit/ff605b5db03e2ced89d477f1997f927097e2bc36))
+-   fokus ved åpning av kalender igjen, etter ny måned ([7a705a9](https://github.com/fremtind/jokul/commit/7a705a938bcf2b0d428f3ba66b2dabe2b284d55b))
+-   gjør equalitysjekk på tidspunkt, ikke objektref ([11b9f86](https://github.com/fremtind/jokul/commit/11b9f86eeaff9c878ad6257880acbacbbe6b6541))
+-   ikke flytt fokus out of bounds ([63d04b6](https://github.com/fremtind/jokul/commit/63d04b68ce4eab6faf1f5389516be03725bdef13))
+-   its got the looks ([8a037d1](https://github.com/fremtind/jokul/commit/8a037d14d232bdb7ca339fa7e7a322033331851a))
+-   keebs ([aa26639](https://github.com/fremtind/jokul/commit/aa266397a648bb4e4c67e6c215f0107b3b2092a0))
+-   keebs internt i en måned ([4247a5a](https://github.com/fremtind/jokul/commit/4247a5ab19cb56ea9d834032841b7b259907133a))
+-   la folk velge dagen i dag hvis disablebefore er satt til i dag ([b0574c4](https://github.com/fremtind/jokul/commit/b0574c468b62258826628edaec31baa617d650da))
+-   legg tilbake hidden pga animasjonsbug ([58ec5da](https://github.com/fremtind/jokul/commit/58ec5da444784a74d3d1bab7ac11faf8aa84b849))
+-   lint ([fe80bec](https://github.com/fremtind/jokul/commit/fe80bece7b730859e399148d7c32cf26266165f2))
+-   lintfeil ([d941dbb](https://github.com/fremtind/jokul/commit/d941dbb061180de3d18dfe31076c3805d782669d))
+-   make build ([8aa3f50](https://github.com/fremtind/jokul/commit/8aa3f501fc6be6632d0d31e60c24c3b74e03054e))
+-   onChange ved klikk på kalender ([5f5862c](https://github.com/fremtind/jokul/commit/5f5862cff61af967c9efef72d2efb926ae026f64))
+-   sett automatisk minste eller største tillatte i extended ([95e653a](https://github.com/fremtind/jokul/commit/95e653acc6c8b2b713ba202dc991ca323b23f04c))
+-   skjermleseropplevelse ([efe1358](https://github.com/fremtind/jokul/commit/efe13586e04144e7a965b27a1ec217645cf5cf28))
+-   tastaturnavigasjon mellom måneder ([69aad9f](https://github.com/fremtind/jokul/commit/69aad9f3078fed6c3a8d702f085e2094031c9944))
+-   valgbare datoer utenfor måned skal være klikkbare ([d3efab7](https://github.com/fremtind/jokul/commit/d3efab75343bf445c79a53bb0762c9923672b6ac))
+-   wip hooks form example ([373c973](https://github.com/fremtind/jokul/commit/373c9734b94d1bbbd421f365acf59dd39c6a47cd))
+
+### chore
+
+-   datepicker har breaking changes ([b9cb939](https://github.com/fremtind/jokul/commit/b9cb93934964de02cb28c90dff5ec261097f3613))
+
+### Features
+
+-   åpne for å merke skjemafelter som ugyldige uten errorLabel ([3c722ec](https://github.com/fremtind/jokul/commit/3c722ec34321789c37fe45b30d6bf975576489ee))
+-   eksponer parsingfunksjon ([28b08dd](https://github.com/fremtind/jokul/commit/28b08dd5e587bafbcce98455924be4d65260cac7))
+-   eksponer valideringsfunksjoner ([2d591ab](https://github.com/fremtind/jokul/commit/2d591aba67c47d2ebe910d7dce12ef93fb374f7d))
+
+### BREAKING CHANGES
+
+-   Se MIGRATION.md i datepicker-react.
+
 # 9.1.0 (2022-04-28)
 
 ### Features

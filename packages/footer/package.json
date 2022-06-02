@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-footer",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from footer-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.2"
+        "@fremtind/jkl-core": "^9.7.0"
     },
     "repository": {
         "type": "git",
