@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.6.2 (2022-06-02)
+
+### Bug Fixes
+
+-   hold pila etter navlink inline ([94a9345](https://github.com/fremtind/jokul/commit/94a9345a6471939bed706eea33f8c9cb95ab1fbf))
+
 ## 9.6.1 (2022-05-13)
 
 ### Bug Fixes

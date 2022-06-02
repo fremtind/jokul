@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "9.6.1",
+    "version": "9.6.2",
     "publishConfig": {
         "access": "public"
     },
