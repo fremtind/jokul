@@ -56,6 +56,7 @@ export function isBlurTargetOutside(e: React.FocusEvent<HTMLButtonElement | HTML
     }
 
     const knownBlurTargetsInsideDatepicker = [
+        "jkl-datepicker",
         "jkl-datepicker__action-button",
         "jkl-calendar__date",
         "jkl-datepicker__input",
