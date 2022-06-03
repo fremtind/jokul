@@ -1,10 +1,14 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { CookieConsentExample } from "./CookieConsentExample";
 import "../../cookie-consent/cookie-consent.scss";
 import "../../button/button.scss";
 import "../../list/list.scss";
+import { CookieConsentModalExample, cookieConsentModalExampleKnobs } from "./CookieConsentModalExample";
 
 export default function Example() {
-    return <DevExample component={CookieConsentExample} />;
+    return (
+        <div className="jkl-cookie-consent-example">
+            <DevExample component={CookieConsentModalExample} knobs={cookieConsentModalExampleKnobs} />
+        </div>
+    );
 }

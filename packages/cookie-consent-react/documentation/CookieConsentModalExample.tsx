@@ -1,7 +1,7 @@
-import React, { useEffect, useState, VFC } from "react";
+import React, { useEffect, useState, FC } from "react";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { setConsentCookie } from "../src/cookieConsentUtils";
 import { useCookieConsentState } from "../src/CookieConsentContext";
 
@@ -15,7 +15,7 @@ function clearConsentCookie() {
         -1,
     );
 }
-const Example: VFC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
+const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
     functional = false,
     statistics = false,
     marketing = false,
@@ -50,7 +50,11 @@ const Example: VFC<{ functional?: boolean; statistics?: boolean; marketing?: boo
     );
 };
 
-export const Blocking: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Functional", "Statistics", "Marketing"],
+};
+
+export const CookieConsentModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
         setHasMounted(true);
@@ -79,7 +83,7 @@ export const Blocking: VFC<ExampleComponentProps> = ({ boolValues }) => {
     );
 };
 
-export const blockingExampleCode: CodeExample = ({ boolValues }) => `
+export const cookieConsentModalExampleCode: CodeExample = ({ boolValues }) => `
 const Example = () => {
     const { openConsentModalWithSettings } = useCookieConsent();
     return (

@@ -40,10 +40,7 @@
         "@fremtind/jkl-list-react": "^6.1.23",
         "@fremtind/jkl-react-hooks": "^8.2.5",
         "classnames": "^2.2.6",
-        "react-hook-form": "^7.29.0"
-    },
-    "devDependencies": {
-        "@nrk/core-dialog": "4.0.0"
+        "react-a11y-dialog": "^6.1.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
