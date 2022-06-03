@@ -91,7 +91,7 @@ export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept }) 
     return ReactDOM.createPortal(
         <div
             {...(attr.container as unknown)}
-            className="jkl-cookie-consent-modal"
+            className="jkl jkl-cookie-consent-modal"
             data-testautoid="jkl-cookie-consent-modal"
         >
             <div {...attr.overlay} className="jkl-cookie-consent-modal__overlay" />
