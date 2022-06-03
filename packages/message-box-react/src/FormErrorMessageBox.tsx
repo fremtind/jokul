@@ -1,5 +1,6 @@
-import React, { forwardRef, useEffect, useRef } from "react";
+import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
+import React, { forwardRef, useEffect, useRef } from "react";
 import { MessageBoxProps, ErrorMessageBox } from "./MessageBox";
 
 export interface FormErrorMessageBoxProps {
@@ -24,6 +25,8 @@ export const FormErrorMessageBox = forwardRef<HTMLDivElement, FormErrorMessageBo
 
         const showSummary = isSubmitted && !isValid;
 
+        const [messageBoxRef] = useAnimatedHeight<HTMLDivElement>(showSummary);
+
         const previousErrors = useRef<Array<string | undefined>>(errors);
         useEffect(() => {
             previousErrors.current = errors;
@@ -31,16 +34,11 @@ export const FormErrorMessageBox = forwardRef<HTMLDivElement, FormErrorMessageBo
         const hasNewErrors = errors.length > previousErrors.current.length;
 
         return (
-            <div
-                ref={forwardedRef}
-                className={cn("jkl-form-error-message-box", className, {
-                    "jkl-form-error-message-box--hidden": !showSummary,
-                })}
-                {...rest}
-            >
+            <div ref={forwardedRef} className={cn("jkl-form-error-message-box", className)} {...rest}>
                 <ErrorMessageBox
                     {...defaultMessageBoxProps}
                     {...messageBoxProps}
+                    ref={messageBoxRef}
                     role={hasNewErrors ? "alert" : "presentation"} // Unngå å repetere hele oppsummeringen etter hvert som feilene rettes
                 >
                     <ul className="jkl-list">

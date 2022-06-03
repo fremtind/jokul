@@ -39,6 +39,7 @@
         "@fremtind/jkl-core": "^10.0.0",
         "@fremtind/jkl-icon-button-react": "^1.0.0",
         "@fremtind/jkl-message-box": "^6.0.0",
+        "@fremtind/jkl-react-hooks": "9.0.0",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
