@@ -17,7 +17,7 @@ describe("Cookie Consent", () => {
         cy.getByTestid("jkl-cookie-consent-godta").should("not.be.visible");
 
         cy.takeSnapshots({
-            customSelector: () => cy.get(".jkl-cookie-consent-modal"),
+            customSelector: () => cy.get(".jkl-cookie-consent-modal__content"),
             setup: () => {
                 cy.clearCookies();
                 cy.getByTestid("trigger-cookie-consent").first().click();
