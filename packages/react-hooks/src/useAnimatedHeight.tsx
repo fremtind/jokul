@@ -75,15 +75,15 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 // Første render eller rerender med isOpen false
                 return;
             }
+        } else if (isOpen && wasOpen) {
+            // Re-render etter å ha vært lukket, men forblitt åpen.
+            return;
         }
 
         options?.onTransitionStart?.(isOpen);
 
         if (prefersReducedMotion) {
-            const element = getElement(elementRef);
-            if (element) {
-                element.removeAttribute("style");
-            }
+            element.removeAttribute("style");
             if (isOpen) {
                 options?.onFirstVisible?.();
             }
