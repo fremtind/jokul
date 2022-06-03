@@ -1,10 +1,14 @@
 import React from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { FormErrorMessageBox } from "../src";
+
+export const formErrorMessageBoxKnobs: ExampleKnobsProps = {
+    boolProps: ["Full width", "Compact", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
+};
 
 export const FormErrorMessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
-        <>
+        <div>
             <FormErrorMessageBox
                 errors={[
                     !boolValues?.["Gyldig fornavn"] ? "Du må oppgi fornavn" : undefined,
@@ -20,7 +24,7 @@ export const FormErrorMessageBoxExample: React.FC<ExampleComponentProps> = ({ bo
             <p className="jkl-small">
                 Velg <i>Submitted</i> for å animere inn komponenten
             </p>
-        </>
+        </div>
     );
 };
 

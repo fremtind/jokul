@@ -197,4 +197,8 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     @include jkl.text-style("body");
 
     padding-bottom: jkl.$spacing-xl;
+
+    &--hidden {
+        display: none;
+    }
 }
