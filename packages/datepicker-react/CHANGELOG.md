@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@10.0.0...@fremtind/jkl-datepicker-react@10.0.1) (2022-06-03)
+
+### Bug Fixes
+
+-   bruk rett klassenavn på månedsvelgeren ([54add81](https://github.com/fremtind/jokul/commit/54add81eb5d278303852928c22866a22b9149596))
+-   kjenn igjen månedsknapper som del av DatePiker ([46d0b30](https://github.com/fremtind/jokul/commit/46d0b30b64373689d9cb405201010e81b5f511b0))
+-   kjenn igjen skjemafelter i extended som del av DatePicker ([2e3de7e](https://github.com/fremtind/jokul/commit/2e3de7ede73629b07f316cfb7d7a0b73664a2f43))
+-   stopp onBlur i Safari ved klikk i input så kalender ([c8975de](https://github.com/fremtind/jokul/commit/c8975de4b177d055242bd985db9028ef077aecfb))
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@9.1.5...@fremtind/jkl-datepicker-react@10.0.0) (2022-06-02)
 
 ### Bug Fixes

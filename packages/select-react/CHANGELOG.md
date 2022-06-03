@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.3.0...@fremtind/jkl-select-react@9.4.0) (2022-06-03)
+
+### Features
+
+-   gi mulighet til å sende et klassenavn til inputfeltet ([55f85bf](https://github.com/fremtind/jokul/commit/55f85bf251fb85cd1e45d0233e891bdd5467b73e))
+
 # [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.2.3...@fremtind/jkl-select-react@9.3.0) (2022-06-02)
 
 ### Features
