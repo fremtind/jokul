@@ -300,7 +300,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                         />
                         <NativeSelect
                             className="jkl-calendar__month-selector"
-                            selectClassName="jkl-calendar__year-selector-select"
+                            selectClassName="jkl-calendar__month-selector-select"
                             label={monthLabel}
                             items={months.map((name: string, i: number) => ({
                                 value: String(i),
