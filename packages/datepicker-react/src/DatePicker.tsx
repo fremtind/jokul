@@ -266,6 +266,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             })}
             {...rest}
             ref={datepickerRef}
+            tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
         >
             <Label standAlone {...labelProps} forceCompact={forceCompact} htmlFor={inputId}>
                 {label}
