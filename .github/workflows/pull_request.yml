@@ -156,7 +156,7 @@ jobs:
                       portal/**/*.spec.js
 
             - name: Run Cypress
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v4
               with:
                   install-command: yarn ci:install-cypress
                   browser: chrome
