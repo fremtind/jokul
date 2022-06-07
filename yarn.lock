@@ -1414,18 +1414,6 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@fremtind/browserslist-config-jkl@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@fremtind/browserslist-config-jkl/-/browserslist-config-jkl-0.6.1.tgz#8d8948704a54c45431d758becfdef469d33f31d2"
-  integrity sha512-aQgx/I4w6pFreRJnyvHzejMb6hP2H0VG1Sy+VXr0sNZjrkftFFPi82rUQfU7Dj1g9o9lSzSTAIdReijgbfIZnw==
-
-"@fremtind/jkl-constants-util@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@fremtind/jkl-constants-util/-/jkl-constants-util-0.4.4.tgz#12323c4aeb132713832ec11d7a4307e2aeaddd63"
-  integrity sha512-XSYRI3MP9FVuoq++A2FDrbcsMH7+rv0SLTS9hKLjcEAbbAfvLLOH7xzOX2zpWzKWwgVGD5+aK7YF6fUDytBqCg==
-  dependencies:
-    "@babel/runtime" "^7.17.8"
-
 "@gar/promisify@^1.0.1", "@gar/promisify@^1.1.3":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
