@@ -39,7 +39,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-icon-button-react": "^0.8.27",
+        "@fremtind/jkl-icon-button-react": "^1.0.0",
         "@fremtind/jkl-icons-react": "^5.0.0",
         "@fremtind/jkl-react-hooks": "^9.0.0",
         "@fremtind/jkl-text-input": "^8.0.0",

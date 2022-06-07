@@ -27,7 +27,7 @@
         "@fremtind/jkl-footer-react": "^2.0.0",
         "@fremtind/jkl-formatters-util": "^2.3.1",
         "@fremtind/jkl-hamburger-react": "^9.0.0",
-        "@fremtind/jkl-icon-button-react": "^0.8.27",
+        "@fremtind/jkl-icon-button-react": "^1.0.0",
         "@fremtind/jkl-icons-react": "^5.0.0",
         "@fremtind/jkl-image-react": "^3.0.0",
         "@fremtind/jkl-list-react": "^7.0.0",

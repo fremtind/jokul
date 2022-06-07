@@ -37,7 +37,7 @@
     "dependencies": {
         "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-alert-message": "^6.0.0",
-        "@fremtind/jkl-icon-button-react": "^0.8.27",
+        "@fremtind/jkl-icon-button-react": "^1.0.0",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
