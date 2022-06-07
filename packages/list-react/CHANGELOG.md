@@ -3,41 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list-react@6.1.21...@fremtind/jkl-list-react@7.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
 ## 6.1.0 (2021-12-03)
 
 ### Features
 
-- eksporter typer ([9a83996](https://github.com/fremtind/jokul/commit/9a83996e7a703ce295f96b30e071210ef3bbf918))
+-   eksporter typer ([9a83996](https://github.com/fremtind/jokul/commit/9a83996e7a703ce295f96b30e071210ef3bbf918))
 
 ## 6.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 5.0.0 (2021-07-09)
 
 ### Tests
 
-- update utility classes in tests ([43bdf46](https://github.com/fremtind/jokul/commit/43bdf46892af1ba00cf5c49636434e8642d10b42))
+-   update utility classes in tests ([43bdf46](https://github.com/fremtind/jokul/commit/43bdf46892af1ba00cf5c49636434e8642d10b42))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 4.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 3.0.0 (2021-06-07)
 

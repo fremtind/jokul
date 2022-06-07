@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0 (2022-06-07)
+
+### chore
+
+-   promoter pakken til versjon 1.0.0 ([2de060f](https://github.com/fremtind/jokul/commit/2de060fa5c1f37347d1425a3d203b139cd39fc78))
+
+### BREAKING CHANGES
+
+-   Ingen faktisk breaking change.
+
 # 0.6.0 (2022-02-07)
 
 ### Bug Fixes

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.6.1...@fremtind/jkl-core@10.0.0) (2022-06-07)
+
+### Bug Fixes
+
+-   importrekkefølge og syntaks ([55ef8ce](https://github.com/fremtind/jokul/commit/55ef8ce647772b7061eb72d46f4ab63884ea74e7))
+
+### Code Refactoring
+
+-   bruk det nye modulsystemet til Sass overalt ([90da923](https://github.com/fremtind/jokul/commit/90da9237e45ab4339829591b745b525c8780dcc3))
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+-   prefiks CSS-variabler med jkl ([500ee0e](https://github.com/fremtind/jokul/commit/500ee0e1050de94d8cda07fb423c33837fbf2faa))
+-   rydd opp i plassering og navn blant motion-funksjoner ([63667c9](https://github.com/fremtind/jokul/commit/63667c9e679d12e4868344378249fb84c3b18e8c))
+-   skriv og følg stilguiden for Sass i Jøkul ([1cc52a4](https://github.com/fremtind/jokul/commit/1cc52a4dea6af592ed48c45b38bc4fee07a749ae))
+
+### Features
+
+-   legg til en index-fil for Sass ([c4f8d0c](https://github.com/fremtind/jokul/commit/c4f8d0cd31bcab0706a49be1bdf0214fbbbbf646))
+
+### BREAKING CHANGES
+
+-   Alle CSS-variabler har jkl-prefix
+-   Sass-variabler, mixins og CSS-animasjoner fra pakker annet enn core er gjort private
+-   Avhenger av ny majorversjon av core
+-   Maps fra motion er gjort private, jkl-motion er nå easing, jkl-timing er nå timing.
+-   For brukere av Sass-koden vil dere kunne oppleve breaking changes. Se MIGRATION.md.
+    Om du importeres CSS i prosjektet ditt er det ingen breaking change.
+
 # [9.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.6.2...@fremtind/jkl-core@9.7.0) (2022-06-02)
 
 ### Features
