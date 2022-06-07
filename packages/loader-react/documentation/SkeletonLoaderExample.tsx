@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import {
     SkeletonAnimation,
@@ -15,7 +15,7 @@ import {
 
 import "./styles.scss";
 
-export const SkeletonLoaderExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const SkeletonLoaderExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const forceCompact = boolValues?.["Compact"];
     return (
         <SkeletonAnimation

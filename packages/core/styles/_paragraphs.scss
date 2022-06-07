@@ -1,0 +1,29 @@
+@use "../mixins";
+
+.jkl-body {
+    @include mixins.text-style("body");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("body/small-screen");
+    }
+}
+
+.jkl-bold {
+    @include mixins.text-style("body") {
+        @include mixins.no-grow-bold;
+    }
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("body/small-screen") {
+            @include mixins.no-grow-bold;
+        }
+    }
+}
+
+.jkl-small {
+    @include mixins.text-style("small");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("small/small-screen");
+    }
+}

@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
+import React, { FC } from "react";
 import "./GitHubLinks.scss";
 
 interface LinkProps extends WithChildren {

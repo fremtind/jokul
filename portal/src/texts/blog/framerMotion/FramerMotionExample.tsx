@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
 import { motion } from "framer-motion";
+import React, { FC } from "react";
 import "./style.scss";
 
-export const FramerMotionExample: VFC = () => {
+export const FramerMotionExample: FC = () => {
     return (
         <div className="wrapper jkl-portal-paragraph">
             <div className="example-container">

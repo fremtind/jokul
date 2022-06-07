@@ -1,7 +1,7 @@
-import React, { ChangeEventHandler } from "react";
-import { axe } from "jest-axe";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import React, { ChangeEventHandler } from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { RadioButton, RadioButtonGroup } from "./";
 

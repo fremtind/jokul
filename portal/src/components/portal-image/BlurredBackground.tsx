@@ -1,7 +1,7 @@
-import React, { VFC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import React, { FC } from "react";
 
-export const BlurredBackground: VFC<{ blur: boolean }> = ({ blur }) => {
+export const BlurredBackground: FC<{ blur: boolean }> = ({ blur }) => {
     return (
         <AnimatePresence>
             {blur && (

@@ -1,40 +1,40 @@
+@use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+$_radio-button-size: jkl.rem(24px);
+$_radio-button-height: jkl.rem(48px);
+$_radio-button-line-height: jkl.rem(32px);
+$_radio-button-dot-padding: jkl.rem(4px);
 
-$radio-button-size: rem(24px);
-$radio-button-height: rem(48px);
-$radio-button-line-height: rem(32px);
-$radio-button-dot-padding: rem(4px);
+$_radio-button-size--compact: jkl.rem(18px);
+$_radio-button-height--compact: jkl.rem(40px);
+$_radio-button-line-height--compact: jkl.rem(28px);
+$_radio-button-dot-padding--compact: jkl.rem(3px);
 
-$radio-button-size--compact: rem(18px);
-$radio-button-height--compact: rem(40px);
-$radio-button-line-height--compact: rem(28px);
-$radio-button-dot-padding--compact: rem(3px);
+$_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
-@include jkl.helper-light-mode-variables {
-    --radio-button-color: #{jkl.$color-granitt};
-    --radio-button-background-color: #{jkl.$color-snohvit};
-    --radio-button-focus-color: #{jkl.$color-granitt};
-    --radio-button-focus-background-color: #{jkl.$color-hvit};
-    --radio-button-error-background-color: #{colors.varslingsfarge("feil")};
-    --radio-button-error-dot-color: #{jkl.$color-granitt};
-    --radio-button-default-color: #{jkl.$color-stein};
+@include jkl.light-mode-variables {
+    --jkl-radio-button-color: #{jkl.$color-granitt};
+    --jkl-radio-button-background-color: #{jkl.$color-snohvit};
+    --jkl-radio-button-focus-color: #{jkl.$color-granitt};
+    --jkl-radio-button-focus-background-color: #{jkl.$color-hvit};
+    --jkl-radio-button-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-radio-button-error-dot-color: #{jkl.$color-granitt};
+    --jkl-radio-button-default-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
-    --radio-button-color: #{jkl.$color-snohvit};
-    --radio-button-background-color: transparent;
-    --radio-button-focus-color: #{jkl.$color-snohvit};
-    --radio-button-focus-background-color: #{jkl.$color-svart};
-    --radio-button-error-background-color: #{colors.varslingsfarge("feil")};
-    --radio-button-error-dot-color: #{jkl.$color-granitt};
-    --radio-button-default-color: #{jkl.$color-svaberg};
+@include jkl.dark-mode-variables {
+    --jkl-radio-button-color: #{jkl.$color-snohvit};
+    --jkl-radio-button-background-color: transparent;
+    --jkl-radio-button-focus-color: #{jkl.$color-snohvit};
+    --jkl-radio-button-focus-background-color: #{jkl.$color-svart};
+    --jkl-radio-button-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-radio-button-error-dot-color: #{jkl.$color-granitt};
+    --jkl-radio-button-default-color: #{jkl.$color-svaberg};
 }
 
-@keyframes dot-in {
+@keyframes #{$_radio-button-dot-animation-name} {
     0% {
         transform: scale(0.8);
     }
@@ -45,10 +45,10 @@ $radio-button-dot-padding--compact: rem(3px);
 }
 
 .jkl-radio-button {
-    @include reset-outline;
+    @include jkl.reset-outline;
     display: flex;
-    min-height: $radio-button-height;
-    color: var(--radio-button-color);
+    min-height: $_radio-button-height;
+    color: var(--jkl-radio-button-color);
 
     &__input {
         // hide default radio button
@@ -58,28 +58,28 @@ $radio-button-dot-padding--compact: rem(3px);
         // Checked state
         &:checked {
             + .jkl-radio-button__label > .jkl-radio-button__dot::after {
-                animation: dot-in 150ms ease;
+                animation: $_radio-button-dot-animation-name jkl.timing("productive") ease;
                 background-color: currentColor;
 
-                @include jkl.helper-forced-colors-mode {
+                @include jkl.forced-colors-mode {
                     background-color: Highlight;
                 }
             }
 
             .jkl-radio-button--error & + .jkl-radio-button__label > .jkl-radio-button__dot::after {
-                background-color: var(--radio-button-error-dot-color);
+                background-color: var(--jkl-radio-button-error-dot-color);
             }
         }
 
         // Focused state
         html:not([data-mousenavigation]) &:focus {
             + .jkl-radio-button__label {
-                color: var(--radio-button-focus-color);
+                color: var(--jkl-radio-button-focus-color);
 
                 & > .jkl-radio-button__dot::before {
-                    box-shadow: 0 0 0 rem(2px) var(--radio-button-focus-color);
+                    box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-radio-button-focus-color);
 
-                    @include jkl.helper-forced-colors-mode {
+                    @include jkl.forced-colors-mode {
                         border: 4px double ButtonText;
                     }
                 }
@@ -95,12 +95,12 @@ $radio-button-dot-padding--compact: rem(3px);
 
         // Hovered state
         &:hover {
-            color: var(--radio-button-focus-color);
+            color: var(--jkl-radio-button-focus-color);
 
             & > .jkl-radio-button__dot {
-                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) currentColor;
+                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) currentColor;
 
-                @include jkl.helper-forced-colors-mode {
+                @include jkl.forced-colors-mode {
                     &::before {
                         border: 2px solid ButtonText;
                         position: absolute;
@@ -115,10 +115,10 @@ $radio-button-dot-padding--compact: rem(3px);
 
         // Active state
         &:active {
-            color: var(--radio-button-color);
+            color: var(--jkl-radio-button-color);
 
             & > .jkl-radio-button__dot {
-                box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
+                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
 
                 &::after {
                     transform: scale(0.9);
@@ -131,17 +131,17 @@ $radio-button-dot-padding--compact: rem(3px);
         display: inline-block;
         position: relative;
         box-sizing: border-box;
-        height: $radio-button-size;
-        width: $radio-button-size;
+        height: $_radio-button-size;
+        width: $_radio-button-size;
         flex-shrink: 0;
 
-        margin: (($radio-button-height - $radio-button-size) * 0.5) 0;
+        margin: (($_radio-button-height - $_radio-button-size) * 0.5) 0;
         margin-right: jkl.$spacing-xs;
 
         border-radius: 50%;
-        box-shadow: inset 0 0 0 rem(1px) currentColor, 0 0 0 rem(1px) transparent;
+        box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
 
-        @include motion;
+        @include jkl.motion;
         transition-property: background-color, box-shadow;
 
         /* Inner dot */
@@ -149,17 +149,17 @@ $radio-button-dot-padding--compact: rem(3px);
             content: "";
 
             position: absolute;
-            left: $radio-button-dot-padding;
-            top: $radio-button-dot-padding;
-            height: $radio-button-size - (2 * $radio-button-dot-padding);
-            width: $radio-button-size - (2 * $radio-button-dot-padding);
+            left: $_radio-button-dot-padding;
+            top: $_radio-button-dot-padding;
+            height: $_radio-button-size - (2 * $_radio-button-dot-padding);
+            width: $_radio-button-size - (2 * $_radio-button-dot-padding);
             border-radius: 50%;
             transform: scale(1);
 
-            @include motion;
+            @include jkl.motion;
             transition-property: transform;
 
-            @include jkl.helper-forced-colors-mode {
+            @include jkl.forced-colors-mode {
                 top: rem(3px);
                 left: rem(3px);
             }
@@ -169,16 +169,16 @@ $radio-button-dot-padding--compact: rem(3px);
         &::before {
             content: "";
             position: absolute;
-            top: rem(-2px);
-            right: rem(-2px);
-            bottom: rem(-2px);
-            left: rem(-2px);
+            top: jkl.rem(-2px);
+            right: jkl.rem(-2px);
+            bottom: jkl.rem(-2px);
+            left: jkl.rem(-2px);
             border-radius: 50%;
 
-            box-shadow: 0 0 0 rem(1px) transparent;
+            box-shadow: 0 0 0 jkl.rem(1px) transparent;
         }
 
-        @include jkl.helper-forced-colors-mode {
+        @include jkl.forced-colors-mode {
             outline: revert;
             border: 1px solid ButtonText;
         }
@@ -186,13 +186,13 @@ $radio-button-dot-padding--compact: rem(3px);
 
     &__text {
         display: inline-block;
-        margin: (($radio-button-height - $radio-button-line-height) * 0.5) 0;
-        transform: translate3d(0, rem(1px), 0);
+        margin: (($_radio-button-height - $_radio-button-line-height) * 0.5) 0;
+        transform: translate3d(0, jkl.rem(1px), 0);
     }
 
     &--error {
         .jkl-radio-button__dot {
-            background-color: var(--radio-button-error-background-color);
+            background-color: var(--jkl-radio-button-error-background-color);
         }
     }
 
@@ -202,28 +202,28 @@ $radio-button-dot-padding--compact: rem(3px);
         margin-right: jkl.$spacing-l;
     }
 
-    @include compact-mode {
-        min-height: $radio-button-height--compact;
+    @include jkl.compact-mode {
+        min-height: $_radio-button-height--compact;
 
         .jkl-radio-button__text {
             @include jkl.text-style("body/small-screen");
-            margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
+            margin: (($_radio-button-height--compact - $_radio-button-line-height--compact) * 0.5) 0;
             transform: translate3d(0, 0, 0);
         }
 
         .jkl-radio-button__dot {
-            margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
+            margin: (($_radio-button-height--compact - $_radio-button-size--compact) * 0.5) 0;
             margin-right: jkl.$spacing-xs;
-            height: $radio-button-size--compact;
-            width: $radio-button-size--compact;
+            height: $_radio-button-size--compact;
+            width: $_radio-button-size--compact;
 
             &::after {
-                left: $radio-button-dot-padding--compact;
-                top: $radio-button-dot-padding--compact;
-                height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-                width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+                left: $_radio-button-dot-padding--compact;
+                top: $_radio-button-dot-padding--compact;
+                height: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
+                width: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
 
-                @include jkl.helper-forced-colors-mode {
+                @include jkl.forced-colors-mode {
                     top: rem(2.35px);
                     left: rem(2px);
                 }
@@ -231,27 +231,27 @@ $radio-button-dot-padding--compact: rem(3px);
         }
     }
 
-    @include small-device {
-        min-height: $radio-button-height--compact;
+    @include jkl.small-device {
+        min-height: $_radio-button-height--compact;
 
         .jkl-radio-button__text {
-            margin: (($radio-button-height--compact - $radio-button-line-height--compact) * 0.5) 0;
+            margin: (($_radio-button-height--compact - $_radio-button-line-height--compact) * 0.5) 0;
             transform: translate3d(0, 0, 0);
         }
 
         .jkl-radio-button__dot {
-            margin: (($radio-button-height--compact - $radio-button-size--compact) * 0.5) 0;
+            margin: (($_radio-button-height--compact - $_radio-button-size--compact) * 0.5) 0;
             margin-right: jkl.$spacing-xs;
-            height: $radio-button-size--compact;
-            width: $radio-button-size--compact;
+            height: $_radio-button-size--compact;
+            width: $_radio-button-size--compact;
 
             &::after {
-                left: $radio-button-dot-padding--compact;
-                top: $radio-button-dot-padding--compact;
-                height: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
-                width: $radio-button-size--compact - (2 * $radio-button-dot-padding--compact);
+                left: $_radio-button-dot-padding--compact;
+                top: $_radio-button-dot-padding--compact;
+                height: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
+                width: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
 
-                @include jkl.helper-forced-colors-mode {
+                @include jkl.forced-colors-mode {
                     top: rem(2.35px);
                     left: rem(2px);
                 }

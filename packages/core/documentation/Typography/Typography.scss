@@ -1,12 +1,9 @@
 @use "../../jkl";
 
-@import "../../functions";
-@import "../../mixins/all";
-
 .jkl-typography-example-table {
     border: 0;
     width: 100%;
-    max-width: rem(768px);
+    max-width: jkl.rem(768px);
 
     &__data,
     &__header {
@@ -14,23 +11,23 @@
         @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
-        border-bottom: rem(1px) solid;
+        border-bottom: jkl.rem(1px) solid;
         box-sizing: border-box;
     }
 
     &__header {
         font-weight: jkl.$typography-weight-bold;
         border-bottom-color: jkl.$color-granitt;
-        min-height: rem(40px);
+        min-height: jkl.rem(40px);
     }
 
     &__data {
         border-bottom-color: jkl.$color-stein;
         padding-bottom: jkl.$spacing-m;
-        min-height: rem(48px);
+        min-height: jkl.rem(48px);
     }
 
-    @include small-device {
+    @include jkl.small-device {
         &__header {
             display: none;
         }

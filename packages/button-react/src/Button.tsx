@@ -1,9 +1,9 @@
-import React, { forwardRef, TouchEvent } from "react";
-import classNames from "classnames";
-import { Loader } from "@fremtind/jkl-loader-react";
 import { unicode } from "@fremtind/jkl-constants-util";
-import { Props, ValidButtons } from "./types";
+import { Loader } from "@fremtind/jkl-loader-react";
+import classNames from "classnames";
+import React, { forwardRef, TouchEvent } from "react";
 import { BaseButton } from "./BaseButton";
+import { Props, ValidButtons } from "./types";
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const Button = forwardRef<HTMLButtonElement, Props>(
         ({ children, className, forceCompact, onClick, onTouchStart, loader, arrow, ...rest }, ref) => {

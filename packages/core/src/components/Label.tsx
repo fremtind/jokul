@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { WithChildren } from "../types";
-import { LabelVariant } from "../index";
 import classNames from "classnames";
+import React, { FC } from "react";
+import { LabelVariant } from "../index";
+import { WithChildren } from "../types";
 
 export interface LabelProps extends WithChildren {
     variant?: LabelVariant;

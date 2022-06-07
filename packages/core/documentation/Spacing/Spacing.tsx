@@ -1,4 +1,4 @@
-import React, { useState, VFC } from "react";
+import React, { useState, FC } from "react";
 
 import "./Spacing.scss";
 
@@ -82,4 +82,4 @@ const SpacingTable: React.FC<{ values: spacingClass[] }> = ({ values }) => (
     </table>
 );
 
-export const SpacingScaleTable: VFC = () => <SpacingTable values={spacings} />;
+export const SpacingScaleTable: FC = () => <SpacingTable values={spacings} />;

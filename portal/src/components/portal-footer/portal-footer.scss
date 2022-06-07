@@ -1,14 +1,11 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
 $_sidebar-width: rem(375px);
 
 .jkl-portal-footer {
     padding-top: jkl.$spacing-l;
 
-    @include from-large-device {
+    @include jkl.from-large-device {
         grid-area: footer;
     }
 
@@ -23,18 +20,18 @@ $_sidebar-width: rem(375px);
         }
 
         .jkl-feedback {
-            max-width: rem(640px);
+            max-width: jkl.rem(640px);
         }
 
         .jkl-message-box {
             max-width: initial;
         }
 
-        @include medium-device {
+        @include jkl.medium-device {
             padding: jkl.$spacing-xl;
         }
 
-        @include from-large-device {
+        @include jkl.from-large-device {
             flex-direction: row;
             padding: jkl.$spacing-2xl;
             padding-left: calc($_sidebar-width + jkl.$spacing-xl);
@@ -43,12 +40,12 @@ $_sidebar-width: rem(375px);
 
     &__stamp {
         margin-top: -#{jkl.$spacing-l};
-        width: rem(185px);
-        height: rem(185px);
+        width: jkl.rem(185px);
+        height: jkl.rem(185px);
         opacity: 1;
         display: none;
 
-        @include xl-device {
+        @include jkl.xl-device {
             display: block;
         }
     }

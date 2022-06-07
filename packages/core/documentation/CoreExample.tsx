@@ -1,14 +1,13 @@
-import React, { VFC } from "react";
 import PropTypes from "prop-types";
+import React, { FC } from "react";
 import { DevExample } from "../../../doc-utils";
-
 import "../core.scss";
 import "./style.scss";
 import { LinkExample } from "./Link/LinkExample";
 import { NavLinkExample } from "./Link/NavLinkExample";
+import { Keyboard } from "./Mixins/Keyboard";
 import { SpacingScaleTable } from "./Spacing/Spacing";
 import { NormalExample, SmallExample, LargeExample } from "./Typography/Typography";
-import { Keyboard } from "./Mixins/Keyboard";
 
 interface BoxProps {
     type: "color" | "spacing";
@@ -22,7 +21,7 @@ Box.propTypes = {
     number: PropTypes.number,
 };
 
-export const Typo: VFC = () => (
+export const Typo: FC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <h1 className="jkl-h1">Heading1</h1>
         <h2 className="jkl-h2">Heading2</h2>
@@ -34,7 +33,7 @@ export const Typo: VFC = () => (
     </section>
 );
 
-export const Spacing: VFC = () => (
+export const Spacing: FC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <h1 className="jkl-h1">Spacing</h1>
 
@@ -46,7 +45,7 @@ export const Spacing: VFC = () => (
     </section>
 );
 
-export const CoreExample: VFC = () => (
+export const CoreExample: FC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
         <DevExample component={LinkExample} knobs={{ boolProps: ["Ekstern"] }} />
         <DevExample component={NavLinkExample} knobs={{ boolProps: ["Aktiv", "Back"] }} />

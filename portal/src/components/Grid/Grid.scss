@@ -1,14 +1,11 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/functions";
-
 .jkl-portal-grid {
     display: flex;
     justify-content: space-between;
 
     &--medium {
-        max-width: rem(894px);
+        max-width: jkl.rem(894px);
     }
 
     &__col {
@@ -24,7 +21,7 @@
         }
     }
 
-    @include small-device {
+    @include jkl.small-device {
         flex-direction: column;
 
         .jkl-portal-grid__col {

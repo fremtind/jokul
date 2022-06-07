@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icon-button-react",
-    "version": "0.8.27",
+    "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },

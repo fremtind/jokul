@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
-import { useScrollIntoView } from "./useScrollIntoView";
 import { RefObject } from "react";
+import { useScrollIntoView } from "./useScrollIntoView";
 
 const expectAfterWait = (timeout: number, expectFn: () => void) =>
     new Promise((resolve) => setTimeout(() => resolve(expectFn()), timeout));

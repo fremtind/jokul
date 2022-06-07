@@ -1,0 +1,49 @@
+@use "../mixins";
+
+.jkl-title {
+    @include mixins.text-style("title");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("title/small-screen");
+    }
+}
+
+.jkl-heading-1 {
+    @include mixins.text-style("heading-1");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("heading-1/small-screen");
+    }
+}
+
+.jkl-heading-2 {
+    @include mixins.text-style("heading-2");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("heading-2/small-screen");
+    }
+}
+
+.jkl-heading-3 {
+    @include mixins.text-style("heading-3");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("heading-3/small-screen");
+    }
+}
+
+.jkl-heading-4 {
+    @include mixins.text-style("heading-4");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("heading-4/small-screen");
+    }
+}
+
+.jkl-heading-5 {
+    @include mixins.text-style("heading-5");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("heading-5/small-screen");
+    }
+}

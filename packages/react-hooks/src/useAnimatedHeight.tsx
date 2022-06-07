@@ -1,6 +1,6 @@
-import { MutableRefObject, useEffect, useRef, RefObject, useCallback } from "react";
 import type { Easing, Timing } from "@fremtind/jkl-core";
 import { easings, timings } from "@fremtind/jkl-core";
+import { MutableRefObject, useEffect, useRef, RefObject, useCallback } from "react";
 import { useBrowserPreferences } from "./useBrowserPreferences/useBrowserPreferences";
 import { usePreviousValue } from "./usePreviousValue/usePreviousValue";
 

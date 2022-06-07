@@ -1,0 +1,487 @@
+---
+title: Hvordan skrive Sass i Jøkul
+path: /guider/sass
+order: 22
+---
+
+# Stilguide for Sass
+
+<Ingress>Lurer du på hvordan du skal begynne med Sass-kode i Jøkul?</Ingress>
+
+## Sass
+
+[Sass](https://sass-lang.com/guide) er en preprocessor for CSS.
+
+Kort fortalt gir Sass oss en kraftig verktøykasse til å skrive CSS, med muligheter som nøsting, funksjoner, løkker og et modulsystem som lar oss dele opp kode i fornuftige biter før det kompileres til CSS – litt som TypeScript blir kompilert til JavaScript.
+
+Det er [to syntakser i Sass](https://sass-lang.com/documentation/syntax)-verden: SCSS og Indented.
+
+<Grid>
+
+```scss
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+}
+```
+
+```sass
+nav
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+  li
+    display: inline-block
+
+  a
+    display: block
+    padding: 6px 12px
+    text-decoration: none
+```
+
+</Grid>
+
+I Jøkul bruker vi SCSS-syntaksen. Den er et supersett av CSS, og er mer gjenkjennelig om du har en bakgrunn i å skrive CSS eller Less.
+
+Begrepene _Sass_ og _SCSS_ blir brukt om hverandre i Jøkul, og betyr enten Sass-prosjektet eller Sass-kode skrevet med SCSS-syntaks.
+
+## Namespacing
+
+I CSS deler alle stilark det samme globale namespacet. Det får konsekvenser for hvordan vi navngir:
+
+-   klasser
+-   CSS-variabler
+-   animasjoner
+
+I Jøkul skal disse starte med `jkl` for å synliggjøre hvor CSSen kommer fra og unngå navnekollisjoner.
+
+```scss
+@include jkl.light-mode-variables {
+    --jkl-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-color: #{jkl.$color-snohvit};
+}
+
+.jkl-link {
+    color: var(--jkl-color);
+}
+```
+
+Navngiving av CSS-animasjoner løser vi på en litt spesiell måte. Mer om det i [kapittelet om animasjoner](#animasjoner).
+
+## Block Element Modifier
+
+Vi bruker metodikken [Block Element Modifier](https://css-tricks.com/bem-101/) (BEM) som navnekonvensjon i Jøkul. BEM og namespacing hjelper oss med å unngå navnekollisjoner både innad i Jøkul, og med brukerne av Jøkul.
+
+Nøsting og _parent selector_ (`&`) i Sass gjør det enklere å skrive CSS på denne måten.
+
+```scss
+.jkl-block {
+    /* ... */
+    &__element {
+        /* ... */
+        &--element-modifier {
+            /* ... */
+        }
+    }
+
+    &--block-modifier {
+        /* ... */
+    }
+}
+```
+
+### Unngå flere elementnivåer
+
+Dersom du er i ferd med å skrive en `block__element__another-element`-selector, stopp og tenk om `element` egentlig er en _annen_ `block`.
+
+## Moduler
+
+I Jøkul bruker vi [modul-syntaks](https://sass-lang.com/blog/the-module-system-is-launched) med [@use](https://sass-lang.com/documentation/at-rules/use) og [@forward](https://sass-lang.com/documentation/at-rules/forward), ikke `@import`. Hver fil er en modul, på samme måte som du kanskje kjenner til fra TypeScript.
+
+Moduler bør holdes til ett tema. Et tema kan for eksempel være CSSen for en komponent, mixins som har å gjøre med skjermstørrelser, eller funksjoner for konvertering av data.
+
+Vi bruker ikke [prefixes](https://sass-lang.com/documentation/at-rules/forward#adding-a-prefix) sammen med `@forward`. Grunnen er at vi ønsker at det skal være enkelt å navigere i Jøkul-koden. Man skal kunne finne igjen variabelen innad i Jøkul med det samme navnet som man kjenner fra det offentlige APIet.
+
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Vanlig forwarding uten å endre navn"
+        content={
+            <CodeDemo
+                language="scss"
+                code={`@forward "one";
+@forward "two";`}
+            />
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Forwarding med prefix endrer navnet utad"
+        content={
+            <CodeDemo
+                language="scss"
+                code={`@forward "one" as one-*;
+@forward "two" as two-*;`}
+            />
+        }
+    />
+</Grid>
+
+### Partials
+
+Vi bruker partials (filer hvor navnet starter med `_`) for alle filer som ikke skal kompileres til sin egen CSS-fil, men brukes som en _part_ i andre CSS-filer.
+
+Eksempler er moduler som består utelukkende av variabler, funksjoner og mixins. Det kan også være en modul med CSS for en komponent, men hvor alt skal samles opp i én enkelt CSS-fil til slutt (se for eksempel [packages/table](https://github.com/fremtind/jokul/tree/main/packages/table)).
+
+### Mappe- og filstruktur
+
+Hver mappe med Sass skal ha en `_index.scss` hvor det listes opp `@forward` for alle filer i mappa, litt som en `index.ts` kan gjøre i TypeScript.
+
+For eksempel, hvis du har en mappe med to partials `_one.scss` og `_two.scss` må den samme mappen ha en `_index.scss` som ser slik ut:
+
+Et unntak er på rotnivå i komponentpakkene. Her skal `_index.scss` ha én `@forward` som peker på hovedfila (for eksempel `table.scss`), og så har _den_ fila ansvaret for å hente inn alt som skal være med.
+
+```scss
+// packages/table/_index.scss
+@forward "table";
+
+// packages/table/table.scss
+@use "table-caption";
+@use "table-cell";
+@use "table-head";
+@use "table-header";
+@use "table-row";
+```
+
+Grunnen til dette unntaket er at vi ønsker at Sass skal lage en `table.css` fra koden vår. Det er enklest dersom vi har en `table.scss` som henter inn alt den trenger.
+
+#### Hvorfor ha en index?
+
+Index-fila er der for å gjøre det litt enklere å ta i bruk koden andre steder. Sammenlign for eksempel disse to kodesnuttene.
+
+```scss
+@forward "variables";
+@forward "mixins";
+@forward "functions";
+```
+
+I koden over har vi tre mapper: `variables`, `mixins` og `functions`. Jeg som bruker disse mappene trenger ikke forholde meg til hva som er i disse mappene. Jeg vil bare ha det som finnes av variabler, mixins og funksjoner.
+
+```scss
+@forward "variables/breakpoints";
+@forward "variables/colors" as color-* hide varslingsfarge;
+@forward "variables/shadow";
+@forward "variables/shadows" as shadow-*;
+@forward "variables/spacing" hide $spacing;
+@forward "variables/typography" as typography-*;
+@forward "variables/z-index";
+
+@forward "mixins/helpers";
+@forward "mixins/screens";
+@forward "mixins/text-style";
+@forward "mixins/ornaments";
+@forward "mixins/motion";
+@forward "mixins/screenreader";
+@forward "mixins/underline";
+@forward "mixins/navigation";
+
+@forward "functions/convert";
+@forward "functions/easing";
+@forward "functions/timing";
+@forward "functions/responsive-units";
+```
+
+I dette eksempelet har vi ingen index. Jeg som bruker er nødt til å hente inn alle enkeltfiler som finnes. Dersom noen legger til en ny fil må jeg sørge for å oppdatere koden min til å også hente inn denne. Koden min må også endres dersom én av filene endrer navn. Om jeg bare hadde forholdt meg til mappenavn hadde jeg ungått dette.
+
+### Offentlig API
+
+Mappenavn og filnavn er **ikke** en del av APIet til en pakke og kan endres uten forvarsel, med unntak av:
+
+-   Filnavnet som matcher pakkens navn, for eksempel `core.scss` og `table.scss`. Disse navnene brukes av prosjekter som importerer CSS.
+-   `packages/core/_jkl.scss`, som vi ser på som "hovedinngangen" til Sass-verktøy som mixins, funksjoner og variabler i `core`
+
+**Stabilt**
+
+```scss
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-table/table";
+```
+
+**Ikke stabilt**
+
+```scss
+@use "~@fremtind/jkl-core/functions";
+@use "~@fremtind/jkl-core/mixins";
+@use "~@fremtind/jkl-core/variables";
+@use "~@fremtind/jkl-table/table-row";
+```
+
+## Variabler
+
+Det er to typer variabler du må forholde deg til:
+
+-   Sass-variabler som er tilgjengelige _build time_
+-   CSS-variabler som er tilgjengelige _run time_
+
+Vi starter med CSS-variabler.
+
+### CSS-variabler
+
+Vi bruker CSS-variabler for verdier som kan tenkes å endres når brukeren ser på siden. Det vanligste er å bruke CSS-variabler for farger, siden de kan endres hvis brukeren bytter tema.
+
+Alle CSS-variabler prefixes med `jkl` for å synliggjøre at en variabel kommer fra Jøkul og for å unngå navnekollisjoner.
+
+```scss
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-table-row-border-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-table-row-border-color: #{jkl.$color-stein};
+}
+
+.jkl-table-row {
+    border-color: var(--jkl-table-row-border-color);
+}
+```
+
+### Sass-variabler
+
+Sass-variabler behandler vi som konstanter som har en fast verdi. Denne verdien kan gi mening å skille ut i en variabel for å unngå duplisering, eller for å tydeliggjøre en relasjon mellom verdier.
+
+```scss
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-table-row {
+    $_border-width: jkl.rem(1px);
+
+    border-width: $_border-width;
+
+    thead > & {
+        border-width: $_border-width;
+    }
+}
+```
+
+Med unntak av i `packages/core` skal variabler som regel være private. Private variabler kan ikke brukes av andre moduler. Varibler er private om navnet starter med `_` (underscore).
+
+I motsetning til CSS-variabler skal public variabler _ikke_ prefikses med `jkl`. De fleste variabler er uansett private. For public variabler lener vi oss på Sass sitt modulsystem med innebygget namespacing, så et prefiks er unødvendig.
+
+Variabler bør som regel være definert nærmest mulig der den brukes. Hvis en variabel bare er relevant innefor én selector, definer den der.
+
+Variabler som er definert utenfor en CSS selector anses som globale innenfor sin modul. Globale variabler bør være definert øverst i fila, under `@use`-statements.
+
+### Offentlig API
+
+Sass-variabler som er public er en del av pakkens API. En variabel er public dersom navnet _ikke_ starter med `_` (underscore) og variabelen er definert i det globale scopet (utenfor en CSS selector).
+
+Sass-variabler som er public skal dokumenteres med [SassDoc](#sassdoc).
+
+Navnet til CSS- og Sass-variabelen og [typen verdi](https://sass-lang.com/documentation/values/) (for eksempel `String`) er å anse som stabilt.
+
+```scss
+/* $_example-padding er brukt av to selectors, og hører hjemme som en global variabel */
+$_example-padding: jkl.$spacing-l;
+$_code-padding: jkl.$spacing-s;
+
+
+/// Variabler som ikke starter med _ og som er definert i globalt scope er en del av pakkens API og kan brukes av andre
+/// @type String
+$i-am-public: "Hello, world!";
+
+.jkl-example-1 {
+  padding: $_example-padding;
+
+  &__design {
+    $_design-padding: jkl.$spacing-s;
+    padding: $_design-padding;
+  }
+}
+
+.jkl-example-2 {
+  padding: $_example-padding;
+
+  &__code {
+    /* $_code-padding er bare brukt her, og burde vært definert her, slik som $_design-padding */
+    padding: $_code-padding: jkl.$spacing-s;
+  }
+}
+```
+
+## Mixins
+
+Med unntak av i `packages/core` skal mixins som regel være private. Private mixins kan ikke brukes av andre moduler. Mixins er private om navnet starter med `_` (underscore).
+
+### Offentlig API
+
+Public mixins er en del av pakkens API. En mixin er public dersom navnet _ikke_ starter med `_` (underscore). Mixins som er public skal dokumenteres med [SassDoc](#sassdoc).
+
+I public mixins er endring i navnet på parametere å anse som en _breaking change_. Det er fordi utviklere kan ha brukt [keyword arguments](https://sass-lang.com/documentation/at-rules/mixin#keyword-arguments).
+
+```scss
+// Keyword arguments i bruk. Hvis navnet
+// på parameternavnet endres vil det brekke koden.
+@include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
+```
+
+Om du vil endre navnet på en bakoverkompatibel måte kan du beholdet det gamle navnet som et [optional argument](https://sass-lang.com/documentation/at-rules/mixin#optional-arguments) og håndtere begge parametere internt i mixinen.
+
+## Funksjoner
+
+Med unntak av i `packages/core` skal funksjoner som regel være private. Private funksjoner kan ikke brukes av andre moduler. Funksjoner er private om navnet starter med `_` (underscore).
+
+### Offentlig API
+
+Public funksjoner er en del av pakkens API. En funksjon er public dersom navnet _ikke_ starter med `_` (underscore).
+
+Funksjoner som er public skal dokumenteres med [SassDoc](#sassdoc).
+
+I public funksjoner er endring i navnet på parametere å anse som en _breaking change_. Det er fordi utviklere kan ha brukt [keyword arguments](https://sass-lang.com/documentation/at-rules/function#keyword-arguments).
+
+Om du vil endre navnet på en bakoverkompatibel måte kan du beholdet det gamle navnet som et [optional argument](https://sass-lang.com/documentation/at-rules/function#optional-arguments) og håndtere begge parametere internt i funksjonen.
+
+## Animasjoner
+
+CSS-animasjoner er ansett som private, ikke som en del av det offisielle APIet til en pakke. Vi bruker et [mønster basert på _interpolation_](https://sass-lang.com/documentation/interpolation#in-sassscript) og [string.unique-id()](https://sass-lang.com/documentation/modules/string#unique-id) for å få garantert unike IDer per bygg.
+
+Vi prefikser likevel animasjonsnavnet med `jkl` for å synliggjøre at animasjonen kommer fra Jøkul.
+
+```scss
+$_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
+
+.jkl-alert-message {
+    /* ... */
+    animation: $_dismiss-animation-name jkl.timing("lazy") jkl.easing("exit") forwards;
+    /* ... */
+}
+
+@keyframes #{$_dismiss-animation-name} {
+    from {
+        /* ... */
+    }
+
+    to {
+        /* ... */
+    }
+}
+```
+
+## SassDoc
+
+All Sass-kode som er en del av pakkens offentlige API skal dokumenteres med [SassDoc](http://sassdoc.com).
+
+```scss
+/// Kalkuler riktig rem-verdi basert på en gitt pixelverdi
+/// @param {Number} $px-size - Pixelverdi, helst med unit
+/// @return {Number} - Pixelverdien konvertert til rem
+/// @example
+///     jkl.rem(16px);
+@function rem($px-size) {
+    // ...
+}
+```
+
+Dokumentasjonen er til hjelp både for de som skal vedlikeholde koden, og de som skal bruke den.
+
+### Kort om annotasjoner
+
+Det er typisk bare et utvalg dem du trenger å vite om, men se gjerne over [listen med tilgjengelige annotasjoner](http://sassdoc.com/annotations/#description).
+
+Her er en kort oppsummering av de viktigste tingene du trenger å vite:
+
+-   `@access` bruker vi ikke. Det er gitt av navnet på variabelen/funksjonen/mixinen om den er public eller private, og annotasjonen skaper bare støy.
+-   `@author` bruker vi bare når vi vil henvise til en opprinnelig forfatter utenfor Fremtind.
+-   `@content` bruker vi til å beskrive hvordan mixins som har en `@content` bruker den.
+-   `@deprecated` bruker vi for å gi hint om at noe ikke bør brukes lenger, helst med forklaring om hva som bør brukes i stedet. Ting merket `@deprecated` vil typisk bli fjernet fra Jøkul etter hvert.
+-   `@example` er fint for å gi et kodeeksempel.
+-   `@output` beskriver kort hva mixinen produserer av CSS.
+-   `@parameter` beskriver hvert enkelt parameter i funksjonen/mixinen.
+-   `@return` beskriver kort hva funksjonen returnerer.
+-   `@see` hinter om relaterte variabler/funksjoner/mixins.
+-   `@type` gir et [typehint om variabler](https://sass-lang.com/documentation/values) som kan brukes i SassDoc. Har ingen faktisk typesjekking.
+
+Du trenger ikke alltid bruke alle annotasjonene. Dokumenter det du synes gir mening, så kan det heller finpusses under code review.
+
+Under er noen eksempler på hvordan du kan bruke de ulike annotasjonene.
+
+**`@content` og `@example`**
+
+```scss
+/// Forenkler media queries som skal gjelde mellom to skjermbredder.
+/// Maksverdien er _eksklusiv_ (verdien vil bli $max - 1px).
+/// @content Plasseres i et media query med min-width lik $min og max-width lik $max - 1px
+/// @example
+///    .class {
+///        @include jkl.screen-between(42px, 420px) {
+///            display: none;
+///        }
+///    }
+@mixin screen-between($min, $max) {
+    @media (min-width: $min) and (max-width: #{$max - 1px}) {
+        @content;
+    }
+}
+```
+
+**`@deprecated`**
+
+```scss
+/// @deprecated Bruk heller .jkl-nav-card, .jkl-task-card eller .jkl-info-card
+.jkl-card {
+    // ...
+}
+```
+
+**`@param` og `@output`**
+
+```scss
+/// Hjelper for å sette riktig farge på SVGer i Chrome for brukere med Forced Color-modus.
+/// Se https://melanie-richards.com/blog/currentcolor-svg-hcm/ for detaljer
+/// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $stroke - Definer hvilken systemfarge som skal brukes til stroke. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
+/// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $fill [null] - Som $stroke, bare for fill. Valgfri.
+/// @output Setter angitte verdier på nåværende selector og dens svg og path children, inni et media query som treffer dersom forced-colors er aktiv.
+@mixin forced-colors-svg-fallback($stroke, $fill: null) {
+    // ...
+}
+```
+
+**`@type`**
+
+```scss
+/// Tilsvarer 16px
+/// @type Number
+$spacing-m: 1rem;
+```
+
+**`@see`**
+
+```scss
+/// Hent en timing til bruk i animasjoner. Se også `easing`-funksjonen og `motion`-mixinen.
+/// @param {"energetic" | "productive" | "expressive" | "lazy"} $mode - Navn på timingen du ønsker verdien til
+/// @return {String} - timingverdi til bruk i animasjoner
+/// @see easing
+/// @see motion
+@function timing($mode, $timings: $_timings) {
+    // ...
+}
+```

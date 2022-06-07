@@ -1,15 +1,12 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-
-:root,
-[data-theme="light"] {
+@include jkl.light-mode-variables {
     --hero-bg: #{jkl.$color-snohvit};
     --hero-text-color: #{jkl.$color-granitt};
     --hero-hover-color: #{jkl.$color-stein};
 }
 
-[data-theme="dark"] {
+@include jkl.dark-mode-variables {
     --hero-bg: #{jkl.$color-granitt};
     --hero-text-color: #{jkl.$color-snohvit};
     --hero-hover-color: #{jkl.$color-svaberg};
@@ -23,7 +20,7 @@
     position: relative;
     max-height: 90vh;
     overflow: hidden;
-    @include small-device {
+    @include jkl.small-device {
         height: 90vh;
 
         &__card {
@@ -32,7 +29,7 @@
     }
 
     &__card {
-        @include reset-outline;
+        @include jkl.reset-outline;
         cursor: pointer;
         text-align: left;
         position: absolute;
@@ -44,11 +41,11 @@
         margin-right: jkl.$spacing-xl;
         padding: jkl.$spacing-xl;
 
-        @include motion("standard", "expressive");
+        @include jkl.motion("standard", "expressive");
         transition-property: box-shadow;
 
         &__arrow {
-            @include motion("standard", "expressive");
+            @include jkl.motion("standard", "expressive");
             transition-property: color, transform;
         }
 

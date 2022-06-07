@@ -1,8 +1,3 @@
-import React, { VFC } from "react";
-
-import "./IconTable.scss";
-import { TableHeader } from "./TableHeader";
-import { ExampleRow } from "./ExampleRow";
 import {
     Close,
     CheckMark,
@@ -20,6 +15,10 @@ import {
     Success,
     Info,
 } from "@fremtind/jkl-icons-react";
+import React, { FC } from "react";
+import { ExampleRow } from "./ExampleRow";
+import { TableHeader } from "./TableHeader";
+import "./IconTable.scss";
 
 const icons = [
     {
@@ -84,7 +83,7 @@ const icons = [
     },
 ];
 
-export const PortalIconExample: VFC = () => {
+export const PortalIconExample: FC = () => {
     return (
         <>
             <table className={`jkl-icon-table jkl-spacing-xl--top`}>

@@ -1,3 +1,14 @@
+import {
+    Label,
+    LabelVariant,
+    SupportLabel,
+    ValuePair,
+    getValuePair,
+    DataTestAutoId,
+    LabelProps,
+} from "@fremtind/jkl-core";
+import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 import React, {
     FocusEvent,
     forwardRef,
@@ -9,20 +20,9 @@ import React, {
     useCallback,
     useMemo,
 } from "react";
-import {
-    Label,
-    LabelVariant,
-    SupportLabel,
-    ValuePair,
-    getValuePair,
-    DataTestAutoId,
-    LabelProps,
-} from "@fremtind/jkl-core";
-import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import { useListNavigation } from "./useListNavigation";
-import cn from "classnames";
 import { ExpandArrow } from "./ExpandArrow";
 import { toLower, toItemLabel, focusSelected } from "./select-utils";
+import { useListNavigation } from "./useListNavigation";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
     /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */

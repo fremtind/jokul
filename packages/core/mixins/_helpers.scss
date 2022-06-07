@@ -1,8 +1,13 @@
 @use "sass:string";
 @use "sass:color";
 @use "sass:list";
-@use "../variables/typography";
+@use "../variables";
 
+/// Brukes til å sette CSS-variabler for bruk i lyst tema, typisk tekst- og
+/// bakgrunnsfarge. Se også dark-mode-variables.
+/// @content Settes på :root hvis brukeren har lyst tema, og på [data-theme="light"]
+/// @see dark-mode-variables
+/// @see forced-colors-mode
 @mixin light-mode-variables {
     @media screen and (prefers-color-scheme: light) {
         :root {
@@ -15,6 +20,11 @@
     }
 }
 
+/// Brukes til å sette CSS-variabler for bruk i mørkt tema, typisk tekst- og
+/// bakgrunnsfarge. Se også light-mode-variables.
+/// @content Settes på :root hvis brukeren har mørkt tema, og på [data-theme="dark"]
+/// @see light-mode-variables
+/// @see forced-colors-mode
 @mixin dark-mode-variables {
     @media screen and (prefers-color-scheme: dark) {
         :root {
@@ -27,16 +37,16 @@
     }
 }
 
-///
 /// Brukes til å overstyre stiler for bruk i Forced Colors-modus.
 /// Her vil du typisk legge til fallbacks for manglende box-shadow,
 /// som for eksempel `outline: revert;` og `border: revert;`,
 /// og eventuelle andre problemer som oppstår for brukere av høykontrasttemaer.
 /// Se https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors
 /// og https://www.smashingmagazine.com/2022/03/windows-high-contrast-colors-mode-css-custom-properties/
-///
 /// @content Innholdet plasseres i et media query som matcher hvis høykontrasttema er i bruk
-///
+/// @see forced-colors-svg-fallback
+/// @see light-mode-variables
+/// @see dark-mode-variables
 @mixin forced-colors-mode {
     @media screen and (forced-colors: active) {
         @content;
@@ -53,13 +63,12 @@ $_valid-forced-colors-text-values: (
     "ButtonFace",
     "ButtonText"
 );
-///
+
 /// Hjelper for å sette riktig farge på SVGer i Chrome for brukere med Forced Color-modus.
 /// Se https://melanie-richards.com/blog/currentcolor-svg-hcm/ for detaljer
-///
 /// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $stroke - Definer hvilken systemfarge som skal brukes til stroke. Fargene har en forventet betydning for brukeren. Følg den semantiske betydningen til fargen, ikke velg fargen du selv synes "ser best ut".
 /// @param {"Canvas" | "CanvasText" | "LinkText" | "GrayText" | "Highlight" | "HighlightText" | "ButtonFace" | "ButtonText"} $fill [null] - Som $stroke, bare for fill. Valgfri.
-///
+/// @output Setter angitte verdier på nåværende selector og dens svg og path children, inni et media query som treffer dersom forced-colors er aktiv.
 @mixin forced-colors-svg-fallback($stroke, $fill: null) {
     @if not list.index($_valid-forced-colors-text-values, $stroke) {
         @error "#{$stroke} will not be used for stroke in Forced Color mode. Valid options are: #{$_valid-forced-colors-text-values}. Use the correct color for your given context.";
@@ -91,23 +100,22 @@ $_valid-forced-colors-text-values: (
     }
 }
 
-@function urlencodecolor($color) {
-    @if type-of($color) == "color" and str-index(#{$color}, "#") == 1 {
-        $hex: string.slice(color.ie-hex-str($color), 4);
-        $converted-color: string.unquote("#{$hex}");
-
-        @return "%23" + $converted-color;
-    }
-
-    @return $color;
-}
-
+/// Gjør flexbox litt mindre verbos. Setter display: flex; med gitt align-items og justify-content.
+/// @param {String} $align-items [center] – settes på align-items
+/// @param {String} $justify-content [center] – settes på justify-content
+/// @output display: flex og angitt align-items og justify-content
 @mixin flex($align-items: center, $justify-content: center) {
     display: flex;
     align-items: $align-items;
     justify-content: $justify-content;
 }
 
+/// Samle alt som har med posisjonering å gjøre i én mixin. Alle parameternavn matcher CSS-attributtet.
+/// @param {String} $position
+/// @param {String} $top [initial]
+/// @param {String} $left [initial]
+/// @param {String} $right [initial]
+/// @param {String} $bottom [initial]
 @mixin position($position, $top: initial, $left: initial, $right: initial, $bottom: initial) {
     position: $position;
     top: $top;
@@ -116,15 +124,15 @@ $_valid-forced-colors-text-values: (
     bottom: $bottom;
 }
 
-///
 /// Makes text bold without changing the space it takes up on screen.
 /// Not perfect for all lengths of text, but close enough!
-///
 @mixin no-grow-bold {
-    font-weight: typography.$weight-bold;
+    font-weight: variables.$typography-weight-bold;
     letter-spacing: -0.014em;
 }
 
+/// Brukes til CSS som skal gjelde i kompakt modus, enten via en `--compact` modifier eller med [data-compactlayout]
+/// @content Innholdet plasseres i en `&--compact` selector og `*[data-compactlayout] &`-selector
 @mixin compact-mode {
     &--compact,
     *[data-compactlayout] & {
@@ -132,6 +140,7 @@ $_valid-forced-colors-text-values: (
     }
 }
 
+/// En omfattende reset for alt av outlines og borders på interaktive elementer
 @mixin reset-outline {
     outline: 0;
     border-style: none;
@@ -160,10 +169,8 @@ $_valid-forced-colors-text-values: (
     }
 }
 
-///
 /// Removes increment and decrement buttons
 /// for number input fields.
-///
 @mixin remove-inner-outer-button {
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {

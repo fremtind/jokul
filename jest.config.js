@@ -1,6 +1,6 @@
 module.exports = {
     coverageDirectory: "coverage",
-    coverageReporters: ["text", "clover"],
+    coverageReporters: ["text", "clover", "github-actions"],
     coverageThreshold: {
         global: {
             branches: 80,

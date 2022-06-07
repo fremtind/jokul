@@ -1,7 +1,7 @@
-import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
-import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps } from "@fremtind/jkl-core";
+import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
+import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 
 export interface NativeSelectProps {

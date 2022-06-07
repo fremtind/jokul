@@ -1,7 +1,7 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import FormattersExample from "./FormattersExample";
-import InputMaskExample from "./InputMaskExample";
+import { FormattersExample } from "./FormattersExample";
+import { InputMaskExample } from "./InputMaskExample";
 
 export default function Example() {
     return (

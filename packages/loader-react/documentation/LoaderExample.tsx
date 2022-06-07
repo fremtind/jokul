@@ -1,9 +1,9 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Loader, LoaderVariant } from "../src";
 import "./styles.scss";
 
-export const LoaderExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+export const LoaderExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     return (
         <div className="jkl-loader-example">
             <div>

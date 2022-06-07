@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
-import { IconSearch } from "./Icons/IconSearch";
-import { IconClear } from "./Icons/IconClear";
 import { IconCalendar } from "./Icons/IconCalendar";
+import { IconClear } from "./Icons/IconClear";
+import { IconSearch } from "./Icons/IconSearch";
 
 export type IconVariant = "clear" | "search" | "calendar";
 

@@ -1,0 +1,7 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-table-head {
+    &--sr-only {
+        @include jkl.screenreader-only;
+    }
+}

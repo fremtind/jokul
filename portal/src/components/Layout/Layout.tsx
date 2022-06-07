@@ -1,14 +1,14 @@
-import { Helmet } from "react-helmet";
-import { graphql, useStaticQuery } from "gatsby";
-import React, { useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import { WithChildren } from "@fremtind/jkl-core";
 import { useScreen } from "@fremtind/jkl-react-hooks";
-import { FormatProvider } from "../Typography";
+import { AnimatePresence } from "framer-motion";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Header, Sidebar } from "..";
-import { ThemeBG } from "./components";
 import { useLocation } from "../../contexts/locationContext";
 import { PortalFooter } from "../portal-footer";
+import { FormatProvider } from "../Typography";
+import { ThemeBG } from "./components";
 import "./Layout.scss";
 
 interface Props extends WithChildren {

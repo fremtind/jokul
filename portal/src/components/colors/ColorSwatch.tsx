@@ -1,5 +1,5 @@
-import React, { VFC, useEffect, useRef } from "react";
 import cx from "classnames";
+import React, { FC, useEffect, useRef } from "react";
 import { getComputedProperty } from "../../utils/getComputedProperty";
 import type { RgbValue } from ".";
 import "./color-swatch.scss";
@@ -10,7 +10,7 @@ interface ColorSwatchProps {
     setColor?: (color: RgbValue) => void;
 }
 
-export const ColorSwatch: VFC<ColorSwatchProps> = ({ colorVariable, className, setColor }) => {
+export const ColorSwatch: FC<ColorSwatchProps> = ({ colorVariable, className, setColor }) => {
     const ref = useRef<SVGSVGElement>(null);
     useEffect(() => {
         const rgb = getComputedProperty(ref.current, "color").split(",");

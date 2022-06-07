@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import cx from "classnames";
+import React, { FC } from "react";
 import { ArrowLeft } from "../icons/ArrowLeft";
 import { ArrowRight } from "../icons/ArrowRight";
 import { IconVariant } from "../icons/types";

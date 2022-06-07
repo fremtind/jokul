@@ -1,6 +1,6 @@
-import React, { VFC } from "react";
 import cn from "classnames";
 import { withPrefix } from "gatsby";
+import React, { FC } from "react";
 
 import "./DownloadAsset.scss";
 
@@ -10,7 +10,7 @@ interface Props {
     darkbg?: boolean;
 }
 
-export const DownloadAsset: VFC<Props> = ({ asset = "", name, darkbg = false }) => {
+export const DownloadAsset: FC<Props> = ({ asset = "", name, darkbg = false }) => {
     const src = withPrefix(asset);
 
     return (

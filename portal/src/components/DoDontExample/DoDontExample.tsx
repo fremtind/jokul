@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
 import cx from "classnames";
-import { PortalImage } from "../portal-image";
+import React, { ReactNode } from "react";
 import { ExampleVideo } from "../ExampleVideo";
+import { PortalImage } from "../portal-image";
 import "./DoDontExample.scss";
 
 interface Props {

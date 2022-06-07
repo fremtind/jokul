@@ -1,6 +1,6 @@
-import React, { forwardRef } from "react";
-import cx from "classnames";
 import { ExpandButton } from "@fremtind/jkl-expand-button-react";
+import cx from "classnames";
+import React, { forwardRef } from "react";
 import type { TableCellProps } from "./TableCell";
 import { TableCell } from "./TableCell";
 import { useTableContext } from "./tableContext";

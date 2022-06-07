@@ -1,26 +1,14 @@
-@use "variables" as vars;
-@use "mixins";
+@use "jkl";
+@use "styles";
 
-@import "./normalize";
-@import "./reset";
-
-@import "./headings";
-@import "./paragraphs";
-@import "./links";
-@import "./labels";
-@import "./spacing";
-@import "./screen-reader";
-@import "./color-classes";
-@import "./icons";
-
-@include mixins.helper-light-mode-variables {
-    --jkl-background-color: #{vars.$color-snohvit};
-    --jkl-color: #{vars.$color-granitt};
+@include jkl.light-mode-variables {
+    --jkl-background-color: #{jkl.$color-snohvit};
+    --jkl-color: #{jkl.$color-granitt};
 }
 
-@include mixins.helper-dark-mode-variables {
-    --jkl-background-color: #{vars.$color-granitt};
-    --jkl-color: #{vars.$color-snohvit};
+@include jkl.dark-mode-variables {
+    --jkl-background-color: #{jkl.$color-granitt};
+    --jkl-color: #{jkl.$color-snohvit};
 }
 
 .jkl {
@@ -32,7 +20,7 @@
     color: var(--jkl-color);
 }
 
-@include mixins.helper-prefers-reduced-motion {
+@include jkl.prefers-reduced-motion {
     *,
     *::after,
     *::before {

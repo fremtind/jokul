@@ -1,10 +1,9 @@
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-webfonts" with (
+    $webfonts-dir: "../../static/fonts"
+);
 
-$webfonts-dir: "../../static/fonts";
-@import "~@fremtind/jkl-webfonts/webfonts";
-
-$header-height: rem(96px);
+$header-height: jkl.rem(96px);
 
 pre {
     max-width: 80vw;
@@ -14,7 +13,7 @@ pre {
 h2,
 h3,
 .jkl-portal-scroll-anchor {
-    @include reset-outline;
+    @include jkl.reset-outline;
 
     scroll-margin-top: $header-height;
 }

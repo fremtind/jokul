@@ -23,7 +23,6 @@
  */
 import startOfDay from "date-fns/startOfDay";
 import React, { useState } from "react";
-
 import {
     composeEventHandlers,
     subtractMonth,

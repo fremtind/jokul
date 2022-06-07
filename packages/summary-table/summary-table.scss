@@ -1,12 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
-@import "~@fremtind/jkl-core/mixins/_all";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --jkl-summary-table-border-color: #{jkl.$color-granitt};
 }
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --jkl-summary-table-border-color: #{jkl.$color-svaberg};
 }
 
@@ -44,10 +41,10 @@
     }
 
     & > tfoot {
-        border-top: rem(1px) solid jkl.$color-granitt;
-        border-top: rem(1px) solid var(--jkl-summary-table-border-color);
-        border-bottom: rem(1px) solid jkl.$color-granitt;
-        border-bottom: rem(1px) solid var(--jkl-summary-table-border-color);
+        border-top: jkl.rem(1px) solid jkl.$color-granitt;
+        border-top: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
+        border-bottom: jkl.rem(1px) solid jkl.$color-granitt;
+        border-bottom: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
         padding-top: jkl.$spacing-xs;
 
         th,

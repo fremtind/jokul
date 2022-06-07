@@ -1,20 +1,16 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
-:root,
-[data-theme="light"] {
+@include jkl.light-mode-variables {
     --portal-bg: #{jkl.$color-snohvit};
     --portal-text-color: #{jkl.$color-granitt};
 }
 
-[data-theme="dark"] {
+@include jkl.dark-mode-variables {
     --portal-bg: #{jkl.$color-granitt};
     --portal-text-color: #{jkl.$color-snohvit};
 }
 
-$_sidebar-width: rem(375px);
+$_sidebar-width: jkl.rem(375px);
 
 /**
  * [1]: https://github.com/reach/router/issues/63#issuecomment-695953011
@@ -27,9 +23,10 @@ $_sidebar-width: rem(375px);
 }
 
 .jkl-portal {
-    @include motion;
+    @include jkl.motion;
     transition-property: color;
-    transition-delay: 150ms;
+    transition-delay: jkl.timing("productive");
+    color: var(--portal-text-color);
 
     &__sidebar {
         display: none;
@@ -40,7 +37,7 @@ $_sidebar-width: rem(375px);
         padding-top: jkl.$spacing-2xl;
     }
 
-    @include medium-device {
+    @include jkl.medium-device {
         &__main {
             padding-top: jkl.$spacing-2xl;
             padding-right: jkl.$spacing-3xl;
@@ -48,7 +45,7 @@ $_sidebar-width: rem(375px);
         }
     }
 
-    @include small-device {
+    @include jkl.small-device {
         &__main {
             > h1 {
                 overflow: hidden;
@@ -57,7 +54,7 @@ $_sidebar-width: rem(375px);
         }
     }
 
-    @include from-large-device {
+    @include jkl.from-large-device {
         display: grid;
         grid-template:
             "header header header" 96px
@@ -89,10 +86,10 @@ $_sidebar-width: rem(375px);
         padding-top: 0;
         padding-right: 0;
         padding-bottom: 0;
-        @include small-device {
+        @include jkl.small-device {
             padding-left: 0;
         }
-        @include medium-device {
+        @include jkl.medium-device {
             padding-left: 0;
         }
     }

@@ -1,5 +1,4 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
 .jkl-portal-color-table {
     border: 0;
@@ -37,7 +36,7 @@
         width: jkl.rem(32px);
     }
 
-    @include mixins.small-device {
+    @include jkl.small-device {
         &__header {
             display: none;
         }

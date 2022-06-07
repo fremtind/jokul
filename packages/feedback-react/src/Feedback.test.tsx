@@ -1,11 +1,10 @@
-import React from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-
+import React from "react";
+import { act } from "react-dom/test-utils";
 import { FollowupQuestion } from "./types";
 import { Feedback, PRESETS } from "./";
-import { act } from "react-dom/test-utils";
 
 const mockFn = jest.fn();
 

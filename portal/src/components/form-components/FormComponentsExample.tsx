@@ -1,5 +1,3 @@
-import React, { VFC } from "react";
-import { useForm } from "react-hook-form";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
@@ -7,6 +5,8 @@ import { formatDate } from "@fremtind/jkl-formatters-util";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
+import React, { FC } from "react";
+import { useForm } from "react-hook-form";
 import { BoolProp, ExampleComponentProps } from "../../../../doc-utils";
 
 export const formComponentsExampleBoolProps: BoolProp[] = [
@@ -26,7 +26,7 @@ type FormValues = {
     klient: undefined | string[];
 };
 
-export const FormComponentsExample: VFC<ExampleComponentProps> = ({ boolValues }) => {
+export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const radioButtonGroup = boolValues?.["Radioknapper"];
     const textInputs = boolValues?.["Tekstfelt"];
     const datePickers = boolValues?.["Datovelgere"];

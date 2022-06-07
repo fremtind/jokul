@@ -1,8 +1,8 @@
-import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler } from "react";
-import classNames from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
+import { useId } from "@fremtind/jkl-react-hooks";
+import classNames from "classnames";
+import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler } from "react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
 export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {

@@ -1,107 +1,121 @@
 @use "sass:string";
 @use "sass:map";
-@use "../variables/typography";
+@use "../variables";
 @use "screens";
 
 $_text-styles: (
     "title": (
         "small-screen": (
-            "font-size": typography.$font-size-9,
-            "line-height": typography.$line-height-5,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-9,
+            "line-height": variables.$typography-line-height-5,
+            "font-weight": variables.$typography-weight-normal,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-10,
-            "line-height": typography.$line-height-6,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-10,
+            "line-height": variables.$typography-line-height-6,
+            "font-weight": variables.$typography-weight-normal,
         ),
     ),
     "heading-1": (
         "small-screen": (
-            "font-size": typography.$font-size-7,
-            "line-height": typography.$line-height-3,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-7,
+            "line-height": variables.$typography-line-height-3,
+            "font-weight": variables.$typography-weight-normal,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-9,
-            "line-height": typography.$line-height-5,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-9,
+            "line-height": variables.$typography-line-height-5,
+            "font-weight": variables.$typography-weight-normal,
         ),
     ),
     "heading-2": (
         "small-screen": (
-            "font-size": typography.$font-size-5,
-            "line-height": typography.$line-height-3,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-5,
+            "line-height": variables.$typography-line-height-3,
+            "font-weight": variables.$typography-weight-normal,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-8,
-            "line-height": typography.$line-height-4,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-8,
+            "line-height": variables.$typography-line-height-4,
+            "font-weight": variables.$typography-weight-normal,
         ),
     ),
     "heading-3": (
         "small-screen": (
-            "font-size": typography.$font-size-4,
-            "line-height": typography.$line-height-2,
-            "font-weight": typography.$weight-bold,
+            "font-size": variables.$typography-font-size-4,
+            "line-height": variables.$typography-line-height-2,
+            "font-weight": variables.$typography-weight-bold,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-6,
-            "line-height": typography.$line-height-3,
-            "font-weight": typography.$weight-bold,
+            "font-size": variables.$typography-font-size-6,
+            "line-height": variables.$typography-line-height-3,
+            "font-weight": variables.$typography-weight-bold,
         ),
     ),
     "heading-4": (
         "small-screen": (
-            "font-size": typography.$font-size-2,
-            "line-height": typography.$line-height-1,
-            "font-weight": typography.$weight-bold,
+            "font-size": variables.$typography-font-size-2,
+            "line-height": variables.$typography-line-height-1,
+            "font-weight": variables.$typography-weight-bold,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-4,
-            "line-height": typography.$line-height-2,
-            "font-weight": typography.$weight-bold,
+            "font-size": variables.$typography-font-size-4,
+            "line-height": variables.$typography-line-height-2,
+            "font-weight": variables.$typography-weight-bold,
         ),
     ),
     "heading-5": (
         "small-screen": (
-            "font-size": typography.$font-size-1,
-            "line-height": typography.$line-height-1,
-            "font-weight": typography.$weight-bold,
+            "font-size": variables.$typography-font-size-1,
+            "line-height": variables.$typography-line-height-1,
+            "font-weight": variables.$typography-weight-bold,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-1,
-            "line-height": typography.$line-height-1,
-            "font-weight": typography.$weight-bold,
+            "font-size": variables.$typography-font-size-1,
+            "line-height": variables.$typography-line-height-1,
+            "font-weight": variables.$typography-weight-bold,
         ),
     ),
     "body": (
         "small-screen": (
-            "font-size": typography.$font-size-2,
-            "line-height": typography.$line-height-2,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-2,
+            "line-height": variables.$typography-line-height-2,
+            "font-weight": variables.$typography-weight-normal,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-3,
-            "line-height": typography.$line-height-3,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-3,
+            "line-height": variables.$typography-line-height-3,
+            "font-weight": variables.$typography-weight-normal,
         ),
     ),
     "small": (
         "small-screen": (
-            "font-size": typography.$font-size-1,
-            "line-height": typography.$line-height-1,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-1,
+            "line-height": variables.$typography-line-height-1,
+            "font-weight": variables.$typography-weight-normal,
         ),
         "large-screen": (
-            "font-size": typography.$font-size-1,
-            "line-height": typography.$line-height-1,
-            "font-weight": typography.$weight-normal,
+            "font-size": variables.$typography-font-size-1,
+            "line-height": variables.$typography-line-height-1,
+            "font-weight": variables.$typography-weight-normal,
         ),
     ),
 );
 
+/// Gir deg responsive font-size, line-height og font-weight basert på navnet på typografien.
+/// Du kan overstyre standardverdier ved å bruke `@content`. Dette er ment som en "escape hatch".
+/// Ikke tukle med typografiskalaen med mindre du har en god grunn til det.
+/// @content Plasseres alltid etter mixinen har satt sine verdier, slik at du kan velge å overstyre deler av dem.
+/// @example
+///     .class {
+///         @include jkl.text-style("body");
+///     }
+/// @example
+///     .bold {
+///         @include jkl.text-style("body") {
+///             font-weight: jkl.$typography-weight-bold;
+///         }
+///     }
 @mixin text-style($style-name) {
     // Separate style/variant into style and variant variables:
     $start-index: string.index($style-name, "/") or 0;

@@ -1,7 +1,7 @@
 ---
 title: Hvordan lage et nytt prosjekt med Jøkul
 path: /guider/utvikler-nytt-prosjekt
-order: 5
+order: 3
 ---
 
 # Hvordan lage et nytt prosjekt med Jøkul
@@ -172,7 +172,7 @@ I praksis betyr det at de skal fungere som _uncontrolled components_ så [regist
 kan brukes i stedet for [Controller](https://react-hook-form.com/get-started#IntegratingControlledInputs).
 
 ```tsx
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { RadioButtonGroup, RadioButton } from "@fremtind/jkl-radio-button-react";
@@ -185,7 +185,7 @@ type Props = {
     onSubmit: () => void;
 };
 
-const HouseDetailsForm: VFC<Props> = ({ onSubmit }) => {
+const HouseDetailsForm: FC<Props> = ({ onSubmit }) => {
     const { register, handleSubmit } = useForm<FormValues>();
 
     return (
@@ -207,7 +207,7 @@ Enkelte komponenter kan likevel trenge `Controller` i en overgangsperiode. Om du
 `Controller` må du gjerne [lage et issue på GitHub](https://github.com/fremtind/jokul/issues), og veldig gjerne [komme med en pull request](/guider/utvikling#pull-requests)!
 
 ```tsx
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { Select } from "@fremtind/jkl-select-react";
@@ -220,7 +220,7 @@ type Props = {
     onSubmit: () => void;
 };
 
-const AddressForm: VFC<Props> = ({ onSubmit }) => {
+const AddressForm: FC<Props> = ({ onSubmit }) => {
     const { register, handleSubmit } = useForm<FormValues>();
 
     return (

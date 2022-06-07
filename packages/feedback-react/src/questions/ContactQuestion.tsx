@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FC, ReactNode, useEffect, useRef, useState } from "react";
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { isValidEpost, isValidTelefonnummer } from "@fremtind/jkl-validators-util";
+import React, { ChangeEvent, FC, ReactNode, useEffect, useRef, useState } from "react";
 import { useFeedbackContext } from "../feedbackContext";
 import { FeedbackSuccess } from "../FeedbackSuccess";
 

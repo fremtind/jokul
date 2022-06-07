@@ -1,32 +1,31 @@
+@use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+$_dismiss-animation-duration: jkl.timing("lazy");
+$_message-width: jkl.rem(560px);
+$_message-width--compact: jkl.rem(440px);
 
-$dismiss-animation-duration: 500ms;
-$message-width: rem(560px);
-$message-width--compact: rem(440px);
+$_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
+$_dismiss-focus-border-color: jkl.$color-granitt;
+$_dismiss-hover-color: jkl.$color-stein;
 
-$dismiss-focus-border-color: jkl.$color-granitt;
-$dismiss-hover-color: jkl.$color-stein;
-
-$text-color: jkl.$color-granitt;
-$bg-color--default: jkl.$color-snohvit;
-$bg-color--suksess: colors.varslingsfarge("suksess");
-$bg-color--feil: colors.varslingsfarge("feil");
-$bg-color--info: colors.varslingsfarge("info");
-$bg-color--advarsel: colors.varslingsfarge("advarsel");
+$_text-color: jkl.$color-granitt;
+$_bg-color--default: jkl.$color-snohvit;
+$_bg-color--suksess: colors.varslingsfarge("suksess");
+$_bg-color--feil: colors.varslingsfarge("feil");
+$_bg-color--info: colors.varslingsfarge("info");
+$_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
 .jkl-message-box {
     position: relative;
     width: 100%;
-    max-width: $message-width;
+    max-width: $_message-width;
     padding: jkl.$spacing-l;
-    padding-left: rem(56px);
-    background-color: $bg-color--default;
-    color: $text-color;
-    border-radius: rem(4px);
+    padding-left: jkl.rem(56px);
+    background-color: $_bg-color--default;
+    color: $_text-color;
+    border-radius: jkl.rem(4px);
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -34,9 +33,9 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     &__icon {
         position: absolute;
         left: jkl.$spacing-m;
-        height: rem(24px);
+        height: jkl.rem(24px);
 
-        @include jkl.helper-forced-colors-svg-fallback($stroke: CanvasText);
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__content {
@@ -61,45 +60,45 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-button {
-        @include reset-outline;
+        @include jkl.reset-outline;
         background-color: transparent;
         padding: 0;
         margin-left: auto;
         margin-top: jkl.$spacing-3xs;
         color: inherit;
         cursor: pointer;
-        width: rem(20px);
-        height: rem(20px);
+        width: jkl.rem(20px);
+        height: jkl.rem(20px);
 
         align-self: flex-start;
         flex-shrink: 0;
 
-        @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
-        @include jkl.helper-forced-colors-mode {
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+        @include jkl.forced-colors-mode {
             background-color: ButtonFace;
-            margin-top: rem(-1px);
-            width: rem(32px);
-            height: rem(32px);
-            padding: rem(4px);
+            margin-top: jkl.rem(-1px);
+            width: jkl.rem(32px);
+            height: jkl.rem(32px);
+            padding: jkl.rem(4px);
         }
 
         &:hover {
-            color: $dismiss-hover-color;
-            @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
+            color: $_dismiss-hover-color;
+            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
 
         &:focus {
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 position: relative;
 
                 &::after {
                     content: "";
                     position: absolute;
-                    top: rem(-2px);
-                    right: rem(-2px);
-                    bottom: rem(-2px);
-                    left: rem(-2px);
-                    box-shadow: 0 0 0 rem(2px) $dismiss-focus-border-color;
+                    top: jkl.rem(-2px);
+                    right: jkl.rem(-2px);
+                    bottom: jkl.rem(-2px);
+                    left: jkl.rem(-2px);
+                    box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
                 }
             }
         }
@@ -107,8 +106,8 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &--compact {
         padding: jkl.$spacing-m;
-        padding-left: rem(48px);
-        max-width: $message-width--compact;
+        padding-left: jkl.rem(48px);
+        max-width: $_message-width--compact;
 
         .jkl-message-box__content {
             @include jkl.text-style("small");
@@ -139,28 +138,28 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &--info {
-        background-color: $bg-color--info;
+        background-color: $_bg-color--info;
     }
 
     &--warning {
-        background-color: $bg-color--advarsel;
+        background-color: $_bg-color--advarsel;
     }
 
     &--error {
-        background-color: $bg-color--feil;
+        background-color: $_bg-color--feil;
     }
 
     &--success {
-        background-color: $bg-color--suksess;
+        background-color: $_bg-color--suksess;
     }
 
     &--dismissed {
-        animation: dismiss-animation $dismiss-animation-duration ease-in-out forwards;
-        transition: visibility 0ms $dismiss-animation-duration;
+        animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
+        transition: visibility 0ms $_dismiss-animation-duration;
         visibility: hidden;
     }
 
-    @include jkl.helper-forced-colors-mode {
+    @include jkl.forced-colors-mode {
         border: 2px solid CanvasText;
 
         &--info {
@@ -177,12 +176,12 @@ $bg-color--advarsel: colors.varslingsfarge("advarsel");
         }
     }
 
-    @include small-device {
+    @include jkl.small-device {
         width: 100%;
     }
 }
 
-@keyframes dismiss-animation {
+@keyframes #{$_dismiss-animation-name} {
     from {
         opacity: 1;
         transform: translate3d(0, 0, 0);

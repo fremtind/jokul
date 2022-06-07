@@ -1,2 +1,3 @@
-$webfonts-dir: "../../webfonts/fonts";
-@import "~@fremtind/jkl-webfonts/webfonts";
+@use "~@fremtind/jkl-webfonts" with (
+    $webfonts-dir: "../fonts"
+);

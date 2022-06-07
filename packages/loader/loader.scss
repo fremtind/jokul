@@ -1,16 +1,18 @@
+@use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
+$_loader-dot-size--large: jkl.rem(18px);
+$_loader-dot-size--medium: jkl.rem(7px);
+$_loader-dot-size--small: jkl.rem(5px);
 
-$loader-dot-size--large: rem(18px);
-$loader-dot-size--medium: rem(7px);
-$loader-dot-size--small: rem(5px);
+$_loader-spacing--large: jkl.$spacing-xl;
+$_loader-spacing--medium: jkl.$spacing-s;
+$_loader-spacing--small: jkl.$spacing-xs;
 
-$loader-spacing--large: jkl.$spacing-xl;
-$loader-spacing--medium: jkl.$spacing-s;
-$loader-spacing--small: jkl.$spacing-xs;
-
-$loader-animation-properties: 2500ms linear infinite;
+$_loader-animation-properties: 2500ms linear infinite;
+$_loader-left-animation-name: jkl-loader-left-spin-#{string.unique-id()};
+$_loader-middle-animation-name: jkl-loader-middle-spin-#{string.unique-id()};
+$_loader-right-animation-name: jkl-loader-right-spin-#{string.unique-id()};
 
 .jkl-loader {
     display: flex;
@@ -23,56 +25,56 @@ $loader-animation-properties: 2500ms linear infinite;
         display: block;
         transform-origin: center;
         background-color: currentColor;
-        height: $loader-dot-size--large;
-        width: $loader-dot-size--large;
-        animation: $loader-animation-properties;
+        height: $_loader-dot-size--large;
+        width: $_loader-dot-size--large;
+        animation: $_loader-animation-properties;
 
         &--left {
-            animation-name: spin-left;
-            margin-right: $loader-spacing--large * 0.9; // for visual balance
+            animation-name: $_loader-left-animation-name;
+            margin-right: $_loader-spacing--large * 0.9; // for visual balance
         }
 
         &--middle {
-            animation-name: spin-middle;
-            margin-right: $loader-spacing--large;
+            animation-name: $_loader-middle-animation-name;
+            margin-right: $_loader-spacing--large;
         }
 
         &--right {
-            animation-name: spin-right;
+            animation-name: $_loader-right-animation-name;
         }
-        @include jkl.helper-forced-colors-mode {
+        @include jkl.forced-colors-mode {
             background-color: CanvasText;
         }
     }
 
     &--medium > .jkl-loader__dot {
-        height: $loader-dot-size--medium;
-        width: $loader-dot-size--medium;
+        height: $_loader-dot-size--medium;
+        width: $_loader-dot-size--medium;
 
         &--left {
-            margin-right: $loader-spacing--medium * 0.9;
+            margin-right: $_loader-spacing--medium * 0.9;
         }
 
         &--middle {
-            margin-right: $loader-spacing--medium;
+            margin-right: $_loader-spacing--medium;
         }
     }
 
     &--small > .jkl-loader__dot {
-        height: $loader-dot-size--small;
-        width: $loader-dot-size--small;
+        height: $_loader-dot-size--small;
+        width: $_loader-dot-size--small;
 
         &--left {
-            margin-right: $loader-spacing--small * 0.9;
+            margin-right: $_loader-spacing--small * 0.9;
         }
 
         &--middle {
-            margin-right: $loader-spacing--small;
+            margin-right: $_loader-spacing--small;
         }
     }
 }
 
-@keyframes spin-left {
+@keyframes #{$_loader-left-animation-name} {
     0% {
         transform: rotate(0) scale(0);
     }
@@ -90,7 +92,7 @@ $loader-animation-properties: 2500ms linear infinite;
     }
 }
 
-@keyframes spin-middle {
+@keyframes #{$_loader-middle-animation-name} {
     0% {
         transform: rotate(20deg) scale(0);
     }
@@ -112,7 +114,7 @@ $loader-animation-properties: 2500ms linear infinite;
     }
 }
 
-@keyframes spin-right {
+@keyframes #{$_loader-right-animation-name} {
     0% {
         transform: rotate(40deg) scale(0);
     }

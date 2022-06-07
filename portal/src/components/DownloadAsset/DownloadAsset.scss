@@ -1,10 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/functions";
-
 .jkl-portal-downloadasset {
     display: inline-block;
-    padding: rem(16px);
+    padding: jkl.rem(16px);
     text-align: center;
 
     &--dark-bg {
@@ -12,7 +10,7 @@
     }
 
     &__image {
-        width: rem(300px);
+        width: jkl.rem(300px);
         height: auto;
 
         &:hover {
@@ -21,7 +19,7 @@
     }
 
     &__name {
-        padding: rem(16px);
+        padding: jkl.rem(16px);
         display: block;
         color: jkl.$color-granitt;
 
@@ -40,7 +38,7 @@
         &:focus {
             outline: 0;
 
-            @include jkl.helper-forced-colors-mode {
+            @include jkl.forced-colors-mode {
                 outline: revert;
             }
         }

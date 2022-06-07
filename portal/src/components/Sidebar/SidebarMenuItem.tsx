@@ -1,12 +1,12 @@
-import React, { VFC } from "react";
 import { Link } from "gatsby";
+import React, { FC } from "react";
 import { useLocation } from "../../contexts/locationContext";
 
 interface SidebarMenuItemProps {
     path: string;
     title: string;
 }
-export const SidebarMenuItem: VFC<SidebarMenuItemProps> = ({ path, title }) => {
+export const SidebarMenuItem: FC<SidebarMenuItemProps> = ({ path, title }) => {
     const { currentSection } = useLocation();
 
     return (

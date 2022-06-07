@@ -1,7 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-
 .jkl-portal-frontpage {
     section {
         margin-bottom: jkl.$spacing-3xl;
@@ -41,7 +39,7 @@
                 }
             }
 
-            @include small-device {
+            @include jkl.small-device {
                 &--image-container {
                     position: absolute;
                     width: 100vw;

@@ -1,10 +1,10 @@
-import React, { FC, ImgHTMLAttributes, useState, useRef } from "react";
+import { useKeyListener } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import FocusTrap from "focus-trap-react";
 import { motion } from "framer-motion";
-import { useKeyListener } from "@fremtind/jkl-react-hooks";
-import { BlurredBackground } from "./BlurredBackground";
+import React, { FC, ImgHTMLAttributes, useState, useRef } from "react";
 import { AnimatedImage } from "./AnimatedImage";
+import { BlurredBackground } from "./BlurredBackground";
 import "./portal-image.scss";
 
 interface Props extends ImgHTMLAttributes<HTMLImageElement> {
@@ -29,6 +29,7 @@ export const PortalImage: FC<Props> = ({
     fullWidth = false,
     caption,
     disableFullscreen,
+    ...rest
 }) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
@@ -59,7 +60,7 @@ export const PortalImage: FC<Props> = ({
                     disabled={disableFullscreen}
                     role={disableFullscreen ? "none presentation" : undefined}
                 >
-                    <AnimatedImage src={src} alt={alt} />
+                    <AnimatedImage src={src} alt={alt} {...rest} />
                     {!disableFullscreen && !isFullscreen && !noMargin && (
                         <p className="jkl jkl-small">
                             {caption && caption} Klikk for å se større{caption && "."}
@@ -68,7 +69,7 @@ export const PortalImage: FC<Props> = ({
                 </motion.button>
                 {isFullscreen && (
                     <div className="jkl-portal-image__content jkl-portal-paragraph">
-                        <AnimatedImage src={src} alt={alt} />
+                        <AnimatedImage src={src} alt={alt} {...rest} />
                         {!noMargin && <div className="jkl-small">&nbsp;</div>}
                     </div>
                 )}

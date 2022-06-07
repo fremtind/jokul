@@ -1,7 +1,7 @@
-import React from "react";
 import cx from "classnames";
-import { ArrowUp } from "../icons/ArrowUp";
+import React from "react";
 import { ArrowDown } from "../icons/ArrowDown";
+import { ArrowUp } from "../icons/ArrowUp";
 import { IconVariant } from "../icons/types";
 
 export interface ArrowVerticalAnimatedProps {

@@ -1,8 +1,0 @@
-@use "~@fremtind/jkl-core/jkl";
-@import "~@fremtind/jkl-core/mixins/_all";
-
-.jkl-table-caption {
-    &--sr-only {
-        @include screenreader-only;
-    }
-}

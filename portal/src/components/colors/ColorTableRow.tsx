@@ -1,4 +1,4 @@
-import React, { VFC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Color, ColorSwatch, rgbToHex } from "./";
 import "./color-table.scss";
 
@@ -6,7 +6,7 @@ interface ColorTableRowProps extends Color {
     colorName: string;
 }
 
-export const ColorTableRow: VFC<ColorTableRowProps> = ({ colorName, colorVariable }) => {
+export const ColorTableRow: FC<ColorTableRowProps> = ({ colorName, colorVariable }) => {
     const [color, setColor] = useState<number[]>();
     const [hexString, setHexString] = useState("N/A");
     const [rgbString, setRgbString] = useState("N/A");

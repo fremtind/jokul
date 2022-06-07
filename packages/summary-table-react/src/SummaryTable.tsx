@@ -1,5 +1,5 @@
-import React, { ReactNode, VFC } from "react";
 import cn from "classnames";
+import React, { ReactNode, FC } from "react";
 
 export interface Props {
     className?: string;
@@ -9,7 +9,7 @@ export interface Props {
     footer?: ReactNode;
 }
 
-export const SummaryTable: VFC<Props> = ({ className, caption, header, body, footer }) => {
+export const SummaryTable: FC<Props> = ({ className, caption, header, body, footer }) => {
     return (
         <table className={cn("jkl-summary-table", "jkl-body", className)}>
             {caption && <caption className="jkl-sr-only">{caption}</caption>}

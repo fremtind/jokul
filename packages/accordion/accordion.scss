@@ -1,20 +1,17 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
-@include jkl.helper-light-mode-variables {
-    --accordion-border: #{jkl.$color-svaberg};
-    --accordion-accent: #{jkl.$color-stein};
-    --accordion-focus: #{jkl.$color-focus-color};
-    --accordion-expanded-background: #{jkl.$color-hvit};
+@include jkl.light-mode-variables {
+    --jkl-accordion-border: #{jkl.$color-svaberg};
+    --jkl-accordion-accent: #{jkl.$color-stein};
+    --jkl-accordion-focus: #{jkl.$color-focus-color};
+    --jkl-accordion-expanded-background: #{jkl.$color-hvit};
 }
 
-@include jkl.helper-dark-mode-variables {
-    --accordion-border: #{jkl.$color-stein};
-    --accordion-accent: #{jkl.$color-svaberg};
-    --accordion-focus: #{jkl.$color-focus-color--darkbg};
-    --accordion-expanded-background: #{jkl.$color-svart};
+@include jkl.dark-mode-variables {
+    --jkl-accordion-border: #{jkl.$color-stein};
+    --jkl-accordion-accent: #{jkl.$color-svaberg};
+    --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
+    --jkl-accordion-expanded-background: #{jkl.$color-svart};
 }
 
 .jkl-accordion {
@@ -22,38 +19,36 @@
 }
 
 .jkl-accordion-item {
-    @include reset-outline;
-
-    $title-padding: jkl.$spacing-m;
+    @include jkl.reset-outline;
 
     &:nth-child(n) {
-        border-top: rem(1px) solid var(--accordion-border);
+        border-top: jkl.rem(1px) solid var(--jkl-accordion-border);
 
         &:hover {
-            border-top: rem(1px) solid var(--accordion-focus);
+            border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
 
             + .jkl-accordion-item {
-                border-top: rem(1px) solid var(--accordion-focus);
+                border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
             }
         }
     }
 
     &:last-child {
-        border-bottom: rem(1px) solid var(--accordion-border);
+        border-bottom: jkl.rem(1px) solid var(--jkl-accordion-border);
 
         &:hover {
-            border-bottom: rem(1px) solid var(--accordion-focus);
+            border-bottom: jkl.rem(1px) solid var(--jkl-accordion-focus);
         }
     }
 
     &__title {
         background-color: transparent;
         position: relative;
-        padding: $title-padding;
+        padding: jkl.$spacing-m;
         text-align: left;
         width: 100%;
 
-        @include motion;
+        @include jkl.motion;
         transition-property: transform, color;
 
         /* Remove button styles */
@@ -74,27 +69,27 @@
             cursor: pointer;
 
             .jkl-accordion-item__title__arrow {
-                transform: translateY(calc(-50% + #{rem(3px)}));
+                transform: translateY(calc(-50% + #{jkl.rem(3px)}));
             }
         }
 
         html:not([data-mousenavigation]) &:focus {
-            box-shadow: inset 0 0 0 2px var(--accordion-focus);
+            box-shadow: inset 0 0 0 2px var(--jkl-accordion-focus);
         }
     }
 
     &--expanded {
-        background-color: var(--accordion-expanded-background);
+        background-color: var(--jkl-accordion-expanded-background);
 
         .jkl-accordion-item {
             &__title {
                 &-text {
-                    @include no-grow-bold;
+                    @include jkl.no-grow-bold;
                 }
 
                 &:hover {
                     .jkl-accordion-item__title__arrow {
-                        transform: translateY(calc(-50% + #{rem(-3px)}));
+                        transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
                     }
                 }
             }
@@ -110,7 +105,7 @@
     }
 
     &__content-wrapper {
-        @include motion;
+        @include jkl.motion;
 
         transition-property: height;
     }
@@ -123,24 +118,24 @@
         color: inherit; // Make content same color as rest of page text
     }
 
-    @include jkl.helper-forced-colors-mode {
+    @include jkl.forced-colors-mode {
         &:nth-child(n) {
-            border-top: rem(2px) solid ButtonText;
+            border-top: jkl.rem(2px) solid ButtonText;
 
             &:hover {
-                border-top: rem(2px) solid ButtonText;
+                border-top: jkl.rem(2px) solid ButtonText;
 
                 + .jkl-accordion-item {
-                    border-top: rem(2px) solid ButtonText;
+                    border-top: jkl.rem(2px) solid ButtonText;
                 }
             }
         }
 
         &:last-child {
-            border-bottom: rem(2px) solid ButtonText;
+            border-bottom: jkl.rem(2px) solid ButtonText;
 
             &:hover {
-                border-bottom: rem(2px) solid ButtonText;
+                border-bottom: jkl.rem(2px) solid ButtonText;
             }
         }
 
@@ -152,17 +147,17 @@
 }
 
 .jkl-expand-arrow {
-    $arrow-height: rem(16px);
-    $arrow-width: rem(13px);
+    $_arrow-height: jkl.rem(16px);
+    $_arrow-width: jkl.rem(13px);
 
-    height: $arrow-height;
-    width: $arrow-width;
+    height: $_arrow-height;
+    width: $_arrow-width;
     clip: rect(auto, auto, auto, auto);
     clip-path: inset(0 0 0 0);
 
     pointer-events: none;
 
-    @include motion;
+    @include jkl.motion;
 
     transition-property: transform;
 
@@ -173,9 +168,9 @@
         display: inline-block;
         position: absolute;
         left: 0;
-        height: $arrow-height;
-        width: $arrow-width;
-        @include motion;
+        height: $_arrow-height;
+        width: $_arrow-width;
+        @include jkl.motion;
 
         transition-property: transform;
     }
@@ -191,10 +186,10 @@
     &--expanded {
         .jkl-expand-arrow__up,
         .jkl-expand-arrow__down {
-            @include motion("standard", "expressive");
+            @include jkl.motion("standard", "expressive");
             transform: translate(0, -100%);
         }
     }
 
-    @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
+    @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
 }

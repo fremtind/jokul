@@ -1,6 +1,6 @@
+import { withPrefix } from "gatsby";
 import React from "react";
 import MediaBox from "./MediaBox";
-import { withPrefix } from "gatsby";
 interface Props {
     src: string;
     placeholder: string;

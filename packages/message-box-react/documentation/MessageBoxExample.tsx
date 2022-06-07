@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { NavLink } from "@fremtind/jkl-core";
+import React, { useState } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { ErrorMessageBox, InfoMessageBox, SuccessMessageBox, WarningMessageBox } from "../src";
 
