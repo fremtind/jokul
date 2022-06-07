@@ -17,14 +17,14 @@ const levels: TypographyLevels[] = [
 ];
 
 export const TypographyExample: FC = () => {
-    const [isCompact, setIsCompact] = useState(false);
-    const toggleCompact = () => setIsCompact(!isCompact);
+    const [isMobile, setIsMobile] = useState(false);
+    const toggleMobile = () => setIsMobile(!isMobile);
 
     return (
         <>
             <table
                 className="jkl-typography-table jkl-spacing-xl--top"
-                {...(isCompact ? { "data-compactlayout": true } : {})}
+                {...(isMobile ? { "data-compactlayout": true } : {})}
             >
                 <TableHeader />
                 <tbody>
@@ -33,8 +33,8 @@ export const TypographyExample: FC = () => {
                     ))}
                 </tbody>
             </table>
-            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isCompact} onClick={toggleCompact}>
-                Kompakt
+            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isMobile} onClick={toggleMobile}>
+                Mobil
             </ToggleSwitch>
         </>
     );
