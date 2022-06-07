@@ -1,8 +1,8 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { TextInputExample } from "./TextInputExample";
+import { AutosuggestExample } from "./AutosuggestExample";
 import { TextAreaExample } from "./TextAreaExample";
-import AutosuggestExample from "./AutosuggestExample";
+import { TextInputExample } from "./TextInputExample";
 import "../../text-input/text-input.scss";
 import "../../icon-button/icon-button.scss";
 import "./index.scss";

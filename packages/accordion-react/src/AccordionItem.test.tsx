@@ -1,9 +1,9 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { AccordionItem } from ".";
-import { axe } from "jest-axe";
-import { act } from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
+import React from "react";
+import { act } from "react-dom/test-utils";
+import { AccordionItem } from ".";
 
 describe("AccordionItem", () => {
     it("should render without exploding", () => {

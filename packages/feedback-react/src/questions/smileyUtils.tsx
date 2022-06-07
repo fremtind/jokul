@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
+import React, { FC } from "react";
 import { FeedbackOption } from "../types";
 
 export const defaultOptions: FeedbackOption<number>[] = [

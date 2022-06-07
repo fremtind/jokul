@@ -1,6 +1,6 @@
-import React, { ChangeEventHandler, FC } from "react";
 import type { FieldGroupProps } from "@fremtind/jkl-field-group-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import React, { ChangeEventHandler, FC } from "react";
 import { RadioGroupContextProvider } from "./radioGroupContext";
 
 export interface RadioButtonGroupProps extends Omit<FieldGroupProps, "onChange"> {

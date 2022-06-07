@@ -1,5 +1,13 @@
 @use "../functions" as func;
 
-$navigation: 0 func.rem(4px) func.rem(15px) rgb(37 42 49 / 10%);
-$navigation--hover: 0 func.rem(6px) func.rem(25px) rgb(37 42 49 / 12%);
-$task-card: 0 func.rem(4px) func.rem(12px) rgb(37 42 49 / 3%);
+/// Skygge som indikerer at noe er klikkbart og vil ta deg til et annet sted
+/// @type List
+$shadow-navigation: 0 func.rem(4px) func.rem(15px) rgb(37 42 49 / 10%);
+
+/// Skygge som indikerer at pekeren er over noe sin er klikkbart og vil ta deg til et annet sted
+/// @type List
+$shadow-navigation--hover: 0 func.rem(6px) func.rem(25px) rgb(37 42 49 / 12%);
+
+/// Skygge som indikerer at noe er klikkbart og at klikk vil gjøre en endring på nåværende side
+/// @type List
+$shadow-task-card: 0 func.rem(4px) func.rem(12px) rgb(37 42 49 / 3%);

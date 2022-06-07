@@ -1,11 +1,10 @@
-import { navigate } from "gatsby";
 import cx from "classnames";
-import React, { useCallback, useRef, useEffect, VFC } from "react";
-
-import { useNavigationLinks } from "./useNavigationLinks";
-import { MainMenu } from "./components/MainMenu";
-import { ContentLink } from "../ContentLink/ContentLink";
+import { navigate } from "gatsby";
+import React, { useCallback, useRef, useEffect, FC } from "react";
 import { useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+import { ContentLink } from "../ContentLink/ContentLink";
+import { MainMenu } from "./components/MainMenu";
+import { useNavigationLinks } from "./useNavigationLinks";
 
 import "./header.scss";
 
@@ -13,7 +12,7 @@ type Props = {
     className?: string;
 };
 
-export const Header: VFC<Props> = ({ className }) => {
+export const Header: FC<Props> = ({ className }) => {
     const headerRef = useRef<HTMLElement>(null);
     const collapseMenu = useCallback(() => {
         const shouldCollapse = window.scrollY > 96;

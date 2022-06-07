@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { TabList, Tab, Tabs, TabPanel } from "../src";
 
-export const TabsExample: VFC<ExampleComponentProps> = () => {
+export const TabsExample: FC<ExampleComponentProps> = () => {
     return (
         <Tabs>
             <TabList aria-label="tabs">
@@ -43,7 +43,7 @@ export const tabsExampleCode = `
 
     <TabPanel>
         Innhold for Rådgivere
-        
+
         <Tabs>
             <TabList aria-label="subtabs">
                 <Tab>Bedrift AS</Tab>

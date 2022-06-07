@@ -1,15 +1,45 @@
-// Core spacing values
-$spacing-3xs: 0.125rem; //   2px
-$spacing-2xs: 0.25rem; //    4px
-$spacing-xs: 0.5rem; //      8px
-$spacing-s: 0.75rem; //     12px
-$spacing-m: 1rem; //        16px
-$spacing-l: 1.5rem; //      24px
-$spacing-xl: 2.5rem; //     40px
-$spacing-2xl: 4rem; //      64px
-$spacing-3xl: 6.5rem; //   104px
-$spacing-4xl: 10.5rem; //  168px
+/// Tilsvarer 2px
+/// @type Number
+$spacing-3xs: 0.125rem;
 
+/// Tilsvarer 4px
+/// @type Number
+$spacing-2xs: 0.25rem;
+
+/// Tilsvarer 8px
+/// @type Number
+$spacing-xs: 0.5rem;
+
+/// Tilsvarer 12px
+/// @type Number
+$spacing-s: 0.75rem;
+
+/// Tilsvarer 16px
+/// @type Number
+$spacing-m: 1rem;
+
+/// Tilsvarer 24px
+/// @type Number
+$spacing-l: 1.5rem;
+
+/// Tilsvarer 40px
+/// @type Number
+$spacing-xl: 2.5rem;
+
+/// Tilsvarer 64px
+/// @type Number
+$spacing-2xl: 4rem;
+
+/// Tilsvarer 104px
+/// @type Number
+$spacing-3xl: 6.5rem;
+
+/// Tilsvarer 168px
+/// @type Number
+$spacing-4xl: 10.5rem;
+
+/// Lar deg gjøre oppslag på navnet uten `spacing`-prefix for å få ut rem-verdien
+/// @type Map
 $spacing-new: (
     "3xs": $spacing-3xs,
     "2xs": $spacing-2xs,

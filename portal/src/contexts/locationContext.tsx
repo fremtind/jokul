@@ -1,6 +1,6 @@
-import React, { createContext, useState, useContext, useEffect, useReducer, FC } from "react";
-import { withPrefix } from "gatsby";
 import { WithChildren } from "@fremtind/jkl-core";
+import { withPrefix } from "gatsby";
+import React, { createContext, useState, useContext, useEffect, useReducer, FC } from "react";
 
 type GatsbyLocation = Location & { state?: Record<string, string> };
 interface LocationContext {

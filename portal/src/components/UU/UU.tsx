@@ -1,14 +1,14 @@
-import React, { ChangeEvent, VFC, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
-import { motion } from "framer-motion";
-import { Link } from "@fremtind/jkl-core";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { PrimaryButton } from "@fremtind/jkl-button-react";
-import { TextInput } from "@fremtind/jkl-text-input-react";
+import { Checkbox } from "@fremtind/jkl-checkbox-react";
+import { Link } from "@fremtind/jkl-core";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Tag } from "@fremtind/jkl-tag-react";
+import { TextInput } from "@fremtind/jkl-text-input-react";
+import { motion } from "framer-motion";
+import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import React, { ChangeEvent, FC, useCallback, useContext, useMemo, useRef, useState } from "react";
 import { a11yContext } from "../../contexts/a11yContext";
 import { FormatProvider } from "../Typography";
 import { getCriteriaById } from "./wcag";
@@ -56,7 +56,7 @@ interface MDXNode {
     body: string;
 }
 
-export const UU: VFC = () => {
+export const UU: FC = () => {
     const data = useStaticQuery<{
         allMdx: {
             nodes: MDXNode[];

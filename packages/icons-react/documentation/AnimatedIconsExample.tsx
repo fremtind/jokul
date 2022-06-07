@@ -1,8 +1,8 @@
 import React from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated, HamburgerCloseAnimated } from "../src";
-import { AnimatedIcon } from "./internal/AnimatedIcon";
 import { IconVariant } from "../src/icons/types";
+import { AnimatedIcon } from "./internal/AnimatedIcon";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
 
 export const choiceProps = [

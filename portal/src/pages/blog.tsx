@@ -1,11 +1,11 @@
-import { graphql, Link, PageProps } from "gatsby";
-import React, { VFC } from "react";
-import { motion } from "framer-motion";
 import { InfoBlock, NavCard } from "@fremtind/jkl-card-react";
+import { motion } from "framer-motion";
+import { graphql, Link, PageProps } from "gatsby";
+import React, { FC } from "react";
 import "./blog.scss";
 import { Helmet } from "react-helmet";
 
-const IndexPage: VFC<PageProps<PageData>> = ({ data }) => {
+const IndexPage: FC<PageProps<PageData>> = ({ data }) => {
     const posts = data.allMdx.nodes;
 
     return (

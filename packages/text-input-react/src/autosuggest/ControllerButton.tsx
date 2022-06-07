@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { Search, Close } from "@fremtind/jkl-icons-react";
+import React, { FC } from "react";
 
 interface Props {
     clearSelection: () => void;

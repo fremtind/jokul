@@ -1,3 +1,7 @@
+/// Brukes for CSS som skal gjelde bare ved tastaturnavigasjon.
+/// Brukes typisk til ekstra tydelige fokus-stiler. Krever at
+/// `initTabListener()` fra core er kjørt. Se README til core.
+/// @content Innholdet plasseres i en selector som bare matcher dersom vi _ikke_ har data-mousenavigation eller data-touchnavigation på html-elementet.
 @mixin keyboard-navigation {
     @at-root html:not([data-mousenavigation]):not([data-touchnavigation]) #{&} {
         @content;

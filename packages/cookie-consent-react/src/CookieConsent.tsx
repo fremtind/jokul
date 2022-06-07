@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
-import { AcceptConsentCallback, Consent } from "./types";
+import React, { useEffect } from "react";
 import { useCookieConsentState } from "./CookieConsentContext";
 import { CookieConsentModal } from "./CookieConsentModal";
 import { setConsentCookie } from "./cookieConsentUtils";
+import { AcceptConsentCallback, Consent } from "./types";
 
 export interface CookieConsentProps {
     blocking?: boolean;

@@ -1,8 +1,8 @@
-import React, { VFC, useState } from "react";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import React, { FC, useState } from "react";
 import "./TypographyTable.scss";
-import { TableHeader } from "./TableHeader";
 import { ExampleRow, TypographyLevels } from "./ExampleRow";
+import { TableHeader } from "./TableHeader";
 
 const levels: TypographyLevels[] = [
     "Title",
@@ -16,7 +16,7 @@ const levels: TypographyLevels[] = [
     "Small",
 ];
 
-export const TypographyExample: VFC = () => {
+export const TypographyExample: FC = () => {
     const [isCompact, setIsCompact] = useState(false);
     const toggleCompact = () => setIsCompact(!isCompact);
 

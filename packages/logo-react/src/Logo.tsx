@@ -1,6 +1,6 @@
-import React from "react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
+import React from "react";
 
 export interface LogoProps {
     className?: string;

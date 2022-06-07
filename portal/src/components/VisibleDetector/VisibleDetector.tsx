@@ -1,5 +1,5 @@
-import { useRef, useState, forwardRef, RefObject, MutableRefObject, ReactElement } from "react";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useRef, useState, forwardRef, RefObject, MutableRefObject, ReactElement } from "react";
 
 type RenderFunction<T extends HTMLElement> = (
     ref: ((instance: T | null) => void) | MutableRefObject<T | null> | null,

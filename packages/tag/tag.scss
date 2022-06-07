@@ -1,40 +1,40 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-$tag-background-color: jkl.$color-varde;
-$tag-color: jkl.$color-granitt;
+$_tag-background-color: jkl.$color-varde;
+$_tag-color: jkl.$color-granitt;
 
-$tag-background-color--success: colors.varslingsfarge("suksess");
-$tag-background-color--error: colors.varslingsfarge("feil");
-$tag-background-color--info: colors.varslingsfarge("info");
-$tag-background-color--warning: colors.varslingsfarge("advarsel");
+$_tag-background-color--success: colors.varslingsfarge("suksess");
+$_tag-background-color--error: colors.varslingsfarge("feil");
+$_tag-background-color--info: colors.varslingsfarge("info");
+$_tag-background-color--warning: colors.varslingsfarge("advarsel");
 
 .jkl-tag {
     @include jkl.text-style("heading-5");
-    background-color: $tag-background-color;
+    background-color: $_tag-background-color;
     border-radius: jkl.rem(4px);
-    color: $tag-color;
+    color: $_tag-color;
     display: inline-block;
     padding: jkl.$spacing-3xs jkl.$spacing-xs;
     white-space: nowrap;
 
     &--info {
-        background-color: $tag-background-color--info;
+        background-color: $_tag-background-color--info;
     }
 
     &--warning {
-        background-color: $tag-background-color--warning;
+        background-color: $_tag-background-color--warning;
     }
 
     &--error {
-        background-color: $tag-background-color--error;
+        background-color: $_tag-background-color--error;
     }
 
     &--success {
-        background-color: $tag-background-color--success;
+        background-color: $_tag-background-color--success;
     }
 
-    @include jkl.helper-forced-colors-mode {
+    @include jkl.forced-colors-mode {
         border: 2px none CanvasText;
         border-bottom-style: dotted;
 

@@ -1,27 +1,27 @@
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --external-prop-header-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --external-prop-header-color: #{jkl.$color-svaberg};
 }
 
-@function opposite($side) {
-    @if  $side == "right" {
+@function _opposite($side) {
+    @if $side == "right" {
         @return "left";
     } @else {
         @return "right";
     }
 }
 
-@mixin shadow($side: "left") {
+@mixin _shadow($side: "left") {
     content: "";
     display: block;
     position: absolute;
     pointer-events: none;
-    background: linear-gradient(to #{opposite($side)}, var(--accordion-expanded-background), rgb(0 0 0 / 0%));
+    background: linear-gradient(to #{_opposite($side)}, var(--accordion-expanded-background), rgb(0 0 0 / 0%));
     top: 0;
     bottom: 0;
     #{$side}: 0;
@@ -42,11 +42,11 @@
     position: relative;
 
     &.left-shadow::before {
-        @include shadow("left");
+        @include _shadow("left");
     }
 
     &.right-shadow::after {
-        @include shadow("right");
+        @include _shadow("right");
     }
 
     &__wrapper {

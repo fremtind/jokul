@@ -1,21 +1,23 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/functions";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --inline-code-bg-color: #{jkl.$color-sand};
     --blockquote-color: #{jkl.$color-stein};
     --blockquote-line-color: #{jkl.$color-dis};
 }
-@include jkl.helper-dark-mode-variables {
+
+@include jkl.dark-mode-variables {
     --inline-code-bg-color: #{jkl.$color-skifer};
     --blockquote-color: #{jkl.$color-svaberg};
     --blockquote-line-color: #{jkl.$color-skifer};
 }
 
-$_title-max-width: rem(850px);
-$_paragraph-max-width: rem(750px);
+$_title-max-width: jkl.rem(850px);
+$_paragraph-max-width: jkl.rem(750px);
+
+.jkl-portal-list-item {
+    max-width: jkl.rem(750px);
+}
 
 .jkl-portal-ul,
 .jkl-portal-ol,
@@ -46,10 +48,11 @@ $_paragraph-max-width: rem(750px);
         font-weight: jkl.$typography-weight-normal;
         font-style: italic;
     }
+
     color: var(--blockquote-color);
     margin: 0;
     padding-left: jkl.$spacing-l;
-    border-left: rem(5px) solid var(--blockquote-line-color);
+    border-left: jkl.rem(5px) solid var(--blockquote-line-color);
 
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-xl;
@@ -74,15 +77,15 @@ $_paragraph-max-width: rem(750px);
     font-weight: 400;
     font-style: normal;
 
-    line-height: rem(84px);
-    font-size: rem(64px);
+    line-height: jkl.rem(84px);
+    font-size: jkl.rem(64px);
     max-width: $_title-max-width;
     margin-bottom: jkl.$spacing-l;
 
-    @include from-medium-device {
-        line-height: rem(130px);
-        font-size: rem(104px);
-        max-width: rem(860px);
+    @include jkl.from-medium-device {
+        line-height: jkl.rem(130px);
+        font-size: jkl.rem(104px);
+        max-width: jkl.rem(860px);
     }
 }
 
@@ -146,7 +149,7 @@ $_paragraph-max-width: rem(750px);
     background-color: var(--inline-code-bg-color);
     font-size: 0.8em;
     padding: 0 jkl.$spacing-xs;
-    border-radius: rem(2px);
+    border-radius: jkl.rem(2px);
 }
 
 .jkl-portal-kbd {

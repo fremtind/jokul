@@ -1,6 +1,6 @@
-import React from "react";
-import cn from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
+import cn from "classnames";
+import React from "react";
 import "./Grid.scss";
 
 interface Props extends WithChildren {

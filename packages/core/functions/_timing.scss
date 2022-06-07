@@ -1,0 +1,21 @@
+@use "sass:map";
+
+$_timings: (
+    "energetic": 75ms,
+    "productive": 150ms,
+    "expressive": 250ms,
+    "lazy": 400ms,
+);
+
+/// Hent en timing til bruk i animasjoner. Se også `easing`-funksjonen og `motion`-mixinen.
+/// @param {"energetic" | "productive" | "expressive" | "lazy"} $mode - Navn på timingen du ønsker verdien til
+/// @return {String} - timingverdi til bruk i animasjoner
+/// @see easing
+/// @see motion
+@function timing($mode, $timings: $_timings) {
+    @if map.has-key($timings, $mode) {
+        @return map.get($timings, $mode);
+    } @else {
+        @error 'Unable to find a mode for #{$mode}';
+    }
+}

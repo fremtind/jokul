@@ -1,6 +1,6 @@
-import React from "react";
-import cx from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
+import cx from "classnames";
+import React from "react";
 
 export interface TabProps extends WithChildren {
     className?: string;

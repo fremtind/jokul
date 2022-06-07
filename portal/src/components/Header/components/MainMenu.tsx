@@ -1,14 +1,12 @@
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
-import cx from "classnames";
+import cn from "classnames";
 import React, { useEffect } from "react";
-
 import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
-import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
-
-import "./MainMenu.scss";
 import { MainMenuItem } from "./MainMenuItem";
+import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
+import "./MainMenu.scss";
 
 interface MainMenuProps {
     className?: string;
@@ -63,7 +61,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
     }, [setIsOpen]);
 
     return (
-        <nav className={cx("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
+        <nav className={cn("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
             {isSmallScreen && (
                 <Hamburger
                     id="jkl-portal-main-menu-hamburger"
@@ -83,7 +81,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                 id="jkl-portal-main-menu-overlay"
                 role="group"
                 hidden={!isOpen}
-                className={cx("jkl-portal-main-menu__overlay", {
+                className={cn("jkl-portal-main-menu__overlay", {
                     "jkl-portal-main-menu__overlay--open": isOpen,
                 })}
             >

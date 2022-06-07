@@ -1,7 +1,7 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { IconsExample, choiceProps as iconsChoiceProps } from "./IconsExample";
 import { AnimatedIconsExample, choiceProps as animatedIconsChoiceProps } from "./AnimatedIconsExample";
+import { IconsExample, choiceProps as iconsChoiceProps } from "./IconsExample";
 import "../../icons/animated-icons.scss";
 import "../../text-input/text-input.scss";
 import "../../button/button.scss";

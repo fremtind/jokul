@@ -25,7 +25,6 @@
 
     &__item-separator {
         @include jkl.text-style("small");
-
         padding-left: jkl.$spacing-xs;
         padding-right: jkl.$spacing-xs;
     }

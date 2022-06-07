@@ -1,5 +1,5 @@
-import React, { forwardRef, useState } from "react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import React, { forwardRef, useState } from "react";
 import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 import { ExpandButton } from "../src";
 

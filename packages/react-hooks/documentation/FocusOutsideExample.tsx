@@ -1,7 +1,7 @@
-import React, { useState, useRef, VFC } from "react";
+import React, { useState, useRef, FC } from "react";
 import { useFocusOutside } from "../src/useFocusOutside";
 
-const FocusOutsideExample: VFC = () => {
+const FocusOutsideExample: FC = () => {
     const [focusCounter, setFocusCounter] = useState(0);
     const [isEnabled, setIsEnabled] = useState(false);
     const ref = useRef(null);

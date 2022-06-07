@@ -1,7 +1,7 @@
-import React, { AriaRole } from "react";
-import classNames from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+import classNames from "classnames";
+import React, { AriaRole } from "react";
 
 export interface MessageBoxProps extends WithChildren {
     title?: string;

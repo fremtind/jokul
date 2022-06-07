@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { NavLink } from "@fremtind/jkl-core";
+import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
 

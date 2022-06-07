@@ -1,86 +1,85 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
-$arrow-width: jkl.rem(16px);
-$arrow-width--compact: jkl.rem(14px);
+$_arrow-width: jkl.rem(16px);
+$_arrow-width--compact: jkl.rem(14px);
 
-$expand-button-border-width: jkl.rem(1px);
-$animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
-$focus-ring-width: jkl.rem(2px);
+$_animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
+$_focus-ring-width: jkl.rem(2px);
 
-@include jkl.helper-light-mode-variables {
-    --expand-button-text-color: #{jkl.$color-granitt};
-    --expand-button-focus-color: #{jkl.$color-granitt};
+@include jkl.light-mode-variables {
+    --jkl-expand-button-text-color: #{jkl.$color-granitt};
+    --jkl-expand-button-focus-color: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
-    --expand-button-text-color: #{jkl.$color-snohvit};
-    --expand-button-focus-color: #{jkl.$color-snohvit};
+@include jkl.dark-mode-variables {
+    --jkl-expand-button-text-color: #{jkl.$color-snohvit};
+    --jkl-expand-button-focus-color: #{jkl.$color-snohvit};
 }
 
-@mixin expanded-arrow($px) {
+@mixin _expanded-arrow($px) {
     .jkl-expand-button__arrow {
         transform: translateY(jkl.rem($px));
     }
 }
 
 .jkl-expand-button {
-    @include mixins.reset-outline;
+    @include jkl.reset-outline;
     @include jkl.text-style("body");
 
     background-color: transparent;
     cursor: pointer;
-    color: var(--expand-button-text-color);
+    color: var(--jkl-expand-button-text-color);
     display: inline-block;
     padding: 0;
-    transition: transform $animation-timing, border $animation-timing;
+    transition: transform $_animation-timing, border $_animation-timing;
     min-width: unset;
     position: relative;
 
     &::after {
-        border: solid $focus-ring-width transparent;
+        $_expand-button-border-width: jkl.rem(1px);
+        border: solid $_focus-ring-width transparent;
         box-shadow: none;
-        transition: box-shadow $animation-timing;
+        transition: box-shadow $_animation-timing;
         content: "";
         position: absolute;
-        bottom: -($expand-button-border-width);
-        left: -($expand-button-border-width);
-        right: -($expand-button-border-width);
-        top: -($expand-button-border-width);
+        bottom: -($_expand-button-border-width);
+        left: -($_expand-button-border-width);
+        right: -($_expand-button-border-width);
+        top: -($_expand-button-border-width);
     }
 
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         border: none;
 
         &::after {
-            box-shadow: 0 0 0 $focus-ring-width var(--expand-button-focus-color);
+            box-shadow: 0 0 0 $_focus-ring-width var(--jkl-expand-button-focus-color);
         }
     }
 
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
-        @include expanded-arrow(3px);
-        color: var(--expand-button-focus-color);
+        @include _expanded-arrow(3px);
+        color: var(--jkl-expand-button-focus-color);
     }
 
     &--compact {
         @include jkl.text-style("body/small-screen");
 
         .jkl-expand-button__arrow {
-            --jkl-icon-width: #{$arrow-width--compact};
+            --jkl-icon-width: #{$_arrow-width--compact};
 
             .jkl-icon--small {
-                --jkl-icon-width: #{$arrow-width--compact};
+                --jkl-icon-width: #{$_arrow-width--compact};
             }
         }
     }
 
     &--expanded {
-        @include expanded-arrow(3px);
-        @include mixins.no-grow-bold;
+        @include _expanded-arrow(3px);
+        @include jkl.no-grow-bold;
 
         &:hover {
-            @include expanded-arrow(0);
+            @include _expanded-arrow(0);
         }
     }
 
@@ -91,21 +90,21 @@ $focus-ring-width: jkl.rem(2px);
     }
 
     &__arrow {
-        @include mixins.motion;
+        @include jkl.motion;
 
         display: inline-block;
         margin-left: jkl.$spacing-xs;
 
-        --jkl-icon-width: #{$arrow-width};
+        --jkl-icon-width: #{$_arrow-width};
 
         .jkl-icon--small {
-            --jkl-icon-width: #{$arrow-width};
+            --jkl-icon-width: #{$_arrow-width};
         }
 
-        @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonText);
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 
-    @include jkl.helper-forced-colors-mode {
+    @include jkl.forced-colors-mode {
         &,
         &::after {
             border-top-style: none;
@@ -117,7 +116,7 @@ $focus-ring-width: jkl.rem(2px);
 
 .jkl-expand-section {
     &__content-wrapper {
-        @include mixins.motion;
+        @include jkl.motion;
         transition-property: height;
     }
 

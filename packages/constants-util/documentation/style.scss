@@ -1,10 +1,10 @@
-@import "~@fremtind/jkl-core/_functions";
+@use "~@fremtind/jkl-core/jkl";
 
 .jkl-constant-example {
     width: 100%;
 
     &__table {
         width: 100%;
-        max-width: rem(500px);
+        max-width: jkl.rem(500px);
     }
 }

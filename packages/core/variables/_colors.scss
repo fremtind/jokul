@@ -1,46 +1,91 @@
 @use "sass:map";
 
 // Hovedfarger
-$svart: #000;
-$granitt: #1b1917;
-$skifer: #313030;
-$fjellgra: #444141;
-$stein: #636060;
-$svaberg: #c8c5c3;
-$varde: #e0dbd4;
-$dis: #ece9e5;
-$sand: #f4f2ef;
-$snohvit: #f9f9f9;
-$hvit: #fff;
 
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$suksess: #287e68;
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$info: #000afa;
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$advarsel: #fbb15b;
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$feil: #aa1f23;
+/// @type Color
+$color-svart: #000;
 
+/// @type Color
+$color-granitt: #1b1917;
+
+/// @type Color
+$color-skifer: #313030;
+
+/// @type Color
+$color-fjellgra: #444141;
+
+/// @type Color
+$color-stein: #636060;
+
+/// @type Color
+$color-svaberg: #c8c5c3;
+
+/// @type Color
+$color-varde: #e0dbd4;
+
+/// @type Color
+$color-dis: #ece9e5;
+
+/// @type Color
+$color-sand: #f4f2ef;
+
+/// @type Color
+$color-snohvit: #f9f9f9;
+
+/// @type Color
+$color-hvit: #fff;
+
+// Gamle varslingsfarger/meldingsfarger
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$suksess--darkbg: #5effa0;
+$color-suksess: #287e68;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$info--darkbg: #00faff;
+$color-info: #000afa;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$advarsel--darkbg: #fec97b;
+$color-advarsel: #fbb15b;
+
+/// @type Color
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$feil--darkbg: #ff8b79;
+$color-feil: #aa1f23;
+
+/// @type Color
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$color-suksess--darkbg: #5effa0;
+
+/// @type Color
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$color-info--darkbg: #00faff;
+
+/// @type Color
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$color-advarsel--darkbg: #fec97b;
+
+/// @type Color
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$color-feil--darkbg: #ff8b79;
 
 // Farger knyttet til bruksområde
-$error-color: $feil;
-$focus-color: $granitt;
-$error-color--darkbg: $feil--darkbg;
-$focus-color--darkbg: $snohvit;
 
-/// Varslingsfarger / Meldingsfarger.
-/// Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
-/// @access private
-$varslingsfarger: (
+/// @type Color
+$color-error-color: $color-feil;
+
+/// @type Color
+$color-focus-color: $color-granitt;
+
+/// @type Color
+$color-error-color--darkbg: $color-feil--darkbg;
+
+/// @type Color
+$color-focus-color--darkbg: $color-snohvit;
+
+// Varslingsfarger / Meldingsfarger.
+// Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
+$_varslingsfarger: (
     "suksess": #c8ecd2,
     "feil": #ffc9b2,
     "info": #d9ddff,
@@ -49,6 +94,10 @@ $varslingsfarger: (
     "feil--alt": #ff9a7a,
 );
 
+/// Hent fargekoden til en navngitt varslingsfarge
+/// @param {"suksess" | "feil" | "info" | "advarsel" | "suksess--alt" | "feil--alt"} $farge - Navn på fargen du ønsker verdien til
+/// @return {Color} - fargekoden til den ønskede fargen
+/// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
 @function varslingsfarge($farge) {
-    @return map.get($varslingsfarger, $farge);
+    @return map.get($_varslingsfarger, $farge);
 }

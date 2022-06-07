@@ -1,15 +1,13 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/navigation";
-
-@function play($color) {
-    $c: jkl.helper-urlencodecolor($color);
+@function _play($color) {
+    $c: jkl.urlencodecolor($color);
 
     @return url("data:image/svg+xml,%3Csvg width='28' height='38' viewBox='0 0 28 38' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5615 1.05959L26.7806 18.1725C27.3652 18.5693 27.3652 19.4307 26.7806 19.8275L1.5615 36.9404C0.897525 37.391 0 36.9153 0 36.1129V1.88707C0 1.08465 0.897522 0.609033 1.5615 1.05959Z' fill='#{$color}'/%3E%3C/svg%3E%0A");
 }
 
-@function pause($color) {
-    $c: jkl.helper-urlencodecolor($color);
+@function _pause($color) {
+    $c: jkl.urlencodecolor($color);
 
     @return url("data:image/svg+xml,%3Csvg width='28' height='37' viewBox='0 0 28 37' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='10' height='37' rx='1' fill='#{$color}'/%3E%3Crect x='18' width='10' height='37' rx='1' fill='#{$color}'/%3E%3C/svg%3E%0A");
 }
@@ -28,20 +26,20 @@
 
         &:focus {
             outline: none;
-            @include keyboard-navigation {
+            @include jkl.keyboard-navigation {
                 box-shadow: 0 0 0 2px jkl.$color-granitt;
             }
         }
 
         &--play {
-            background: play(jkl.$color-granitt) no-repeat center;
+            background: _play(jkl.$color-granitt) no-repeat center;
         }
 
         &--pause {
-            background: pause(jkl.$color-granitt) no-repeat center;
+            background: _pause(jkl.$color-granitt) no-repeat center;
         }
 
-        @include jkl.helper-forced-colors-mode {
+        @include jkl.forced-colors-mode {
             border: revert;
             background-color: ButtonFace;
             background-repeat: no-repeat;
@@ -52,11 +50,11 @@
             }
 
             &--play {
-                background-image: play(ButtonText);
+                background-image: _play(ButtonText);
             }
 
             &--pause {
-                background-image: pause(ButtonText);
+                background-image: _pause(ButtonText);
             }
         }
     }

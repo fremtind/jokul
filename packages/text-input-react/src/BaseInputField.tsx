@@ -1,3 +1,4 @@
+import cn from "classnames";
 import React, {
     ChangeEventHandler,
     CSSProperties,
@@ -6,7 +7,6 @@ import React, {
     KeyboardEventHandler,
     MouseEventHandler,
 } from "react";
-import cn from "classnames";
 
 export interface BaseProps {
     id?: string;

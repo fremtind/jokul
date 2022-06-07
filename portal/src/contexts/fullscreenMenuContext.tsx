@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, FC } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
+import React, { createContext, useState, useContext, FC } from "react";
 
 export type MenuItemList = Array<MenuItem>;
 

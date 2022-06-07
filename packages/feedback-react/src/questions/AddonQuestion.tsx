@@ -1,15 +1,14 @@
-import React, { ChangeEventHandler, useEffect, useState } from "react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
-
-import { useMainQuestionContext } from "../main-question/mainQuestionContext";
+import React, { ChangeEventHandler, useEffect, useState } from "react";
 import { useFeedbackContext } from "../feedbackContext";
+import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 
 interface Props {
     label: string;
     helpLabel?: string;
 }
 
-export const AddonQuestion: React.VFC<Props> = ({
+export const AddonQuestion: React.FC<Props> = ({
     label,
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
 }) => {

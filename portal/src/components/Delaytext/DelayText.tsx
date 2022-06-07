@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useMemo, useContext } from "react";
 import classNames from "classnames";
+import React, { useState, useEffect, useRef, useMemo, useContext } from "react";
 import "./delay-text.scss";
 import { a11yContext } from "../../contexts/a11yContext";
 

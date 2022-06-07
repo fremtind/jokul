@@ -1,8 +1,8 @@
-import React from "react";
 import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Checkbox } from ".";
 import { axe } from "jest-axe";
+import React from "react";
+import { Checkbox } from ".";
 
 describe("checkbox", () => {
     it("should be checked after clicking the label", async () => {

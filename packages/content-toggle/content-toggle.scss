@@ -1,9 +1,13 @@
-@import "~@fremtind/jkl-core/mixins/_all";
+@use "sass:string";
+@use "~@fremtind/jkl-core/jkl";
 
-$animation-duration: 300ms;
-$half-animation-duration: calc(#{$animation-duration} / 2);
+$_animation-duration: 300ms;
+$_half-animation-duration: calc(#{$_animation-duration} / 2);
 
-@keyframes fade-out {
+$_fade-out-animation-name: jkl-fade-out-#{string.unique-id()};
+$_fade-in-animation-name: jkl-fade-in-#{string.unique-id()};
+
+@keyframes #{$_fade-out-animation-name} {
     0% {
         opacity: 1;
         visibility: visible;
@@ -15,7 +19,7 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
     }
 }
 
-@keyframes fade-in {
+@keyframes #{$_fade-in-animation-name} {
     0% {
         opacity: 0;
         visibility: hidden;
@@ -36,7 +40,7 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
         .jkl-content-toggle--flip > & {
             display: flex;
             flex-direction: column;
-            @include motion(standard, expressive);
+            @include jkl.motion(standard, expressive);
             transition-property: transform;
 
             &[data-show="first"] {
@@ -49,7 +53,7 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
         }
 
         .jkl-content-toggle--fade > & {
-            animation-duration: $half-animation-duration;
+            animation-duration: $_half-animation-duration;
 
             &[data-initial="true"] {
                 animation-duration: 0ms;
@@ -74,13 +78,13 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
 
     &__first {
         .jkl-content-toggle--fade [data-show="first"] & {
-            animation-name: fade-in;
-            animation-delay: $half-animation-duration;
+            animation-name: $_fade-in-animation-name;
+            animation-delay: $_half-animation-duration;
             visibility: hidden;
         }
 
         .jkl-content-toggle--fade [data-show="second"] & {
-            animation-name: fade-out;
+            animation-name: $_fade-out-animation-name;
             animation-delay: 0ms;
         }
     }
@@ -91,14 +95,14 @@ $half-animation-duration: calc(#{$animation-duration} / 2);
         }
 
         .jkl-content-toggle--fade [data-show="first"] & {
-            animation-name: fade-out;
+            animation-name: $_fade-out-animation-name;
             animation-delay: 0ms;
             visibility: visible;
         }
 
         .jkl-content-toggle--fade [data-show="second"] & {
-            animation-name: fade-in;
-            animation-delay: $half-animation-duration;
+            animation-name: $_fade-in-animation-name;
+            animation-delay: $_half-animation-duration;
         }
     }
 }

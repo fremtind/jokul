@@ -1,7 +1,7 @@
-import { ExampleComponentProps } from "doc-utils";
-import React, { VFC } from "react";
-import ExpandSectionExample, { expandSectionExampleCode } from "./ExpandSectionExample";
-import ExpandButtonExample, { expandButtonExampleCode } from "./ExpandButtonExample";
+import React, { FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
+import { ExpandButtonExample, expandButtonExampleCode } from "./ExpandButtonExample";
+import { ExpandSectionExample, expandSectionExampleCode } from "./ExpandSectionExample";
 
 export const expandExamplesProps = {
     boolProps: ["Compact"],
@@ -19,7 +19,7 @@ export const expandExamplesProps = {
     ],
 };
 
-const ExpandExamples: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const ExpandExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const frittstaende = choiceValues?.["Innhold"] === "Frittstående";
     let C = ExpandSectionExample;
     if (frittstaende) {

@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
@@ -10,7 +10,7 @@ const rows = [
     ["32312", "H", "PR", "2.2.0", "12.11.2021", "1332", "Siden"],
 ];
 
-const ClickableTableExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];

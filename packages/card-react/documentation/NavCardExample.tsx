@@ -3,10 +3,9 @@ import { ExampleComponentProps } from "../../../doc-utils";
 import { NavCard, InfoBlock } from "../src/NavCard";
 import type { NavCardProps } from "../src/NavCard";
 import { mixedPadding } from "./cardExampleProps";
-
-import grassThumbnail from "./img/grass-thumbnail.jpg";
 import grass400 from "./img/grass-400.jpg";
 import grass800 from "./img/grass-800.jpg";
+import grassThumbnail from "./img/grass-thumbnail.jpg";
 
 const imageProps = {
     src: grass400,

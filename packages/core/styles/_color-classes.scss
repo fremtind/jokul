@@ -1,0 +1,40 @@
+@use "../jkl";
+
+/// @deprecated Bruk fargevariablene direkte
+$_color-map: (
+    "hvit": jkl.$color-hvit,
+    "snohvit": jkl.$color-snohvit,
+    "sand": jkl.$color-sand,
+    "dis": jkl.$color-dis,
+    "varde": jkl.$color-varde,
+    "svaberg": jkl.$color-svaberg,
+    "stein": jkl.$color-stein,
+    "fjellgra": jkl.$color-fjellgra,
+    "skifer": jkl.$color-skifer,
+    "granitt": jkl.$color-granitt,
+    "svart": jkl.$color-svart,
+    "suksess": jkl.$color-suksess,
+    "info": jkl.$color-info,
+    "advarsel": jkl.$color-advarsel,
+    "feil": jkl.$color-feil,
+    "suksess--darkbg": jkl.$color-suksess--darkbg,
+    "info--darkbg": jkl.$color-info--darkbg,
+    "advarsel--darkbg": jkl.$color-advarsel--darkbg,
+    "feil--darkbg": jkl.$color-feil--darkbg,
+);
+
+@each $property, $value in $_color-map {
+    /// @deprecated Bruk fargevariablene som verdier i din egen klasse.
+    .jkl-color {
+        &-#{$property} {
+            color: $value;
+        }
+    }
+
+    /// @deprecated Bruk fargevariablene som verdier i din egen klasse.
+    .jkl-bgcolor {
+        &-#{$property} {
+            background-color: $value;
+        }
+    }
+}

@@ -1,6 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-
 import { Autosuggest, AutosuggestProps } from "./Autosuggest";
 
 const renderMount = (props?: Partial<AutosuggestProps>) =>

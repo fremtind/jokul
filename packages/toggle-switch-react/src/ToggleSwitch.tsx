@@ -1,6 +1,6 @@
-import React, { MouseEventHandler, FC } from "react";
 import { SupportLabel, WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
+import React, { MouseEventHandler, FC } from "react";
 
 interface ToggleSwitchProps extends WithChildren {
     pressed?: boolean;

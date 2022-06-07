@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-// @ts-ignore: wait for nrk to supply types
-import CoreDialog from "@nrk/core-dialog/jsx";
+import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { CheckListItem, UnorderedList } from "@fremtind/jkl-list-react";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+// @ts-ignore: wait for nrk to supply types
+import CoreDialog from "@nrk/core-dialog/jsx";
+import React, { FC } from "react";
 import { useForm, useFormContext, FormProvider } from "react-hook-form";
-import { Consent, ConsentComponentBaseProps } from "./types";
 import { useCookieConsentState } from "./CookieConsentContext";
 import { convertBooleanConsentObjectToConsentObject, convertConsentObjectToBooleans } from "./cookieConsentUtils";
+import { Consent, ConsentComponentBaseProps } from "./types";
 
 interface FormValues {
     functional?: boolean;

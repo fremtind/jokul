@@ -1,6 +1,6 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
+import React from "react";
 import { Image } from ".";
 
 jest.mock("@fremtind/jkl-react-hooks", () => ({

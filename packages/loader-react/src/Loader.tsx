@@ -1,5 +1,5 @@
-import React, { AriaRole } from "react";
 import classNames from "classnames";
+import React, { AriaRole } from "react";
 import { useDelayedRender } from "./useDelayedRender";
 
 export type LoaderVariant = "small" | "medium" | "large";

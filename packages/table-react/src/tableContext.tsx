@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from "react";
 import { WithChildren } from "@fremtind/jkl-core";
+import React, { createContext, useContext } from "react";
 
 type TableContext = {
     compact: boolean;

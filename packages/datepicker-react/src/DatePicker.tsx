@@ -14,12 +14,12 @@ import React, {
     useRef,
     useState,
 } from "react";
+import { flushSync } from "react-dom";
 import { Calendar } from "./internal/Calendar";
-import { DatePickerProps, DateValidationError } from "./types";
 import { getInitialDate, DateInfo } from "./internal/utils";
+import { DatePickerProps, DateValidationError } from "./types";
 import { formatInput, parseDateString } from "./utils";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation";
-import { flushSync } from "react-dom";
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, forwardedInputRef) => {
     const {

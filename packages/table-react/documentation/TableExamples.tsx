@@ -1,8 +1,8 @@
-import { ExampleComponentProps } from "doc-utils";
-import React, { VFC } from "react";
-import TableExample, { tableExampleCode } from "./TableExample";
+import React, { FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import ActionTableExample, { actionTableExampleCode } from "./ActionTableExample";
 import ClickableTableExample, { clickableTableExampleCode } from "./ClickableTableExample";
+import TableExample, { tableExampleCode } from "./TableExample";
 
 export const tableExamplesProps = {
     boolProps: ["Compact", "Skjul overskrift"],
@@ -20,7 +20,7 @@ export const tableExamplesProps = {
     ],
 };
 
-const TableExamples: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const TableExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const action = choiceValues?.["Variant"] === "Med handling";
     const clickable = choiceValues?.["Variant"] === "Klikkbar rad";
 

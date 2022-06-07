@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import cx from "classnames";
+import React, { FC } from "react";
 import { Plus } from "../icons/Plus";
 import { IconVariant } from "../icons/types";
 

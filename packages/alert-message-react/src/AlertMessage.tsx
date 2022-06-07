@@ -1,7 +1,7 @@
-import React from "react";
-import classNames from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+import classNames from "classnames";
+import React from "react";
 import { MessageIcon } from "./common/MessageIcon";
 
 type messageTypes = "info" | "error" | "success" | "warning";

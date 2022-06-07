@@ -1,8 +1,8 @@
-import React from "react";
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Card } from ".";
 import { axe } from "jest-axe";
+import React from "react";
+import { Card } from ".";
 
 describe("Card", () => {
     it("renders without exploding", () => {

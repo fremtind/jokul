@@ -1,17 +1,16 @@
-@import "~@fremtind/jkl-core/mixins/_helpers";
-@import "~@fremtind/jkl-core/_functions";
+@use "~@fremtind/jkl-core/jkl";
 
 .jkl-icon-button {
-    @include reset-outline;
+    @include jkl.reset-outline;
     background-color: transparent;
     cursor: pointer;
     color: inherit;
 
-    @include forced-colors-svg-fallback($stroke: ButtonText);
+    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
 
     &__icon {
         display: inline-block;
-        width: rem(20px);
-        height: rem(20px);
+        width: jkl.rem(20px);
+        height: jkl.rem(20px);
     }
 }

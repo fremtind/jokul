@@ -142,13 +142,15 @@ export const IntersectionComponent = ({ children }) => {
 ```
 
 ```scss
+@use "~@fremtind/jkl-core/jkl";
+
 .target {
     overflow: hidden;
-    transition: ease-in-out 500ms;
+    transition: jkl.easing("exit") jkl.timing("lazy");
     padding: 1rem 0.5rem;
     transition-property: color, font-size, box-shadow, background-color;
     & > div {
-        transition: ease-in-out 500ms;
+        transition: jkl.easing("exit") jkl.timing("lazy");
         transition-property: transform;
     }
 
@@ -180,8 +182,7 @@ On desktop, focus and hover states help interactive elements stand out. We don't
 
 ![](/assets/blog/intersectionObserver/mobile.gif)
 
-
 ### References
 
-- [Intersection observer API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#The_root_element_and_root_margin)
-- [useIntersectionObserver](https://jokul.fremtind.no/komponenter/intersectionobserver)
+-   [Intersection observer API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#The_root_element_and_root_margin)
+-   [useIntersectionObserver](https://jokul.fremtind.no/komponenter/intersectionobserver)

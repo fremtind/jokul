@@ -1,6 +1,6 @@
-import React from "react";
 import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import classnames from "classnames";
+import React from "react";
 
 export interface HamburgerProps {
     /** Kreves for at menyen skal kunne sette `aria-labelledby`. */

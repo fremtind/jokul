@@ -1,25 +1,23 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/_functions";
-
 .lorem-text {
     @include jkl.text-style("body");
     margin-top: jkl.$spacing-l;
     padding: 1rem;
     background-color: jkl.$color-varde;
     color: jkl.$color-granitt;
-    border-radius: rem(4px);
+    border-radius: jkl.rem(4px);
 }
 
-.jlk-intersection-example {
-    transition: 200ms background-color ease-in-out;
-    border-radius: rem(4px);
+.jkl-intersection-example {
+    transition: jkl.timing("expressive") background-color ease-in-out;
+    border-radius: jkl.rem(4px);
 }
 
-.jlk-intersection-example--visible {
+.jkl-intersection-example--visible {
     background-color: jkl.$color-stein;
 
-    @include jkl.helper-forced-colors-mode {
+    @include jkl.forced-colors-mode {
         background-color: Highlight;
     }
 }

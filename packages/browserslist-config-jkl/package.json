@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/browserslist-config-jkl",
-    "version": "0.6.1",
+    "version": "1.0.0-alpha.0",
     "description": "Browserlist configuration for jøkul",
     "keywords": [
         "browserlist",

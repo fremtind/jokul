@@ -1,6 +1,6 @@
-import React, { useState, VFC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
+import React, { useState, FC } from "react";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { DatePicker, formatInput, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
@@ -19,7 +19,7 @@ const monthsIsh = (num: number) => {
     return raw < 0 ? 12 + raw : raw;
 };
 
-export const DatepickerExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"] ? "Du vil være forsikret fra denne datoen" : undefined;
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;

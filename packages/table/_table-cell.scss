@@ -1,0 +1,88 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@mixin _expanded-arrow($px) {
+    .jkl-expand-button__arrow {
+        transform: translateY(jkl.rem($px));
+    }
+}
+
+.jkl-table-cell {
+    @include jkl.text-style("body");
+    padding: jkl.$spacing-s jkl.$spacing-xs;
+    padding-top: jkl.$spacing-s - jkl.rem(1px);
+    padding-bottom: jkl.$spacing-s - jkl.rem(1px);
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+
+    &--align-center {
+        vertical-align: baseline;
+    }
+
+    &--align-right {
+        text-align: right;
+    }
+
+    .jkl-table--collapse-to-list &--align-right {
+        @include jkl.small-device {
+            text-align: unset;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] &--align-right {
+        text-align: unset;
+    }
+
+    *[data-compactlayout] &,
+    &--compact {
+        @include jkl.text-style("small");
+        padding: jkl.$spacing-xs;
+        padding-top: jkl.$spacing-xs - jkl.rem(1px);
+        padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
+    }
+
+    @mixin _responsive-table-header {
+        @include jkl.text-style("heading-5");
+        content: attr(data-th);
+        display: block;
+    }
+
+    // only show inline text if it's not an ExpandController with text inside. if it doesn't
+    // have text inside. the text is moved inside the ExpandButton
+    .jkl-table--collapse-to-list &[data-th]:not(.jkl-table-cell--expand-without-text)::before {
+        display: none;
+
+        @include jkl.small-device {
+            @include _responsive-table-header;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] &:not(.jkl-table-cell--expand-without-text)::before {
+        @include _responsive-table-header;
+    }
+
+    .jkl-table--collapse-to-list:not([data-collapse]) &--expand-without-text .jkl-expand-button__text {
+        @include jkl.from-medium-device {
+            display: none;
+        }
+    }
+
+    .jkl-table-row-expand-button {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.jkl-table-row--expandable.jkl-table-row--clickable:not(.jkl-expandable-table-row--clickable-external) {
+    &:hover,
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
+        .jkl-table-row-expand-button {
+            @include _expanded-arrow(3px);
+            color: var(--expand-button-focus-color);
+
+            &--expanded {
+                @include _expanded-arrow(0);
+            }
+        }
+    }
+}

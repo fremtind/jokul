@@ -1,8 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-
-$animation-timing: 300ms ease-out both;
+$animation-timing: jkl.timing("expressive") jkl.easing("exit") both;
 
 .jkl-portal-sidebar-menu {
     padding-left: jkl.$spacing-xl;
