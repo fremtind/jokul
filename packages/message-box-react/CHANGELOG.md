@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.1 (2022-06-07)
+
+### Bug Fixes
+
+-   animer FormErrorMessageBox med useAnimatedHeight ([3ed164f](https://github.com/fremtind/jokul/commit/3ed164fccc1c8c9339a91cb766d288e1d81b8902))
+
 # [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@6.3.14...@fremtind/jkl-message-box-react@7.0.0) (2022-06-07)
 
 ### chore
