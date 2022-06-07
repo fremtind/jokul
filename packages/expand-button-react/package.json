@@ -34,6 +34,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@fremtind/jkl-content-toggle-react": "^3.0.2",
         "@fremtind/jkl-core": "^10.0.2",
         "@fremtind/jkl-expand-button": "^2.0.2",
         "@fremtind/jkl-icons-react": "^5.0.2",
