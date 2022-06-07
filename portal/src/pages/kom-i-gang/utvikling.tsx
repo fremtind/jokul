@@ -169,10 +169,10 @@ const PraktiskInfoUtviklere: FC = () => {
                     gjør det mulig å dele editoren med én eller flere kolleger i sanntid
                 </ListItem>
                 <ListItem>
-                    <Link href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss">
-                        SCSS IntelliSense
+                    <Link href="https://marketplace.visualstudio.com/items?itemName=SomewhatStationery.some-sass">
+                        Some Sass
                     </Link>{" "}
-                    gjør det enklere å se verdiene bak Sass-variabler
+                    gir deg IntelliSense og forhåndsvisning av SassDoc som brukes i Jøkul
                 </ListItem>
                 <ListItem>
                     <Link href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">
