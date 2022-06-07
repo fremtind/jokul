@@ -86,26 +86,23 @@ $_link-underline-thickness--hover: jkl.rem(2px);
     font-weight: jkl.$typography-weight-normal;
     text-decoration: none;
     position: relative;
-    padding-right: 0.3em;
-
-    &::after,
-    &::before {
-        display: inline-block;
-        transform: translateX(0);
-        @include jkl.motion;
-        transition-property: transform;
-    }
 
     &::after {
         @include jkl.decorative($content: $_right-arrow);
-        padding-left: jkl.rem(2px);
+        @include jkl.motion;
+        transition-property: padding-left, padding-right;
+        display: inline;
+        margin-left: -0.2em;
+        padding-left: 0.35em;
+        padding-right: 0.35em;
     }
 
     &:hover:not(:focus) {
         color: var(--jkl-link-hover-color);
 
         &::after {
-            transform: translateX(33%);
+            padding-left: 0.7em;
+            padding-right: 0;
         }
     }
 
@@ -114,7 +111,8 @@ $_link-underline-thickness--hover: jkl.rem(2px);
         @include jkl.no-grow-bold;
 
         &::after {
-            transform: translateX(33%);
+            padding-left: 0.7em;
+            padding-right: 0;
         }
     }
 
@@ -136,6 +134,10 @@ $_link-underline-thickness--hover: jkl.rem(2px);
 
     &::before {
         @include jkl.decorative($content: $_left-arrow);
+        @include jkl.motion;
+        transform: translateX(0);
+        transition-property: transform;
+        display: inline-block;
         padding-right: jkl.rem(4px);
     }
 

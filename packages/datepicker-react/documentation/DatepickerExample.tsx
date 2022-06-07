@@ -1,7 +1,7 @@
 import { LabelVariant } from "@fremtind/jkl-core";
 import React, { useState, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { DatePicker } from "../src";
+import { DatePicker, formatInput, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst"],
@@ -25,35 +25,66 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choic
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
-    const [value, setValue] = useState<Date | undefined>(undefined);
+    const [value, setValue] = useState<string>("");
 
     return (
         <DatePicker
             label="Velg startdato for forsikringen"
+            labelProps={{ variant }}
             extended={boolValues && boolValues["Utvidet velger"]}
             forceCompact={boolValues && boolValues["Compact"]}
-            variant={variant}
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}
-            disableBeforeDate={new Date(Date.now() - monthsIsh(14))}
-            disableAfterDate={new Date(Date.now() + monthsIsh(14))}
+            disableBeforeDate={formatInput(new Date(Date.now() - monthsIsh(14)))}
+            disableAfterDate={formatInput(new Date(Date.now() + monthsIsh(14)))}
             value={value}
-            onFocus={(date) => {
-                console.log("hello from onFocus", date);
-                setValue(date);
+            onFocus={(e, date, meta) => {
+                console.log("onFocus", {
+                    event: e,
+                    date,
+                    meta,
+                });
             }}
-            onBlur={(date) => {
-                console.log("hello from onBlur", date);
-                setValue(date);
+            onBlur={(e, date, meta) => {
+                // Ignorer blurs som går til kalenderknapper
+                if (isBlurTargetOutside(e)) {
+                    console.log("onBlur", {
+                        event: e,
+                        date,
+                        meta,
+                    });
+                }
             }}
-            onChange={(date, _, meta) => {
-                console.log("hello from onChange", date, _, meta);
-                setValue(date);
+            onChange={(e, date, meta) => {
+                setValue(e.target.value);
+                console.log("onChange", {
+                    event: e,
+                    date,
+                    meta,
+                });
             }}
-            onKeyDown={(date, _) => {
-                console.log("hello from onKeyDown", date, _);
-                setValue(date);
+            onKeyDown={(e, date, meta) => {
+                console.log("onKeyDown", {
+                    event: e,
+                    date,
+                    meta,
+                });
+            }}
+            action={{
+                onBlur: (e) => {
+                    // Ignorer blurs som går tilbake til inputfeltet
+                    if (isBlurTargetOutside(e)) {
+                        console.log("action.onBlur", {
+                            event: e,
+                        });
+                    }
+                },
+                onClick: (e) => {
+                    console.log("action.onClick", {
+                        event: e,
+                    });
+                },
             }}
         />
     );

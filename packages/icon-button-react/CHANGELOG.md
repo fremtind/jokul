@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.27](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@0.8.26...@fremtind/jkl-icon-button-react@0.8.27) (2022-06-02)
+
+### Bug Fixes
+
+-   flytt fokus tilbake til iconbutton ved tab, docs ([ff605b5](https://github.com/fremtind/jokul/commit/ff605b5db03e2ced89d477f1997f927097e2bc36))
+
 ## 0.8.15 (2022-03-10)
 
 ### Bug Fixes

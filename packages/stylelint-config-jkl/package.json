@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/stylelint-config-jkl",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "description": "Styleint configuration for Jøkul",
     "keywords": [
         "stylelint",
@@ -31,7 +31,7 @@
         "stylelint": "^14.0.0"
     },
     "devDependencies": {
-        "stylelint": "^14.6.1"
+        "stylelint": "^14.8.5"
     },
     "repository": {
         "type": "git",

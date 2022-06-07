@@ -21,14 +21,12 @@
         }
     }
 
-    &--stack-small {
-        @include jkl.small-device {
-            flex-direction: column;
+    @include jkl.small-device {
+        flex-direction: column;
 
-            .jkl-portal-grid__col {
-                margin-left: 0;
-                margin-right: 0;
-            }
+        .jkl-portal-grid__col {
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 }

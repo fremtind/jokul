@@ -1,15 +1,16 @@
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker } from "@fremtind/jkl-datepicker-react";
+import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { formatDate } from "@fremtind/jkl-formatters-util";
 import { FormErrorMessageBox } from "@fremtind/jkl-message-box-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { motion } from "framer-motion";
-import React, { useRef, FC } from "react";
-import { Controller, useForm } from "react-hook-form";
+import React, { useRef, VFC } from "react";
+import { useForm } from "react-hook-form";
 
 type FormValues = {
     u23: undefined | string;
@@ -21,9 +22,12 @@ type FormValues = {
     klient: undefined | string[];
 };
 
-const Skjemavalideringseksempel: FC = () => {
-    const { control, formState, handleSubmit, register } = useForm<FormValues>({
+const Skjemavalideringseksempel: VFC = () => {
+    const { formState, handleSubmit, register } = useForm<FormValues>({
         shouldFocusError: false,
+        defaultValues: {
+            // fodselsdato: "24.10.1990",
+        },
     });
 
     /** Gjør klar props til oppsummeringen */
@@ -96,20 +100,21 @@ const Skjemavalideringseksempel: FC = () => {
                 label="Etternavn"
                 errorLabel={formState.errors.etternavn?.message}
             />
-            <Controller
-                control={control}
-                name="fodselsdato"
-                rules={{ required: "Du må fylle ut eierens fødselsdato" }}
-                render={({ field }) => (
-                    <DatePicker
-                        className="jkl-spacing-l--bottom"
-                        disableAfterDate={new Date()}
-                        errorLabel={formState.errors.fodselsdato?.message}
-                        label="Fødselsdato"
-                        {...field}
-                        value={field.value ? new Date(field.value) : undefined}
-                    />
-                )}
+            <DatePicker
+                className="jkl-spacing-l--bottom"
+                disableAfterDate={formatInput(new Date())}
+                errorLabel={formState.errors.fodselsdato?.message}
+                label="Fødselsdato"
+                {...register("fodselsdato", {
+                    required: "Du må fylle ut fødselsdato",
+                    validate: {
+                        isCorrectFormat: (v) =>
+                            isCorrectFormat(v) ||
+                            `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,
+                        withinUpperBound: (v) =>
+                            isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,
+                    },
+                })}
             />
             <Select
                 {...register("stilling", { required: "Du må oppgi eierens stilling" })}

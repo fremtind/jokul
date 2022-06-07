@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion",
-    "version": "6.0.13",
+    "version": "6.0.15",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from accordion-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.1"
+        "@fremtind/jkl-core": "^9.7.0"
     },
     "repository": {
         "type": "git",

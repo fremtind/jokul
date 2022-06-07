@@ -11,6 +11,7 @@ export interface NativeSelectProps {
     labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
     items: Array<string | ValuePair>;
     className?: string;
+    selectClassName?: string;
     inline?: boolean;
     helpLabel?: string;
     errorLabel?: string;
@@ -23,6 +24,11 @@ export interface NativeSelectProps {
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
     onBlur?: FocusEventHandler<HTMLSelectElement>;
+    /**
+     * Merk som ugyldig uten å sende inn en errorLabel.
+     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+     */
+    invalid?: boolean;
 }
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
@@ -36,11 +42,13 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             inline = false,
             helpLabel,
             errorLabel,
+            invalid,
             variant,
             placeholder,
             value,
             forceCompact,
             width,
+            selectClassName,
             ...rest
         },
         ref,
@@ -53,7 +61,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 className={cn("jkl-select", className, {
                     "jkl-select--inline": inline,
                     "jkl-select--compact": forceCompact,
-                    "jkl-select--invalid": !!errorLabel,
+                    "jkl-select--invalid": !!errorLabel || invalid,
                 })}
             >
                 <Label variant={variant} {...labelProps} standAlone htmlFor={uid} forceCompact={forceCompact}>
@@ -63,7 +71,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     <select
                         ref={ref}
                         id={uid}
-                        className="jkl-select__button"
+                        className={cn("jkl-select__button", selectClassName)}
                         defaultValue={value ? undefined : ""}
                         value={value}
                         {...rest}

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { IconCalendar } from "./Icons/IconCalendar";
 import { IconClear } from "./Icons/IconClear";
 import { IconSearch } from "./Icons/IconSearch";
@@ -23,13 +23,24 @@ function getIcon(iconType: IconVariant) {
     }
 }
 
-export const IconButton = ({ iconType = "clear", buttonTitle, ...rest }: IconButtonProps): JSX.Element => {
-    return (
-        <button type="button" title={buttonTitle} data-testid="jkl-icon-button" className="jkl-icon-button" {...rest}>
-            <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
-                {getIcon(iconType)}
-            </span>
-            <span className="jkl-sr-only">{buttonTitle}</span>
-        </button>
-    );
-};
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+    ({ iconType = "clear", buttonTitle, ...rest }, ref) => {
+        return (
+            <button
+                ref={ref}
+                type="button"
+                title={buttonTitle}
+                data-testid="jkl-icon-button"
+                className="jkl-icon-button"
+                {...rest}
+            >
+                <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
+                    {getIcon(iconType)}
+                </span>
+                <span className="jkl-sr-only">{buttonTitle}</span>
+            </button>
+        );
+    },
+);
+
+IconButton.displayName = "IconButton";

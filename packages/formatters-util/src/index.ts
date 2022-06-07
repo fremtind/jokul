@@ -10,9 +10,10 @@ export {
     registerWithTelefonnummerMask,
 } from "./util/registerWithMask";
 
+export { formatAvstand } from "./avstand/formatAvstand";
+export { formatDate } from "./date/formatDate";
 export { FODSELSNUMMER_REGEX, formatFodselsnummer } from "./fodselsnummer/formatFodselsnummer";
 export { KONTONUMMER_REGEX, formatKontonummer } from "./kontonummer/formatKontonummer";
 export { KORTNUMMER_REGEX, formatKortnummer } from "./kortnummer/formatKortnummer";
 export { TELEFONNUMMER_REGEX, formatTelefonnummer } from "./telefonnummer/formatTelefonnummer";
-export { formatAvstand } from "./avstand/formatAvstand";
 export { formatValuta } from "./valuta/formatValuta";

@@ -1,266 +1,338 @@
-import { DataTestAutoId, Label, LabelProps, LabelVariant, SupportLabel } from "@fremtind/jkl-core";
+import { Label, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import {
-    useAnimatedHeight,
-    useClickOutside,
-    useFocusOutside,
-    useKeyListener,
-    usePreviousValue,
-} from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight, useClickOutside, useFocusOutside, useId, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
-import React, { ChangeEvent, FocusEvent, forwardRef, RefObject, useEffect, useMemo, useReducer, useRef } from "react";
-import { Calendar } from "./Calendar";
-import { formatDate, getInitialDate } from "./dateFunctions";
-import { useCalendarId, useDisableDate } from "./internal/hooks";
-import { createReducer, DateValidationError } from "./internal/reducer";
+import startOfDay from "date-fns/startOfDay";
+import React, {
+    ChangeEvent,
+    FocusEvent,
+    KeyboardEvent,
+    MouseEvent,
+    forwardRef,
+    useCallback,
+    useRef,
+    useState,
+} from "react";
+import { flushSync } from "react-dom";
+import { Calendar } from "./internal/Calendar";
+import { getInitialDate, DateInfo } from "./internal/utils";
+import { DatePickerProps, DateValidationError } from "./types";
+import { formatInput, parseDateString } from "./utils";
+import { isWithinLowerBound, isWithinUpperBound } from "./validation";
 
-export interface ChangeDate {
-    date: Date;
-}
+export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, forwardedInputRef) => {
+    const {
+        "data-testautoid": testAutoId,
+        id,
+        className = "",
+        label = "Velg dato",
+        labelProps,
+        defaultValue,
+        defaultShow = false,
+        value,
+        disableBeforeDate: disableBefore,
+        disableAfterDate: disableAfter,
+        name,
+        helpLabel,
+        errorLabel,
+        invalid,
+        forceCompact,
+        extended,
+        days,
+        months,
+        monthLabel,
+        yearLabel,
+        placeholder = "dd.mm.åååå",
+        width = "11.5rem",
+        onChange,
+        onBlur,
+        onFocus,
+        onKeyDown,
+        action,
+        showCalendarLabel = "Åpne kalender",
+        hideCalendarLabel = "Lukk kalender",
+        ...rest
+    } = props;
 
-type DatePickerMetadata = {
-    error: DateValidationError | undefined;
-    value: string;
-};
-
-type onChangeEventHandler =
-    | ((date?: Date, e?: ChangeEvent) => void)
-    | ((date: Date | undefined, e: ChangeEvent | undefined, meta: DatePickerMetadata) => void);
-
-type onBlurEventHandler = (date?: Date, e?: React.FocusEvent) => void;
-type onFocusEventHandler = (date?: Date, e?: React.FocusEvent) => void;
-type onKeyDownEventHandler = (date?: Date, e?: React.KeyboardEvent<HTMLInputElement>) => void;
-
-interface Props extends DataTestAutoId {
-    name?: string;
-    label?: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact">;
-    monthLabel?: string;
-    yearLabel?: string;
-    placeholder?: string;
-    months?: string[];
-    days?: string[];
-    calendarButtonTitle?: string;
-    showCalendarLabel?: string;
-    hideCalendarLabel?: string;
-    initialDate?: Date;
-    value?: Date;
-    extended?: boolean;
-    initialShow?: boolean;
-    className?: string;
-    helpLabel?: string;
-    errorLabel?: string;
-    /** @deprecated Bruk `labelProps.variant`  */
-    variant?: LabelVariant;
-    forceCompact?: boolean;
-    disableBeforeDate?: Date;
-    disableAfterDate?: Date;
-    width?: string;
-    onChange?: onChangeEventHandler;
-    onFocus?: onFocusEventHandler;
-    onBlur?: onBlurEventHandler;
-    onKeyDown?: onKeyDownEventHandler;
-}
-
-export const DatePicker = forwardRef<HTMLElement, Props>(
-    (
-        {
-            name,
-            label = "Velg dato",
-            labelProps,
-            placeholder = "dd.mm.åååå",
-            calendarButtonTitle,
-            showCalendarLabel = calendarButtonTitle || "Åpne kalender",
-            hideCalendarLabel = calendarButtonTitle || "Lukk kalender",
-            initialDate,
-            value,
-            onChange,
-            onBlur,
-            onFocus,
-            onKeyDown,
-            initialShow = false,
-            className = "",
-            forceCompact,
-            disableBeforeDate,
-            disableAfterDate,
-            variant,
-            helpLabel,
-            errorLabel,
-            width = "11.5rem",
-            "data-testautoid": testAutoId,
-            ...calendarProps
-        },
-        ref,
-    ) => {
-        if (calendarButtonTitle && process.env.NODE_ENV !== "production") {
-            console.warn(
-                "WARNING: For better usability, please supply separate button titles for showing/hiding the calendar, using the showCalendarLabel and hideCalendarLabel props respectively. The calendarButtonTitle prop is deprecated and will be removed in a future update.",
-            );
-        }
-
-        const disableDate = useDisableDate(disableBeforeDate, disableAfterDate);
-        const [inputId, supportLabelId] = useCalendarId();
-
-        const reducer = useMemo(
-            () => createReducer(disableBeforeDate, disableAfterDate),
-            [disableBeforeDate, disableAfterDate],
+    if (value && defaultValue) {
+        console.warn(
+            "DatePicker må enten være controlled eller uncontrolled. Hvis du bruker defaultValue og value sammen vil defaultValue bli ignorert.",
         );
-        const initialDateState = getInitialDate(value, initialDate, disableDate);
+    }
 
-        const [state, dispatch] = useReducer(reducer, {
-            date: initialDateState,
-            calendarHidden: !initialShow,
-            dateString: initialDateState ? formatDate(initialDateState) : "",
-            error: undefined,
-        });
+    /// Input state
 
-        const componentClassName = cn(
-            "jkl-datepicker",
-            {
-                "jkl-datepicker--open": !state.calendarHidden,
-            },
-            className,
-        );
-        const inputWrapperClassName = cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper", {
-            "jkl-text-input--compact": forceCompact,
-        });
-        const wrapperRef = useRef<HTMLDivElement>(null);
-        const inputRef = useRef<HTMLInputElement>(null);
-        const textboxRef = (ref as RefObject<HTMLInputElement>) || inputRef;
-        const [calendarRef] = useAnimatedHeight(!state.calendarHidden);
+    const disableBeforeDate = parseDateString(disableBefore);
+    const minDate = disableBeforeDate ? startOfDay(disableBeforeDate) : undefined;
+    const disableAfterDate = parseDateString(disableAfter);
+    const maxDate = disableAfterDate ? startOfDay(disableAfterDate) : undefined;
 
-        const onClickCalendarDay = (e: ChangeEvent<ChangeDate>) => {
-            dispatch({ type: "SELECT_DATE_IN_CALENDAR", payload: e.target.date });
-            textboxRef.current && textboxRef.current.focus();
-        };
+    const [date, setDate] = useState(getInitialDate(value, defaultValue, minDate, maxDate));
+    const [error, setError] = useState<DateValidationError | null>(null);
 
-        const handleFocusChange = (fn?: onFocusEventHandler) => (e: FocusEvent) => {
-            const nextFocusIsInside = wrapperRef.current && wrapperRef.current.contains(e.relatedTarget as Node);
-            if (fn && !nextFocusIsInside) {
-                fn(state.date, e);
+    const inputId = useId("jkl-datepicker");
+    const supportLabelId = useId("jkl-datepicker-label");
+
+    /// Calendar state
+
+    const defaultSelectedInCalendar = startOfDay(new Date());
+
+    const [showCalendar, setShowCalendar] = useState(defaultShow);
+    const [calendarRef] = useAnimatedHeight<HTMLDivElement>(showCalendar);
+
+    /// Input events
+
+    const iconButtonRef = useRef<HTMLButtonElement | null>(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
+
+    // Hjelper for å gjøre det enklere å både forwarde refen men også bruke den selv internt
+    const unifiedInputRef = useCallback(
+        (instance: HTMLInputElement | null) => {
+            inputRef.current = instance;
+            if (forwardedInputRef) {
+                if (typeof forwardedInputRef === "function") {
+                    forwardedInputRef(instance);
+                } else {
+                    forwardedInputRef.current = instance;
+                }
             }
-        };
+        },
+        [inputRef, forwardedInputRef],
+    );
 
-        const handleOnClick = () => {
-            dispatch({ type: "TOGGLE" });
-        };
-
-        const handleOnBlurChange = (fn?: onFocusEventHandler) => (e: FocusEvent<HTMLInputElement>) => {
-            dispatch({ type: "SET_VALUE_ON_BLUR", payload: e.target.value });
-            handleFocusChange(fn)(e);
-        };
-
-        const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-            dispatch({ type: "INPUT_CHANGE", payload: e.target.value });
-        };
-
-        const handleKeyDown = (fn?: onKeyDownEventHandler) => (e: React.KeyboardEvent<HTMLInputElement>) => {
-            fn?.(state.date, e);
-        };
-
-        useClickOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
-
-        useFocusOutside(wrapperRef, () => !state.calendarHidden && dispatch({ type: "TOGGLE" }));
-
-        useKeyListener(calendarRef, ["Escape"], () => {
-            !state.calendarHidden && dispatch({ type: "TOGGLE" });
-            textboxRef.current && textboxRef.current.focus();
-        });
-
-        const previousState = usePreviousValue(state);
-        useEffect(() => {
-            if (!onChange) {
+    const datepickerRef = useRef<HTMLDivElement>(null);
+    const handleFocus = useCallback(
+        (e: FocusEvent<HTMLInputElement>) => {
+            if (!onFocus || !datepickerRef.current) {
                 return;
             }
 
-            const dateHasChanged = (previousState?.date || state.date) && state.date !== previousState?.date;
-            const dateStringHasChanged =
-                (previousState?.dateString || state.dateString) && state.dateString !== previousState?.dateString;
-            const errorHasChanged = (previousState?.error || state.error) && state.error !== previousState?.error;
-
-            if (dateHasChanged || dateStringHasChanged || errorHasChanged) {
-                onChange(state.date, undefined, { error: state.error, value: state.dateString });
+            const nextFocusIsInside = datepickerRef.current.contains(e.relatedTarget as Node);
+            if (!nextFocusIsInside) {
+                onFocus(e, date, { error, value: e.target.value });
             }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [
-            state.date,
-            state.dateString,
-            state.error,
-            previousState?.date,
-            previousState?.dateString,
-            previousState?.error,
-        ]);
+        },
+        [onFocus, date, error],
+    );
 
-        const previousValue = usePreviousValue(value);
-        useEffect(() => {
-            if (value !== previousValue) {
-                dispatch({ type: "VALUE_PROP_CHANGED", payload: value });
+    const handleBlur = useCallback(
+        (e: FocusEvent<HTMLInputElement>) => {
+            if (onBlur) {
+                onBlur(e, date, { error, value: e.target.value });
             }
-        }, [value, previousValue]);
+        },
+        [onBlur, date, error],
+    );
 
-        return (
-            <div className={componentClassName}>
-                <Label standAlone variant={variant} {...labelProps} forceCompact={forceCompact} htmlFor={inputId}>
-                    {label}
-                </Label>
-                <div className={inputWrapperClassName} ref={wrapperRef} data-testid="jkl-datepicker__input-wrapper">
-                    <BaseInputField
-                        id={inputId}
-                        ref={textboxRef}
-                        name={name}
-                        describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
-                        invalid={!!errorLabel}
-                        className="jkl-datepicker__input jkl-text-input__input"
-                        data-testid="jkl-datepicker__input"
-                        value={state.dateString}
-                        onFocus={handleFocusChange(onFocus)}
-                        onBlur={handleOnBlurChange(onBlur)}
-                        onKeyDown={handleKeyDown(onKeyDown)}
-                        onClick={handleOnClick}
-                        onChange={handleOnChange}
-                        placeholder={placeholder}
-                        width={width}
-                        type="text"
-                        data-testautoid={testAutoId}
-                    />
-                    <IconButton
-                        className="jkl-text-input__action-button"
-                        iconType="calendar"
-                        buttonTitle={state.calendarHidden ? showCalendarLabel : hideCalendarLabel}
-                        onClick={() => {
-                            dispatch({ type: "TOGGLE" });
-                            const wasHidden = state.calendarHidden;
-                            if (wasHidden) {
-                                const calendarEl = calendarRef.current;
-                                const button =
-                                    calendarEl && (calendarEl.querySelector("[autofocus]") as HTMLButtonElement);
-                                button && setTimeout(() => button.focus(), 100);
-                            }
-                        }}
-                        onFocus={handleFocusChange(onFocus)}
-                        onBlur={handleFocusChange(onBlur)}
-                    />
-                    <div className="jkl-datepicker__calendar-wrapper">
-                        <Calendar
-                            currentDate={state.date}
-                            onClickDate={onClickCalendarDay}
-                            disableDate={disableDate}
-                            hidden={state.calendarHidden}
-                            forceCompact={forceCompact}
-                            ref={calendarRef}
-                            {...calendarProps}
-                        />
-                    </div>
-                </div>
-                <SupportLabel
-                    forceCompact={forceCompact}
-                    id={supportLabelId}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
+    const handleKeyDownAction = useCallback(
+        (e: React.KeyboardEvent<HTMLButtonElement>) => {
+            if (e.key === "Escape") {
+                setShowCalendar(false);
+            }
+
+            if (action?.onKeyDown) {
+                action.onKeyDown(e);
+            }
+        },
+        [setShowCalendar, action],
+    );
+
+    const handleKeyDown = useCallback(
+        (e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === "Escape") {
+                setShowCalendar(false);
+            }
+
+            if (onKeyDown) {
+                let nextValue = e.currentTarget.value;
+                if (/[\d.]/.test(e.key)) {
+                    nextValue += e.key;
+                }
+                onKeyDown(e, date, { error, value: nextValue });
+            }
+        },
+        [onKeyDown, setShowCalendar, date, error],
+    );
+
+    const handleChange = useCallback(
+        (e: ChangeEvent<HTMLInputElement>) => {
+            let nextDate: Date | null = null;
+            let nextError: DateValidationError | null = null;
+
+            if (e.target.value) {
+                const val = parseDateString(e.target.value);
+                if (!val) {
+                    nextError = "WRONG_FORMAT";
+                } else if (minDate && !isWithinLowerBound(val, minDate)) {
+                    nextError = "OUTSIDE_LOWER_BOUND";
+                } else if (maxDate && !isWithinUpperBound(val, maxDate)) {
+                    nextError = "OUTSIDE_UPPER_BOUND";
+                } else {
+                    setShowCalendar(false);
+                }
+                nextDate = val || null;
+            }
+
+            setError(nextError);
+            setDate(nextDate);
+
+            if (onChange) {
+                onChange(e, nextDate, { error: nextError, value: e.target.value });
+            }
+        },
+        [onChange, setError, setDate, setShowCalendar, minDate, maxDate],
+    );
+
+    /// Calendar events
+
+    const clickCalendar = useCallback(
+        (e: MouseEvent<HTMLButtonElement>) => {
+            flushSync(() => {
+                setShowCalendar(!showCalendar);
+            });
+
+            const calendarEl = calendarRef.current;
+            const button = calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
+            button && button.focus();
+
+            if (action?.onClick) {
+                action.onClick(e);
+            }
+        },
+        [setShowCalendar, showCalendar, action, calendarRef],
+    );
+
+    const clickInput = useCallback(() => {
+        setShowCalendar(!showCalendar);
+    }, [setShowCalendar, showCalendar]);
+
+    const hideCalendar = useCallback(() => {
+        setShowCalendar(false);
+    }, [setShowCalendar]);
+
+    const handleClickCalendarDay = useCallback(
+        ({ date }: DateInfo) => {
+            setShowCalendar(false);
+            setDate(date);
+
+            if (inputRef.current) {
+                const node = inputRef.current;
+
+                node.value = formatInput(date);
+
+                // Simulér et change-event så APIet blir så likt som mulig en endring av inputfeltet
+                const event = document.createEvent("HTMLEvents");
+                event.initEvent("input", true, false);
+                node.dispatchEvent(event);
+
+                node.focus();
+
+                if (onChange) {
+                    // Det er ikke helt sant at dette er et React.SyntheticEvent, men it's fine – probably?
+                    // Den har tingene man kan forvente, men hvis du gjør serdeles fancy ting med events
+                    // så kan det hende du må utvide denne for å dekke behovet ditt.
+                    onChange(event as unknown as ChangeEvent<HTMLInputElement>, date, {
+                        error: null,
+                        value: node.value,
+                    });
+                }
+            }
+        },
+        [setShowCalendar, setDate, onChange],
+    );
+
+    const handleTabOutsideCalendar = useCallback(
+        (e: KeyboardEvent) => {
+            e.preventDefault();
+            setShowCalendar(false);
+            iconButtonRef.current && iconButtonRef.current.focus();
+        },
+        [setShowCalendar],
+    );
+
+    useClickOutside(datepickerRef, hideCalendar);
+    useFocusOutside(datepickerRef, hideCalendar);
+    useKeyListener(calendarRef, ["Escape"], () => {
+        setShowCalendar(false);
+        inputRef.current && inputRef.current.focus();
+    });
+
+    return (
+        <div
+            id={id}
+            className={cn("jkl-datepicker", className, {
+                "jkl-datepicker--open": showCalendar,
+            })}
+            {...rest}
+            ref={datepickerRef}
+            tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
+        >
+            <Label standAlone {...labelProps} forceCompact={forceCompact} htmlFor={inputId}>
+                {label}
+            </Label>
+            <div
+                data-testid="jkl-datepicker__input-wrapper"
+                className={cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper", {
+                    "jkl-text-input--compact": forceCompact,
+                })}
+            >
+                <BaseInputField
+                    ref={unifiedInputRef}
+                    data-testid="jkl-datepicker__input"
+                    data-testautoid={testAutoId}
+                    className="jkl-datepicker__input jkl-text-input__input"
+                    id={inputId}
+                    name={name}
+                    describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
+                    invalid={!!errorLabel || invalid}
+                    defaultValue={defaultValue}
+                    value={value}
+                    type="text"
+                    placeholder={placeholder}
+                    width={width}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    onKeyDown={handleKeyDown}
+                    onClick={clickInput}
+                    onChange={handleChange}
                 />
+                <IconButton
+                    ref={iconButtonRef}
+                    className="jkl-datepicker__action-button jkl-text-input__action-button"
+                    iconType="calendar"
+                    buttonTitle={showCalendar ? hideCalendarLabel : showCalendarLabel}
+                    {...action}
+                    onClick={clickCalendar}
+                    onKeyDown={handleKeyDownAction}
+                />
+                <div className="jkl-datepicker__calendar-wrapper">
+                    <Calendar
+                        ref={calendarRef}
+                        defaultSelected={defaultSelectedInCalendar}
+                        date={date}
+                        minDate={minDate}
+                        maxDate={maxDate}
+                        days={days}
+                        months={months}
+                        monthLabel={monthLabel}
+                        yearLabel={yearLabel}
+                        hidden={!showCalendar}
+                        extended={extended}
+                        forceCompact={forceCompact}
+                        onDateSelected={handleClickCalendarDay}
+                        onTabOutside={handleTabOutsideCalendar}
+                    />
+                </div>
             </div>
-        );
-    },
-);
+            <SupportLabel
+                forceCompact={forceCompact}
+                id={supportLabelId}
+                helpLabel={helpLabel}
+                errorLabel={errorLabel}
+            />
+        </div>
+    );
+});
+
 DatePicker.displayName = "DatePicker";

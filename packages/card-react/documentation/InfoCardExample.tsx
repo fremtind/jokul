@@ -1,3 +1,4 @@
+import { unicode } from "@fremtind/jkl-constants-util";
 import React from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoCard } from "../src/InfoCard";
@@ -18,19 +19,20 @@ const imageProps = {
 
 export const InfoCardExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const image = boolValues?.["Image"] ? imageProps : undefined;
+    const title = boolValues?.["Title"] ? `Samle forsikringer –${unicode.nbsp}få${unicode.nbsp}rabatt` : undefined;
     const paddingChoice = (choiceValues?.["Padding"] as "m" | "l" | "xl" | "blandet") || "l";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
-        <InfoCard image={image} padding={padding} className="example-info-card">
-            <p className="jkl-heading-1">Samle forsikringer –&nbsp;få&nbsp;rabatt!</p>
-            <p className="jkl-body jkl-spacing-m--top">Har du tre eller flere forsikringer får du samlerabatt</p>
+        <InfoCard title={title} image={image} padding={padding} className="example-info-card">
+            <p className="jkl-body">Har du tre eller flere forsikringer får du samlerabatt</p>
         </InfoCard>
     );
 };
 
 export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const image = boolValues?.["Image"] ? '\n    image="car.jpg"' : "";
+    const title = boolValues?.["Title"] ? "title=`Samle forsikringer –${unicode.nbsp}få${unicode.nbsp}rabatt`" : "";
     const paddingChoice = choiceValues?.["Padding"] || "l";
     const padding =
         paddingChoice === "blandet"
@@ -44,7 +46,8 @@ export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleCompone
 
     return `<InfoCard
     padding=${padding}
-    href="#"
-    title="Behandlings- og Veterinærutgifter"${image}
-/>`;
+    ${title}${image}
+>
+    <p className="jkl-body">Har du tre eller flere forsikringer får du samlerabatt</p>
+</InfoCard>`;
 };

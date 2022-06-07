@@ -22,6 +22,7 @@ export interface Props extends BaseProps {
     forceCompact?: boolean;
     inline?: boolean;
     action?: Action;
+    inputClassName?: string;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, Props>(
@@ -38,6 +39,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             forceCompact,
             action,
             "data-testautoid": testAutoId,
+            inputClassName,
             ...inputProps
         },
         ref,
@@ -74,6 +76,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                         describedBy={describedBy}
                         invalid={!!errorLabel}
                         data-testautoid={testAutoId}
+                        className={inputClassName}
                         {...inputProps}
                     />
                     {action && (

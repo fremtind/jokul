@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-summary-table",
-    "version": "6.0.16",
+    "version": "6.0.18",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from summary-table-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^9.6.1"
+        "@fremtind/jkl-core": "^9.7.0"
     },
     "repository": {
         "type": "git",

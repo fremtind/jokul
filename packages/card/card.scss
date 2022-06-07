@@ -119,7 +119,8 @@
 
         .jkl-nav-card:hover:focus &::after,
         .jkl-nav-card:hover:not(:focus) &::after {
-            transform: translateX(33%);
+            padding-left: 0.7em;
+            padding-right: 0;
         }
 
         &:hover:not(:focus),
@@ -222,10 +223,15 @@
         aspect-ratio: 3/2;
     }
 
+    &__title {
+        @include jkl.text-style("heading-2");
+    }
+
     &__content-wrapper {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        gap: jkl.$spacing-m;
     }
 
     @include jkl.forced-colors-mode {

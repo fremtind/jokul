@@ -162,6 +162,10 @@ $_text-input-selection-color--inverted: color.scale(
         }
 
         @include _shared-error-styles;
+
+        &--align-right {
+            text-align: right;
+        }
     }
 
     &__action-button {

@@ -45,7 +45,7 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-background-color: transparent;
     --jkl-select-open-background-color: #{jkl.$color-svart};
     --jkl-select-focus-color: #{$_select-focus-color--inverted};
-    --jkl-select-error-background-color: #{jkl.$color-feil--darkbg};
+    --jkl-select-error-background-color: #{colors.varslingsfarge("feil")};
     --jkl-select-error-text-color: #{jkl.$color-granitt};
     --jkl-select-hover-option-color: #{jkl.$color-svaberg};
     --jkl-select-search-input-selection-color: #{$_select-search-input-selection-color--inverted};

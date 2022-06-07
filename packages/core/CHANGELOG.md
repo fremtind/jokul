@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.6.2...@fremtind/jkl-core@9.7.0) (2022-06-02)
+
+### Features
+
+-   screen-hjelper for skjermer opp til et gitt sted ([83a3b49](https://github.com/fremtind/jokul/commit/83a3b49ba563907ff4092b55edc2b65c6f8042ed))
+
+## 9.6.2 (2022-06-02)
+
+### Bug Fixes
+
+-   hold pila etter navlink inline ([94a9345](https://github.com/fremtind/jokul/commit/94a9345a6471939bed706eea33f8c9cb95ab1fbf))
+
 ## 9.6.1 (2022-05-13)
 
 ### Bug Fixes

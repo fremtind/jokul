@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.3.0...@fremtind/jkl-select-react@9.4.0) (2022-06-03)
+
+### Features
+
+-   gi mulighet til å sende et klassenavn til inputfeltet ([55f85bf](https://github.com/fremtind/jokul/commit/55f85bf251fb85cd1e45d0233e891bdd5467b73e))
+
+# [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.2.3...@fremtind/jkl-select-react@9.3.0) (2022-06-02)
+
+### Features
+
+-   åpne for å merke skjemafelter som ugyldige uten errorLabel ([3c722ec](https://github.com/fremtind/jokul/commit/3c722ec34321789c37fe45b30d6bf975576489ee))
+
+## [9.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@9.2.1...@fremtind/jkl-select-react@9.2.2) (2022-05-18)
+
+### Bug Fixes
+
+-   bruk riktig feilfarge i dark mode ([610232d](https://github.com/fremtind/jokul/commit/610232d65902820804dde8843970d642bc82e8f3)), closes [#2874](https://github.com/fremtind/jokul/issues/2874)
+
 # 9.2.0 (2022-04-28)
 
 ### Features

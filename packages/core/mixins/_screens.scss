@@ -29,6 +29,20 @@
     }
 }
 
+/// Forenkler å skrive CSS som skal gjelde opp til en viss pixelbredde
+/// @content Plasseres i et media query med max-width lik $max - 1
+/// @example
+///     .class {
+///         @include jkl.screen-to(375px) {
+///             display: none;
+///         }
+///     }
+@mixin screen-to($max) {
+    @media (min-width: 0) and (max-width: #{$max - 1px}) {
+        @content;
+    }
+}
+
 /// Forenkler å skrive CSS som skal gjelde for hva Jøkul definerer som små skjermer.
 /// @content Plasseres i et media query for små skjermer
 /// @example

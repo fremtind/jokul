@@ -28,7 +28,6 @@
         position: absolute;
         top: calc(100% + #{jkl.rem(14px)});
         left: 0;
-        right: 0;
         z-index: jkl.$z-index--dropdown;
     }
 
@@ -41,6 +40,19 @@
                 box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color),
                     0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color);
             }
+        }
+    }
+
+    @include jkl.small-device {
+        &__calendar-wrapper {
+            left: -1.15rem;
+        }
+    }
+
+    // Custom tweaks for iPhone SE
+    @include jkl.screen-to(375px) {
+        &__calendar-wrapper {
+            left: -2.5rem;
         }
     }
 }
@@ -85,15 +97,12 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
 
     justify-content: center;
     flex-direction: column;
-    width: $_calendar-width;
+    max-width: $_calendar-width;
     background-color: var(--jkl-calendar-background-color);
     color: var(--jkl-calendar-text-color);
     border-radius: 3px;
     box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-calendar-border-color),
         0 0 0 jkl.rem(1px) var(--jkl-calendar-border-color), jkl.rem(2px) jkl.rem(4px) jkl.rem(16px) rgb(0 0 0 / 24%);
-
-    @include jkl.motion;
-    transition-property: height;
 
     &--hidden {
         display: none;
@@ -133,6 +142,11 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         &__padding {
             padding: $_calendar-padding $_calendar-padding--compact;
         }
+    }
+
+    // Custom tweaks for iPhone SE
+    @include jkl.screen-to(375px) {
+        max-width: 19.5rem;
     }
 
     // Navigation in normal (compact) mode
@@ -203,10 +217,10 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     // ===========================
 
     &__navigation {
+        margin-bottom: jkl.$spacing-l;
         display: flex;
         justify-content: center;
         align-content: center;
-        margin-bottom: jkl.$spacing-l;
     }
 
     &__year-selector {
@@ -311,7 +325,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         }
 
         // Selected date
-        &[autofocus] {
+        &[aria-pressed="true"] {
             background-color: var(--jkl-calendar-selected-date-background-color);
             color: var(--jkl-calendar-active-day-color);
             cursor: pointer;

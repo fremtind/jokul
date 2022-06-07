@@ -12,6 +12,7 @@ interface Skjema {
     fodselsnummer: string;
     kortnummer: string;
     kontonummer: string;
+    tall: number;
 }
 
 export const InputMaskExample: FC<ExampleComponentProps> = () => {
@@ -23,6 +24,7 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
         registerWithKontonummerMask,
         registerWithKortnummerMask,
         registerWithTelefonnummerMask,
+        registerWithNumber,
     } = registerWithMasks(form);
 
     return (
@@ -40,6 +42,7 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
                 <TextInput label="Fødselsnummer" maxLength={12} {...registerWithFodselsnummerMask("fodselsnummer")} />
                 <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask("kortnummer")} />
                 <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonummer")} />
+                <TextInput label="Tall" {...registerWithNumber("tall")} />
                 <PrimaryButton type="submit">Send inn</PrimaryButton>
                 {formData && (
                     <>

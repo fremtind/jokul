@@ -12,6 +12,16 @@
 
 $_sidebar-width: jkl.rem(375px);
 
+/**
+ * [1]: https://github.com/reach/router/issues/63#issuecomment-695953011
+ * [2]: https://github.com/gatsbyjs/gatsby/issues/7310
+ * [3]: https://github.com/gatsbyjs/gatsby/issues/29037
+ */
+/* stylelint-disable selector-max-id, selector-max-specificity */
+#gatsby-focus-wrapper {
+    display: contents; // Fikser en Safari-bug med useClickOutside og useFocusOutside i @reach/router via Gatsby ([1], [2], [3])
+}
+
 .jkl-portal {
     @include jkl.motion;
     transition-property: color;

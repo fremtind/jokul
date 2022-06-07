@@ -3,6 +3,7 @@ import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../description-list-react/src";
 import {
     formatAvstand,
+    formatDate,
     formatFodselsnummer,
     formatKontonummer,
     formatKortnummer,
@@ -42,6 +43,8 @@ export const FormattersExample: FC<ExampleComponentProps> = () => (
         <DescriptionDetail>{formatNumber("12345")}</DescriptionDetail>
         <DescriptionDetail>{formatNumber("1234567")}</DescriptionDetail>
         <DescriptionDetail>{formatNumber("12345,67")}</DescriptionDetail>
+        <DescriptionTerm>Dato</DescriptionTerm>
+        <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>
     </DescriptionList>
 );
 
@@ -75,5 +78,7 @@ export const formattersExampleCode: CodeExample = `
     <DescriptionDetail>{formatNumber("12345")}</DescriptionDetail>
     <DescriptionDetail>{formatNumber("1234567")}</DescriptionDetail>
     <DescriptionDetail>{formatNumber("12345,67")}</DescriptionDetail>
+    <DescriptionTerm>Dato</DescriptionTerm>
+    <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>
 </DescriptionList>
 `;

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.2.1 (2022-06-02)
+
+### Bug Fixes
+
+-   hold pila etter navlink inline ([94a9345](https://github.com/fremtind/jokul/commit/94a9345a6471939bed706eea33f8c9cb95ab1fbf))
+
+# 5.2.0 (2022-05-30)
+
+### Features
+
+-   add title to InfoCard and fix example ([eee03c0](https://github.com/fremtind/jokul/commit/eee03c04b52bafca9859de7bbcb81e54620074fd))
+
 ## [5.1.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@5.1.7...@fremtind/jkl-card@5.1.8) (2022-04-19)
 
 ### Bug Fixes

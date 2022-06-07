@@ -38,11 +38,11 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-icon-button": "^0.5.23"
+        "@fremtind/jkl-icon-button": "^0.5.25"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.6.1",
-        "@fremtind/jkl-toggle-switch-react": "^8.0.1"
+        "@fremtind/jkl-toggle-switch-react": "^8.0.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

@@ -12,9 +12,7 @@ export function useFocusOutside(ref: RefObject<HTMLElement> | null, fn: () => vo
             document && document.addEventListener("focusin", handleFocusOutside);
         }
         return () => {
-            if (ref) {
-                document && document.removeEventListener("focusin", handleFocusOutside);
-            }
+            document && document.removeEventListener("focusin", handleFocusOutside);
         };
     });
 }

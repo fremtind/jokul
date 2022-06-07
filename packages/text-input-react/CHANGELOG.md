@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@9.3.0...@fremtind/jkl-text-input-react@9.4.0) (2022-06-03)
+
+### Features
+
+-   gi mulighet til å sende et klassenavn til inputfeltet ([55f85bf](https://github.com/fremtind/jokul/commit/55f85bf251fb85cd1e45d0233e891bdd5467b73e))
+
+# [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@9.2.1...@fremtind/jkl-text-input-react@9.3.0) (2022-06-02)
+
+### Features
+
+-   åpne for å merke skjemafelter som ugyldige uten errorLabel ([3c722ec](https://github.com/fremtind/jokul/commit/3c722ec34321789c37fe45b30d6bf975576489ee))
+
+# 9.2.0 (2022-06-01)
+
+### Features
+
+-   ny prop align for valutainputs ([47919e2](https://github.com/fremtind/jokul/commit/47919e2cd01485221d2e5e89469d05aed6cc06f8))
+
 # 9.1.0 (2022-04-28)
 
 ### Features
