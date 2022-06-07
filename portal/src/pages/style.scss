@@ -1,4 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/core";
 @use "~@fremtind/jkl-webfonts" with (
     $webfonts-dir: "../../static/fonts"
 );
