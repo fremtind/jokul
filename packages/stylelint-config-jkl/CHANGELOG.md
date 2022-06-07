@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.8 (2022-06-07)
+
+### Bug Fixes
+
+-   skru av regel om kebab-case i animasjonsnavn ([5293091](https://github.com/fremtind/jokul/commit/529309108f3a1d5eb3486f7d6e52e7cdc6c267f3))
+-   tillat underscore som første tegn i mixin, function ([4551602](https://github.com/fremtind/jokul/commit/4551602de1e1111316eb4fb648c567ce5ed127bd))
+
 ## [2.0.6](https://github.com/fremtind/jokul/compare/@fremtind/stylelint-config-jkl@2.0.5...@fremtind/stylelint-config-jkl@2.0.6) (2022-04-19)
 
 ### Bug Fixes

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image@2.0.13...@fremtind/jkl-image@3.0.0) (2022-06-07)
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+
+### Features
+
+-   legg til en index-fil for Sass ([c4f8d0c](https://github.com/fremtind/jokul/commit/c4f8d0cd31bcab0706a49be1bdf0214fbbbbf646))
+
+### BREAKING CHANGES
+
+-   Avhenger av ny majorversjon av core
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-image@0.6.0...@fremtind/jkl-image@2.0.0) (2022-02-07)
 
 ### Features

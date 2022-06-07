@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@0.5.23...@fremtind/jkl-icon-button@1.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+
+### Features
+
+-   legg til en index-fil for Sass ([c4f8d0c](https://github.com/fremtind/jokul/commit/c4f8d0cd31bcab0706a49be1bdf0214fbbbbf646))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+-   Avhenger av ny majorversjon av core
+
 ## [0.5.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@0.5.19...@fremtind/jkl-icon-button@0.5.20) (2022-04-19)
 
 ### Bug Fixes

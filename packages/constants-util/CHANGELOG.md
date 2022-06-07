@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0 (2022-06-07)
+
+### Bug Fixes
+
+-   lintfeil i constants formatters og hooks ([7385058](https://github.com/fremtind/jokul/commit/738505863844b9ec6a4bd24957aa24e714dae06f))
+
+### chore
+
+-   promoter pakken til versjon 1.0.0 ([2de060f](https://github.com/fremtind/jokul/commit/2de060fa5c1f37347d1425a3d203b139cd39fc78))
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+
+### BREAKING CHANGES
+
+-   Ingen faktisk breaking change.
+-   Avhenger av ny majorversjon av core
+
 ## 0.4.4 (2022-04-08)
 
 ### Bug Fixes

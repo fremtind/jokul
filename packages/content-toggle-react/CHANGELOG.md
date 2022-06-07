@@ -3,39 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-content-toggle-react@2.0.26...@fremtind/jkl-content-toggle-react@3.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
 ## 2.0.6 (2021-12-20)
 
 ### Bug Fixes
 
-- sett default aria-live til polite ([23e1dd7](https://github.com/fremtind/jokul/commit/23e1dd7df2013ed94acb87ba3bf96f6e1f47bf64))
+-   sett default aria-live til polite ([23e1dd7](https://github.com/fremtind/jokul/commit/23e1dd7df2013ed94acb87ba3bf96f6e1f47bf64))
 
 ## 2.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 1.2.4 (2021-08-11)
 
 ### Bug Fixes
 
-- **@fremtind/jkl-content-toggle-react:** sets correct version for @fremtind/jkl-content-toggle in pa ([9563701](https://github.com/fremtind/jokul/commit/956370172c7cdbd4a508ace18da88b21174ec8b5))
+-   **@fremtind/jkl-content-toggle-react:** sets correct version for @fremtind/jkl-content-toggle in pa ([9563701](https://github.com/fremtind/jokul/commit/956370172c7cdbd4a508ace18da88b21174ec8b5))
 
 ## 1.2.0 (2021-07-13)
 
 ### Features
 
-- move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
+-   move labels into content toggle ([216463c](https://github.com/fremtind/jokul/commit/216463cf2e564198e3ca0a0a935d1a7ce2f709e4))
 
 ## 1.1.0 (2021-07-09)
 
 ### Features
 
-- version bump to 1.0.0, upgrade jkl-core dependency ([4a4be9f](https://github.com/fremtind/jokul/commit/4a4be9fb06ab7ed5c2ed2c1f377d32586c8d42e1))
+-   version bump to 1.0.0, upgrade jkl-core dependency ([4a4be9f](https://github.com/fremtind/jokul/commit/4a4be9fb06ab7ed5c2ed2c1f377d32586c8d42e1))
 
 ## 0.4.0 (2021-07-06)
 

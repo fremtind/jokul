@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-content-toggle@2.0.23...@fremtind/jkl-content-toggle@3.0.0) (2022-06-07)
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+-   skriv og følg stilguiden for Sass i Jøkul ([1cc52a4](https://github.com/fremtind/jokul/commit/1cc52a4dea6af592ed48c45b38bc4fee07a749ae))
+
+### Features
+
+-   legg til en index-fil for Sass ([c4f8d0c](https://github.com/fremtind/jokul/commit/c4f8d0cd31bcab0706a49be1bdf0214fbbbbf646))
+
+### BREAKING CHANGES
+
+-   Sass-variabler, mixins og CSS-animasjoner fra pakker annet enn core er gjort private
+-   Avhenger av ny majorversjon av core
+
 ## 2.0.10 (2022-02-07)
 
 ### Bug Fixes
