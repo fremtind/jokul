@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.1 (2022-06-07)
+
+### Bug Fixes
+
+-   ikke animer åpen om vi rerendrer i samme state ([a6c19ed](https://github.com/fremtind/jokul/commit/a6c19ed61d68056cfd7cfd6494d5183690138f84))
+
 # [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.2.3...@fremtind/jkl-react-hooks@9.0.0) (2022-06-07)
 
 ### Bug Fixes

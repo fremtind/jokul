@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.1 (2022-06-07)
+
+### Bug Fixes
+
+-   rett opp avhengighet av icon-button ([d179921](https://github.com/fremtind/jokul/commit/d1799213a7859e3e72d4aecc69a74f7c6b399d54))
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@7.0.17...@fremtind/jkl-alert-message-react@8.0.0) (2022-06-07)
 
 ### chore

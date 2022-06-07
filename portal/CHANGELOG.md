@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.0...@fremtind/portal@15.0.1) (2022-06-07)
+
+### Bug Fixes
+
+-   rett opp avhengighet av icon-button ([d179921](https://github.com/fremtind/jokul/commit/d1799213a7859e3e72d4aecc69a74f7c6b399d54))
+
 # [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@14.0.0...@fremtind/portal@15.0.0) (2022-06-07)
 
 ### Bug Fixes

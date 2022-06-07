@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.1 (2022-06-07)
+
+### Bug Fixes
+
+-   rett opp avhengighet av icon-button ([d179921](https://github.com/fremtind/jokul/commit/d1799213a7859e3e72d4aecc69a74f7c6b399d54))
+
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@0.8.25...@fremtind/jkl-icon-button-react@1.0.0) (2022-06-07)
 
 ### chore
