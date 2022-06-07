@@ -38,7 +38,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-icon-button": "^0.5.25"
+        "@fremtind/jkl-icon-button": "^1.0.0"
     },
     "devDependencies": {
         "@fremtind/browserslist-config-jkl": "^0.6.1",

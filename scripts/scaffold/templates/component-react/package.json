@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.0.0",
+        "@fremtind/jkl-core": "^10.0.0",
         "@fremtind/jkl-scaffold": "^1.0.0-alpha.0"
     },
     "peerDependencies": {
