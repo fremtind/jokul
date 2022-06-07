@@ -3,35 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group@4.0.23...@fremtind/jkl-field-group@5.0.0) (2022-06-07)
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+
+### Features
+
+-   legg til en index-fil for Sass ([c4f8d0c](https://github.com/fremtind/jokul/commit/c4f8d0cd31bcab0706a49be1bdf0214fbbbbf646))
+
+### BREAKING CHANGES
+
+-   Avhenger av ny majorversjon av core
+
 ## 4.0.0 (2021-10-21)
 
 ### chore
 
-- updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
+-   updates dependencies ([b975200](https://github.com/fremtind/jokul/commit/b97520045c02e4bcb44ebde159c60a7dff7f01d6))
 
 ### BREAKING CHANGES
 
-- depends on jkl-core v8 with breaking changes
+-   depends on jkl-core v8 with breaking changes
 
 ## 3.0.0 (2021-07-09)
 
 ### Documentation
 
-- show small label as default in docs ([06d9629](https://github.com/fremtind/jokul/commit/06d9629b25b1e2b730cbe5d88dcea621fc213907))
+-   show small label as default in docs ([06d9629](https://github.com/fremtind/jokul/commit/06d9629b25b1e2b730cbe5d88dcea621fc213907))
 
 ### BREAKING CHANGES
 
-- Depends on jkl-core version with breaking changes
+-   Depends on jkl-core version with breaking changes
 
 ## 2.0.0 (2021-07-06)
 
 ### chore
 
-- bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
+-   bump major version ([559a384](https://github.com/fremtind/jokul/commit/559a384a5315931ad2ea7acc8328b383acbdbd8b))
 
 ### BREAKING CHANGES
 
-- Now depends on jkl-core 6.0.0, which introduces breaking changes
+-   Now depends on jkl-core 6.0.0, which introduces breaking changes
 
 ## 1.1.5 (2020-03-25)
 

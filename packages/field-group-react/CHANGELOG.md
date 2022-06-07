@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@5.1.1...@fremtind/jkl-field-group-react@6.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
 # 5.1.0 (2022-04-28)
 
 ### Features

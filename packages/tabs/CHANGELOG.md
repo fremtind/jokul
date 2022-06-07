@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tabs@1.2.20...@fremtind/jkl-tabs@2.0.0) (2022-06-07)
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+-   prefiks CSS-variabler med jkl ([500ee0e](https://github.com/fremtind/jokul/commit/500ee0e1050de94d8cda07fb423c33837fbf2faa))
+
+### Features
+
+-   legg til en index-fil for Sass ([c4f8d0c](https://github.com/fremtind/jokul/commit/c4f8d0cd31bcab0706a49be1bdf0214fbbbbf646))
+
+### BREAKING CHANGES
+
+-   Alle CSS-variabler har jkl-prefix
+-   Avhenger av ny majorversjon av core
+
 ## [1.2.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tabs@1.2.16...@fremtind/jkl-tabs@1.2.17) (2022-04-19)
 
 ### Bug Fixes

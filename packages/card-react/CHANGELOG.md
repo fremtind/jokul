@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@5.2.16...@fremtind/jkl-card-react@6.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+-   Avhenger av ny majorversjon av core
+
 # 5.3.0 (2022-05-30)
 
 ### Features
