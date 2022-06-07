@@ -20,7 +20,8 @@ const renderMount = (props?: Partial<AutosuggestProps>) =>
                 "Bhutan",
             ]}
             value=""
-            {...(props as unknown)}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...(props as any)}
         />,
     );
 
