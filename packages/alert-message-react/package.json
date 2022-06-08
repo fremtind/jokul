@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "8.0.1",
+    "version": "8.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -36,12 +36,12 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-alert-message": "^6.0.0",
-        "@fremtind/jkl-icon-button-react": "^1.0.1",
+        "@fremtind/jkl-alert-message": "^6.0.1",
+        "@fremtind/jkl-icon-button-react": "^1.0.2",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^10.0.0"
+        "@fremtind/jkl-core": "^10.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
