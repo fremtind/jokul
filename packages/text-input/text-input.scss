@@ -125,6 +125,7 @@ $_text-input-selection-color--inverted: color.scale(
 
 .jkl-text-input {
     @include jkl.reset-outline;
+    @include jkl.remove-inner-outer-button;
 
     &__input-wrapper {
         display: inline-flex;
