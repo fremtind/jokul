@@ -1,5 +1,6 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { Link } from "@fremtind/jkl-core";
+import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
@@ -24,20 +25,41 @@ const DegOgJokul: FC = () => (
         </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
-            Med et designsystem følger det et litt annerledes tankesett som kan virke uvant dersom man ikke har et
-            forhold til det fra før.
+            Litt som et samvirkelag, er Jøkul et produkt av en større felles innsats fra alle som bruker systemet.
         </Ingress>
 
-        <HeadingLarge>Jøkul eies av alle</HeadingLarge>
-        <Paragraph>
-            Litt som et samvirkelag, er Jøkul et produkt av en større felles innsats fra alle som bruker systemet. Siden
-            du er både brukeren og skaperen av Jøkul, blir designsystemet så bra som du gjør det til selv, ved at du
-            deltar i utviklingen. Det betyr også at hvis du ser noe som er feil eller som kan forbedres, så er det opp
-            til deg å gjennomføre den endringen.
-        </Paragraph>
         <Image disableFullscreen>
             <StaticImage src="../../../static/assets/kom-i-gang/samvirke.png" alt="" />
         </Image>
+
+        <HeadingLarge>En felles plattform, bygget av alle</HeadingLarge>
+        <Paragraph>
+            Med et designsystem følger det med et litt annerledes tankesett som kan virke uvant, dersom man ikke har
+            jobbet med det før. Jøkul er det det er i dag takket en felles innsats fra alle som jobber design og
+            utvikling i Fremtind. Du som bruker designsystemet har påvirkningskraften til å gjøre systemet bedre for
+            alle og deg selv.
+        </Paragraph>
+        <Paragraph>
+            For at alle som jobber med Jøkul skal kunne vite hva som trenger ekstra oppmerksomhet, er det viktig å si
+            fra hvis noe ikke fungerer som det skal. Hvis ikke du ser noen designsystemfolk i gangen i det daglige så er
+            det flere steder du kan få hjelp:
+        </Paragraph>
+        <UnorderedList>
+            <ListItem>
+                Si ifra på <Link href="https://github.com/fremtind/jokul/discussions">GitHub</Link>
+            </ListItem>
+            <ListItem>
+                Spør i{" "}
+                <Link href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0">
+                    Support Designsystem
+                </Link>{" "}
+                på Teams
+            </ListItem>
+            <ListItem>
+                Mail oss på{" "}
+                <Link href="mailto:fremtind.designsystem@fremtind.no">fremtind.designsystem@fremtind.no</Link>
+            </ListItem>
+        </UnorderedList>
 
         <HeadingLarge>Diskusjoner på GitHub</HeadingLarge>
         <Paragraph>

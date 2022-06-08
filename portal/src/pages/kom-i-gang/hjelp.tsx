@@ -24,16 +24,17 @@ const DegOgJokul: FC = () => (
         </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
-            Alle som bruker Jøkul er ansvarlig for å utvikle og forvalte systemet, men av og til trenger vi alle litt
-            ekstra hjelp.
+            Jøkul er et stort system, og det er mange ting å skulle lære. Av og til trenger vi alle litt ekstra hjelp.
         </Ingress>
-        <HeadingLarge>Hvor du kan spørre</HeadingLarge>
         <Paragraph>
             Sjansen for at noen har støtt på samme utfordring som deg tidligere er nok ganske stor. Derfor kan det være
             lurt å svinge innom disse sjekkpunktene om du lurer på noe:
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
-            <ListItem>Har du lett i portalen? Står det noe på GitHub?</ListItem>
+            <ListItem>
+                Har du sjekket her i portalen? Står det noe på{" "}
+                <Link href="https://github.com/fremtind/jokul/discussions">GitHub</Link>?
+            </ListItem>
             <ListItem>
                 Hvis det ikke står noe på GitHub, har du{" "}
                 <Link href="https://github.com/fremtind/jokul/discussions/new">postet om det</Link>?
@@ -50,9 +51,8 @@ const DegOgJokul: FC = () => (
         <HeadingLarge>Kjerneteamet</HeadingLarge>
         <Paragraph>
             Selv om designsystemet er laget av alle, er det et par ildsjeler som jobber ekstra mye med Jøkul. Jobben til
-            kjerneteamet er ikke å bygge nye komponenter eller fikse feil i systemet, men å sørge for at alt går på
-            skinner i kulissene—blant annet ved å vise deg hvordan du fikser feil i systemet selv. Her er noen eksempler
-            på ting kjerneteamet sørger for:
+            kjerneteamet er å sørge for at alt går på skinner i kulissene—blant annet ved å vise deg hvordan du endrer
+            på systemet selv. Her er noen eksempler på ting kjerneteamet sørger for:
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
             <ListItem>Vi viser deg hvordan du går fram for å selv lage komponenter og fikse bugs</ListItem>
@@ -125,7 +125,7 @@ const DegOgJokul: FC = () => (
             to="/kom-i-gang/jobb-med-kjerneteamet"
             component={GatsbyLink}
             title="Neste: Jobb med kjerneteamet"
-            description="Vi "
+            description="Finn ut litt mer om hva vi gjør og hvordan vi kan hjelpe deg."
         />
     </motion.main>
 );
