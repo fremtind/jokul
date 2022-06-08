@@ -7,6 +7,7 @@
         <title>Cypress Component Test</title>
     </head>
     <body>
+        <div data-cy-root=""></div>
         <script type="module">
             const importsToLoad = [() => import("/spec/" + location.pathname)];
             const CypressInstance = (window.Cypress = parent.Cypress);

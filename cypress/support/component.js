@@ -1,30 +1,13 @@
 /// OM DU GJØR ENDRINGER HER, SØRG FOR Å OPPDATERE TYPEDEFINISJONENE I `index.d.ts`!
 
 import "cypress-plugin-snapshots/commands";
-import { ROOT_ID, setupHooks } from "@cypress/mount-utils";
+import { mount } from "cypress/react";
 
-// Via https://github.com/cypress-io/cypress-component-testing-examples/pull/26
-const mount = (node) => {
-    // Get existing root element or create one if necessary
-    let root = document.getElementById(ROOT_ID);
-    if (!root) {
-        root = document.createElement("div");
-        root.id = ROOT_ID;
-        document.body.append(root);
-    }
-
-    // Clear out the root element before mounting the new component
-    root.innerHTML = "";
-
-    // Mount the component
-    root.append(node);
-
-    // Initialize internal pre/post test hooks
-    setupHooks();
-};
-
-Cypress.Commands.add("mount", mount);
-
+Cypress.Commands.add("mount", (component, options) => {
+    // Wrap any parent components needed
+    // ie: return mount(<MyProvider>{component}</MyProvider>, options)
+    return mount(component, options);
+});
 Cypress.Commands.add("getByTestid", (field) => {
     cy.get(`[data-testid=${field}]`);
 });

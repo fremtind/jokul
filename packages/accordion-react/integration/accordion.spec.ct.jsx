@@ -1,9 +1,12 @@
 /// <reference types="cypress" />
 /// <reference types="../../../cypress/support" />
 
+import React from "react";
+import { AccordionExample } from "../documentation/AccordionExample";
+
 describe("Accordion", () => {
     beforeEach(() => {
-        cy.testComponent("accordion");
+        cy.mount(<AccordionExample />);
     });
 
     it("renders correctly", () => {

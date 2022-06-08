@@ -43,5 +43,6 @@ export default defineConfig({
             return getSetupDevServer({ port: 1234 })(cypressConfig);
         },
         specPattern: "**/*.spec.ct.{js,ts,jsx,tsx}",
+        supportFile: "./cypress/support/component.js",
     },
 });

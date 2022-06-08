@@ -5,7 +5,7 @@ const esbuild = require("esbuild");
 
 // Send AUT HTML as response
 const sendHtml = (req, res) => {
-    res.sendfile(path.join(__dirname, "aut-frame.html"));
+    res.sendfile(path.join(__dirname, "index.html"));
 };
 
 // Compile spec file (including any js/css imports) into a bundle in memory,
@@ -13,10 +13,10 @@ const sendHtml = (req, res) => {
 // with an error message
 const compileSpec = (specPath) => {
     return esbuild.build({
-        entryPoints: [specPath],
-        outfile: specPath.substring(1),
+        entryPoints: [path.resolve(__dirname, "..", "..", specPath.substring(1))],
         bundle: true,
         write: false,
+        loader: { ".js": "jsx" },
     });
 };
 
@@ -29,7 +29,7 @@ const sendSpecBundle =
             .then((result) => {
                 const generatedScript = result.outputFiles[0];
                 res.setHeader("Content-Type", "text/javascript");
-                res.send(generatedScript.contents);
+                res.send(generatedScript.text);
             })
             .catch((errMessage) => {
                 res.status(500).send(errMessage);
@@ -71,7 +71,7 @@ module.exports = { getSetupDevServer };
 // For testing purposes, if this script is run directly via node, start
 // a standalone dev server
 if (require.main === module) {
-    const projectRoot = path.join(__dirname, "..");
+    const projectRoot = path.join(__dirname, "..", "..");
     const port = process.env.PORT || 9000;
     startDevServer(port, { projectRoot });
 }
