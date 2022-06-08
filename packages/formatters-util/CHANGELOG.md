@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.2 (2022-06-08)
+
+### Bug Fixes
+
+-   rett opp de siste gamle internavhengighetene ([ba82a0e](https://github.com/fremtind/jokul/commit/ba82a0ee6cdccf20e41924e09f6949bf4e2bdd47))
+
 ## [2.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@2.0.10...@fremtind/jkl-formatters-util@2.3.1) (2022-06-07)
 
 ### Bug Fixes
