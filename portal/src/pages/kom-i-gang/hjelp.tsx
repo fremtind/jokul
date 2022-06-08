@@ -122,10 +122,10 @@ const DegOgJokul: FC = () => (
         <NavCard
             className="jkl-spacing-xl--top"
             style={{ maxWidth: "35rem" }}
-            to="/kom-i-gang/slik-er-jokul-satt-sammen"
+            to="/kom-i-gang/jobb-med-kjerneteamet"
             component={GatsbyLink}
-            title="Neste: Slik er Jøkul satt sammen"
-            description="Et system er summen av dets deler i samspill. Ofte er det greit å ha en samlet oversikt over delene på ett sted."
+            title="Neste: Jobb med kjerneteamet"
+            description="Vi "
         />
     </motion.main>
 );
