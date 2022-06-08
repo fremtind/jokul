@@ -91,7 +91,7 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
     variants.forEach((variant) => {
         doSnapshot(options, variant, variantsChoiceType);
 
-        if (forcedColorsActive) {
+        if (forcedColorsActive || options.skipDarkMode) {
             // forced-colors har ikke noe konsept om lyst eller mørkt tema – bare brukerens valgte farger
             return;
         }

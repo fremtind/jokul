@@ -64,6 +64,13 @@ declare namespace Cypress {
          */
         pause?: boolean;
         /**
+         * I tilfeller hvor det er vanskelig eller ikke hensiktsmessig å teste dark mode,
+         * for eksempel hvis det som testes rendres utenfor eksempel-wrapperen.
+         *
+         * @default false
+         */
+        skipDarkMode?: boolean;
+        /**
          * Gjør det du trenger for å gjøre klart eksempelet for snapshot.
          *
          * Funksjon som kalles før hver snapshot (altså to ganger per `takeSnapshot`).
