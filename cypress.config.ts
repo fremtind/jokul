@@ -1,5 +1,6 @@
 import { defineConfig } from "cypress";
 import plugins from "./cypress/plugins";
+import { getSetupDevServer } from './cypress/support/devserver';
 
 export default defineConfig({
     viewportWidth: 1920,
@@ -37,12 +38,10 @@ export default defineConfig({
             backgroundBlend: "difference",
         },
     },
-    e2e: {
-        setupNodeEvents(on, config) {
-            return plugins(on, config);
+    component: {
+        devServer(cypressConfig) {
+            return getSetupDevServer({ port: 1234 })(cypressConfig);
         },
-        specPattern: ".//**/integration/*.spec.*",
-        baseUrl: "http://localhost:9000",
-        excludeSpecPattern: ["**/__snapshots__/*", "**/__image_snapshots__/*", "**/node_modules/**", "./scripts/**"],
+        specPattern: "**/*.spec.ct.{js,ts,jsx,tsx}",
     },
 });
