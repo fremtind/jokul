@@ -1,22 +1,19 @@
 @use "../packages/core/jkl";
 
-@import "../packages/core/mixins/_all";
-@import "../packages/core/_functions";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --component-example-bg: #{jkl.$color-dis};
     --component-example-header-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --component-example-bg: #{jkl.$color-skifer};
     --component-example-header-color: #{jkl.$color-svaberg};
 }
 
 .jkl-portal-code-example {
-    max-width: min(#{rem(750px)}, 50vw);
+    max-width: min(#{jkl.rem(750px)}, 50vw);
 
-    @include small-device {
+    @include jkl.small-device {
         width: calc(100% - #{jkl.$spacing-xl});
         max-width: 100%;
         min-width: initial;
@@ -29,8 +26,8 @@
     padding: jkl.$spacing-s;
     display: flex;
     flex-direction: row;
-    max-width: min(#{rem(750px)}, 50vw);
-    min-height: rem(208px);
+    max-width: min(#{jkl.rem(750px)}, 50vw);
+    min-height: jkl.rem(208px);
 
     &__example-wrapper {
         width: 100%;
@@ -59,7 +56,7 @@
     &__example-options {
         display: block;
         padding: jkl.$spacing-s jkl.$spacing-l;
-        min-width: rem(180px);
+        min-width: jkl.rem(180px);
     }
 
     &__example-options-header {
@@ -80,7 +77,7 @@
         }
     }
 
-    @include small-device {
+    @include jkl.small-device {
         width: calc(100% - #{jkl.$spacing-xl});
         max-width: 100%;
         min-width: initial;

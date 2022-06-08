@@ -1,7 +1,7 @@
+import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import React, { useState } from "react";
 import { Select } from ".";
 

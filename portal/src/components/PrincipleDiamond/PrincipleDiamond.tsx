@@ -1,6 +1,6 @@
-import React from "react";
-import classNames from "classnames";
 import type { ColorScheme } from "@fremtind/jkl-react-hooks";
+import classNames from "classnames";
+import React from "react";
 import { PureCanvas } from "./PureCanvas";
 import "./princible-diamond.scss";
 

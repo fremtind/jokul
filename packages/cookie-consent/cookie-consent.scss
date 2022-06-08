@@ -1,11 +1,8 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/all";
-@import "~@fremtind/jkl-core/functions";
-
-$card-corner-radius: rem(2px);
-$container-width: rem(660px);
-$container-width--compact: rem(320px);
+$_card-corner-radius: jkl.rem(2px);
+$_container-width: jkl.rem(660px);
+$_container-width--compact: jkl.rem(320px);
 
 .jkl-cookie-consent-modal {
     &[aria-hidden="true"] {
@@ -35,21 +32,21 @@ $container-width--compact: rem(320px);
         left: 0;
         right: 0;
         width: 100%;
-        padding: jkl.$spacing-xl jkl.$spacing-xl rem(30px) jkl.$spacing-xl;
-        min-width: $container-width--compact;
-        max-width: $container-width;
+        padding: jkl.$spacing-xl jkl.$spacing-xl jkl.rem(30px) jkl.$spacing-xl;
+        min-width: $_container-width--compact;
+        max-width: $_container-width;
         background-color: var(--jkl-background-color);
         box-shadow: jkl.$drop-shadow--large;
         transition: 0.2s;
 
-        @include small-device {
+        @include jkl.small-device {
             top: jkl.$spacing-xl;
             margin: jkl.$spacing-l;
             max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});
             padding: jkl.$spacing-l;
         }
 
-        @include jkl.helper-forced-colors-mode {
+        @include jkl.forced-colors-mode {
             border: 2px solid CanvasText;
         }
     }

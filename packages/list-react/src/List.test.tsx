@@ -1,7 +1,7 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
-import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
 import { axe } from "jest-axe";
+import React from "react";
+import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
 
 describe("List", () => {
     test(`UnorderedList and ListItem should render as expected`, () => {

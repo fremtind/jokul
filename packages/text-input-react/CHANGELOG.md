@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@10.0.2...@fremtind/jkl-text-input-react@10.0.3) (2022-06-08)
+
+### Bug Fixes
+
+-   legg til støtte for type=search ([790c8dc](https://github.com/fremtind/jokul/commit/790c8dca4d42297bf48b611ae1ff054ba40de676)), closes [#2508](https://github.com/fremtind/jokul/issues/2508)
+
+## 10.0.1 (2022-06-07)
+
+### Bug Fixes
+
+-   rett opp avhengighet av icon-button ([d179921](https://github.com/fremtind/jokul/commit/d1799213a7859e3e72d4aecc69a74f7c6b399d54))
+
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@9.4.0...@fremtind/jkl-text-input-react@10.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
+# [9.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@9.3.0...@fremtind/jkl-text-input-react@9.4.0) (2022-06-03)
+
+### Features
+
+-   gi mulighet til å sende et klassenavn til inputfeltet ([55f85bf](https://github.com/fremtind/jokul/commit/55f85bf251fb85cd1e45d0233e891bdd5467b73e))
+
 # [9.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@9.2.1...@fremtind/jkl-text-input-react@9.3.0) (2022-06-02)
 
 ### Features

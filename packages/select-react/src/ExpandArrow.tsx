@@ -1,12 +1,12 @@
-import React, { VFC } from "react";
 import classNames from "classnames";
+import React, { FC } from "react";
 
 interface Props {
     className?: string;
     expanded?: boolean;
 }
 
-export const ExpandArrow: VFC<Props> = ({ expanded = false, className }) => {
+export const ExpandArrow: FC<Props> = ({ expanded = false, className }) => {
     const componentClassName = classNames(
         {
             "jkl-expand-arrow": true,

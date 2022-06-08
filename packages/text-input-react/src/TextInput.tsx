@@ -1,8 +1,8 @@
-import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler } from "react";
-import classNames from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
+import { useId } from "@fremtind/jkl-react-hooks";
+import classNames from "classnames";
+import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler } from "react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
 export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
@@ -22,6 +22,7 @@ export interface Props extends BaseProps {
     forceCompact?: boolean;
     inline?: boolean;
     action?: Action;
+    inputClassName?: string;
 }
 
 export const TextInput = forwardRef<HTMLInputElement, Props>(
@@ -38,6 +39,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             forceCompact,
             action,
             "data-testautoid": testAutoId,
+            inputClassName,
             ...inputProps
         },
         ref,
@@ -74,6 +76,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                         describedBy={describedBy}
                         invalid={!!errorLabel}
                         data-testautoid={testAutoId}
+                        className={inputClassName}
                         {...inputProps}
                     />
                     {action && (

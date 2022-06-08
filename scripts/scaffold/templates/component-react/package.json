@@ -22,18 +22,19 @@
     "module": "./build/esm/index.js",
     "browser": "./build/browser/index.js",
     "scripts": {
-        "clean": "rimraf .turbo/ build/ node_modules/",
+        "clean": "rimraf .turbo/ build/ node_modules/ ",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "rollup --config ../../rollup.config.js",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:style": "lerna exec --scope=@fremtind/jkl-scaffold yarn build:watch",
-        "dev:js": "parcel documentation/index.html",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:server": "node ./dist/server.js",
+        "predev": "node ./esbuild.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.0.0",
+        "@fremtind/jkl-core": "^10.0.0",
         "@fremtind/jkl-scaffold": "^1.0.0-alpha.0"
     },
     "peerDependencies": {

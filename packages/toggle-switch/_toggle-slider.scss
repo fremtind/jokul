@@ -1,0 +1,116 @@
+@use "sass:color";
+@use "~@fremtind/jkl-core/jkl";
+
+$_slider-rounded: jkl.rem(100px);
+
+@include jkl.light-mode-variables {
+    --jkl-slider-bg: #{jkl.$color-varde};
+    --jkl-slider-pill: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text: #{jkl.$color-granitt};
+    --jkl-slider-pill-text--active: #{jkl.$color-svart};
+    --jkl-slider-focus-color: #{jkl.$color-svart};
+    --jkl-slider-hover-color: #{jkl.$color-svart};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-slider-bg: #{jkl.$color-fjellgra};
+    --jkl-slider-pill: #{jkl.$color-granitt};
+    --jkl-slider-pill-text: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text--active: #{jkl.$color-hvit};
+    --jkl-slider-focus-color: #{jkl.$color-svaberg};
+    --jkl-slider-hover-color: #{jkl.$color-hvit};
+}
+
+.jkl-toggle-slider {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
+        .jkl-toggle-slider__pill {
+            box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-slider-focus-color);
+        }
+    }
+
+    &__legend {
+        margin-bottom: jkl.$spacing-xs;
+        @include jkl.text-style("small") {
+            font-weight: jkl.$typography-weight-bold;
+        }
+
+        &--sr-only {
+            @include jkl.screenreader-only;
+        }
+    }
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+        align-items: center;
+
+        &__legend {
+            margin-bottom: 0;
+            margin-right: jkl.$spacing-l;
+        }
+    }
+
+    &__inputs {
+        $_slider-offset: 4px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--jkl-slider-bg);
+        border-radius: $_slider-rounded;
+        border: $_slider-offset solid var(--jkl-slider-bg);
+    }
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        cursor: pointer;
+        padding: jkl.$spacing-2xs jkl.$spacing-m;
+        color: var(--jkl-slider-pill-text);
+
+        /* Prevent really short labels to look like circles */
+        min-width: 30px;
+        @include jkl.text-style("small");
+
+        &:hover {
+            color: var(--jkl-slider-hover-color);
+        }
+
+        &--selected {
+            font-weight: 700;
+            letter-spacing: -0.014em;
+            color: var(--jkl-slider-pill-text--active);
+        }
+    }
+
+    &__pill {
+        height: 100%;
+        background-color: var(--jkl-slider-pill);
+        position: absolute;
+        transition-property: width, transform;
+        border-radius: $_slider-rounded;
+        @include jkl.motion(standard, expressive);
+    }
+
+    @include jkl.forced-colors-mode {
+        & .jkl-toggle-slider__inputs {
+            background-color: Canvas;
+        }
+
+        & .jkl-toggle-slider__pill {
+            background-color: ButtonFace;
+        }
+    }
+}

@@ -8,8 +8,8 @@ import type {
     UseFormReturn,
 } from "react-hook-form";
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
-import { formatKortnummer } from "../kortnummer/formatKortnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
+import { formatKortnummer } from "../kortnummer/formatKortnummer";
 import { formatTelefonnummer } from "../telefonnummer/formatTelefonnummer";
 import { formatNumber } from "./formatNumber";
 

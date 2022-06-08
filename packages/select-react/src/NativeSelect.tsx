@@ -1,7 +1,7 @@
-import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
-import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps } from "@fremtind/jkl-core";
+import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
+import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 
 export interface NativeSelectProps {
@@ -11,6 +11,7 @@ export interface NativeSelectProps {
     labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
     items: Array<string | ValuePair>;
     className?: string;
+    selectClassName?: string;
     inline?: boolean;
     helpLabel?: string;
     errorLabel?: string;
@@ -47,6 +48,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             value,
             forceCompact,
             width,
+            selectClassName,
             ...rest
         },
         ref,
@@ -69,7 +71,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     <select
                         ref={ref}
                         id={uid}
-                        className="jkl-select__button"
+                        className={cn("jkl-select__button", selectClassName)}
                         defaultValue={value ? undefined : ""}
                         value={value}
                         {...rest}

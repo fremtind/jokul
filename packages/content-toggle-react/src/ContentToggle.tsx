@@ -1,6 +1,6 @@
-import React, { ReactNode, FC, useState, useEffect } from "react";
-import cn from "classnames";
 import { WithChildren } from "@fremtind/jkl-core";
+import cn from "classnames";
+import React, { ReactNode, FC, useState, useEffect } from "react";
 
 export interface ContentToggleProps extends WithChildren {
     /** @default "polite" */

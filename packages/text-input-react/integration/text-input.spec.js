@@ -28,12 +28,18 @@ describe("TextInput", () => {
             setup: () => {
                 cy.focusInput("fodselsnummer").type("Å være eller ikke være");
             },
+            teardown: () => {
+                cy.get(".jkl-portal-component-example__example-wrapper input").clear();
+            },
             eq: textInput,
         });
 
         cy.takeSnapshots({
             setup: () => {
                 cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+            },
+            teardown: () => {
+                cy.get(".jkl-portal-component-example__example-wrapper textarea").clear();
             },
             eq: textArea,
         });
@@ -45,6 +51,7 @@ describe("TextInput", () => {
             },
             teardown: () => {
                 cy.get('input[value="Med teller"]').check();
+                cy.get(".jkl-portal-component-example__example-wrapper textarea").clear();
             },
             eq: textArea,
         });
@@ -58,6 +65,7 @@ describe("TextInput", () => {
             },
             teardown: () => {
                 cy.get('input[value="Med teller"]').uncheck();
+                cy.get(".jkl-portal-component-example__example-wrapper textarea").clear();
             },
             eq: textArea,
         });
@@ -71,6 +79,7 @@ describe("TextInput", () => {
             teardown: () => {
                 cy.get('input[value="Med teller"]').uncheck();
                 cy.get('input[value="Skjul progress"]').uncheck();
+                cy.get(".jkl-portal-component-example__example-wrapper textarea").clear();
             },
             eq: textArea,
         });
@@ -84,6 +93,7 @@ describe("TextInput", () => {
             teardown: () => {
                 cy.get('input[value="Med teller"]').uncheck();
                 cy.resetMedFeil();
+                cy.get(".jkl-portal-component-example__example-wrapper textarea").clear();
             },
             eq: textArea,
         });

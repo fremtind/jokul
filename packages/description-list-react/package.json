@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-description-list-react",
-    "version": "4.0.28",
+    "version": "5.0.1",
     "description": "The description list component is a container whose children is a key-value pair consisting of terms and details.",
     "keywords": [
         "description",
@@ -45,8 +45,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.8",
-        "@fremtind/jkl-core": "^9.7.0",
-        "@fremtind/jkl-description-list": "^4.0.25",
+        "@fremtind/jkl-core": "^10.0.1",
+        "@fremtind/jkl-description-list": "^5.0.1",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

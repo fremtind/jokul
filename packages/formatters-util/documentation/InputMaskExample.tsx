@@ -1,12 +1,11 @@
-import React, { Fragment, useState, VFC } from "react";
+import React, { Fragment, useState, FC } from "react";
 import { useForm } from "react-hook-form";
-import { PrimaryButton } from "../../../packages/button-react/src";
-import { TextInput } from "../../../packages/text-input-react/src";
-import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../../packages/description-list-react/src";
 import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
-
-import "./input-mask-example.scss";
+import { PrimaryButton } from "../../../packages/button-react/src";
+import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../../packages/description-list-react/src";
+import { TextInput } from "../../../packages/text-input-react/src";
 import { registerWithMasks } from "../src";
+import "./input-mask-example.scss";
 
 interface Skjema {
     telefonnummer: string;
@@ -16,7 +15,7 @@ interface Skjema {
     tall: number;
 }
 
-export const InputMaskExample: VFC<ExampleComponentProps> = () => {
+export const InputMaskExample: FC<ExampleComponentProps> = () => {
     const form = useForm<Skjema>();
     const [formData, setFormData] = useState<Skjema>();
 

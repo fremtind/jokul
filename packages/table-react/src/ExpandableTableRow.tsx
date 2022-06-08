@@ -1,6 +1,6 @@
-import React, { forwardRef, useState } from "react";
-import cx from "classnames";
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
+import cx from "classnames";
+import React, { forwardRef, useState } from "react";
 import { ExpandableTableRowController } from "./ExpandableTableRowController";
 import type { TableRowProps } from "./TableRow";
 import { TableRow } from "./TableRow";

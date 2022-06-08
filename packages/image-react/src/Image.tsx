@@ -1,6 +1,6 @@
-import React, { VFC } from "react";
-import cn from "classnames";
 import { useElementDimensions } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
+import React, { FC } from "react";
 import { useImageLoadingStatus } from "./useImageLoadingStatus";
 
 export interface ImageProps {
@@ -15,7 +15,7 @@ export interface ImageProps {
     className?: string;
 }
 
-export const Image: VFC<ImageProps> = ({ className, placeholder, alt, ...imageProperties }) => {
+export const Image: FC<ImageProps> = ({ className, placeholder, alt, ...imageProperties }) => {
     const [imageRef, imageLoaded] = useImageLoadingStatus();
     const [containerRef, dimensions] = useElementDimensions<HTMLDivElement>(400);
 

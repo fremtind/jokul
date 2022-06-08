@@ -1,13 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
-
 $header-bg-color: jkl.$color-snohvit;
 $header-bg-color--inverted: jkl.$color-granitt;
-$header-height: rem(96px);
-$header-height--collapsed: rem(64px);
-$header-height--mobile: rem(64px);
+$header-height: jkl.rem(96px);
+$header-height--collapsed: jkl.rem(64px);
+$header-height--mobile: jkl.rem(64px);
 $header-padding: 0 jkl.$spacing-xl;
 $header-padding--right: jkl.$spacing-3xl;
 $header-padding--mobile: 0 jkl.$spacing-m;
@@ -24,11 +21,11 @@ $header-padding--mobile: 0 jkl.$spacing-m;
     left: 0;
     background-color: inherit;
 
-    @include motion("standard", "lazy");
+    @include jkl.motion("standard", "lazy");
     transition-property: height;
 
     &__title {
-        @include reset-outline;
+        @include jkl.reset-outline;
         padding: 0;
         background-color: transparent;
         cursor: pointer;
@@ -61,7 +58,7 @@ $header-padding--mobile: 0 jkl.$spacing-m;
         }
     }
 
-    @include from-medium-device {
+    @include jkl.from-medium-device {
         padding: $header-padding;
         padding-right: $header-padding--right;
         height: $header-height;

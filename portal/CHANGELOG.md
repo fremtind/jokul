@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.1...@fremtind/portal@15.0.2) (2022-06-08)
+
+### Bug Fixes
+
+-   rett opp de siste gamle internavhengighetene ([ba82a0e](https://github.com/fremtind/jokul/commit/ba82a0ee6cdccf20e41924e09f6949bf4e2bdd47))
+
+## [15.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.0...@fremtind/portal@15.0.1) (2022-06-07)
+
+### Bug Fixes
+
+-   rett opp avhengighet av icon-button ([d179921](https://github.com/fremtind/jokul/commit/d1799213a7859e3e72d4aecc69a74f7c6b399d54))
+
+# [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@14.0.0...@fremtind/portal@15.0.0) (2022-06-07)
+
+### Bug Fixes
+
+-   oppdater Scss-kode fra main til ny verden ([b65beaa](https://github.com/fremtind/jokul/commit/b65beaac717f6e389a94cbaa87b16cf1416607dc))
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+-   prefiks CSS-variabler med jkl ([500ee0e](https://github.com/fremtind/jokul/commit/500ee0e1050de94d8cda07fb423c33837fbf2faa))
+-   skriv og følg stilguiden for Sass i Jøkul ([1cc52a4](https://github.com/fremtind/jokul/commit/1cc52a4dea6af592ed48c45b38bc4fee07a749ae))
+-   sweep for å rydde i Sass-variabler ([fa1b094](https://github.com/fremtind/jokul/commit/fa1b094189c2958d5407334ae063d36461229b11))
+
+### BREAKING CHANGES
+
+-   Sass-variabler i komponentpakkene er gjort private
+-   Alle CSS-variabler har jkl-prefix
+-   Sass-variabler, mixins og CSS-animasjoner fra pakker annet enn core er gjort private
+-   Avhenger av ny majorversjon av core
+
+# [14.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@13.0.1...@fremtind/portal@14.0.0) (2022-06-07)
+
+### Bug Fixes
+
+-   oppdater Scss-kode fra main til ny verden ([b65beaa](https://github.com/fremtind/jokul/commit/b65beaac717f6e389a94cbaa87b16cf1416607dc))
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+-   prefiks CSS-variabler med jkl ([500ee0e](https://github.com/fremtind/jokul/commit/500ee0e1050de94d8cda07fb423c33837fbf2faa))
+-   skriv og følg stilguiden for Sass i Jøkul ([1cc52a4](https://github.com/fremtind/jokul/commit/1cc52a4dea6af592ed48c45b38bc4fee07a749ae))
+-   sweep for å rydde i Sass-variabler ([fa1b094](https://github.com/fremtind/jokul/commit/fa1b094189c2958d5407334ae063d36461229b11))
+
+### BREAKING CHANGES
+
+-   Sass-variabler i komponentpakkene er gjort private
+-   Alle CSS-variabler har jkl-prefix
+-   Sass-variabler, mixins og CSS-animasjoner fra pakker annet enn core er gjort private
+-   Avhenger av ny majorversjon av core
+
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@12.5.7...@fremtind/portal@13.0.0) (2022-06-02)
 
 ### Bug Fixes

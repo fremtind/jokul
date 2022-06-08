@@ -1,6 +1,6 @@
-import React from "react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
 
 import "./HeroImage.scss";
 

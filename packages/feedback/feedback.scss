@@ -1,25 +1,23 @@
+@use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+$_smiley-size: jkl.rem(40px);
+$_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
+$_show-animation-name: jkl-show-#{string.unique-id()};
 
-$smiley-size: rem(40px);
-$smileys-max-width: $smiley-size * 9; // 5 smileys med fire like store mellomrom
-$max-feedback-input-width: 30rem;
-
-@include jkl.helper-light-mode-variables {
-    --jkl-feedback--step-color: #{jkl.$color-stein};
+@include jkl.light-mode-variables {
+    --jkl-feedback-step-color: #{jkl.$color-stein};
     --jkl-feedback-smiley-color: #{jkl.$color-stein};
-    --jkl-feedback-smiley-color--hover: #{jkl.$color-granitt};
+    --jkl-feedback-smiley-color-hover: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
-    --jkl-feedback--step-color: #{jkl.$color-svaberg};
+@include jkl.dark-mode-variables {
+    --jkl-feedback-step-color: #{jkl.$color-svaberg};
     --jkl-feedback-smiley-color: #{jkl.$color-svaberg};
-    --jkl-feedback-smiley-color--hover: #{jkl.$color-snohvit};
+    --jkl-feedback-smiley-color-hover: #{jkl.$color-snohvit};
 }
 
-@keyframes show {
+@keyframes #{$_show-animation-name} {
     from {
         transform: translate3d(0, 0.5rem, 0);
         opacity: 0;
@@ -27,12 +25,12 @@ $max-feedback-input-width: 30rem;
 }
 
 .jkl-feedback {
-    max-width: rem(550px);
+    max-width: jkl.rem(550px);
 
     &__submit-wrapper {
         width: 100%;
         transition-property: height;
-        @include motion(standard, expressive);
+        @include jkl.motion(standard, expressive);
 
         &--hidden {
             display: none;
@@ -41,12 +39,12 @@ $max-feedback-input-width: 30rem;
 
     &__step-counter {
         @include jkl.text-style("body");
-        color: var(--jkl-feedback--step-color);
+        color: var(--jkl-feedback-step-color);
         margin-bottom: jkl.$spacing-m;
     }
 
     &__fade-in {
-        animation: show 0.25s ease-out;
+        animation: $_show-animation-name 0.25s ease-out;
     }
 }
 
@@ -55,7 +53,7 @@ $max-feedback-input-width: 30rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: $smileys-max-width;
+    max-width: $_smileys-max-width;
     flex-wrap: nowrap;
     gap: jkl.$spacing-s;
 }
@@ -64,15 +62,15 @@ $max-feedback-input-width: 30rem;
     display: inline-block;
     position: relative;
     cursor: pointer;
-    height: $smiley-size;
-    width: $smiley-size;
+    height: $_smiley-size;
+    width: $_smiley-size;
     color: var(--jkl-feedback-smiley-color);
     transform: translate3d(0, 0, 0);
 
-    @include motion;
+    @include jkl.motion;
     transition-property: transform, color;
 
-    @include jkl.helper-forced-colors-svg-fallback($stroke: ButtonFace, $fill: ButtonText);
+    @include jkl.forced-colors-svg-fallback($stroke: ButtonFace, $fill: ButtonText);
 
     &::before,
     &::after {
@@ -81,16 +79,16 @@ $max-feedback-input-width: 30rem;
         border-radius: 50%;
         opacity: 0;
 
-        @include motion;
+        @include jkl.motion;
         transition-property: opacity;
     }
 
     &::after {
-        top: rem(-2px);
-        right: rem(-2px);
-        bottom: rem(-2px);
-        left: rem(-2px);
-        box-shadow: 0 0 0 rem(2px) currentColor;
+        top: jkl.rem(-2px);
+        right: jkl.rem(-2px);
+        bottom: jkl.rem(-2px);
+        left: jkl.rem(-2px);
+        box-shadow: 0 0 0 jkl.rem(2px) currentColor;
     }
 
     &::before {
@@ -98,15 +96,15 @@ $max-feedback-input-width: 30rem;
         right: 0;
         bottom: 0;
         left: 0;
-        box-shadow: 0 rem(2px) rem(30px) rgb(0 0 0 / 10%);
+        box-shadow: 0 jkl.rem(2px) jkl.rem(30px) rgb(0 0 0 / 10%);
     }
 
     &:hover {
-        color: var(--jkl-feedback-smiley-color--hover);
+        color: var(--jkl-feedback-smiley-color-hover);
     }
 
     input:checked + & {
-        color: var(--jkl-feedback-smiley-color--hover);
+        color: var(--jkl-feedback-smiley-color-hover);
         transform: translate3d(0, -20%, 0);
 
         &::before {
@@ -115,7 +113,7 @@ $max-feedback-input-width: 30rem;
     }
 
     input:focus + &::after {
-        @include keyboard-navigation {
+        @include jkl.keyboard-navigation {
             opacity: 1;
         }
     }

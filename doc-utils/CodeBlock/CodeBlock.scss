@@ -1,10 +1,6 @@
 @use "../../packages/core/jkl";
 
-@import "../../packages/core/_functions";
-@import "../../packages/core/mixins/_all";
-@import "../../packages/core/variables/_all";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --code-block-border-color: #{jkl.$color-svaberg};
     --code-block-bg-color: #{jkl.$color-sand};
     --code-block-focus-color: #{jkl.$color-granitt};
@@ -12,7 +8,7 @@
     --language-tag-text-color: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --code-block-border-color: #{jkl.$color-stein};
     --code-block-bg-color: #{jkl.$color-svart};
     --code-block-focus-color: #{jkl.$color-snohvit};
@@ -25,13 +21,13 @@
     background-color: var(--code-block-bg-color);
     box-sizing: border-box;
     border: 1px solid var(--code-block-border-color);
-    border-radius: rem(2px);
+    border-radius: jkl.rem(2px);
     width: 100%;
     padding: jkl.$spacing-s;
-    max-width: min(#{rem(750px)}, 50vw);
+    max-width: min(#{jkl.rem(750px)}, 50vw);
     @include jkl.text-style("small");
 
-    @include small-device {
+    @include jkl.small-device {
         width: calc(100% - #{jkl.$spacing-xl});
         max-width: 100%;
         min-width: initial;
@@ -53,10 +49,10 @@
     &__code {
         display: block;
         padding: jkl.$spacing-l jkl.$spacing-m;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     html:not([data-mousenavigation]) &:focus-within {
-        box-shadow: 0 0 0 rem(2px) var(--code-block-focus-color);
+        box-shadow: 0 0 0 jkl.rem(2px) var(--code-block-focus-color);
     }
 }

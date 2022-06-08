@@ -1,36 +1,33 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/_functions";
+@use "./toggle-slider";
 
-@import "./toggle-slider";
+$_toggle-width: jkl.rem(48px);
+$_toggle-height: jkl.rem(24px);
+$_toggle-dot-white-line-inset: jkl.rem(5px);
+$_line-left-right-margin: jkl.rem(8px);
+$_disabled-color: jkl.$color-stein;
 
-$toggle-width: rem(48px);
-$toggle-height: rem(24px);
-$toggle-dot-white-line-inset: rem(5px);
-$line-left-right-margin: rem(8px);
-$disabled-color: jkl.$color-stein;
-
-@include jkl.helper-light-mode-variables {
-    --toggle-focus-outline-color: #{jkl.$color-focus-color};
-    --main-slider-color: #{jkl.$color-granitt};
-    --main-slider-background-color: #{jkl.$color-snohvit};
-    --expanding-pill-background-color: #{jkl.$color-varde};
+@include jkl.light-mode-variables {
+    --jkl-toggle-switch-focus-outline-color: #{jkl.$color-focus-color};
+    --jkl-toggle-switch-main-slider-color: #{jkl.$color-granitt};
+    --jkl-toggle-switch-main-slider-background-color: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-expanding-pill-background-color: #{jkl.$color-varde};
 }
 
-@include jkl.helper-dark-mode-variables {
-    --toggle-focus-outline-color: #{jkl.$color-snohvit};
-    --main-slider-color: #{jkl.$color-snohvit};
-    --main-slider-background-color: #{jkl.$color-granitt};
-    --expanding-pill-background-color: #{jkl.$color-fjellgra};
+@include jkl.dark-mode-variables {
+    --jkl-toggle-switch-focus-outline-color: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-main-slider-color: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-main-slider-background-color: #{jkl.$color-granitt};
+    --jkl-toggle-switch-expanding-pill-background-color: #{jkl.$color-fjellgra};
 }
 
 .jkl-toggle-switch {
-    @include reset-outline;
+    @include jkl.reset-outline;
     cursor: pointer;
     position: relative;
     display: flex;
-    height: $toggle-height;
+    height: $_toggle-height;
     padding: 0;
     align-items: center;
 
@@ -50,50 +47,51 @@ $disabled-color: jkl.$color-stein;
     &__slider {
         border-radius: 99rem;
         display: inline-block;
-        height: $toggle-height;
+        height: $_toggle-height;
         position: relative;
-        width: $toggle-width;
+        width: $_toggle-width;
         margin-right: jkl.$spacing-xs;
         pointer-events: none;
 
         /* The line the dot slides on */
         &::before {
             content: "";
-            background-color: var(--main-slider-color);
+            background-color: var(--jkl-toggle-switch-main-slider-color);
             height: 1px;
-            left: $line-left-right-margin * 0.5;
+            left: $_line-left-right-margin * 0.5;
             position: absolute;
             top: 50%;
-            width: $toggle-width - $line-left-right-margin;
+            width: $_toggle-width - $_line-left-right-margin;
         }
 
         /* Sliding dot */
         &::after {
-            box-shadow: inset 0 0 0 $toggle-dot-white-line-inset var(--main-slider-color),
-                inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) var(--main-slider-background-color);
+            box-shadow: inset 0 0 0 $_toggle-dot-white-line-inset var(--jkl-toggle-switch-main-slider-color),
+                inset 0 0 0 $_toggle-dot-white-line-inset + jkl.rem(2px)
+                    var(--jkl-toggle-switch-main-slider-background-color);
             content: "";
             border-radius: 99rem;
             position: absolute;
             left: 0;
             top: 0;
-            width: $toggle-height;
-            height: $toggle-height;
-            background-color: var(--main-slider-color);
+            width: $_toggle-height;
+            height: $_toggle-height;
+            background-color: var(--jkl-toggle-switch-main-slider-color);
             transition: transform 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
     }
 
     &__expanding-pill {
-        background-color: var(--expanding-pill-background-color);
+        background-color: var(--jkl-toggle-switch-expanding-pill-background-color);
         border-radius: 99rem;
-        border: solid 1px var(--main-slider-color);
+        border: solid 1px var(--jkl-toggle-switch-main-slider-color);
         box-sizing: border-box;
-        height: $toggle-height;
+        height: $_toggle-height;
         left: 0;
         position: absolute;
         top: 0;
         transition: top 150ms ease 75ms, height 150ms ease 75ms, width 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        width: $toggle-height;
+        width: $_toggle-height;
 
         &::after {
             // Focus ring for keyboard navigation
@@ -105,9 +103,9 @@ $disabled-color: jkl.$color-stein;
             right: -3px;
             background-color: transparent;
             border-radius: 99rem;
-            width: $toggle-width + rem(4px);
-            box-shadow: 0 0 0 rem(2px) transparent;
-            @include motion;
+            width: $_toggle-width + jkl.rem(4px);
+            box-shadow: 0 0 0 jkl.rem(2px) transparent;
+            @include jkl.motion;
             transition-property: box-shadow;
         }
     }
@@ -120,18 +118,18 @@ $disabled-color: jkl.$color-stein;
 
         > .jkl-toggle-switch__slider {
             &::before {
-                background-color: $disabled-color;
+                background-color: $_disabled-color;
             }
 
             &::after {
-                background-color: $disabled-color;
-                box-shadow: inset 0 0 0 $toggle-dot-white-line-inset $disabled-color,
-                    inset 0 0 0 $toggle-dot-white-line-inset + rem(2px) jkl.$color-hvit;
+                background-color: $_disabled-color;
+                box-shadow: inset 0 0 0 $_toggle-dot-white-line-inset $_disabled-color,
+                    inset 0 0 0 $_toggle-dot-white-line-inset + jkl.rem(2px) jkl.$color-hvit;
             }
 
             & .jkl-toggle-switch__expanding-pill {
                 background-color: transparent;
-                border-color: $disabled-color;
+                border-color: $_disabled-color;
             }
         }
 
@@ -143,22 +141,22 @@ $disabled-color: jkl.$color-stein;
     /* Toggled/checked state */
     &[aria-pressed="true"] > &__slider {
         & > .jkl-toggle-switch__expanding-pill {
-            width: $toggle-width;
+            width: $_toggle-width;
             top: 0;
-            height: $toggle-height;
+            height: $_toggle-height;
         }
 
         &::after {
-            transform: translateX($toggle-width * 0.5);
+            transform: translateX($_toggle-width * 0.5);
         }
     }
 
     /* Keyboard focused state */
     html:not([data-mousenavigation]) &:focus > &__slider > &__expanding-pill::after {
-        box-shadow: 0 0 0 rem(2px) var(--toggle-focus-outline-color);
+        box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-toggle-switch-focus-outline-color);
     }
 
-    @include jkl.helper-forced-colors-mode {
+    @include jkl.forced-colors-mode {
         border: none; // Ett av få tilfeller hvor vi faktisk ikke vil ha noen border, selv i denne modusen
         outline: revert;
 

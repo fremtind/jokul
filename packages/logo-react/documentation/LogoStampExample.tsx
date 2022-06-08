@@ -6,6 +6,7 @@ import "./LogoExample.scss";
 
 export const LogoStampExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const variant = choiceValues?.["Variant"] as keyof typeof logoStampTextPaths;
+    // eslint-disable-next-line import/namespace
     const TextPath = logoStampTextPaths[variant];
 
     return (

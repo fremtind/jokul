@@ -22,6 +22,9 @@ describe("Cookie Consent", () => {
                 cy.clearCookies();
                 cy.getByTestid("trigger-cookie-consent").first().click();
             },
+            teardown: () => {
+                cy.getByTestid("jkl-cookie-consent-godta").first().click();
+            },
         });
     });
 });

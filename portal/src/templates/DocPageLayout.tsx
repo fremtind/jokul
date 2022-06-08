@@ -1,12 +1,12 @@
+import { motion } from "framer-motion";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import React, { VFC, ReactNode, useContext } from "react";
-import { motion } from "framer-motion";
+import React, { FC, ReactNode, useContext } from "react";
 import type { ComponentDoc } from "react-docgen-typescript";
+import { APIDocumentation } from "../components";
 import { Frontmatter } from "../components/Header/useNavigationLinks";
 import { BlogPageHeader, ComponentPageHeader } from "../components/Layout/components";
 import { a11yContext } from "../contexts/a11yContext";
-import { APIDocumentation } from "../components";
 
 interface Props {
     location: Location;
@@ -20,7 +20,7 @@ interface Props {
     };
 }
 
-export const DocPageLayout: VFC<Props> = ({ location, data, pageContext }) => {
+export const DocPageLayout: FC<Props> = ({ location, data, pageContext }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
 
     const { body, frontmatter } = data.page; // Fra pageQuery

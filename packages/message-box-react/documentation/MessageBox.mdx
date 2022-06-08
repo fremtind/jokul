@@ -6,7 +6,11 @@ group: meldinger
 ---
 
 import { MessageBoxExample, messageBoxExampleKnobs, messageBoxExampleCode } from "./MessageBoxExample";
-import { FormErrorMessageBoxExample, formErrorMessageBoxExampleCode } from "./FormErrorMessageBoxExample";
+import {
+    FormErrorMessageBoxExample,
+    formErrorMessageBoxKnobs,
+    formErrorMessageBoxExampleCode,
+} from "./FormErrorMessageBoxExample";
 
 <Ingress>
     En melding er en beskjed til brukeren som vises i tilknytning til innhold på siden. Det kan være et varsel om at noe
@@ -39,9 +43,7 @@ Som beskrevet i [Skjemavalidering](/profil/skjemadesign#skjemavalidering) bruker
 <ComponentExample
     title="FormErrorMessageBox"
     component={FormErrorMessageBoxExample}
-    knobs={{
-        boolProps: ["Full width", "Compact", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
-    }}
+    knobs={formErrorMessageBoxKnobs}
     codeExample={formErrorMessageBoxExampleCode}
 />
 

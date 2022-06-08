@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@6.1.13...@fremtind/jkl-checkbox-react@7.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
 ## [6.1.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@6.1.4...@fremtind/jkl-checkbox-react@6.1.5) (2022-03-11)
 
 ### Bug Fixes

@@ -1,14 +1,14 @@
-import React, { FC, FormEvent, useCallback, useEffect } from "react";
-import ReactDOM from "react-dom";
-import { useA11yDialog } from "react-a11y-dialog";
+import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { CheckListItem, UnorderedList } from "@fremtind/jkl-list-react";
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-import { Consent, ConsentComponentBaseProps } from "./types";
+import { useId } from "@fremtind/jkl-react-hooks";
+import React, { FC, FormEvent, useCallback, useEffect } from "react";
+import { useA11yDialog } from "react-a11y-dialog";
+import ReactDOM from "react-dom";
 import { useCookieConsentState } from "./CookieConsentContext";
 import { convertBooleanConsentObjectToConsentObject } from "./cookieConsentUtils";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { Consent, ConsentComponentBaseProps } from "./types";
 
 interface RequirementCheckboxProps extends WithChildren {
     defaultChecked: boolean;
@@ -90,7 +90,8 @@ export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept }) 
 
     return ReactDOM.createPortal(
         <div
-            {...(attr.container as unknown)}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...(attr.container as any)}
             className="jkl jkl-cookie-consent-modal"
             data-testautoid="jkl-cookie-consent-modal"
         >

@@ -1,29 +1,26 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/all";
-@import "~@fremtind/jkl-core/_functions";
+$_bounding-touch-size: jkl.rem(48px);
+$_hamburger-line-height: jkl.rem(2px);
+$_hamburger-icon-width: jkl.rem(35px);
+$_hamburger-line-spacing: jkl.rem(-8px);
 
-$bounding-touch-size: rem(48px);
-$hamburger-line-height: rem(2px);
-$hamburger-icon-width: rem(35px);
-$hamburger-line-spacing: rem(-8px);
-
-@include jkl.helper-light-mode-variables {
-    --hamburger-color: #{jkl.$color-granitt};
-    --hamburger-focus-color: #{jkl.$color-stein};
+@include jkl.light-mode-variables {
+    --jkl-hamburger-color: #{jkl.$color-granitt};
+    --jkl-hamburger-focus-color: #{jkl.$color-stein};
 }
 
-@include jkl.helper-dark-mode-variables {
-    --hamburger-color: #{jkl.$color-snohvit};
-    --hamburger-focus-color: #{jkl.$color-svaberg};
+@include jkl.dark-mode-variables {
+    --jkl-hamburger-color: #{jkl.$color-snohvit};
+    --jkl-hamburger-focus-color: #{jkl.$color-svaberg};
 }
 
 .jkl-hamburger {
-    @include reset-outline;
+    @include jkl.reset-outline;
     cursor: pointer;
     background-color: transparent;
-    height: $bounding-touch-size;
-    min-width: $bounding-touch-size;
+    height: $_bounding-touch-size;
+    min-width: $_bounding-touch-size;
     display: flex;
     flex-direction: row;
     padding: 0;
@@ -31,13 +28,13 @@ $hamburger-line-spacing: rem(-8px);
     align-items: center;
     position: relative;
 
-    color: var(--hamburger-color);
+    color: var(--jkl-hamburger-color);
 
     @include jkl.text-style("body");
 
     &__label.jkl-content-toggle {
-        height: rem(32px);
-        @include motion(standard, expressive);
+        height: jkl.rem(32px);
+        @include jkl.motion(standard, expressive);
         transform-origin: left;
     }
 
@@ -54,26 +51,26 @@ $hamburger-line-spacing: rem(-8px);
         }
 
         &::before {
-            top: $hamburger-line-spacing;
+            top: $_hamburger-line-spacing;
         }
 
         &::after {
-            bottom: $hamburger-line-spacing;
+            bottom: $_hamburger-line-spacing;
         }
     }
 
     &__lines,
     &__lines::before,
     &__lines::after {
-        width: $hamburger-icon-width;
-        height: $hamburger-line-height;
+        width: $_hamburger-icon-width;
+        height: $_hamburger-line-height;
         background-color: currentColor;
 
         transition-property: background-color, transform, top, bottom;
 
-        @include motion(standard, expressive);
+        @include jkl.motion(standard, expressive);
 
-        @include jkl.helper-forced-colors-mode {
+        @include jkl.forced-colors-mode {
             background-color: ButtonText;
         }
     }
@@ -81,11 +78,11 @@ $hamburger-line-spacing: rem(-8px);
     &:hover {
         .jkl-hamburger__lines {
             &::before {
-                top: calc(#{$hamburger-line-spacing} * 1.5);
+                top: calc(#{$_hamburger-line-spacing} * 1.5);
             }
 
             &::after {
-                bottom: calc(#{$hamburger-line-spacing} * 1.5);
+                bottom: calc(#{$_hamburger-line-spacing} * 1.5);
             }
         }
 
@@ -94,9 +91,9 @@ $hamburger-line-spacing: rem(-8px);
         }
     }
 
-    @include keyboard-navigation {
+    @include jkl.keyboard-navigation {
         &:focus {
-            box-shadow: 0 0 0 rem(2px) var(--hamburger-focus-color);
+            box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-hamburger-focus-color);
         }
     }
 
@@ -129,7 +126,7 @@ $hamburger-line-spacing: rem(-8px);
 
         & .jkl-hamburger__lines::before,
         & .jkl-hamburger__lines::after {
-            width: calc(#{$hamburger-icon-width} - 3px);
+            width: calc(#{$_hamburger-icon-width} - 3px);
         }
 
         & .jkl-hamburger__lines::before {

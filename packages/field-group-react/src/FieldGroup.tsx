@@ -1,7 +1,7 @@
-import React, { FC, FieldsetHTMLAttributes } from "react";
 import type { LabelProps } from "@fremtind/jkl-core";
 import { Label, SupportLabel, LabelVariant, DataTestAutoId } from "@fremtind/jkl-core";
 import classNames from "classnames";
+import React, { FC, FieldsetHTMLAttributes } from "react";
 
 export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<HTMLFieldSetElement> {
     legend: string;

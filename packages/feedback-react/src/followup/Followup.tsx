@@ -1,11 +1,11 @@
-import React, { ReactNode, useEffect, useRef, useState, VFC } from "react";
 import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
-import { FeedbackAnswer, FollowupQuestion } from "../types";
-import { useFollowup } from "./useFollowup";
-import { FollowUpProvider } from "./followupContext";
-import { getQuestionFromType } from "../utils";
+import React, { ReactNode, useEffect, useRef, useState, FC } from "react";
 import { useFeedbackContext } from "../feedbackContext";
 import { FeedbackSuccess } from "../FeedbackSuccess";
+import { FeedbackAnswer, FollowupQuestion } from "../types";
+import { getQuestionFromType } from "../utils";
+import { FollowUpProvider } from "./followupContext";
+import { useFollowup } from "./useFollowup";
 
 const defaultSuccessMessage = {
     title: "Takk, igjen!",
@@ -24,7 +24,7 @@ interface Props {
     onSubmit: (values: FeedbackAnswer[]) => void;
 }
 
-export const Followup: VFC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit }) => {
+export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit }) => {
     const [noThanks, setNoThanks] = useState(false);
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);

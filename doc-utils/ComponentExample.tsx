@@ -1,6 +1,6 @@
-import React, { FC, VFC } from "react";
-import { ExampleComponentProps, ChoiceProp, BoolProp, CodeExample } from "./";
+import React, { FC } from "react";
 import { ExampleBase } from "./ExampleBase";
+import { ExampleComponentProps, ChoiceProp, BoolProp, CodeExample } from "./";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
@@ -13,7 +13,7 @@ export interface Props {
     codeExample?: CodeExample;
 }
 
-export const ComponentExample: VFC<Props> = ({ component, ...rest }) => {
+export const ComponentExample: FC<Props> = ({ component, ...rest }) => {
     const C = component;
 
     return (

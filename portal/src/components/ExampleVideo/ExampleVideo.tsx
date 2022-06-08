@@ -1,5 +1,5 @@
-import React, { FC, useRef, useState } from "react";
 import classNames from "classnames";
+import React, { FC, useRef, useState } from "react";
 import "./ExampleVideo.scss";
 
 interface Props {

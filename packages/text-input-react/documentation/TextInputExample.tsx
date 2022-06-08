@@ -1,10 +1,10 @@
-import React, { useState, ChangeEvent, VFC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
 import { LabelVariant } from "@fremtind/jkl-core";
+import React, { useState, ChangeEvent, FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { TextInput } from "../src";
 import { Action } from "../src/TextInput";
 
-export const TextInputExample: VFC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
+export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const [value, setValue] = useState("");
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 

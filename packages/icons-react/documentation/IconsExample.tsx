@@ -1,6 +1,6 @@
+import { TextInput } from "@fremtind/jkl-text-input-react";
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
-import { TextInput } from "@fremtind/jkl-text-input-react";
 import {
     Close,
     CheckMark,
@@ -18,8 +18,8 @@ import {
     Warning,
     Success,
 } from "../src";
-import { IconExample } from "./internal/IconExample";
 import { IconVariant } from "../src/icons/types";
+import { IconExample } from "./internal/IconExample";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
 
 export const choiceProps = [

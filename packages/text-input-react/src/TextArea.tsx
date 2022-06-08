@@ -1,7 +1,7 @@
-import React, { forwardRef, FocusEvent, useRef, useState, useEffect, RefObject } from "react";
-import cn from "classnames";
-import { useId } from "@fremtind/jkl-react-hooks";
 import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
+import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
+import React, { forwardRef, FocusEvent, useRef, useState, useEffect, RefObject } from "react";
 import { BaseProps } from "./BaseInputField";
 
 type Counter = {

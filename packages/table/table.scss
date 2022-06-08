@@ -1,17 +1,16 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
-@import "./table-caption";
-@import "./table-head";
-@import "./table-row";
-@import "./table-header";
-@import "./table-cell";
+@use "table-caption";
+@use "table-cell";
+@use "table-head";
+@use "table-header";
+@use "table-row";
 
-@mixin responsive-table {
+@mixin _responsive-table {
     display: block;
 
     & > caption {
-        @include mixins.screenreader-only;
+        @include jkl.screenreader-only;
     }
 
     & > thead,
@@ -43,11 +42,11 @@
 
     &--collapse-to-list {
         &[data-collapse] {
-            @include responsive-table;
+            @include _responsive-table;
         }
 
-        @include mixins.small-device {
-            @include responsive-table;
+        @include jkl.small-device {
+            @include _responsive-table;
         }
     }
 }

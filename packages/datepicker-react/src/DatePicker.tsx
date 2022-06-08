@@ -14,12 +14,12 @@ import React, {
     useRef,
     useState,
 } from "react";
+import { flushSync } from "react-dom";
 import { Calendar } from "./internal/Calendar";
-import { DatePickerProps, DateValidationError } from "./types";
 import { getInitialDate, DateInfo } from "./internal/utils";
+import { DatePickerProps, DateValidationError } from "./types";
 import { formatInput, parseDateString } from "./utils";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation";
-import { flushSync } from "react-dom";
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, forwardedInputRef) => {
     const {
@@ -266,6 +266,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             })}
             {...rest}
             ref={datepickerRef}
+            tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
         >
             <Label standAlone {...labelProps} forceCompact={forceCompact} htmlFor={inputId}>
                 {label}

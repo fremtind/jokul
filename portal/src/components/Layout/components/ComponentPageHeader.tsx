@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { Frontmatter } from "../../Header/useNavigationLinks";
 import { GitHubLinks } from "./GitHubLinks";
 
-export const ComponentPageHeader: VFC<Frontmatter> = ({ title, scss, react }) => {
+export const ComponentPageHeader: FC<Frontmatter> = ({ title, scss, react }) => {
     if (!(react || scss)) {
         // Other doc pages have the title in markup
         // Return null to avoid duplicate title

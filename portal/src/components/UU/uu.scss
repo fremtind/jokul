@@ -1,12 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/functions";
-
-@include jkl.helper-light-mode-variables {
+@include jkl.light-mode-variables {
     --search-background: #{jkl.$color-sand};
 }
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --search-background: #{jkl.$color-skifer};
 }
 
@@ -27,10 +24,10 @@
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        column-gap: rem(18px);
-        row-gap: rem(21px);
+        column-gap: jkl.rem(18px);
+        row-gap: jkl.rem(21px);
         padding-inline-start: 0;
-        max-width: rem(750px);
+        max-width: jkl.rem(750px);
 
         @include jkl.text-style("body");
     }
@@ -66,13 +63,13 @@
             margin-left: -#{jkl.$spacing-m};
             padding-left: jkl.$spacing-m;
 
-            @include medium-device {
+            @include jkl.medium-device {
                 padding-right: jkl.$spacing-3xl;
                 margin-left: -#{jkl.$spacing-xl};
                 padding-left: jkl.$spacing-xl;
             }
 
-            @include from-large-device {
+            @include jkl.from-large-device {
                 padding-right: jkl.$spacing-3xl;
 
                 // 415px is the width of the sidebar
@@ -102,7 +99,7 @@
             column-gap: jkl.$spacing-xs;
             row-gap: jkl.$spacing-xs;
             margin-bottom: jkl.$spacing-l;
-            max-width: rem(750px);
+            max-width: jkl.rem(750px);
         }
 
         &__links {
@@ -112,7 +109,7 @@
             padding-inline-start: 0;
             column-gap: jkl.$spacing-m;
             row-gap: jkl.$spacing-l;
-            max-width: rem(750px);
+            max-width: jkl.rem(750px);
 
             &--wcag {
                 flex-direction: row;

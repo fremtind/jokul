@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-import React from "react";
 import addDays from "date-fns/addDays";
+import differenceInCalendarMonths from "date-fns/differenceInCalendarMonths";
 import isBefore from "date-fns/isBefore";
 import isToday from "date-fns/isToday";
 import startOfDay from "date-fns/startOfDay";
-import differenceInCalendarMonths from "date-fns/differenceInCalendarMonths";
+import React from "react";
 import { parseDateString } from "../utils";
 
 export function composeEventHandlers(...fns: Array<React.MouseEventHandler | undefined>) {

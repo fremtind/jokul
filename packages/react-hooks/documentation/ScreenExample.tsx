@@ -1,8 +1,8 @@
-import React, { VFC } from "react";
-import { useScreen } from "../src";
+import React, { FC } from "react";
 import { unicode } from "../../constants-util/src";
+import { useScreen } from "../src";
 
-export const ScreenExample: VFC = () => {
+export const ScreenExample: FC = () => {
     const screen = useScreen();
 
     const getDeviceName = () => {

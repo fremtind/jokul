@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.1 (2022-06-07)
+
+### Bug Fixes
+
+-   animer FormErrorMessageBox med useAnimatedHeight ([3ed164f](https://github.com/fremtind/jokul/commit/3ed164fccc1c8c9339a91cb766d288e1d81b8902))
+
+# [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@6.3.14...@fremtind/jkl-message-box-react@7.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
 # 6.3.0 (2022-02-22)
 
 ### Features

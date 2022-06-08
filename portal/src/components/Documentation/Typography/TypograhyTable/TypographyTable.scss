@@ -1,12 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-@import "~@fremtind/jkl-core/functions";
-
 .jkl-typography-table {
     border: 0;
     width: 100%;
-    max-width: rem(768px);
+    max-width: jkl.rem(768px);
 
     &__data,
     &__header {
@@ -14,23 +11,23 @@
         @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
-        border-bottom: rem(1px) solid;
+        border-bottom: jkl.rem(1px) solid;
         box-sizing: border-box;
     }
 
     &__header {
         font-weight: jkl.$typography-weight-bold;
         border-bottom-color: jkl.$color-granitt;
-        min-height: rem(48px);
+        min-height: jkl.rem(48px);
     }
 
     &__data {
         border-bottom-color: jkl.$color-stein;
         padding-bottom: jkl.$spacing-m;
-        min-height: rem(64px);
+        min-height: jkl.rem(64px);
     }
 
-    @include small-device {
+    @include jkl.small-device {
         width: initial;
 
         &__header {
@@ -41,11 +38,11 @@
             display: flex;
             border: none;
             position: relative;
-            margin-left: rem(25px);
-            padding-left: rem(125px);
+            margin-left: jkl.rem(25px);
+            padding-left: jkl.rem(125px);
 
             &:first-child {
-                padding-left: rem(20px);
+                padding-left: jkl.rem(20px);
                 margin-left: 0;
             }
 

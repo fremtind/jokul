@@ -1,13 +1,13 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
-import cn from "classnames";
-import { TextInput } from "@fremtind/jkl-text-input-react";
-import { NativeSelect } from "@fremtind/jkl-select-react";
-import { useCalendar, UseCalendarProps } from "./useCalendar";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./utils";
-import { flushSync } from "react-dom";
-import isBefore from "date-fns/isBefore";
+import { NativeSelect } from "@fremtind/jkl-select-react";
+import { TextInput } from "@fremtind/jkl-text-input-react";
+import cn from "classnames";
 import isAfter from "date-fns/isAfter";
+import isBefore from "date-fns/isBefore";
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
+import { useCalendar, UseCalendarProps } from "./useCalendar";
+import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./utils";
 
 interface CalendarProps
     extends Omit<UseCalendarProps, "date" | "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
@@ -291,6 +291,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             label={yearLabel}
                             type="number"
                             className="jkl-calendar__year-selector"
+                            inputClassName="jkl-calendar__year-selector-input"
                             width="5rem"
                             variant="small"
                             onChange={handleYearChange}
@@ -299,6 +300,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                         />
                         <NativeSelect
                             className="jkl-calendar__month-selector"
+                            selectClassName="jkl-calendar__month-selector-select"
                             label={monthLabel}
                             items={months.map((name: string, i: number) => ({
                                 value: String(i),

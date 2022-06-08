@@ -68,9 +68,7 @@ jobs:
               id: turbo-cache
               with:
                   path: node_modules/.cache/turbo
-                  key: turbo-${{ github.sha }}
-                  restore-keys: |
-                      turbo-
+                  key: turbo-${{ hashFiles('**/package.json') }}
 
             - name: Install dependencies and build packages
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
@@ -102,9 +100,7 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: node_modules/.cache/turbo
-                  key: turbo-${{ github.sha }}
-                  restore-keys: |
-                      turbo-
+                  key: turbo-${{ hashFiles('**/package.json') }}
 
             - name: Install dependencies
               run: yarn ci:install
@@ -141,9 +137,7 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: node_modules/.cache/turbo
-                  key: turbo-${{ github.sha }}
-                  restore-keys: |
-                      turbo-
+                  key: turbo-${{ hashFiles('**/package.json') }}
 
             - name: Calculate which tests to run
               id: parallel
@@ -156,7 +150,7 @@ jobs:
                       portal/**/*.spec.js
 
             - name: Run Cypress
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v4
               with:
                   install-command: yarn ci:install-cypress
                   browser: chrome
@@ -287,7 +281,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
               with:
-                  ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Setup Node
@@ -301,9 +294,7 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: node_modules/.cache/turbo
-                  key: turbo-${{ github.sha }}
-                  restore-keys: |
-                      turbo-
+                  key: turbo-${{ hashFiles('**/package.json') }}
 
             - name: Install dependencies
               run: yarn ci:install

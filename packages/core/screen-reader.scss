@@ -1,9 +1,0 @@
-@import "./mixins/screenreader";
-
-.jkl-sr-only {
-    @include screenreader-only;
-
-    &--focusable {
-        @include screenreader-only-focusable;
-    }
-}

@@ -1,7 +1,7 @@
-import React, { useState, useRef, VFC } from "react";
+import React, { useState, useRef, FC } from "react";
 import { useClickOutside } from "../src";
 
-const ClickOutsideExample: VFC = () => {
+const ClickOutsideExample: FC = () => {
     const [listOfClicksOutside, appendToClickOutsideList] = useState<string[]>([]);
     const [isEnabled, setIsEnabled] = useState(false);
 

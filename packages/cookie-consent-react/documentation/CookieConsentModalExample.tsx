@@ -1,9 +1,9 @@
-import React, { useEffect, useState, FC } from "react";
 import { TertiaryButton } from "@fremtind/jkl-button-react";
-import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
+import React, { useEffect, useState, FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { setConsentCookie } from "../src/cookieConsentUtils";
+import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { useCookieConsentState } from "../src/CookieConsentContext";
+import { setConsentCookie } from "../src/cookieConsentUtils";
 
 function clearConsentCookie() {
     setConsentCookie(

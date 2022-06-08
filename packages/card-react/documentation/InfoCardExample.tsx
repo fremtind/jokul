@@ -1,15 +1,13 @@
-import { ExampleComponentProps } from "doc-utils";
-import React from "react";
 import { unicode } from "@fremtind/jkl-constants-util";
-
+import React from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoCard } from "../src/InfoCard";
 import { mixedPadding } from "./cardExampleProps";
-
-import carThumbnail from "./img/car-thumbnail.jpg";
-import car400 from "./img/car-400.jpg";
-import car800 from "./img/car-800.jpg";
 import car1200 from "./img/car-1200.jpg";
 import car1500 from "./img/car-1500.jpg";
+import car400 from "./img/car-400.jpg";
+import car800 from "./img/car-800.jpg";
+import carThumbnail from "./img/car-thumbnail.jpg";
 import "./info-card-example.scss";
 
 const imageProps = {
@@ -48,7 +46,7 @@ export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleCompone
 
     return `<InfoCard
     padding=${padding}
-    ${title}${image} 
+    ${title}${image}
 >
     <p className="jkl-body">Har du tre eller flere forsikringer får du samlerabatt</p>
 </InfoCard>`;

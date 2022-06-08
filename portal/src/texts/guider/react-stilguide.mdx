@@ -1,0 +1,94 @@
+---
+title: Hvordan skrive React i Jøkul
+path: /guider/react
+order: 21
+---
+
+# Stilguide for React
+
+<Ingress>Lurer du på hvordan du skal begynne med React-kode i Jøkul?</Ingress>
+
+## Funksjonelle komponenter
+
+Vi skriver funksjonelle komponenter med [hooks](https://reactjs.org/docs/hooks-intro.html), ikke _class components_. Hver komponent skrives som regel i sin egen fil, med noen få unntak.
+
+### Props eller _composite components_?
+
+Når man lager komplekse komponenter vil man måtte vurdere om det er riktig med én komponent som tar inn mange props, eller om man skal bryte opp i flere komponenter.
+
+Det vil variere fra gang til gang hva som gir mening. Som regel vil det å bryte opp i flere komponenter gi en _større fleksibilitet_, men det gjør også at komponenten får _mindre kontroll_.
+
+Hvis du er usikker, foretrekk én komponent med props.
+
+#### Kontroll versus fleksibilitet
+
+Det er for eksempel enklere for en skjemakomponent å sørge for at en utvikler gir en `label` dersom dette er en _prop_, i stedet for at vi har en egen `<Label>`-komponent som kanskje eller kanskje ikke blir brukt.
+
+#### Props enklere å oppdage
+
+Med et moderne uvtiklingsverktøy vil _props_ ofte dukke opp i editoren til utviklere og hjelpe med å oppdage og bruke features i komponenten. Hverken verktøy eller utviklere kan bruke komponenter de ikke vet finnes.
+
+### Context over drilling
+
+I pakker hvor vi har flere komponenter som jobber sammen, for eksempel i [packages/table](https://github.com/fremtind/jokul/tree/main/packages/table), kan det skje at en _parent component_ ønsker å sette props på noen av sine _children_. I disse tilfellene skal det brukes [Context](https://reactjs.org/docs/context.html).
+
+Det **skal ikke** finnes props i en komponent sin typedefinisjon som settes automatisk av en annen komponent over den i komponenttreet. Dette er for å unngå forvirring hvor en utvikler setter en sånn prop til noe i sin kode, men opplever at den overskrives av Jøkul.
+
+### Typedefinisjoner
+
+I Jøkul bruker vi TypeScript for å kode komponenter og støtteverktøy. Alle komponenter og funksjoner skal være typet.
+
+Komponenter sine props skal være definert som et `interface`. Interfacenavnet er etter mønsteret `KomponentnavnProps`.
+
+Interfacet skal eksporteres, så det er tilgjengelig for brukerne av komponenten. Eventuelle egne typer skal også eksporteres. Alle typer starter med stor forbokstav.
+
+```tsx
+export type LoaderVariant = "small" | "medium" | "large";
+
+export interface LoaderProps {
+    className?: string;
+    variant?: LoaderVariant;
+    textDescription: string;
+    /* ... */
+}
+
+/* ... */
+
+export const Loader = (props: LoaderProps): JSX.Element  => (
+  /* ... */
+);
+```
+
+### Eksporter fra pakkens index
+
+Alle komponenter og typer skal eksporteres fra pakkens `main`, typisk `index.ts` på rotnivå i pakken.
+
+```ts
+export type { DataTableProps } from "./DataTable";
+export { DataTable } from "./DataTable";
+export type { TableProps } from "./Table";
+export { Table } from "./Table";
+/* Og så videre */
+```
+
+## Tester
+
+Komponenter skal ha enhetstester skrevet i Jest. Testene bør minst dekke _happy path_ slik at vi kan fange opp eventuelle regresjoner.
+
+Minst én av testene må være for å sjekke etter mangler rundt universell utforming med [jest-axe](https://github.com/nickcolley/jest-axe#readme). Husk at det kan være UU-mangler selv om `axe` ikke finner feil – verktøyet fanger opp langt fra alt, og tester _bare_ øyeblikkstilstanden til komponenten. Om komponenten har flere states, gjør en `axe`-test per state.
+
+Til slutt må komponenten ha en visuell regresjonstest. Til det bruker vi Cypress. Cypress-testen bruker det samme eksempelet som vises i portalen, og det bør være en test for hver mulige tilstand i eksempelet. Se på eksisterende tester (alle filnavnene slutter på `.spec.js`) for inspirasjon.
+
+## Dokumentasjon
+
+Dokumentasjonen for portalen hentes fra de ulike pakkene. Alle React-pakker har en `documentation`-mappe hvor det typisk ligger en `Komponentnavn.mdx`-fil, sammen med én elle flere `KomponentnavnExample.tsx`-filer. Når du lager dokumentasjon lønner det seg å kjøre en utviklingsversjon av hele portalen, altså kjøre `yarn dev` fra rotnivå av Jøkul-prosjektet.
+
+Minstekrav til dokumentasjon i portalen er:
+
+-   Kort ingress med komponentens formål
+-   Et interaktivt eksempel rett under ingressen
+-   Beskrive noen prinsipper for riktig og feil bruk
+-   Kodeeksempel som oppdaterer seg etter valgene som er gjort i eksempelet (`knobs`)
+-   React-props dokumentert i bunnen av siden (dette bygges automatisk fra typedefinisjonene)
+
+Se på eksisterende komponentsider for inspirasjon.

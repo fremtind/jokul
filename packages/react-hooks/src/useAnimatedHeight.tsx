@@ -1,6 +1,6 @@
-import { MutableRefObject, useEffect, useRef, RefObject, useCallback } from "react";
 import type { Easing, Timing } from "@fremtind/jkl-core";
 import { easings, timings } from "@fremtind/jkl-core";
+import { MutableRefObject, useEffect, useRef, RefObject, useCallback } from "react";
 import { useBrowserPreferences } from "./useBrowserPreferences/useBrowserPreferences";
 import { usePreviousValue } from "./usePreviousValue/usePreviousValue";
 
@@ -75,15 +75,15 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 // Første render eller rerender med isOpen false
                 return;
             }
+        } else if (isOpen && wasOpen) {
+            // Re-render etter å ha vært lukket, men forblitt åpen.
+            return;
         }
 
         options?.onTransitionStart?.(isOpen);
 
         if (prefersReducedMotion) {
-            const element = getElement(elementRef);
-            if (element) {
-                element.removeAttribute("style");
-            }
+            element.removeAttribute("style");
             if (isOpen) {
                 options?.onFirstVisible?.();
             }

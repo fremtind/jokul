@@ -1,6 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
-
 import { Autosuggest, AutosuggestProps } from "./Autosuggest";
 
 const renderMount = (props?: Partial<AutosuggestProps>) =>
@@ -21,7 +20,8 @@ const renderMount = (props?: Partial<AutosuggestProps>) =>
                 "Bhutan",
             ]}
             value=""
-            {...(props as unknown)}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...(props as any)}
         />,
     );
 

@@ -1,8 +1,8 @@
-import React, { VFC, useState } from "react";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import React, { FC, useState } from "react";
 import "./TypographyTable.scss";
-import { TableHeader } from "./TableHeader";
 import { ExampleRow, TypographyLevels } from "./ExampleRow";
+import { TableHeader } from "./TableHeader";
 
 const levels: TypographyLevels[] = [
     "Title",
@@ -16,15 +16,15 @@ const levels: TypographyLevels[] = [
     "Small",
 ];
 
-export const TypographyExample: VFC = () => {
-    const [isCompact, setIsCompact] = useState(false);
-    const toggleCompact = () => setIsCompact(!isCompact);
+export const TypographyExample: FC = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    const toggleMobile = () => setIsMobile(!isMobile);
 
     return (
         <>
             <table
                 className="jkl-typography-table jkl-spacing-xl--top"
-                {...(isCompact ? { "data-compactlayout": true } : {})}
+                {...(isMobile ? { "data-compactlayout": true } : {})}
             >
                 <TableHeader />
                 <tbody>
@@ -33,8 +33,8 @@ export const TypographyExample: VFC = () => {
                     ))}
                 </tbody>
             </table>
-            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isCompact} onClick={toggleCompact}>
-                Kompakt
+            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isMobile} onClick={toggleMobile}>
+                Mobil
             </ToggleSwitch>
         </>
     );

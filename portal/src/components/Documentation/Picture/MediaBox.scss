@@ -1,14 +1,11 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@import "~@fremtind/jkl-core/mixins/_all";
-
-:root,
-[data-theme="light"] {
+@include jkl.light-mode-variables {
     --media-bg: #{jkl.$color-snohvit};
     --media-text-color: #{jkl.$color-granitt};
 }
 
-[data-theme="dark"] {
+@include jkl.dark-mode-variables {
     --media-bg: #{jkl.$color-granitt};
     --media-text-color: #{jkl.$color-snohvit};
 }
@@ -25,7 +22,7 @@
 
     &__media {
         margin-left: 30%;
-        @include motion("standard", "lazy");
+        @include jkl.motion("standard", "lazy");
         transition-property: opacity, transform;
         opacity: 0;
         transform: scale(0.95);

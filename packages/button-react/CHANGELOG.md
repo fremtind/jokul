@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@11.0.1...@fremtind/jkl-button-react@11.0.2) (2022-06-08)
+
+### Bug Fixes
+
+-   rett opp de siste gamle internavhengighetene ([ba82a0e](https://github.com/fremtind/jokul/commit/ba82a0ee6cdccf20e41924e09f6949bf4e2bdd47))
+
+# [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@10.1.12...@fremtind/jkl-button-react@11.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
 ## 10.1.10 (2022-05-06)
 
 ### Bug Fixes

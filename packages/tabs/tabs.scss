@@ -1,18 +1,17 @@
 @use "~@fremtind/jkl-core/jkl";
-@import "~@fremtind/jkl-core/mixins/_all";
 
-@include jkl.helper-light-mode-variables {
-    --tab-text-color: #{jkl.$color-granitt};
-    --tab-indicator-color: #{jkl.$color-granitt};
-    --tab-hover-color: #{jkl.$color-stein};
-    --tab-focus-border-color: #{jkl.$color-granitt};
+@include jkl.light-mode-variables {
+    --jkl-tab-text-color: #{jkl.$color-granitt};
+    --jkl-tab-indicator-color: #{jkl.$color-granitt};
+    --jkl-tab-hover-color: #{jkl.$color-stein};
+    --jkl-tab-focus-border-color: #{jkl.$color-granitt};
 }
 
-@include jkl.helper-dark-mode-variables {
-    --tab-text-color: #{jkl.$color-snohvit};
-    --tab-indicator-color: #{jkl.$color-snohvit};
-    --tab-hover-color: #{jkl.$color-svaberg};
-    --tab-focus-border-color: #{jkl.$color-snohvit};
+@include jkl.dark-mode-variables {
+    --jkl-tab-text-color: #{jkl.$color-snohvit};
+    --jkl-tab-indicator-color: #{jkl.$color-snohvit};
+    --jkl-tab-hover-color: #{jkl.$color-svaberg};
+    --jkl-tab-focus-border-color: #{jkl.$color-snohvit};
 }
 
 .jkl-tablist {
@@ -27,17 +26,17 @@
     &__indicator {
         position: absolute;
         height: 2px;
-        background-color: var(--tab-indicator-color);
-        @include motion("standard", "lazy");
+        background-color: var(--jkl-tab-indicator-color);
+        @include jkl.motion("standard", "lazy");
         transition-property: left, width;
         will-change: left, width;
 
-        @include jkl.helper-forced-colors-mode {
+        @include jkl.forced-colors-mode {
             background-color: Highlight;
         }
     }
 
-    @include jkl.helper-forced-colors-mode {
+    @include jkl.forced-colors-mode {
         border-color: GrayText;
     }
 }
@@ -49,18 +48,18 @@
     padding: jkl.$spacing-xs jkl.$spacing-3xs;
     padding-right: jkl.$spacing-xl;
     cursor: pointer;
-    color: var(--tab-text-color);
+    color: var(--jkl-tab-text-color);
 
     &:hover {
-        color: var(--tab-hover-color);
+        color: var(--jkl-tab-hover-color);
     }
 
     &:focus-visible {
-        outline: var(--tab-focus-border-color) solid 2px;
+        outline: var(--jkl-tab-focus-border-color) solid 2px;
         outline-offset: -1px;
     }
 
     &[aria-selected="true"] {
-        @include no-grow-bold;
+        @include jkl.no-grow-bold;
     }
 }

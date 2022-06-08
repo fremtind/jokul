@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { IconButton, IconVariant } from "../src";
 
@@ -16,7 +16,7 @@ function onClick() {
     console.log("Button Clicked!");
 }
 
-export const IconButtonExample: VFC<ExampleComponentProps> = ({ choiceValues }) => {
+export const IconButtonExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues && (choiceValues["Variant"] as IconVariant);
 
     return (

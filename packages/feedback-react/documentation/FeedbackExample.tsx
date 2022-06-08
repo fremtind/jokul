@@ -1,6 +1,5 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-
 import { Feedback, PRESETS } from "../src";
 import { FollowupQuestion } from "../src/types";
 
@@ -42,7 +41,7 @@ const contactQuestion = {
     onSubmit: console.info,
 };
 
-export const FeedbackExample: VFC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const FeedbackExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const followup = boolValues?.["Med oppfølgings-spørsmål"]
         ? {
               onSubmit: console.log,

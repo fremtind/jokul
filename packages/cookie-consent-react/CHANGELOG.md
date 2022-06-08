@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@6.0.1...@fremtind/jkl-cookie-consent-react@6.0.2) (2022-06-08)
+
+### Bug Fixes
+
+-   lukk modalen i teardown ([cbd408a](https://github.com/fremtind/jokul/commit/cbd408a9360454ce23149c0dcbf3499d9cd40c13))
+
+# [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@5.1.35...@fremtind/jkl-cookie-consent-react@6.0.0) (2022-06-07)
+
+### chore
+
+-   fiks lintfeil ([4093d2a](https://github.com/fremtind/jokul/commit/4093d2a2ae7bbe0d30de882b9f5d144e8e77cede))
+
+### BREAKING CHANGES
+
+-   Pakken avhenger av en breaking versjon av core
+
 ## 5.1.28 (2022-04-08)
 
 ### Bug Fixes

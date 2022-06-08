@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.2 (2022-06-08)
+
+### Bug Fixes
+
+-   rett opp de siste gamle internavhengighetene ([ba82a0e](https://github.com/fremtind/jokul/commit/ba82a0ee6cdccf20e41924e09f6949bf4e2bdd47))
+
+## [2.3.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@2.0.10...@fremtind/jkl-formatters-util@2.3.1) (2022-06-07)
+
+### Bug Fixes
+
+-   lintfeil i constants formatters og hooks ([7385058](https://github.com/fremtind/jokul/commit/738505863844b9ec6a4bd24957aa24e714dae06f))
+-   merk core som dev-dependency i formatters ([4502012](https://github.com/fremtind/jokul/commit/450201278b702480c807440acfbc05ee3e8375dc))
+
 # [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@2.2.1...@fremtind/jkl-formatters-util@2.3.0) (2022-06-02)
 
 ### Features

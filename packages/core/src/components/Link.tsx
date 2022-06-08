@@ -1,5 +1,5 @@
-import React, { AnchorHTMLAttributes, FC } from "react";
 import cn from "classnames";
+import React, { AnchorHTMLAttributes, FC } from "react";
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
     external?: boolean;

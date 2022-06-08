@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.1 (2022-06-07)
+
+### Bug Fixes
+
+-   ikke animer åpen om vi rerendrer i samme state ([a6c19ed](https://github.com/fremtind/jokul/commit/a6c19ed61d68056cfd7cfd6494d5183690138f84))
+
+# [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.2.3...@fremtind/jkl-react-hooks@9.0.0) (2022-06-07)
+
+### Bug Fixes
+
+-   lintfeil i constants formatters og hooks ([7385058](https://github.com/fremtind/jokul/commit/738505863844b9ec6a4bd24957aa24e714dae06f))
+
+### Code Refactoring
+
+-   oppdater til nyeste core ([1db381f](https://github.com/fremtind/jokul/commit/1db381fdc0d3f1c35818d2feec49977331cd2fad))
+-   skriv og følg stilguiden for Sass i Jøkul ([1cc52a4](https://github.com/fremtind/jokul/commit/1cc52a4dea6af592ed48c45b38bc4fee07a749ae))
+
+### BREAKING CHANGES
+
+-   Sass-variabler, mixins og CSS-animasjoner fra pakker annet enn core er gjort private
+-   Avhenger av ny majorversjon av core
+
 ## [8.2.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@8.2.4...@fremtind/jkl-react-hooks@8.2.5) (2022-06-02)
 
 ### Bug Fixes

@@ -1,0 +1,115 @@
+---
+title: Jøkul Core versjon 10
+author: William Killerud
+publishDate: "2022.06.07"
+---
+
+<Ingress>
+    <code>@fremtind/jkl-core</code> og pakkene som bruker den har fått en ny majorversjon. Her er en oppsummering av hva
+    som har endret seg, hvordan du kan sjekke om du blir påvirket, og noen tips for å gjøre oppgraderingen enklere.
+</Ingress>
+
+Kjerneteamet har tatt en skikkelig vårrengjøring av Sass-kodebasen. Det har blant annet resultert i en ny [Stilguide for Sass](/guider/sass). Vårrengjøringen sørger for at Jøkul er klar for fjerningen av den gamle `@import`-syntaksen i Sass, og at Sass-koden har et tydelig dokumentert API.
+
+Endringene i denne versjonen, kort oppsummert:
+
+-   ✨ _Alle_ variabler, mixins og funksjoner i `core` er tilgjengelige via `@fremtind/jkl-core/jkl`.
+-   🛑 Mixins som har hatt prefixet `helper-` har fått dette fjernet.
+-   🛑 Variabler, funksjoner og mixins fra pakker _annet enn `core`_ er gjort private.
+-   🛑 CSS-animasjoner er gjort private. [Rop ut](https://github.com/fremtind/jokul/discussions) om du brukte dem, så kan vi finne på noe lurt sammen.
+-   🛑 CSS-variabler som manglet `jkl-` prefix har nå fått dette. Legg til prefix om du brukte dem.
+-   🛑 `jkl-motion`-funksjonen (_ikke_ mixinen `motion`) er renamet til `easing`.
+-   🛑 `jkl-timing`-funksjonen er renamet til `timing`.
+-   🛑 `$jkl--timings` og `$jkl--easings` er fjernet. Bruk `jkl.timing("timing-navn")` og `jkl.easing("easing-navn")` for å slå opp verdier.
+-   📚 Alle funksjoner og mixins i core har blitt dokumentert med SassDoc.
+-   👷‍♂️ Ny Sass modulsyntaks brukt internt.
+
+Se [Hvordan forenkle migreringen](#hvordan-forenkle-migreringen) for noen tips og triks til når du skal oppgradere.
+
+## Ikke breaking for alle
+
+Denne versjonen gjør bare navneendringer i Sass-kode, CSS-variabler, og CSS-animasjoner.
+
+Hvis du:
+
+-   bare importerer CSS eller Sass-_stilark_ (for eksempel `@fremtind/jkl-core/core`)
+-   ikke bruker CSS-variabler fra Jøkul i egen kode
+-   ikke bruker CSS-animasjoner fra Jøkul i egen kode
+
+så er det _ingen breaking change_ for deg og du kan bare oppgradere 🥳
+
+## Alle mixins, variabler, og funksjoner tilgjengelige via `jkl`
+
+Dette skal være alt du trenger fra nå for å bruke mixins, funksjoner og variabler fra Jøkul:
+
+```scss
+@use "@fremtind/jkl-core/jkl";
+```
+
+Har du egne `@use` for mixins, funksjoner eller variabler så bør disse fjernes. **Bare `@use "@fremtind/jkl-core/jkl";` er ansett som et stabilt API.**
+
+**NB:** du må fremdeles hente _styles_ separat. Dette gjør du typisk én gang der du bygger opp stylesheeten din med alle avhengigheter.
+
+```scss
+@use "@fremtind/jkl-core/core";
+```
+
+## Hvordan forenkle migreringen
+
+Basert på erfaringen med å migrere internt i Jøkul:
+
+-   Begynn med å fjerne alt av `@import` og erstatt med én `@use "@fremtind/jkl-core/jkl";`
+-   Bruk _search and replace_ for alt det er verdt:
+    -   `helper-` erstattes av tom string (prefikset brukes ikke lenger i Jøkul)
+    -   ` rem(` erstattes av ` jkl.rem(`
+    -   `#{rem` erstattes av `#{jkl.rem`
+    -   `@include light-mode-variables` erstattes av `@include jkl.light-mode-variables`
+    -   `@include dark-mode-variables` erstattes av `@include jkl.dark-mode-variables`
+    -   `@include motion` erstattes av `@include jkl.motion`
+    -   `@include text-style` erstattes av `@include jkl.text-style`
+    -   `@include screenreader-only` erstattes av `@include jkl.screenreader-only`
+    -   `@include no-grow-bold` erstattes av `@include jkl.no-grow-bold`
+    -   `@include small-device` erstattes av `@include jkl.small-device`
+    -   `@include medium-device` erstattes av `@include jkl.medium-device`
+    -   `@include from-medium-device` erstattes av `@include jkl.from-medium-device`
+    -   `@include large-device` erstattes av `@include jkl.large-device`
+    -   `@include from-large-device` erstattes av `@include jkl.from-large-device`
+    -   `@include xl-device` erstattes av `@include jkl.xl-device`
+    -   `@include reset-outline` erstattes av `@include jkl.reset-outline`
+    -   `@include keyboard-navigation` erstattes av `@include jkl.keyboard-navigation`
+
+**NB**: Det at Sass kompilerer betyr _ikke_ at alt er i orden. Særlig funksjonskall som `rem()` kan behandles som _strings_ hvis funksjonen ikke blir funnet. Da ender du opp med CSS som ser ut som `font-size: rem(20px);` sendt rett til nettleseren, som ikke funker. Vær ekstra nøye med funksjoner, og test i en nettleser.
+
+## Navneendringer
+
+Funksjonen `jkl-motion` har fått navnet `easing` for å skille den fra `motion`-mixinen og unngå "dobbel Jøkul" i navnet ved bruk av ny modulsyntaks.
+
+Funksjonen `jkl-timing` er nå bare `timing` for å unngå "dobbel Jøkul" i navnet ved bruk av ny modulsyntaks.
+
+Hvis du har brukt `$jkl--timings` eller `$jkl--easings` direkte for å hente verdier, bruk funksjonene over i stedet.
+
+CSS-variabler som blir definert i Jøkul har nå alltid et `jkl-` prefix. Dette manglet en del steder (se commitene for fullstendig oversikt: [prefix](https://github.com/fremtind/jokul/pull/2868/commits/500ee0e1050de94d8cda07fb423c33837fbf2faa), [namespacing](https://github.com/fremtind/jokul/pull/2868/commits/83fea35f6076ba908378cbc3c834de559e83c1d5)), så hvis du har egen kode som leser eller overstyrer disse variablene må du legge til dette prefixet også.
+
+## Modulsyntaks
+
+Med denne releasen tar Jøkul i bruk Sass Modules (`@use` og `@forward`). Det **anbefales sterkt** at prosjektet ditt går over til den samme modulsyntaksen om dere ikke bruker den allerede, men det vil fungere å `@import`ere som før i en periode.
+
+Den gamle `@import`-syntaksen til Sass "frigjøres" til å bli en helt vanlig CSS-import. Med andre ord vil `@import` på sikt slutte å fungere som før. Det er planlagt at [Sass sin støtte for `@import` for å importere Sass fjernes senest 1. oktober 2022](https://github.com/sass/sass/blob/main/accepted/module-system.md#timeline).
+
+Grunnen til at den nye syntaksen ikke er en _drop-in replacement_ [kan du lese mer om i for eksempel denne bloggposten](https://www.oddbird.net/2019/10/02/sass-modules/). Kort fortalt:
+
+-   alle importer blir eksplisitte – vi får ikke lenger uventede variabler, mixins og funksjoner "med på kjøpet"
+-   alle moduler namespaces, så vi unngår navnekolisjoner
+-   private variabler, funksjoner og mixins blir en feature støttet av selve rammeverket, ikke bare gjennom konvensjoner som `_`-prefix
+
+Om du foretrekker video er [denne YouTube-gjennomgangen](https://www.youtube.com/watch?v=dOnYNEXv9BM) fin.
+
+## SassDoc
+
+Funksjoner, mixins, og en del variabler i `core` er dokumentert med [SassDoc](http://sassdoc.com/annotations/). Hvis du bruker extensionen [Some Sass](https://marketplace.visualstudio.com/items?itemName=SomewhatStationery.some-sass) (erstatter SCSS IntelliSense) kan du få denne dokumentasjonen opp i editoren.
+
+<PortalImage
+    loading="lazy"
+    src="/assets/blog/updates/core-10/core-10-sassdoc-demo.gif"
+    caption="Her er et eksempel på hvordan det kan se ut med SassDoc i Visual Studio Code."
+/>

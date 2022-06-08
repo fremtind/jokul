@@ -1,13 +1,15 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/mixins/_all.scss" as mixins;
 
-@include jkl.helper-light-mode-variables {
+$_sweep-animation-name: jkl-sweep-#{string.unique-id()};
+$_blink-animation-name: jkl-blink-#{string.unique-id()};
+
+@include jkl.light-mode-variables {
     --jkl-skeleton-element-color: #{jkl.$color-varde};
     --jkl-skeleton-sweeper-color: #{jkl.$color-snohvit};
 }
 
-@include jkl.helper-dark-mode-variables {
+@include jkl.dark-mode-variables {
     --jkl-skeleton-element-color: #{jkl.$color-stein};
     --jkl-skeleton-sweeper-color: #{jkl.$color-granitt};
 }
@@ -30,20 +32,20 @@
             var(--jkl-skeleton-sweeper-color) 50.09%,
             rgb(249 249 249 / 0%) 96.31%
         );
-        animation: var(--jkl-skeleton-sweep-duration) ease infinite jkl-skeleton-sweep;
+        animation: var(--jkl-skeleton-sweep-duration) ease infinite $_sweep-animation-name;
     }
 
-    @include mixins.small-device {
+    @include jkl.small-device {
         width: jkl.rem(150px);
     }
 
-    @include mixins.prefers-reduced-motion {
+    @include jkl.prefers-reduced-motion {
         &::after {
             background: none; // Skjul gradienten som nå ikke beveger seg
         }
     }
 
-    @include mixins.forced-colors-mode {
+    @include jkl.forced-colors-mode {
         &::after {
             // Vi kan ikke bruke "gradient-trikset" for å skape den samme effekten,
             // så vi må tenke annerledes. Bruk gjennomsiktighet for å indikere at
@@ -64,12 +66,12 @@
         border-radius: 50%;
     }
 
-    @include mixins.forced-colors-mode {
+    @include jkl.forced-colors-mode {
         border: 1px solid CanvasText;
         // Vi kan ikke bruke "gradient-trikset" for å skape den samme effekten,
         // så vi må tenke annerledes. Bruk gjennomsiktighet for å indikere at
         // noe skjer.
-        animation: 2s ease infinite jkl-skeleton-blink;
+        animation: 2s ease infinite $_blink-animation-name;
     }
 }
 
@@ -85,7 +87,7 @@
         gap: jkl.$spacing-xs;
     }
 
-    @include mixins.small-device {
+    @include jkl.small-device {
         gap: jkl.$spacing-xs;
     }
 
@@ -114,7 +116,7 @@
         padding: jkl.$spacing-m jkl.$spacing-xs;
     }
 
-    @include mixins.small-device {
+    @include jkl.small-device {
         &__header {
             padding: jkl.$spacing-xs jkl.$spacing-2xs;
         }
@@ -134,15 +136,15 @@
         }
     }
 
-    @include mixins.forced-colors-mode {
+    @include jkl.forced-colors-mode {
         // Vi kan ikke bruke "gradient-trikset" for å skape den samme effekten,
         // så vi må tenke annerledes. Bruk gjennomsiktighet for å indikere at
         // noe skjer.
-        animation: 2s ease-in-out infinite jkl-skeleton-blink;
+        animation: 2s ease-in-out infinite $_blink-animation-name;
     }
 }
 
-@keyframes jkl-skeleton-sweep {
+@keyframes #{$_sweep-animation-name} {
     0% {
         transform: translateX(calc(0vw - 200px));
     }
@@ -153,7 +155,7 @@
     }
 }
 
-@keyframes jkl-skeleton-blink {
+@keyframes #{$_blink-animation-name} {
     0% {
         opacity: 1;
     }
