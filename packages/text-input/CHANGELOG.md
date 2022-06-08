@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@8.0.1...@fremtind/jkl-text-input@8.0.2) (2022-06-08)
+
+### Bug Fixes
+
+-   skjul native knapper for type=number ([c57bda4](https://github.com/fremtind/jokul/commit/c57bda4a7920c84bcfcc56653d0566076a70080d)), closes [#2879](https://github.com/fremtind/jokul/issues/2879)
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@7.0.16...@fremtind/jkl-text-input@8.0.0) (2022-06-07)
 
 ### Code Refactoring
