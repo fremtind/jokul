@@ -37,6 +37,7 @@ function config(plugins) {
             "nanoid",
             "date-fns",
             "classnames",
+            "react-a11y-dialog",
             /@babel\/runtime/,
             ...allFremtindPackagesNames,
         ],
