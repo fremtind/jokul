@@ -80,14 +80,14 @@ const JobbMedKjerneteamet: FC = () => (
         </UnorderedList>
         <Grid className="jkl-portal-paragraph">
             <NavCard
-                href="https://github.com/fremtind/jokul"
+                href="mailto:fremtind.designsystem@fremtind.no?subject=Samskap"
                 title="Jobb med kjerneteamet"
-                description="Vi samler koden og dokumentasjonen vår på GitHub som åpen kildekode."
+                description="Bli med på å gjøre Jøkul bedre for deg selv – og for andre."
             />
             <NavCard
                 href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0"
                 title="Trenger du support?"
-                description="Komponentene, fargene og typografi-skalaen vår er tilgjengelig i Figma."
+                description="Spør om alt du måtte lure på av designsystem-relatert. Bruk, bugs eller annet smått og kort."
             />
         </Grid>
         <HeadingLarge>Ikke vær redd for å kontakte oss</HeadingLarge>
