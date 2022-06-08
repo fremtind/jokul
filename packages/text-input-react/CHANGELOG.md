@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@10.0.2...@fremtind/jkl-text-input-react@10.0.3) (2022-06-08)
+
+### Bug Fixes
+
+-   legg til støtte for type=search ([790c8dc](https://github.com/fremtind/jokul/commit/790c8dca4d42297bf48b611ae1ff054ba40de676)), closes [#2508](https://github.com/fremtind/jokul/issues/2508)
+
 ## 10.0.1 (2022-06-07)
 
 ### Bug Fixes
