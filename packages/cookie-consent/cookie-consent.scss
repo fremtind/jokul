@@ -1,47 +1,59 @@
 @use "~@fremtind/jkl-core/jkl";
 
-.jkl-cookie-consent-modal + backdrop {
-    position: fixed;
-    background: rgb(0 0 0 / 30%);
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: 0.2s;
-    z-index: jkl.$z-index--modal !important;
-}
-
-.jkl-cookie-consent-modal[hidden],
-.jkl-cookie-consent-modal + backdrop[hidden] {
-    pointer-events: none;
-    visibility: hidden;
-    display: block;
-    opacity: 0;
-}
+$_card-corner-radius: jkl.rem(2px);
+$_container-width: jkl.rem(660px);
+$_container-width--compact: jkl.rem(320px);
 
 .jkl-cookie-consent-modal {
-    z-index: jkl.$z-index--floating !important;
-    position: fixed;
-    margin: auto;
-    top: 10%;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-sizing: border-box;
-    left: 0;
-    right: 0;
-    width: 100%;
-    padding: jkl.$spacing-xl jkl.$spacing-xl jkl.rem(30px) jkl.$spacing-xl;
-    min-width: jkl.rem(320px);
-    max-width: jkl.rem(660px);
-    background-color: var(--jkl-background-color);
-    box-shadow: jkl.$drop-shadow--large;
-    transition: 0.2s;
+    &[aria-hidden="true"] {
+        display: none;
+    }
+
+    & > .jkl-cookie-consent-modal__overlay {
+        position: fixed;
+        background: rgb(0 0 0 / 30%);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: 0.2s;
+        z-index: jkl.$z-index--modal !important;
+    }
+
+    &__content {
+        @include jkl.text-style("body");
+        z-index: jkl.$z-index--floating !important;
+        position: fixed;
+        margin: auto;
+        top: 10%;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-sizing: border-box;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: jkl.$spacing-xl jkl.$spacing-xl jkl.rem(30px) jkl.$spacing-xl;
+        min-width: $_container-width--compact;
+        max-width: $_container-width;
+        background-color: var(--jkl-background-color);
+        box-shadow: jkl.$drop-shadow--large;
+        transition: 0.2s;
+
+        @include jkl.small-device {
+            top: jkl.$spacing-xl;
+            margin: jkl.$spacing-l;
+            max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});
+            padding: jkl.$spacing-l;
+        }
+
+        @include jkl.forced-colors-mode {
+            border: 2px solid CanvasText;
+        }
+    }
 
     &__checklist {
         margin-bottom: jkl.$spacing-m;
     }
-
-    @include jkl.text-style("body");
 
     &__info-text {
         @include jkl.text-style("small");
@@ -63,16 +75,5 @@
         & > :not(:first-child) {
             margin-left: jkl.$spacing-l;
         }
-    }
-
-    @include jkl.small-device {
-        top: jkl.$spacing-xl;
-        margin: jkl.$spacing-l;
-        max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});
-        padding: jkl.$spacing-l;
-    }
-
-    @include jkl.forced-colors-mode {
-        border: 2px solid CanvasText;
     }
 }

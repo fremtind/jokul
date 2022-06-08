@@ -5,7 +5,11 @@ react: cookie-consent-react
 group: annet
 ---
 
-import { Blocking, blockingExampleCode } from "./Blocking";
+import {
+    CookieConsentModalExample,
+    cookieConsentModalExampleKnobs,
+    cookieConsentModalExampleCode,
+} from "./CookieConsentModalExample";
 
 <Ingress>
     Informasjonskapselsamtykke informerer om bruken av informasjonskapsler på nettstedet og lar brukeren velge bort de
@@ -14,9 +18,9 @@ import { Blocking, blockingExampleCode } from "./Blocking";
 
 <ComponentExample
     title="CookieConsent"
-    component={Blocking}
-    knobs={{ boolProps: ["Functional", "Statistics", "Marketing"] }}
-    codeExample={blockingExampleCode}
+    component={CookieConsentModalExample}
+    knobs={cookieConsentModalExampleKnobs}
+    codeExample={cookieConsentModalExampleCode}
 />
 
 Vi anser det som at informasjonskapsler kan deles opp i 3 formål, med hver sine hensikter og lovverk:

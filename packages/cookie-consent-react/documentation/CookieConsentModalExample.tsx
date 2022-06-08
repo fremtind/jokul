@@ -1,6 +1,6 @@
 import { TertiaryButton } from "@fremtind/jkl-button-react";
 import React, { useEffect, useState, FC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { useCookieConsentState } from "../src/CookieConsentContext";
 import { setConsentCookie } from "../src/cookieConsentUtils";
@@ -50,7 +50,11 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
     );
 };
 
-export const Blocking: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Functional", "Statistics", "Marketing"],
+};
+
+export const CookieConsentModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
         setHasMounted(true);
@@ -79,7 +83,7 @@ export const Blocking: FC<ExampleComponentProps> = ({ boolValues }) => {
     );
 };
 
-export const blockingExampleCode: CodeExample = ({ boolValues }) => `
+export const cookieConsentModalExampleCode: CodeExample = ({ boolValues }) => `
 const Example = () => {
     const { openConsentModalWithSettings } = useCookieConsent();
     return (

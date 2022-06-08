@@ -8,7 +8,9 @@ describe("Cookie Consent", () => {
     });
 
     it("works and looks as expected", () => {
-        cy.takeSnapshots();
+        cy.takeSnapshots({
+            skipDarkMode: true,
+        });
 
         cy.getByTestid("trigger-cookie-consent").first().click();
         cy.getByTestid("jkl-cookie-consent-godta").should("be.visible");
@@ -17,7 +19,8 @@ describe("Cookie Consent", () => {
         cy.getByTestid("jkl-cookie-consent-godta").should("not.be.visible");
 
         cy.takeSnapshots({
-            customSelector: () => cy.get(".jkl-cookie-consent-modal"),
+            skipDarkMode: true,
+            customSelector: () => cy.get(".jkl-cookie-consent-modal__content"),
             setup: () => {
                 cy.clearCookies();
                 cy.getByTestid("trigger-cookie-consent").first().click();

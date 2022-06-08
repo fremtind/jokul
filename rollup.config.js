@@ -28,7 +28,7 @@ function config(plugins) {
 
         plugins: plugins,
         // Fremtind packages are marked as internal so that packages that depend on each other don't get inlined in each other
-        // @nrk packages should be marked as external once patches are no longer necessary (see https://github.com/fremtind/jokul/issues/1215)
+
         external: [
             "react",
             "react-dom",
@@ -36,7 +36,8 @@ function config(plugins) {
             "match-sorter",
             "nanoid",
             "date-fns",
-            /* /@nrk\/core/, */ "classnames",
+            "classnames",
+            "react-a11y-dialog",
             /@babel\/runtime/,
             ...allFremtindPackagesNames,
         ],
