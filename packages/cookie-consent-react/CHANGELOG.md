@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@5.1.37...@fremtind/jkl-cookie-consent-react@6.0.3) (2022-06-08)
+
+### Bug Fixes
+
+-   legg på jkl-klassen siden vi rendres utenfor rotnoden ([78b6f4f](https://github.com/fremtind/jokul/commit/78b6f4f7769db5b27d429207a212da685fd1e407))
+
 ## [6.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@6.0.1...@fremtind/jkl-cookie-consent-react@6.0.2) (2022-06-08)
 
 ### Bug Fixes

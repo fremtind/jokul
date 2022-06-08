@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent@6.0.15...@fremtind/jkl-cookie-consent@8.0.0) (2022-06-08)
+
+### chore
+
+-   merk endring i klassenavn som breaking ([b6ac7a7](https://github.com/fremtind/jokul/commit/b6ac7a7d71eec57282dd9987f7a49b554350e505))
+
+### BREAKING CHANGES
+
+-   Modalen har fått nye klassenavn. Se React-pakken for referanseimplementasjon.
+
 # [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent@6.0.13...@fremtind/jkl-cookie-consent@7.0.0) (2022-06-07)
 
 ### Code Refactoring
