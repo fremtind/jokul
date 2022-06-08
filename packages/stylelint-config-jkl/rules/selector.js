@@ -14,10 +14,4 @@ module.exports = {
             ignorePseudoElements: ["ms-expand"],
         },
     ],
-    "selector-type-no-unknown": [
-        true,
-        {
-            ignoreTypes: ["backdrop" /* @nrk/core-dialog */],
-        },
-    ],
 };

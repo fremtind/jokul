@@ -17,11 +17,6 @@ module.exports = {
     roots: ["./packages", "./portal"],
     testEnvironment: "jsdom",
 
-    // Transpile patched NRK components
-    // TODO: Remove when using unpatched versions again
-    // see https://github.com/fremtind/jokul/issues/1215
-    transformIgnorePatterns: ["node_modules/(?!(@nrk/core-datepicker)/)"],
-
     testMatch: ["**/*.test.+(ts|tsx|js)"],
     setupFilesAfterEnv: ["./jest/setupTests.ts"],
     watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],

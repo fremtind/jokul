@@ -2,31 +2,29 @@ import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { CheckListItem, UnorderedList } from "@fremtind/jkl-list-react";
-// @ts-ignore: wait for nrk to supply types
-import CoreDialog from "@nrk/core-dialog/jsx";
-import React, { FC } from "react";
-import { useForm, useFormContext, FormProvider } from "react-hook-form";
+import { useId } from "@fremtind/jkl-react-hooks";
+import React, { FC, FormEvent, useCallback, useEffect } from "react";
+import { useA11yDialog } from "react-a11y-dialog";
+import ReactDOM from "react-dom";
 import { useCookieConsentState } from "./CookieConsentContext";
-import { convertBooleanConsentObjectToConsentObject, convertConsentObjectToBooleans } from "./cookieConsentUtils";
+import { convertBooleanConsentObjectToConsentObject } from "./cookieConsentUtils";
 import { Consent, ConsentComponentBaseProps } from "./types";
 
-interface FormValues {
-    functional?: boolean;
-    marketing?: boolean;
-    statistics?: boolean;
-}
-
 interface RequirementCheckboxProps extends WithChildren {
+    defaultChecked: boolean;
     name: "functional" | "marketing" | "statistics";
     label: string;
 }
 
-const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps) => {
-    const { register } = useFormContext<FormValues>();
-
+const RequirementCheckbox = ({ defaultChecked, name, label, children }: RequirementCheckboxProps) => {
     return (
         <>
-            <Checkbox value="True" {...register(name)} className="jkl-cookie-consent-modal__checkbox">
+            <Checkbox
+                className="jkl-cookie-consent-modal__checkbox"
+                value="True"
+                name={name}
+                defaultChecked={defaultChecked}
+            >
                 {label}
             </Checkbox>
             <p className="jkl-cookie-consent-modal__info-text">{children}</p>
@@ -36,109 +34,171 @@ const RequirementCheckbox = ({ name, label, children }: RequirementCheckboxProps
 
 export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept }) => {
     const { consent, dispatch, isOpen, requirement, showSettings } = useCookieConsentState();
-    const formMethods = useForm<FormValues>({
-        defaultValues: convertConsentObjectToBooleans(consent),
+
+    const handleAccept = useCallback(
+        (v: Consent | "implicit") => {
+            if (v === "implicit") {
+                onAccept(convertBooleanConsentObjectToConsentObject(requirement));
+            } else {
+                onAccept(v);
+            }
+        },
+        [onAccept, requirement],
+    );
+
+    const onFormSubmit = useCallback(
+        (event: FormEvent<HTMLFormElement>) => {
+            event.preventDefault();
+
+            const formValues: Partial<Record<keyof Consent, boolean>> = {};
+            const requiredFormNames = Object.entries(requirement)
+                .map(([name, required]) => (required ? name : undefined))
+                .filter(Boolean) as Array<keyof Consent>;
+
+            const formData = new FormData(event.target as HTMLFormElement);
+            requiredFormNames.forEach((name) => {
+                formValues[name] = formData.get(name) === "True";
+            });
+
+            handleAccept(convertBooleanConsentObjectToConsentObject(formValues));
+        },
+        [handleAccept, requirement],
+    );
+
+    const id = useId("jkl-cookie-modal");
+    const [instance, attr] = useA11yDialog({
+        id,
+        // The optional `role` attribute of the dialog element, either `dialog`
+        // (default) or `alertdialog` to make it a modal (preventing closing on
+        // click outside of ESC key).
+        role: "alertdialog",
+        // The required dialog title, mandatory in the document
+        // to provide context to assistive technology.
+        title: "Informasjonskapsler",
     });
 
-    const handleAccept = (v: Consent | "implicit") => {
-        if (v === "implicit") {
-            onAccept(convertBooleanConsentObjectToConsentObject(requirement));
-        } else {
-            onAccept(v);
+    useEffect(() => {
+        if (!instance) {
+            return;
         }
-    };
+        if (isOpen) {
+            instance.show();
+        } else {
+            instance.hide();
+        }
+    }, [instance, isOpen]);
 
-    const onFormSubmit = (formValues: FormValues) => {
-        handleAccept(convertBooleanConsentObjectToConsentObject(formValues));
-    };
-
-    return (
-        <CoreDialog
-            backdrop="on"
-            strict
-            hidden={!isOpen}
-            aria-label="Informasjonskapsler"
-            className="jkl-cookie-consent-modal"
+    return ReactDOM.createPortal(
+        <div
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...(attr.container as any)}
+            className="jkl jkl-cookie-consent-modal"
             data-testautoid="jkl-cookie-consent-modal"
         >
-            {!showSettings ? (
-                <>
-                    <h1 className="jkl-cookie-consent-modal__header">Vi bruker informasjonskapsler slik at:</h1>
+            <div {...attr.overlay} className="jkl-cookie-consent-modal__overlay" />
+            <div {...attr.dialog} className="jkl-cookie-consent-modal__content">
+                {!showSettings ? (
+                    <>
+                        <h1 className="jkl-cookie-consent-modal__header" {...attr.title}>
+                            Vi bruker informasjonskapsler slik at:
+                        </h1>
 
-                    <UnorderedList className="jkl-cookie-consent-modal__checklist">
-                        <CheckListItem>Nettsidene skal fungere teknisk</CheckListItem>
-                        {requirement.functional && (
-                            <CheckListItem>
-                                Nettsidene skal tilpasses din bruk, dine valg og dine innstillinger.
-                            </CheckListItem>
-                        )}
-                        {requirement.statistics && (
-                            <CheckListItem>
-                                Vi kan samle statistikk på hvordan nettsidene brukes og dermed kunne forbedre tjenestene
-                                våre.
-                            </CheckListItem>
-                        )}
-                        {requirement.marketing && (
-                            <CheckListItem>
-                                Vi kan gi deg personlig tilpasset innhold og relevante annonser, også gjennom våre
-                                samarbeidspartnere, på for eksempel nettsider og i sosiale medier.
-                            </CheckListItem>
-                        )}
-                    </UnorderedList>
-
-                    <div className="jkl-cookie-consent-modal__button-group">
-                        <PrimaryButton onClick={() => handleAccept("implicit")} data-testid="jkl-cookie-consent-godta">
-                            Godta
-                        </PrimaryButton>
-
-                        <TertiaryButton
-                            onClick={() => {
-                                dispatch({ type: "SET_SHOW_SETTINGS", payload: true });
-                            }}
-                        >
-                            Innstillinger
-                        </TertiaryButton>
-                    </div>
-                </>
-            ) : (
-                <FormProvider {...formMethods}>
-                    <h1 className="jkl-cookie-consent-modal__header">Informasjonskapsler</h1>
-
-                    <UnorderedList className="jkl-cookie-consent-modal__checklist">
-                        <CheckListItem>Nettsidene skal fungere teknisk</CheckListItem>
-                    </UnorderedList>
-                    <p className="jkl-cookie-consent-modal__info-text">
-                        For at nettsidene skal fungere, må vi bruke tekniske informasjonskapsler. Denne kan derfor ikke
-                        slås av.
-                    </p>
-                    <form onSubmit={formMethods.handleSubmit(onFormSubmit)}>
-                        {requirement.functional && (
-                            <RequirementCheckbox name="functional" label="Tillat funksjonelle">
-                                Funksjonelle informasjonskapsler lagrer opplysninger om din bruk av nettsidene og hvilke
-                                innstillinger du har gjort, slik at du kan få funksjonalitet tilpasset deg.
-                            </RequirementCheckbox>
-                        )}
-
-                        {requirement.statistics && (
-                            <RequirementCheckbox name="statistics" label="Tillat statistikk">
-                                Informasjonskapslene lagrer statistikk som hjelper oss med å forstå hvordan nettsidene
-                                blir brukt, slik at vi kan gjøre dem bedre og enklere å bruke.
-                            </RequirementCheckbox>
-                        )}
-
-                        {requirement.marketing && (
-                            <RequirementCheckbox name="marketing" label="Tillat personlig markedsføring">
-                                Dette gjør at vi kan gi deg mer relevant og tilpasset markedsføring, også gjennom våre
-                                samarbeidspartnere, på for eksempel nettsider, annonser og i sosiale medier.
-                            </RequirementCheckbox>
-                        )}
+                        <UnorderedList className="jkl-cookie-consent-modal__checklist">
+                            <CheckListItem>Nettsidene skal fungere teknisk</CheckListItem>
+                            {requirement.functional && (
+                                <CheckListItem>
+                                    Nettsidene skal tilpasses din bruk, dine valg og dine innstillinger.
+                                </CheckListItem>
+                            )}
+                            {requirement.statistics && (
+                                <CheckListItem>
+                                    Vi kan samle statistikk på hvordan nettsidene brukes og dermed kunne forbedre
+                                    tjenestene våre.
+                                </CheckListItem>
+                            )}
+                            {requirement.marketing && (
+                                <CheckListItem>
+                                    Vi kan gi deg personlig tilpasset innhold og relevante annonser, også gjennom våre
+                                    samarbeidspartnere, på for eksempel nettsider og i sosiale medier.
+                                </CheckListItem>
+                            )}
+                        </UnorderedList>
 
                         <div className="jkl-cookie-consent-modal__button-group">
-                            <PrimaryButton data-testid="jkl-cookie-consent-godta">Godta</PrimaryButton>
+                            <PrimaryButton
+                                data-testid="jkl-cookie-consent-godta"
+                                {...attr.closeButton}
+                                onClick={() => {
+                                    handleAccept("implicit");
+                                }}
+                            >
+                                Godta
+                            </PrimaryButton>
+
+                            <TertiaryButton
+                                onClick={() => {
+                                    dispatch({ type: "SET_SHOW_SETTINGS", payload: true });
+                                }}
+                            >
+                                Innstillinger
+                            </TertiaryButton>
                         </div>
-                    </form>
-                </FormProvider>
-            )}
-        </CoreDialog>
+                    </>
+                ) : (
+                    <>
+                        <h1 className="jkl-cookie-consent-modal__header" {...attr.title}>
+                            Informasjonskapsler
+                        </h1>
+
+                        <UnorderedList className="jkl-cookie-consent-modal__checklist">
+                            <CheckListItem>Nettsidene skal fungere teknisk</CheckListItem>
+                        </UnorderedList>
+                        <p className="jkl-cookie-consent-modal__info-text">
+                            For at nettsidene skal fungere, må vi bruke tekniske informasjonskapsler. Denne kan derfor
+                            ikke slås av.
+                        </p>
+                        <form onSubmit={onFormSubmit}>
+                            {requirement.functional && (
+                                <RequirementCheckbox
+                                    name="functional"
+                                    label="Tillat funksjonelle"
+                                    defaultChecked={consent.functional === "accepted"}
+                                >
+                                    Funksjonelle informasjonskapsler lagrer opplysninger om din bruk av nettsidene og
+                                    hvilke innstillinger du har gjort, slik at du kan få funksjonalitet tilpasset deg.
+                                </RequirementCheckbox>
+                            )}
+
+                            {requirement.statistics && (
+                                <RequirementCheckbox
+                                    name="statistics"
+                                    label="Tillat statistikk"
+                                    defaultChecked={consent.statistics === "accepted"}
+                                >
+                                    Informasjonskapslene lagrer statistikk som hjelper oss med å forstå hvordan
+                                    nettsidene blir brukt, slik at vi kan gjøre dem bedre og enklere å bruke.
+                                </RequirementCheckbox>
+                            )}
+
+                            {requirement.marketing && (
+                                <RequirementCheckbox
+                                    name="marketing"
+                                    label="Tillat personlig markedsføring"
+                                    defaultChecked={consent.marketing === "accepted"}
+                                >
+                                    Dette gjør at vi kan gi deg mer relevant og tilpasset markedsføring, også gjennom
+                                    våre samarbeidspartnere, på for eksempel nettsider, annonser og i sosiale medier.
+                                </RequirementCheckbox>
+                            )}
+
+                            <div className="jkl-cookie-consent-modal__button-group">
+                                <PrimaryButton data-testid="jkl-cookie-consent-godta">Godta</PrimaryButton>
+                            </div>
+                        </form>
+                    </>
+                )}
+            </div>
+        </div>,
+        document.body,
     );
 };

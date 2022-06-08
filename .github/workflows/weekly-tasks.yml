@@ -33,8 +33,6 @@ jobs:
                       - [ ] Kjør `yarn build` og `yarn ci:test`
                       - [ ] Lag en pull request som vanlig
 
-                      Eksempler på oppgraderinger som krever mer tid er typisk React majorversjoner, `@nrk/core-*`, eller dersom en oppgradering tar med seg typedefinisjoner som skaper store problemer.
-
                       ---
 
                       [1]: Vi har [noen få pakker hvor vi gjør egne patcher](https://github.com/fremtind/jokul/tree/main/patches) i Jøkul. Disse må gjerne oppgraderes, men krever at vi [lager en tilsvarende patch](https://github.com/ds300/patch-package#usage) på den nye versjonen.

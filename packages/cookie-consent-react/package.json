@@ -36,14 +36,11 @@
     "dependencies": {
         "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-button-react": "^11.0.2",
-        "@fremtind/jkl-cookie-consent": "^7.0.1",
+        "@fremtind/jkl-cookie-consent": "^8.0.0-alpha.0",
         "@fremtind/jkl-list-react": "^7.0.1",
         "@fremtind/jkl-react-hooks": "^9.0.2",
         "classnames": "^2.2.6",
-        "react-hook-form": "^7.29.0"
-    },
-    "devDependencies": {
-        "@nrk/core-dialog": "4.0.0"
+        "react-a11y-dialog": "^6.1.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
