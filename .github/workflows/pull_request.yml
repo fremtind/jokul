@@ -208,7 +208,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
               with:
-                  ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Download snapshots
@@ -281,7 +280,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
               with:
-                  ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Setup Node
