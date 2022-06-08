@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "15.0.3",
+    "version": "15.0.4",
     "devDependencies": {
         "@types/react-helmet": "^6.1.5",
         "@types/react-syntax-highlighter": "^15.5.1",
@@ -17,7 +17,7 @@
         "@fremtind/jkl-checkbox-react": "^7.0.2",
         "@fremtind/jkl-constants-util": "^1.0.0",
         "@fremtind/jkl-content-toggle-react": "^3.0.1",
-        "@fremtind/jkl-cookie-consent-react": "^6.0.2",
+        "@fremtind/jkl-cookie-consent-react": "^6.0.3",
         "@fremtind/jkl-core": "^10.0.1",
         "@fremtind/jkl-datepicker-react": "^11.0.3",
         "@fremtind/jkl-description-list-react": "^5.0.1",
