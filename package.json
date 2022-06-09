@@ -40,7 +40,9 @@
     },
     "packageManager": "yarn@1.22.17",
     "resolutions": {
-        "cross-fetch": "3.1.5"
+        "cross-fetch": "3.1.5",
+        "commitizen/minimist": "1.2.6",
+        "cz-lerna-changelog/shelljs": "0.8.5"
     },
     "dependencies": {
         "classnames": "^2.2.6",
