@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.2 (2022-06-09)
+
+### Bug Fixes
+
+-   pakk med all Sass-kildekoden ([70b42db](https://github.com/fremtind/jokul/commit/70b42db0771f70385bf5bf60d286f65c5d837d2d))
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@9.6.1...@fremtind/jkl-core@10.0.0) (2022-06-07)
 
 ### Bug Fixes
