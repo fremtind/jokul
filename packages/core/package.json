@@ -24,9 +24,10 @@
     },
     "files": [
         "build",
-        "!example",
-        "variables",
+        "functions",
         "mixins",
+        "styles",
+        "variables",
         "*.css",
         "*.scss"
     ],
