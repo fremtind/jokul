@@ -18,11 +18,7 @@ export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
     const iconSize = variant !== "inherit" ? variant : "small";
     return (
         <div className={cx(`jkl-icon--${iconSize}`, "jkl-animated-horizontal-arrows", className)}>
-            <div
-                className={`jkl-animated-horizontal-arrows__slider jkl-animated-horizontal-arrows__slider--${
-                    pointingRight ? "right" : "left"
-                }`}
-            >
+            <div className="jkl-animated-horizontal-arrows__slider" data-show={pointingRight ? "right" : "left"}>
                 <ArrowRight variant={iconSize} />
                 <ArrowLeft variant={iconSize} />
             </div>

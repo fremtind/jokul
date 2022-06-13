@@ -17,7 +17,11 @@
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
     "module": "./build/esm/index.js",
-    "browser": "./build/browser/index.js",
+    "browser": "./build/esm/index.js",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
     "directories": {
         "lib": "build"
     },
@@ -27,16 +31,15 @@
     "scripts": {
         "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
-        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "node ./dist/server.js",
-        "predev": "node ./esbuild.mjs",
+        "predev": "node ./esbuild.dev.mjs",
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.8",
         "@fremtind/jkl-react-hooks": "^9.0.3",
         "@fremtind/jkl-toggle-switch": "^9.0.2",
         "classnames": "^2.2.6"
