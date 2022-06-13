@@ -78,6 +78,7 @@ $_select-search-input-selection-color--inverted: color.scale(
             font-weight: normal;
             font-family: sans-serif;
             color: var(--jkl-select-text-color);
+            background-color: var(--jkl-select-open-background-color);
 
             &:disabled {
                 color: var(--jkl-select-text-disabled-color);
