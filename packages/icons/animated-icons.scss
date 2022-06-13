@@ -23,37 +23,34 @@
 
 .jkl-animated-horizontal-arrows__slider,
 .jkl-animated-vertical-arrows__slider {
-    position: absolute;
-    @include jkl.motion("easeInBounceOut", "expressive");
-    transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
-    padding: var(--jkl-arrow-padding) 0;
     display: flex;
+    position: absolute;
+    @include jkl.motion(standard, expressive);
+    transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
+    transition-property: transform;
 }
 
 .jkl-animated-vertical-arrows__slider {
-    transition-property: top;
     flex-direction: column;
 
-    &--up {
-        top: calc(var(--jkl-arrow-down-y) * -1);
+    &[data-show="down"] {
+        transform: translate3d(0, 0, 0);
     }
 
-    &--down {
-        top: calc(var(--jkl-arrow-padding) / -2);
+    &[data-show="up"] {
+        transform: translate3d(0, -50%, 0);
     }
 }
 
 .jkl-animated-horizontal-arrows__slider {
-    width: calc(var(--jkl-animated-icon-width) * 2);
-    transition-property: left;
     flex-direction: row;
 
-    &--right {
-        left: calc(var(--jkl-animated-icon-width) * -1);
+    &[data-show="right"] {
+        transform: translate3d(0, 0, 0);
     }
 
-    &--left {
-        left: 0;
+    &[data-show="left"] {
+        transform: translate3d(-50%, 0, 0);
     }
 }
 

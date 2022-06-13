@@ -87,6 +87,8 @@ For dere som bruker Webpack kan dere oppleve at bygget feiler på grunn av en kr
 For å fikse problemet må du peke Webpack eksplisit til din versjon av React og React DOM:
 
 ```js
+const path = require("path");
+
 const config = {
     resolve: {
         alias: {
@@ -94,6 +96,28 @@ const config = {
             react$: path.resolve(__dirname, "node_modules/react/index.js"),
             "react-dom$": path.resolve(__dirname, "node_modules/react-dom/index.js"),
         },
+    },
+};
+```
+
+#### Konfigurasjon av Next.js
+
+Next bruker Webpack under panseret, så løsningen for å teste der blir liknende den for Webpack direkte:
+
+```js
+const path = require("path");
+
+module.exports = {
+    webpack: (config) => {
+        config.resolve = {
+            ...config.resolve,
+            alias: {
+                ...config.resolve.alias,
+                react$: path.resolve(__dirname, "node_modules/react/index.js"),
+                "react-dom$": path.resolve(__dirname, "node_modules/react-dom/index.js"),
+            },
+        };
+        return config;
     },
 };
 ```

@@ -18,7 +18,11 @@
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
     "module": "./build/esm/index.js",
-    "browser": "./build/browser/index.js",
+    "browser": "./build/esm/index.js",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
     "directories": {
         "lib": "build"
     },
@@ -36,11 +40,11 @@
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
-        "build:scripts": "rollup --config ../../rollup.config.js",
+        "build:scripts": "node ./esbuild.prod.mjs",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev:js": "ESBUILD_WATCH=true node ./esbuild.mjs",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "node ./dist/server.js",
-        "predev": "node ./esbuild.mjs",
+        "predev": "node ./esbuild.dev.mjs",
         "dev": "run-p dev:*"
     },
     "repository": {
@@ -51,7 +55,6 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.8",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

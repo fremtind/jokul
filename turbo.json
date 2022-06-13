@@ -26,7 +26,7 @@
     "globalDependencies": [
         "yarn.lock",
         "gulpfile.js",
-        "rollup.config.js",
+        "esbuild.prod.mjs",
         "tsconfig-for-declarations.json",
         "tsconfig.json",
         "patches/**"

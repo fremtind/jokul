@@ -14,7 +14,10 @@ module.exports = function (api) {
     // Tests run in a node environment
     const targets = isTest ? { node: "current" } : browserList;
 
-    const plugins = ["@babel/plugin-proposal-optional-chaining", "@babel/plugin-transform-runtime"];
+    const plugins = [
+        "@babel/plugin-proposal-optional-chaining",
+        ["@babel/plugin-transform-runtime", { useESModules: modules !== "commonjs" }],
+    ];
 
     return {
         plugins,

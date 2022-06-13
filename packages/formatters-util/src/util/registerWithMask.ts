@@ -66,7 +66,7 @@ export const registerWithMasks = <T>(form: UseFormReturn<T>) => ({
     registerWithTelefonnummerMask: (name: Path<T>, options?: RegisterOptions<T>): UseFormRegisterReturn =>
         registerWithMask("telefonnummer")(form, name, options),
     registerWithNumber: (name: Path<T>, options?: RegisterOptions<T>): UseFormRegisterReturn & { align: "right" } =>
-        registerWithMask("number")(form, name, options) as UseFormRegisterReturn & {
+        registerWithMask("number")(form, name, options) as unknown as UseFormRegisterReturn & {
             align: "right";
         },
 });
