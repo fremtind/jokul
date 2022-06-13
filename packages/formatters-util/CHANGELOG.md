@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@2.3.3...@fremtind/jkl-formatters-util@2.3.4) (2022-06-13)
+
+### Bug Fixes
+
+-   hjelp TypeScript forstå eksporten av maskeregistrering ([2dce2a3](https://github.com/fremtind/jokul/commit/2dce2a3bea536b61e29587ae843abfca5e699194))
+-   merk CSS og SCSS som side-effects ([dac2e2b](https://github.com/fremtind/jokul/commit/dac2e2b5f4d1b31485821bf6ad8ec4c7c2769cca))
+
+### Performance Improvements
+
+-   bruk tiny-glob for globbing av filer under bygg ([246952a](https://github.com/fremtind/jokul/commit/246952ae75afe20bcf0d007a0a068b76b114f9a6))
+
 ## 2.3.2 (2022-06-08)
 
 ### Bug Fixes

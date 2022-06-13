@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.6...@fremtind/portal@15.0.7) (2022-06-13)
+
+### Bug Fixes
+
+-   importer core-stilene i portalen på annen måte ([d1e8112](https://github.com/fremtind/jokul/commit/d1e81123f4c7fd7fba5f4bca199e8c6727bd5fa0))
+
 ## [15.0.2](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.1...@fremtind/portal@15.0.2) (2022-06-08)
 
 ### Bug Fixes

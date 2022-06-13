@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group-react",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -40,11 +40,11 @@
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "dependencies": {
-        "@fremtind/jkl-field-group": "^5.0.2",
+        "@fremtind/jkl-field-group": "^5.0.3",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^10.0.2"
+        "@fremtind/jkl-core": "^10.0.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

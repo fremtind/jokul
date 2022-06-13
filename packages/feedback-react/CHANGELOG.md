@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@13.0.4...@fremtind/jkl-feedback-react@13.0.5) (2022-06-13)
+
+### Bug Fixes
+
+-   merk CSS og SCSS som side-effects ([dac2e2b](https://github.com/fremtind/jokul/commit/dac2e2b5f4d1b31485821bf6ad8ec4c7c2769cca))
+
+### Performance Improvements
+
+-   bruk tiny-glob for globbing av filer under bygg ([246952a](https://github.com/fremtind/jokul/commit/246952ae75afe20bcf0d007a0a068b76b114f9a6))
+
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@12.1.6...@fremtind/jkl-feedback-react@13.0.0) (2022-06-07)
 
 ### chore

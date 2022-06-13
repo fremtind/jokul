@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.5...@fremtind/jkl-datepicker-react@11.0.6) (2022-06-13)
+
+### Bug Fixes
+
+-   merk CSS og SCSS som side-effects ([dac2e2b](https://github.com/fremtind/jokul/commit/dac2e2b5f4d1b31485821bf6ad8ec4c7c2769cca))
+
+### Performance Improvements
+
+-   bruk tiny-glob for globbing av filer under bygg ([246952a](https://github.com/fremtind/jokul/commit/246952ae75afe20bcf0d007a0a068b76b114f9a6))
+
 ## 11.0.1 (2022-06-07)
 
 ### Bug Fixes
