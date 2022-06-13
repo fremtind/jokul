@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@8.0.2...@fremtind/jkl-select@8.0.3) (2022-06-13)
+
+### Bug Fixes
+
+-   bruk bakgrunnsfargen fra temaet på åpen native select ([bb22305](https://github.com/fremtind/jokul/commit/bb223051f0eb4a770ae7dacb27f4867b731f91dd)), closes [#2807](https://github.com/fremtind/jokul/issues/2807)
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@7.0.13...@fremtind/jkl-select@8.0.0) (2022-06-07)
 
 ### Code Refactoring
