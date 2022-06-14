@@ -26,33 +26,55 @@ const DegOgJokul: FC = () => (
         <Ingress>
             Jøkul er et stort system, og det er mange ting å skulle lære. Av og til trenger vi alle litt ekstra hjelp.
         </Ingress>
+
         <Paragraph>
-            Sjansen for at noen har støtt på samme utfordring som deg tidligere er nok ganske stor. Derfor kan det være
-            lurt å svinge innom disse sjekkpunktene om du lurer på noe:
+            Sving innom disse sjekkpunktene om du lurer på noe. Sjansen for at noen har støtt på samme utfordring som
+            deg tidligere er nok ganske stor.
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
+            <ListItem>Har du lett etter svar her i portalen?</ListItem>
             <ListItem>
-                Har du sjekket her i portalen? Står det noe på{" "}
-                <Link href="https://github.com/fremtind/jokul/discussions">GitHub</Link>?
+                Har <Link href="https://github.com/fremtind/jokul/discussions">GitHub</Link> noe relevant under
+                diskusjoner eller issues?
             </ListItem>
             <ListItem>
-                Hvis det ikke står noe på GitHub, har du{" "}
-                <Link href="https://github.com/fremtind/jokul/discussions/new">postet om det</Link>?
-            </ListItem>
-            <ListItem>
-                Har du spurt i designsystemforum eller{" "}
+                Har noen spurt om det{" "}
                 <Link href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0">
                     på teams
                 </Link>
                 ?
             </ListItem>
         </UnorderedList>
+        <Paragraph>
+            Ikke nøl med å spørre om hjelp enten på GitHub Discussions eller i Support Designsystem på Teams hvis du
+            ikke finner svar.
+        </Paragraph>
 
+        <HeadingLarge>Office Hours</HeadingLarge>
+        <Paragraph>
+            Du kan komme på <i>office hours</i> hvis du trenger å sparre med oss i kjerneteamet om noe. Dette er faste
+            tidspunkter hver uke hvor vi setter av tid til å kunne gi god hjelp.
+        </Paragraph>
+        <UnorderedList className="jkl-portal-ul">
+            <ListItem>
+                Tirsdager <time dateTime="13:00">13:00</time> til <time dateTime="14:00">14:00</time> og torsdager{" "}
+                <time dateTime="14:00">14:00</time> til <time dateTime="15:00">15:00</time>.
+            </ListItem>
+            <ListItem>Drop-in en-til-en support.</ListItem>
+            <ListItem>En designer og en utvikler er tilgjengelig.</ListItem>
+        </UnorderedList>
+        <Paragraph>
+            Vi er tilgjengelig også utenfor office hours, men det kan hende du må vente litt lenger på å få hjelp.
+        </Paragraph>
+        <Paragraph>
+            Kom veldig gjerne til oss der vi sitter i 7. etasje i H2 — ut mot Youngs gate. Det er ofte lettere å sparre
+            når vi sitter i samme rom. Vi er så klart også tilgjengelige digitalt. Det er bare å sende en melding på
+            Teams til en av oss i kjerneteamet.
+        </Paragraph>
         <HeadingLarge>Kjerneteamet</HeadingLarge>
         <Paragraph>
-            Selv om designsystemet er laget av alle, er det et par ildsjeler som jobber ekstra mye med Jøkul. Jobben til
-            kjerneteamet er å sørge for at alt går på skinner i kulissene—blant annet ved å vise deg hvordan du endrer
-            på systemet selv. Her er noen eksempler på ting kjerneteamet sørger for:
+            Jobben til kjerneteamet er å sørge for at alt går på skinner i kulissene — blant annet ved å vise deg
+            hvordan du endrer på systemet selv. Her er noen eksempler på ting kjerneteamet sørger for:
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
             <ListItem>Vi viser deg hvordan du går fram for å selv lage komponenter og fikse bugs</ListItem>
@@ -105,7 +127,7 @@ const DegOgJokul: FC = () => (
             </Portrait>
         </PortraitGallery>
         <p className="jkl-small" style={{ maxWidth: "45rem" }}>
-            Du finner oss i 7. etasje i H2 (av og til), og på Teams i{" "}
+            Du finner oss i 7. etasje i H2 (ut mot Youngs gate), og på Teams i{" "}
             <a
                 href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0"
                 className="jkl-link"
