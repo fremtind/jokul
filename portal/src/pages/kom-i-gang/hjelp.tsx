@@ -52,7 +52,7 @@ const DegOgJokul: FC = () => (
 
         <HeadingLarge>Office Hours</HeadingLarge>
         <Paragraph>
-            Du kan komme på <i>office hours</i> hvis du trenger å sparre med oss i kjerneteamet om noe. Dette er faste
+            Du kan komme på <i>office hours</i> hvis du trenger å sparre med oss i Jøkul-teamet om noe. Dette er faste
             tidspunkter hver uke hvor vi setter av tid til å kunne gi god hjelp.
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
@@ -68,13 +68,13 @@ const DegOgJokul: FC = () => (
         </Paragraph>
         <Paragraph>
             Kom veldig gjerne til oss der vi sitter i 7. etasje i H2 — ut mot Youngs gate. Det er ofte lettere å sparre
-            når vi sitter i samme rom. Vi er så klart også tilgjengelige digitalt. Det er bare å sende en melding på
-            Teams til en av oss i kjerneteamet.
+            når vi sitter i samme rom. Vi er så klart også tilgjengelige digitalt. Det er bare å sende en melding til en
+            av oss i Jøkul-teamet.
         </Paragraph>
-        <HeadingLarge>Kjerneteamet</HeadingLarge>
+        <HeadingLarge>Jøkul-teamet</HeadingLarge>
         <Paragraph>
-            Jobben til kjerneteamet er å sørge for at alt går på skinner i kulissene — blant annet ved å vise deg
-            hvordan du endrer på systemet selv. Her er noen eksempler på ting kjerneteamet sørger for:
+            Jobben til oss i Jøkul-teamet er å sørge for at alt går på skinner i kulissene — blant annet ved å vise deg
+            hvordan du endrer på systemet selv. Her er noen eksempler på ting vi sørger for:
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
             <ListItem>Vi viser deg hvordan du går fram for å selv lage komponenter og fikse bugs</ListItem>
@@ -144,9 +144,9 @@ const DegOgJokul: FC = () => (
         <NavCard
             className="jkl-spacing-xl--top"
             style={{ maxWidth: "35rem" }}
-            to="/kom-i-gang/jobb-med-kjerneteamet"
+            to="/kom-i-gang/jobb-med-teamet"
             component={GatsbyLink}
-            title="Neste: Jobb med kjerneteamet"
+            title="Neste: Jobb med Jøkul-teamet"
             description="Finn ut litt mer om hva vi gjør og hvordan vi kan hjelpe deg."
         />
     </motion.main>

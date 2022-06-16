@@ -142,7 +142,7 @@ const PraktiskDesignhverdagen: FC = () => {
                     samler alt du måtte lure på av hvordan ting funker i Figma inni et søkbart vindu
                 </ListItem>
             </UnorderedList>
-            <Paragraph className="jkl-bold">Kjerneteamets favoritthurtigtaster i Figma</Paragraph>
+            <Paragraph className="jkl-bold">Jøkul-teamets favoritthurtigtaster i Figma</Paragraph>
             <UnorderedList className="jkl-portal-ul">
                 <ListItem>
                     Auto-Layout (<KeyboardShortcut>⇧A</KeyboardShortcut>), Frame (

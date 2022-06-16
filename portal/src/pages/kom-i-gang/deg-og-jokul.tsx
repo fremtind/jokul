@@ -64,7 +64,7 @@ const DegOgJokul: FC = () => (
         <HeadingLarge>Diskusjoner på GitHub</HeadingLarge>
         <Paragraph>
             Når vi ikke er fysisk samlet, deler vi idéer, forslag til nye funksjoner, endringer og bugs på GitHub. Ved å
-            samle alt på ett sted gjør vi det enklere for alle å delta, og for kjerneteamet å holde oversikt. Innleggene
+            samle alt på ett sted gjør vi det enklere for alle å delta, og for Jøkul-teamet å holde oversikt. Innleggene
             stammer som regel fra behov og diskusjoner ute i teamene, eller forumet. GitHub er ofte startpunktet hvis du
             vil påvirke designsystemet.
         </Paragraph>

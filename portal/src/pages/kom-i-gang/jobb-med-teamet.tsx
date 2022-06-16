@@ -9,9 +9,9 @@ import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 
-const pageTitle = "Jobb med kjerneteamet";
+const pageTitle = "Jobb med Jøkul-teamet";
 
-const JobbMedKjerneteamet: FC = () => (
+const JobbMedTeamet: FC = () => (
     <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -24,7 +24,7 @@ const JobbMedKjerneteamet: FC = () => (
         </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
-            Kjerneteamet skal gjøre arbeidsvherdagen enklere for leveranseteamene. Vi har mange måter å hjelpe på, delt
+            Jøkul-teamet skal gjøre arbeidsvherdagen enklere for leveranseteamene. Vi har mange måter å hjelpe på, delt
             inn i to servicespor: fasilitering og støtte.
         </Ingress>
         <Image disableFullscreen>
@@ -33,7 +33,7 @@ const JobbMedKjerneteamet: FC = () => (
         <HeadingLarge>Fasilitering og deling av kunnskap</HeadingLarge>
         <Paragraph>
             Få ekspert-coaching og rådgivning skreddersydd ditt team og tjeneste gjennom midlertidig-hospitering fra
-            kjerneteamet.
+            Jøkul-teamet.
         </Paragraph>
         <UnorderedList className="jkl-portal-paragraph">
             <ListItem>
@@ -54,21 +54,21 @@ const JobbMedKjerneteamet: FC = () => (
             href="mailto:fremtind.designsystem@fremtind.no?subject=Hjelp%20oss%20med%3A"
             className="jkl-spacing-xl--top"
             style={{ maxWidth: "25rem" }}
-            title="Fasilitering med kjerneteamet"
-            description="Få skreddersydd designsystem-analyse, coaching og rådgivning fra kjerneteamet."
+            title="Fasilitering med Jøkul-teamet"
+            description="Få skreddersydd designsystem-analyse, coaching og rådgivning fra Jøkul-teamet."
         />
         <HeadingLarge>Støtte og vedlikehold</HeadingLarge>
         <Paragraph>
-            Kjerneteamet tilbyr Jøkul som en plattform. Det betyr at vi i praksis har ansvar for forvaltning av
-            designsystemet, noe som ofte skjer gjennom bidrag fra leveranseteamene. Plattform-teamet er ansvarlig for at
-            Jøkul fungerer, og holdes til enhver tids gjeldende moderne standarder.
+            Vi tilbyr Jøkul som en plattform. Det betyr at vi i praksis har ansvar for forvaltning av designsystemet,
+            noe som ofte skjer gjennom bidrag fra leveranseteamene. Plattform-teamet er ansvarlig for at Jøkul fungerer,
+            og holdes til enhver tids gjeldende moderne standarder.
         </Paragraph>
         <UnorderedList className="jkl-portal-paragraph">
             <ListItem>Vi sørger for at det er enkelt å bruke og endre på plattformen.</ListItem>
             <ListItem>Vi holder deg oppdatert på hva som skjer i Jøkul.</ListItem>
             <ListItem>Vi sørger for hjelp til selvhjelp gjennom lett tilgjengelig dokumentasjon.</ListItem>
             <ListItem>
-                Vi tilbyr revers-hospitering hvor medlemmer fra levereanseteamene midlertidig blir ansatt i kjerneteamet
+                Vi tilbyr revers-hospitering hvor medlemmer fra levereanseteamene midlertidig blir ansatt i Jøkul-teamet
                 for å jobbe med Jøkul, noe som kommer teamet til gode på sikt.
             </ListItem>
             <ListItem>
@@ -91,7 +91,7 @@ const JobbMedKjerneteamet: FC = () => (
         </Grid>
         <HeadingLarge>Ikke vær redd for å kontakte oss</HeadingLarge>
         <Paragraph>
-            Kjerneteamet er her for å hjelpe deg. Det kan vi ikke om du ikke sier i fra til oss hvis noe er vanskelig,
+            Jøkul-teamet er her for å hjelpe deg. Det kan vi ikke om du ikke sier i fra til oss hvis noe er vanskelig,
             noe mangler, eller noe rett og slett er blitt ødelagt. Om du finner noe som ser rart ut, ikke nøl med å ta
             kontakt!
         </Paragraph>
@@ -106,4 +106,4 @@ const JobbMedKjerneteamet: FC = () => (
     </motion.main>
 );
 
-export default JobbMedKjerneteamet;
+export default JobbMedTeamet;
