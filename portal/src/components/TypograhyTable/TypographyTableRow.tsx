@@ -1,6 +1,7 @@
+import { unicode } from "@fremtind/jkl-constants-util";
+import { TableCell, TableRow } from "@fremtind/jkl-table-react";
 import React, { useState } from "react";
-import { getComputedProperty } from "../../../../utils/getComputedProperty";
-import { TableCell } from "./TableCell";
+import { getComputedProperty } from "../../utils/getComputedProperty";
 
 export type TypographyLevels =
     | "Title"
@@ -17,7 +18,7 @@ interface Props {
     level: TypographyLevels;
 }
 
-export const ExampleRow: React.FC<Props> = ({ level }) => {
+export const TypographyTableRow: React.FC<Props> = ({ level }) => {
     const [fontWeight, setFontWeight] = useState("N/A");
     const [fontSize, setFontSize] = useState("N/A");
     const [lineHeight, setLineHeight] = useState("N/A");
@@ -27,15 +28,22 @@ export const ExampleRow: React.FC<Props> = ({ level }) => {
         setLineHeight(getComputedProperty(node, "line-height"));
     };
     return (
-        <tr className={"jkl-typography-table__row"}>
-            <td className="jkl-typography-table__data">
+        <TableRow>
+            <TableCell>
                 <p className={`jkl-${level.toLowerCase().replace(/ /g, "-")}`} ref={ref}>
-                    {level}
+                    Eksempel
                 </p>
-            </td>
-            <TableCell title="Vekt">{fontWeight}</TableCell>
-            <TableCell title="Størrelse">{fontSize}</TableCell>
-            <TableCell title="Linjeavstand">{lineHeight}</TableCell>
-        </tr>
+            </TableCell>
+            <TableCell data-th="Stilnavn">{level.replace(" ", unicode.nbsp)}</TableCell>
+            <TableCell data-th="Vekt" align="right">
+                {fontWeight}
+            </TableCell>
+            <TableCell data-th="Størrelse" align="right">
+                {fontSize}
+            </TableCell>
+            <TableCell data-th="Linjeavstand" align="right">
+                {lineHeight}
+            </TableCell>
+        </TableRow>
     );
 };
