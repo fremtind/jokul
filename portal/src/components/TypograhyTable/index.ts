@@ -1,0 +1,1 @@
+export { TypographyTable } from "./TypographyTable";
