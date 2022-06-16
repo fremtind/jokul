@@ -3,10 +3,10 @@
     "private": true,
     "version": "1.0.0",
     "scripts": {
-        "clean": "turbo run clean && rimraf node_modules/",
+        "clean": "turbo run clean && rimraf .turbo/ && rimraf node_modules/",
         "clean:portal": "turbo run clean:portal",
-        "build": "turbo run build --scope=\"!@fremtind/*-config-jkl\" --cache-dir=\"node_modules/.cache/turbo\"",
-        "build:docs": "turbo run build:docs --scope=\"@fremtind/portal\" --include-dependencies --cache-dir=\"node_modules/.cache/turbo\"",
+        "build": "turbo run build --scope=\"!@fremtind/*-config-jkl\" --cache-dir=\".turbo\"",
+        "build:docs": "turbo run build:docs --scope=\"@fremtind/portal\" --include-dependencies --cache-dir=\".turbo\"",
         "commit": "git-cz",
         "predeploy:docs": "yarn run build:docs",
         "deploy:docs": "gh-pages -f --no-history --add --dist portal/public",
