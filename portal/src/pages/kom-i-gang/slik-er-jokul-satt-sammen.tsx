@@ -68,7 +68,7 @@ const SlikErJokulSattSammen: FC = () => (
         </OrderedList>
         <Paragraph>
             Det er noen detaljer underveis, men de er det lett å få hjelp med av en kollega i teamet ditt eller fra noen
-            i kjerneteamet, om du måtte behøve det.
+            i Jøkul-teamet, om du måtte behøve det.
         </Paragraph>
         <NavCard
             href="https://github.com/fremtind/jokul/discussions/new?category=ideer"

@@ -24,6 +24,11 @@ const Introduksjon: FC = () => (
             Design&shy;system
         </h1>
         <Paragraph>
+            Et designsystem kan være veldig mange ting. For oss er det blant annet et sett med felles normer for hvordan
+            vi samarbeider om å bygge digitale produkter og tjenester.
+        </Paragraph>
+        <HeadingLarge>Hvorfor har vi et designsystem?</HeadingLarge>
+        <Paragraph>
             Designsystemet vårt hjelper oss med å opprettholde en felles forståelse for hvordan vi gjør ting sammen. Det
             er mange gode grunner til å ha et designsystem. I Fremtind gir det oss en god del fordeler, som for
             eksempel:
