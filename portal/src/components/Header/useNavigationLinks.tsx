@@ -147,6 +147,10 @@ export function useNavigationLinks(): NavigationLinks {
             title: "Hvor kan du få hjelp?",
         },
         {
+            path: "/kom-i-gang/jobb-med-teamet",
+            title: "Jobb med Jøkul-teamet",
+        },
+        {
             path: "/kom-i-gang/slik-er-jokul-satt-sammen",
             title: "Slik er Jøkul satt sammen",
         },
