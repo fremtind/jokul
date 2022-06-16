@@ -21,7 +21,7 @@ import React, {
     useMemo,
 } from "react";
 import { ExpandArrow } from "./ExpandArrow";
-import { toLower, toItemLabel, focusSelected } from "./select-utils";
+import { toLower, focusSelected } from "./select-utils";
 import { useListNavigation } from "./useListNavigation";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
@@ -78,126 +78,154 @@ export interface SelectProps extends DataTestAutoId {
     invalid?: boolean;
 }
 
-export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-    (
-        {
-            id,
-            name,
-            items,
-            value,
-            label,
-            labelProps,
-            onChange,
-            onBlur,
-            onFocus,
-            className,
-            helpLabel,
-            errorLabel,
-            invalid,
-            searchable = false,
-            inline = false,
-            defaultPrompt = "Velg",
-            variant,
-            forceCompact,
-            width,
-            ...rest
+const noop = () => {
+    return;
+};
+
+export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forwardedSelectRef) => {
+    const {
+        id,
+        name,
+        items,
+        value,
+        label,
+        labelProps,
+        onChange,
+        onBlur,
+        onFocus,
+        className,
+        helpLabel,
+        errorLabel,
+        invalid,
+        searchable = false,
+        inline = false,
+        defaultPrompt = "Velg",
+        variant,
+        forceCompact,
+        width,
+        ...rest
+    } = props;
+
+    const listId = useId(id || "jkl-select", { generateSuffix: !id });
+    const buttonId = `${listId}_button`;
+    const searchInputId = `${listId}_search-input`;
+
+    const [dropdownIsShown, setShown] = useState(false);
+    const toggleListVisibility = useCallback(() => {
+        setShown(!dropdownIsShown);
+    }, [setShown, dropdownIsShown]);
+
+    /// Søk
+
+    const isSearchable = Boolean(searchable);
+    const showSearchInputField = isSearchable && dropdownIsShown;
+    const [searchValue, setSearchValue] = useState("");
+    const searchFn = useCallback(
+        (item: ValuePair) => {
+            if (item.label.toLowerCase().includes(searchValue.toLowerCase())) {
+                return true;
+            }
+
+            if (typeof searchable === "function") {
+                return searchable(searchValue, item);
+            }
+
+            return false;
         },
-        ref,
-    ) => {
-        const listId = useId(id || "jkl-select", { generateSuffix: !id });
-        const buttonId = `${listId}_button`;
-        const searchInputId = `${listId}_search-input`;
+        [searchable, searchValue],
+    );
+    const visibleItems: Option[] = useMemo(
+        () =>
+            items.map(getValuePair).map((item) => {
+                const visible = !isSearchable || searchValue === "" || searchFn(item);
+                return { ...item, visible };
+            }),
+        [items, isSearchable, searchValue, searchFn],
+    );
 
-        const isSearchable = !!searchable;
-        const [searchValue, setSearchValue] = useState("");
-        const searchFn = useCallback(
-            (item: ValuePair) => {
-                if (item.label.toLowerCase().includes(searchValue.toLowerCase())) {
-                    return true;
+    /// Valg av <option>
+
+    const [selectedValue, setSelectedValue] = useState<string>(value || "");
+    const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+    const selectedValueLabel = useMemo(
+        () => visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt,
+        [visibleItems, selectedValue, defaultPrompt],
+    );
+
+    const selectRef = useRef<HTMLSelectElement | null>(null);
+    // Hjelper for å gjøre det enklere å både forwarde refen men også bruke den selv internt
+    const unifiedSelectRef = useCallback(
+        (instance: HTMLSelectElement | null) => {
+            selectRef.current = instance;
+
+            if (forwardedSelectRef) {
+                if (typeof forwardedSelectRef === "function") {
+                    forwardedSelectRef(instance);
+                } else {
+                    forwardedSelectRef.current = instance;
                 }
+            }
+        },
+        [selectRef, forwardedSelectRef],
+    );
 
-                if (typeof searchable === "function") {
-                    return searchable(searchValue, item);
-                }
+    useEffect(() => {
+        setSelectedValue(value || "");
+    }, [setSelectedValue, value]);
 
-                return false;
-            },
-            [searchable, searchValue],
-        );
-        const visibleItems: Option[] = useMemo(
-            () =>
-                items.map(getValuePair).map((item) => {
-                    const visible = !isSearchable || searchValue === "" || searchFn(item);
-                    return { ...item, visible };
-                }),
-            [items, isSearchable, searchValue, searchFn],
-        );
+    // React Hook Form setter select-elementets value hvis skjemaet har `defaultValues`, men vi rendrer ikke det elementet synlig.
+    // For at brukeren skal se at verdien faktisk er blitt satt må vi sette denne staten.
+    useEffect(() => {
+        setSelectedValue(selectRef.current?.value || "");
+    }, [selectRef.current?.value]);
 
-        const [selectedValue, setSelectedValue] = useState(value);
-        const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
-        const selectedValueLabel = useMemo(
-            () => visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt,
-            [visibleItems, selectedValue, defaultPrompt],
-        );
-
-        // Update internal state if value is changed
-        useEffect(() => {
-            setSelectedValue(value);
-        }, [value, setSelectedValue]);
-
-        const [dropdownIsShown, setShown] = useState(false);
-        const showSearchInputField = isSearchable && dropdownIsShown;
-
-        // Element references:
-        const componentRootElementRef = useRef<HTMLDivElement>(null);
-        const internalSelectRef = useRef<HTMLSelectElement>(null);
-        const selectRef = ref && typeof ref !== "function" ? ref : internalSelectRef;
-        const buttonRef = useRef<HTMLButtonElement>(null);
-        const searchFieldRef = useRef<HTMLInputElement>(null);
-        const listRef = useListNavigation();
-
-        function toggleListVisibility() {
-            setShown(!dropdownIsShown);
-        }
-
-        function selectOption(item: Option) {
+    const selectOption = useCallback(
+        (item: Option) => {
             const nextValue = item.value;
             setSearchValue("");
             setSelectedValue(nextValue);
             if (onChange) {
-                onChange({ type: "change", target: { name: name, value: nextValue } });
+                onChange({ type: "change", target: { name, value: nextValue } });
             }
             if (selectRef.current) {
                 selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
             }
             toggleListVisibility();
-        }
+        },
+        [onChange, setSearchValue, setSelectedValue, toggleListVisibility, name],
+    );
 
-        const focusInsideRef = useRef(false);
+    /// Fokushåndtering
 
-        const handleFocusPlacement = useCallback(() => {
-            if (dropdownIsShown && !isSearchable) {
-                const listElement = listRef.current;
-                if (listElement) {
-                    focusSelected(listElement, selectedValue);
-                }
-            } else if (dropdownIsShown) {
-                if (searchFieldRef.current) {
-                    searchFieldRef.current.focus();
-                }
-            } else {
-                if (focusInsideRef.current && buttonRef.current) {
-                    buttonRef.current.focus();
-                }
+    const componentRootElementRef = useRef<HTMLDivElement>(null);
+    const focusInsideRef = useRef(false);
+    const listRef = useListNavigation();
+    const searchFieldRef = useRef<HTMLInputElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const handleFocusPlacement = useCallback(() => {
+        if (dropdownIsShown && !isSearchable) {
+            const listElement = listRef.current;
+            if (listElement) {
+                focusSelected(listElement, selectedValue);
             }
-        }, [dropdownIsShown, isSearchable, selectedValue, listRef]);
+        } else if (dropdownIsShown) {
+            if (searchFieldRef.current) {
+                searchFieldRef.current.focus();
+            }
+        } else {
+            if (focusInsideRef.current && buttonRef.current) {
+                buttonRef.current.focus();
+            }
+        }
+    }, [dropdownIsShown, isSearchable, selectedValue, listRef]);
 
-        const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(dropdownIsShown, {
-            onFirstVisible: handleFocusPlacement,
-            onTransitionEnd: handleFocusPlacement,
-        });
+    const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(dropdownIsShown, {
+        onFirstVisible: handleFocusPlacement,
+        onTransitionEnd: handleFocusPlacement,
+    });
 
-        function handleBlur(e: FocusEvent<HTMLButtonElement | HTMLInputElement>) {
+    const handleBlur = useCallback(
+        (e: FocusEvent<HTMLButtonElement | HTMLInputElement>) => {
             const componentRootElement = componentRootElementRef.current;
             // There are known issues in Firefox when using "relatedTarget" in onBlur events:
             // https://github.com/facebook/react/issues/2011
@@ -206,50 +234,52 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
             if (!nextFocusIsInsideComponent) {
                 if (onBlur) {
-                    onBlur({ type: "blur", target: { name: name, value: selectedValue || "" } });
+                    onBlur({ type: "blur", target: { name, value: selectedValue || "" } });
                     selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
                 focusInsideRef.current = false;
                 setShown(false);
             }
+        },
+        [onBlur, setShown, name, selectedValue],
+    );
+
+    const handleFocus = useCallback(() => {
+        if (onFocus && !focusInsideRef.current) {
+            onFocus({ type: "change", target: { name, value: selectedValue || "" } });
+            focusInsideRef.current = true;
         }
+    }, [onFocus, selectedValue, name]);
 
-        function handleFocus() {
-            if (onFocus && !focusInsideRef.current) {
-                onFocus({ type: "change", target: { name: name, value: selectedValue || "" } });
-                focusInsideRef.current = true;
-            }
-        }
+    // Handle focus and blur of hidden select element
+    useEffect(() => {
+        const select = selectRef.current;
+        const searchField = searchFieldRef.current;
+        const button = buttonRef.current;
+        const componentRootElement = componentRootElementRef.current;
 
-        // Handle focus and blur of hidden select element
-        useEffect(() => {
-            const select = selectRef.current;
-            const searchField = searchFieldRef.current;
-            const button = buttonRef.current;
-            const componentRootElement = componentRootElementRef.current;
+        select?.addEventListener("focus", () => {
+            showSearchInputField ? searchField?.focus() : button?.focus();
+        });
+        select?.addEventListener("blur", function (this, ev) {
+            componentRootElement && componentRootElement.contains(ev.relatedTarget as Node) && ev.preventDefault();
+        });
 
-            select && typeof ref === "function" && ref(select);
-            select?.addEventListener("focus", () => {
+        return () => {
+            select?.removeEventListener("focus", () => {
                 showSearchInputField ? searchField?.focus() : button?.focus();
             });
-            select?.addEventListener("blur", function (this, ev) {
+            select?.removeEventListener("blur", function (this, ev) {
                 componentRootElement && componentRootElement.contains(ev.relatedTarget as Node) && ev.preventDefault();
             });
+        };
+    }, [showSearchInputField]);
 
-            return () => {
-                select?.removeEventListener("focus", () => {
-                    showSearchInputField ? searchField?.focus() : button?.focus();
-                });
-                select?.removeEventListener("blur", function (this, ev) {
-                    componentRootElement &&
-                        componentRootElement.contains(ev.relatedTarget as Node) &&
-                        ev.preventDefault();
-                });
-            };
-        }, [ref, selectRef, showSearchInputField]);
+    /// Tastaturnavigasjon
 
-        // add support for opening dropdown with arrowkey down as expected from native select
-        function handleOnKeyDown(e: KeyboardEvent<HTMLButtonElement>) {
+    // Add support for opening dropdown with arrowkey down as expected from native select
+    const handleOnKeyDown = useCallback(
+        (e: KeyboardEvent<HTMLButtonElement>) => {
             e.preventDefault();
             if ((e.key === "ArrowDown" || e.key === " ") && !dropdownIsShown) {
                 e.stopPropagation();
@@ -258,144 +288,148 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             if (e.key === "Escape") {
                 setShown(false);
             }
-        }
+        },
+        [setShown, dropdownIsShown],
+    );
 
-        // Add support for closing the dropdown with Escape like native select. Unfortunately, Escape does not trigger the button onKeyDown.
-        useEffect(() => {
-            const handleEscape = (e: globalThis.KeyboardEvent) => {
-                if (e.key === "Escape" && dropdownIsShown) {
-                    setShown(false);
-                }
-            };
-            if (typeof window !== "undefined" && dropdownIsShown) {
-                window.addEventListener("keydown", handleEscape);
+    // Add support for closing the dropdown with Escape like native select. Unfortunately, Escape does not trigger the button onKeyDown.
+    useEffect(() => {
+        const handleEscape = (e: globalThis.KeyboardEvent) => {
+            if (e.key === "Escape" && dropdownIsShown) {
+                setShown(false);
             }
-            return () => {
-                if (typeof window !== "undefined") {
-                    window.removeEventListener("keydown", handleEscape);
-                }
-            };
-        }, [dropdownIsShown]);
+        };
+        if (typeof window !== "undefined" && dropdownIsShown) {
+            window.addEventListener("keydown", handleEscape);
+        }
+        return () => {
+            if (typeof window !== "undefined") {
+                window.removeEventListener("keydown", handleEscape);
+            }
+        };
+    }, [setShown, dropdownIsShown]);
 
-        return (
-            <div
-                data-testid="jkl-select"
-                className={cn("jkl-select", className, {
-                    "jkl-select--inline": inline,
-                    "jkl-select--compact": forceCompact,
-                    "jkl-select--open": dropdownIsShown,
-                    "jkl-select--no-value": !hasSelectedValue,
-                    "jkl-select--invalid": !!errorLabel || invalid,
-                })}
-                ref={componentRootElementRef}
-                {...rest}
+    return (
+        <div
+            data-testid="jkl-select"
+            className={cn("jkl-select", className, {
+                "jkl-select--inline": inline,
+                "jkl-select--compact": forceCompact,
+                "jkl-select--open": dropdownIsShown,
+                "jkl-select--no-value": !hasSelectedValue,
+                "jkl-select--invalid": !!errorLabel || invalid,
+            })}
+            ref={componentRootElementRef}
+            {...rest}
+        >
+            <Label
+                variant={variant}
+                {...labelProps}
+                standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
+                htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
+                srOnly={inline || labelProps?.srOnly}
+                forceCompact={forceCompact}
             >
-                <Label
-                    variant={variant}
-                    {...labelProps}
-                    standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
-                    htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
-                    srOnly={inline || labelProps?.srOnly}
-                    forceCompact={forceCompact}
-                >
-                    {label}
-                </Label>
-                <select
-                    name={name}
-                    tabIndex={-1}
-                    className="jkl-sr-only"
-                    aria-hidden
-                    ref={selectRef}
-                    defaultValue={selectedValue}
-                >
-                    <option value={selectedValue}>{toItemLabel(selectedValue, items)}</option>
-                </select>
-                <div className="jkl-select__outer-wrapper" style={{ width }}>
-                    {isSearchable && (
-                        <input
-                            id={searchInputId}
-                            hidden={!showSearchInputField}
-                            ref={searchFieldRef}
-                            placeholder="Søk"
-                            value={searchValue}
-                            onChange={(e) => setSearchValue(e.target.value)}
-                            data-testid="jkl-select__search-input"
-                            className="jkl-select__search-input"
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
-                            onClick={(e) => {
-                                e.stopPropagation();
-                            }}
-                        />
-                    )}
-                    <button
-                        id={buttonId}
-                        ref={buttonRef}
-                        hidden={showSearchInputField}
-                        type="button"
-                        name={`${name}-btn`}
-                        className="jkl-select__button"
-                        data-testid="jkl-select__button"
-                        aria-label={`${selectedValueLabel || "Velg"},${label}`}
-                        aria-expanded={dropdownIsShown}
-                        aria-controls={listId}
+                {label}
+            </Label>
+            <select
+                name={name}
+                tabIndex={-1}
+                className="jkl-sr-only"
+                aria-hidden
+                ref={unifiedSelectRef}
+                value={selectedValue}
+                onChange={noop} // React complains unless we give an onChange handler. This is technically a read-only field, but readOnly isn't an option here.
+            >
+                <option value=""></option> {/* Tom option må være et valg, ellers vil <select> alltid ha en value */}
+                {visibleItems.map((item) => (
+                    <option key={`${listId}-opt-${item.value}`} hidden={!item.visible} value={item.value}>
+                        {item.label}
+                    </option>
+                ))}
+            </select>
+            <div className="jkl-select__outer-wrapper" style={{ width }}>
+                {isSearchable && (
+                    <input
+                        id={searchInputId}
+                        hidden={!showSearchInputField}
+                        ref={searchFieldRef}
+                        placeholder="Søk"
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        data-testid="jkl-select__search-input"
+                        className="jkl-select__search-input"
                         onBlur={handleBlur}
                         onFocus={handleFocus}
-                        onKeyUp={handleOnKeyDown}
-                        onClick={toggleListVisibility}
-                        onMouseDown={(e) => {
-                            // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
-                            // https://twitter.com/MilesSorce/status/1278762360669265925
-                            e.preventDefault();
-                            buttonRef.current?.focus();
+                        onClick={(e) => {
+                            e.stopPropagation();
                         }}
-                    >
-                        {selectedValueLabel}
-                    </button>
-                    <div
-                        id={listId}
-                        ref={dropdownRef}
-                        role="group"
-                        className="jkl-select__options-menu"
-                        hidden={!dropdownIsShown}
-                        aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
-                        aria-labelledby={buttonId}
-                        tabIndex={-1}
-                    >
-                        <ul
-                            className="jkl-select__option-wrapper"
-                            data-testid="jkl-select__option-wrapper"
-                            ref={listRef}
-                        >
-                            {visibleItems.map((item, i) => (
-                                <li key={`${listId}-${item.value}`} hidden={!item.visible}>
-                                    <button
-                                        type="button"
-                                        id={`${listId}__${toLower(item.value)}`}
-                                        className="jkl-select__option"
-                                        data-testid="jkl-select__option"
-                                        aria-selected={item.value === selectedValue}
-                                        role="option"
-                                        value={item.value}
-                                        data-testautoid={`jkl-select__option-${i}`}
-                                        onBlur={handleBlur}
-                                        onFocus={handleFocus}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            selectOption(item);
-                                        }}
-                                    >
-                                        <span className="jkl-select__option-label">{item.label}</span>
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
+                    />
+                )}
+                <button
+                    id={buttonId}
+                    ref={buttonRef}
+                    hidden={showSearchInputField}
+                    type="button"
+                    name={`${name}-btn`}
+                    className="jkl-select__button"
+                    data-testid="jkl-select__button"
+                    aria-label={`${selectedValueLabel || "Velg"},${label}`}
+                    aria-expanded={dropdownIsShown}
+                    aria-controls={listId}
+                    onBlur={handleBlur}
+                    onFocus={handleFocus}
+                    onKeyUp={handleOnKeyDown}
+                    onClick={toggleListVisibility}
+                    onMouseDown={(e) => {
+                        // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
+                        // https://twitter.com/MilesSorce/status/1278762360669265925
+                        e.preventDefault();
+                        buttonRef.current?.focus();
+                    }}
+                >
+                    {selectedValueLabel}
+                </button>
+                <div
+                    id={listId}
+                    ref={dropdownRef}
+                    role="group"
+                    className="jkl-select__options-menu"
+                    hidden={!dropdownIsShown}
+                    aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
+                    aria-labelledby={buttonId}
+                    tabIndex={-1}
+                >
+                    <ul className="jkl-select__option-wrapper" data-testid="jkl-select__option-wrapper" ref={listRef}>
+                        {visibleItems.map((item, i) => (
+                            <li key={`${listId}-${item.value}`} hidden={!item.visible}>
+                                <button
+                                    type="button"
+                                    id={`${listId}__${toLower(item.value)}`}
+                                    className="jkl-select__option"
+                                    data-testid="jkl-select__option"
+                                    aria-selected={item.value === selectedValue}
+                                    role="option"
+                                    value={item.value}
+                                    data-testautoid={`jkl-select__option-${i}`}
+                                    onBlur={handleBlur}
+                                    onFocus={handleFocus}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        selectOption(item);
+                                    }}
+                                >
+                                    <span className="jkl-select__option-label">{item.label}</span>
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-                <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+                <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
             </div>
-        );
-    },
-);
+            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+        </div>
+    );
+});
+
 Select.displayName = "Select";
