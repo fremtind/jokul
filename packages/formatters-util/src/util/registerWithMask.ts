@@ -22,9 +22,11 @@ const formatters = {
 };
 export type Formatter = keyof typeof formatters;
 
+export type RegisterWithMaskOptions<T> = Omit<RegisterOptions<T>, "setValueAs">;
+
 const registerWithMask =
     (formatter: Formatter) =>
-    <T>(form: UseFormReturn<T>, name: Path<T>, options?: RegisterOptions<T>) => {
+    <T>(form: UseFormReturn<T>, name: Path<T>, options?: RegisterWithMaskOptions<T>) => {
         const setValueAs = (value: string) => value.replace(/\s/g, "");
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
             options?.onChange?.(event);
@@ -57,15 +59,18 @@ export const registerWithKontonummerMask = registerWithMask("kontonummer");
 export const registerWithTelefonnummerMask = registerWithMask("telefonnummer");
 
 export const registerWithMasks = <T>(form: UseFormReturn<T>) => ({
-    registerWithFodselsnummerMask: (name: Path<T>, options?: RegisterOptions<T>): UseFormRegisterReturn =>
+    registerWithFodselsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
         registerWithMask("fodselsnummer")(form, name, options),
-    registerWithKortnummerMask: (name: Path<T>, options?: RegisterOptions<T>): UseFormRegisterReturn =>
+    registerWithKortnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
         registerWithMask("kortnummer")(form, name, options),
-    registerWithKontonummerMask: (name: Path<T>, options?: RegisterOptions<T>): UseFormRegisterReturn =>
+    registerWithKontonummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
         registerWithMask("kontonummer")(form, name, options),
-    registerWithTelefonnummerMask: (name: Path<T>, options?: RegisterOptions<T>): UseFormRegisterReturn =>
+    registerWithTelefonnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
         registerWithMask("telefonnummer")(form, name, options),
-    registerWithNumber: (name: Path<T>, options?: RegisterOptions<T>): UseFormRegisterReturn & { align: "right" } =>
+    registerWithNumber: (
+        name: Path<T>,
+        options?: RegisterWithMaskOptions<T>,
+    ): UseFormRegisterReturn & { align: "right" } =>
         registerWithMask("number")(form, name, options) as unknown as UseFormRegisterReturn & {
             align: "right";
         },
