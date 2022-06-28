@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.5 (2022-06-28)
+
+### Bug Fixes
+
+-   **formatters-util:** bedre typing av options til register with mask ([3981302](https://github.com/fremtind/jokul/commit/39813026e5b7ba511b549c10d7ad5d3faeaa353b))
+
 ## [2.3.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@2.3.3...@fremtind/jkl-formatters-util@2.3.4) (2022-06-13)
 
 ### Bug Fixes
