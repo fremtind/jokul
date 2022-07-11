@@ -4,9 +4,9 @@ import { axe } from "jest-axe";
 import React from "react";
 import { Tabs, Tab, TabList, TabPanel } from ".";
 
-const renderComponent = (onChange?: () => void) =>
+const renderComponent = (onChange?: () => void, defaultTab?: number) =>
     render(
-        <Tabs onChange={onChange}>
+        <Tabs onChange={onChange} defaultTab={defaultTab}>
             <TabList aria-label="testlist">
                 <Tab>Tab 1</Tab>
                 <Tab>Tab 2</Tab>
@@ -47,6 +47,29 @@ describe("Tabs", () => {
         });
 
         expect(onChange).toHaveBeenCalledWith(1);
+    });
+
+    it("shows tab set by defaultTab if defined", async () => {
+        renderComponent(undefined, 2);
+
+        screen.getByText("Tabpanel 3");
+        expect(screen.queryByText("TabPanel 2")).toBeNull();
+        expect(screen.queryByText("TabPanel 1")).toBeNull();
+    });
+
+    it("changes tabs while defaultTab is defined", async () => {
+        const onChange = jest.fn();
+
+        renderComponent(onChange, 2);
+
+        expect(onChange).not.toHaveBeenCalled();
+
+        await act(async () => {
+            await userEvent.click(screen.getByText("Tab 2"));
+        });
+
+        expect(onChange).toHaveBeenCalledWith(1);
+        screen.getByText("Tabpanel 2");
     });
 });
 

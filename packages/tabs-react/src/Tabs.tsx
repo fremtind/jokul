@@ -7,6 +7,7 @@ import React, { useState, useCallback, useEffect } from "react";
 export interface TabsProps extends WithChildren {
     className?: string;
     onChange?: (tabIndex: number) => void;
+    defaultTab?: number;
 }
 
 /**
@@ -15,8 +16,8 @@ export interface TabsProps extends WithChildren {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, ...props }: TabsProps) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
+    const [activeIndex, setActiveIndex] = useState(defaultTab ?? 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
 
