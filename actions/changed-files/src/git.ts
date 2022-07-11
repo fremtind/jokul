@@ -1,13 +1,13 @@
 import * as core from "@actions/core";
 import micromatch from "micromatch";
-import simpleGit from "simple-git";
+import createSimpleGit from "simple-git";
 
 type MicromatchOptions = {
     ignore?: string[];
 };
 
 export async function findChangedFiles(patterns: string[], options?: MicromatchOptions): Promise<string[]> {
-    const git = simpleGit();
+    const git = createSimpleGit();
 
     core.debug('Running "git status"');
     const status = await git.status();
