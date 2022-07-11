@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2022-07-11)
+
+### Features
+
+-   add defaultTab prop to tabs ([072f676](https://github.com/fremtind/jokul/commit/072f67647632ad81dbd79e449f00dbf0862d7f42))
+
 ## [2.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tabs-react@2.0.3...@fremtind/jkl-tabs-react@2.0.4) (2022-06-13)
 
 ### Bug Fixes
