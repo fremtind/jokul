@@ -1,9 +1,9 @@
 @use "sass:color";
 
-@import url("x.css");
-@import url("y.css");
+@import "x.css";
+@import "y.css";
 
-@import url("z.css");
+@import "z.css";
 
 /**
  * Multi-line comment

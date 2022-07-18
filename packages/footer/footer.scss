@@ -28,7 +28,7 @@
 
     @include _footer-height(jkl.$spacing-l);
 
-    :not(*[data-compactlayout]) > & {
+    :not([data-compactlayout]) > & {
         @include jkl.from-medium-device {
             gap: jkl.$spacing-xl;
             padding: jkl.$spacing-xl;
@@ -69,7 +69,7 @@
             display: block;
             margin-bottom: jkl.$spacing-m;
 
-            :not(*[data-compactlayout]) > .jkl-footer > & {
+            :not([data-compactlayout]) > .jkl-footer > & {
                 @include jkl.from-medium-device {
                     display: inline-block;
                     margin-right: jkl.$spacing-l;
