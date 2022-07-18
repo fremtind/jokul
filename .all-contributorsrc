@@ -473,6 +473,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Chrihenn",
+      "name": "Christopher T. Hennum",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25311543?v=4",
+      "profile": "https://github.com/Chrihenn",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
