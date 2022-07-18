@@ -140,6 +140,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
     <td align="center"><a href="http://oyvind.co"><img src="https://avatars.githubusercontent.com/u/4263132?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Øyvind Nordbø</b></sub></a><br /><a href="#design-onordbo" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/daa1"><img src="https://avatars.githubusercontent.com/u/353737?v=4?s=100" width="100px;" alt=""/><br /><sub><b>David Aasterud</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Adaa1" title="Bug reports">🐛</a> <a href="https://github.com/fremtind/jokul/commits?author=daa1" title="Code">💻</a></td>
     <td align="center"><a href="https://matssom.com"><img src="https://avatars.githubusercontent.com/u/26466585?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mats Sommervold</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=matssom" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Chrihenn"><img src="https://avatars.githubusercontent.com/u/25311543?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christopher T. Hennum</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3AChrihenn" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
