@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.5 (2022-07-18)
+
+### Bug Fixes
+
+-   reset statisk høyde ved bruk av data-compactlayout ([e1e0475](https://github.com/fremtind/jokul/commit/e1e0475359e23f8dbc0b61569273e58294e62ae4)), closes [#2931](https://github.com/fremtind/jokul/issues/2931)
+
 ## [8.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@8.0.1...@fremtind/jkl-text-input@8.0.2) (2022-06-08)
 
 ### Bug Fixes
