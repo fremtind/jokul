@@ -112,8 +112,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
 
     const [dropdownIsShown, setShown] = useState(false);
     const toggleListVisibility = useCallback(() => {
-        setShown(!dropdownIsShown);
-    }, [setShown, dropdownIsShown]);
+        setShown((previousValue) => !previousValue);
+    }, []);
 
     /// Søk
 
