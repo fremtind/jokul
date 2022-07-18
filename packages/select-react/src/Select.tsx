@@ -278,7 +278,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     /// Tastaturnavigasjon
 
     // Add support for opening dropdown with arrowkey down as expected from native select
-    const handleOnKeyDown = useCallback(
+    const handleOnKeyUp = useCallback(
         (e: KeyboardEvent<HTMLButtonElement>) => {
             e.preventDefault();
             if ((e.key === "ArrowDown" || e.key === " ") && !dropdownIsShown) {
@@ -379,7 +379,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     aria-controls={listId}
                     onBlur={handleBlur}
                     onFocus={handleFocus}
-                    onKeyUp={handleOnKeyDown}
+                    onKeyUp={handleOnKeyUp}
                     onClick={toggleListVisibility}
                     onMouseDown={(e) => {
                         // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
