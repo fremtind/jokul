@@ -153,7 +153,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     );
 
     const selectRef = useRef<HTMLSelectElement | null>(null);
-    // Hjelper for å gjøre det enklere å både forwarde refen men også bruke den selv internt
+    // Hjelpefunksjon som gjør det enklere å forwarde refen og å bruke den selv internt
     const unifiedSelectRef = useCallback(
         (instance: HTMLSelectElement | null) => {
             selectRef.current = instance;
