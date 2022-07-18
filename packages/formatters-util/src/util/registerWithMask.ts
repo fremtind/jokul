@@ -1,12 +1,5 @@
 import type { ChangeEvent } from "react";
-import type {
-    Path,
-    PathValue,
-    RegisterOptions,
-    UnpackNestedValue,
-    UseFormRegisterReturn,
-    UseFormReturn,
-} from "react-hook-form";
+import type { Path, PathValue, RegisterOptions, UseFormRegisterReturn, UseFormReturn } from "react-hook-form";
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
 import { formatKortnummer } from "../kortnummer/formatKortnummer";
@@ -32,9 +25,7 @@ const registerWithMask =
             options?.onChange?.(event);
             form.setValue(
                 name as unknown as Path<T>,
-                formatters[formatter](event.target.value, { partial: true }) as UnpackNestedValue<
-                    PathValue<T, Path<T>>
-                >,
+                formatters[formatter](event.target.value, { partial: true }) as PathValue<T, Path<T>>,
             );
         };
         const register = form.register(name, { ...options, setValueAs, onChange });
