@@ -113,7 +113,7 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
                 <FieldGroup
                     legend="Er klient"
                     labelProps={{ variant: "small" }}
-                    errorLabel={formState.errors.klient?.map((field) => field.message).join(", ")}
+                    errorLabel={formState.errors.klient?.message}
                 >
                     <Checkbox {...register("klient")} value="ja">
                         Ja
