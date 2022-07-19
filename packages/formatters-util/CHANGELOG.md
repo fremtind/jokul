@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.6 (2022-07-19)
+
+### Bug Fixes
+
+-   rydd opp i typer etter breaking change i hook-form ([8ae2b90](https://github.com/fremtind/jokul/commit/8ae2b906c6b8d503b53f5c8928f824f553e6a015))
+
 ## 2.3.5 (2022-06-28)
 
 ### Bug Fixes
