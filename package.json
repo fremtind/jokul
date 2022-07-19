@@ -40,15 +40,23 @@
     },
     "packageManager": "yarn@1.22.17",
     "resolutions": {
+        "**/@graphql-tools/url-loader/ws": "^7.4.6",
+        "**/diff2html/merge": "^2.1.1",
+        "**/gatsby/multer": "v1.4.5-lts.1",
         "**/gatsby-source-filesystem/got": "^11.8.5",
         "**/package-json/got": "^11.8.5",
+        "**/unidiff/diff": "^3.5.0",
+        "ansi-html": "^0.0.8",
         "cross-fetch": "^3.1.5",
         "commitizen/minimist": "^1.2.6",
         "cz-lerna-changelog/shelljs": "^0.8.5",
         "engine.io": "^4.1.2",
         "git-up": "^6.0.0",
         "glob-parent": "^6.0.2",
-        "moment": "^2.29.4"
+        "jpeg-js": "^0.4.2",
+        "moment": "^2.29.4",
+        "nth-check": "^2.0.1",
+        "trim": "^0.0.3"
     },
     "dependencies": {
         "classnames": "^2.3.1",
