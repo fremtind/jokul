@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.13](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.12...@fremtind/portal@15.0.13) (2022-07-19)
+
+### Bug Fixes
+
+-   rydd opp i typer etter breaking change i hook-form ([8ae2b90](https://github.com/fremtind/jokul/commit/8ae2b906c6b8d503b53f5c8928f824f553e6a015))
+
 ## [15.0.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.6...@fremtind/portal@15.0.7) (2022-06-13)
 
 ### Bug Fixes
