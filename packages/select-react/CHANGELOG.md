@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.6 (2022-07-19)
+
+### Bug Fixes
+
+-   støtt defaultValue fra react-hook-form ([09d9380](https://github.com/fremtind/jokul/commit/09d93809edca4b6467bb54cd7ac991fe9426bc1d)), closes [#2924](https://github.com/fremtind/jokul/issues/2924)
+
 ## [10.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.4...@fremtind/jkl-select-react@10.0.5) (2022-06-13)
 
 ### Bug Fixes

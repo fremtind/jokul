@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.14](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.13...@fremtind/portal@15.0.14) (2022-07-19)
+
+### Bug Fixes
+
+-   støtt defaultValue fra react-hook-form ([09d9380](https://github.com/fremtind/jokul/commit/09d93809edca4b6467bb54cd7ac991fe9426bc1d)), closes [#2924](https://github.com/fremtind/jokul/issues/2924)
+
 ## [15.0.13](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.12...@fremtind/portal@15.0.13) (2022-07-19)
 
 ### Bug Fixes
