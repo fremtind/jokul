@@ -9,7 +9,7 @@ import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { motion } from "framer-motion";
-import React, { useRef, VFC } from "react";
+import React, { useRef, FC } from "react";
 import { useForm } from "react-hook-form";
 
 type FormValues = {
@@ -22,12 +22,9 @@ type FormValues = {
     klient: undefined | string[];
 };
 
-const Skjemavalideringseksempel: VFC = () => {
+const Skjemavalideringseksempel: FC = () => {
     const { formState, handleSubmit, register } = useForm<FormValues>({
         shouldFocusError: false,
-        defaultValues: {
-            // fodselsdato: "24.10.1990",
-        },
     });
 
     /** Gjør klar props til oppsummeringen */
