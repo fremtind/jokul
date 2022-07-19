@@ -28,13 +28,47 @@ jobs:
                       ## Sjekkliste
 
                       - [ ] Mottatt – jeg fikser i løpet av uka!
-                      - [ ] På toppnivå i Jøkul, kjør `yarn upgrade-interactive --latest`. Velg alle patch- og minor-versjoner [^1], og se om majors kan oppgraderes uten problemer (f. eks. devDependency som fjerner støtte for gammel Node-versjon).
-                      - [ ] Lag issue(s) på Github for å gjøre oppgraderinger av versjoner som krever mer tid
-                      - [ ] Kjør `yarn build` og `yarn ci:test`
-                      - [ ] Lag en pull request som vanlig
 
-                      ---
+                      ## Fremgangsmåte
 
-                      [1]: Vi har [noen få pakker hvor vi gjør egne patcher](https://github.com/fremtind/jokul/tree/main/patches) i Jøkul. Disse må gjerne oppgraderes, men krever at vi [lager en tilsvarende patch](https://github.com/ds300/patch-package#usage) på den nye versjonen.
+                      🧑‍💻 Oppdater `main` og lag en ny branch.
+                      🧑‍💻 Kjør `yarn outdated` på rotnivå i prosjektet.
+
+                      Output fra `yarn outdated` vil vise deg hvilke pakker som trenger å oppdateres, men også noen som ikke _kan_ oppdateres. Noen ganger har vi avhengigheter som trenger en eldre majorversjon av en pakke, for eksempel `gatsby` som trenger en eldre `mdx-js` og `got`.
+
+                      Du kan sannsynligvis trygt ignorere `resolutionDependencies` med mindre noe brekker senere.
+
+                      Vi bruker `resolutions`-feltet i `package.json` til å overstyre våre dependencies sine dependencies. Generelt sett gjør vi dette for å få med oss feilrettinger og sikkerhetsoppdateringer. Noen ganger er disse avhengigheter av avhengigheter av avhengigheter, og ett eller annet sted på veien er en pakke ikke vedlikeholdt.
+
+                      🧑‍💻 Endre versjoner i `package.json` til versjonen du ønsker.
+
+                      Som nevnt kan du sannsynligvis ignorere `resolutionDependencies`. MDX-pakkene er blokkert av `gatsby-plugin-mdx`. Typedefinisjoner for Node kan du la være til vi eventuelt endrer `.nvmrc`.
+
+                      🧑‍💻 Kjør `yarn --force`.
+
+                      Du skal få en oppdatert `yarn.lock`. Ta en titt på diffen og se at det virker fornuftig.
+
+                      🧑‍💻 Lag eventuelle nye patcher.
+
+                      Vi har [noen få pakker hvor vi gjør egne patcher](https://github.com/fremtind/jokul/tree/main/patches) i Jøkul. Disse krever at vi [lager en tilsvarende patch](https://github.com/ds300/patch-package#usage) på den nye versjonen.
+
+                      🧑‍💻 Kjør `yarn build:docs`, `yarn ci:test` og `yarn serve`.
+
+                      Sjekk at ting fortsatt bygger, tester går grønt, og at siden funker OK.
+
+                      TypeScript kan finne på å klage over at noe er definert to ganger. Det er typisk `@types/eslint`, `@types/node`, `@types/react` eller `@types/react-dom` som er kilden. Du må i disse tilfellene inn og endre manuelt på lockfila så vi ikke ender opp med duplikate versjoner. Spør en kollega om du står fast.
+
+                      🧑‍💻 Kjør `yarn commit` og lag en `chore`-commit.
+
+                      Snart klar for en pull request!
+
+                      🧑‍💻 Kjør `yarn audit` på rotnivå i prosjektet.
+
+                      Hvis det er audit-problemer etter oppdateringen din kan det hende du må legge til noen overstyringer i `resolutions` i `package.json`. Se [Yarn-dokumentasjonen](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) om du ikke har gjort dette før, eller spør en kollega om hjelp.
+
+                      Gjenta stegene fra `yarn --force` og nedover til du har fikset de problemene du klarer.
+
+                      🧑‍💻 Push endringene dine og åpne en pull request.
+
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
