@@ -31,7 +31,7 @@ describe("Select", () => {
         await act(async () => {
             await userEvent.click(button);
         });
-        expect(screen.getByText("drop")).toBeVisible();
+        expect(screen.getByRole("option", { name: "drop" })).toBeVisible();
     });
 
     it("should open when arrow down is pressed", async () => {
@@ -44,7 +44,7 @@ describe("Select", () => {
         await act(async () => {
             await userEvent.type(button, "{arrowdown}");
         });
-        expect(screen.getByText("drop")).toBeVisible();
+        expect(screen.getByRole("option", { name: "drop" })).toBeVisible();
     });
 
     it("should use the specified value", () => {
@@ -187,11 +187,12 @@ describe("Select", () => {
         render(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
-        const firstItemButton = screen.getByText("Item 1");
 
         await act(async () => {
             await userEvent.click(dropdownButtonElement);
         });
+
+        const firstItemButton = screen.getByRole("option", { name: "Item 1" });
 
         await act(async () => {
             await userEvent.click(firstItemButton);
@@ -304,7 +305,8 @@ describe("Searchable select", () => {
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
         });
-        const selectOption1Element = screen.getByText("Item 1");
+
+        const selectOption1Element = screen.getByRole("option", { name: "Item 1" });
 
         await act(async () => {
             await userEvent.click(selectOption1Element);
@@ -379,12 +381,12 @@ describe("Searchable select", () => {
         });
 
         expect(searchInputElement).toHaveAttribute("value", "");
-        expect(screen.getByText("Item 1")).toBeVisible();
-        expect(screen.getByText("Item 2")).toBeVisible();
-        expect(screen.getByText("Item 3")).toBeVisible();
-        expect(screen.getByText("Item 4")).toBeVisible();
-        expect(screen.getByText("Item 5")).toBeVisible();
-        expect(screen.getByText("Item 6")).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 1" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 2" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 3" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 4" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 5" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 6" })).toBeVisible();
     });
 
     it("should change visibility of options who's label does not match the input search value", async () => {
@@ -420,23 +422,23 @@ describe("Searchable select", () => {
         });
 
         expect(searchInputElement).toHaveAttribute("value", "");
-        expect(screen.getByText("Item 11")).toBeVisible();
-        expect(screen.getByText("Item 12")).toBeVisible();
-        expect(screen.getByText("Item 13")).toBeVisible();
-        expect(screen.getByText("Item 24")).toBeVisible();
-        expect(screen.getByText("Item 25")).toBeVisible();
-        expect(screen.getByText("Item 26")).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 11" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 12" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 13" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 24" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 25" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 26" })).toBeVisible();
 
         act(() => {
             fireEvent.change(searchInputElement, { target: { value: "1" } });
         });
 
-        expect(screen.getByText("Item 11")).toBeVisible();
-        expect(screen.getByText("Item 12")).toBeVisible();
-        expect(screen.getByText("Item 13")).toBeVisible();
-        expect(screen.getByText("Item 24")).not.toBeVisible();
-        expect(screen.getByText("Item 25")).not.toBeVisible();
-        expect(screen.getByText("Item 26")).not.toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 11" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 12" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 13" })).toBeVisible();
+        expect(screen.queryByRole("option", { name: "Item 24" })).toBeFalsy();
+        expect(screen.queryByRole("option", { name: "Item 25" })).toBeFalsy();
+        expect(screen.queryByRole("option", { name: "Item 26" })).toBeFalsy();
     });
 
     it("should clear search input after selecting an item and opening select options again", async () => {
@@ -466,7 +468,6 @@ describe("Searchable select", () => {
 
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items");
-        const firstOptionElement = screen.getByText("Item 11");
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -474,6 +475,7 @@ describe("Searchable select", () => {
 
         expect(searchInputElement).toHaveAttribute("value", "");
 
+        const firstOptionElement = screen.getByRole("option", { name: "Item 11" });
         act(() => {
             fireEvent.change(searchInputElement, { target: { value: "Item 11" } });
         });
@@ -529,24 +531,24 @@ describe("Searchable select", () => {
         });
 
         expect(searchInputElement).toHaveAttribute("value", "item");
-        expect(screen.getByText("ITEM 1")).toBeVisible();
-        expect(screen.getByText("item 2")).toBeVisible();
-        expect(screen.getByText("ItEm 3")).toBeVisible();
-        expect(screen.getByText("iteM 4")).toBeVisible();
-        expect(screen.getByText("Item 5")).toBeVisible();
-        expect(screen.getByText("Item 6")).toBeVisible();
+        expect(screen.getByRole("option", { name: "ITEM 1" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "item 2" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "ItEm 3" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "iteM 4" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 5" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 6" })).toBeVisible();
 
         act(() => {
             fireEvent.change(searchInputElement, { target: { value: "ITEM" } });
         });
 
         expect(searchInputElement).toHaveAttribute("value", "ITEM");
-        expect(screen.getByText("ITEM 1")).toBeVisible();
-        expect(screen.getByText("item 2")).toBeVisible();
-        expect(screen.getByText("ItEm 3")).toBeVisible();
-        expect(screen.getByText("iteM 4")).toBeVisible();
-        expect(screen.getByText("Item 5")).toBeVisible();
-        expect(screen.getByText("Item 6")).toBeVisible();
+        expect(screen.getByRole("option", { name: "ITEM 1" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "item 2" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "ItEm 3" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "iteM 4" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 5" })).toBeVisible();
+        expect(screen.getByRole("option", { name: "Item 6" })).toBeVisible();
     });
 
     it("should focus search input field when clicking dropdown button", async () => {
@@ -719,12 +721,12 @@ describe("Searchable select", () => {
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
         const searchInputElement = screen.getByLabelText("List of items");
-        const firstItemButtonElement = screen.getByText("Item 1");
 
         await act(async () => {
             await userEvent.click(dropdownButtonElement);
         });
 
+        const firstItemButtonElement = screen.getByRole("option", { name: "Item 1" });
         await act(async () => {
             await userEvent.type(searchInputElement, "item 1");
         });
@@ -773,12 +775,11 @@ describe("Searchable select", () => {
         render(<Select name="items" items={items} label="Ting" searchable />);
 
         const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
-        const searchInputElement = screen.getByTestId("jkl-select__search-input");
-
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
         });
 
+        const searchInputElement = screen.getByTestId("jkl-select__search-input");
         expect(searchInputElement).toBeVisible();
 
         await act(async () => {
@@ -811,19 +812,18 @@ describe("Searchable select", () => {
         );
 
         const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
-        const searchInputElement = screen.getByTestId("jkl-select__search-input");
-
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
         });
 
+        const searchInputElement = screen.getByTestId("jkl-select__search-input");
         act(() => {
             fireEvent.change(searchInputElement, { target: { value: "3" } });
         });
 
-        expect(screen.getByText("baz")).toBeVisible();
-        expect(screen.getByText("foo")).not.toBeVisible();
-        expect(screen.getByText("bar")).not.toBeVisible();
+        expect(screen.getByRole("option", { name: "baz" })).toBeVisible();
+        expect(screen.queryByRole("option", { name: "foo" })).toBeFalsy();
+        expect(screen.queryByRole("option", { name: "bar" })).toBeFalsy();
     });
 });
 
@@ -883,12 +883,11 @@ describe("a11y", () => {
         const screen = render(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
-        const firstItemButton = screen.getByText("Apple");
-
         await act(async () => {
             await userEvent.click(dropdownButtonElement);
         });
 
+        const firstItemButton = screen.getByRole("option", { name: "Apple" });
         await act(async () => {
             await userEvent.click(firstItemButton);
         });
