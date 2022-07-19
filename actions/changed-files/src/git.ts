@@ -1,6 +1,6 @@
 import * as core from "@actions/core";
 import micromatch from "micromatch";
-import simpleGit from "simple-git";
+import { simpleGit } from "simple-git";
 
 type MicromatchOptions = {
     ignore?: string[];
