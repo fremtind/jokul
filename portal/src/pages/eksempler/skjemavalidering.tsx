@@ -146,7 +146,7 @@ const Skjemavalideringseksempel: FC = () => {
                 legend="Er klient"
                 className="jkl-spacing-xl--bottom"
                 labelProps={{ variant: "small" }}
-                errorLabel={formState.errors.klient?.map((field) => field.message).join(", ")}
+                errorLabel={formState.errors.klient?.message}
             >
                 <Checkbox {...register("klient")} value="ja">
                     Ja

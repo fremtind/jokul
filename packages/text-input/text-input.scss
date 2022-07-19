@@ -404,6 +404,7 @@ $_text-input-selection-color--inverted: color.scale(
         &.jkl-text-input--compact,
         &.jkl-text-input--inline {
             .jkl-text-input__input {
+                height: revert;
                 max-height: $_text-input-height--compact;
 
                 &[data-has-content="true"] {

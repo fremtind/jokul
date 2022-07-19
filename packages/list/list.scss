@@ -127,7 +127,7 @@ $_item-space-between: jkl.$spacing-xs;
             list-style: disc _solid-diamond(CanvasText);
         }
 
-        & &:not(.jkl-list--ordered, .jkl-list--iconed) > .jkl-list__item:not(.jkl-list__item--iconed) {
+        & &:not(.jkl-list--ordered):not(.jkl-list--iconed) > .jkl-list__item:not(.jkl-list__item--iconed) {
             list-style: disc _outline-diamond(CanvasText);
         }
 
