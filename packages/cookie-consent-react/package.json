@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react cookie consent component",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/cookie-consent-react",
     "keywords": [
         "cookie consent",
         "jøkul",

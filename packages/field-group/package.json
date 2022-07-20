@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Style for fieldsets in Jøkul",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/field-group",
     "keywords": [
         "form"
     ],

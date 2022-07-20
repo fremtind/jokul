@@ -5,6 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react table components",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/table-react",
     "keywords": [
         "table",
         "jøkul",

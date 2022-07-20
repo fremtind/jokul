@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Common constant values shared across all Jøkul projects",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/constants-util",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",

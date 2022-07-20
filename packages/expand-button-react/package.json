@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react expand-button",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/expand-button-react",
     "keywords": [
         "jøkul",
         "fremtind"

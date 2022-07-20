@@ -5,6 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react list component",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/list-react",
     "keywords": [
         "bullet list",
         "ordered list",
