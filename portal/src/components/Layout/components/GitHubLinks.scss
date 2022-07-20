@@ -4,13 +4,7 @@
     @include jkl.text-style("body");
     margin-bottom: jkl.$spacing-2xl;
 
-    &__link {
-        &::after {
-            @include jkl.decorative($content: "\2197");
-        }
-
-        &:not(:last-child) {
-            margin-right: jkl.$spacing-l;
-        }
+    &__link:not(:last-child) {
+        margin-right: jkl.$spacing-l;
     }
 }

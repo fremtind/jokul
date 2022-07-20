@@ -17,6 +17,10 @@ interface Props {
         types: {
             [x: string]: ComponentDoc;
         };
+        versions?: {
+            react: string | null;
+            scss: string | null;
+        };
     };
 }
 
@@ -38,7 +42,7 @@ export const DocPageLayout: FC<Props> = ({ location, data, pageContext }) => {
             }`}
             id="innhold"
         >
-            <ComponentPageHeader {...frontmatter} />
+            <ComponentPageHeader {...frontmatter} versions={pageContext.versions} />
             <BlogPageHeader {...frontmatter} />
             <MDXRenderer>{body}</MDXRenderer>
             {types && <APIDocumentation types={types} />}
