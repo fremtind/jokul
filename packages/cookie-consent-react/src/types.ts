@@ -11,5 +11,6 @@ export interface Consent {
 export type AcceptConsentCallback = (consent: Consent) => void;
 
 export interface ConsentComponentBaseProps {
+    className?: string;
     onAccept: AcceptConsentCallback;
 }

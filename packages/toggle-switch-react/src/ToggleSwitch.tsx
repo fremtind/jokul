@@ -20,12 +20,14 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
     className,
     disabled,
     helpLabel,
+    ...rest
 }) => {
     const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
     const supportId = `${uid}_support-label`;
     const describedBy = helpLabel ? supportId : undefined;
+
     return (
-        <div id={uid} className="jkl-toggle-switch__container">
+        <div {...rest} id={uid} className="jkl-toggle-switch__container">
             <button
                 type="button"
                 aria-pressed={!!pressed}

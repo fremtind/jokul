@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import { IconFactory } from "../IconFactory";
 import { IconProps } from "./types";
 
-export const ArrowDown: FC<IconProps> = ({ className, variant }) => (
+export const ArrowDown: FC<IconProps> = ({ className, variant, ...rest }) => (
     <IconFactory
+        {...rest}
         viewBox="0 0 15 16"
         className={className}
         variant={variant}

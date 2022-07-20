@@ -32,7 +32,7 @@ const RequirementCheckbox = ({ defaultChecked, name, label, children }: Requirem
     );
 };
 
-export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept }) => {
+export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept, ...rest }) => {
     const { consent, dispatch, isOpen, requirement, showSettings } = useCookieConsentState();
 
     const handleAccept = useCallback(
@@ -90,6 +90,7 @@ export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept }) 
 
     return ReactDOM.createPortal(
         <div
+            {...rest}
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             {...(attr.container as any)}
             className="jkl jkl-cookie-consent-modal"

@@ -20,6 +20,7 @@ export const Label: FC<LabelProps> = ({
     standAlone,
     htmlFor,
     className = "",
+    ...rest
 }) => {
     const labelClassNames = classNames("jkl-label", className, {
         [`jkl-label--${variant}`]: variant,
@@ -39,7 +40,7 @@ export const Label: FC<LabelProps> = ({
     }
 
     return (
-        <C className={labelClassNames} htmlFor={htmlFor}>
+        <C {...rest} className={labelClassNames} htmlFor={htmlFor}>
             {children}
         </C>
     );

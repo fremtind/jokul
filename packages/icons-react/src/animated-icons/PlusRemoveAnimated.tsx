@@ -17,10 +17,12 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
     variant = "small",
     plusTitle = "pluss",
     closeTitle = "lukk",
+    ...rest
 }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
     return (
         <div
+            {...rest}
             className={cx(
                 `jkl-icon--${iconSize}`,
                 "jkl-icons-animated__plus",

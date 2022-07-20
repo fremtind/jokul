@@ -19,6 +19,7 @@ export const ToggleSlider: FC<Props> = ({
     onToggle,
     defaultValue,
     hideLegend = false,
+    ...rest
 }) => {
     const [currentLabel, setCurrentLabel] = useState(defaultValue || labels[0]);
     const id = useId("jkl-toggle-slider");
@@ -42,6 +43,7 @@ export const ToggleSlider: FC<Props> = ({
 
     return (
         <fieldset
+            {...rest}
             className={cn("jkl-toggle-slider", className)}
             aria-labelledby={legendId}
             data-testid="jkl-toggle-slider"

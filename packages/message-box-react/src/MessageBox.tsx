@@ -108,37 +108,53 @@ const getRole = (messageType: messageTypes) => {
 };
 
 function messageFactory(messageType: messageTypes) {
-    const MessageBox = forwardRef<HTMLDivElement, MessageBoxProps>(
-        ({ title, fullWidth, forceCompact, className = "", dismissed, dismissAction, children, role }, ref) => {
-            const componentClassName = cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
-                "jkl-message-box--full": fullWidth,
-                "jkl-message-box--compact": forceCompact,
-                "jkl-message-box--dismissed": dismissed,
-            });
+    const MessageBox = forwardRef<HTMLDivElement, MessageBoxProps>((props, ref) => {
+        const {
+            title,
+            fullWidth,
+            forceCompact,
+            className = "",
+            dismissed,
+            dismissAction,
+            children,
+            role,
+            ...rest
+        } = props;
 
-            const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
+        const componentClassName = cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
+            "jkl-message-box--full": fullWidth,
+            "jkl-message-box--compact": forceCompact,
+            "jkl-message-box--dismissed": dismissed,
+        });
 
-            const newChildren = hasStringChild?.[0] ? <p className="jkl-body">{children}</p> : children;
+        const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
 
-            return (
-                <div ref={ref} className={componentClassName} role={role || getRole(messageType)} data-theme="light">
-                    {getIcon(messageType)}
-                    <div className="jkl-message-box__content">
-                        {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
-                        {newChildren}
-                    </div>
-                    {dismissAction?.handleDismiss && (
-                        <IconButton
-                            className="jkl-message-box__dismiss-button"
-                            iconType="clear"
-                            buttonTitle={dismissAction.buttonTitle || "Lukk"}
-                            onClick={dismissAction.handleDismiss}
-                        />
-                    )}
+        const newChildren = hasStringChild?.[0] ? <p className="jkl-body">{children}</p> : children;
+
+        return (
+            <div
+                {...rest}
+                ref={ref}
+                className={componentClassName}
+                role={role || getRole(messageType)}
+                data-theme="light"
+            >
+                {getIcon(messageType)}
+                <div className="jkl-message-box__content">
+                    {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
+                    {newChildren}
                 </div>
-            );
-        },
-    );
+                {dismissAction?.handleDismiss && (
+                    <IconButton
+                        className="jkl-message-box__dismiss-button"
+                        iconType="clear"
+                        buttonTitle={dismissAction.buttonTitle || "Lukk"}
+                        onClick={dismissAction.handleDismiss}
+                    />
+                )}
+            </div>
+        );
+    });
 
     MessageBox.displayName = "MessageBox";
 
