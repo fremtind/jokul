@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.4 (2022-07-21)
+
+### Bug Fixes
+
+-   legg til manglende aria-describedby i FieldGroup ([d5e0c58](https://github.com/fremtind/jokul/commit/d5e0c58ed76dcacd4d6d307a5d75f99accc4c14e))
+
 ## [6.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-field-group-react@6.0.2...@fremtind/jkl-field-group-react@6.0.3) (2022-06-13)
 
 ### Bug Fixes
