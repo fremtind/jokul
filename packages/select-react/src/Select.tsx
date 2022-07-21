@@ -19,6 +19,7 @@ import React, {
     ChangeEvent,
     useCallback,
     useMemo,
+    RefObject,
 } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 import { toLower, focusSelected } from "./select-utils";
@@ -109,6 +110,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     const listId = useId(id || "jkl-select", { generateSuffix: !id });
     const buttonId = `${listId}_button`;
     const searchInputId = `${listId}_search-input`;
+    const supportId = `${listId}_support-label`;
+    const hasSupportText = helpLabel || errorLabel;
+    const describedBy = hasSupportText ? supportId : undefined;
 
     const [dropdownIsShown, setShown] = useState(false);
     const toggleListVisibility = useCallback(() => {
@@ -199,30 +203,35 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
 
     const componentRootElementRef = useRef<HTMLDivElement>(null);
     const focusInsideRef = useRef(false);
-    const listRef = useListNavigation();
     const searchFieldRef = useRef<HTMLInputElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const handleFocusPlacement = useCallback(() => {
-        if (dropdownIsShown && !isSearchable) {
-            const listElement = listRef.current;
-            if (listElement) {
-                focusSelected(listElement, selectedValue);
+
+    const handleFocusPlacement = useCallback(
+        (isOpen: boolean, ref: RefObject<HTMLElement>) => {
+            if (isOpen && !isSearchable) {
+                const listElement = ref.current;
+                if (listElement) {
+                    focusSelected(listElement, selectedValue);
+                }
+            } else if (isOpen) {
+                if (searchFieldRef.current) {
+                    searchFieldRef.current.focus();
+                }
+            } else {
+                if (focusInsideRef.current && buttonRef.current) {
+                    buttonRef.current.focus();
+                }
             }
-        } else if (dropdownIsShown) {
-            if (searchFieldRef.current) {
-                searchFieldRef.current.focus();
-            }
-        } else {
-            if (focusInsideRef.current && buttonRef.current) {
-                buttonRef.current.focus();
-            }
-        }
-    }, [dropdownIsShown, isSearchable, selectedValue, listRef]);
+        },
+        [isSearchable, selectedValue],
+    );
 
     const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(dropdownIsShown, {
         onFirstVisible: handleFocusPlacement,
         onTransitionEnd: handleFocusPlacement,
     });
+
+    useListNavigation({ ref: dropdownRef });
 
     const handleBlur = useCallback(
         (e: FocusEvent<HTMLButtonElement | HTMLInputElement>) => {
@@ -245,8 +254,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     );
 
     const handleFocus = useCallback(() => {
-        if (onFocus && !focusInsideRef.current) {
-            onFocus({ type: "change", target: { name, value: selectedValue || "" } });
+        if (!focusInsideRef.current) {
+            if (onFocus) {
+                onFocus({ type: "change", target: { name, value: selectedValue || "" } });
+            }
             focusInsideRef.current = true;
         }
     }, [onFocus, selectedValue, name]);
@@ -359,6 +370,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                         onChange={(e) => setSearchValue(e.target.value)}
                         data-testid="jkl-select__search-input"
                         className="jkl-select__search-input"
+                        aria-describedby={describedBy}
                         onBlur={handleBlur}
                         onFocus={handleFocus}
                         onClick={(e) => {
@@ -366,6 +378,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                         }}
                     />
                 )}
+                {/* eslint-disable jsx-a11y/role-supports-aria-props */}
                 <button
                     id={buttonId}
                     ref={buttonRef}
@@ -377,6 +390,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     aria-label={`${selectedValueLabel || "Velg"},${label}`}
                     aria-expanded={dropdownIsShown}
                     aria-controls={listId}
+                    aria-describedby={describedBy}
+                    aria-invalid={Boolean(errorLabel)} // Nei dette er ikke i henhold til speccen, men VoiceOver leser den likevel og det er oppførselen vi ønsker
                     onBlur={handleBlur}
                     onFocus={handleFocus}
                     onKeyUp={handleOnKeyUp}
@@ -390,44 +405,44 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 >
                     {selectedValueLabel}
                 </button>
+                {/* eslint-enable jsx-a11y/role-supports-aria-props */}
                 <div
                     id={listId}
                     ref={dropdownRef}
-                    role="group"
+                    role="listbox"
                     className="jkl-select__options-menu"
                     hidden={!dropdownIsShown}
                     aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
                     aria-labelledby={buttonId}
+                    aria-expanded={dropdownIsShown}
                     tabIndex={-1}
                 >
-                    <ul className="jkl-select__option-wrapper" data-testid="jkl-select__option-wrapper" ref={listRef}>
-                        {visibleItems.map((item, i) => (
-                            <li key={`${listId}-${item.value}`} hidden={!item.visible}>
-                                <button
-                                    type="button"
-                                    id={`${listId}__${toLower(item.value)}`}
-                                    className="jkl-select__option"
-                                    data-testid="jkl-select__option"
-                                    aria-selected={item.value === selectedValue}
-                                    role="option"
-                                    value={item.value}
-                                    data-testautoid={`jkl-select__option-${i}`}
-                                    onBlur={handleBlur}
-                                    onFocus={handleFocus}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        selectOption(item);
-                                    }}
-                                >
-                                    <span className="jkl-select__option-label">{item.label}</span>
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
+                    {visibleItems.map((item, i) => (
+                        <button
+                            key={`${listId}-${item.value}`}
+                            hidden={!item.visible}
+                            type="button"
+                            id={`${listId}__${toLower(item.value)}`}
+                            className="jkl-select__option"
+                            data-testid="jkl-select__option"
+                            aria-selected={item.value === selectedValue}
+                            role="option"
+                            value={item.value}
+                            data-testautoid={`jkl-select__option-${i}`}
+                            onBlur={handleBlur}
+                            onFocus={handleFocus}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                selectOption(item);
+                            }}
+                        >
+                            {item.label}
+                        </button>
+                    ))}
                 </div>
                 <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
             </div>
-            <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </div>
     );
 });
