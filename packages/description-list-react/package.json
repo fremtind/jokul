@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-description-list-react",
-    "version": "5.0.4",
+    "version": "5.0.5",
     "description": "The description list component is a container whose children is a key-value pair consisting of terms and details.",
     "keywords": [
         "description",
@@ -48,8 +48,8 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.4",
-        "@fremtind/jkl-description-list": "^5.0.4",
+        "@fremtind/jkl-core": "^10.0.5",
+        "@fremtind/jkl-description-list": "^5.0.5",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

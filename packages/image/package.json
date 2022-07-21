@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image",
-    "version": "3.0.4",
+    "version": "3.0.5",
     "description": "Jøkul style for image",
     "publishConfig": {
         "access": "public"
@@ -26,7 +26,7 @@
         "dev": "echo \"Error: run dev from image-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.4"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",
