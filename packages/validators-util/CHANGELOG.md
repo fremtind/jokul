@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.4.0 (2022-07-21)
+
+### Features
+
+-   created formatter and validator for organisasjonsnummer ([9cc096d](https://github.com/fremtind/jokul/commit/9cc096d03acc13de742a670d1837c4cf56a1eb98))
+
 ## 2.3.4 (2022-06-13)
 
 ### Bug Fixes
