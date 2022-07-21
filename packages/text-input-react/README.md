@@ -59,7 +59,6 @@ Skal denne brukes frittstående må den akkompagneres av en `Label` fra [`@fremt
 <Label standAlone htmlFor="complicatedquestion">
     Lorem ipsum...
 </Label>
-<p className="description" id="longdescription">...dolor sit amet</p>
-<BaseInputField id="complicatedquestion" ariaDescribedby="longdescription" />
-<SupportLabel errorLabel={error && "Oida, her gikk noe galt!"}>
+<BaseInputField id="complicatedquestion" aria-describedby={error ? "supportlabel" : undefined} />
+<SupportLabel id="supportlabel" errorLabel={error && "Oida, her gikk noe galt!"}>
 ```
