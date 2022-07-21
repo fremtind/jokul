@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react logo component",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/logo-react",
     "keywords": [
         "logo",
         "jøkul",

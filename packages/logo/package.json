@@ -10,7 +10,7 @@
         "*.scss"
     ],
     "description": "Jøkul style for Fremtind logo",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/logo",
     "keywords": [
         "logo",
         "jøkul",

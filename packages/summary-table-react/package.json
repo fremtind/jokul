@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "A simple table with two columns.",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/summary-table-react",
     "keywords": [
         "summary-table",
         "jøkul",

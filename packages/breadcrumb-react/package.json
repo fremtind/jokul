@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react breadcrumb",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/breadcrumb-react",
     "keywords": [
         "jøkul",
         "fremtind"
