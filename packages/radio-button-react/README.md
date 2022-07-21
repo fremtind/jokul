@@ -73,4 +73,4 @@ Det finnes også en `forceCompact`-variant som brukes på samme måte:
 
 ### Frittstående radioknapper
 
-Om du er i en situasjon hvor du må har radioknapper på ulike steder i DOMen kan du bruke `BaseRadioButton`. Om du skal bruke denne er det opp til deg å gjøre jobben som vanligvis gjøres av `RadioButtonGroup` og dens `context`. Sørg for å teste skjemaet ditt grundig med skjermleser.
+Om du er i en situasjon hvor du må ha radioknapper på ulike steder i DOMen kan du bruke `BaseRadioButton`. Om du skal bruke denne er det opp til deg å gjøre jobben som vanligvis gjøres av `RadioButtonGroup` og dens `context`. Sørg for å teste skjemaet ditt grundig med skjermleser.
