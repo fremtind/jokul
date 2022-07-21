@@ -37,7 +37,7 @@ const defaultTiming = timings.productive;
 
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
-    options?: UseAnimatedHeightOptions,
+    options?: UseAnimatedHeightOptions<T>,
 ): [RefObject<T>, () => void] {
     const wasOpen = usePreviousValue(isOpen);
     const easing = options?.easing || defaultEasing;

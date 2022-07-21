@@ -110,7 +110,7 @@ function moveFocusTo(direction: Direction, list: HTMLElement, current: HTMLButto
             }
             break;
         case "first":
-            const firstItem: HTMLButtonElement | null = list.querySelector<HTMLButtonElement>(`[role="option"]`);
+            const firstItem = list.querySelector<HTMLButtonElement>(`[role="option"]`);
             if (firstItem) {
                 firstItem.focus();
             }
