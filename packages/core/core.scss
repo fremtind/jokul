@@ -1,23 +1,17 @@
 @use "jkl";
 @use "styles";
 
-@include jkl.light-mode-variables {
-    --jkl-background-color: #{jkl.$color-snohvit};
-    --jkl-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-background-color: #{jkl.$color-granitt};
-    --jkl-color: #{jkl.$color-snohvit};
-}
+// Hacky direkte import av tema. Man bør kunne importere tema separat fra kjernestiler
+// samtidig som det tilbys en "integrert" versjon med default tema for kompatibilitet
+@use "theme-default";
 
 .jkl {
     font-family: "Fremtind Grotesk", Calibri, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-color: var(--jkl-background-color);
-    color: var(--jkl-color);
+    background-color: var(--jkl-theme-color-bg);
+    color: var(--jkl-theme-color-text);
 }
 
 @include jkl.prefers-reduced-motion {

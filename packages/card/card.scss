@@ -71,33 +71,30 @@
     }
 }
 
-@include jkl.light-mode-variables {
-    --jkl-nav-card-background: #{jkl.$color-hvit};
-    --jkl-nav-card-shadow: #{jkl.$shadow-navigation};
-    --jkl-nav-card-shadow--hover: #{jkl.$shadow-navigation--hover};
-    --jkl-nav-card-info-border-color: #{jkl.$color-svaberg};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-nav-card-background: #{jkl.$color-svart};
-    --jkl-nav-card-shadow: none;
-    --jkl-nav-card-shadow--hover: none;
-    --jkl-nav-card-info-border-color: #{jkl.$color-stein};
-}
-
 .jkl-nav-card {
+    // DESIGN TOKENS (STIL-API):
+    --border-radius: var(--jkl-theme-border-radius-rounded-container);
+    --color-bg: var(--jkl-theme-color-bg-highlighted);
+    --color-text: var(--jkl-theme-color-text);
+    --color-info-border: var(--jkl-theme-color-secondary-info);
+    --content-spacing: var(--jkl-theme-content-spacing-m);
+    --outline-thickness: var(--jkl-theme-border-thickness-focus);
+    --shadow: var(--jkl-theme-shadow-shallow);
+    --shadow--hover: var(--jkl-theme-shadow-deep);
+    // TODO: Finn ut hva man gjør med tekststiler
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     transform: translate3d(0, 0, 0);
     text-decoration: none;
-    color: var(--jkl-color);
+    color: var(--color-text);
     outline: 0;
 
-    border-radius: jkl.rem(4px);
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: var(--jkl-nav-card-shadow);
-    background-color: var(--jkl-nav-card-background);
+    box-shadow: var(--shadow);
+    background-color: var(--color-bg);
 
     @include jkl.motion;
     transition-property: box-shadow, transform;
@@ -111,13 +108,13 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: jkl.$spacing-l;
+        gap: var(--content-spacing);
     }
 
     &__link {
         @include jkl.text-style("heading-2");
 
-        .jkl-nav-card:hover:focus &::after,
+        .jkl-nav-card:focus &::after,
         .jkl-nav-card:hover:not(:focus) &::after {
             padding-left: 0.7em;
             padding-right: 0;
@@ -134,26 +131,26 @@
     }
 
     &__info {
-        border-top: jkl.rem(1px) solid var(--jkl-nav-card-info-border-color);
-        padding-top: jkl.$spacing-l;
+        border-top: jkl.rem(1px) solid var(--color-info-border);
+        padding-top: var(--content-spacing);
         @include jkl.text-style("small");
         width: 100%;
     }
 
     &:hover {
-        box-shadow: var(--jkl-nav-card-shadow--hover);
+        box-shadow: var(--shadow--hover);
         transform: translate3d(0, jkl.rem(-4px), 0);
     }
 
     @include jkl.keyboard-navigation {
         &:focus {
-            outline: jkl.rem(2px) solid var(--jkl-color);
+            outline: var(--outline-thickness) solid var(--color-text);
         }
     }
 
     @include jkl.forced-colors-mode {
         outline: revert;
-        border: jkl.rem(2px) solid LinkText;
+        border: var(--outline-thickness) solid LinkText;
     }
 }
 

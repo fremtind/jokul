@@ -1,0 +1,45 @@
+@use "sass:color";
+@use "jkl";
+@use "~@fremtind/jkl-core/variables/colors";
+
+// Her vil det sikkert være nyttig å sortere tokens etter type (f.eks. farge eller spacing)
+// eller etter bruksområde (sidestil, typografielementer, etc.)
+
+@include jkl.light-mode-variables {
+    --jkl-theme-color-bg: #{jkl.$color-snohvit};
+    --jkl-theme-color-bg-none: transparent;
+    --jkl-theme-color-bg-highlighted: #{jkl.$color-hvit};
+    --jkl-theme-color-border: #{jkl.$color-granitt};
+    --jkl-theme-color-border-subdued: #{jkl.$color-stein};
+    --jkl-theme-color-focus: #{jkl.$color-granitt};
+    --jkl-theme-color-text: #{jkl.$color-granitt};
+    --jkl-theme-color-text-subdued: #{jkl.$color-stein};
+    --jkl-theme-color-text-selection: #{color.scale($color: jkl.$color-granitt, $alpha: -80%)};
+    --jkl-theme-color-secondary-info: #{jkl.$color-stein};
+    --jkl-theme-shadow-shallow: #{jkl.$shadow-navigation}; // skulle hett f.eks. jkl.$shadow-1 eller tilsvarende nøytralt
+    --jkl-theme-shadow-deep: #{jkl.$shadow-navigation--hover}; // samme
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-theme-color-bg: #{jkl.$color-granitt};
+    --jkl-theme-color-bg-none: transparent;
+    --jkl-theme-color-bg-highlighted: #{jkl.$color-svart};
+    --jkl-theme-color-border: #{jkl.$color-snohvit};
+    --jkl-theme-color-border-subdued: #{jkl.$color-svaberg};
+    --jkl-theme-color-focus: #{jkl.$color-snohvit};
+    --jkl-theme-color-text: #{jkl.$color-snohvit};
+    --jkl-theme-color-text-subdued: #{jkl.$color-svaberg};
+    --jkl-theme-color-text-selection: #{color.scale($color: jkl.$color-snohvit, $alpha: -75%)};
+    --jkl-theme-color-secondary-info: #{jkl.$color-svaberg};
+    --jkl-theme-shadow-shallow: none; // skulle hett f.eks. jkl.$shadow-1 eller tilsvarende nøytralt
+    --jkl-theme-shadow-deep: none; // samme
+}
+
+:root {
+    --jkl-theme-content-spacing-m: #{jkl.$spacing-l}; // kanskje tall i stedet for skjortestørrelser på base?
+    --jkl-theme-border-thickness-focus: #{jkl.rem(2px)};
+    --jkl-theme-border-radius-rounded-container: #{jkl.rem(4px)};
+    --jkl-theme-color-error: #{colors.varslingsfarge("feil")};
+    --jkl-theme-color-text-on-light: #{jkl.$color-granitt};
+    --jkl-theme-color-text-on-dark: #{jkl.$color-snohvit};
+}
