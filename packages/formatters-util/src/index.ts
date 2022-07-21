@@ -13,6 +13,7 @@ export {
 export { formatAvstand } from "./avstand/formatAvstand";
 export { formatDate } from "./date/formatDate";
 export { FODSELSNUMMER_REGEX, formatFodselsnummer } from "./fodselsnummer/formatFodselsnummer";
+export { ORGANISASJONSNUMMER_REGEX, formatOrganisasjonsnummer } from "./organisasjonsnummer/formatOrganisasjonsnummer";
 export { KONTONUMMER_REGEX, formatKontonummer } from "./kontonummer/formatKontonummer";
 export { KORTNUMMER_REGEX, formatKortnummer } from "./kortnummer/formatKortnummer";
 export { TELEFONNUMMER_REGEX, formatTelefonnummer } from "./telefonnummer/formatTelefonnummer";

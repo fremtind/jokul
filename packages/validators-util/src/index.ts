@@ -6,5 +6,6 @@ export { isValidDogId } from "./isValidDogId/isValidDogId";
 export { isExactLength } from "./isExactLength/isExactLength";
 export { isInteger } from "./isInteger/isInteger";
 export { isValidFodselsnummer } from "./isValidFodselsnummer/isValidFodselsnummer";
+export { isValidOrganisasjonsnummer } from "./isValidOrganisasjonsnummer/isValidOrganisasjonsnummer";
 export { isValidName } from "./isValidName/isValidName";
 export { hasMinimumWords } from "./hasMinimumWords/hasMinimumWords";
