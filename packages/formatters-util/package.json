@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Formatters for common data formats in Jøkul",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/formatters-util",
     "keywords": [
         "jøkul",
         "fremtind"

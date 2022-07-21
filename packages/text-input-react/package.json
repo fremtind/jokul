@@ -5,6 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react text input component",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/text-input-react",
     "keywords": [
         "text",
         "field",

@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul style for tabs",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/tabs",
     "keywords": [
         "jøkul",
         "fremtind"

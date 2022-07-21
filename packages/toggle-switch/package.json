@@ -5,7 +5,7 @@
     },
     "version": "9.0.4",
     "description": "Jøkul style for toggle switch",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/toggle-switch",
     "keywords": [
         "switch",
         "toggle switch",

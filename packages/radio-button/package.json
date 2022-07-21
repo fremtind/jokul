@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul style for radio button",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/radio-button",
     "keywords": [
         "radio",
         "radio button",

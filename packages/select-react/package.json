@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react select component",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/select-react",
     "keywords": [
         "dropdown",
         "select",
