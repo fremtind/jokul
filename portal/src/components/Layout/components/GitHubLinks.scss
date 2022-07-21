@@ -1,10 +1,18 @@
 @use "~@fremtind/jkl-core/jkl";
 
 .jkl-portal-github-links {
+    --portal-gh-link-version-color: var(--portal-subdued-text-color);
+
     @include jkl.text-style("body");
-    margin-bottom: jkl.$spacing-2xl;
+    margin-block-end: jkl.$spacing-2xl;
 
     &__link:not(:last-child) {
-        margin-right: jkl.$spacing-l;
+        margin-inline-end: jkl.$spacing-l;
+    }
+
+    &__version {
+        @include jkl.text-style("small");
+        color: var(--portal-gh-link-version-color);
+        margin-inline-start: jkl.$spacing-xs;
     }
 }

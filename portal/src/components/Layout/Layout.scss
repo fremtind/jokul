@@ -3,11 +3,13 @@
 @include jkl.light-mode-variables {
     --portal-bg: #{jkl.$color-snohvit};
     --portal-text-color: #{jkl.$color-granitt};
+    --portal-subdued-text-color: #{jkl.$color-stein};
 }
 
 @include jkl.dark-mode-variables {
     --portal-bg: #{jkl.$color-granitt};
     --portal-text-color: #{jkl.$color-snohvit};
+    --portal-subdued-text-color: #{jkl.$color-svaberg};
 }
 
 $_sidebar-width: jkl.rem(375px);

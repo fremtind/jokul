@@ -32,10 +32,10 @@ export const GitHubLinks: FC<Props> = ({ react, scss, versions }) => {
                 <span className="jkl-portal-github-links__link">
                     <ExternalLink href={pkgLink(react)}>React</ExternalLink>{" "}
                     {versions?.react && (
-                        <span className="jkl-small jkl-spacing-xs--left">
+                        <span className="jkl-portal-github-links__version">
                             <span className="jkl-sr-only">versjonsnummer {versions.react}</span>
                             <span aria-hidden="true" title={`${react} versjon ${versions.react}`}>
-                                (v{versions.react})
+                                v{versions.react}
                             </span>
                         </span>
                     )}
@@ -45,10 +45,10 @@ export const GitHubLinks: FC<Props> = ({ react, scss, versions }) => {
                 <span className="jkl-portal-github-links__link">
                     <ExternalLink href={pkgLink(scss)}>Sass</ExternalLink>
                     {versions?.scss && (
-                        <span className="jkl-small jkl-spacing-xs--left">
+                        <span className="jkl-portal-github-links__version">
                             <span className="jkl-sr-only">versjonsnummer {versions.scss}</span>
                             <span aria-hidden="true" title={`${scss} versjon ${versions.scss}`}>
-                                (v{versions.scss})
+                                v{versions.scss}
                             </span>
                         </span>
                     )}
