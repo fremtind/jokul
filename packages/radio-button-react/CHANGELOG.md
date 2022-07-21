@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.5 (2022-07-21)
+
+### Bug Fixes
+
+-   hjelp skjermleser annonsere at radiogruppen har valideringsfeil ([af4121b](https://github.com/fremtind/jokul/commit/af4121b82cba61543f5ac1b30f1902f7ca30b406))
+
 ## [7.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@7.0.3...@fremtind/jkl-radio-button-react@7.0.4) (2022-06-13)
 
 ### Bug Fixes

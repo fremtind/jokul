@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.5 (2022-07-21)
+
+### Bug Fixes
+
+-   legg til manglende aria-describedby i ToggleSwitch ([d8a46ba](https://github.com/fremtind/jokul/commit/d8a46babe2c8aa3d19e461be5b001dd182afe224))
+
 ## [9.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@9.0.3...@fremtind/jkl-toggle-switch-react@9.0.4) (2022-06-13)
 
 ### Bug Fixes
