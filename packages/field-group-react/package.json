@@ -41,6 +41,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-field-group": "^5.0.3",
+        "@fremtind/jkl-react-hooks": "^9.0.4",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
