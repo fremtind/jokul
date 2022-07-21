@@ -54,6 +54,9 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
         ref,
     ) => {
         const uid = useId(id || "jkl-select", { generateSuffix: !id });
+        const supportId = `${uid}_support-label`;
+        const hasSupportText = helpLabel || errorLabel;
+        const describedBy = hasSupportText ? supportId : undefined;
 
         return (
             <div
@@ -74,6 +77,8 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                         className={cn("jkl-select__button", selectClassName)}
                         defaultValue={value ? undefined : ""}
                         value={value}
+                        aria-describedby={describedBy}
+                        aria-invalid={Boolean(errorLabel)}
                         {...rest}
                     >
                         {placeholder && !value && (
@@ -94,7 +99,12 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     </select>
                     <ExpandArrow className="jkl-select__arrow" />
                 </div>
-                <SupportLabel helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+                <SupportLabel
+                    id={supportId}
+                    helpLabel={helpLabel}
+                    errorLabel={errorLabel}
+                    forceCompact={forceCompact}
+                />
             </div>
         );
     },

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.4 (2022-07-21)
+
+### Bug Fixes
+
+-   ordne typingen til SupportLabel så ID er påkrevd ([a0d1686](https://github.com/fremtind/jokul/commit/a0d16869ec51118a1e3dada3940ea76e1755cd27))
+
 ## [10.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@10.0.2...@fremtind/jkl-core@10.0.3) (2022-06-13)
 
 ### Bug Fixes

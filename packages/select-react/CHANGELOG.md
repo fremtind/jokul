@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.7 (2022-07-21)
+
+### Bug Fixes
+
+-   skjermleser annonserer nå menyen som en listeboks med n elementer ([39dc369](https://github.com/fremtind/jokul/commit/39dc3696f9b9cf24ebad74f6d9d6a18b67839540))
+
 ## 10.0.6 (2022-07-19)
 
 ### Bug Fixes
