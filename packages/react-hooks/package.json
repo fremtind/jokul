@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-react-hooks",
-    "version": "9.0.4",
+    "version": "9.1.1",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react button components",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/react-hooks",
     "keywords": [
         "hooks",
         "react hooks",
@@ -39,7 +39,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3",
+        "@fremtind/jkl-core": "^10.0.5",
         "nanoid": "^3.3.2"
     },
     "peerDependencies": {

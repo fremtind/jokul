@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-button",
-    "version": "8.0.3",
+    "version": "8.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for buttons",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/button",
     "keywords": [
         "button",
         "primary button",
@@ -28,7 +28,7 @@
         "dev": "echo \"Error: run dev from button-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

@@ -56,6 +56,8 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
                 labelProps={{ forceCompact, ...labelProps }}
                 data-testid="jkl-radio-button-group"
                 {...rest}
+                role="radiogroup"
+                aria-invalid={Boolean(errorLabel)}
             />
         </RadioGroupContextProvider>
     );

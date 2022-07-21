@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-validators-util",
-    "version": "2.3.4",
+    "version": "2.4.1",
     "publishConfig": {
         "access": "public"
     },
     "description": "Simple validator-functions to use for validating",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/validators-util",
     "keywords": [
         "validators",
         "utils",

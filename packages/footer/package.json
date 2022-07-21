@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-footer",
-    "version": "2.0.4",
+    "version": "2.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for footer",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/footer",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from footer-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

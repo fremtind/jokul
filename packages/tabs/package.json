@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-tabs",
-    "version": "2.0.3",
+    "version": "2.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for tabs",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/tabs",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -24,7 +24,7 @@
         "dev": "echo \"Error: run dev from tabs-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

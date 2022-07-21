@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "6.0.6",
+    "version": "6.0.8",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react cookie consent component",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/cookie-consent-react",
     "keywords": [
         "cookie consent",
         "jøkul",
@@ -38,10 +38,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^11.0.4",
-        "@fremtind/jkl-cookie-consent": "^8.0.2",
-        "@fremtind/jkl-list-react": "^7.0.4",
-        "@fremtind/jkl-react-hooks": "^9.0.4",
+        "@fremtind/jkl-button-react": "^11.0.6",
+        "@fremtind/jkl-cookie-consent": "^8.0.4",
+        "@fremtind/jkl-list-react": "^7.0.6",
+        "@fremtind/jkl-react-hooks": "^9.1.1",
         "classnames": "^2.2.6",
         "react-a11y-dialog": "^6.1.5"
     },

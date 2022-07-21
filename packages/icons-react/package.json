@@ -1,10 +1,11 @@
 {
     "name": "@fremtind/jkl-icons-react",
-    "version": "5.0.3",
+    "version": "5.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Icons in Jøkul style",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/icons-react",
     "keywords": [
         "icons",
         "react",
@@ -38,7 +39,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-icons": "^5.0.3",
+        "@fremtind/jkl-icons": "^5.0.5",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

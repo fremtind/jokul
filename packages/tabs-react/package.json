@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-tabs-react",
-    "version": "2.1.0",
+    "version": "2.1.2",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react tabs",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/tabs-react",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -37,9 +37,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3",
-        "@fremtind/jkl-react-hooks": "^9.0.4",
-        "@fremtind/jkl-tabs": "^2.0.3",
+        "@fremtind/jkl-core": "^10.0.5",
+        "@fremtind/jkl-react-hooks": "^9.1.1",
+        "@fremtind/jkl-tabs": "^2.0.5",
         "nanoid": "^3.3.2"
     },
     "peerDependencies": {

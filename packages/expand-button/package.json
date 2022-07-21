@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-expand-button",
-    "version": "2.0.3",
+    "version": "2.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for expand-button",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/expand-button",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from expand-button-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

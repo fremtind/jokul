@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/stylelint-config-jkl",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "Styleint configuration for Jøkul",
     "keywords": [
         "stylelint",
@@ -10,7 +10,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/stylelint-config-jkl",
     "license": "MIT",
     "main": "index.js",
     "files": [

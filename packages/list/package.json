@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-list",
-    "version": "7.0.4",
+    "version": "7.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for list",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/list",
     "keywords": [
         "bullet list",
         "ordered list",
@@ -28,7 +28,7 @@
         "dev": "echo \"Error: run dev from list-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

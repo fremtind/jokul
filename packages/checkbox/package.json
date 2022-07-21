@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-checkbox",
-    "version": "7.0.3",
+    "version": "7.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for checkbox",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/checkbox",
     "keywords": [
         "checkbox",
         "form",
@@ -26,7 +26,7 @@
         "dev": "echo \"Error: run dev from checkbox-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

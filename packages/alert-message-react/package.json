@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "8.0.4",
+    "version": "8.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul alert message components",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/alert-message-react",
     "keywords": [
         "jøkul",
         "fremtind",
@@ -39,12 +39,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-alert-message": "^6.0.3",
-        "@fremtind/jkl-icon-button-react": "^1.0.4",
+        "@fremtind/jkl-alert-message": "^6.0.5",
+        "@fremtind/jkl-icon-button-react": "^1.0.6",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

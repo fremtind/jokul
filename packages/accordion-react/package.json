@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "7.0.4",
+    "version": "7.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react accordion component",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/accordion-react",
     "keywords": [
         "accordion",
         "jøkul",
@@ -38,8 +38,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^7.0.3",
-        "@fremtind/jkl-react-hooks": "^9.0.4",
+        "@fremtind/jkl-accordion": "^7.0.5",
+        "@fremtind/jkl-react-hooks": "^9.1.1",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

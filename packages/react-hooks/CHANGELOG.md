@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.1.0 (2022-07-21)
+
+### Features
+
+-   useAnimatedHeight sine callbacks får refen som animeres som et parameter ([4230900](https://github.com/fremtind/jokul/commit/42309007fe057afcaccac0e11e68a975c6e3577c))
+
 ## [9.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@9.0.3...@fremtind/jkl-react-hooks@9.0.4) (2022-06-13)
 
 ### Bug Fixes
