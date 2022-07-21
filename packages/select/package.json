@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-select",
-    "version": "8.0.4",
+    "version": "8.0.6",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for select",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/select",
     "keywords": [
         "dropdown",
         "select",
@@ -26,7 +26,7 @@
         "dev": "echo \"Error: run dev from select-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-breadcrumb-react",
-    "version": "2.0.3",
+    "version": "2.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul react breadcrumb",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/breadcrumb-react",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -37,8 +37,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-breadcrumb": "^2.0.3",
-        "@fremtind/jkl-core": "^10.0.3",
+        "@fremtind/jkl-breadcrumb": "^2.0.5",
+        "@fremtind/jkl-core": "^10.0.5",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-icon-button",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul style for buttons",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/icon-button",
     "keywords": [
         "button",
         "icon button",
@@ -28,7 +28,7 @@
         "dev": "echo \"Error: run dev from icon-button-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

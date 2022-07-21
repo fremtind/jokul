@@ -8,7 +8,7 @@ interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElemen
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
-export interface UseAnimatedHeightOptions {
+export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
     /**
      * Overstyr standard easingfunksjon
      * @default "standard"
@@ -19,15 +19,17 @@ export interface UseAnimatedHeightOptions {
      * @default "productive"
      */
     timing?: Timing;
-    onTransitionStart?: (isOpening: boolean) => void;
+    onTransitionStart?: (isOpening: boolean, ref: RefObject<T>) => void;
     /**
      * Kalles rett etter at elementet har fått display: block; i stedet for hidden;
      * Nyttig om du må flytte fokus inn i elementet og ikke vil vente til animasjonen er ferdig.
      * Her er ikke innholdet _visuelt_ synlig ennå, men det er "synlig" for DOM i den
      * forstand at det _ikke_ er display: hidden;
+     *
+     * `isOpen` er alltid `true`. Det sendes som første parameter for å ha lik funksjonssignatur som `onTransitionEnd`.
      */
-    onFirstVisible?: () => void;
-    onTransitionEnd?: (isOpen: boolean) => void;
+    onFirstVisible?: (isOpen: boolean, ref: RefObject<T>) => void;
+    onTransitionEnd?: (isOpen: boolean, ref: RefObject<T>) => void;
 }
 
 const defaultEasing = easings.standard;
@@ -35,7 +37,7 @@ const defaultTiming = timings.productive;
 
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
-    options?: UseAnimatedHeightOptions,
+    options?: UseAnimatedHeightOptions<T>,
 ): [RefObject<T>, () => void] {
     const wasOpen = usePreviousValue(isOpen);
     const easing = options?.easing || defaultEasing;
@@ -59,7 +61,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 element.removeAttribute("style");
                 element.style.display = "none";
             }
-            options?.onTransitionEnd?.(isOpen);
+            options?.onTransitionEnd?.(isOpen, elementRef);
         }
     }
 
@@ -80,14 +82,14 @@ export function useAnimatedHeight<T extends HTMLElement>(
             return;
         }
 
-        options?.onTransitionStart?.(isOpen);
+        options?.onTransitionStart?.(isOpen, elementRef);
 
         if (prefersReducedMotion) {
             element.removeAttribute("style");
             if (isOpen) {
-                options?.onFirstVisible?.();
+                options?.onFirstVisible?.(isOpen, elementRef);
             }
-            options?.onTransitionEnd?.(isOpen); // make sure to call callback when animation is off
+            options?.onTransitionEnd?.(isOpen, elementRef); // make sure to call callback when animation is off
             return;
         }
 
@@ -96,7 +98,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
         element.style.overflow = "hidden";
 
         if (isOpen) {
-            options?.onFirstVisible?.();
+            options?.onFirstVisible?.(isOpen, elementRef);
             element.style.height = "0";
             element.style.height = `${element.scrollHeight}px`;
         } else {

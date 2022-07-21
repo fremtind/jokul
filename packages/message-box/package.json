@@ -1,10 +1,11 @@
 {
     "name": "@fremtind/jkl-message-box",
-    "version": "6.0.3",
+    "version": "6.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul message box style",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/message-box",
     "keywords": [
         "message",
         "jøkul",
@@ -24,7 +25,7 @@
         "dev": "echo \"Error: run dev from message-box-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",

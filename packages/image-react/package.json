@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image-react",
-    "version": "3.0.4",
+    "version": "3.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -19,7 +19,7 @@
     "files": [
         "build"
     ],
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/image-react",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
@@ -45,8 +45,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-image": "^3.0.3",
-        "@fremtind/jkl-react-hooks": "^9.0.4",
+        "@fremtind/jkl-image": "^3.0.5",
+        "@fremtind/jkl-react-hooks": "^9.1.1",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

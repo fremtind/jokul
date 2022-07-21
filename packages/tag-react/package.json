@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-tag-react",
-    "version": "2.0.3",
+    "version": "2.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul React tag component",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/tag-react",
     "keywords": [
         "tag",
         "tags",
@@ -39,8 +39,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3",
-        "@fremtind/jkl-tag": "^2.0.3"
+        "@fremtind/jkl-core": "^10.0.5",
+        "@fremtind/jkl-tag": "^2.0.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-summary-table-react",
-    "version": "7.0.3",
+    "version": "7.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "A simple table with two columns.",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/summary-table-react",
     "keywords": [
         "summary-table",
         "jøkul",
@@ -38,8 +38,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3",
-        "@fremtind/jkl-summary-table": "^7.0.3",
+        "@fremtind/jkl-core": "^10.0.5",
+        "@fremtind/jkl-summary-table": "^7.0.5",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

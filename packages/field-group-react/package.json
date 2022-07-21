@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-field-group-react",
-    "version": "6.0.3",
+    "version": "6.0.5",
     "publishConfig": {
         "access": "public"
     },
     "description": "Used to create a fieldset around groups of inputs",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/field-group-react",
     "keywords": [
         "form"
     ],
@@ -40,11 +40,12 @@
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "dependencies": {
-        "@fremtind/jkl-field-group": "^5.0.3",
+        "@fremtind/jkl-field-group": "^5.0.5",
+        "@fremtind/jkl-react-hooks": "^9.1.1",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

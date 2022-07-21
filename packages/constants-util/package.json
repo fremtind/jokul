@@ -1,11 +1,11 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publishConfig": {
         "access": "public"
     },
     "description": "Common constant values shared across all Jøkul projects",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/constants-util",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",

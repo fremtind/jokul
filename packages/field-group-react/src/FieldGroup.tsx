@@ -1,6 +1,7 @@
 import type { LabelProps } from "@fremtind/jkl-core";
 import { Label, SupportLabel, LabelVariant, DataTestAutoId } from "@fremtind/jkl-core";
-import classNames from "classnames";
+import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 import React, { FC, FieldsetHTMLAttributes } from "react";
 
 export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<HTMLFieldSetElement> {
@@ -15,6 +16,7 @@ export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<
 }
 
 export const FieldGroup: FC<FieldGroupProps> = ({
+    id,
     legend,
     labelProps,
     className,
@@ -26,9 +28,19 @@ export const FieldGroup: FC<FieldGroupProps> = ({
     "data-testautoid": testAutoId,
     ...rest
 }) => {
-    const componentClassName = classNames("jkl-field-group", className);
+    const uid = useId(id || "jkl-field-group", { generateSuffix: !id });
+    const supportId = `${uid}_support-label`;
+    const hasSupportText = helpLabel || errorLabel;
+    const describedBy = hasSupportText ? supportId : undefined;
+
     return (
-        <fieldset className={componentClassName} data-testautoid={testAutoId} {...rest}>
+        <fieldset
+            id={uid}
+            className={cn("jkl-field-group", className)}
+            data-testautoid={testAutoId}
+            {...rest}
+            aria-describedby={describedBy}
+        >
             <legend className="jkl-field-group__legend">
                 <Label variant={variant} {...labelProps} forceCompact={forceCompact}>
                     {legend}
@@ -36,7 +48,12 @@ export const FieldGroup: FC<FieldGroupProps> = ({
             </legend>
             {children}
             {(helpLabel || errorLabel) && (
-                <SupportLabel forceCompact={forceCompact} helpLabel={helpLabel} errorLabel={errorLabel} />
+                <SupportLabel
+                    id={supportId}
+                    forceCompact={forceCompact}
+                    helpLabel={helpLabel}
+                    errorLabel={errorLabel}
+                />
             )}
         </fieldset>
     );

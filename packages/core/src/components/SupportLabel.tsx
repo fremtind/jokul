@@ -2,7 +2,38 @@ import cn from "classnames";
 import React, { FC } from "react";
 
 export interface SupportLabelProps {
-    id?: string;
+    /**
+     * En ID er påkrevd for å kunne referere til SupportLabel med aria-describedby.
+     *
+     * @example
+     *  ```tsx
+     *  const uid = useId();
+     *  const supportId = useId();
+     *  const hasSupportText = helpLabel || errorLabel;
+     *  const describedBy = hasSupportText ? supportId : undefined;
+     *
+     *  return (
+     *    <div>
+     *      <Label standAlone htmlFor={uid}>
+     *        Velg en tekst
+     *      </Label>
+     *      <select
+     *        id={uid}
+     *        aria-describedby={describedBy}
+     *      >
+     *        <option value="e">Example</option>
+     *      </select>
+     *      <SupportLabel
+     *        id={supportId}
+     *        helpLabel={helpLabel}
+     *        errorLabel={errorLabel}
+     *        forceCompact={forceCompact}
+     *      />
+     *    </div>
+     *  );
+     *  ```
+     */
+    id: string;
     helpLabel?: string;
     errorLabel?: string;
     forceCompact?: boolean;

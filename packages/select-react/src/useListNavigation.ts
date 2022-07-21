@@ -1,15 +1,15 @@
-import { useRef, useEffect, RefObject } from "react";
+import { useEffect, RefObject } from "react";
 
 type Timer = number | undefined;
 type KeyBuffer = { keys: string } | undefined;
 type Direction = "prev" | "next" | "first" | "last";
 interface MoveDetails {
     event: KeyboardEvent;
-    list: HTMLUListElement;
+    list: HTMLElement;
     currentFocus: HTMLButtonElement;
 }
 interface ListDetails {
-    list: HTMLUListElement;
+    list: HTMLElement;
     search: KeyBuffer;
     searchResetTimer: Timer;
 }
@@ -19,29 +19,31 @@ interface SearchDetails extends ListDetails {
 interface EventDetails extends ListDetails {
     event: KeyboardEvent;
 }
+type UseListNavigationProps<T> = {
+    ref: RefObject<T>;
+};
 
-export function useListNavigation(typeAheadIsEnabled = true): RefObject<HTMLUListElement> {
-    const listRef = useRef<HTMLUListElement>(null);
-    let search: KeyBuffer;
-    let searchResetTimer: Timer;
-    if (typeAheadIsEnabled) {
-        search = { keys: "" }; // keypress buffer is object to preserve state
-    }
+export function useListNavigation<T extends HTMLElement>({ ref }: UseListNavigationProps<T>): void {
     useEffect(() => {
-        const list = listRef.current;
-        if (list) {
-            list.addEventListener("keydown", (event) => handleListKeyNav({ list, event, search, searchResetTimer }));
-        }
-        return () => {
+        let searchResetTimer: Timer;
+        const search: KeyBuffer = { keys: "" }; // keypress buffer is an object to preserve state
+        const list = ref.current;
+        const handler = (event: KeyboardEvent) => {
             if (list) {
-                list.removeEventListener("keydown", (event) =>
-                    handleListKeyNav({ list, event, search, searchResetTimer }),
-                );
+                handleListKeyNav({ list, event, search, searchResetTimer });
             }
         };
-    }, [search, searchResetTimer]);
 
-    return listRef;
+        if (list) {
+            list.addEventListener("keydown", handler);
+        }
+
+        return () => {
+            if (list) {
+                list.removeEventListener("keydown", handler);
+            }
+        };
+    }, [ref]);
 }
 
 function handleMoveTo(direction: Direction, { event, list, currentFocus }: MoveDetails) {
@@ -49,7 +51,7 @@ function handleMoveTo(direction: Direction, { event, list, currentFocus }: MoveD
     moveFocusTo(direction, list, currentFocus);
 }
 
-function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetails, moveFunction = handleMoveTo) {
+function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetails) {
     const { key, target } = event;
     const currentFocus = target as HTMLButtonElement;
 
@@ -61,16 +63,16 @@ function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetail
 
     switch (key) {
         case "ArrowUp" || "PageUp":
-            moveFunction("prev", moveDetails);
+            handleMoveTo("prev", moveDetails);
             break;
         case "ArrowDown" || "PageDown":
-            moveFunction("next", moveDetails);
+            handleMoveTo("next", moveDetails);
             break;
         case "Home":
-            moveFunction("first", moveDetails);
+            handleMoveTo("first", moveDetails);
             break;
         case "End":
-            moveFunction("last", moveDetails);
+            handleMoveTo("last", moveDetails);
             break;
         case "Tab":
             // in a standard select, tab does nothing in-menu
@@ -90,25 +92,21 @@ function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetail
     }
 }
 
-function moveFocusTo(direction: Direction, list: HTMLUListElement, current: HTMLButtonElement) {
-    const thisLI = current.parentElement;
+function moveFocusTo(direction: Direction, list: HTMLElement, current: HTMLButtonElement) {
+    const thisOption = current;
     switch (direction) {
         case "prev":
-            const prevLI = thisLI && thisLI.previousElementSibling;
-            if (prevLI) {
-                const prevItem = prevLI.querySelector<HTMLButtonElement>(`[role="option"]`);
-                if (prevItem) {
-                    prevItem.focus();
-                }
+            const prevOption: HTMLButtonElement | null =
+                thisOption && (thisOption.previousElementSibling as HTMLButtonElement);
+            if (prevOption) {
+                prevOption.focus();
             }
             break;
         case "next":
-            const nextLI = thisLI && thisLI.nextElementSibling;
-            if (nextLI) {
-                const nextItem = nextLI.querySelector<HTMLButtonElement>(`[role="option"]`);
-                if (nextItem) {
-                    nextItem.focus();
-                }
+            const nextOption: HTMLButtonElement | null =
+                thisOption && (thisOption.nextElementSibling as HTMLButtonElement);
+            if (nextOption) {
+                nextOption.focus();
             }
             break;
         case "first":

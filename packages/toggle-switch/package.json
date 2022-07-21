@@ -3,9 +3,9 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "9.0.3",
+    "version": "9.0.5",
     "description": "Jøkul style for toggle switch",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/toggle-switch",
     "keywords": [
         "switch",
         "toggle switch",
@@ -27,7 +27,7 @@
         "dev": "echo \"Error: run dev from toggle-switch-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.3"
+        "@fremtind/jkl-core": "^10.0.5"
     },
     "repository": {
         "type": "git",
