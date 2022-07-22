@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.1.0 (2022-07-22)
+
+### Features
+
+-   skill ut og eksporter en BaseRadioButton for avanserte scenarier ([482c6f5](https://github.com/fremtind/jokul/commit/482c6f5cae6fe32497233cf9142a656430ca52b7))
+
 ## 7.0.5 (2022-07-21)
 
 ### Bug Fixes
