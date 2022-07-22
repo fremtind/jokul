@@ -29,11 +29,12 @@ export const HamburgerCloseAnimated: FC<HamburgerCloseAnimatedProps> = ({
     variant = "small",
     hamburgerTitle = "meny",
     closeTitle = "lukk",
+    ...rest
 }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
 
     return (
-        <div className={cx(`jkl-icon--${iconSize}`, "jkl-icons-animated__burger", className)}>
+        <div {...rest} className={cx(`jkl-icon--${iconSize}`, "jkl-icons-animated__burger", className)}>
             <Show when={isBurger}>
                 <Hamburger variant={iconSize} title={hamburgerTitle} />
             </Show>

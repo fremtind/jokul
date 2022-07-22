@@ -6,8 +6,15 @@ interface Props extends IconProps {
     viewBox?: string;
 }
 
-export const IconFactory: FC<Props> = ({ viewBox = "0 0 20 21", variant = "inherit", className = "", innerSvg }) => (
+export const IconFactory: FC<Props> = ({
+    viewBox = "0 0 20 21",
+    variant = "inherit",
+    className = "",
+    innerSvg,
+    ...rest
+}) => (
     <svg
+        {...rest}
         className={`jkl-icon jkl-icon--${variant} ${className}`}
         width="100%"
         viewBox={viewBox}

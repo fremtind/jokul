@@ -28,6 +28,7 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
         dismissed,
         dismissAction,
         children,
+        ...rest
     }) => {
         const componentClassName = classNames("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
             "jkl-alert-message--dismissed": dismissed,
@@ -39,7 +40,7 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
         };
 
         return (
-            <div className={componentClassName} role={role} data-theme="light">
+            <div role={role} {...rest} className={componentClassName} data-theme="light">
                 <div className="jkl-alert-message__content" data-testid="alert-message-content" style={{ ...styles }}>
                     <div aria-hidden className="jkl-alert-message__icon">
                         <MessageIcon messageType={messageType} />

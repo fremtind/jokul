@@ -19,6 +19,7 @@ export const ContentToggle: FC<ContentToggleProps> = ({
     children,
     className,
     variant = "flip",
+    ...rest
 }) => {
     // this mechanism is to be able to prevent animating keyframes on the initial render.
     // looking for actual change and then enable animating prevents initial blinking and premature animations
@@ -31,7 +32,7 @@ export const ContentToggle: FC<ContentToggleProps> = ({
     }, [showSecondary, initialShowSecondary]);
 
     return (
-        <span className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
+        <span {...rest} className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
             <span
                 className="jkl-content-toggle__slider"
                 aria-live={ariaLive}

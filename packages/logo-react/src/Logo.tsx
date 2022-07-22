@@ -22,11 +22,13 @@ export const Logo = ({
     isSymbol = false,
     animated = false,
     title = "Fremtind",
+    ...rest
 }: LogoProps): JSX.Element => {
     const uniqueId = useId(id || "jkl-logo", { generateSuffix: !id });
 
     return (
         <svg
+            {...rest}
             className={cn("jkl-logo", className, {
                 "jkl-logo--animated": animated,
                 "jkl-logo--symbol-only": isSymbol,
