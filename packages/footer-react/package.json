@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-footer-react",
-    "version": "2.0.9",
+    "version": "2.0.10",
     "publishConfig": {
         "access": "public"
     },
@@ -37,10 +37,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.5",
-        "@fremtind/jkl-footer": "^2.0.6",
-        "@fremtind/jkl-formatters-util": "^2.4.2",
-        "@fremtind/jkl-logo-react": "^10.0.6"
+        "@fremtind/jkl-core": "^10.0.6",
+        "@fremtind/jkl-footer": "^2.0.7",
+        "@fremtind/jkl-formatters-util": "^2.4.3",
+        "@fremtind/jkl-logo-react": "^10.0.7"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

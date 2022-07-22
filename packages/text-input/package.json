@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input",
-    "version": "8.0.7",
+    "version": "8.0.8",
     "publishConfig": {
         "access": "public"
     },
@@ -29,7 +29,7 @@
         "dev": "echo \"Error: run dev from text-input-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.5"
+        "@fremtind/jkl-core": "^10.0.6"
     },
     "repository": {
         "type": "git",
