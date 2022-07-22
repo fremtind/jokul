@@ -28,6 +28,54 @@ Det er for eksempel enklere for en skjemakomponent å sørge for at en utvikler 
 
 Med et moderne uvtiklingsverktøy vil _props_ ofte dukke opp i editoren til utviklere og hjelpe med å oppdage og bruke features i komponenten. Hverken verktøy eller utviklere kan bruke komponenter de ikke vet finnes.
 
+### Rest parameters
+
+Komponenter bør ta i mot [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), gjerne kalt _rest props_ i React-verden. Disse bør _spreades_ på det første elementet i render-treet.
+
+Med rest props blir det mulig for brukerne av komponenten å sende inn for eksempel `data`-attributter eller andre native HTML-attributter uten at disse er eksplisitt lagt inn i Jøkul.
+
+```tsx
+export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+    external?: boolean;
+}
+
+export const Link: FC<LinkProps> = (props) => {
+    const { className, children, external = false, ...rest } = props;
+    return (
+        <a
+            {...rest}
+            className={cn("jkl-link", className, {
+                "jkl-link--external": external,
+            })}
+        >
+            {children}
+        </a>
+    );
+};
+```
+
+#### Rest props kan gi uventede resultater
+
+Noen ganger er det viktig at brukerne av komponenten ikke kan overstyre en prop satt av komponenten. Det er lurt å tenke over hvor på elementet du sprer propsene.
+
+Her er et eksempel fra `AlertMessage`. Vi setter `data-theme="light"` fordi bakgrunnsfargen i meldingsboksen gjør at tekstfargen som vanligvis brukes i mørkt tema får for dårlig kontrast. Her vil vi fjerne muligheten for at en bruker kan overstyre propen.
+
+Her er et eksempel hvor det kan gå galt.
+
+```jsx
+<div data-theme="light" {...rest}>
+```
+
+Hvis `rest` har en prop `data-theme: "dark"` vil propen vår bli overstyrt.
+
+```jsx
+<div {...rest} data-theme="light">
+```
+
+I eksempelet over derimot vil vår egen `data-theme`-prop overstyre hva enn som ligger i `...rest`, siden vår prop kommer til sist.
+
+Med andre ord, gjør `{...rest}` **før** props som ikke skal kunne endres av brukeren. Om du er i tvil, legg `{...rest}` før alle andre props.
+
 ### Context over drilling
 
 I pakker hvor vi har flere komponenter som jobber sammen, for eksempel i [packages/table](https://github.com/fremtind/jokul/tree/main/packages/table), kan det skje at en _parent component_ ønsker å sette props på noen av sine _children_. I disse tilfellene skal det brukes [Context](https://reactjs.org/docs/context.html).

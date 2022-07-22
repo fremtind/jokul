@@ -17,6 +17,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
     className,
     startExpanded = false,
     onClick,
+    ...rest
 }) => {
     const buttonId = useId("title");
     const contentId = useId("content");
@@ -27,7 +28,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
     });
 
     return (
-        <div data-testid="jkl-accordion-item" className={componentClassName}>
+        <div data-testid="jkl-accordion-item" {...rest} className={componentClassName}>
             <button
                 id={buttonId}
                 className="jkl-accordion-item__title"

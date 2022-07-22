@@ -17,13 +17,21 @@ export interface LogoStampProps extends WithChildren {
     animated?: boolean;
 }
 
-export const LogoStamp = ({ children, className, id, animated = false, title }: LogoStampProps): JSX.Element => {
+export const LogoStamp = ({
+    children,
+    className,
+    id,
+    animated = false,
+    title,
+    ...rest
+}: LogoStampProps): JSX.Element => {
     const uniqueId = useId(id || "jkl-logo-stamp", { generateSuffix: !id });
     const stampRef = useRef<SVGSVGElement>(null);
     const { hasAnimated, visible } = useTextSpinner(stampRef);
 
     return (
         <svg
+            {...rest}
             ref={stampRef}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"

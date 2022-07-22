@@ -10,7 +10,7 @@ export interface CookieConsentProps {
     onAccept?: AcceptConsentCallback;
 }
 
-export const CookieConsent = ({ blocking, onAccept }: CookieConsentProps): JSX.Element | null => {
+export const CookieConsent = ({ blocking, onAccept, ...rest }: CookieConsentProps): JSX.Element | null => {
     const { dispatch, consent } = useCookieConsentState();
     const prevConsent = usePreviousValue(consent);
 
@@ -56,7 +56,7 @@ export const CookieConsent = ({ blocking, onAccept }: CookieConsentProps): JSX.E
     // This returns different variants of consents based on the behavior required to get the consent
     // Blocking implies a blocking modal demanding an active action before the user can interact with the application
     if (blocking) {
-        return <CookieConsentModal onAccept={handleAccept} />;
+        return <CookieConsentModal {...rest} onAccept={handleAccept} />;
     }
 
     return null;

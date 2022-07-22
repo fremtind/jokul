@@ -14,11 +14,12 @@ export const ArrowVerticalAnimated = ({
     className = "",
     pointingDown,
     variant = "small",
+    ...rest
 }: ArrowVerticalAnimatedProps) => {
     const iconSize = variant !== "inherit" ? variant : "small";
 
     return (
-        <div className={cx(`jkl-icon--${iconSize}`, "jkl-animated-vertical-arrows", className)}>
+        <div {...rest} className={cx(`jkl-icon--${iconSize}`, "jkl-animated-vertical-arrows", className)}>
             <div className="jkl-animated-vertical-arrows__slider" data-show={pointingDown ? "down" : "up"}>
                 <ArrowDown variant={iconSize} />
                 <ArrowUp variant={iconSize} />
