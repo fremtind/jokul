@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-content-toggle",
-    "version": "3.0.5",
+    "version": "3.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from content-toggle-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^10.0.5"
+        "@fremtind/jkl-core": "^10.0.6"
     },
     "repository": {
         "type": "git",
