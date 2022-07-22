@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require("fs");
+const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 const docgen = require("react-docgen-typescript");
 const ts = require("typescript");
@@ -85,6 +87,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         }
                         frontmatter {
                             react
+                            scss
                             title
                             displayTypes
                         }
@@ -100,6 +103,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         }
                         frontmatter {
                             react
+                            scss
                             title
                             displayTypes
                         }
@@ -115,6 +119,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         }
                         frontmatter {
                             react
+                            scss
                             title
                             displayTypes
                         }
@@ -219,7 +224,38 @@ ${JSON.stringify(result.errors, null, 2)}
             .reduce((acc, [displayName, types]) => ({ ...acc, [displayName]: types }), {});
     }
 
+    /**
+     * @param {string | null | undefined} packageName
+     * @returns {string | null}
+     */
+    function getPackageVersion(packageName) {
+        if (!packageName) {
+            return null;
+        }
+
+        try {
+            const pathToPackageJson = path.resolve(__dirname, "..", "packages", packageName, "package.json");
+            const packageJsonContent = fs.readFileSync(pathToPackageJson, "utf-8");
+            const packageJson = JSON.parse(packageJsonContent);
+            const packageVersion = packageJson.version;
+
+            if (!packageVersion) {
+                reporter.error(`Couldn't find a version number in package.json for ${packageName}`);
+                return null;
+            }
+
+            return packageVersion;
+        } catch (e) {
+            reporter.error(e);
+            return null;
+        }
+    }
+
     result.data.components.edges.forEach(({ node }) => {
+        const versions = {
+            react: getPackageVersion(node.frontmatter.react),
+            scss: getPackageVersion(node.frontmatter.scss),
+        };
         const packageTypes = getTypes(node.frontmatter.react);
         const pageTypes = node.frontmatter.displayTypes
             ? getComponentTypes(packageTypes, node.frontmatter.displayTypes)
@@ -232,10 +268,16 @@ ${JSON.stringify(result.errors, null, 2)}
                 id: node.id,
                 types: pageTypes,
                 title: node.frontmatter.title,
+                versions,
             },
         });
     });
     result.data.core.edges.forEach(({ node }) => {
+        const coreVersion = getPackageVersion(node.frontmatter.react);
+        const versions = {
+            react: coreVersion,
+            scss: coreVersion,
+        };
         const coreTypes = getTypes(node.frontmatter.react);
         const pageTypes = node.frontmatter.displayTypes
             ? getComponentTypes(coreTypes, node.frontmatter.displayTypes)
@@ -248,10 +290,15 @@ ${JSON.stringify(result.errors, null, 2)}
                 id: node.id,
                 types: pageTypes,
                 title: node.frontmatter.title,
+                versions,
             },
         });
     });
     result.data.utils.edges.forEach(({ node }) => {
+        const versions = {
+            react: getPackageVersion(node.frontmatter.react),
+            scss: getPackageVersion(node.frontmatter.scss),
+        };
         const utilTypes = getTypes(node.frontmatter.react);
         const pageTypes = node.frontmatter.displayTypes
             ? getComponentTypes(utilTypes, node.frontmatter.displayTypes)
@@ -264,6 +311,7 @@ ${JSON.stringify(result.errors, null, 2)}
                 id: node.id,
                 types: pageTypes,
                 title: node.frontmatter.title,
+                versions,
             },
         });
     });

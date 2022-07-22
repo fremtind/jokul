@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button-react",
-    "version": "7.0.6",
+    "version": "7.1.0",
     "publishConfig": {
         "access": "public"
     },
