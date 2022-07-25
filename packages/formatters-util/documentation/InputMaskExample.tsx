@@ -8,11 +8,12 @@ import { registerWithMasks } from "../src";
 import "./input-mask-example.scss";
 
 interface Skjema {
-    telefonnummer: string;
-    fodselsnummer: string;
-    kortnummer: string;
-    kontonummer: string;
+    telefonnr: string;
+    fodselsnr: string;
+    kortnr: string;
+    kontonr: string;
     tall: number;
+    orgnr: string;
 }
 
 export const InputMaskExample: FC<ExampleComponentProps> = () => {
@@ -24,6 +25,7 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
         registerWithKontonummerMask,
         registerWithKortnummerMask,
         registerWithTelefonnummerMask,
+        registerWithOrganisasjonsnummerMask,
         registerWithNumber,
     } = registerWithMasks(form);
 
@@ -34,14 +36,19 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
                     label="Telefonnummer"
                     // Husk å gi plass til mellomrommene som settes inn!
                     maxLength={11}
-                    {...registerWithTelefonnummerMask("telefonnummer", {
+                    {...registerWithTelefonnummerMask("telefonnr", {
                         required: "Du må fylle inn telefonnummeret ditt",
                     })}
-                    errorLabel={form.formState.errors.telefonnummer?.message}
+                    errorLabel={form.formState.errors.telefonnr?.message}
                 />
-                <TextInput label="Fødselsnummer" maxLength={12} {...registerWithFodselsnummerMask("fodselsnummer")} />
-                <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask("kortnummer")} />
-                <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonummer")} />
+                <TextInput label="Fødselsnummer" maxLength={12} {...registerWithFodselsnummerMask("fodselsnr")} />
+                <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask("kortnr")} />
+                <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonr")} />
+                <TextInput
+                    label="Organisasjonsnummer"
+                    maxLength={11}
+                    {...registerWithOrganisasjonsnummerMask("orgnr")}
+                />
                 <TextInput label="Tall" {...registerWithNumber("tall")} />
                 <PrimaryButton type="submit">Send inn</PrimaryButton>
                 {formData && (

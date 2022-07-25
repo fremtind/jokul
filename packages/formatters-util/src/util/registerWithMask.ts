@@ -3,6 +3,7 @@ import type { Path, PathValue, RegisterOptions, UseFormRegisterReturn, UseFormRe
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
 import { formatKortnummer } from "../kortnummer/formatKortnummer";
+import { formatOrganisasjonsnummer } from "../organisasjonsnummer/formatOrganisasjonsnummer";
 import { formatTelefonnummer } from "../telefonnummer/formatTelefonnummer";
 import { formatNumber } from "./formatNumber";
 
@@ -12,6 +13,7 @@ const formatters = {
     kontonummer: formatKontonummer,
     telefonnummer: formatTelefonnummer,
     number: formatNumber,
+    organisasjonsnummer: formatOrganisasjonsnummer,
 };
 export type Formatter = keyof typeof formatters;
 
@@ -58,6 +60,8 @@ export const registerWithMasks = <T>(form: UseFormReturn<T>) => ({
         registerWithMask("kontonummer")(form, name, options),
     registerWithTelefonnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
         registerWithMask("telefonnummer")(form, name, options),
+    registerWithOrganisasjonsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
+        registerWithMask("organisasjonsnummer")(form, name, options),
     registerWithNumber: (
         name: Path<T>,
         options?: RegisterWithMaskOptions<T>,
