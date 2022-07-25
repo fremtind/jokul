@@ -46,7 +46,7 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
                 <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonr")} />
                 <TextInput
                     label="Organisasjonsnummer"
-                    maxLength={12}
+                    maxLength={11}
                     {...registerWithOrganisasjonsnummerMask("orgnr")}
                 />
                 <TextInput label="Tall" {...registerWithNumber("tall")} />
