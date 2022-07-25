@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.2 (2022-07-25)
+
+### Bug Fixes
+
+-   ikke overskriv name med undefined fra context ([f95d2d6](https://github.com/fremtind/jokul/commit/f95d2d64b66bd61e648b49489de190ac1b35eca0))
+
 # 7.1.0 (2022-07-22)
 
 ### Features
