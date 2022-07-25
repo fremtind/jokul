@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.5.0 (2022-07-25)
+
+### Features
+
+-   add orgnr to registerWithMasks ([a891751](https://github.com/fremtind/jokul/commit/a8917515eac33f0b634f8f0249177c901727f364))
+
 # 2.4.0 (2022-07-21)
 
 ### Features
