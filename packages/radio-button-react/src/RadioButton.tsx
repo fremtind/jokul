@@ -19,8 +19,8 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>((props
 
     return (
         <BaseRadioButton
-            {...rest}
             {...context}
+            {...rest}
             ref={ref}
             checked={
                 typeof checked !== "undefined"
