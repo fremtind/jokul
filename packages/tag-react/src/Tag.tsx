@@ -1,7 +1,15 @@
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 import cx from "classnames";
-import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps, FC, HTMLAttributes, MouseEventHandler } from "react";
 
-export interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {}
+export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
+    label: string;
+    onClick: MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
+    dismissAction?: DismissAction;
+}
 
 type Variant = "info" | "error" | "warning" | "success";
 
@@ -21,7 +29,7 @@ function getDisplayName(variant?: Variant) {
 }
 
 function tagFactory(variant?: Variant) {
-    const Tag: FC<TagProps> = ({ className, ...rest }) => (
+    const Tag: FC<TagProps> = ({ className, dismissAction, children, ...rest }) => (
         <span
             className={cx(
                 "jkl-tag",
@@ -30,11 +38,24 @@ function tagFactory(variant?: Variant) {
                     ["jkl-tag--error"]: variant === "error",
                     ["jkl-tag--warning"]: variant === "warning",
                     ["jkl-tag--success"]: variant === "success",
+                    ["jkl-tag--dismissable"]: dismissAction,
                 },
                 className,
             )}
             {...rest}
-        />
+        >
+            {children}
+            {dismissAction && (
+                <IconButton
+                    className="jkl-tag__dismiss-action"
+                    iconType="clear"
+                    buttonTitle={dismissAction.label}
+                    onClick={dismissAction.onClick}
+                    onFocus={dismissAction.onFocus}
+                    onBlur={dismissAction.onBlur}
+                />
+            )}
+        </span>
     );
     Tag.displayName = getDisplayName(variant);
     return Tag;
