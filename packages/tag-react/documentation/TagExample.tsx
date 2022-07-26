@@ -6,7 +6,7 @@ export const tagExampleKnobs: ExampleKnobsProps = {
     boolProps: [
         {
             defaultValue: false,
-            prop: "dismissable",
+            prop: "Dismissable",
         },
     ],
 };
@@ -17,7 +17,7 @@ export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
             <Tag
                 className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
                 dismissAction={
-                    boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Emne") } : undefined
+                    boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Emne") } : undefined
                 }
             >
                 Emne
@@ -25,7 +25,7 @@ export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
             <InfoTag
                 className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
                 dismissAction={
-                    boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Info") } : undefined
+                    boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Info") } : undefined
                 }
             >
                 Info
@@ -33,7 +33,7 @@ export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
             <SuccessTag
                 className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
                 dismissAction={
-                    boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Suksess") } : undefined
+                    boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Suksess") } : undefined
                 }
             >
                 Suksess
@@ -41,7 +41,7 @@ export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
             <WarningTag
                 className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
                 dismissAction={
-                    boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Advarsel") } : undefined
+                    boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Advarsel") } : undefined
                 }
             >
                 Advarsel
@@ -49,7 +49,7 @@ export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
             <ErrorTag
                 className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
                 dismissAction={
-                    boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Feil") } : undefined
+                    boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Feil") } : undefined
                 }
             >
                 Feil
@@ -60,18 +60,18 @@ export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
 
 export const tagExampleCode = ({ boolValues }: ExampleComponentProps): string => `
     <Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top"${
-        boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Emne") } : ""
+        boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Emne") } : ""
     }>Emne</Tag>
     <InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top"${
-        boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Info") } : ""
+        boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Info") } : ""
     }>Info</InfoTag>
     <SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top"${
-        boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Suksess") } : ""
+        boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Suksess") } : ""
     }>Suksess</SuccessTag>
     <WarningTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top"${
-        boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Advarsel") } : ""
+        boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Advarsel") } : ""
     }>Advarsel</WarningTag>
     <ErrorTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top"${
-        boolValues?.["dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Feil") } : ""
+        boolValues?.["Dismissable"] ? { label: "Fjern", onClick: () => alert("Fjern Feil") } : ""
     }>Feil</ErrorTag>
 `;
