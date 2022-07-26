@@ -55,3 +55,12 @@ th {
     margin: 0;
     padding: 0;
 }
+
+/*
+ * https://css-tricks.com/the-hidden-attribute-is-visibly-weak/
+ * tl;dr – hidden er en User Agent style, så hvis et element har noen som helst display som ikke er
+ * hidden vil ikke hidden-attributtet gjøre noe som helst visuelt. Her gjør vi det til vår egen author style.
+ */
+.jkl [hidden] {
+    display: none;
+}
