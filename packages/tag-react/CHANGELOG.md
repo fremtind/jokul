@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2022-07-26)
+
+### Bug Fixes
+
+-   add icon-button-react as dependency ([9ccfb05](https://github.com/fremtind/jokul/commit/9ccfb0577ef2ea63ddce09dcd3dbae7fc6607951))
+-   use margin in stead of class to pull icon to the right ([a4b8046](https://github.com/fremtind/jokul/commit/a4b80466aea5b763ce701876e247636165973d3f))
+
+### Features
+
+-   add support for dismissable tag ([bf26e6b](https://github.com/fremtind/jokul/commit/bf26e6bde013bbd927d72ba1806d68b6e813f83b))
+
 ## [2.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tag-react@2.0.2...@fremtind/jkl-tag-react@2.0.3) (2022-06-13)
 
 ### Bug Fixes
