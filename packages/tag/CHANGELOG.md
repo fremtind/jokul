@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2022-07-26)
+
+### Bug Fixes
+
+-   use margin in stead of class to pull icon to the right ([a4b8046](https://github.com/fremtind/jokul/commit/a4b80466aea5b763ce701876e247636165973d3f))
+
+### Features
+
+-   add support for dismissable tag ([bf26e6b](https://github.com/fremtind/jokul/commit/bf26e6bde013bbd927d72ba1806d68b6e813f83b))
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tag@1.1.23...@fremtind/jkl-tag@2.0.0) (2022-06-07)
 
 ### Code Refactoring
