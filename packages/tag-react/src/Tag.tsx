@@ -38,7 +38,6 @@ function tagFactory(variant?: Variant) {
                     ["jkl-tag--error"]: variant === "error",
                     ["jkl-tag--warning"]: variant === "warning",
                     ["jkl-tag--success"]: variant === "success",
-                    ["jkl-tag--dismissable"]: dismissAction,
                 },
                 className,
             )}

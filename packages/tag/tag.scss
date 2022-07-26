@@ -12,9 +12,6 @@ $_tag-background-color--error: colors.varslingsfarge("feil");
 $_tag-background-color--info: colors.varslingsfarge("info");
 $_tag-background-color--warning: colors.varslingsfarge("advarsel");
 
-$_text-input-button-width: jkl.rem(48px);
-$_text-input-height: jkl.rem(48px);
-
 .jkl-tag {
     @include jkl.text-style("heading-5");
     background-color: $_tag-background-color;
@@ -39,10 +36,6 @@ $_text-input-height: jkl.rem(48px);
 
     &--success {
         background-color: $_tag-background-color--success;
-    }
-
-    &--dismissable {
-        padding-right: jkl.rem(4px);
     }
 
     @include jkl.forced-colors-mode {
@@ -74,6 +67,7 @@ $_text-input-height: jkl.rem(48px);
         cursor: pointer;
         color: inherit;
         margin-left: jkl.$spacing-2xs;
+        margin-right: jkl.rem(-4px);
 
         & > .jkl-icon-button__icon {
             height: jkl.rem(13px);
