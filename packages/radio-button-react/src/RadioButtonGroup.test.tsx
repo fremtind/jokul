@@ -82,6 +82,26 @@ describe("RadioButtons", () => {
         const component = await screen.findByTestId("jkl-radio-button-group");
         expect(component.getAttribute("data-testautoid")).toEqual("jkl-radio-button-group__testautoid");
     });
+
+    it("should not override RadioButton name if not set on RadioButtonGroup", async () => {
+        // This would be similar to how `react-hook-form` sets up the name prop.
+        render(
+            <RadioButtonGroup
+                legend="Er du fornøyd?"
+                data-testid="jkl-radio-button-group"
+                data-testautoid="jkl-radio-button-group__testautoid"
+            >
+                <RadioButton name="happy" value="y">
+                    Ja
+                </RadioButton>
+                <RadioButton name="happy" value="n">
+                    Nei
+                </RadioButton>
+            </RadioButtonGroup>,
+        );
+        const component = screen.getByLabelText("Ja");
+        expect(component.getAttribute("name")).toEqual("happy");
+    });
 });
 
 describe("a11y", () => {
