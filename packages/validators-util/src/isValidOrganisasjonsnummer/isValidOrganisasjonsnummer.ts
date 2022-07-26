@@ -13,7 +13,7 @@ const calculateChecksum = (reversedNumbers: number[]) => {
 
 export const isValidOrganisasjonsnummer = (value: string) => {
     if (!value || value.length !== 9) {
-        return null;
+        return false;
     }
 
     const [controlDigit, ...numbers] = value
