@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.7 (2022-07-26)
+
+### Bug Fixes
+
+-   legg inn en author style for hidden-attributtet ([a7a100f](https://github.com/fremtind/jokul/commit/a7a100f8fc2956e517ea5e5832dfe4eeb294c553)), closes [#2968](https://github.com/fremtind/jokul/issues/2968)
+
 ## 10.0.4 (2022-07-21)
 
 ### Bug Fixes
