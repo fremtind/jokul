@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.4.2 (2022-07-26)
+
+### Bug Fixes
+
+-   isValidOrganisasjonsnummer no longer returns null if length is not correct ([4d0e404](https://github.com/fremtind/jokul/commit/4d0e404c56e647a05f47f50ad77f9bc079c679ef))
+
 # 2.4.0 (2022-07-21)
 
 ### Features
