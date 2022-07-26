@@ -5,10 +5,11 @@ $_easings: (
     "entrance": ease-out,
     "exit": ease-in,
     "easeInBounceOut": cubic-bezier(0, 0, 0.375, 1.17),
+    "focus": cubic-bezier(0.6, 0.2, 0.35, 1),
 );
 
 /// Hent en easing til bruk i animasjoner. Se også `timing`-funksjonen og `motion`-mixinen.
-/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut"} $name - Navn på easingen du ønsker verdien til
+/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut" | "focus"} $name - Navn på easingen du ønsker verdien til
 /// @return {String} - easingverdi til bruk i animasjoner
 /// @see timing
 /// @see motion
