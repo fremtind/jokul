@@ -22,6 +22,10 @@ Se gjerne [bloggposten om tabellkomponentene](https://jokul.fremtind.no/blog/tab
 ```js
 import { DataTable } from "@fremtind/jkl-table-react";
 import "@fremtind/jkl-table/table.min.css";
+
+// For ekspanderbare rader må du også ha denne CSSen importert
+import "@fremtind/jkl-icons/animated-icons.min.css";
+import "@fremtind/jkl-expand-button/expand-button.min.css";
 ```
 
 Den enkleste tabellen benyttes som en tom komponent, som tar inn kolonner og rader som props. Kolonnene (`columns`) er et array av `string`-verdier, mens radene (`rows`) er et array av `string`-arrayer:
