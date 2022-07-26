@@ -1,6 +1,15 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../src";
+
+export const tagExampleKnobs: ExampleKnobsProps = {
+    boolProps: [
+        {
+            defaultValue: false,
+            prop: "dismissable",
+        },
+    ],
+};
 
 export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     return (

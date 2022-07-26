@@ -6,7 +6,7 @@ group: annet
 ---
 
 import { Tag, InfoTag, ErrorTag, WarningTag, SuccessTag } from "../src";
-import { TagExample, tagExampleCode } from "./TagExample";
+import { TagExample, tagExampleCode, tagExampleKnobs } from "./TagExample";
 
 <Ingress>
     Tags er små informasjonsbobler som kan brukes til å presentere en eller flere biter med informasjon tilknyttet et
@@ -18,19 +18,7 @@ Vi har to kategorier av tags:
 1.  Status vises med en passende farge.
 2.  Emne eller metadata vises nøytralt.
 
-<ComponentExample
-    title="Tag"
-    component={TagExample}
-    codeExample={tagExampleCode}
-    knobs={{
-        boolProps: [
-            {
-                defaultValue: false,
-                prop: "dismissable",
-            },
-        ],
-    }}
-/>
+<ComponentExample title="Tag" component={TagExample} codeExample={tagExampleCode} knobs={tagExampleKnobs} />
 
 Vi har også noen prinsipper for innholdet i tags:
 
