@@ -108,6 +108,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     } = props;
 
     const listId = useId(id || "jkl-select", { generateSuffix: !id });
+    const labelId = `${listId}_label`;
     const buttonId = `${listId}_button`;
     const searchInputId = `${listId}_search-input`;
     const supportId = `${listId}_support-label`;
@@ -391,6 +392,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             {...rest}
         >
             <Label
+                id={labelId}
                 variant={variant}
                 {...labelProps}
                 standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
@@ -427,7 +429,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                         onChange={(e) => setSearchValue(e.target.value)}
                         data-testid="jkl-select__search-input"
                         className="jkl-select__search-input"
+                        aria-autocomplete="list"
+                        aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
+                        aria-controls={listId}
                         aria-describedby={describedBy}
+                        aria-labelledby={labelId}
+                        aria-expanded={dropdownIsShown}
+                        role="combobox"
                         onKeyDown={handleSearchOnKeyDown}
                         onBlur={handleBlur}
                         onFocus={handleFocus}
@@ -470,9 +478,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     role="listbox"
                     className="jkl-select__options-menu"
                     hidden={!dropdownIsShown}
-                    aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
-                    aria-labelledby={buttonId}
-                    aria-expanded={dropdownIsShown}
+                    aria-labelledby={labelId}
                     tabIndex={-1}
                 >
                     {visibleItems.map((item, i) => (
