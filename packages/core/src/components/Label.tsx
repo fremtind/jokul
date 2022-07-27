@@ -4,6 +4,7 @@ import { LabelVariant } from "../index";
 import { WithChildren } from "../types";
 
 export interface LabelProps extends WithChildren {
+    id?: string;
     variant?: LabelVariant;
     forceCompact?: boolean;
     srOnly?: boolean;
