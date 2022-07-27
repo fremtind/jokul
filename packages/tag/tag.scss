@@ -61,6 +61,7 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-action {
+        @include jkl.reset-outline;
         box-sizing: border-box;
         border: none;
         background-color: transparent;
@@ -73,6 +74,10 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
             height: jkl.rem(13px);
             width: jkl.rem(13px);
             margin-top: 0.15rem;
+
+            & > svg > path {
+                stroke-width: 3;
+            }
         }
 
         &:hover {
@@ -82,15 +87,16 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
 
         &:focus {
             @include jkl.keyboard-navigation {
+                color: $_dismiss-hover-color;
                 position: relative;
 
                 &::after {
                     content: "";
                     position: absolute;
-                    top: jkl.rem(-2px);
-                    right: jkl.rem(-2px);
-                    bottom: jkl.rem(-2px);
-                    left: jkl.rem(-2px);
+                    top: jkl.rem(2px);
+                    right: jkl.rem(2px);
+                    bottom: jkl.rem(2px);
+                    left: jkl.rem(2px);
                     box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
                 }
             }
