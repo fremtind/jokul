@@ -1,17 +1,15 @@
 @use "jkl";
 @use "styles";
-
-// Hacky direkte import av tema. Man bør kunne importere tema separat fra kjernestiler
-// samtidig som det tilbys en "integrert" versjon med default tema for kompatibilitet
-@use "theme-default";
+@use "./themes/theme-test" as theme;
+@use "./themes/theme-integration-two";
 
 .jkl {
     font-family: "Fremtind Grotesk", Calibri, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-color: var(--jkl-theme-color-bg);
-    color: var(--jkl-theme-color-text);
+    background-color: var(--jkl-semantic-color-bg);
+    color: var(--jkl-semantic-color-text);
 }
 
 @include jkl.prefers-reduced-motion {

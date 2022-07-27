@@ -5,7 +5,7 @@ import React, { ReactElement } from "react";
 import { CodeBlock as FTCodeBlock } from "../../../../doc-utils/CodeBlock";
 
 export const PageTitle: React.FC<WithChildren> = ({ children, ...rest }) => (
-    <h1 className="jkl-portal-page-title" {...rest}>
+    <h1 className="jkl-text-style-page-title" {...rest}>
         {children}
     </h1>
 );

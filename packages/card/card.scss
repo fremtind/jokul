@@ -73,14 +73,14 @@
 
 .jkl-nav-card {
     // DESIGN TOKENS (STIL-API):
-    --border-radius: var(--jkl-theme-border-radius-rounded-container);
-    --color-bg: var(--jkl-theme-color-bg-highlighted);
-    --color-text: var(--jkl-theme-color-text);
-    --color-info-border: var(--jkl-theme-color-secondary-info);
-    --content-spacing: var(--jkl-theme-content-spacing-m);
-    --outline-thickness: var(--jkl-theme-border-thickness-focus);
-    --shadow: var(--jkl-theme-shadow-shallow);
-    --shadow--hover: var(--jkl-theme-shadow-deep);
+    --border-radius: var(--jkl-semantic-border-radius-rounded-container);
+    --color-bg: var(--jkl-semantic-color-bg-highlighted);
+    --color-text: var(--jkl-semantic-color-text);
+    --color-info-border: var(--jkl-semantic-color-secondary-info);
+    --content-spacing: var(--jkl-semantic-content-spacing-m);
+    --outline-thickness: var(--jkl-semantic-border-thickness-focus);
+    --shadow: var(--jkl-semantic-shadow-shallow);
+    --shadow--hover: var(--jkl-semantic-shadow-deep);
     // TODO: Finn ut hva man gjør med tekststiler
 
     box-sizing: border-box;

@@ -1,0 +1,38 @@
+:root {
+    --jkl-semantic-color-bg: var(--jkl-theme-color-bg, var(--jkl-fallback-color-bg));
+    --jkl-semantic-color-bg-none: var(--jkl-theme-color-bg-none, var(--jkl-fallback-color-bg-none));
+    --jkl-semantic-color-bg-highlighted: var(
+        --jkl-theme-color-bg-highlighted,
+        var(--jkl-fallback-color-bg-highlighted)
+    );
+    --jkl-semantic-color-border: var(--jkl-theme-color-border, var(--jkl-fallback-color-border));
+    --jkl-semantic-color-border-subdued: var(
+        --jkl-theme-color-border-subdued,
+        var(--jkl-fallback-color-border-subdued)
+    );
+    --jkl-semantic-color-focus: var(--jkl-theme-color-focus, var(--jkl-fallback-color-focus));
+    --jkl-semantic-color-text: var(--jkl-theme-color-text, var(--jkl-fallback-color-text));
+    --jkl-semantic-color-text-subdued: var(--jkl-theme-color-text-subdued, var(--jkl-fallback-color-text-subdued));
+    --jkl-semantic-color-text-selection: var(
+        --jkl-theme-color-text-selection,
+        var(--jkl-fallback-color-text-selection)
+    );
+    --jkl-semantic-color-secondary-info: var(
+        --jkl-theme-color-secondary-info,
+        var(--jkl-fallback-color-secondary-info)
+    );
+    --jkl-semantic-shadow-shallow: var(--jkl-theme-shadow-shallow, var(--jkl-fallback-shadow-shallow));
+    --jkl-semantic-shadow-deep: var(--jkl-theme-shadow-deep, var(--jkl-fallback-shadow-deep));
+    --jkl-semantic-content-spacing-m: var(--jkl-theme-content-spacing-m, var(--jkl-fallback-content-spacing-m));
+    --jkl-semantic-border-thickness-focus: var(
+        --jkl-theme-border-thickness-focus,
+        var(--jkl-fallback-border-thickness-focus)
+    );
+    --jkl-semantic-border-radius-rounded-container: var(
+        --jkl-theme-border-radius-rounded-container,
+        var(--jkl-fallback-border-radius-rounded-container)
+    );
+    --jkl-semantic-color-error: var(--jkl-theme-color-error, var(--jkl-fallback-color-error));
+    --jkl-semantic-color-text-on-light: var(--jkl-theme-color-text-on-light, var(--jkl-fallback-color-text-on-light));
+    --jkl-semantic-color-text-on-dark: var(--jkl-theme-color-text-on-dark, var(--jkl-fallback-color-text-on-dark));
+}

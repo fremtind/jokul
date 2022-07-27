@@ -32,6 +32,7 @@
         "mixins",
         "styles",
         "variables",
+        "themes",
         "*.css",
         "*.scss"
     ],

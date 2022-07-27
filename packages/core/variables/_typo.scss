@@ -1,0 +1,141 @@
+@use "sass:map";
+@use "sass:math";
+@use "../functions";
+
+/// Finner riktige verdier å bruke i en CSS clamp-funksjon for flytende fontstørrelse
+/// gitt minimum og maksimum fonstørrelse, og minimum og maksimum skjermbredde
+/// https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
+///
+/// @param {Number} $minSize - Minimum fontsørrelse i rem
+/// @param {Number} $maxSize - Maksimum fontstørrelse i rem
+/// @param {Number} $smallScreen [500px] - Minste skjermbredde i piksler for flytende størrelse
+/// @param {Number} $largeScreen [1200px] - Største skjermbredde i piksler for flytende størrelse
+/// @return {Map} - ("vw": antall vw, "rem": fastledd i rem)
+@function _getFontScalingParameters($minSize, $maxSize, $smallScreen: 500px, $largeScreen: 1200px) {
+    $_smScrRem: functions.rem($smallScreen);
+    $_lgScrRem: functions.rem($largeScreen);
+
+    // For å finne riktig vw:
+    $_vw: math.div(100 * ($maxSize - $minSize), $_lgScrRem - $_smScrRem);
+    // For å finne riktig statisk tillegg:
+    $_rem: math.div(($_smScrRem * $maxSize - $_lgScrRem * $minSize), ($_smScrRem - $_lgScrRem));
+
+    $_params: (
+        "vw": $_vw,
+        "rem": $_rem,
+    );
+
+    @return $_params;
+}
+
+// VEKTER:
+$_font-weights: (
+    "regular": 400,
+    "bold": 700,
+);
+
+@function font-weight($weight) {
+    @if not map.has-key($_font-weights, $weight) {
+        @error "Fontvekten må være en av #{map.keys($_font-weights)}";
+    }
+
+    @return map.get($_font-weights, $weight);
+}
+
+// LINJEHØYDER:
+$_line-heights: (
+    1: 1,
+    2: 1.1,
+    3: 1.2,
+    4: 1.4,
+    5: 1.8,
+    6: 2,
+);
+
+/// Henter verdien til et steg i skalaen for linjehøyde. Verdiene er
+/// enhetsløse, slik at de også fungerer med flytende skriftstørrelser
+///
+/// @param {Number} $step - Et steg i skalaen for linjehøyde [1 - 6]
+/// @return {Number} - Verdien for valgt steg i skalaen
+@function line-height($step) {
+    @if not math.is-unitless($step) {
+        @error "Parameteret #{$step} må være et heltall uten enhet.";
+    }
+    @if not map.has-key($_line-heights, $step) {
+        @error "Det finnes ingen linjehøyde med steg #{$step}.";
+    }
+
+    @return map.get($_line-heights, $step);
+}
+
+/// Multiplikator for fontskala
+$_font-scale-multiplier: 1.2;
+
+/// Henter verdien til et steg i fontskalaen. Steg 0 er baseverdien (1rem),
+/// og stegene over eller under null regnes ut fra multiplikatoren
+///
+/// @param {Number} $step - Et steg i fontskalaen, minimum -3
+/// @return {Number} - Fontstørrelsen for valgt steg i skalaen
+@function font-size($step) {
+    @if not math.is-unitless($step) {
+        @error "Parameteret #{$step} må være et heltall uten enhet.";
+    }
+    @if $step < -3 {
+        @error "Steg under -3 blir for små. Bruk en høyere verdi.";
+    }
+
+    @return 1 * math.pow($_font-scale-multiplier, $step) * 1rem;
+}
+
+/// Henter en flytende fontstørrelse basert på et steg i fontskalaen.
+/// Størrelsen vil variere fra to steg under angitt steg på små skjermer
+/// til angitt steg på store skjermer.
+///
+/// NB! Flytende fontstørrelser skal KUN brukes til overskrifter
+///
+/// @param {Number} $step - Et steg i fontskalaen, minimum 6
+/// @param {Number} $minScreen [500px] - Minimum skjermbredde i piksler for flytende størrelse
+/// @param {Number} $maxScreen [1200px] - Maksimum skjermbredde i piksler for flytende størrelse
+/// @return {Number} - Flytende fontstørrelse i rem, basert på valgt steg i skalaen
+@function fluid-font-size($step, $minScreen: 500px, $maxScreen: 1200px) {
+    @if not math.is-unitless($step) {
+        @error "Parameteret #{$step} må være et heltall uten enhet.";
+    }
+    @if $step < 6 {
+        @error "Flytende størrelse skal kun brukes for overskrifter. Velg steg 6 eller høyere.";
+    }
+
+    $_min: font-size($step - 2);
+    $_max: font-size($step);
+    $_params: _getFontScalingParameters($_min, $_max, $minScreen, $maxScreen);
+
+    @return clamp(#{$_min}, #{map.get($_params, "vw")}vw + #{map.get($_params, "rem")}, #{$_max});
+}
+
+@mixin text-style($fontStep, $lineHeight, $weight: "regular", $fluid: false) {
+    @if $fluid {
+        font-size: fluid-font-size($fontStep);
+    } @else {
+        font-size: font-size($fontStep);
+    }
+    line-height: line-height($lineHeight);
+    font-weight: font-weight($weight);
+}
+
+@mixin define-theme-text-style($name, $fontStep, $lineHeight, $weight: "regular", $fluid: false) {
+    @if $fluid {
+        --jkl-theme-#{$name}-font-size: #{fluid-font-size($fontStep)};
+    } @else {
+        --jkl-theme-#{$name}-font-size: #{font-size($fontStep)};
+    }
+    --jkl-theme-#{$name}-line-height: #{line-height($lineHeight)};
+    --jkl-theme-#{$name}-font-weight: #{font-weight($weight)};
+}
+
+@mixin use-theme-text-style($name) {
+    font-size: var(--jkl-theme-#{$name}-font-size);
+    line-height: var(--jkl-theme-#{$name}-line-height);
+    font-weight: var(--jkl-theme-#{$name}-font-weight);
+}
+
+$auto-font-size-test: fluid-font-size(10);

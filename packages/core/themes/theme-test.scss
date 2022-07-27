@@ -1,0 +1,8 @@
+@use "../jkl";
+
+// Alle verdier som IKKE er spesifisert i temaet bruker fallback-verdier
+
+:root {
+    @include jkl.typo-define-theme-text-style("page-title", 10, 3, "regular", true);
+    @include jkl.typo-define-theme-text-style("ingress", 4, 3, "regular", true);
+}

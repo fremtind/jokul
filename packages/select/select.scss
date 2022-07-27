@@ -14,16 +14,16 @@ $_select-padding: jkl.$spacing-xs jkl.$spacing-s;
 
 .jkl-select {
     // DESIGN TOKENS (STIL-API):
-    --jkl-select-border-color: var(--jkl-theme-color-border-subdued);
-    --jkl-select-text-color: var(--jkl-theme-color-text);
-    --jkl-select-text-disabled-color: var(--jkl-theme-color-text-subdued);
-    --jkl-select-background-color: var(--jkl-theme-color-bg-none);
-    --jkl-select-open-background-color: var(--jkl-theme-color-bg-highlighted);
-    --jkl-select-focus-color: var(--jkl-theme-color-focus);
-    --jkl-select-error-background-color: var(--jkl-theme-color-error);
-    --jkl-select-error-text-color: var(--jkl-theme-color-text-on-light);
-    --jkl-select-hover-option-color: var(--jkl-theme-color-secondary-info);
-    --jkl-select-search-input-selection-color: var(--jkl-theme-color-text-selection);
+    --jkl-select-border-color: var(--jkl-semantic-color-border-subdued);
+    --jkl-select-text-color: var(--jkl-semantic-color-text);
+    --jkl-select-text-disabled-color: var(--jkl-semantic-color-text-subdued);
+    --jkl-select-background-color: var(--jkl-semantic-color-bg-none);
+    --jkl-select-open-background-color: var(--jkl-semantic-color-bg-highlighted);
+    --jkl-select-focus-color: var(--jkl-semantic-color-focus);
+    --jkl-select-error-background-color: var(--jkl-semantic-color-error);
+    --jkl-select-error-text-color: var(--jkl-semantic-color-text-on-light);
+    --jkl-select-hover-option-color: var(--jkl-semantic-color-secondary-info);
+    --jkl-select-search-input-selection-color: var(--jkl-semantic-color-text-selection);
 
     @include jkl.reset-outline;
     display: block;

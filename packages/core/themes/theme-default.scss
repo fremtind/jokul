@@ -1,6 +1,6 @@
 @use "sass:color";
-@use "jkl";
-@use "~@fremtind/jkl-core/variables/colors";
+@use "../jkl";
+@use "../variables/colors";
 
 // Her vil det sikkert være nyttig å sortere tokens etter type (f.eks. farge eller spacing)
 // eller etter bruksområde (sidestil, typografielementer, etc.)
@@ -16,8 +16,8 @@
     --jkl-theme-color-text-subdued: #{jkl.$color-stein};
     --jkl-theme-color-text-selection: #{color.scale($color: jkl.$color-granitt, $alpha: -80%)};
     --jkl-theme-color-secondary-info: #{jkl.$color-stein};
-    --jkl-theme-shadow-shallow: #{jkl.$shadow-navigation}; // skulle hett f.eks. jkl.$shadow-1 eller tilsvarende nøytralt
-    --jkl-theme-shadow-deep: #{jkl.$shadow-navigation--hover}; // samme
+    --jkl-theme-shadow-shallow: #{jkl.$shadow-navigation};
+    --jkl-theme-shadow-deep: #{jkl.$shadow-navigation--hover};
 }
 
 @include jkl.dark-mode-variables {
@@ -42,4 +42,12 @@
     --jkl-theme-color-error: #{colors.varslingsfarge("feil")};
     --jkl-theme-color-text-on-light: #{jkl.$color-granitt};
     --jkl-theme-color-text-on-dark: #{jkl.$color-snohvit};
+
+    --jkl-font-size-test: #{jkl.$typo-auto-font-size-test};
+
+    @include jkl.typo-define-theme-text-style("page-title", 8, 3, "regular", false);
 }
+
+/* @mixin text-style-page-title {
+    @include jkl.typo-text-style(8, 3, "regular", false);
+} */

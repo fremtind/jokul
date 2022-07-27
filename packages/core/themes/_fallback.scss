@@ -1,0 +1,51 @@
+@use "sass:color";
+@use "../jkl";
+@use "../variables/colors";
+
+// LIGHT THEME
+$color-bg: #{jkl.$color-snohvit};
+$color-bg-none: transparent;
+$color-bg-highlighted: #{jkl.$color-hvit};
+$color-border: #{jkl.$color-granitt};
+$color-border-subdued: #{jkl.$color-stein};
+$color-focus: #{jkl.$color-granitt};
+$color-text: #{jkl.$color-granitt};
+$color-text-subdued: #{jkl.$color-stein};
+$color-text-selection: #{color.scale(
+        $color: jkl.$color-granitt,
+        $alpha: -80%,
+    )};
+$color-secondary-info: #{jkl.$color-stein};
+$shadow-shallow: #{jkl.$shadow-navigation};
+$shadow-deep: #{jkl.$shadow-navigation--hover};
+
+// DARK THEME
+$color-bg--dark: #{jkl.$color-granitt};
+$color-bg-none--dark: transparent;
+$color-bg-highlighted--dark: #{jkl.$color-svart};
+$color-border--dark: #{jkl.$color-snohvit};
+$color-border-subdued--dark: #{jkl.$color-svaberg};
+$color-focus--dark: #{jkl.$color-snohvit};
+$color-text--dark: #{jkl.$color-snohvit};
+$color-text-subdued--dark: #{jkl.$color-svaberg};
+$color-text-selection--dark: #{color.scale(
+        $color: jkl.$color-snohvit,
+        $alpha: -75%,
+    )};
+$color-secondary-info--dark: #{jkl.$color-svaberg};
+$shadow-shallow--dark: none;
+$shadow-deep--dark: none;
+
+// COMMON
+$content-spacing-m: #{jkl.$spacing-l};
+$border-thickness-focus: #{jkl.rem(2px)};
+$border-radius-rounded-container: #{jkl.rem(4px)};
+$color-error: #{colors.varslingsfarge("feil")};
+$color-text-on-light: #{jkl.$color-granitt};
+$color-text-on-dark: #{jkl.$color-snohvit};
+
+$jkl-font-size-test: #{jkl.$typo-auto-font-size-test};
+
+/* @mixin text-style-page-title {
+    @include jkl.typo-text-style($fontStep: 10, $lineHeight: 3, $weight: "regular", $fluid: true);
+} */

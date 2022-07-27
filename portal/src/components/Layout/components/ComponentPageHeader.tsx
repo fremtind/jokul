@@ -10,7 +10,7 @@ export const ComponentPageHeader: FC<Frontmatter> = ({ title, scss, react }) => 
     }
     return (
         <>
-            <h1 className="jkl-title">{title}</h1>
+            <h1 className="jkl-text-style-page-title">{title}</h1>
             <GitHubLinks react={react} scss={scss} />
         </>
     );
