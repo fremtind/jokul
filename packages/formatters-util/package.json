@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "2.5.0",
+    "version": "2.5.1",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-constants-util": "^1.0.2",
-        "@fremtind/jkl-core": "^10.0.6"
+        "@fremtind/jkl-core": "^10.0.7"
     },
     "devDependencies": {
         "react-hook-form": "^7.33.1"
