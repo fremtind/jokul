@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.10...@fremtind/jkl-select-react@10.0.11) (2022-07-28)
+
+### Bug Fixes
+
+-   forbedre skjermleseropplevelse etter inspo fra react-aria/combobox ([ad739c1](https://github.com/fremtind/jokul/commit/ad739c14984e13b3da1c6b8000bc95bcc9a777ac))
+-   tastaturnavigasjon i Select ([d95591c](https://github.com/fremtind/jokul/commit/d95591cf131be6cfff1353abd86143afecacc255)), closes [#2174](https://github.com/fremtind/jokul/issues/2174) [#2174](https://github.com/fremtind/jokul/issues/2174)
+
 ## 10.0.7 (2022-07-21)
 
 ### Bug Fixes
