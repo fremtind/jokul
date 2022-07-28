@@ -19,6 +19,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/expan
 
 ```js
 import { ExpandSection, ExpandButton } from "@fremtind/jkl-expand-button-react";
+import "@fremtind/jkl-content-toggle/content-toggle.min.css";
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 import "@fremtind/jkl-icons/animated-icons.min.css";
 ```
