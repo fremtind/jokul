@@ -170,11 +170,11 @@ $_text-input-selection-color--inverted: color.scale(
     }
 
     &__action-button {
+        @include jkl.reset-outline;
         display: inline-flex;
         box-sizing: border-box;
         align-items: center;
         justify-content: center;
-        border: none;
         background-color: transparent;
         cursor: pointer;
         padding: 0;
