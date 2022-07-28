@@ -63,7 +63,6 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
     &__dismiss-action {
         @include jkl.reset-outline;
         box-sizing: border-box;
-        border: none;
         background-color: transparent;
         cursor: pointer;
         color: inherit;
@@ -71,6 +70,8 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
         margin-right: jkl.rem(-4px);
 
         & > .jkl-icon-button__icon {
+            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
             height: jkl.rem(13px);
             width: jkl.rem(13px);
             margin-top: 0.15rem;
@@ -82,7 +83,6 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
 
         &:hover {
             color: $_dismiss-hover-color;
-            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
 
         &:focus {
@@ -106,7 +106,5 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
             border: revert;
             background-color: revert;
         }
-
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 }
