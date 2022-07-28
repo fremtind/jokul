@@ -276,7 +276,7 @@ describe("Searchable select", () => {
         }
         render(<WrappedSelect />);
 
-        expect(screen.getByLabelText("List of items")).not.toBeVisible();
+        expect(screen.getByLabelText("List of items", { selector: "input" })).not.toBeVisible();
     });
 
     it("should change the value of the select when clicking on a option", async () => {
@@ -337,7 +337,7 @@ describe("Searchable select", () => {
         render(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
 
         expect(searchInputElement).not.toBeVisible();
 
@@ -374,7 +374,7 @@ describe("Searchable select", () => {
         render(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -415,7 +415,7 @@ describe("Searchable select", () => {
         render(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -467,7 +467,7 @@ describe("Searchable select", () => {
         render(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -520,7 +520,7 @@ describe("Searchable select", () => {
         render(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -574,7 +574,7 @@ describe("Searchable select", () => {
         render(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
         await act(async () => {
             await userEvent.click(dropdownButtonElement);
         });
@@ -720,7 +720,7 @@ describe("Searchable select", () => {
 
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
-        const searchInputElement = screen.getByLabelText("List of items");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
 
         await act(async () => {
             await userEvent.click(dropdownButtonElement);

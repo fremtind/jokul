@@ -3,12 +3,14 @@ export function toLower(str = "") {
 }
 
 export function focusSelected(listEl: HTMLElement, selected: string | undefined) {
-    let focusedItem: HTMLElement | null;
+    let focusedItem: HTMLElement | null = null;
     if (selected) {
-        // move focus to selected option
-        focusedItem = listEl.querySelector(`[aria-selected="true"]`);
-    } else {
-        // move focus to first option
+        // Move focus to selected option
+        focusedItem = listEl.querySelector(`[aria-selected="true"]:not([hidden])`);
+    }
+    if (!selected || !focusedItem) {
+        // Move focus to first option if either no selected value or the value could not be found.
+        // This may happen with searchable selects if the currently selected value is filtered out.
         focusedItem = listEl.querySelector('[role="option"]');
     }
     focusedItem?.focus();
