@@ -1,6 +1,10 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../doc-utils";
 import { NavLink } from "../../src";
+
+export const navLinkExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Aktiv", "Back", "Compact"],
+};
 
 export const NavLinkExample: FC<ExampleComponentProps> = ({ boolValues }) => (
     <div>

@@ -1,7 +1,26 @@
 import { LabelVariant } from "@fremtind/jkl-core";
 import React, { useState, ChangeEvent, FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TextArea } from "../src";
+
+export const textAreaExampleKnobs: ExampleKnobsProps = {
+    boolProps: [
+        "Compact",
+        "Ekspanderende",
+        "Starter åpen",
+        "Med teller",
+        "Skjul progress",
+        "Med hjelpetekst",
+        "Med feil",
+    ],
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["small", "medium", "large"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const [value, setValue] = useState("");
