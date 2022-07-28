@@ -1,0 +1,105 @@
+---
+title: Høydepunkter fra sommeren 2022
+author: William Killerud
+publishDate: "2022.07.29"
+---
+
+import { TagExample, tagExampleCode } from "../../../../../packages/tag-react/documentation/TagExample";
+
+<Ingress>
+    I slutten av juni var Jøkul-teamet spredt rundtomkring på kloden, så denne gangen er det en oppsummering av både
+    juni og juli.
+</Ingress>
+
+Det har skjedd ting selv om det var feriesesong.
+
+Øyvind jobber på spreng med å ta i bruk de nyeste featurene Figma lanserte i sommer, for å gjøre brukeropplevelsen bedre for dere. Det er ikke helt klart ennå, men du kan _tro_ vi kommer til å si ifra når det kan brukes 🤩
+
+Annet enn _teasers_ så kan du lese mer om dette i månedens oppsummering:
+
+-   Tags har mulighet for å fjernes med en ikonknapp
+-   Inputmasker for store tall og organisasjonsnummer
+-   JavaScript-koden fra Jøkul er gjort tree-shakeable så appene deres blir raskere
+-   Jøkul har fått en stilguide for Sass og et tydeligere API
+-   Den vanlige smørbrødlista med feilrettinger og husarbeid
+
+## Tags som kan fjernes
+
+Tags kan være nyttige for å vise status og metadata, men et annet scenarie de kan brukes er for å vise aktive filtere i et søk. Et filter bør kunne fjernes, og et naturlig sted å gjøre det er via en knapp på selve tagen. Det er nå mulig å gi en `dismissAction` til tag-komponenten i versjon `2.1.0` av `@fremtind/jkl-tag-react`. Denne fungerer på en liknende måte som MessageBox.
+
+<ComponentExample
+    title="Tag"
+    component={TagExample}
+    knobs={{
+        boolProps: [
+            {
+                defaultValue: true,
+                prop: "Dismissable",
+            },
+        ],
+    }}
+    code={tagExampleCode}
+/>
+
+## Inputmasker for store tall og organisasjonsnummer
+
+Jo Emil og Kenneth har ordnet nye inputmasker og formateringsfunksjoner for henholdsvis store tall og organisasjonsnummer. Sjekk [Formatters](/komponenter/formatters)-siden for eksempler og dokumentasjon.
+
+![Skjermopptak som viser hvordan de to inputmaskene fungerer. Organisasjonsnummeret vises med tre grupper av tre siffre. For store tall er innholdet i skjemafeltet høyrejustert, og tallet vises med mellomrom som tusenskille.](/assets/blog/updates/juni-juli-2022/input-mask-junjul22.gif)
+
+For store tall er innholdet i skjemafelter høyrejustert. Det er for å [unngå at innholdet hopper](https://github.com/fremtind/jokul/pull/2898#issuecomment-1143277238).
+
+## Tree-shaking
+
+<iframe
+    src="https://giphy.com/embed/UUgZDrVTZhLNiKpAbw"
+    width="480"
+    height="270"
+    frameBorder="0"
+    class="giphy-embed"
+    allowFullScreen
+></iframe>
+<p>
+    <a href="https://giphy.com/gifs/nintendo-animal-crossing-new-horizons-UUgZDrVTZhLNiKpAbw">via GIPHY</a>
+</p>
+
+Tree-shaking går _ikke_ ut på å dra i skogen for å samle greiner. Det er et begrep brukt i JavaScript-verden for å snakke om verktøy som klarer å forstå at deler av koden i et prosjekt ikke er i bruk. Verktøy med tree-shaking vil hoppe over filer som ikke eksplisitt blir nevnt, selv om de måtte ligge i samme mappe som annen kode som _blir_ brukt. Sluttresultatet blir en kjappere app uten en masse ubrukt kode.
+
+Jøkul har lenge pleid å _bundle_ eller slå sammen all koden i hver enkelt pakke. Fordelen med det var at man i teorien kunne sende Jøkul-kode rett i nettleseren uten å tenke på det. Ulempen er at det gjorde det umulig for verktøy å gjøre tree-shaking. Alt var jo i én fil, og den fila var jo i bruk.
+
+Fra og med [midten av juni](https://github.com/fremtind/jokul/pull/2919), altså etter versjon 10 av core, så bundles ikke lenger JavaScripten i Jøkul. Det vil for de aller aller fleste ikke ha noen annen betydning enn at appene deres automatisk har blitt en del mindre – og dermed raskere.
+
+## Stilguide for Sass og tydeligere API
+
+Vi har fått en ny guide: [Hvordan skrive Sass i Jøkul](https://jokul.fremtind.no/guider/sass). Det er ikke forventet at alle skal kunne denne guiden på rams, men hvis du lurer på noe så er den der som et oppslagsverk.
+
+Vi beskriver også hva som er stabilt med tanke på semantisk versjonering. Kort oppsummert:
+
+-   Hver pakke har ett ingangspunkt. Om du importerer enkeltfiler inne i pakka kan ting brekke uten forvarsel.
+-   Navn på Sass-variabler, funksjoner og mixins er stabile om de ikke starter med `_`.
+-   Alle klasser og CSS-variabler starter med `jkl`, og navnet på disse er stabile.
+
+## Diverse bugfikser og husarbeid
+
+-   DatePicker er skrevet om fra bunnen av for å fikse bugs og gjøre klar til redesign ([#2868](https://github.com/fremtind/jokul/pull/2887))
+-   Pila etter navigasjonslenker holder seg nå på linje med teksten uansett bredde ([#2900](https://github.com/fremtind/jokul/pull/2900))
+-   Fjernet Framer Motion fra MessageBox ([#2903](https://github.com/fremtind/jokul/pull/2903))
+-   Fjernet React Hook Form fra CookieConsent ([#2906](https://github.com/fremtind/jokul/pull/2906))
+-   Ikke bruk rød bakgrunnsfarge på native select-meny ved valideringsfeil ([#2922](https://github.com/fremtind/jokul/pull/2922))
+-   Select sin `defaultValue` fungerer med React Hook Form ([#2927](https://github.com/fremtind/jokul/pull/2927))
+-   Fikset typefeil i register-funksjonen med inputmasker ([#2929](https://github.com/fremtind/jokul/pull/2929))
+-   Tab-komponenten har fått en prop for å velge hvilken fane som vises som default ([#2941](https://github.com/fremtind/jokul/pull/2941))
+-   TextArea fungerer nå som tenkt hvis den er inni en del av siden med `data-compactlayout` ([#2946](https://github.com/fremtind/jokul/pull/2946))
+-   Portalen visier nyeste versjonsummer til pakker på komponentsider ([#2951](https://github.com/fremtind/jokul/pull/2951))
+-   Alle komponenter skal nå ta i mot rest-props ([#2953](https://github.com/fremtind/jokul/pull/2953))
+-   Select har fått et par forbedringer i opplevelsen for skjermleserbrukere ([#2955](https://github.com/fremtind/jokul/pull/2955), [#2972](https://github.com/fremtind/jokul/pull/2972))
+-   `BaseRadioButton` er en ny komponent som kan brukes i sjeldne scenarier hvor du har radioknapper spredt rundt i dokumentstrukturen ([#2956](https://github.com/fremtind/jokul/pull/2956))
+-   IconButton har fått en outline ved tastaturfokus ([#2973](https://github.com/fremtind/jokul/pull/2973))
+
+## Takk
+
+Takk til alle som har hjulpet til i sommer! En stor takk også til alle som er med på designsystemforum!
+
+-   JoMs
+-   henrikhermansen
+-   kennidenni
