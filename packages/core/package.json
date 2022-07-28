@@ -43,8 +43,7 @@
         "build:scripts": "node ./esbuild.prod.mjs",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
-        "dev:server": "node ./dist/server.js",
-        "predev": "node ./esbuild.dev.mjs",
+        "dev:server": "nodemon ./dist/server.js",
         "dev": "run-p dev:*"
     },
     "repository": {
