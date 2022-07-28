@@ -1,10 +1,18 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import ActionTableExample from "./ActionTableExample";
-import ClickableTableExample from "./ClickableTableExample";
-import DataTableExample from "./DataTableExample";
-import ExpandableTableExample from "./ExpandableTableExample";
-import MobileListTableExample from "./MobileListTableExample";
+import ActionTableExample, { actionTableExampleCode, actionTableExampleKnobs } from "./ActionTableExample";
+import ClickableTableExample, { clickableTableExampleCode, clickableTableExampleKnobs } from "./ClickableTableExample";
+import DataTableExample, { dataTableExampleCode, dataTableExampleKnobs } from "./DataTableExample";
+import ExpandableTableExample, {
+    expandableTableExampleCode,
+    expandableTableExampleKnobs,
+} from "./ExpandableTableExample";
+import HeadlessTableExample, { headlessTableExampleCode, headlessTableExampleKnobs } from "./HeadlessTableExample";
+import MobileListTableExample, {
+    mobileListTableExampleCode,
+    mobileListTableExampleKnobs,
+} from "./MobileListTableExample";
+import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
 import "../../table/table.scss";
 import "../../button/button.scss";
 import "../../icons/animated-icons.scss";
@@ -14,66 +22,52 @@ export default function Example() {
     return (
         <>
             <DevExample
-                title="DataTable"
-                component={DataTableExample}
-                knobs={{
-                    boolProps: ["Compact"],
-                }}
+                scrollable={true}
+                title="Mobil: horisontal scroll"
+                component={MobileScrollTableExample}
+                codeExample={mobileScrollTableExampleCode}
             />
             <DevExample
+                scrollable={true}
                 title="Mobil: tabell til liste"
                 component={MobileListTableExample}
-                knobs={{
-                    choiceProps: [
-                        {
-                            name: "Mobilvisning",
-                            values: ["Tabell", "Liste"],
-                            defaultValue: 0,
-                        },
-                    ],
-                }}
+                knobs={mobileListTableExampleKnobs}
+                codeExample={mobileListTableExampleCode}
             />
             <DevExample
+                scrollable={true}
+                title="Skjulte overskrifter"
+                component={HeadlessTableExample}
+                codeExample={headlessTableExampleCode}
+                knobs={headlessTableExampleKnobs}
+            />
+            <DevExample
+                scrollable={true}
+                title="DataTable"
+                component={DataTableExample}
+                knobs={dataTableExampleKnobs}
+                codeExample={dataTableExampleCode}
+            />
+            <DevExample
+                scrollable={true}
+                title="Rader med handling"
+                component={ActionTableExample}
+                knobs={actionTableExampleKnobs}
+                codeExample={actionTableExampleCode}
+            />
+            <DevExample
+                scrollable={true}
                 title="Klikkbar tabell"
                 component={ClickableTableExample}
-                knobs={{
-                    boolProps: ["Compact", "Markér v/ klikk"],
-                    choiceProps: [
-                        {
-                            name: "Mobilvisning",
-                            values: ["Tabell", "Liste"],
-                            defaultValue: 0,
-                        },
-                    ],
-                }}
+                knobs={clickableTableExampleKnobs}
+                codeExample={clickableTableExampleCode}
             />
             <DevExample
-                title="Tabell med knapper"
-                component={ActionTableExample}
-                knobs={{
-                    boolProps: ["Compact"],
-                    choiceProps: [
-                        {
-                            name: "Mobilvisning",
-                            values: ["Tabell", "Liste"],
-                            defaultValue: 0,
-                        },
-                    ],
-                }}
-            />
-            <DevExample
+                scrollable={true}
                 title="Tabell med ekspanderbare rader"
                 component={ExpandableTableExample}
-                knobs={{
-                    boolProps: ["Kompakt", "Markér v/ klikk", "Tekst i ekspandérknapp"],
-                    choiceProps: [
-                        {
-                            name: "Mobilvisning",
-                            values: ["Tabell", "Liste"],
-                            defaultValue: 0,
-                        },
-                    ],
-                }}
+                knobs={expandableTableExampleKnobs}
+                codeExample={expandableTableExampleCode}
             />
         </>
     );

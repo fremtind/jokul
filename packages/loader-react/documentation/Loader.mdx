@@ -6,9 +6,9 @@ group: annet
 ---
 
 import { Loader } from "../src";
-import { LoaderExample, loaderExampleCode } from "./LoaderExample";
+import { LoaderExample, loaderExampleCode, loaderExampleKnobs } from "./LoaderExample";
 import { QuickLoaderExampleDo, QuickLoaderExampleDont } from "./QuickLoaderExample";
-import { SkeletonLoaderExample, skeletonLoaderExampleCode } from "./SkeletonLoaderExample";
+import { SkeletonLoaderExample, skeletonLoaderExampleCode, skeletonLoaderExampleKnobs } from "./SkeletonLoaderExample";
 
 <Ingress>
     En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren når vi har handlinger eller
@@ -16,20 +16,7 @@ import { SkeletonLoaderExample, skeletonLoaderExampleCode } from "./SkeletonLoad
     én stor lasteindikator.
 </Ingress>
 
-<ComponentExample
-    title="Loader"
-    component={LoaderExample}
-    knobs={{
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["Large", "Medium", "Small"],
-                defaultValue: 0,
-            },
-        ],
-    }}
-    codeExample={loaderExampleCode}
-/>
+<ComponentExample title="Loader" component={LoaderExample} knobs={loaderExampleKnobs} codeExample={loaderExampleCode} />
 
 Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik posisjon og størrelse, avhengig av konteksten den skal fungere i. Lasteindikatoren tar farge etter teksten rundt.
 
@@ -80,7 +67,7 @@ En _skeleton loader_ er egentlig en samling med omriss som likner noenlunde på 
 <ComponentExample
     title="Skeleton loader"
     component={SkeletonLoaderExample}
-    knobs={{ boolProps: ["Compact"] }}
+    knobs={skeletonLoaderExampleKnobs}
     codeExample={skeletonLoaderExampleCode}
 />
 

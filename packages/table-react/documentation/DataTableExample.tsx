@@ -1,6 +1,17 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { DataTable } from "../src";
+
+export const dataTableExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact"],
+    choiceProps: [
+        {
+            name: "Mobilvisning",
+            values: ["Tabell", "Liste"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 const columns = ["Dato", "Kundenavn", "Milepæl", "Følger saken"];
 

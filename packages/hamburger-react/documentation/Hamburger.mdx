@@ -5,13 +5,13 @@ scss: hamburger
 group: layout
 ---
 
-import { HamburgerExample, hamburgerExampleCode } from "./HamburgerExample";
+import { HamburgerExample, hamburgerExampleCode, hamburgerExampleKnobs } from "./HamburgerExample";
 
 <Ingress>Hamburgeren brukes til å vise hovedmenyer på små flater.</Ingress>
 
 <ComponentExample
     title="Hamburger"
-    knobs={{ boolProps: ["Med tekst", "Tekst før knapp", "Skaler tekst ved hover"] }}
+    knobs={hamburgerExampleKnobs}
     component={HamburgerExample}
     codeExample={hamburgerExampleCode}
 />

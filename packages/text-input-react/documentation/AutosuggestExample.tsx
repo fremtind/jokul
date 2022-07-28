@@ -1,6 +1,25 @@
 import React, { useState } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Autosuggest } from "../src";
+
+export const autosuggestExampleKnobs: ExampleKnobsProps = {
+    boolProps: [
+        "Hjelpetekst",
+        "Feiltekst",
+        "Leadtekst",
+        "Ingen treff",
+        "Max antall treff",
+        "Placeholder",
+        "Vis ikoner",
+    ],
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["small", "medium", "large"],
+            defaultValue: 1,
+        },
+    ],
+};
 
 export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [value, setValue] = useState("");

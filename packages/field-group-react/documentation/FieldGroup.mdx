@@ -5,7 +5,7 @@ scss: field-group
 group: skjema
 ---
 
-import { FieldGroupExample, fieldGroupExampleCode } from "./FieldGroupExample";
+import { FieldGroupExample, fieldGroupExampleCode, fieldGroupExampleKnobs } from "./FieldGroupExample";
 
 <Ingress>
     Et feltsett er et sett med skjemafelter som hører sammen, for eksempel navn, adresse og postnummer/sted. Feltsettet
@@ -15,16 +15,7 @@ import { FieldGroupExample, fieldGroupExampleCode } from "./FieldGroupExample";
 <ComponentExample
     title="FieldGroup"
     component={FieldGroupExample}
-    knobs={{
-        boolProps: ["Compact", "Med hjelpetekst", "Med feil"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["small", "medium", "large"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={fieldGroupExampleKnobs}
     codeExample={fieldGroupExampleCode}
 />
 
