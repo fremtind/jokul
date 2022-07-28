@@ -108,6 +108,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     } = props;
 
     const listId = useId(id || "jkl-select", { generateSuffix: !id });
+    const labelId = `${listId}_label`;
     const buttonId = `${listId}_button`;
     const searchInputId = `${listId}_search-input`;
     const supportId = `${listId}_support-label`;
@@ -289,18 +290,75 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     /// Tastaturnavigasjon
 
     // Add support for opening dropdown with arrowkey down as expected from native select
-    const handleOnKeyUp = useCallback(
+    // onKeyDown to stop ArrowDown from scrolling the page
+    const handleOnKeyDown = useCallback(
         (e: KeyboardEvent<HTMLButtonElement>) => {
-            e.preventDefault();
             if ((e.key === "ArrowDown" || e.key === " ") && !dropdownIsShown) {
+                e.preventDefault();
                 e.stopPropagation();
                 setShown(true);
-            }
-            if (e.key === "Escape") {
+            } else if (e.key === "Escape") {
+                e.preventDefault();
+                e.stopPropagation();
                 setShown(false);
             }
         },
         [setShown, dropdownIsShown],
+    );
+
+    // onKeyDown to stop ArrowDown from scrolling the page
+    const handleSearchOnKeyDown = useCallback(
+        (e: KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const listElement = dropdownRef.current;
+                if (listElement) {
+                    focusSelected(listElement, selectedValue);
+                }
+            } else if (e.key === "Escape") {
+                e.preventDefault();
+                e.stopPropagation();
+                setShown(false);
+            } else if (e.key === "Tab" && !e.shiftKey) {
+                const listElement = dropdownRef.current;
+                if (listElement) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    focusSelected(listElement, selectedValue);
+                }
+            }
+        },
+        [setShown, dropdownRef, selectedValue],
+    );
+
+    // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
+    const handleOptionOnKeyDown = useCallback(
+        (e: KeyboardEvent<HTMLButtonElement>) => {
+            if (e.key === "Tab") {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (e.shiftKey && searchFieldRef.current) {
+                    searchFieldRef.current.focus();
+                } else if (buttonRef.current) {
+                    // Mimic behaviour of Firefox and native select, where Tab selects the current item and closes the menu
+                    setSelectedValue(e.currentTarget.value);
+                    setShown(false);
+                    buttonRef.current.focus();
+                }
+            } else if (e.key === "ArrowUp") {
+                if (dropdownRef.current && searchFieldRef.current) {
+                    // Can't be based on index since the first item might be filtered out
+                    const firstVisible = dropdownRef.current.querySelector('[role="option"]:not([hidden])');
+                    if (e.currentTarget.id === firstVisible?.id && searchFieldRef.current) {
+                        searchFieldRef.current.focus();
+                    }
+                }
+            }
+        },
+        [setShown, dropdownRef],
     );
 
     // Add support for closing the dropdown with Escape like native select. Unfortunately, Escape does not trigger the button onKeyDown.
@@ -334,6 +392,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             {...rest}
         >
             <Label
+                id={labelId}
                 variant={variant}
                 {...labelProps}
                 standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
@@ -370,7 +429,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                         onChange={(e) => setSearchValue(e.target.value)}
                         data-testid="jkl-select__search-input"
                         className="jkl-select__search-input"
+                        aria-autocomplete="list"
+                        aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
+                        aria-controls={listId}
                         aria-describedby={describedBy}
+                        aria-labelledby={labelId}
+                        aria-expanded={dropdownIsShown}
+                        role="combobox"
+                        onKeyDown={handleSearchOnKeyDown}
                         onBlur={handleBlur}
                         onFocus={handleFocus}
                         onClick={(e) => {
@@ -394,7 +460,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     aria-invalid={Boolean(errorLabel)} // Nei dette er ikke i henhold til speccen, men VoiceOver leser den likevel og det er oppførselen vi ønsker
                     onBlur={handleBlur}
                     onFocus={handleFocus}
-                    onKeyUp={handleOnKeyUp}
+                    onKeyDown={handleOnKeyDown}
                     onClick={toggleListVisibility}
                     onMouseDown={(e) => {
                         // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
@@ -412,9 +478,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     role="listbox"
                     className="jkl-select__options-menu"
                     hidden={!dropdownIsShown}
-                    aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
-                    aria-labelledby={buttonId}
-                    aria-expanded={dropdownIsShown}
+                    aria-labelledby={labelId}
                     tabIndex={-1}
                 >
                     {visibleItems.map((item, i) => (
@@ -431,6 +495,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                             data-testautoid={`jkl-select__option-${i}`}
                             onBlur={handleBlur}
                             onFocus={handleFocus}
+                            onKeyDown={handleOptionOnKeyDown}
                             onClick={(e) => {
                                 e.preventDefault();
                                 selectOption(item);
