@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@10.0.7...@fremtind/jkl-core@10.0.8) (2022-07-28)
+
+### Bug Fixes
+
+-   legg til manglende id-prop på label ([e723225](https://github.com/fremtind/jokul/commit/e723225b5f33350f82218374c651763eaa75108f))
+
 ## 10.0.7 (2022-07-26)
 
 ### Bug Fixes
