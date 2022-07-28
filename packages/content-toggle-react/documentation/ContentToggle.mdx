@@ -5,7 +5,7 @@ scss: content-toggle
 group: layout
 ---
 
-import { ContentToggleExample, contentToggleExampleCode } from "./ContentToggleExample";
+import { ContentToggleExample, contentToggleExampleCode, contentToggleExampleKnobs } from "./ContentToggleExample";
 
 <Ingress>
     ContentToggle er en komponent for to av Jøkuls kjerneanimasjoner. Om du har behov for to tilstander som man veksler
@@ -14,16 +14,7 @@ import { ContentToggleExample, contentToggleExampleCode } from "./ContentToggleE
 
 <ComponentExample
     title="ContentToggle"
-    knobs={{
-        boolProps: ["Bytt verdi"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["flip", "fade"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={contentToggleExampleKnobs}
     component={ContentToggleExample}
     codeExample={contentToggleExampleCode}
 />

@@ -1,6 +1,16 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
+
+export const mobileListTableExampleKnobs: ExampleKnobsProps = {
+    choiceProps: [
+        {
+            name: "Mobilvisning",
+            values: ["Tabell", "Liste"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
 

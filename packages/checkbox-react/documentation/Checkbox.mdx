@@ -7,7 +7,7 @@ group: skjema
 
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { Checkbox } from "../src";
-import { CheckboxExample, checkboxExampleCode } from "./CheckboxExample";
+import { CheckboxExample, checkboxExampleCode, checkboxExampleKnobs } from "./CheckboxExample";
 
 <Ingress>
     Vi bruker avmerkingsbokser når vi vil gi brukerne en liste med valg, der de kan velge ett eller flere alternativer.
@@ -17,9 +17,7 @@ import { CheckboxExample, checkboxExampleCode } from "./CheckboxExample";
 <ComponentExample
     title="Checkbox"
     component={CheckboxExample}
-    knobs={{
-        boolProps: ["Compact", "Med hjelpetekst", "Med feil"],
-    }}
+    knobs={checkboxExampleKnobs}
     codeExample={checkboxExampleCode}
 />
 

@@ -8,13 +8,19 @@ group: annet
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { Table, TableCaption, TableHead, TableHeader, TableRow, TableBody, TableCell } from "../src";
 import TableExamples, { tableExamplesCode, tableExamplesProps } from "./TableExamples";
-import DataTableExample, { dataTableExampleCode } from "./DataTableExample";
-import HeadlessTableExample, { headlessTableExampleCode } from "./HeadlessTableExample";
-import ClickableTableExample, { clickableTableExampleCode } from "./ClickableTableExample";
-import ExpandableTableExample, { expandableTableExampleCode } from "./ExpandableTableExample";
-import ActionTableExample, { actionTableExampleCode } from "./ActionTableExample";
+import DataTableExample, { dataTableExampleCode, dataTableExampleKnobs } from "./DataTableExample";
+import HeadlessTableExample, { headlessTableExampleCode, headlessTableExampleKnobs } from "./HeadlessTableExample";
+import ClickableTableExample, { clickableTableExampleCode, clickableTableExampleKnobs } from "./ClickableTableExample";
+import ExpandableTableExample, {
+    expandableTableExampleCode,
+    expandableTableExampleKnobs,
+} from "./ExpandableTableExample";
+import ActionTableExample, { actionTableExampleCode, actionTableExampleKnobs } from "./ActionTableExample";
 import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
-import MobileListTableExample, { mobileListTableExampleCode } from "./MobileListTableExample";
+import MobileListTableExample, {
+    mobileListTableExampleCode,
+    mobileListTableExampleKnobs,
+} from "./MobileListTableExample";
 
 <Ingress>Vi bruker tabeller for å vise data på en ordnet måte som gjør sammenlikning enkelt.</Ingress>
 
@@ -212,15 +218,7 @@ Og her ser du et eksempel på en tabell som gjøres om til en listevisning.
     title="Mobil: tabell til liste"
     scrollable={true}
     component={MobileListTableExample}
-    knobs={{
-        choiceProps: [
-            {
-                name: "Mobilvisning",
-                values: ["Tabell", "Liste"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={mobileListTableExampleKnobs}
     codeExample={mobileListTableExampleCode}
 />
 
@@ -301,6 +299,7 @@ Det er også mulig å skjule tabelloverskrifter visuelt. De må fremdeles være 
     title="Skjulte overskrifter"
     component={HeadlessTableExample}
     codeExample={headlessTableExampleCode}
+    knobs={headlessTableExampleKnobs}
 />
 
 ## Flere eksempler på bruk
@@ -313,16 +312,7 @@ De enkleste tabellene består av et sett med navngitte kolonner, og en eller fle
     scrollable={true}
     title="DataTable"
     component={DataTableExample}
-    knobs={{
-        boolProps: ["Compact"],
-        choiceProps: [
-            {
-                name: "Mobilvisning",
-                values: ["Tabell", "Liste"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={dataTableExampleKnobs}
     codeExample={dataTableExampleCode}
 />
 
@@ -334,16 +324,7 @@ Knapper skal komme til slutt i raden og høyrejusteres. Tekstinnholdet i rader m
     scrollable={true}
     title="Rader med handling"
     component={ActionTableExample}
-    knobs={{
-        boolProps: ["Compact"],
-        choiceProps: [
-            {
-                name: "Mobilvisning",
-                values: ["Tabell", "Liste"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={actionTableExampleKnobs}
     codeExample={actionTableExampleCode}
 />
 
@@ -355,16 +336,7 @@ Hele raden kan gjøres klikkbar om du ønsker, men foretrekk å ha en rad med ha
     scrollable={true}
     title="Klikkbare rader"
     component={ClickableTableExample}
-    knobs={{
-        boolProps: ["Compact", "Markér v/ klikk"],
-        choiceProps: [
-            {
-                name: "Mobilvisning",
-                values: ["Tabell", "Liste"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={clickableTableExampleKnobs}
     codeExample={clickableTableExampleCode}
 />
 
@@ -375,15 +347,6 @@ Hele raden blir automatisk klikkbar, samtidig som man skal sette inn en celle fo
 <ComponentExample
     title="Tabell med ekspanderbare rader"
     component={ExpandableTableExample}
-    knobs={{
-        boolProps: ["Kompakt", "Markér v/ klikk"],
-        choiceProps: [
-            {
-                name: "Mobilvisning",
-                values: ["Tabell", "Liste"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={expandableTableExampleKnobs}
     codeExample={expandableTableExampleCode}
 />

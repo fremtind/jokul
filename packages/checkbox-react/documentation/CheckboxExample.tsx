@@ -1,7 +1,11 @@
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Checkbox } from "../src";
+
+export const checkboxExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact", "Med hjelpetekst", "Med feil"],
+};
 
 export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [phone, setPhone] = React.useState(false);
