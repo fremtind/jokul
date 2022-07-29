@@ -2,7 +2,7 @@
 @use "~@fremtind/jkl-core/variables/colors";
 
 $_tag-background-color: jkl.$color-varde;
-$_tag-color: jkl.$color-granitt;
+$_tag-text-color: jkl.$color-granitt;
 
 $_dismiss-focus-border-color: jkl.$color-granitt;
 $_dismiss-hover-color: jkl.$color-stein;
@@ -16,7 +16,7 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
     @include jkl.text-style("heading-5");
     background-color: $_tag-background-color;
     border-radius: jkl.rem(4px);
-    color: $_tag-color;
+    color: $_tag-text-color;
     padding: jkl.$spacing-3xs jkl.$spacing-xs;
     white-space: nowrap;
     display: inline-flex;
@@ -61,8 +61,8 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-action {
+        @include jkl.reset-outline;
         box-sizing: border-box;
-        border: none;
         background-color: transparent;
         cursor: pointer;
         color: inherit;
@@ -70,27 +70,33 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
         margin-right: jkl.rem(-4px);
 
         & > .jkl-icon-button__icon {
+            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
             height: jkl.rem(13px);
             width: jkl.rem(13px);
             margin-top: 0.15rem;
+
+            & > svg > path {
+                stroke-width: 3;
+            }
         }
 
         &:hover {
             color: $_dismiss-hover-color;
-            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
 
         &:focus {
             @include jkl.keyboard-navigation {
+                color: $_dismiss-hover-color;
                 position: relative;
 
                 &::after {
                     content: "";
                     position: absolute;
-                    top: jkl.rem(-2px);
-                    right: jkl.rem(-2px);
-                    bottom: jkl.rem(-2px);
-                    left: jkl.rem(-2px);
+                    top: jkl.rem(2px);
+                    right: jkl.rem(2px);
+                    bottom: jkl.rem(2px);
+                    left: jkl.rem(2px);
                     box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
                 }
             }
@@ -100,7 +106,5 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
             border: revert;
             background-color: revert;
         }
-
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 }

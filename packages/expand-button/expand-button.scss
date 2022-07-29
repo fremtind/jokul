@@ -3,7 +3,7 @@
 $_arrow-width: jkl.rem(16px);
 $_arrow-width--compact: jkl.rem(14px);
 
-$_animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
+$_animation-timing: jkl.timing("snappy") jkl.easing("focus");
 $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {

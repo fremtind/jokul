@@ -97,5 +97,17 @@ describe("TextInput", () => {
             },
             eq: textArea,
         });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med handling"]').check();
+                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+            },
+            teardown: () => {
+                cy.get('input[value="Med handling"]').check();
+                cy.get(".jkl-portal-component-example__example-wrapper input").clear();
+            },
+            eq: textInput,
+        });
     });
 });
