@@ -11,6 +11,7 @@ import {
     ToggleSwitchWrongExamples,
     ToggleSliderWrongExamples,
     toggleSwitchCodeExample,
+    toggleSwitchExampleKnobs,
     toggleSliderCodeExample,
 } from "./ToggleSwitchExample";
 
@@ -22,9 +23,7 @@ import {
 <ComponentExample
     title="ToggleSwitch"
     component={ToggleSwitchExample}
-    knobs={{
-        boolProps: ["Deaktivert", "Med hjelpetekst"],
-    }}
+    knobs={toggleSwitchExampleKnobs}
     codeExample={toggleSwitchCodeExample}
 />
 

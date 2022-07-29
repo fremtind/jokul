@@ -1,8 +1,8 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { ListExamples } from "./ListExample";
+import { ListExamples, listExamplesCode, listExamplesProps } from "./ListExample";
 import "../../list/list.scss";
 
 export default function Example() {
-    return <DevExample component={ListExamples} />;
+    return <DevExample component={ListExamples} knobs={listExamplesProps} codeExample={listExamplesCode} />;
 }

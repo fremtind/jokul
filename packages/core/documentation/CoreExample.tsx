@@ -3,8 +3,8 @@ import React, { FC } from "react";
 import { DevExample } from "../../../doc-utils";
 import "../core.scss";
 import "./style.scss";
-import { LinkExample } from "./Link/LinkExample";
-import { NavLinkExample } from "./Link/NavLinkExample";
+import { LinkExample, linkExampleCode, linkExampleKnobs } from "./Link/LinkExample";
+import { NavLinkExample, navLinkExampleCode, navLinkExampleKnobs } from "./Link/NavLinkExample";
 import { Keyboard } from "./Mixins/Keyboard";
 import { SpacingScaleTable } from "./Spacing/Spacing";
 import { NormalExample, SmallExample, LargeExample } from "./Typography/Typography";
@@ -47,8 +47,8 @@ export const Spacing: FC = () => (
 
 export const CoreExample: FC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">
-        <DevExample component={LinkExample} knobs={{ boolProps: ["Ekstern"] }} />
-        <DevExample component={NavLinkExample} knobs={{ boolProps: ["Aktiv", "Back"] }} />
+        <DevExample component={LinkExample} knobs={linkExampleKnobs} codeExample={linkExampleCode} />
+        <DevExample component={NavLinkExample} knobs={navLinkExampleKnobs} codeExample={navLinkExampleCode} />
         <SpacingScaleTable />
         <NormalExample />
         <SmallExample />

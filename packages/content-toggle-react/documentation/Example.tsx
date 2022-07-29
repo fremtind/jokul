@@ -1,22 +1,14 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { ContentToggleExample } from "./ContentToggleExample";
+import { ContentToggleExample, contentToggleExampleCode, contentToggleExampleKnobs } from "./ContentToggleExample";
 import "../../content-toggle/content-toggle.scss";
 
 export default function Example() {
     return (
         <DevExample
-            knobs={{
-                boolProps: ["Bytt verdi"],
-                choiceProps: [
-                    {
-                        name: "Variant",
-                        values: ["flip", "fade"],
-                        defaultValue: 0,
-                    },
-                ],
-            }}
             component={ContentToggleExample}
+            knobs={contentToggleExampleKnobs}
+            codeExample={contentToggleExampleCode}
         />
     );
 }

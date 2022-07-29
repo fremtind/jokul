@@ -1,6 +1,17 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
+
+export const headlessTableExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact"],
+    choiceProps: [
+        {
+            name: "Mobilvisning",
+            values: ["Tabell", "Liste"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
 
@@ -10,11 +21,12 @@ const rows = [
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
 ];
 
-const HeadlessTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+const HeadlessTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+    const forceCompact = boolValues && boolValues["Compact"];
     const type = choiceValues ? choiceValues["Mobilvisning"] : "";
     const props = type === "Liste" ? { "data-collapse": "true", compact: true, collapseToList: true } : {};
     return (
-        <Table {...props} fullWidth>
+        <Table {...props} fullWidth compact={forceCompact}>
             <TableCaption srOnly>Tabell uten synlig header</TableCaption>
             <TableHead srOnly>
                 <TableRow>
@@ -40,8 +52,8 @@ const HeadlessTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
 
 export default HeadlessTableExample;
 
-export const headlessTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+export const headlessTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}} compact={${!!boolValues?.["Compact"]}}>
     <TableCaption srOnly>Tabell uten synlig header</TableCaption>
     <TableHead srOnly>
         <TableRow>

@@ -1,6 +1,17 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../src";
+
+export const clickableTableExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact", "Markér v/ klikk"],
+    choiceProps: [
+        {
+            name: "Mobilvisning",
+            values: ["Tabell", "Liste"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato", "Avsetning", "Prosesser"];
 

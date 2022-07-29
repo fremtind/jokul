@@ -1,7 +1,17 @@
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Loader, LoaderVariant } from "../src";
 import "./styles.scss";
+
+export const loaderExampleKnobs: ExampleKnobsProps = {
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["Large", "Medium", "Small"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 export const LoaderExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     return (

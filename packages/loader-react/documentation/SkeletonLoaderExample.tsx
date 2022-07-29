@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import {
     SkeletonAnimation,
     SkeletonButton,
@@ -14,6 +14,8 @@ import {
 } from "../src";
 
 import "./styles.scss";
+
+export const skeletonLoaderExampleKnobs: ExampleKnobsProps = { boolProps: ["Compact"] };
 
 export const SkeletonLoaderExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const forceCompact = boolValues?.["Compact"];

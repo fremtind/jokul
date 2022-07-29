@@ -1,16 +1,65 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@include jkl.light-mode-variables {
+    --jkl-icon-button-border-color: #{jkl.$color-granitt};
+    --jkl-icon-button-focus-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-icon-button-border-color: #{jkl.$color-snohvit};
+    --jkl-icon-button-focus-color: #{jkl.$color-svaberg};
+}
+
 .jkl-icon-button {
     @include jkl.reset-outline;
+    @include jkl.motion(focus, snappy);
+
     background-color: transparent;
     cursor: pointer;
     color: inherit;
-
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+    position: relative;
+    transition-property: box-shadow;
 
     &__icon {
         display: inline-block;
         width: jkl.rem(20px);
         height: jkl.rem(20px);
     }
+
+    &:hover {
+        color: var(--jkl-icon-button-focus-color);
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+    }
+
+    &::after {
+        $_button-border-gap: jkl.rem(1px); // Synlig border i forced-colors
+        content: "";
+        position: absolute;
+        bottom: -($_button-border-gap);
+        left: $_button-border-gap;
+        right: $_button-border-gap;
+        top: -($_button-border-gap);
+        box-shadow: none;
+    }
+
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+    html[data-touchnavigation] &.jkl-button--pressed {
+        border: none;
+        color: var(--jkl-icon-button-focus-color);
+
+        &::after {
+            box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-icon-button-border-color);
+        }
+
+        @include jkl.forced-colors-mode {
+            border: revert;
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        border: revert;
+        background-color: revert;
+    }
+
+    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
 }
