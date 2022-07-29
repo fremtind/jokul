@@ -1,7 +1,18 @@
 import { NavLink } from "@fremtind/jkl-core";
 import React, { useState } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
+
+export const alertMessageKnobs: ExampleKnobsProps = {
+    boolProps: ["Dismissable"],
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["Info", "Success", "Warning", "Error"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 const getTypeOfBox = (typeofBox?: string) => {
     switch (typeofBox) {

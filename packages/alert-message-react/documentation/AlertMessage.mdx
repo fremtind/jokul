@@ -5,7 +5,7 @@ scss: alert-message
 group: meldinger
 ---
 
-import { AlertMessageExample, alertMessageExampleCode } from "./AlertMessageExample";
+import { AlertMessageExample, alertMessageExampleCode, alertMessageKnobs } from "./AlertMessageExample";
 
 <Ingress>
     En varselmelding er en beskjed til brukeren som vises i en global sammenheng. Det kan være et varsel om at noe er
@@ -15,16 +15,7 @@ import { AlertMessageExample, alertMessageExampleCode } from "./AlertMessageExam
 <ComponentExample
     title="AlertMessage"
     component={AlertMessageExample}
-    knobs={{
-        boolProps: ["Dismissable"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["Info", "Success", "Warning", "Error"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={alertMessageKnobs}
     codeExample={alertMessageExampleCode}
 />
 

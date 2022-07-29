@@ -10,8 +10,8 @@ displayTypes: |
 ---
 
 import { TextInput, TextArea } from "../src";
-import { TextInputExample, textInputExampleCode } from "./TextInputExample";
-import { TextAreaExample, textAreaExampleCode } from "./TextAreaExample";
+import { TextInputExample, textInputExampleCode, textInputExampleKnobs } from "./TextInputExample";
+import { TextAreaExample, textAreaExampleCode, textAreaExampleKnobs } from "./TextAreaExample";
 import { InputMaskExample, inputMaskExampleCode } from "../../formatters-util/documentation/InputMaskExample";
 
 <Ingress>
@@ -24,16 +24,7 @@ import { InputMaskExample, inputMaskExampleCode } from "../../formatters-util/do
 <ComponentExample
     title="TextInput"
     component={TextInputExample}
-    knobs={{
-        boolProps: ["Compact", "Med hjelpetekst", "Med feil", "Med handling", "Inline"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["small", "medium", "large"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={textInputExampleKnobs}
     codeExample={textInputExampleCode}
 />
 
@@ -47,24 +38,7 @@ Du finner et [eksempel på tekstfelt brukt i skjemakontekst](/eksempler/skjemava
 <ComponentExample
     title="TextArea"
     component={TextAreaExample}
-    knobs={{
-        boolProps: [
-            "Compact",
-            "Ekspanderende",
-            "Starter åpen",
-            "Med teller",
-            "Skjul progress",
-            "Med hjelpetekst",
-            "Med feil",
-        ],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["small", "medium", "large"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={textAreaExampleKnobs}
     codeExample={textAreaExampleCode}
 />
 

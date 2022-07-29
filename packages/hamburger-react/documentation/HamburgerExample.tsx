@@ -1,6 +1,10 @@
 import React, { FC, useState } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Hamburger } from "../src";
+
+export const hamburgerExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Med tekst", "Tekst før knapp", "Skaler tekst ved hover"],
+};
 
 export const HamburgerExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOpen, setIsOpen] = useState(false);

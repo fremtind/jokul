@@ -102,7 +102,7 @@ export const ListExamples: FC<ExampleComponentProps> = ({ choiceValues }) => {
 
 export const listExamplesCode: CodeExample = ({ choiceValues }) => {
     let code = orderedCodeExample;
-    if (choiceValues?.["Variant"] === "Unummerert") {
+    if (choiceValues?.["Variant"] === "Unordered") {
         code = unorderedCodeExample;
     } else if (choiceValues?.["Variant"] === "Coverage") {
         code = coverageListCodeExample;

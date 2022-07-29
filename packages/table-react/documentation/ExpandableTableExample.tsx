@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import {
     Table,
     TableCaption,
@@ -11,6 +11,17 @@ import {
     ExpandableTableRowController,
     ExpandableTableRow,
 } from "../src";
+
+export const expandableTableExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Kompakt", "Markér v/ klikk", "Tekst i ekspandérknapp"],
+    choiceProps: [
+        {
+            name: "Mobilvisning",
+            values: ["Tabell", "Liste"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato"];
 

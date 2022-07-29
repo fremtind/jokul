@@ -1,7 +1,18 @@
 import { LabelVariant } from "@fremtind/jkl-core";
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
+
+export const fieldGroupExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact", "Med hjelpetekst", "Med feil"],
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["small", "medium", "large"],
+            defaultValue: 0,
+        },
+    ],
+};
 
 export const FieldGroupExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     return (

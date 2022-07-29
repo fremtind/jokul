@@ -7,7 +7,7 @@ displayTypes: |
     - Autosuggest
 ---
 
-import AutosuggestExample, { autosuggestExampleCode } from "./AutosuggestExample";
+import AutosuggestExample, { autosuggestExampleCode, autosuggestExampleKnobs } from "./AutosuggestExample";
 
 <Ingress>
     Autosuggest kan brukes til å gi brukerene forhåndsdefinerte forslag basert på det de skriver, men også godta
@@ -26,16 +26,7 @@ import AutosuggestExample, { autosuggestExampleCode } from "./AutosuggestExample
 <ComponentExample
     title="Autosuggest"
     component={AutosuggestExample}
-    knobs={{
-        boolProps: ["Hjelpetekst", "Feiltekst", "Ingen treff", "Mis maks 3 treff", "Placeholder", "Vis ikoner"],
-        choiceProps: [
-            {
-                name: "Variant",
-                values: ["small", "medium", "large"],
-                defaultValue: 0,
-            },
-        ],
-    }}
+    knobs={autosuggestExampleKnobs}
     codeExample={autosuggestExampleCode}
 />
 
