@@ -1,33 +1,29 @@
-# [Jøkul](https://jokul.fremtind.no)
+# Jøkul
 
-![lint-test-typecheck](https://img.shields.io/github/workflow/status/fremtind/jokul/lint-test-typecheck)
-![Visual regression tests](https://img.shields.io/github/workflow/status/fremtind/jokul/Visual%20regression%20tests?label=cypress)
-[![NPM](https://img.shields.io/npm/l/@fremtind/jkl-core.svg?style=popout)](#Lisens)
-[![All Contributors](https://img.shields.io/badge/all_contributors-18-green.svg?style=flat-rounded)](#contributors)
+[Jøkul](https://jokul.fremtind.no) er et designsystem utviklet av [Fremtind](https://fremtind.no).
 
-Jøkul er et [designsystem](https://www.invisionapp.com/inside-design/guide-to-design-systems/) som er utviklet av [Fremtind](https://fremtind.no).
+Jøkul gir deg CSS- og SCSS-stilark for de grunnleggende komponentene og designmønstrene til Fremtind. De følger Fremtinds designprinsipper.
 
--   **Stil**: Jøkul gir deg css- og scss-stilark for de grunnleggende komponentene og designmønstrene til Fremtind. De følger Fremtinds designprinsipper.
--   **Komponenter**: React-komponentene våre er klare til bruk. Vi har skrevet dem i Typescript, slik at utvikleropplevelsen blir bedre og det blir færre feil.
--   **Kan utvides**: Jøkul har innebygd støtte for css, scss og React, men er lagt opp til å kunne støtte andre rammeverk og fremtidig teknologi.
+React-komponentene våre er er den raskeste og enkleste måten å ta i bruk Jøkul. CSSen er tilgjengelig som separate pakker, så om du ikke bruker React kan du fremdeles bruke Jøkul.
 
-## [Kom i gang](https://jokul.fremtind.no/kom-i-gang/)
+## Kom i gang
 
-1. Klon repoet til maskinen din og naviger deg til mappen i terminalen
-2. Installer avhengigheter og bygg pakkene med `yarn boot` [^windows]
-3. Start portalen lokalt med `yarn dev` og åpne [localhost på port 8000](http://localhost:8000/)
+Vi har en egen guide som hjelper deg med å [komme i gang](https://jokul.fremtind.no/kom-i-gang/introduksjon/) som ny bruker av Jøkul.
 
-**NB!** Når du sjekker ut en ny branch bør du bygge på nytt for å hindre at gammel bygget kode blir med når du kjører opp eksempler eller portalen. Kommandoen `yarn reboot` sletter alle bygde filer, installerer avhengigheter, og bygger pakkene på nytt.
+### Bruk av pakkene
 
-**Tips**: Du kan starte opp én og én komponent ved å kjøre `yarn dev` i react-pakken til komponenten. Den vil lytte på endringer i både react-og stilpakkene.
+Du kan bruke Jøkul på to måter:
 
-## Bruk av pakkene
+1. Bruke React-komponenter og stilark.
+2. Ta inn kun stilark.
 
-Du kan bruke Jøkul på to måter. Du kan enten ta inn kun stilark eller du kan bruke stilarkene og de ferdige komponentene. Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre pakker. NB! Selv om komponentpakkene inneholder alle avhengigheter må du selv sørge for å importere stilpakken i koden din.
+Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre Jøkul-pakker.
 
-### React-pakker
+**NB!** Selv om komponentpakkene inneholder alle avhengigheter må du selv sørge for å importere stilpakken i koden din. Dette fordi vi **ikke** vil legge for harde føringer på utviklerverktøy, for eksempel kreve Webpack.
 
-`yarn add @fremtind/jkl-button-react`
+#### Eksempel på bruk av React-pakker
+
+Installer React-pakken, for eksempel `yarn add @fremtind/jkl-button-react`. Den sørger for å laste ned CSS-pakken, men du må selv sørge for at CSSen faktisk blir brukt i prosjektet ditt.
 
 ```tsx
 import { PrimaryButton } from "@fremtind/jkl-button-react";
@@ -37,33 +33,41 @@ import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
 ...
 ```
 
-### Stilark-pakker
+Noen ganger må du også importere stilarkene til avhengigheter av komponenten du skal bruke. Et eksempel er [pakken for tabeller](https://github.com/fremtind/jokul/tree/main/packages/table-react), hvor du trenger CSSen til en annen pakke hvis du skal lage ekspanderbare tabellrader. Sjekk README-fila i hver enkelt React-pakke for å se hva den trenger.
 
-Hvis du ikke vil bruke React-komponentene, kan du bruke stilarkene direkte. Da laster du enten inn css-filene, eller du laster inn scss-filene inn i din egen scss-fil og får tilgang til Jøkuls variabler og mixins. Pass på at du har den riktige loaderen for å ta dette i bruk i prosjektet ditt.
+#### Eksempel på bruk av stilark-pakker
+
+Hvis du ikke vil bruke React-komponentene kan du bruke stilarkene direkte. Pakkene med stilark publiseres både med ferdig kompilert og prefikset CSS i minifisert og uminifisert variant, i tillegg til SCSS-kildekoden.
+
 `yarn add @fremtind/jkl-button`
 
 ```tsx
 import "@fremtind/jkl-button/button.min.css";
 ...
-<button classname="jkl-button--primary" onClick={doStuff}>Cool</button>
+<button className="jkl-button jkl-button--primary" onClick={doStuff}>Cool</button>
 ...
 ```
 
-## [Dokumentasjon](https://jokul.fremtind.no/)
+Hvis prosjektet ditt også bruker SCSS kan du hente stiler via samme filnavn som CSSen. I tillegg har `@fremtind/jkl-core` en modul med mixins, variabler og funksjoner som brukes internt i Jøkul. Disse kan være nyttige også i ditt eget prosjekt.
 
-På [https://jokul.fremtind.no/](https://jokul.fremtind.no/) finner du informasjon om hvordan du bruker Jøkul, om designprinsippene til Fremtind og beskrivelse, bruksområder og kode for hver enkelt komponent.
+```scss
+@use "@fremtind/jkl-core/jkl"; // ⬅️ Mixins, variabler og funksjoner
+@use "@fremtind/jkl-core/core"; // Stilene som kompileres til @fremtind/jkl-core/core.css
+@use "@fremtind/jkl-button/button"; // Stilene som kompileres til @fremtind/jkl-button/button.css
+// osv.
+```
 
-## Endre Jøkul
+## Dokumentasjon
 
-Formålet vårt med Jøkul er at det skal gå raskere å utvikle Fremtind-løsninger. Det skal være enkelt og lett å vedlikeholde og de ferdige løsningene skal føles like, selv om de er spesifikke for ulike fagområder i Fremtind eller ulike kundebehov. All utvikling skjer åpent på GitHub. Det gjør at alle interesserte kan følge med, påvirke retningen vi går i og være med på å videreutvikle designsystemet.
+I [dokumentasjonen](https://jokul.fremtind.no/) finner du:
 
-### Bidragsguide
+-   Informasjon om hvordan du bruker Jøkul.
+-   Designprinsippene til Fremtind.
+-   Detaljert dokumentasjon for hver komponent, inkludert eksempler.
+-   Guider for ulike ting, blant annet [hvordan gjøre endringer i Jøkul](https://jokul.fremtind.no/guider/hvordan-endre-jokul).
+-   [Bloggen vår](https://jokul.fremtind.no/blog/), med jevnlige oppsummeringer av hva som er nytt i Jøkul.
 
-Vi setter pris på alle bidrag, enten du [rapporterer feil](https://github.com/fremtind/jokul/issues/new/choose), [har ønsker om ny funksjonalitet](https://github.com/fremtind/jokul/issues/new/choose), [bugfix](https://github.com/fremtind/jokul/labels/bug) eller [vil utvikle noe nytt](https://github.com/fremtind/jokul/labels/enhancement).
-
-Les mer om hvordan du kan bidra i [guiden](https://jokul.fremtind.no/guider/hvordan-endre-jokul) vår.
-
-### Oppførsel
+## Code of Conduct
 
 Jøkul er et åpent og positivt felleskap der alle skal føle seg velkommen. Gjør deg kjent med [våre etiske regler for bidragsytere](./CODE_OF_CONDUCT.md) før du deltar med bidrag.
 
