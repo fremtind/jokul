@@ -4,7 +4,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/scaff
 
 ## Installasjon
 
-**Tips:** stilpakken blir automatisk installert som en avhengighet.
+**Tips:** [stilpakken](../scaffold/) blir automatisk installert som en avhengighet.
 
 1. `yarn add @fremtind/jkl-scaffold-react` eller `npm i @fremtind/jkl-scaffold-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
