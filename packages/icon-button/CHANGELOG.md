@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@1.0.8...@fremtind/jkl-icon-button@1.0.9) (2022-07-29)
+
+### Bug Fixes
+
+-   hover- og fokusindikator for ikonknapp ([14e7885](https://github.com/fremtind/jokul/commit/14e788540d208fee690c075a4a7a322ba16dc5cb))
+
 # [1.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@0.5.23...@fremtind/jkl-icon-button@1.0.0) (2022-06-07)
 
 ### chore
