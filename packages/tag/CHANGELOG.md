@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tag@2.1.2...@fremtind/jkl-tag@2.1.3) (2022-07-29)
+
+### Bug Fixes
+
+-   fjern dobbel outline fra dismiss-knapp og juster tykkelse ([2130e27](https://github.com/fremtind/jokul/commit/2130e27ae80a0cc2d68a080be620e7444ee175db))
+-   sett SVG-fallback på riktig element ([897b49b](https://github.com/fremtind/jokul/commit/897b49b9b907e19b32985defd2a4fef0a1ed1097))
+
 # 2.1.0 (2022-07-26)
 
 ### Bug Fixes

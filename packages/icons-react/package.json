@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icons-react",
-    "version": "5.0.8",
+    "version": "5.0.9",
     "publishConfig": {
         "access": "public"
     },
@@ -39,7 +39,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-icons": "^5.0.8",
+        "@fremtind/jkl-icons": "^5.0.9",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@8.0.10...@fremtind/jkl-text-input@8.0.11) (2022-07-29)
+
+### Bug Fixes
+
+-   fjern browser-outline ved fokus på handling i text-input ([a673245](https://github.com/fremtind/jokul/commit/a673245fe91ea8db32911db3c30ed309043cb8d9))
+
 ## 8.0.5 (2022-07-18)
 
 ### Bug Fixes
