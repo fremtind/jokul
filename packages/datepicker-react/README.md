@@ -1,25 +1,32 @@
 # [`@fremtind/jkl-datepicker-react`](https://jokul.fremtind.no/komponenter/datepicker)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/datepicker).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** [stilpakken](../datepicker/) blir automatisk installert som en avhengighet.
 
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-datepicker-react` eller `npm i @fremtind/jkl-datepicker-react`. Stil-pakken blir automatisk installert som en avhengighet.
-
-2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-datepicker-react` eller `npm i @fremtind/jkl-datepicker-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
 import { DatePicker } from "@fremtind/jkl-datepicker-react";
+
+// Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-datepicker/datepicker.min.css";
+
+// DatePicker bruker flere komponenter internt, avhengig av konfigurasjon. Select blir bare brukt i utvidet velger.
 import "@fremtind/jkl-icon-button/icon-button.min.css";
+import "@fremtind/jkl-select/select.min.css";
+import "@fremtind/jkl-text-input/text-input.min.css";
+```
+
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-datepicker/datepicker";
+@use "@fremtind/jkl-icon-button/icon-button";
+@use "@fremtind/jkl-select/select";
+@use "@fremtind/jkl-text-input/text-input";
 ```
 
 ### Bruk

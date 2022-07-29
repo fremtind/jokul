@@ -1,21 +1,12 @@
 # [`@fremtind/jkl-react-hooks`](https://jokul.fremtind.no/komponenter/hooks)
 
-## Beskrivelse
+Se portalen for [en oversikt over hvilke hooks som finnes](https://jokul.fremtind.no/komponenter/animation) (velg Hooks i sidemenyen, eller filtrer med teksten `use`).
 
-[Bruk og prinsipper](https://jokul.fremtind.no/komponenter/hooks).
+## Installasjon
 
-## Kom i gang
-
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/guider/utvikling)
-
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-react-hooks` eller `npm i @fremtind/jkl-react-hooks`.
-
-2. Importer React-pakken:
+1. `yarn add @fremtind/jkl-react-hooks` eller `npm i @fremtind/jkl-react-hooks`.
+2. Importer hooksene du trenger.
 
 ```js
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useId } from "@fremtind/jkl-react-hooks";
 ```

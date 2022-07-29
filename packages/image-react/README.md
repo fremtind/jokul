@@ -1,26 +1,22 @@
 # [`@fremtind/jkl-image-react`](https://jokul.fremtind.no/komponenter/image)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/image).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** [stilpakken](../image/) blir automatisk installert som en avhengighet.
 
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-image-react` eller `npm i @fremtind/jkl-image-react`. Stil-pakken blir automatisk installert som en avhengighet.
-2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-image-react` eller `npm i @fremtind/jkl-image-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
 import { Image } from "@fremtind/jkl-image-react";
+
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-image/image.min.css";
 ```
 
-### Bruk
-
-```jsx
-<Image {...props} />
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-image/image";
 ```

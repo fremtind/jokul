@@ -1,32 +1,14 @@
 # [`@fremtind/jkl-formatters-util`](https://jokul.fremtind.no/komponenter/formatters)
 
-## Beskrivelse
+Se portalen for [en oversikt over hvilke formateringsfunksjoner som finnes](https://jokul.fremtind.no/komponenter/formatters).
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/formatters).
+Det er også mulig å bruke formateringsfunksjonene for å lage inputmasker. Pakken har ferdige hjelpefunksjoner for React Hook Form. [Se portalen for eksempler](https://jokul.fremtind.no/komponenter/formatters#maskering-av-skjemafelter).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
-
-## Bruk av pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-formatters-util` eller `npm i @fremtind/jkl-formatters-util`.
-2. Importér pakken i prosjektet ditt:
-
-### Bruk
+1. `yarn add @fremtind/jkl-formatters-util` eller `npm i @fremtind/jkl-formatters-util`.
+2. Importér formateringsfunksjonene du trenger.
 
 ```js
-import {
-    formatNumber,
-    formatFodselsnummer,
-    formatKontonummer,
-    formatKortnummer,
-    formatTelefonnummer,
-    formatAvstand,
-    formatValuta,
-} from "@fremtind/jkl-formatters-util";
-
-const formatertTelefonnummer = formatTelefonnummer("81549300");
+import { formatTelefonnummer } from "@fremtind/jkl-formatters-util";
 ```
