@@ -1,24 +1,12 @@
 # [`@fremtind/jkl-validators-util`](https://jokul.fremtind.no/komponenter/validators)
 
-## Beskrivelse
+Se portalen for [en oversikt over hvilke validatorer som finnes](https://jokul.fremtind.no/komponenter/validators).
 
-[Bruk og prinsipper](https://jokul.fremtind.no/profil/skjemadesign)
+## Installasjon
 
-## Kom i gang
-
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/guider/utvikling)
-
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-validators-util` eller `npm i @fremtind/jkl-validators-util`.
-
-2. Importer React-pakken:
+1. `yarn add @fremtind/jkl-validators-util` eller `npm i @fremtind/jkl-validators-util`.
+2. Importer valideringsfunksjonene du trenger.
 
 ```js
 import { isValidEpost } from "@fremtind/jkl-validators-util";
-
-const isValidEpost = isValidEpost("foo@bar.com"); //true
-const isNotValidEpost = isValidEpost("foo@bar"); //false
 ```

@@ -1,27 +1,20 @@
-# [`@fremtind/jkl-text-input`](https://jokul.fremtind.no/komponenter/textinput)
+# [`@fremtind/jkl-text-input`](https://jokul.fremtind.no/komponenter/text-input)
 
-# Tekstfelt
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/text-input).
 
-Vi bruker tekstfelt når vi vil at brukerne skal legge inn informasjon. Ledeteksten skal fortelle hva brukeren skal oppgi i feltet. Tekstfelt godtar data med fast format eller fritekst. Fast format bruker du for eksempel når du vil at brukeren skal angi fødselsnummer eller et postnummer, mens fritekst passer til felt der brukerne skal fortelle noe med egne ord.
+## Installasjon
 
-Velg størrelse på tekstefelt etter typen data brukerne skal legge inn.
+**Tips:** om du bruker [React-pakken](../text-input-react/) trenger du ikke installere denne pakken direkte.
 
-## Typer tekstfelt
+1. `yarn add @fremtind/jkl-text-input` eller `npm i @fremtind/jkl-text-input`.
+2. Importér stil-pakken i prosjektet ditt.
 
-**Vanlige tekstfelt:**
-For innhold som ikke overskrider lengden på feltet.
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-text-input/text-input.min.css";
+```
 
-**Lange tekstfelt:**
-Når innholdet blir lengre enn en setning. Høyden på feltet kan justeres.
-
-**Inline tekstfelt:**
-Til spesialtilfeller, hvis vi for eksempel trenger å plassere et tekstfelt i en setning.
-
-## Tekst og validering
-
-Velg størrelse på ledetekst etter prinsippene for skjemadesign. Skriv en kort og tydelig ledetekst, som forteller brukerne hva de skal oppgi i feltet. Hvis det trengs, kan vi sette inn en hjelpetekst under feltet, som forklarer mer.
-
-Hvis tekstfeltet ikke validerer, vises en feilmelding som forteller hva som er galt. Vær oppmerskom på at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
-
-Eksempel:
-Hjelpetekst for et tekstfelt med fast format: _Fyll ut fødselsnummer, 11 siffer._ Feilemeldingstekst: _Du må fylle ut fødselsnummer, 11 siffer_.
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-text-input/text-input";
+```

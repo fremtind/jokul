@@ -1,14 +1,20 @@
 # [`@fremtind/jkl-toggle-switch`](https://jokul.fremtind.no/komponenter/toggleswitch)
 
-# Veksleknapp (toggle switch)
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/toggleswitch).
 
-Med veksleknapper kan brukerne bytte mellom to statuser (av eller på) uten at de må bekrefte valget. Ledeteksten forteller hva brukeren slår av og på.
+## Installasjon
 
-Veksleknapper passer til situasjoner der brukerne selv kan velge å ha en funksjon av eller på, for eksempel automatisk oppdatering eller automatisk lagring.
+**Tips:** om du bruker [React-pakken](../toggle-switch-react/) trenger du ikke installere denne pakken direkte.
 
-Ikke bruk veksleknapp hvis brukeren må bekrefte valget sitt.
+1. `yarn add @fremtind/jkl-toggle-switch` eller `npm i @fremtind/jkl-toggle-switch`.
+2. Importér stil-pakken i prosjektet ditt.
 
-## Eksempler på bruk
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
+```
 
--   Slå innstillinger av eller på i en applikasjon.
--   Bytte mellom lys eller mørk modus i et grensesnitt.
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-toggle-switch/toggle-switch";
+```
