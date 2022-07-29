@@ -8,5 +8,14 @@ describe("Tag", () => {
 
     it("renders correctly", () => {
         cy.takeSnapshots();
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.setDismissable();
+            },
+            teardown: () => {
+                cy.resetDismissable();
+            },
+        });
     });
 });

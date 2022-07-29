@@ -14,7 +14,7 @@ $_button-padding: jkl.$spacing-l;
 $_focus-ring-distance: jkl.rem(4px);
 $_focus-ring-width: jkl.rem(2px);
 
-$_animation-timing: 100ms cubic-bezier(0.6, 0.2, 0.35, 1);
+$_animation-timing: jkl.timing("snappy") jkl.easing("focus");
 $_flash-animation-name: jkl-flash-#{string.unique-id()};
 $_tertiary-flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 $_hover-elevation-distance: -0.25rem;
@@ -153,7 +153,7 @@ a.jkl-button {
         }
 
         html[data-touchnavigation] &.jkl-button--pressed::before {
-            animation: cubic-bezier(0, 0, 0.3, 1) 400ms $_flash-animation-name;
+            animation: jkl.easing("easeInBounceOut") jkl.timing("lazy") $_flash-animation-name;
         }
     }
 
@@ -217,7 +217,7 @@ a.jkl-button {
         }
 
         html[data-touchnavigation] &.jkl-button--pressed::before {
-            animation: cubic-bezier(0, 0, 0.3, 1) 400ms $_tertiary-flash-animation-name;
+            animation: jkl.easing("easeInBounceOut") jkl.timing("lazy") $_tertiary-flash-animation-name;
         }
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {

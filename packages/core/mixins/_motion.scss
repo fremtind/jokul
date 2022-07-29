@@ -2,8 +2,8 @@
 
 /// Setter transition-timing-function og transition-duration, for bruk i animasjoner.
 /// Se også `timing`- og `easing`-funksjonene.
-/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut"} $name [standard] - Navn på easingen du ønsker verdien til
-/// @param {"energetic" | "productive" | "expressive" | "lazy"} $mode [productive] - Navn på timingen du ønsker verdien til
+/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut" | "focus"} $name [standard] - Navn på easingen du ønsker verdien til
+/// @param {"energetic" | "snappy" | "productive" | "expressive" | "lazy"} $mode [productive] - Navn på timingen du ønsker verdien til
 /// @see timing
 /// @see easing
 @mixin motion($name: "standard", $mode: "productive") {
