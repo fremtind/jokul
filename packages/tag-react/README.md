@@ -14,9 +14,13 @@ import { Tag } from "@fremtind/jkl-tag-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-tag/tag.min.css";
+
+// Lukkbar Tag bruker IconButton internt, så du må også laste inn stilarket derfra.
+import "@fremtind/jkl-icon-button/icon-button.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-tag/tag";
+@use "@fremtind/jkl-icon-button/icon-button";
 ```
