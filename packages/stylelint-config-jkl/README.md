@@ -1,4 +1,4 @@
-# @fremtind/stylelint-config-jkl
+# `@fremtind/stylelint-config-jkl`
 
 Jøkul config for [stylelint](https://github.com/stylelint/stylelint).
 
@@ -7,12 +7,14 @@ Based on the following rulesets:
 -   [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
 -   [stylelint-config-standard-scss](https://github.com/stylelint-scss/stylelint-config-standard-scss)
 
-## Usage
+## Installing
 
 ```bash
 $ npm i --save stylelint @fremtind/stylelint-config-jkl
 $ yarn add -D stylelint @fremtind/stylelint-config-jkl
 ```
+
+## Usage
 
 Create a file `stylelint.config.js` in the same directory as your `package.json`, and extend this config:
 

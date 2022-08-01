@@ -1,9 +1,20 @@
 # [`@fremtind/jkl-accordion`](https://jokul.fremtind.no/komponenter/accordion)
 
-# Trekkspillister
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/accordion).
 
-Med trekkspillister kan vi presentere mye innhold på liten plass. En trekkspilliste har én eller flere rader, som brukeren kan klikke på for å vise eller skjule informasjon.
+## Installasjon
 
-## Bruk
+**Tips:** om du bruker [React-pakken](../accordion-react/) trenger du ikke installere denne pakken direkte.
 
-Viktig informasjon bør alltid ligge synlig, ikke skjult i en trekkspilliste. Trekkspillister passer godt til tilleggsinformasjon som kan være til hjelp for brukerne. Teksten på hver rad i listen må være tydelig, og må beskrive innholdet for brukeren. Man kan også sette en overskrift for hele trekkspillisten.
+1. `yarn add @fremtind/jkl-accordion` eller `npm i @fremtind/jkl-accordion`.
+2. Importér stil-pakken i prosjektet ditt.
+
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-accordion/accordion.min.css";
+```
+
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-accordion/accordion";
+```

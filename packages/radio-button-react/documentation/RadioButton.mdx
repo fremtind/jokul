@@ -71,3 +71,40 @@ Eksempel fra helsevurdering:
 
 -   **Hjelpetekst**: _Velg om du har hatt diagnosen de siste 5, 10 eller 15 årene_.
 -   **Feilmelding**: _Du har ikke valgt hvor lenge du har hatt diagnosen_.
+
+## Flere kodeeksempler
+
+Om du bruker `react-hook-form` vil bruken kunne se slik ut:
+
+```tsx
+<RadioButtonGroup legend="Hvilken dekning ønsker du?">
+    <RadioButton {...register("coverage", { required: true })} label="Delkasko" value="del" />
+    <RadioButton {...register("coverage", { required: true })} label="Fullkasko" value="full" />
+</RadioButtonGroup>
+```
+
+En mer manuell variant kan se slik ut:
+
+```tsx
+const choices = ["Jeg vil at dere skal ringe meg", "Jeg vil at dere skal sende en e-post"];
+const [selectedValue, setSelectedValue] = useState("");
+
+return (
+    <RadioButtonGroup
+        legend="Hvordan vil du bli kontaktet?"
+        name="kontaktmetode"
+        value={selectedValue}
+        onChange={(e) => setSelectedValue(e.target.value)}
+    >
+        {choices.map((value) => (
+            <RadioButton key={value} label={value} value={value} />
+        ))}
+    </RadioButtonGroup>
+);
+```
+
+`RadioButtonGroup` tar imot hjelpe- og feilmeldinger gjennom `helpLabel` og `errorLabel`. Dersom `errorLabel` finnes vises _kun_ denne, og skjemafeltene markeres som ugyldige.
+
+### Frittstående radioknapper
+
+Om du er i en situasjon hvor du må ha radioknapper på ulike steder i DOMen kan du bruke `BaseRadioButton`. Om du skal bruke denne er det opp til deg å gjøre jobben som vanligvis gjøres av `RadioButtonGroup` og dens `context`. Sørg for å teste skjemaet ditt grundig med skjermleser.

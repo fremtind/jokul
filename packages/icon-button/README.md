@@ -1,19 +1,20 @@
-#  [`@fremtind/jkl-button`](https://jokul.fremtind.no/komponenter/buttons)
+# [`@fremtind/jkl-icon-button`](https://jokul.fremtind.no/komponenter/iconbutton)
 
-# Knapper
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/iconbutton).
 
-Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.
+## Installasjon
 
-## Knappetyper
+**Tips:** om du bruker [React-pakken](../icon-button-react/) trenger du ikke installere denne pakken direkte.
 
-**Primærknapp:** brukes til den viktigste handlingen på en side - hovedhandlingen. En side kan noen ganger ha mer enn en hovedhandling, men ikke mange.
+1. `yarn add @fremtind/jkl-icon-button` eller `npm i @fremtind/jkl-icon-button`.
+2. Importér stil-pakken i prosjektet ditt.
 
-**Sekundærknapp:** brukes til handlinger som ikke er like viktige for oss eller brukeren.
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-icon-button/icon-button.min.css";
+```
 
-**Tertiærknapp:** brukes til handlinger som er mindre viktige, eller som kan gi uønskede konsekvenser.
-
-Disse tre knappetypene har et hierarki. Når brukeren har flere valg samtidig, skal vi kun ha én primærknapp.
-
-## Tekst på knapper
-
-Knappetekster skal være så enkle og korte som mulig og skal oppfordre til handling. Bruk helst bare to ord.
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-icon-button/icon-button";
+```

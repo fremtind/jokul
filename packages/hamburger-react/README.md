@@ -1,38 +1,22 @@
 # [`@fremtind/jkl-hamburger-react`](https://jokul.fremtind.no/komponenter/hamburger)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/hamburger).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** [stilpakken](../hamburger/) blir automatisk installert som en avhengighet.
 
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-hamburger-react` eller `npm i @fremtind/jkl-hamburger-react`. Stil-pakken blir automatisk installert som en avhengighet.
-2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-hamburger-react` eller `npm i @fremtind/jkl-hamburger-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
 import { Hamburger } from "@fremtind/jkl-hamburger-react";
+
+// Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-hamburger/hamburger.min.css";
 ```
 
-### Bruk
-
-Sørg for at du får med deg riktige attributter for tilgjengelighet. [Se i portalen](https://jokul.fremtind.no/komponenter/hamburger#tilgjengelighet) om du er usikker.
-
-```tsx
-const [menuIsOpen, setMenuIsOpen] = useState(false);
-const toggleMenu = () => setMenuIsOpen((prevState) => !prevState);
-
-<Hamburger id="min-hamburger" onClick={toggleMenu} isOpen={menuIsOpen} aria-controls="min-meny" />
-
-<div id="min-meny" aria-labelledby="min-hamburger" role="group" hidden={!menuIsOpen}>
-    <ul>
-        // ...menyobjekter
-    </ul>
-</div>
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-hamburger/hamburger";
 ```

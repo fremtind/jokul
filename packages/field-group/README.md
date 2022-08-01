@@ -1,21 +1,20 @@
-# [`@fremtind/field-group`](https://jokul.fremtind.no/komponenter/fieldgroup)
+# [`@fremtind/jkl-field-group`](https://jokul.fremtind.no/komponenter/fieldgroup)
 
-# Feltsett
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/fieldgroup).
 
-Et feltsett er et sett med skjemafelter som hører sammen, for eksempel navn, adresse og postnummer/sted.
-Feltsettet må ha en overskrift som beskriver innholdet, og kan også ha en hjelpetekst eller en feilmelding.
+## Installasjon
 
-## Tekst og validering
+**Tips:** om du bruker [React-pakken](../field-group-react/) trenger du ikke installere denne pakken direkte.
 
-Velg størrelse på overskriften til feltsettet etter prinsippene for skjemadesign. Lag en kort og tydelig overskrift, som beskriver hva brukeren skal gjøre. Du kan også legge en forklarende hjelpetekst under feltsettet.
+1. `yarn add @fremtind/jkl-field-group` eller `npm i @fremtind/jkl-field-group`.
+2. Importér stil-pakken i prosjektet ditt.
 
-Hvis feltsettet ikke validerer, kan vi enten velge å legge en feilemelding under hele settet, eller under ett eller flere felt, hvis det gir bedre hjelp.
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-field-group/field-group.min.css";
+```
 
-Eksempel:
-I et sett med radioknapper, viser vi feilmeldingen under feltsettet. Merk at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
-
-## Bruk
-
--   Et sett med radioknapper
--   Et sett med avmerkingsbokser
--   Et feltsett som til sammen utgjør et konsept (for eksempel adressefelter)
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-field-group/field-group";
+```

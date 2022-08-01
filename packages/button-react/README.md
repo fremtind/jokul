@@ -1,52 +1,26 @@
 # [`@fremtind/jkl-button-react`](https://jokul.fremtind.no/komponenter/buttons)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/buttons).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** [stilpakken](../button/) blir automatisk installert som en avhengighet.
 
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-button-react` eller `npm i @fremtind/jkl-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
-
-2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-button-react` eller `npm i @fremtind/jkl-button-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import { PrimaryButton } from "@fremtind/jkl-button-react";
+
+// Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-button/button.min.css";
-import "@fremtind/jkl-loader/loader.min.css"; // stil for å bruke loader i knappen
+
+// Button bruker loader internt for å vise lasteindikator i knappen.
+import "@fremtind/jkl-loader/loader.min.css";
 ```
 
-### Bruk
-
-Komponentene tar følgende props:
-
--   `children`: **Påkrevd**. Innholdet i knappen. `ReactNode`
--   `onClick`: **Påkrevd**. Klikkhåndtering for knappen. Får en MouseEvent som første argument. `MouseEventHandler<HTMLButtonElement>`
--   `forceCompact`: Angir at knappen skal vises i liten versjon uavhengig av skjermstørrelse. `boolean`
--   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
-
-En enkel bruk av knapper kan se slik ut:
-
-```jsx
-<SecondaryButton onClick={showDetails}>Vis detaljer</SecondaryButton>
-```
-
-Knapper kan ha annet innhold enn ren tekst, for eksempel for å vise aktivitet knyttet til knappens handling:
-
-```jsx
-<PrimaryButton
-    onClick={uploadFiles}
-    loader={{
-        showLoading: isUploading,
-        textDescription: "Laster opp filer",
-    }}
->
-    Last opp
-</PrimaryButton>
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-button/button";
+@use "@fremtind/jkl-loader/loader";
 ```

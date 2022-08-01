@@ -1,49 +1,28 @@
-# [`@fremtind/jkl-cookie-consent-react`](https://jokul.fremtind.no/komponenter/cookie-consent)
+# [`@fremtind/jkl-cookie-consent-react`](https://jokul.fremtind.no/komponenter/cookieconsent)
 
-## Beskrivelse
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cookieconsent).
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cokie-consent).
+## Installasjon
 
-## Kom i gang
+**Tips:** [stilpakken](../cookie-consent/) blir automatisk installert som en avhengighet.
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
-
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-cookie-consent-react` eller `npm i @fremtind/jkl-cookie-consent-react`. Stil-pakken blir automatisk installert som en avhengighet.
-
-2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-cookie-consent-react` eller `npm i @fremtind/jkl-cookie-consent-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
+
+// Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
+
+// CookieConsent bruker flere andre komponenter og trenger stilarkene deres for å fungere.
 import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-list/list.min.css";
 ```
 
-### Bruk
-
-Komponentene tar følgende props:
-
-`CookieConsentProvider`:
-
--   `marketing`: Krav om cookies for markedsføring
--   `functional`: Krav om funksjonelle cookies
--   `statistics`: Krav om cookies for statistikk
--   `cookieAdapter`: En funksjon som gjør oppslag mot cookies, for å lete etter andre cookies som kan bestemme et consent
-
-`CookieConsent`:
-
--   `blocking`: Betegner en blokkerende modal, som krever en aktiv handling
--   `onAccept`: Callback når et consent er håndtert. Første argument er consentet.
-
-Enkel bruk kan se slik ut:
-
-```jsx
-<CookieConsentProvider functional marketing statistics>
-    <Content />
-    <CookieConsent blocking />
-</CookieConsentProvider>
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-cookie-consent/cookie-consent";
+@use "@fremtind/jkl-button/button";
+@use "@fremtind/jkl-list/list";
 ```
