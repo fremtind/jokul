@@ -1,6 +1,6 @@
-# [`@fremtind/jkl-cookie-consent`](https://jokul.fremtind.no/komponenter/cookie-consent)
+# [`@fremtind/jkl-cookie-consent`](https://jokul.fremtind.no/komponenter/cookieconsent)
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cookie-consent).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cookieconsent).
 
 ## Installasjon
 

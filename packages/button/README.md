@@ -1,6 +1,6 @@
-# [`@fremtind/jkl-button`](https://jokul.fremtind.no/komponenter/button)
+# [`@fremtind/jkl-button`](https://jokul.fremtind.no/komponenter/buttons)
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/button).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/buttons).
 
 ## Installasjon
 

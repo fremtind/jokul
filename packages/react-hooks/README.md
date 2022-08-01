@@ -1,4 +1,4 @@
-# [`@fremtind/jkl-react-hooks`](https://jokul.fremtind.no/komponenter/hooks)
+# [`@fremtind/jkl-react-hooks`](https://jokul.fremtind.no/komponenter/animation)
 
 Se portalen for [en oversikt over hvilke hooks som finnes](https://jokul.fremtind.no/komponenter/animation) (velg Hooks i sidemenyen, eller filtrer med teksten `use`).
 
