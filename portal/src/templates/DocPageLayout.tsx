@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { graphql } from "gatsby";
+import { graphql, HeadProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React, { FC, ReactNode, useContext } from "react";
 import type { ComponentDoc } from "react-docgen-typescript";
 import { APIDocumentation } from "../components";
 import { Frontmatter } from "../components/Header/useNavigationLinks";
 import { BlogPageHeader, ComponentPageHeader } from "../components/Layout/components";
+import { Seo } from "../components/seo";
 import { a11yContext } from "../contexts/a11yContext";
 
 interface Props {
@@ -14,6 +15,7 @@ interface Props {
         page: { body: string & ReactNode; frontmatter: Frontmatter };
     };
     pageContext: {
+        title: string;
         types: {
             [x: string]: ComponentDoc;
         };
@@ -23,6 +25,8 @@ interface Props {
         };
     };
 }
+
+export const Head: FC<HeadProps<object, { title: string }>> = ({ pageContext }) => <Seo title={pageContext.title} />;
 
 export const DocPageLayout: FC<Props> = ({ location, data, pageContext }) => {
     const { prefersReducedMotion } = useContext(a11yContext);

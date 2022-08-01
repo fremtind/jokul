@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
-import { Helmet } from "react-helmet";
 import { Portrait, PortraitGallery } from "../../components/portrait-gallery";
+import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 
 const pageTitle = "Hvor kan du få hjelp?";
+
+export const Head: FC = () => <Seo title={pageTitle} />;
 
 const DegOgJokul: FC = () => (
     <motion.main
@@ -19,9 +21,6 @@ const DegOgJokul: FC = () => (
         transition={{ duration: 0.35 }}
         className="jkl-portal__main"
     >
-        <Helmet>
-            <title>{pageTitle} | Jøkul Designsystem</title>
-        </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
             Jøkul er et stort system, og det er mange ting å skulle lære. Av og til trenger vi alle litt ekstra hjelp.

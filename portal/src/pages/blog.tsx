@@ -2,8 +2,10 @@ import { InfoBlock, NavCard } from "@fremtind/jkl-card-react";
 import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
 import React, { FC } from "react";
+import { Seo } from "../components/seo";
 import "./blog.scss";
-import { Helmet } from "react-helmet";
+
+export const Head: FC = () => <Seo title="Blogg" />;
 
 const IndexPage: FC<PageProps<PageData>> = ({ data }) => {
     const posts = data.allMdx.nodes;
@@ -16,9 +18,6 @@ const IndexPage: FC<PageProps<PageData>> = ({ data }) => {
             transition={{ duration: 0.35 }}
             className="jkl-portal__main"
         >
-            <Helmet>
-                <title>Blogg | Jøkul Designsystem</title>
-            </Helmet>
             <h1 className="jkl-title jkl-spacing-2xl--bottom">Blogg</h1>
             <p className="jkl-portal-paragraph">Velkommen til Jøkul — design­systemet til Fremtind.</p>
             <h2 className="jkl-heading-1 jkl-spacing-xl--top jkl-spacing-l--bottom">Alt fra bloggen</h2>
