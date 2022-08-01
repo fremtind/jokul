@@ -23,7 +23,7 @@
     "dependencies": {
         "@actions/core": "^1.9.0",
         "micromatch": "^4.0.4",
-        "simple-git": "^3.10.0"
+        "simple-git": "^3.11.0"
     },
     "devDependencies": {
         "@types/micromatch": "^4.0.2"
