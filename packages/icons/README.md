@@ -1,9 +1,22 @@
 # [`@fremtind/jkl-icons`](https://jokul.fremtind.no/komponenter/icons)
 
-# Ikoner
+Denne pakken inneholder stiler for animerte ikoner. Stiler for uanimerte ikoner finner du i [core](../core/).
 
-Ikonene ligger i React-pakken. Denne pakken inneholder nødvendig stil for animerte ikoner.
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/icons).
 
-Bruker du de rene ikonene, ikke de animerte, trenger du ikke denne pakken.
+## Installasjon
 
-Har du behov for ikonene utenfor React kontekst, lag issue på github.
+**Tips:** om du bruker [React-pakken](../icons-react/) trenger du ikke installere denne pakken direkte.
+
+1. `yarn add @fremtind/jkl-icons` eller `npm i @fremtind/jkl-icons`.
+2. Importér stil-pakken i prosjektet ditt.
+
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-icons/animated-icons.min.css";
+```
+
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-icons/animated-icons";
+```

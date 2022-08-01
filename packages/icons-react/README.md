@@ -1,45 +1,25 @@
 # [`@fremtind/jkl-icons-react`](https://jokul.fremtind.no/komponenter/icons)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/icons).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** [stilpakken](../icons/) blir automatisk installert som en avhengighet.
 
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-icons-react` eller `npm i @fremtind/jkl-icons-react`. Stil-pakken blir automatisk installert som en avhengighet.
-2. Importér _både_ React-pakken og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-icons-react` eller `npm i @fremtind/jkl-icons-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
-import { ArrowDown } from "@fremtind/jkl-icons-react";
-```
+import { ArrowDown, ArrowHorizontalAnimated } from "@fremtind/jkl-icons-react";
 
-### Bruk
-
-```jsx
-<div>
-    <ArrowDown />
-</div>
-```
-
-Ikonene arver farge fra foreldre komponenten, så om man ønsker endring i dark mode, må det styres av komponenten over. Nødvendig stil kommer fra core stil pakka.
-
-```js
-import { ArrowHorizontalAnimated } from "@fremtind/jkl-icons-react";
+// Importer stilark via JavaScript med CSS-loader.
+// CSS for uanimerte ikoner ligger i core.
+import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-icons/animated-icons.min.css";
 ```
 
-### Bruk
-
-```jsx
-<div>
-    <ArrowHorizontalAnimated />
-</div>
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-core/core";
+@use "@fremtind/jkl-icons/animated-icons";
 ```
-
-Når man bruker de animerte ikonene trenger vi å laste inn css fra ikonpakka.

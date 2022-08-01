@@ -1,9 +1,20 @@
 # [`@fremtind/jkl-footer`](https://jokul.fremtind.no/komponenter/footer)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/footer).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** om du bruker [React-pakken](../footer-react/) trenger du ikke installere denne pakken direkte.
+
+1. `yarn add @fremtind/jkl-footer` eller `npm i @fremtind/jkl-footer`.
+2. Importér stil-pakken i prosjektet ditt.
+
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-footer/footer.min.css";
+```
+
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-footer/footer";
+```

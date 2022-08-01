@@ -1,36 +1,22 @@
 # [`@fremtind/jkl-icon-button-react`](https://jokul.fremtind.no/komponenter/iconbutton)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/iconbutton).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** [stilpakken](../icon-button/) blir automatisk installert som en avhengighet.
 
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installér pakken med `yarn add @fremtind/jkl-icon-button-react` eller `npm i @fremtind/jkl-icon-button-react`. Stil-pakken blir automatisk installert som en avhengighet.
-
-2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-icon-button-react` eller `npm i @fremtind/jkl-icon-button-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+
+// Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-icon-button/icon-button.min.css";
 ```
 
-### Bruk
-
-Komponentene tar følgende props:
-
--   `iconType`: Angir hvilken svg ikon skal vises (f.eks: search, calendar, clear). `string`
--   `buttonTitle`: Serverer som hjelpetekst. `string`
--   `onClick`: **Påkrevd**. Klikkhåndtering for knappen. Får en MouseEvent som første argument. `MouseEventHandler<HTMLButtonElement>`
-
-En enkel bruk av knapper kan se slik ut:
-
-```jsx
-<IconButton iconType="calendar" onClick={onClick} buttonTitle="Vis kalendar" />
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-icon-button/icon-button";
 ```
