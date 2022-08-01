@@ -1,9 +1,20 @@
 # [`@fremtind/jkl-tag`](https://jokul.fremtind.no/komponenter/tag)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/tag).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** Om du bruker [React-pakken](../tag-react/) trenger du ikke installere denne pakken direkte.
+
+1. `yarn add @fremtind/jkl-tag` eller `npm i @fremtind/jkl-tag`.
+2. Importér stil-pakken i prosjektet ditt.
+
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-tag/tag.min.css";
+```
+
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-tag/tag";
+```

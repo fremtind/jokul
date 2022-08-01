@@ -1,59 +1,34 @@
 # [`@fremtind/jkl-card-react`](https://jokul.fremtind.no/komponenter/card)
 
-## Beskrivelse
-
 Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/card).
 
-## Kom i gang
+## Installasjon
 
-[Lær hvordan du kan ta i bruk Jøkul](https://jokul.fremtind.no/developer/getting-started/)
+**Tips:** [stilpakken](../card/) blir automatisk installert som en avhengighet.
 
-## Bruk av React-pakken
-
-### Installasjon
-
-1. Installèr pakken med `yarn add @fremtind/jkl-card-react` eller `npm i @fremtind/jkl-card-react`. Stil-pakken blir automatisk installert som en avhengighet.
-
-2. Importer _både_ React-pakken og stil-pakken i prosjektet ditt:
+1. `yarn add @fremtind/jkl-card-react` eller `npm i @fremtind/jkl-card-react`.
+2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
-import { Card } from "@fremtind/jkl-card-react";
+import { NavCard } from "@fremtind/jkl-card-react";
+
+// Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-card/card.min.css";
+
+// Kortene bruker flere andre komponenter avhengig av konfigurasjon. Du må også laste inn disse stilarkene.
+import "@fremtind/jkl-button/button.min.css";
+import "@fremtind/jkl-checkbox/checkbox.min.css";
+import "@fremtind/jkl-image/image.min.css";
+import "@fremtind/jkl-select/select.min.css";
+import "@fremtind/jkl-tag/tag.min.css";
 ```
 
-## Bruk
-
-Den mest grunnleggende varianten av `Card`-komponenten består bare av en container og en tittel, derfor er en alltid nødt til å definere `title`-propen. `children` gjør det mulig å legge til paragrafer og eventuelle andre komponenter.
-
-## Props
-
--   `title`: **Påkrevd** Angir tittelen på kortet `title`
--   `children`: Eventuelt annet innhold, enten ren html eller jøkul-komponenter `ReactNode`
--   `className`: Eventuell(e) css-klassenavn for komponenten. `string`
--   `media`: Angir kilden til bilder/illustrasjoner. `Media`
--   `action`: Angir typen knapp (primær/sekundær/tertiær), funksjon og tekst på knappen. `Action`
--   `dark`: Angir at kortet skal være darkmode. `boolean`
-
-## Action
-
-Bruker stilen til `Button` og har tre varianter. `type` definerer hvilke type knapp. `name` er teksten som skal stå på knappen (f.eks _Les mer_). `onClick` er hvilke funksjon knappen skal utføre.
-
-```tsx
-export type validButtons = "primary" | "secondary" | "tertiary";
-
-export type Action = {
-    type: validButtons;
-    name: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
-};
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-card/card";
+@use "@fremtind/jkl-button/button";
+@use "@fremtind/jkl-checkbox/checkbox";
+@use "@fremtind/jkl-image/image";
+@use "@fremtind/jkl-select/select";
+@use "@fremtind/jkl-tag/tag";
 ```
-
-Husk å skrive `action` som et objekt med to curly brackets:
-
-```tsx
-<Card title="Skade" action={{ type: "primary", name: "Meld skade", onClick: handleClick }}></Card>
-```
-
-## Media
-
-Består av `src`og `alt` og angir src-path til bilder eller illustrasjoner. `alt` er den alternative teksten for screenreaders.

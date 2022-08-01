@@ -1,10 +1,20 @@
 # [`@fremtind/jkl-logo`](https://jokul.fremtind.no/komponenter/logo)
 
-# Logo, logosymbol og stempel
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/logo).
 
-Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger, eller i andre løsninger der Fremtind skal være synlig.
+## Installasjon
 
-Du kan lese mer om hvordan vi skal bruke logo og logosymbol, under **Prinsipper for bruk**. Logoen og logosymbolet skal ikke stå synlige sammen.
-Vi kan animere dem, slik at vi ser at det skifter mellom logo og logosymbol. Se eksempel.
+**Tips:** om du bruker [React-pakken](../logo-react/) trenger du ikke installere denne pakken direkte.
 
-Vi kan bruke _logostemplene_ der det er behov, for å vise at Fremtind er en del av budskapet. Stemplene skal ikke brukes på samme måte som logoen eller logosymbolet.
+1. `yarn add @fremtind/jkl-logo` eller `npm i @fremtind/jkl-logo`.
+2. Importér stil-pakken i prosjektet ditt.
+
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-logo/logo.min.css";
+```
+
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-logo/logo";
+```

@@ -1,24 +1,28 @@
 # [`@fremtind/jkl-datepicker`](https://jokul.fremtind.no/komponenter/datepicker)
 
-# Datovelger
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/datepicker).
 
-Vi bruker datovelgeren til å gi brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver hvilken dato brukeren skal fylle inn, for eksempel: "Oppgi datoen da skaden skjedde".
+## Installasjon
 
-## Typer og bruk
+**Tips:** om du bruker [React-pakken](../datepicker-react/) trenger du ikke installere denne pakken direkte.
 
-**Enkel datovelger:** Når brukeren skal velge en dato, som er nær dagens dato.
+1. `yarn add @fremtind/jkl-datepicker` eller `npm i @fremtind/jkl-datepicker`.
+2. Importér stil-pakken i prosjektet ditt.
 
-**Utvidet datovelger:** Når brukeren skal velge en dato som ligger mer enn ett år frem eller tilbake i tid.
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-datepicker/datepicker.min.css";
 
-Vi kan også bruke to datovelgere, når vi vil at brukeren skal angi en periode med fra- og tildato.
-Eksempel: "Hvor lenge var du syk da du var på ferie? Velg dato fra og til".
+// DatePicker bruker flere komponenter internt, avhengig av konfigurasjon. Select blir bare brukt i utvidet velger.
+import "@fremtind/jkl-icon-button/icon-button.min.css";
+import "@fremtind/jkl-select/select.min.css";
+import "@fremtind/jkl-text-input/text-input.min.css";
+```
 
-## Tekst og validering
-
-Velg størrelse på ledeteksten etter prinsippene for skjemadesign. Bruk en kort og tydelig ledetekst, som forteller hva brukeren skal velge. Hvis det trengs, kan du også gi mer forklaring med en hjelpetekst under feltet.
-
-Hvis datovelgeren ikke validerer, vises en feilmelding, som forteller hva som er galt. Merk at feilmeldingen erstatter en eventuell hjelpetekst, slik at den feilmeldingen du lager også må fortelle hva hjelpeteksten var.
-
-Eksempel:
-Hjelpetekst for første kalender i en periode:
-"Velg datoen da du først ble syk". Feilmelding: "Du må velge datoen da du først ble syk."
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-datepicker/datepicker";
+@use "@fremtind/jkl-icon-button/icon-button";
+@use "@fremtind/jkl-select/select";
+@use "@fremtind/jkl-text-input/text-input";
+```

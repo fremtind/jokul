@@ -1,7 +1,26 @@
-#  [`@fremtind/jkl-cookie-consent`](https://jokul.fremtind.no/komponenter/cookie-consent)
+# [`@fremtind/jkl-cookie-consent`](https://jokul.fremtind.no/komponenter/cookieconsent)
 
-# Cookie consent
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cookieconsent).
 
-Cookie consent komponenten har et ansvar for å innhente samtykke til å lagre cookies på en datamaskin.
-Denne komponenten prøver å ta aktive valg med tanke på samtykkekravet på hvorvidt komponenten i det hele tatt
-skal vises, og alltid prøve å være så lite plagsom som mulig innenfor de rammene som er satt.
+## Installasjon
+
+**Tips:** om du bruker [React-pakken](../cookie-consent-react/) trenger du ikke installere denne pakken direkte.
+
+1. `yarn add @fremtind/jkl-cookie-consent` eller `npm i @fremtind/jkl-cookie-consent`.
+2. Importér stil-pakken i prosjektet ditt.
+
+```js
+// Importer stilark via JavaScript med CSS-loader.
+import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
+
+// CookieConsent bruker flere andre komponenter og trenger stilarkene deres for å fungere.
+import "@fremtind/jkl-button/button.min.css";
+import "@fremtind/jkl-list/list.min.css";
+```
+
+```scss
+// Eller importer stilark via SCSS.
+@use "@fremtind/jkl-cookie-consent/cookie-consent";
+@use "@fremtind/jkl-button/button";
+@use "@fremtind/jkl-list/list";
+```
