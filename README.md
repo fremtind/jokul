@@ -2,7 +2,7 @@
 
 [Jøkul](https://jokul.fremtind.no) er et designsystem utviklet av [Fremtind](https://fremtind.no).
 
-Jøkul gir deg CSS- og SCSS-stilark for de grunnleggende komponentene og designmønstrene til Fremtind. De følger Fremtinds designprinsipper.
+Jøkul gir deg ferdige React-komponenter samt CSS- og SCSS-stilark for de grunnleggende komponentene og designmønstrene til Fremtind. De følger Fremtinds designprinsipper.
 
 React-komponentene våre er er den raskeste og enkleste måten å ta i bruk Jøkul. CSSen er tilgjengelig som separate pakker, så om du ikke bruker React kan du fremdeles bruke Jøkul.
 
@@ -19,7 +19,7 @@ Du kan bruke Jøkul på to måter:
 
 Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre Jøkul-pakker.
 
-**NB!** Selv om komponentpakkene inneholder alle avhengigheter må du selv sørge for å importere stilpakken i koden din. Dette fordi vi **ikke** vil legge for harde føringer på utviklerverktøy, for eksempel kreve Webpack.
+**NB!** Selv om komponentpakkene inneholder alle avhengigheter må du selv sørge for å importere stilpakken i koden din. Dette er fordi vi ikke vil legge for harde føringer på utviklerverktøy, for eksempel kreve Webpack.
 
 #### Eksempel på bruk av React-pakker
 
@@ -33,7 +33,7 @@ import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
 ...
 ```
 
-Noen ganger må du også importere stilarkene til avhengigheter av komponenten du skal bruke. Et eksempel er [pakken for tabeller](https://github.com/fremtind/jokul/tree/main/packages/table-react), hvor du trenger CSSen til en annen pakke hvis du skal lage ekspanderbare tabellrader. Sjekk README-fila i hver enkelt React-pakke for å se hva den trenger.
+Noen ganger må du også importere stilarkene til avhengigheter av komponenten du skal bruke. Et eksempel er [pakken for tabeller](./packages/table-react/), hvor du trenger CSSen til en annen pakke hvis du skal lage ekspanderbare tabellrader. Sjekk README-fila i hver enkelt React-pakke for å se hva den trenger.
 
 #### Eksempel på bruk av stilark-pakker
 
@@ -56,6 +56,10 @@ Hvis prosjektet ditt også bruker SCSS kan du hente stiler via samme filnavn som
 @use "@fremtind/jkl-button/button"; // Stilene som kompileres til @fremtind/jkl-button/button.css
 // osv.
 ```
+
+### Bruk kjernen til å lage egne komponenter i Jøkul-drakt
+
+Om du skal bygge komponenter for Fremtind, utover de som finnes i Jøkul, bør du bruke variablene fra [@fremtind/jkl-core](./packages//core/). Det sørger for at farger, sperring, typografisk skala og liknende holder seg oppdatert mot endringer i designsystemet.
 
 ## Dokumentasjon
 
