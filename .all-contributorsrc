@@ -482,6 +482,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "mariusingjer",
+      "name": "Marius Ingjer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/65291983?v=4",
+      "profile": "https://github.com/mariusingjer",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
