@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Native", "Compact", "Med hjelpetekst", "Med feil", "Med søk"],
+    boolProps: ["Native", "Multiple", "Compact", "Med hjelpetekst", "Med feil", "Med søk"],
     choiceProps: [
         {
             name: "Variant",
@@ -23,18 +23,20 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
         { value: "3", label: "Google og utvalgte partnere" },
         { value: "4", label: "LG" },
     ];
-    const [value, setValue] = useState<string>();
+    const [value, setValue] = useState<string | string[]>();
 
     const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Prøv å søke på et tall" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
     const searchAble = boolValues && boolValues["Med søk"];
+    const multiple = boolValues && boolValues["Multiple"];
 
     return (
         <C
             id="produsent"
             name="produsent"
             forceCompact={boolValues && boolValues["Compact"]}
+            multiple={boolValues && boolValues["Multiple"]}
             variant={variant}
             label="Hvilket merke er telefonen?"
             items={values}
@@ -42,8 +44,19 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             onChange={(event) => {
-                setValue(event.target.value);
                 console.log("Change: ", event);
+                if (multiple) {
+                    const { options } = event.target;
+                    const value: string[] = [];
+                    for (let i = 0, l = options.length; i < l; i += 1) {
+                        if (options[i].selected) {
+                            value.push(options[i].value);
+                        }
+                    }
+                    setValue(value);
+                } else {
+                    setValue(event.target.value);
+                }
             }}
             searchable={
                 searchAble

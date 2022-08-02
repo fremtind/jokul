@@ -65,10 +65,6 @@ $_select-search-input-selection-color--inverted: color.scale(
     & select {
         appearance: none;
 
-        &::ms-expand {
-            display: none;
-        }
-
         &:-moz-focusring {
             color: transparent;
             text-shadow: 0 0 0 var(--jkl-select-text-color);
@@ -120,13 +116,11 @@ $_select-search-input-selection-color--inverted: color.scale(
         color: var(--jkl-select-text-color);
         cursor: pointer;
 
-        height: jkl.rem(48px);
         border-radius: jkl.rem(3px);
         border: jkl.rem(1px) solid var(--jkl-select-border-color);
         box-shadow: 0 0 0 jkl.rem(1px) transparent;
 
         padding: $_select-padding;
-        padding-right: $_arrow-width + 2 * jkl.$spacing-m;
         text-align: left;
         width: 100%;
 
@@ -143,11 +137,21 @@ $_select-search-input-selection-color--inverted: color.scale(
         &:hover {
             border-color: var(--jkl-select-focus-color);
             box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-select-focus-color);
-
-            & ~ .jkl-select__arrow {
-                transform: translateY(calc(-50% + #{jkl.rem(3px)}));
-            }
         }
+    }
+
+    &__search-input,
+    &__button:not(select):not([multiple]) {
+        padding-right: $_arrow-width + 2 * jkl.$spacing-m;
+        height: jkl.rem(48px);
+
+        &:hover ~ .jkl-select__arrow {
+            transform: translateY(calc(-50% + #{jkl.rem(3px)}));
+        }
+    }
+
+    select[multiple] {
+        background-color: var(--jkl-select-open-background-color);
     }
 
     /* The dropdown arrow */

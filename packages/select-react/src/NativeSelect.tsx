@@ -13,12 +13,13 @@ export interface NativeSelectProps {
     className?: string;
     selectClassName?: string;
     inline?: boolean;
+    multiple?: boolean;
     helpLabel?: string;
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     placeholder?: string;
-    value?: string;
+    value?: string | string[];
     forceCompact?: boolean;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
@@ -40,6 +41,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             items,
             className = "",
             inline = false,
+            multiple = false,
             helpLabel,
             errorLabel,
             invalid,
@@ -75,10 +77,11 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                         ref={ref}
                         id={uid}
                         className={cn("jkl-select__button", selectClassName)}
-                        defaultValue={value ? undefined : ""}
+                        defaultValue={value ? undefined : multiple ? [] : ""}
                         value={value}
                         aria-describedby={describedBy}
                         aria-invalid={Boolean(errorLabel)}
+                        multiple={multiple}
                         {...rest}
                     >
                         {placeholder && !value && (
@@ -97,7 +100,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                             </option>
                         ))}
                     </select>
-                    <ExpandArrow className="jkl-select__arrow" />
+                    {!multiple && <ExpandArrow className="jkl-select__arrow" />}
                 </div>
                 <SupportLabel
                     id={supportId}

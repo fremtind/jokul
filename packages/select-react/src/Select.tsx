@@ -32,12 +32,14 @@ interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>
         /** Kreves av react-hook-form for å vite hvilket skjemafelt som ble endret */
         name: string;
         value: string;
+        options: Array<{ value: string; selected: boolean }>;
     };
 }
 
 type ChangeEventHandler = (event: PartialChangeEvent) => void;
 
 interface Option {
+    selected: boolean;
     visible: boolean;
     value: string;
     label: string;
@@ -58,7 +60,7 @@ export interface SelectProps extends DataTestAutoId {
      */
     defaultPrompt?: string;
     className?: string;
-    value?: string;
+    value?: string | string[];
     helpLabel?: string;
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
@@ -139,19 +141,21 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         },
         [searchable, searchValue],
     );
+
+    /// Valg av <option>
+
+    const [selectedValue, setSelectedValue] = useState<string>(Array.isArray(value) ? value[0] : value || "");
+    const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+
     const visibleItems: Option[] = useMemo(
         () =>
             items.map(getValuePair).map((item) => {
                 const visible = !isSearchable || searchValue === "" || searchFn(item);
-                return { ...item, visible };
+                return { ...item, visible, selected: item.value === selectedValue };
             }),
-        [items, isSearchable, searchValue, searchFn],
+        [items, isSearchable, searchValue, selectedValue, searchFn],
     );
 
-    /// Valg av <option>
-
-    const [selectedValue, setSelectedValue] = useState<string>(value || "");
-    const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
     const selectedValueLabel = useMemo(
         () => visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt,
         [visibleItems, selectedValue, defaultPrompt],
@@ -175,7 +179,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     );
 
     useEffect(() => {
-        setSelectedValue(value || "");
+        setSelectedValue(Array.isArray(value) ? value[0] : value || "");
     }, [setSelectedValue, value]);
 
     // React Hook Form setter select-elementets value hvis skjemaet har `defaultValues`, men vi rendrer ikke det elementet synlig.
@@ -190,14 +194,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             setSearchValue("");
             setSelectedValue(nextValue);
             if (onChange) {
-                onChange({ type: "change", target: { name, value: nextValue } });
+                onChange({ type: "change", target: { name, value: nextValue, options: visibleItems } });
             }
             if (selectRef.current) {
                 selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
             }
             toggleListVisibility();
         },
-        [onChange, setSearchValue, setSelectedValue, toggleListVisibility, name],
+        [onChange, setSearchValue, setSelectedValue, toggleListVisibility, name, visibleItems],
     );
 
     /// Fokushåndtering
@@ -244,24 +248,24 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
             if (!nextFocusIsInsideComponent) {
                 if (onBlur) {
-                    onBlur({ type: "blur", target: { name, value: selectedValue || "" } });
+                    onBlur({ type: "blur", target: { name, value: selectedValue || "", options: visibleItems } });
                     selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
                 focusInsideRef.current = false;
                 setShown(false);
             }
         },
-        [onBlur, setShown, name, selectedValue],
+        [onBlur, setShown, name, selectedValue, visibleItems],
     );
 
     const handleFocus = useCallback(() => {
         if (!focusInsideRef.current) {
             if (onFocus) {
-                onFocus({ type: "change", target: { name, value: selectedValue || "" } });
+                onFocus({ type: "change", target: { name, value: selectedValue || "", options: visibleItems } });
             }
             focusInsideRef.current = true;
         }
-    }, [onFocus, selectedValue, name]);
+    }, [onFocus, selectedValue, name, visibleItems]);
 
     // Handle focus and blur of hidden select element
     useEffect(() => {
@@ -489,7 +493,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                             id={`${listId}__${toLower(item.value)}`}
                             className="jkl-select__option"
                             data-testid="jkl-select__option"
-                            aria-selected={item.value === selectedValue}
+                            aria-selected={item.selected}
                             role="option"
                             value={item.value}
                             data-testautoid={`jkl-select__option-${i}`}
