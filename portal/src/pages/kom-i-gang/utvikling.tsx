@@ -3,7 +3,7 @@ import { Link } from "@fremtind/jkl-core";
 import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
 import { motion } from "framer-motion";
-import { Link as GatsbyLink } from "gatsby";
+import { HeadProps, Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
 import { ComponentExample } from "../../../../doc-utils";
@@ -11,9 +11,14 @@ import { CodeBlock } from "../../../../doc-utils/CodeBlock";
 import { TagExample, tagExampleCode } from "../../../../packages/tag-react/documentation/TagExample";
 import { useNavigationLinks } from "../../components/Header/useNavigationLinks";
 import { Image } from "../../components/image";
+import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, InlineCode, PageTitle, Paragraph } from "../../components/Typography";
 import { Strong } from "../../components/Typography/Typography";
 import { RootItem, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+
+const pageTitle = "Praktisk info for utviklere";
+
+export const Head: FC<HeadProps> = () => <Seo title={pageTitle} />;
 
 const PraktiskInfoUtviklere: FC = () => {
     const fullscreenMenuContext = useFullscreenMenuContext();
@@ -26,7 +31,7 @@ const PraktiskInfoUtviklere: FC = () => {
             transition={{ duration: 0.35 }}
             className="jkl-portal__main"
         >
-            <PageTitle>Praktisk info for utviklere</PageTitle>
+            <PageTitle>{pageTitle}</PageTitle>
             <Ingress>
                 Designsystemet blir både en ekstern avhengighet og et prosjekt du er med på å utvikle. Derfor er det et
                 par ting det kan være verdt å vite om.

@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
-import { Helmet } from "react-helmet";
 import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
+import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 
 const pageTitle = "Slik er Jøkul satt sammen";
+
+export const Head: FC = () => <Seo title={pageTitle} />;
 
 const SlikErJokulSattSammen: FC = () => (
     <motion.main
@@ -19,9 +21,6 @@ const SlikErJokulSattSammen: FC = () => (
         transition={{ duration: 0.35 }}
         className="jkl-portal__main"
     >
-        <Helmet>
-            <title>{pageTitle} | Jøkul Designsystem</title>
-        </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
             Siden et system er summen av dets deler i samspill, så er det greit å ha en samlet oversikt over alle delene

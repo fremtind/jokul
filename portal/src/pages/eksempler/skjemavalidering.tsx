@@ -9,8 +9,10 @@ import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { motion } from "framer-motion";
+import { HeadProps } from "gatsby";
 import React, { useRef, FC } from "react";
 import { useForm } from "react-hook-form";
+import { Seo } from "../../components/seo";
 
 type FormValues = {
     u23: undefined | string;
@@ -21,6 +23,8 @@ type FormValues = {
     stilling: undefined | string;
     klient: undefined | string[];
 };
+
+export const Head: FC<HeadProps> = () => <Seo title="Skjemavalideringseksempel" />;
 
 const Skjemavalideringseksempel: FC = () => {
     const { formState, handleSubmit, register } = useForm<FormValues>({

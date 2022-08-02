@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
-import { Helmet } from "react-helmet";
 import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
+import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 
 const pageTitle = "Jobb med Jøkul-teamet";
+
+export const Head: FC = () => <Seo title={pageTitle} />;
 
 const JobbMedTeamet: FC = () => (
     <motion.main
@@ -19,9 +21,6 @@ const JobbMedTeamet: FC = () => (
         transition={{ duration: 0.35 }}
         className="jkl-portal__main"
     >
-        <Helmet>
-            <title>{pageTitle} | Jøkul Designsystem</title>
-        </Helmet>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
             Jøkul-teamet skal gjøre arbeidsvherdagen enklere for leveranseteamene. Vi har mange måter å hjelpe på, delt
