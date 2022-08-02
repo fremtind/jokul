@@ -4,8 +4,10 @@ import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import React, { FC } from "react";
-import { Helmet } from "react-helmet";
+import { Seo } from "../../components/seo";
 import { HeadingLarge, Paragraph } from "../../components/Typography";
+
+export const Head: FC = () => <Seo title="Introduksjon" />;
 
 const Introduksjon: FC = () => (
     <motion.main
@@ -15,9 +17,6 @@ const Introduksjon: FC = () => (
         transition={{ duration: 0.35 }}
         className="jkl-portal__main"
     >
-        <Helmet>
-            <title>Introduksjon | Jøkul Designsystem</title>
-        </Helmet>
         <h1 className="jkl-portal-huge-title">
             Jøkul
             <br />

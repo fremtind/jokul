@@ -5,16 +5,18 @@ import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
-import { Helmet } from "react-helmet";
 import { FigmaLogo } from "../../components/figma-logo";
 import { Grid } from "../../components/Grid";
 import { useNavigationLinks } from "../../components/Header/useNavigationLinks";
 import { Image } from "../../components/image";
+import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
 import { KeyboardShortcut } from "../../components/Typography/Typography";
 import { RootItem, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
 
 const pageTitle = "Praktisk i designhverdagen";
+
+export const Head: FC = () => <Seo title={pageTitle} />;
 
 const PraktiskDesignhverdagen: FC = () => {
     const fullscreenMenuContext = useFullscreenMenuContext();
@@ -27,9 +29,6 @@ const PraktiskDesignhverdagen: FC = () => {
             transition={{ duration: 0.35 }}
             className="jkl-portal__main"
         >
-            <Helmet>
-                <title>{pageTitle} | Jøkul Designsystem</title>
-            </Helmet>
             <PageTitle>{pageTitle}</PageTitle>
             <Ingress>
                 Vi bruker Figma til å designe skisser. I tillegg har vi et{" "}
@@ -172,4 +171,5 @@ const PraktiskDesignhverdagen: FC = () => {
         </motion.main>
     );
 };
+
 export default PraktiskDesignhverdagen;

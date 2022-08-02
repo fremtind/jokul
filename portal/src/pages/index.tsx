@@ -6,12 +6,15 @@ import React, { useState, useMemo } from "react";
 import { CardList } from "../components/Card";
 import { DelayText } from "../components/Delaytext";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
+import { Seo } from "../components/seo";
 import { VisibleDetector } from "../components/VisibleDetector";
 import "./style.scss";
 import "./index.scss";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
+
+export const Head: React.FC = () => <Seo />;
 
 const IndexPage: React.FC = () => {
     const [principleState, setPrincipleState] = useState(0);
