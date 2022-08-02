@@ -7,10 +7,6 @@
     padding-left: jkl.$spacing-xs;
     padding-right: jkl.$spacing-xs;
     padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: inherit;
 
     &--align-right {
         text-align: right;
