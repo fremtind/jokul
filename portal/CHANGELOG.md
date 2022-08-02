@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.31](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.30...@fremtind/portal@15.0.31) (2022-08-02)
+
+### Bug Fixes
+
+-   legg til manglende sidetitler ([2c0de74](https://github.com/fremtind/jokul/commit/2c0de748780393ffd6495d5d7dcf1a6d2325ab16))
+
 ## [15.0.14](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.13...@fremtind/portal@15.0.14) (2022-07-19)
 
 ### Bug Fixes
