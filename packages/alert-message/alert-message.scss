@@ -21,44 +21,42 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__content {
         box-sizing: border-box;
-        padding: jkl.$spacing-m jkl.$spacing-l;
+        padding: jkl.$spacing-m;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
         margin: 0 auto;
     }
 
     &__icon {
-        padding-right: jkl.$spacing-m;
         align-self: flex-start;
-        padding-top: jkl.$spacing-3xs;
-        height: jkl.rem(24px);
+        padding-top: jkl.$spacing-2xs;
+        height: jkl.rem(18px);
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__message {
+        margin-left: jkl.$spacing-m;
         margin-right: jkl.$spacing-m;
     }
 
     &__dismiss-button {
         @include jkl.reset-outline;
         background-color: transparent;
+        border-radius: jkl.rem(3px);
         padding: 0;
-        margin-left: auto;
-        margin-top: jkl.$spacing-2xs;
         cursor: pointer;
-        width: jkl.rem(20px);
-        height: jkl.rem(20px);
+
+        // Sørg for å ha en stor nok touch target.
+        width: jkl.rem(44px);
+        height: jkl.rem(44px);
+        margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
 
         color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
-            margin-top: jkl.rem(-1px);
-            width: jkl.rem(32px);
-            height: jkl.rem(32px);
-            padding: jkl.rem(4px);
         }
 
         align-self: flex-start;
@@ -71,16 +69,11 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
         &:focus {
             @include jkl.keyboard-navigation {
-                position: relative;
+                outline: 2px solid $_dismiss-focus-border-color;
 
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: jkl.rem(-2px);
-                    right: jkl.rem(-2px);
-                    bottom: jkl.rem(-2px);
-                    left: jkl.rem(-2px);
-                    box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
+                @include jkl.forced-colors-mode {
+                    outline: 2px solid ButtonText;
+                    outline-offset: 2px;
                 }
             }
         }
