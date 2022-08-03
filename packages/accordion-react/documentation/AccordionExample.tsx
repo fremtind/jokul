@@ -1,10 +1,14 @@
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import React from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Accordion, AccordionItem } from "../src";
 
-export const AccordionExample: React.FC<ExampleComponentProps> = () => (
-    <Accordion>
+export const accordionExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact"],
+};
+
+export const AccordionExample: React.FC<ExampleComponentProps> = ({ boolValues }) => (
+    <Accordion compact={boolValues?.["Compact"]}>
         <AccordionItem
             title="Hvem kan kjøpe livsforsikring?"
             onClick={(e, isOpen) => {
@@ -33,8 +37,8 @@ export const AccordionExample: React.FC<ExampleComponentProps> = () => (
     </Accordion>
 );
 
-export const accordionExampleCode: CodeExample = () => `
-<Accordion>
+export const accordionExampleCode: CodeExample = ({ boolValues }) => `
+<Accordion compact={${boolValues?.["Compact"]}}>
     <AccordionItem title="Hvem kan kjøpe livsforsikring?">
         <UnorderedList>
             <ListItem>Personer med et norsk fødselsnummer.</ListItem>
