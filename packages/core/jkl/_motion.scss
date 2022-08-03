@@ -1,5 +1,6 @@
 @use "sass:map";
 
+// Oppdater verdier i motion.ts også
 $_easings: (
     "standard": ease,
     "entrance": ease-out,
@@ -21,6 +22,7 @@ $_easings: (
     }
 }
 
+// Oppdater verdier i motion.ts også
 $_timings: (
     "energetic": 75ms,
     "snappy": 100ms,
