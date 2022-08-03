@@ -32,8 +32,8 @@ export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
     onTransitionEnd?: (isOpen: boolean, ref: RefObject<T>) => void;
 }
 
-const defaultEasing = easings.standard;
-const defaultTiming = timings.productive;
+const defaultEasing = "standard";
+const defaultTiming = "productive";
 
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
@@ -42,7 +42,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     const wasOpen = usePreviousValue(isOpen);
     const easing = options?.easing || defaultEasing;
     const timing = options?.timing || defaultTiming;
-    const transition = `${timing} height ${easing}`;
+    const transition = `${timings[timing]} height ${easings[easing]}`;
 
     const { prefersReducedMotion } = useBrowserPreferences();
 
