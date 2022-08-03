@@ -1,15 +1,13 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-svaberg};
-    --jkl-accordion-accent: #{jkl.$color-stein};
+    --jkl-accordion-border: #{jkl.$color-varde};
     --jkl-accordion-focus: #{jkl.$color-focus-color};
     --jkl-accordion-expanded-background: #{jkl.$color-hvit};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-accordion-border: #{jkl.$color-stein};
-    --jkl-accordion-accent: #{jkl.$color-svaberg};
     --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
     --jkl-accordion-expanded-background: #{jkl.$color-svart};
 }
@@ -41,7 +39,25 @@
         }
     }
 
+    &--expanded {
+        background-color: var(--jkl-accordion-expanded-background);
+
+        .jkl-accordion-item__title {
+            &-text {
+                @include jkl.no-grow-bold;
+            }
+
+            &:hover {
+                .jkl-accordion-item__arrow {
+                    transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
+                }
+            }
+        }
+    }
+
     &__title {
+        @include jkl.reset-outline;
+
         background-color: transparent;
         position: relative;
         padding: jkl.$spacing-m;
@@ -51,26 +67,8 @@
         @include jkl.motion;
         transition-property: transform, color;
 
-        /* Remove button styles */
-        outline: none;
-        color: inherit; // stops Safari from changing color on :active
-        border: none;
-
-        /* The dropdown arrow */
-        &__arrow {
-            position: absolute;
-            left: jkl.$spacing-m;
-            top: 50%;
-            transform: translateY(-50%);
-            color: inherit;
-        }
-
         &:hover {
             cursor: pointer;
-
-            .jkl-accordion-item__title__arrow {
-                transform: translateY(calc(-50% + #{jkl.rem(3px)}));
-            }
         }
 
         html:not([data-mousenavigation]) &:focus {
@@ -78,22 +76,48 @@
         }
     }
 
-    &--expanded {
-        background-color: var(--jkl-accordion-expanded-background);
+    &__arrow {
+        position: absolute;
+        left: jkl.$spacing-s;
+        top: 50%;
+        transform: translateY(-50%);
+        color: inherit;
 
-        .jkl-accordion-item {
-            &__title {
-                &-text {
-                    @include jkl.no-grow-bold;
-                }
+        $_arrow-height: jkl.rem(14px);
+        $_arrow-width: jkl.rem(12px);
 
-                &:hover {
-                    .jkl-accordion-item__title__arrow {
-                        transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
-                    }
-                }
+        height: $_arrow-height;
+        width: $_arrow-width;
+        clip: rect(auto, auto, auto, auto);
+        clip-path: inset(0 0 0 0);
+
+        pointer-events: none;
+
+        @include jkl.motion("exit", "productive");
+
+        transition-property: transform;
+
+        &-up,
+        &-down {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            height: $_arrow-height;
+            width: $_arrow-width;
+            @include jkl.motion;
+
+            transition-property: transform;
+        }
+
+        &--expanded {
+            .jkl-accordion-item__arrow-up,
+            .jkl-accordion-item__arrow-down {
+                @include jkl.motion("exit", "productive");
+                transform: translate(0, -135%);
             }
         }
+
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
     }
 
     &__title-text {
@@ -101,21 +125,35 @@
 
         display: block;
         padding-right: 2rem;
-        margin-left: jkl.$spacing-l;
+        margin-left: jkl.rem(34px);
     }
 
     &__content-wrapper {
         @include jkl.motion;
-
         transition-property: height;
     }
 
     &__content {
         @include jkl.text-style("body");
-
+        color: inherit;
         height: auto;
-        padding: jkl.$spacing-m jkl.$spacing-l jkl.$spacing-xl jkl.$spacing-l;
-        color: inherit; // Make content same color as rest of page text
+        padding: jkl.$spacing-m;
+    }
+
+    [data-compactlayout] & {
+        .jkl-accordion-item__title {
+            padding: jkl.$spacing-xs jkl.$spacing-s;
+        }
+
+        .jkl-accordion-item__title-text {
+            @include jkl.text-style("small");
+            margin-left: jkl.$spacing-l;
+        }
+
+        .jkl-accordion-item__content {
+            @include jkl.text-style("small");
+            padding: jkl.$spacing-xs jkl.$spacing-s;
+        }
     }
 
     @include jkl.forced-colors-mode {
@@ -144,52 +182,4 @@
             outline: revert;
         }
     }
-}
-
-.jkl-expand-arrow {
-    $_arrow-height: jkl.rem(16px);
-    $_arrow-width: jkl.rem(13px);
-
-    height: $_arrow-height;
-    width: $_arrow-width;
-    clip: rect(auto, auto, auto, auto);
-    clip-path: inset(0 0 0 0);
-
-    pointer-events: none;
-
-    @include jkl.motion;
-
-    transition-property: transform;
-
-    &__up,
-    &__down {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        height: $_arrow-height;
-        width: $_arrow-width;
-        @include jkl.motion;
-
-        transition-property: transform;
-    }
-
-    &__up {
-        top: 100%;
-    }
-
-    &__down {
-        top: 0;
-    }
-
-    &--expanded {
-        .jkl-expand-arrow__up,
-        .jkl-expand-arrow__down {
-            @include jkl.motion("standard", "expressive");
-            transform: translate(0, -100%);
-        }
-    }
-
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
 }
