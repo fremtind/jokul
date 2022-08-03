@@ -314,7 +314,7 @@ $_select-search-input-selection-color--inverted: color.scale(
     }
 }
 
-.jkl-expand-arrow {
+.jkl-select-expand-arrow {
     height: $_arrow-height;
     width: $_arrow-width;
     clip: rect(auto, auto, auto, auto);
@@ -347,8 +347,8 @@ $_select-search-input-selection-color--inverted: color.scale(
     }
 
     &--expanded {
-        .jkl-expand-arrow__up,
-        .jkl-expand-arrow__down {
+        .jkl-select-expand-arrow__up,
+        .jkl-select-expand-arrow__down {
             @include jkl.motion("standard", "expressive");
             transform: translate(0, -100%);
         }
