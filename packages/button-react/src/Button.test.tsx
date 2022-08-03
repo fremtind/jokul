@@ -47,9 +47,9 @@ describe("Button", () => {
         expect(screen.getByTestId("test")).toHaveClass("test-class");
     });
 
-    it("applies compact mode when forced to", () => {
+    it("applies compact mode", () => {
         render(
-            <PrimaryButton data-testid="test" forceCompact onClick={() => {}}>
+            <PrimaryButton data-testid="test" compact onClick={() => {}}>
                 test
             </PrimaryButton>,
         );
@@ -116,7 +116,7 @@ describe("a11y", () => {
         it(`${buttonVariant.name} should be a11y compliant in compact mode`, async () => {
             const { name, component: Button } = buttonVariant;
             const { container } = render(
-                <Button forceCompact onClick={() => {}}>
+                <Button compact onClick={() => {}}>
                     {name}
                 </Button>,
             );
