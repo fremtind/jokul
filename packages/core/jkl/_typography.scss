@@ -185,11 +185,15 @@ $_text-styles: (
                 #{$property}: $value;
             }
             @content;
-            @include screens.from-medium-device {
-                @each $property, $value in map.get($variants, "large-screen") {
-                    #{$property}: $value;
+
+            // Style small is the same size on small and large screens. Skip to generate less CSS.
+            @if $style != "small" {
+                @include screens.from-medium-device {
+                    @each $property, $value in map.get($variants, "large-screen") {
+                        #{$property}: $value;
+                    }
+                    @content;
                 }
-                @content;
             }
         } @else {
             @if map.has-key($variants, $variant) {
