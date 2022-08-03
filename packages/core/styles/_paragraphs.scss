@@ -1,29 +1,29 @@
-@use "../mixins";
+@use "../jkl";
 
 .jkl-body {
-    @include mixins.text-style("body");
+    @include jkl.text-style("body");
 
     *[data-compactlayout] & {
-        @include mixins.text-style("body/small-screen");
+        @include jkl.text-style("body/small-screen");
     }
 }
 
 .jkl-bold {
-    @include mixins.text-style("body") {
-        @include mixins.no-grow-bold;
+    @include jkl.text-style("body") {
+        @include jkl.no-grow-bold;
     }
 
     *[data-compactlayout] & {
-        @include mixins.text-style("body/small-screen") {
-            @include mixins.no-grow-bold;
+        @include jkl.text-style("body/small-screen") {
+            @include jkl.no-grow-bold;
         }
     }
 }
 
 .jkl-small {
-    @include mixins.text-style("small");
+    @include jkl.text-style("small");
 
     *[data-compactlayout] & {
-        @include mixins.text-style("small/small-screen");
+        @include jkl.text-style("small/small-screen");
     }
 }

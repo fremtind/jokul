@@ -1,6 +1,6 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/variables/colors";
+@use "~@fremtind/jkl-core/jkl/colors";
 
 $_radio-button-size: jkl.rem(24px);
 $_radio-button-height: jkl.rem(48px);

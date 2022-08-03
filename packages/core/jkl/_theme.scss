@@ -1,7 +1,6 @@
 @use "sass:string";
 @use "sass:color";
 @use "sass:list";
-@use "../variables";
 
 /// Brukes til å sette CSS-variabler for bruk i lyst tema, typisk tekst- og
 /// bakgrunnsfarge. Se også dark-mode-variables.
@@ -33,6 +32,15 @@
     }
 
     [data-theme="dark"] {
+        @content;
+    }
+}
+
+/// Brukes til CSS som skal gjelde i kompakt modus, enten via en `--compact` modifier eller med [data-compactlayout]
+/// @content Innholdet plasseres i en `&--compact` selector og `*[data-compactlayout] &`-selector
+@mixin compact-mode {
+    &--compact,
+    *[data-compactlayout] & {
         @content;
     }
 }
@@ -97,87 +105,5 @@ $_valid-forced-colors-text-values: (
 @mixin prefers-reduced-motion {
     @media screen and (prefers-reduced-motion: reduce) {
         @content;
-    }
-}
-
-/// Gjør flexbox litt mindre verbos. Setter display: flex; med gitt align-items og justify-content.
-/// @param {String} $align-items [center] – settes på align-items
-/// @param {String} $justify-content [center] – settes på justify-content
-/// @output display: flex og angitt align-items og justify-content
-@mixin flex($align-items: center, $justify-content: center) {
-    display: flex;
-    align-items: $align-items;
-    justify-content: $justify-content;
-}
-
-/// Samle alt som har med posisjonering å gjøre i én mixin. Alle parameternavn matcher CSS-attributtet.
-/// @param {String} $position
-/// @param {String} $top [initial]
-/// @param {String} $left [initial]
-/// @param {String} $right [initial]
-/// @param {String} $bottom [initial]
-@mixin position($position, $top: initial, $left: initial, $right: initial, $bottom: initial) {
-    position: $position;
-    top: $top;
-    left: $left;
-    right: $right;
-    bottom: $bottom;
-}
-
-/// Makes text bold without changing the space it takes up on screen.
-/// Not perfect for all lengths of text, but close enough!
-@mixin no-grow-bold {
-    font-weight: variables.$typography-weight-bold;
-    letter-spacing: -0.014em;
-}
-
-/// Brukes til CSS som skal gjelde i kompakt modus, enten via en `--compact` modifier eller med [data-compactlayout]
-/// @content Innholdet plasseres i en `&--compact` selector og `*[data-compactlayout] &`-selector
-@mixin compact-mode {
-    &--compact,
-    *[data-compactlayout] & {
-        @content;
-    }
-}
-
-/// En omfattende reset for alt av outlines og borders på interaktive elementer
-@mixin reset-outline {
-    outline: 0;
-    border-style: none;
-    outline-style: none;
-
-    &:active,
-    &:hover,
-    &:focus {
-        outline: 0;
-        outline-style: none;
-    }
-
-    // Reset alt som er gjort over hvis brukeren har på forced-colors.
-    // Da mister vi box-shadow og er avhengig av at borders og outlines synes.
-    @include forced-colors-mode {
-        outline: revert;
-        border-style: revert;
-        outline-style: revert;
-
-        &:active,
-        &:hover,
-        &:focus {
-            outline: revert;
-            outline-style: revert;
-        }
-    }
-}
-
-/// Removes increment and decrement buttons
-/// for number input fields.
-@mixin remove-inner-outer-button {
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-    }
-
-    input[type="number"] {
-        -moz-appearance: textfield;
     }
 }

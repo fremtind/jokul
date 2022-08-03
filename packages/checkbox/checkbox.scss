@@ -1,6 +1,6 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/variables/colors";
+@use "~@fremtind/jkl-core/jkl/colors";
 
 $_checkbox-height: jkl.rem(48px);
 $_checkbox-box-size: jkl.rem(24px);

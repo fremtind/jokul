@@ -1,0 +1,43 @@
+@use "theme";
+
+/// En omfattende reset for alt av outlines og borders på interaktive elementer
+@mixin reset-outline {
+    outline: 0;
+    border-style: none;
+    outline-style: none;
+
+    &:active,
+    &:hover,
+    &:focus {
+        outline: 0;
+        outline-style: none;
+    }
+
+    // Reset alt som er gjort over hvis brukeren har på forced-colors.
+    // Da mister vi box-shadow og er avhengig av at borders og outlines synes.
+    @include theme.forced-colors-mode {
+        outline: revert;
+        border-style: revert;
+        outline-style: revert;
+
+        &:active,
+        &:hover,
+        &:focus {
+            outline: revert;
+            outline-style: revert;
+        }
+    }
+}
+
+/// Removes increment and decrement buttons
+/// for number input fields.
+@mixin remove-inner-outer-button {
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}

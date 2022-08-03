@@ -1,0 +1,230 @@
+@use "sass:string";
+@use "sass:map";
+@use "screens";
+@use "responsive-units" as ru;
+
+/// @type Number
+$typography-weight-normal: 400;
+
+/// @type Number
+$typography-weight-bold: 700;
+
+/// @type Number
+$typography-font-size-1: ru.rem(16px);
+
+/// @type Number
+$typography-font-size-2: ru.rem(18px);
+
+/// @type Number
+$typography-font-size-3: ru.rem(20px);
+
+/// @type Number
+$typography-font-size-4: ru.rem(21px);
+
+/// @type Number
+$typography-font-size-5: ru.rem(23px);
+
+/// @type Number
+$typography-font-size-6: ru.rem(25px);
+
+/// @type Number
+$typography-font-size-7: ru.rem(26px);
+
+/// @type Number
+$typography-font-size-8: ru.rem(28px);
+
+/// @type Number
+$typography-font-size-9: ru.rem(36px);
+
+/// @type Number
+$typography-font-size-10: ru.rem(56px);
+
+/// @type Number
+$typography-line-height-1: ru.rem(24px);
+
+/// @type Number
+$typography-line-height-2: ru.rem(28px);
+
+/// @type Number
+$typography-line-height-3: ru.rem(32px);
+
+/// @type Number
+$typography-line-height-4: ru.rem(40px);
+
+/// @type Number
+$typography-line-height-5: ru.rem(44px);
+
+/// @type Number
+$typography-line-height-6: ru.rem(64px);
+
+$_text-styles: (
+    "title": (
+        "small-screen": (
+            "font-size": $typography-font-size-9,
+            "line-height": $typography-line-height-5,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-10,
+            "line-height": $typography-line-height-6,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "title-small": (
+        // Legger til ny fontstørrelse her direkte uten variabler i påvente av en større omstrukturering med design tokens.
+        // Vi har to fontstørrelser her som ellers ville måtte bli skvist inn mellom det eksisterende nivå 8, 9 og 10
+        // i typografivariablene våre. Det samme problemet gjelder linjehøyden.
+        "small-screen":
+            (
+                "font-size": ru.rem(30px),
+                "line-height": ru.rem(36px),
+                "font-weight": $typography-weight-normal,
+            ),
+        "large-screen": (
+            "font-size": ru.rem(44px),
+            "line-height": ru.rem(52px),
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "heading-1": (
+        "small-screen": (
+            "font-size": $typography-font-size-7,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-9,
+            "line-height": $typography-line-height-5,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "heading-2": (
+        "small-screen": (
+            "font-size": $typography-font-size-5,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-8,
+            "line-height": $typography-line-height-4,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "heading-3": (
+        "small-screen": (
+            "font-size": $typography-font-size-4,
+            "line-height": $typography-line-height-2,
+            "font-weight": $typography-weight-bold,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-6,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-bold,
+        ),
+    ),
+    "heading-4": (
+        "small-screen": (
+            "font-size": $typography-font-size-2,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-bold,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-4,
+            "line-height": $typography-line-height-2,
+            "font-weight": $typography-weight-bold,
+        ),
+    ),
+    "heading-5": (
+        "small-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-bold,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-bold,
+        ),
+    ),
+    "body": (
+        "small-screen": (
+            "font-size": $typography-font-size-2,
+            "line-height": $typography-line-height-2,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-3,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "small": (
+        "small-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+);
+
+/// Gir deg responsive font-size, line-height og font-weight basert på navnet på typografien.
+/// Du kan overstyre standardverdier ved å bruke `@content`. Dette er ment som en "escape hatch".
+/// Ikke tukle med typografiskalaen med mindre du har en god grunn til det.
+/// @content Plasseres alltid etter mixinen har satt sine verdier, slik at du kan velge å overstyre deler av dem.
+/// @example
+///     .class {
+///         @include jkl.text-style("body");
+///     }
+/// @example
+///     .bold {
+///         @include jkl.text-style("body") {
+///             font-weight: jkl.$typography-weight-bold;
+///         }
+///     }
+@mixin text-style($style-name) {
+    // Separate style/variant into style and variant variables:
+    $start-index: string.index($style-name, "/") or 0;
+    $end-index: string.index($style-name, "/") or 9999999;
+    $style: string.slice($style-name, 0, $start-index - 1);
+    $variant: string.slice($style-name, $end-index + 1);
+
+    @if map.has-key($_text-styles, $style) {
+        $variants: map.get($_text-styles, $style);
+
+        @if string.length($variant) == 0 {
+            @each $property, $value in map.get($variants, "small-screen") {
+                #{$property}: $value;
+            }
+            @content;
+            @include screens.from-medium-device {
+                @each $property, $value in map.get($variants, "large-screen") {
+                    #{$property}: $value;
+                }
+                @content;
+            }
+        } @else {
+            @if map.has-key($variants, $variant) {
+                @each $property, $value in map.get($variants, $variant) {
+                    #{$property}: $value;
+                }
+                @content;
+            } @else {
+                @error "The text style #{$style} has no variant called #{$variant}. Try one of these: #{map.keys(map.get($new-text-styles, $style))}";
+            }
+        }
+    } @else {
+        @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($new-text-styles)}";
+    }
+}
+
+/// Makes text bold without changing the space it takes up on screen.
+/// Not perfect for all lengths of text, but close enough!
+@mixin no-grow-bold {
+    font-weight: $typography-weight-bold;
+    letter-spacing: -0.014em;
+}
