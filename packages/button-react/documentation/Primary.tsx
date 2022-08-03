@@ -17,7 +17,7 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
 
     return (
         <PrimaryButton
-            forceCompact={!!boolValues?.["Compact"]}
+            compact={!!boolValues?.["Compact"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
@@ -30,7 +30,7 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
 
 export const primaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
 <PrimaryButton
-    forceCompact={${!!boolValues?.["Compact"]}}
+    compact={${!!boolValues?.["Compact"]}}
     loader={${
         !!boolValues?.["withLoader"]
             ? `{

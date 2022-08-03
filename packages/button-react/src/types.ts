@@ -1,6 +1,10 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
+    compact?: boolean;
+    /**
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     className?: string;
     loader?: {
