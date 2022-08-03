@@ -216,6 +216,10 @@ $_select-search-input-selection-color--inverted: color.scale(
             }
         }
 
+        &[aria-selected="true"]:not(:focus) {
+            padding-right: jkl.$spacing-l;
+        }
+
         &:hover {
             color: var(--jkl-select-hover-option-color);
         }
