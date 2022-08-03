@@ -1,4 +1,11 @@
-@use "../variables/breakpoints";
+/// @type Number
+$breakpoint--medium: 680px;
+
+/// @type Number
+$breakpoint--large: 1200px;
+
+/// @type Number
+$breakpoint--xl: 1600px;
 
 /// Forenkler media queries som skal gjelde mellom to skjermbredder.
 /// Maksverdien er _eksklusiv_ (verdien vil bli $max - 1px).
@@ -52,7 +59,7 @@
 ///         }
 ///     }
 @mixin small-device {
-    @media (min-width: 0) and (max-width: #{breakpoints.$breakpoint--medium - 1px}) {
+    @media (min-width: 0) and (max-width: #{$breakpoint--medium - 1px}) {
         @content;
     }
 }
@@ -66,7 +73,7 @@
 ///         }
 ///     }
 @mixin medium-device {
-    @media (min-width: #{breakpoints.$breakpoint--medium}) and (max-width: #{breakpoints.$breakpoint--large - 1px}) {
+    @media (min-width: #{$breakpoint--medium}) and (max-width: #{$breakpoint--large - 1px}) {
         @content;
     }
 }
@@ -80,7 +87,7 @@
 ///         }
 ///     }
 @mixin from-medium-device {
-    @media (min-width: #{breakpoints.$breakpoint--medium}) {
+    @media (min-width: #{$breakpoint--medium}) {
         @content;
     }
 }
@@ -94,7 +101,7 @@
 ///         }
 ///     }
 @mixin large-device {
-    @media (min-width: #{breakpoints.$breakpoint--large}) and (max-width: #{breakpoints.$breakpoint--xl - 1px}) {
+    @media (min-width: #{$breakpoint--large}) and (max-width: #{$breakpoint--xl - 1px}) {
         @content;
     }
 }
@@ -108,7 +115,7 @@
 ///         }
 ///     }
 @mixin from-large-device {
-    @media (min-width: #{breakpoints.$breakpoint--large}) {
+    @media (min-width: #{$breakpoint--large}) {
         @content;
     }
 }
@@ -122,7 +129,7 @@
 ///         }
 ///     }
 @mixin xl-device {
-    @media (min-width: #{breakpoints.$breakpoint--xl}) {
+    @media (min-width: #{$breakpoint--xl}) {
         @content;
     }
 }
