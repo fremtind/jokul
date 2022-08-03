@@ -15,7 +15,7 @@ export const Accordion: FC<AccordionProps> = ({ className, compact = false, ...r
         <div
             data-testid="jkl-accordion"
             className={cn("jkl-accordion", className)}
-            data-compactlayout={compact ?? undefined}
+            data-compactlayout={compact ? "true" : undefined}
             {...rest}
         />
     );

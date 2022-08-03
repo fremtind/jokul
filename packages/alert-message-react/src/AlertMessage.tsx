@@ -10,6 +10,10 @@ type messageTypes = "info" | "error" | "success" | "warning";
 interface Props extends WithChildren {
     id?: string;
     className?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     */
+    compact?: boolean;
     maxContentWidth?: string;
     paddingLeft?: string;
     /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
@@ -25,6 +29,7 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
     const AlertMessage: React.FC<Props> = ({
         id,
         className,
+        compact,
         maxContentWidth,
         paddingLeft,
         role = "status",
@@ -41,6 +46,7 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
                 {...rest}
                 id={alertId}
                 className={cn("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
+                    "jkl-alert-message--compact": compact,
                     "jkl-alert-message--dismissed": dismissed,
                 })}
                 data-theme="light"
@@ -53,10 +59,8 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
                         paddingLeft,
                     }}
                 >
-                    <div aria-hidden className="jkl-alert-message__icon">
-                        <MessageIcon messageType={messageType} />
-                    </div>
-                    <span className="jkl-alert-message__message jkl-body">{children}</span>
+                    <MessageIcon messageType={messageType} />
+                    <span className="jkl-alert-message__message">{children}</span>
                     {dismissAction?.handleDismiss && (
                         <DismissButton
                             aria-controls={alertId}

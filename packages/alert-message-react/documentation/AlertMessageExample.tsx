@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
 
 export const alertMessageKnobs: ExampleKnobsProps = {
-    boolProps: ["Dismissable"],
+    boolProps: ["Compact", "Dismissable"],
     choiceProps: [
         {
             name: "Variant",
@@ -44,7 +44,12 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
 
     return (
         // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
-        <C dismissed={dismissed} dismissAction={dismissAction} role="none presentation">
+        <C
+            compact={boolValues?.["Compact"]}
+            dismissed={dismissed}
+            dismissAction={dismissAction}
+            role="none presentation"
+        >
             Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
             <NavLink href="/komponenter/alertmessage">en navlink</NavLink>
         </C>

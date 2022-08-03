@@ -30,13 +30,14 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__icon {
         align-self: flex-start;
-        padding-top: jkl.$spacing-2xs;
+        padding-top: jkl.rem(7px);
         height: jkl.rem(18px);
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__message {
+        @include jkl.text-style("body");
         margin-left: jkl.$spacing-m;
         margin-right: jkl.$spacing-m;
     }
@@ -104,6 +105,28 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &--success {
         background-color: $_bg-color--suksess;
+    }
+
+    @include jkl.compact-mode {
+        .jkl-alert-message__icon {
+            padding-top: jkl.rem(3px);
+        }
+
+        .jkl-alert-message__content {
+            padding: jkl.$spacing-xs;
+        }
+
+        .jkl-alert-message__dismiss-button {
+            width: jkl.rem(32px);
+            height: jkl.rem(32px);
+            margin: -#{jkl.rem(4.5px)} -#{jkl.rem(8px)} -#{jkl.rem(4.5px)} auto;
+        }
+
+        .jkl-alert-message__message {
+            @include jkl.text-style("small");
+            margin-left: jkl.$spacing-s;
+            margin-right: jkl.$spacing-s;
+        }
     }
 
     @include jkl.forced-colors-mode {
