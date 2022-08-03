@@ -186,8 +186,8 @@ $_text-styles: (
             }
             @content;
 
-            // Style small is the same size on small and large screens. Skip to generate less CSS.
-            @if $style != "small" {
+            // Styles heading-5 and small are the same size on small and large screens. Skip to generate less CSS.
+            @if $style != "small" and $style != "heading-5" {
                 @include screens.from-medium-device {
                     @each $property, $value in map.get($variants, "large-screen") {
                         #{$property}: $value;
