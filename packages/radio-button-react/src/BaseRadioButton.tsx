@@ -5,21 +5,43 @@ import { RadioButtonProps } from "./RadioButton";
 
 export interface BaseRadioButtonProps extends RadioButtonProps {
     inline?: boolean;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     invalid?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const BaseRadioButton = forwardRef<HTMLInputElement, BaseRadioButtonProps>((props, ref) => {
-    const { id, className, checked, children, label, forceCompact, inline, invalid, name, value, onChange, ...rest } =
-        props;
+    const {
+        id,
+        className,
+        checked,
+        children,
+        label,
+        compact,
+        forceCompact,
+        inline,
+        invalid,
+        name,
+        value,
+        onChange,
+        ...rest
+    } = props;
 
     const inputId = useId(id || "jkl-radio-button", { generateSuffix: !id });
 
     return (
         <div
             className={cn("jkl-radio-button", className, {
-                "jkl-radio-button--compact": forceCompact,
+                "jkl-radio-button--compact": compact || forceCompact,
                 "jkl-radio-button--inline": inline,
                 "jkl-radio-button--error": invalid,
             })}
