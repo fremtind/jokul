@@ -46,18 +46,8 @@ $_slider-rounded: jkl.rem(100px);
         }
     }
 
-    @include jkl.from-medium-device {
-        flex-direction: row;
-        align-items: center;
-
-        &__legend {
-            margin-bottom: 0;
-            margin-right: jkl.$spacing-l;
-        }
-    }
-
     &__inputs {
-        $_slider-offset: 4px;
+        $_slider-offset: 2px;
         display: flex;
         position: relative;
         overflow: hidden;
@@ -77,7 +67,7 @@ $_slider-rounded: jkl.rem(100px);
         justify-content: center;
         z-index: 2;
         cursor: pointer;
-        padding: jkl.$spacing-2xs jkl.$spacing-m;
+        padding: jkl.$spacing-3xs jkl.$spacing-m;
         color: var(--jkl-slider-pill-text);
 
         /* Prevent really short labels to look like circles */
@@ -102,6 +92,44 @@ $_slider-rounded: jkl.rem(100px);
         transition-property: width, transform;
         border-radius: $_slider-rounded;
         @include jkl.motion(standard, expressive);
+    }
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+        align-items: center;
+
+        .jkl-toggle-slider__legend {
+            @include jkl.text-style("body") {
+                font-weight: jkl.$typography-weight-bold;
+            }
+            margin-bottom: 0;
+            margin-right: jkl.$spacing-l;
+        }
+
+        .jkl-toggle-slider__label {
+            @include jkl.text-style("body");
+
+            &--selected {
+                @include jkl.no-grow-bold;
+            }
+        }
+    }
+
+    @include jkl.compact-mode {
+        .jkl-toggle-slider__legend {
+            @include jkl.text-style("small") {
+                font-weight: jkl.$typography-weight-bold;
+            }
+        }
+
+        .jkl-toggle-slider__label {
+            @include jkl.text-style("small");
+            padding: jkl.$spacing-3xs jkl.$spacing-xs;
+
+            &--selected {
+                @include jkl.no-grow-bold;
+            }
+        }
     }
 
     @include jkl.forced-colors-mode {

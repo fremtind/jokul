@@ -10,6 +10,11 @@ interface ToggleSwitchProps extends WithChildren {
     onClick?: MouseEventHandler<HTMLButtonElement>;
     disabled?: boolean;
     helpLabel?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
 }
 
 export const ToggleSwitch: FC<ToggleSwitchProps> = ({
@@ -20,6 +25,7 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
     className,
     disabled,
     helpLabel,
+    compact,
     ...rest
 }) => {
     const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
@@ -33,7 +39,9 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
                 aria-pressed={!!pressed}
                 aria-describedby={describedBy}
                 disabled={disabled}
-                className={cn("jkl-toggle-switch", className)}
+                className={cn("jkl-toggle-switch", className, {
+                    "jkl-toggle-switch--compact": compact,
+                })}
                 onClick={onClick}
             >
                 <span className="jkl-toggle-switch__slider">
@@ -42,7 +50,12 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
                 {children}
             </button>
             {helpLabel && (
-                <SupportLabel id={supportId} className="jkl-toggle-switch__help-label" helpLabel={helpLabel} />
+                <SupportLabel
+                    id={supportId}
+                    className="jkl-toggle-switch__help-label"
+                    compact={compact}
+                    helpLabel={helpLabel}
+                />
             )}
         </div>
     );
