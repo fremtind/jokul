@@ -20,19 +20,6 @@
         @include jkl.screenreader-only;
     }
 
-    *[data-compactlayout] &,
-    &--compact {
-        @include jkl.text-style("small");
-        padding-left: jkl.$spacing-xs;
-        padding-right: jkl.$spacing-xs;
-        padding-bottom: jkl.$spacing-2xs - jkl.rem(1px);
-    }
-
-    *[data-compactlayout] &--bold,
-    &--bold.jkl-table-header--compact {
-        @include jkl.text-style("heading-5");
-    }
-
     @mixin _responsive-table-header {
         display: none;
     }
@@ -45,5 +32,16 @@
 
     .jkl-table--collapse-to-list[data-collapse] & {
         @include _responsive-table-header;
+    }
+
+    @include jkl.compact-mode {
+        @include jkl.text-style("small");
+        padding-left: jkl.$spacing-xs;
+        padding-right: jkl.$spacing-xs;
+        padding-bottom: jkl.$spacing-2xs - jkl.rem(1px);
+
+        &.jkl-table-header--bold {
+            @include jkl.text-style("heading-5");
+        }
     }
 }

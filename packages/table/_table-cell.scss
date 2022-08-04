@@ -33,14 +33,6 @@
         text-align: unset;
     }
 
-    *[data-compactlayout] &,
-    &--compact {
-        @include jkl.text-style("small");
-        padding: jkl.$spacing-xs;
-        padding-top: jkl.$spacing-xs - jkl.rem(1px);
-        padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
-    }
-
     @mixin _responsive-table-header {
         @include jkl.text-style("heading-5");
         content: attr(data-th);
@@ -70,6 +62,13 @@
     .jkl-table-row-expand-button {
         display: flex;
         align-items: center;
+    }
+
+    @include jkl.compact-mode {
+        @include jkl.text-style("small");
+        padding: jkl.$spacing-xs;
+        padding-top: jkl.rem(5px);
+        padding-bottom: jkl.rem(5px);
     }
 }
 
