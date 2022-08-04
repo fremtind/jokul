@@ -24,6 +24,10 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
     );
 };
 
+export const toggleSliderExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact"],
+};
+
 export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [value, setValue] = useState("måned");
     const compact = boolValues?.["Compact"];
