@@ -7,11 +7,6 @@ $_radio-button-height: jkl.rem(48px);
 $_radio-button-line-height: jkl.rem(32px);
 $_radio-button-dot-padding: jkl.rem(4px);
 
-$_radio-button-size--compact: jkl.rem(18px);
-$_radio-button-height--compact: jkl.rem(40px);
-$_radio-button-line-height--compact: jkl.rem(28px);
-$_radio-button-dot-padding--compact: jkl.rem(3px);
-
 $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
 @include jkl.light-mode-variables {
@@ -202,26 +197,29 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         margin-right: jkl.$spacing-l;
     }
 
-    @include jkl.compact-mode {
-        min-height: $_radio-button-height--compact;
+    @include jkl.small-device {
+        $_mobile-radio-button-height: jkl.rem(40px);
+        $_mobile-radio-button-size: jkl.rem(24px);
+        $_mobile-radio-button-line-height: jkl.rem(28px);
+
+        min-height: $_mobile-radio-button-height;
 
         .jkl-radio-button__text {
-            @include jkl.text-style("body/small-screen");
-            margin: (($_radio-button-height--compact - $_radio-button-line-height--compact) * 0.5) 0;
+            margin: (($_mobile-radio-button-height - $_mobile-radio-button-line-height) * 0.5) 0;
             transform: translate3d(0, 0, 0);
         }
 
         .jkl-radio-button__dot {
-            margin: (($_radio-button-height--compact - $_radio-button-size--compact) * 0.5) 0;
+            margin: (($_mobile-radio-button-height - $_mobile-radio-button-size) * 0.5) 0;
             margin-right: jkl.$spacing-xs;
-            height: $_radio-button-size--compact;
-            width: $_radio-button-size--compact;
+            height: $_mobile-radio-button-size;
+            width: $_mobile-radio-button-size;
 
             &::after {
-                left: $_radio-button-dot-padding--compact;
-                top: $_radio-button-dot-padding--compact;
-                height: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
-                width: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
+                left: $_radio-button-dot-padding;
+                top: $_radio-button-dot-padding;
+                height: $_mobile-radio-button-size - (2 * $_radio-button-dot-padding);
+                width: $_mobile-radio-button-size - (2 * $_radio-button-dot-padding);
 
                 @include jkl.forced-colors-mode {
                     top: rem(2.35px);
@@ -231,31 +229,39 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         }
     }
 
-    @include jkl.small-device {
-        min-height: $_radio-button-height--compact;
+    @include jkl.compact-mode {
+        $_compact-radio-button-height: jkl.rem(28px);
+        $_compact-radio-button-size: jkl.rem(18px);
+        $_compact-radio-button-line-height: jkl.rem(24px);
 
-        .jkl-radio-button__text {
-            margin: (($_radio-button-height--compact - $_radio-button-line-height--compact) * 0.5) 0;
-            transform: translate3d(0, 0, 0);
-        }
+        min-height: $_compact-radio-button-height;
 
         .jkl-radio-button__dot {
-            margin: (($_radio-button-height--compact - $_radio-button-size--compact) * 0.5) 0;
+            margin: (($_compact-radio-button-height - $_compact-radio-button-size) * 0.5) 0;
             margin-right: jkl.$spacing-xs;
-            height: $_radio-button-size--compact;
-            width: $_radio-button-size--compact;
+            height: $_compact-radio-button-size;
+            width: $_compact-radio-button-size;
 
             &::after {
-                left: $_radio-button-dot-padding--compact;
-                top: $_radio-button-dot-padding--compact;
-                height: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
-                width: $_radio-button-size--compact - (2 * $_radio-button-dot-padding--compact);
+                left: $_radio-button-dot-padding;
+                top: $_radio-button-dot-padding;
+                height: $_compact-radio-button-size - (2 * $_radio-button-dot-padding);
+                width: $_compact-radio-button-size - (2 * $_radio-button-dot-padding);
 
                 @include jkl.forced-colors-mode {
                     top: rem(2.35px);
                     left: rem(2px);
                 }
             }
+        }
+
+        .jkl-radio-button__label {
+            @include jkl.text-style("small");
+        }
+
+        .jkl-radio-button__text {
+            margin: (($_compact-radio-button-height - $_compact-radio-button-line-height) * 0.5) 0;
+            transform: translate3d(0, 0, 0);
         }
     }
 }
