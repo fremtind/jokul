@@ -6,6 +6,15 @@ import { WithChildren } from "../types";
 export interface LabelProps extends WithChildren {
     id?: string;
     variant?: LabelVariant;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     srOnly?: boolean;
     standAlone?: boolean;
@@ -15,6 +24,7 @@ export interface LabelProps extends WithChildren {
 
 export const Label: FC<LabelProps> = ({
     variant = "small",
+    compact,
     forceCompact,
     srOnly,
     children,
@@ -25,7 +35,7 @@ export const Label: FC<LabelProps> = ({
 }) => {
     const labelClassNames = classNames("jkl-label", className, {
         [`jkl-label--${variant}`]: variant,
-        "jkl-label--compact": forceCompact,
+        "jkl-label--compact": compact || forceCompact,
         "jkl-label--sr-only": srOnly,
     });
 
