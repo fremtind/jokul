@@ -3,12 +3,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../src";
 
 export const tagExampleKnobs: ExampleKnobsProps = {
-    boolProps: [
-        {
-            defaultValue: false,
-            prop: "Dismissable",
-        },
-    ],
+    boolProps: ["Compact", "Dismissable"],
 };
 
 type TagType = "Info" | "Success" | "Warning" | "Error";
@@ -61,7 +56,11 @@ const ExampleTagWrapper: React.FC<ExampleComponentProps & { variant?: TagType }>
     }
 
     return (
-        <C className="jkl-spacing-2xs--right jkl-spacing-2xs--top" dismissAction={dismissAction}>
+        <C
+            className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
+            compact={boolValues?.["Compact"]}
+            dismissAction={dismissAction}
+        >
             {getTagContent(variant)}
         </C>
     );

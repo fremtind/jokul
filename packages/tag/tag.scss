@@ -17,7 +17,7 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
     background-color: $_tag-background-color;
     border-radius: jkl.rem(4px);
     color: $_tag-text-color;
-    padding: jkl.$spacing-3xs jkl.$spacing-xs;
+    padding: jkl.$spacing-3xs jkl.rem(6px);
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -66,8 +66,9 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
         background-color: transparent;
         cursor: pointer;
         color: inherit;
-        margin-left: jkl.$spacing-2xs;
+        margin-left: 0;
         margin-right: jkl.rem(-4px);
+        margin-top: jkl.rem(1px);
 
         & > .jkl-icon-button__icon {
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
@@ -106,5 +107,17 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
             border: revert;
             background-color: revert;
         }
+    }
+
+    @include jkl.from-medium-device {
+        padding: jkl.$spacing-2xs jkl.$spacing-xs;
+
+        .jkl-tag__dismiss-action {
+            margin-left: jkl.$spacing-2xs;
+        }
+    }
+
+    @include jkl.compact-mode {
+        padding: 0 jkl.$spacing-3xs;
     }
 }
