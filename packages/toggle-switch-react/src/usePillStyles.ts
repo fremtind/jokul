@@ -18,7 +18,7 @@ function throttle<R, A extends any[]>(fn: (...args: A) => R) {
     };
 }
 
-export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform: boolean) => {
+export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform: boolean, dependencies: unknown[]) => {
     const [width, setWidth] = useState(0);
     const [distance, setDistance] = useState(0);
 
@@ -32,7 +32,8 @@ export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform:
 
             setDistance(translateDistance);
         }
-    }, [ref, shouldTransform]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ref, shouldTransform, ...dependencies]);
 
     const throttledSetStyles = useMemo(() => throttle(setStyles), [setStyles]);
 
