@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.11 (2022-08-04)
+
+### Bug Fixes
+
+-   fjern checkmark fra søkbar select og bruk pil i stedet ([e1d2128](https://github.com/fremtind/jokul/commit/e1d21287fd2262f22357b03890688e7fdee476b2))
+-   ord har nå alltid like stod plass dersom de er i fokus eller selected ([734979b](https://github.com/fremtind/jokul/commit/734979b2bdd4d3fd8e85e9b36bc0a442386a0aef))
+
 ## [8.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@8.0.2...@fremtind/jkl-select@8.0.3) (2022-06-13)
 
 ### Bug Fixes
