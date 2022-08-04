@@ -14,6 +14,27 @@
     --jkl-tab-focus-border-color: #{jkl.$color-snohvit};
 }
 
+.jkl-tabs {
+    @include jkl.compact-mode {
+        @include jkl.text-style("small");
+        padding: 0;
+
+        & > [role="tablist"] {
+            padding: 0;
+        }
+
+        & > [role="tablist"] > [role="tab"] {
+            @include jkl.text-style("small");
+            padding: 0;
+            padding-right: jkl.rem(32px);
+
+            &[aria-selected="true"] {
+                @include jkl.no-grow-bold;
+            }
+        }
+    }
+}
+
 .jkl-tablist {
     position: relative;
     display: flex;

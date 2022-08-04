@@ -1,20 +1,26 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TabList, Tab, Tabs, TabPanel } from "../src";
 
-export const TabsExample: FC<ExampleComponentProps> = () => {
+export const tabsExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Compact"],
+};
+
+export const TabsExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
-        <Tabs>
+        <Tabs compact={boolValues?.["Compact"]}>
             <TabList aria-label="tabs">
                 <Tab>Bedrifter</Tab>
                 <Tab>Bedriftansvarlige</Tab>
                 <Tab>Rådgivere</Tab>
             </TabList>
-            <TabPanel className="jkl-spacing-m--all">Innhold for Bedrifter</TabPanel>
-
-            <TabPanel className="jkl-spacing-m--all">Innhold for Bedriftansvarlige</TabPanel>
-
-            <TabPanel className="jkl-spacing-m--all">
+            <TabPanel className={boolValues?.["Compact"] ? "jkl-spacing-xs--all" : "jkl-spacing-m--all"}>
+                Innhold for Bedrifter
+            </TabPanel>
+            <TabPanel className={boolValues?.["Compact"] ? "jkl-spacing-xs--all" : "jkl-spacing-m--all"}>
+                Innhold for Bedriftansvarlige
+            </TabPanel>
+            <TabPanel className={boolValues?.["Compact"] ? "jkl-spacing-xs--all" : "jkl-spacing-m--all"}>
                 Innhold for Rådgivere
                 <Tabs>
                     <TabList aria-label="subtabs">
@@ -29,8 +35,8 @@ export const TabsExample: FC<ExampleComponentProps> = () => {
     );
 };
 
-export const tabsExampleCode = `
-<Tabs>
+export const tabsExampleCode: CodeExample = ({ boolValues }) => `
+<Tabs compact={${boolValues?.["Compact"]}}>
     <TabList aria-label="tabs">
         <Tab>Bedrifter</Tab>
         <Tab>Bedriftansvarlige</Tab>

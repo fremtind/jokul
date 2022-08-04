@@ -1,11 +1,17 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
-import cx from "classnames";
+import cn from "classnames";
 import { nanoid } from "nanoid";
 import React, { useState, useCallback, useEffect } from "react";
+import { TabsContextProvider } from "./tabsContext";
 
 export interface TabsProps extends WithChildren {
     className?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
     onChange?: (tabIndex: number) => void;
     defaultTab?: number;
 }
@@ -16,7 +22,7 @@ export interface TabsProps extends WithChildren {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
+export const Tabs = ({ onChange, defaultTab, compact = false, ...props }: TabsProps) => {
     const [activeIndex, setActiveIndex] = useState(defaultTab ?? 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
@@ -75,12 +81,17 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
         resolveIDs();
     }, [resolveIDs]);
 
-    const classes = cx("jkl-tabs", props.className);
-
     return (
-        <div {...props} className={classes}>
-            {renderTabList()}
-            {renderTabPanels()}
-        </div>
+        <TabsContextProvider state={{ compact }}>
+            <div
+                {...props}
+                className={cn("jkl-tabs", props.className, {
+                    "jkl-tabs--compact": compact,
+                })}
+            >
+                {renderTabList()}
+                {renderTabPanels()}
+            </div>
+        </TabsContextProvider>
     );
 };
