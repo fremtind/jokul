@@ -45,7 +45,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             errorLabel={errorLabel}
             autoExpand={autoExpand}
             startOpen={startOpen}
-            forceCompact={compact}
+            compact={compact}
             counter={medTeller ? { maxLength: 200, hideProgress: skjulProgress } : undefined}
             variant={variant}
             value={value}
@@ -63,7 +63,7 @@ export const textAreaExampleCode = ({ choiceValues, boolValues }: ExampleCompone
         boolValues?.["Med feil"] ? `"Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."` : `{undefined}`
     }
     autoExpand={${boolValues?.["Ekspanderende"]}}
-    forceCompact={${boolValues?.["Compact"]}}
+    compact={${boolValues?.["Compact"]}}
     startOpen={${boolValues?.["Starter åpen"]}}
     counter={${
         boolValues?.["Med teller"] ? `{ maxLength: 200, hideProgress: ${boolValues?.["Skjul progress"]} }` : undefined

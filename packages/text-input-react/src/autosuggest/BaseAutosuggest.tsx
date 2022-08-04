@@ -26,6 +26,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
+    compact,
     variant = "small",
     noHitsMessage,
     maxNumberOfHits,
@@ -64,10 +65,11 @@ function BaseAutosuggest<T>({
                 clearSelection,
             }) => {
                 return (
-                    <div className={`jkl-autosuggest ${className}`}>
+                    <div className={cn("jkl-autosuggest", className, { "jkl-autosuggest--compact": compact })}>
                         {label && (
                             <Label
                                 variant={variant}
+                                compact={compact}
                                 {...labelProps}
                                 {...getLabelProps({
                                     id: lid,
@@ -77,7 +79,11 @@ function BaseAutosuggest<T>({
                                 {label}
                             </Label>
                         )}
-                        {leadText && <p className="jkl-body jkl-spacing-l--bottom">{leadText}</p>}
+                        {leadText && (
+                            <p className={cn("jkl-spacing-l--bottom", { "jkl-body": !compact, "jkl-small": compact })}>
+                                {leadText}
+                            </p>
+                        )}
                         <div
                             className={cn("jkl-autosuggest__input-group", {
                                 "jkl-autosuggest__input-group--open": isOpen && items.length !== 0,
@@ -119,7 +125,7 @@ function BaseAutosuggest<T>({
                                 maxNumberOfHits={maxNumberOfHits}
                             />
                         )}
-                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} />
+                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} compact={compact} />
                     </div>
                 );
             }}

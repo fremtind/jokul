@@ -2,9 +2,6 @@
 
 $_controller-button-padding: jkl.$spacing-s;
 
-$_autosuggest-item-height: jkl.rem(28px);
-$_autosuggest-item-font-size: jkl.rem(18px);
-
 @include jkl.light-mode-variables {
     --jkl-autosuggest-text-color: #{jkl.$color-granitt};
     --jkl-autosuggest-menu-background-color: #{jkl.$color-hvit};
@@ -125,8 +122,8 @@ $_autosuggest-item-font-size: jkl.rem(18px);
         border-bottom: 1px solid transparent;
         cursor: pointer;
         display: block;
-        line-height: $_autosuggest-item-height;
-        font-size: $_autosuggest-item-font-size;
+
+        @include jkl.text-style("body");
         margin-bottom: jkl.$spacing-m;
 
         &--active {
@@ -144,6 +141,17 @@ $_autosuggest-item-font-size: jkl.rem(18px);
                 border-top: 1px solid Highlight;
                 border-bottom: 1px solid Highlight;
             }
+        }
+    }
+
+    @include jkl.compact-mode {
+        .jkl-autosuggest__menu {
+            padding: jkl.$spacing-2xs;
+        }
+
+        .jkl-autosuggest__item {
+            @include jkl.text-style("small");
+            margin-bottom: jkl.rem(1px);
         }
     }
 }

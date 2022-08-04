@@ -5,14 +5,16 @@
 @use "./autosuggest";
 
 $_text-input-height: jkl.rem(48px);
-$_text-input-height--compact: jkl.rem(40px);
+$_text-input-height--mobile: jkl.rem(46px);
+$_text-input-height--compact: jkl.rem(32px);
 $_text-input-button-width: jkl.rem(48px);
 $_text-input-padding: jkl.$spacing-xs jkl.$spacing-s;
 
 // These are used to calculate textarea height,
 // and MUST equal the line height in the text style used
 $_text-input-line-height: jkl.rem(32px);
-$_text-input-line-height--compact: jkl.rem(28px);
+$_text-input-line-height--mobile: jkl.rem(28px);
+$_text-input-line-height--compact: jkl.rem(24px);
 
 $_text-input-focus-color: jkl.$color-granitt;
 $_text-input-selection-color: color.scale(
@@ -216,49 +218,69 @@ $_text-input-selection-color--inverted: color.scale(
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 
-    /* Modifications for inline version */
     &--inline {
         display: inline-block;
         margin: jkl.rem(-2px) jkl.rem(4px);
     }
 
-    /* Modifications for input with action */
     &--action {
         .jkl-text-input__input {
             padding-right: $_text-input-height;
         }
     }
 
-    /* Modifications for compact variant (also inline) */
-    *[data-compactlayout] &,
-    &--compact,
-    &--inline {
+    @include jkl.small-device {
         .jkl-text-input__input {
-            @include jkl.text-style("body/small-screen");
-            height: $_text-input-height--compact;
+            height: $_text-input-height--mobile;
         }
 
         .jkl-text-input__action-button {
-            height: $_text-input-height--compact;
+            height: $_text-input-height--mobile;
+            width: $_text-input-height--mobile;
         }
+    }
+}
 
-        .jkl-text-input__action-icon {
-            width: jkl.rem(18px);
-        }
+.jkl-autosuggest--compact,
+[data-compactlayout] .jkl-text-input,
+.jkl-text-input--compact,
+.jkl-text-input--inline {
+    .jkl-text-input__input {
+        @include jkl.text-style("small");
+        height: $_text-input-height--compact;
+        padding: jkl.rem(3px) jkl.rem(4px);
+    }
+
+    .jkl-text-input__action-button {
+        height: $_text-input-height--compact;
+        width: $_text-input-height--compact;
+        margin-left: jkl.rem(-32px);
+    }
+
+    .jkl-text-input__action-icon {
+        width: jkl.rem(18px);
     }
 }
 
 .jkl-text-input:not(.jkl-text-area) {
     .jkl-text-input__input {
         line-height: $_text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+        padding-bottom: jkl.rem(4px);
+
+        @include jkl.small-device {
+            line-height: $_text-input-height--mobile;
+            padding-bottom: jkl.rem(4px);
+        }
     }
 }
 
-*[data-compactlayout] .jkl-text-input:not(.jkl-text-area),
+.jkl-autosuggest--compact,
+[data-compactlayout] .jkl-text-input:not(.jkl-text-area),
 .jkl-text-input--compact:not(.jkl-text-area),
 .jkl-text-input--inline:not(.jkl-text-area) {
     .jkl-text-input__input {
         line-height: $_text-input-height--compact; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
+        padding-bottom: 0;
     }
 }
 
@@ -400,7 +422,7 @@ $_text-input-selection-color--inverted: color.scale(
             color: var(--jkl-text-input-error-text-color);
         }
 
-        *[data-compactlayout] &,
+        [data-compactlayout] &,
         &.jkl-text-input--compact,
         &.jkl-text-input--inline {
             .jkl-text-input__input {
@@ -433,6 +455,7 @@ $_text-input-selection-color--inverted: color.scale(
 @for $num from 3 through 10 {
     $height: $_text-input-line-height * $num + jkl.$spacing-xs * 2;
     $small-height: $_text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
+    $compact-height: $_text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
 
     .jkl-text-input__input--#{$num}-rows:focus,
     .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
@@ -452,13 +475,13 @@ $_text-input-selection-color--inverted: color.scale(
         }
 
         .jkl-text-input--compact & {
-            height: $small-height;
-            min-height: $small-height; // (#2751)
+            height: $compact-height;
+            min-height: $compact-height; // (#2751)
         }
     }
 
     .jkl-text-area--start-open.jkl-text-input--compact .jkl-text-input__input--#{$num}-rows {
-        height: $small-height;
-        min-height: $small-height; // (#2751)
+        height: $compact-height;
+        min-height: $compact-height; // (#2751)
     }
 }
