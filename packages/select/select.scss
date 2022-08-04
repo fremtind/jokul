@@ -210,36 +210,18 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
 
         &:focus {
-            color: var(--jkl-select-focus-color);
-
             &::before {
                 @include jkl.decorative($content: "→ ");
                 padding-right: jkl.$spacing-xs;
             }
         }
 
-        &:hover {
-            color: var(--jkl-select-hover-option-color);
+        &[aria-selected="true"]:not(:focus) {
+            padding-right: jkl.$spacing-l;
         }
 
-        &[aria-selected="true"]:not(:focus) {
-            &::after {
-                $mask-image-url: url("data:image/svg+xml,%3Csvg width='17' height='13' viewBox='0 0 17 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 8.52632L4.6 12L16 1' stroke='currentColor'/%3E%3C/svg%3E");
-                background-color: var(--jkl-select-focus-color);
-                content: "";
-
-                /* autoprefixer with Browserlist="Chrome >= 70" will not generate
-                 * a prefix for this even if Chrome 70 doesn't support mask-image
-                 */
-                -webkit-mask-image: $mask-image-url;
-                mask-image: $mask-image-url;
-                display: inline-block;
-                margin-left: jkl.$spacing-2xs;
-                margin-top: jkl.$spacing-xs;
-                width: 17px;
-                height: 13px;
-                flex-shrink: 0;
-            }
+        &:hover {
+            color: var(--jkl-select-hover-option-color);
         }
     }
 
