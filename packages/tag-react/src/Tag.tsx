@@ -8,6 +8,11 @@ export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonEl
 }
 
 export interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
     dismissAction?: DismissAction;
 }
 
@@ -29,15 +34,16 @@ function getDisplayName(variant?: Variant) {
 }
 
 function tagFactory(variant?: Variant) {
-    const Tag: FC<TagProps> = ({ className, dismissAction, children, ...rest }) => (
+    const Tag: FC<TagProps> = ({ className, compact = false, dismissAction, children, ...rest }) => (
         <span
             className={cx(
                 "jkl-tag",
                 {
-                    ["jkl-tag--info"]: variant === "info",
-                    ["jkl-tag--error"]: variant === "error",
-                    ["jkl-tag--warning"]: variant === "warning",
-                    ["jkl-tag--success"]: variant === "success",
+                    "jkl-tag--compact": compact,
+                    "jkl-tag--info": variant === "info",
+                    "jkl-tag--error": variant === "error",
+                    "jkl-tag--warning": variant === "warning",
+                    "jkl-tag--success": variant === "success",
                 },
                 className,
             )}
