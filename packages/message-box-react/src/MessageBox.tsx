@@ -1,11 +1,20 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { AriaRole, forwardRef } from "react";
+import { DismissButton } from "./DismissButton";
 
 export interface MessageBoxProps extends WithChildren {
+    id?: string;
     title?: string;
     fullWidth?: boolean;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     */
+    compact?: boolean;
+    /**
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     className?: string;
     dismissed?: boolean;
@@ -110,8 +119,10 @@ const getRole = (messageType: messageTypes) => {
 function messageFactory(messageType: messageTypes) {
     const MessageBox = forwardRef<HTMLDivElement, MessageBoxProps>((props, ref) => {
         const {
+            id,
             title,
             fullWidth,
+            compact,
             forceCompact,
             className = "",
             dismissed,
@@ -121,34 +132,34 @@ function messageFactory(messageType: messageTypes) {
             ...rest
         } = props;
 
-        const componentClassName = cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
-            "jkl-message-box--full": fullWidth,
-            "jkl-message-box--compact": forceCompact,
-            "jkl-message-box--dismissed": dismissed,
-        });
+        const boxId = useId(id || "jkl-message-box", { generateSuffix: !id });
 
         const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
-
-        const newChildren = hasStringChild?.[0] ? <p className="jkl-body">{children}</p> : children;
+        const newChildren = hasStringChild?.[0] ? <p>{children}</p> : children;
 
         return (
             <div
                 {...rest}
                 ref={ref}
-                className={componentClassName}
+                className={cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
+                    "jkl-message-box--full": fullWidth,
+                    "jkl-message-box--compact": compact || forceCompact,
+                    "jkl-message-box--dismissed": dismissed,
+                })}
                 role={role || getRole(messageType)}
                 data-theme="light"
+                data-compactlayout={compact || forceCompact ? "true" : undefined}
             >
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
                     {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
-                    {newChildren}
+                    <p className="jkl-message-box__message">{newChildren}</p>
                 </div>
                 {dismissAction?.handleDismiss && (
-                    <IconButton
+                    <DismissButton
+                        aria-controls={boxId}
                         className="jkl-message-box__dismiss-button"
-                        iconType="clear"
-                        buttonTitle={dismissAction.buttonTitle || "Lukk"}
+                        label={dismissAction.buttonTitle || "Lukk"}
                         onClick={dismissAction.handleDismiss}
                     />
                 )}

@@ -40,7 +40,6 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^10.0.9",
-        "@fremtind/jkl-icon-button-react": "^1.0.10",
         "@fremtind/jkl-message-box": "^6.0.9",
         "@fremtind/jkl-react-hooks": "^9.1.5",
         "classnames": "^2.2.6"
