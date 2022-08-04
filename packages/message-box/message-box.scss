@@ -54,6 +54,10 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         }
     }
 
+    &__message {
+        @include jkl.text-style("body");
+    }
+
     &__title {
         margin-bottom: jkl.$spacing-xs;
 
@@ -125,24 +129,33 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     @include jkl.compact-mode {
-        .jkl-alert-message__icon {
-            padding-top: jkl.rem(3px);
+        padding: jkl.$spacing-xs;
+        padding-left: jkl.rem(32px);
+
+        .jkl-message-box__icon {
+            height: jkl.rem(12px);
+            left: jkl.rem(15px);
+            top: jkl.rem(19.2px);
         }
 
-        .jkl-alert-message__content {
+        .jkl-message-box__title {
+            @include jkl.text-style("heading-5") {
+                line-height: jkl.rem(20.8px);
+            }
+        }
+
+        .jkl-message-box__content {
             padding: jkl.$spacing-xs;
         }
 
-        .jkl-alert-message__dismiss-button {
+        .jkl-message-box__dismiss-button {
             width: jkl.rem(32px);
             height: jkl.rem(32px);
-            margin: -#{jkl.rem(4.5px)} -#{jkl.rem(8px)} -#{jkl.rem(4.5px)} auto;
+            margin: jkl.rem(2.5px) 0 -#{jkl.rem(4.5px)} auto;
         }
 
-        .jkl-alert-message__message {
+        .jkl-message-box__message {
             @include jkl.text-style("small");
-            margin-left: jkl.$spacing-s;
-            margin-right: jkl.$spacing-s;
         }
     }
 
