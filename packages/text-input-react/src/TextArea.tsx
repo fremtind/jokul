@@ -28,11 +28,19 @@ export interface Props extends BaseProps {
     /** @deprecated Foretrekk counter-propen sin maxLength for å la brukerne fullføre en tankerekke før de redigerer seg innenfor maksgrensen */
     maxLength?: number;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "compact" | "standAlone">;
     helpLabel?: string;
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     /** Sett antall rader skjemafeltet ekspanderes til ved focus. Innholdet scroller om feltet fylles med mer innhold enn det er plass til. */
     rows?: number;
@@ -57,6 +65,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         placeholder = " ",
         autoExpand = false,
         startOpen = false,
+        compact = false,
         forceCompact = false,
         value,
         onBlur,
@@ -68,7 +77,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         "jkl-text-area--start-open": startOpen,
         "jkl-text-area--auto-expand": autoExpand,
         "jkl-text-area--with-counter": typeof counter !== "undefined",
-        "jkl-text-input--compact": forceCompact,
+        "jkl-text-input--compact": compact || forceCompact,
     });
     const uid = useId(id || "jkl-text-area", { generateSuffix: !id });
     const supportId = useId("jkl-support-label");
@@ -134,7 +143,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                 {...labelProps}
                 standAlone
                 srOnly={inline || labelProps?.srOnly}
-                forceCompact={forceCompact}
+                compact={compact || forceCompact}
                 htmlFor={uid}
             >
                 {label}
@@ -202,7 +211,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                 id={supportId}
                 helpLabel={helpLabel}
                 errorLabel={errorLabel || counterLabel}
-                forceCompact={forceCompact}
+                compact={compact || forceCompact}
             />
         </div>
     );

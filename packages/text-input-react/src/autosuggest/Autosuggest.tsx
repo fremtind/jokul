@@ -25,6 +25,11 @@ export type CommonProps = (
     errorLabel?: string;
     helpLabel?: string;
     variant?: "large" | "medium" | "small";
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
     placeholder?: string;
     noHitsMessage?: ReactNode;
     maxNumberOfHits?: number;

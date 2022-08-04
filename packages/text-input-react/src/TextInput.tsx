@@ -13,12 +13,20 @@ export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>,
 
 export interface Props extends BaseProps {
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "compact" | "standAlone">;
     helpLabel?: string;
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     "data-testautoid"?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     inline?: boolean;
     action?: Action;
@@ -36,6 +44,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             errorLabel,
             variant,
             inline,
+            compact,
             forceCompact,
             action,
             "data-testautoid": testAutoId,
@@ -52,7 +61,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
             {
                 "jkl-text-input": true,
                 "jkl-text-input--inline": inline,
-                "jkl-text-input--compact": forceCompact,
+                "jkl-text-input--compact": compact || forceCompact,
                 "jkl-text-input--action": action,
             },
             className,
@@ -64,7 +73,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     {...labelProps}
                     srOnly={inline || labelProps?.srOnly}
                     standAlone
-                    forceCompact={forceCompact}
+                    compact={compact || forceCompact}
                     htmlFor={uid}
                 >
                     {label}
@@ -94,7 +103,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>(
                     id={supportId}
                     helpLabel={helpLabel}
                     errorLabel={errorLabel}
-                    forceCompact={forceCompact}
+                    compact={compact || forceCompact}
                     srOnly={inline}
                 />
             </div>

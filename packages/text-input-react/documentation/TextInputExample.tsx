@@ -51,7 +51,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
             inline={inline}
-            forceCompact={compact}
+            compact={compact}
             variant={variant}
             action={action}
         />
@@ -76,7 +76,7 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
     name="fodselsnummer"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Fødselsnummer består av 11 siffer"` : `{undefined}`}
     errorLabel=${boolValues?.["Med feil"] ? `"Du må fylle ut fødselsnummer, 11 siffer."` : `{undefined}`}
-    forceCompact={${boolValues?.["Compact"]}}
+    compact={${boolValues?.["Compact"]}}
     variant={${choiceValues?.["Variant"]}}
     action={${
         boolValues?.["Med handling"]
