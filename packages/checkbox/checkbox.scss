@@ -223,6 +223,26 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
         }
     }
 
+    @include jkl.small-device {
+        $_checkbox-height--mobile: jkl.rem(40px);
+        $_checkbox-box-size--mobile: jkl.rem(24px);
+        $_checkbox-line-height--mobile: jkl.rem(28px);
+
+        min-height: $_checkbox-height--mobile;
+
+        .jkl-checkbox__check-mark {
+            height: $_checkbox-box-size--mobile;
+            width: $_checkbox-box-size--mobile;
+            margin: (($_checkbox-height--mobile - $_checkbox-box-size--mobile) * 0.5) 0;
+            margin-right: jkl.$spacing-xs;
+        }
+
+        .jkl-checkbox__check-text {
+            margin: (($_checkbox-height--mobile - $_checkbox-line-height--mobile) * 0.5) 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
     @include jkl.compact-mode {
         @include jkl.text-style("small");
 
@@ -241,26 +261,6 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 
         .jkl-checkbox__check-text {
             margin: (($_checkbox-height--compact - $_checkbox-line-height--compact) * 0.5) 0;
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-    @include jkl.small-device {
-        $_checkbox-height--mobile: jkl.rem(40px);
-        $_checkbox-box-size--mobile: jkl.rem(24px);
-        $_checkbox-line-height--mobile: jkl.rem(28px);
-
-        min-height: $_checkbox-height--mobile;
-
-        .jkl-checkbox__check-mark {
-            height: $_checkbox-box-size--mobile;
-            width: $_checkbox-box-size--mobile;
-            margin: (($_checkbox-height--mobile - $_checkbox-box-size--mobile) * 0.5) 0;
-            margin-right: jkl.$spacing-xs;
-        }
-
-        .jkl-checkbox__check-text {
-            margin: (($_checkbox-height--mobile - $_checkbox-line-height--mobile) * 0.5) 0;
             transform: translate3d(0, 0, 0);
         }
     }
