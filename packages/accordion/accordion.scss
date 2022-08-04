@@ -46,12 +46,6 @@
             &-text {
                 @include jkl.no-grow-bold;
             }
-
-            &:hover {
-                .jkl-accordion-item__arrow {
-                    transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
-                }
-            }
         }
     }
 
@@ -69,6 +63,10 @@
 
         &:hover {
             cursor: pointer;
+
+            .jkl-accordion-item__arrow {
+                transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
+            }
         }
 
         html:not([data-mousenavigation]) &:focus {
@@ -83,8 +81,8 @@
         transform: translateY(-50%);
         color: inherit;
 
-        $_arrow-height: jkl.rem(14px);
-        $_arrow-width: jkl.rem(12px);
+        $_arrow-height: jkl.rem(16px);
+        $_arrow-width: jkl.rem(13px);
 
         height: $_arrow-height;
         width: $_arrow-width;
@@ -102,6 +100,8 @@
             margin: 0;
             padding: 0;
             display: inline-block;
+            position: absolute;
+            left: 0;
             height: $_arrow-height;
             width: $_arrow-width;
             @include jkl.motion;
@@ -109,11 +109,19 @@
             transition-property: transform;
         }
 
+        &-up {
+            top: 100%;
+        }
+
+        &-down {
+            top: 0;
+        }
+
         &--expanded {
             .jkl-accordion-item__arrow-up,
             .jkl-accordion-item__arrow-down {
                 @include jkl.motion("exit", "productive");
-                transform: translate(0, -135%);
+                transform: translate(0, -100%);
             }
         }
 

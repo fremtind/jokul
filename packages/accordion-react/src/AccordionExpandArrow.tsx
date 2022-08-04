@@ -14,7 +14,7 @@ export const AccordionExpandArrow: FC<Props> = ({ expanded = false, className })
             })}
         >
             <svg
-                className="jkl-accordion-item__arrow-up"
+                className="jkl-accordion-item__arrow-down"
                 viewBox="0 0 12 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ export const AccordionExpandArrow: FC<Props> = ({ expanded = false, className })
                 />
             </svg>
             <svg
-                className="jkl-accordion-item__arrow-down"
+                className="jkl-accordion-item__arrow-up"
                 viewBox="0 0 12 14"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
