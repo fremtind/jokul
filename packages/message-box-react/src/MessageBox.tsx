@@ -10,6 +10,7 @@ export interface MessageBoxProps extends WithChildren {
     fullWidth?: boolean;
     /**
      * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
      */
     compact?: boolean;
     /**
