@@ -32,6 +32,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         align-self: flex-start;
         padding-top: jkl.rem(7px);
         height: jkl.rem(18px);
+        flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
