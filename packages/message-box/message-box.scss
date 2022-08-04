@@ -32,8 +32,9 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__icon {
         position: absolute;
-        left: jkl.$spacing-m;
-        height: jkl.rem(24px);
+        left: jkl.rem(20.8px);
+        top: jkl.rem(27.2px);
+        height: jkl.rem(18px);
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
@@ -62,25 +63,23 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     &__dismiss-button {
         @include jkl.reset-outline;
         background-color: transparent;
+        border-radius: jkl.rem(3px);
         padding: 0;
-        margin-left: auto;
-        margin-top: jkl.$spacing-3xs;
-        color: inherit;
         cursor: pointer;
-        width: jkl.rem(20px);
-        height: jkl.rem(20px);
 
-        align-self: flex-start;
-        flex-shrink: 0;
+        // Sørg for å ha en stor nok touch target.
+        width: jkl.rem(44px);
+        height: jkl.rem(44px);
+        margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
 
+        color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
-            margin-top: jkl.rem(-1px);
-            width: jkl.rem(32px);
-            height: jkl.rem(32px);
-            padding: jkl.rem(4px);
         }
+
+        align-self: flex-start;
+        flex-shrink: 0;
 
         &:hover {
             color: $_dismiss-hover-color;
@@ -89,47 +88,13 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
         &:focus {
             @include jkl.keyboard-navigation {
-                position: relative;
+                outline: 2px solid $_dismiss-focus-border-color;
 
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: jkl.rem(-2px);
-                    right: jkl.rem(-2px);
-                    bottom: jkl.rem(-2px);
-                    left: jkl.rem(-2px);
-                    box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
+                @include jkl.forced-colors-mode {
+                    outline: 2px solid ButtonText;
+                    outline-offset: 2px;
                 }
             }
-        }
-    }
-
-    &--compact {
-        padding: jkl.$spacing-m;
-        padding-left: jkl.rem(48px);
-        max-width: $_message-width--compact;
-
-        .jkl-message-box__content {
-            @include jkl.text-style("small");
-
-            & > :not(.jkl-message-box__title) {
-                margin-top: 0;
-            }
-
-            /* Hvis Dismissable, gi plass mellom tekst og Lukk-knapp. */
-            &:not(:last-child) {
-                margin-right: jkl.$spacing-s;
-            }
-        }
-
-        .jkl-message-box__icon {
-            left: jkl.$spacing-s;
-        }
-
-        .jkl-message-box__title {
-            margin-bottom: jkl.$spacing-3xs;
-
-            @include jkl.text-style("heading-5");
         }
     }
 
@@ -157,6 +122,28 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
         transition: visibility 0ms $_dismiss-animation-duration;
         visibility: hidden;
+    }
+
+    @include jkl.compact-mode {
+        .jkl-alert-message__icon {
+            padding-top: jkl.rem(3px);
+        }
+
+        .jkl-alert-message__content {
+            padding: jkl.$spacing-xs;
+        }
+
+        .jkl-alert-message__dismiss-button {
+            width: jkl.rem(32px);
+            height: jkl.rem(32px);
+            margin: -#{jkl.rem(4.5px)} -#{jkl.rem(8px)} -#{jkl.rem(4.5px)} auto;
+        }
+
+        .jkl-alert-message__message {
+            @include jkl.text-style("small");
+            margin-left: jkl.$spacing-s;
+            margin-right: jkl.$spacing-s;
+        }
     }
 
     @include jkl.forced-colors-mode {

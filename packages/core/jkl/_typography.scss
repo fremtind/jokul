@@ -175,6 +175,7 @@ $_text-styles: (
 /// Gir deg responsive font-size, line-height og font-weight basert på navnet på typografien.
 /// Du kan overstyre standardverdier ved å bruke `@content`. Dette er ment som en "escape hatch".
 /// Ikke tukle med typografiskalaen med mindre du har en god grunn til det.
+/// @param {"title" | "heading-1" | "heading-2" | "heading-3" | "heading-4" | "heading-5" | "body" | "small" | "title/large-screen" | "heading-1/large-screen" | "heading-2/large-screen" | "heading-3/large-screen" | "heading-4/large-screen" | "heading-5/large-screen" | "body/large-screen" | "small/large-screen" | "title/small-screen" | "heading-1/small-screen" | "heading-2/small-screen" | "heading-3/small-screen" | "heading-4/small-screen" | "heading-5/small-screen" | "body/small-screen" | "small/small-screen"} $style-name - Ønsket stilnavn. Støtter å hente small-screen og large-screen også, om du trenger stilene fra en spesifik skjermstørrelse.
 /// @content Plasseres alltid etter mixinen har satt sine verdier, slik at du kan velge å overstyre deler av dem.
 /// @example
 ///     .class {
