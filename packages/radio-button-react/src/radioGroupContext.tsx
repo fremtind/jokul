@@ -5,7 +5,16 @@ type RadioGroupContext = {
     name: string | undefined;
     value: string | undefined;
     inline: boolean;
-    forceCompact: boolean;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
+    forceCompact?: boolean;
     invalid: boolean;
     onChange: ChangeEventHandler<HTMLInputElement> | undefined;
 };
@@ -17,6 +26,7 @@ const radioGroupContext = createContext<RadioGroupContext>({
         return;
     },
     inline: false,
+    compact: false,
     forceCompact: false,
     invalid: false,
 });
