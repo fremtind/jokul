@@ -8,9 +8,10 @@ import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react"
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
+import { ToggleSlider } from "@fremtind/jkl-toggle-switch-react";
 import { motion } from "framer-motion";
-import type { HeadProps } from "gatsby";
-import React, { useRef, FC } from "react";
+import { HeadProps } from "gatsby";
+import React, { useRef, FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Seo } from "../../components/seo";
 
@@ -27,6 +28,8 @@ type FormValues = {
 export const Head: FC<HeadProps> = () => <Seo title="Skjemavalideringseksempel" />;
 
 const Skjemavalideringseksempel: FC = () => {
+    const [value, setValue] = useState("Vanlig");
+
     const { formState, handleSubmit, register } = useForm<FormValues>({
         shouldFocusError: false,
     });
@@ -168,6 +171,14 @@ const Skjemavalideringseksempel: FC = () => {
                 </FieldGroup>
                 <PrimaryButton type="submit">Gå videre</PrimaryButton>
             </form>
+            <div>
+                <ToggleSlider hideLegend defaultValue={value} labels={["Vanlig", "Kompakt"]} onToggle={setValue}>
+                    Velg variant
+                </ToggleSlider>
+            </div>
+            <div data-compactlayout={value === "Kompakt" ? "true" : undefined}>
+                <Skjemavalideringseksempel />
+            </div>
         </motion.main>
     );
 };
