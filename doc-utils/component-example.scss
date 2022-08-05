@@ -57,7 +57,7 @@
     &__example-options {
         display: block;
         padding: jkl.$spacing-s jkl.$spacing-l;
-        min-width: jkl.rem(130px);
+        min-width: jkl.rem(150px);
     }
 
     &__example-options-header {
@@ -78,7 +78,7 @@
         }
     }
 
-    @include jkl.screen-to(900px) {
+    @include jkl.screen-to(870px) {
         width: 100%;
         flex-direction: column;
 
