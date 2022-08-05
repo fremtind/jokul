@@ -13,7 +13,7 @@ import {
 } from "../src";
 
 export const expandableTableExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Kompakt", "Markér v/ klikk", "Tekst i ekspandérknapp"],
+    boolProps: ["Compact", "Markér v/ klikk", "Tekst i ekspandérknapp"],
     choiceProps: [
         {
             name: "Mobilvisning",
@@ -32,7 +32,7 @@ const rows = [
 ];
 
 const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Kompakt"];
+    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
     const extraText = boolValues?.["Tekst i ekspandérknapp"];
