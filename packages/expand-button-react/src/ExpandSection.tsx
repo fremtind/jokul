@@ -14,6 +14,15 @@ export interface ExpandSectionProps {
     children: ReactNode;
     title: string;
     className?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>, isExpanded: boolean) => void;
     expandButtonProps?: Omit<ExpandButtonProps, "id" | "forceCompact" | "isExpanded" | "onClick" | "hideLabel">;
@@ -27,6 +36,7 @@ export const ExpandSection = ({
     className,
     expandButtonProps,
     isExpanded = false,
+    compact,
     forceCompact,
     onClick,
     title,
@@ -52,7 +62,7 @@ export const ExpandSection = ({
                 {...expandButtonProps}
                 id={buttonId}
                 aria-controls={contentId}
-                forceCompact={forceCompact}
+                compact={compact || forceCompact}
                 isExpanded={expanded}
                 onClick={onExpandButtonClick}
             >

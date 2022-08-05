@@ -5,6 +5,15 @@ import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel";
 
 export interface SkeletonRadioButtonGroupProps {
     className?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
@@ -14,6 +23,7 @@ export interface SkeletonRadioButtonGroupProps {
 export const SkeletonRadioButtonGroup = ({
     className,
     radioButtons,
+    compact,
     forceCompact,
     labelProps,
     inputProps,
@@ -22,19 +32,23 @@ export const SkeletonRadioButtonGroup = ({
     return (
         <div
             className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": forceCompact,
+                "jkl-skeleton-input--compact": compact || forceCompact,
             })}
             {...rest}
         >
-            <SkeletonLabel forceCompact={forceCompact} {...labelProps} />
+            <SkeletonLabel compact={compact || forceCompact} {...labelProps} />
             {Array.from(Array(radioButtons)).map((_, index) => (
                 <div key={`jkl-skeleton-checkbox-${index}`} className="jkl-skeleton-input__checkbox">
                     <SkeletonElement
-                        width={forceCompact ? 22 : 24}
-                        height={forceCompact ? 22 : 24}
+                        width={compact || forceCompact ? 22 : 24}
+                        height={compact || forceCompact ? 22 : 24}
                         style={{ borderRadius: "50%" }}
                     />
-                    <SkeletonElement width={forceCompact ? 201 : 216} height={forceCompact ? 22 : 24} {...inputProps} />
+                    <SkeletonElement
+                        width={compact || forceCompact ? 201 : 216}
+                        height={compact || forceCompact ? 22 : 24}
+                        {...inputProps}
+                    />
                 </div>
             ))}
         </div>

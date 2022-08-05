@@ -5,21 +5,41 @@ import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel";
 
 export interface SkeletonInputProps {
     className?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
 }
 
-export const SkeletonInput = ({ className, forceCompact, labelProps, inputProps, ...rest }: SkeletonInputProps) => {
+export const SkeletonInput = ({
+    className,
+    compact,
+    forceCompact,
+    labelProps,
+    inputProps,
+    ...rest
+}: SkeletonInputProps) => {
     return (
         <div
             className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": forceCompact,
+                "jkl-skeleton-input--compact": compact || forceCompact,
             })}
             {...rest}
         >
-            <SkeletonLabel forceCompact={forceCompact} {...labelProps} />
-            <SkeletonElement width={forceCompact ? 301 : 316} height={forceCompact ? 44 : 48} {...inputProps} />
+            <SkeletonLabel compact={compact || forceCompact} {...labelProps} />
+            <SkeletonElement
+                width={compact || forceCompact ? 301 : 316}
+                height={compact || forceCompact ? 32 : 48}
+                {...inputProps}
+            />
         </div>
     );
 };

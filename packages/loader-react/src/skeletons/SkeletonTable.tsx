@@ -4,15 +4,24 @@ import React, { HTMLProps, ReactNode } from "react";
 export interface SkeletonTableProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     children: ReactNode;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     width?: number;
 }
 
-export const SkeletonTable = ({ className, forceCompact, width, style, ...rest }: SkeletonTableProps) => {
+export const SkeletonTable = ({ className, compact, forceCompact, width, style, ...rest }: SkeletonTableProps) => {
     return (
         <div
             className={cn("jkl-skeleton-table", className, {
-                "jkl-skeleton-table--compact": forceCompact,
+                "jkl-skeleton-table--compact": compact || forceCompact,
             })}
             style={{ width, ...style }}
             {...rest}

@@ -5,6 +5,15 @@ import { useDelayedRender } from "../useDelayedRender";
 export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     children: ReactNode;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     /** @default "Vennligst vent" */
     textDescription?: string;
@@ -20,6 +29,7 @@ export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, 
 export const SkeletonAnimation = ({
     className,
     delay = 0,
+    compact,
     forceCompact,
     politeness = "polite",
     textDescription = "Vennligst vent",
@@ -34,7 +44,7 @@ export const SkeletonAnimation = ({
     return (
         <div
             className={cn("jkl-skeleton-animation", className, {
-                "jkl-skeleton-animation--compact": forceCompact,
+                "jkl-skeleton-animation--compact": compact || forceCompact,
             })}
             aria-busy="true"
             aria-label={textDescription}

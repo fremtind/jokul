@@ -10,6 +10,15 @@ export interface CheckboxProps extends DataTestAutoId, InputHTMLAttributes<HTMLI
     checked?: boolean;
     inline?: boolean;
     className?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     invalid?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
@@ -17,37 +26,45 @@ export interface CheckboxProps extends DataTestAutoId, InputHTMLAttributes<HTMLI
     onBlur?: FocusEventHandler<HTMLInputElement>;
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-    (
-        { id, children, invalid, className, inline = false, forceCompact, "data-testautoid": testAutoId, ...rest },
-        ref,
-    ) => {
-        const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
+    const {
+        id,
+        children,
+        invalid,
+        className,
+        inline = false,
+        compact,
+        forceCompact,
+        "data-testautoid": testAutoId,
+        ...rest
+    } = props;
 
-        return (
-            <div
-                className={cn("jkl-checkbox", className, {
-                    "jkl-checkbox--compact": forceCompact,
-                    "jkl-checkbox--inline": inline,
-                    "jkl-checkbox--error": invalid,
-                })}
-            >
-                <input
-                    id={inputId}
-                    ref={ref}
-                    className="jkl-checkbox__input"
-                    data-testid="jkl-checkbox-input"
-                    aria-invalid={invalid}
-                    type="checkbox"
-                    data-testautoid={testAutoId}
-                    {...rest}
-                />
-                <label htmlFor={inputId} className="jkl-checkbox__label">
-                    <span className="jkl-checkbox__check-mark" />
-                    <span className="jkl-checkbox__check-text">{children}</span>
-                </label>
-            </div>
-        );
-    },
-);
+    const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
+
+    return (
+        <div
+            className={cn("jkl-checkbox", className, {
+                "jkl-checkbox--compact": compact || forceCompact,
+                "jkl-checkbox--inline": inline,
+                "jkl-checkbox--error": invalid,
+            })}
+        >
+            <input
+                id={inputId}
+                ref={ref}
+                className="jkl-checkbox__input"
+                data-testid="jkl-checkbox-input"
+                aria-invalid={invalid}
+                type="checkbox"
+                data-testautoid={testAutoId}
+                {...rest}
+            />
+            <label htmlFor={inputId} className="jkl-checkbox__label">
+                <span className="jkl-checkbox__check-mark" />
+                <span className="jkl-checkbox__check-text">{children}</span>
+            </label>
+        </div>
+    );
+});
+
 Checkbox.displayName = "Checkbox";
