@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:math";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/jkl/colors";
 
@@ -159,6 +160,47 @@ $_select-search-input-selection-color--inverted: color.scale(
         top: 50%;
         transform: translateY(-50%);
         color: inherit;
+
+        height: $_arrow-height;
+        width: $_arrow-width;
+        clip: rect(auto, auto, auto, auto);
+        clip-path: inset(0 0 0 0);
+
+        pointer-events: none;
+
+        @include jkl.motion;
+        transition-property: transform, color;
+
+        &-up,
+        &-down {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            height: $_arrow-height;
+            width: $_arrow-width;
+            @include jkl.motion;
+            transition-property: transform;
+        }
+
+        &-up {
+            top: 100%;
+        }
+
+        &-down {
+            top: 0;
+        }
+
+        &--expanded {
+            .jkl-select-expand-arrow__up,
+            .jkl-select-expand-arrow__down {
+                @include jkl.motion("standard", "expressive");
+                transform: translate(0, -100%);
+            }
+        }
+
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 
     /* The wrapper for the dropdown list */
@@ -256,20 +298,52 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    @include jkl.compact-mode {
+    @include jkl.small-device {
+        $_select-input-height-small: jkl.rem(44px);
+
         & .jkl-select__search-input,
         & .jkl-select__button {
-            @include jkl.text-style("body/small-screen") {
-                line-height: jkl.rem(24px);
-            }
-            height: jkl.rem(40px);
+            height: $_select-input-height-small;
         }
 
         & .jkl-select__option {
-            @include jkl.text-style("body/small-screen") {
-                line-height: jkl.rem(24px);
+            min-height: $_select-input-height-small;
+        }
+
+        & .jkl-select__arrow {
+            right: jkl.$spacing-xs;
+        }
+    }
+
+    @include jkl.compact-mode {
+        $_select-input-height-compact: jkl.rem(32px);
+
+        & .jkl-select__search-input,
+        & .jkl-select__button {
+            @include jkl.text-style("small") {
+                line-height: math.div($_select-input-height-compact, 2);
             }
-            min-height: jkl.rem(40px);
+            height: $_select-input-height-compact;
+        }
+
+        & .jkl-select__search-input {
+            padding: jkl.$spacing-xs jkl.$spacing-3xs;
+        }
+
+        & .jkl-select__button {
+            padding: jkl.$spacing-2xs jkl.$spacing-3xs;
+        }
+
+        & .jkl-select__option {
+            @include jkl.text-style("small") {
+                line-height: math.div($_select-input-height-compact, 2);
+            }
+            min-height: $_select-input-height-compact;
+            padding: jkl.$spacing-2xs jkl.$spacing-3xs;
+        }
+
+        & .jkl-select__arrow {
+            right: jkl.$spacing-2xs;
         }
     }
 
@@ -300,50 +374,5 @@ $_select-search-input-selection-color--inverted: color.scale(
                 border-bottom: 1px solid Highlight;
             }
         }
-    }
-}
-
-.jkl-select-expand-arrow {
-    height: $_arrow-height;
-    width: $_arrow-width;
-    clip: rect(auto, auto, auto, auto);
-    clip-path: inset(0 0 0 0);
-
-    pointer-events: none;
-
-    @include jkl.motion;
-    transition-property: transform, color;
-
-    &__up,
-    &__down {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        height: $_arrow-height;
-        width: $_arrow-width;
-        @include jkl.motion;
-        transition-property: transform;
-    }
-
-    &__up {
-        top: 100%;
-    }
-
-    &__down {
-        top: 0;
-    }
-
-    &--expanded {
-        .jkl-select-expand-arrow__up,
-        .jkl-select-expand-arrow__down {
-            @include jkl.motion("standard", "expressive");
-            transform: translate(0, -100%);
-        }
-    }
-
-    .jkl-select & {
-        @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 }
