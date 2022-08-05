@@ -52,6 +52,7 @@
     &__title {
         @include jkl.reset-outline;
 
+        color: inherit;
         background-color: transparent;
         position: relative;
         padding: jkl.$spacing-m;
