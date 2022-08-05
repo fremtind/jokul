@@ -242,6 +242,7 @@ $_text-input-selection-color--inverted: color.scale(
 }
 
 .jkl-autosuggest--compact,
+[data-compactlayout] .jkl-datepicker,
 [data-compactlayout] .jkl-text-input,
 .jkl-text-input--compact,
 .jkl-text-input--inline {
@@ -275,6 +276,7 @@ $_text-input-selection-color--inverted: color.scale(
 }
 
 .jkl-autosuggest--compact,
+[data-compactlayout] .jkl-datepicker:not(.jkl-text-area),
 [data-compactlayout] .jkl-text-input:not(.jkl-text-area),
 .jkl-text-input--compact:not(.jkl-text-area),
 .jkl-text-input--inline:not(.jkl-text-area) {
