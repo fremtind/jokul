@@ -151,6 +151,21 @@
         }
     }
 
+    @include jkl.compact-mode {
+        .jkl-nav-card__link {
+            @include jkl.text-style("heading-4");
+        }
+
+        .jkl-nav-card__content {
+            @include jkl.text-style("small");
+            gap: jkl.$spacing-s;
+        }
+
+        .jkl-nav-card__info {
+            padding-top: jkl.$spacing-s;
+        }
+    }
+
     @include jkl.forced-colors-mode {
         outline: revert;
         border: jkl.rem(2px) solid LinkText;
@@ -232,6 +247,17 @@
         flex-direction: column;
         align-items: flex-start;
         gap: jkl.$spacing-m;
+    }
+
+    @include jkl.compact-mode {
+        .jkl-info-card__title {
+            @include jkl.text-style("heading-4");
+        }
+
+        .jkl-info-card__content-wrapper {
+            @include jkl.text-style("small");
+            gap: jkl.$spacing-s;
+        }
     }
 
     @include jkl.forced-colors-mode {
