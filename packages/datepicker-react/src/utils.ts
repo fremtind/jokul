@@ -48,28 +48,20 @@ export function parseDateString(dateString?: string): Date | undefined {
  * Hjelpefunksjon for å se om en onBlur går utenfor DatePicker,
  * eller om den går til et interaktivt element inni DatePickeren.
  * @param {React.FocusEvent<HTMLButtonElement | HTMLInputElement>} e - Eventet fra onBlur og action.onBlur
- * @returns {boolean} true hvis e.relatedTarget ikke matcher noen kjente elementer fra DatePicker, altså er utenfor DatePicker
+ * @returns {boolean} true hvis e.relatedTarget er utenfor DatePicker
  */
 export function isBlurTargetOutside(e: React.FocusEvent<HTMLButtonElement | HTMLInputElement>): boolean {
     if (!e.relatedTarget) {
         return true;
     }
 
-    const knownBlurTargetsInsideDatepicker = [
-        "jkl-datepicker",
-        "jkl-datepicker__action-button",
-        "jkl-calendar__date",
-        "jkl-datepicker__input",
-        "jkl-calendar__month-button",
-        "jkl-calendar__year-selector-input",
-        "jkl-calendar__month-selector-select",
-    ];
-
-    for (const knownTarget of knownBlurTargetsInsideDatepicker) {
-        if (e.relatedTarget.classList.contains(knownTarget)) {
-            return false;
+    let targetRoot = <HTMLElement>e.target;
+    while (!targetRoot.classList.contains("jkl-datepicker")) {
+        if (targetRoot.parentElement) {
+            targetRoot = targetRoot.parentElement;
+        } else {
+            break;
         }
     }
-
-    return true;
+    return !targetRoot.contains(e.relatedTarget);
 }
