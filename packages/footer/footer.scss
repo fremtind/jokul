@@ -28,16 +28,14 @@
 
     @include _footer-height(jkl.$spacing-l);
 
-    :not([data-compactlayout]) > & {
-        @include jkl.from-medium-device {
-            gap: jkl.$spacing-xl;
-            padding: jkl.$spacing-xl;
-            @include _footer-height(jkl.$spacing-xl);
-        }
+    @include jkl.from-medium-device {
+        gap: jkl.$spacing-xl;
+        padding: jkl.$spacing-xl;
+        @include _footer-height(jkl.$spacing-xl);
+    }
 
-        @include jkl.from-large-device {
-            flex-direction: row;
-        }
+    @include jkl.from-large-device {
+        flex-direction: row;
     }
 
     &__logo {
@@ -69,7 +67,7 @@
             display: block;
             margin-bottom: jkl.$spacing-m;
 
-            :not([data-compactlayout]) > .jkl-footer > & {
+            .jkl-footer > & {
                 @include jkl.from-medium-device {
                     display: inline-block;
                     margin-right: jkl.$spacing-l;
