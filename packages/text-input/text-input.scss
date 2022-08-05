@@ -241,8 +241,10 @@ $_text-input-selection-color--inverted: color.scale(
     }
 }
 
+[data-compactlayout] .jkl-autosuggest,
 .jkl-autosuggest--compact,
 [data-compactlayout] .jkl-datepicker,
+.jkl-datepicker--compact,
 [data-compactlayout] .jkl-text-input,
 .jkl-text-input--compact,
 .jkl-text-input--inline {
