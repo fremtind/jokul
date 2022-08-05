@@ -286,11 +286,26 @@ Vanligvis skal innholdet være toppjustert i tabellraden på grunn av lesbarhet 
     />
 </Grid>
 
+## Overskrifter
+
 Størrelsen på tabelloverskriften bør stå i stil til innholdet rundt. For eksempel: si at tabellen filtreres av ett eller flere skjemafelter.
 Da bør det brukes en kompakt tabelloverskrift for å stå mer i stil med labelen til skjemafeltet. Derimot, om tabellen for eksempel er rett
 under en `heading-2` og et avsnitt med tekst kan det være bedre med en vanlig størrelse.
 
 Om du er usikker, bruk en kompakt og bold overskrift.
+
+Overskrifter kan med fordel gjøres _sticky_ – at de beholdes vist selv om brukeren scroller ned i tabellen. For at det skal se fint ut trenger overskriftene en bakgrunnsfarge. Siden denne fargen vil være ulik avhengig av hvor tabellen vises kommer ikke tabellene i Jøkul med denne funksjonen. Om du vil ha _sticky headers_ må du derfor legge til egen CSS som ligner på eksempelet under.
+
+```scss
+.din-tabell {
+    position: relative;
+}
+.din-tabell th {
+    background-color: var(--din-container-sin-bakgrunnsfarge);
+    position: sticky;
+    top: 0;
+}
+```
 
 Det er også mulig å skjule tabelloverskrifter visuelt. De må fremdeles være der for skjermlesere, og det må komme tydelig fram av innholdet rundt hva tabellen handler om.
 
