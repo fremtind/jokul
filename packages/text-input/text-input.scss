@@ -65,13 +65,13 @@ $_text-input-selection-color--inverted: color.scale(
     color: var(--jkl-text-input-text-color);
     background-color: transparent;
 
-    /* Placeholder text style */
+    // Placeholder text style
     &::placeholder {
         opacity: 1;
         color: var(--jkl-text-input-placeholder-color);
     }
 
-    /* Color of text selection */
+    // Color of text selection
     &::selection {
         background-color: var(--jkl-text-input-selection-color);
 
@@ -80,7 +80,7 @@ $_text-input-selection-color--inverted: color.scale(
         }
     }
 
-    /*  Invalid state */
+    //  Invalid state
     &[aria-invalid="true"] {
         background: var(--jkl-text-input-error-background-color);
         color: var(--jkl-text-input-error-text-color);
@@ -89,7 +89,7 @@ $_text-input-selection-color--inverted: color.scale(
             color: var(--jkl-text-input-error-placeholder-color);
         }
 
-        /* Color of text selection */
+        // Color of text selection
         &::selection {
             background-color: var(--jkl-text-input-error-selection-color-color);
         }
@@ -113,12 +113,12 @@ $_text-input-selection-color--inverted: color.scale(
 }
 
 @mixin _shared-error-styles {
-    /*  Invalid state */
+    //  Invalid state
     &[aria-invalid="true"] {
         background-color: var(--jkl-text-input-error-background-color);
         color: var(--jkl-text-input-error-text-color);
 
-        /* Color of text selection */
+        // Color of text selection
         &::selection {
             background-color: var(--jkl-text-input-error-selection-color-color);
         }
@@ -255,13 +255,23 @@ $_text-input-selection-color--inverted: color.scale(
     }
 
     .jkl-text-input__action-button {
-        height: $_text-input-height--compact;
-        width: $_text-input-height--compact;
-        margin-left: jkl.rem(-32px);
+        .jkl-icon-button__icon {
+            height: jkl.rem(18px);
+            width: jkl.rem(18px);
+        }
+
+        $_compact-action-button-size: jkl.rem(24px);
+        padding: 0;
+        height: $_compact-action-button-size;
+        width: $_compact-action-button-size;
+        margin-left: -#{$_compact-action-button-size + jkl.rem(2px)};
     }
 
-    .jkl-text-input__action-icon {
-        width: jkl.rem(18px);
+    html:not([data-mousenavigation]):not([data-touchnavigation]) & .jkl-text-input__action-button:focus::after {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
 }
 
@@ -277,11 +287,13 @@ $_text-input-selection-color--inverted: color.scale(
     }
 }
 
+[data-compactlayout] .jkl-autosuggest,
 .jkl-autosuggest--compact,
-[data-compactlayout] .jkl-datepicker:not(.jkl-text-area),
+[data-compactlayout] .jkl-datepicker,
+.jkl-datepicker--compact,
 [data-compactlayout] .jkl-text-input:not(.jkl-text-area),
 .jkl-text-input--compact:not(.jkl-text-area),
-.jkl-text-input--inline:not(.jkl-text-area) {
+.jkl-text-input--inline {
     .jkl-text-input__input {
         line-height: $_text-input-height--compact; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
         padding-bottom: 0;
@@ -346,14 +358,12 @@ $_text-input-selection-color--inverted: color.scale(
             }
         }
 
-        /*
-         * Textarea respekterer ikke padding (teksten rendres under det som
-         * burde være tomrom), så om vi har en teller må vi wrappe textarea
-         * i noe som styles som selve inputfeltet. Det er rollen
-         * .jkl-text-input__input har i denne sammenhengen. Denne klassen
-         * sørger for at selve textarea-elementet ikke får native styles og
-         * får fonter, farger, og høyden den skal.
-         */
+        // Textarea respekterer ikke padding (teksten rendres under det som
+        // burde være tomrom), så om vi har en teller må vi wrappe textarea
+        // i noe som styles som selve inputfeltet. Det er rollen
+        // .jkl-text-input__input har i denne sammenhengen. Denne klassen
+        // sørger for at selve textarea-elementet ikke får native styles og
+        // får fonter, farger, og høyden den skal.
         .jkl-text-area__text-area {
             @include jkl.reset-outline;
             @include _shared-input-styles;
@@ -455,7 +465,7 @@ $_text-input-selection-color--inverted: color.scale(
     }
 }
 
-/* Utility classes for number of rows */
+// Utility classes for number of rows
 @for $num from 3 through 10 {
     $height: $_text-input-line-height * $num + jkl.$spacing-xs * 2;
     $small-height: $_text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
@@ -464,11 +474,9 @@ $_text-input-selection-color--inverted: color.scale(
     .jkl-text-input__input--#{$num}-rows:focus,
     .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
     .jkl-text-area--start-open .jkl-text-input__input--#{$num}-rows {
-        /**
-         * (#2751) Ekspanderende får inline style med height auto,
-         *         som gir et "hopp" dersom det er en teller og vi
-         *         ikke har en minimumshøyde.
-         */
+        // (#2751) Ekspanderende får inline style med height auto,
+        //         som gir et "hopp" dersom det er en teller og vi
+        //         ikke har en minimumshøyde.
         min-height: $height; // (#2751)
         height: $height;
         max-height: 100%;
