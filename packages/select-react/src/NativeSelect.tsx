@@ -97,7 +97,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                             </option>
                         ))}
                     </select>
-                    <ExpandArrow className="jkl-select__arrow" />
+                    <ExpandArrow />
                 </div>
                 <SupportLabel
                     id={supportId}
