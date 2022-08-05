@@ -55,8 +55,8 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
 
     const example = useMemo(() => {
         const C = component;
-        return <C boolValues={boolValues} choiceValues={choiceValues} />;
-    }, [component, boolValues, choiceValues]);
+        return <C boolValues={boolValues} choiceValues={choiceValues} displayValues={{ size, theme }} />;
+    }, [component, boolValues, choiceValues, size, theme]);
 
     return (
         <div className="jkl-spacing-2xl--bottom">
