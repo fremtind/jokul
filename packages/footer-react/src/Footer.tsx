@@ -35,6 +35,11 @@ export interface FooterLink<T = HTMLAnchorElement> {
 export interface FooterProps extends DataTestAutoId, DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     links?: Array<FooterLink>;
     address?: FooterAddress;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
 }
 
 const AddressLine: FC<WithChildren> = ({ children }) => (
@@ -44,9 +49,15 @@ const AddressLine: FC<WithChildren> = ({ children }) => (
     </>
 );
 
-export const Footer: FC<FooterProps> = ({ className, address, links, ...rest }) => {
+export const Footer: FC<FooterProps> = ({ className, address, links, compact, ...rest }) => {
     return (
-        <footer className={cn("jkl-footer", className)} {...rest}>
+        <footer
+            className={cn("jkl-footer", className, {
+                "jkl-footer--compact": compact,
+            })}
+            data-compactlayout={compact ? "true" : undefined}
+            {...rest}
+        >
             <div>
                 <div className="jkl-footer__logo">
                     <Logo />
