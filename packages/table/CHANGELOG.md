@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.10 (2022-08-05)
+
+### Bug Fixes
+
+-   fjern position sticky fra th ([8a555fe](https://github.com/fremtind/jokul/commit/8a555fee131ebceac4b7f47820385242769441e5)), closes [#2965](https://github.com/fremtind/jokul/issues/2965)
+
 # [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@5.5.6...@fremtind/jkl-table@6.0.0) (2022-06-07)
 
 ### Code Refactoring
