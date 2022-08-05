@@ -71,8 +71,8 @@ $_focus-ring-width: jkl.rem(2px);
         color: var(--jkl-expand-button-focus-color);
     }
 
-    &--compact {
-        @include jkl.text-style("body/small-screen");
+    @include jkl.compact-mode {
+        @include jkl.text-style("small");
 
         .jkl-expand-button__arrow {
             --jkl-icon-width: #{$_arrow-width--compact};
