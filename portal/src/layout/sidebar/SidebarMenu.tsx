@@ -54,7 +54,7 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 value={filter}
                 compact
                 onChange={filterLinks}
-                action={{ icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") }}
+                action={filter ? { icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") } : undefined}
                 className="jkl-portal-sidebar-menu__filter"
                 data-testid="sidebar-filter"
             />
