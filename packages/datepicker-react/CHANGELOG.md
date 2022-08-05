@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.15...@fremtind/jkl-datepicker-react@11.0.16) (2022-08-05)
+
+### Bug Fixes
+
+-   compare nodes instead of classList while checking the blur target ([760008d](https://github.com/fremtind/jokul/commit/760008d9fa237d069389f971f905eaa4ad4e76bd)), closes [#2997](https://github.com/fremtind/jokul/issues/2997)
+
 ## [11.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.5...@fremtind/jkl-datepicker-react@11.0.6) (2022-06-13)
 
 ### Bug Fixes
