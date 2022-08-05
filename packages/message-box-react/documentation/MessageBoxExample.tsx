@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { ErrorMessageBox, InfoMessageBox, SuccessMessageBox, WarningMessageBox } from "../src";
 
 export const messageBoxExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Full width", "Compact", "Dismissable", "No title"],
+    boolProps: ["Full width", "Dismissable", "No title"],
     choiceProps: [
         {
             name: "Variant",
@@ -43,7 +43,6 @@ export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues,
         : undefined;
     return (
         <C
-            forceCompact={boolValues?.["Compact"]}
             fullWidth={boolValues?.["Full width"]}
             title={!boolValues?.["No title"] ? choiceValues?.["Variant"] : undefined}
             dismissed={dismissed}
@@ -51,7 +50,7 @@ export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues,
             // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
             role="none presentation"
         >
-            <p className={boolValues?.["Compact"] ? "jkl-small" : "jkl-body"}>
+            <p>
                 Hei, jeg er en melding av typen {choiceValues?.["Variant"]} med{" "}
                 <NavLink href="/komponenter/messagebox">en navlink</NavLink>
             </p>
@@ -68,7 +67,6 @@ export const messageBoxExampleCode = ({ boolValues, choiceValues }: ExampleCompo
             : `
     title="${choiceValues?.["Variant"]}`
     }
-    forceCompact={${boolValues?.["Compact"]}}
     fullWidth={${boolValues?.["Full width"]}}
     dismissed={false}
     dismissAction={${

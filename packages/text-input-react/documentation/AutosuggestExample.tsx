@@ -4,7 +4,6 @@ import { Autosuggest } from "../src";
 
 export const autosuggestExampleKnobs: ExampleKnobsProps = {
     boolProps: [
-        "Compact",
         "Hjelpetekst",
         "Feiltekst",
         "Leadtekst",

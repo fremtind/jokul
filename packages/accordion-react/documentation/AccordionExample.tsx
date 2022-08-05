@@ -3,12 +3,10 @@ import React from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Accordion, AccordionItem } from "../src";
 
-export const accordionExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact"],
-};
+export const accordionExampleKnobs: ExampleKnobsProps = {};
 
-export const AccordionExample: React.FC<ExampleComponentProps> = ({ boolValues }) => (
-    <Accordion compact={boolValues?.["Compact"]}>
+export const AccordionExample: React.FC<ExampleComponentProps> = () => (
+    <Accordion>
         <AccordionItem
             title="Hvem kan kjøpe livsforsikring?"
             onClick={(e, isOpen) => {
@@ -37,8 +35,8 @@ export const AccordionExample: React.FC<ExampleComponentProps> = ({ boolValues }
     </Accordion>
 );
 
-export const accordionExampleCode: CodeExample = ({ boolValues }) => `
-<Accordion compact={${boolValues?.["Compact"]}}>
+export const accordionExampleCode: CodeExample = () => `
+<Accordion>
     <AccordionItem title="Hvem kan kjøpe livsforsikring?">
         <UnorderedList>
             <ListItem>Personer med et norsk fødselsnummer.</ListItem>

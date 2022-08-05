@@ -6,7 +6,7 @@ import { Tertiary } from "./Tertiary";
 import "./style.scss";
 
 export const buttonExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "withLoader", "isLoading"],
+    boolProps: ["withLoader", "isLoading"],
     choiceProps: [
         {
             name: "Pil",

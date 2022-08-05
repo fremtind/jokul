@@ -18,7 +18,7 @@ const ExpandSection = forwardRef<HTMLDivElement, { id: string; "aria-labelledby"
 );
 ExpandSection.displayName = "ExpandSection";
 
-export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const ExpandButtonExample = ({ choiceValues }: ExampleComponentProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [elementRef] = useAnimatedHeight<HTMLDivElement>(isExpanded);
     const expandButtonId = "jkl-example-expand-button";
@@ -53,7 +53,6 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
                 aria-controls={expandedContentId}
                 id={expandButtonId}
                 className="jkl-spacing-l--bottom"
-                forceCompact={boolValues?.["Compact"]}
                 expandDirection={expandDirection}
                 isExpanded={isExpanded}
                 onClick={onClick}
@@ -80,7 +79,7 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
 
 export default ExpandButtonExample;
 
-export const expandButtonExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
+export const expandButtonExampleCode: CodeExample = ({ choiceValues }) => {
     const expandDirection = choiceValues?.["Ekspander i retning (kun frittstående)"] === "Oppover" ? "up" : "down";
 
     const expandSection = `
@@ -132,7 +131,6 @@ return (
             aria-controls={expandedContentId}
             id={expandButtonId}
             className="jkl-spacing-l--bottom"
-            forceCompact={${boolValues?.["Compact"]}}
             expandDirection={expandDirection}
             isExpanded={isExpanded}
             onClick={onClick}
