@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { ExampleComponentProps, CodeExample, ExampleKnobsProps } from "../../../doc-utils";
 import { Footer } from "../src";
+import "./footer-example.scss";
 
 export const footerExampleKnobs: ExampleKnobsProps = {
     boolProps: [
@@ -15,7 +16,10 @@ export const FooterExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const withLinks = boolValues?.["Med lenker"];
     const withAddress = boolValues?.["Med adresse"];
     return (
-        <div {...(isMobile ? { style: { minWidth: "21rem" } } : { style: { minWidth: "82rem" } })}>
+        <div
+            {...(isMobile ? { style: { minWidth: "21rem" } } : { style: { minWidth: "82rem" } })}
+            data-simulate-mobile={isMobile ? "true" : undefined}
+        >
             <Footer
                 role="none presentation"
                 address={
