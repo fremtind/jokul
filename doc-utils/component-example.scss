@@ -39,7 +39,8 @@
         position: relative;
         padding: jkl.$spacing-2xl jkl.$spacing-m;
 
-        &::before {
+        // Unngå at endring av tittel knekker visuell regresjonstest ved å skjule den
+        :not([data-test-mode="e2e"]) &::before {
             @include jkl.text-style("small");
             color: var(--component-example-header-color);
             position: absolute;

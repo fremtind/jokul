@@ -53,7 +53,8 @@ Cypress.Commands.add("focusTextArea", (inputName) => {
 });
 
 Cypress.Commands.add("getComponent", () => {
-    cy.get(".jkl-portal-component-example");
+    // Unngå at endring av knobs knekker visuelle regresjonstester ved å bare hente ut selve innholdet i eksempelet
+    cy.get(".jkl-portal-component-example__example-wrapper");
 });
 
 const setMode = (action, reset) => () => {
