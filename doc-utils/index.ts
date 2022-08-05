@@ -1,6 +1,5 @@
 export { ComponentExample } from "./ComponentExample";
 export { DevExample } from "./DevExample";
-export { ExampleContext } from "./ExampleContext";
 
 export interface Dictionary<T> {
     [key: string]: T;
@@ -9,6 +8,12 @@ export interface Dictionary<T> {
 export interface ExampleComponentProps {
     boolValues?: Dictionary<boolean>;
     choiceValues?: Dictionary<string>;
+    displayValues?: DisplayValues;
+}
+
+export interface DisplayValues {
+    size: "default" | "compact";
+    theme: "light" | "dark";
 }
 
 export interface ChoiceProp {
