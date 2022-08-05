@@ -61,9 +61,14 @@
 
 $_date-width: jkl.rem(40px);
 $_date-spacing: jkl.rem(4px);
+$_compact-date-width: jkl.rem(26px);
+$_compact-date-spacing: jkl.rem(4px);
+
 $_calendar-padding: jkl.$spacing-l;
-$_calendar-padding--compact: jkl.$spacing-xs;
+$_compact-calendar-padding: jkl.$spacing-xs;
+
 $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-padding * 2);
+$_compact-calendar-width: ($_compact-date-width * 7) + ($_compact-date-spacing * 6) + ($_compact-calendar-padding * 2);
 
 @include jkl.light-mode-variables {
     --jkl-calendar-text-color: #{jkl.$color-granitt};
@@ -140,7 +145,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
 
     @include jkl.small-device {
         &__padding {
-            padding: $_calendar-padding $_calendar-padding--compact;
+            padding: $_calendar-padding $_compact-calendar-padding;
         }
     }
 
@@ -149,7 +154,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         max-width: 19.5rem;
     }
 
-    // Navigation in normal (compact) mode
+    // Navigation in normal non-extended mode
     // ===================================
 
     &__month-navigation {
@@ -177,7 +182,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         color: var(--jkl-calendar-text-color);
         width: jkl.rem(32px);
         border-radius: 50%;
-        @include jkl.text-style("body/large-screen");
+        @include jkl.text-style("body");
 
         &--right {
             right: 0;
@@ -243,7 +248,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     // =======================================
 
     caption {
-        @include jkl.text-style("body/large-screen");
+        @include jkl.text-style("body");
         margin-bottom: jkl.$spacing-l;
         text-transform: capitalize;
     }
@@ -252,7 +257,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     // ======================================
 
     th {
-        @include jkl.text-style("small/large-screen");
+        @include jkl.text-style("small");
         padding-bottom: jkl.$spacing-xs;
     }
 
@@ -287,7 +292,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         background-color: transparent;
         color: var(--jkl-calendar-text-color);
 
-        @include jkl.text-style("body/large-screen") {
+        @include jkl.text-style("body") {
             line-height: jkl.rem(40px);
         }
         padding: 0;
@@ -308,8 +313,8 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
 
         &[data-adjacent="true"] {
             padding: 0; // reset vertical alignment of text
-            @include jkl.text-style("small/large-screen") {
-                line-height: jkl.rem(40px);
+            @include jkl.text-style("small") {
+                line-height: $_compact-date-width;
             }
             color: var(--jkl-calendar-adjacent-month-color);
         }
@@ -342,6 +347,50 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         @include jkl.keyboard-navigation {
             &:focus::before {
                 box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-calendar-focus-color);
+            }
+        }
+    }
+
+    @include jkl.compact-mode {
+        max-width: $_compact-calendar-width;
+
+        .jkl-calendar__year-navigation {
+            margin-bottom: jkl.$spacing-m;
+        }
+
+        .jkl-calendar__year-selector {
+            margin-right: jkl.$spacing-s;
+        }
+
+        .jkl-calendar__padding {
+            padding: $_compact-calendar-padding;
+        }
+
+        .jkl-calendar__month-button {
+            @include jkl.text-style("small");
+            width: jkl.rem(24px);
+        }
+
+        caption {
+            @include jkl.text-style("small");
+            margin-bottom: jkl.$spacing-m;
+        }
+
+        td + td,
+        th + th {
+            padding-left: jkl.$spacing-3xs; // space between columns
+        }
+
+        tr + tr > td {
+            padding-top: jkl.$spacing-3xs; // space between rows
+        }
+
+        td button {
+            height: $_compact-date-width;
+            width: $_compact-date-width;
+
+            @include jkl.text-style("small") {
+                line-height: $_compact-date-width;
             }
         }
     }
