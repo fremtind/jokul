@@ -505,7 +505,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                         </button>
                     ))}
                 </div>
-                <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
+                <ExpandArrow expanded={dropdownIsShown} />
             </div>
             <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
         </div>
