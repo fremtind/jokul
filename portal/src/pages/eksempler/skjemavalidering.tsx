@@ -8,9 +8,10 @@ import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react"
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
+import { ToggleSlider } from "@fremtind/jkl-toggle-switch-react";
 import { motion } from "framer-motion";
 import { HeadProps } from "gatsby";
-import React, { useRef, FC } from "react";
+import React, { useRef, FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Seo } from "../../components/seo";
 
@@ -162,6 +163,7 @@ const Skjemavalideringseksempel: FC = () => {
 };
 
 export default function App() {
+    const [value, setValue] = useState("Vanlig");
     return (
         <motion.main
             initial={{ opacity: 0 }}
@@ -173,7 +175,14 @@ export default function App() {
             <div className=" jkl-spacing-2xl--bottom">
                 <h1 className="jkl-title jkl-spacing-xl--bottom">Skjema&shy;validerings&shy;eksempel</h1>
             </div>
-            <Skjemavalideringseksempel />
+            <div>
+                <ToggleSlider hideLegend defaultValue={value} labels={["Vanlig", "Kompakt"]} onToggle={setValue}>
+                    Velg variant
+                </ToggleSlider>
+            </div>
+            <div data-compactlayout={value === "Kompakt" ? "true" : undefined}>
+                <Skjemavalideringseksempel />
+            </div>
         </motion.main>
     );
 }
