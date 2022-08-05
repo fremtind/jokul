@@ -25,6 +25,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
     const uid = useId("example");
     const [showCodeText, setShowCodeText] = useState("Vis kode");
     const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [size, setSize] = useState<"default" | "compact">("default");
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
         knobs?.boolProps?.reduce((acc, boolProp) => {
@@ -62,16 +63,19 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
         <div className="jkl-spacing-2xl--bottom">
             <section className="jkl-portal-component-example">
                 <div
+                    data-compactlayout={size === "compact" ? "true" : undefined}
                     data-theme={theme}
                     data-example-text={title}
                     className={cn("jkl", "jkl-portal-component-example__example-wrapper", {
                         "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
                         "jkl-portal-component-example__example-wrapper--scrollable": scrollable,
+                        "jkl-body": size === "default",
+                        "jkl-small": size === "compact",
                     })}
                 >
                     {example}
                 </div>
-                <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
+                <aside data-compactlayout="true" className="jkl-portal-component-example__example-options">
                     {knobs?.boolProps && (
                         <FieldGroup
                             legend="Egenskaper"
@@ -135,6 +139,14 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                             onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
                         >
                             Dark mode
+                        </Checkbox>
+                        <Checkbox
+                            name={`${uid}-compact`}
+                            value="Compact"
+                            checked={size === "compact"}
+                            onChange={(e) => setSize(e.target.checked ? "compact" : "default")}
+                        >
+                            Compact
                         </Checkbox>
                     </FieldGroup>
                 </aside>

@@ -4,7 +4,7 @@ import { SecondaryButton } from "../../button-react/src";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 export const actionTableExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact"],
+    boolProps: [],
     choiceProps: [
         {
             name: "Mobilvisning",
@@ -23,13 +23,12 @@ const rows = [
 ];
 
 const ActionTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
 
     return (
-        <Table compact={compact} fullWidth {...props}>
+        <Table fullWidth {...props}>
             <TableCaption srOnly>Tabell med handlinger</TableCaption>
             <TableHead srOnly={headless}>
                 <TableRow>
@@ -55,9 +54,7 @@ const ActionTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
                             </TableCell>
                         ))}
                         <TableCell align="right" data-th="Dokument" verticalAlign="center">
-                            <SecondaryButton onClick={(e) => console.log(e)} forceCompact={compact || props.compact}>
-                                Åpne
-                            </SecondaryButton>
+                            <SecondaryButton onClick={(e) => console.log(e)}>Åpne</SecondaryButton>
                         </TableCell>
                     </TableRow>
                 ))}
@@ -69,7 +66,7 @@ const ActionTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
 export default ActionTableExample;
 
 export const actionTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth compact={${boolValues?.["Compact"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med handlinger</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
@@ -95,7 +92,7 @@ export const actionTableExampleCode = ({ boolValues, choiceValues }: ExampleComp
                     </TableCell>
                 ))}
                 <TableCell align="right" data-th="Dokument" verticalAlign="center">
-                    <SecondaryButton onClick={onClick} forceCompact={compact}>
+                    <SecondaryButton onClick={onClick}>
                         Åpne
                     </SecondaryButton>
                 </TableCell>

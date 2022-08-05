@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Native", "Compact", "Med hjelpetekst", "Med feil", "Med søk"],
+    boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med søk"],
     choiceProps: [
         {
             name: "Variant",
@@ -34,7 +34,6 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
         <C
             id="produsent"
             name="produsent"
-            forceCompact={boolValues && boolValues["Compact"]}
             variant={variant}
             label="Hvilket merke er telefonen?"
             items={values}
@@ -71,7 +70,6 @@ export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps):
     ref={selectRef}
     id="produsent"
     name="produsent"
-    forceCompact={${!!boolValues?.["Compact"]}}
     variant="${choiceValues?.["Variant"]}"
     label="Hvilket merke er telefonen?"
     helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}

@@ -11,13 +11,12 @@ const rows = [
 ];
 
 const TableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
 
     return (
-        <Table compact={compact} fullWidth {...props}>
+        <Table fullWidth {...props}>
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
             <TableHead srOnly={headless}>
                 <TableRow>
@@ -50,7 +49,7 @@ const TableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) =
 export default TableExample;
 
 export const tableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth compact={${boolValues?.["Compact"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>

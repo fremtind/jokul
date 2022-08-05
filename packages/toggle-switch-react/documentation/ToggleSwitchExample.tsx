@@ -1,11 +1,10 @@
-import classNames from "classnames";
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
 import { ToggleSlider, ToggleSwitch } from "../src";
 
 export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "Deaktivert", "Med hjelpetekst"],
+    boolProps: ["Deaktivert", "Med hjelpetekst"],
 };
 
 export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
@@ -13,7 +12,6 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Veksle mellom lys og mørk grensesnitt" : undefined;
     return (
         <ToggleSwitch
-            compact={boolValues?.["Compact"]}
             pressed={isOn}
             onClick={() => setIsOn(!isOn)}
             disabled={boolValues?.["Deaktivert"]}
@@ -24,36 +22,29 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
     );
 };
 
-export const toggleSliderExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact"],
-};
+export const toggleSliderExampleKnobs: ExampleKnobsProps = {};
 
-export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const ToggleSliderExample: React.FC<ExampleComponentProps> = () => {
     const [value, setValue] = useState("måned");
-    const compact = boolValues?.["Compact"];
     return (
         <section style={{ width: "100%" }}>
-            <ToggleSlider compact={compact} defaultValue="måned" labels={["måned", "år"]} onToggle={setValue}>
+            <ToggleSlider defaultValue="måned" labels={["måned", "år"]} onToggle={setValue}>
                 Pris per
             </ToggleSlider>
-            <p className={classNames("jkl-spacing-l--top", { "jkl-heading-5": compact, "jkl-bold": !compact })}>
-                100 kr/{value === "år" ? value : "mnd"}
-            </p>
+            <p className="jkl-spacing-l--top jkl-bold">100 kr/{value === "år" ? value : "mnd"}</p>
         </section>
     );
 };
 
 export const toggleSwitchCodeExample = ({ boolValues }: ExampleComponentProps): string => `
     <ToggleSwitch
-        compact={${boolValues?.["Compact"]}}
         helpLabel={${boolValues?.["Med hjelpetekst"] ? `"Veksle mellom lys og mørk grensesnitt"` : `undefined`}}
         disabled={${boolValues?.["Deaktivert"]}}
     />
 `;
 
-export const toggleSliderCodeExample: CodeExample = ({ boolValues }): string => `
+export const toggleSliderCodeExample: CodeExample = (): string => `
     <ToggleSlider
-        compact={${boolValues?.["Compact"]}}
         defaultValue="måned"
         labels={["måned", "år"]}
     />

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 import { ExpandSection } from "../src";
 
-export const ExpandSectionExample = ({ boolValues }: ExampleComponentProps) => {
+export const ExpandSectionExample: FC<ExampleComponentProps> = () => {
     const [isExpanded, setIsExpanded] = useState(false);
     return (
         <div>
@@ -10,7 +10,6 @@ export const ExpandSectionExample = ({ boolValues }: ExampleComponentProps) => {
                 Noen ganger trenger vi å gi brukerne som ønsker det litt mer informasjon.
             </p>
             <ExpandSection
-                forceCompact={boolValues?.["Compact"]}
                 title={isExpanded ? "Skjul seksjonen igjen" : "Vis den skjulte seksjonen"}
                 onClick={(_, expanded) => {
                     setIsExpanded(expanded);
@@ -31,12 +30,11 @@ export const ExpandSectionExample = ({ boolValues }: ExampleComponentProps) => {
 
 export default ExpandSectionExample;
 
-export const expandSectionExampleCode: CodeExample = ({ boolValues }) => `
+export const expandSectionExampleCode: CodeExample = () => `
 const [isExpanded, setIsExpanded] = useState(false);
 
 return (
     <ExpandSection
-        forceCompact={${boolValues?.["Compact"]}}
         title={isExpanded ? "Skjul seksjonen igjen" : "Vis den skjulte seksjonen"}
         onClick={(e, expanded) => {
             setIsExpanded(expanded);

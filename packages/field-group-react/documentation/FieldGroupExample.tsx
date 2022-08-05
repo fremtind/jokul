@@ -4,7 +4,7 @@ import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../
 import { FieldGroup } from "../src/index";
 
 export const fieldGroupExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "Med hjelpetekst", "Med feil"],
+    boolProps: ["Med hjelpetekst", "Med feil"],
     choiceProps: [
         {
             name: "Variant",
@@ -18,7 +18,6 @@ export const FieldGroupExample: FC<ExampleComponentProps> = ({ boolValues, choic
     return (
         <FieldGroup
             legend="Samleoverskrift for feltene"
-            forceCompact={boolValues?.["Compact"]}
             variant={choiceValues?.["Variant"] as LabelVariant}
             helpLabel={boolValues?.["Med hjelpetekst"] ? "Hjelpetekst for feltene samlet" : undefined}
             errorLabel={boolValues?.["Med feil"] ? "Feilmelding for feltene samlet" : undefined}
@@ -32,7 +31,6 @@ export const FieldGroupExample: FC<ExampleComponentProps> = ({ boolValues, choic
 export const fieldGroupExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
 <FieldGroup
     legend="Samleoverskrift for feltene"
-    forceCompact={${boolValues?.["Compact"]}}
     variant="${choiceValues?.["Variant"] as LabelVariant}"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Hjelpetekst for feltene samlet"` : `{undefined}`}
     errorLabel=${boolValues?.["Med feil"] ? `"Feilmelding for feltene samlet"` : `{undefined}`}

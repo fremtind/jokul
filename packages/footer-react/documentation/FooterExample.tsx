@@ -4,22 +4,18 @@ import { Footer } from "../src";
 
 export const footerExampleKnobs: ExampleKnobsProps = {
     boolProps: [
-        { prop: "Compact", defaultValue: true },
+        { prop: "Mobil", defaultValue: true },
         { prop: "Med lenker", defaultValue: true },
         { prop: "Med adresse", defaultValue: false },
     ],
 };
 
 export const FooterExample: FC<ExampleComponentProps> = ({ boolValues }) => {
-    const isCompact = boolValues?.["Compact"];
+    const isMobile = boolValues?.["Mobil"];
     const withLinks = boolValues?.["Med lenker"];
     const withAddress = boolValues?.["Med adresse"];
     return (
-        <div
-            {...(isCompact
-                ? { "data-compactlayout": true, style: { minWidth: "21rem" } }
-                : { style: { minWidth: "82rem" } })}
-        >
+        <div {...(isMobile ? { style: { minWidth: "21rem" } } : { style: { minWidth: "82rem" } })}>
             <Footer
                 role="none presentation"
                 address={

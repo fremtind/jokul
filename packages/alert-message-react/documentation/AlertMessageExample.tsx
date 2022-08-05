@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
 
 export const alertMessageKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "Dismissable"],
+    boolProps: ["Dismissable"],
     choiceProps: [
         {
             name: "Variant",
@@ -43,7 +43,7 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
         : undefined;
 
     return (
-        <C compact={boolValues?.["Compact"]} dismissed={dismissed} dismissAction={dismissAction}>
+        <C dismissed={dismissed} dismissAction={dismissAction}>
             Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
             <NavLink href="/komponenter/alertmessage">en navlink</NavLink>
         </C>
