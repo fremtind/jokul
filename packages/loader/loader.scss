@@ -47,6 +47,7 @@ $_loader-right-animation-name: jkl-loader-right-spin-#{string.unique-id()};
         }
     }
 
+    .jkl-button & > .jkl-loader__dot,
     &--medium > .jkl-loader__dot {
         height: $_loader-dot-size--medium;
         width: $_loader-dot-size--medium;
@@ -60,6 +61,7 @@ $_loader-right-animation-name: jkl-loader-right-spin-#{string.unique-id()};
         }
     }
 
+    [data-compactlayout] .jkl-button & > .jkl-loader__dot,
     &--small > .jkl-loader__dot {
         height: $_loader-dot-size--small;
         width: $_loader-dot-size--small;
