@@ -7,12 +7,13 @@ $animation-timing: jkl.timing("expressive") jkl.easing("exit") both;
     padding-top: jkl.$spacing-2xl;
 
     &__filter {
-        margin-bottom: jkl.$spacing-xl;
+        margin-bottom: jkl.$spacing-m;
     }
 
     &__meta {
+        max-width: 26ch;
         text-transform: capitalize;
-        margin: jkl.$spacing-m 0;
+        margin: jkl.$spacing-m 0 jkl.$spacing-m 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }

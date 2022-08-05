@@ -15,10 +15,11 @@ export type TypographyLevels =
     | "Small";
 
 interface Props {
+    variant: "desktop" | "mobile";
     level: TypographyLevels;
 }
 
-export const TypographyTableRow: React.FC<Props> = ({ level }) => {
+export const TypographyTableRow: React.FC<Props> = ({ variant, level }) => {
     const [fontWeight, setFontWeight] = useState("N/A");
     const [fontSize, setFontSize] = useState("N/A");
     const [lineHeight, setLineHeight] = useState("N/A");
@@ -30,7 +31,12 @@ export const TypographyTableRow: React.FC<Props> = ({ level }) => {
     return (
         <TableRow>
             <TableCell>
-                <p className={`jkl-${level.toLowerCase().replace(/ /g, "-")}`} ref={ref}>
+                <p
+                    className={`jkl-portal-ttr__example jkl-portal-ttr__example--${variant} jkl-portal-ttr__example--${level
+                        .toLowerCase()
+                        .replace(/ /g, "-")}`}
+                    ref={ref}
+                >
                     Eksempel
                 </p>
             </TableCell>

@@ -62,7 +62,7 @@ $ git checkout -b feat/loader-id
 Her har vi valgt å se på dette som en ny _feature_. Om dette hadde vært en bugfix ville det vært naturlig å starte branchnavnet med `fix/`.
 
 <aside className="jkl-portal-paragraph">
-    <InfoMessageBox role="none presentation" forceCompact fullWidth>
+    <InfoMessageBox role="none presentation" fullWidth>
         <p className="jkl-small">
             Ikke bruk mye tid på branchnavnet! Det viktiste er at du finner igjen branchen din senere om du skulle
             trenge det.
@@ -92,7 +92,7 @@ Hvis du gjør en villet endring i utseendet til en komponent må mappen `<pakken
 I vårt tilfelle er det ingen visuell endring, så vi hopper over dette steget.
 
 <aside className="jkl-portal-paragraph">
-    <InfoMessageBox role="none presentation" forceCompact fullWidth>
+    <InfoMessageBox role="none presentation" fullWidth>
         <p className="jkl-small">
             Siden skjermbilder tas av eksemplene må du også slette snapshots om du for eksempel endrer navn eller
             rekkefølge på spakene som styrer eksempelet.
@@ -113,7 +113,7 @@ Vi bruker [Jest](https://jestjs.io/) som test runner og [React testing library](
 Til å lage commits bruker vi kommandoen `yarn commit`. Grunnen til det er at commitmeldingene brukes for å generere changelogs og versjonsnummer basert på [Semantic Versioning](https://semver.org). Det kan vi gjøre fordi `yarn commit` formaterer commitmeldinger på en spesiell måte kalt [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Hvis en commitmelding starter med `feat:` vil det automatisk lages en _minor_-release av pakken som ble endret.
 
 <aside className="jkl-portal-paragraph">
-    <WarningMessageBox role="none presentation" forceCompact fullWidth>
+    <WarningMessageBox role="none presentation" fullWidth>
         <p className="jkl-small">
             Bruk <code>yarn commit</code> for å lage commits!
         </p>
@@ -143,7 +143,7 @@ Pull requests (PR) lager du [på GitHub](https://github.com/fremtind/jokul/compa
 Når du lager en PR blir du vist et skjema med en mal som kan fylles ut. Det er supert om du gir en kort beskrivelse av innholdet i pull requesten, og lenker til relevante issues og discussions. Sjekk gjerne også av punktene i sjekklisten ved å endre `[ ]` til `[x]`.
 
 <aside className="jkl-portal-paragraph">
-    <InfoMessageBox role="none presentation" fullWidth forceCompact title="Sender du en pull request fra en fork?">
+    <InfoMessageBox role="none presentation" fullWidth title="Sender du en pull request fra en fork?">
         <p className="jkl-small">
             Sett <code>external-contributions</code> som <i>base</i> for pull requesten, så loser en maintainer koden
             videre til <code>main</code>.

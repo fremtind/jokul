@@ -50,9 +50,9 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
         >
             <TextInput
                 variant="small"
-                forceCompact
                 label="Filtrér"
                 value={filter}
+                compact
                 onChange={filterLinks}
                 action={{ icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") }}
                 className="jkl-portal-sidebar-menu__filter"
@@ -62,11 +62,11 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 <RadioButtonGroup
                     className="jkl-portal-sidebar-menu__meta"
                     legend="Vis"
+                    compact
                     name="filter-radio"
                     value={selectedGroup}
                     onChange={(e) => setSelectedGroup(e.target.value)}
                     variant={"small"}
-                    forceCompact
                     inline
                 >
                     {[allComponents, ...groups].map((value) => (
