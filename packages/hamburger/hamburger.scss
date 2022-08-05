@@ -5,6 +5,10 @@ $_hamburger-line-height: jkl.rem(2px);
 $_hamburger-icon-width: jkl.rem(35px);
 $_hamburger-line-spacing: jkl.rem(-8px);
 
+$_compact-bounding-touch-size: jkl.rem(44px);
+$_compact-hamburger-icon-width: jkl.rem(24px);
+$_compact-hamburger-line-spacing: jkl.rem(-6px);
+
 @include jkl.light-mode-variables {
     --jkl-hamburger-color: #{jkl.$color-granitt};
     --jkl-hamburger-focus-color: #{jkl.$color-stein};
@@ -148,6 +152,65 @@ $_hamburger-line-spacing: jkl.rem(-8px);
             .jkl-hamburger__lines::after {
                 bottom: 0;
                 transform: rotate(45deg) scale3d(1.25, 1, 1);
+            }
+        }
+    }
+
+    @include jkl.compact-mode {
+        @include jkl.text-style("small");
+        height: $_compact-bounding-touch-size;
+        min-width: $_compact-bounding-touch-size;
+
+        .jkl-hamburger__label.jkl-content-toggle {
+            height: jkl.rem(24px);
+        }
+
+        &:hover {
+            .jkl-hamburger__lines {
+                &::before {
+                    top: calc(#{$_compact-hamburger-line-spacing} * 1.3);
+                }
+
+                &::after {
+                    bottom: calc(#{$_compact-hamburger-line-spacing} * 1.3);
+                }
+            }
+        }
+
+        .jkl-hamburger__lines {
+            width: $_compact-hamburger-icon-width;
+
+            &::before {
+                top: $_compact-hamburger-line-spacing;
+                width: $_compact-hamburger-icon-width;
+            }
+
+            &::after {
+                bottom: $_compact-hamburger-line-spacing;
+                width: $_compact-hamburger-icon-width;
+            }
+        }
+
+        &[aria-expanded="true"] {
+            .jkl-hamburger__lines::before,
+            .jkl-hamburger__lines::after {
+                width: calc(#{$_compact-hamburger-icon-width} - 3px);
+            }
+
+            .jkl-hamburger__lines::before {
+                top: 0;
+
+                &:hover {
+                    transform: rotate(-45deg) scale3d(1.1, 1, 1);
+                }
+            }
+
+            .jkl-hamburger__lines::after {
+                bottom: 0;
+
+                &:hover {
+                    transform: rotate(45deg) scale3d(1.1, 1, 1);
+                }
             }
         }
     }
