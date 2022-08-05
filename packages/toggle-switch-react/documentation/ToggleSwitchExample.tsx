@@ -24,11 +24,16 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
 
 export const toggleSliderExampleKnobs: ExampleKnobsProps = {};
 
-export const ToggleSliderExample: React.FC<ExampleComponentProps> = () => {
+export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayValues }) => {
     const [value, setValue] = useState("måned");
     return (
         <section style={{ width: "100%" }}>
-            <ToggleSlider defaultValue="måned" labels={["måned", "år"]} onToggle={setValue}>
+            <ToggleSlider
+                defaultValue="måned"
+                labels={["måned", "år"]}
+                onToggle={setValue}
+                compact={displayValues?.size === "compact"}
+            >
                 Pris per
             </ToggleSlider>
             <p className="jkl-spacing-l--top jkl-bold">100 kr/{value === "år" ? value : "mnd"}</p>
