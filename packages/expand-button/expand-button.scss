@@ -131,9 +131,7 @@ $_focus-ring-width: jkl.rem(2px);
     }
 
     &__content {
-        @include jkl.text-style("body");
         height: auto;
         padding: jkl.$spacing-m 0 jkl.$spacing-xl 0;
-        color: inherit; // Make content same color as rest of page text
     }
 }
