@@ -19,7 +19,7 @@ interface CalendarProps
     monthLabel?: string;
     yearLabel?: string;
     extended?: boolean;
-    forceCompact?: boolean;
+    compact?: boolean;
     onTabOutside: React.KeyboardEventHandler;
 }
 
@@ -43,7 +43,7 @@ const defaultDays = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) => {
     const {
         extended,
-        forceCompact,
+        compact,
         hidden,
         date,
         defaultSelected,
@@ -296,7 +296,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             variant="small"
                             onChange={handleYearChange}
                             value={extendedYear}
-                            forceCompact={forceCompact}
+                            compact={compact}
                         />
                         <NativeSelect
                             className="jkl-calendar__month-selector"
@@ -309,7 +309,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             variant="small"
                             value={extendedMonth}
                             onChange={handleMonthChange}
-                            forceCompact={forceCompact}
+                            compact={compact}
                             width="auto"
                         />
                     </div>

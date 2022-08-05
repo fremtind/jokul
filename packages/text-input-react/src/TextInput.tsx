@@ -1,7 +1,7 @@
 import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import classNames from "classnames";
+import cn from "classnames";
 import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler } from "react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
@@ -33,81 +33,78 @@ export interface Props extends BaseProps {
     inputClassName?: string;
 }
 
-export const TextInput = forwardRef<HTMLInputElement, Props>(
-    (
-        {
-            id,
-            className,
-            label,
-            labelProps,
-            helpLabel,
-            errorLabel,
-            variant,
-            inline,
-            compact,
-            forceCompact,
-            action,
-            "data-testautoid": testAutoId,
-            inputClassName,
-            ...inputProps
-        },
-        ref,
-    ) => {
-        const uid = useId(id || "jkl-text-input", { generateSuffix: !id });
-        const supportId = useId("jkl-support-label");
-        const hasSupportText = helpLabel || errorLabel;
-        const describedBy = hasSupportText ? supportId : undefined;
-        const componentClassName = classNames(
-            {
-                "jkl-text-input": true,
+export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
+    const {
+        id,
+        className,
+        label,
+        labelProps,
+        helpLabel,
+        errorLabel,
+        variant,
+        inline,
+        compact,
+        forceCompact,
+        action,
+        "data-testautoid": testAutoId,
+        inputClassName,
+        ...inputProps
+    } = props;
+
+    const uid = useId(id || "jkl-text-input", { generateSuffix: !id });
+    const supportId = useId("jkl-support-label");
+    const hasSupportText = helpLabel || errorLabel;
+    const describedBy = hasSupportText ? supportId : undefined;
+
+    return (
+        <div
+            data-testid="jkl-text-input"
+            className={cn("jkl-text-input", className, {
                 "jkl-text-input--inline": inline,
                 "jkl-text-input--compact": compact || forceCompact,
                 "jkl-text-input--action": action,
-            },
-            className,
-        );
-        return (
-            <div data-testid="jkl-text-input" className={componentClassName}>
-                <Label
-                    variant={variant}
-                    {...labelProps}
-                    srOnly={inline || labelProps?.srOnly}
-                    standAlone
-                    compact={compact || forceCompact}
-                    htmlFor={uid}
-                >
-                    {label}
-                </Label>
-                <div className="jkl-text-input__input-wrapper">
-                    <BaseInputField
-                        ref={ref}
-                        id={uid}
-                        describedBy={describedBy}
-                        invalid={!!errorLabel}
-                        data-testautoid={testAutoId}
-                        className={inputClassName}
-                        {...inputProps}
-                    />
-                    {action && (
-                        <IconButton
-                            className="jkl-text-input__action-button"
-                            iconType={action.icon}
-                            buttonTitle={action.label}
-                            onClick={action.onClick}
-                            onFocus={action.onFocus}
-                            onBlur={action.onBlur}
-                        />
-                    )}
-                </div>
-                <SupportLabel
-                    id={supportId}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
-                    compact={compact || forceCompact}
-                    srOnly={inline}
+            })}
+        >
+            <Label
+                variant={variant}
+                {...labelProps}
+                srOnly={inline || labelProps?.srOnly}
+                standAlone
+                compact={compact || forceCompact}
+                htmlFor={uid}
+            >
+                {label}
+            </Label>
+            <div className="jkl-text-input__input-wrapper">
+                <BaseInputField
+                    ref={ref}
+                    id={uid}
+                    describedBy={describedBy}
+                    invalid={!!errorLabel}
+                    data-testautoid={testAutoId}
+                    className={inputClassName}
+                    {...inputProps}
                 />
+                {action && (
+                    <IconButton
+                        className="jkl-text-input__action-button"
+                        compact={compact || forceCompact}
+                        iconType={action.icon}
+                        buttonTitle={action.label}
+                        onClick={action.onClick}
+                        onFocus={action.onFocus}
+                        onBlur={action.onBlur}
+                    />
+                )}
             </div>
-        );
-    },
-);
+            <SupportLabel
+                id={supportId}
+                helpLabel={helpLabel}
+                errorLabel={errorLabel}
+                compact={compact || forceCompact}
+                srOnly={inline}
+            />
+        </div>
+    );
+});
 TextInput.displayName = "TextInput";

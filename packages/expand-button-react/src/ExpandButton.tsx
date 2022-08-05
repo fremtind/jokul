@@ -22,7 +22,13 @@ export interface ExpandButtonProps extends WithChildren {
     /** @default "down" */
     expandDirection?: ExpandDirection;
     /**
+     * Skal bare brukes i informasjonstette applikasjoner.
      * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
      */
     forceCompact?: boolean;
     /**
@@ -36,6 +42,7 @@ export interface ExpandButtonProps extends WithChildren {
 export const ExpandButton = ({
     className,
     children,
+    compact,
     forceCompact = false,
     expandDirection = "down",
     isExpanded = false,
@@ -52,7 +59,7 @@ export const ExpandButton = ({
             type="button"
             className={cn("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
-                "jkl-expand-button--compact": forceCompact,
+                "jkl-expand-button--compact": compact || forceCompact,
                 "jkl-expand-button--icon-only": !children,
             })}
             {...rest}

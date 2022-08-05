@@ -7,11 +7,21 @@ export interface SkeletonTextAreaProps {
     className?: string;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
 }
 
 export const SkeletonTextArea = ({
     className,
+    compact,
     forceCompact,
     labelProps,
     inputProps,
@@ -20,12 +30,16 @@ export const SkeletonTextArea = ({
     return (
         <div
             className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": forceCompact,
+                "jkl-skeleton-input--compact": compact || forceCompact,
             })}
             {...rest}
         >
-            <SkeletonLabel forceCompact={forceCompact} {...labelProps} />
-            <SkeletonElement width={forceCompact ? 301 : 316} height={forceCompact ? 148 : 168} {...inputProps} />
+            <SkeletonLabel compact={compact || forceCompact} {...labelProps} />
+            <SkeletonElement
+                width={compact || forceCompact ? 301 : 316}
+                height={compact || forceCompact ? 148 : 168}
+                {...inputProps}
+            />
         </div>
     );
 };

@@ -98,7 +98,11 @@ export interface DatePickerProps extends DataTestAutoId {
      */
     invalid?: boolean;
     /**
-     * Bruk kompakt layout på skjemafeltet.
+     * Skal bare brukes i informasjonstette applikasjoner.
+     */
+    compact?: boolean;
+    /**
+     * @deprecated bruk compact
      */
     forceCompact?: boolean;
     /**

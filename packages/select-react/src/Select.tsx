@@ -67,6 +67,15 @@ export interface SelectProps extends DataTestAutoId {
      * @default false
      */
     searchable?: boolean | ((searchValue: string, searchItem: string | ValuePair) => boolean);
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @default false
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     width?: string;
     onChange?: ChangeEventHandler;
@@ -102,6 +111,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         inline = false,
         defaultPrompt = "Velg",
         variant,
+        compact,
         forceCompact,
         width,
         ...rest
@@ -393,7 +403,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             data-testid="jkl-select"
             className={cn("jkl-select", className, {
                 "jkl-select--inline": inline,
-                "jkl-select--compact": forceCompact,
+                "jkl-select--compact": compact || forceCompact,
                 "jkl-select--open": dropdownIsShown,
                 "jkl-select--no-value": !hasSelectedValue,
                 "jkl-select--invalid": !!errorLabel || invalid,
@@ -408,7 +418,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
                 htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
                 srOnly={inline || labelProps?.srOnly}
-                forceCompact={forceCompact}
+                compact={compact || forceCompact}
             >
                 {label}
             </Label>
@@ -524,7 +534,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 </div>
                 <ExpandArrow expanded={dropdownIsShown} />
             </div>
-            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+            <SupportLabel
+                id={supportId}
+                helpLabel={helpLabel}
+                errorLabel={errorLabel}
+                compact={compact || forceCompact}
+            />
         </div>
     );
 });

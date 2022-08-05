@@ -19,6 +19,14 @@ export interface NativeSelectProps {
     variant?: LabelVariant;
     placeholder?: string;
     value?: string;
+    /**
+     * Skal bare brukes i informasjonstette applikasjoner.
+     * @default false
+     */
+    compact?: boolean;
+    /**
+     * @deprecated Bruk compact
+     */
     forceCompact?: boolean;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
@@ -46,6 +54,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             variant,
             placeholder,
             value,
+            compact,
             forceCompact,
             width,
             selectClassName,
@@ -63,11 +72,11 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 data-testid="jkl-select"
                 className={cn("jkl-select", className, {
                     "jkl-select--inline": inline,
-                    "jkl-select--compact": forceCompact,
+                    "jkl-select--compact": compact || forceCompact,
                     "jkl-select--invalid": !!errorLabel || invalid,
                 })}
             >
-                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} forceCompact={forceCompact}>
+                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} compact={compact || forceCompact}>
                     {label}
                 </Label>
                 <div className="jkl-select__outer-wrapper" style={{ width }}>
@@ -103,7 +112,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     id={supportId}
                     helpLabel={helpLabel}
                     errorLabel={errorLabel}
-                    forceCompact={forceCompact}
+                    compact={compact || forceCompact}
                 />
             </div>
         );
