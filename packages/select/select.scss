@@ -153,6 +153,10 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
     }
 
+    & select.jkl-select__button {
+        padding-left: jkl.$spacing-xs;
+    }
+
     /* The dropdown arrow */
     &__arrow {
         position: absolute;
@@ -331,7 +335,11 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
 
         & .jkl-select__button {
-            padding: jkl.$spacing-2xs jkl.$spacing-3xs;
+            padding: jkl.$spacing-2xs;
+        }
+
+        & select.jkl-select__button {
+            padding: jkl.$spacing-2xs 0;
         }
 
         & .jkl-select__option {
