@@ -38,7 +38,7 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
             >
                 <div
                     className={classNames("jkl-button__content", {
-                        "jkl-button__content--compact": forceCompact,
+                        "jkl-button__content--compact": compact || forceCompact,
                     })}
                 >
                     <div
@@ -52,11 +52,7 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
 
                         {loader && (
                             <div className="jkl-button__loader">
-                                <Loader
-                                    textDescription={loader.textDescription}
-                                    aria-hidden={!loader.showLoader}
-                                    variant={forceCompact ? "small" : "medium"}
-                                />
+                                <Loader textDescription={loader.textDescription} aria-hidden={!loader.showLoader} />
                             </div>
                         )}
                     </div>
