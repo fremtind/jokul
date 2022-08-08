@@ -155,7 +155,7 @@ function messageFactory(messageType: messageTypes) {
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
                     {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
-                    <p className="jkl-message-box__message">{newChildren}</p>
+                    <div className="jkl-message-box__message">{newChildren}</div>
                 </div>
                 {dismissAction?.handleDismiss && (
                     <DismissButton

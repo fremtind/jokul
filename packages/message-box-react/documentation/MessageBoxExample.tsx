@@ -66,15 +66,15 @@ export const messageBoxExampleCode = ({ boolValues, choiceValues }: ExampleCompo
     title="${choiceValues?.["Variant"]}`
     }
     fullWidth={${boolValues?.["Full width"]}}
-    dismissed={false}
-    dismissAction={${
+    dismissed={false}${
         boolValues?.["Dismissable"]
-            ? `{
+            ? `
+    dismissAction={{
         handleDismiss: () => setDismissed(true),
         buttonTitle: "Merk som lest",
-    }`
-            : undefined
-    }}
+    }}`
+            : ""
+    }
 />
 `;
 };
