@@ -110,7 +110,9 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     @include jkl.compact-mode {
         .jkl-alert-message__icon {
-            padding-top: jkl.rem(3px);
+            height: jkl.rem(12px);
+            padding-top: jkl.rem(5px);
+            padding-left: jkl.rem(2px);
         }
 
         .jkl-alert-message__content {
