@@ -148,7 +148,7 @@
         padding: jkl.$spacing-m;
     }
 
-    [data-compactlayout] & {
+    @include jkl.compact-mode {
         .jkl-accordion-item__title {
             padding: jkl.$spacing-xs jkl.$spacing-s;
         }
@@ -156,6 +156,10 @@
         .jkl-accordion-item__title-text {
             @include jkl.text-style("small");
             margin-left: jkl.$spacing-l;
+        }
+
+        &.jkl-accordion-item--expanded .jkl-accordion-item__title-text {
+            @include jkl.no-grow-bold;
         }
 
         .jkl-accordion-item__content {
